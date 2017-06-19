@@ -5,7 +5,7 @@ description: How to set and use webhook endpoints for the Nexmo APIs.
 
 # Webhooks
 
-Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API and Nexmo virtual numbers is sent in an HTTP request to your [webhook](https://en.wikipedia.org/wiki/Webhook) endpoint on an HTTP server.
+Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API and Nexmo virtual numbers is sent in an HTTP request to your [webhook](https://en.wikipedia.org/wiki/Webhook) endpoint, running on a web server.
 
 ![Callback workflow](/assets/images/workflow_callbacks.svg)
 

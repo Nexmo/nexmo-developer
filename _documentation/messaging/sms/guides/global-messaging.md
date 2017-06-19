@@ -15,9 +15,9 @@ Countries have different technical standards and restrictions around the [SMS] s
 
 ## Encoding
 
-By default all text SMS sent by Nexmo are in UTF-8 with URL encoding. A message saying `Hello World`, `Bonjour monde` or `Hola mundo` is delivered seamlessly.
+By default all text SMS sent by Nexmo are in UTF-8 with URL encoding. A message saying `Hello World`, [`Bonjour le monde`](lang: 'fr') or [`Hola mundo`](lang: 'es') is delivered seamlessly.
 
-However, sending `Привет мир`, `שלום עולם` or `مرحبا بالعالم` requires more thought. Languages such as Arabic, Chinese, Korean, Japanese, or Cyrillic alphabet languages need the 16-bit characters available in unicode. You can also send messages in binary, wappush, vcal and vcard formats.
+However, sending [`Привет мир`](lajng: 'ru'), [`שלום עולם`](lang: 'he') or [`مرحبا بالعالم`](lang: 'ar') requires more thought. Languages such as Arabic, Chinese, Korean, Japanese, or Cyrillic alphabet languages need the 16-bit characters available in unicode. You can also send messages in binary, wappush, vcal and vcard formats.
 
 ### Maximum number of characters
 

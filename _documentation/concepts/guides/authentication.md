@@ -24,7 +24,7 @@ In this document you can learn about:
 
 ## API Key & Secret
 
-When you create a Nexmo account you will be provided an API key and secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. The secret should always be kept secure and never shared: be careful when adding it to your codebase to make sure it is not shared with anyone who may use it maliciously.
+When you create a Nexmo account, an API key and secret will be created for you. These are located in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. You should always keep these secure and never share them: be careful when adding it to your codebase to make sure they are not shared with anyone who may use it maliciously.
 
 The API key and secret should be included in the parameters of requests you make to the SMS, Conversion, Number Insight or Developer API.
 
@@ -32,13 +32,13 @@ The API key and secret should be included in the parameters of requests you make
 
 JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties.
 
-JWTs are supported by the Voice API as a means of authenticating your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
+JWTs are used by the Voice API to authenticate your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
 
 If you are not using a Nexmo library you should refer to [RFC 719](https://tools.ietf.org/html/rfc7519) to implement JWT.
 
 ## OAuth
 
-Some Nexmo APIs support OAuth as a means of authenticating. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
+Some Nexmo APIs support OAuth as an authentication option. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
 
 ## References
 

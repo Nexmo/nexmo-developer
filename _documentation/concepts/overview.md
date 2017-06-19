@@ -4,7 +4,7 @@ title: Overview
 
 # Concepts
 
-There are a number of shared concepts between the various Nexmo APIs: the use of OAuth tokens, JSON Web Tokens (JWTs), signed requests, and webhooks. The guides below explain in detail how to implement these elements.
+There are a number of shared concepts between the Nexmo APIs: the use of JSON Web Tokens (JWTs), signed requests, OAuth tokens, and webhooks. The guides below explain in detail how to use these elements.
 
 ## Guides
 

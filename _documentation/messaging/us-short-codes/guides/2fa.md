@@ -14,12 +14,12 @@ The workflow for Two-factor Authentication API is:
 
 1. Send a 2FA [request](/api/sms#request).
 2. Check the [response codes](/api/sms/#response) in the [response](/api/sms#response) and ensure that you sent the request to Nexmo correctly.
-3. Nexmo delivers your PIN to your user's handset. Your user enters this PIN into your APP.
+3. Nexmo delivers your PIN to your user's handset. Your user enters this PIN into your application.
 4. Receive the [delivery receipt](/api/sms#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) and verify delivery.
 
 To ensure that your traffic is send over the best possible route, use [Conversion API](/messaging/conversion-api/overview) to tell us about the reliability of your 2FA communication. Adding your conversion data means Nexmo delivers your messages faster and more reliably.
 
-> Note: quality of delivery (QoD) statistics are based on delivery receipts (DLR). For the US we only receive intermediate and not handset DLRs. This means Dashboard analytics cannot show QoD statistics for short codes.
+> Note: Nexmo calcualtes quality of delivery (QoD) statistics using delivery receipts (DLR). In the United States, we only receive intermediate and not handset DLRs. This means Dashboard analytics cannot show QoD statistics for messages sent via the US short code API.
 
 ## Implementing the Two-factor Authentication API workflow
 

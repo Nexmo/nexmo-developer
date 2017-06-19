@@ -5,7 +5,7 @@ description: the Voice API overview.
 
 # Voice API Overview
 
-The Nexmo Voice API is the easiest way to build high-quality voice applications in the Cloud. With the Voice API you:
+The Nexmo Voice API is the easiest way to build high-quality voice applications in the cloud. With the Voice API you can:
 
 * Build apps that scale with the web technologies that you are already using
 * Control the flow of inbound and outbound calls in JSON with Nexmo Call Control Objects (NCCO)
@@ -37,7 +37,7 @@ Before you begin:
 * Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
 * Install [Node.JS](https://nodejs.org/en/download/)
 
-> *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](https://docs.nexmo.com/tools/application-api)*
+> *Note*: If you do not wish to install Node to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](https://docs.nexmo.com/tools/application-api)*
 
 Install and Setup the Nexmo CLI (Command Line Interface)
 
