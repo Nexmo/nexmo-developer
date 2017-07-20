@@ -1,0 +1,15 @@
+<h3>Step 2: You should have a message from us. Try replying to it.</h3>
+<br>
+<p>Waiting for inbound SMS from <%= @number %></p>
+
+<script>
+  var pusher = new Pusher('<%= ENV['PUSHER_KEY'] %>', {
+    cluster: 'eu',
+    encrypted: true
+  });
+
+  var channel = pusher.subscribe('modules_messaging_sms_uuid_<%= @uuid %>');
+  channel.bind('inbound_sms', function(data) {
+    alert(data.text);
+  });
+</script>

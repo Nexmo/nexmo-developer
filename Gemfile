@@ -72,6 +72,15 @@ gem 'colorize'
 # A simple Ruby client for the algolia.com REST API
 gem 'algoliasearch'
 
+# Wicked is a Rails engine for producing easy wizard controllers
+gem 'wicked'
+
+# Redis for Ruby on Rails
+gem 'redis', '~> 3.3'
+
+gem 'pusher'
+gem 'nexmo'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

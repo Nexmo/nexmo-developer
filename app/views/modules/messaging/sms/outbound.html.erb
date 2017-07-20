@@ -1,0 +1,8 @@
+<h3>Step 1: Enter your number</h3>
+
+<p><i>Note: Currently only E.164 formatted numbers work</i></p>
+
+<%= form_tag wizard_path, method: :put do %>
+  <%= number_field_tag :number  %>
+  <%= submit_tag "Send SMS" %>
+<% end %>

@@ -42,6 +42,10 @@ Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getti
 source: '/_examples/messaging/sending-an-sms/basic'
 ```
 
+## Demo
+
+<iframe src="/modules/messaging/sms/outbound" width="100%" height="230"></iframe>
+
 ## SMS API Features
 
 * [Sending an SMS](/messaging/sms/building-blocks/send-an-sms)

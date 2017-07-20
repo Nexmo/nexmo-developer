@@ -30,6 +30,14 @@ Rails.application.routes.draw do
   get '/*product/api-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.all
 
+  namespace :modules do
+    namespace :messaging do
+      resources :sms, only: [:index, :show, :update] do
+        get '/webhook', action: :webhook, on: :collection
+      end
+    end
+  end
+
   get '/robots.txt', to: 'static#robots'
 
   get '*unmatched_route', to: 'application#not_found'
