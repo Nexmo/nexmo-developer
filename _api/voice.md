@@ -648,6 +648,7 @@ Value | Description
 `rejected` | The call was rejected
 `unanswered` | The call was not answered
 `busy` | The number being dialled was on another call
+`cancelled` | The call was ended before the user could answer the call
 
 When a Call enters a state of `timeout`, `failed`, `rejected`, `unanswered` or `busy` the `event_url` webhook endpoint can optionally return an NCCO to override the current NCCO. See [Connect with fallback NCCO](/voice/guides/ncco-reference#connect_fallback).
 
