@@ -22,8 +22,8 @@ You use the following requests to create, terminate, record and retrieve informa
 
 This request contains:
 
-* A [Base URL](#ccbase)
-* [Payload](#ccparameters)
+* A [Base URL](#base-url-1)
+* [Payload](#payload-1)
 * [JWT](#jwt_minting)
 
 Information about the call is sent to you in the:
@@ -225,7 +225,7 @@ You use a GET request to retrieve information about a single call.
 This request contains:
 
 * A [Base URL](#crsbase)
-* (link: #crsparameterstext: Payload)
+* [Payload](#payload-1)
 * [JWT](#jwt_minting)
 
 You receive the call details in the [response](#crsresponse).
@@ -307,7 +307,6 @@ For every action parameter except `transfer`, no further keys are required in th
 ```tabbed_content
 source: '_examples/api/voice/calls/put-request'
 ```
-
 
 #### Response
 
