@@ -12,7 +12,9 @@ composer require nexmo/client:@beta
 Create an `index.php`:
 
 ```php
-// Example pending
+```partial
+source: ".repos/nexmo-community/nexmo-php-quickstart/voice/text-to-speech-outbound.php"
+```
 ```
 
 Run:
