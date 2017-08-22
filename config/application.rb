@@ -22,5 +22,7 @@ module NexmoDeveloper
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
+
+    config.middleware.use Rack::Attack
   end
 end
