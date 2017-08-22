@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/contribute', to: 'static#contribute'
   get '/contribute/styleguide', to: 'static#styleguide'
   get '/contribute/write-the-docs', to: 'static#write_the_docs'
+  get '/contribute/code-examples', controller: 'contribute/code_example_audit', action: 'show'
 
   get '/legacy', to: 'static#legacy'
 

@@ -97,6 +97,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "pry"
+  gem 'guard-rspec'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
   gem 'git-hookshot', git: 'https://github.com/brandonweiss/git-hookshot.git'

@@ -1,0 +1,78 @@
+<h1>Code examples</h1>
+
+<hr class="spacious">
+
+<div class="row center">
+  <div class="columns small-12 medium-6">
+    <div class="card spacious">
+      <h2>Total examples</h2>
+      <br>
+      <h1><%= @auditor.examples.count %></h1>
+    </div>
+  </div>
+
+  <div class="columns small-12 medium-6">
+    <div class="card spacious">
+      <h2>Coverage</h2>
+      <br>
+      <h1><%= @auditor.coverage %>%</h1>
+    </div>
+  </div>
+</div>
+
+<hr class="spacious">
+
+<% @auditor.examples.each do |example| %>
+  <div class="row">
+    <div class="columns small-12 medium-6">
+      <h2><%= example.title %></h2>
+    </div>
+    <div class="columns small-12 medium-6 right">
+      <%= link_to example.github_path do %>
+        <i class="icon icon-github"></i> Open example directory in GitHub
+      <% end %>
+    </div>
+  </div>
+  <p><%= example.description %></p>
+  <pre class="highlight"><code><%= example.source %></code></pre>
+
+  <table class="center">
+    <thead>
+      <th class="center">Spec</th>
+      <% CodeExampleAuditor.all_languages.each do |language| %>
+        <th class="center"><%= language.titleize %></th>
+      <% end %>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <% if example.has_spec? %>
+            <i class="icon icon--large icon-check-circle color--success"></i>
+          <% else %>
+            <i class="icon icon--large icon-times-circle color--error"></i>
+          <% end %>
+        </td>
+        <% CodeExampleAuditor.all_languages.each do |language| %>
+          <td>
+            <% if example.languages.include?(language) %>
+              <i class="icon icon--large icon-check-circle color--success"></i>
+            <% else %>
+              <i class="icon icon--large icon-times-circle color--error"></i>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Example:</h4>
+
+  <%= example.html.html_safe %>
+
+  <h4>Used by:</h4>
+
+  <pre class="highlight"><code><%= example.documents_relative.join("<br>") %></code></pre>
+
+
+  <hr class="spacious">
+<% end %>
