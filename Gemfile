@@ -78,12 +78,17 @@ gem 'rest-client'
 # Helpers for the reCAPTCHA API
 gem 'recaptcha', require: "recaptcha/rails"
 
+# A parser for Open API specifications
+gem 'open_api_parser', github: 'adambutler/open_api_parser', branch: 'openapi-specification-v3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
   gem 'foreman'
+  gem "pry"
+  gem "awesome_print"
 end
 
 group :development do
@@ -94,6 +99,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-rspec'
   gem "better_errors"
   gem "binding_of_caller"
   gem "pry"

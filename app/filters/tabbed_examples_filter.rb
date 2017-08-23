@@ -14,8 +14,11 @@ class TabbedExamplesFilter < Banzai::Filter
 
   def load_examples_from_source
     examples_path = "#{Rails.root}/#{@config['source']}"
+    dir_safe_examples_path = examples_path.gsub /(\{|\}|\s)/ do
+      "\\#{$1}"
+    end
 
-    Dir["#{examples_path}/*"].map do |example_path|
+    Dir["#{dir_safe_examples_path}/*"].map do |example_path|
       language = example_path.sub("#{examples_path}/", '').downcase
       source = File.read(example_path)
       { language: language, source: source }

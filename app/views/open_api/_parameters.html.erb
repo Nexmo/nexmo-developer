@@ -1,0 +1,66 @@
+<ul class="table-list">
+  <li class="table-list-header">
+    <div class="table-list-columns">
+      <div class="table-list-column" flex="2">Key</div>
+      <div class="table-list-column">Type</div>
+      <div class="table-list-column" flex="3">Description</div>
+      <div class="table-list-column">Example</div>
+      <div class="table-list-column">Default</div>
+      <div class="table-list-column">Required</div>
+    </div>
+  </li>
+  <% parameters.each do |parameter| %>
+    <li>
+      <div class="table-list-columns">
+        <div class="table-list-column" flex="2">
+          <code><%= parameter['name'] %></code>
+        </div>
+
+        <div class="table-list-column">
+          <code><%= (parameter['type'] || parameter['schema']['type']) %></code>
+          <% if (parameter['type'] || parameter['schema']['type']) == 'array' %>
+            <br>
+            <small><i>of <code><%= (parameter['type'] || parameter['schema']['type']) %></code>'s</i></small>
+          <% end %>
+        </div>
+
+        <div class="table-list-column" flex="3">
+          <b><%= parameter['description'] %></b>
+          <% if parameter['enum'] %>
+            <br>
+            <small>
+              <i>
+                Must be one of:
+                <%= parameter['enum'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
+              </i>
+            </small>
+          <% end %>
+        </div>
+
+        <div class="table-list-column">
+          <%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : "<i>None</i>").html_safe %>
+        </div>
+
+        <div class="table-list-column">
+          <%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : "<i>None</i>").html_safe %>
+        </div>
+
+        <div class="table-list-column">
+          <div class="center">
+            <%=
+              parameter['required'] ?
+              '<i class="icon icon--large icon-check-circle color--success"></i>'.html_safe
+              : '<i class="icon icon--large icon-times-circle color--error"></i>'.html_safe
+            %>
+          </div>
+        </div>
+      </div>
+
+      <% if (parameter['type'] || parameter['schema']['type']) == 'array' %>
+        <% if parameter['items'] %>
+          <%= render 'parameters', endpoint: endpoint, parameters: endpoint.normalize_properties(parameter['items']['properties']) %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

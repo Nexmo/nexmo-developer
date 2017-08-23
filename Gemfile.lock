@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/adambutler/open_api_parser.git
+  revision: 2151860ff00afba921af3687e9f2e143a83d12da
+  branch: openapi-specification-v3
+  specs:
+    open_api_parser (2.0.0)
+      addressable (~> 2.3)
+      json_schema (~> 0.15.0)
+
+GIT
   remote: https://github.com/brandonweiss/git-hookshot.git
   revision: 10f4b35497fd1391b94baa77e4c986d2415f3d29
   specs:
@@ -51,6 +60,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     administrate (0.8.1)
       actionpack (>= 4.2, < 5.2)
       actionview (>= 4.2, < 5.2)
@@ -69,6 +80,7 @@ GEM
     ast (2.3.0)
     autoprefixer-rails (7.1.2.3)
       execjs
+    awesome_print (1.8.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -136,6 +148,10 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
+    guard-rspec (4.7.3)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
@@ -149,6 +165,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.1.0)
+    json_schema (0.15.0)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -195,6 +212,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
     rack-test (0.6.3)
@@ -236,6 +254,10 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rouge (2.0.7)
+    rspec (3.6.0)
+      rspec-core (~> 3.6.0)
+      rspec-expectations (~> 3.6.0)
+      rspec-mocks (~> 3.6.0)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -320,6 +342,7 @@ PLATFORMS
 DEPENDENCIES
   administrate (~> 0.8.1)
   algoliasearch
+  awesome_print
   banzai (~> 0.1.2)
   better_errors
   binding_of_caller
@@ -332,10 +355,12 @@ DEPENDENCIES
   foundation-rails (= 6.4.1.2)
   git-hookshot!
   guard-livereload (~> 2.5)
+  guard-rspec
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   nokogiri (= 1.7.0.1)
+  open_api_parser!
   pg (~> 0.18)
   pry
   puma (~> 3.0)

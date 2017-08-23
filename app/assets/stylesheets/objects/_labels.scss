@@ -1,0 +1,49 @@
+.label {
+  background: $primary;
+  color: $white;
+  font-weight: 700;
+  padding: 2px 5px 1px 5px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-align: center;
+
+  background: $blue;
+  border-color: $blue;
+  .navigation & { color: mix($blue, $background, 80%); }
+
+  &--code {
+    font-family: Consolas, monospace;
+    font-size: 15px;
+    padding: 4px 5px 1px 5px;
+
+    .navigation & {
+      font-size: 12px;
+      padding: 2px 2px 0 2px;
+      position: absolute;
+      right: 100%;
+      margin-right: 5px;
+      border-width: 2px;
+      background: none;
+      opacity: 0.6;
+    }
+
+    .navigation .active & {
+      opacity: 1;
+    }
+  }
+
+  &--positive, &--post {
+    background: $positive;
+    .navigation & { color: mix($positive, $background, 80%); }
+  }
+
+  &--negative, &--delete {
+    background: $negative;
+    .navigation & { color: mix($negative, $background, 80%); }
+  }
+
+  &--warning, &--put {
+    background: $warning;
+    .navigation & { color: mix($warning, $background, 80%); }
+  }
+}

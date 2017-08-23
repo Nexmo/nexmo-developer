@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/*product/api-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
+  get '/open-api/*specification', to: 'open_api#show'
+
   get '/robots.txt', to: 'static#robots'
 
   get '*unmatched_route', to: 'application#not_found'

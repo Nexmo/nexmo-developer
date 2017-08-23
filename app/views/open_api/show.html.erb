@@ -1,0 +1,33 @@
+<div class="slate-layout">
+  <div class="slate-layout-navigation">
+    <div>
+      <nav class="sidenav sidenav--spacious" data-turbolinks-permanent="">
+
+          <ul class="navigation js-scrollspy has-label">
+            <li>
+              <a href="#">SMS</a>
+              <ul class="has-label">
+                <% @specification.raw['paths'].each do |path, methods| %>
+                  <% methods.each do |method, endpoint| %>
+                    <li>
+                      <a href="#<%= (endpoint['summary'] || endpoint['description']).parameterize %>">
+                        <span class="label label--code label--<%= method %>"><%= method.upcase %></span>
+                        <%= endpoint['summary'] || endpoint['description'] %>
+                      </a>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="slate-layout-main">
+    <% @specification.raw['paths'].each do |path, methods| %>
+      <% methods.each do |method, endpoint| %>
+        <%= render 'endpoint', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: path, method: method) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

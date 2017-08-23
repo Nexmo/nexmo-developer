@@ -279,61 +279,6 @@ blockquote {
   }
 }
 
-.label {
-  background: $primary;
-  color: $white;
-  font-weight: 700;
-  padding: 2px 5px 1px 5px;
-  font-size: 13px;
-  border-radius: 4px;
-  text-align: center;
-
-  background: $blue;
-  border-color: $blue;
-  .navigation & { color: mix($blue, $background, 80%); }
-
-  &--code {
-    font-family: Consolas, monospace;
-    font-size: 15px;
-    padding: 4px 5px 1px 5px;
-
-    .navigation & {
-      font-size: 12px;
-      padding: 2px 2px 0 2px;
-      position: absolute;
-      right: 100%;
-      margin-right: 5px;
-      border-width: 2px;
-      background: none;
-      opacity: 0.6;
-    }
-
-    .navigation .active & {
-      opacity: 1;
-    }
-  }
-
-  &--positive {
-    background: $positive;
-    border-color: $positive;
-    .navigation & { color: mix($positive, $background, 80%); }
-  }
-
-  &--negative {
-    background: $negative;
-    border-color: $negative;
-    .navigation & { color: mix($negative, $background, 80%); }
-
-  }
-
-  &--warning {
-    background: $warning;
-    border-color: $warning;
-    .navigation & { color: mix($warning, $background, 80%); }
-
-  }
-}
-
 .tight {
   margin: 0;
 }
@@ -439,4 +384,62 @@ blockquote {
 
 .version {
   margin-top: $spacing * 2;
+}
+
+b {
+  font-weight: 600;
+}
+
+.api-path {
+  display: block;
+  border: 2px solid $mint;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: $spacing;
+  font-size: 1.2em;
+  background: $white;
+
+  .api-path-parameter {
+    color: $pink;
+  }
+
+  .api-path-method {
+    display: inline-block;
+    font-family: Consolas, monospace;
+    color: $blue;
+    background: mix($blue, $white, 5%);
+    border-right: 1px solid mix($blue, $white, 15%);
+    margin-right: 10px;
+    font-weight: 700;
+    padding: 6px $spacing 3px $spacing;
+
+    &--post {
+      color: $green;
+      background: mix($green, $white, 5%);
+      border-right: 1px solid mix($green, $white, 15%);
+    }
+
+    &--delete {
+      color: $red;
+      background: mix($red, $white, 5%);
+      border-right: 1px solid mix($red, $white, 15%);
+    }
+
+    &--update {
+      color: $orange;
+      background: mix($orange, $white, 5%);
+      border-right: 1px solid mix($orange, $white, 15%);
+    }
+  }
+
+  .api-path-host {
+    margin-right: -10px;
+    color: mix($text-subtle, $gray-light);
+  }
+}
+
+.api-reference {
+  b {
+    color: $text-subtle;
+  }
 }

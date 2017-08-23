@@ -1,0 +1,67 @@
+<div>
+  <div class="slate-layout-documentation">
+    <div>
+      <h2 id="<%= endpoint.title.parameterize %>"><%= endpoint.title %></h2>
+      <p><%= endpoint.description %></p>
+
+      <div class="api-path">
+        <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
+        <code>
+          <span class="api-path-host"><%= endpoint.server %></span>
+          <%= endpoint.path.gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
+        </code>
+      </div>
+
+      <% if endpoint.jwt? %>
+        <h2>Authentication</h2>
+        <table>
+          <thead>
+            <th>Key</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Example</th>
+            <th>Default</th>
+            <th>Required</th>
+          </thead>
+          <tbody>
+              <tr>
+                <td><code>Authorization</code></td>
+                <td>
+                  <b>Your JSON web token</b><br>
+                  <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
+                </td>
+                <td><code>string</code></td>
+                <td><code>Bearer &lt;JWT&gt;</code></td>
+                <td><i>None</i></td>
+                <td class="center">
+                  <i class="icon icon--large icon-check-circle color--success"></i>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      <% end %>
+
+      <% if endpoint.path_parameters.any? %>
+        <h3>Parameters</h3>
+        <%= render 'parameters', endpoint: endpoint, parameters: endpoint.path_parameters %>
+      <% end %>
+
+      <% if endpoint.query_parameters.any? %>
+        <h3>Query</h3>
+        <%= render 'parameters', endpoint: endpoint, parameters: endpoint.query_parameters %>
+      <% end %>
+
+      <% if endpoint.request_body_parameters.any? %>
+        <h3>Query</h3>
+        <%= render 'parameters', endpoint: endpoint, parameters: endpoint.request_body_parameters %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="slate-layout-code">
+    <div>
+      <%= render_request(@specification_name, endpoint.path, endpoint.method) %>
+      <%= endpoint.html %>
+    </div>
+  </div>
+</div>

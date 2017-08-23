@@ -1,4 +1,4 @@
-$border: 1px solid darken($mint, 15%);
+$border-form: 1px solid darken($mint, 15%);
 
 .input {
   display: inline-block;
@@ -7,8 +7,8 @@ $border: 1px solid darken($mint, 15%);
   font-size: 14px;
   line-height: 20px;
   font-family: 'Averta';
-  border: $border;
-  border: $border;
+  border: $border-form;
+  border: $border-form;
   box-shadow: $shadow;
   background: $white;
   border-radius: $radius;
@@ -22,5 +22,5 @@ $border: 1px solid darken($mint, 15%);
 }
 
 .g-recaptcha {
-  margin: $spacing 0; 
+  margin: $spacing 0;
 }

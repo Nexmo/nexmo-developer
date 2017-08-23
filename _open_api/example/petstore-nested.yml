@@ -1,0 +1,103 @@
+openapi: 3.0.0
+servers:
+  - url: 'http://petstore.swagger.io/api'
+info:
+  version: 1.0.0
+  title: Swagger Petstore
+  description: >-
+    A sample API that uses a petstore as an example to demonstrate features in
+    the swagger-2.0 specification
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: Swagger API Team
+  license:
+    name: MIT
+paths:
+  /pets:
+    post:
+      summary: Create a new pet
+      description: Creates a new pet in the store.  Duplicates are allowed
+      operationId: addPet
+      responses:
+        '200':
+          description: pet response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPet'
+        description: Pet to add to the store
+        required: true
+components:
+  schemas:
+    Pet:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/NewPet'
+        - required:
+            - id
+          properties:
+            id:
+              type: integer
+              format: int64
+    NewPet:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        tag:
+          type: string
+        legs:
+          type: array
+          description: A list of Legs
+          items:
+            $ref: '#/components/schemas/Leg'
+        foo:
+          type: string
+    Leg:
+      type: object
+      required:
+        - paws
+      properties:
+        paws:
+          type: array
+          description: A list of Paws
+          items:
+            $ref: '#/components/schemas/Paw'
+    Paw:
+      type: object
+      required:
+        - position
+      properties:
+        position:
+          type: string
+          description: Position of paw
+          example: front-left
+          enum:
+            - front-left
+            - front-right
+            - rear-left
+            - rear-right
+    ErrorModel:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

@@ -89,6 +89,10 @@
     border-top-width: 1px;
     border-top-style: dotted;
   }
+
+  &--spacious {
+    margin: 0 $spacing;
+  }
 }
 
 .navigation--fixed {

@@ -49,6 +49,8 @@ $shadow-hard: 0 1px 8px 0 rgba(0,0,0,0.30);
 
 $border: 1px solid darken($mint, 5%);
 
+$golden-ratio: 1.618;
+
 @import "mixins";
 
 @import "core";
@@ -64,10 +66,13 @@ $border: 1px solid darken($mint, 5%);
 @import "objects/forms";
 @import "objects/github-cards";
 @import "objects/js-sequence-diagram";
+@import "objects/labels";
 @import "objects/masonry";
 @import "objects/navigation";
 @import "objects/notices";
+@import "objects/slate-layout";
 @import "objects/tabs";
+@import "objects/table-list";
 @import "objects/truncate";
 @import "objects/loading-bar";
 @import "objects/video";
