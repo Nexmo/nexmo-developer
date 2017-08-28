@@ -13,4 +13,4 @@ Code | Text
 -- | --
 19 | Facility Not Allowed - your request makes use of a facility that is not enabled on your account.
 43, 44, 45 | Live mobile lookup not returned. Not all return parameters are available.
-999 | Request unparsable.
+999 | Request unparseable.
