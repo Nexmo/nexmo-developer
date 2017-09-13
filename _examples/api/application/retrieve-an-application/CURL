@@ -2,7 +2,7 @@
 
 base_url='https://api.nexmo.com'
 version='/v1'
-action='/applications '
+action='/applications'
 application_id='/APPLICATION_ID?'
 key='API_KEY'
 secret='API_SECRET'
