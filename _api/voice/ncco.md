@@ -139,11 +139,11 @@ Option | Description | Required
 
 The following NCCO examples show how to configure different types of connection:
 
-* [Connect to a PSTN endpoint](#connect_pstn)
-* [Connect to a WebSocket endpoint](#connect_websocket)
-* [Connect with fallback NCCO](#connect_fallback)
-* [Connect to a SIP endpoint](#connect_sip)
-* [Recorded proxy call](#record_connect)
+* [Connect to a PSTN endpoint](#connect-to-a-pstn-endpoint)
+* [Connect to a WebSocket endpoint](#connect-to-a-websocket-endpoint)
+* [Connect with fallback NCCO](#connect-with-fallback-ncco)
+* [Connect to a SIP endpoint](#connect-to-a-sip-endpoint)
+* [Recorded proxy call](#recorded-proxy-call)
 
 #### Connect to a PSTN endpoint
 
