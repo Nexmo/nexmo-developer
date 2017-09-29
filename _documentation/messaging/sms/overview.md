@@ -14,13 +14,13 @@ With low latency and high deliverability, our SMS API is the most reliable way t
 
 ## Contents
 
-In this document you can learn about:
+In this section you can learn about:
 
 * [Nexmo SMS API Concepts](#concepts)
 * [How to Get Started with the SMS API](#getting-started)
 * [SMS API Features](#sms-api-features)
 * [References](#references)
-* [Tutorials](#tutorials)
+* [Tutorials](/messaging/sms/tutorials)
 
 ## Concepts
 
@@ -50,12 +50,3 @@ source: '/_examples/messaging/sending-an-sms/basic'
 ## References
 
 * [SMS API Reference](/api/sms)
-
-## Tutorials
-
-* [Passwordless authentication](/tutorials/passwordless-authentication)
-* [Two-factor authentication](/tutorials/two-factor-authentication)
-* [Private SMS communication](/tutorials/private-sms-communication)
-* [Mobile app invites](/tutorials/mobile-app-invites)
-* [Two-way SMS for customer engagement](/tutorials/two-way-sms-for-customer-engagement)
-* [SMS Customer Support](/tutorials/sms-customer-support)
