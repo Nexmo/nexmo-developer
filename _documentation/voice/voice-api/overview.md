@@ -15,13 +15,13 @@ The Nexmo Voice API is the easiest way to build high-quality voice applications 
 
 ## Contents
 
-In this document you can learn about:
+In this section you can learn about:
 
 * [Nexmo Voice API Concepts](#concepts)
 * [How to Get Started with the Voice API](#getting-started)
 * [Voice API Features](#voice-api-features)
 * [References](#references)
-* [Tutorials](#tutorials)
+* [Tutorials](/voice/voice-api/tutorials)
 
 ## Concepts
 
@@ -116,9 +116,3 @@ Send Dual-tone multi-frequency (DTMF) to a call | | [`PUT calls/{uuid}/dtmf`](/a
 
 * [Voice API Reference](/api/voice)
 * [NCCO Reference](/voice/guides/ncco-reference)
-
-## Tutorials
-
-* [Private voice communication](/tutorials/private-voice-communication)
-* [Call tracking](/tutorials/call-tracking)
-* [Interactive voice response](/tutorials/interactive-voice-response)
