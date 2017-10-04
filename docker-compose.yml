@@ -4,7 +4,7 @@ services:
     image: postgres
   web:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bash -c "bundle install && rake db:create && rake db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
     ports:
