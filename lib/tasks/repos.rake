@@ -39,7 +39,7 @@ namespace :repos do
       if config['path']
         system "ln -s #{Rails.root}/#{config['path']} #{Rails.root}/.repos/#{repo}"
       else
-        repo_url = "git@github.com:#{config['github']}.git"
+        repo_url = "git://github.com/#{config['github']}.git"
         system "git clone --depth=1 #{repo_url} -b #{config['branch']} ./.repos/#{repo} 2>&1", out: File::NULL
         system "rm -rf ./.repos/#{repo}/.git 2>&1", out: File::NULL
       end
