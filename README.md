@@ -31,10 +31,7 @@ If you don't want to install Ruby & PostgreSQL then you can use docker to sandbo
 # Start the web server
 $ docker-compose up
 
-# Setup the Database (you only need to do this once)
-$ docker-compose run web rake db:setup
-
-# Open the browser
+# Open the browser (takes about ~30 seconds for the first load)
 $ open http://localhost:3000
 ```
 
@@ -67,12 +64,18 @@ The code can then be pulled into the `.repo` directory with the following comman
 
 ```
 $ rake repos:pull
+
+# Docker users run:
+# $ docker-compose exec web rake repos:pull
 ```
 
 To pull a single repo provide the GitHub repo name and optional branch:
 
 ```
 $ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
+
+# Docker users run:
+# $ docker-compose exec web rake repos:pull nexmo-community/nexmo-ruby-quickstart master
 ```
 
 ### Pre-Commit hooks
@@ -85,12 +88,12 @@ This is optional. See the pre-commit website for installation instructions.
 
 ## Troubleshooting
 
-#### I'm getting an error `A server is already running.  Check /myapp/tmp/pids/server.pid.` when I run `docker-compose up`.
+#### I'm having issues with my Docker container
 
-This is because Docker wasn't shut down cleanly. To fix this run:
+The image may have changed, try rebuild it with the following command:
 
 ```
-$ docker-compose run web rm /myapp/tmp/pids/server.pid
+$ docker-compose up --build
 ```
 
 #### I get an exception `PG::ConnectionBad - could not connect to server: Connection refused` when I try to run the app.
