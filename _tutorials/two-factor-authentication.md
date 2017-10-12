@@ -102,7 +102,7 @@ end
   </div>
 ```
 
-This form captures the phone number in E.164 format expected by Voice API. For example, *447700900000*.
+This form captures the phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format expected by Voice API. For example, *447700900000*.
 
 Let a user log in and out with their details:
 

@@ -34,7 +34,7 @@ namespace :repos do
 
     repos.each do |repo, config|
 
-      system "rm -rf ./.repos/#{repo} 2>&1", out: File::NULL
+      system "rm -rf ./.repos/#{repo} 2>&1"
 
       if config['path']
         system "ln -s #{Rails.root}/#{config['path']} #{Rails.root}/.repos/#{repo}"

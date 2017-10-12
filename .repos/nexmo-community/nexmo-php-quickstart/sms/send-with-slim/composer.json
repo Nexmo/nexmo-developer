@@ -1,0 +1,6 @@
+{
+    "require": {
+        "nexmo/client": "^1.0",
+        "slim/slim": "^3.0"
+    }
+}

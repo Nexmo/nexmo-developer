@@ -99,13 +99,17 @@ gem 'activeadmin', '1.1.0'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '4.3.0'
 
+# Simple wrapper for the GitHub API
+gem 'octokit'
+
 group :development, :test do
+  gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'diffy'
+  gem 'pry'
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'pry'
-  gem 'awesome_print'
 end
 
 group :development do

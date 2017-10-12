@@ -6,7 +6,7 @@
    Also use the Application ID and the event webhook to assiciate with your
    virtual number at https://dashboard.nexmo.com/your-numbers.
 
-   API Referene: https://docs.nexmo.com/voice/voice-api/api-reference
+   API Reference: https://docs.nexmo.com/voice/voice-api/api-reference
  */
 
 'use strict';

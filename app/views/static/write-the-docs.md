@@ -171,6 +171,7 @@ API Secret | `$API_SECRET` | `API_SECRET`
 From Number | `FROM_NUMBER` | -
 To Number | `TO_NUMBER` | -
 Timestamp | `2020-01-01 12:00:00` | -
+ISO8601 Timestamp | `2020-01-01T12:00:00.000Z` | -
 Epoch | `1577880000` | -
 HTTP Method | ``[GET]`` or ``[POST]`` | [GET] or [POST]
 HTTP Response | `` `200 OK` `` or §§ `` `404 Not Found` `` | `200 OK` or §§ `404 Not Found`

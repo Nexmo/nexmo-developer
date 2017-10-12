@@ -1,6 +1,6 @@
 # `machine_detection` values
 
-## Phone - phone numbers in e.164 format
+## Phone - phone numbers in E.164 format
 
 Value | Description
 -- | --
