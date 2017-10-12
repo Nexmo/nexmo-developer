@@ -47,6 +47,9 @@ Rails.application.routes.draw do
 
   get '/signout', to: 'sessions#destroy'
 
+  post '/jobs/code_example_push', to: 'jobs#code_example_push'
+  post '/jobs/open_pull_request', to: 'jobs#open_pull_request'
+
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'

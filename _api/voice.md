@@ -357,7 +357,7 @@ Key | Value
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
 
 
-## Streams
+## Stream
 
 You use the following requests to start and stop streaming audio to an active call.
 

@@ -27,8 +27,7 @@ import com.nexmo.client.auth.TokenAuthMethod;
 import com.nexmo.client.insight.RoamingDetails;
 import com.nexmo.client.insight.advanced.AdvancedInsightResponse;
 
-import static com.nexmo.quickstart.Util.configureLogging;
-import static com.nexmo.quickstart.Util.envVar;
+import static com.nexmo.quickstart.Util.*;
 
 public class AdvancedInsight {
     public static void main(String[] args) throws Exception {
@@ -37,11 +36,13 @@ public class AdvancedInsight {
         String API_KEY = envVar("API_KEY");
         String API_SECRET = envVar("API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
+        boolean CNAM = booleanEnvVar("CNAM");
 
         AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
         NexmoClient client = new NexmoClient(auth);
 
-        AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(TO_NUMBER);
+        AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(
+                TO_NUMBER, null, null, CNAM);
         System.out.println("BASIC INFO:");
         System.out.println("International format: " + response.getInternationalFormatNumber());
         System.out.println("National format: " + response.getNationalFormatNumber());
@@ -60,11 +61,24 @@ public class AdvancedInsight {
         System.out.println("Reachability: " + response.getReachability());
         System.out.println("Ported status: " + response.getPorted());
         RoamingDetails roaming = response.getRoaming();
-        System.out.println("Roaming status: " + roaming.getStatus());
-        if (response.getRoaming().getStatus() == RoamingDetails.RoamingStatus.ROAMING) {
-            System.out.print("    Currently roaming in: " + roaming.getRoamingCountryCode());
-            System.out.println(" on the network " + roaming.getRoamingNetworkName());
+        if (roaming == null) {
+            System.out.println("- No Roaming Info -");
+        } else {
+            System.out.println("Roaming status: " + roaming.getStatus());
+            if (response.getRoaming().getStatus() == RoamingDetails.RoamingStatus.ROAMING) {
+                System.out.print("    Currently roaming in: " + roaming.getRoamingCountryCode());
+                System.out.println(" on the network " + roaming.getRoamingNetworkName());
+            }
         }
 
+        if (CNAM) {
+            System.out.println();
+            System.out.println("CNAM INFO:");
+            System.out.println("Caller Name: " + response.getCallerName());
+            System.out.println("Caller Type: " + response.getCallerType());
+            System.out.println("First, Last: " + response.getFirstName() + ", " + response.getLastName());
+        } else {
+            System.out.println("- No CNAM Info Requested -");
+        }
     }
 }

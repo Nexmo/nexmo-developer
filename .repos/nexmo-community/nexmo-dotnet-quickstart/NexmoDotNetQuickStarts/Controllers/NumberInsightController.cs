@@ -70,16 +70,21 @@ namespace NexmoDotNetQuickStarts.Controllers
             Session["country"] = results.country_name;
             Session["countryCode"] = results.country_code;
             Session["status"] = results.status_message;
-            Session["currentCarrierName"] = results.original_carrier.name;
-            Session["currentCarrierCode"] = results.current_carrier.network_code;
-            Session["currentCarrierType"] = results.current_carrier.network_type;
-            Session["currentCarrierCountry"] = results.current_carrier.country;
-            Session["originalCarrierName"] = results.original_carrier.name;
-            Session["originalCarrierCode"] = results.original_carrier.network_code;
-            Session["originalCarrierType"] = results.original_carrier.network_type;
-            Session["originalCarrierCountry"] = results.original_carrier.country;
+            if (results.original_carrier != null)
+            {
+                Session["originalCarrierName"] = results.original_carrier.name;
+                Session["originalCarrierCode"] = results.original_carrier.network_code;
+                Session["originalCarrierType"] = results.original_carrier.network_type;
+                Session["originalCarrierCountry"] = results.original_carrier.country;
+            }
+            if (results.current_carrier != null)
+            {
 
-
+                Session["currentCarrierName"] = results.current_carrier.name;
+                Session["currentCarrierCode"] = results.current_carrier.network_code;
+                Session["currentCarrierType"] = results.current_carrier.network_type;
+                Session["currentCarrierCountry"] = results.current_carrier.country;
+            }
 
             return RedirectToAction("StandardResults");
         }

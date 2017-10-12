@@ -1,7 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$dotenv = new Dotenv\Dotenv('.');
+$dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
 foreach($_ENV as $key => $val) {

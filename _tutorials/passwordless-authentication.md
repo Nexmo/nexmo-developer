@@ -94,7 +94,7 @@ get '/login' do
 end
 ```
 
-The form accepts the user's phone number in E.164 format.
+The form accepts the user's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
 ```html
 <form action="/start_login" method="post">

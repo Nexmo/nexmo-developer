@@ -127,7 +127,7 @@ You can use the following options to control a `connect` action:
 Option | Description | Required
 -- | -- | --
 `endpoint` | Connect to a single endpoint. @[Possible Types](/_modals/voice/guides/ncco-reference/endpoint.md) | Yes
-`from` | A number in e.164 format that identifies the caller. | No
+`from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. | No
 `eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states. See the [Connect with fallback NCCO example](#connect_fallback).</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No

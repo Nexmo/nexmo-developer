@@ -1,7 +1,7 @@
 /* Voice Tutorial 3-1: Using Nexmo API to record a call
    This webhook receives a call, and lets the caller leave a message.
-   The `record` even gets the URL where the recorded message (mp3) locates.
-   To retreive the mp3, run `fetch-recording.js`.
+   The `record` event receives the URL where the recorded message (mp3) locates.
+   The mp3 is saved to local disk using `nexmo.files.save`.
    API Referene: https://docs.nexmo.com/voice/voice-api/api-reference
  */
 

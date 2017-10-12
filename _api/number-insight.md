@@ -34,7 +34,7 @@ The following table shows extra parameters you can use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`country` | If a number does not have a country code or is uncertain, set the two-character country code. This code must be in ISO 3166-1 alpha-2 format and in upper case. For example, GB or US. If you set country and number is already in E.164 format, country must match the country code in number.| ❎
+`country` | If a number does not have a country code or is uncertain, set the two-character country code. This code must be in ISO 3166-1 alpha-2 format and in upper case. For example, GB or US. If you set country and number is already in [E.164](https://en.wikipedia.org/wiki/E.164) format, country must match the country code in number.| ❎
 `cnam` | Indicates if the name of the person who owns the phone number should be looked up and returned in the response. Set to true to receive phone number owner name in the response. This features is available for US numbers only and incurs an additional charge. Default value is false. | ❎
 `ip` | The IP address of the user. If supplied, we will compare this to the country the user's phone is located in and return an error if it does not match. | ❎
 
