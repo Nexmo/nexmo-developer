@@ -48,7 +48,8 @@ public class Util {
     /**
      * Look up a required environment variable and throw an
      * IllegalArgumentException if the variable is not set.
-     * @param key whe name of the environment variable
+     *
+     * @param key the name of the environment variable
      * @return the value
      */
     public static String envVar(String key) {
@@ -57,5 +58,30 @@ public class Util {
             throw new IllegalArgumentException("You must provide the " + key + " environment variable!");
         }
         return value;
+    }
+
+    /**
+     * Look up a required environment variable and throw an
+     * IllegalArgumentException if the value is not one of "0", "1", "true", "false", "on" or "off".
+     *
+     * @param key the name of the environment variable
+     * @return the value
+     */
+    public static boolean booleanEnvVar(String key) {
+        String stringValue = System.getenv(key);
+        if (stringValue == null) {
+            return false;
+        } else {
+            stringValue = stringValue.trim().toLowerCase();
+        }
+
+        if ("1".equals(stringValue) || "true".equals(stringValue) || "on".equals(stringValue)) {
+            return true;
+        } else if ("0".equals(stringValue) || "false".equals(stringValue) || "off".equals(stringValue)) {
+            return false;
+        } else {
+            throw new IllegalArgumentException(
+                    String.format("The value \"%s\" could not be converted to a boolean value", stringValue));
+        }
     }
 }

@@ -26,6 +26,7 @@ import com.nexmo.client.auth.AuthMethod;
 import com.nexmo.client.auth.TokenAuthMethod;
 import com.nexmo.client.insight.standard.StandardInsightResponse;
 
+import static com.nexmo.quickstart.Util.booleanEnvVar;
 import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
 
@@ -36,11 +37,12 @@ public class StandardInsight {
         String API_KEY = envVar("API_KEY");
         String API_SECRET = envVar("API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
+        boolean CNAM = booleanEnvVar("CNAM");
 
         AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
         NexmoClient client = new NexmoClient(auth);
 
-        StandardInsightResponse response = client.getInsightClient().getStandardNumberInsight(TO_NUMBER);
+        StandardInsightResponse response = client.getInsightClient().getStandardNumberInsight(TO_NUMBER, null, CNAM);
         System.out.println("BASIC INFO:");
         System.out.println("International format: " + response.getInternationalFormatNumber());
         System.out.println("National format: " + response.getNationalFormatNumber());
@@ -49,8 +51,19 @@ public class StandardInsight {
                 ", +" + response.getCountryPrefix() +
                 ")");
 
+        System.out.println();
         System.out.println("CARRIER INFO:");
         System.out.println("Current carrier: " + response.getCurrentCarrier().getName());
         System.out.println("Original carrier: " + response.getOriginalCarrier().getName());
+
+        if (CNAM) {
+            System.out.println();
+            System.out.println("CNAM INFO:");
+            System.out.println("Caller Name: " + response.getCallerName());
+            System.out.println("Caller Type: " + response.getCallerType());
+            System.out.println("First, Last: " + response.getFirstName() + ", " + response.getLastName());
+        } else {
+            System.out.println("- No CNAM Info Requested -");
+        }
     }
 }

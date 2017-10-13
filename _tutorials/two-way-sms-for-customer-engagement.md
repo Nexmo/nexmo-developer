@@ -118,7 +118,7 @@ Add an HTML form to collect the phone number you will send a notification SMS to
 </form>
 ```
 
-The form captures the phone number in the https://en.wikipedia.org/wiki/E.164 format expected by SMS API:
+The form captures the phone number in the [E.164](https://en.wikipedia.org/wiki/E.164) format expected by SMS API:
 
 ## Send an SMS notification
 

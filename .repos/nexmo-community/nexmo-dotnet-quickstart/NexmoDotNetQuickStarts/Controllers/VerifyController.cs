@@ -17,9 +17,11 @@ namespace NexmoDotNetQuickStarts.Controllers
         [HttpPost]
         public ActionResult Start(string to)
         {
+            var NEXMO_TO_NUMBER = to;
+
             var start = NumberVerify.Verify(new NumberVerify.VerifyRequest
             {
-                number = to,
+                number = NEXMO_TO_NUMBER,
                 brand = "NexmoQS"
             });
             Session["requestID"] = start.request_id;

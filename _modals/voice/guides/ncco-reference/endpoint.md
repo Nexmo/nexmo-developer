@@ -4,7 +4,7 @@
 
 Value | Description
 -- | --
-`number` | the phone number to connect to in E.164 format.
+`number` | the phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
 
 ### Websocket - the websocket to connect to

@@ -1,10 +1,7 @@
 ﻿using Nexmo.Api;
 using Nexmo.Api.Voice;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Web;
+using System.IO;
 using System.Web.Mvc;
 
 namespace NexmoDotNetQuickStarts.Controllers
@@ -23,6 +20,9 @@ namespace NexmoDotNetQuickStarts.Controllers
         [HttpPost]
         public ActionResult MakeCall(string to)
         {
+            var NEXMO_FROM_NUMBER = Configuration.Instance.Settings["appsettings:NEXMO_FROM_NUMBER"];
+            var NEXMO_TO_NUMBER = to;
+            var NEXMO_CALL_ANSWER_URL = "https://nexmo-community.github.io/ncco-examples/first_call_talk.json";
 
             var results = Call.Do(new Call.CallCommand
             {
@@ -30,17 +30,17 @@ namespace NexmoDotNetQuickStarts.Controllers
                 {
                     new Call.Endpoint {
                         type = "phone",
-                        number = to
+                        number = NEXMO_TO_NUMBER
                     }
                 },
                 from = new Call.Endpoint
                 {
                     type = "phone",
-                    number = Configuration.Instance.Settings["appsettings:NEXMO_FROM_NUMBER"]
+                    number = NEXMO_FROM_NUMBER
                 },
                 answer_url = new[]
                 {
-                    "https://nexmo-community.github.io/ncco-examples/first_call_talk.json"
+                    NEXMO_CALL_ANSWER_URL
                 }
             });
             var result = new HttpStatusCodeResult(200);

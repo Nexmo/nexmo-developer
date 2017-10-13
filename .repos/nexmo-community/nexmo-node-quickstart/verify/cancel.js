@@ -1,7 +1,7 @@
 require('dotenv').config({path: __dirname + '/../.env'});
 
-var API_KEY = process.env.NEXMO_API_KEY;
-var API_SECRET = process.env.NEXMO_API_SECRET;
+var NEXMO_API_KEY = process.env.NEXMO_API_KEY;
+var NEXMO_API_SECRET = process.env.NEXMO_API_SECRET;
 
 var REQUEST_ID = process.argv[2];
 if(!REQUEST_ID) {
@@ -10,7 +10,12 @@ if(!REQUEST_ID) {
 }
 
 var Nexmo = require('nexmo');
-var nexmo = new Nexmo({apiKey: API_KEY, apiSecret: API_SECRET}, {debug:true});
+var nexmo = new Nexmo({
+  apiKey: NEXMO_API_KEY,
+  apiSecret: NEXMO_API_SECRET
+}, {
+  debug:true
+});
 
 nexmo.verify.control({request_id: REQUEST_ID, cmd: 'cancel'}, function(err, result) {
   if(err) { console.error(err); }

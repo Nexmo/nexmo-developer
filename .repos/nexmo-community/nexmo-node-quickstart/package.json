@@ -20,7 +20,7 @@
     "ejs": "^2.5.6",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.1.9",
-    "nexmo": "^1.2.0",
+    "nexmo": "^2.0.2",
     "node-persist": "^2.0.4",
     "node-uuid": "^1.4.7",
     "request": "^2.79.0"

@@ -1,11 +1,24 @@
 language: ruby
-install: bundle install --deployment --path vendor/bundle
-before_script:
-  - bundle exec rake db:setup
-script:
-  - bundle exec rake spec
-  - bundle exec rake test:rubocop
 services:
   - postgresql
 addons:
   postgresql: '9.4'
+install: bundle install --deployment --path vendor/bundle
+before_script:
+  - |
+    if [ -z "$SSH_KEY_REQUIRED" ]; then
+      echo "Skipping setting up SSH Key";
+    else
+      echo "Setting up SSH key";
+      declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/XXXXX)"
+      openssl aes-256-cbc -K $encrypted_293bfe86302a_key -iv $encrypted_293bfe86302a_iv -in "github_deploy_key.enc" -out "$SSH_FILE" -d
+      chmod 600 "$SSH_FILE" \
+        && printf "%s\n" \
+             "Host github.com" \
+             "  IdentityFile $SSH_FILE" \
+             "  LogLevel ERROR" >> ~/.ssh/config
+    fi
+  - bundle exec rake db:setup
+script:
+  - bundle exec rake spec
+  - bundle exec rake test:rubocop

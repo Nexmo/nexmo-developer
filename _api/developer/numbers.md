@@ -185,6 +185,8 @@ Parameter | Description | Required
 `voiceCallbackValue` | A URI for your `voiceCallbackType` or an Application ID
 `voiceStatusCallback` | Nexmo sends a request to this webhook endpoint when a call ends. | No
 
+Please note, that `voiceCallbackValue` has to be used together with `voiceCallbackType` parameter.
+
 #### Response
 
 The following shows example Responses in JSON or XML:

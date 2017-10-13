@@ -7,3 +7,4 @@ chat
 npm-debug.log
 *.mp3
 *.key
+.c9
