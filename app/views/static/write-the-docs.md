@@ -71,7 +71,9 @@ Further reading isn't a section itself but rather contains links off to the prod
 
 #### Guides
 
-The guides provide an in depth look into an actionable task such as "How do I send an SMS programmatically". The guides support the user through this problem in an opinionated, isolated way that follows best practice.
+Guides provide an in-depth look into an actionable task such as "How do I send an SMS programmatically". The guides support the user through this problem in an opinionated, isolated way that follows best practice. Unlike a Building Block, a Guide provides a lot of detail and usually contains multiple steps.
+
+For instance, how to send an SMS is a building block, while how to deal with internationalisation and encoding issues with SMS is more befitting a guide.
 
 *Opening*
 
@@ -98,7 +100,9 @@ Reflect on:
 
 #### Building Blocks
 
-Building Blocks are used as a quick reference of how to so something specific. They are aimed at users who are somewhat familiar with the product and require a 'snippet' of code or supplementary information to support them during development phase.
+Building Blocks are used as a quick reference of how to do something specific. They are aimed at users who are somewhat familiar with the product and require a 'snippet' of code or supplementary information to support them during development phase. The mindset of the reader is "I want to get stuff done right now". They should only contain *one* piece of functionality.
+
+The way to title a building block is to fill in the blank in a sentence like this: "I want to *x*", "How do I *x*?" (e.g. "I want to **Send an SMS**", "How do I **Make a voice call**?").
 
 *Further reading*
 
@@ -109,7 +113,7 @@ Point to resources:
 
 #### Tutorials
 
-Tutorials are complete example of how to build something practical. They are step by step and self contained providing all necessary content inline and may combine many different products.
+Tutorials are complete example of how to build something practical and specific. They are step by step and self contained providing all necessary content inline and may combine different products (e.g. Number Insight and Verify).
 
 *Opening*
 
@@ -138,17 +142,19 @@ Point to resources:
 
 ## Use the library
 
-If an existing Nexmo-supported API library supports the functionality, you should use that library for code samples.
+If an existing Nexmo-supported API library supports the functionality, you should use that library for code samples. If the library does not support a feature you wish to document, then we ought to fix the library.
 
 ### Principle of Least Astonishment
 
 Code samples should match the expectations and experience of a median-level competent developer in a language and try hard to not surprise or confuse them. Code samples for APIs are not a place to use flashy, experimental or cutting-edge techniques, but to try to maximise compatibility, and reduce ambiguity.
 
+You can use external libraries when necessary, but this must be done judiciously and with the least confusing library possible. For instance, it is preferable to use a microframework like Flask or Sinatra to a more fully-featured framework like Rails or Django. 
+
 Code samples **MUST NOT** use any technique widely considered to be insecure, badly designed or likely to cause harm or confusion to the user.
 
 ### JavaScript
 
-Documentation should be clear whether JavaScript code is intended to run on the server (using, say, node.js), the client, or both.
+Documentation should be clear whether JavaScript code is intended to run on the server (using, say, Node.js), the client, or both.
 
 ### Python
 
@@ -157,6 +163,10 @@ Python code should adhere to [PEP8](http://pep8.org/).
 Avoid code that is significantly different in Python 2 and 3. When this is unavoidable, abstract away the incompatible code to the smallest area possible and use [`__future__`](https://docs.python.org/2/library/__future__.html) to ensure backwards compatibility with Python 2.
 
 Inbound HTTP calls should use a WSGI-compatible web framework, preferably the [Flask](http://flask.pocoo.org/) micro-framework. Explanations of how to integrate Nexmo APIs with [Django](https://www.djangoproject.com/) are sensible too.
+
+### Ruby
+
+It is preferable to use the Flask microframework to writing your own HTTP handling (e.g. using `TCPServer`).
 
 ## What should I use in place of variables?
 
