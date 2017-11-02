@@ -1,16 +1,9 @@
-'use strict';
+const app = require('express')()
+const bodyParser = require('body-parser')
 
-require('dotenv').config({path: __dirname + '/../.env'});
+app.use(bodyParser.json())
 
-const NEXMO_FROM_NUMBER = process.env.NEXMO_FROM_NUMBER;
-const NEXMO_TO_NUMBER = process.env.NEXMO_TO_NUMBER;
-
-const app = require('express')();
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/answer', (req, res) => {
+const onInboundCall = (request, response) => {
   const ncco = [
     {
       action: 'talk',
@@ -18,17 +11,15 @@ app.get('/answer', (req, res) => {
     },
     {
       action: 'conversation',
-      name: 'nexmo-conference'
+      name: 'room-name'
     }
-  ];
-  res.json(ncco);
-});
+  ]
 
-app.post('/events', (req, res) => {
-  console.log(req.body);
-  res.status(204).end();
-});
+  response.json(ncco)
+}
 
-const server = app.listen(process.env.PORT || 4004, () => {
-  console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
-});
+app
+  .get('/webhooks/answer', onInboundCall)
+  .post('/webhooks/answer', onInboundCall)
+
+app.listen(3000)
