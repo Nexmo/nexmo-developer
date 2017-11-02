@@ -13,20 +13,20 @@ public class OutboundTextToSpeech {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String APPLICATION_ID = envVar("APPLICATION_ID");
-        String PRIVATE_KEY = envVar("PRIVATE_KEY");
-        String FROM_NUMBER = envVar("FROM_NUMBER");
+        String NEXMO_APPLICATION_ID = envVar("APPLICATION_ID");
+        String NEXMO_API_KEY = envVar("PRIVATE_KEY");
+        String NEXMO_NUMBER = envVar("FROM_NUMBER");
         String TO_NUMBER = envVar("TO_NUMBER");
 
         AuthMethod auth = new JWTAuthMethod(
-                APPLICATION_ID,
-                FileSystems.getDefault().getPath(PRIVATE_KEY)
+                NEXMO_APPLICATION_ID,
+                FileSystems.getDefault().getPath(NEXMO_API_KEY)
         );
         NexmoClient client = new NexmoClient(auth);
         client.getVoiceClient().createCall(new Call(
                 TO_NUMBER,
-                FROM_NUMBER,
-                "https://nexmo-community.github.io/ncco-examples/first_call_talk.json"
+                NEXMO_NUMBER,
+                "https://developer.nexmo.com/ncco/tts.json"
         ));
     }
 }

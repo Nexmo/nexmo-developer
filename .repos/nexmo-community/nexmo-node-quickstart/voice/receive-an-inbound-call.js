@@ -4,16 +4,13 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 const onInboundCall = (request, response) => {
-  const ncco = [
-    {
-      action: 'talk',
-      text: 'Welcome to a Nexmo powered conference call'
-    },
-    {
-      action: 'conversation',
-      name: 'room-name'
-    }
-  ]
+  const from = request.query.from || request.body.from
+  const fromSplitIntoCharacters = from.split('').join(' ')
+
+  const ncco = [{
+    action: 'talk',
+    text: `Thank you for calling from ${fromSplitIntoCharacters}`
+  }]
 
   response.json(ncco)
 }
