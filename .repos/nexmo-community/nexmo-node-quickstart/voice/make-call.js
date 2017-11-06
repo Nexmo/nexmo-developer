@@ -1,7 +1,7 @@
 require('dotenv').config({path: __dirname + '/../.env'})
 
-const NEXMO_TO_NUMBER = process.env.NEXMO_TO_NUMBER
-const NEXMO_FROM_NUMBER = process.env.NEXMO_FROM_NUMBER
+const TO_NUMBER = process.env.TO_NUMBER
+const NEXMO_NUMBER = process.env.NEXMO_NUMBER
 
 const NEXMO_API_KEY = process.env.NEXMO_API_KEY
 const NEXMO_API_SECRET = process.env.NEXMO_API_SECRET
@@ -20,11 +20,11 @@ const nexmo = new Nexmo({
 nexmo.calls.create({
   to: [{
     type: 'phone',
-    number: NEXMO_TO_NUMBER
+    number: TO_NUMBER
   }],
   from: {
     type: 'phone',
-    number: NEXMO_FROM_NUMBER
+    number: NEXMO_NUMBER
   },
   answer_url: ['https://developer.nexmo.com/ncco/tts.json']
 })

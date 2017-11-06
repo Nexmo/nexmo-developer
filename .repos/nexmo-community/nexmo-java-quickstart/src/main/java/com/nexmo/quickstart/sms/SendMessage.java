@@ -44,7 +44,7 @@ public class SendMessage {
         SmsSubmissionResult[] responses = client.getSmsClient().submitMessage(new TextMessage(
                 "Acme Inc",
                 TO_NUMBER,
-                "A test SMS sent using the Nexmo SMS API"));
+                "A text message sent using the Nexmo SMS API"));
         for (SmsSubmissionResult response : responses) {
             System.out.println(response);
         }
