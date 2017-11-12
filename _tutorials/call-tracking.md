@@ -64,6 +64,7 @@ app.listen(app.get('port'), function() {
 If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/) to tunnel access to your Web server.
 
 
+⚓ provision-virtual-voice-numbers
 ## Buy Voice Enabled Phone Numbers
 
 For call tracking to work, you need one or more Nexmo numbers to track. Use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone numbers:
@@ -73,6 +74,7 @@ nexmo number:buy --country_code US --confirm
 Number purchased: 15554908975
 ```
 
+⚓ link-numbers
 ## Link phone numbers to the Nexmo Application
 
 Now link each phone number with the *call-tracker* application. When any event occurs relating to a number associated with an application Nexmo sends a request to your webhook endpoints with information about the event.

@@ -65,6 +65,7 @@ Number purchased: 441632960960
 
 **Note**: if you already bought a number from Nexmo, you do not need to buy another one for this tutorial. Associate your existing phone number with your application.
 
+⚓ link-numbers
 ## Link phone numbers to the Nexmo Application
 
 Now link each phone number with the *phone-menu* application. When any event occurs relating to a number associated with an application, Nexmo sends a request to your webhook endpoints with information about the event.
@@ -168,6 +169,7 @@ protected function prepend($ncco)
 }
 ```
 
+⚓ text-to-speech
 ### Send text-to-speech greeting
 
 The `talk` action NCCO is added to the stack to greet the user:
@@ -188,6 +190,7 @@ public function answerAction()
 }
 ```
 
+⚓ request-user-input
 ### Request user input via IVR
 
 The user is then prompted to input an order ID. This prompt is in a separate method so the user is not greeted every time they are prompted:
@@ -217,6 +220,7 @@ The `eventUrl` option in your NCCO is used to send the input to a particular `Ac
 
 A few other `input` specific properties are used. `timeOut` gives the user more time to enter the order number and `submitOnHash` lets them avoid waiting by ending their order ID with the pound sign.
 
+⚓ receive-user-input
 ### Receive user input webhook
 
 After the user has provided input, Nexmo sends a webhook to the `eventUrl` defined in the `input`. This is routed to `searchAction()`:

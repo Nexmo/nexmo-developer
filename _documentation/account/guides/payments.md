@@ -22,14 +22,16 @@ One-click payments are quick and easy transactions made with a credit card store
 
 If we receive any credit card information from any of our customers in an email or helpdesk ticket, we will immediately delete it and notify you that the information has been removed.
 
-You can use Dashboard to
+You can use the Dashboard to
 
-* [Add a payment method](#add_payment_method)
-* [Auto reload your account balance](#auto_reload )
+* [Add a payment method](#add-a-payment-method)
+* [Auto reload your account balance](#auto_reload)
 * [Setup balance notifications](#notifications)
 * [Delete a payment method](#delete_payment)
 * [Change balance currency](#change_balance_currency)
-* [Generate invoices](#invoices)
+* [Generate invoices](#generate-invoices)
+
+⚓ add_payment_method
 
 ## Add a payment method
 
@@ -48,9 +50,11 @@ The payment method is saved for future one-click payments. You can also set up [
 
 Payments will appear as *Nexmo* on your bank/card statements.
 
+⚓ auto_reload
+
 ## Auto reload your account balance
 
-Using auto reload you configure the balance when Dashboard automatically adds funds to your Nexmo account from your stored payment method. You can also configure the payment method and amount added. By default, the amount added to your account is based on the transaction amount chosen when you [added a payment method](#add_payment_method).
+Using auto reload you configure the balance when Dashboard automatically adds funds to your Nexmo account from your stored payment method. You can also configure the payment method and amount added. By default, the amount added to your account is based on the transaction amount chosen when you [added a payment method](#add-a-payment-method).
 
 When auto-reload is enabled your account balance is checked every 10 minutes. If you are sending a lot of messages, use [Developer API](/api/developer/account#top-up) to manage reloads when [remaining-balance](/api/sms#remaining-balance) in the response goes below a specific amount. Currently only PayPal auto-reload is available with the Developer API.
 
@@ -61,6 +65,8 @@ To setup auto reload on a payment method:
 3. Set Auto reload to *ON*.
 4. Choose a payment method, the *Amount* to top up your account and the *Balance threshold* when your account is reloaded.
 5. Click **Save**.
+
+⚓ notifications
 
 ## Setup balance notifications
 
@@ -81,6 +87,8 @@ Your account is automatically checked for a low balance every hour.
 
 **Note**: you can use Developer API to [query your account balance](/api/developer/account#get-balance).
 
+⚓  delete_payment
+
 ## Delete a payment method
 
 To remove a credit card or payment method from your account:
@@ -90,6 +98,8 @@ To remove a credit card or payment method from your account:
 3. Click the link next to the credit card or PayPal icon.
   You see the billing information for the payment method.
 4. Click the delete link.
+
+⚓ change_balance_currency
 
 ## Change balance currency
 
@@ -101,6 +111,8 @@ To change the currency your balance is displayed in:
 2. Set *Display balance in* to your currency of choice.
 
 *Note*: this only changes the display in Dashboard you are always charged in Euro. Prices shown in USD fluctuate with the USD-EUR exchange rate.
+
+⚓  invoices
 
 ## Generate invoices
 

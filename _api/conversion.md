@@ -24,11 +24,12 @@ https://api.nexmo.com/conversions/voice?api_key=xxxxxx&api_secret=xxxxxxx&messag
 This request contains:
 
 * A [Base URL](#base)
-* [Parameters](#parameters )
+* [Parameters](#parameters)
 * [Authentication information](#authentic )
-* [Security](#security )
+* [Security](#security)
 * [Encoding](#encode)
 
+⚓ base
 ## Base URL
 
 Conversion API only accepts POST requests. The reply is not in JSON or XML format.
@@ -47,6 +48,7 @@ https://api.nexmo.com/conversions/voice
 ```
 
 
+⚓ parameters
 ## Parameters
 
 Your request must contains all the parameters in the following table, otherwise it returns with a 422 or 423 errors:
@@ -57,6 +59,7 @@ Parameter | Description | Required
 `delivered` | Set to *true* if your user replied to the message you sent. Otherwise, set to *false*. <br>**Note**: for curl, use 0 and 1.  | Yes
 `timestamp` | When the user completed your call-to-action (e.g. visited your website, installed your app) in [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00) format: *yyyy-MM-dd HH:mm:ss*. <br/>If you do not set this parameter, Nexmo uses the time it receives this request. | Yes
 
+⚓authentic
 #### Authentication information
 
 If you are not using applications, you use the following parameters for calls to Nexmo API:
@@ -79,6 +82,7 @@ Parameter | Description
 
 To ensure privacy, you must use HTTPS for all Nexmo API requests.
 
+⚓encode
 #### Encoding
 
 You submit all requests with a [POST] or [GET] call using `UTF-8` encoding and URL encoded values. The expected Content-Type for [POST] is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:

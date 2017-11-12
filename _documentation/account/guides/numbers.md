@@ -26,6 +26,7 @@ You use Dashboard to:
 * [Setup Two-factor authentication](#setting-up-two-factor-authentication)
 * [Setup event based alerts](#setting-up-event-based-alerts)
 
+⚓ rent-vn
 ## Rent virtual numbers
 
 To rent a Nexmo virtual number:
@@ -36,7 +37,7 @@ To rent a Nexmo virtual number:
 4. Click the number you want and validate your purchase.
 5. Your virtual number is now listed in **Your numbers**.
 
-If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](#add_payment_method).
+If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](payments#add_payment_method).
 
 > **Note**: to rent virtual numbers programmatically, call [Number: Search](/api/developer/numbers#search-available-numbers) to list the available numbers, then [Number: Buy](/api/developer/numbers#buy-a-number) to rent one of the numbers returned by the search.
 
@@ -50,6 +51,8 @@ To configure a Nexmo virtual number:
 4. Update your configuration, then click **Update**.
   If you are changing a webhook endpoint, ensure that your webhook endpoint is live before you press Update.
 5. Your virtual number is now listed in **Your numbers**.
+
+⚓ shortcode
 
 ## Setting up Two-factor authentication
 
@@ -76,7 +79,7 @@ For example:
 ```
 You will receive no more than 2 msgs/day. To opt-out at any time, send STOP to 98975. To receive more information, send HELP to 98975. Message and Data Rates May Apply. The terms and conditions can be viewed at <http://url.to/your_t&c.html>. Our Privacy Policy can be reviewed at <http://url.to/your_privacypolicy.html>.
 ```
-
+⚓ event_based_alerts
 ## Setting up event based alerts
 
 To send [Event Based Alerts](/api/sms/us-short-codes/alerts/sending) to your users:

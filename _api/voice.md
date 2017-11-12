@@ -123,12 +123,14 @@ This request contains:
 
 You receive the call details in the [response](#craresponse).
 
+⚓ crabase
 #### Base URL
 
 All requests to retrieve details about all your calls must contain:
 
 * `https://api.nexmo.com/v1/calls`
 
+⚓ craparameters
 #### Parameters
 
 The following table shows the parameters you use to filter the information you retrieve about your calls:
@@ -144,6 +146,7 @@ Parameter | Description | Required
 `conversation_uuid` | Return all the records associated with a specific conversation. | ❎
 
 
+⚓ craresponse
 #### Response
 
 The JSON response looks like:
@@ -370,18 +373,20 @@ You use a PUT request to stream an audio file to an active call.
 This request contains:
 
 * A [Base URL](#cspbase)
-* [Payload](#cspparameters )
+* [Payload](#cspparameters)
 * [JWT](#jwt_minting)
 
 Information about streaming is sent to you in the:
 
 * [Response](#cspresponse) - parameters sent synchronously when streaming starts.
 
+⚓cspbase
 #### Base URL
 All requests must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
+⚓cspparameters
 #### Payload
 
 The following table shows the parameters you use to stream audio to a call:
@@ -418,22 +423,25 @@ You use a [DELETE] request to stop streaming audio to an active call.
 This request contains:
 
 * A [Base URL](#csdbase)
-* [Payload](#csdparameters )
+* [Payload](#csdparameters)
 * [JWT](#jwt_minting)
 
 Information about streaming is sent to you in the:
 
 * [Response](#csdresponse) - parameters sent synchronously when the streaming stops.
-
+ 
+⚓csdbase
 #### Base URL
 All requests must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
+⚓csdparameters
 #### Payload
 
 There are no parameters for this request.
 
+⚓csdresponse
 #### Response
 
 The JSON response looks like:
@@ -466,18 +474,20 @@ You use a PUT request to send a synthesized speech message to an active call.
 This request contains:
 
 * A [Base URL](#ctpbase)
-* [Payload](#ctpparameters )
+* [Payload](#ctpparameters)
 * [JWT](#jwt_minting)
 
 Information about streaming is sent to you in the:
 
 * [Response](#ctpresponse) - parameters sent synchronously when streaming starts.
 
+⚓ctpbase
 #### Base URL
 All requests must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
+⚓ctpparameters
 #### Payload
 
 The following table shows the parameters you use to send synthesized audio to a call:
@@ -487,7 +497,8 @@ Parameter | Description | Required
 `text` | A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the call or conversation. Each comma in text adds a short pause to the synthesized speech. | ✅
 `voice_name` | The name of the voice used to deliver text. You use the `voice_name` that has the correct language, gender and accent for the message you are sending. For example, the default voice Kimberly is a female who speaks English with an American accent (`en-US`). @[Possible values](/_modals/voice/guides/ncco-reference/voice-name.md). | ❎
 `loop` | The number of times the audio file at `stream_url` is repeated before the stream ends. The default value is `1`. Set to `0` to loop infinitely. | ❎
-
+ 
+⚓ctpresponse
 #### Response
 
 The JSON response looks like:
@@ -515,23 +526,26 @@ You use a DELETE request to stop send synthesized audio to an active call.
 This request contains:
 
 * A [Base URL](#ctdbase)
-* [Payload](#ctdparameters )
+* [Payload](#ctdparameters)
 * [JWT](#jwt_minting)
 
 Information about the synthesized audio is sent to you in the:
 
 * [Response](#ctdresponse) - parameters sent synchronously when the synthesized audio stops.
 
+⚓ctdbase
 #### Base URL
 
 All requests must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
+⚓ctdparameters
 #### Payload
 
 There are no parameters for this request.
 
+⚓ctdresponse
 #### Response
 
 The JSON response looks like:
@@ -563,18 +577,20 @@ You use a PUT request to send DTMF tones to an active call.
 This request contains:
 
 * A [Base URL](#dtmfbase)
-* [Payload](#dtmfparameters )
+* [Payload](#dtmfparameters)
 * [JWT](#jwt_minting)
 
 Information about this request is sent to you in the:
 
 * [Response](#dtmfresponse) - parameters sent synchronously when you send DTMF tones.
 
+⚓dtmfbase
 #### Base URL
 All requests must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}/dtmf`
 
+⚓dtmfparameters
 #### Payload
 
 The following table shows the parameters you use to stream audio to a call:
@@ -583,6 +599,7 @@ Parameter | Description | Required
 -- | -- | --
 `digits` | The array of digits to send to the call | ✅
 
+⚓dtmfresponse
 #### Response
 
 The JSON response looks like:
@@ -608,6 +625,7 @@ Each call you make to this API must have:
 * [Security](#security)
 * [Encoding](#encode)
 
+⚓encode
 ### Encoding
 
 You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL encoded values. The expected `Content-Type` for [POST] is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:
@@ -620,6 +638,7 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 * `text/x-javascript`
 * `text/x-json` when posting parameters as a JSON object.
 
+⚓jwt_minting
 ## Generating a JWT
 
 The Nexmo Voice API uses JWTs to authenticate calls from your application. You generate a JWT by encrypting a JSON object containing the ID and private key of your application plus the current time. You add your JWT to the header in your requests to Nexmo API. The JWT authenticates your requests and tells Nexmo which application you are using.
