@@ -1,21 +1,18 @@
-const express = require('express')
+const app = require('express')()
 const bodyParser = require('body-parser')
 
-const app = express()
-const port = process.env.PORT || 5000
-
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app
-  .route('/delivery-receipt')
-  .get((request, response) => handleDeliveryReceipt(request.query, response))
-  .post((request, response) => handleDeliveryReceipt(request.body, response))
+  .route('/webhooks/delivery-receipt')
+  .get(handleDeliveryReceipt)
+  .post(handleDeliveryReceipt)
 
-function handleDeliveryReceipt(params, response) {
+function handleDeliveryReceipt(request, response) {
+  const params = Object.assign(request.query, request.body)
   console.log(params)
-  response.sendStatus(200)
+  response.status(204).send()
 }
 
-app.listen(port, () => {
-  console.log(`Express server listening on port ${port} in ${app.settings.env} mode`)
-})
+app.listen(3000)
