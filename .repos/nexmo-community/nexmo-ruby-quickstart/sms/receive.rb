@@ -12,7 +12,7 @@ helpers do
   end
 end
 
-route :get, :post, '/webhooks/delivery-receipt' do
+route :get, :post, '/webhooks/inbound-sms' do
   puts params.merge(parsed_body)
   status 204
 end
