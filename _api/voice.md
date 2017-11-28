@@ -309,52 +309,7 @@ source: '_examples/api/voice/calls/put-request'
 
 #### Response
 
-The JSON response contains current details of the call. An example is provided below.
-
-```json
-{
-  "_links": {
-    "self": {
-      "href": "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
-    }
-  },
-  "uuid": "63f61863-4a51-4f6b-86e1-46edebcf9356",
-  "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebio0123",
-  "to": [{
-    "type": "phone",
-    "number": "447700900000"
-  }],
-  "from": {
-    "type": "phone",
-    "number": "447700900001"
-  },
-  "status": "completed",
-  "direction": "outbound",
-  "rate": "0.39",
-  "price": "23.40",
-  "duration": "60",
-  "start_time": "2015-02-04T22:45:00Z",
-  "end_time": "2015-02-04T23:45:00Z",
-  "network": "65512"
-}
-```
-The 200 response contains the following keys and values:
-
-Key | Value
--- | --
-`_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
-`uuid` | uuid	A unique identifier for this call.
-`conversation_uuid` | The unique identifier for the conversation this call leg is part of.
-`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
-`from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this call. [Possible values](#status-values)
-`direction` | Possible values are `outbound` or `inbound`.
-`rate` | The price per minute for this call.
-`price` | The total price charged for this call.
-`duration` | The time elapsed for the call to take place in seconds.
-`start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
+The details of the call such as UUID do not change therefore a simple 204 response is sent with no content.
 
 
 ## Stream
