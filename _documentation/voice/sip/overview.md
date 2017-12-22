@@ -60,7 +60,7 @@ Nexmo supports out-of-band DTMF. For more information, see [RFC2833](https://www
 
 **Health checks**
 
-Use the OOD [OPTIONS](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) method to run a health check on our SIP trunks.
+Use the [OPTIONS](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) method to run a health check on our SIP trunks.
 
 **Protocols**
 
