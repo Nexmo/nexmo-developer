@@ -17,10 +17,10 @@ A call can be initiated via a request to [`POST /calls`](/api/voice#payload). Th
 
 ```json
 {
-  "uuid": "ade7b1d3-6cb7-4350-8750-dfdee725f256",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "status": "started",
   "direction": "outbound",
-  "conversation_uuid": "17f767a5-c1d7-4e9e-a132-6b3f3289efff"
+  "conversation_uuid": "CON-bbbbbbbb-cccc-dddd-eeee-0123456789ab"
 }
 ```
 
