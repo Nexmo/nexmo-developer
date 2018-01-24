@@ -14,6 +14,10 @@
         </div>
 
         <p class="color-text"><%= tutorial.description %></p>
+
+        <% if tutorial.languages %>
+          <p class="languages color-text"><%= tutorial.languages.join(", ") %></p>
+        <% end %>
       </a>
     </div>
   <% end %>
