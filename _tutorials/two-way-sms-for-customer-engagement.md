@@ -2,6 +2,8 @@
 title: Two-way SMS for customer engagement
 products: messaging/sms
 description: Programmable SMS is not just useful for one way notifications. When you combine outbound notifications with inbound messages you create chat-like interactions between your company and your customers.
+languages:
+    - Ruby
 ---
 
 # Two-way SMS for customer engagement
