@@ -75,3 +75,6 @@
 "/messages-and-workflows-apis/messages/building-blocks": "/messages-and-workflows-apis/messages/building-blocks/send-an-sms-with-messages-api"
 "/messages-and-workflows-apis/workflows/building-blocks": "/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover"
 "/redact": "/redact/overview"
+
+# To remove before GA
+/api/reporting: /api/reports
