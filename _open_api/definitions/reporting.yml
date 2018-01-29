@@ -1,0 +1,275 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Reporting API
+  description: Allows you to retrieve information about your account's use of Nexmo APIs.
+servers:
+  - url: https://api.nexmo.com/v1
+paths:
+  "/reports":
+    post:
+      summary: Create a report
+      description: Request a report on your account activity
+      parameters:
+        - name: api_key
+          description: Your API key
+          required: true
+          in: query
+          example: abcd1234
+          schema:
+            type: string
+            minLength: 8
+            maxLength: 8
+        - name: api_secret
+          description: Your API secret. Required unless `sig` is provided
+          required: false
+          in: query
+          example: abcdef0123456789
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewReportReq'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewReportResp'
+  "/reports/{report_id}":
+    get:
+      summary: Get status of report
+      description: Retrieve status and metadata about a requested report.
+      parameters:
+        - name: api_key
+          description: Your API key
+          required: true
+          in: query
+          example: abcd1234
+          schema:
+            type: string
+            minLength: 8
+            maxLength: 8
+        - name: api_secret
+          description: Your API secret. Required unless `sig` is provided
+          required: false
+          in: query
+          example: abcdef0123456789
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
+        - name: report_id
+          in: path
+          schema:
+            type: string
+            example: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+          description: UUID of the report
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewReportResp'
+  "/v3/media/{file_id}":
+    get:
+      summary: Get report data
+      description: Download CSV data of the file.
+      parameters:
+        - name: api_key
+          description: Your API key
+          required: true
+          in: query
+          example: abcd1234
+          schema:
+            type: string
+            minLength: 8
+            maxLength: 8
+        - name: api_secret
+          description: Your API secret. Required unless `sig` is provided
+          required: false
+          in: query
+          example: abcdef0123456789
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
+        - name: file_id
+          in: path
+          schema:
+            type: string
+            example: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+          description: UUID of the file
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "application/octet-stream":
+              schema:
+                type: string
+              description: "CSV data of your report"
+
+components:
+  schemas:
+    NewReportReq:
+      properties:
+        product:
+          type: string
+          example: sms
+          enum:
+            - sms
+            - voice-call
+            - verify-api
+            - number-insight
+            - verify-sdk
+        sms_type:
+          type: string
+          description: "For SMS reports, this is required. MT returns 'Mobile Terminating' requests - outgoing messages. MO returns 'Mobile Originating' requests - incoming messages."
+          example: MT
+          enum:
+            - MT
+            - MO
+        direction:
+          type: string
+          description: "For voice call reports: direction of the request."
+          enum:
+            - inbound
+            - outbound
+        account_id:
+          type: string
+          description: The account ID you wish to search for (especially useful for searching for subaccounts),
+        include_subaccounts:
+          type: string
+          description: Whether to include subaccounts. Defaults to false.
+          enum:
+            - true
+            - false
+        callback_url:
+          type: string
+          description: URL to send a callback to upon completion of the report creation.
+          format: uri
+          example: "https://requestb.in/12345"
+        start_date:
+          type: string
+          format: date
+          description: "ISO 8601 formatted date for when reports should begin."
+          example: "2017-07-01T00:00:00+0000"
+        end_date:
+          type: string
+          format: date
+          description: "ISO 8601 formatted date for when report should end."
+          example: "2017-12-31T23:59:59+0000"
+        client_ref:
+          type: string
+          description: For MT SMS reports - search only for messages with this client_ref.
+        account_ref:
+          type: string
+          description: For MT SMS reports - search only for messages with this account_ref.
+        to:
+          type: string
+          description: "For SMS, Voice and Verify reports - search only for interactions with this number."
+        from:
+          type: string
+          description: "For SMS reports - search only for messages from this alphanumeric sender ID."
+        status:
+          type: string
+          description: "Search by the response status of the product. See the relevant API documentation for the status codes for different Nexmo products."
+        application_id:
+          type: string
+          description: Search only for calls/conversations attached to a particular Application ID.
+        conversation_id:
+          type: string
+          description: Search only for Voice calls attached to this particular Conversation. This should omit the "CON-" prefix.
+      required:
+        - product
+    NewReportResp:
+      properties:
+        request_id:
+          type: string
+          description: UUID for the request.
+        status:
+          type: string
+          description: The current status of the request
+          enum:
+            - PENDING
+            - SUCCESS
+            - FAILED
+        product:
+          type: string
+          example: sms
+          enum:
+            - sms
+            - voice-call
+            - verify-api
+            - number-insight
+            - verify-sdk
+        callback_url:
+          type: string
+          description: URL where a callback will be sent once the report has been completed.
+          format: uri
+          example: "https://requestb.in/12345"
+        start_date:
+          type: string
+          format: date
+          description: "ISO 8601 formatted date for when reports should begin."
+        end_date:
+          type: string
+          format: date
+          description: "ISO 8601 formatted date for when report should end."
+        account_id:
+          type: string
+          description: Account ID for the report.
+        include_subaccounts:
+          type: string
+          description: Whether to include subaccounts. Defaults to false.
+          enum:
+            - true
+            - false
+        conversation_uuid:
+          type: string
+          description: The Conversation which the report contains details of.
+        url:
+          type: string
+          description: The URI from which the report can be downloaded. Only appears once report status has changed to SUCCESS.
+        receive_time:
+          type: string
+          format: date
+          description: When the request for the report was receieved by Nexmo.
+        _links:
+          $ref: '#/components/schemas/SelfOnlyLinkObject'
+        items_count:
+          type: integer
+          description: The number of rows in the resulting file (when report has been completed).
+        self_link:
+          type: string
+          format: uri
+          description: URI of this document.
+      required:
+        - request_id
+        - status
+        - product
+        - account_id
+        - start_date
+        - end_date
+        - url
+        - receive_time
+        - _links
+    SelfOnlyLinkObject:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+              description: URI of this document.
