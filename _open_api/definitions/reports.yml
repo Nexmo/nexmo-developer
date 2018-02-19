@@ -1,10 +1,11 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: Nexmo Reporting API
+  title: Nexmo Reports API
   description: >
-    Nexmo's Reporting API allows you to request a report of activity on your
+    Nexmo's Reports API allows you to request a report of activity on your
     Nexmo account.
+    On average the Reports API takes 25 to 35 minutes to generate 1 million records. We recommend to request reports up to a maximum of 20 million records by setting the start and end dates accordingly.
   contact:
     name: Nexmo.com
     email: devrel@nexmo.com
@@ -397,3 +398,4 @@ components:
               format: uri
               description: URI of this document.
               example: "https://api.nexmo.com/reports/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+ 
