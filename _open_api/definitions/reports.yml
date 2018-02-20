@@ -332,7 +332,8 @@ components:
         url:
           type: string
           description: The URI from which the report can be downloaded. Only appears once report status has changed to SUCCESS.
-          format: "https://api.nexmo.com/v3/media/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+          format: uri
+          example: "https://api.nexmo.com/v3/media/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
         receive_time:
           type: string
           format: date
