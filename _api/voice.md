@@ -626,9 +626,10 @@ The error format is standardized to the `4xx`/`5xx` range with a code and a huma
 ```json
 {
   "type": "TYPE",
-  "error_title":"TITLE",
-  "invalid_parameters":{
-    "type":"Is required."
+  "error_title": "TITLE",
+  "invalid_parameters": {
+    "reason": "description of error",
+    "name": "field"
   }
 }
 ```
