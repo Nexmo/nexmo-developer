@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users, ActiveAdmin::Devise.config
-
+  match '/auth/:provider/callback' => 'sessions#omniauth', via: [:get, :post]
+  
   namespace :feedback do
     resources :feedbacks
   end

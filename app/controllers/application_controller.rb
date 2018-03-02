@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
+  NotAuthorized = Class.new(StandardError)
+
   rescue_from Errno::ENOENT, with: :no_document
   rescue_from Errno::ENOENT, with: :no_document
+  rescue_from NotAuthorized, with: :unauthorized
   protect_from_forgery with: :exception
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
@@ -11,6 +14,21 @@ class ApplicationController < ActionController::Base
   before_action :set_code_language
   before_action :set_canonical_url
   before_action :set_feedback_author
+  before_action :authenticate_oauth_user
+
+  def authenticate_oauth_user
+    raise NotAuthorized unless oauth_user_has_access_to_resource?
+  end
+
+  def protected_resource?
+    true
+  end
+
+  def oauth_user_has_access_to_resource?
+    return true unless protected_resource?
+    return false unless session[:oauth_user]
+    true
+  end
 
   def not_found
     redirect = Redirector.find(request)
@@ -31,6 +49,10 @@ class ApplicationController < ActionController::Base
 
   def requires_authentication?
     ENV['USERNAME'] && ENV['PASSWORD']
+  end
+
+  def unauthorized
+    render 'static/401', status: :unauthorized, formats: [:html], layout: 'page'
   end
 
   def no_document

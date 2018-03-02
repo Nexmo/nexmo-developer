@@ -1,0 +1,2 @@
+class OauthUser < ApplicationRecord
+end
