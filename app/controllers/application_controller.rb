@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
 
   force_ssl if: :ssl_configured?
+  before_action :check_for_environment_redirect
   before_action :set_show_feedback
   before_action :set_notices
   before_action :set_code_language
@@ -60,5 +61,12 @@ class ApplicationController < ActionController::Base
   def set_feedback_author
     return unless cookies[:feedback_author_id]
     @feedback_author = Feedback::Author.select(:email).find_by_id(cookies[:feedback_author_id])
+  end
+
+  def check_for_environment_redirect
+    redirect = Redirector.find_by_enviornment_redirect(request)
+    if redirect
+      redirect_to redirect
+    end
   end
 end
