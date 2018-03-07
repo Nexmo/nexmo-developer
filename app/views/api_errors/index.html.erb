@@ -1,17 +1,23 @@
 <table>
   <thead>
     <th>Error ID</th>
-    <th>Description</th>
-    <th>Resolution</th>
+    <th>Information</th>
     <th>Actions</th>
   </thead>
   <tbody>
     <% @errors.each do |id, details| %>
-      <tr>
+      <tr id="<%= id %>">
         <td><code><%= id %></code></td>
-        <td><%= details['description'] %></td>
-        <td><%= details['resolution'] %></td>
-        <td><%= link_to 'Fix', details['url'], class: 'button' %></td>
+        <td>
+          <b>Details:</b>
+          <p><%= details['description'] %></p>
+
+          <b>Resolution:</b>
+          <p><%= details['resolution'] %></p>
+        </td>
+        <% if details['link'] %>
+          <td><%= link_to details['link']['text'], details['link']['url'], class: 'button' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

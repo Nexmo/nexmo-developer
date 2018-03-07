@@ -1,9 +1,13 @@
 low-balance:
   description: This request could not be performed due to your account balance being low.
   resolution: Top up your account in the Nexmo Dashboard
-  url: https://dashboard.nexmo.com/billing-and-payments
+  link:
+    text: Go to Dashboard
+    url: https://dashboard.nexmo.com/billing-and-payments
 
 unauthorized:
   description: You did not provied correct credentials.
   resolution: Check your API key and secret are correct, you can find these credentials in the Nexmo Dashboard
-  url: /concept/authentication
+  link:
+    text: Find out more
+    url: /concepts/guides/authentication
