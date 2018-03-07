@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <th>Error ID</th>
+    <th>Description</th>
+    <th>Resolution</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @errors.each do |id, details| %>
+      <tr>
+        <td><code><%= id %></code></td>
+        <td><%= details['description'] %></td>
+        <td><%= details['resolution'] %></td>
+        <td><%= link_to 'Fix', details['url'], class: 'button' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

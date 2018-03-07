@@ -1,0 +1,15 @@
+<h1>Error details - <small><code><%= params[:id] %></code></small></h1>
+
+<br>
+
+<h2>Description</h2>
+<p><%= @error['description'] %></p>
+
+<br>
+
+<h2>Resolution</h2>
+<p><%= @error['resolution'] %></p>
+
+<br>
+
+<%= link_to 'Fix', @error['url'], class: 'button' %>

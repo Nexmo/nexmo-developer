@@ -48,6 +48,9 @@ Rails.application.routes.draw do
 
   match '/search', to: 'search#results', via: [:get, :post]
 
+  get '/errors/generic', to: 'api_errors#index'
+  get '/errors/generic/:id', to: 'api_errors#show'
+
   get '/api', to: 'api#index'
 
   get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products
