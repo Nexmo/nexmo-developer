@@ -79,9 +79,5 @@
 /messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
 /messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
 
-/stitch/sdk-documentation/android: /sdk/stitch/android/
-/stitch/sdk-documentation/ios: /sdk/stitch/ios/
-/stitch/sdk-documentation/javascript: /sdk/stitch/javascript/
-
-/stitch: /stitch/overview
-/stitch/api-reference: /api/stitch
+# To remove before GA
+/api/reporting: /api/reports

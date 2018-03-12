@@ -3,6 +3,7 @@ OPEN_API_PRODUCTS = %w(
   media
   number-insight
   stitch
+  reports
 )
 
 class OpenApiConstraint
