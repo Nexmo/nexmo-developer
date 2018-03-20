@@ -94,6 +94,9 @@
               <li class="nav-group-task">
                 <a href="Classes/Call.html">Call</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/Call/Event.html">– Event</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -205,9 +208,6 @@
             <a href="Collection.html">Collection</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/LazyCollection.html">LazyCollection</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/ConversationCollection.html">ConversationCollection</a>
               </li>
               <li class="nav-group-task">
@@ -215,6 +215,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MemberCollection/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ReceiptCollection.html">ReceiptCollection</a>
@@ -313,45 +316,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:17NexmoConversation14LazyCollectionC"></a>
-                    <a name="//apple_ref/swift/Class/LazyCollection" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17NexmoConversation14LazyCollectionC">LazyCollection</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The idea of this collection helper is to snapshot a list in time by (cheaply) gathering
-a list of uuids when constructed; and then lazily get the full records on demand. The
-idea is that the list doesn&rsquo;t then change and can be used in things list UITableViews
-where it is important it doesn&rsquo;t change under the feet of the app. If the app wants to
-get the latest list it can simply fetch a fresh instance of the collection.</p>
-
-                        <a href="Classes/LazyCollection.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LazyCollection</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Collection</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:17NexmoConversation0B10CollectionC"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationCollection"></a>
                     <a name="//apple_ref/swift/Class/ConversationCollection" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17NexmoConversation0B10CollectionC">ConversationCollection</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationCollection">ConversationCollection</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -359,7 +326,7 @@ get the latest list it can simply fetch a fresh instance of the collection.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Collection of conversations</p>
+                        <p>Conversation Collection</p>
 
                         <a href="Classes/ConversationCollection.html" class="slightly-smaller">See more</a>
                       </div>
@@ -367,7 +334,7 @@ get the latest list it can simply fetch a fresh instance of the collection.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConversationCollection</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt"><a href="Classes/LazyCollection.html">LazyCollection</a></span><span class="o">&lt;</span><span class="kt"><a href="Classes/Conversation.html">Conversation</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConversationCollection</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Collection</span></code></pre>
 
                         </div>
                       </div>
@@ -381,9 +348,9 @@ get the latest list it can simply fetch a fresh instance of the collection.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:17NexmoConversation16MemberCollectionC"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMMemberCollection"></a>
                     <a name="//apple_ref/swift/Class/MemberCollection" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17NexmoConversation16MemberCollectionC">MemberCollection</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMMemberCollection">MemberCollection</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -399,7 +366,7 @@ get the latest list it can simply fetch a fresh instance of the collection.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MemberCollection</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt"><a href="Classes/LazyCollection.html">LazyCollection</a></span><span class="o">&lt;</span><span class="kt"><a href="Classes/Member.html">Member</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MemberCollection</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Collection</span></code></pre>
 
                         </div>
                       </div>
@@ -413,9 +380,9 @@ get the latest list it can simply fetch a fresh instance of the collection.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:17NexmoConversation17ReceiptCollectionC"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMReceiptCollection"></a>
                     <a name="//apple_ref/swift/Class/ReceiptCollection" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17NexmoConversation17ReceiptCollectionC">ReceiptCollection</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMReceiptCollection">ReceiptCollection</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -431,7 +398,7 @@ get the latest list it can simply fetch a fresh instance of the collection.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ReceiptCollection</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt"><a href="Classes/LazyCollection.html">LazyCollection</a></span><span class="o">&lt;</span><span class="kt"><a href="Classes/ReceiptRecord.html">ReceiptRecord</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ReceiptCollection</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Collection</span></code></pre>
 
                         </div>
                       </div>
@@ -475,7 +442,7 @@ get the latest list it can simply fetch a fresh instance of the collection.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-03-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

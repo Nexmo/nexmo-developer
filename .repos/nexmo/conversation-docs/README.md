@@ -1,10 +1,10 @@
-# A repo host the API SDK documentation for JS, Android, and iOS
+# A repo to host the API SDK documentation for JS, Android, and iOS
 
-The docs are hosted on ea.developer.nexmo.com
+The docs are hosted on https://developer.nexmo.com/stitch/overview
 
 # Making changes
 
-- After updating the docs in this repo, navigate to your local copy of `nexmo-developer-private`
+- After updating the docs in this repo, navigate to your local copy of `nexmo-developer`
 - Run the rake task `$ rake repos:pull nexmo/conversation-docs`
-- Make a PR with your changes to the `nexmo-developer-private` repo
-- Merge the PR and deploy a new version of the `nexmo-developer-private` site
+- Make a PR with your changes to the `nexmo-developer` repo
+- Merge the PR and deploy a new version of the `nexmo-developer` site

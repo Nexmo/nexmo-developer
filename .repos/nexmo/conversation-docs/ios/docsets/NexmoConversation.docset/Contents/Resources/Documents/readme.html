@@ -94,6 +94,9 @@
               <li class="nav-group-task">
                 <a href="Classes/Call.html">Call</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/Call/Event.html">– Event</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -205,9 +208,6 @@
             <a href="Collection.html">Collection</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/LazyCollection.html">LazyCollection</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/ConversationCollection.html">ConversationCollection</a>
               </li>
               <li class="nav-group-task">
@@ -215,6 +215,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MemberCollection/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ReceiptCollection.html">ReceiptCollection</a>
@@ -305,20 +308,20 @@
         <section>
           <section class="section">
             
-            <h1 id='nexmo-conversation-sdk' class='heading'>Nexmo Conversation SDK</h1>
+            <h1 id='stitch' class='heading'>Stitch</h1>
 
 <p><a href="https://dashboard.buddybuild.com/apps/5824a77e7424bc0100c4defb/build/latest"><img src="https://dashboard.buddybuild.com/api/statusImage?appID=5824a77e7424bc0100c4defb&branch=master&build=latest" alt="BuddyBuild"></a> 
-<a href=""><img src="https://img.shields.io/cocoapods/v/NexmoConversation.svg" alt="CocoaPods"></a> (in private beta) 
-<a href=""><img src="https://img.shields.io/cocoapods/l/NexmoConversation.svg" alt="CocoaPods"></a> 
-<a href=""><img src="https://img.shields.io/cocoapods/p/NexmoConversation.svg" alt="CocoaPods"></a> 
+<a href=""><img src="https://img.shields.io/cocoapods/v/Stitch.svg" alt="CocoaPods"></a>
+<a href=""><img src="https://img.shields.io/cocoapods/l/Stitch.svg" alt="CocoaPods"></a> 
+<a href=""><img src="https://img.shields.io/cocoapods/p/Stitch.svg" alt="CocoaPods"></a> 
 <a href=""><img src="https://img.shields.io/badge/Swift-4.0.X-orange.svg" alt="Swift"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-soon-4BC51D.svg?style=flat" alt="Carthage compatible"></a> 
 <a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-soon-brightgreen.svg" alt="Swift Package Manager compatible"></a>
-<a href="https://codecov.io/gh/Nexmo/conversation-ios-sdk"><img src="https://codecov.io/gh/Nexmo/conversation-ios-sdk/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://codecov.io/gh/Nexmo/stitch-ios-sdk"><img src="https://codecov.io/gh/Nexmo/stitch-ios-sdk/branch/master/graph/badge.svg" alt="codecov"></a>
 <a href="https://apple.com"><img src="https://img.shields.io/badge/iOS-10-blue.svg" alt="iOS"></a>
 <a href="https://twitter.com/Nexmo"><img src="https://img.shields.io/badge/twitter-@Nexmo-blue.svg?style=flat" alt="Twitter"></a></p>
 
-<p>The Conversation SDK is intended to provide a ready solution for developers who want to integrate chat, voice and video into their apps.</p>
+<p>The SDK is intended to provide a ready solution for developers who want to integrate chat, voice and video into their apps.</p>
 <h1 id='getting-started' class='heading'>Getting started👇</h1>
 
 <p>Come checkout the iOS <a href="https://www.github.com/nexmo/conversation-ios-quickstart">quickstarts</a>!</p>
@@ -329,13 +332,12 @@
 <pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
 </code></pre>
 
-<p>Integrate NexmoConversation into your project using CocoaPods, specify SDK in your <code>Podfile</code>:</p>
-<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/Nexmo/conversation-ios-sdk.git'</span>
+<p>Integrate Stitch into your project using CocoaPods, specify SDK in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/Nexmo/stitch-ios-sdk.git'</span>
 <span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
 
 <span class="n">target</span> <span class="s1">'&lt;YOUR_TARGET_NAME&gt;'</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s1">'NexmoConversation'</span> <span class="c1"># Stable version</span>
-    <span class="n">pod</span> <span class="s1">'NexmoConversation'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/Nexmo/conversation-ios-sdk.git'</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">'master'</span> <span class="c1"># Development version</span>
+    <span class="n">pod</span> <span class="s1">'Stitch'</span>
 <span class="k">end</span>
 </code></pre>
 
@@ -345,7 +347,7 @@
 <h3 id='a-href-https-github-com-carthage-carthage-carthage-a' class='heading'><a href="https://github.com/Carthage/Carthage">Carthage</a></h3>
 
 <p>Add this to <code>Cartfile</code></p>
-<pre class="highlight plaintext"><code>github "Nexmo/conversation-ios-sdk" ~&gt; CURRENT_VERSION
+<pre class="highlight plaintext"><code>github "Nexmo/stitch-ios-sdk" ~&gt; CURRENT_VERSION
 </code></pre>
 <pre class="highlight shell"><code><span class="gp">$ </span>carthage update --platform iOS
 </code></pre>
@@ -380,7 +382,7 @@
 
 <ul>
 <li>Go to target schemes selection box and click on manage schemes</li>
-<li>Duplicate <code>ConversationDemo</code> (Please make sure shared is deselected) and call it <code>ConversationDemo-local</code></li>
+<li>Duplicate <code>Demo</code> (Please make sure shared is deselected) and call it <code>Demo-local</code></li>
 <li>Under Run tab add the following environment variable endpoints for <code>socket_url</code>, <code>ips_url</code>, <code>rest_url</code> and <code>acme_url</code>.</li>
 </ul>
 <h1 id='deploy' class='heading'>Deploy</h1>
@@ -426,9 +428,9 @@
 </ul>
 <h1 id='license' class='heading'>License</h1>
 
-<p>Copyright &copy; 2018 Nexmo, Inc. All rights reserved. Licensed only under the Nexmo Conversation SDK License Agreement (the <q>License</q>) located at</p>
+<p>Copyright &copy; 2018 Nexmo, Inc. All rights reserved. Licensed only under the Stitch SDK License Agreement (the <q>License</q>) located at</p>
 
-<p>By downloading or otherwise using our software or services, you acknowledge that you have read, understand and agree to be bound by the Nexmo Conversation SDK License Agreement and Privacy Policy.</p>
+<p>By downloading or otherwise using our software or services, you acknowledge that you have read, understand and agree to be bound by the Stitch SDK License Agreement and Privacy Policy.</p>
 
 <p>You may not use, exercise any rights with respect to or exploit this SDK, or any modifications or derivative works thereof, except in accordance with the License.</p>
 <h1 id='author' class='heading'>Author</h1>
@@ -450,7 +452,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-03-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
