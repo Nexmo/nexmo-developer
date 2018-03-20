@@ -94,6 +94,9 @@
               <li class="nav-group-task">
                 <a href="Classes/Call.html">Call</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/Call/Event.html">– Event</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -205,9 +208,6 @@
             <a href="Collection.html">Collection</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/LazyCollection.html">LazyCollection</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/ConversationCollection.html">ConversationCollection</a>
               </li>
               <li class="nav-group-task">
@@ -215,6 +215,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MemberCollection/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ReceiptCollection.html">ReceiptCollection</a>
@@ -305,7 +308,75 @@
         <section>
           <section class="section">
             
-            <h1 id='0-20-0-22-2-2018' class='heading'>0.20.0 / 22-2-2018</h1>
+            <h1 id='0-22-0-14-3-2018' class='heading'>0.22.0 / 14-3-2018</h1>
+<h1 id='breaking-change' class='heading'>Breaking Change</h1>
+
+<ul>
+<li><code><a href="Classes/Call.html#/c:@M@NexmoConversation@objc(cs)NXMCall(py)from">Call.from</a></code>: returns Member objects instead of String value of username. Use <code>Call.from.user.username</code></li>
+<li><code>Conversation.conversationsObjc</code> moved to &lsquo;ConversationController.conversations.conversationsObjc&rsquo;</li>
+</ul>
+<h1 id='new' class='heading'>New</h1>
+
+<ul>
+<li><code><a href="Classes/Call/Event.html">Call.Event</a></code> tells you about ringing state, see existing property for snippets</li>
+</ul>
+<h1 id='changes' class='heading'>Changes</h1>
+
+<ul>
+<li>Removed <code>LazyCollection</code> to provide better support for Objective-C as it was using Swift generics. New implementation does not change existing behaviour</li>
+<li>More internal logs to help with testing</li>
+<li>Better support for Objective-C [On-going]</li>
+<li>Docs now have snippets and simpler design for Collections and Call classes</li>
+<li>Fix issue where <code>NXMAppLifecycleController</code> did not work in Objective-C</li>
+<li>Removed <code>stun_url</code> server as backend can now deal with looking up the public IP address</li>
+</ul>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Creating <code><a href="Classes/Call.html">Call</a></code> object did not always have all the members in the <code><a href="Classes/Call.html#/c:@M@NexmoConversation@objc(cs)NXMCall(py)to">Call.to</a></code> list.</li>
+</ul>
+<h1 id='0-21-0-5-3-2018' class='heading'>0.21.0 / 5-3-2018</h1>
+<h1 id='breaking-change' class='heading'>Breaking Change</h1>
+
+<ul>
+<li>Renamed <code>onFailure:</code> to <code>onError:</code> to better support Objective-C</li>
+<li>Removed <code>case .modified</code> for <code>.updated</code> in <code><a href="Classes/ConversationCollection.html">ConversationCollection</a></code> class</li>
+<li>Deprecated <code>.memberLeft</code>, <code>.memberInvited</code>, <code>.memberJoined</code> and <code>.memberChanged</code> in Conversation class for new <code><a href="Classes/Observable.html">Observable</a></code> type of of <code><a href="Structs/MemberModel/State.html">MemberModel.State</a></code></li>
+</ul>
+<h1 id='new' class='heading'>New</h1>
+
+<ul>
+<li><code><a href="Classes/Call.html">Call</a></code> member state: Observe for changes in member states</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">call</span><span class="o">.</span><span class="n">memberState</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">state</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">state</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nf">answered</span><span class="p">(</span><span class="k">let</span> <span class="nv">member</span><span class="p">):</span>
+        <span class="k">break</span>
+    <span class="k">case</span> <span class="o">.</span><span class="nf">rejected</span><span class="p">(</span><span class="k">let</span> <span class="nv">member</span><span class="p">):</span>
+        <span class="k">break</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">hangUp</span><span class="p">(</span><span class="k">let</span> <span class="nv">member</span><span class="p">):</span>
+        <span class="k">break</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="err">```</span><span class="n">objective</span><span class="o">-</span><span class="n">c</span>
+<span class="p">[</span><span class="n">conversation</span> <span class="nv">memberChangesObjcOnInvited</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMMember</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">member</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// code here</span>
+<span class="p">}</span> <span class="nv">onJoined</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMMember</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">member</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// code here</span>
+<span class="p">}</span> <span class="nv">onLeft</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMMember</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">member</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// code here</span>
+<span class="p">}];</span>
+</code></pre>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Fixed <code>.disable()</code> media when logging out</li>
+<li>Wrapper around on Swift methods for Objective-C</li>
+<li>Better design for docs and in-line comments</li>
+<li>Member cache not updating after Database write</li>
+<li>Fixed issue where some Objective-c methods/property got left behind during Swift 4 mitgration</li>
+</ul>
+<h1 id='0-20-0-22-2-2018' class='heading'>0.20.0 / 22-2-2018</h1>
 <h1 id='breaking-changes' class='heading'>Breaking changes</h1>
 <h2 id='rename' class='heading'>Rename</h2>
 
@@ -762,7 +833,7 @@ client.login(with: TOKEN)
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-03-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

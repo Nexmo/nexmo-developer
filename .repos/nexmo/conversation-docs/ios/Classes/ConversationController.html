@@ -95,6 +95,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/Call.html">Call</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Call/Event.html">– Event</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -206,9 +209,6 @@
             <a href="../Collection.html">Collection</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/LazyCollection.html">LazyCollection</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/ConversationCollection.html">ConversationCollection</a>
               </li>
               <li class="nav-group-task">
@@ -216,6 +216,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemberCollection/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ReceiptCollection.html">ReceiptCollection</a>
@@ -366,9 +369,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:17NexmoConversation0B10ControllerC13conversationsAA0B10CollectionCv"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationController(py)conversations"></a>
                     <a name="//apple_ref/swift/Property/conversations" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17NexmoConversation0B10ControllerC13conversationsAA0B10CollectionCv">conversations</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationController(py)conversations">conversations</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -555,17 +558,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Detailed%20Conversation"></a>
-                <a name="//apple_ref/swift/Section/Detailed Conversation" class="dashAnchor"></a>
-                <a href="#/Detailed%20Conversation">
-                  <h3 class="section-name">Detailed Conversation</h3>
-                </a>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -620,44 +612,6 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Properties%20-%20(Objective-C%20compatibility%20support)"></a>
-                <a name="//apple_ref/swift/Section/Properties - (Objective-C compatibility support)" class="dashAnchor"></a>
-                <a href="#/Properties%20-%20(Objective-C%20compatibility%20support)">
-                  <h3 class="section-name">Properties - (Objective-C compatibility support)</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(py)conversationsObjc"></a>
-                    <a name="//apple_ref/swift/Property/conversationsObjc" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(py)conversationsObjc">conversationsObjc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>List of conversations, only for Objective-c suppoty</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">conversationsObjc</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
                 <a name="/Create%20(Objective-C%20compatibility%20support)"></a>
                 <a name="//apple_ref/swift/Section/Create (Objective-C compatibility support)" class="dashAnchor"></a>
                 <a href="#/Create%20(Objective-C%20compatibility%20support)">
@@ -668,9 +622,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)newWith:shouldJoin::onFailure:onComplete:"></a>
-                    <a name="//apple_ref/swift/Method/new(with:shouldJoin:_:onFailure:onComplete:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)newWith:shouldJoin::onFailure:onComplete:">new(with:shouldJoin:_:onFailure:onComplete:)</a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)newWith:shouldJoin::onError:onComplete:"></a>
+                    <a name="//apple_ref/swift/Method/new(with:shouldJoin:_:onError:onComplete:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)newWith:shouldJoin::onError:onComplete:">new(with:shouldJoin:_:onError:onComplete:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -685,7 +639,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">new</span><span class="p">(</span><span class="n">with</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">shouldJoin</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?,</span> <span class="nv">onComplete</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">new</span><span class="p">(</span><span class="n">with</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">shouldJoin</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?,</span> <span class="nv">onComplete</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -732,7 +686,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>onFailure</em>
+                                <em>onError</em>
                                 </code>
                               </td>
                               <td>
@@ -761,9 +715,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)conversationWith::onFailure:"></a>
-                    <a name="//apple_ref/swift/Method/conversation(with:_:onFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)conversationWith::onFailure:">conversation(with:_:onFailure:)</a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)conversationWith::onError:"></a>
+                    <a name="//apple_ref/swift/Method/conversation(with:_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)conversationWith::onError:">conversation(with:_:onError:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -778,7 +732,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">conversation</span><span class="p">(</span><span class="n">with</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">conversation</span><span class="p">(</span><span class="n">with</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
 
                         </div>
                       </div>
@@ -813,7 +767,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>onFailure</em>
+                                <em>onError</em>
                                 </code>
                               </td>
                               <td>
@@ -831,9 +785,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)all:onFailure:"></a>
-                    <a name="//apple_ref/swift/Method/all(_:onFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)all:onFailure:">all(_:onFailure:)</a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)all:onError:"></a>
+                    <a name="//apple_ref/swift/Method/all(_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)all:onError:">all(_:onError:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -848,7 +802,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">all</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">all</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
 
                         </div>
                       </div>
@@ -871,7 +825,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>onFailure</em>
+                                <em>onError</em>
                                 </code>
                               </td>
                               <td>
@@ -889,9 +843,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)allWith::onFailure:"></a>
-                    <a name="//apple_ref/swift/Method/all(with:_:onFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)allWith::onFailure:">all(with:_:onFailure:)</a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)allWith::onError:"></a>
+                    <a name="//apple_ref/swift/Method/all(with:_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)allWith::onError:">all(with:_:onError:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -906,7 +860,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">all</span><span class="p">(</span><span class="n">with</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">all</span><span class="p">(</span><span class="n">with</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
 
                         </div>
                       </div>
@@ -941,7 +895,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>onFailure</em>
+                                <em>onError</em>
                                 </code>
                               </td>
                               <td>
@@ -970,9 +924,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)joinWithUserId:memberId:uuid::onFailure:"></a>
-                    <a name="//apple_ref/swift/Method/join(userId:memberId:uuid:_:onFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)joinWithUserId:memberId:uuid::onFailure:">join(userId:memberId:uuid:_:onFailure:)</a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)joinWithUserId:memberId:uuid::onError:"></a>
+                    <a name="//apple_ref/swift/Method/join(userId:memberId:uuid:_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationController(im)joinWithUserId:memberId:uuid::onError:">join(userId:memberId:uuid:_:onError:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -987,7 +941,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">memberId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">memberId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
 
                         </div>
                       </div>
@@ -1046,7 +1000,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>onFailure</em>
+                                <em>onError</em>
                                 </code>
                               </td>
                               <td>
@@ -1066,7 +1020,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-03-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
