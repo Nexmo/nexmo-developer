@@ -251,29 +251,6 @@
         </tr>
 
     
-
-        <tr>
-            
-                <td class="name"><code>state</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">CALL_STATES</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The status of the current call</td>
-        </tr>
-
-    
     </tbody>
 </table>
 
@@ -364,13 +341,13 @@
 
         
             
-<h4 class="name" id="CALL_STATES"><span class="type-signature"></span>CALL_STATES<span class="type-signature"> :object</span></h4>
+<h4 class="name" id="MEMBER_CALL_STATES"><span class="type-signature"></span>MEMBER_CALL_STATES<span class="type-signature"> :object</span></h4>
 
 
 
 
 <div class="description">
-    Enum for Call states.
+    Enum for Call Member states.
 </div>
 
 
@@ -431,202 +408,9 @@
 
             
 
-            <td class="description last">The call has invited members but no joined</td>
+            <td class="description last">A Member is in ringing state</td>
         </tr>
 
-    
-
-        <tr>
-            
-                <td class="name"><code>ANSWERED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The call has at least 2 members joined</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>COMPLETED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The call had at least 2 members joined and now none</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>UNCOMPLETED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The call had no members that were joined</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>FAILED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">There was a problem setting up the call. No members are found</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line65">line 65</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="MEMBER_CALL_STATES"><span class="type-signature"></span>MEMBER_CALL_STATES<span class="type-signature"> :object</span></h4>
-
-
-
-
-<div class="description">
-    Enum for Call Member states.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
@@ -732,7 +516,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line52">line 52</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line51">line 51</a>
     </li></ul></dd>
     
 
@@ -813,7 +597,7 @@ Join the conversation that you are invited
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line236">line 236</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line223">line 223</a>
     </li></ul></dd>
     
 
@@ -919,7 +703,7 @@ Disable the audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line212">line 212</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line199">line 199</a>
     </li></ul></dd>
     
 
@@ -1024,7 +808,7 @@ Leave from the conversation that you are invited
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line222">line 222</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line209">line 209</a>
     </li></ul></dd>
     
 
@@ -1234,7 +1018,7 @@ Leave from the conversation that you are invited
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line28">line 28</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -1290,7 +1074,7 @@ Leave from the conversation that you are invited
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 02 2018 15:55:42 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Mar 22 2018 23:12:17 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

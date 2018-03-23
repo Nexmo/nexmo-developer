@@ -34,6 +34,8 @@
  */
 
 const WildEmitter = require('wildemitter');
+const logger = require('loglevel');
+
 const Member = require('./member');
 const Event = require('./events/event');
 const TextEvent = require('./events/text_event');
@@ -54,18 +56,19 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @property {string} name - the name of the Conversation (unique)
  * @property {string} [display_name] - the display_name of the Conversation
  * @property {object} [members] - the members of the Conversation
- * @property {object} [events] - the members of the Conversation
+ * @property {Map} [events] - the events of the Conversation
  * @property {number} [sequence_number] - the last event id
  */
 class Conversation {
 	constructor(application, params) {
+		this.log = logger.getLogger(this.constructor.name);
 		this.application = application;
 		this.id = null;
 		this.name = null;
 		this.display_name = null;
 		this.timestamp = null;
 		this.members = {};
-		this.events = {};
+		this.events = new Map();
 		this.sequence_number = 0;
 
 		this.media = new Media(this);
@@ -467,7 +470,7 @@ class Conversation {
 
 	_typing(state) {
 		return new Promise((resolve, reject) => {
-			var params = {
+			const params = {
 				activity: (state === 'on') ? 1 : 0
 			};
 			this.application.session.sendRequest({
@@ -518,30 +521,37 @@ class Conversation {
 				cid: this.id,
 				body: params
 			}, (response) => {
-
 				if (response.type === 'conversation:events:success') {
-					//events from cache are constructed with the proper object.
-					//those from storage need to be processed (string conversion)
-
+					// events from cache are already as objects.
+					// if a conversation is not marked as dirty, we are getting the events from storage
 					if (!response.fromCache) {
 						// Iterate and create the events
-						response.body.map((m) => {
-							let message;
-							switch (m.type) {
+						const events_map = new Map();
+						for (let index in response.body) {
+							const event = response.body[index];
+							let event_object = null;
+							switch (event.type) {
+								// Event types with corresponding classes
 								case 'text':
-									message = new TextEvent(this, m);
-									this.events[message.id] = message;
+									event_object = new TextEvent(this, event);
 									break;
 								case 'image':
-									message = new ImageEvent(this, m);
-									this.events[message.id] = message;
+									event_object = new ImageEvent(this, event);
 									break;
 								default:
-									message = new Event(this, m);
-									this.events[message.id] = message;
+									// Events we want to be persisted, CS is sending more.
+									if (['member:joined', 'member:left', 'member:invited', 'member:media', 'audio:dtmf',
+										'audio:record', 'audio:record:done', 'audio:ringing:stop', 'say:text',
+										'audio:ringing:start'].indexOf(event.type) === -1) break;
+									event_object = new Event(this, event);
 									break;
 							}
-						});
+							if (event_object) {
+								events_map.set(event_object.id, event_object);
+							}
+						}
+						//update the events Map
+						this.events = new Map([...this.events].concat([...events_map]));
 					}
 					resolve(this.events);
 				} else {
@@ -552,49 +562,45 @@ class Conversation {
 	}
 
 
-	/*
+	/**
 	 * Handle and event from the cloud.
-	 * @param {event} event
+	 * 
+	 * Identify the type of the event, 
+	 * create the corresponding Class instance 
+	 * to emit to the corresponding Objects
+	 * @param {object} event
+	 * @private
 	 */
 	_handleEvent(event) {
 		let message;
-		let delivered_id;
-		let seen_id;
-
-		//TODO Check local/remote sequence number matching
-		// rtc:* events are not part of the history, and are session specific. forward them skipping the flow
-		if (event.type.split(":")[0] === "rtc") {
+		// TODO Check local/remote sequence number matching
+		// rtc:* and sip* events are not part of the history, and are session specific. 
+		// just f/w them to allow internal modules to work
+		if (event.type.split(":")[0] === "rtc" || event.type.split(":")[0] === "sip") {
 			this.emit(event.type, event);
 			return;
 		}
 		this.sequence_number++;
 
-		if (!this.members[event.from]) {
+		if (!this.members[event.from] &amp;&amp; event.from) { //TODO - remove when CSJ-695
 			this.members[event.from] = new Member(this, event);
 		}
+		//make sure the event_id is not a string
+		if (event.body &amp;&amp; event.body.event_id &amp;&amp; typeof event.body.event_id === "string") {
+			event.body.event_id = parseInt(event.body.event_id);
+		}
 
-		var from = this.members[event.from];
+		const from = this.members[event.from];
 
 		switch (event.type) {
 			case 'audio:record':
 			case 'audio:record:done':
 				message = new Recording(this, event);
-				this.events[message.id] = message;
-				this.emit(event.type, from, message);
-				break;
-			case 'audio:dtmf':
-			case 'audio:ringing:stop':
-			case 'audio:ringing:start':
-				message = new Event(this, event);
-				this.events[message.id] = message;
-				this.emit(event.type, from, message);
 				break;
 			case 'image':
 				message = new ImageEvent(this, event);
-				this.events[message.id] = message;
-				this.emit(event.type, from, message);
 				// Automatically send a delivery
-				// avoid sending delivered to our own messages
+				// avoid sending delivered to our own events
 				if (this.me.id !== message.from) {
 					message.delivered().catch((error) => {
 						this.application.session.log.debug(error);
@@ -603,10 +609,8 @@ class Conversation {
 				break;
 			case 'text':
 				message = new TextEvent(this, event);
-				this.events[message.id] = message;
-				this.emit(event.type, from, message);
 				// Automatically send a delivery
-				// avoid sending delivered to our own messages
+				// avoid sending delivered to our own events
 				if (this.me.id !== message.from) {
 					message.delivered().catch((error) => {
 						this.application.session.log.debug(error);
@@ -617,49 +621,48 @@ class Conversation {
 				message = new ImageEvent(this, event);
 			case 'text:seen':
 				message = (message) ? message : new TextEvent(this, event);
-				seen_id = event.body.event_id;
-				if (seen_id in this.events) {
-					this.events[seen_id].state = this.events[seen_id].state || {};
-					this.events[seen_id].state.seen_by = this.events[seen_id].state.seen_by || {};
-					this.events[seen_id].state.seen_by[event.from] = event.timestamp;
-					message = this.events[seen_id];
-					this.emit(event.type, from, message);
-
+				const seen_id = event.body.event_id;
+				if (this.events.has(seen_id)) {
+					let event_to_mark = this.events.get(seen_id);
+					event_to_mark.state = event_to_mark.state || {};
+					event_to_mark.state.seen_by = event_to_mark.state.seen_by || {};
+					event_to_mark.state.seen_by[event.from] = event.timestamp;
+					message = event_to_mark;
+				} else {
+					this.log.warn('try to mark seen an unknown event');
 				}
 				break;
 			case 'image:delivered':
 				message = new ImageEvent(this, event);
 			case 'text:delivered':
 				message = (message) ? message : new TextEvent(this, event);
-				delivered_id = event.body.event_id;
-				if (delivered_id in this.events) {
-					this.events[delivered_id].state = this.events[delivered_id].state || {};
-					this.events[delivered_id].state.delivered_to = this.events[delivered_id].state.delivered_to || {};
-					this.events[delivered_id].state.delivered_to[event.from] = event.timestamp;
-					message = this.events[delivered_id];
-					this.emit(event.type, from, message);
+				const delivered_id = event.body.event_id;
+				if (this.events.has(delivered_id)) {
+					let event_to_mark = this.events.get(delivered_id);
+					event_to_mark.state = event_to_mark.state || {};
+					event_to_mark.state.delivered_to = event_to_mark.state.delivered_to || {};
+					event_to_mark.state.delivered_to[event.from] = event.timestamp;
+					message = event_to_mark;
+				} else {
+					this.log.warn('try to mark delivered an unknown event');
 				}
 				break;
 			case 'event:delete':
 				//handle both text events or image
-				if (this.events[event.body.event_id].body.text) this.events[event.body.event_id].body.text = "";
-				if (this.events[event.body.event_id].body.representations) this.events[event.body.event_id].body.representations = "";
-
-				this.events[event.body.event_id].body.timestamp = {
+				const event_to_delete = this.events.get(event.body.event_id);
+				if (event_to_delete.body.text) event_to_delete.body.text = "";
+				if (event_to_delete.body.representations) event_to_delete.body.representations = "";
+				event_to_delete.body.timestamp = {
 					deleted: event.timestamp
 				};
-				message = this.events[event.body.event_id];
-				this.emit(event.type, from, message);
+				message = event_to_delete;
 				break;
 			case 'member:joined':
 			case 'member:invited':
 			case 'member:left':
 				//use the member object to handle the state
 				from._handleEvent(event);
-				// this.emit(event.type, from, event.body);
 				message = new Event(this, event);
-				this.events[event.id] = message;
-				this.emit(event.type, from, message);
 				if (this.application.session.cache &amp;&amp; this.application.session.cache.conversation_data[this.id]) {
 					this.application.session.cache.setConversationDirty(this.id, true); //temp fix for fixing member status on reload			
 				}
@@ -670,25 +673,33 @@ class Conversation {
 				// then routed back here if needed to emit in conversation
 				message = new Event(this, event);
 				this.members[event.from]._handleEvent(event);
-				this.events[message.id] = message;
-				//this should emit the message event
-				this.emit(event.type, from, message);
+				break;
+			case 'audio:dtmf':
+			case 'audio:ringing:stop':
+			case 'audio:ringing:start':
+			case 'say:text':
+				message = new Event(this, event);
 				break;
 			default:
 				//mark the conversation as dirty since other than the text/image events occured so we need to invalidate the cache for now
 				//no need to mark as dirty for typing indicators or seen events
 				//TODO move this in cache module
-				if (this.application.session.cache &amp;&amp; this.application.session.cache.conversation_data[this.id] &amp;&amp; [
-					"text:typing:on",
+				if (["text:typing:on",
 					"text:typing:off"
 				].indexOf(event.type) === -1) {
-					this.application.session.cache.setConversationDirty(this.id, true);
-				}
-				if (event.cid === this.id) {
-					// this should emit the event object
+					if (this.application.session.cache &amp;&amp; this.application.session.cache.conversation_data[this.id]) {
+						this.application.session.cache.setConversationDirty(this.id, true);
+					}
+					message = new Event(this, event);
+				} else {
 					this.emit(event.type, from, new Event(this, event));
+
 				}
 				break;
+		}
+		if (message) { //TODO:split to known/unknown events array
+			this.events.set(message.id, message);
+			this.emit(event.type, from, message);
 		}
 		//now update cached item, if the conversation is marked as dirty, don't bother as it will be refreshed anyway
 		//TODO move this login in the cahce module
@@ -713,7 +724,7 @@ module.exports = Conversation;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 02 2018 15:55:42 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Mar 22 2018 23:12:17 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

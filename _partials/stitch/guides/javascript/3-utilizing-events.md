@@ -26,33 +26,34 @@ The first thing we're going to do is add history to the existing conversation. W
 showConversationHistory(conversation) {
   conversation.getEvents().then((events) => {
     var eventsHistory = ""
-    for (var i = Object.keys(events).length; i > 0; i--) {
-      const date = new Date(Date.parse(events[Object.keys(events)[i - 1]].timestamp))
-      if (conversation.members[events[Object.keys(events)[i - 1]].from]) {
-        switch (events[Object.keys(events)[i - 1]].type) {
+    
+    events.forEach((value, key) => {
+      if (conversation.members[value.from]) {
+        const date = new Date(Date.parse(value.timestamp))
+        switch (value.type) {
           case 'text:seen':
             break;
           case 'text:delivered':
             break;
           case 'text':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>${events[Object.keys(events)[i - 1]].body.text}</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>${value.body.text}</b><br>` + eventsHistory
             break;
 
           case 'member:joined':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>joined the conversation</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>joined the conversation</b><br>` + eventsHistory
             break;
           case 'member:left':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>left the conversation</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>left the conversation</b><br>` + eventsHistory
             break;
           case 'member:invited':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>invited to the conversation</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>invited to the conversation</b><br>` + eventsHistory
             break;
 
           default:
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>unknown event</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>unknown event</b><br>` + eventsHistory
         }
       }
-    }
+    })
 
     this.messageFeed.innerHTML = eventsHistory + this.messageFeed.innerHTML
   })
