@@ -26,7 +26,7 @@ The first thing we're going to do is add history to the existing conversation. W
 showConversationHistory(conversation) {
   conversation.getEvents().then((events) => {
     var eventsHistory = ""
-    
+
     events.forEach((value, key) => {
       if (conversation.members[value.from]) {
         const date = new Date(Date.parse(value.timestamp))
@@ -130,12 +130,12 @@ setupUserEvents() {
 ### 1.4 - Leave a conversation
 
 Finally, we'll add the UI for user to leave a conversation. Let's add the button at the top of the messages area.
+
 ```html
 <section id="messages">
   <button id="leave">Leave Conversation</button>
   ...
 </section>
-
 ```
 
 And add the button in the class constructor
