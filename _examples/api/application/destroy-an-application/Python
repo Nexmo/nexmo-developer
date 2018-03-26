@@ -1,27 +1,14 @@
-import urllib
-import urllib2
-import json
+import requests
 
-base_url = 'https://api.nexmo.com'
-version = '/v1'
-action = '/applications '
-params = {
-    'api_key': ‘'API_KEY'’,
-    'api_secret': ‘'API_SECRET'’,
+url = 'https://api.nexmo.com/v1/applications/APPLICATION_ID'
+data = {
+    'api_key': 'API_KEY',
+    'api_secret': 'API_SECRET',
 }
-url =  base_url + version + action + "/APPLICATION_ID?"
 
-data =  urllib.urlencode(params)
-
-request = urllib2.Request(url, data)
-request.add_header('Accept', 'application/json')
-response = urllib2.urlopen(request)
-data = response.read()
-
-if response.code == 200 :
-    print "APPLICATION_ID Deleted"
-
+resp = requests.delete(url, params=data)
+if resp.status_code == 204:
+    print "Your applicaiton was deleted"
 else :
-    error = json.loads(data.decode('utf-8'))
     print "Your request failed because:"
-    print "  " + error['type'] + "  " + error['error_title']
+    print resp.json()
