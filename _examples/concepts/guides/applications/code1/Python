@@ -1,13 +1,7 @@
-import urllib
-import urllib2
-import json
+import requests
 
-base_url = 'https://api.nexmo.com'
-version = '/v1'
-action = '/applications/?'
-
-#Create an Application for Voice API.
-params = {
+url = 'https://api.nexmo.com/v1/applications'
+data = {
         'api_key': 'API_KEY',
         'api_secret': 'API_SECRET',
         'name' : 'MyFirstApplication',
@@ -17,25 +11,19 @@ params = {
 }
 #In this example, answer_url points to a static NCCO that creates a Conference.
 
-url =  base_url + version + action
-data =  urllib.urlencode(params)
-
-request = urllib2.Request(url, data)
-request.add_header('Accept', 'application/json')
+resp = requests.post(url, params=data)
 
 try:
-    response = urllib2.urlopen(request)
-    data = response.read()
-    if response.code == 201:
-        application = json.loads(data.decode('utf-8'))
-        print "Application " + application['name'] + " has an ID of:" + application['id']
-        for webhook in application['voice']['webhooks'] :
+    if resp.status_code == 201:
+        application = resp.json()
+        print "Application " + application['name'] + " has an ID of: " + application['id']
+        for webhook in application['voice']['webhooks']:
                 print "  " + webhook['endpoint_type'] + " is " + webhook['endpoint']
         print "  You use your private key to connect to Nexmo endpoints:"
         print "  " + application['keys']['private_key']
     else:
-        print "HTTP Response: " + response.code
-        print data
+        print "HTTP Response: " + resp.status_code
+        print resp.json()
 
-except urllib2.HTTPError as e:
+except requests.exceptions.HTTPError as e:
     print e
