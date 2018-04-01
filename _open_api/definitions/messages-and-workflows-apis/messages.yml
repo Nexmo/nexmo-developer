@@ -129,6 +129,12 @@ components:
               type: string
               example: 'Invalid `from` parameter'
 
+      resolution:
+        text: Check your request parameters against the API documentation.
+        link:
+          text: See API request format
+          url: /api/messages-and-workflows-apis/messages
+
     MessageStatus:
       type: object
       required:

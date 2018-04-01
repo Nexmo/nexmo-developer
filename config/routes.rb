@@ -50,6 +50,8 @@ Rails.application.routes.draw do
 
   get '/errors/generic', to: 'api_errors#index'
   get '/errors/generic/:id', to: 'api_errors#show'
+  get '/errors/*definition', to: 'api_errors#index', constraints: OpenApiConstraint.products
+  get '/errors/*definition/:id', to: 'api_errors#show', constraints: OpenApiConstraint.products
 
   get '/api', to: 'api#index'
 
