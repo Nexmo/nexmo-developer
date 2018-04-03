@@ -83,10 +83,10 @@ gem 'icalendar', require: false
 #
 # Development & staging environments may use a dependency from a repo:
 #
-# gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'oneof-properties'
+gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'definition-path-methods'
 #
 # Otherwise use a published gem:
-gem 'oas_parser', '0.11.1'
+#  gem 'oas_parser', '0.11.1'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'

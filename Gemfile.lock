@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/Nexmo/oas_parser.git
+  revision: ccd579ea50f9c51c8bb5d72b57be75ca9aea0e69
+  branch: definition-path-methods
+  specs:
+    oas_parser (0.11.1)
+      activesupport (~> 5.1.2)
+      addressable (~> 2.3)
+      builder (~> 3.2.3)
+      deep_merge (~> 1.2.1)
+      guard-rspec (~> 4.7.3)
+      json_schema (~> 0.15.0)
+      nokogiri (~> 1.8.1)
+
+GIT
   remote: https://github.com/brandonweiss/git-hookshot.git
   revision: 10f4b35497fd1391b94baa77e4c986d2415f3d29
   specs:
@@ -238,14 +252,6 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oas_parser (0.11.1)
-      activesupport (~> 5.1.2)
-      addressable (~> 2.3)
-      builder (~> 3.2.3)
-      deep_merge (~> 1.2.1)
-      guard-rspec (~> 4.7.3)
-      json_schema (~> 0.15.0)
-      nokogiri (~> 1.8.1)
     octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     orm_adapter (0.5.0)
@@ -430,7 +436,7 @@ DEPENDENCIES
   neatjson
   nexmo_api_specification (= 0.11.1)
   nokogiri (= 1.8.1)
-  oas_parser (= 0.11.1)
+  oas_parser!
   octokit
   pg (~> 0.18)
   pry

@@ -24,7 +24,7 @@
             <p><%= @definition.info['description'].render_markdown %></p>
           <% end %>
 
-          <%= link_to open_api_path({ format: @definition_format, params: request.query_parameters }), class: 'button button--secondary' do %>
+          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'button button--secondary' do %>
             <i class="icon icon-swagger"></i>
             Download OpenAPI 3 Definition
           <% end %>

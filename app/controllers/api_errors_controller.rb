@@ -15,14 +15,12 @@ class ApiErrorsController < ApplicationController
     # Generic errors if we're not reading an OAS
     return YAML.load_file("#{Rails.root}/config/api-errors.yml") unless @definition_name
     # OAS errors if we've provided a definition
-    return load_errors_from_definition if load_definition?
-
-    raise 'Definition can not be found'
+    load_errors_from_definition
   end
 
   def load_errors_from_definition
-    definition = OasParser::Definition.resolve(@definition_path)
     errors = {}
+    definition = OpenApiDefinitionResolver.find(@definition_name)
 
     definition.endpoints.each do |endpoint|
       endpoint.responses.each do |r|
@@ -53,19 +51,6 @@ class ApiErrorsController < ApplicationController
     end
 
     Hash[errors.sort]
-  end
-
-  def load_definition?
-    [
-      "_open_api/definitions/#{@definition_name}.json",
-      "_open_api/definitions/#{@definition_name}.yml",
-    ].each do |path|
-      @definition_path = path if File.file? path
-    end
-
-    @definition_path = NexmoApiSpecification::Definition.path(@definition_name) if NexmoApiSpecification::Definition.exists?(@definition_name)
-
-    return true if @definition_path
   end
 
   def set_definition
