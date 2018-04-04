@@ -1,56 +1,52 @@
 class ApiErrorsController < ApplicationController
-  before_action :set_definition
+  before_action :set_error_config
 
   def index
+    @errors_title = 'Generic Errors'
     @errors = generic_errors
+    @scoped_errors = @error_config['products'].map do |key, config|
+      {
+        key: key,
+        config: config,
+        errors: scoped_errors(key)
+      }
+    end
+  end
+
+  def index_scoped
+    @errors_title = @error_config['products'][params[:definition]]['title']
+    @errors = scoped_errors(params[:definition])
+    render 'index'
   end
 
   def show
-    @error = load_errors[params['id']]
+    if params[:definition]
+      @error = scoped_error(params[:definition], params[:id])
+    else
+      @error = ApiError.new(@error_config['generic_errors'][params[:id]])
+    end
   end
 
   private
 
   def generic_errors
-    errors = YAML.load_file("#{Rails.root}/config/api-errors.yml")
-    errors.map { |id, config| ApiError.new({ id: id }.merge(config)) }
+    errors = @error_config
+    ApiError.parse_config(errors['generic_errors'])
   end
 
-  def load_errors_from_definition
-    definition = OpenApiDefinitionResolver.find(@definition_name)
-
-    definition.endpoints.each do |endpoint|
-      endpoint.responses.each do |r|
-        # We only support application/json responses
-        resp = r.content['application/json']
-
-        # If this HTTP code has a resolution defined
-        if resp['schema'] && resp['schema']['resolution']
-          props = resp['schema']['properties']
-          resolution = resp['schema']['resolution']
-
-          # Split the link in to path + error title
-          link, title = props['type']['example'].split('#')
-
-          # If it's a generic error, we don't want to show it on this page
-          next if link.split('/').last == 'generic'
-
-          # All errors must contain error detail and a resolution
-          errors[title] = {
-              'description' => props['detail']['example'],
-              'resolution' => resolution['text']
-          }
-
-          # If there's a link, show that too
-          errors[title]['link'] = resolution['link'] if resolution['link']
-        end
-      end
-    end
-
-    Hash[errors.sort]
+  def scoped_errors(definition)
+    definition = OpenApiDefinitionResolver.find(definition)
+    errors = definition.raw['x-errors']
+    ApiError.parse_config(errors)
   end
 
-  def set_definition
-    @definition_name = params[:definition]
+  def scoped_error(definition, id)
+    definition = OpenApiDefinitionResolver.find(definition)
+    error = definition.raw['x-errors'][id]
+    ApiError.new(error)
+  end
+
+  def set_error_config
+    @error_config ||= YAML.load_file("#{Rails.root}/config/api-errors.yml")
   end
 end

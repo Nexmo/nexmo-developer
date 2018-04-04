@@ -119,15 +119,6 @@ components:
         instance:
           type: string
           example:
-        invalid_parameters:
-          type: object
-          properties:
-            name:
-              type: string
-              example: 'Invalid `from` parameter'
-            reason:
-              type: string
-              example: 'Invalid `from` parameter'
 
       resolution:
         text: Check your request parameters against the API documentation.
@@ -460,3 +451,11 @@ x-groups:
     schema:
       application/json:
         $ref: '#/components/schemas/Response'
+
+x-errors:
+  some_product_specific_error:
+    description: Sed posuere consectetur est at lobortis.
+    resolution: Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.
+    link:
+      text: Example Button
+      url: /example/url

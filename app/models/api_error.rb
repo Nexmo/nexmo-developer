@@ -19,4 +19,11 @@ class ApiError
       url: @link_url,
     })
   end
+
+  def self.parse_config(errors)
+    return [] if errors.blank?
+    errors.map do |id, config|
+      ApiError.new({ id: id }.merge(config))
+    end
+  end
 end
