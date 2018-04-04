@@ -5,18 +5,18 @@
     <th>Actions</th>
   </thead>
   <tbody>
-    <% @errors.each do |id, details| %>
-      <tr id="<%= id %>">
-        <td><code><%= id %></code></td>
+    <% @errors.each do |error| %>
+      <tr id="<%= error.id %>">
+        <td><code><%= error.id %></code></td>
         <td>
           <b>Details:</b>
-          <p><%= details['description'] %></p>
+          <p><%= error.description %></p>
 
           <b>Resolution:</b>
-          <p><%= details['resolution'] %></p>
+          <p><%= error.resolution %></p>
         </td>
-        <% if details['link'] %>
-          <td><%= link_to details['link']['text'], details['link']['url'], class: 'button' %></td>
+        <% if error.link %>
+          <td><%= link_to error.link.text, error.link.url, class: 'button' %></td>
         <% end %>
       </tr>
     <% end %>

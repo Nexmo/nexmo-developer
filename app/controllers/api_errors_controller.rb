@@ -2,7 +2,7 @@ class ApiErrorsController < ApplicationController
   before_action :set_definition
 
   def index
-    @errors = load_errors
+    @errors = generic_errors
   end
 
   def show
@@ -11,15 +11,12 @@ class ApiErrorsController < ApplicationController
 
   private
 
-  def load_errors
-    # Generic errors if we're not reading an OAS
-    return YAML.load_file("#{Rails.root}/config/api-errors.yml") unless @definition_name
-    # OAS errors if we've provided a definition
-    load_errors_from_definition
+  def generic_errors
+    errors = YAML.load_file("#{Rails.root}/config/api-errors.yml")
+    errors.map { |id, config| ApiError.new({ id: id }.merge(config)) }
   end
 
   def load_errors_from_definition
-    errors = {}
     definition = OpenApiDefinitionResolver.find(@definition_name)
 
     definition.endpoints.each do |endpoint|

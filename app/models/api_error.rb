@@ -6,4 +6,17 @@ class ApiError
   def link_text
     @link_text || 'Find out more'
   end
+
+  def link=(link)
+    @link_text = link['text']
+    @link_url = link['url']
+  end
+
+  def link
+    return nil unless @link_text && @link_url
+    OpenStruct.new({
+      text: @link_text,
+      url: @link_url,
+    })
+  end
 end
