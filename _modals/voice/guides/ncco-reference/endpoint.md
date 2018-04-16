@@ -6,6 +6,7 @@ Value | Description
 -- | --
 `number` | the phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
+`onAnswer` | An object containing a `url` key. The URL serves an NCCO to execute in the connected number before the call is joined to your existing conversation
 
 ### Websocket - the websocket to connect to
 
