@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/multi_route'
 require 'json'
 
 helpers do
@@ -12,7 +11,7 @@ before do
   content_type :json
 end
 
-route :get, :post, '/webhooks/answer' do
+get '/webhooks/answer' do
   [
     {
       action: 'talk',
@@ -25,8 +24,8 @@ route :get, :post, '/webhooks/answer' do
   ].to_json
 end
 
-route :get, :post, '/webhooks/dtmf' do
-  dtmf = params['dtmf'] || parsed_body['dtmf']
+post '/webhooks/dtmf' do
+  dtmf = parsed_body['dtmf']
 
   [{
     action: 'talk',

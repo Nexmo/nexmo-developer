@@ -27,7 +27,7 @@ const onInboundCall = (request, response) => {
 }
 
 const onRecording = (request, response) => {
-  const recording_url = request.query.recording_url || request.body.recording_url
+  const recording_url = request.body.recording_url
   console.log(`Recording URL = ${recording_url}`)
 
   response.status(204).send()
@@ -35,8 +35,6 @@ const onRecording = (request, response) => {
 
 app
   .get('/webhooks/answer', onInboundCall)
-  .post('/webhooks/answer', onInboundCall)
-  .get('/webhooks/recording', onRecording)
   .post('/webhooks/recording', onRecording)
 
 app.listen(3000)

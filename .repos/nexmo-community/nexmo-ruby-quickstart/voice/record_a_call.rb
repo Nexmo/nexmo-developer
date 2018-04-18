@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/multi_route'
 require 'json'
 
 before do
@@ -12,7 +11,7 @@ helpers do
   end
 end
 
-route :get, :post, '/webhooks/answer' do
+get '/webhooks/answer' do
   [
     {
       action: 'talk',
@@ -33,8 +32,8 @@ route :get, :post, '/webhooks/answer' do
   ].to_json
 end
 
-route :get, :post, '/webhooks/recording' do
-  recording_url = params['recording_url'] || parsed_body['recording_url']
+post '/webhooks/recording' do
+  recording_url = parsed_body['recording_url']
   puts "Recording URL = #{recording_url}"
 
   halt 204
