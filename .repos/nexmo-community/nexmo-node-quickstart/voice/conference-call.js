@@ -18,8 +18,6 @@ const onInboundCall = (request, response) => {
   response.json(ncco)
 }
 
-app
-  .get('/webhooks/answer', onInboundCall)
-  .post('/webhooks/answer', onInboundCall)
+app.get('/webhooks/answer', onInboundCall)
 
 app.listen(3000)

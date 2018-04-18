@@ -8,17 +8,17 @@ VERIFY_REQUEST_ID = ENV['VERIFY_REQUEST_ID']
 require 'nexmo'
 
 client = Nexmo::Client.new(
-  api_key: API_KEY,
-  api_secret: API_SECRET
+  key: API_KEY,
+  secret: API_SECRET
 )
 
-response = client.verify.search(request_id: VERIFY_REQUEST_ID)
+response = client.get_verification_request(VERIFY_REQUEST_ID)
 
-if !response.error_text
+if !response['error_text']
   #  the current status for
   # this request, for example:
   # => IN PROGRESS
-  puts response.status
+  puts response['status']
 else
-  puts response.error_text
+  puts response['error_text']
 end

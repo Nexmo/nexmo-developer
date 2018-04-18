@@ -1,10 +1,7 @@
 const app = require('express')()
-const bodyParser = require('body-parser')
-
-app.use(bodyParser.json())
 
 const onInboundCall = (request, response) => {
-  const from = request.query.from || request.body.from
+  const from = request.query.from
   const fromSplitIntoCharacters = from.split('').join(' ')
 
   const ncco = [{
@@ -15,8 +12,6 @@ const onInboundCall = (request, response) => {
   response.json(ncco)
 }
 
-app
-  .get('/webhooks/answer', onInboundCall)
-  .post('/webhooks/answer', onInboundCall)
+app.get('/webhooks/answer', onInboundCall)
 
 app.listen(3000)
