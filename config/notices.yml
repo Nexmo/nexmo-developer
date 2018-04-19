@@ -1,0 +1,6 @@
+some-example-unique-id-for-the-message:
+  content: |
+    <h2>Some title</h2>
+    <p>Insert your message here in <code>config/notice.yml</code></p>
+  path: /messages-and-workflows-apis\/.*?/
+  dismissible: false
