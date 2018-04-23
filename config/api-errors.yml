@@ -1,6 +1,4 @@
-products:
-  messages-and-workflows-apis/messages:
-    title: Messages and Workflows APIs > Messages
+products: []
 
 generic_errors:
   low-balance:
@@ -11,7 +9,7 @@ generic_errors:
       url: https://dashboard.nexmo.com/billing-and-payments
 
   unauthorized:
-    description: You did not provied correct credentials.
+    description: You did not provide correct credentials.
     resolution: Check your API key and secret are correct, you can find these credentials in the Nexmo Dashboard
     link:
       text: Find out more

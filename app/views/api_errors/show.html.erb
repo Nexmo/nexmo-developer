@@ -22,4 +22,6 @@
 
 <br>
 
-<%= link_to @error.link.text, @error.link.url, class: 'button' %>
+<% if @error.link %>
+    <%= link_to @error.link.text, @error.link.url, class: 'button' %>
+<% end %>
