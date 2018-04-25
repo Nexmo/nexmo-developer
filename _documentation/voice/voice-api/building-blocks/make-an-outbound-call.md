@@ -9,8 +9,8 @@ Making outbound calls from Nexmo is easy. In this building block we'll use the V
 
 ## Prerequisites
 
-- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
-- *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
+- *[Rent a virtual number](https://developer.nexmo.com/account/guides/numbers#rent-virtual-numbers)*
+- *[Create an application](https://developer.nexmo.com/concepts/guides/applications#getting-started-with-applications)*
 
 ## Example
 

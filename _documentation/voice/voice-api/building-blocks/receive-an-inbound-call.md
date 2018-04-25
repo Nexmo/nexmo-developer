@@ -1,6 +1,6 @@
 ---
 title: Receive an Inbound Call
-navigation_weight: 2
+navigation_weight: 1
 ---
 
 # Receive an Inbound Call

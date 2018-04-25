@@ -1,12 +1,16 @@
 ---
-title: Connecting voice calls to Amazon Lex bots
+title: Amazon Lex Connector
+navigation_weight: 8
+
 ---
 
 # Connecting voice calls to Amazon Lex bots
 
+## Overview
+
 You can use the Lex Connector to connect a Nexmo voice call to an [AWS Lex](https://aws.amazon.com/lex/) bot and then have an audio conversation with the bot.
 
-Lex Connector makes use of the [WebSockets feature](/concepts/guides/webhooks) of Nexmo's Voice API. When a call is established, the API makes a websocket connection to Lex Connector and streams the audio to and from the call in real time.
+Lex Connector makes use of the [WebSockets feature](/concepts/guides/websockets) of Nexmo's Voice API. When a call is established, the API makes a websocket connection to Lex Connector and streams the audio to and from the call in real time.
 
 Lex Connector then takes care of capturing chunks of speech using Voice Activity Detection to then post to the Lex Endpoint. When Lex returns audio, Lex Connector streams that back over the websocket to the call.
 
@@ -22,7 +26,7 @@ Before you begin:
 * Ensure you have an AWS key and secret that has access to the Lex bot
 
 
-## Handle incoming calls
+## Connecting a call to Lex 
 
 When a call is made to your number, Nexmo handles the call according to the rules laid out in an NCCO. See [Accept inbound calls](/voice/guides/inbound-calls) for details on how this is done.
 

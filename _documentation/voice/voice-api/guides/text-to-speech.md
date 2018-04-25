@@ -1,8 +1,12 @@
 ---
-title: SSML
+title: Text to Speech
+navigation_weight: 3
 ---
 
-# SSML
+# Overview
+Nexmo uses text to speech engines to allow you to play machine generated speech to your users, this can either be done from with an NCCO with the use of the `talk` action or by making a REST request to an in progress call 
+
+## SSML
 
 The Nexmo Voice API allows you to send text to speech to a call using a number of tags from the XML-based [Speech Synthesis Markup Language](https://www.w3.org/TR/speech-synthesis11/) (SSML). This enables you to mix multiple languages, to control the speed, volume and pitch of synthesised text, and to control pronunciation of words and numbers.
 
@@ -204,3 +208,76 @@ Welcome to the <sub alias="United States">US</sub>.
 #### Example
 
 🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/10-alias.mp3]
+
+
+## Locale
+You should choose a voice that matches the language type of the text you are asking to be read, trying to read Spanish with an `en-us` voice for example will not produce good results. For many languages Nexmo offers a choice of voices with different styles and genders.
+
+You can set the Voice with a Voice Name parameter in the talk command, if you do not specify a voice name then nexmo will default to `Kimberly`, an `en-US` voice.
+
+
+### Voice Names
+
+Name | Language | Gender
+-- | -- | --
+`Naja` | `da-DK` | `female`
+`Mads` | `da-DK` | `male`
+`Marlene` | `de-DE` | `female`
+`Hans` | `de-DE` | `male`
+`Nicole` | `en-AU` | `female`
+`Russell` | `en-AU` | `male`
+`Amy` | `en-GB` | `female`
+`Brian` | `en-GB` | `male`
+`Emma` | `en-GB` | `female`
+`Geraint` | `en-GB-WLS` | `male`
+`Gwyneth` | `cy-GB-WLS` | `female`
+`Raveena` | `en-IN` | `female`
+`Salli` | `en-US` | `female`
+`Ivy` | `en-US` | `female`
+`Justin` | `en-US` | `male`
+`Kendra` | `en-US` | `female`
+`Kimberly` | `en-US` | `female`
+`Joanna` | `en-US` | `female`
+`Joey` | `en-US` | `male`
+`Conchita` | `es-ES` | `female`
+`Enrique` | `es-ES` | `male`
+`Penelope` | `es-US` | `female`
+`Miguel` | `es-US` | `male`
+`Chantal` | `fr-CA` | `female`
+`Celine` | `fr-FR` | `female`
+`Mathieu` | `fr-FR` | `male`
+`Dora` | `is-IS` | `female`
+`Karl` | `is-IS` | `male`
+`Carla` | `it-IT` | `female`
+`Giorgio` | `it-IT` | `male`
+`Mizuki` | `ja-JP` | `female`
+`Liv` | `nb-NO` | `female`
+`Lotte` | `nl-NL` | `female`
+`Ruben` | `nl-NL` | `male`
+`Jacek` | `pl-PL` | `male`
+`Ewa` | `pl-PL` | `female`
+`Jan` | `pl-PL` | `male`
+`Maja` | `pl-PL` | `female`
+`Vitoria` | `pt-BR` | `female`
+`Ricardo` | `pt-BR` | `male`
+`Cristiano` | `pt-PT` | `male`
+`Ines` | `pt-PT` | `female`
+`Carmen` | `ro-RO` | `female`
+`Maxim` | `ru-RU` | `male`
+`Tatyana` | `ru-RU` | `female`
+`Astrid` | `sv-SE` | `female`
+`Filiz` | `tr-TR` | `female`
+
+#### Discontinued voices
+
+Some voices have been removed. The table below shows the discontinued voice names and which voice you will now get if you use the discontinued voice name.
+
+Name | Locale & Gender | Now redirects to
+-----|-----------------|-----------------
+`Chipmunk` | `en-US`, male | `Justin`
+`Eric` | `en-US`, male | `Justin`
+`Jennifer` | `en-US`, female | `Kimberly`
+`Agnieszka` | `pl-PL`, female | `Ewa`
+
+
+# Demonstration
