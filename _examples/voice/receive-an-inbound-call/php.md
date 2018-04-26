@@ -3,7 +3,10 @@ title: PHP
 language: php
 ---
 
-## Implement a webhook
+## Implement a server
+
+The following code implements a server which responds to callbacks on
+`/webhooks/answer`:
 
 ```code
 config: voice.inbound.php
@@ -11,8 +14,9 @@ config: voice.inbound.php
 
 ## Run your server
 
-Save this file to your machine and run it:
+Save the previous code to a file called `index.php` and then run a local server:
 
 ```
 $ php -t . -S localhost:3000
 ```
+

@@ -8,7 +8,7 @@ language: python
 | ### Install the Nexmo library
 |
 | ```sh
-| $ pip install python
+| $ pip install nexmo
 | ```
 
 | ### Initialize the library
