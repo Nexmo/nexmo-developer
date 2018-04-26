@@ -31,7 +31,7 @@ class ResponseParserDecorator < OasParser::ResponseParser
     when 'application/json'
       lexer = Rouge::Lexer.find('json')
       highlighted_response = formatter.format(lexer.lex(formatted_json))
-    when 'text/xml'
+    when 'text/xml', 'application/xml'
       lexer = Rouge::Lexer.find('xml')
       highlighted_response = formatter.format(lexer.lex(formatted_xml(xml_options)))
     end
