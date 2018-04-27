@@ -15,7 +15,7 @@ script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/assets/screenshots/dashboardSettings.png
 ```
 
-For testing, you can use [requestb.in](https://requestb.in) to see the data passed to the webhooks.
+For testing, you can use a service like [hookbin.com](https://hookbin.com/) for free to see the data passed to the webhooks. If the endpoint in your account is already in production and you would like a second one for using the Workflows API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
 ## 2. Generate a JWT to Authenticate with Nexmo
 

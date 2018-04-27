@@ -14,6 +14,8 @@ API | API Key & Secret (Query String) | API Key & Secret (Header) | JSON Web Tok
 [Number Insight](/api/number-insight) | ✅ | ❎ | ❎| ❎
 [Conversion](/api/conversion) | ✅ | ❎ | ❎| ❎
 [Developer](/api/developer) | ✅ | ❎ | ❎| ❎
+[Messages](/api/messages-and-workflows-apis/messages) | ❎ | ✅ | ✅| ❎
+[Workflows](/api/messages-and-workflows-apis/workflows) | ❎ | ✅ | ✅| ❎
 
 ## Contents
 

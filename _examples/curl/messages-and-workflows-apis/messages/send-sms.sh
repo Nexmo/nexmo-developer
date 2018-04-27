@@ -1,5 +1,5 @@
 curl -X POST https://api.nexmo.com/beta/messages \
-  -H 'Authorization: Bearer $JWT'\
+  -H 'Authorization: Bearer '$JWT\
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -d $'{

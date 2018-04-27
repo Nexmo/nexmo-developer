@@ -6,6 +6,23 @@ title: Overview
 
 The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
 
+```
+curl -X POST https://api.nexmo.com/beta/messages \
+  -H 'Authorization: Basic base64(API_KEY:API_SECRET)'\
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -d $'{
+    "from": { "type": "sms", "number": "TO_NUMBER" },
+    "to": { "type": "sms", "number": "FROM_NUMBER" },
+    "message": {
+      "content": {
+        "type": "text",
+        "text": "This is an SMS sent from the Messages API"
+      }
+    }
+  }'
+```
+
 This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
 
 During Developer Preview we will expand the capabilities of the API. Please visit the API Reference for a comprehensive breakdown and on high level we currently support:
@@ -31,7 +48,7 @@ In this document you can learn about:
 
 To use the Messages API, you may need to familiarise yourself with:
 
-* **[Authentication](/concepts/guides/authentication)** - The Messages API is authenticated with JWT.
+* **[Authentication](/concepts/guides/authentication)** - The Messages API is authenticated with either [Header-based API Key & Secret Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication) or [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt).
 * **[Workflows](/messages-and-workflows-apis/workflows/overview)** - The Workflow API is used to combine messages together with logic to allow for failover.
 
 ## Getting Started
@@ -40,7 +57,7 @@ In this Getting Started section we will show you how you can send an SMS. The sa
 
 ### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
-To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use a service like [requestb.in](https://requestb.in/) for free.
+To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send messages to. If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for free. If the endpoint in your account is already in production and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
@@ -122,7 +139,7 @@ config: 'messages_and_workflows_apis.messages.send-sms'
 
 ## Notices
 
-### Adding Message Category
+### Adding Category and Tag
 
 On the 7th May 2018 Facebook Messenger will make it mandatory to tag the type of message being sent to the user. Viber Service Messages also requires that the type of message is tagged as well. The use of different tags enables the business to send messages for different use cases. For example, with Viber Service Messages, tagging enables the business to send promotional content. With Facebook Messenger tagging enables updates to be sent after the [24+1 window](https://developers.facebook.com/docs/messenger-platform/policy/policy-overview) messaging policy.
 
