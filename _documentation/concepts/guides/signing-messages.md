@@ -40,23 +40,10 @@ The workflow for using signed messages is:
 3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
 4. If you requested signed delivery receipts and inbound messages validate the signature.
 
-## Setting up message signing
-
-To setup message signing:
-
-1. Contact <support@nexmo.com> and request message signing. The options are:
-
-  * Outbound messages can be signed.
-  * Outbound messages must be signed.
-  * Inbound messages and DLRs sent to your webhook endpoint are signed.
-
-2. Nexmo supplies you with the `SIGNATURE_SECRET` you use to encode and decode signatures.
-
-    > Note: this is not your `api_secret`.
-
-3. Implement the message signing workflow.
 
 ## Implementing the message signing workflow
+
+When you create a Nexmo account you will be provided a signature secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
 
 To sign your messages:
 
