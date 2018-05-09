@@ -51,7 +51,7 @@ x-groups:
   transaction:
     name: Transaction
     order: 1
-    description: This is the description of what the API is used for
+    description: The Redact API can be used to remove personal data from a CDR stored in the Nexmo platform. Personal data held in the platform generally means a person's phone number, and for messages, the body of the message itself.
   identity:
     name: Identity
     order: 2
