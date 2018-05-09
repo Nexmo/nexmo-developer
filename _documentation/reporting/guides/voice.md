@@ -18,17 +18,17 @@ Download records of your Voice usage
 | application_id     | ID of the application                                                                                 |
 | conversation_id    | ID of the conversation (if applicable)                                                                |
 | call_id            | ID of the call leg                                                                                    |
-| start_time         | Time call started in ISO 8601 format                                                                  |
-| end_time           | Time call ended ISO 8601 format                                                                       |
+| start_time         | Time the call started in ISO 8601 format                                                              |
+| end_time           | Time the call ended ISO 8601 format                                                                   |
 | duration           | Length of the call in seconds                                                                         |
-| from               | Origin of the call (E.164, SIP, username or WebSocket)                                                |
-| to                 | Destination of the call (E.164, SIP, username or WebSocket)                                           |
+| from               | Origin of the call <ul><li>E.164</li><li>SIP</li><li>username</li><li>WebSocket</li></ul>             |
+| to                 | Destination of the call <ul><li>E.164</li><li>SIP</li><li>username</li><li>WebSocket</li></ul>        |
 | cost               | Cost of the call in €/min                                                                             |
 | total_cost         | Cost of the call in €                                                                                 |
 | price              | Price of the call in €/min                                                                            |
 | total_price        | Price of the call in €                                                                                |
-| direction          | Direction of the call (inbound or outbound)                                                           |
+| direction          | Direction of the call (mo or mt)                                                                      |
 | network            | Network used for call                                                                                 |
 | status             | Final status of the call                                                                              |
-| product            | Product ID                                                                                            |
+| product            | Product ID (Always set to 5)                                                                          |
 | country            | Country that the network belongs to                                                                   |
