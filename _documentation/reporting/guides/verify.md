@@ -15,8 +15,8 @@ Download records of your Verify usage
 | Field              | Description                                                                                           |
 |--------------------|-------------------------------------------------------------------------------------------------------|
 | account_id         | ID of the account (API key)                                                                           |
-| request_id         | Unique ID of Verify request                                                                           |
-| to                 | Phone number being verified (if not anonymised). This is "number" in the CDR but "to" in the report for consistency.                                                                                                                 |
+| request_id         | Unique ID of this Verify request                                                                      |
+| to                 | Phone number being verified (if not anonymised)                                                       |
 | date_submitted     | The date and time the Verification Request was submitted. This response parameter is in the following format YYYY-MM-DD HH:MM:SS.<br />For example, 2012-04-05 09:22:57.                                                           |
 | date_finalized     | The date and time the Verification Request was completed. This response parameter is in the following format YYYY-MM-DD HH:MM:SS. <br />For example, 2012-04-05 09:22:57.                                                          |
 | sender_id          | The sender ID specified in the Verify request                                                         |
@@ -27,8 +27,8 @@ Download records of your Verify usage
 | last_event_date    | Time last attempt was made. This response parameter is in the following format YYYY-MM-DD HH:MM:SS. <br />For example, 2012-04-05 09:22:57.                                                                                          |
 | error_text         | Error encountered when processing the request                                                         |
 | locale             | Locale code specified for the Verify request                                                          |
-| sms_event_count    | Number of SMS events as part of this Verify request                                                   |
-| tts_event_count    | Number of TTS events as part of this Verify request                                                   |
+| sms_event_count    | Number of SMS messages sent as part of this request                                                   |
+| tts_event_count    | Number of TTS calls made as part of this request                                                      |
 | country_code       | Country code of number that was provided by customer in Verify request                                |
 | network            | Network that number belongs to                                                                        |
 | number_type        | Possible values are: <ul><li>MOBILE</li><li>LANDLINE</li><li>LANDLINE_PREMIUM</li><li>LANDLINE_TOLLFREE</li><li>PAGER</li><li>VIRTUAL</li><li>UNKNOWN</li></ul>                                                |
