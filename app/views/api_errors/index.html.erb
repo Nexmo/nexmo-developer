@@ -30,7 +30,7 @@
   <%= render 'error_table', errors: @errors %>
 </div>
 
-<% if @scoped_errors.length > 0 %>
+<% if @scoped_errors and @scoped_errors.length > 0 %>
   <h2><b>Product Specific Errors</b></h2>
 
   <% @scoped_errors.each do |scope| %>
