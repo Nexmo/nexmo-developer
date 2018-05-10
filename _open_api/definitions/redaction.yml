@@ -14,7 +14,6 @@ paths:
       description: ""
       x-group: transaction
       requestBody:
-        description: An identity redaction
         required: true
         content:
           application/json:
@@ -28,7 +27,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorUser'
+                oneOf:
+                    $ref: '#/components/schemas/ErrorUnsupportedProduct'
+                    $ref: '#/components/schemas/ErrorUser'
         '401':
           description: "Authentication failure"
           content:
@@ -52,16 +53,38 @@ x-groups:
     name: Transaction
     order: 1
     description: The Redact API can be used to remove personal data from a CDR stored in the Nexmo platform. Personal data held in the platform generally means a person's phone number, and for messages, the body of the message itself.
-  identity:
-    name: Identity
-    order: 2
-    description: This is the description of what the API is used for
+
 components:
   securitySchemes:
     basicAuth:
       type: http
       scheme: basic
   schemas:
+   ErrorUnsupportedProduct:
+     type: object
+     properties:
+      type:
+       type: string
+       required: true
+       description: Link to error / remediation options
+       example: https://developer.nexmo.com/api-errors/redaction#invalid-product
+      title:
+       type: string
+       required: true
+       description: Generic error message
+       example: 
+      detail:
+       type: string
+       required: false
+       description: Additional information about the error
+       example: 
+      instance:
+       type: string
+       required: true
+       description: Internal Trace ID
+       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
+
    ErrorUser:
      type: object
      properties:
@@ -69,22 +92,24 @@ components:
        type: string
        required: true
        description: Link to error / remediation options
-       example: https://developer.nexmo.com/error/redact/validation#missing-parameters
+       example: https://developer.nexmo.com/api-errors/redaction#invalid-product
       title:
        type: string
        required: true
        description: Generic error message
-       example: Invalid transaction ID.
+       example: 
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: The transaction ID 'EXAMPLE-123-TRANSACTION-ID' could not be found.
+       example: 
       instance:
        type: string
        required: true
        description: Internal Trace ID
-       example: ABC123
+       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
+
    ErrorInternal:
      type: object
      properties:

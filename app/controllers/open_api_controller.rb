@@ -38,6 +38,10 @@ class OpenApiController < ApplicationController
   def set_groups
     @groups = @definition.endpoints.group_by { |endpoint| endpoint.raw['x-group'] }
 
+    puts "#################"
+    puts @groups['transaction']
+    puts "#################"
+
     @groups = @groups.sort_by do |name, _|
       next 999 if name.nil?
       @definition.raw['x-groups'][name]['order'] || 999
