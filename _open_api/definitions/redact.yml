@@ -27,27 +27,33 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                    $ref: '#/components/schemas/ErrorUnsupportedProduct'
-                    $ref: '#/components/schemas/ErrorUser'
+                $ref: '#/components/schemas/ErrorUnsupportedProduct'
         '401':
           description: "Authentication failure"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorUser'
+                $ref: '#/components/schemas/ErrorUnauthorized'
         '403':
           description: "Authorisation denied"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorUser'
+                oneOf:
+                    - $ref: '#/components/schemas/ErrorPrematureRedaction'
+                    - $ref: '#/components/schemas/ErrorUnprovisioned'
         '404':
           description: "No such record"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorUser'
+                $ref: '#/components/schemas/ErrorInvalidId'
+        '422':
+          description: "Invalid JSON body"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidJson'
 x-groups:
   transaction:
     name: Transaction
@@ -61,6 +67,7 @@ components:
       scheme: basic
   schemas:
    ErrorUnsupportedProduct:
+     description: Unsupported Product
      type: object
      properties:
       type:
@@ -72,12 +79,62 @@ components:
        type: string
        required: true
        description: Generic error message
-       example: 
+       example: TO_POPULATE
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: 
+       example: TO_POPULATE
+      instance:
+       type: string
+       required: true
+       description: Internal Trace ID
+       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
+   ErrorPrematureRedaction:
+     description: Premature Redaction
+     type: object
+     properties:
+      type:
+       type: string
+       required: true
+       description: Link to error / remediation options
+       example: https://developer.nexmo.com/api-errors/redact#premature-redaction
+      title:
+       type: string
+       required: true
+       description: Generic error message
+       example: TO_POPULATE
+      detail:
+       type: string
+       required: false
+       description: Additional information about the error
+       example: TO_POPULATE
+      instance:
+       type: string
+       required: true
+       description: Internal Trace ID
+       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
+   ErrorUnprovisioned:
+     description: Unprovisioned
+     type: object
+     properties:
+      type:
+       type: string
+       required: true
+       description: Link to error / remediation options
+       example: https://developer.nexmo.com/api-errors#unprovisioned
+      title:
+       type: string
+       required: true
+       description: Generic error message
+       example: TO_POPULATE
+      detail:
+       type: string
+       required: false
+       description: Additional information about the error
+       example: TO_POPULATE
       instance:
        type: string
        required: true
@@ -85,24 +142,24 @@ components:
        example: bf0ca0bf927b3b52e3cb03217e1a1ddf
 
 
-   ErrorUser:
+   ErrorUnauthorized:
      type: object
      properties:
       type:
        type: string
        required: true
        description: Link to error / remediation options
-       example: https://developer.nexmo.com/api-errors/redact#invalid-product
+       example: https://developer.nexmo.com/api-errors#unauthorized
       title:
        type: string
        required: true
        description: Generic error message
-       example: 
+       example: TO_POPULATE
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: 
+       example: TO_POPULATE
       instance:
        type: string
        required: true
@@ -110,24 +167,54 @@ components:
        example: bf0ca0bf927b3b52e3cb03217e1a1ddf
 
 
-   ErrorInternal:
+   ErrorInvalidJson:
      type: object
      properties:
       type:
        type: string
        required: true
        description: Link to error / remediation options
-       example: https://developer.nexmo.com/error/internal#internal-error
+       example: https://developer.nexmo.com/api-errors#invalid-json
       title:
        type: string
        required: true
        description: Generic error message
-       example: Internal server error
+       example: TO_POPULATE
+      detail:
+       type: string
+       required: false
+       description: Additional information about the error
+       example: TO_POPULATE
       instance:
        type: string
        required: true
        description: Internal Trace ID
-       example: ABC123
+       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
+   ErrorInvalidId:
+     type: object
+     properties:
+      type:
+       type: string
+       required: true
+       description: Link to error / remediation options
+       example: https://developer.nexmo.com/api-errors#invalid-id
+      title:
+       type: string
+       required: true
+       description: Generic error message
+       example: TO_POPULATE
+      detail:
+       type: string
+       required: false
+       description: Additional information about the error
+       example: TO_POPULATE
+      instance:
+       type: string
+       required: true
+       description: Internal Trace ID
+       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
    RedactTransaction:
      type: object
      properties:
