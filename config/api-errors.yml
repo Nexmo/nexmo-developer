@@ -1,6 +1,6 @@
 products:
-  redaction:
-    title: Redaction API
+  redact:
+    title: Redact API
 
 generic_errors:
   low-balance:

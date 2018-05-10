@@ -2,7 +2,7 @@
 openapi: "3.0.0"
 info:
   version: "v1"
-  title: "Redaction"
+  title: "Redact"
 servers:
   - url: https://api.nexmo.com
 security:
@@ -67,7 +67,7 @@ components:
        type: string
        required: true
        description: Link to error / remediation options
-       example: https://developer.nexmo.com/api-errors/redaction#invalid-product
+       example: https://developer.nexmo.com/api-errors/redact#invalid-product
       title:
        type: string
        required: true
@@ -92,7 +92,7 @@ components:
        type: string
        required: true
        description: Link to error / remediation options
-       example: https://developer.nexmo.com/api-errors/redaction#invalid-product
+       example: https://developer.nexmo.com/api-errors/redact#invalid-product
       title:
        type: string
        required: true

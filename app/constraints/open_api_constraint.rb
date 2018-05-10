@@ -5,7 +5,7 @@ OPEN_API_PRODUCTS = %w(
   stitch
   messages-and-workflows-apis/messages
   messages-and-workflows-apis/workflows
-  redaction
+  redact
 )
 
 class OpenApiConstraint
