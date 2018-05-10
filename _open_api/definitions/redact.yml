@@ -22,12 +22,6 @@ paths:
       responses:
         '204':
           description: "Success"
-        '400':
-          description: "Incorrect product specified"
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorUnsupportedProduct'
         '401':
           description: "Authentication failure"
           content:
@@ -40,8 +34,8 @@ paths:
             application/json:
               schema:
                 oneOf:
-                    - $ref: '#/components/schemas/ErrorPrematureRedaction'
-                    - $ref: '#/components/schemas/ErrorUnprovisioned'
+                  - $ref: '#/components/schemas/ErrorPrematureRedaction'
+                  - $ref: '#/components/schemas/ErrorUnprovisioned'
         '404':
           description: "No such record"
           content:
@@ -53,7 +47,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidJson'
+                oneOf:
+                  - $ref: '#/components/schemas/ErrorInvalidJson'
+                  - $ref: '#/components/schemas/ErrorUnsupportedProduct'
 x-groups:
   transaction:
     name: Transaction
@@ -148,24 +144,13 @@ components:
       type:
        type: string
        required: true
-       description: Link to error / remediation options
-       example: https://developer.nexmo.com/api-errors#unauthorized
-      title:
+       description: Machine readable error type
+       example: UNAUTHORIZED
+      error_title:
        type: string
        required: true
-       description: Generic error message
-       example: TO_POPULATE
-      detail:
-       type: string
-       required: false
-       description: Additional information about the error
-       example: TO_POPULATE
-      instance:
-       type: string
-       required: true
-       description: Internal Trace ID
-       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
-
+       description: Error title
+       example: Unauthorized
 
    ErrorInvalidJson:
      type: object
