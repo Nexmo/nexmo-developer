@@ -4,16 +4,13 @@ title: Developer Field Usage Guidance
 
 # Developer Field Usage Guidance
 
-Developers using the Nexmo API may have privacy compliance requirements. Typically, developers send PII to Nexmo when using the communication services, e.g. to send an SMS, an end user's phone number is provided, as well as a message body which could include further PII.
+Developers using the Nexmo API may have privacy compliance requirements. Typically, developers send Personally Identifiable Information (PII) to Nexmo when using the communication services, e.g. to send an SMS, an end user's phone number is provided, as well as a message body which could include further PII.
 
-Nexmo offers features to assist developers to comply with their privacy obligations, including:
-
-* The Redact API, available to all platform users, which can be used to redact PII from communications records
-* Auto Redact, a paid service, which continuously redacts an account's communications records
+Nexmo offers the [Redact API](/redact/overview) to assist developers to comply with their privacy obligations, which can be used to redact PII from communications records.
 
 However, it may be possible to inadvertently introduce PII into the Nexmo platform in other ways. This page lists guidance for fields which should not be populated with end user PII.
 
-The following fields should be carefully populated to ensure that PII is not placed in them. They are not intended to accept PII and it is not possible to redact these fields, as the platform requires this data for normal operation after the communications operation has been completed.
+The fields detailed in the following sections should be carefully populated to ensure that PII is not placed in them. They are not intended to accept PII and it is not possible to redact these fields, as the platform requires this data for normal operation after the communications operation has been completed.
 
 ## Messaging
 

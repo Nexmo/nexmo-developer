@@ -4,7 +4,7 @@ title: Overview
 
 # Overview
 
-As part of our General Data Protection Regulation (GDPR) program, Nexmo provide an API that allows you to manage personally identifiable information within the Nexmo platform. The redaction API allows you to redact information on demand, providing a solution for your own compliance needs.
+As part of our General Data Protection Regulation (GDPR) program, Nexmo provide an API that allows you to manage personally identifiable information within the Nexmo platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs.
 
 ### Right to erasure requests
 
@@ -14,34 +14,34 @@ Under GDPR (and other privacy regulatory environments), a person may ask you to 
 
 In this document you can learn about:
 
-* [Nexmo Redaction Concepts](#concepts)
+* [Nexmo Redact Concepts](#concepts)
 * [Subject Access Requests](#subject-access-requests)
 * [Guides](#guides)
 * [Reference](#reference)
 
 ## Concepts
 
-There are two ways that you can redact personal information from the Nexmo platform, the Redaction API and the general product APIs. Each of these options has a different use case and interaction model.
+There are two ways that you can redact personal information from the Nexmo platform, the Redact API and the general product APIs. Each of these options has a different use case and interaction model.
 
-### Redaction API
+### Redact API
 
 When you use Nexmo communication APIs, we create a transaction record of the activity, which we call a `CDR` (short for `call detail record`, a telecommunications industry term). This can be viewed by our customers and support staff for various purposes, including testing and debugging, diagnosing user issues, and reconciling the CDR against a customer transaction record.
 
-The redaction API can be used to remove personal data from a CDR stored in the Nexmo platform. Personal data held in the platform generally means a person's phone number, and for messages, the body of the message itself.
+The Redact API can be used to remove personal data from a CDR stored in the Nexmo platform. Personal data held in the platform generally means a person's phone number, and for messages, the body of the message itself.
 
-To use the redaction API:
+To use the Redact API:
 
 1. Make a request to a Nexmo API. Save the ID returned in the response in your database for later reference
 2. When you receive a right to erasure request, fetch all IDs associated with that user from your database
-3. For each ID, make a request to the [Nexmo redaction API](/api/redaction)
+3. For each ID, make a request to the [Nexmo Redact API](/api/redact)
 
 ### Product API
 
-Some Nexmo APIs are not covered by the automatic redaction API as the data stored is controlled by the customer. These cases are detailed below
+Some Nexmo APIs are not supported by the Redact API as the data stored is controlled by the customer and Nexmo cannot identify what is personal data and what is not. These cases are detailed below.
 
 #### Call recordings
 
-For voice applications where a call recording is made, e.g. using the [record action](/api/voice/ncco#record) of an NCCO, a media resource will be created which holds the recording. This can be deleted using the `DELETE` method of the [media API](/api/media#delete-a-media-item)
+For voice applications where a call recording is made, e.g. using the [record action](/api/voice/ncco#record) of an NCCO, a media resource will be created which holds the recording. This can be deleted using the `DELETE` method of the [Media API](/api/media#delete-a-media-item).
 
 #### Nexmo Stitch
 
@@ -54,6 +54,12 @@ If Stitch messages need to be redacted, the corresponding Event resource can be 
 Under GDPR, your customers can come to you and ask for all of the information that you hold on them. While each organisation will need to determine the appropriate way to implement their request process, Nexmo can help by providing data about what information is held in the platform, if necessary.
 
 Data held on an individual by Nexmo can be obtained using the following methods:
+
+* Customer dashboard
+* Message search API
+* Reporting API
+
+Each of these options is described in more detail in the following sections.
 
 ### Customer Dashboard
 
@@ -73,7 +79,7 @@ This API can be used to search outbound SMS messages. It has two relevant modes:
 
 * A single message's detail can be queried using the individual [message search endpoint](https://developer.nexmo.com/api/developer/messages#search)
 
-* Multiple messages' details can be retrieved simultaneously, either by providing up to 10 message-id values, or by providing a date range to the [messages search endpoint](https://developer.nexmo.com/api/developer/messages#retrieve-multiple-messages)
+* The details of multiple messages can be retrieved simultaneously, either by providing up to 10 message-id values, or by providing a date range to the [messages search endpoint](https://developer.nexmo.com/api/developer/messages#retrieve-multiple-messages)
 
 This method may be used for any customers sending outbound SMS, but does not work for other communication API records such as voice calls.
 
@@ -85,9 +91,9 @@ For more information about the Reports API, please [sign up for early access](ht
 
 ## Guides
 
-* [Developer Field Usage Guidance](/redaction/guides/developer-field-usage-guidance)
+* [Developer Field Usage Guidance](/redact/guides/developer-field-usage-guidance)
 
 ## Reference
 
-* [Redaction API Reference](/api/redaction)
+* [Redact API Reference](/api/redact)
 
