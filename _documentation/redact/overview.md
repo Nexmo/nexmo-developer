@@ -4,11 +4,11 @@ title: Overview
 
 # Overview
 
-As part of our General Data Protection Regulation (GDPR) program, Nexmo provide an API that allows you to manage personally identifiable information within the Nexmo platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs.
+To facilitate our customers' privacy compliance efforts, Nexmo provide an API that allows you to manage personal data within the Nexmo platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs.
 
 ### Right to erasure requests
 
-Under GDPR (and other privacy regulatory environments), a person may ask you to remove any data being held about them. This could typically happen when someone terminates their relationship with a vendor, e.g. the user of a dating app no longer needs the service, and asks the dating app vendor to delete their account and all the information it holds about them.
+Under GDPR (and other privacy laws and regulations), a person may ask you to remove any data being held about them. This could typically happen when someone terminates their relationship with a vendor, e.g. the user of a dating app no longer needs the service, and asks the dating app vendor to delete their account and all the information it holds about them.
 
 ## Contents
 
@@ -21,7 +21,7 @@ In this document you can learn about:
 
 ## Concepts
 
-There are two ways that you can redact personal information from the Nexmo platform, the Redact API and the general product APIs. Each of these options has a different use case and interaction model.
+There are two ways that you can redact personal information from the Nexmo platform via tools provided by us, the Redact API and the general product APIs. Each of these options has a different use case and interaction model.
 
 ### Redact API
 
@@ -37,7 +37,7 @@ To use the Redact API:
 
 ### Product API
 
-Some Nexmo APIs are not supported by the Redact API as the data stored is controlled by the customer and Nexmo cannot identify what is personal data and what is not. These cases are detailed below.
+Redaction from certain Nexmo APIs is not supported by the Redact API as either the data stored is controlled by the customer, or because Nexmo cannot identify what is personal data and what is not. These cases are detailed below.
 
 #### Call recordings
 
@@ -49,9 +49,11 @@ For the multi-channel communications APIs of Stitch, a developer might decide to
 
 If Stitch messages need to be redacted, the corresponding Event resource can be deleted using the [DELETE method](/api/stitch#deleteEvent)
 
+Note that when a Stitch resource is deleted, it will no longer be available to query via a GET API call. If you need this information, you must store it in your own system/database outside of the Nexmo platform.
+
 ## Subject Access Requests
 
-Under GDPR, your customers can come to you and ask for all of the information that you hold on them. While each organisation will need to determine the appropriate way to implement their request process, Nexmo can help by providing data about what information is held in the platform, if necessary.
+Under GDPR, your customers can come to you and ask for the information that you hold on them. While each organisation will need to determine the appropriate way to implement their request process, Nexmo can help by providing data about what information is held in the platform, if necessary.
 
 Data held on an individual by Nexmo can be obtained using the following methods:
 
@@ -97,3 +99,22 @@ For more information about the Reports API, please [sign up for early access](ht
 
 * [Redact API Reference](/api/redact)
 
+## Technical Support Impact
+
+Please be aware that redaction of identifying data can have a negative impact on our ability to troubleshoot customer-specific service degradations. As part of our commitment to our customers' success, Nexmo Support will attempt to provide assistance to all customers wherever possible. Typically diagnosis of an issue would start with attempting to identify a specific problematic API call or communication event relating to this issue, or a pattern of related events (messages or calls).
+
+If your system does not log the responses you receive from the Nexmo API (for instance storing the transaction ID and details in a database table or a text file), or it is difficult to access this response data, it is common to identify the transaction relating to an issue via a related phone number or message text body. Examples could include:
+
+* the 'to' phone number for an outbound SMS to the phone of one of your users
+* the 'from' phone number for an inbound call to your Nexmo virtual number
+
+If you need to redact a phone number because one of your users has asked to delete their account and data, you can use the Redact API to do this as described above. This means that we will remove the phone number from all of our communications records (also known as "CDRs") in our system.
+
+The side effect of this is that if you want to diagnose an issue with one of these communications events, you will not be able to ask us to help by only providing the phone number; you will instead need to provide the relevant transaction ID or IDs (the same ID you used when making the Redact API call) that were been provided in your initial communications API response. e.g. for SMS, the 'message-id' value. You will therefore need to make sure that if you need to ask for Nexmo Support help relating to the transaction, it is essential that you have saved and can find and access the transaction ID.
+
+We would also be unable to detect an issue based on differential analysis  of a pattern of communications to a single number or range of numbers, such as failed versus successful transactions over time.
+
+Keep in mind that if you have already deleted one of your users and their data from your system, it is probably unlikely that you will need to address a complaint from that user that they did not receive a message or they had a problem with a call.
+
+Note that all communications records containing phone numbers are deleted after thirteen months, so we will not be able to help you diagnose an issue with a communications transaction older than this.
+ 
