@@ -1,0 +1,55 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Simple Example
+servers:
+  - url: https://api.nexmo.com
+paths:
+  /v1/calls:
+    post:
+      summary: Create a call
+      operationId: create-a-call
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              oneOf:
+                - $ref: '#/components/schemas/phone'
+                - $ref: '#/components/schemas/websocket'
+      responses:
+        '201':
+          description: Create call
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Call"
+components:
+  schemas:
+    Call:
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+
+    phone:
+      type: object
+      description: Make a phone call
+      properties:
+        type:
+          type: string
+          example: 'phone'
+          enum:
+            - 'phone'
+
+    websocket:
+      type: object
+      description: Make a websocket call
+      properties:
+        type:
+          type: string
+          example: 'websocket'
+          enum:
+            - 'websocket'
