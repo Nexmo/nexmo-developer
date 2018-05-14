@@ -18,6 +18,7 @@ In this document you can learn about:
 * [Subject Access Requests](#subject-access-requests)
 * [Guides](#guides)
 * [Reference](#reference)
+* [Technical Support Impact](#technical-support-impact)
 
 ## Concepts
 
