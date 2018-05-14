@@ -10,7 +10,7 @@ Here is a complete overview of the basic markdown and custom plugins that Nexmo 
 
 We use plugins sparingly to extend functionality where the only other option would be HTML.
 
-You can find this document in `/app/views/static/styleguide.md`. The side navigation has been left present to be an accurate representation of the content width.
+You can find this document in `/app/views/contribute/guides/styleguide.md`. The side navigation has been left present to be an accurate representation of the content width.
 
 There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
 

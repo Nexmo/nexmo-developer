@@ -46,7 +46,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers owned by account.
-`numbers` | An paginated array of numbers and their details.
+`numbers` | A paginated array of numbers and their details.
 
 ### Search available numbers
 
@@ -87,7 +87,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers available in the pool.
-`numbers` | An paginated array of available numbers and their details.
+`numbers` | A paginated array of available numbers and their details.
 
 ### Buy a number
 
@@ -123,7 +123,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers owned by account.
-`numbers` | An paginated array of numbers and their details.
+`numbers` | A paginated array of numbers and their details.
 
 ### Cancel a number
 
@@ -159,7 +159,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers owned by account.
-`numbers` | An paginated array of numbers and their details.
+`numbers` | A paginated array of numbers and their details.
 
 ### Update a number
 

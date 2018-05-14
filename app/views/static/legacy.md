@@ -13,21 +13,3 @@ Number Insight Standard API | <https://docs.nexmo.com/number-insight/ni_legacy/s
 Number Insight Advanced API | <https://docs.nexmo.com/number-insight/ni_legacy/advanced>
 Number Insight Advanced Async API | <https://docs.nexmo.com/number-insight/advanced-async/api-reference>
 
-## Deprecated Voice products
-
-> Note: These are deprecated APIs, you should use the [updated Voice API](/voice).
-
-Title | Link
--- | --
-VoiceXML Quickstarts | <https://docs.nexmo.com/voice/voice-deprecated/VoiceXML>
-
-## Deprecated Verify products
-
-> Note: These are deprecated SDKs, you should use the [Verify API](/verify) instead.
-
-Title | Link
---|--
-Verify SDK for iOS | <https://docs.nexmo.com/verify/verify-sdk-for-iOS>
-Verify SDK for Android | <https://docs.nexmo.com/verify/verify-sdk-for-android>
-Verify SDK for JavaScript | <https://docs.nexmo.com/verify/verify-sdk-for-javascript>
-
