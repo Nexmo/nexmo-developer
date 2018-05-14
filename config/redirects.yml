@@ -34,7 +34,6 @@
 
 /api/developer: /api/developer/account
 /api/account: /api/developer/account
-/api/messages: /api/developer/account
 /api/numbers: /api/developer/account
 
 /events: /community
