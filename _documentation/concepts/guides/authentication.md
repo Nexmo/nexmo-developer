@@ -73,6 +73,7 @@ Below is a list of resources providing details on how to encode base64 strings i
 
 ### API Secret Rotation
 It is possible to have two API secrets to be used against one API key at the same time. This way you can create a second API secret and test it before revoking the existing API secret in your production network. The API secret rotation procedure consists of the following steps:
+
 1. Create a second API secret in your [account settings](https://dashboard.nexmo.com/settings)
 2. Update one or more of your servers to use the newly created API secret for making calls to Nexmo APIs
 3. Test that there are no connectivity issues and roll out the API secret update across the remaining servers
