@@ -14,6 +14,8 @@ API | API Key & Secret (Query String) | API Key & Secret (Header) | JSON Web Tok
 [Number Insight](/api/number-insight) | ✅ | ❎ | ❎| ❎
 [Conversion](/api/conversion) | ✅ | ❎ | ❎| ❎
 [Developer](/api/developer) | ✅ | ❎ | ❎| ❎
+[Messages](/api/messages-and-workflows-apis/messages) | ❎ | ✅ | ✅| ❎
+[Workflows](/api/messages-and-workflows-apis/workflows) | ❎ | ✅ | ✅| ❎
 
 ## Contents
 
@@ -28,7 +30,7 @@ In this document you can learn about authentication via the following means:
 
 ## API Key & Secret
 
-When you create a Nexmo account you will be provided an API key and secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
+When you create a Nexmo account you will be provided an API key and an API secret. The API key is used to identify the Nexmo account and the API secret is used to verify the identity. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
 
 > Note: The secret should always be kept secure and never shared. Be careful when adding it to your codebase to make sure it is not shared with anyone who may use it maliciously. Read more about the [Best Security Practices for your Nexmo Account](https://help.nexmo.com/hc/en-us/articles/115014939548).
 
@@ -68,6 +70,14 @@ Below is a list of resources providing details on how to encode base64 strings i
 * Python: [base64](https://docs.python.org/2/library/base64.html)
 * Ruby: [Base64](https://ruby-doc.org/stdlib-2.5.0/libdoc/base64/rdoc/Base64.html)
 * Swift: [Base64 Encode and Decode in Swift](http://iosdevelopertips.com/swift-code/base64-encode-decode-swift.html) from iOS Developer Tips
+
+### API Secret Rotation
+It is possible to have two API secrets to be used against one API key at the same time. This way you can create a second API secret and test it before revoking the existing API secret in your production network. The API secret rotation procedure consists of the following steps:
+
+1. Create a second API secret in your [account settings](https://dashboard.nexmo.com/settings)
+2. Update one or more of your servers to use the newly created API secret for making calls to Nexmo APIs
+3. Test that there are no connectivity issues and roll out the API secret update across the remaining servers
+4. Delete the replaced API secret
 
 ## JSON Web Tokens (JWT)
 

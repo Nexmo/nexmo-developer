@@ -122,7 +122,7 @@ source: _examples/stitch/overview/join-the-conversation/
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="https://www.npmjs.com/package/nexmo-conversation" class="card spacious card--image card--javascript-outline">
+    <a href="https://www.npmjs.com/package/nexmo-stitch" class="card spacious card--image card--javascript-outline">
       <h2>JavaScript</h2>
     </a>
   </div>

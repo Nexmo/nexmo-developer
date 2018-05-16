@@ -15,10 +15,18 @@
   <br>
 
   <div class="avatar-grid">
-    <% @team.shuffle.each do |member| %>
+    <% @team['current'].shuffle.each do |member| %>
       <%= render partial: 'profile', locals: member.symbolize_keys %>
     <% end %>
   </div>
+
+  <h2 class="spacious"><b>Alumni</b></h2>
+
+  <div class="avatar-grid">
+    <% @team['alumni'].shuffle.each do |member| %>
+      <%= render partial: 'profile', locals: member.symbolize_keys %>
+    <% end %>
+  </div>  
 
   <h2 class="spacious"><b>Contributors</b></h2>
 

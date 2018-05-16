@@ -83,6 +83,17 @@ $ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
 # $ docker-compose exec web rake repos:pull nexmo-community/nexmo-ruby-quickstart master
 ```
 
+## Bootstrapping a new section
+
+Each new section requires an overview, guides, building blocks and an API reference. To bootstrap a new section, use the `section:create` `rake` task
+
+```
+$ rake section:create "Example Name"
+
+# Docker users run:
+# $ docker-compose exec web rake section:create "Example Name"
+```
+
 ### Pre-Commit hooks
 
 This repository uses Yelp's [Pre-Commit framework](http://pre-commit.com/) for managing shared pre-commit hooks.

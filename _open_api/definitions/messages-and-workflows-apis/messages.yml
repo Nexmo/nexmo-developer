@@ -12,6 +12,7 @@ paths:
     post:
       security:
         - bearerAuth: []
+        - basicAuth: []
       summary: Send a Message
       operationId: NewMessage
       x-code-example-path: messages_and_workflows_apis.messages.send-sms
@@ -78,6 +79,9 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+    basicAuth:
+      type: http
+      scheme: basic
 
   schemas:
 
@@ -380,12 +384,35 @@ components:
         viber_service_msg:
           type: object
           properties:
+            category:
+              description: 'The use of different category tags enables the business to send messages for different use cases. For Viber Service Messages the first message sent from a business to a user must be personal, informative & a targeted message - not promotional. By default Nexmo sends the `transaction` category to Viber Service Messages.'
+              type: string
+              example: 'transaction'
+              enum:
+                - transaction
+                - promotion
             ttl:
               description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
               type: integer
               example: 600
               minimum: 30
               maximum: 86400
+        messenger:
+          type: object
+          properties:
+            category:
+              description: 'The use of different category tags enables the business to send messages for different use cases. For Facebook Messenger they need to comply with their [Messaging Types policy]( https://developers.facebook.com/docs/messenger-platform/send-messages#messaging_types). Nexmo maps our `category` to their `messaging_type`. If `message_tag` is used, then an additional `tag` for that type is mandatory. By default Nexmo sends the `response` category to Facebook Messenger.'
+              type: string
+              example: 'message_tag'
+              enum:
+                - response
+                - update
+                - message_tag
+            tag:
+              description: ‘A full list of the possible tags is available on [developers.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)'
+              type: string
+              example: 'ticket_update'
+
 
     TimestampProperty:
       type: string

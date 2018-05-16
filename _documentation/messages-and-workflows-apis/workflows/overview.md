@@ -4,7 +4,43 @@ title: Overview
 
 # Workflows Overview [Developer Preview]
 
-The Workflows API allows you to combine [messages](/messages-and-workflows-apis/messages/overview) sent via multiple channels and provides failover between them. This enables you to attempt to send a message to a user via Facebook or Viber, and then fall back to sending via SMS if the user does not receive or read the first message. Trying Facebook and Viber first allows you to provide a richer experience to the user including images and potentially to save money on SMS charges.
+The Workflows API enables the developer to specify a multiple message workflow. The first one we are adding is the failover template. The failover template instructs the [Messages API](messages-and-workflows-apis/messages/overview) to first send a message to the specified channel. If that message fails immediately or if the condition_status is not reached within the given time period the next message is sent. 
+
+```
+curl -X POST https://api.nexmo.com/beta/workflows \
+  -H 'Authorization: Basic base64(API_KEY:API_SECRET)'\
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -d $'{
+    "template":"failover",
+    "workflow": [
+      {
+        "from": { "type": "messenger", "id": "SENDER_ID" },
+        "to": { "type": "messenger", "id": "RECIPIENT_ID" },
+        "message": {
+          "content": {
+            "type": "text",
+            "text": "This is a Facebook Messenger Message sent from the Workflows API"
+          }
+        },
+        "failover":{
+          "expiry_time": 600,
+          "condition_status": "read"
+        }
+      },
+      {
+        "from": {"type": "sms", "number": "FROM_NUMBER"},
+        "to": { "type": "sms", "number": "TO_NUMBER"},
+        "message": {
+          "content": {
+            "type": "text",
+            "text": "This is an SMS sent from the Workflows API"
+          }
+        }
+      }
+    ]
+  }'
+```
 
 * **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
 * **Failover** to the next message if the success condition is not met within the time period or if the message immediately fails.
@@ -16,7 +52,6 @@ There may be bugs and quirks so we'd welcome your feedback - any suggestions you
 ## Contents
 
 * [Concepts](#concepts)
-* [How to Get Started with Workflows](#getting-started)
 * [Building Blocks](#building-blocks)
 * [Guides](#guides)
 * [Reference](#reference)
@@ -25,7 +60,7 @@ There may be bugs and quirks so we'd welcome your feedback - any suggestions you
 
 To use Workflows API, you may need to familiarise yourself with:
 
-* **[Authentication](/concepts/guides/authentication)** - The Workflows API is authenticated with JWT.
+* **[Authentication](/concepts/guides/authentication)** - The Workflows API is authenticated with either [Header-based API Key & Secret Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication) or [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt).
 * **[Messages](/messages-and-workflows-apis/messages/overview)** - The Messages API is used for sending messages to a single channel.
 
 ## Building Blocks
