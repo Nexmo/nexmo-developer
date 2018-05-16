@@ -36,6 +36,8 @@ To use the Redact API:
 2. When you receive a right to erasure request, fetch all IDs associated with that user from your database
 3. For each ID, make a request to the [Nexmo Redact API](/api/redact)
 
+To request access to the Nexmo Redact API, please visit [this page](https://info.nexmo.com/RedactAPI.html)
+
 ### Product API
 
 Redaction from certain Nexmo APIs is not supported by the Redact API as either the data stored is controlled by the customer, or because Nexmo cannot identify what is personal data and what is not. These cases are detailed below.
