@@ -5,11 +5,11 @@ title: Voice Reports
 # Voice
 
 Download records of your Voice usage. Please note that the products currently supported via the Reports API are:
-<ul>
-    <li>SIP</li>
-    <li>TTS</li>
-</ul>
-The Voice API logs will be added soon.
+
+* SIP
+* TTS
+
+Data from the Voice API will be available for download soon.
 
 ## Contents
 
