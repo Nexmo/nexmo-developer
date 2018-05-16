@@ -1,5 +1,6 @@
 ---
 title: Viber Service Messages
+navigation_weight: 3
 ---
 
 # Viber Service Messages

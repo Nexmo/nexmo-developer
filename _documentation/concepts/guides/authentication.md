@@ -6,7 +6,7 @@ title: Authentication
 
 Nexmo API provides various means of Authentication depending on what product you are using.
 
-API | API Key & Secret (Query String) | API Key & Secret (Header) | JSON Web Token (JWT) | OAuth
+API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web Token (JWT) | OAuth
 -- | -- | -- | -- | --
 [SMS](/api/sms) | ✅ | ❎ | ❎ | ✅
 [Voice](/api/voice) | ❎ | ❎ | ✅ | ❎
@@ -21,14 +21,14 @@ API | API Key & Secret (Query String) | API Key & Secret (Header) | JSON Web Tok
 
 In this document you can learn about authentication via the following means:
 
-* [API Key & Secret](#api-key-secret)
+* [API Key and Secret](#api-key-secret)
   * [Request Body](#request-body)
   * [Query String](#query-string)
   * [Header-based](#header-based-api-key-secret-authentication)
 * [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
 * [OAuth](#oauth)
 
-## API Key & Secret
+## API Key and Secret
 
 When you create a Nexmo account you will be provided an API key and secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
 
@@ -44,7 +44,7 @@ For `POST` requests to the SMS API, your API key and secret should be sent as pa
 
 Your API key and secret should be included in the parameters of requests you make to the Conversion, Number Insight or Developer API.
 
-### Header-based API Key & Secret Authentication
+### Header-based API Key and Secret Authentication
 
 A number of newer Nexmo APIs require authentication to be done using an API key and secret sent Base64-encoded in the `Authorization` header.
 
@@ -60,7 +60,11 @@ If your API key were `aaa012` and your API secret were `abc123456789`, you would
 Authorization: Basic YWFhMDEyOmFiYzEyMzQ1Njc4OQ==
 ```
 
-Below is a list of resources providing details on how to encode base64 strings in a variety of programming languages.
+A website for generating Base64 encoded strings can be found here:
+
+* General: [Base64 Encode and Decode](https://www.base64encode.org/)
+
+Details on how to encode Base64 strings in a variety of programming languages can be found at the following websites:
 
 * C#/.NET: [How do I encode and decode a base64 string?](https://stackoverflow.com/questions/11743160/how-do-i-encode-and-decode-a-base64-string) from StackOverflow
 * Go: [Base64 Encoding](https://gobyexample.com/base64-encoding) from Go By Example
