@@ -1,10 +1,11 @@
 ---
 title: Send with Facebook Messenger
+navigation_weight: 2
 ---
 
 # Send with Facebook Messenger
 
-Sending an Facebook Messenger message with the Messages API is straightforward. Sign up for an account and replace the following variables in the example below:
+You will need to replace the following variables with your specific information in the example code:
 
 Key | Description
 -- | --

@@ -42,7 +42,7 @@ Key | Description
  $ echo $JWT
  ```
 
-Remember that JWTs only last fifteen minutes by default. 
+Remember that JWTs only last fifteen minutes by default.
 
 ## 3. Link your Facebook Page to Nexmo
 
