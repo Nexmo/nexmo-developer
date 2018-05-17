@@ -75,12 +75,12 @@ components:
        type: string
        required: true
        description: Generic error message
-       example: TO_POPULATE
+       example: Invalid Product
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: TO_POPULATE
+       example: No product corresponding to supplied string sms2!
       instance:
        type: string
        required: true
@@ -100,12 +100,12 @@ components:
        type: string
        required: true
        description: Generic error message
-       example: TO_POPULATE
+       example: Premature Redaction
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: TO_POPULATE
+       example: You must wait 60 minutes before redacting ID '0A000000B0C9A1234'
       instance:
        type: string
        required: true
@@ -125,12 +125,12 @@ components:
        type: string
        required: true
        description: Generic error message
-       example: TO_POPULATE
+       example: Authorisation error
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: TO_POPULATE
+       example: User=ABC123 is not provisioned to redact product=SMS
       instance:
        type: string
        required: true
@@ -153,6 +153,7 @@ components:
        example: Unauthorized
 
    ErrorInvalidJson:
+     description: Invalid JSON
      type: object
      properties:
       type:
@@ -164,12 +165,12 @@ components:
        type: string
        required: true
        description: Generic error message
-       example: TO_POPULATE
+       example: Invalid JSON
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: TO_POPULATE
+       example: "Unexpected character ('\"' (code 34)): was expecting comma to separate Object entries"
       instance:
        type: string
        required: true
@@ -188,12 +189,12 @@ components:
        type: string
        required: true
        description: Generic error message
-       example: TO_POPULATE
+       example: Invalid ID
       detail:
        type: string
        required: false
        description: Additional information about the error
-       example: TO_POPULATE
+       example: ID '0A000000B0C9A1234' could not be found (type=MT)
       instance:
        type: string
        required: true
