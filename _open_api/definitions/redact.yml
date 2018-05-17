@@ -5,14 +5,31 @@ info:
   title: "Redact"
 servers:
   - url: https://api.nexmo.com
-security:
-  - basicAuth: []
 paths:
   /v1/redact/transaction:
     post:
       summary: Redact a specific message
       description: ""
       x-group: transaction
+      parameters:
+        - name: api_key
+          description: Your API key
+          required: true
+          in: query
+          example: abcd1234
+          schema:
+            type: string
+            minLength: 8
+            maxLength: 8
+        - name: api_secret
+          description: Your API secret. Required unless `sig` is provided
+          required: false
+          in: query
+          example: abcdef0123456789
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
       requestBody:
         required: true
         content:
