@@ -26,8 +26,6 @@ $ npm install nexmo@beta
 
 ## Contents
 
-In this document you can learn about:
-
 * [Concepts](#concepts)
 * [Quickstart](#quickstart)
 * [Guides](#guides)

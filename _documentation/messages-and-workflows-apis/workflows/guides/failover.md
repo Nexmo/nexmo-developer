@@ -19,24 +19,37 @@ image: public/assets/screenshots/dashboardSettings.png
 
 For testing, you can use a service like [hookbin.com](https://hookbin.com/) for free to see the data passed to the webhooks. If the endpoint in your account is already in production and you would like a second one for using the Workflows API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
-## 2. Generate a JWT
+## 2. Create a Nexmo Application
 
-As with the Messages API, the Workflows API authenticates using JWT.
+In order to create a JWT to authenticate your requests, you will first need to create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
-In order to create a JWT for you Nexmo API key you will need to create a Nexmo Voice Application. This can be done under the [Voice tab](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool.
+When creating a Nexmo Voice Application, you will be asked to provide an Event URL and an Answer URL. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs.
 
-You will be asked to provide an Event URL and an Answer URL when creating a Nexmo Voice Application. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs. Instead the Messages API and Workflows API use the Delivery Receipt and Inbound Message URLs that you set in [Settings](https://dashboard.nexmo.com/settings).
+When you are creating the Nexmo Voice Application you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
 
-Once you have created a Nexmo Application you can use the Application ID and private key to generate a JWT. There is more information on [Voice Application management]( https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/) and the use of [Nexmo libraries](https://developer.nexmo.com/tools).
+For more information on these topics please visit:
 
-You can generate a JWT with the Command Line Interface (CLI) with the following command:
+* [Nexmo Command Line Interface (CLI)](https://github.com/Nexmo/nexmo-cli).
+* [Authentication with JWTs](/concepts/guides/authentication#json-web-tokens-jwt).
+* Blog post on [Voice Application management](https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/).
+* [Nexmo libraries](https://developer.nexmo.com/tools).
 
-```curl
+## 3. Generate a JWT
+
+The Workflows API authenticates using JSON Web Tokens (JWTs). If you are using the client library for Node (or other languages when supported), the creation of JWTs is done for you.
+
+Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file to generate a JWT.
+
+If you're using the Nexmo CLI the command is:
+
+``` curl
 $ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
 $ echo $JWT
 ```
 
-## 3. Send a message with failover
+Remember that JWTs only last fifteen minutes by default.
+
+## 4. Send a message with failover
 
 Sending an message with failover to another channel is achieved by making one request to the Workflows API endpoint. In this example you will implement the following workflow:
 

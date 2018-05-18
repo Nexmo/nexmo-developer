@@ -10,7 +10,7 @@ The Workflows API enables the developer to specify a multiple message workflow.
 
 In this release Nexmo is providing a failover template. The failover template instructs the [Messages API](messages-and-workflows-apis/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
-There may be bugs and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflows API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+There may be issues so Nexmo welcomes your feedback. Any suggestions you make help us improve the product. If you do need help, please email support@nexmo.com and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
 ## Contents
 
@@ -78,11 +78,11 @@ In this example the workflow attempts to send a Facebook Messenger message, and 
 
 ## Guides
 
-* [Failover](/messages-and-workflows-apis/workflows/guides/failover): how to set up your account and environment to send a message using Viber with fallback to SMS
+* [Failover](/messages-and-workflows-apis/workflows/guides/failover): how to set up your account and environment to send a message using Facebook Messenger with fallback to SMS.
 
 ## Building Blocks
 
-* [Send a message with failover](/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover): the core details of how to use the Workflows API for sending messages with failover
+* [Send a message with failover](/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover): the core details of how to use the Workflows API for sending messages with failover.
 
 ## Reference
 
