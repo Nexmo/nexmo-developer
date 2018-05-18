@@ -15,7 +15,6 @@ Key | Description
 
 ## Prerequisites
 
-- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
 - *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
 
 ## Generate a JWT

@@ -2,9 +2,11 @@
 title: Using Failover
 ---
 
-The guide below shows how to use the failover functionality of the Workflows API.
+# Using failover
 
-## 1. Configure your Delivery Receipt Webhjook and Inbound Message Webhook URLs
+This guide shows you how to use the failover functionality of the Workflows API.
+
+## 1. Configure your Webhook URLs
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com), go to [Settings](https://dashboard.nexmo.com/settings).
 
@@ -17,7 +19,7 @@ image: public/assets/screenshots/dashboardSettings.png
 
 For testing, you can use a service like [hookbin.com](https://hookbin.com/) for free to see the data passed to the webhooks. If the endpoint in your account is already in production and you would like a second one for using the Workflows API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
-## 2. Generate a JWT to Authenticate with Nexmo
+## 2. Generate a JWT
 
 As with the Messages API, the Workflows API authenticates using JWT.
 
@@ -36,7 +38,11 @@ $ echo $JWT
 
 ## 3. Send a message with failover
 
-Sending an message with failover to another channel is done by making one request to the Workflows API endpoint. In this example you will send a Facebook Messenger message that when the failover condition is met (i.e. the message has not been read), the API will proceed to send an SMS.
+Sending an message with failover to another channel is achieved by making one request to the Workflows API endpoint. In this example you will implement the following workflow:
+
+1. Send a Facebook Messenger message to the user.
+2. If the failover condition is met proceed to the next step. In this example the failover condition is the message not being read.
+3. Send an SMS to the user.
 
 Key | Description
 -- | --

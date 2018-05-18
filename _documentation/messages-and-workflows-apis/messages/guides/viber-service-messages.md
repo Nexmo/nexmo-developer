@@ -15,7 +15,7 @@ In order to get started with Viber Service Messages you will need to email [sale
 
 If successful, your account manager will provide you with a Viber Service Messages ID. This ID can only be used on Nexmo.
 
-## 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
+## 1. Configure your Webhook URLs
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 

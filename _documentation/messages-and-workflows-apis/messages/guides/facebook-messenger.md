@@ -50,7 +50,7 @@ Next you'll need to link your Facebook Page to Nexmo. This will allow Nexmo to h
 
 * [Link your Facebook Page to Nexmo](https://static.nexmo.com/messenger/)
 
-## 4. Configure your Inbound Message Webhook and Delivery Receipt Webhook URLs
+## 4. Configure your Webhook URLs
 
 If you have not already done so, you will need to configure the Inbound Message Webhook and Delivery Receipt Webhook URLs.
 

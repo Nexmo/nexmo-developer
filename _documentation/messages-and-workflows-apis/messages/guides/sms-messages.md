@@ -7,7 +7,7 @@ navigation_weight: 1
 
 In this guide you will see how to send an SMS. The same steps taken here can be easily modified to send a message across Viber Service Messages, Facebook Messenger and future channels that Nexmo might add.
 
-## 1. Configure your Nexmo message webhook URLs
+## 1. Configure your Webhook URLs
 
 If you intend to receive inbound messages you will need to configure an inbound message webhook URL. To receive updates about the status of a message, such as "delivered" or "read", you need to configure a delivery receipt webhook URL.
 
