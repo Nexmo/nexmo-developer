@@ -1,95 +1,77 @@
-/slack: /community/slack
-
-/messaging: /messaging/sms/overview
-/messaging/sms: /messaging/sms/overview
-/sms: /messaging/sms/overview
-/voice: /voice/overview
-/voice/sip: /voice/sip/overview
-/voice/guides: /voice/overview#references
-/verify: /verify/overview
-/account: /account/overview
-/messaging/us-short-codes: /messaging/us-short-codes/overview
-/messaging/conversion-api: /messaging/conversion-api/overview
-/messaging/sns: /messaging/sns/overview
-
-/messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
-/messaging/sms/building-blocks/receive-a-delivery-receipt: /messaging/sms/guides/delivery-reciepts
-/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
-/messaging/sms/guides: /messaging/sms/overview#sms-api-features
-/sms/guides: /messaging/sms/guides/us-short-codes/overview
-/verify/guides: /verify/guides/verify-a-user
-/verify/tutorial: /verify/tutorials/passwordless-authentication
-/verify/building-blocks: /verify/building-blocks/send-verify-request
-
-/voice/building-blocks: /voice/voice-api/building-blocks/make-an-outbound-call
-
-/number-insight: /number-insight/overview
-/number-insight/guides: /number-insight/guides/cnam
-/number-insight/building-blocks: /number-insight/building-blocks/number-insight-basic
-
-/account/guides: /account/guides/management
-/account/building-blocks: /account/building-blocks/buy-a-number
-
-/tools/cli: /tools
-
-/api/developer: /api/developer/account
-/api/account: /api/developer/account
-/api/messages: /api/developer/account
-/api/numbers: /api/developer/account
-
-/events: /community
-
-/voice/api-reference: /api/voice
-/voice/voice-api/ncco-reference: /api/voice/ncco
-/voice/voice-api/api-reference: /api/voice
-/messaging/sms/api-reference: /api/sms
-/verify/api-reference: /api/verify
-/number-insight/api-reference: /api/number-insight
-
-
-/sip: /voice/sip
-/voice/guides/sip: /voice/sip
-/voice/overview: /voice/voice-api/overview
-
-/voice/guides/voice-app-components: /voice/voice-api/guides/voice-app-components
-/voice/guides/connect-two-users: /voice/voice-api/guides/connect-two-users
-/voice/guides/connecting-voice-calls-to-amazon-lex-bots: /voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots
-/voice/guides/create-conferences: /voice/voice-api/guides/create-conferences
-/voice/guides/handle-call-status: /voice/voice-api/guides/handle-call-status
-/voice/guides/inbound-calls: /voice/voice-api/guides/inbound-calls
-/voice/guides/interactive-voice-response: /voice/voice-api/guides/interactive-voice-response
-/voice/guides/ncco: /voice/voice-api/guides/ncco
-/voice/guides/outbound-calls: /voice/voice-api/guides/outbound-calls
-/voice/guides/record-calls-and-conversations: /voice/voice-api/guides/record-calls-and-conversations
-/voice/guides/call-a-websocket: /voice/voice-api/guides/call-a-websocket
-/voice/building-blocks/connect-a-phone-call: /voice/voice-api/building-blocks/connect-a-phone-call
-/voice/building-blocks/receive-a-phone-call: /voice/voice-api/building-blocks/receive-a-phone-call
-/voice/tutorials: /voice/voice-api/tutorials
-/voice/api-reference: /voice/voice-api/api-reference
-
-/voice/guides/ncco-reference: /api/voice/ncco
-/voice/voice-api/guides/ncco-refernce: /api/voice/ncco
-
-/messaging/tutorials: /messaging/sms/tutorials
-
-/contribute: /contribute/overview
-/styleguide: /contribute/guides/styleguide
-/write-the-docs: /contribute/guides/write-the-docs
-
-/messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
-/messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
-
-/stitch/sdk-documentation/android: /sdk/stitch/android/
-/stitch/sdk-documentation/ios: /sdk/stitch/ios/
-/stitch/sdk-documentation/javascript: /sdk/stitch/javascript/
-
-/stitch: /stitch/overview
-/stitch/api-reference: /api/stitch
-
-/messages-and-workflows-apis/messages/api-reference: /api/messages-and-workflows-apis/messages
-/messages-and-workflows-apis/workflows/api-reference: /api/messages-and-workflows-apis/workflows
-
-/messages-and-workflows-apis/messages/guides: /messages-and-workflows-apis/messages/guides/facebook-messenger
-/messages-and-workflows-apis/workflows/guides: /messages-and-workflows-apis/workflows/guides/failover
-/messages-and-workflows-apis/messages/building-blocks: /messages-and-workflows-apis/messages/building-blocks/send-an-sms-with-messages-api
-/messages-and-workflows-apis/workflows/building-blocks: /messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover
+---
+"/slack": "/community/slack"
+"/messaging": "/messaging/sms/overview"
+"/messaging/sms": "/messaging/sms/overview"
+"/sms": "/messaging/sms/overview"
+"/voice": "/voice/overview"
+"/voice/sip": "/voice/sip/overview"
+"/voice/guides": "/voice/overview#references"
+"/verify": "/verify/overview"
+"/account": "/account/overview"
+"/messaging/us-short-codes": "/messaging/us-short-codes/overview"
+"/messaging/conversion-api": "/messaging/conversion-api/overview"
+"/messaging/sns": "/messaging/sns/overview"
+"/messaging/sms/building-blocks": "/messaging/sms/building-blocks/send-an-sms"
+"/messaging/sms/building-blocks/receive-a-delivery-receipt": "/messaging/sms/guides/delivery-reciepts"
+"/sms/building-blocks": "/messaging/sms/building-blocks/send-an-sms"
+"/messaging/sms/guides": "/messaging/sms/overview#sms-api-features"
+"/sms/guides": "/messaging/sms/guides/us-short-codes/overview"
+"/verify/guides": "/verify/guides/verify-a-user"
+"/verify/tutorial": "/verify/tutorials/passwordless-authentication"
+"/verify/building-blocks": "/verify/building-blocks/send-verify-request"
+"/voice/building-blocks": "/voice/voice-api/building-blocks/make-an-outbound-call"
+"/number-insight": "/number-insight/overview"
+"/number-insight/guides": "/number-insight/guides/cnam"
+"/number-insight/building-blocks": "/number-insight/building-blocks/number-insight-basic"
+"/account/guides": "/account/guides/management"
+"/account/building-blocks": "/account/building-blocks/buy-a-number"
+"/tools/cli": "/tools"
+"/api/developer": "/api/developer/account"
+"/api/account": "/api/developer/account"
+"/api/messages": "/api/developer/account"
+"/api/numbers": "/api/developer/account"
+"/events": "/community"
+"/voice/api-reference": "/voice/voice-api/api-reference"
+"/voice/voice-api/ncco-reference": "/api/voice/ncco"
+"/voice/voice-api/api-reference": "/api/voice"
+"/messaging/sms/api-reference": "/api/sms"
+"/verify/api-reference": "/api/verify"
+"/number-insight/api-reference": "/api/number-insight"
+"/redact/api-reference": "/api/redact"
+"/sip": "/voice/sip"
+"/voice/guides/sip": "/voice/sip"
+"/voice/overview": "/voice/voice-api/overview"
+"/voice/guides/voice-app-components": "/voice/voice-api/guides/voice-app-components"
+"/voice/guides/connect-two-users": "/voice/voice-api/guides/connect-two-users"
+"/voice/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots"
+"/voice/guides/create-conferences": "/voice/voice-api/guides/create-conferences"
+"/voice/guides/handle-call-status": "/voice/voice-api/guides/handle-call-status"
+"/voice/guides/inbound-calls": "/voice/voice-api/guides/inbound-calls"
+"/voice/guides/interactive-voice-response": "/voice/voice-api/guides/interactive-voice-response"
+"/voice/guides/ncco": "/voice/voice-api/guides/ncco"
+"/voice/guides/outbound-calls": "/voice/voice-api/guides/outbound-calls"
+"/voice/guides/record-calls-and-conversations": "/voice/voice-api/guides/record-calls-and-conversations"
+"/voice/guides/call-a-websocket": "/voice/voice-api/guides/call-a-websocket"
+"/voice/building-blocks/connect-a-phone-call": "/voice/voice-api/building-blocks/connect-a-phone-call"
+"/voice/building-blocks/receive-a-phone-call": "/voice/voice-api/building-blocks/receive-a-phone-call"
+"/voice/tutorials": "/voice/voice-api/tutorials"
+"/voice/guides/ncco-reference": "/api/voice/ncco"
+"/voice/voice-api/guides/ncco-refernce": "/api/voice/ncco"
+"/messaging/tutorials": "/messaging/sms/tutorials"
+"/contribute": "/contribute/overview"
+"/styleguide": "/contribute/guides/styleguide"
+"/write-the-docs": "/contribute/guides/write-the-docs"
+"/messaging/sms/guides/global-messaging": "/messaging/sms/guides/country-specific-features"
+"/messaging/sms/guides/delivery-reciepts": "/messaging/sms/guides/delivery-receipts"
+"/stitch/sdk-documentation/android": "/sdk/stitch/android/"
+"/stitch/sdk-documentation/ios": "/sdk/stitch/ios/"
+"/stitch/sdk-documentation/javascript": "/sdk/stitch/javascript/"
+"/stitch": "/stitch/overview"
+"/stitch/api-reference": "/api/stitch"
+"/messages-and-workflows-apis/messages/api-reference": "/api/messages-and-workflows-apis/messages"
+"/messages-and-workflows-apis/workflows/api-reference": "/api/messages-and-workflows-apis/workflows"
+"/messages-and-workflows-apis/messages/guides": "/messages-and-workflows-apis/messages/guides/facebook-messenger"
+"/messages-and-workflows-apis/workflows/guides": "/messages-and-workflows-apis/workflows/guides/failover"
+"/messages-and-workflows-apis/messages/building-blocks": "/messages-and-workflows-apis/messages/building-blocks/send-an-sms-with-messages-api"
+"/messages-and-workflows-apis/workflows/building-blocks": "/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover"
+"/redact": "/redact/overview"
