@@ -44,25 +44,25 @@ The following code shows how to send an SMS message:
 
 ```
 curl -X POST https://api.nexmo.com/beta/messages \
-  -H 'Authorization: Basic base64(API_KEY:API_SECRET)'\
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -d $'{
-    "from": { "type": "sms", "number": "FROM_NUMBER" },
-    "to": { "type": "sms", "number": "TO_NUMBER" },
-    "message": {
-      "content": {
-        "type": "text",
-        "text": "This is an SMS sent from the Messages API"
-      }
-    }
-  }'
+     -u 'API_KEY:API_SECRET' \
+     -H 'Content-Type: application/json' \
+     -H 'Accept: application/json' \
+     -d $'{
+	      "from": { "type": "sms", "number": "FROM_NUMBER" },
+	      "to": { "type": "sms", "number": "TO_NUMBER" },
+	      "message": {
+	        "content": {
+		      "type": "text",
+		      "text": "This is an SMS sent from the Messages API"
+	    }
+   }
+}'
 ```
 
 In the above example you will need to:
 
-1. Replace `FROM_NUMBER` and `TO_NUMBER` in the code above with suitable phone numbers in E.164 format, for example, 447700900000.
-2. Replace `base64(API_KEY:API_SECRET)` with the correct Base64 encoded string. Further information on how to do this can be found in the [Header-based API Key and Secret Authentication documentation](/concepts/guides/authentication#header-based-api-key-secret-authentication).
+1. Replace `API_KEY` and `API_SECRET` with your Nexmo API_KEY and API_SECRET respectively. These can be obtained from your Dashboard.
+2. Replace `FROM_NUMBER` and `TO_NUMBER` with suitable phone numbers in E.164 format, for example, 447700900000.
 
 The example code will return the message ID and an SMS will be sent to the number specified.
 

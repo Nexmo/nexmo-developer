@@ -40,7 +40,7 @@ An example is shown here:
 
 ```
 curl -X POST https://api.nexmo.com/beta/workflows \
-  -H 'Authorization: Basic base64(API_KEY:API_SECRET)'\
+  -u 'API_KEY:API_SECRET' \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -d $'{
