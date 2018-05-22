@@ -1,0 +1,422 @@
+openapi: "3.0.0"
+info:
+  version: 0.1.0
+  title: CHATAPP-ACCOUNT API
+  description: 'The Chatapp-accounts API is a new API that creates accounts for VSM, Messenger and Whatsapp which will be used by the Messages and Workflows APIs. (https://developer.nexmo.com/messages-and-workflows-apis/messages/overview)'
+  x-label: Developer Preview
+servers:
+  - url: https://api.nexmo.com/beta/chatapp-accounts
+
+paths:
+  /:
+    get:
+      security:
+        - bearerAuth: []
+        - basicAuth: []
+      summary: Retrieve all chatapp-accounts you own
+      operationId: GetAllAccounts
+      x-code-example-path: "https://api.nexmo.com/beta/chatapp-accounts"
+      x-group: getAll
+      parameters:
+        - in: query
+          name: page_number
+          schema:
+            type: integer
+            example: 1
+          required: false
+          description: Page number of the results (default = 1)
+        - in: query
+          name: page_size
+          schema:
+            type: integer
+            example: 1
+          required: false
+          description: Page size of the results (default = 20)
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page_number:
+                    type: integer
+                    example: 1
+                  page_size:
+                    type: integer
+                    example: 10
+                  _embedded:
+                    type: "array"
+                    items:
+                       $ref: '#/components/schemas/AccountResponse'
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            example: "https://api.nexmo.com/beta/chatapp-accounts?page_number=1&page_size=10"
+                      next:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            example: "https://api.nexmo.com/beta/chatapp-accounts?page_number=3&page_size=10"
+                      prev:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            example: "https://api.nexmo.com/beta/chatapp-accounts?page_number=1&page_size=10"
+                      first:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            example: "https://api.nexmo.com/beta/chatapp-accounts?page_number=1&page_size=10"
+                      last:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            example: "https://api.nexmo.com/beta/chatapp-accounts?page_number=4&page_size=10"
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Response'
+  /{provider}:
+    post:
+      security:
+        - bearerAuth: []
+        - basicAuth: []
+      summary: Create a chatapp-account
+      operationId: CreateAccount
+      x-code-example-path: "https://api.nexmo.com/beta/chatapp-accounts/messenger"
+      x-group: create
+      parameters:
+        - in: path
+          name: provider
+          schema:
+            type: string
+            enum:
+              - viber_service_msg
+              - messenger
+              - whatsapp
+          required: true
+          description: Provider for which you want to create an account
+      requestBody:
+        description: Only admins can create VSM and Whatsapp accounts. Different parameters are required for each provider. 
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+              - external_id
+              properties:
+                name:
+                  type: string
+                  example: "myaccount" # optional - supported for all providers
+                external_id:
+                  type: string
+                  example: "1234" # required for all providers
+                api_key:
+                  type: string
+                  example: "12345678" # required when adding an account as admin
+                access_token:
+                  type: string
+                  example: "myAccessToken" # required for messenger only
+                username:
+                  type: string
+                  example: "myUsername" # required for whatsapp only
+                password:
+                  type: string
+                  example: "myPassword" # required for whatsapp only
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: "https://www.nexmo.com/messages/Errors#InvalidParams"
+                  title:
+                    type: string
+                    example: "Your request parameters didn't validate."
+                  detail:
+                    type: string
+                    example: "Found errors validating 1 of your submitted parameters."
+                  instace:
+                    type: string
+                    example: null
+                  invalid_params:
+                    type: "array"
+                    items:
+                      type: "object"
+                      properties:
+                        name:
+                          type: string
+                          example: "external_id"
+                        reason:
+                          type: string
+                          example: "Missing `external_id` field"
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Response'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Response'
+  /{provider}/{external_id}:                 
+    patch:
+      security:
+        - bearerAuth: []
+        - basicAuth: []
+      summary: Update a chatapp-account
+      operationId: UpdateAccount
+      x-code-example-path: "https://api.nexmo.com/beta/chatapp-accounts/messenger/12345678"
+      x-group: patch
+      parameters:
+        - in: path
+          name: provider
+          schema:
+            type: string
+            enum:
+              - viber_service_msg
+              - messenger
+              - whatsapp
+          required: true
+          description: Provider of the account you want to update
+        - in: path
+          name: external_id
+          schema:
+            type: string
+          required: true
+          description: External id of the account you want to update
+      requestBody:
+        description: Only admins can update VSM and Whatsapp accounts.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: 
+              - external_id
+              properties:
+                name:
+                  type: string
+                  example: "myaccount" # optional - supported for all providers
+                access_token:
+                  type: string
+                  example: "myAccessToken" # required for messenger only
+                username:
+                  type: string
+                  example: "myUsername" # required for whatsapp only
+                password:
+                  type: string
+                  example: "myPassword" # required for whatsapp only
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/AccountResponse'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: "https://www.nexmo.com/messages/Errors#InvalidParams"
+                  title:
+                    type: string
+                    example: "Your request parameters didn't validate."
+                  detail:
+                    type: string
+                    example: "Found errors validating 1 of your submitted parameters."
+                  instace:
+                    type: string
+                    example: null
+                  invalid_params:
+                    type: "array"
+                    items:
+                      type: "object"
+                      properties:
+                        name:
+                          type: string
+                          example: "external_id"
+                        reason:
+                          type: string
+                          example: "'external_id' parameter cannot be changed"
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Response'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Response'
+        '404':
+          description: Not Found.
+    get:
+      security:
+        - bearerAuth: []
+        - basicAuth: []
+      summary: Retrieve a chatapp-account
+      operationId: GetAccount
+      x-code-example-path: "https://api.nexmo.com/beta/chatapp-accounts/messenger/12345678"
+      x-group: get
+      parameters:
+        - in: path
+          name: provider
+          schema:
+            type: string
+            enum:
+              - viber_service_msg
+              - messenger
+              - whatsapp
+          required: true
+          description: Provider of the account you want to retrieve
+        - in: path
+          name: external_id
+          schema:
+            type: string
+          required: true
+          description: External id of the account you want to retrieve
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/AccountResponse'
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Response'
+        '404':
+          description: Not Found.
+    delete:
+      security:
+        - bearerAuth: []
+        - basicAuth: []
+      summary: Delete a chatapp-account
+      operationId: DeleteAccount
+      x-code-example-path: "https://api.nexmo.com/beta/chatapp-accounts/messenger/12345678"
+      x-group: delete
+      parameters:
+        - in: path
+          name: provider
+          schema:
+            type: string
+            enum:
+              - viber_service_msg
+              - messenger
+              - whatsapp
+          required: true
+          description: Provider of the account you want to delete
+        - in: path
+          name: external_id
+          schema:
+            type: string
+          required: true
+          description: External id of the account you want to delete
+      responses:
+        '204': 
+          description: No Content.
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Response'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Response'
+        '404':
+          description: Not Found.
+
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    basicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+
+    AccountResponse:
+      type: object
+      properties:
+        provider:
+          type: string
+          example: viber_service_msg
+        name:
+          type: string
+          example: "myaccount"
+        external_id:
+          type: string
+          example: "1234"
+        api_key:
+          type: string
+          example: "12345678"
+        access_token:
+          type: string
+          example: "myAccessToken"
+        username:
+          type: string
+          example: "myUsername"
+        password:
+          type: string
+          example: "myPassword"
+    401Response:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "Unauthorised"
+        detail:
+          type: string
+          example: "Request header 'Authorization' missing / Invalid Token"
+    403Response:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "Wrong authentication - You are not authorised to access this resource"
