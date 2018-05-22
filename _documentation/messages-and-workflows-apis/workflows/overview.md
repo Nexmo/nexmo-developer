@@ -8,9 +8,9 @@ The Workflows API enables the developer to specify a multiple message workflow.
 
 ## Developer Preview
 
-In this release Nexmo is providing a failover template. The failover template instructs the [Messages API](messages-and-workflows-apis/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
+In this release Nexmo provides a failover template. The failover template instructs the [Messages API](messages-and-workflows-apis/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
-There may be issues so Nexmo welcomes your feedback. Any suggestions you make help us improve the product. If you do need help, please email support@nexmo.com and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
 ## Contents
 

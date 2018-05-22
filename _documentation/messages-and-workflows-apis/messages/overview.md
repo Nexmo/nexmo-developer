@@ -8,15 +8,13 @@ The Messages API is a single API that enables integration with various communica
 
 ## Developer Preview
 
-This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
-
 During Developer Preview Nexmo will expand the capabilities of the API. Please visit the API Reference for a comprehensive breakdown. Currently the following features are supported:
 
 * Outbound text messages on SMS, Viber Service Messages and Facebook Messenger.
 * Outbound media messages on Facebook Messenger.
 * Inbound text, media and location messages on Facebook Messenger.
 
-There may be issues so Nexmo welcomes your feedback. Any suggestions you make help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
 If you are using the Node library then during the Developer Preview period the library can be installed with the command:
 

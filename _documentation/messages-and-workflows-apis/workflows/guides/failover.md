@@ -8,16 +8,20 @@ This guide shows you how to use the failover functionality of the Workflows API.
 
 ## 1. Configure your Webhook URLs
 
-From [Nexmo Dashboard](https://dashboard.nexmo.com), go to [Settings](https://dashboard.nexmo.com/settings).
+If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for testing purposes.
 
-Set the HTTP method to POST and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
+If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+
+From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
+
+Enter your Webhook URLs in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/assets/screenshots/dashboardSettings.png
 ```
 
-For testing, you can use a service like [hookbin.com](https://hookbin.com/) for free to see the data passed to the webhooks. If the endpoint in your account is already in production and you would like a second one for using the Workflows API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+NOTE: You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
 ## 2. Create a Nexmo Application
 

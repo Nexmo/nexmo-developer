@@ -17,14 +17,20 @@ If successful, your account manager will provide you with a Viber Service Messag
 
 ## 1. Configure your Webhook URLs
 
+If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for testing purposes.
+
+If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
-Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
+Enter your Webhook URLs in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/assets/screenshots/dashboardSettings.png
 ```
+
+NOTE: You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
 ## 2. Create a Nexmo application
 
@@ -34,7 +40,7 @@ If you have not already done so, create a Nexmo Application.
 
 ## 3. Generate a JWT
 
-If you are not using one of the Nexmo client libraries you will need to vcreate a JWT. Generate a JWT with the following command:
+If you are not using one of the Nexmo client libraries you will need to create a JWT. Generate a JWT with the following command:
 
 ```curl
 $ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
