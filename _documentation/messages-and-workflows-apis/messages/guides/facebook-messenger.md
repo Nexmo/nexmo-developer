@@ -7,7 +7,7 @@ navigation_weight: 2
 
 You can use the Messages API to send and receive messages using Facebook Messenger.
 
-A Facebook User will normally initiate a communication with a business via the business's Facebook Page.
+A Facebook user must initiate the communication with a business via the business's Facebook Page. A message from the business will otherwise be refused.
 
 Facebook Messenger uses its own form of IDs for the Facebook Page and the Facebook User:
 
