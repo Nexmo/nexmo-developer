@@ -22,10 +22,18 @@ Nexmo always welcomes your feedback. Your suggestions help us improve the produc
 
 ## Concepts
 
-To use Workflows API, you may need to familiarise yourself with:
+To use the Workflows API, you may need to familiarise yourself with:
 
-* **[Authentication](/concepts/guides/authentication)** - The Workflows API is authenticated with either [Header-based API Key and Secret Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication) or [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt).
-* **[Messages](/messages-and-workflows-apis/messages/overview)** - The Messages API is used for sending messages to a single channel.
+**[Authentication](/concepts/guides/authentication)**
+
+The Workflows API is authenticated with either:
+
+1. [Basic Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication). Or, 
+2. [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt). This is the recommended approach.
+
+**[Messages](/messages-and-workflows-apis/messages/overview)**
+
+The Messages API is used for sending messages to a single channel.
 
 ## Quickstart
 

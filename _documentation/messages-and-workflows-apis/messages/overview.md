@@ -35,8 +35,16 @@ $ npm install nexmo@beta
 
 To use the Messages API, you may need to familiarise yourself with:
 
-* **[Authentication](/concepts/guides/authentication)** - The Messages API is authenticated with either [Header-based API Key and Secret Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication) or [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt).
-* **[Workflows](/messages-and-workflows-apis/workflows/overview)** - The Workflow API is used to combine messages together with logic to allow for failover.
+**[Authentication](/concepts/guides/authentication)**
+
+The Messages API is authenticated with either:
+
+1. [Basic Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication). Or, 
+2. [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt). This is the recommended approach.
+
+**[Workflows](/messages-and-workflows-apis/workflows/overview)**
+
+The Workflow API is used to combine messages together with logic to allow for failover.
 
 ## Quickstart
 
