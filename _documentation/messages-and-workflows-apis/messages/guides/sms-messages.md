@@ -11,7 +11,8 @@ In this guide you will see how to send an SMS. The same steps taken here can be 
 
 If you intend to receive inbound messages you will need to configure an inbound message webhook URL. To receive updates about the status of a message, such as "delivered" or "read", you need to configure a delivery receipt webhook URL.
 
-If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for testing purposes.
+If you don't have a webhook server set up you can use a service like [Ngrok](https://ngrok.com/) for testing purposes. If you've not used Ngrok before you can find out more in our [Ngrok tutorial](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
+
 
 If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 

@@ -54,7 +54,7 @@ Next you'll need to link your Facebook Page to Nexmo. This will allow Nexmo to h
 
 If you have not already done so, you will need to configure the Inbound Message Webhook and Delivery Receipt Webhook URLs.
 
-If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for testing purposes.
+If you don't have a webhook server set up you can use a service like [Ngrok](https://ngrok.com/) for testing purposes. If you've not used Ngrok before you can find out more in our [Ngrok tutorial](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
 
 If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
