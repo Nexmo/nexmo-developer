@@ -82,7 +82,13 @@ curl -X POST https://api.nexmo.com/beta/workflows \
   }'
 ```
 
-In this example the workflow attempts to send a Facebook Messenger message, and if this fails (the success condition in this example is `read`), then an SMS is sent.
+In the above example code you will need to:
+
+1. Replace `API_KEY` and `API_SECRET` with your Nexmo API_KEY and API_SECRET respectively. These can be obtained from your Dashboard.
+2. Replace `SENDER_ID` with the ID of the Facebook page. Replace `RECIPIENT_ID` with the ID of the Facebook user you are sending the message to. 
+3. Replace `FROM_NUMBER` and `TO_NUMBER` with suitable phone numbers. The `FROM_NUMBER` would typically be a Nexmo Number but also could be any other number you own. The `TO_NUMBER` is the number of the phone to which the message will be sent. Throughout the Nexmo APIs numbers are always specified in E.164 format, for example, 447700900000.
+
+In this example the workflow attempts to send a Facebook Messenger message to the specified Facebook user, and if this fails (the success condition in this example is `read`), then an SMS is sent.
 
 ## Guides
 
