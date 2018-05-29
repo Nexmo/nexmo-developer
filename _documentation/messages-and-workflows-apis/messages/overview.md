@@ -8,6 +8,8 @@ The Messages API is a single API that enables integration with various communica
 
 ## Developer Preview
 
+This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
+
 During Developer Preview Nexmo will expand the capabilities of the API. Please visit the API Reference for a comprehensive breakdown. Currently the following features are supported:
 
 * Outbound text messages on SMS, Viber Service Messages and Facebook Messenger.
