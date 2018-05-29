@@ -6,6 +6,10 @@
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
 
+unless Rails.env.test?
+  User.create!(email: 'admin@nexmo.com', password: 'development', admin: true)
+end
+
 Event.create!({
   title: 'Small business hackathon',
   starts_at: Time.zone.parse('2020-03-04'),

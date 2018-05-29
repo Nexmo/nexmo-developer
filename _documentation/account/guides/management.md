@@ -62,7 +62,6 @@ When you setup your Nexmo account you create your primary user. The primary user
 * Manage payments and view your payment history
 * Rent virtual numbers and short codes
 * Search through your requests
-* Configure Verify SDK
 * Analyse your API use
 
 After setup, you can add secondary users to your Nexmo account. A secondary account can have the same access rights as your primary account or a restricted set. For example, you can create a secondary account with no access to payments.
