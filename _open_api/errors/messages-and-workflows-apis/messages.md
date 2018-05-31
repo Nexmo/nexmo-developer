@@ -9,7 +9,8 @@ Code | Text | Meaning
 `1000` | Throttled | You have exceeded the submission capacity allowed on this account. Please wait and retry.
 `1010` | Missing params | Your request is incomplete and missing some mandatory parameters.
 `1020` | Invalid params | The value of one or more parameters is invalid.
-`1021` | Invalid tag | The tag value is invalid
+`1021` | Invalid tag | The tag value is invalid.
+`1022` | Invalid template parameters | Some of the parameters of the template were invalid.
 `1030` | Internal error | There was an error processing your request in the Platform.
 `1040` | Invalid message | The Platform was unable to process your request. For example, due to an unrecognised prefix for the phone number.
 `1050` | Number barred | The number you are trying to submit to is blacklisted and may not receive messages.
@@ -44,3 +45,4 @@ Code | Text | Meaning
 `1330` | Unknown | An unknown error was received from the carrier who tried to send this this message. Depending on the carrier, that to is unknown. When you see this error, and status is rejected, always check if to in your request was valid.
 `1340` | Outside of the allowed window | This message is sent outside of allowed response window.
 `1350` | Phone matching fee not paid | Requires phone matching access fee to be paid by the the Facebook Page.
+`1360` | TTL was activated | TTL was activated, no callbacks and no charge will be issued.
