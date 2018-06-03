@@ -49,15 +49,41 @@ The following table shows the parameters you use to create a call:
 
 Parameter | Description | Required
 -- | -- | --
-`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md). | ✅
+`to` | The single or mixed collection of endpoint types you connected to. [Possible values](#to-values). | ✅
 `from` | The endpoint you are calling from. Possible value are the same as *to*. | ✅
 `answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | ✅
 `answer_method` | The HTTP method used to send event information to `answer_url`. The default value is [GET]. | ❎
 `event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | ❎
 `event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | ❎
-`machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | ❎
+`machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to `continue` to continue with call, or `hangup` to end call on machine detection. | ❎
 `length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | ❎
 `ringing_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to ‘ringing’. The default value is 60, the maximum value is 120. | ❎
+
+##### `to` values
+
+###### Phone - phone numbers in e.164 format
+
+Value | Description
+-- | --
+`type` | `phone`
+`number` | the phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+`dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
+
+###### Websocket - the websocket to connect to
+
+Value | Description
+-- | --
+`type` | `websocket`
+`uri` | the URI to the websocket you are streaming to.
+`content-type` | the internet media type for the audio you are streaming. Possible values are: `audio/l16;rate=16000`
+`headers` | a JSON object containing any metadata you want.
+
+###### sip - the sip endpoint to connect to
+
+Value | Description
+-- | --
+`type` | `sip`
+`uri` | The SIP URI to the endpoint you are connecting to in the format `sip:rebekka@sip.example.com`.
 
 #### Response
 
