@@ -11,6 +11,7 @@ en:
     stitch: Stitch
     in-app-messaging: In-App Messaging
     in-app-voice: In-App Voice
+    push-notifications: Push Notifications
     messages-and-workflows-apis: Messages and Workflows APIs
     messages: Messages
     workflows: Workflows
