@@ -5,7 +5,7 @@ info:
   description: >
     Nexmo's Reports API allows you to request a report of activity on your
     Nexmo account.
-    On average the Reports API takes 25 to 35 minutes to generate 1 million records. We recommend to request reports up to a maximum of 20 million records by setting the start and end dates accordingly.
+    We recommend to keep reports fairly small, that is up to a month worth of data, by specifying the start and end date accordingly in the request body.
   contact:
     name: Nexmo.com
     email: devrel@nexmo.com
