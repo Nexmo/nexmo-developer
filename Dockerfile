@@ -17,7 +17,7 @@ WORKDIR /app
 
 # Install Node Dependencies
 ADD package.json yarn.lock /app/
-RUN yarn install --verbose
+RUN yarn install
 
 # Install Ruby Dependencies
 ADD Gemfile /app/Gemfile
