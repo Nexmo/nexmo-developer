@@ -31,7 +31,6 @@ If you don't want to install Ruby & PostgreSQL then you can use docker to sandbo
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
 $ cp .env.example .env
-$ ./bin/yarn install
 
 # Start the web server
 $ docker-compose up
