@@ -19,7 +19,7 @@
 "/verify/guides": "/verify/guides/verify-a-user"
 "/verify/tutorial": "/verify/tutorials/passwordless-authentication"
 "/verify/building-blocks": "/verify/building-blocks/send-verify-request"
-"/voice/building-blocks": "/voice/voice-api/building-blocks/make-an-outbound-call"
+"/voice/building-blocks": "/voice/voice-api/building-blocks/before-you-begin"
 "/number-insight": "/number-insight/overview"
 "/number-insight/guides": "/number-insight/guides/cnam"
 "/number-insight/building-blocks": "/number-insight/building-blocks/number-insight-basic"

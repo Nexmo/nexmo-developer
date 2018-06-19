@@ -5,11 +5,9 @@ description: Use Nexmo SIP to forward inbound and send outbound Voice calls that
 
 # SIP Overview
 
-Nexmo allows you to [send outbound](#outbound-configuration) and  [forward inbound](#inbound-configuration) Voice calls using the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
+Nexmo allows you to [forward inbound](#inbound-configuration) and [send outbound](#configuring-your-system-for-sip-forwarding) Voice calls using the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
 
 This document explains the relevant setup options.
-
-## Outbound Configuration
 
 **Endpoint**
 
