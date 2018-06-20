@@ -19,6 +19,8 @@ Key |	Description
 
 ```building_blocks
 source: '_examples/voice/record-a-call-with-split-audio'
+application:
+  name: 'Record Call Split Audio Example'
 ```
 
 ## Try it out

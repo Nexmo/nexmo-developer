@@ -19,6 +19,8 @@ conference called `nexmo-conference` and there would be no problem.
 
 ```building_blocks
 source: '_examples/voice/connect-callers-to-a-conference'
+application:
+  name: 'Conference Call Example'
 ```
 
 ## Try it out

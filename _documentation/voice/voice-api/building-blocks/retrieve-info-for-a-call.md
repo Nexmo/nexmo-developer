@@ -19,6 +19,9 @@ Key |	Description
 
 ```building_blocks
 source: '_examples/voice/retrieve-info-for-a-call'
+application:
+  use_existing: |
+    To fetch information about a call, you must use the same <code>NEXMO_APPLICATION_ID</code> and private key that were used to create the call.
 ```
 
 ## Try it out

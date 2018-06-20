@@ -22,7 +22,7 @@ source: '_examples/voice/make-an-outbound-call'
 application:
   name: 'Outbound Call Building Block'
   answer_url: https://developer.nexmo.com/ncco/tts.json
-  use_ngrok: true
+  disable_ngrok: true
 ```
 
 ## Try it out

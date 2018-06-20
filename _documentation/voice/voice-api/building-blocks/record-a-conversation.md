@@ -12,6 +12,8 @@ A building block that shows how to record a conversation.
 
 ```building_blocks
 source: '_examples/voice/record-a-conversation'
+application:
+  name: 'Record Conversation Example'
 ```
 
 ## Try it out

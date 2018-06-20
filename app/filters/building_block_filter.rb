@@ -168,28 +168,48 @@ HEREDOC
         return '' unless app
         app['name'] = 'ExampleVoiceProject' unless app['name']
 
-        base_url = 'https://example.com'
-        base_url = 'http://demo.ngrok.io' if app['use_ngrok']
+        base_url = 'http://demo.ngrok.io' 
+        base_url = 'https://example.com' if app['disable_ngrok']
 
         app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
         app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
 
-        id = SecureRandom.hex
-        <<~HEREDOC
-        <h3 class="collapsible">
-          <a class="js-collapsible" data-collapsible-id=#{id}>
-            Create an application
-          </a>
-        </h3>
+        ngrok_note = ''
+        unless app['disable_ngrok']
+            ngrok_note = <<~HEREDOC
+            <p>Nexmo needs to connect to your local machine to access your <code>answer_url</code>. We recommend using <a href="https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/">ngrok</a> to do this. Make sure to change <code>demo.ngrok.io</code> in the examples below to your own ngrok URL.</p>
+            HEREDOC
+        end
 
-        <div id="#{id}" class="collapsible-content" style="display: none;">
+        content = <<~HEREDOC
           <p>A Nexmo application contains the required configuration for your project. You can create an application using the <a href="https://github.com/Nexmo/nexmo-cli">Nexmo CLI</a> (see below) or <a href="https://dashboard.nexmo.com/voice/create-application">via the dashboard</a>. To learn more about applications <a href="/concepts/guides/applications">see our Nexmo concepts guide</a>.</p>
           <h4>Install the CLI</h4>
           <pre class="highlight bash"><code>$ npm install -g nexmo-cli</code></pre>
 
           <h4>Create an application</h4>
           <p>Once you have the CLI installed you can use it to create a Nexmo application. Run the following command and make a note of the application ID that it returns. This is the value to use in <code>NEXMO_APPLICATION_ID</code> in the example below. It will also create <code>private.key</code> in the current directory which you will need in the <em>Initialize your dependencies</em> step</p>
+          #{ngrok_note}
           <pre class="highlight sh"><code>$ nexmo app:create "#{app['name']}" #{app['answer_url']} #{app['event_url']} --keyfile private.key</code></pre>
+        HEREDOC
+
+        # It doesn't make sense to create an application in some blocks
+        # e.g. download a recording
+        if app['use_existing']
+            content = <<~HEREDOC
+            <p>#{app['use_existing']}</p>
+            HEREDOC
+        end
+
+        id = SecureRandom.hex
+        <<~HEREDOC
+        <h3 class="collapsible">
+          <a class="js-collapsible" data-collapsible-id=#{id}>
+            #{app['use_existing'] ? 'Use your existing application' : 'Create an application'}
+          </a>
+        </h3>
+
+        <div id="#{id}" class="collapsible-content" style="display: none;">
+        #{content}
         </div>
         HEREDOC
     end

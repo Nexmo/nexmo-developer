@@ -18,8 +18,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/connect-an-inbound-call'
 application:
-  name: 'Inbound Call Example'
-  use_ngrok: true
+  name: 'Connect Inbound Call Example'
 ```
 
 ## Try it out

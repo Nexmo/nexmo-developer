@@ -20,6 +20,8 @@ Key |	Description
 
 ```building_blocks
 source: '_examples/voice/record-a-call'
+application:
+  name: 'Record Call Example'
 ```
 
 ## Try it out
