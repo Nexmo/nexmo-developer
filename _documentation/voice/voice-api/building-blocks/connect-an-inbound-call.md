@@ -16,8 +16,10 @@ Key |	Description
 `YOUR_SECOND_NUMBER` |	The number you wish the inbound caller to be connected to.
 
 ```building_blocks
-title: Implement a webhook 
 source: '_examples/voice/connect-an-inbound-call'
+application:
+  name: 'Inbound Call Example'
+  use_ngrok: true
 ```
 
 ## Try it out
