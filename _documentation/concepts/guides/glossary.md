@@ -19,7 +19,7 @@ ARDW | Adaptive Routing Dynamic Weights. See Adaptive Routing.
 ASR | The Answer Seizure Ratio is a metric used to measure the quality of a carrier’s network. The ASR calculation is `Number of successfully answered calls / Number of calls received`.
 AVD	| See Android Virtual Device.
 BI | See Business Intelligence
-Business Intelligence | Team managing data and analytical tools, such as Tableau Server (bi.nexmo.com) or Data warehouse. See their Confluence space for more details.
+Business Intelligence | Team managing data and analytical tools, such as Tableau Server or Data warehouse.
 Call API | You use Call API to generate voice calls over regular phone numbers. You can: <ul><li>Create Call me buttons.</li><li>Automate calls in your App.</li><li>Manage event-prompted calls.</li></ul>Call API is part of Voice API.
 Caller ID | The Sender ID for Voice Calls.
 Carrier | A Telecommunications Service Provider. The company that a phone connects to is the target carrier for the phone number. You can also have intermediate carriers - Nexmo is one.
@@ -50,8 +50,8 @@ Dynamic Routing | See Adaptive Routing.
 Extended shortcode | A short number between 4 and 6 digits that has been extended to create a large quantity of numbers.
 Fake Delivery Receipt | <p>A Nexicon (Glossary)#Delivery Receipt suspected to be fake. That is, when there is no intention to deliver the SMS. In cases of filtering, this usually occurs in the Middle East.</p><p>Sometimes delivery receipts are faked because the Telecommunications Service Provider sends it early. Some Telecommunications Service Providers never return a delivery receipt. In this case Nexmo creates a delivery receipt and sends it to you.</p>
 Enterprise-grade call quality | Ensures that your communications network provides high-quality voice traffic. Call quality is never less than that of a major Telecommunications Service Provider.
-Geo	| The geographic region of the world.
-GSM	| See [Wikipedia article](https://en.wikipedia.org/wiki/GSM).
+Geo | The geographic region of the world.
+GSM | See [Wikipedia article](https://en.wikipedia.org/wiki/GSM).
 Handset Delivery Receipt | A Nexicon (Glossary)#Delivery Receipt that is sent when the message is delivered to the user's handset.
 HLR | Home Location Register. These databases contain details of each subscriber phone number, including the current active status and more.
 HTTP | An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the Nexicon (Glossary)#Web, it is the most common standard internet communication protocol. See [Wikipedia article](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol).
