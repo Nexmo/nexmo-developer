@@ -5,6 +5,8 @@ class BuildingBlockFilter < Banzai::Filter
 
       lexer = language_to_lexer(config['language'])
 
+      application_html = generate_application_block(config['application']);
+
       # Read the client
       if config['client']
           highlighted_client_source = generate_code_block(config['language'], config['client'], config['unindent'])
@@ -42,7 +44,7 @@ class BuildingBlockFilter < Banzai::Filter
 
       run_html = generate_run_command(config['run_command'], config['file_name'])
 
-      dependency_html + client_html + code_html + run_html
+      application_html + dependency_html + client_html + code_html + run_html
     end
   end
 
@@ -160,5 +162,35 @@ HEREDOC
       end
 
       command
+    end
+
+    def generate_application_block(app)
+        return '' unless app
+        app['name'] = 'ExampleVoiceProject' unless app['name']
+
+        base_url = 'https://example.com'
+        base_url = 'http://demo.ngrok.io' if app['use_ngrok']
+
+        app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
+        app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
+
+        id = SecureRandom.hex
+        <<~HEREDOC
+        <h3 class="collapsible">
+          <a class="js-collapsible" data-collapsible-id=#{id}>
+            Create an application
+          </a>
+        </h3>
+
+        <div id="#{id}" class="collapsible-content" style="display: none;">
+          <p>A Nexmo application contains the required configuration for your project. You can create an application using the <a href="https://github.com/Nexmo/nexmo-cli">Nexmo CLI</a> (see below) or <a href="https://dashboard.nexmo.com/voice/create-application">via the dashboard</a>. To learn more about applications <a href="/concepts/guides/applications">see our Nexmo concepts guide</a>.</p>
+          <h4>Install the CLI</h4>
+          <pre class="highlight bash"><code>$ npm install -g nexmo-cli</code></pre>
+
+          <h4>Create an application</h4>
+          <p>Once you have the CLI installed you can use it to create a Nexmo application. Run the following command and make a note of the application ID that it returns. This is the value to use in <code>NEXMO_APPLICATION_ID</code> in the example below. It will also create <code>private.key</code> in the current directory which you will need in the <em>Initialize your dependencies</em> step</p>
+          <pre class="highlight sh"><code>$ nexmo app:create "#{app['name']}" #{app['answer_url']} #{app['event_url']} --keyfile private.key</code></pre>
+        </div>
+        HEREDOC
     end
 end
