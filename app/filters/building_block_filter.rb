@@ -38,13 +38,16 @@ class BuildingBlockFilter < Banzai::Filter
       end
 
       code_html = <<~HEREDOC
+        <h2>Write the code</h2>
         <p>Add the following to <code>#{config['file_name']}</code>:</p>
         <pre class="highlight #{lexer.tag}"><code>#{highlighted_code_source}</code></pre>
       HEREDOC
 
       run_html = generate_run_command(config['run_command'], config['file_name'])
 
-      application_html + dependency_html + client_html + code_html + run_html
+      prereqs = application_html + dependency_html + client_html
+      prereqs = "<h2>Prerequisites</h2>#{prereqs}" if prereqs
+      prereqs + code_html + run_html
     end
   end
 
