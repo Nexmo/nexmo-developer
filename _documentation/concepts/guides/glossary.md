@@ -61,7 +61,9 @@ Adaptive Routing Dynamic Weights. See [Adaptive Routing](#adaptive-routing).
 
 ## ASR
 
-The Answer Seizure Ratio is a metric used to measure the quality of a carrier’s network. The ASR calculation is `Number of successfully answered calls / Number of calls received`.
+The Answer Seizure Ratio is a metric used to measure the quality of a carrier’s network.
+
+The ASR calculation is `Number of successfully answered calls / Number of calls received`.
 
 ## AVD
 
@@ -87,7 +89,7 @@ Call API is part of [Voice API](#voice-api).
 
 ## Caller ID
 
-The Sender ID for Voice Calls.
+The [Sender ID](#sender-id) for [voice](#voice) calls.
 
 ## Carrier
 
@@ -113,7 +115,7 @@ Supplies two-way messaging with users of all different chat apps, plus access to
 
 ## CLI
 
-See Caller ID.
+See [Caller ID](#caller-id).
 
 ## Cloud number
 
@@ -129,7 +131,7 @@ A company who uses Nexmo products or services.
 
 ## CD
 
-Customer Dashboard. [Go to the anchor](#AD).
+Customer Dashboard. See [Dashboard](#dashboard).
 
 ## DA
 
@@ -280,9 +282,9 @@ A simple, cost-effective way to interact with your users. They can send SMS to y
 
 Reliable data collected for specific goals.
 
-## Interactive Voice Response (IVR)
+## Interactive Voice Response
 
-An automated telephony technology that enables a human caller to interact with a computer using voice and DTMF tones input on a keypad.
+Interactive Voice Response, or IVR, is nn automated telephony technology that enables a human caller to interact with a computer using voice and DTMF tones input on a keypad.
 
 ## Intermediate carrier
 
