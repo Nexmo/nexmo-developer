@@ -147,7 +147,7 @@ apply plugin: 'application'
 mainClassName = project.hasProperty('main') ? project.getProperty('main') : ''
 ```
 
-Run the following command to execute your application:
+Run the following command to execute your application replacing `com.nexmo.quickstart.voice` with the package containing `#{filename.gsub(".java", "")}`:
 
 ```sh
 gradle run -Pmain=com.nexmo.quickstart.voice.#{filename.gsub(".java","")}
