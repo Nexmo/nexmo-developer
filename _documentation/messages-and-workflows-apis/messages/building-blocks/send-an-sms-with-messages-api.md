@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Send an SMS with Messages API
 
-Sending an SMS message with the Messages API is straightforward. Sign up for an account and replace the following variables in the example below:
+You will need to replace the following variables with your specific information in the example code:
 
 Key | Description
 -- | --
@@ -15,7 +15,6 @@ Key | Description
 
 ## Prerequisites
 
-- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
 - *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
 
 ## Generate a JWT

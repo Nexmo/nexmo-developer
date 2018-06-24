@@ -4,318 +4,344 @@
     <title>PushNotificationController Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
+
     <a name="//apple_ref/swift/Class/PushNotificationController" class="dashAnchor"></a>
+
     <a title="PushNotificationController Class Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">Stitch Docs</a> (100% documented)</p>
-        <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">Stitch Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        PushNotificationController Class Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Stitch Docs
+        </a>
+         (100% documented)
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/nexmo/stitch-ios-sdk">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Stitch Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      PushNotificationController Class Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Client.html">Client</a>
+            <a class="nav-group-name-link" href="../Client.html">Client</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/ConversationClient.html">ConversationClient</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationClient.html">ConversationClient</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationClient/LoginResult.html">– LoginResult</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/LoginResult.html">– LoginResult</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationClient/State.html">– State</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationClient/StateObjc.html">– StateObjc</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/StateObjc.html">– StateObjc</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/SynchronizingState.html">SynchronizingState</a>
+                <a class="nav-group-task-link" href="../Enums/SynchronizingState.html">SynchronizingState</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Configuration.html">Configuration</a>
+            <a class="nav-group-name-link" href="../Configuration.html">Configuration</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/Configuration.html">Configuration</a>
+                <a class="nav-group-task-link" href="../Structs/Configuration.html">Configuration</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/Configuration/LogLevel.html">– LogLevel</a>
+                <a class="nav-group-task-link" href="../Structs/Configuration/LogLevel.html">– LogLevel</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Facade.html">Facade</a>
+            <a class="nav-group-name-link" href="../Facade.html">Facade</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Conversation.html">Conversation</a>
+                <a class="nav-group-task-link" href="../Classes/Conversation.html">Conversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Conversation/Media.html">– Media</a>
+                <a class="nav-group-task-link" href="../Classes/Conversation/Media.html">– Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Conversation/Errors.html">– Errors</a>
+                <a class="nav-group-task-link" href="../Classes/Conversation/Errors.html">– Errors</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Member.html">Member</a>
+                <a class="nav-group-task-link" href="../Classes/Member.html">Member</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ReceiptRecord/ReceiptState.html">– ReceiptState</a>
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/ReceiptState.html">– ReceiptState</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/User.html">User</a>
+                <a class="nav-group-task-link" href="../Classes/User.html">User</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Media.html">Media</a>
+                <a class="nav-group-task-link" href="../Classes/Media.html">Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Media/State.html">– State</a>
+                <a class="nav-group-task-link" href="../Classes/Media/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Media/Errors.html">– Errors</a>
+                <a class="nav-group-task-link" href="../Classes/Media/Errors.html">– Errors</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Call.html">Call</a>
+                <a class="nav-group-task-link" href="../Classes/Call.html">Call</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Call/Type.html">– Type</a>
+                <a class="nav-group-task-link" href="../Classes/Call/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Call/Event.html">– Event</a>
+                <a class="nav-group-task-link" href="../Classes/Call/Event.html">– Event</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Controller.html">Controller</a>
+            <a class="nav-group-name-link" href="../Controller.html">Controller</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/AccountController.html">AccountController</a>
+                <a class="nav-group-task-link" href="../Classes/AccountController.html">AccountController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/AccountController/State.html">– State</a>
+                <a class="nav-group-task-link" href="../Classes/AccountController/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationController.html">ConversationController</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationController.html">ConversationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+                <a class="nav-group-task-link" href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MediaController.html">MediaController</a>
+                <a class="nav-group-task-link" href="../Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MediaController/Media.html">– Media</a>
+                <a class="nav-group-task-link" href="../Classes/MediaController/Media.html">– Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PushNotificationController.html">PushNotificationController</a>
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController.html">PushNotificationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PushNotificationController/Notification.html">– Notification</a>
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController/Notification.html">– Notification</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Event.html">Event</a>
+            <a class="nav-group-name-link" href="../Event.html">Event</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/EventBase.html">EventBase</a>
+                <a class="nav-group-task-link" href="../Classes/EventBase.html">EventBase</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/TextEvent.html">TextEvent</a>
+                <a class="nav-group-task-link" href="../Classes/TextEvent.html">TextEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ImageEvent.html">ImageEvent</a>
+                <a class="nav-group-task-link" href="../Classes/ImageEvent.html">ImageEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MediaEvent.html">MediaEvent</a>
+                <a class="nav-group-task-link" href="../Classes/MediaEvent.html">MediaEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Event.html#/c:@M@Stitch@objc(cs)NXMMembershipEvent">MembershipEvent</a>
+                <a class="nav-group-task-link" href="../Event.html#/c:@M@Stitch@objc(cs)NXMMembershipEvent">MembershipEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
+                <a class="nav-group-task-link" href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MemberJoinedEvent.html">MemberJoinedEvent</a>
+                <a class="nav-group-task-link" href="../Classes/MemberJoinedEvent.html">MemberJoinedEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MemberInvitedEvent.html">MemberInvitedEvent</a>
+                <a class="nav-group-task-link" href="../Classes/MemberInvitedEvent.html">MemberInvitedEvent</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Model.html">Model</a>
+            <a class="nav-group-name-link" href="../Model.html">Model</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Event.html">Event</a>
+                <a class="nav-group-task-link" href="../Classes/Event.html">Event</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Event/EventType.html">– EventType</a>
+                <a class="nav-group-task-link" href="../Classes/Event/EventType.html">– EventType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationModel.html">ConversationModel</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationModel.html">ConversationModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MemberModel.html">MemberModel</a>
+                <a class="nav-group-task-link" href="../Structs/MemberModel.html">MemberModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MemberModel/State.html">– State</a>
+                <a class="nav-group-task-link" href="../Structs/MemberModel/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MemberModel/Channel.html">– Channel</a>
+                <a class="nav-group-task-link" href="../Structs/MemberModel/Channel.html">– Channel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NetworkError.html">NetworkError</a>
+                <a class="nav-group-task-link" href="../Structs/MemberModel/ChannelModel.html">– ChannelModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/PushNotificationCertificate.html">PushNotificationCertificate</a>
+                <a class="nav-group-task-link" href="../Structs/NetworkError.html">NetworkError</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/Session.html">Session</a>
+                <a class="nav-group-task-link" href="../Structs/PushNotificationCertificate.html">PushNotificationCertificate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
+                <a class="nav-group-task-link" href="../Structs/Session.html">Session</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/IPS.html">IPS</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
+                <a class="nav-group-task-link" href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IPS/ImageType.html">– ImageType</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Collection.html">Collection</a>
+            <a class="nav-group-name-link" href="../Collection.html">Collection</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/ConversationCollection.html">ConversationCollection</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection.html">ConversationCollection</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationCollection/Reason.html">– Reason</a>
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection/Reason.html">– Reason</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MemberCollection.html">MemberCollection</a>
+                <a class="nav-group-task-link" href="../Classes/MemberCollection.html">MemberCollection</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MemberCollection/State.html">– State</a>
+                <a class="nav-group-task-link" href="../Classes/MemberCollection/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ReceiptCollection.html">ReceiptCollection</a>
+                <a class="nav-group-task-link" href="../Classes/ReceiptCollection.html">ReceiptCollection</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/EventCollection.html">EventCollection</a>
+                <a class="nav-group-task-link" href="../Classes/EventCollection.html">EventCollection</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/EventCollection/Change.html">– Change</a>
+                <a class="nav-group-task-link" href="../Classes/EventCollection/Change.html">– Change</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Observable.html">Observable</a>
+            <a class="nav-group-name-link" href="../Observable.html">Observable</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Observable.html">Observable</a>
+                <a class="nav-group-task-link" href="../Classes/Observable.html">Observable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MutableObservable.html">MutableObservable</a>
+                <a class="nav-group-task-link" href="../Classes/MutableObservable.html">MutableObservable</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Guides.html">Other Guides</a>
+            <a class="nav-group-name-link" href="../Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../changelog.html">CHANGELOG</a>
+                <a class="nav-group-task-link" href="../changelog.html">CHANGELOG</a>
               </li>
               <li class="nav-group-task">
-                <a href="../designrationale.html">DesignRationale</a>
+                <a class="nav-group-task-link" href="../designrationale.html">DesignRationale</a>
               </li>
               <li class="nav-group-task">
-                <a href="../readme.html">README</a>
+                <a class="nav-group-task-link" href="../readme.html">README</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Classes.html">Other Classes</a>
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Signal.html">Signal</a>
+                <a class="nav-group-task-link" href="../Classes/Request.html">Request</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Classes.html#/s:6Stitch10SignalBaseC">SignalBase</a>
+                <a class="nav-group-task-link" href="../Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SignalReference.html">SignalReference</a>
+                <a class="nav-group-task-link" href="../Other Classes.html#/s:6Stitch10SignalBaseC">SignalBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Enums.html">Other Enumerations</a>
+            <a class="nav-group-name-link" href="../Other Enums.html">Other Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/Change.html">Change</a>
+                <a class="nav-group-task-link" href="../Enums/Change.html">Change</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Protocols.html">Other Protocols</a>
+            <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/Deletable.html">Deletable</a>
+                <a class="nav-group-task-link" href="../Protocols/Deletable.html">Deletable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
+                <a class="nav-group-task-link" href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ObservableConvertible.html">ObservableConvertible</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Other Structs.html">Other Structures</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs/Request.html">Request</a>
+                <a class="nav-group-task-link" href="../Protocols/ObservableConvertible.html">ObservableConvertible</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             <h1>PushNotificationController</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PushNotificationController</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
+<span class="kd">@objc(NXMPushNotificationController)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">PushNotificationController</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
             <p>Push notification controller handles configuration of push notifications and handles push notification state</p>
 
-          </section>
-          <section class="section task-group-section">
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Enum"></a>
@@ -324,7 +350,7 @@
                   <h3 class="section-name">Enum</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -353,7 +379,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Notification</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Notification</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
 
                         </div>
                       </div>
@@ -370,7 +396,7 @@
                   <h3 class="section-name">Properties</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -408,13 +434,13 @@
                   <h3 class="section-name">Properties - Observable</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Stitch26PushNotificationControllerC13notificationsAA17MutableObservableCyAC0C0OSgAHGv"></a>
+                    <a name="/s:6Stitch26PushNotificationControllerC13notificationsAA17MutableObservableCyAC0C0OAHGvp"></a>
                     <a name="//apple_ref/swift/Property/notifications" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC13notificationsAA17MutableObservableCyAC0C0OSgAHGv">notifications</a>
+                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC13notificationsAA17MutableObservableCyAC0C0OAHGvp">notifications</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -429,7 +455,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">notifications</span><span class="p">:</span> <span class="kt">Stitch</span><span class="o">.</span><span class="kt"><a href="../Classes/MutableObservable.html">MutableObservable</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/PushNotificationController/Notification.html">Notification</a></span><span class="p">?,</span> <span class="kt"><a href="../Classes/PushNotificationController/Notification.html">Notification</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">notifications</span><span class="p">:</span> <span class="kt"><a href="../Classes/MutableObservable.html">MutableObservable</a></span><span class="o">&lt;</span><span class="kt">PushNotificationController</span><span class="o">.</span><span class="kt"><a href="../Classes/PushNotificationController/Notification.html">Notification</a></span><span class="p">,</span> <span class="kt">PushNotificationController</span><span class="o">.</span><span class="kt"><a href="../Classes/PushNotificationController/Notification.html">Notification</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -446,7 +472,7 @@
                   <h3 class="section-name">Permission</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -505,13 +531,13 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/AppDelegate%20Support"></a>
-                <a name="//apple_ref/swift/Section/AppDelegate Support" class="dashAnchor"></a>
-                <a href="#/AppDelegate%20Support">
-                  <h3 class="section-name">AppDelegate Support</h3>
+                <a name="/AppDelegate%20Forward"></a>
+                <a name="//apple_ref/swift/Section/AppDelegate Forward" class="dashAnchor"></a>
+                <a href="#/AppDelegate%20Forward">
+                  <h3 class="section-name">AppDelegate Forward</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -541,7 +567,7 @@
 </ul>
 <pre class="highlight swift"><code><span class="o">-</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nv">application</span><span class="p">:(</span><span class="kt">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nv">didRegisterForRemoteNotificationsWithDeviceToken</span><span class="p">:(</span><span class="kt">NSData</span> <span class="o">*</span><span class="p">)</span><span class="n">deviceToken</span> <span class="p">{</span>
    <span class="c1">// push device token to SDK</span>
-   <span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">push</span> <span class="nv">registeredForRemoteNotificationsWith</span><span class="p">:</span> <span class="n">deviceToken</span><span class="p">];</span>
+   <span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">registeredForRemoteNotificationsWith</span><span class="p">:</span> <span class="n">deviceToken</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre>
 
@@ -579,9 +605,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)receivedRemoteNotification:fetchCompletionHandler:"></a>
+                    <a name="/s:6Stitch26PushNotificationControllerC014receivedRemoteC0XeXeF"></a>
                     <a name="//apple_ref/swift/Method/receivedRemoteNotification(_:fetchCompletionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)receivedRemoteNotification:fetchCompletionHandler:">receivedRemoteNotification(_:fetchCompletionHandler:)</a>
+                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC014receivedRemoteC0XeXeF">receivedRemoteNotification(_:fetchCompletionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -605,7 +631,7 @@
 </ul>
 <pre class="highlight swift"><code><span class="o">-</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nv">application</span><span class="p">:(</span><span class="kt">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nv">didReceiveRemoteNotification</span><span class="p">:(</span><span class="kt">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">userInfo</span> <span class="nv">fetchCompletionHandler</span><span class="p">:(</span><span class="nf">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">UIBackgroundFetchResult</span><span class="p">))</span><span class="n">completionHandler</span> <span class="p">{</span>
    <span class="c1">// Pass the payload to SDK</span>
-   <span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">push</span> <span class="nv">receivedRemoteNotification</span><span class="p">:</span><span class="n">userInfo</span> <span class="nv">fetchCompletionHandler</span><span class="p">:</span><span class="n">completionHandler</span><span class="p">];</span>
+   <span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">receivedRemoteNotification</span><span class="p">:</span><span class="n">userInfo</span> <span class="nv">fetchCompletionHandler</span><span class="p">:</span><span class="n">completionHandler</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre>
 
@@ -614,7 +640,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">receivedRemoteNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span><span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="n">fetchCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">UIBackgroundFetchResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">receivedRemoteNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span><span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="n">fetchCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">UIBackgroundFetchResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -660,13 +687,88 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
+                <a name="/UNUserNotificationCenterDelegate%20Forward"></a>
+                <a name="//apple_ref/swift/Section/UNUserNotificationCenterDelegate Forward" class="dashAnchor"></a>
+                <a href="#/UNUserNotificationCenterDelegate%20Forward">
+                  <h3 class="section-name">UNUserNotificationCenterDelegate Forward</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)userNotificationCenterWithDidReceive:withCompletionHandler:"></a>
+                    <a name="//apple_ref/swift/Method/userNotificationCenter(didReceive:withCompletionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)userNotificationCenterWithDidReceive:withCompletionHandler:">userNotificationCenter(didReceive:withCompletionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Received Notification response. SDK uses this method to
+Process notification sent from APNS</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">userNotificationCenter</span><span class="p">(</span><span class="n">didReceive</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">UNNotificationResponse</span><span class="p">,</span> <span class="n">withCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>response</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>notification response</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion handler</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>If the notification is from Nexmo</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="/Device%20Token"></a>
                 <a name="//apple_ref/swift/Section/Device Token" class="dashAnchor"></a>
                 <a href="#/Device%20Token">
                   <h3 class="section-name">Device Token</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -687,7 +789,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unregisterDevice</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">unregisterDevice</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -719,7 +822,7 @@
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Data</span>
 <span class="k">let</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
 
-<span class="n">push</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">deviceToken</span><span class="p">:</span> <span class="n">deviceToken</span><span class="p">,</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+<span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">deviceToken</span><span class="p">:</span> <span class="n">deviceToken</span><span class="p">,</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
    <span class="k">if</span> <span class="n">result</span> <span class="p">{</span>
        <span class="c1">// code here</span>
    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -797,7 +900,7 @@
 </ul>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
 
-<span class="n">push</span><span class="o">.</span><span class="nf">removeDeviceToken</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+<span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span><span class="o">.</span><span class="nf">removeDeviceToken</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
    <span class="k">if</span> <span class="n">result</span> <span class="p">{</span>
        <span class="c1">// code here</span>
    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -847,13 +950,13 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Notifications"></a>
-                <a name="//apple_ref/swift/Section/Notifications" class="dashAnchor"></a>
-                <a href="#/Notifications">
-                  <h3 class="section-name">Notifications</h3>
+                <a name="/Notifications%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Notifications - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Notifications%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Notifications - (Objective-C compatibility support)</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -872,7 +975,7 @@
 <ul>
 <li>Example: Objective-C</li>
 </ul>
-<pre class="highlight swift"><code><span class="p">[</span><span class="n">push</span> <span class="nv">notificationsOnConversation</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMConversation</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">conversation</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">notificationsOnConversation</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMConversation</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">conversation</span><span class="p">)</span> <span class="p">{</span>
    <span class="c1">// code here</span>
 <span class="p">}</span> <span class="nv">onConversationWithInvitedBy</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMConversation</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">conversation</span><span class="p">,</span> <span class="kt">NXMMember</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">member</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="n">media</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">if</span> <span class="p">(</span><span class="n">media</span><span class="p">)</span> <span class="p">{</span>
@@ -907,13 +1010,13 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Device%20Token%20(Objective-C%20compatibility%20support)"></a>
-                <a name="//apple_ref/swift/Section/Device Token (Objective-C compatibility support)" class="dashAnchor"></a>
-                <a href="#/Device%20Token%20(Objective-C%20compatibility%20support)">
-                  <h3 class="section-name">Device Token (Objective-C compatibility support)</h3>
+                <a name="/Device%20Token%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Device Token - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Device%20Token%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Device Token - (Objective-C compatibility support)</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -935,7 +1038,7 @@
 <pre class="highlight swift"><code><span class="kt">NSData</span> <span class="o">*</span><span class="n">deviceToken</span><span class="p">;</span>
 <span class="kt">NSString</span> <span class="o">*</span><span class="n">deviceId</span><span class="p">;</span>
 
-<span class="p">[</span><span class="n">push</span> <span class="nv">updateWithDeviceToken</span><span class="p">:</span><span class="n">deviceToken</span> <span class="nv">deviceId</span><span class="p">:</span><span class="nv">deviceId</span> <span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">updateWithDeviceToken</span><span class="p">:</span><span class="n">deviceToken</span> <span class="nv">deviceId</span><span class="p">:</span><span class="nv">deviceId</span> <span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="kt">YES</span><span class="p">)</span> <span class="p">{</span>
        <span class="c1">// code here</span>
    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -1033,7 +1136,7 @@
 </ul>
 <pre class="highlight swift"><code><span class="kt">NSString</span> <span class="o">*</span><span class="n">deviceId</span><span class="p">;</span>
 
-<span class="p">[</span><span class="n">push</span> <span class="nv">removeDeviceTokenWithDeviceId</span><span class="p">:</span><span class="nv">deviceId</span> <span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">removeDeviceTokenWithDeviceId</span><span class="p">:</span><span class="nv">deviceId</span> <span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="kt">YES</span><span class="p">)</span> <span class="p">{</span>
        <span class="c1">// code here</span>
    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -1101,14 +1204,15 @@
                 </li>
               </ul>
             </div>
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-04-24)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
       </article>
     </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-05-30)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>

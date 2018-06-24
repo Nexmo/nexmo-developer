@@ -123,7 +123,7 @@ MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-012345678
 Generate a JWT for the user and take a note of it. Remember to change the `YOUR_APP_ID` value in the command.
 
 ```bash
-$ USER_JWT="$(nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths": {"/v1/sessions/**": {}, "/v1/users/**": {}, "/v1/conversations/**": {}}}' application_id=YOUR_APP_ID)"
+$ USER_JWT="$(nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{}}}' application_id=YOUR_APP_ID)"
 ```
 
 *Note: The above command saves the generated JWT to a `USER_JWT` variable. It also sets the expiry of the JWT to one day from now.*
@@ -142,15 +142,24 @@ With the basic setup in place we can now focus on the client-side application
 
 Open Android Studio and start a new project. We'll name it "Stitch Android Quickstart 1". The minimum SDK will be set to API 19. We can start with an empty activity named "Login Activity".
 
-In the `build.gradle` file we'll add the Nexmo Stitch Android SDK.
+In the `build.gradle` file we'll add the Nexmo Stitch Android SDK and the WebRTC dependency.
 
 ```groovy
 //app/build.gradle
 dependencies {
 ...
-  compile 'com.nexmo:conversation:0.22.0'
+  compile 'com.nexmo:conversation:1.3.1'
   compile 'com.android.support:appcompat-v7:25.3.1'
 ...
+}
+
+//build.gradle
+allprojects {
+    repositories {
+        ...
+        //WebRTC dependency for Stitch
+        maven { url 'https://artifactory.ess-dev.com/artifactory/gradle-dev' }
+    }
 }
 ```
 

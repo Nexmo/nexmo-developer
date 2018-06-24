@@ -62,4 +62,3 @@ Support for Number Insight records will be added soon.
 ## Tutorial
 
 * [How to generate a report via Postman for non-technical users](link to be added when available)
-

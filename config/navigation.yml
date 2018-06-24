@@ -31,6 +31,8 @@ navigation_weight:
   In-App Voice: 4
 
 navigation_overrides:
+  redact:
+    label: 'Developer Preview'
   stitch:
     label: 'Developer Preview'
     sdk-documentation:
