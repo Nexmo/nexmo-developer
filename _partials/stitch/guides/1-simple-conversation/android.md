@@ -19,7 +19,7 @@ This guide will introduce you to the following concepts.
 
 ### Before you begin
 
-* Ensure you have Node.JS and NPM installed (you'll need it for the CLI)
+* Ensure you have [Node.JS](https://nodejs.org/en/download/) and NPM installed (you'll need it for the CLI)
 * Ensure you have Android Studio installed
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
 * Install the Nexmo CLI:
