@@ -102,9 +102,13 @@ class BuildingBlocksFilter < Banzai::Filter
       content[:platform_key] = content['platform']
       content[:tab_title] = content['title']
 
+      application = ''
+      if @config['application']
+          application = {'application' => @config['application']}.to_yaml.lines[1..-1].join
+      end
       source = <<~HEREDOC
 ```single_building_block
-#{source}
+#{source}#{application}
 ```
       HEREDOC
 

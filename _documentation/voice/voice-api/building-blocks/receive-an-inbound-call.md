@@ -1,26 +1,20 @@
 ---
-title: Receive an Inbound Call
-navigation_weight: 2
+title: Receive an inbound call
+navigation_weight: 12
 ---
 
-# Receive an Inbound Call
+# Receive an inbound call
 
-Receiving inbound calls with Nexmo is easy. You just need a server that provides a endpoint that Nexmo will call when your number is called. You configure this endpoint by associating your Nexmo number with an application.
+In this building block you see how to receive an inbound call.
 
-## Prerequisites
+## Example
 
-- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
-
-```tabbed_content
+```building_blocks
 source: '_examples/voice/receive-an-inbound-call'
+application:
+  name: 'Receive Inbound Call Example'
 ```
 
-You'll need to expose your server to the open internet. During development you can use a tool like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to do that.
+## Try it out
 
-```partial
-source: _partials/associate-an-application-to-your-webhook.md
-```
-
-## Call your number
-
-When you call your Nexmo number you should now get a TTS response back.
+When you call your Nexmo Number you will hear a text-to-speech message.

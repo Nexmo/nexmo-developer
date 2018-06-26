@@ -1,0 +1,1018 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Voice API
+  description: The Voice API lets you create outboud calls, control in progress calls and get information about historical calls.
+servers:
+  - url: https://api.nexmo.com/v1
+paths:
+  /calls:
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create an outbound call
+      description: Create an outbound Call
+      operationId: createCall
+      x-group: calls
+      requestBody:
+        description: Call Details
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                to:
+                    type: array
+                    items:
+                      oneOf:
+                      - $ref: '#/components/schemas/endpoints/properties/phone'
+                      - $ref: '#/components/schemas/endpoints/properties/sip'
+                      - $ref: '#/components/schemas/endpoints/properties/websocket'
+                from:
+                    type: array
+                    items:
+                      oneOf:
+                      - $ref: '#/components/schemas/endpoints/properties/phone'
+                      - $ref: '#/components/schemas/endpoints/properties/sip'
+                      - $ref: '#/components/schemas/endpoints/properties/websocket'
+                answer_url:
+                        description: 'The webhook endpoint where you provide the Nexmo Call Control Object that governs this call.'
+                        type: array
+                        items:
+                            type: string
+                            format: uri
+                            example: 'https://example.com/answer'
+                answer_method:
+                        description: 'The HTTP method used to send event information to answer_url.'
+                        type: string
+                        default: GET
+                        enum: 
+                            - POST
+                            - GET
+                event_url: 
+                      description: 'The webhook endpoint where call progress events are sent to. For more information about the values sent, see callback'
+                      type: array
+                      items:
+                          type: string
+                          format: uri
+                          example: 'https://example.com/event'        
+                event_method: 
+                      description: 'The HTTP method used to send event information to event_url.'
+                      type: string
+                      default: POST
+                      enum: 
+                          - POST
+                          - GET
+                machine_detection: 
+                      description: 'Configure the behavior when Nexmo detects that the call is answered by voicemail. If Continue Nexmo sends an HTTP request to event_url with the Call event machine. hangup  end the call'
+                      type: string
+                      enum:
+                          - continue
+                          - hangup
+                length_timer: 
+                      description: 'Set the number of seconds that elapse before Nexmo hangs up after the call state changes to in_progress.'
+                      minimum: 1
+                      maximum: 7200
+                      default: 7200
+                      type: integer
+                ringing_timer : 
+                      description: 'Set the number of seconds that elapse before Nexmo hangs up after the call state changes to ‘ringing’.'
+                      minimum: 1
+                      maximum: 120
+                      default: 60
+                      type: integer
+              required:
+                - to
+                - from
+                - answer_url        
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                properties:
+                  uuid:
+                        type: string
+                        format: uuid 
+                        example: "f972836a-550f-45fa-956c-12a2ab5b7d22"   
+                  status:
+                    type: string
+                    enum:
+                        - started 
+                  direction:
+                    type: string
+                    enum:
+                        - outbound
+                        - inbound
+                  conversation_uuid:
+                    type: string
+                    format: uuid
+                    example: "CON-f972836a-550f-45fa-956c-12a2ab5b7d22"
+    get:
+      security:
+        - bearerAuth: []
+      summary: Get details of your calls
+      description: Get details of your calls
+      operationId: getCalls
+      x-group: calls
+      parameters:
+          - name: status
+            in: query
+            description: "Filter by call status"
+            schema:
+                type: string
+                enum:
+                - started
+                - ringing
+                - answered
+                - machine
+                - completed
+                - timeout
+                - failed
+                - rejected
+                - cancelled
+                - busy
+          - name: date_start
+            in: query
+            description: "Return the records that occurred after this point in time"
+            schema:
+                type: string
+                format: date-time
+          - name: date_end
+            in: query
+            description: "Return the records that occurred before this point in time"
+            schema:
+                type: string
+                format: date-time
+          - name: page_size
+            in: query
+            description: "Return this amount of records in the response"
+            schema:
+                type: integer
+                maximum: 100
+                minimum: 1
+                default: 10
+          - name: record_index
+            in: query
+            description: "Return calls from this index in the response"
+            schema:
+                type: integer
+                default: 0
+          - name: order
+            in: query
+            description: "Either ascending or  descending order."
+            schema:
+                type: string
+                default: asc
+                enum:
+                    - asc
+                    - desc
+          - name: conversation_uuid
+            in: query
+            description: "Return all the records associated with a specific conversation."
+            schema:
+                type: string
+                format: uuid
+      responses:
+          '200':
+              description: Ok
+              content:
+                  application/json:
+                      schema:
+                          {
+                            "type": "object",
+                            #"definitions": {},
+                            "properties": {
+                              "count": {
+                                "type": "integer",
+                                "title": "The Number of records found",
+                                "example": 100
+                              },
+                              "page_size": {
+                                "type": "integer",
+                                "title": "The Number of records in this response  ",
+                                "example": 10
+                              },
+                              "record_index": {
+                                "type": "integer",
+                                "title": "The Record Index",
+                                "example": 0
+                              },
+                              "_links": {
+                                "type": "object",
+                                "properties": {
+                                  "self": {
+                                    "type": "object",
+                                    "properties": {
+                                      "href": {
+                                        "type": "string",
+                                        "title": "Link to the object ",
+                                        "example": "/calls?page_size=10&record_index=20&order=asc"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "_embedded": {
+                                "type": "object",
+                                "properties": {
+                                  "calls": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "_links": {
+                                          "type": "object",
+                                          "properties": {
+                                            "self": {
+                                              "type": "object",
+                                              "properties": {
+                                                "href": {
+                                                  "type": "string",
+                                                  "title": "The Link to the Call Object",
+                                                  "default": "",
+                                                  "example": "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "uuid": {
+                                          "type": "string",
+                                          "format": "uuid",
+                                          "title": "The Uuid of the Call ",
+                                          "example": "63f61863-4a51-4f6b-86e1-46edebcf9356"
+                                        },
+                                        "conversation_uuid": {
+                                          "type": "string",
+                                          "format": "uuid",
+                                          "title": "The UUID of the Conversation",
+                                          "default": "",
+                                          "example": "63f61863-4a51-4f6b-86e1-46edebio0123"
+                                        },
+                                        "to": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "string",
+                                                "title": "The Type of Endpoint Called ",
+                                                "example": "phone"
+                                              },
+                                              "number": {
+                                                "type": "string",
+                                                "title": "The number Of the endpoint called ",
+                                                "example": "447700900000"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "from": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "string",
+                                              "title": "The Type of Endpoint that made the call ",
+                                              "example": "phone"
+                                            },
+                                            "number": {
+                                              "type": "string",
+                                              "title": "The Number that made the call ",
+                                              "example": "447700900001"
+                                            }
+                                          }
+                                        },
+                                        "status": {
+                                          "type": "string",
+                                          "title": "The State of the call ",
+                                          "example": "completed"
+                                        },
+                                        "direction": {
+                                          "type": "string",
+                                          "title": "The Direction of the Call ",
+                                          "example": "outbound"
+                                        },
+                                        "rate": {
+                                          "type": "string",
+                                          "title": "The Price per minute of the called destination",
+                                          "example": "0.39"
+                                        },
+                                        "price": {
+                                          "type": "string",
+                                          "title": "The total price of the call ",
+                                          "example": "23.40"
+                                        },
+                                        "duration": {
+                                          "type": "string",
+                                          "title": "The Duration of the call ",
+                                          "example":  "60"
+                                        },
+                                        "start_time": {
+                                          "type": "string",
+                                          "format": "timestamp",
+                                          "title": "The Start Time of the call ",
+                                          "default": "",
+                                          "example": "2015-02-04T22:45:00Z"
+                                        },
+                                        "end_time": {
+                                          "type": "string",
+                                          "format": "timestamp",
+                                          "title": "The end time of the call",
+                                          "example": "2015-02-04T23:45:00Z"
+                                        },
+                                        "network": {
+                                          "type": "string",
+                                          "title": "The Network ID of the destination ",
+                                          "example": "65512"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }                                
+  /calls/{uuid}:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
+      get:
+        security:
+          - bearerAuth: []
+        summary: Get detail of a specific call
+        description: Get detail of a specific call
+        operationId: getCall
+        x-group: call
+        responses:
+            '200':
+                description: Ok
+                content:
+                    application/json:
+                        schema:
+                            {
+                              "type": "object",
+                              "properties": {
+                                "_links": {
+                                  "type": "object",
+                                  "properties": {
+                                    "self": {
+                                      "type": "object",
+                                      "properties": {
+                                        "href": {
+                                          "type": "string",
+                                          "title": "Link to the object ",
+                                          "example": "/calls?page_size=10&record_index=20&order=asc"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "uuid": {
+                                  "type": "string",
+                                  "format": "uuid",
+                                  "title": "The Uuid of the Call ",
+                                  "example": "63f61863-4a51-4f6b-86e1-46edebcf9356"
+                                },
+                                "conversation_uuid": {
+                                  "type": "string",
+                                  "format": "uuid",
+                                  "title": "The UUID of the Conversation",
+                                  "default": "",
+                                  "example": "63f61863-4a51-4f6b-86e1-46edebio0123"
+                                },
+                                "to": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string",
+                                        "title": "The Type of Endpoint Called ",
+                                        "example": "phone"
+                                      },
+                                      "number": {
+                                        "type": "string",
+                                        "title": "The number Of the endpoint called ",
+                                        "example": "447700900000"
+                                      }
+                                    }
+                                  }
+                                },
+                                "from": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "title": "The Type of Endpoint that made the call ",
+                                      "example": "phone"
+                                    },
+                                    "number": {
+                                      "type": "string",
+                                      "title": "The Number that made the call ",
+                                      "example": "447700900001"
+                                    }
+                                  }
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "title": "The State of the call ",
+                                  "example": "completed"
+                                },
+                                "direction": {
+                                  "type": "string",
+                                  "title": "The Direction of the Call ",
+                                  "example": "outbound"
+                                },
+                                "rate": {
+                                  "type": "string",
+                                  "title": "The Price per minute of the called destination",
+                                  "example": "0.39"
+                                },
+                                "price": {
+                                  "type": "string",
+                                  "title": "The total price of the call ",
+                                  "example": "23.40"
+                                },
+                                "duration": {
+                                  "type": "string",
+                                  "title": "The Duration of the call ",
+                                  "example":  "60"
+                                },
+                                "start_time": {
+                                  "type": "string",
+                                  "format": "timestamp",
+                                  "title": "The Start Time of the call ",
+                                  "default": "",
+                                  "example": "2015-02-04T22:45:00Z"
+                                },
+                                "end_time": {
+                                  "type": "string",
+                                  "format": "timestamp",
+                                  "title": "The end time of the call",
+                                  "example": "2015-02-04T23:45:00Z"
+                                },
+                                "network": {
+                                  "type": "string",
+                                  "title": "The Network ID of the destination ",
+                                  "example": "65512"
+                                }
+                              }
+                            }
+      put:
+        security:
+          - bearerAuth: []
+        summary: Modify an in progress call
+        description: Modify an in progress call
+        operationId: updateCall
+        x-group: call
+        requestBody:
+          description: action to perform
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  action:
+                      type: string
+                      enum:
+                          - hangup
+                              #description: "End the Call"
+                          - mute
+                              #description: "Mute the call, the callers mic will be disabled but they will still hear audio"
+                          - unmute
+                              #description: "Unmute a previously muted caller"
+                          - earmuff
+                              #description: "Earmuff a call, the caller won't hear any audio but their mic will still be active"
+                          - unearmuff
+                              #description: "remove earmuff from a call"
+                          - transfer
+                              #description: "Replace the NCCO that is running in the call with a new one"
+                  destination:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: 'ncco'
+                          enum:
+                            - 'ncco'
+                        url:
+                          type: array
+                          items:
+                              type: string
+                              format: url
+                              description: "The url of the new NCCO"
+        responses:
+            '204':
+                description: "No Content"
+  /calls/{uuid}/stream:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
+      put:
+          security:
+            - bearerAuth: []
+          summary: Play an audio file into a call
+          description: Play an audio file into a call
+          operationId: startStream
+          x-group: stream
+          requestBody:
+            description: action to perform
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                      stream_url:
+                          type: array
+                          items:
+                              type: string
+                              format: url
+                              description: "The url of audio file to play"
+                      loop:
+                          type: integer
+                          description: "the number of times to play the file, 0 for infinite"
+                          default: 1
+          responses:
+              '200':
+                  description: Ok
+                  content:
+                      application/json:
+                          schema:
+                              {
+                                "type": "object",
+                                #"definitions": {},
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "default": "Stream started"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "title": "The UUID of this request",
+                                  }
+                                }
+                            }                                
+      delete:
+          security:
+            - bearerAuth: []
+          summary: Stop playing an audio file into a call
+          description: Stop playing an audio file into a call
+          operationId: stopStream
+          x-group: stream
+          responses:
+              '200':
+                  description: Ok
+                  content:
+                      application/json:
+                          schema:
+                              {
+                                "type": "object",
+                                #"definitions": {},
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "default": "Stream stopped"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "title": "The UUID of this request",
+                                  }
+                                }
+                            }
+  /calls/{uuid}/talk:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
+      put:
+          security:
+            - bearerAuth: []
+          summary: Play a text to speech into a call
+          description: Play a text to speech into a call
+          operationId: startTalk
+          x-group: talk
+          requestBody:
+            description: action to perform
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                      text:
+                          type: string
+                          description: "The text to read"
+                      voiceName:
+                          description: "The voice & language to use"
+                          $ref: "#/components/schemas/voiceNames"                          
+                      loop:
+                          type: integer
+                          description: "the number of times to repeeat the text the file, 0 for infinite"
+                          default: 1
+          responses:
+              '200':
+                  description: Ok
+                  content:
+                      application/json:
+                          schema:
+                              {
+                                "type": "object",
+                                #"definitions": {},
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "default": "Talk started"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "title": "The UUID of this request",
+                                  }
+                                }
+                            }                                
+      delete:
+          security:
+            - bearerAuth: []
+          summary: Stop text to speech in a call
+          description: Stop text to speech in a call
+          operationId: stopTalk
+          x-group: talk
+          responses:
+              '200':
+                  description: Ok
+                  content:
+                      application/json:
+                          schema:
+                              {
+                                "type": "object",
+                                #"definitions": {},
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "default": "Talk stopped"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "title": "The UUID of this request",
+                                  }
+                                }
+                            }                                      
+  /calls/{uuid}/dtmf:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
+      put:
+          security:
+            - bearerAuth: []
+          summary: Play DTMF tones into a call
+          description: Play DTMF tones into a call
+          operationId: startDTMF
+          x-group: dtmf
+          requestBody:
+            description: action to perform
+            required: true
+            content:
+              application/json:
+                schema:
+                  properties:
+                      digits:
+                          type: string
+                          description: "The digits to send "
+
+          responses:
+              '200':
+                  description: Ok
+                  content:
+                      application/json:
+                          schema:
+                              {
+                                "type": "object",
+                                #"definitions": {},
+                                "properties": {
+                                  "message": {
+                                    "type": "string",
+                                    "default": "DTMF sent"
+                                  },
+                                  "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "title": "The UUID of this request",
+                                  }
+                                }
+                            }                                    
+                                      
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    endpoints:
+      type: object
+      properties:
+        phone:
+          #summary: Phone 
+          type: object
+          description: Phone number you want to call
+          properties:
+            type:
+              type: string
+              example: 'phone'
+              enum:
+                - 'phone'
+            number:
+              $ref: "#/components/schemas/addresses/properties/e164"
+            dtmfAnswer:
+              type: string
+              example: "p*123#"      
+        websocket:
+          #summary: Websocket
+          type: object
+          description: Details of the Websocket you want to connect to
+          properties:
+            type:
+              type: string
+              example: 'websocket'
+              enum:
+                - 'websocket'
+            uri:
+              $ref: "#/components/schemas/addresses/properties/wsurl"
+            content-type:
+              type: string
+              example: 'audio/l16;rate=16000'
+              enum:
+                - 'audio/l16;rate=16000'
+            headers:
+                description: "Custom metadata you want to pass to the websocket"
+                type: object
+                example: {'customerID'}
+        sip:
+          #summary: SIP 
+          type: object
+          description: phone
+          properties:
+            type:
+              type: string
+              example: 'sip'
+              enum:
+                - 'sip'
+            uri:
+              $ref: "#/components/schemas/addresses/properties/sipuri"
+    addresses:
+      type: object
+      properties:
+        e164:
+            type: string
+            minLength: 7
+            maxLength: 15
+            example: '14155550100'
+            pattern: '\d{7,15}'
+        sipuri:
+            type: string
+            minLength: 1
+            maxLength: 50
+            example: 'rebekka@sip.example.com'
+        wsurl:
+            type: string
+            minLength: 1
+            maxLength: 50
+            example: 'wss:\\example.com/socket'
+            pattern: '^((ws:\\\\)|(wss:\\\\)).*'
+    callEvent:
+      type: object
+      required:
+        - conversation_uuid
+        - to
+        - from
+        - uuid
+        - status
+      properties:
+        conversation_uuid:
+            description: 'The UUID of the Converstion that the event relates to'
+            type: string
+            format: uuid
+            example: 'CON-171b3991-49b0-4dfa-badd-2bc6e68b57b4'
+        to:
+          description: 'The number or address that has been called'
+          type: string
+        from:
+          description: 'The number or address that is calling'
+          type: string
+        uuid:
+            description: 'The UUID of the call leg that the event relates to'
+            type: string
+            format: uuid
+            example: '161b3991-49b0-4dfa-badd-2bc6e68b57a4'
+        timestamp:
+          type: string
+          format: date-time
+          example: '2018-01-12T15:01:55.315Z'
+        status:
+          type: string
+          enum:
+            - started
+            - ringing
+            - answered
+            - machine
+            - completed
+            - timeout
+            - failed
+            - rejected
+            - cancelled
+            - busy
+        direction:
+            type: string
+            enum:
+                - inbound
+                - outbound
+    voiceNames:
+       type: string
+       enum:
+           - Salli
+               #language: en-US 
+               #gender: female
+           - Joey 
+               #language: en-US 
+               #gender: male
+           - Naja   
+               #language: da-DK 
+               #gender: female
+           - Mads 
+               #language: da-DK 
+               #gender: male
+           - Marlene      
+               #language: de-DE 
+               #gender: female
+           - Hans      
+               #language: de-DE 
+               #gender: male
+           - Nicole   
+               #language: en-AU 
+               #gender: female
+           - Russell
+               #language: en-AU 
+               #gender: male
+           - Amy   
+               #language: en-GB 
+               #gender: female
+           - Brian   
+               #language: en-GB 
+               #gender: male
+           - Emma
+               #language: en-GB 
+               #gender: female
+           - Geraint    
+               #language: en-GB,WLS
+               #gender: male
+           - Gwyneth    
+               #language: cy-GB,WLS
+               #gender: female
+           - Raveena   
+               #language: en-IN 
+               #gender: female
+           - Chipmunk   
+               #language: en-US 
+               #gender: male
+           - Eric   
+               #language: en-US 
+               #gender: male
+           - Ivy   
+               #language: en-US 
+               #gender: female
+           - Jennifer   
+               #language: en-US 
+               #gender: female
+           - Justin
+               #language: en-US 
+               #gender: male
+           - Kendra   
+               #language: en-US 
+               #gender: female
+           - Kimberly   
+               #language: en-US 
+               #gender: female
+           - Conchita 
+               #language: es-ES 
+               #gender: female
+           - Enrique      
+               #language: es-ES 
+               #gender: male
+           - Penelope
+               #language: es-US 
+               #gender: female
+           - Miguel      
+               #language: es-US 
+               #gender: male
+           - Chantal      
+               #language: fr-CA
+               #gender: female
+           - Celine      
+               #language: fr-FR
+               #gender: female
+           - Mathieu      
+               #language: fr-FR
+               #gender: mail
+           - Dora      
+               #language: is-IS 
+               #gender: female
+           - Karl   
+               #language: is-IS 
+               #gender: male
+           - Carla      
+               #language: it-IT
+               #gender: female
+           - Giorgio   
+               #language: it-IT
+               #gender: male
+           - Liv
+               #language: nb-NO 
+               #gender: female
+           - Lotte      
+               #language: nl-NL 
+               #gender: female
+           - Ruben
+               #language: nl-NL 
+               #gender: male
+           - Agnieszka
+               #language: pl-PL 
+               #gender: female
+           - Jacek 
+               #language: pl-PL 
+               #gender: male
+           - Ewa
+               #language: pl-PL
+               #gender: female
+           - Jan
+               #language: pl-PL
+               #gender: male
+           - Maja      
+               #language: pl-PL 
+               #gender: female
+           - Vitoria 
+               #language: pt-BR
+               #gender: female
+           - Ricardo
+               #language: pt-BR 
+               #gender: male
+           - Cristiano
+               #language: pt-PT 
+               #gender: male
+           - Ines
+               #language: pt-PT 
+               #gender: female
+           - Carmen
+               #language: ro-RO
+               #gender: female
+           - Maxim
+               #language: ru-RU
+               #gender: male
+           - Tatyana
+               #language: ru-RU
+               #gender: female
+           - Astrid
+               #language: sv-SE 
+               #gender: female
+           - Filiz
+               #language: tr-TR 
+               #gender: female                
+x-groups:
+  calls:
+    name: "Calls"
+    order: 1
+    description: Create and search calls
+  call:
+    name: "Call"
+    order: 2
+    description: Manage a specfic call
+  stream:
+    name: "Stream"
+    order: 3
+    description: Stream audio to an active call
+  talk:
+    name: "Talk"
+    order: 4
+    description: Send a synthesized speech message to an active call
+  dtmf:
+    name: "DTMF"
+    order: 5
+    description: Send Dual-tone multi-frequency (DTMF) tones to an active call

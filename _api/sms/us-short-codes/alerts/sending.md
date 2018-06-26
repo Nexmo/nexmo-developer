@@ -36,11 +36,11 @@ https://rest.nexmo.com/sc/us/alert/json?api_key=xxxxxxxx&api_secret=xxxxxxxx&to=
 
 This request contains:
 
-* A [Base URL](#base)
-* [Parameters](#parameters )
-* [Authentication information](#authentic )
-* [Security](#security )
-* [Encoding](#encode)
+* A [Base URL](#base-url)
+* [Parameters](#parameters)
+* Authentication information
+* [Security](#security)
+* [Encoding](#encoding)
 
 ### Base URL
 

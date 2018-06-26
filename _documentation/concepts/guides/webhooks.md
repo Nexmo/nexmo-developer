@@ -16,7 +16,7 @@ Information resulting from requests to the SMS API, Voice API, Number Insight AP
 Nexmo sends and retrieves the following information using webhooks:
 
 * SMS API - sends the delivery status of your message and receives inbound SMS
-* Voice API - retrieves the [Nexmo Call Control Objects](/voice/guides/ncco) you use to control the call from one webhook endpoint, and sends information about the call status to another
+* Voice API - retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another
 * Number Insight Advanced Async API - receives complete information about a phone number
 * US Short Codes API - sends the delivery status of your message and receives inbound SMS
 

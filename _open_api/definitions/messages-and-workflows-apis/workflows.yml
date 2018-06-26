@@ -182,7 +182,9 @@ components:
 
                 **Messenger**: supports all types.
 
-                **SMS** or **Viber**  only support `text`.
+                **Viber Service Messages**: supports `image` and `text`.
+
+                **SMS**: supports `text`.
               type: string
               enum:
                 - text
@@ -271,7 +273,7 @@ components:
         properties:
           url:
             type: string
-            description: The URL of the image attachment.
+            description: 'The URL of the image attachment. `messenger` supports .jpg, .png and .gif. `viber_service_msg` supports .jpg and .png.'
             minLength: 1
             maxLength: 2000
             example: 'https://example.com/image.jpg'
@@ -280,7 +282,7 @@ components:
       properties:
         url:
           type: string
-          description: The URL of the audio attachment.
+          description: 'The URL of the audio attachment. `messenger` supports .mp3.'
           minLength: 1
           maxLength: 2000
           example: 'https://example.com/audio.mp3'
@@ -289,7 +291,7 @@ components:
       properties:
         url:
           type: string
-          description: The URL of the video attachment.
+          description: 'The URL of the video attachment. `messenger` supports .mp4'
           minLength: 1
           maxLength: 2000
           example: 'https://example.com/video.mp4'
@@ -298,7 +300,7 @@ components:
       properties:
         url:
           type: string
-          description: The URL of the file attachment.
+          description: 'The URL of the file attachment. `messenger` supports a wide range of attachments including .zip, .csv and .pdf'
           minLength: 1
           maxLength: 2000
           example: 'https://example.com/file.zip'

@@ -4,6 +4,7 @@ navigation_weight:
   Voice: 2
   Verify: 3
   Number Insight: 4
+  Messages and Workflows: 5
   Account: 99
   Concepts: 0
 
@@ -28,6 +29,9 @@ navigation_weight:
   Getting Started: 2
   In-App Messaging: 3
   In-App Voice: 4
+
+  Messages API: 1
+  Workflows API: 2
 
 navigation_overrides:
   redact:

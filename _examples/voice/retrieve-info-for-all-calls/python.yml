@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/retrieve-info-for-all-calls.py
+    from_line: 11
+    to_line: 18
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/retrieve-info-for-all-calls.py
+    from_line: 2
+    to_line: 9
+file_name: retrieve-info-for-all-calls.py
+run_command: 'python3 retrieve-info-for-all-calls.py'

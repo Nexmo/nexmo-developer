@@ -34,7 +34,7 @@ In order to create a JWT to authenticate your API requests, you will need to fir
 
 When creating a Nexmo Voice Application, you will be asked to provide an Event URL and an Answer URL. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs, so in this case you can just set them to the suggested values of `http://example.com/event` and `http://example.com/answer` respectively.
 
-When you are creating the Nexmo Voice Application in the Nexmo Dashboard you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
+When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
 
 Make a note of the Nexmo Application ID for the created application.
 
@@ -66,7 +66,7 @@ Key | Description
 `FROM_NUMBER` | The phone number you are sending the message from.
 `TO_NUMBER` | The phone number you are sending the message to.
 
-**NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
+> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ### Example
 

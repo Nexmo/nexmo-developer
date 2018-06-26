@@ -100,6 +100,8 @@ class Call {
 			ANSWERED: 'answered',
 			/** The Call is in completed state */
 			COMPLETED: 'completed',
+			/** The Call is in busy state */
+			BUSY: 'busy',
 			/** The Call is in timeout state */
 			TIMEOUT: 'timeout',
 			/** The Call is in unanswered state */
@@ -197,6 +199,10 @@ class Call {
 		this._attachCallListeners();
 	}
 
+	_setConversationFrom(from) {
+		this.from = from;
+	}
+
 	_handleStateChange(event = {}) {
 		return new Promise((resolve, reject) => {
 			switch (event.type) {
@@ -208,9 +214,22 @@ class Call {
 							this.application.emit("call:state:changed", this);
 							resolve();
 						}).catch(reject);
-				case 'sip:ringing':
-					this.state = this.CALL_STATES.RINGING;
-					this.application.emit("call:state:changed", this);
+				case 'member:left':
+					if (this.conversation.me.id === event.from) {
+						if (this.state !== this.CALL_STATES.ANSWERED) {
+							this.state = this.CALL_STATES.UNANSWERED;
+							this.application.emit("call:state:changed", this);
+						}
+					} else {
+						if (this.state !== this.CALL_STATES.ANSWERED) {
+							this.state = this.CALL_STATES.REJECTED;
+							this.application.emit("call:state:changed", this);
+						}
+					}
+					if (this.state === this.CALL_STATES.ANSWERED) {
+						this.state = this.CALL_STATES.COMPLETED;
+						this.application.emit("call:state:changed", this);
+					}
 					resolve();
 					break;
 				case 'member:media':
@@ -218,6 +237,31 @@ class Call {
 						this.state = this.CALL_STATES.ANSWERED;
 						this.application.emit("call:state:changed", this);
 					}
+					resolve();
+					break;
+				case 'sip:ringing':
+					this.state = this.CALL_STATES.RINGING;
+					this.application.emit("call:state:changed", this);
+					resolve();
+					break;
+				case 'sip:hangup':
+					switch (event.body.reason.sip_code) {
+						case 486:
+							this.state = this.CALL_STATES.BUSY;
+							break;
+						case 487:
+							this.state = this.CALL_STATES.TIMEOUT;
+							break;
+						case 403:
+							this.state = this.CALL_STATES.FAILED;
+							break;
+					}
+					this.application.emit("call:state:changed", this);
+					resolve();
+					break;
+				case 'knocking:delete:success':
+					this.state = this.CALL_STATES.UNANSWERED;
+					this.application.emit("call:state:changed", this);
 					resolve();
 					break;
 				default:
@@ -338,8 +382,10 @@ class Call {
 					}
 				}, (response) => {
 					if (response.type === 'knocking:delete:success') {
-						resolve(response);
+						const call = this.application._call_draft_list.get(this.knocking_id);
+						call._handleStateChange(response);
 						this.application._call_draft_list.delete(this.knocking_id);
+						resolve(response);
 					} else {
 						if (!this.conversation) {
 							this.log.warn("Problem cancelling the call: Knocking cancel failed and Conversation.leave not available");
@@ -398,13 +444,13 @@ module.exports = Call;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ANSWERED">ANSWERED</a></li><li><a href="global.html#COMPLETED">COMPLETED</a></li><li><a href="global.html#FAILED">FAILED</a></li><li><a href="global.html#HUNGUP">HUNGUP</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#REJECTED">REJECTED</a></li><li><a href="global.html#RINGING">RINGING</a></li><li><a href="global.html#STARTED">STARTED</a></li><li><a href="global.html#TIMEOUT">TIMEOUT</a></li><li><a href="global.html#UNANSWERED">UNANSWERED</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ANSWERED">ANSWERED</a></li><li><a href="global.html#BUSY">BUSY</a></li><li><a href="global.html#COMPLETED">COMPLETED</a></li><li><a href="global.html#FAILED">FAILED</a></li><li><a href="global.html#HUNGUP">HUNGUP</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#REJECTED">REJECTED</a></li><li><a href="global.html#RINGING">RINGING</a></li><li><a href="global.html#STARTED">STARTED</a></li><li><a href="global.html#TIMEOUT">TIMEOUT</a></li><li><a href="global.html#UNANSWERED">UNANSWERED</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 19 2018 13:59:14 GMT+0300 (Eastern European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jun 25 2018 10:04:37 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

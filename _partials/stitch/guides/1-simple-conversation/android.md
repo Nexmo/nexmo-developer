@@ -19,7 +19,7 @@ This guide will introduce you to the following concepts.
 
 ### Before you begin
 
-* Ensure you have Node.JS and NPM installed (you'll need it for the CLI)
+* Ensure you have [Node.JS](https://nodejs.org/en/download/) and NPM installed (you'll need it for the CLI)
 * Ensure you have Android Studio installed
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
 * Install the Nexmo CLI:
@@ -123,7 +123,7 @@ MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-012345678
 Generate a JWT for the user and take a note of it. Remember to change the `YOUR_APP_ID` value in the command.
 
 ```bash
-$ USER_JWT="$(nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{}}}' application_id=YOUR_APP_ID)"
+$ USER_JWT="$(nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{},"/v1/knocking/**":{}}}' application_id=YOUR_APP_ID)"
 ```
 
 *Note: The above command saves the generated JWT to a `USER_JWT` variable. It also sets the expiry of the JWT to one day from now.*
@@ -148,7 +148,7 @@ In the `build.gradle` file we'll add the Nexmo Stitch Android SDK and the WebRTC
 //app/build.gradle
 dependencies {
 ...
-  compile 'com.nexmo:stitch:1.6.0'
+  compile 'com.nexmo:stitch:1.7.1'
   compile 'com.android.support:appcompat-v7:25.3.1'
 ...
 }

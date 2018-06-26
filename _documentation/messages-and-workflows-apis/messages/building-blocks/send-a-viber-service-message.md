@@ -13,7 +13,7 @@ Key | Description
 `VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
 `TO_NUMBER` | The phone number you are sending the message to. 
 
-**NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.**
+> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.**
 
 ## Prerequisites
 
