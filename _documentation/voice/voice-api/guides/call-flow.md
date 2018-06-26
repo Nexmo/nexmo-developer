@@ -47,6 +47,7 @@ supplied as an `event_url` parameter when the call is created.
 | `cancelled`  | The call was cancelled by the originator before it was answered |
 | `input`  | User input has been collected via an `input` action |
 | `recording`  | A `record` stage has completed. This event contains the recording URL |
+| `busy`  | The destination is on the line with another caller |
 
 In addition, certain errors are sent to the `event_url` such as your `answer_url` returning an invalid NCCO.
 
