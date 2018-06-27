@@ -100,7 +100,7 @@
                 <a class="nav-group-task-link" href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/ReceiptState.html">– ReceiptState</a>
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/User.html">User</a>
@@ -211,7 +211,7 @@
                 <a class="nav-group-task-link" href="../Structs/NetworkError.html">NetworkError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/PushNotificationCertificate.html">PushNotificationCertificate</a>
+                <a class="nav-group-task-link" href="../Structs/Certificate.html">Certificate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/Session.html">Session</a>
@@ -288,10 +288,24 @@
                 <a class="nav-group-task-link" href="../Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Classes.html#/s:6Stitch10SignalBaseC">SignalBase</a>
+                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Global Variables.html">Other Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateInvitedSSvp">NXMMemberModelStateInvited</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch25NXMMemberModelStateJoinedSSvp">NXMMemberModelStateJoined</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch23NXMMemberModelStateLeftSSvp">NXMMemberModelStateLeft</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateUnknownSSvp">NXMMemberModelStateUnknown</a>
               </li>
             </ul>
           </li>
@@ -567,6 +581,17 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties%20-%20Helper"></a>
+                <a name="//apple_ref/swift/Section/Properties - Helper" class="dashAnchor"></a>
+                <a href="#/Properties%20-%20Helper">
+                  <h3 class="section-name">Properties - Helper</h3>
+                </a>
+              </div>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -620,6 +645,22 @@
                       <div class="abstract">
                         <p>Observer to listen for changes in receipts</p>
 
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">event</span><span class="o">.</span><span class="n">receiptRecordChanged</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">receipt</span> <span class="k">in</span>
+   <span class="c1">// receipt here</span>
+<span class="p">})</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+
+<p>See Objective-C compatibility support method</p>
+
+<p>*</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -646,6 +687,22 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Observer to listen for new receipts</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">event</span><span class="o">.</span><span class="n">newReceiptRecord</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">receipt</span> <span class="k">in</span>
+   <span class="c1">// receipt here</span>
+<span class="p">})</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+
+<p>See Objective-C compatibility support method</p>
+
+<p>*</p>
 
                       </div>
                       <div class="declaration">
@@ -722,13 +779,162 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Receipt%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Receipt - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Receipt%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Receipt - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMEventBase(im)receiptRecordChangedObjc:"></a>
+                    <a name="//apple_ref/swift/Method/receiptRecordChangedObjc(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMEventBase(im)receiptRecordChangedObjc:">receiptRecordChangedObjc(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Observer to listen for changes in receipts</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+
+<p>See Swift method</p>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="kt">NXMSignalReference</span> <span class="o">*</span><span class="n">reference</span> <span class="o">=</span> <span class="p">[</span><span class="n">event</span> <span class="nv">receiptRecordChangedObjc</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMReceiptRecord</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">receipt</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// receipt here</span>
+<span class="p">}];</span>
+
+<span class="c1">// clean up after use</span>
+<span class="p">[</span><span class="n">reference</span> <span class="n">dispose</span><span class="p">];</span>
+</code></pre>
+
+<p>*</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">receiptRecordChangedObjc</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Classes/ReceiptRecord.html">ReceiptRecord</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SignalReference.html">SignalReference</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>new receipts</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Reference to handle memory management</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMEventBase(im)newReceiptRecordObjc:"></a>
+                    <a name="//apple_ref/swift/Method/newReceiptRecordObjc(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMEventBase(im)newReceiptRecordObjc:">newReceiptRecordObjc(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Observer to listen for new receipts</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+
+<p>See Swift method</p>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="kt">NXMSignalReference</span> <span class="o">*</span><span class="n">reference</span> <span class="o">=</span> <span class="p">[</span><span class="n">event</span> <span class="nv">newReceiptRecordObjc</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMReceiptRecord</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">receipt</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// receipt here</span>
+<span class="p">}];</span>
+
+<span class="c1">// clean up after use</span>
+<span class="p">[</span><span class="n">reference</span> <span class="n">dispose</span><span class="p">];</span>
+</code></pre>
+
+<p>*</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">newReceiptRecordObjc</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Classes/ReceiptRecord.html">ReceiptRecord</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/SignalReference.html">SignalReference</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>new receipts</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Reference to handle memory management</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-05-30)</p>
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-06-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

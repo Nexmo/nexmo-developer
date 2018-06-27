@@ -1,0 +1,16 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/DownloadRecording.java
+    from_line: 44
+    to_line: 58
+client:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/DownloadRecording.java
+    from_line: 37
+    to_line: 42
+run_command: java-ide
+file_name: DownloadRecording.java
+unindent: true

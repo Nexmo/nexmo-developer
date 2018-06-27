@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - '''flask>=1.0'''
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/record-a-message.py
+    from_line: 10
+    to_line: 37
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/record-a-message.py
+    from_line: 2
+    to_line: 7
+file_name: record-a-message.py
+run_command: 'python3 record-a-message.py'

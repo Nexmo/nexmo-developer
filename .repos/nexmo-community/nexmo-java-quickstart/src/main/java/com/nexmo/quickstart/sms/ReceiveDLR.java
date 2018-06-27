@@ -11,7 +11,7 @@ public class ReceiveDLR {
 
         port(3000);
 
-        get("/webhooks/delivery-receipt", (req, res) -> {
+        get("/webhook/delivery-receipt", (req, res) -> {
             for (String param : req.queryParams()) {
                 System.out.printf("%s: %s\n", param, req.queryParams(param));
             }
@@ -19,7 +19,7 @@ public class ReceiveDLR {
             return "";
         });
 
-        post("/webhooks/delivery-receipt", (req, res) -> {
+        post("/webhook/delivery-receipt", (req, res) -> {
             // The body will be form-encoded or a JSON object:
             if (req.contentType().startsWith("application/x-www-form-urlencoded")) {
                 for (String param : req.queryParams()) {

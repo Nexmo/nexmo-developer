@@ -16,7 +16,7 @@ public class OutboundTextToSpeechWithEventUrl {
 
         String APPLICATION_ID = envVar("APPLICATION_ID");
         String PRIVATE_KEY = envVar("PRIVATE_KEY");
-        String FROM_NUMBER = envVar("FROM_NUMBER");
+        String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
         String TO_NUMBER = envVar("TO_NUMBER");
         String EVENT_URL = envVar("EVENT_URL");
 
@@ -27,7 +27,7 @@ public class OutboundTextToSpeechWithEventUrl {
         NexmoClient client = new NexmoClient(auth);
         Call call = new Call(
                 TO_NUMBER,
-                FROM_NUMBER,
+                NEXMO_NUMBER,
                 "https://nexmo-community.github.io/ncco-examples/first_call_talk.json"
         );
         call.setEventUrl(EVENT_URL);

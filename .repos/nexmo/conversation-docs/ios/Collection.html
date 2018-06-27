@@ -100,7 +100,7 @@
                 <a class="nav-group-task-link" href="Classes/ReceiptRecord.html">ReceiptRecord</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ReceiptRecord/ReceiptState.html">– ReceiptState</a>
+                <a class="nav-group-task-link" href="Classes/ReceiptRecord/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/User.html">User</a>
@@ -211,7 +211,7 @@
                 <a class="nav-group-task-link" href="Structs/NetworkError.html">NetworkError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/PushNotificationCertificate.html">PushNotificationCertificate</a>
+                <a class="nav-group-task-link" href="Structs/Certificate.html">Certificate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/Session.html">Session</a>
@@ -288,10 +288,24 @@
                 <a class="nav-group-task-link" href="Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Other Classes.html#/s:6Stitch10SignalBaseC">SignalBase</a>
+                <a class="nav-group-task-link" href="Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other Global Variables.html">Other Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch26NXMMemberModelStateInvitedSSvp">NXMMemberModelStateInvited</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SignalReference.html">SignalReference</a>
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch25NXMMemberModelStateJoinedSSvp">NXMMemberModelStateJoined</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch23NXMMemberModelStateLeftSSvp">NXMMemberModelStateLeft</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch26NXMMemberModelStateUnknownSSvp">NXMMemberModelStateUnknown</a>
               </li>
             </ul>
           </li>
@@ -348,7 +362,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Conversation Collection</p>
+                        <p>Conversation Collection, behaviour just like a Array
+See Apple doc: <a href="https://developer.apple.com/documentation/swift/collection">https://developer.apple.com/documentation/swift/collection</a></p>
 
                         <a href="Classes/ConversationCollection.html" class="slightly-smaller">See more</a>
                       </div>
@@ -358,7 +373,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
 <span class="kd">@objc(NXMConversationCollection)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConversationCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Collection</span></code></pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConversationCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">BidirectionalCollection</span></code></pre>
 
                         </div>
                       </div>
@@ -382,7 +397,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Cache of all members for a conversation</p>
+                        <p>Member collection per conversation, behaviour just like a Array
+See Apple doc: <a href="https://developer.apple.com/documentation/swift/collection">https://developer.apple.com/documentation/swift/collection</a></p>
 
                         <a href="Classes/MemberCollection.html" class="slightly-smaller">See more</a>
                       </div>
@@ -392,7 +408,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
 <span class="kd">@objc(NXMMemberCollection)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MemberCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Collection</span></code></pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MemberCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">BidirectionalCollection</span></code></pre>
 
                         </div>
                       </div>
@@ -416,7 +432,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Receipt Collection</p>
+                        <p>Receipt Collection, behaviour just like a Array
+See Apple doc: <a href="https://developer.apple.com/documentation/swift/collection">https://developer.apple.com/documentation/swift/collection</a></p>
 
                         <a href="Classes/ReceiptCollection.html" class="slightly-smaller">See more</a>
                       </div>
@@ -426,7 +443,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
 <span class="kd">@objc(NXMReceiptCollection)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">ReceiptCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Collection</span></code></pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">ReceiptCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">BidirectionalCollection</span></code></pre>
 
                         </div>
                       </div>
@@ -450,7 +467,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Collection of event per conversation</p>
+                        <p>Event collections per conversation, behaviour just like a Array
+See Apple doc: <a href="https://developer.apple.com/documentation/swift/collection">https://developer.apple.com/documentation/swift/collection</a></p>
 
                         <a href="Classes/EventCollection.html" class="slightly-smaller">See more</a>
                       </div>
@@ -460,7 +478,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
 <span class="kd">@objc(NXMEventCollection)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">EventCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Collection</span></code></pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">EventCollection</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">BidirectionalCollection</span></code></pre>
 
                         </div>
                       </div>
@@ -475,7 +493,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-05-30)</p>
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-06-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

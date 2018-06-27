@@ -23,13 +23,12 @@ package com.nexmo.quickstart.voice;
 
 import com.nexmo.client.NexmoClient;
 import com.nexmo.client.auth.JWTAuthMethod;
+import spark.Spark;
 
 import java.nio.file.FileSystems;
 
 import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
-import static spark.Spark.port;
-import static spark.Spark.post;
 
 public class DownloadRecording {
     public static void main(String[] args) throws Exception {
@@ -42,18 +41,19 @@ public class DownloadRecording {
                 new JWTAuthMethod(APPLICATION_ID, FileSystems.getDefault().getPath(PRIVATE_KEY))
         );
 
-        port(8080);
+        Spark.port(8080);
 
-        /**
+        /*
          * A recording webhook endpoint which automatically downloads the specified recording to a file in the
          * current working directory, called "downloaded_recording.mp3"
          */
-        post("/recording", (req, res) -> {
+        Spark.post("/recording", (req, res) -> {
             RecordingPayload payload = RecordingPayload.fromJson(req.bodyAsBytes());
+            String RECORDING_URL = payload.getRecordingUrl();
 
             System.out.println("Downloading from " + payload.getRecordingUrl());
             nexmo.getVoiceClient()
-                    .downloadRecording(payload.getRecordingUrl())
+                    .downloadRecording(RECORDING_URL)
                     .save("downloaded_recording.mp3");
             return "OK";
         });

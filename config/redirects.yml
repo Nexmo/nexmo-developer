@@ -19,7 +19,7 @@
 "/verify/guides": "/verify/guides/verify-a-user"
 "/verify/tutorial": "/verify/tutorials/passwordless-authentication"
 "/verify/building-blocks": "/verify/building-blocks/send-verify-request"
-"/voice/building-blocks": "/voice/voice-api/building-blocks/make-an-outbound-call"
+"/voice/building-blocks": "/voice/voice-api/building-blocks/before-you-begin"
 "/number-insight": "/number-insight/overview"
 "/number-insight/guides": "/number-insight/guides/cnam"
 "/number-insight/building-blocks": "/number-insight/building-blocks/number-insight-basic"
@@ -75,3 +75,4 @@
 "/messages-and-workflows-apis/messages/building-blocks": "/messages-and-workflows-apis/messages/building-blocks/send-an-sms-with-messages-api"
 "/messages-and-workflows-apis/workflows/building-blocks": "/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover"
 "/redact": "/redact/overview"
+"/voice/voice-api/websockets": "/voice/voice-api/guides/websockets"

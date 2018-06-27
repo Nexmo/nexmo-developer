@@ -37,6 +37,7 @@ const WildEmitter = require('wildemitter');
 const ConversationClientError = require('../conversationClientError');
 const logger = require('loglevel');
 
+const NexmoApiError = ConversationClientError.NexmoApiError;
 const NexmoClientError = ConversationClientError.NexmoClientError;
 
 /**
@@ -45,36 +46,80 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @param {Application} application - The Application object.
  * @param {Conversation} conversation - The Conversation object that belongs to this call.
  * @param {Member} from - The member that initiated the call.
+ * @property {Application} application -  The Application object that the call belongs to.
  * @property {Conversation} conversation -  The Conversation object that belongs to this call.
- * @property {TYPES} type=APP - The type of the call
  * @property {Member} from - The caller. The member object of the caller ( not a reference to the one in conversation.members)
  * @property {Member[]} to - The callees. The members that receive the call (not a reference to conversation.members)
- * @fires Application#member:call
- * @fires Call#call:member:state
+ * @property {Call.CALL_STATES} CALL_STATES="started" - the available call states
+ * @property {Call.MEMBER_CALL_STATES} MEMBER_CALL_STATES - the available member call states
+ * @emits Application#member:call
+ * @emits Call#member:call:state
+ * @emits Call#call:state:changed
  */
 
 /**
  * Call listening for member state changed events.
  *
- * @event Call#call:member:state
+ * @event Call#member:call:state
  * @property {Member} from - the member that is changed
  * @property {MEMBER_CALL_STATES} state - the new state
  * @property {Event} event -  the actual event
  * @example &lt;caption>listen for member state events&lt;/caption>
- *  call.on("call:member:state",(from, state, event) => {
+ *  call.on("member:call:state",(from, state, event) => {
  *              console.log("member: " + member.user.name + " has " + state);
  *       });
  *   });
  */
 
+/**
+ * Call listening for call state changed events.
+ *
+ * @event Call#call:state:changed
+ * @property {Call} call -  the actual event
+ * @example &lt;caption>listen for member state events&lt;/caption>
+ *  call.on("call:state:changed",(call) => {
+ *              console.log("call: " + call.state);
+ *       });
+ *   });
+ */
 class Call {
 	constructor(application, conversation, from) {
 		this.application = application;
 		this.log = logger.getLogger(this.constructor.name);
 		this.from = from;
+		this.conversation = null;
+
+		/**
+		 * Enum for Call states.
+		 * @readonly
+		 * @enum {string}
+		 * @alias Call.CALL_STATES
+		 */
+		this.CALL_STATES = {
+			/** The Call is in started state */
+			STARTED: 'started',
+			/** The Call is in ringing state */
+			RINGING: 'ringing',
+			/** The Call is in answered state */
+			ANSWERED: 'answered',
+			/** The Call is in complete state */
+			COMPLETE: 'complete',
+			/** The Call is in busy state */
+			BUSY: 'busy',
+			/** The Call is in timeout state */
+			TIMEOUT: 'timeout',
+			/** The Call is in unanswered state */
+			UNANSWERED: 'unanswered',
+			/** The Call is in rejected state */
+			REJECTED: 'rejected',
+			/** The Call is in failed state */
+			FAILED: 'failed'
+		};
+		Object.freeze(this.CALL_STATES);
 		/**
 		 * Enum for Call Member states.
 		 * @readonly
+		 * @alias Call.MEMBER_CALL_STATES
 		 * @enum {string}
 		 */
 		this.MEMBER_CALL_STATES = {
@@ -86,48 +131,38 @@ class Call {
 			ANSWERED: 'answered',
 			/** A Member rejected the call */
 			REJECTED: 'rejected'
-		};
-		/**
-		 * Enum for Call types.
-		 * @readonly
-		 * @enum {string}
-		 */
-		this.TYPES = {
-			/** A Call originated from APP */
-			APP: 'APP',
-			/** A Call originated from PHONE  */
-			PHONE: 'PHONE'
-		};
-		this.type = this.TYPES.APP;
+		}
+		Object.freeze(this.MEMBER_CALL_STATES);
+		this.state = this.CALL_STATES.STARTED;
 		this._setupConversationObject(conversation);
 		WildEmitter.mixin(Call);
 	}
 
 	/**
 	 * Attach member event listeners from the conversation
-	 * map them to call:member:state events
+	 * map them to member:call:state events
 	 * provided states member: hungup, rejected and answered
-	 * @private 
+	 * @private
 	 */
 	_attachCallListeners() {
 		this.conversation.releaseGroup('call_module');
 		this.conversation.on('member:left', 'call_module', (from, event) => {
-			let state = this.MEMBER_CALL_STATES.HUNGUP;
+			let state = null;
 			if (from.timestamp.joined) {
 				state = this.MEMBER_CALL_STATES.HUNGUP;
 			} else {
 				state = this.MEMBER_CALL_STATES.REJECTED;
 			}
-			this.emit('call:member:state', from, state, event);
+			this.emit('member:call:state', from, state, event);
 			this._hangUpIfAllLeft();
 		});
 		this.conversation.on('member:joined', 'call_module', (from, event) => {
 			const state = this.MEMBER_CALL_STATES.ANSWERED;
-			this.emit('call:member:state', from, state, event);
+			this.emit('member:call:state', from, state, event);
 		});
 		this.conversation.on('member:invited', 'call_module', (from, event) => {
 			const state = this.MEMBER_CALL_STATES.RINGING;
-			this.emit('call:member:state', from, state, event);
+			this.emit('member:call:state', from, state, event);
 		});
 	}
 
@@ -135,22 +170,20 @@ class Call {
 	 * Go through the members of the conversation and if .me is the only one (JOINED or INVITED)
 	 * call call.hangUp().
 	 * @returns {Promise} - empty promise or the call.hangUp promise chain
-	 * @private  
+	 * @private
 	 */
 	_hangUpIfAllLeft() {
-		if (!this.conversation.me || this.conversation.me.state === "LEFT") return Promise.resolve();
-		if (Object.keys(this.conversation.members).length > 1) {
-			for (const member_id in this.conversation.members) {
-				if (!this.conversation.members[member_id]) continue;
-				const member = this.conversation.members[member_id];
-				if (member.state !== "LEFT" &amp;&amp; (this.conversation.me.user.id !== member.user.id)) {
-					return Promise.resolve();
-				}
-			}
-			return this.hangUp();
-		} else {
+		if (!this.conversation.me || this.conversation.me.state === "LEFT" || Object.keys(this.conversation.members).length &lt;= 1) {
 			return Promise.resolve();
 		}
+		for (const member_id in this.conversation.members) {
+			if (!this.conversation.members[member_id]) continue;
+			const member = this.conversation.members[member_id];
+			if (member.state !== "LEFT" &amp;&amp; (this.conversation.me.user.id !== member.user.id)) {
+				return Promise.resolve();
+			}
+		}
+		return this.hangUp();
 	}
 
 	/**
@@ -169,16 +202,90 @@ class Call {
 				delete this.to[this.from.id];
 			}
 		}
-
 		this._attachCallListeners();
 	}
 
+	_setConversationFrom(from) {
+		this.from = from;
+	}
+
+	_handleStateChange(event = {}) {
+		return new Promise((resolve, reject) => {
+			switch (event.type) {
+				case 'member:joined':
+					return this.conversation.media.enable()
+						.then((stream) => {
+							this.state = this.CALL_STATES.STARTED;
+							this.conversation.media.rtcHelper._playAudioStream(stream);
+							this.application.emit("call:state:changed", this);
+							resolve();
+						}).catch(reject);
+				case 'member:left':
+					if (this.conversation.me.id === event.from) {
+						if (this.state !== this.CALL_STATES.ANSWERED) {
+							this.state = this.CALL_STATES.UNANSWERED;
+							this.application.emit("call:state:changed", this);
+						}
+					} else {
+						if (this.state !== this.CALL_STATES.ANSWERED) {
+							this.state = this.CALL_STATES.REJECTED;
+							this.application.emit("call:state:changed", this);
+						}
+					}
+					if (this.state === this.CALL_STATES.ANSWERED) {
+						this.state = this.CALL_STATES.COMPLETE;
+						this.application.emit("call:state:changed", this);
+					}
+					resolve();
+					break;
+				case 'member:media':
+					if (event.from !== this.conversation.me.id &amp;&amp; event.body.audio) {
+						this.state = this.CALL_STATES.ANSWERED;
+						this.application.emit("call:state:changed", this);
+					}
+					resolve();
+					break;
+				case 'sip:ringing':
+					if (this.state === this.CALL_STATES.RINGING) {
+						break;
+					}
+					this.state = this.CALL_STATES.RINGING;
+					this.application.emit("call:state:changed", this);
+					resolve();
+					break;
+				case 'sip:hangup':
+					switch (event.body.reason.sip_code) {
+						case 486:
+							this.state = this.CALL_STATES.BUSY;
+							break;
+						case 487:
+							this.state = this.CALL_STATES.TIMEOUT;
+							break;
+						case 403:
+							this.state = this.CALL_STATES.FAILED;
+							break;
+					}
+					this.application.emit("call:state:changed", this);
+					resolve();
+					break;
+				case 'knocking:delete:success':
+					this.state = this.CALL_STATES.UNANSWERED;
+					this.application.emit("call:state:changed", this);
+					resolve();
+					break;
+				default:
+					resolve();
+					break;
+			}
+			resolve();
+		});
+	}
 	/**
 	 * Trigger the call flow for the input users.
-	 * Create a conversation with prefix name "CALL_" 
+	 * Create a conversation with prefix name "CALL_"
 	 * and invite all the users.
 	 * If at least one user is successfully invited, enable the audio.
-	 * 
+	 *
 	 * @param {string[]} usernames the usernames of the users to call
 	 * @returns {Promise[]} an array of the invite promises for the provided usernames
 	 * @private
@@ -200,7 +307,6 @@ class Call {
 					return conversation.inviteWithAudio({ user_name: username })
 						.then((member) => {
 							this.successful_invited_members.push(member);
-							this.log.debug(member);
 							return Promise.resolve(member);
 						})
 						.catch((error) => {
@@ -222,7 +328,7 @@ class Call {
 					}
 				};
 				// we need to continue the invites even if one fails,
-				// in process_invites we do the check if at least one was successful 
+				// in process_invites we do the check if at least one was successful
 				return Promise.all(invites)
 					.then(() => {
 						this._setupConversationObject(conversation);
@@ -232,21 +338,85 @@ class Call {
 	}
 
 	/**
+	 * Trigger the call flow for the phone call.
+	 * Create a knocking event
+	 *
+	 * @param {string} phoneNumber the phone number to call
+	 * @returns {Promise}
+	 * @private
+	 */
+	createPhoneCall(phoneNumber) {
+		return new Promise((resolve, reject) => {
+			this.application.session.sendRequest({
+				type: 'knocking:new',
+				body: {
+					channel: {
+						type: "app",
+						from: {
+							type: "app"
+						},
+						to: {
+							type: "phone",
+							number: phoneNumber
+						}
+					}
+				}
+			}, (response) => {
+				if (response.type === 'knocking:new:success') {
+					resolve(response);
+				} else {
+					reject(new NexmoApiError(response));
+				}
+			});
+		});
+	}
+	/**
 	 * Hangs up the call
+	 *
+	 * If there is a knocking active, do a knocking:delete
+	 * otherwise
 	 * Leave from the conversation
 	 * Disable the audio
-	 * 
-	 * @returns {Promise} 
+	 *
+	 * @returns {Promise}
 	 */
 	hangUp() {
-		return this.conversation.leave();
+		if (!this.knocking_id) {
+			return this.conversation.leave();
+		} else {
+			return new Promise((resolve, reject) => {
+				this.application.session.sendRequest({
+					type: 'knocking:delete',
+					body: {
+						knocking_id: this.knocking_id
+					}
+				}, (response) => {
+					if (response.type === 'knocking:delete:success') {
+						const call = this.application._call_draft_list.get(this.knocking_id);
+						call._handleStateChange(response);
+						this.application._call_draft_list.delete(this.knocking_id);
+						resolve(response);
+					} else {
+						if (!this.conversation) {
+							this.log.warn("Problem cancelling the call: Knocking cancel failed and Conversation.leave not available");
+							resolve();
+						} else {
+							this.conversation.leave()
+								.then(resolve)
+								.catch(reject);
+							this.log.warn(new NexmoApiError(response));
+						}
+					}
+				});
+			});
+		}
 	}
 
 	/**
 	 * Rejects an incoming call
 	 * Leave from the conversation that you are invited
-	 * 
-	 * @returns {Promise} 
+	 *
+	 * @returns {Promise}
 	 */
 	reject() {
 		if (this.conversation) {
@@ -259,8 +429,8 @@ class Call {
 	/**
 	 * Answers an incoming call
 	 * Join the conversation that you are invited
-	 * 
-	 * @returns {Promise} 
+	 *
+	 * @returns {Promise}
 	 */
 	answer() {
 		if (this.conversation) {
@@ -273,7 +443,8 @@ class Call {
 		}
 	}
 }
-module.exports = Call;</code></pre>
+module.exports = Call;
+</code></pre>
         </article>
     </section>
 
@@ -283,13 +454,13 @@ module.exports = Call;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 18:14:13 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 26 2018 11:08:32 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

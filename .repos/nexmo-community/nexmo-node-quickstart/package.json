@@ -15,14 +15,14 @@
   "author": "Phil Leggetter <phil@leggetter.co.uk> (http://www.leggetter.co.uk), Tomomi Imura <tomomi.imura@nexmo.com>",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "body-parser": "^1.18.3",
     "dotenv": "^2.0.0",
-    "ejs": "^2.5.6",
-    "express": "^4.14.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
     "jsonwebtoken": "^7.1.9",
-    "nexmo": "^2.0.2",
+    "nexmo": "^2.2.1",
     "node-persist": "^2.0.4",
     "node-uuid": "^1.4.7",
-    "request": "^2.79.0"
+    "request": "^2.86.0"
   }
 }

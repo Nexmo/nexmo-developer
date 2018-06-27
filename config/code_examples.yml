@@ -120,11 +120,11 @@ voice:
       from_line: 21
     python:
       source: '.repos/nexmo-community/nexmo-python-quickstart/voice/make-an-outbound-call.py'
-      from_line: 20
+      from_line: 10
     java:
       source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java'
-      from_line: 25
-      to_line: 30
+      from_line: 27
+      to_line: 33
       unindent: true
   inbound:
     node:

@@ -30,24 +30,22 @@ import spark.Route;
 import static spark.Spark.*;
 
 public class ConferenceCall {
-    public static void main(String[] args) throws Exception {
-        ObjectMapper nccoMapper = new ObjectMapper();
-
+    public static void main(String[] args) {
+        String CONF_NAME = "my-conference";
         /*
          * Route to answer incoming calls with an NCCO response.
          */
         Route answerRoute = (req, res) -> {
-            TalkNcco intro = new TalkNcco("Welcome to a Nexmo powered conference call.");
-            ConversationNcco conversation = new ConversationNcco("room-name");
+            TalkNcco intro = new TalkNcco("Please wait while we connect you to the conference.");
+            ConversationNcco conversation = new ConversationNcco(CONF_NAME);
             Ncco[] nccos = new Ncco[]{intro, conversation};
 
             res.type("application/json");
-            return nccoMapper.writer().writeValueAsString(nccos);
+            return new ObjectMapper().writer().writeValueAsString(nccos);
         };
 
         port(3000);
-
-        get("/webhooks/answer", answerRoute);
-        post("/webhooks/answer", answerRoute);
+        get("/webhook/answer", answerRoute);
+        post("/webhook/answer", answerRoute);
     }
 }

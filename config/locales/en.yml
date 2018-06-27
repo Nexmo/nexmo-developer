@@ -12,8 +12,8 @@ en:
     in-app-messaging: In-App Messaging
     in-app-voice: In-App Voice
     messages-and-workflows-apis: Messages and Workflows
-    messages: Messages
-    workflows: Workflows
+    messages: Messages API
+    workflows: Workflows API
     us-short-codes: US Short Codes
     sms: SMS
     guides: Guides

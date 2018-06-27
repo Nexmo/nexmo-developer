@@ -99,7 +99,7 @@
                 <a class="nav-group-task-link" href="Classes/ReceiptRecord.html">ReceiptRecord</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ReceiptRecord/ReceiptState.html">– ReceiptState</a>
+                <a class="nav-group-task-link" href="Classes/ReceiptRecord/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/User.html">User</a>
@@ -210,7 +210,7 @@
                 <a class="nav-group-task-link" href="Structs/NetworkError.html">NetworkError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/PushNotificationCertificate.html">PushNotificationCertificate</a>
+                <a class="nav-group-task-link" href="Structs/Certificate.html">Certificate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/Session.html">Session</a>
@@ -287,10 +287,24 @@
                 <a class="nav-group-task-link" href="Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Other Classes.html#/s:6Stitch10SignalBaseC">SignalBase</a>
+                <a class="nav-group-task-link" href="Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other Global Variables.html">Other Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch26NXMMemberModelStateInvitedSSvp">NXMMemberModelStateInvited</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/SignalReference.html">SignalReference</a>
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch25NXMMemberModelStateJoinedSSvp">NXMMemberModelStateJoined</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch23NXMMemberModelStateLeftSSvp">NXMMemberModelStateLeft</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Global Variables.html#/s:6Stitch26NXMMemberModelStateUnknownSSvp">NXMMemberModelStateUnknown</a>
               </li>
             </ul>
           </li>
@@ -326,7 +340,80 @@
         <section class="section">
           <div class="section-content">
             
-            <h1 id='1-5-0-23-5-2018' class='heading'>1.5.0 23-5-2018</h1>
+            <h1 id='1-8-0-15-6-2018' class='heading'>1.8.0 15-6-2018</h1>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Added better logs when logging is set to warning or error</li>
+<li>Fixed issue where some Objective-c methods did not appear in the framework header</li>
+</ul>
+<h1 id='1-7-0-14-6-2018' class='heading'>1.7.0 14-6-2018</h1>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Removed old logs</li>
+<li>Fixed issue where some Objective-c methods did not appear in the framework header</li>
+</ul>
+<h1 id='1-6-2-11-6-2018' class='heading'>1.6.2 11-6-2018</h1>
+<h1 id='new' class='heading'>New</h1>
+
+<ul>
+<li>The Call class has a property for denoting a change in state with which anyone who has ever used a telephone would likely be familiar so that accessing any change in state is trivial: .started, .ringing, .answered, .rejected, .busy, .unanswered, .timeout, .failed, .complete, .machine.</li>
+</ul>
+
+<p>Current value:</p>
+
+<p>Swift:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">currentValue</span><span class="p">:</span> <span class="kt">Call</span><span class="o">.</span><span class="kt">State</span><span class="p">?</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="n">state</span>
+</code></pre>
+
+<p>Objective-c</p>
+<pre class="highlight plaintext"><code>NXMCallState state = call.currentStateObjc;
+</code></pre>
+
+<p>New call states:</p>
+
+<p>Swift:</p>
+<pre class="highlight swift"><code><span class="n">call</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">subscribe</span> <span class="p">{</span> <span class="n">state</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">state</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nv">started</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">ringing</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">answered</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">rejected</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">busy</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">unanswered</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">timeout</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">failed</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">complete</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">case</span> <span class="nv">machine</span><span class="p">:</span> <span class="k">break</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Objective-c</p>
+<pre class="highlight plaintext"><code>[call stateObjc:^(enum NXMCallState state) {
+    switch (state) {
+    case NXMCallStateStarted: break;
+    case NXMCallStateRinging: break;
+    case NXMCallStateAnswered: break;
+    case NXMCallStateRejected: break;
+    case NXMCallStateBusy: break;
+    case NXMCallStateUnanswered: break;
+    case NXMCallStateTimeout: break;
+    case NXMCallStateFailed: break;
+    case NXMCallStateComplete: break;
+    case NXMCallStateMachine: break;
+    }
+}];
+</code></pre>
+<h1 id='changes' class='heading'>Changes</h1>
+
+<ul>
+<li>More logs to help with verbose debugging</li>
+<li>Minor changes to Docs in SDK</li>
+<li>Collections now can fetch last object i.e <code>collection.last</code> for <code><a href="Classes/Conversation.html">Conversation</a></code>, <code><a href="Classes/Member.html">Member</a></code>, <code><a href="Classes/User.html">User</a></code>, <code><a href="Classes/Event.html">Event</a></code> and <code><a href="Classes/ReceiptRecord.html">ReceiptRecord</a></code></li>
+</ul>
+<h1 id='1-5-0-23-5-2018' class='heading'>1.5.0 23-5-2018</h1>
 <h1 id='breaking-changes' class='heading'>Breaking Changes</h1>
 
 <ul>
@@ -1041,7 +1128,7 @@ client.login(with: TOKEN)
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-05-30)</p>
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-06-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/make-an-outbound-call.py
+    from_line: 10
+    to_line: 16
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/make-an-outbound-call.py
+    from_line: 2
+    to_line: 8
+file_name: make-an-outbound-call.py
+run_command: 'python3 make-an-outbound-call.py'

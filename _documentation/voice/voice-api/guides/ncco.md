@@ -1,5 +1,6 @@
 ---
 title: Nexmo Call Control Objects
+navigation_weight: 2
 description: The Nexmo Call Control Objects used to manage your Voice API calls.
 ---
 
@@ -79,3 +80,4 @@ You can use these parameters to customize the NCCO you return to Nexmo. The foll
 ```tabbed_examples
 source: '_examples/voice/ncco/creating-a-custom-call-or-conversation-for-each-user'
 ```
+

@@ -71,7 +71,7 @@ To ensure the chat is setup, we will configure an instance of `UITableView` to h
 - Inside of `ChatViewController`'s `viewDidLoad(:)` configure both the `dataSource` and `delegate` properties on our reference to `tableView` to `.self`. 
 - Last but not least we will add an extension to ensure confirmity to the required methods:
 
-```
+```swift
 extension ChatController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,7 +116,7 @@ private func call() {
 ``` 
 We no longer need the generic do-try-catch.  Inside of the function, however, we will add an instance of `UIAlertController`. We will loop over each member in the a conversation displayed in the `UITableView` with the higher order function `.forEach` so that we add an action for calling each member to the activity sheet:
 
-```
+```swift
     // MARK: - Call Convenience Methods
     private func call() {
         

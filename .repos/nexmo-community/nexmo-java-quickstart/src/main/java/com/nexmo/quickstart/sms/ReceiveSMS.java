@@ -14,7 +14,7 @@ public class ReceiveSMS {
 
         port(3000);
 
-        get("/webhooks/inbound-sms", (req, res) -> {
+        get("/webhook/inbound-sms", (req, res) -> {
             logger.info("GET request received!");
             for (String param : req.queryParams()) {
                 System.out.printf("%s: %s\n", param, req.queryParams(param));
@@ -24,7 +24,7 @@ public class ReceiveSMS {
             return "";
         });
 
-        post("/webhooks/inbound-sms", (req, res) -> {
+        post("/webhook/inbound-sms", (req, res) -> {
             logger.info("POST request received, with type: " + req.contentType());
 
             // The body will be form-encoded or a JSON object:

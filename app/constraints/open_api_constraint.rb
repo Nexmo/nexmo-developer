@@ -6,6 +6,7 @@ OPEN_API_PRODUCTS = %w(
   messages-and-workflows-apis/messages
   messages-and-workflows-apis/workflows
   redact
+  voice
 )
 
 class OpenApiConstraint

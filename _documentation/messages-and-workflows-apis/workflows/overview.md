@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-# Overview
+# Workflows API Overview
 
 The Workflows API enables the developer to send messages to users using a multiple channel strategy. 
 
@@ -19,7 +19,7 @@ The condition status is the status that the message returns. With Facebook Messe
 
 The following diagram illustrates the relationship between the Workflows API and the Messages API:
 
-![Workflows and Messages](/assets/images/messages-workflows-overview.png)
+![Messages and Workflows Overview](/assets/images/messages-workflows-overview.png)
 
 ## Developer Preview
 
@@ -29,13 +29,13 @@ In this release Nexmo provides a failover template. The failover template instru
 
 Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
-## Quickstart
+## Getting started
 
 The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
 ```
 curl -X POST https://api.nexmo.com/beta/workflows \
-  -u 'API_KEY:API_SECRET' \
+  -u 'NEXMO_API_KEY:NEXMO_API_SECRET' \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -d $'{
@@ -69,14 +69,40 @@ curl -X POST https://api.nexmo.com/beta/workflows \
   }'
 ```
 
-In the above example code you will need to:
+In the above example code you will need to replace the following variables with actual values:
 
-1. Replace `API_KEY` and `API_SECRET` with your Nexmo API_KEY and API_SECRET respectively. These can be obtained from your Dashboard.
-2. Replace `SENDER_ID` with the ID of the Facebook page. Replace `RECIPIENT_ID` with the ID of the Facebook user you are sending the message to. 
-3. Replace `FROM_NUMBER` and `TO_NUMBER` with suitable phone numbers. The `FROM_NUMBER` would typically be a Nexmo Number but also could be any other number you own. The `TO_NUMBER` is the number of the phone to which the message will be sent. 
+Key | Description
+-- | --
+`NEXMO_API_KEY` | Nexmo API key which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_SECRET` | Nexmo API secret which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`SENDER_ID` | Your Page ID. The `SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+`RECIPIENT_ID` | The PSID of the user you want to reply to. The `RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+`FROM_NUMBER` | A phone number you own or some text to identify the sender.
+`TO_NUMBER` | The number of the phone to which the message will be sent.
 
-NOTE: Throughout the Nexmo APIs numbers are always specified in E.164 format, for example, 447700900000.
+> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ### Run the code
 
 The example code will send a message via Facebook Messenger and if not read within the expiry time an SMS will be sent.
+
+## Nexmo Node library support
+
+In addition to using the Messages and Workflows API via HTTP, the Nexmo Node client library also provides support. 
+
+During the Developer Preview the Node client library with support for the Messages and Workflows API can be installed using:
+
+```
+$ npm install nexmo@beta
+```
+
+If you decide to use the client library you will need the following information:
+
+Key | Description
+-- | --
+`NEXMO_API_KEY` | The Nexmo API key which you can obtain from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_SECRET` | The Nexmo API secret which you can obtain from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_APPLICATION_ID` | The Nexmo Application ID for your Nexmo Application which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to the `private.key` file that was generated when you created your Nexmo Application.
+
+These variables can then be replaced with actual values in the client library example code.

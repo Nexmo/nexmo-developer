@@ -22,70 +22,49 @@
 package com.nexmo.quickstart.voice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nexmo.client.voice.ncco.ConnectNcco;
 import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.RecordNcco;
-import com.nexmo.client.voice.ncco.TalkNcco;
-import spark.Request;
 import spark.Route;
 
-import java.io.IOException;
+import static com.nexmo.quickstart.Util.*;
 
 import static spark.Spark.*;
 
 public class RecordCall {
-    public static void main(String[] args) throws Exception {
-        ObjectMapper nccoMapper = new ObjectMapper();
-
+    public static void main(String[] args) {
         /*
-         * Route to answer incoming calls with an NCCO response.
+         * Route to answer and connect incoming calls with recording.
          */
         Route answerRoute = (req, res) -> {
-            String recordingUrl = String.format("%s://%s/webhooks/recording", req.scheme(), req.host());
+            String recordingUrl = String.format("%s://%s/webhook/recordings", req.scheme(), req.host());
 
-            TalkNcco intro = new TalkNcco("Please leave a message after the tone, then press pound.");
             RecordNcco record = new RecordNcco();
-            record.setEndOnKey('#');
-            record.setBeepStart(true);
             record.setEventUrl(recordingUrl);
-            TalkNcco thanks = new TalkNcco("Thank you for your message.");
-            Ncco[] nccos = new Ncco[]{intro, record, thanks};
+
+            String TO_NUMBER = envVar("TO_NUMBER");
+            String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
+            ConnectNcco connect = new ConnectNcco(TO_NUMBER);
+            connect.setFrom(NEXMO_NUMBER);
+
+            Ncco[] nccos = new Ncco[]{record, connect};
+
             res.type("application/json");
-            return nccoMapper.writer().writeValueAsString(nccos);
+            return new ObjectMapper().writer().writeValueAsString(nccos);
         };
 
-        /**
+        /*
          * Webhook Route which prints out the recording URL it is given to stdout.
          */
         Route recordingWebhookRoute = (req, res) -> {
-            System.out.printf("Recording URL = %s\n", extractRecordingUrl(req));
+            System.out.println(RecordingPayload.fromJson(req.bodyAsBytes()).getRecordingUrl());
 
             res.status(204);
             return "";
         };
 
         port(3000);
-
-        get("/webhooks/answer", answerRoute);
-        post("/webhooks/answer", answerRoute);
-
-        get("/webhooks/recording", recordingWebhookRoute);
-        post("/webhooks/recording", recordingWebhookRoute);
-    }
-
-    /**
-     * Extract the provided recording_url either from the request params, or JSON body.
-     */
-    private static String extractRecordingUrl(Request req) throws IOException {
-        String recordingUrl = req.queryParams("recording_url");
-        if ("GET".equals(req.requestMethod())) {
-            return recordingUrl;
-        } else {
-            if (recordingUrl != null) {
-                return recordingUrl;
-            } else {
-                RecordingPayload payload = RecordingPayload.fromJson(req.bodyAsBytes());
-                return payload.getRecordingUrl();
-            }
-        }
+        get("/webhook/answer", answerRoute);
+        post("/webhook/recordings", recordingWebhookRoute);
     }
 }

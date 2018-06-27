@@ -100,7 +100,7 @@
                 <a class="nav-group-task-link" href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/ReceiptState.html">– ReceiptState</a>
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/State.html">– State</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/User.html">User</a>
@@ -211,7 +211,7 @@
                 <a class="nav-group-task-link" href="../Structs/NetworkError.html">NetworkError</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/PushNotificationCertificate.html">PushNotificationCertificate</a>
+                <a class="nav-group-task-link" href="../Structs/Certificate.html">Certificate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/Session.html">Session</a>
@@ -288,10 +288,24 @@
                 <a class="nav-group-task-link" href="../Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Classes.html#/s:6Stitch10SignalBaseC">SignalBase</a>
+                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Global Variables.html">Other Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateInvitedSSvp">NXMMemberModelStateInvited</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch25NXMMemberModelStateJoinedSSvp">NXMMemberModelStateJoined</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch23NXMMemberModelStateLeftSSvp">NXMMemberModelStateLeft</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateUnknownSSvp">NXMMemberModelStateUnknown</a>
               </li>
             </ul>
           </li>
@@ -367,16 +381,16 @@
                         <p>Call State</p>
 
 <ul>
-<li>started: Platform has initiated the call</li>
-<li>ringing: Caller has joined  and pending for at least one more to join</li>
-<li>answered: The user has answered your call</li>
-<li>rejected: The call was rejected</li>
-<li>busy: Caller is busy</li>
-<li>unanswered: The call was canceled from the called before an answer</li>
-<li>timeout: User did not answer your call with ringing_timer seconds</li>
-<li>failed: The call failed to complete</li>
-<li>complete: Platform has terminated this call after the call was successfully answered</li>
-<li>machine: Platform detected an answering machine</li>
+<li>started: Platform has initiated the call.</li>
+<li>ringing: Caller has joined  and pending for at least one more to join.</li>
+<li>answered: The user has answered your call.</li>
+<li>rejected: The call was rejected.</li>
+<li>busy: Caller is busy.</li>
+<li>unanswered: The call was canceled from the caller before an answer.</li>
+<li>timeout: User did not answer your call with ringing_timer seconds.</li>
+<li>failed: The call failed to complete.</li>
+<li>complete: Platform has terminated this call after the call was successfully answered.</li>
+<li>machine: Platform detected an answering machine.</li>
 </ul>
 
                         <a href="../Classes/Call/State.html" class="slightly-smaller">See more</a>
@@ -386,7 +400,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objc(NXMCallState)</span>
-<span class="kd">public</span> <span class="kd">enum</span> <span class="kt">State</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="kt">State</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">Comparable</span></code></pre>
 
                         </div>
                       </div>
@@ -968,6 +982,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:6Stitch4CallC16currentStateObjcAC0D0OSgvp"></a>
+                    <a name="//apple_ref/swift/Property/currentStateObjc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch4CallC16currentStateObjcAC0D0OSgvp">currentStateObjc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Current call state</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">currentStateObjc</span><span class="p">:</span> <span class="kt"><a href="../Classes/Call/State.html">State</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@CM@Stitch@objc(cs)NXMCall(im)stateObjc:"></a>
                     <a name="//apple_ref/swift/Method/stateObjc(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMCall(im)stateObjc:">stateObjc(_:)</a>
@@ -1182,7 +1223,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-05-30)</p>
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-06-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
