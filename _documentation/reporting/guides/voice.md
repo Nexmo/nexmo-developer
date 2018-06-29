@@ -28,8 +28,6 @@ Data from the Voice API will be available for download soon.
 | duration           | Length of the call in seconds                                                                         |
 | from               | Origin of the call <ul><li>E.164</li><li>SIP</li><li>username</li><li>WebSocket</li></ul>             |
 | to                 | Destination of the call <ul><li>E.164</li><li>SIP</li><li>username</li><li>WebSocket</li></ul>        |
-| cost               | Cost of the call in €/min                                                                             |
-| total_cost         | Cost of the call in €                                                                                 |
 | price              | Price of the call in €/min                                                                            |
 | total_price        | Price of the call in €                                                                                |
 | direction          | Direction of the call (mo or mt)                                                                      |
