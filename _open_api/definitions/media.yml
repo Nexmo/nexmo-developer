@@ -8,45 +8,6 @@ servers:
   - url: https://api.nexmo.com/v3
 paths:
   /media:
-    post:
-      summary: Upload media
-      operationId: upload-media
-      description: |
-        This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back a response with status `201 Created` giving you a `Location` header pointing to the metadata for the media file.
-
-        The media file will be associated with both your account and the Application ID of the JWT you use. This enables you to separate media files out by application.
-
-        The binary of the file can be downloaded at `/v3/media/:id`.
-      x-group: media
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                filedata:
-                  type: string
-                  format: binary
-                  description: |
-                    A URL to a file to upload.
-
-                    **Note**: Can not be used in conjunction with `url`.
-                url:
-                  type: string
-                  format: url
-                  description: |
-                    A URL to a file to upload.
-
-                    **Note**: Can not be used in conjunction with `filedata`.
-                  example: https://example.com/audio.wav
-                filename:
-                  type: string
-                  format: binary
-                  description: You can give a string here for replace the file name
-                  example: my-file.wav
-      responses:
-        '201':
-          description: Successfuly created
     get:
       summary: List and search media items
       operationId: list-and-search-media-items
