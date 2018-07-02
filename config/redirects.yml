@@ -76,3 +76,4 @@
 "/messages-and-workflows-apis/workflows/building-blocks": "/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover"
 "/redact": "/redact/overview"
 "/voice/voice-api/websockets": "/voice/voice-api/guides/websockets"
+"/api/voice/ncco": "/voice/voice-api/ncco-reference"

@@ -315,7 +315,7 @@ components:
 
             **Messenger**: This value should be the `to.id` value you received in the inbound messenger event.
 
-            **Viber**: This is your Service Message ID given to you by Nexmo Account Manager. To find out more please visit [nexm.com/products/messages](https://www.nexmo.com/products/messages).
+            **Viber**: This is your Service Message ID given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
 
             **SMS**: This value is not required.
           type: string
