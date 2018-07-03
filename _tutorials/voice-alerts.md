@@ -75,7 +75,7 @@ nexmo link:app 14155550100 5555f9df-05bb-4a99-9427-6e43c83849b8
 
 ## Creating a Nexmo Call Control Object (NCCO)
 
-Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/api/voice/ncco) to deliver a text-to-speech message. Create `answer.php` with the following contents:
+Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/voice/voice-api/ncco-reference) to deliver a text-to-speech message. Create `answer.php` with the following contents:
 
 ```php
 <?php
@@ -360,4 +360,4 @@ You now have a simple, but working, voice-alert system where you can broadcast o
 - [JWT](/concepts/guides/authentication#json-web-tokens-jwt)
 - [Making an Outbound Call](/voice/voice-api/guides/outbound-calls)
 - [Creating Your Voice Application](/concepts/guides/applications#apps_quickstart)
-- [NCCO Reference](/api/voice/ncco)
+- [NCCO Reference](/voice/voice-api/ncco-reference)

@@ -12,7 +12,7 @@ This guide will introduce you to the following concepts.
 
 - **Nexmo Applications** - Contain configuration for the application that you are building
 - **PSTN** - Short for "public switched telephone network". Basically the network of Telephones and Cell Phones that can make and receive calls.
-- **NCCO** - Short for "Nexmo Call Control Object". A JSON array that you use to control the flow of a Voice API call. Read more in [the NCCO Reference Guide](https://developer.nexmo.com/api/voice/ncco).
+- **NCCO** - Short for "Nexmo Call Control Object". A JSON array that you use to control the flow of a Voice API call. Read more in [the NCCO Reference Guide](https://developer.nexmo.com/voice/voice-api/ncco-reference).
 
 ## Before you begin
 
@@ -98,4 +98,4 @@ An example of an answer URL with a dynamic NCCO object using the `NEXMO_NUMBER` 
 
 After reading this guide, you should read more about implementing outbound PSTN calling with the [JavaScript, Android or iOS SDKs](/stitch/in-app-voice/guides/3-outbound-pstn).
 
-If you'd like to learn more about other actions you can use in your NCCO to control the flow of a call such as recording, sending audio files or synthesized speech, you can read more about that in the [NCCO reference guide for the Voice API](/api/voice/ncco).
+If you'd like to learn more about other actions you can use in your NCCO to control the flow of a call such as recording, sending audio files or synthesized speech, you can read more about that in the [NCCO reference guide for the Voice API](/voice/voice-api/ncco-reference).

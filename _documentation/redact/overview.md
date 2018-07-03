@@ -54,7 +54,7 @@ Once the identifiers are known, each leg resource can be deleted with the [DELET
 
 #### Call recordings
 
-For voice applications where a call recording is made, e.g. using the [record action](/api/voice/ncco#record) of an NCCO, a media resource will be created which holds the recording. This can be deleted using the `DELETE` method of the [Media API](/api/media#delete-a-media-item).
+For voice applications where a call recording is made, e.g. using the [record action](/voice/voice-api/ncco-reference#record) of an NCCO, a media resource will be created which holds the recording. This can be deleted using the `DELETE` method of the [Media API](/api/media#delete-a-media-item).
 
 #### Nexmo Stitch
 
