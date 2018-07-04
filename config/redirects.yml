@@ -59,7 +59,7 @@
 "/voice/building-blocks": "/voice/voice-api/building-blocks/before-you-begin"
 "/voice/building-blocks/connect-a-phone-call": "/voice/voice-api/building-blocks/connect-an-inbound-call"
 "/voice/building-blocks/receive-a-phone-call": "/voice/voice-api/building-blocks/receive-an-inbound-call"
-"/voice/guides": "voice/voice-api/overview"
+"/voice/guides": "/voice/voice-api/guides/call-flow"
 "/voice/guides/sip": "/voice/sip"
 "/voice/guides/voice-app-components": "/voice/voice-api/guides/voice-app-components"
 "/voice/guides/connect-two-users": "/voice/voice-api/guides/connect-two-users"
