@@ -41,7 +41,7 @@ A Nexmo application contains the security and configuration information you need
 You can use Nexmo CLI to create an application for Voice API by using the following command and replacing the `YOUR_URL` segments with the URL of your own application:
 
 ```bash
-nexmo app:create phone-menu https://example.com/answer https://example.com/event
+nexmo app:create phone-menu YOUR_URL/answer YOUR_URL/event
 Application created: 5555f9df-05bb-4a99-9427-6e43c83849b8
 ```
 
@@ -197,7 +197,7 @@ protected function prepend($ncco)
 
 ### Send text-to-speech greeting
 
-When the call is answered, a webhook will be received on the `/answer` endpoint of the application. The routing code sents this to the `answerAction()` method of the `Menu` object, which begins by adding an NCCO containing a greeting.
+Nexmo sends a webhook to the `/answer` endpoint of the application when the call is answered. The routing code sends this to the `answerAction()` method of the `Menu` object, which begins by adding an NCCO containing a greeting.
 
 ```php
 <?php
