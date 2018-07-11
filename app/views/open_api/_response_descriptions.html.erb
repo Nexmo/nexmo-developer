@@ -22,6 +22,7 @@
                 <% if response.exhibits_one_of_multiple_schemas?(format) %>
                     <% response.split_schemas(format).each_with_index do |schema, index| %>
                         <% schema['properties'].each do |key, value| %>
+                            <% next if key == '_links' %>
                             <li>
                                 <div class="table-list-columns">
                                     <div class="table-list-column" flex="2"><b><%= key %></b></div>
@@ -33,10 +34,16 @@
                 <% else %>
                     <% schema = response.schema(format) %>
                     <% schema['properties'].each do |key, value| %>
+                        <% next if key == '_links' %>
+                        <%
+                            desc = ''
+                            desc = value['title'].render_markdown if value['title']
+                            desc = value['description'].render_markdown if value['description']
+                        %>
                         <li>
                             <div class="table-list-columns">
                                 <div class="table-list-column" flex="2"><b><%= key %></b></div>
-                                <div class="table-list-column" flex="4"><%= value['description'] ? value['description'].render_markdown : '' %></div>
+                                <div class="table-list-column" flex="4"><%= desc %></div>
                             </div>
                         </li>
                     <% end %>

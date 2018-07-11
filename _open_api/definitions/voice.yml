@@ -104,24 +104,13 @@ paths:
               schema:
                 properties:
                   uuid:
-                    type: string
-                    format: uuid
-                    example: 63f61863-4a51-4f6b-86e1-46edebcf9356
+                    $ref: '#/components/schemas/fields/uuid'
                   status:
-                    type: string
-                    example: started
-                    enum:
-                    - started
+                    $ref: '#/components/schemas/fields/status'
                   direction:
-                    type: string
-                    example: outbound
-                    enum:
-                    - outbound
-                    - inbound
+                    $ref: '#/components/schemas/fields/direction'
                   conversation_uuid:
-                    type: string
-                    format: uuid
-                    example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+                    $ref: '#/components/schemas/fields/conversation_uuid'
     get:
       security:
       - bearerAuth: []
@@ -135,7 +124,7 @@ paths:
         description: Filter by call status
         schema:
           type: string
-          example: completed
+          example: started
           enum:
           - started
           - ringing
@@ -188,9 +177,7 @@ paths:
         in: query
         description: Return all the records associated with a specific conversation.
         schema:
-          type: string
-          format: uuid
-          example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+          $ref: '#/components/schemas/fields/conversation_uuid'
       responses:
         '200':
           description: Ok
@@ -201,15 +188,15 @@ paths:
                 properties:
                   count:
                     type: integer
-                    title: The Number of records found
+                    title: The total number of records returned by your request.
                     example: 100
                   page_size:
                     type: integer
-                    title: The Number of records in this response
+                    title: The amount of records returned in this response.
                     example: 10
                   record_index:
                     type: integer
-                    title: The Record Index
+                    title: The `record_index` used in your request.
                     example: 0
                   _links:
                     type: object
@@ -222,6 +209,10 @@ paths:
                             title: Link to the object
                             example: "/calls?page_size=10&record_index=20&order=asc"
                   _embedded:
+                    description: >-
+                        A list of call objects. See the
+                        [get details of a specific call](#getCall)
+                        response fields for a description of the nested objects
                     type: object
                     properties:
                       calls:
@@ -240,73 +231,29 @@ paths:
                                       title: The Link to the Call Object
                                       example: "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
                             uuid:
-                              type: string
-                              format: uuid
-                              title: The UUID of the Call
-                              example: 63f61863-4a51-4f6b-86e1-46edebcf9356
+                              $ref: '#/components/schemas/fields/uuid'
                             conversation_uuid:
-                              type: string
-                              format: uuid
-                              title: The UUID of the Conversation
-                              example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+                              $ref: '#/components/schemas/fields/conversation_uuid'
                             to:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  type:
-                                    type: string
-                                    title: 'The Type of Endpoint Called '
-                                    example: phone
-                                  number:
-                                    type: string
-                                    title: 'The number Of the endpoint called '
-                                    example: '447700900000'
+                              $ref: '#/components/schemas/fields/to'
                             from:
-                              type: object
-                              properties:
-                                type:
-                                  type: string
-                                  title: 'The Type of Endpoint that made the call '
-                                  example: phone
-                                number:
-                                  type: string
-                                  title: 'The Number that made the call '
-                                  example: '447700900001'
+                              $ref: '#/components/schemas/fields/from'
                             status:
-                              type: string
-                              title: 'The State of the call '
-                              example: completed
+                              $ref: '#/components/schemas/fields/status'
                             direction:
-                              type: string
-                              title: 'The Direction of the Call '
-                              example: outbound
+                              $ref: '#/components/schemas/fields/direction'
                             rate:
-                              type: string
-                              title: The Price per minute of the called destination
-                              example: '0.39'
+                              $ref: '#/components/schemas/fields/rate'
                             price:
-                              type: string
-                              title: 'The total price of the call '
-                              example: '23.40'
+                              $ref: '#/components/schemas/fields/price'
                             duration:
-                              type: string
-                              title: 'The Duration of the call '
-                              example: '60'
+                              $ref: '#/components/schemas/fields/duration'
                             start_time:
-                              type: string
-                              format: timestamp
-                              title: 'The Start Time of the call '
-                              example: '2015-02-04T22:45:00Z'
+                              $ref: '#/components/schemas/fields/start_time'
                             end_time:
-                              type: string
-                              format: timestamp
-                              title: The end time of the call
-                              example: '2015-02-04T23:45:00Z'
+                              $ref: '#/components/schemas/fields/end_time'
                             network:
-                              type: string
-                              title: 'The Network ID of the destination '
-                              example: '65512'
+                              $ref: '#/components/schemas/fields/network'
   "/calls/{uuid}":
     parameters:
     - in: path
@@ -342,73 +289,29 @@ paths:
                             title: Link to the object
                             example: "/calls?page_size=10&record_index=20&order=asc"
                   uuid:
-                    type: string
-                    format: uuid
-                    title: The UUID of the Call
-                    example: 63f61863-4a51-4f6b-86e1-46edebcf9356
+                    $ref: '#/components/schemas/fields/uuid'
                   conversation_uuid:
-                    type: string
-                    format: uuid
-                    title: The UUID of the Conversation
-                    example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+                    $ref: '#/components/schemas/fields/conversation_uuid'
                   to:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        type:
-                          type: string
-                          title: 'The Type of Endpoint Called '
-                          example: phone
-                        number:
-                          type: string
-                          title: 'The number Of the endpoint called '
-                          example: '447700900000'
+                    $ref: '#/components/schemas/fields/to'
                   from:
-                    type: object
-                    properties:
-                      type:
-                        type: string
-                        title: 'The Type of Endpoint that made the call '
-                        example: phone
-                      number:
-                        type: string
-                        title: 'The Number that made the call '
-                        example: '447700900001'
+                    $ref: '#/components/schemas/fields/from'
                   status:
-                    type: string
-                    title: 'The State of the call '
-                    example: completed
+                    $ref: '#/components/schemas/fields/status'
                   direction:
-                    type: string
-                    title: 'The Direction of the Call '
-                    example: outbound
+                    $ref: '#/components/schemas/fields/direction'
                   rate:
-                    type: string
-                    title: The Price per minute of the called destination
-                    example: '0.39'
+                    $ref: '#/components/schemas/fields/rate'
                   price:
-                    type: string
-                    title: 'The total price of the call '
-                    example: '23.40'
+                    $ref: '#/components/schemas/fields/price'
                   duration:
-                    type: string
-                    title: 'The Duration of the call '
-                    example: '60'
+                    $ref: '#/components/schemas/fields/duration'
                   start_time:
-                    type: string
-                    format: timestamp
-                    title: 'The Start Time of the call '
-                    example: '2015-02-04T22:45:00Z'
+                    $ref: '#/components/schemas/fields/start_time'
                   end_time:
-                    type: string
-                    format: timestamp
-                    title: The end time of the call
-                    example: '2015-02-04T23:45:00Z'
+                    $ref: '#/components/schemas/fields/end_time'
                   network:
-                    type: string
-                    title: 'The Network ID of the destination '
-                    example: '65512'
+                    $ref: '#/components/schemas/fields/network'
     put:
       security:
       - bearerAuth: []
@@ -493,13 +396,11 @@ paths:
                 type: object
                 properties:
                   message:
+                    description: Description of the action taken
                     type: string
                     example: Stream started
                   uuid:
-                    type: string
-                    example: 63f61863-4a51-4f6b-86e1-46edebcf9356
-                    format: uuid
-                    title: The UUID of this request
+                    $ref: '#/components/schemas/fields/uuid'
     delete:
       security:
       - bearerAuth: []
@@ -516,13 +417,11 @@ paths:
                 type: object
                 properties:
                   message:
+                    description: Description of the action taken
                     type: string
                     example: Stream stopped
                   uuid:
-                    type: string
-                    example: 63f61863-4a51-4f6b-86e1-46edebcf9356
-                    format: uuid
-                    title: The UUID of this request
+                    $ref: '#/components/schemas/fields/uuid'
   "/calls/{uuid}/talk":
     parameters:
     - in: path
@@ -567,13 +466,11 @@ paths:
                 type: object
                 properties:
                   message:
+                    description: Description of the action taken
                     type: string
                     example: Talk started
                   uuid:
-                    type: string
-                    example: 63f61863-4a51-4f6b-86e1-46edebcf9356
-                    format: uuid
-                    title: The UUID of this request
+                    $ref: '#/components/schemas/fields/uuid'
     delete:
       security:
       - bearerAuth: []
@@ -590,13 +487,11 @@ paths:
                 type: object
                 properties:
                   message:
+                    description: Description of the action taken
                     type: string
                     example: Talk stopped
                   uuid:
-                    type: string
-                    example: 63f61863-4a51-4f6b-86e1-46edebcf9356
-                    format: uuid
-                    title: The UUID of this request
+                    $ref: '#/components/schemas/fields/uuid'
   "/calls/{uuid}/dtmf":
     parameters:
     - in: path
@@ -633,13 +528,11 @@ paths:
                 type: object
                 properties:
                   message:
+                    description: Description of the action taken
                     type: string
                     example: DTMF sent
                   uuid:
-                    type: string
-                    example: 63f61863-4a51-4f6b-86e1-46edebcf9356
-                    format: uuid
-                    title: The UUID of this request
+                    $ref: '#/components/schemas/fields/uuid'
 components:
   securitySchemes:
     bearerAuth:
@@ -647,6 +540,99 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    fields:
+      network:
+        description: >-
+            The Mobile Country Code Mobile Network Code 
+            ([MCCMNC](https://en.wikipedia.org/wiki/Mobile_country_code)) for
+            the carrier network used to make this call.
+        type: string
+        title: 'The Network ID of the destination '
+        example: '65512'
+      start_time:
+        description: 'The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.'
+        type: string
+        format: timestamp
+        title: 'The Start Time of the call '
+        example: '2020-01-01 12:00:00'
+      end_time:
+        description: 'The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`. This is only sent if `status` is `completed`.'
+        type: string
+        format: timestamp
+        title: 'The End Time of the call '
+        example: '2020-01-01 12:00:00'
+      duration:
+        description: The time elapsed for the call to take place in seconds. This is only sent if `status` is `completed`.
+        type: string
+        title: 'The Duration of the call '
+        example: '60'
+      price:
+        description: The total price charged for this call. This is only sent if `status` is `completed`.
+        type: string
+        title: 'The total price of the call '
+        example: '23.40'
+      rate:
+        description: The price per minute for this call. This is only sent if `status` is `completed`.
+        type: string
+        title: The Price per minute of the called destination
+        example: '0.39'
+      direction:
+       type: string
+       description: Possible values are `outbound` or `inbound`
+       example: outbound
+       enum:
+       - outbound
+       - inbound
+      uuid:
+        type: string
+        format: uuid
+        title: The UUID of the Call
+        example: 63f61863-4a51-4f6b-86e1-46edebcf9356
+        description: >-
+            The unique identifier for this call leg. The UUID is created when
+            your call request is accepted by Nexmo. You use the UUID in all
+            requests for individual live calls
+      conversation_uuid:
+        type: string
+        format: uuid
+        title: The UUID of the Conversation
+        example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+        description: The unique identifier for the conversation this call leg is part of.
+      from:
+        type: array
+        description: The endpoint you called from. Possible values are the same as `to`.
+        title: The number or address that has been called
+        items:
+            type: object
+            properties:
+              type:
+                type: string
+                title: The type of Endpoint that made the call
+                example: phone
+              number:
+                type: string
+                title: The number that made the call
+                example: '447700900001'
+      to:
+        type: array
+        description: The single or mixed collection of endpoint types you connected to
+        title: The number or address to call
+        items:
+            type: object
+            properties:
+              type:
+                type: string
+                title: The Type of Endpoint Called
+                example: phone
+              number:
+                type: string
+                title: The number of the endpoint called
+                example: '447700900000'
+      status:
+        type: string
+        title: The State of the call
+        example: started
+        description: The status of the call. [See possible values](/voice/voice-api/guides/call-flow#events)
     endpoints:
       type: object
       properties:
@@ -740,11 +726,9 @@ components:
           format: uuid
           example: CON-171b3991-49b0-4dfa-badd-2bc6e68b57b4
         to:
-          description: The number or address that has been called
-          type: string
+          $ref: '#/components/schemas/fields/from'
         from:
-          description: The number or address that is calling
-          type: string
+          $ref: '#/components/schemas/fields/from'
         uuid:
           description: The UUID of the call leg that the event relates to
           type: string
@@ -756,6 +740,7 @@ components:
           example: 2018-01-12T15:01:55.315Z
         status:
           type: string
+          example: started
           enum:
           - started
           - ringing
