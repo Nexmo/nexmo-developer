@@ -1,0 +1,16 @@
+{
+  "count": 1234,
+  "numbers": [
+    {
+      "country": "GB",
+      "msisdn": "447700900000",
+      "cost": "0.50",
+      "type": "mobile",
+      "features": [
+        "VOICE",
+        "SMS",
+      ]
+    },
+    ...
+  ]
+}

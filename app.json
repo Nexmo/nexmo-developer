@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "postdeploy": "rake search_terms:algolia:refresh"
+  },
   "environments": {
     "test": {
       "addons":[
@@ -9,5 +12,18 @@
         "test": "rake test:all"
       }
     }
+  },
+  "buildpacks": [
+    { "url": "heroku/nodejs" },
+    { "url": "heroku/ruby" }
+  ],
+  "env": {
+    "ALGOLIA_API_KEY": { "required": true },
+    "ALGOLIA_APPLICATION_ID": { "required": true },
+    "ALGOLIA_CONFIG": { "required": true },
+    "ALGOLIA_PUBLISHABLE_KEY": { "required": true },
+    "BUGSNAG_API_KEY": { "required": true },
+    "RACK_ENV": { "required": true },
+    "RAILS_ENV": { "required": true }
   }
 }

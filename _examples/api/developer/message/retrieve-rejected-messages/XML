@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rejections>
+  <count>1</count>
+  <items>
+    <rejection>
+      <account-id>API_KEY</account-id>
+      <from>Nexmo</from>
+      <to>INVALID</to>
+      <date-received>2020-01-01 12:00:00</date-received>
+      <error-code>3</error-code>
+      <error-code-label>to address is not numeric</error-code-label>
+    </rejection>
+  </items>
+</rejections>

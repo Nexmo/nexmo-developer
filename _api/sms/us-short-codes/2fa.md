@@ -1,15 +1,15 @@
 ---
-title: API reference
+title: 2FA API Reference
 description: Reference guide for Two-factor Authentication API.
 api: 2FA
 ---
 
-# API reference
+# Two-factor Authentication API Reference
 
-This defines Two-factor Authentication API for the:
+This describes the US Short Code Two-factor Authentication API in the following steps:
 
-* [Request](#request) - send a PIN to  your user
-* [Response](#response) - check the [response codes](#response-code) and ensure that you sent the request to Nexmo correctly.
+* [Request](#request) - send a PIN to your user
+* [Response](#response) - check the [response](#keys-and-values) and ensure that you sent the request to Nexmo correctly.
 * [Delivery receipt](#delivery-receipt) - see the status and cost of your request.
 
 ## Request
@@ -22,11 +22,11 @@ source: '_examples/api/us-short-codes/2fa/request/base-url'
 
 This request contains:
 
-* A [Base URL](#base)
+* [A Base URL](#base-url)
 * [Parameters](#parameters)
-* [Authentication information](#authentic)
+* [Authentication information](#authentication-information)
 * [Security](#security)
-* [Encoding](#encode)
+* [Encoding](#encoding)
 
 ### Base URL
 
@@ -58,8 +58,8 @@ If you are not using applications, you use the following parameters for calls to
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: `api_key=n3xm0rocks`
-`api_secret` | Your Secret. For example: `api_secret=12ab34cd`
+`api_key` | Your Key. For example: `api_key=NEXMO_API_KEY`
+`api_secret` | Your Secret. For example: `api_secret=NEXMO_API_SECRET`
 
 You find your Key and Secret in [Dashboard](https://dashboard.nexmo.com/private/dashboard).
 
@@ -67,8 +67,8 @@ If you are using signatures to verify your requests use:
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: api_key=n3xm0rocks
-`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: sig=TwoMenWentToMowWentTOMowAMeadowT
+`api_key` | Your Key. For example: api_key=NEXMO_API_KEY
+`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: sig=SIGNATURE
 
 ### Security
 
@@ -90,7 +90,7 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 
 Each [request](#request) you make using the US Short Codes API returns a:
 
-* [Response](#keys) - the status and cost of your request to Nexmo in [JSON or XML](#base) format.
+* [Response](#keys-and-values) - the status and cost of your request to Nexmo in [JSON or XML](#base-url) format.
 * [Delivery receipt](#delivery-receipt) - the status and cost of the SMS sent by Nexmo to your user.
 
 > *Note*: you are only charged for correctly submitted outbound SMS. If [status](#response-code) is not *0*, you are not charged.
@@ -100,12 +100,12 @@ The response is send in the *api.txt* file when you make a request from the brow
 Each response comes:
 
 * In a specific [Format](#format)
-* With [Keys and values](#keys)
+* With [Keys and values](#keys-and-values)
 
 
 ### Format
 
-You set the response type using the [Base URL](#base). The following table shows example responses in JSON or XML:
+You set the response type using the [Base URL](#base-url). The following table shows example responses in JSON or XML:
 
 ```tabbed_examples
 source: '/_examples/api/us-short-codes/alerts/response-format'
@@ -140,7 +140,7 @@ Key |	Description |	Response type
 
 Each [request](#request) you make using the Short Codes API returns a:
 
-* [response](#keys) - the status and cost of your request to Nexmo in [JSON or XML](#base) format.
+* [response](#keys-and-values) - the status and cost of your request to Nexmo in [JSON or XML](#base-url) format.
 * Delivery receipt - if you have set a [webhook endpoint](/concepts/guides/webhooks), Nexmo forwards this delivery receipt to it. Carriers return a delivery receipt (DLR) to Nexmo to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
 
 The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoint](/concepts/guides/webhooks). When you receive the DLR, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours.
@@ -148,7 +148,7 @@ The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoin
 A delivery receipt has a:
 
 * [Format](#format)
-* [Keys and Values](#kv)
+* [Keys and Values](#keys-and-values)
 
 ### Format
 

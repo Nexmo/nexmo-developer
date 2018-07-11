@@ -1,12 +1,18 @@
-require('dotenv').config({path: __dirname + '/../.env'});
+require('dotenv').config({path: __dirname + '/../.env'})
 
-var API_KEY = process.env.NEXMO_API_KEY;
-var API_SECRET = process.env.NEXMO_API_SECRET;
-var TO_NUMBER = process.env.EXAMPLE_TO_NUMBER;
-var FROM_NUMBER = process.env.EXAMPLE_FROM_NUMBER;
+const NEXMO_API_KEY = process.env.NEXMO_API_KEY
+const NEXMO_API_SECRET = process.env.NEXMO_API_SECRET
+const TO_NUMBER = process.env.TO_NUMBER
 
-// Start
-var Nexmo = require('nexmo');
+const Nexmo = require('nexmo')
 
-var nexmo = new Nexmo({apiKey: API_KEY, apiSecret: API_SECRET}, {debug:true});
-nexmo.message.sendSms(FROM_NUMBER, TO_NUMBER, 'Hello from Nexmo!');
+const nexmo = new Nexmo({
+  apiKey: NEXMO_API_KEY,
+  apiSecret: NEXMO_API_SECRET
+})
+
+const from = 'Acme Inc'
+const to = TO_NUMBER
+const text = 'A text message sent using the Nexmo SMS API'
+
+nexmo.message.sendSms(from, to, text)

@@ -9,10 +9,11 @@ menu_weight: 4
   "rate": null,
   "from": "447700900001",
   "to": "447700900000",
-  "uuid": "d1da3124-f562-46dd-875e-83d42e32615b",
-  "conversation_uuid": "b9ea295f-dfde-40fb-88c3-72f8635f8e37",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "status": "answered",
   "direction": "inbound",
-  "network": null
+  "network": null,
+  "timestamp": "2020-01-01T14:00:00.00Z"
 }
 ```

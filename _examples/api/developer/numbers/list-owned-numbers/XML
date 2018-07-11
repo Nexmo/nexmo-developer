@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inbound-numbers>
+   <count>1</count>
+   <numbers>
+      <country>GB</country>
+      <msisdn>447700900000</msisdn>
+      <mo-http-url>https://example.com/mo</mo-http-url>
+      <type>mobile-lvn</type>
+      <features>
+         <feature>VOICE</feature>
+         <feature>SMS</feature>
+      </features>
+      <voice-callback-type>app</voice-callback-type>
+      <voice-callback-value>aaaaaaaa-bbbb-cccc-dddd-0123456789ab</voice-callback-value>
+   </numbers>
+</inbound-numbers>

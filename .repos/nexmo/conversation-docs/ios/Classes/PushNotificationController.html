@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PushNotificationController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/PushNotificationController" class="dashAnchor"></a>
+
+    <a title="PushNotificationController Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Stitch Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/nexmo/stitch-ios-sdk">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Stitch Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      PushNotificationController Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Client.html">Client</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient.html">ConversationClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/LoginResult.html">– LoginResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/StateObjc.html">– StateObjc</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SynchronizingState.html">SynchronizingState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Configuration.html">Configuration</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Configuration/LogLevel.html">– LogLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Facade.html">Facade</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation.html">Conversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media.html">Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call.html">Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call/Event.html">– Event</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Controller.html">Controller</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AccountController.html">AccountController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AccountController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationController.html">ConversationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController/Notification.html">– Notification</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Event.html">Event</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventBase.html">EventBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TextEvent.html">TextEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ImageEvent.html">ImageEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Event.html#/c:@M@Stitch@objc(cs)NXMMembershipEvent">MembershipEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberJoinedEvent.html">MemberJoinedEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberInvitedEvent.html">MemberInvitedEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Model.html">Model</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Event/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationModel.html">ConversationModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel.html">MemberModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/Channel.html">– Channel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/ChannelModel.html">– ChannelModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/NetworkError.html">NetworkError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Certificate.html">Certificate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Session.html">Session</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Collection.html">Collection</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection.html">ConversationCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection/Reason.html">– Reason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberCollection/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptCollection.html">ReceiptCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventCollection.html">EventCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventCollection/Change.html">– Change</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Guides.html">Other Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../changelog.html">CHANGELOG</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Signal.html">Signal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Global Variables.html">Other Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateInvitedSSvp">NXMMemberModelStateInvited</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch25NXMMemberModelStateJoinedSSvp">NXMMemberModelStateJoined</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch23NXMMemberModelStateLeftSSvp">NXMMemberModelStateLeft</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateUnknownSSvp">NXMMemberModelStateUnknown</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Enums.html">Other Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Change.html">Change</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Deletable.html">Deletable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ObservableConvertible.html">ObservableConvertible</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>PushNotificationController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
+<span class="kd">@objc(NXMPushNotificationController)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">PushNotificationController</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Push notification controller handles configuration of push notifications and handles push notification state</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enum"></a>
+                <a name="//apple_ref/swift/Section/Enum" class="dashAnchor"></a>
+                <a href="#/Enum">
+                  <h3 class="section-name">Enum</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch26PushNotificationControllerC0C0O"></a>
+                    <a name="//apple_ref/swift/Enum/Notification" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC0C0O">Notification</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Notification</p>
+
+<ul>
+<li>conversation: conversation notification with reason</li>
+<li>text: text event notification</li>
+<li>image: image event notification</li>
+<li>call: all calls are diverted to <code>client.media.inboundCalls</code> observable</li>
+</ul>
+
+                        <a href="../Classes/PushNotificationController/Notification.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Notification</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(py)deviceToken"></a>
+                    <a name="//apple_ref/swift/Property/deviceToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(py)deviceToken">deviceToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Last device token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties%20-%20Observable"></a>
+                <a name="//apple_ref/swift/Section/Properties - Observable" class="dashAnchor"></a>
+                <a href="#/Properties%20-%20Observable">
+                  <h3 class="section-name">Properties - Observable</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch26PushNotificationControllerC13notificationsAA17MutableObservableCyAC0C0OAHGvp"></a>
+                    <a name="//apple_ref/swift/Property/notifications" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC13notificationsAA17MutableObservableCyAC0C0OAHGvp">notifications</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Events coming from push notification</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">notifications</span><span class="p">:</span> <span class="kt"><a href="../Classes/MutableObservable.html">MutableObservable</a></span><span class="o">&lt;</span><span class="kt">PushNotificationController</span><span class="o">.</span><span class="kt"><a href="../Classes/PushNotificationController/Notification.html">Notification</a></span><span class="p">,</span> <span class="kt">PushNotificationController</span><span class="o">.</span><span class="kt"><a href="../Classes/PushNotificationController/Notification.html">Notification</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Permission"></a>
+                <a name="//apple_ref/swift/Section/Permission" class="dashAnchor"></a>
+                <a href="#/Permission">
+                  <h3 class="section-name">Permission</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)requestPermission"></a>
+                    <a name="//apple_ref/swift/Method/requestPermission()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)requestPermission">requestPermission()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Request permission</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">requestPermission</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)unregisteredForRemoteNotifications"></a>
+                    <a name="//apple_ref/swift/Method/unregisteredForRemoteNotifications()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)unregisteredForRemoteNotifications">unregisteredForRemoteNotifications()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unregister for remote notifications</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unregisteredForRemoteNotifications</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/AppDelegate%20Forwarding%20Methods"></a>
+                <a name="//apple_ref/swift/Section/AppDelegate Forwarding Methods" class="dashAnchor"></a>
+                <a href="#/AppDelegate%20Forwarding%20Methods">
+                  <h3 class="section-name">AppDelegate Forwarding Methods</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)registeredForRemoteNotificationsWith:"></a>
+                    <a name="//apple_ref/swift/Method/registeredForRemoteNotifications(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)registeredForRemoteNotificationsWith:">registeredForRemoteNotifications(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Register for remote notifications with device token. Call this method from your AppDelegate.</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// push device token to SDK</span>
+   <span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span><span class="o">.</span><span class="nf">registeredForRemoteNotifications</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">deviceToken</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="o">-</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nv">application</span><span class="p">:(</span><span class="kt">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nv">didRegisterForRemoteNotificationsWithDeviceToken</span><span class="p">:(</span><span class="kt">NSData</span> <span class="o">*</span><span class="p">)</span><span class="n">deviceToken</span> <span class="p">{</span>
+   <span class="c1">// push device token to SDK</span>
+   <span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">registeredForRemoteNotificationsWith</span><span class="p">:</span> <span class="n">deviceToken</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registeredForRemoteNotifications</span><span class="p">(</span><span class="n">with</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>with</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>device token. Call from AppDelegate method</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch26PushNotificationControllerC014receivedRemoteC0XeXeF"></a>
+                    <a name="//apple_ref/swift/Method/receivedRemoteNotification(_:fetchCompletionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC014receivedRemoteC0XeXeF">receivedRemoteNotification(_:fetchCompletionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Received remote notification. Call this method from your AppDelegate.</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didReceiveRemoteNotification</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="n">fetchCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">UIBackgroundFetchResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// Pass to SDK</span>
+   <span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span><span class="o">.</span><span class="nf">receivedRemoteNotification</span><span class="p">(</span><span class="n">userInfo</span><span class="p">,</span> <span class="nv">fetchCompletionHandler</span><span class="p">:</span> <span class="n">completionHandler</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="o">-</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nv">application</span><span class="p">:(</span><span class="kt">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nv">didReceiveRemoteNotification</span><span class="p">:(</span><span class="kt">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">userInfo</span> <span class="nv">fetchCompletionHandler</span><span class="p">:(</span><span class="nf">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">UIBackgroundFetchResult</span><span class="p">))</span><span class="n">completionHandler</span> <span class="p">{</span>
+   <span class="c1">// Pass the payload to SDK</span>
+   <span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">receivedRemoteNotification</span><span class="p">:</span><span class="n">userInfo</span> <span class="nv">fetchCompletionHandler</span><span class="p">:</span><span class="n">completionHandler</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">receivedRemoteNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span><span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="n">fetchCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">UIBackgroundFetchResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userInfo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>userInfo from AppDelegate method</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fetchCompletionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler from AppDelegate method</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>If the notification was intended for the SDK</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UNUserNotificationCenterDelegate%20Forwarding%20Methods"></a>
+                <a name="//apple_ref/swift/Section/UNUserNotificationCenterDelegate Forwarding Methods" class="dashAnchor"></a>
+                <a href="#/UNUserNotificationCenterDelegate%20Forwarding%20Methods">
+                  <h3 class="section-name">UNUserNotificationCenterDelegate Forwarding Methods</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)userNotificationCenterWithDidReceive:withCompletionHandler:"></a>
+                    <a name="//apple_ref/swift/Method/userNotificationCenter(didReceive:withCompletionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)userNotificationCenterWithDidReceive:withCompletionHandler:">userNotificationCenter(didReceive:withCompletionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Received Notification response. SDK uses this method to
+Process notification sent from APNS</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">userNotificationCenter</span><span class="p">(</span><span class="n">didReceive</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">UNNotificationResponse</span><span class="p">,</span> <span class="n">withCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>response</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>notification response</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion handler</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>If the notification is from Nexmo</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Device%20Token"></a>
+                <a name="//apple_ref/swift/Section/Device Token" class="dashAnchor"></a>
+                <a href="#/Device%20Token">
+                  <h3 class="section-name">Device Token</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)unregisterDevice"></a>
+                    <a name="//apple_ref/swift/Method/unregisterDevice()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMPushNotificationController(im)unregisterDevice">unregisterDevice()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove device token held for device id (unregister)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">unregisterDevice</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Wherever the device can unregister for push notification</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch26PushNotificationControllerC6updateAA10ObservableCySbG10Foundation4DataV11deviceToken_SSSg0I2IdtF"></a>
+                    <a name="//apple_ref/swift/Method/update(deviceToken:deviceId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC6updateAA10ObservableCySbG10Foundation4DataV11deviceToken_SSSg0I2IdtF">update(deviceToken:deviceId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add device token</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Data</span>
+<span class="k">let</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">deviceToken</span><span class="p">:</span> <span class="n">deviceToken</span><span class="p">,</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+   <span class="k">if</span> <span class="n">result</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span>
+<span class="p">})</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// code here</span>
+<span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Stitch</span><span class="o">.</span><span class="kt"><a href="../Classes/Observable.html">Observable</a></span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>token</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>unique device id i.e UIDevice.currentDevice.identifierForVendor?.uuidString or a custom id</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>result of updating device token</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch26PushNotificationControllerC17removeDeviceTokenAA10ObservableCySbGSSSg3for_tF"></a>
+                    <a name="//apple_ref/swift/Method/removeDeviceToken(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch26PushNotificationControllerC17removeDeviceTokenAA10ObservableCySbGSSSg3for_tF">removeDeviceToken(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove device token with your given device iD</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span><span class="o">.</span><span class="nf">removeDeviceToken</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">deviceId</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+   <span class="k">if</span> <span class="n">result</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span>
+<span class="p">})</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// code here</span>
+<span class="p">}</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeDeviceToken</span><span class="p">(</span><span class="k">for</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Stitch</span><span class="o">.</span><span class="kt"><a href="../Classes/Observable.html">Observable</a></span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>for</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>unique device id i.e UIDevice.currentDevice.identifierForVendor?.uuidString or a custom id</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>observable with result</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Notifications%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Notifications - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Notifications%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Notifications - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMPushNotificationController(im)notificationsOnConversation:onConversationWithInvitedBy:onTextEvent:onImageEvent:"></a>
+                    <a name="//apple_ref/swift/Method/notifications(onConversation:onConversationWithInvitedBy:onTextEvent:onImageEvent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMPushNotificationController(im)notificationsOnConversation:onConversationWithInvitedBy:onTextEvent:onImageEvent:">notifications(onConversation:onConversationWithInvitedBy:onTextEvent:onImageEvent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Push notification state</p>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">notificationsOnConversation</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMConversation</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">conversation</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">}</span> <span class="nv">onConversationWithInvitedBy</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMConversation</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">conversation</span><span class="p">,</span> <span class="kt">NXMMember</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">member</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="n">media</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">media</span><span class="p">)</span> <span class="p">{</span>
+       <span class="c1">// Invited with Media by Member</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="c1">// Invite by Member</span>
+   <span class="p">}</span>
+<span class="p">}</span> <span class="nv">onTextEvent</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMTextEvent</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// text event</span>
+<span class="p">}</span> <span class="nv">onImageEvent</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMImageEvent</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// image event</span>
+<span class="p">}];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">notifications</span><span class="p">(</span>
+    <span class="nv">onConversation</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span>
+    <span class="nv">onConversationWithInvitedBy</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">,</span> <span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span>
+    <span class="nv">onTextEvent</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span>
+    <span class="nv">onImageEvent</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/ImageEvent.html">ImageEvent</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Device%20Token%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Device Token - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Device%20Token%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Device Token - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMPushNotificationController(im)updateWithDeviceToken:deviceId::onError:"></a>
+                    <a name="//apple_ref/swift/Method/update(deviceToken:deviceId:_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMPushNotificationController(im)updateWithDeviceToken:deviceId::onError:">update(deviceToken:deviceId:_:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add device token</p>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="kt">NSData</span> <span class="o">*</span><span class="n">deviceToken</span><span class="p">;</span>
+<span class="kt">NSString</span> <span class="o">*</span><span class="n">deviceId</span><span class="p">;</span>
+
+<span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">updateWithDeviceToken</span><span class="p">:</span><span class="n">deviceToken</span> <span class="nv">deviceId</span><span class="p">:</span><span class="nv">deviceId</span> <span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="kt">YES</span><span class="p">)</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span>
+<span class="p">}</span> <span class="nv">onError</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">}];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>token</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>unique device id i.e UIDevice.currentDevice.identifierForVendor?.uuidString or a custom id</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>true if success</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>error from request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMPushNotificationController(im)removeDeviceTokenWithDeviceId::onError:"></a>
+                    <a name="//apple_ref/swift/Method/removeDeviceToken(deviceId:_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMPushNotificationController(im)removeDeviceTokenWithDeviceId::onError:">removeDeviceToken(deviceId:_:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove device token with your given device iD</p>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="kt">NSString</span> <span class="o">*</span><span class="n">deviceId</span><span class="p">;</span>
+
+<span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">appLifecycle</span><span class="o">.</span><span class="n">push</span> <span class="nv">removeDeviceTokenWithDeviceId</span><span class="p">:</span><span class="nv">deviceId</span> <span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="kt">YES</span><span class="p">)</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="c1">// code here</span>
+   <span class="p">}</span>
+<span class="p">}</span> <span class="nv">onError</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">}];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeDeviceToken</span><span class="p">(</span><span class="nv">deviceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uuid</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>unique device id i.e UIDevice.currentDevice.identifierForVendor?.uuidString or a custom id</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>true if success</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>error from request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-06-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

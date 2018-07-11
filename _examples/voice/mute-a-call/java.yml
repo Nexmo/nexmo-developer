@@ -1,0 +1,16 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/MuteCall.java
+    from_line: 42
+    to_line: 44
+client:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/MuteCall.java
+    from_line: 18
+    to_line: 23
+run_command: java-ide
+file_name: MuteCall.java
+unindent: true

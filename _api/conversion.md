@@ -1,15 +1,17 @@
 ---
-title: Conversion API
+title: Conversion API Reference
 description: The structure and parameters for a Conversion API request.
 api: Conversion API
 ---
 
-# Conversion API
+# Conversion API Reference
 
 This defines the Conversion API:
 
 * [Request](#request) - tell Nexmo if your message or call was successful
 * [Response](#response) - ensure that your request to the Conversion API was successful
+
+For more details, see [Conversion API Overview](/messaging/conversion-api/overview).
 
 ## Request
 
@@ -53,7 +55,7 @@ Parameter | Description | Required
 -- | -- | --
 `message-id` | The ID you receive in the response to a request. @[Possible Values](/_modals/api/conversion/parameters/message-id.md) | Yes
 `delivered` | Set to *true* if your user replied to the message you sent. Otherwise, set to *false*. <br>**Note**: for curl, use 0 and 1.  | Yes
-`timestamp` | The time you activated your app in [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00) format: *yyyy-MM-dd HH:mm:ss*. <br/>If you do not set this parameter, Nexmo uses the time it receives this request. | Yes
+`timestamp` | When the user completed your call-to-action (e.g. visited your website, installed your app) in [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00) format: *yyyy-MM-dd HH:mm:ss*. | Yes
 
 #### Authentication information
 
@@ -61,8 +63,8 @@ If you are not using applications, you use the following parameters for calls to
 
 Parameter | Description
 -- | --
-api_key | Your Key. For example: `api_key=n3xm0rocks`
-api_secret | Your Secret. For example: `api_secret=12ab34cd`
+api_key | Your Key. For example: `api_key=NEXMO_API_KEY`
+api_secret | Your Secret. For example: `api_secret=NEXMO_API_SECRET`
 
 > Note: You find your Key and Secret in Dashboard.
 
@@ -70,8 +72,8 @@ If you are using signatures to verify your requests use:
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: `api_key=n3xm0rocks`
-`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=TwoMenWentToMowWentTOMowAMeadowT`
+`api_key` | Your Key. For example: `api_key=NEXMO_API_KEY`
+`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=SIGNATURE`
 
 #### Security
 
@@ -101,4 +103,5 @@ Key |	Value
 -- | --
 `200` |	OK |
 `401` |	Wrong credentials
-`420` |	Invalid parameters
+`402` | Conversion has not been enabled for your account |
+`420` or `423` |	Invalid parameters |

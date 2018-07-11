@@ -17,6 +17,6 @@ menu_weight: 2
     "type": "phone",
     "number": "447700900000"
   },
-  "answer_url": ["http://example.com/answer"],
+  "answer_url": ["http://example.com/answer"]
 }
 ```

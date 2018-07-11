@@ -1,31 +1,16 @@
 $hero-gradient: darken($mint, 3%);
 
 #hero {
-  margin-top: -20px;
   padding: $spacing * 2;
-  background: linear-gradient(180deg, $hero-gradient 10%, rgba($ice, 0) 100%);
 
   h1 {
-    font-size: 42px;
-  }
-}
+    font-size: 55px;
+    line-height: 55px;
 
-.hero-link {
-  display: inline-block;
-  background: $white;
-  border-radius: $radius;
-  box-shadow: $shadow;
-  border-radius: $radius;
-  padding: 0.2em 0.25em;
-  border-bottom: none;
-  border: 1px solid $border;
-  transition: all 300ms ease-in-out;
-  margin-bottom: 10px;
+    @include mobile {
 
-  &:hover {
-    transform: scale(1.03);
-    margin: 0 5px;
-    transform-origin: 75% center;
-    box-shadow: 0 2px 14px 0 rgba(0,0,0,0.25);
+        font-size: 32px;
+        line-height: 32px;
+    }
   }
 }

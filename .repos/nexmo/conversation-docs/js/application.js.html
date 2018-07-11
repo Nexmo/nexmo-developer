@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: application.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: application.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Nexmo Stitch SDK
+ *  Application Object Model
+ *
+ * Copyright (c) Nexmo Inc. 2015-2018
+ */
+
+const WildEmitter = require('wildemitter');
+const logger = require('loglevel');
+
+const User = require('./user')
+const Conversation = require('./conversation');
+const Event = require('./events/event');
+const Call = require('./modules/call');
+const SipEventHandler = require('./handlers/sip_events');
+
+const Utils = require('./utils');
+const ConversationClientError = require('./conversationClientError');
+
+const NexmoApiError = ConversationClientError.NexmoApiError;
+const NexmoClientError = ConversationClientError.NexmoClientError;
+
+let sipEventHandler = null;
+
+/**
+ * Core application class for the SDK.
+ * Application is the parent object holding the list of conversations, the session object.
+ * Provides methods to create conversations and retrieve a list of the user's conversations, while it holds the listeners for
+ * user's invitations
+ * @class Application
+ * @param {ConversationClient} SDK session Object
+ * @param {object} params
+ * @example &lt;caption>Accessing the list of conversations&lt;/caption>
+ *   rtc.login(token).then((application) => {
+      console.log(application.conversations);
+      console.log(application.me.name, application.me.id);
+  });
+  * @emits Application#member:invited
+  * @emits Application#member:joined
+  * @emits Application#member:call
+  */
+class Application {
+	constructor(session, params) {
+		this.log = logger.getLogger(this.constructor.name);
+		this.session = session;
+		this.conversations = {};
+		this.synced_conversations_count = 0;
+		this.start_sync_time = 0;
+		this.stop_sync_time = 0;
+		/** conversation_id, call */
+		this.calls = new Map();
+		/** knocking_id, call */
+		this._call_draft_list = new Map();
+
+		sipEventHandler = new SipEventHandler(this);
+		this.me = null;
+		Object.assign(this, params);
+		WildEmitter.mixin(Application);
+	}
+
+	/**
+	 * Update Conversation instance or create a new one.
+	 *
+	 * Pre-created conversation exist from getConversations
+	 * like initialised templates. When we explicitly ask to
+	 * getConversation(), we receive members and other details
+	 *
+	 * @param {object} payload Conversation payload
+	 * @private
+	 */
+	updateOrCreateConversation(payload) {
+		const conversation = this.conversations[payload.id];
+		if (conversation) {
+			conversation.updateObjectInstance(conversation, payload);
+			this.conversations[payload.id] = conversation;
+		} else {
+			this.conversations[payload.id] = new Conversation(this, payload);
+		}
+		return this.conversations[payload.id];
+	}
+	/**
+	 * Application listening for invites.
+	 *
+	 * @event Application#member:invited
+	 *
+	 * @property {Member} member - The invited member
+	 * @property {Event} event - The invitation event
+	 *
+	 * @example &lt;caption>listen for your invites&lt;/caption>
+	 * application.on("member:invited",(member, event) => {
+	 *      console.log("Invited to the conversation: " + event.conversation.display_name || event.conversation.name);
+	 *
+	 * //identify the sender.
+	 * console.log("Invited by: " + member.invited_by);
+	 *
+	 * //accept an invitation.
+	 *  application.conversations[event.conversation.id].join();
+	 *
+	 * //decline the invitation.
+	 application.conversations[event.conversation.id].leave();
+	 */
+	/**
+	 * Application listening for joins.
+	 *
+	 * @event Application#member:joined
+	 *
+	 * @property {Member} member - the member that joined the conversation
+	 * @property {Event} event - the join event
+	 *
+	 * @example &lt;caption>listen join events in Application level&lt;/caption>
+	 *  application.on("member:joined",(member, event) => {
+	 *              console.log("JOINED", "Joined conversation: " + event.conversation.display_name || event.conversation.name);
+	 *              });
+	 *      });
+	 */
+	/**
+	 * Application listening for calls.
+	 *
+	 * @event Application#member:call
+	 *
+	 * @property {Member} member - the member that initiated the call
+	 * @property {Call} call -  resolves the call object
+	 *
+	 * @example &lt;caption>listen for calls in Application level&lt;/caption>
+	 *  application.on("member:call", (member, call) => {
+	 *              console.log("Call ", call;
+	 *              });
+	 *      });
+	 */
+
+	/**
+	 * Entry point for events in Application level
+	 * @private
+	 */
+	_handleEvent(event) {
+
+		if (event.type.startsWith('sip')) {
+			sipEventHandler._handleSipCallEvent(event);
+			return;
+		}
+		if (event.cid in this.conversations) {
+			this.conversations[event.cid]._handleEvent(event);
+		} else {
+			//get the conversation you don't know about (case: joined by another user)
+			this.getConversation(event.cid)
+				.then((conversation) => {
+					this.conversations[event.cid] = conversation;
+					this._handleApplicationEvent(event);
+				}).catch((error) => {
+					this.log.error(error);
+				});
+		}
+	}
+
+	/**
+	 * Update the event to map local generated events
+	 * in case we need a more specific event to pass in the application listener
+	 * or f/w the event as it comes
+	 * @private
+	 */
+	_handleApplicationEvent(event) {
+		const conversation = this.conversations[event.cid];
+		const copied_event = Object.assign({}, event);
+		let payload;
+		switch (event.type) {
+			// case: call to PSTN, after knocking event we receive joined
+			case 'member:joined':
+				if (event.body.channel &amp;&amp; event.body.channel.knocking_id &amp;&amp; this._call_draft_list.has(event.body.channel.knocking_id)) {
+					const call = this._call_draft_list.get(event.body.channel.knocking_id);
+					call._setupConversationObject(conversation);
+					call._setConversationFrom(conversation.me);
+					this._call_draft_list.delete(event.body.channel.knocking_id);
+					// remove the knocking id for the calls list
+					// needs to be part of the call_draft_list for call.hangup to perform knocking:delete
+					delete call.knocking_id;
+					this.calls.set(conversation.id, call);
+					call._handleStateChange(event);
+				}
+				payload = new Event(conversation, copied_event);
+				break;
+			case 'member:invited':
+				if (conversation.me &amp;&amp; (conversation.me.user.name === event.body.invited_by)) return;
+				//media audio invite
+				if (copied_event.body.user.media &amp;&amp; copied_event.body.user.media.audio) {
+					if (conversation.display_name &amp;&amp; conversation.display_name.startsWith('CALL_')) {
+						//audio call module (IP - IP call)
+						const caller = Utils.getMemberFromNameOrNull(conversation, copied_event.body.invited_by) || 'unknown';
+						const call = new Call(this, conversation, caller);
+						payload = call;
+						this.calls.set(conversation.id, call);
+						copied_event.type = 'member:call';
+					} else {
+						payload = new Event(conversation, copied_event);
+					}
+					if (!copied_event.body.invited_by) {
+						// VAPI invites (PHONE - IP)
+						const call = new Call(this, conversation, "unknown");
+						payload = call;
+						this.calls.set(conversation.id, call);
+						copied_event.type = 'member:call';
+					}
+				} else {
+					payload = new Event(conversation, copied_event);
+				}
+				break;
+			default:
+				payload = new Event(conversation, copied_event);
+				break;
+		}
+		this.emit(copied_event.type, conversation.members[copied_event.from], payload);
+	}
+
+	/**
+	 * Creates a call to specified user/s.
+	 * @classdesc creates a call between the defined users
+	 * @param {string[]} usernames - the user names for those we want to call
+	 * @returns {Call} a Call object with all the call properties
+	 */
+	call(usernames) {
+		return new Promise((resolve, reject) => {
+			if (!usernames || !Array.isArray(usernames) || usernames.length === 0) {
+				return reject(new NexmoClientError("error:application:call:params"));
+			}
+			const call = new Call(this);
+			return call.createCall(usernames)
+				.then(() => {
+					return resolve(call);
+				});
+		});
+	}
+
+	/**
+	 * Creates a call to phone a number.
+	 * The call object is created under application.calls when the call has started.
+	 * listen for it with application.on("call:state:changed")
+	 *
+	 * You don't need to start the stream, the SDK will play the audio for you
+	 *
+	 * @classdesc creates a call to a phone number
+	 * @param {string} phoneNumber - the number you want to call
+	 * @returns {Promise&lt;Call>}
+	 * @example &lt;caption>Create a call to a phone&lt;/caption>
+	 *        application.on("call:state:changed", (call) => {
+            if (call.state === call.CALL_STATES.STARTED) {
+				console.log('the call has started');
+	 *		}
+	 * application.callPhone(phone_number).then(() => {
+	 *                 console.log('Calling phone ' + phone_number);
+	 *      });
+	 */
+	callPhone(phoneNumber) {
+		return new Promise((resolve, reject) => {
+			if (!phoneNumber || (typeof phoneNumber) !== 'string') {
+				return reject(new NexmoClientError("error:application:callPhone:params"));
+			}
+			const call = new Call(this);
+			return call.createPhoneCall(phoneNumber)
+				.then((response) => {
+					call.knocking_id = response.body.id;
+					this._call_draft_list.set(call.knocking_id, call);
+					return resolve(call);
+				});
+		});
+	}
+
+	/**
+	 * Query the service to create a new conversation
+	 * The conversation name must be unique per application.
+	 * @param {object} [params] - leave empty to get a GUID as name
+	 * @param {string} params.name - the name of the conversation. A UID will be assigned if this is skipped
+	 * @param {string} params.display_name - the display_name of the conversation.
+	 * @returns {Promise&lt;Conversation>} - the created Conversation
+	 * @example &lt;caption>Create a conversation and join&lt;/caption>
+	 * application.newConversation().then((conversation) => {
+	 *
+	 *         //join the created conversation
+	 *         conversation.join().then((member) => {
+	 *             //Get the user's member belonging in this conversation.
+	 *             //You can also access it via conversation.me
+	 *
+	 *                 console.log("Joined as " + member.user.name);
+	 *             });
+	 *
+	 *     }).catch((error) => {
+	 *     console.log(error);
+	 * });
+	 */
+	newConversation(params) {
+		return new Promise((resolve, reject) => {
+			this.session.sendRequest({
+				type: 'new:conversation',
+				body: params
+			}, (response) => {
+				if (response.type === 'new:conversation:success') {
+					const conv = new Conversation(this, response.body);
+					this.conversations[conv.id] = conv;
+					// do a get conversation to get the whole model as shaped in the service,
+					this.getConversation(conv.id)
+						.then((conversation) => {
+							resolve(conversation);
+						});
+				} else {
+					reject(new NexmoApiError(response));
+				}
+			});
+		});
+	}
+
+	/**
+	 * Query the service to create a new conversation and join it
+	 * The conversation name must be unique per application.
+	 * @param {object} [params] - leave empty to get a GUID as name
+	 * @param {string} params.name - the name of the conversation. A UID will be assigned if this is skipped
+	 * @param {string} params.display_name - the display_name of the conversation.
+	 * @returns {Promise&lt;Conversation>} - the created Conversation
+	 * @example &lt;caption>Create a conversation and join&lt;/caption>
+	 * application.newConversationAndJoin().then((conversation) => {
+	 *         //join the created conversation
+	 *         conversation.join().then((member) => {
+	 *             //Get the user's member belonging in this conversation.
+	 *             //You can also access it via conversation.me
+	 *                 console.log("Joined as " + member.user.name);
+	 *             });
+	 *     }).catch((error) => {
+	 *     console.log(error);
+	 * });
+	 */
+	newConversationAndJoin(params) {
+		return this.newConversation(params).then((conversation) => {
+			return conversation.join().then(() => {
+				return conversation;
+			});
+		});
+	}
+
+	/**
+	 * Query the service to see if this conversation exists with the
+	 * logged in user as a member and retrieve the data object
+	 * Result added (or updated) in this.conversations
+	 *
+	 * @param {string} id - the id of the conversation to fetch
+	 * @returns {Promise&lt;Conversation>} - the requested conversation
+	 */
+	getConversation(id) {
+		return new Promise((resolve, reject) => {
+			this.session.sendRequest({
+				type: 'conversation:get',
+				cid: id,
+				body: {}
+			}, (response) => {
+				if (response.type === 'conversation:get:success') {
+					const conversation_object = this.updateOrCreateConversation(response.body);
+					// Populate the events
+					conversation_object.getEvents()
+						.then((events) => {
+							conversation_object.events = events;
+							resolve(conversation_object);
+						});
+				} else {
+					reject(new NexmoApiError(response));
+				}
+			});
+		});
+	}
+
+	/**
+	 * Query the service to obtain a complete list of conversations of which the
+	 * logged-in user is a member with a state of `JOINED` or `INVITED`.
+	 *
+	 * @returns {Promise&lt;Object&lt;Conversation>>} - Populate Application.conversations.
+	 */
+	getConversations(params) {
+		return new Promise((resolve, reject) => {
+			this.session.sendRequest({
+				type: 'user:conversations',
+				body: params
+			}, (response) => {
+				if (response.type === 'user:conversations:success') {
+					// Iterate and create the conversations if not existent
+					response.body.forEach((c) => {
+						this.updateOrCreateConversation(c);
+					});
+					this.syncConversations(response.body);
+					resolve(this.conversations);
+				} else {
+					reject(new NexmoApiError(response));
+				}
+			});
+		});
+	}
+
+	/**
+	 * Application listening sync status.
+	 *
+	 * @event Application#sync:progress
+	 *
+	 * @property {number} status.sync_progress - Percentage of fetched conversations
+	 * @example &lt;caption>listening for changes in the synchronisation progress&lt;/caption>
+	 *  application.on("sync:progress",(status) => {
+	 *			console.log(data.sync_progress);
+	 *       });
+	 *  });
+	 */
+	syncConversations(conversations) {
+		const conversations_length = conversations.length;
+
+		const d = new Date();
+		this.start_sync_time = (typeof window !== "undefined" &amp;&amp; window.performance) ? window.performance.now() : d.getTime();
+
+		const fetchConversationForStorage = () => {
+			this.synced_conversations_percentage = ((this.synced_conversations_count / conversations_length) * 100).toFixed(2);
+
+			const status_payload = {
+				sync_progress: this.synced_conversations_percentage
+			};
+			this.emit('sync:progress', status_payload);
+
+			this.log.debug('Loading sync progress: ' + this.synced_conversations_count + '/' +
+				conversations_length + ' - ' + this.synced_conversations_percentage + '%');
+			if (this.synced_conversations_percentage >= 100) {
+				const d = new Date();
+				this.stop_sync_time = (typeof window !== "undefined" &amp;&amp; window.performance) ? window.performance.now() : d.getTime();
+				this.log.info('Loaded conversations in ' + (this.stop_sync_time - this.start_sync_time) + 'ms');
+			}
+			if (this.synced_conversations_count &lt; conversations_length) {
+				this.getConversation(conversations[this.synced_conversations_count].id).then(() => {
+					fetchConversationForStorage();
+				});
+				this.synced_conversations_count++;
+				this.sync_progress_buffer++;
+			}
+		};
+		fetchConversationForStorage();
+
+	}
+
+	/**
+	 * Get Details of a user
+	 * @param {string} [id] - the id of the user to fetch, if skipped, it returns your own user details
+	 * @returns {Promise&lt;User>}
+	 */
+	getUser(user_id = this.me.id) {
+		return new Promise((resolve, reject) => {
+			const params = {
+				user_id: user_id
+			};
+			this.session.sendRequest({
+				type: 'user:get',
+				from: this.me.id,
+				body: params
+			}, (response) => {
+				if (response.type === 'user:get:success') {
+					resolve(new User(this, response.body));
+				} else {
+					reject(new NexmoApiError(response));
+				}
+			});
+		});
+	}
+}
+module.exports = Application;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 26 2018 11:08:32 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

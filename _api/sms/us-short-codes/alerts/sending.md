@@ -1,16 +1,16 @@
 ---
-title: SMS > Alerts API
+title: Alerts - Sending API Reference
 description: Reference guide for Event Based Alerts.
 api: Alerts API - Sending
 ---
 
-# API reference
+# Alerts - Sending API Reference
 
 This defines Event Based Alerts API:
 
 * [Request](#request) - send an Event Based Alert to you user.  If you have multiple templates, remember to set the *template* number in your request.
 * [Response](#response) - Check the [response codes](#status-codes) to ensure that  you sent the request to Nexmo correctly.
-* [Delivery receipt](#delivery_receipt) - verify that the Event Based Alert was delivered.
+* [Delivery receipt](#delivery-receipt) - verify that the Event Based Alert was delivered.
 
 ## Request
 
@@ -36,11 +36,11 @@ https://rest.nexmo.com/sc/us/alert/json?api_key=xxxxxxxx&api_secret=xxxxxxxx&to=
 
 This request contains:
 
-* A [Base URL](#base)
-* [Parameters](#parameters )
-* [Authentication information](#authentic )
-* [Security](#security )
-* [Encoding](#encode)
+* A [Base URL](#base-url)
+* [Parameters](#parameters)
+* Authentication information
+* [Security](#security)
+* [Encoding](#encoding)
 
 ### Base URL
 
@@ -113,24 +113,9 @@ source: '_examples/api/us-short-codes/alerts/response-format'
 
 The response contains the following keys and values.
 
-Key | Value | Response type
--- | -- | --
-`message-count` | The number of parts the message was split into. | `JSON`
-`messages` | Contains each message part. For an XML response, the count attribute contains the value of message-count JSON key. | `BOTH`
-`message` | A single message part. | `XML`
-`status` | Shows how the SMS send is processing. @[Possible values](_modals/api/sms/us-short-codes/alerts/response-status.md)
-`message-id` | The ID of the SMS that was submitted (8 to 16 characters). | `JSON`
-`messageId` | The ID of the SMS that was submitted (8 to 16 characters). | `XML`
-`to` | The phone number your request was sent to. | `BOTH`
-`client-ref` | The client-ref you set in your request. | `JSON`
-`clientRef` | The client-ref you set in your request. | `XML`
-`remaining-balance` | The remaining balance in your account. The value is in EUR. | `JSON`
-`remainingBalance` | The remaining balance in your account. The value is in EUR. | `XML`
-`message-price` | The price charged for your request. The value is in EUR. | `JSON`
-`messagePrice` | The price charged for your request. The value is in EUR. | `XML`
-`network` | The Mobile Country Code Mobile Network Code (MCCMNC) for the carrier that to is registered with. | `BOTH`
-`error-text` | If an error occurred, this explains what happened. | `JSON`
-`errorText` | If an error occurred, this explains what happened. | `XML`
+```tabbed_content
+source: '/_examples/api/sms/sending/keys-and-values/'
+````
 
 ## Delivery Receipt
 

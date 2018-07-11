@@ -1,0 +1,36 @@
+<outbound-pricing>
+  <prices>
+    <countryDisplayName>Canada</countryDisplayName>
+    <country>CA</country>
+    <name>Canada</name>
+    <prefix>1</prefix>
+    <mt>0.00570000</mt>
+    <networks>
+      <network>
+        <code>302320</code>
+        <name>Rogers Communications Canada Inc.</name>
+        <mtPrice>0.00570000</mtPrice>
+      </network>
+    </networks>
+  </prices>
+  <prices>
+    <countryDisplayName>United States</countryDisplayName>
+    <country>US</country>
+    <name>United States</name>
+    <prefix>1</prefix>
+    <mt>0.00570000</mt>
+    <networks>
+      <network>
+        <code>310004</code>
+        <name>Verizon Wireless</name>
+        <mtPrice>0.00570000</mtPrice>
+      </network>
+    </networks>
+  </prices>
+  <prices>
+    <countryDisplayName>United States Minor Outlying Islands</countryDisplayName>
+    <country>UM</country>
+    <name>United States Minor Outlying Islands</name>
+    <prefix>1</prefix>
+  </prices>
+</outbound-pricing>

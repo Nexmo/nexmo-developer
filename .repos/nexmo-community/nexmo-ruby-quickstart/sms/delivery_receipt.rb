@@ -1,10 +1,20 @@
 require 'sinatra'
-require 'pp'
+require 'sinatra/multi_route'
+require 'json'
 
-set :port, 5000
+helpers do
+  def parsed_body
+     json? ? JSON.parse(request.body.read) : {}
+  end
 
-get '/delivery-receipt' do
-  pp params
-
-  status 200
+  def json?
+    request.content_type == 'application/json'
+  end
 end
+
+route :get, :post, '/webhooks/delivery-receipt' do
+  puts params.merge(parsed_body)
+  status 204
+end
+
+set :port, 3000

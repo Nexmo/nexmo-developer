@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+  <count>2</count>
+  <items>
+    <message>
+      <message-id>0A00000000ABCD00</message-id>
+      <account-id>API_KEY</account-id>
+      <network>12345</network>
+      <from>447700900000</from>
+      <to>447700900001</to>
+      <body>This is an inbound message test</body>
+      <date-received>2017-05-22020-01-01 12:00:00 09:50:43</date-received>
+      <type>MO</type>
+    </message>
+    <message>
+      <message-id>0A00000000ABCD01</message-id>
+      <account-id>API_KEY</account-id>
+      <network>12345</network>
+      <from>Nexmo</from>
+      <to>447700900000</to>
+      <body>A text message sent using the Nexmo SMS API</body>
+      <price>0.03330000</price>
+      <date-received>2020-01-01 12:00:00</date-received>
+      <final-status>DELIVRD</final-status>
+      <date-closed>2020-01-01 12:00:00</date-closed>
+      <latency>3000</latency>
+      <type>MT</type>
+    </message>
+  </items>
+</messages>

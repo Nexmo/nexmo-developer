@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    if (ViewBag.call != null)
+    {
+        <br />
+        <div>
+            <h4>UUID: @ViewBag.call.uuid</h4>
+            <h4>Convo ID: @ViewBag.call.conversation_uuid</h4>
+            <h4>To: @ViewBag.call.to.number</h4>
+            <h4>Type: @ViewBag.call.to.type</h4>
+            <h4>From: @ViewBag.call.from.number</h4>
+            <h4>Type: @ViewBag.call.from.type</h4>
+            <h4>Status @ViewBag.call.status</h4>
+            <h4>Direction: @ViewBag.call.direction</h4>
+            <h4>Rate: $@ViewBag.call.rate</h4>
+            <h4>Price: $@ViewBag.call.price</h4>
+            <h4>Duration: @ViewBag.call.duration seconds</h4>
+            <h4>Start Time: @ViewBag.call.start_time</h4>
+            <h4>End Time: @ViewBag.call.end_time</h4>
+            <h4>Network: @ViewBag.call.network</h4>
+        </div>
+    }
+    else
+    {
+        using (Html.BeginForm("GetCall", "Voice", FormMethod.Post))
+        {
+            <br />
+            <div>
+                <input type="text" name="id" id="id" placeholder="ID" />
+                <input type="submit" value="Send" />
+            </div>
+
+            }
+        }
+
+}

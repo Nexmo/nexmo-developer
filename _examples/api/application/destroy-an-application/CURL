@@ -1,0 +1,10 @@
+#!/bin/bash
+
+base_url='https://api.nexmo.com'
+version='/v1'
+action='/applications '
+application_id='/APPLICATION_ID'
+key='API_KEY'
+secret='API_SECRET'
+
+curl -X DELETE "$base_url$version$action$application_id?api_key=$key&api_secret=$secret"

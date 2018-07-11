@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inbound-numbers>
+  <count>1234</count>
+  <numbers>
+     <country>GB</country>
+     <msisdn>447700900000</msisdn>
+     <cost>0.50</cost>
+     <type>mobile</type>
+     <features>
+        <feature>VOICE</feature>
+        <feature>SMS</feature>
+     </features>
+  </numbers>
+  ...
+</inbound-numbers>

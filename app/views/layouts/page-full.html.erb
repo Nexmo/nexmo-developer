@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
+    <%= render partial: 'layouts/partials/header' %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+    <%= render partial: 'layouts/partials/footer' %>
+  </body>
+</html>

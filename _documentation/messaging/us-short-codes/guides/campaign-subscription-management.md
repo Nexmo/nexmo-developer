@@ -1,6 +1,6 @@
 ---
 title: Campaign Subscription Management
-description: You use Campaign Subscription Management to create an opt-in and opt-out process for your users.
+description: Create an opt-in and opt-out process for recipients of your campaign.
 ---
 
 # Campaign Subscription Management

@@ -1,14 +1,50 @@
 <% if @show_feedback %>
   <br>
-  <hr>
+  <hr class="spacious">
+  <br>
 
-  <% if Rails.env.production? %>
-    <iframe
-      src="https://feedbot-nexmo-developer.herokuapp.com/feedbacks/new?source=<%= request.base_url + request.fullpath %>"
-      id="feedback" height="300" style="width: 100%;" frameBorder="0"
-    ></iframe>
-  <% else %>
-    <br>
-    <p><i>The feedback tool is disabled in <%= Rails.env %></i></p>
+  <script>
+    window.feedbackProps = {
+      code_language_set_by_url: <%= params[:code_language].present? %>,
+      code_language: '<%= request.parameters['code_language'] %>',
+      source: '<%= canonical_url %>',
+
+      recaptcha: {
+        enabled: <%= ENV['RECAPTCHA_ENABLED'] || false %>,
+        skip: <%= session[:user_passed_invisible_captcha] || false %>,
+        sitekey: '<%= ENV['RECAPTCHA_INVISIBLE_SITE_KEY'] %>',
+      },
+
+      <% if current_user %>
+        current_user: {
+          email: '<%= current_user.email %>',
+          signout_path: '<%= signout_path %>',
+        },
+      <% end %>
+
+      <% if @feedback_author %>
+        feedback_author: {
+          email: '<%= @feedback_author.email %>',
+        },
+      <% end %>
+
+      <% if @feedback_author %>
+        feedback_author: {
+          email: '<%= @feedback_author.email %>',
+        },
+      <% end %>
+
+      <% if @document_path %>
+        github_url: '<%= "https://github.com/Nexmo/nexmo-developer/blob/#{ ENV['branch'] || 'master' }/#{@document_path}" %>',
+      <% end %>
+    }
+  </script>
+
+  <% if ENV['RECAPTCHA_ENABLED'] %>
+    <% unless session[:user_passed_invisible_captcha] %>
+      <div id="recaptcha-container"></div>
+    <% end %>
   <% end %>
+
+  <div id="FeedbackComponent" key="FeedbackComponent"></div>
 <% end %>

@@ -1,8 +1,0 @@
-<% if @results && @results['hits']['total'] > 0 %>
-  <% @results['hits']['hits'].each do |document| %>
-    <h3>
-      <%= link_to document['_source']['title'], document['_source']['path'] %>
-    </h3>
-    <p><%= document['_source']['description'] %></p>
-  <% end %>
-<% end %>

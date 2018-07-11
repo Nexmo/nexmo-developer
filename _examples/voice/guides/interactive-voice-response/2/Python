@@ -63,4 +63,4 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         s.send_response(200)
         s.send_header("Content-Type", "application/json")
         s.end_headers()
-        s.wfile.write(ncco)
+        s.wfile.write(json.dumps(ncco))

@@ -1,0 +1,7 @@
+import com.nexmo.client.NexmoClient;
+import com.nexmo.client.auth.AuthMethod;
+import com.nexmo.client.verify.VerifyResult;
+
+AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
+NexmoClient client = new NexmoClient(auth);
+VerifyResult request = client.getVerifyClient().verify(TO_NUMBER, "MyApp");

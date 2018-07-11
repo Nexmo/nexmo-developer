@@ -1,0 +1,106 @@
+<center>
+  <h1>Feedback Stats</h1>
+
+  <br>
+  <div class="box">
+    <h2>Filter</h2>
+    <%= form_tag({}, {:method => :get}) do %>
+      <div>
+        Product: <%= select_tag :product,
+          options_for_select([['All', nil]].concat(DocumentationConstraint.product_with_parent_list), params[:product]),
+          onchange: "this.form.submit();" %>
+      </div>
+      <br>
+      <div>
+        Created After: <%= date_field_tag :created_after, @created_after %>
+        &nbsp;
+        Created Before: <%= date_field_tag :created_before, @created_before %>
+      </div>
+      <br>
+      <%= link_to 'Reset', '/stats' %> &nbsp;
+      <%= submit_tag 'Update', class: 'button' %>
+    <% end %>
+  </div>
+</center>
+<br>
+<div class="row">
+  <div class="column small-12 medium-4">
+    <div class="center spacious content-block">
+      <h1><%= @feedbacks.positive.count %></h1>
+      Positive Feedbacks
+    </div>
+  </div>
+  <div class="column small-12 medium-4">
+    <div class="center spacious content-block">
+      <h1><%= @feedbacks.negative.count %></h1>
+      Negative Feedbacks
+    </div>
+  </div>
+  <div class="column small-12 medium-4">
+    <div class="center spacious content-block">
+      <h1><%= ((@feedbacks.positive.count.to_f / @feedbacks.count.to_f) * 100).round(1)  %>%</h1>
+      Percent Positive
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<%= column_chart(
+  [
+    { name: 'Positive', color: '#32BA86', data: @feedbacks.positive.group_by_week('feedback_feedbacks.created_at').count },
+    { name: 'Negative', color: '#ea5353', data: @feedbacks.negative.group_by_week('feedback_feedbacks.created_at').count },
+  ],
+  stacked: true
+) %>
+
+<%
+  all = @feedbacks.group_by_month('feedback_feedbacks.created_at').count
+  positive = @feedbacks.positive.group_by_month('feedback_feedbacks.created_at').count
+  negative = @feedbacks.negative.group_by_month('feedback_feedbacks.created_at').count
+
+  all.each do |date, count|
+    if count === 0
+      # Remove entries that had no feedbacks
+      [all, positive, negative].each { |h| h.delete(date) } unless count == 0
+    else
+      # Otherwise ensure that both positive and negative have values
+      positive[date] = 0 unless positive[date]
+      negative[date] = 0 unless negative[date]
+    end
+
+    # Convert values to percentages
+    positive[date] = ((positive[date].to_f / count.to_f) * 100).round(1)
+    negative[date] = ((negative[date].to_f / count.to_f) * 100).round(1)
+  end
+%>
+
+<br>
+
+<center>
+  <h2>Feedback split percent by month</h2>
+</center>
+
+<%= column_chart(
+  [
+    { name: 'Positive', color: '#32BA86', data: positive },
+    { name: 'Negative', color: '#ea5353', data: negative },
+  ],
+  stacked: true
+) %>
+
+<hr>
+
+<div class="row">
+  <div class="column small-12 medium-6">
+    <div class="center spacious content-block">
+      <h2>Worst Performing Content</h2>
+      <%= render 'performance_table', resources: Feedback::Resource.worst_performing.first(5) %>
+    </div>
+  </div>
+  <div class="column small-12 medium-6">
+    <div class="center spacious content-block">
+      <h2>Best Performing Content</h2>
+      <%= render 'performance_table', resources: Feedback::Resource.best_performing.first(5) %>
+    </div>
+  </div>

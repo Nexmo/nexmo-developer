@@ -25,11 +25,11 @@ Dashboard is a web application that makes it easy to:
 
 You use Dashboard to:
 
-* [Create and configure a Nexmo account](#setting-up-your-nexmo-account)
-* [Retrieve your account information](#retrieve-account-info)
-* [Manage users](#manage_users)
-* [Manage your profile](#manage_profile)
-* [Reset your password](#reset_password)
+* [Create and configure a Nexmo account](#create-and-configure-a-nexmo-account)
+* [Retrieve your account information](#retrieve-your-account-information)
+* [Manage users](#manage-users)
+* [Manage your profile](#manage-your-profile)
+* [Reset your password](#reset-your-password)
 
 
 ## Create and configure a Nexmo account
@@ -62,7 +62,6 @@ When you setup your Nexmo account you create your primary user. The primary user
 * Manage payments and view your payment history
 * Rent virtual numbers and short codes
 * Search through your requests
-* Configure Verify SDK
 * Analyse your API use
 
 After setup, you can add secondary users to your Nexmo account. A secondary account can have the same access rights as your primary account or a restricted set. For example, you can create a secondary account with no access to payments.

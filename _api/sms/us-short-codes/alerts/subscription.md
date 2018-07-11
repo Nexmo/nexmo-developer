@@ -1,15 +1,15 @@
 ---
-title: API reference
+title: Alerts - Subscribing API Reference
 description: Reference guide for the Campaign Subscription Management.
 api: Alerts API - Subscribing
 ---
 
-# API reference
+# Alerts - Subscribing API Reference
 
 This defines the API for Campaign Subscription Management:
 
-* [request](#request) - request the list of phone numbers opted out from your campaign, or remove a phone number from the list
-* [response](#response) - the list of opted out phone numbers or confirmation that the number has been removed.
+* [Request](#request) - request the list of phone numbers opted out from your campaign, or remove a phone number from the list
+* [Response](#response) - the list of opted out phone numbers or confirmation that the number has been removed.
 
 
 ## Request
@@ -31,11 +31,11 @@ You use the *opt-in* API to:
 
 This request contains:
 
-* A [Base URL](#base)
+* [Base URL](#base-url)
 * [Parameters](#parameters)
-* [Authentication information](#authentic)
+* [Authentication information](#authentication-information)
 * [Security](#security)
-* [Encoding](#encode)
+* [Encoding](#encoding)
 
 ### Base URL
 
@@ -67,8 +67,8 @@ If you are not using applications, you use the following parameters for calls to
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: api_key=n3xm0rocks
-`api_secret` | Your Secret. For example: api_secret=12ab34cd
+`api_key` | Your Key. For example: api_key=NEXMO_API_KEY
+`api_secret` | Your Secret. For example: api_secret=NEXMO_API_SECRET
 
 > Note: You find your Key and Secret in Dashboard.
 
@@ -76,8 +76,8 @@ If you are using signatures to verify your requests use:
 
 Parameter |	Description
 -- | --
-`api_key` | Your Key. For example: api_key=n3xm0rocks
-`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=TwoMenWentToMowWentTOMowAMeadowT`
+`api_key` | Your Key. For example: api_key=NEXMO_API_KEY
+`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=SIGNATURE`
 
 ### Security
 

@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@if (ViewBag.status != null)
+{
+    <h2>@ViewBag.status</h2>
+    <h2>@ViewBag.error_text</h2>
+
+}
+else
+{
+    using (Html.BeginForm("Search", "Verify", FormMethod.Post))
+    {
+        <br />
+        <input type="text" name="requestID" id="requestID" placeholder="Request ID" />
+        <input type="submit" value="Search" />
+    }
+}

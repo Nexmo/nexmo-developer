@@ -1,0 +1,32 @@
+<%
+  callback = false if local_assigns[:callback].nil?
+%>
+
+<% if endpoint.path_parameters.any? %>
+  <h4>Path Parameters</h4>
+  <%= render 'parameters', parameters: endpoint.path_parameters, callback: callback %>
+<% end %>
+
+<% if endpoint.query_parameters.any? %>
+  <h4>Query Parameter</h4>
+  <%= render 'parameters', parameters: endpoint.query_parameters, callback: callback %>
+<% end %>
+
+<% if endpoint.request_body %>
+  <% format = endpoint.request_body.formats[0] %>
+  <% unless endpoint.request_body.exhibits_one_of_multiple_schemas?(format) %>
+    <% if endpoint.request_body.properties_for_format(format).any? %>
+      <h4>
+        Request body
+        <span class="label label--inverted float-right"><%= format %></span>
+      </h4>
+
+      <%= render 'parameters', parameters: endpoint.request_body.properties_for_format(format), callback: callback %>
+    <% end %>
+  <% else %>
+    <% endpoint.request_body.split_properties_for_format(format).each_with_index do |parameters, index| %>
+      <h2><%= index %></h2>
+      <%= render 'parameters', parameters: parameters, callback: callback %>
+    <% end %>
+  <% end %>
+<% end %>

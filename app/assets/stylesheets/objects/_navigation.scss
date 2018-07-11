@@ -1,3 +1,20 @@
+@mixin highlighted-navigation($color) {
+  a, span {
+    border: 1px solid $color;
+    color: $color;
+    border-radius: 4px;
+    padding: 1px 4px;
+    margin: 4px 0;
+    font-size: 0.85em;
+    opacity: 0.6;
+    transition: opacity 200ms ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 .sidenav {
   font-size: 18px;
   font-weight: 600;
@@ -7,7 +24,13 @@
     position: relative;
   }
 
-  a {
+  .sidenav-back {
+    color: $link-subtle;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  a, span {
     color: $gray;
     font-weight: 600;
     padding: 5px 0;
@@ -58,9 +81,39 @@
     ul {
       font-size: 14px;
 
-      a {
+      a, span {
         font-weight: 500;
       }
+    }
+  }
+
+  hr {
+    border-top-width: 1px;
+    border-top-style: dotted;
+  }
+
+  &--spacious {
+    margin: 0 $spacing;
+  }
+}
+
+.navigation--documentation {
+  .navigation-item--tutorials {
+    @include highlighted-navigation($pink);
+  }
+
+  .navigation-item--api-reference {
+    @include highlighted-navigation($blue);
+  }
+
+  .navigation-item--sdk-documentation > {
+    @include highlighted-navigation($pink);
+  }
+
+  .navigation-item--ncco-reference {
+    @include highlighted-navigation($gray-dark);
+    .navigation-item--ncco-reference {
+      @include highlighted-navigation($gray-dark);
     }
   }
 }
@@ -80,5 +133,21 @@
     > ul {
       width: 20%;
     }
+  }
+}
+
+#sidenav .navigation {
+  .navigation-item__label {
+    font-size: 11px;
+    color: $blue;
+    margin: 0 5px;
+    position: relative;
+    top: -1px;
+    line-height: 14px;
+    background: $mint;
+    color: darken($mint, 40%);
+    border-radius: $radius;
+    padding: 0 3px;
+    font-weight: 500;
   }
 }

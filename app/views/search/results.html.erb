@@ -1,21 +1,28 @@
-<center>
-  <% if @results && @results['hits']['total'] > 0 %>
-    <h1>We found <%= @results['hits']['total'] %> <%= 'results'.pluralize(@results['hits']['total']) %> for '<%= params['query'] %>'</h1>
+<% if @results && @results_total > 0 %>
+  <h1>We found <%= @results_total %> <%= 'results'.pluralize(@results_total) %> for '<%= params['query'] %>'</h1>
 
-    <hr>
+  <hr>
 
-    <br>
+  <br>
 
-    <% @results['hits']['hits'].each do |document| %>
-      <h2>
-        <%= link_to document['_source']['title'], document['_source']['path'] %>
-      </h2>
-      <p><%= document['_source']['description'] %></p>
-      <br>
-      <br>
+  <div class="row">
+    <% @results.each do |index| %>
+      <div class="columns small-12 medium-6">
+        <% if index.index.include? 'nexmo_developer' %>
+          <h2>Nexmo Developer</h2>
+        <% elsif index.index == 'zendesk_nexmo_articles' %>
+          <h2>Knowlegebase</h2>
+        <% end %>
+
+        <hr class="spacious">
+
+        <% index.hits.each do |hit| %>
+          <%= render 'result', hit: hit, index_name: index.index %>
+        <% end %>
+      </div>
     <% end %>
-  <% else %>
-    <h1>Uh oh. We couldn't find anything.</h1>
-    <p>Click <a href="/">here</a> to go back to the start</p>
-  <% end %>
-</center>
+  </div>
+<% else %>
+  <h1>Uh oh. We couldn't find anything.</h1>
+  <p>Click <a href="/">here</a> to go back to the start</p>
+<% end %>

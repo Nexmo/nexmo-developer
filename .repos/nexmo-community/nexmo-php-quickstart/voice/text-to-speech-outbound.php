@@ -1,12 +1,13 @@
 <?php 
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-require_once 'vendor/autoload.php';
+// Building Blocks
+// 1. Make a Phone Call
+// 2. Play Text-to-Speech
 
-$basic  = new \Nexmo\Client\Credentials\Basic(API_KEY, API_SECRET);
-$keypair = new \Nexmo\Client\Credentials\Keypair(file_get_contents(PRIVATE_KEY), APPLICATION_ID);
-
-$client = new \Nexmo\Client(new \Nexmo\Client\Credentials\Container($basic, $keypair));
+$keypair = new \Nexmo\Client\Credentials\Keypair(file_get_contents(NEXMO_APPLICATION_PRIVATE_KEY_PATH), NEXMO_APPLICATION_ID);
+$client = new \Nexmo\Client($keypair);
 
 $call = $client->calls()->create([
     'to' => [[
@@ -15,9 +16,9 @@ $call = $client->calls()->create([
     ]],
     'from' => [
         'type' => 'phone',
-        'number' => FROM_NUMBER
+        'number' => NEXMO_NUMBER
     ],
-    'answer_url' => ['https://nexmo-community.github.io/ncco-examples/first_call_talk.json'],
+    'answer_url' => ['https://developer.nexmo.com/ncco/tts.json'],
 ]);
 
 error_log($call);

@@ -1,6 +1,7 @@
 <?php
 
 $method = $_SERVER['REQUEST_METHOD'];
+$request = array_merge($_GET, $_POST);
 
 $ncco = "";
 switch ($method) {

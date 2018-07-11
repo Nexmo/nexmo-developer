@@ -1,0 +1,31 @@
+<?php
+
+$base_url = 'https://api.nexmo.com' ;
+$version = '/v1';
+$action = '/applications';
+
+$url = $base_url . $version . $action . "/APPLICATION_ID?" . http_build_query([
+    'api_key' => ‘'API_KEY'’,
+    'api_secret' => ‘'API_SECRET'’
+]);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+curl_setopt($ch, CURLOPT_HEADER, 1);
+$response = curl_exec($ch);
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+$header = substr($response, 0, $header_size);
+$body = substr($response, $header_size);
+
+if (strpos($header, '100')){
+    echo("APPLICATION_ID deleted");
+
+}
+else {
+    $error = json_decode($body, true);
+    echo("Your request failed because:\n");
+    echo("  " . $error['type'] . "  " . $error['error_title']   );
+}

@@ -1,0 +1,34 @@
+<?php
+
+$base_url = 'https://api.nexmo.com' ;
+$version = '/v1';
+$action = '/applications';
+$app_id = '/APPLICATION_ID?';
+
+$url = $base_url . $version . $action . $app_id . http_build_query([
+    'api_key' => 'API_KEY',
+    'api_secret' => 'API_SECRET'
+]);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+curl_setopt($ch, CURLOPT_HEADER, 1);
+$response = curl_exec($ch);
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+$header = substr($response, 0, $header_size);
+$body = substr($response, $header_size);
+
+if (strpos($header, '200')){
+    $application = json_decode($body, true);
+    echo("Application " . $application['name'] . " has an ID of:" . $application['id'] . "\n" ) ;
+    echo("  Use the links to navigate. For example: " . $base_url .  $application['_links']['self']['href'] . "\n"  );
+    foreach($application['voice']['webhooks'] as $webhook)
+        echo ( "  " . $webhook['endpoint_type'] . " is " . $webhook['endpoint'] . "\n"  );
+}
+else {
+    $error = json_decode($body, true);
+    echo("Your request failed because:\n");
+    echo("  " . $error['type'] . "  " . $error['error_title']   );
+}

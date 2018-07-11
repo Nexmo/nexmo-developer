@@ -1,0 +1,37 @@
+<?php
+
+//Connection information
+$base_url = 'https://api.nexmo.com' ;
+$version = '';
+$action = '/verify/templates';
+
+//Authentication information
+$api_key = 'API_KEY';
+$api_secret = 'API_SECRET';
+
+//Create the request URL
+$url = $base_url . $version . $action . "?api_key=" . $api_key . "&api_secret=" . $api_secret;
+
+//Set the headers
+$headers =  array('Content-Type: application/json', 'Accept: application/json') ;
+
+//Create the payload for an SMS custom template
+$payload = '{
+  "action_type" : "sms",
+  "lg" : "en-gb",
+  "contact_email" : "xyz@example.com",
+  "template" : "Your ${brand} verification code is ${pin}"
+}';
+
+//Create the request
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+$response = curl_exec($ch);
+
+echo $response;

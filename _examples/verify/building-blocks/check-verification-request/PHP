@@ -1,0 +1,3 @@
+<?php
+$client = new Nexmo\Client(new Nexmo\Client\Credentials\Basic(API_KEY, API_SECRET));
+$client->verify()->check($verification, '1234');

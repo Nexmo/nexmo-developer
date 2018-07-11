@@ -1,0 +1,80 @@
+<ul class="navigation js-scrollspy has-label">
+  <li>
+    <a href="#"><%= @definition.info['title'] %></a>
+    <ul class="has-label">
+      <li>
+        <a href="#overview">Overview</a>
+      </li>
+
+      <% @groups.each do |name, endpoints| %>
+        <% if name %>
+          <% group = @definition.raw['x-groups'][name] %>
+          <li>
+            <%= link_to group['name'], "##{group['name'].parameterize}" %>
+            <ul>
+        <% end %>
+
+        <li>
+          <ul class="has-label">
+            <% endpoints.each do |endpoint| %>
+              <li>
+                <%= link_to "##{endpoint.operationId}" do %>
+                  <span class="label label--code label--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
+                  <%= endpoint.summary %>
+                <% end %>
+                <% if endpoint.callbacks.any? %>
+                  <ul>
+                    <% endpoint.callbacks.each do |callback| %>
+                      <% callback.paths.each do |path| %>
+                        <% path.endpoints.each do |endpoint| %>
+                          <li>
+                            <%= link_to "##{endpoint.operationId}" do %>
+                            <span class="label label--code label--callback">
+                              <i class="icon icon-callback"></i>
+                            </span>
+                            <%= endpoint.summary %>
+                            <% end %>
+                          </li>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </ul>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+
+        <% if @definition.raw['x-webhooks'] %>
+          <% @definition.raw['x-webhooks'].each do |name, definition| %>
+            <% callback = OasParser::Callback.new(self, name, definition) %>
+
+            <% callback.paths.each do |path| %>
+              <% path.endpoints.each do |endpoint| %>
+                <li>
+                  <%= link_to "##{name}" do %>
+                    <span class="label label--code label--webhook">
+                      <i class="icon icon-webhook"></i>
+                    </span>
+                    <%= endpoint.summary %>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if name %>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
+
+      <% if @definition_errors_content %>
+        <li>
+          <a href="#errors">Errors</a>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

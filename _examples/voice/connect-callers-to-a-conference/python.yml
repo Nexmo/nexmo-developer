@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - '''flask>=1.0'''
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/connect-callers-to-a-conference.py
+    from_line: 7
+    to_line: 22
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/connect-callers-to-a-conference.py
+    from_line: 2
+    to_line: 4
+file_name: connect-callers-to-a-conference.py
+run_command: 'python3 connect-callers-to-a-conference.py'

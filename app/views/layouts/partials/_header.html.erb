@@ -1,29 +1,40 @@
+<%= render partial: 'layouts/partials/post-body-tags' %>
+
 <header id="header">
   <div class="container">
     <a href="/" id="logo">
       <span></span>
       Nexmo Developer
     </a>
+    <a href="/team#join">
+      <span id="header-hiring">We're hiring</span>
+    </a>
 
     <nav data-turbolinks="false">
       <a href="https://nexmo.com">Nexmo.com</a>
       <a href="https://help.nexmo.com/hc/en-us">Support</a>
       <a href="https://dashboard.nexmo.com/sign-in">Sign In</a>
-      <a href="https://dashboard.nexmo.com/sign-up">Try it free</a>
+      <a href="https://dashboard.nexmo.com/sign-up"><b>Try it free</b></a>
     </nav>
   </div>
 </header>
 
-<nav id="subnav">
+<nav id="subnav" data-turbolinks="false">
   <div class="container">
     <a href="/documentation" class="<%= @navigation == :documentation ? 'active' : '' %>">Documentation</a>
+    <a href="/tutorials" class="<%= @navigation == :tutorials ? 'active' : '' %>">Tutorials</a>
     <a href="/api" class="<%= @navigation == :api ? 'active' : '' %>">API Reference</a>
     <a href="/tools" class="<%= @navigation == :tools ? 'active' : '' %>">SDKs &amp; Tools</a>
     <a href="/community" class="<%= @navigation == :community ? 'active' : '' %>">Community</a>
 
-    <%= form_tag '/search' do %>
-      <input type="text" id="search" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+    <% if search_enabled? %>
+      <%= form_tag '/search' do %>
+        <div id="SearchComponent" key="SearchComponent">
+          <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        </div>
+      <% end %>
     <% end %>
-    <div id="search-results" style="display: none;"></div>
   </div>
 </nav>
+
+<%= render partial: 'layouts/partials/notices' %>

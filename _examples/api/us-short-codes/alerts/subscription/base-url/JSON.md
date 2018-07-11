@@ -1,5 +1,6 @@
 ---
 title: JSON
+language: json
 menu_weight: 1
 ---
 

@@ -17,8 +17,18 @@ body {
 
 .wrapper {
   flex: 1;
+  transition: filter 400ms ease-in-out;
+
   &--tint {
     background: $ice;
+  }
+
+  &--blur {
+    filter: blur(3px);
+
+    @include mobile {
+      filter: none;
+    }
   }
 }
 
@@ -43,11 +53,24 @@ table {
   border: $border;
   border-radius: $radius;
   box-shadow: $shadow-soft;
-  overflow: hidden;
 
   thead {
     color: $white;
     background: $blue;
+  }
+
+  thead {
+    th:first-child {
+      border-top-left-radius: $radius;
+    }
+
+    th:last-child {
+      border-top-right-radius: $radius;
+    }
+
+    a {
+        color: white;
+    }
   }
 
   tbody tr:nth-child(even) {
@@ -69,7 +92,7 @@ table {
     white-space: nowrap;
   }
 
-  .fa-check-circle, .fa-times-cirle {
+  .icon-check-circle, .icon-times-cirle {
     align-self: center;
   }
 }
@@ -84,8 +107,55 @@ hr {
   &.hr--mini {
     width: 150px;
   }
+
+  &.spacious {
+    margin: $spacing 0;
+    padding: 0;
+  }
 }
 
 .spacious {
   padding: $spacing*2 0;
+}
+
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@keyframes spin {
+  0%   {-webkit-transform: rotate(0deg)}
+  100% {-webkit-transform: rotate(359deg)}
+}
+
+.spinner {
+  width: 100%;
+  margin: $spacing*2 0;
+  text-align: center;
+  animation: spin 1.2s infinite ease-in-out;
+  i {
+    font-size: 40px;
+    color: $mint;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--auto {
+  > * { flex: 1; }
+}
+
+.hide {
+  display: none;
+}
+
+.grecaptcha-badge {
+  display: none;
+}
+
+.float-right {
+  float: right;
 }

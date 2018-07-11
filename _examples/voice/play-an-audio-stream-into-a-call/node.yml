@@ -1,0 +1,16 @@
+---
+title: Node
+language: node
+dependencies:
+    - nexmo
+    - dotenv
+code:
+    source: .repos/nexmo-community/nexmo-node-quickstart/voice/stream-audio-into-call.js
+    from_line: 19
+    to_line: 37
+client:
+    source: .repos/nexmo-community/nexmo-node-quickstart/voice/stream-audio-into-call.js
+    from_line: 10
+    to_line: 17
+file_name: app.js
+run_command: 'node app.js'

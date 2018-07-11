@@ -1,14 +1,42 @@
 $ball-size: 44px;
+$card-animation-speed: 200ms;
 
-@mixin card--product($color) {
+@mixin card--product($color, $color-light) {
   color: $color;
   hr { border-top-color: mix($color, $white, 20%) }
-  a, h3 { color: $color; }
+  h3 { color: $color; }
 
   .card--with-icon__divider {
     border-bottom: 2px solid $color;
     i {
-      background: $color;
+      color: $color;
+      background: $color-light;
+      border-color: $color;
+    }
+  }
+}
+
+@mixin card--image($color, $name, $extension: 'png') {
+  background-image: url('/assets/images/cards/#{$name}.#{$extension}');
+  border-color: rgba($color, 0.5);
+
+  &:hover {
+    border-color: rgba($color, 1);
+  }
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+
+  > div {
+    flex: 1;
+    min-width: 340px;
+    padding: 0 10px;
+
+    @include mobile() {
+      min-width: 280px;
     }
   }
 }
@@ -21,8 +49,11 @@ $ball-size: 44px;
   border-radius: $radius;
   box-shadow: $shadow;
   margin-bottom: $spacing;
-  overflow: hidden;
   font-size: 16px;
+
+  .icon-external-link {
+    display: none;
+  }
 
   .spacious {
     padding: $spacing 0;
@@ -31,10 +62,21 @@ $ball-size: 44px;
   a {
     display: inline-block;
     padding: $spacing/2 0;
+    color: $text;
+    border-bottom: none;
+
+    &:hover {
+      color: $blue;
+    }
 
     &.poster {
       display: block;
       padding: 0;
+    }
+
+    &.button {
+      color: $white;
+      text-align: center;
     }
   }
 
@@ -61,7 +103,12 @@ $ball-size: 44px;
   }
 
   h3 {
+    color: $blue;
     margin-bottom: 5px;
+
+    .label {
+      font-size: 12px;
+    }
   }
 
   img {
@@ -76,63 +123,25 @@ $ball-size: 44px;
       display: block;
       padding: 3px 0;
 
-      h3 {
-        // color: $blue;
+      &.inline {
+        display: inline-block;
       }
+    }
 
-      &:hover {
-        font-weight: 600;
-      }
+    br {
+      line-height: 30px;
+    }
+
+    &.tight {
+      padding-top: 0;
     }
   }
 
-  &--sms { @include card--product(mix($sms, $blue, 80%)); }
-  &--number-insight { @include card--product(mix($number-insight, $blue, 80%)); }
-  &--voice { @include card--product(mix($voice, $blue, 80%)); }
-  &--chat { @include card--product(mix($chat, $blue, 80%)); }
-  &--verify { @include card--product(mix($verify, $blue, 80%)); }
-  &--developer { @include card--product(mix($atom, $blue, 80%)); }
-  &--global { @include card--product($blue); }
-}
-
-.card-in-development {
-  &:before {
-    content: " ";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba($white, 0.85);
-    z-index: 1;
-  }
-
-  text-align: center;
-  padding: $spacing;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 0.85em;
-
-  * {
-    position: relative;
-    z-index: 2;
-  }
-
-  p {
-    color: mix($text, $white, 80%);
-  }
-
-  a {
-    color: $blue;
-  }
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
+  &--sms { @include card--product($sms, $sms-light); }
+  &--number-insight { @include card--product($number-insight, $number-insight-light); }
+  &--voice { @include card--product($voice, $voice-light); }
+  &--verify { @include card--product($verify, $verify-light); }
+  &--account { @include card--product($account, $account-light); }
 }
 
 .card--with-icon {
@@ -148,8 +157,9 @@ $ball-size: 44px;
   z-index: 3;
 
   i {
-    background: $blue;
-    color: $white;
+    background: $ice;
+    color: $blue;
+    border: 1px solid $blue;
     border-radius: 100%;
     position: absolute;
     width: $ball-size;
@@ -162,8 +172,33 @@ $ball-size: 44px;
   }
 }
 
-.card--invisible {
-  // background: none;
-  // border: none;
-  // box-shadow: none;
+.card {
+  &--android { @include card--image(#A4C639, 'android'); }
+  &--android-outline { @include card--image(#A4C639, 'android-outline'); }
+  &--ios { @include card--image(#FF6537, 'ios'); }
+  &--ios-outline { @include card--image(#FF6537, 'ios-outline'); }
+  &--javascript { @include card--image(#F7DF1E, 'javascript'); }
+  &--javascript-outline { @include card--image(#F7DF1E, 'javascript-outline'); }
+
+  &--image {
+    background-position: right center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: border-color $card-animation-speed ease-in-out;
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba($white, 0.4);
+      transition: background $card-animation-speed ease-in-out;
+    }
+
+    &:hover {
+      &:before {
+        background: rgba($white, 0);
+      }
+    }
+  }
 }

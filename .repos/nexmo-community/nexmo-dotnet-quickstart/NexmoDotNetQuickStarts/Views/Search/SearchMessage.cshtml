@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using (Html.BeginForm("SearchMessage", "Search", FormMethod.Post))
+{
+
+    if (ViewBag.message != null)
+    {
+        <h2>Message Details:</h2>
+        <hr style="height:2px;border:none;color:#333;background-color:black" />
+        <h4>From: @ViewBag.message.from</h4>
+        <h4>To: @ViewBag.message.to</h4>
+        <h4>Body: @ViewBag.message.body</h4>
+        <h4>Date Recieved: @ViewBag.message.dateReceived</h4>
+        <h4>Message Type: @ViewBag.message.type</h4>
+        <h4>Message ID: @ViewBag.message.messageId</h4>
+        <h4>Network: @ViewBag.message.network</h4>
+        <h4>Price: $@ViewBag.message.price</h4>
+        <h4>Date Closed: @ViewBag.message.dateClosed</h4>
+        <h4>Latency: @ViewBag.message.latency</h4>
+        <h4>Final Status: @ViewBag.message.finalStatus</h4>
+    }
+    else
+    {
+        if (ViewBag.notFound == true)
+        {
+            <script>
+                alert("Message was not found. Please check the Message ID.");
+            </script>
+        }
+        <div>
+            <br />
+            <input type="text" name="messageID" id="messageID" placeholder="Message ID" />
+            <input type="submit" value="Get More Information" />
+        </div>
+    }
+
+}

@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Play audio to a caller";
+}
+<h1 class="text-center">@ViewData["Title"]</h1>
+
+
+<div>
+    @{
+        ViewData["Sub-Title"] = "Create Stream NCCO";
+    }
+    <h3>@ViewData["Sub-Title"]</h3>
+    @{
+        var buttonText = @ViewData["NCCOButtonText"];
+    }
+    <form method="post" action="/Voice/CreateStreamNCCO">
+        <input type="text"
+               class="input"
+               id="streamUrl" name="streamUrl" placeholder="Url to audio file" style="min-width:350px" /> <br>
+        <h1></h1>
+        <input type="text"
+               class="input"
+               id="level" name="level" placeholder="Level (choose between -1 and 1, default value is 0.) " style="min-width:350px" /> <br>
+        <h1></h1>
+        <input type="text"
+               class="input"
+               id="bargeIN" name="bargeIN" placeholder="BargeIn (default value is false) " style="min-width:350px" /> <br>
+        <h1></h1>
+        <input type="text"
+               class="input"
+               id="loop" name="loop" placeholder="Loop times (default value is 1.) " style="min-width:350px" /> <br>
+        <h1></h1>
+        <input type="submit" value=@buttonText style="width:250px" /><br>
+    </form>
+</div>
+
+<div>
+    @{
+        ViewData["Sub-Title"] = "Make the call";
+    }
+    <h3>@ViewData["Sub-Title"]</h3>
+    <form method="post" action="/Voice/MakeTextToSpeechCall">
+        <input type="text"
+               class="input"
+               id="to" name="to" placeholder="Number to call" style="width:150px" /> <br>
+        <h1></h1>
+        <input type="submit" value="Call" style="width:250px" /><br>
+    </form>
+</div>
+

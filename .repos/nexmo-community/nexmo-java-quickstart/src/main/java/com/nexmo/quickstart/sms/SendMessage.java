@@ -34,19 +34,17 @@ public class SendMessage {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
+        String NEXMO_API_KEY = envVar("API_KEY");
+        String NEXMO_API_SECRET = envVar("API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
-        String FROM_NUMBER = envVar("FROM_NUMBER");
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
+        AuthMethod auth = new TokenAuthMethod(NEXMO_API_KEY, NEXMO_API_SECRET);
         NexmoClient client = new NexmoClient(auth);
-        System.out.println(FROM_NUMBER);
 
         SmsSubmissionResult[] responses = client.getSmsClient().submitMessage(new TextMessage(
-                FROM_NUMBER,
+                "Acme Inc",
                 TO_NUMBER,
-                "Hello from Nexmo!"));
+                "A text message sent using the Nexmo SMS API"));
         for (SmsSubmissionResult response : responses) {
             System.out.println(response);
         }

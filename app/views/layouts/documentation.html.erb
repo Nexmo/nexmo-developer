@@ -2,15 +2,15 @@
 <html>
   <%= render partial: 'layouts/partials/head' %>
 
-  <body>
+  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper">
       <div class="container">
         <div class="row">
           <nav class="columns small-12 medium-3 sidenav" id="sidenav" data-turbolinks-permanent>
-            <%= directory %>
+            <%= sidenav(@sidenav_root) %>
           </nav>
-          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks-permanent>
+          <div data-turbolinks-permanent class="columns small-12 medium-9" id="primary-content">
             <%= yield %>
             <%= render partial: 'layouts/partials/feedback' %>
           </div>

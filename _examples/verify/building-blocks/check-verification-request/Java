@@ -1,0 +1,8 @@
+import com.nexmo.client.NexmoClient;
+import com.nexmo.client.auth.AuthMethod;
+import com.nexmo.client.verify.CheckResult;
+
+AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
+NexmoClient client = new NexmoClient(auth);
+
+CheckResult result = client.check(REQUEST_ID, CODE);

@@ -5,9 +5,12 @@ menu_weight: 1
 
 ```json
 {
-  "uuid": "7dd82abd-563e-4b0a-ba17-e5f0297a7c63",
-  "conversation_uuid": "78fd94b9-19f0-4df1-a538-8b0eebb09a18",
+  "from": "447700900000",
+  "to": "447700900001",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "status": "ringing",
-  "direction": "outbound"
+  "direction": "outbound",
+  "timestamp": "2020-01-01T14:00:00.00Z"
 }
 ```

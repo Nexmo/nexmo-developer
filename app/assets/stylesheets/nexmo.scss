@@ -1,10 +1,12 @@
 @import "reset";
 
-$blue: #1C8ECD;
+$blue: #0077C8;
+$blue-light: #00bfff;
 $pink: #E6547B;
 $purple: #936FD2;
 $green: #32BA86;
 $orange: #f6a85a;
+$yellow: #ffe030;
 $peach: #F88175;
 $red: #ea5353;
 $ice: #f9fbfd;
@@ -20,20 +22,32 @@ $stone-dark: #193c56;
 $gray-dark: #252A2D;
 $black: #1A1E20;
 
-$sms: #936FD2;
-$number-insight: #32BA86;
-$voice: #F88175;
+$sms: #40569F;
+$sms-light: #EFF3FE;
+$number-insight: #57AF7B;
+$number-insight-light: #F3FFF8;
+$voice: #E7883C;
+$voice-light: #FDF7F1;
 $chat: #CA579C;
-$verify: #6b85d2;
+$verify: #7C578D;
+$verify-light: #FCF8FF;
+$account: #D65E7C;
+$account-light: #FDF3F8;
 
 $primary: $pink;
 $link: $blue;
+$link-hover: $blue-light;
+$link-subtle: desaturate(lighten($link, 25%), 65%);
 $positive: $green;
 $negative: $red;
 $warning: $orange;
 $background: $ice;
 $text: $stone;
+$text-subtle: desaturate(lighten($text, 15%), 20%);
 $code-background: $atom;
+
+$callback: $orange;
+$webhook: $orange;
 
 $spacing: 20px;
 $radius: 3px;
@@ -43,21 +57,52 @@ $shadow-soft: 0 2px 14px 0 rgba(0, 0, 0, 0.04);
 $shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
 $shadow-hard: 0 1px 8px 0 rgba(0,0,0,0.30);
 
-$border: 1px solid darken($mint, 5%);
+$border-color: darken($mint, 5%);
+$border-color-ligher: $mint;
+$border: 1px solid $border-color;
+
+$golden-ratio: 1.618;
+
+$font-family: 'Averta', sans-serif;
+
+@import "mixins";
 
 @import "core";
 @import "typography";
+@import "icons";
 @import "syntax";
 
+@import "objects/api-status";
+@import "objects/avatar";
+@import "objects/button";
+@import "objects/box";
 @import "objects/card";
+@import "objects/collapsible";
+@import "objects/content-block";
+@import "objects/feedback";
 @import "objects/focus";
+@import "objects/forms";
 @import "objects/github-cards";
 @import "objects/js-sequence-diagram";
+@import "objects/labels";
 @import "objects/masonry";
 @import "objects/navigation";
+@import "objects/notices";
+@import "objects/slate-layout";
 @import "objects/tabs";
+@import "objects/table-list";
+@import "objects/techio";
+@import "objects/truncate";
 @import "objects/loading-bar";
+@import "objects/video";
 
+@import "layout/community";
 @import "layout/header";
 @import "layout/hero";
 @import "layout/footer";
+@import "layout/jobs";
+@import "layout/landing";
+@import "layout/markdown";
+@import "layout/search";
+
+@import "themes/ea";

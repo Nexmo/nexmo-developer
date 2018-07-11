@@ -1,6 +1,6 @@
 class LabelFilter < Banzai::Filter
   def call(input)
-    input.gsub(/\[(\w+)\]/) do |_s|
+    input.gsub(/\[([a-zA-Z0-9\s:\-\.]+)\]/) do |_s|
       "<span class='label #{class_name($1)}'>#{$1}</span> "
     end
   end

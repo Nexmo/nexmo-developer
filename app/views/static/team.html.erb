@@ -1,0 +1,64 @@
+<div class="center spacious">
+  <h1>
+      <i class="icon icon--large icon-community"></i><br><br>
+      Nexmo Developer Relations Team
+  </h1>
+
+  <br>
+
+  <h4>
+    Our mission is to build a world-class open source documentation platform to help developers build connected products.
+    <br><br>
+    Here are some of the people behind Nexmo Developer. Oh, and <a href="#join">we're hiring</a>.
+  </h4>
+
+  <br>
+
+  <div class="avatar-grid">
+    <% @team['current'].shuffle.each do |member| %>
+      <%= render partial: 'profile', locals: member.symbolize_keys %>
+    <% end %>
+  </div>
+
+  <h2 class="spacious"><b>Alumni</b></h2>
+
+  <div class="avatar-grid">
+    <% @team['alumni'].shuffle.each do |member| %>
+      <%= render partial: 'profile', locals: member.symbolize_keys %>
+    <% end %>
+  </div>  
+
+  <h2 class="spacious"><b>Contributors</b></h2>
+
+  <p>Many of the improvements made to Nexmo Developer have come from our wonderful community.</p>
+  <p>Check out our <a href="https://github.com/Nexmo/nexmo-developer/graphs/contributors">Contributors</a> page on GitHub.</p>
+
+  <br><br>
+
+  <h2 id="join"><b>Join the team</b></h2>
+
+  <p>If what we are building sounds interesting to you please see our open positions and get in touch with us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>.</p>
+
+  <br>
+
+  <% @careers.group_by(&:role_group).each do |group_name, careers| %>
+    <h2 class="spacious"><%= group_name %></h2>
+    <div class="jobs">
+      <% careers.each do |career| %>
+        <div class="jobs__job">
+          <div class="box box--white">
+            <h2>
+              <i class="icon icon--large icon-<%= career.icon %>"></i><br><br>
+              <%= career.title %>
+              <br><br><i><small class="subtle"><%= career.location %></small></i>
+            </h2>
+            <div class="left spacious">
+              <%= career.description_short.render_markdown %>
+            </div>
+            <%= link_to "Find out more", career, class: 'button' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

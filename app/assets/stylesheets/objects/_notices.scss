@@ -1,0 +1,49 @@
+.notices {
+  margin-top: -$spacing;
+  margin-bottom: $spacing;
+  border-bottom: 2px solid darken($mint, 3%);
+  background: $mint;
+}
+
+.notice {
+  overflow: hidden;
+
+  > div {
+    position: relative;
+    max-width: 1200px;
+    background: $white;
+    box-shadow: 0 0 30px 6px rgba(0,0,0,0.1);
+    border: 2px solid #ccc;
+    padding: $spacing;
+    padding-bottom: $spacing / 2;
+    margin: $spacing * 2 auto;
+    margin-bottom: 0;
+    border-radius: 8px;
+
+    @include tablet {
+      margin: $spacing;
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child > div {
+    margin-bottom: $spacing * 2;
+
+    @include tablet {
+      margin-bottom: $spacing;
+    }
+  }
+
+  .icon-times {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $spacing;
+    font-size: 24px;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    margin-right: 30px;
+  }
+}

@@ -18,7 +18,8 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         #Retrieve with the parameters in this request
         call_to = params['to']      #The endpoint being called
         call_form = params['from']  #The endpoint you are calling from
-        call_uuid = params['conversation_uuid']     #The unique ID for this Conversation
+        conversation_uuid = params['conversation_uuid']     #The unique ID for this Conversation
+        call_uuid = params['uuid']     #The unique ID for this Call
 
         #Dynamically create the NCCO to run a conversation from your virtual number
         if call_to == "441632960960":

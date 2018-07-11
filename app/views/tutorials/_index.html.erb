@@ -1,0 +1,20 @@
+<div class="masonry" data-turbolinks="false">
+  <% @tutorials.each_with_index do |tutorial, index| %>
+    <div class="item">
+      <a href="<%= tutorial.path %>" class="card card--with-icon">
+        <h2>
+          <span class="unstyled spacious">
+            <small><i><%= tutorial.subtitle %></i></small>
+            <%= tutorial.title %>
+          </span>
+        </h2>
+
+        <div class="card--with-icon__divider">
+          <i class="icon icon-book"></i>
+        </div>
+
+        <p class="color-text"><%= tutorial.description %></p>
+      </a>
+    </div>
+  <% end %>
+</div>

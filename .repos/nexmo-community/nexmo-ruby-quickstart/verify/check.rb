@@ -9,21 +9,21 @@ VERIFY_CODE = ENV['VERIFY_CODE']
 require 'nexmo'
 
 client = Nexmo::Client.new(
-  key: API_KEY,
-  secret: API_SECRET
+  api_key: API_KEY,
+  api_secret: API_SECRET
 )
 
-response = client.check_verification(
-  VERIFY_REQUEST_ID,
+response = client.verify.check(
+  request_id: VERIFY_REQUEST_ID,
   code: VERIFY_CODE
 )
 
 # when the check is successful
-if response['status'] == '0'
+if response.status == '0'
   # the cost of this verification
-  puts response['price']
+  puts response.price
   # the currency ofthe cost
-  puts response['currency']
+  puts response.currency
 else
-  puts response['error_text']
+  puts response.error_text
 end

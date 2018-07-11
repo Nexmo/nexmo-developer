@@ -1,0 +1,11 @@
+<center>
+  <h1>Changelog <span class="label"><%= @version[:version] %></span></h1>
+  <%= link_to "view all changes", changelog_path %>
+</center>
+
+
+<div class="row" id="primary-content">
+  <div class="columns small-12 medium-10 small-centered medium-centered">
+    <%= render 'show', version: @version %>
+  </div>
+</div>

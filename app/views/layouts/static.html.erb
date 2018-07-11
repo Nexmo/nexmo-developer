@@ -2,16 +2,23 @@
 <html>
   <%= render partial: 'layouts/partials/head' %>
 
-  <body>
+  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper">
       <div class="container">
         <div class="row">
           <nav class="columns small-12 medium-3 sidenav" id="sidenav" data-turbolinks-permanent>
-            <%= navigation_from_content(content: @content, title: @title) %>
+            <% if @return_link %>
+              <%= link_to @return_link[:path], class: 'sidenav-back', data: { turbolinks: false } do %>
+                <i class="icon icon-angle-left"></i> Back to <%= @return_link[:title] %>
+              <% end %>
+              <hr>
+            <% end %>
+            <%= navigation_from_content(content: @content, title: @document_title) %>
           </nav>
-          <div class="columns small-12 medium-9" id="primary-content">
+          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks="false">
             <%= yield %>
+            <%= render partial: 'layouts/partials/feedback' %>
           </div>
         </div>
       </div>

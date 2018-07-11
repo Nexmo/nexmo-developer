@@ -7,14 +7,14 @@
   <div class="columns small-12 medium-8 medium-centered large-6 large-centered">
 
     <div class="card card--with-icon card--invisible card--sms">
-      <h2>
-        <a href="#" class="unstyled spacious">
+      <h2 id="messaging-apis">
+        <a href="/api/sms" class="unstyled spacious">
           Messaging APIs
         </a>
       </h2>
 
       <div class="card--with-icon__divider">
-        <i class="fa fa-comments-o"></i>
+        <i class="icon icon-sms"></i>
       </div>
 
       <nav>
@@ -24,51 +24,135 @@
         </a>
         <a href="/api/sms/us-short-codes/alerts/subscription" class="card-description">
           <h3>Alerts API - Subscription</h3>
-          <p>For subscribing users to and send event based alerts.</p>
+          <p>For subscribing users to event-based alerts with US Short Codes</p>
         </a>
         <a href="/api/sms/us-short-codes/alerts/sending" class="card-description">
           <h3>Alerts API - Sending</h3>
-          <p>For subscribing users to and send event based alerts.</p>
+          <p>For sending event-based alerts to users with US Short Codes</p>
+        </a>
+        <a href="/api/sms/us-short-codes/2fa" class="card-description">
+          <h3>2FA</h3>
+          <p>For verifying users with US Short Codes</p>
         </a>
       </nav>
     </div>
 
     <div class="card card--with-icon card--invisible card--voice">
-      <h2>
-        <a href="#" class="unstyled spacious">
+      <h2 id="voice-apis">
+        <a href="/api/voice" class="unstyled spacious">
           Voice APIs
         </a>
       </h2>
 
       <div class="card--with-icon__divider">
-        <i class="fa fa-microphone"></i>
+        <i class="icon icon-voice"></i>
       </div>
       <nav>
         <a href="/api/voice" class="card-description">
           <h3>Voice API</h3>
           <p>For making and receiving calls.</p>
         </a>
+
+        <a href="/voice/voice-api/ncco-reference" class="card-description">
+          <h3>Nexmo Call Control Objects (NCCO)</h3>
+          <p>The JSON format for Nexmo's Voice API.</p>
+        </a>
+      </nav>
+    </div>
+
+    <div class="card card--with-icon card--invisible card--verify">
+      <h2 id="verify">
+        <a href="/api/verify" class="unstyled spacious">
+          Verify
+        </a>
+      </h2>
+      <div class="card--with-icon__divider">
+        <i class="icon icon-verify"></i>
+      </div>
+
+      <nav>
+        <a href="/api/verify" class="card-description">
+          <h3>Verify API</h3>
+          <p>Check to see if a user owns a number via both SMS and voice.</p>
+        </a>
+        <a href="/api/verify/templates" class="card-description">
+          <h3>Verify API - Custom templates</h3>
+          <p>You use custom templates to modify the default messages sent by the Verify API.</p>
+        </a>
+      </nav>
+    </div>
+
+    <div class="card card--with-icon card--invisible card--number-insight">
+      <h2 id="number-insight">
+        <a href="/api/number-insight" class="unstyled spacious">
+          Number Insight
+        </a>
+      </h2>
+
+      <div class="card--with-icon__divider">
+        <i class="icon icon-number-insight"></i>
+      </div>
+      <nav>
+        <a href="/api/number-insight" class="card-description">
+          <h3>Number Insight API</h3>
+          <p>The smart way to get real-time intelligence on numbers anywhere in the world and protect yourself from fraud and spam.</p>
+        </a>
       </nav>
     </div>
 
     <div class="card card--with-icon card--invisible card--global">
-      <h2>
+      <h2 id="global-apis">
         <a href="#" class="unstyled spacious">
           Global APIs
         </a>
       </h2>
 
       <div class="card--with-icon__divider">
-        <i class="fa fa-cloud"></i>
+        <i class="icon icon-cloud"></i>
       </div>
       <nav>
-        <a href="#" class="card-description">
-          <h3>Two-factor Authentication API</h3>
-          <p>For proving a user's identity with SMS &amp; Voice.</p>
+        <a href="/api/application" class="card-description">
+          <h3>Application API</h3>
+          <p>Create and manage Nexmo applications used to configure &amp; authenticate with Voice API</p>
         </a>
         <a href="/api/conversion" class="card-description">
           <h3>Conversion API</h3>
           <p>Improve your deliverability</p>
+        </a>
+        <a href="/api/media" class="card-description">
+          <h3>Media API <span class="label">BETA</span></h3>
+          <p>Manage media items such as audio files for use with other Nexmo APIs.</p>
+        </a>
+      </nav>
+    </div>
+
+    <div class="card card--with-icon card--invisible card--developer">
+      <h2 id="developer-api">
+        <a href="#" class="unstyled spacious">
+          Developer API
+        </a>
+      </h2>
+
+      <div class="card--with-icon__divider">
+        <i class="icon icon-code"></i>
+      </div>
+
+      <nav>
+        <a href="/api/developer/account" class="card-description">
+          <h3>Account</h3>
+          <p>Get pricing, balance and account information</p>
+        </a>
+        <a href="/api/developer/messages" class="card-description">
+          <h3>Messages</h3>
+          <p>Retrieve inbound and outbound messages</p>
+        </a>
+        <a href="/api/developer/numbers" class="card-description">
+          <h3>Numbers</h3>
+          <p>Buy, list and update your account numbers</p>
+        </a>
+        <a href="/api/developer/pricing" class="card-description">
+          <h3>Pricing</h3>
+          <p>Retrieve details of service pricing</p>
         </a>
       </nav>
     </div>

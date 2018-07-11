@@ -22,9 +22,9 @@ You rent each virtual number by the month. The renewal date is relative to the o
 
 You use Dashboard to:
 
-* [Rent virtual numbers](#rent-vn)
-* [Setup Two-factor authentication](#shortcode)
-* [Setup event based alerts](#event_based_alerts)
+* [Rent virtual numbers](#rent-virtual-numbers)
+* [Setup Two-factor authentication](#setting-up-two-factor-authentication)
+* [Setup event based alerts](#setting-up-event-based-alerts)
 
 ## Rent virtual numbers
 
@@ -38,7 +38,7 @@ To rent a Nexmo virtual number:
 
 If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](#add_payment_method).
 
-> **Note**: to rent virtual numbers programmatically, call [Number: Search](https://docs.nexmo.com/tools/developer-api/number-search) to list the available numbers, then [Number: Buy](https://docs.nexmo.com/tools/developer-api/number-buy) to rent one of the numbers returned by the search.
+> **Note**: to rent virtual numbers programmatically, call [Number: Search](/api/developer/numbers#search-available-numbers) to list the available numbers, then [Number: Buy](/api/developer/numbers#buy-a-number) to rent one of the numbers returned by the search.
 
 ## Configure a virtual number
 

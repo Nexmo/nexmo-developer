@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Connection information
+base_url='https://api.nexmo.com'
+version=''
+action='/verify/templates'
+
+#Authentication information
+api_key='API_KEY'
+api_secret='API_SECRET'
+
+#Create the request URL
+url="${base_url}${version}${action}?api_key=${api_key}&api_secret=${api_secret}"
+
+#Create the custom template
+payload='{
+  "action_type" : "sms",
+  "lg" : "en-gb",
+  "contact_email" : "xyz@example.com",
+  "template" : "Your ${brand} verification code is ${pin}"
+}'
+
+curl -X POST $url \
+  -H "Content-Type: application/json" \
+  -H "accept: application/json" \
+  -d "$payload"

@@ -1,0 +1,44 @@
+{
+  "count": 243,
+  "countries": [
+    {
+      "dialingPrefix": "93",
+      "currency": "EUR",
+      "countryDisplayName": "Afghanistan",
+      "countryCode": "AF",
+      "countryName": "Afghanistan",
+      "networks": [
+        {
+          "type": "mobile",
+          "price": "0.10100000",
+          "currency": "EUR",
+          "aliases": [
+            "41280"
+          ],
+          "mcc": "412",
+          "mnc": "88",
+          "networkCode": "41288",
+          "networkName": "Afghan Telecom"
+        }
+      ]
+    },
+    {
+      "dialingPrefix": "355",
+      "currency": "EUR",
+      "countryDisplayName": "Albania",
+      "countryCode": "AL",
+      "countryName": "Albania",
+      "networks": [
+        {
+          "type": "mobile",
+          "price": "0.07732800",
+          "currency": "EUR",
+          "mcc": "276",
+          "mnc": "02",
+          "networkCode": "27602",
+          "networkName": "Vodaphone Albania"
+        }
+      ]
+    }
+  ]
+}

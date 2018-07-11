@@ -1,0 +1,14 @@
+---
+title: Node
+language: node
+dependencies:
+  - nexmo
+file_name: redact.js
+client:
+    source: '.repos/nexmo-community/nexmo-node-quickstart/redact/transaction.js'
+    from_line: 10
+    to_line: 15
+code:
+    source: '.repos/nexmo-community/nexmo-node-quickstart/redact/transaction.js'
+    from_line: 17
+    to_line: 22

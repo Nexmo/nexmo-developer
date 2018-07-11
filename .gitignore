@@ -17,3 +17,7 @@
 .byebug_history
 .env
 .powder
+/public/packs
+/node_modules
+/public/packs-test
+config/algolia.yml

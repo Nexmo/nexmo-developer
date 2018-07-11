@@ -2,11 +2,11 @@
 apply plugin: 'java'
 
 // Uncomment the following lines to work with a local copy of nexmo-java:
-//configurations.all {
+// configurations.all {
 //    resolutionStrategy.dependencySubstitution {
 //        substitute module("com.nexmo:client") with project(":client")
 //    }
-//}
+// }
 
 repositories {
     mavenCentral()
@@ -15,7 +15,9 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
     
-    compile 'com.nexmo:client:2.0.0'
+    compile 'com.nexmo:client:latest.release'
+    compile "com.sparkjava:spark-core:2.6.0"
+    compile 'javax.xml.bind:jaxb-api:2.3.0'
 }
 
 task fatJar(type: Jar, dependsOn:configurations.runtime) {

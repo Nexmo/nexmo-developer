@@ -1,18 +1,51 @@
+<br>
 <div class="row">
   <div class="columns small-12 medium-8 medium-centered large-6 medium-centered">
     <center>
       <h1>Nexmo ❤️ community</h1>
-      <h2>You can find us at these upcoming events:</h2>
-      <br>
-      <hr class="hr--mini">
-      <% @upcoming_events.each do |event| %>
-        <br>
-        <h2><%= link_to event.title, event.url, target: '_blank' %></h2>
-        <p><b><%= event.date_range %></b></p>
-        <p><%= event.description %></p>
-        <br>
-        <hr class="hr--mini">
-      <% end %>
+      <h2>Resources for and by the Community</h2>
     </center>
+    <br>
+    <hr class="hr--mini">
   </div>
 </div>
+
+<% if @sessions.any? %>
+  <br>
+
+  <div class="row">
+    <% @sessions.each_with_position do |session, first, last| %>
+      <div class="columns small-12 medium-6 large-4 <%= 'end' if last %>">
+        <%= session.video_content.html_safe %>
+        <h3><%= session.title %></h3>
+        <p><%= session.description %></p>
+        <br>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+<% end %>
+
+<br>
+
+<h2 class="center">You can find us at these upcoming events:</h2>
+
+<div id="community-events">
+  <% @upcoming_events.each_with_position do |event, first, last| %>
+    <%= render 'event', event: event, first: first, last: last %>
+  <% end %>
+</div>
+
+<p class="center">
+  <%= link_to 'Subscribe to feed', feeds_events_url(protocol: :webcal, format: :ics) %> |
+  <% if @past_events_count > 0 %>
+    <%= link_to "view #{pluralize @past_events_count, 'past event'}", community_past_events_path %>
+  <% end %>
+</p>
+
+<hr>
+
+<center class="spacious">
+  <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Nexmo Community Slack", community_slack_path %></h2>
+</center>

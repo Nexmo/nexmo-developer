@@ -1,0 +1,49 @@
+<%
+  webhook = false if local_assigns[:webhook].nil?
+%>
+
+<div>
+  <div class="slate-layout-documentation">
+    <div>
+      <h3 id="<%= endpoint.operationId %>">
+        <span class="label label--<%= webhook ? 'webhook' : 'callback' %>">
+          <i class="icon icon-<%= webhook ? 'webhook' : 'callback' %>"></i> <%= webhook ? 'Webhook' : 'Callback' %>
+        </span>
+        &nbsp;<%= endpoint.summary %>
+      </h3>
+      <% if endpoint.description %>
+        <p><%= endpoint.description.render_markdown %></p>
+      <% end %>
+
+      <div class="api-path">
+        <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
+        <code>
+          <span class="api-path-host">https://example.com</span>
+          <%= (endpoint.raw['x-example-path'] || '/webhooks/event').gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
+        </code>
+      </div>
+
+      <%= render 'parameter_groups', endpoint: endpoint, callback: true %>
+    </div>
+  </div>
+
+  <div class="slate-layout-code">
+    <div class="slate-layout-code__inner">
+      <br>
+      <%= render 'code_examples', endpoint: endpoint %>
+
+      <h4>Request model</h4>
+
+      <% endpoint.request_body.formats.each_with_index do |format, index| %>
+        <div class="js-format" data-format="<%= format %>">
+          <% schema = endpoint.request_body.schema(format) %>
+          <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% endpoint.callbacks.each do |callback| %>
+  <%= render 'callback', callback: callback %>
+<% end %>

@@ -1,31 +1,16 @@
 <?php
+// This will use the Nexmo client library installed via composeer
+require_once "vendor/autoload.php";
 
-include 'application_generate_jwt.php';
+// the recording_url parameter from the recording event
+$recording = 'RECORDING_URL'; 
 
-//Retrieve the conversation ID from the JSON object sent to eventURL
-$decoded_request = json_decode(file_get_contents('php://input'), true);
-//Then extract the information you need
-$conversation_uuid = $decoded_request['conversation_uuid'] . ".mp3";
-//Retrieve the recording URL from the JSON object sent to eventURL
-$recording_url = $decoded_request['recording_url']
-//The URL looks like:
-//"https://api.nexmo.com/media/download?id=52343cf0-342c-45b3-a23b-ca6ccfe234b0";
+// Generate a JWT and fetch the recording
+$keypair = new \Nexmo\Client\Credentials\Keypair(file_get_contents(__DIR__ . '/private.key'), 'APPLICATION_ID');
+$client = new \Nexmo\Client($keypair);
+$data = $client->get($recording);
 
-//Create your JWT
-$application_id = "id-for-your-application";
-$keyfile="application_secret_key.txt";
-
-$jwt = generate_jwt($application_id, $keyfile);
-
-//Add the JWT to your headers
-$headers =  array('Content-Type: application/json', "Authorization: Bearer " . $jwt ) ;
-
-$ch = curl_init();
-//Make a request to $recording_url
-curl_setopt($ch, CURLOPT_URL, $recording_url );
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$response = curl_exec($ch);
-
-//Write the downloaded recording somewhere
-file_put_contents($conversation_uuid, $response );
+//Save the recording to disk
+$file = fopen("recording.mp3","w");
+echo fwrite($file, $data->getBody());
+fclose($file);

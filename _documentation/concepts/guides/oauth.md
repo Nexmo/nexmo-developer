@@ -4,9 +4,9 @@ title: OAuth
 
 # OAuth
 
-You can use the  OAuth 1.0a protocol to give your App authorized access to the Nexmo APIs.
+You can use the OAuth 1.0a protocol to give your App authorized access to the Nexmo APIs.
 
-OAuth is an open standard that provides client apps with secure delegated access to server resources on behalf of a resource owner. It does it by allowing access tokens to be issued to third-party clients by an authorization server, with the approval of the resource owner. The client then uses the access token to access the protected resources hosted by the resource server.
+OAuth is an open standard that provides client apps with secure delegated access to HTTP resources on behalf of that resource's owner. It does this by providing access tokens to third-party clients with the approval of the resource owner. The client then uses the access token to access protected resources.
 
 When you use OAuth for authentication:
 
@@ -14,7 +14,7 @@ When you use OAuth for authentication:
 * Your app identifies the user
 * The user's privacy is protected
 
-**Note**: use an existing [OAuth Library](http://oauth.net/code/) for your App.
+**Note**: We strongly recommend you use an existing [OAuth Library](http://oauth.net/code/) for your App.
 
 This section contains:
 
@@ -24,11 +24,11 @@ This section contains:
 
 ## Setting up OAuth access
 
-OAuth access is associated with a Developer App. You need to create and configure your App before you programm OAuth access into it.
+OAuth access is associated with a Developer App. You need to create and configure your App before you setup OAuth access.
 
 To do this:
 
-1. Contact <support@nexmo.com> and request OAuth access. Nexmo support contacts you when access is granted.
+1. Contact <support@nexmo.com> and request OAuth access be enabled for your account. Nexmo support contacts you when access is granted.
 3. Login to Dashboard: <https://dashboard.nexmo.com>.
 4. In Dashboard, click *Apps* > *Developer*.
 5. Click *create a new developer app*.

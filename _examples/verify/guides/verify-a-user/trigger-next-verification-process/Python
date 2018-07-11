@@ -1,0 +1,1 @@
+client.trigger_next_verification_event(verify_resp['request_id'])

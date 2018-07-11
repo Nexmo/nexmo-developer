@@ -16,13 +16,13 @@
 <body>
   <header class="flex-row">
     <h1>Verify Your PIN</h1>
-    <img class="logo" src="https://github.com/nexmo-community/send-sms-nodejs/blob/master/public/images/nexmo-white.png?raw=true">
+    <img class="logo" src="https://github.com/nexmo-community/nexmo-2fa-demo/blob/master/views/nexmo-white.png?raw=true">
   </header>
 
   <section id="main" role="main">
     <form action="/verify" method="post">
       <div class="fa fa-key"></div>
-      <input type="number" name="pin" placeholder="1234" required>
+      <input type="tel" name="pin" placeholder="1234" required>
       <input type="hidden" name="requestId" value="<%= requestId %>" >
       <input type="submit" value="Verify PIN">
     </form>

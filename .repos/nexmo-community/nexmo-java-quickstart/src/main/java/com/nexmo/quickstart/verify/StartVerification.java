@@ -24,6 +24,7 @@ package com.nexmo.quickstart.verify;
 import com.nexmo.client.NexmoClient;
 import com.nexmo.client.auth.AuthMethod;
 import com.nexmo.client.auth.TokenAuthMethod;
+import com.nexmo.client.verify.VerifyResult;
 
 import static com.nexmo.quickstart.Util.*;
 
@@ -37,7 +38,12 @@ public class StartVerification {
 
         AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
         NexmoClient client = new NexmoClient(auth);
-        client.getVerifyClient().verify(TO_NUMBER, "NEXMO");
+        VerifyResult result = client.getVerifyClient().verify(TO_NUMBER, "NEXMO");
+        if (result.getStatus() == 0) {
+            System.out.printf("RequestID: %s", result.getRequestId());
+        } else {
+            System.out.printf("ERROR! %s: %s", result.getStatus(), result.getErrorText());
+        }
     }
 
     private static String envVar(String key) {

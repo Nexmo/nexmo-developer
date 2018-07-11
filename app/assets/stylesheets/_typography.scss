@@ -39,10 +39,14 @@
 }
 
 body {
-  font-family: 'Averta', sans-serif;
+  font-family: $font-family;
   color: $text;
   font-size: 16px;
   line-height: 1.5;
+
+  @include mobile {
+    font-size: 0.9em;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -61,22 +65,47 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 36px;
   line-height: 36px;
+
+  @include mobile {
+    font-size: 24px;
+    line-height: 24px;
+  }
 }
 
 h2 {
   font-size: 24px;
   line-height: 24px;
+
+  @include mobile {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  small {
+    font-size: 0.8em;
+  }
 }
 
 h3 {
   font-size: 20px;
   line-height: 20px;
+
+  @include mobile {
+    font-size: 18px;
+    line-height: 18px;
+  }
 }
 
 h4 {
   font-size: 18px;
   line-height: 18px;
+
+  @include mobile {
+    font-size: 15px;
+    line-height: 15px;
+  }
 }
+
 
 p {
   line-height: 1.6;
@@ -95,7 +124,7 @@ ul, ol, p, h1, h2, h3, h4, h5, h6, table {
 
   a code {
     &:after {
-      font: normal normal normal 14px/1 FontAwesome;
+      font: normal normal normal 14px/1 icomoon;
       content: "\f138";
       margin-left: 5px;
       font-size: 0.8em;
@@ -131,11 +160,15 @@ a {
   color: $link;
   cursor: pointer;
 
+  &:hover {
+    color: $link-hover;
+  }
+
   nav &, h1 & {
     border-bottom: none;
   }
 
-  .fa-external-link {
+  .icon-external-link {
     font-size: 0.7em;
   }
 }
@@ -150,6 +183,10 @@ a {
 
 .right {
   text-align: right;
+}
+
+.indent {
+  margin-left: $spacing * 1.5;
 }
 
 pre.highlight {
@@ -221,11 +258,36 @@ blockquote {
   h1, h2, h3, h4, h5, h6 {
     color: darken($text, 5%);
     position: relative;
+
+    + div {
+      margin-top: $spacing;
+    }
   }
 
   h2, h3, h4, h5, h6 {
-    margin-top: 40px;
     font-weight: 600;
+  }
+
+  > h2, > h3, > h4, > h5, > h6 {
+    margin-top: 40px;
+  }
+
+  .card h2 {
+    margin-top: 0;
+  }
+
+  .tabs-panel {
+    h2, h3, h4, h5, h6 {
+      margin-top: $spacing;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h3, h4, h5, h6 {
+      font-size: 1em;
+    }
   }
 
   li ul, li ol {
@@ -243,61 +305,6 @@ blockquote {
 
   .tight {
     margin: 0;
-  }
-}
-
-.label {
-  background: $primary;
-  color: $white;
-  font-weight: 700;
-  padding: 2px 5px 1px 5px;
-  font-size: 13px;
-  border-radius: 4px;
-  text-align: center;
-
-  background: $blue;
-  border-color: $blue;
-  .navigation & { color: mix($blue, $background, 80%); }
-
-  &--code {
-    font-family: Consolas, monospace;
-    font-size: 15px;
-    padding: 4px 5px 1px 5px;
-
-    .navigation & {
-      font-size: 12px;
-      padding: 2px 2px 0 2px;
-      position: absolute;
-      right: 100%;
-      margin-right: 5px;
-      border-width: 2px;
-      background: none;
-      opacity: 0.6;
-    }
-
-    .navigation .active & {
-      opacity: 1;
-    }
-  }
-
-  &--positive {
-    background: $positive;
-    border-color: $positive;
-    .navigation & { color: mix($positive, $background, 80%); }
-  }
-
-  &--negative {
-    background: $negative;
-    border-color: $negative;
-    .navigation & { color: mix($negative, $background, 80%); }
-
-  }
-
-  &--warning {
-    background: $warning;
-    border-color: $warning;
-    .navigation & { color: mix($warning, $background, 80%); }
-
   }
 }
 
@@ -339,4 +346,144 @@ blockquote {
 
 .color--success {
   color: $green;
+}
+
+.meta {
+  display: block;
+  color: mix($stone, $stone-light);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: $text-subtle;
+  border-bottom: 1px dotted $stone-light;
+  font-size: 0.95em;
+  cursor: pointer;
+
+  &:before {
+    display: none;
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 12px 10px;
+    border-color: transparent transparent $atom transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    bottom: -12px;
+  }
+
+  &:after {
+    display: none;
+    content: attr(data-text);
+    pointer-events: none;
+    background: $atom;
+    color: $white;
+    padding: $spacing / 2;
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: 10px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &:hover, &:focus {
+    outline: none;
+    color: $pink;
+    border-bottom-color: $pink;
+    &:before, &:after {
+      display: block;
+    }
+  }
+}
+
+.flash {
+  font-size: 1.2em;
+  margin: $spacing 0;
+  color: $pink;
+}
+
+.version {
+  margin-top: $spacing * 2;
+}
+
+b {
+  font-weight: 600;
+}
+
+.api-path {
+  display: block;
+  border: 2px solid $mint;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: $spacing;
+  font-size: 1.2em;
+  background: $white;
+
+  .api-path-parameter {
+    color: $pink;
+  }
+
+  .api-path-method {
+    display: inline-block;
+    font-family: Consolas, monospace;
+    color: $blue;
+    background: mix($blue, $white, 5%);
+    border-right: 1px solid mix($blue, $white, 15%);
+    margin-right: 10px;
+    font-weight: 700;
+    padding: 6px $spacing 3px $spacing;
+
+    &--post {
+      color: $green;
+      background: mix($green, $white, 5%);
+      border-right: 1px solid mix($green, $white, 15%);
+    }
+
+    &--delete {
+      color: $red;
+      background: mix($red, $white, 5%);
+      border-right: 1px solid mix($red, $white, 15%);
+    }
+
+    &--update {
+      color: $orange;
+      background: mix($orange, $white, 5%);
+      border-right: 1px solid mix($orange, $white, 15%);
+    }
+  }
+
+  .api-path-host {
+    margin-right: -10px;
+    color: mix($text-subtle, $gray-light);
+  }
+}
+
+.api-reference {
+  b {
+    color: $text-subtle;
+  }
+}
+
+.flag {
+  text-transform: uppercase;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: $blue;
+
+  &--strong {
+    color: $red;
+  }
+}
+
+.subtle {
+  color: $text-subtle;
 }

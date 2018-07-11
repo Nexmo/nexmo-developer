@@ -1,0 +1,5 @@
+require 'nexmo'
+
+nexmo_client = Nexmo::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
+
+nexmo_client.applications.delete('aaaaaaaa-bbbb-cccc-dddd-0123456789ab')

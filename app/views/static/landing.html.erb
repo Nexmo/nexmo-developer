@@ -1,15 +1,9 @@
 
 <div id="hero">
   <div class="center">
-    <h1>Welcome to Nexmo Developer</h1>
+    <h1>Connected Code</h1>
     <br>
-    <h2 class="light">
-      Discover our
-      <a class="hero-link" href="#products">products</a> ,
-      <a class="hero-link" href="/api">APIs</a> ,
-      <a class="hero-link" href="/tools">tools</a> &amp;
-      <a class="hero-link" href="/community">developer community</a>
-    </h2>
+    <h2 class="light">Everything you need to build connected applications with Nexmo</h2>
   </div>
 </div>
 
@@ -18,165 +12,42 @@
     <div class="columns small-12">
 
       <br>
-      <div class="row">
-        <div class="columns small-12 medium-6 large-4">
-          <div class="card card--with-icon card--sms">
-            <h2>
-              <a href="/messaging/sms/overview" class="unstyled">
-                <small>Send and receive</small>
-                SMS
-              </a>
-            </h2>
 
-            <div class="card--with-icon__divider">
-              <i class="fa fa-comments-o"></i>
-            </div>
+      <a name="products"></a>
 
-            <nav>
-              <a href="/messaging/sms/overview">Overview</a>
-              <a href="/messaging/sms/guides">Guides</a>
-              <a href="/messaging/sms/building-blocks">Building Blocks</a>
-              <a href="/messaging/sms/tutorials">Tutorials</a>
-              <hr>
-              <a href="/api/">API Reference</a>
-            </nav>
-          </div>
-        </div>
-        <div class="columns small-12 medium-6 large-4">
-          <div class="card card--with-icon card--voice">
-            <h2>
-              <a href="/voice/overview" class="unstyled">
-                <small>Programmable</small>
-                Voice
-              </a>
-            </h2>
-
-            <div class="card--with-icon__divider">
-              <i class="fa fa-microphone"></i>
-            </div>
-
-            <nav>
-              <a href="/voice/">Overview</a>
-              <a href="/voice/guides">Guides</a>
-              <a href="/voice/building-blocks">Building Blocks</a>
-              <a href="/voice/tutorials">Tutorials</a>
-              <hr>
-              <a href="/api/">API Reference</a>
-            </nav>
-          </div>
-        </div>
-        <div class="columns small-12 medium-6 large-4">
-          <div class="card card--with-icon card--verify card--in-development">
-            <h2>
-              <a href="#" class="unstyled">
-                <small>User Authentication</small>
-                Verify
-              </a>
-            </h2>
-
-            <div class="card--with-icon__divider">
-              <i class="fa fa-key"></i>
-            </div>
-
-            <nav>
-              <a href="#">Overview</a>
-              <a href="#">Guides</a>
-              <a href="#">Building Blocks</a>
-              <a href="#">Tutorials</a>
-              <hr>
-              <a href="#">API Reference</a>
-
-              <div class="card-in-development">
-                <h3>Sorry</h3>
-                <p>This section of Nexmo Developer is still under development. You can find the documentation at <a href="http://docs.nexmo.com">docs.nexmo.com</a></p>
-              </div>
-            </nav>
-          </div>
-        </div>
-        <div class="columns small-12 medium-6 large-4">
-          <div class="card card--with-icon card--number-insight">
-            <h2>
-              <a href="#" class="unstyled">
-                <small>User Identity</small>
-                Number insight
-              </a>
-            </h2>
-
-            <div class="card--with-icon__divider">
-              <i class="fa fa-eye"></i>
-            </div>
-
-            <nav>
-              <a href="#">Overview</a>
-              <a href="#">Guides</a>
-              <a href="#">Building Blocks</a>
-              <a href="#">Tutorials</a>
-              <hr>
-              <a href="/api/">API Reference</a>
-
-              <div class="card-in-development">
-                <h3>Sorry</h3>
-                <p>This section of Nexmo Developer is still under development. You can find the documentation at <a href="http://docs.nexmo.com">docs.nexmo.com</a></p>
-              </div>
-            </nav>
-          </div>
-        </div>
-        <div class="columns small-12 medium-6 large-4 end">
-          <div class="card card--with-icon card--developer">
-            <h2>
-              <a href="#" class="unstyled">
-                <small>Management</small>
-                Developer API
-              </a>
-            </h2>
-
-            <div class="card--with-icon__divider">
-              <i class="fa fa-code"></i>
-            </div>
-
-            <nav>
-              <a href="#">Overview</a>
-              <a href="#">Guides</a>
-              <a href="#">Building Blocks</a>
-              <a href="#">Tutorials</a>
-              <hr>
-              <a href="/api/">API Reference</a>
-
-              <div class="card-in-development">
-                <h3>Sorry</h3>
-                <p>This section of Nexmo Developer is still under development. You can find the documentation at <a href="http://docs.nexmo.com">docs.nexmo.com</a></p>
-              </div>
-            </nav>
-          </div>
-        </div>
-
-      </div>
+      <%= render 'products' %>
 
       <hr>
       <div class="row">
         <div class="columns small-12 medium-6">
-          <div class="center spacious">
+          <div class="center spacious content-block">
             <h3>
-              <a href="/tools">SDKs &amp; Tools</a>
+              <a href="/tools">
+                <i class="icon icon-toolbox"></i>
+                SDKs &amp; Tools
+              </a>
             </h3>
-            The Nexmo libraries allow you to get up an runnign with<br>Nexmo API quickly in your language of choice.
+            <p>The Nexmo libraries allow you to get up and running with<br>Nexmo APIs quickly in your language of choice.</p>
           </div>
         </div>
-        <div class="columns small-12 medium-6">
+        <div class="columns small-12 medium-6 content-block">
           <div class="center spacious">
             <h3>
-              <a href="/community">Community</a>
+              <a href="/community">
+                <i class="icon icon-community"></i>
+                Community
+              </a>
             </h3>
-            <p>Find out about our talks, community hacks<br>&amp; what events we'll be at.</p>
+            <p>Find out about our talks, community hacks,<br>and what events we'll be at.</p>
           </div>
         </div>
       </div>
 
       <hr>
 
-      <div class="center spacious">
+      <div class="center spacious content-block">
         <h3>Do you have a question?</h3>
-        <p>We're always here to help, <a href="mailto:support@nexmo.com">send us an email</a> or get in touch on <a href="http://stackoverflow.com/questions/tagged/nexmo">Stack Overflow</a>.</p>
+        <p>We're always here to help, <a href="mailto:support@nexmo.com">send us an email</a> or get in touch on <a href="http://stackoverflow.com/questions/tagged/nexmo">Stack Overflow</a>. Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
       </div>
     </div>
   </div>

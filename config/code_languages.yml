@@ -1,0 +1,83 @@
+terminal_programs:
+  curl:
+    weight: 1
+    label: cURL
+    lexer: sh
+  httpie:
+    weight: 1
+    label: HTTPie
+    lexer: sh
+  cli:
+    label: CLI
+    lexer: sh
+    linkable: false
+
+languages:
+  javascript:
+    weight: 2
+    label: JavaScript
+    lexer: javascript
+  node:
+    weight: 2
+    label: Node.js
+    lexer: javascript
+  java:
+    weight: 3
+    label: Java
+    lexer: java
+  dotnet:
+    weight: 4
+    label: .NET
+    lexer: c#
+  csharp:
+    weight: 4
+    label: C#
+    lexer: c#
+  php:
+    weight: 5
+    label: PHP
+    lexer: php
+  python:
+    weight: 6
+    label: Python
+    lexer: python
+  ruby:
+    weight: 7
+    label: Ruby
+    lexer: ruby
+  swift:
+    weight: 8
+    label: Swift
+    lexer: swift
+  objective_c:
+    weight: 8
+    label: Objective-C
+    lexer: objective_c
+
+platforms:
+  ios:
+    languages:
+      - swift
+      - objective_c
+  android:
+    languages:
+      - java
+  web:
+    languages:
+      - javascript
+
+data:
+  ncco:
+    label: NCCO
+    lexer: json
+    linkable: false
+  json:
+    weight: 1
+    label: JSON
+    lexer: json
+    linkable: false
+  xml:
+    weight: 2
+    label: XML
+    lexer: xml
+    linkable: false

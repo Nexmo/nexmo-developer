@@ -1,8 +1,12 @@
 #header {
   background: $blue;
-  background: linear-gradient(135deg, $blue 20%, $verify 80%);
   color: $white;
   padding: $spacing 0;
+
+  @include mobile {
+    text-align: center;
+    padding: $spacing*0.75 0 $spacing*0.5 0;
+  };
 
   a {
     color: mix($white, $blue, 90%);
@@ -15,8 +19,25 @@
 
     a {
       margin-left: $spacing;
+      letter-spacing: 0.13px;
+
+      @include mobile {
+        margin: 0 $spacing/2 0 $spacing/2;
+      }
+
+      b, &:hover {
+        color: $white;
+        font-weight: 600;
+        letter-spacing: 0px;
+      }
     }
+
+    @include mobile {
+      float: none;
+    };
   }
+
+  // @media screen and (max-width: )
 }
 
 #logo {
@@ -37,6 +58,42 @@
     background-size: contain;
     width: 43px;
     height: 38px;
+  }
+
+  @include tablet-only {
+    font-size: 20px;
+  }
+}
+
+#header-hiring {
+  font-size: 13px;
+  padding: 3px 6px;
+  margin-left: 8px;
+  top: -3px;
+  position: relative;
+  height: $spacing;
+  background: $white;
+  color: $blue;
+  line-height: 1em;
+  transform: translateX(0);
+  transition: transform  200ms ease-in-out;
+  display: inline-block;
+  border-radius: 2px;
+
+  &:hover {
+    transform: translateX(5px);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    border-color: transparent $white;
+    display: block;
+    width: 0;
+    left: -5px;
+    top: 5px;
   }
 }
 
@@ -64,49 +121,34 @@
     }
   }
 
+  .quicksearch a {
+    padding: 0;
+  }
+
   form {
     float: right;
   }
-}
 
-#search {
-  float: right;
-  width: 200px;
-  height: 30px;
-  // background: $ice;
-  border: $border;
-  box-shadow: inset 0 0 6px rgba($black, 0.05);
-  padding: 0 15px;
-  padding-bottom: 2px;
-  border-radius: 15px;
-  margin-top: 6px;
-  color: $stone;
-  outline: none;
+  @include tablet {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      > a {
+        margin-right: 0;
+        text-align: center;
+        flex-grow: 1;
+      }
 
-  &:focus {
-    border-color: mix($pink, $ice);
-  }
-}
-
-#search-results {
-  z-index: 99;
-  position: absolute;
-  top: 50px;
-  right: 10px;
-  background: $white;
-  border: $border;
-  box-shadow: $shadow;
-  border-radius: $radius;
-  padding: 10px $spacing;
-  padding-bottom: 0;
-  font-size: 0.85em;
-  border-top: 5px solid $pink;
-
-  h2, h3 {
-    margin-bottom: 0;
-    a {
-      padding: 0;
-      color: $blue;
+      form {
+        flex-grow: 1;
+        margin: 0;
+        margin-bottom: 10px;
+        min-width: 150px;
+        input {
+          float: none;
+          width: 100%;
+        }
+      }
     }
-  }
+  };
 }

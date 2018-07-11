@@ -1,0 +1,16 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/SendTalkToCall.java
+    from_line: 37
+    to_line: 39
+client:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/SendTalkToCall.java
+    from_line: 18
+    to_line: 25
+run_command: java-ide
+file_name: SendTalkToCall.java
+unindent: true

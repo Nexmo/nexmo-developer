@@ -2,7 +2,7 @@
 
 This example includes a minimal web interface to demonstrate a proper 2FA UX.
 
-![2FA Screenshot](https://github.com/nexmo-community/nexmo-2fa-demo/blob/master/views/screenshot.png?raw=true)
+![2FA Screenshot](https://github.com/nexmo-community/nexmo-2fa-demo/blob/master/views/screenshot.gif?raw=true)
 
 ## Configure with Your Nexmo API Keys
 

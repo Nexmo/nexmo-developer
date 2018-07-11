@@ -24,22 +24,23 @@
 #
 
 nexmo-community/nexmo-ruby-quickstart:
-  branch: master
-  github: nexmo-community/nexmo-ruby-quickstart
+  repo: nexmo-community/nexmo-ruby-quickstart
   # path: ../nexmo-ruby-quickstart
 nexmo-community/nexmo-node-quickstart:
-  branch: master
-  github: nexmo-community/nexmo-node-quickstart
+  repo: nexmo-community/nexmo-node-quickstart
   # path: ../nexmo-node-quickstart
 nexmo-community/nexmo-php-quickstart:
-  branch: master
-  github: nexmo-community/nexmo-php-quickstart
+  repo: nexmo-community/nexmo-php-quickstart
   # path: ../nexmo-php-quickstart
 nexmo-community/nexmo-dotnet-quickstart:
-  branch: master
-  github: nexmo-community/nexmo-dotnet-quickstart
+  branch: ASPNET
+  repo: nexmo-community/nexmo-dotnet-quickstart
   # path: ../nexmo-dotnet-quickstart
 nexmo-community/nexmo-java-quickstart:
-  branch: master
-  github: nexmo-community/nexmo-java-quickstart
+  repo: nexmo-community/nexmo-java-quickstart
   # path: ../nexmo-java-quickstart
+nexmo-community/nexmo-python-quickstart:
+  repo: nexmo-community/nexmo-python-quickstart
+  # path: ../nexmo-python-quickstart
+nexmo/conversation-docs:
+  repo: nexmo/conversation-docs

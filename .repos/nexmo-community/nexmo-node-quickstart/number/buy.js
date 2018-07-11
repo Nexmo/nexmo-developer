@@ -1,13 +1,12 @@
 require('dotenv').config({path: __dirname + '/../.env'});
 
-var API_KEY = process.env.NEXMO_API_KEY;
-var API_SECRET = process.env.NEXMO_API_SECRET;
-var TO_NUMBER = process.env.EXAMPLE_TO_NUMBER;
+var NEXMO_API_KEY = process.env.NEXMO_API_KEY;
+var NEXMO_API_SECRET = process.env.NEXMO_API_SECRET;
 
 // Start
 var Nexmo = require('nexmo');
 
-var nexmo = new Nexmo({apiKey: API_KEY, apiSecret: API_SECRET}, {debug: true});
+var nexmo = new Nexmo({apiKey: NEXMO_API_KEY, apiSecret: NEXMO_API_SECRET}, {debug: true});
 
 /**
  * In order to buy a number you must first search for the number to buy.

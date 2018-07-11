@@ -17,18 +17,18 @@ A signature is the [MD5 hash](https://en.wikipedia.org/wiki/MD5) of:
 
 * The parameters - all the parameters in a request sorted in alphabetic order
 * A timestamp - a UNIX timestamp at UTC + 0 to protect against replay attacks
-* Your `SECURITY_SECRET` - the key supplied by Nexmo that you use to sign or validate requests
+* Your `SIGNATURE_SECRET` - the key supplied by Nexmo that you use to sign or validate requests
 
-The signature has a leading `&`. All parameters in the hash input, apart from your `SECURITY_SECRET` are separated by `&`.
+The signature has a leading `&`. All parameters in the hash input, apart from your `SIGNATURE_SECRET` are separated by `&`.
 
 [HMAC-SHA1/256/512 ](https://en.wikipedia.org/wiki/SHA-2) is also supported. Contact support@nexmo.com for more information.
 
-> Note: Using signatures is an *optional* improvement on using the standard `api_secret`. You use the `SECURITY_SECRET` instead of your api_secret in a signed request.
+> Note: Using signatures is an *optional* improvement on using the standard `api_secret`. You use the `SIGNATURE_SECRET` instead of your api_secret in a signed request.
 
 The following example shows a signed request to the SMS API:
 
 ```
-https://rest.nexmo.com/sms/xml?api_key=API_KEY&from=Nexmo&to=447700900000&type=text&text=Hello+from+Nexmo&status-report-req=false&timestamp=1461605396&sig=TwoMenWentToMowWentTOMowAMeadowT
+https://rest.nexmo.com/sms/xml?api_key=API_KEY&from=Nexmo&to=447700900000&type=text&text=Hello+from+Nexmo&status-report-req=false&timestamp=1461605396&sig=SIGNATURE
 ```
 
 The workflow for using signed messages is:
@@ -40,23 +40,10 @@ The workflow for using signed messages is:
 3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
 4. If you requested signed delivery receipts and inbound messages validate the signature.
 
-## Setting up message signing
-
-To setup message signing:
-
-1. Contact <support@nexmo.com> and request message signing. The options are:
-
-  * Outbound messages can be signed.
-  * Outbound messages must be signed.
-  * Inbound messages and DLRs sent to your webhook endpoint are signed.
-
-2. Nexmo supplies you with the `SECURITY_SECRET` you use to encode and decode signatures.
-
-    > Note: this is not your `api_secret`.
-
-3. Implement the message signing workflow.
 
 ## Implementing the message signing workflow
+
+When you create a Nexmo account you will be provided a signature secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
 
 To sign your messages:
 

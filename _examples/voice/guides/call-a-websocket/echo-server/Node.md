@@ -1,5 +1,6 @@
 ---
-title: Node
+title: Node.js
+language: node
 ---
 
 ```javascript

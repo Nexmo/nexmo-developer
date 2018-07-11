@@ -2,7 +2,7 @@
 <html>
   <%= render partial: 'layouts/partials/head' %>
 
-  <body>
+  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper">
       <div class="container">
@@ -16,6 +16,7 @@
           </nav>
           <div class="columns small-12 medium-9" id="primary-content">
             <%= yield %>
+            <%= render partial: 'layouts/partials/feedback' %>
           </div>
         </div>
       </div>

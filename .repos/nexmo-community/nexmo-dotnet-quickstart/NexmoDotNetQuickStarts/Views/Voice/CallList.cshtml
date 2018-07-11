@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    for (int i = 0; i < ViewBag.count; i++)
+    {
+        <div>
+            <h4>UUID: @ViewBag.results[i].uuid</h4>
+            <h4>Convo ID: @ViewBag.results[i].conversation_uuid</h4>
+            <h4>To: @ViewBag.results[i].to.number</h4>
+            <h4>Type: @ViewBag.results[i].to.type</h4>
+            <h4>From: @ViewBag.results[i].from.number</h4>
+            <h4>Type: @ViewBag.results[i].from.type</h4>
+            <h4>Status @ViewBag.results[i].status</h4>
+            <h4>Direction: @ViewBag.results[i].direction</h4>
+            <h4>Rate: $@ViewBag.results[i].rate</h4>
+            <h4>Price: $@ViewBag.results[i].price</h4>
+            <h4>Duration: @ViewBag.results[i].duration seconds</h4>
+            <h4>Start Time: @ViewBag.results[i].start_time</h4>
+            <h4>End Time: @ViewBag.results[i].end_time</h4>
+            <h4>Network: @ViewBag.results[i].network</h4>
+        </div>
+        <hr style="border:2px solid black" />
+        }
+}

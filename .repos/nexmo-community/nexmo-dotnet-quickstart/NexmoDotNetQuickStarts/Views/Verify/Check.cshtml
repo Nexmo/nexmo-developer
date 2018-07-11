@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (ViewBag.Message != null)
+{
+    <h2>@ViewBag.Message</h2>
+
+}
+else
+{
+    using (Html.BeginForm("Check", "Verify", FormMethod.Post))
+    {
+        <br />
+        <input type="text" name="code" id="code" placeholder="code" />
+        <input type="submit" value="Check" />
+    }
+}
+

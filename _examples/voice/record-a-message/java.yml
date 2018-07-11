@@ -1,0 +1,13 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+    - 'com.sparkjava:spark-core:2.7.2'
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/RecordMessage.java
+    from_line: 34
+    to_line: 69
+run_command: java-ide
+file_name: RecordMessage.java
+unindent: true

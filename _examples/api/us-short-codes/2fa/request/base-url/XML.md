@@ -1,5 +1,6 @@
 ---
 title: XML
+language: xml
 menu_weight: 2
 ---
 

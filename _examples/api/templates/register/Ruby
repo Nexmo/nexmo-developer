@@ -1,0 +1,43 @@
+require "net/http"
+require "uri"
+require "json"
+
+#Connection information
+base_url = 'https://api.nexmo.com'
+version = ''
+action = '/verify/templates'
+
+#Authentication information
+api_key = 'API_KEY'
+api_secret = 'API_SECRET'
+
+#Create the request URL
+url = base_url + version + action + "?api_key=" + api_key + "&api_secret=" + api_secret
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+#Change the to parameter to the number you want to call
+payload = {
+  "action_type" => "sms",
+  "lg" => "en-gb",
+  "contact_email" => "xyz@example.com",
+  "template" => "Your ${brand} verification code is ${pin}"
+}.to_json
+
+uri = URI( url )
+
+req = Net::HTTP::Post.new(uri.request_uri, headers)
+req.body = payload
+
+response = Net::HTTP.start(uri.host, uri.port,
+        :use_ssl => uri.scheme == 'https') {|http| http.request req}
+
+case response
+when Net::HTTPSuccess
+  puts "success" +  response.body
+else
+  puts "Error" + response.body
+end

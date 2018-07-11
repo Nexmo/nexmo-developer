@@ -1,28 +1,41 @@
 class MarkdownPipeline < Banzai::Pipeline
-  def initialize
+  def initialize(options = {})
     Rails.logger.info 'MarkdownPipeline#initialize'
 
     super(
       # As Markdown
       FrontmatterFilter,
+      PHPInlinerFilter,
       InlineEscapeFilter,
-      TabbedExamplesFilter,
-      TabbedContentFilter,
+      BlockEscapeFilter,
+      ScreenshotFilter,
+      AnchorFilter,
+      AudioFilter,
+      DynamicContentFilter,
+      TooltipFilter,
+      CollapsibleFilter,
+      TabFilter.new(options),
+      BuildingBlocksFilter,
+      BuildingBlockFilter,
       CodeFilter,
+      IndentFilter,
       ModalFilter,
       JsSequenceDiagramFilter,
-      PartialFilter,
-      IconFilter,
+      PartialFilter.new(options),
+      TechioFilter,
+      TutorialsFilter,
       LanguageFilter,
+      ColumnsFilter,
       MarkdownFilter,
 
       # As HTML
-      CredentialsFilter,
+      UserPersonalizationFilter.new(options),
       HeadingFilter,
       LabelFilter,
       BreakFilter,
       UnfreezeFilter,
-      ExternalLinkFilter,
+      IconFilter,
+      ExternalLinkFilter
     )
   end
 end

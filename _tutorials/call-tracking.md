@@ -1,12 +1,12 @@
 ---
 title: Call tracking
-products: voice
+products: voice/voice-api
 description: We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
 ---
 
 # Call tracking
 
-We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine tune future ones. You can use phone numbers in this way too.  For example, you track the most popular phone numbers used for television radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
+We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine-tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television, radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
 
 This tutorial is based on the [Call Tracking](https://www.nexmo.com/use-cases/call-tracking/) use case. You download the code from <https://github.com/Nexmo/node-call-tracker>.
 
@@ -61,12 +61,12 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/) to tunnell access to your Web server.
+If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/) to tunnel access to your Web server.
 
 
 ## Buy Voice Enabled Phone Numbers
 
-For call tracking to function you need one or more Nexmo numbers to track. Use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone numbers:
+For call tracking to work, you need one or more Nexmo numbers to track. Use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone numbers:
 
 ```bash
 nexmo number:buy --country_code US --confirm
@@ -196,7 +196,7 @@ CallTracker.prototype.answer = function (from, to) {
   return ncco;
 ```
 
-> **Note**: take a look at the (link:/voice/voice-api/ncco-reference text: NCCO reference) for information.
+> **Note**: take a look at the  [NCCO reference](/voice/guides/ncco-reference) for information.
 
 Your web server provides Nexmo with this NCCO and the Call is proxied to the `to` phone number.
 

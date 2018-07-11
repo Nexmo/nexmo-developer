@@ -1,0 +1,39 @@
+{
+  "count": 3,
+  "prices": [
+    {
+      "country": "CA",
+      "name": "Canada",
+      "prefix": "1",
+      "mt": "0.00570000",
+      "networks": [
+        {
+          "code": "302320",
+          "network": "Rogers Communications Canada Inc.",
+          "mtPrice": "0.00570000"
+        }
+      ],
+      "countryDisplayName": "Canada"
+    },
+    {
+      "country": "US",
+      "name": "United States",
+      "prefix": "1",
+      "mt": "0.00570000",
+      "networks": [
+        {
+          "code": "310004",
+          "network": "Verizon Wireless",
+          "mtPrice": "0.00570000"
+        }
+      ],
+      "countryDisplayName": "United States"
+    },
+    {
+      "country": "UM",
+      "name": "United States Minor Outlying Islands",
+      "prefix": "1",
+      "countryDisplayName": "United States Minor Outlying Islands"
+    }
+  ]
+}

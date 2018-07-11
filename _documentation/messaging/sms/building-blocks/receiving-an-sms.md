@@ -5,45 +5,29 @@ navigation_weight: 2
 
 # Receiving an SMS
 
-With Nexmo's SMS API you can receive SMS messages on your virtual numbers.
+Handling inbound SMS with Nexmo is easy. You just need to create a webhook endpoint and configure your number or account to point to the endpoint.
 
-To receive SMS messages, you need to buy a number and setup an webhook endpoint.
+## Prerequisites
 
-## Buy a number
-
-Log into the Nexmo dashboard and go to [Numbers > Buy numbers](https://dashboard.nexmo.com/buy-numbers). Here you can buy a number with SMS capabilities.
-
-> *Note:* You can also buy numbers with [Nexmo CLI](/tools/cli). Run `nexmo help` to see how.
-
-## Implementing a webhook endpoint
-
-To process incoming SMS messages, we will implement a webhook endpoint
-with a lightweight backend framework.
+- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
 
 ```tabbed_content
-source: '_examples/messaging/quickstarts/receiving-an-sms'
+source: '_examples/messaging/sms/receiving-an-sms'
 ```
 
-This will run locally. Your webhook endpoint needs to be accessible on the public internet in order for Nexmo's servers to send messages to you. You can do this easily using a service like [ngrok.com](https://ngrok.com/).
+You'll need to expose your server to the open internet. During development you can use a tool like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to do that.
 
-> Note: The Nexmo API expects a `200 OK` response. The code samples provided already do this.
+## Configure your SMS endpoint with Nexmo
 
-## Configure the webhook
+From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
-Go to [Numbers > Your Numbers](https://dashboard.nexmo.com/your-numbers) in the dashboard and press *edit* next to the number you wish to receive SMS on.
+Enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
 
-Enter the URL for your webhook endpoint, then press update. Nexmo's API will send a request to this address for every SMS that is received.
+```screenshot
+script: app/screenshots/webhook-url-for-inbound-message.js
+image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
+```
 
-![Manage your numbers webhook](/assets/images/numbers/webhooks/manage.png)
+## Send your Nexmo number an SMS
 
-## Send a message to your number
-
-From your mobile device, send a message to the number you virtual number. The server running your webhook should print a copy of your message to the terminal.
-
-Now that the server works, you can change the behaviour of the webhook endpoint to do something more interesting (respond to messages, store messages in a database) etc.
-
-## Payload
-
-When a message is received on your number you will receive a [GET] request on the specified webhook URL.
-
-Below you can find an example of what to expect in the payload.
+Now when you send your Nexmo number an SMS you should see it logged in your console.

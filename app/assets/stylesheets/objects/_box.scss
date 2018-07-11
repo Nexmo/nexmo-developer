@@ -1,0 +1,28 @@
+.box {
+  padding: $spacing;
+  padding-bottom: 0;
+  border: $border;
+  border-width: 2px;
+  border-radius: $radius;
+  background: $white;
+  box-shadow: $shadow-soft;
+  margin-bottom: $spacing;
+
+  h2 {
+    margin-bottom: $spacing;
+    padding-bottom: $spacing;
+    border-bottom: 2px $mint solid;
+  }
+
+  table tbody tr:nth-child(even) {
+    background: $ice;
+  }
+
+  .input {
+    box-shadow: none;
+  }
+
+  .button {
+    margin-bottom: $spacing;
+  }
+}

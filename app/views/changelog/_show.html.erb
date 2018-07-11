@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="columns small-2 right">
+    <p class="version">
+      <span class="label">v<%= version[:version] %></span><br>
+      <small><%= version[:date].strftime('%d %b %y') %></small>
+    </p>
+  </div>
+  <div class="columns small-10">
+    <%= version[:body].html_safe %>
+  </div>
+</div>

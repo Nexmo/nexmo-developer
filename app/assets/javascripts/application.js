@@ -12,11 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require turbolinks
-//= require_tree .
-
-$(document).on('nexmo:load', function(){
-  $(document).foundation();
-  new TabbedExamples
-});
+//= require smooth-scroll
+//= require jquery-scrolltofixed

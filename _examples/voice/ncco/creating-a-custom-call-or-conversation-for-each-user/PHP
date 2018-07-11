@@ -7,7 +7,8 @@ switch ($method) {
     //Retrieve with the parameters in this request
     $to = $request['to']; //The endpoint being called
     $from = $request['from']; //The endpoint you are calling from
-    $uuid = $request['conversation_uuid']; //The unique ID for this Call
+    $conversation_uuid = $request['conversation_uuid']; //The unique ID for this Conversation
+    $uuid = $request['uuid']; //The unique ID for this Call
 
     //For more advanced Conversations you use the paramaters to personalize the NCCO
     //Dynamically create the NCCO to run a conversation from your virtual number

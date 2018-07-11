@@ -8,7 +8,7 @@ description: All mobile phones can send and receive SMS messages, and nearly eve
 
 All mobile phones can send and receive SMS messages, and nearly everybody has a phone. This makes SMS a great choice to communicate with your users from your application.
 
-For market place scenarios such as food delivery or taxi and passenger communications, if your users see each other's real phone numbers and bypass your marketplace, your application cannot track the communication threads. To avoid security and privacy concerns it is best practice that users do not have access to each other real phone numbers.
+For marketplace scenarios such as food delivery or taxi and passenger communications, if users see each other's real phone numbers they can bypass your marketplace and your application cannot track the communication threads. To avoid security and privacy concerns it is best practice that users do not have access to each other real phone numbers.
 
 By implementing private communication over SMS you ensure your users cannot bypass the required or preferred communication workflows and audits.
 
@@ -18,7 +18,7 @@ This tutorial is based on the [Private SMS Communication](https://www.nexmo.com/
 
 In this tutorial you see how to build an SMS proxy for private communication system using Nexmo APIs and libraries:
 
-* [Provision virtual numbers](#provision-virtual-numbers) - rent and configure the virtual numbers you use to mask real numbers
+* [Provision virtual numbers](#provision-virtual-numbers) - rent and configure the virtual numbers used to mask real numbers
 * [Initiate private SMS communication](#initiate-private-sms-communication) - setup the conversation between two numbers
 * [Validate numbers](#validate-numbers) - validate the numbers for two users and determine their country using Number Insight
 * [Send a confirmation SMS](#send-a-confirmation-sms) - send an SMS to each user so they can interact securely using the provisioned virtual numbers
@@ -46,9 +46,9 @@ Now the basic server is in place you can focus on the SMS Proxy logic.
 
 ## Provision Virtual Numbers
 
-You use virtual numbers to hide real phone numbers from your application users.
+Virtual numbers are used to hide real phone numbers from your application users.
 
-The workflow to provision and configure a virtual number is:
+The workflow diagram below shows the process for provisioning and configuring a virtual number.
 
 ```js_sequence_diagram
 Participant App
@@ -183,7 +183,7 @@ First check the numbers, then save the conversation and finally send and SMS not
 
 ```js
 /**
- * Initiate anonymous SMS communicatin so there is a real/virtual mapping of numbers.
+ * Initiate anonymous SMS communication so there is a real/virtual mapping of numbers.
  */
 SmsProxy.prototype.createConversation = function(userANumber, userBNumber, cb) {
   this.checkNumbers(userANumber, userBNumber)
@@ -429,6 +429,6 @@ All the code for this tutorial and more is [available on GitHub](https://github.
 
 ## Resources
 
-* [Number Insight API](https://docs.nexmo.com/number-insight)
+* [Number Insight API](/number-insight)
 * [SMS Overview](/messaging/sms/overview)
 * [SMS API reference guide](/api/sms)

@@ -1,0 +1,25 @@
+<div class="center spacious content-block">
+  <h3>
+    <i class="icon icon-<%= @career.icon %>"></i>
+    <%= @career.title %>
+  </h3>
+  <p><%= @career.summary %></p>
+  <i><%= @career.location %></i>
+</div>
+
+<div class="row">
+  <div id="primary-content" class="columns small-12 medium-10 large-8 medium-centered">
+    <hr><br><br>
+    <% if @career.description %>
+      <%= @career.description.render_markdown %>
+    <% elsif @career.description_short %>
+      <%= @career.description_short.render_markdown %>
+    <% end %>
+  </div>
+</div>
+
+<center>
+  <br>
+  <%= link_to "Find out more", @career.url, class: 'button' %>
+  <br><br>
+</center>

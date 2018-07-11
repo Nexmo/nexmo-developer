@@ -13,6 +13,6 @@ menu_weight: 1
     "type": "phone",
     "number": "447700900001"
   },
-  "answer_url": ["http://example.com/answer"],
+  "answer_url": ["http://example.com/answer"]
 }
 ```

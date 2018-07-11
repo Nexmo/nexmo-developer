@@ -1,0 +1,20 @@
+#community-slack-image {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#community-events {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $spacing;
+
+  > div {
+    flex: 1;
+    min-width: 350px;
+    padding: $spacing/2;
+
+    @include mobile() {
+      min-width: 280px;
+    }
+  }
+}

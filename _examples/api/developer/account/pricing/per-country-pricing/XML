@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<outbound-country-pricing>
+  <countryDisplayName>United Kingdom</countryDisplayName>
+  <country>GB</country>
+  <name>United Kingdom</name>
+  <prefix>44</prefix>
+  <mt>0.03330000</mt>
+  <networks>
+    <network>
+      <code>12345</code>
+      <name>Acme Telco</name>
+      <mtPrice>0.03330000</mtPrice>
+    </network>
+  </networks>
+</outbound-country-pricing>

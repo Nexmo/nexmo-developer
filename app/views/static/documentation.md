@@ -1,0 +1,26 @@
+---
+title: Documentation
+---
+
+# Documentation
+
+Welcome to the Nexmo Developer Documentation. Get familiar with [concepts](#concepts) common to Nexmo APIs and [products](#products). Then start building connected applications with Nexmo.
+
+## Concepts
+
+There are a number of shared concepts between the various Nexmo APIs:
+
+- [Applications](/concepts/guides/applications) - Security and configuration information you need to connect to Nexmo endpoints
+- [Authentication](/concepts/guides/authentication) – API keys, OAuth, and JSON Web Tokens (JWTs)
+- [OAuth](/concepts/guides/oauth) – How to use OAuth 1.0a with Nexmo's API
+- [Signing requests](/concepts/guides/signing-messages) – How to cryptographically sign requests
+- [Webhooks](/concepts/guides/webhooks) – Nexmo's API can send data back to your web server via a webhook
+
+## Products
+
+Documentation within Nexmo Developer is organised by product. Within each product section you'll find the following types of documentation:
+
+- **Guides** - A walkthrough of the product highlighting core functionality and features
+- **Building** Blocks - Quick access code samples to help you construct your programmable communications apps
+- **Tutorials** - Step-by-step tutorials to help you build common communications use cases
+- **API Reference** - The resources, parameters and payload examples

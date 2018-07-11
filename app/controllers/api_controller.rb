@@ -3,18 +3,22 @@ class ApiController < ApplicationController
   before_action :set_navigation
 
   def index
+    @document_title = 'API Reference'
     render layout: 'application'
   end
 
   def show
+    @document_path = "_api/#{@document}.md"
+
     # Read document
-    document = File.read("#{Rails.root}/_api/#{@document}.md")
+    document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
     @side_navigation_title = @frontmatter.fetch('api')
+    @document_title = "#{@side_navigation_title} > #{@frontmatter.fetch('title')}"
 
-    @content = MarkdownPipeline.new.call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
 
     render layout: 'api'
   end
@@ -33,6 +37,10 @@ class ApiController < ApplicationController
   end
 
   def set_document
-    @document = params[:document]
+    if params[:code_language] == "ncco"
+      @document = "voice/ncco"
+    else
+      @document = params[:document]
+    end
   end
 end

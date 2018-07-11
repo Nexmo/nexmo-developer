@@ -1,0 +1,23 @@
+.theme--ea {
+  #header {
+    background: image-url("themes/ea/topography.png");
+
+    #logo:after {
+      content: "Developer Preview";
+      font-size: 0.5em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid rgba($white, 0.7);
+      border-radius: 4px;
+      padding: 2px 4px;
+      position: relative;
+      top: -3px;
+      opacity: 0.8;
+      margin: 0 5px;
+    }
+
+    a {
+      color: $white;
+    }
+  }
+}

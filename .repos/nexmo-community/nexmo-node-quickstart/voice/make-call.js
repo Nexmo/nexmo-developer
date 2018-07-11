@@ -1,32 +1,21 @@
-/* Voice Tutorial 1: Using Nexmo API to call your phone
-   Before running this code, you must create an Application using the Nexmo CLI.
-   Then run this node code with a phone number starts with an country code as the argument.
-   e.g. Run it with a US number, start with the country code 1:
-   $ node make-call.js 12025559999
+require('dotenv').config({path: __dirname + '/../.env'})
 
-   API Referene: https://docs.nexmo.com/voice/voice-api/api-reference
- */
+const TO_NUMBER = process.env.TO_NUMBER
+const NEXMO_NUMBER = process.env.NEXMO_NUMBER
 
-'use strict';
+const NEXMO_API_KEY = process.env.NEXMO_API_KEY
+const NEXMO_API_SECRET = process.env.NEXMO_API_SECRET
+const NEXMO_APPLICATION_ID = process.env.NEXMO_APPLICATION_ID
+const NEXMO_APPLICATION_PRIVATE_KEY_PATH = __dirname +"/../"+ process.env.NEXMO_APPLICATION_PRIVATE_KEY_PATH
 
-require('dotenv').config({path: __dirname + '/../.env'});
-
-const API_KEY = process.env.API_KEY;
-const API_SECRET = process.env.API_SECRET;
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const APPLICATION_ID = process.env.APPLICATION_ID;
-
-const TO_NUMBER = process.argv[2];
-const FROM_NUMBER = process.env.FROM_NUMBER;
-
-const Nexmo = require('nexmo');
+const Nexmo = require('nexmo')
 
 const nexmo = new Nexmo({
-  apiKey: API_KEY,
-  apiSecret: API_SECRET,
-  applicationId: APPLICATION_ID,
-  privateKey: PRIVATE_KEY
-});
+  apiKey: NEXMO_API_KEY,
+  apiSecret: NEXMO_API_SECRET,
+  applicationId: NEXMO_APPLICATION_ID,
+  privateKey: NEXMO_APPLICATION_PRIVATE_KEY_PATH
+})
 
 nexmo.calls.create({
   to: [{
@@ -35,10 +24,7 @@ nexmo.calls.create({
   }],
   from: {
     type: 'phone',
-    number: FROM_NUMBER
+    number: NEXMO_NUMBER
   },
-  answer_url: ['https://nexmo-community.github.io/ncco-examples/first_call_talk.json']
-}, (err, res) => {
-  if(err) { console.error(err); }
-  else { console.log(res); }
-});
+  answer_url: ['https://developer.nexmo.com/ncco/tts.json']
+})

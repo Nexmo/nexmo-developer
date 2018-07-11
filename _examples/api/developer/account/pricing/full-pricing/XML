@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<outbound-pricing>
+  <count>243</count>
+  <countries>
+    <country>
+      <countryDisplayName>Afghanistan</countryDisplayName>
+      <country-code>AF</country-code>
+      <country-name>Afghanistan</country-name>
+      <dialing-prefix>93</dialing-prefix>
+      <currency>EUR</currency>
+      <networks>
+        <network>
+          <network-code>41288</network-code>
+          <network-name>Afghan Telecom</network-name>
+          <type>mobile</type>
+          <price>0.10100000</price>
+          <currency>EUR</currency>
+          <aliases>
+            <code>41280</code>
+          </aliases>
+          <mcc>412</mcc>
+          <mnc>88</mnc>
+        </network>
+      </networks>
+    </country>
+    <country>
+      <countryDisplayName>Albania</countryDisplayName>
+      <country-code>AL</country-code>
+      <country-name>Albania</country-name>
+      <dialing-prefix>355</dialing-prefix>
+      <currency>EUR</currency>
+      <networks>
+        <network>
+          <network-code>27602</network-code>
+          <network-name>Vodaphone Albania</network-name>
+          <type>mobile</type>
+          <price>0.07732800</price>
+          <currency>EUR</currency>
+          <mcc>276</mcc>
+          <mnc>02</mnc>
+        </network>
+      </networks>
+    </country>
+  </countries>
+</outbound-pricing>

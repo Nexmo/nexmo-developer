@@ -1,0 +1,98 @@
+<div class="slate-layout">
+  <div class="slate-layout-navigation">
+    <div>
+      <nav class="sidenav sidenav--spacious" data-turbolinks-permanent="">
+        <%= render 'navigation', definition: @definition %>
+      </nav>
+    </div>
+  </div>
+
+  <div class="slate-layout-main">
+    <div id="overview">
+      <div class="slate-layout-documentation">
+        <div>
+          <h1>
+            <%= @definition.info['title'] %>
+            <% if @definition.info['x-label'] %>
+              <span class="label label--<%= @definition.info['x-label'].parameterize %>">
+                <%= @definition.info['x-label'] %>
+              </span>
+            <% end %>
+          </h1>
+
+          <% if @definition.info['description'] %>
+            <p><%= @definition.info['description'].render_markdown %></p>
+          <% end %>
+
+          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'button button--secondary' do %>
+            <i class="icon icon-swagger"></i>
+            Download OpenAPI 3 Definition
+          <% end %>
+
+        </div>
+      </div>
+      <div class="slate-layout-code">
+        <% if @definition_initialization_config && @definition_initialization_content %>
+          <ul class="tabs tabs--code" data-tabs>
+            <% if @definition_initialization_config['tabs'] %>
+              <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
+                <li
+                  class="tabs-title <%= index.zero? ? 'is-active' : '' %>"
+                  language-linkable="false"
+                  data-language="<%= tab %>"
+                  data-language-type="<%= CodeLanguageResolver.find(tab).type %>"
+                ><a href="#<%= tab %>"><%= CodeLanguageResolver.find(tab).label %></a></li>
+              <% end %>
+            <% end %>
+          </ul>
+
+          <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
+            <select class="js-format-selector">
+              <% @definition_initialization_config['formats'].each do |value, name| %>
+                <option value="<%= value %>"><%= name %></option>
+              <% end %>
+            </select>
+          <% end %>
+
+          <div class="slate-layout-code__inner">
+            <%= @definition_initialization_content.html_safe %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% @groups.each do |name, endpoints| %>
+      <% if name %>
+        <%= render partial: 'model', locals: { group: @definition.raw['x-groups'][name] } %>
+      <% end %>
+
+      <% endpoints.each do |endpoint| %>
+        <%= render 'endpoint', endpoint: endpoint %>
+      <% end %>
+    <% end %>
+
+    <% if @definition.raw['x-webhooks'] %>
+      <% @definition.raw['x-webhooks'].each do |name, definition| %>
+        <%= render 'callback', callback: OasParser::Callback.new(self, name, definition), webhook: true %>
+      <% end %>
+    <% end %>
+
+    <% if @definition_errors_content %>
+      <div class="slate-layout-main" id="errors">
+        <div>
+          <div class="slate-layout-documentation">
+            <div>
+              <%= @definition_errors_content.html_safe %>
+            </div>
+          </div>
+          <div class="slate-layout-code">
+            <div class="slate-layout-code__inner">
+              <h4>Example response</h4>
+              <%= ResponseParserDecorator.new(@definition.raw['components']['schemas']['Error']).html %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

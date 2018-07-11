@@ -20,7 +20,7 @@ menu_weight: 2
   },
   {
     "action": "input",
-    "submitOnHash": "true",
+    "submitOnHash": true,
     "eventUrl": ["https://example.com/ivr"]
   }
 ]

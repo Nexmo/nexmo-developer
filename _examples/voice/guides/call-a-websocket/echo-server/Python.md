@@ -1,5 +1,6 @@
 ---
 title: Python
+language: python
 ---
 
 ```python
@@ -35,7 +36,7 @@ class NCCOHandler(tornado.web.RequestHandler):
         with open("ncco.json", 'r') as f:
             ncco = f.read()
         self.write(ncco)
-        self.set_header("Content-Type", 'text/json')
+        self.set_header("Content-Type", 'application/json')
         self.finish()
 
 application = tornado.web.Application([(r'/socket', WSHandler),
