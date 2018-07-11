@@ -67,12 +67,12 @@ paths:
                 properties:
                   page_size:
                     type: integer
-                    description: An explanation about the purpose of this instance.
+                    description: The amount of records returned in this response.
                     default: 0
                     example: 20
                   page_index:
                     type: integer
-                    description: An explanation about the purpose of this instance.
+                    description: The `page_index` used in your request.
                     default: 0
                     example: 0
                   _links:
@@ -83,7 +83,6 @@ paths:
                         properties:
                           href:
                             type: string
-                            description: An explanation about the purpose of this instance.
                             default: ''
                             example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
                       first:
@@ -91,7 +90,6 @@ paths:
                         properties:
                           href:
                             type: string
-                            description: An explanation about the purpose of this instance.
                             default: ''
                             example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
                       last:
@@ -99,16 +97,19 @@ paths:
                         properties:
                           href:
                             type: string
-                            description: An explanation about the purpose of this instance.
                             default: ''
                             example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
                   count:
                     type: integer
-                    description: An explanation about the purpose of this instance.
+                    description: The total number of records returned by your request.
                     default: 0
                     example: 1
                   _embedded:
                     type: object
+                    description: >-
+                      A collection of media items.
+                      See [retrieve a media item](#retrieve-a-media-item) for a
+                      description of the returned fields
                     properties:
                       media:
                         type: array
