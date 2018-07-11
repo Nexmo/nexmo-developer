@@ -32,7 +32,7 @@ To setup custom templates:
 source: '_examples/api/templates/register'
 ```
 
-* [Create custom template](#create-custom-template): add a custom template used by Verify Request.
+* [Create custom template](#create-a-custom-template): add a custom template used by Verify Request.
 
 
 ### Create a custom template
@@ -47,9 +47,7 @@ This request contains:
 
 * [Base URL](#base-url)
 * [Payload](#payload)
-* [Authentication information](#authentication-information)
-* [Security](#security)
-* [Encoding](#encoding)
+
 
 Information about the Call is sent to you in the:
 

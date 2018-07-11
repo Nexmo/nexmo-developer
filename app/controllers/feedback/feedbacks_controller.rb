@@ -86,7 +86,7 @@ module Feedback
 
       if cookies[:feedback_author_id]
         author = ::Feedback::Author.find_by_id(cookies[:feedback_author_id])
-        return author if should_use_cookied_author?(author)
+        return author if author && should_use_cookied_author?(author)
       end
 
       ::Feedback::Author.find_by_email(params['feedback_feedback']['email']) ||

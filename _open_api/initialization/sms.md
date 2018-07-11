@@ -6,6 +6,9 @@ tabs:
   - php
   - python
   - ruby
+formats:
+  application/json: JSON
+  text/xml: XML
 ---
 
 ```tabbed_content

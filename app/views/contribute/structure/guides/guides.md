@@ -1,5 +1,6 @@
 ---
 title: Guides
+navigation_weight: 2
 ---
 
 # Guides

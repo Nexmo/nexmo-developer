@@ -80,6 +80,19 @@ $table-list-spacing: $spacing * 0.6;
   }
 }
 
+.table-list-columns {
+  &--model, &--callback {
+    .table-list-column {
+      // Where only two columns are present do not impose a max width.
+      @for $i from 3 through 10 {
+        &[flex='#{$i}'] {
+          max-width: none;
+        }
+      }
+    }
+  }
+}
+
 .table-list--dark {
   .table-list-header {
     background: $gray-light;

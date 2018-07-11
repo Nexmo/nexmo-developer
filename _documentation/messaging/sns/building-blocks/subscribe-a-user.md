@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Subscribe a user
 
-You can subscribe a user to a topic using Amazon SNS. Simply [sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
+You can subscribe a user to a topic using Amazon SNS. [Sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
 
 Key | Description
 -- | --

@@ -6,16 +6,34 @@ class ResponseParserDecorator < OasParser::ResponseParser
     })
   end
 
-  def html(format = 'application/json')
+  def formatted_xml(xml_options = {})
+    xml_options.merge!({ root: xml_options['name'] }) if xml_options
+    xml_string = xml(xml_options)
+    xml_string.gsub!(/^(\s+?)(<(?:\w|\=|\"|\_|\s)+?\>)(.+?)(<\/.+?>)/).each do |s|
+      indentation = $1
+      indentation_plus_one = "#{$1}  "
+      opening_tag = $2
+      content = $3
+      closing_tag = $4
+
+      next(s) if indentation.size + opening_tag.size + content.size < 60
+
+      "#{indentation}#{opening_tag}\n#{indentation_plus_one}#{content}\n#{indentation}#{closing_tag}"
+    end
+
+    xml_string
+  end
+
+  def html(format = 'application/json', xml_options: nil)
     formatter = Rouge::Formatters::HTML.new
 
     case format
     when 'application/json'
       lexer = Rouge::Lexer.find('json')
       highlighted_response = formatter.format(lexer.lex(formatted_json))
-    when 'text/xml'
+    when 'text/xml', 'application/xml'
       lexer = Rouge::Lexer.find('xml')
-      highlighted_response = formatter.format(lexer.lex(Crack::JSON.parse(parse.to_json).to_xml))
+      highlighted_response = formatter.format(lexer.lex(formatted_xml(xml_options)))
     end
 
     output = <<~HEREDOC

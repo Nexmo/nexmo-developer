@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030115603) do
+ActiveRecord::Schema.define(version: 20180404124814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,30 @@ ActiveRecord::Schema.define(version: 20171030115603) do
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.bigint "resource_id"
+    t.uuid "resource_id"
     t.string "author_type"
-    t.bigint "author_id"
+    t.uuid "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "careers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.boolean "published"
+    t.string "location"
+    t.text "description"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "summary"
+    t.string "icon"
+    t.string "slug"
+    t.text "description_short"
+    t.string "role_group"
+    t.index ["published"], name: "index_careers_on_published"
+    t.index ["role_group"], name: "index_careers_on_role_group"
+    t.index ["slug"], name: "index_careers_on_slug"
   end
 
   create_table "events", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -77,7 +93,21 @@ ActiveRecord::Schema.define(version: 20171030115603) do
     t.string "uri", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product"
+    t.index ["product"], name: "index_feedback_resources_on_product"
     t.index ["uri"], name: "index_feedback_resources_on_uri", unique: true
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -88,6 +118,8 @@ ActiveRecord::Schema.define(version: 20171030115603) do
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "published"
+    t.index ["published"], name: "index_sessions_on_published"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -106,6 +138,7 @@ ActiveRecord::Schema.define(version: 20171030115603) do
     t.datetime "updated_at", null: false
     t.string "api_key"
     t.string "api_secret"
+    t.string "nexmo_developer_api_secret", null: false
     t.index ["admin"], name: "index_users_on_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

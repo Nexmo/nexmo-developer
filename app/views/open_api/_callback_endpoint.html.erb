@@ -36,7 +36,8 @@
 
       <% endpoint.request_body.formats.each_with_index do |format, index| %>
         <div class="js-format" data-format="<%= format %>">
-          <%= ResponseParserDecorator.new(endpoint.request_body.schema(format)).html(format) %>
+          <% schema = endpoint.request_body.schema(format) %>
+          <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
         </div>
       <% end %>
     </div>

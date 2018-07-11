@@ -1,4 +1,5 @@
 require 'nexmo'
-client = Nexmo::Client.new(key: API_KEY, secret: API_SECRET)
 
-client.trigger_next_verification_event(REQUEST_ID)
+client = Nexmo::Client.new(api_key: API_KEY, api_secret: API_SECRET)
+
+client.verify.trigger_next_event(REQUEST_ID)

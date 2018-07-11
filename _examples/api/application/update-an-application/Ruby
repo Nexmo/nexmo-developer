@@ -1,36 +1,15 @@
-require "net/http"
-require 'net/https'
-require "uri"
-require "json"
+require 'nexmo'
 
-base_url = "https://api.nexmo.com"
-version = "/v1"
-action = "/applications "
+nexmo_client = Nexmo::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
 
-params = {
-  'api_key' =>  'API_KEY',
-    'api_secret' => 'API_SECRET',
-  'name' => 'MyFirstApplication',
-  'type' => 'voice',
-  'answer_url' => 'https://example.com/ncco',
-  'event_url' => 'https://example.com/status'
-}
-uri = URI.parse(base_url + version + action + "/APPLICATION_ID?" )
-post_request = Net::HTTP::Put.new(uri.request_uri)
-post_request.form_data = params
+id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 
-http = Net::HTTP.new(uri.host, Net::HTTP.https_default_port)
-http.use_ssl = true
+application = nexmo_client.applications.update(id, {
+  name: 'MyFirstApplication',
+  type: 'voice',
+  answer_url: 'https://example.com/ncco',
+  event_url: 'https://example.com/status',
+})
 
-response = http.request(post_request)
-
-case response
-when Net::HTTPCreated
-  application = JSON.parse(response.body )
-  print "Application " + application['name'] + " has an ID of: " + application['id'] + "\n"
-  application['voice']['webhooks'].each do |webhook|
-      print "  " + webhook['endpoint_type'] + " is " + webhook['endpoint'] + "\n"
-  end
-else
-  puts response.code + " error sending message"
-end
+application.id
+#=> "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"

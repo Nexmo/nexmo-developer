@@ -11,7 +11,7 @@ api: Number Insight
 
 ## Request
 
-Getting information about a number with Nexmo's Number Insight API is easy. Simply [sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
+Getting information about a number with Nexmo's Number Insight API is straightforward. [Sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
 
 | Key | Description |
 | -------- | ----------- |

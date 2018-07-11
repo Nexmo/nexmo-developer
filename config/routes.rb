@@ -7,9 +7,15 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
+  namespace :admin_api, defaults: {format: 'json'} do
+    resources :feedback, only: [:index]
+  end
+
   get '/robots.txt', to: 'static#robots'
 
   get 'markdown/show'
+
+  match '/markdown', to: 'markdown#preview', via: [:get, :post]
 
   get '/signout', to: 'sessions#destroy'
 
@@ -26,6 +32,7 @@ Rails.application.routes.draw do
 
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
+  resources :careers, only: [:show], path: 'team'
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
@@ -41,12 +48,17 @@ Rails.application.routes.draw do
 
   match '/search', to: 'search#results', via: [:get, :post]
 
+  get '/api-errors', to: 'api_errors#index'
+  get '/api-errors/generic/:id', to: 'api_errors#show'
+  get '/api-errors/*definition', to: 'api_errors#index_scoped', as: 'api_errors_scoped', constraints: OpenApiConstraint.products
+  get '/api-errors/*definition/:id', to: 'api_errors#show', constraints: OpenApiConstraint.products
+
   get '/api', to: 'api#index'
 
-  get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: { definition: /sms/ }
+  get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
-  get '/*product/(api|ncco)-reference', to: 'markdown#api'
+  get '/*product/api-reference', to: 'markdown#api'
 
   scope "(:namespace)", namespace: /contribute/, defaults: { namespace: '' } do
     get '/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation

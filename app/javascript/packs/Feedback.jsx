@@ -34,8 +34,6 @@ class Feedback extends React.Component {
       code_language: data.language,
       code_language_selected_whilst_on_page: true,
       code_language_set_by_url: false,
-    }, () => {
-      console.log(this.state);
     })
   }
 
@@ -139,8 +137,6 @@ class Feedback extends React.Component {
   }
 
   sendFeedback() {
-    console.log('sendFeedback')
-
     this.setState({
       uploadingFeedbackFull: true
     })
@@ -196,6 +192,9 @@ class Feedback extends React.Component {
         <label>How could we improve it? (optional)</label>
         <textarea className="input" onChange={ (event) => this.setState({ comment: event.target.value }) }></textarea>
         <input type="submit" className="button" value="Send Feedback" onClick={ () => { this.sendFeedback() } } disabled={ this.sendFeedbackButtonDisabled() }/>
+
+        <p><br />Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
+        
       </div>
     )
   }

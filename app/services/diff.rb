@@ -1,3 +1,5 @@
+require 'diffy'
+
 class Diff
   def self.generate(mode:)
     document_paths = {
@@ -31,7 +33,7 @@ class Diff
           body_html = MarkdownPipeline.new.call(document)
           document = Nokogiri::HTML::DocumentFragment.parse(body_html)
 
-          ['id', 'data-tabs-content', 'data-id', 'data-open'].each do |attribute|
+          ['id', 'data-tabs-content', 'data-id', 'data-open', 'data-collapsible-id'].each do |attribute|
             document.css("[#{attribute}]").each do |element|
               element[attribute] = nil
             end

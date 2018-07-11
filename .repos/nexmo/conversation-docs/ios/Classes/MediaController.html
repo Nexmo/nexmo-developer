@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MediaController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/MediaController" class="dashAnchor"></a>
+
+    <a title="MediaController Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Stitch Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/nexmo/stitch-ios-sdk">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Stitch Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      MediaController Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Client.html">Client</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient.html">ConversationClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/LoginResult.html">– LoginResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/StateObjc.html">– StateObjc</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SynchronizingState.html">SynchronizingState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Configuration.html">Configuration</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Configuration/LogLevel.html">– LogLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Facade.html">Facade</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation.html">Conversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media.html">Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call.html">Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call/Event.html">– Event</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Controller.html">Controller</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AccountController.html">AccountController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AccountController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationController.html">ConversationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController/Notification.html">– Notification</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Event.html">Event</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventBase.html">EventBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TextEvent.html">TextEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ImageEvent.html">ImageEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Event.html#/c:@M@Stitch@objc(cs)NXMMembershipEvent">MembershipEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberJoinedEvent.html">MemberJoinedEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberInvitedEvent.html">MemberInvitedEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Model.html">Model</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Event/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationModel.html">ConversationModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel.html">MemberModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/Channel.html">– Channel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/ChannelModel.html">– ChannelModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/NetworkError.html">NetworkError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Certificate.html">Certificate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Session.html">Session</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Collection.html">Collection</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection.html">ConversationCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection/Reason.html">– Reason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberCollection/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptCollection.html">ReceiptCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventCollection.html">EventCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventCollection/Change.html">– Change</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Guides.html">Other Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../changelog.html">CHANGELOG</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Signal.html">Signal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Global Variables.html">Other Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateInvitedSSvp">NXMMemberModelStateInvited</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch25NXMMemberModelStateJoinedSSvp">NXMMemberModelStateJoined</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch23NXMMemberModelStateLeftSSvp">NXMMemberModelStateLeft</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateUnknownSSvp">NXMMemberModelStateUnknown</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Enums.html">Other Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Change.html">Change</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Deletable.html">Deletable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ObservableConvertible.html">ObservableConvertible</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>MediaController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
+<span class="kd">@objc(NXMMediaController)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">MediaController</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Controller for Media event such as Audio and Video</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Typealias"></a>
+                <a name="//apple_ref/swift/Section/Typealias" class="dashAnchor"></a>
+                <a href="#/Typealias">
+                  <h3 class="section-name">Typealias</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch15MediaControllerC10Invitationa"></a>
+                    <a name="//apple_ref/swift/Alias/Invitation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch15MediaControllerC10Invitationa">Invitation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Conversation who been invited to start new media (Audio, Video)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Invitation</span> <span class="o">=</span> <span class="p">(</span><span class="nv">conversation</span><span class="p">:</span> <span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">,</span> <span class="nv">member</span><span class="p">:</span> <span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Classes/MediaController/Media.html">Media</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch15MediaControllerC10CallResulta"></a>
+                    <a name="//apple_ref/swift/Alias/CallResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch15MediaControllerC10CallResulta">CallResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result of creating a call object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CallResult</span> <span class="o">=</span> <span class="p">(</span><span class="nv">call</span><span class="p">:</span> <span class="kt"><a href="../Classes/Call.html">Call</a></span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="p">[</span><span class="kt">Error</span><span class="p">],</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Classes/Call.html">Call</a></span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enum"></a>
+                <a name="//apple_ref/swift/Section/Enum" class="dashAnchor"></a>
+                <a href="#/Enum">
+                  <h3 class="section-name">Enum</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch15MediaControllerC0B0O"></a>
+                    <a name="//apple_ref/swift/Enum/Media" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch15MediaControllerC0B0O">Media</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Media type</p>
+
+<ul>
+<li>none: non media</li>
+<li>audio: audio enabled</li>
+<li>video: video enabled</li>
+</ul>
+
+                        <a href="../Classes/MediaController/Media.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc(NXMediaControllerMediaType)</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Media</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties%20-%20Observable"></a>
+                <a name="//apple_ref/swift/Section/Properties - Observable" class="dashAnchor"></a>
+                <a href="#/Properties%20-%20Observable">
+                  <h3 class="section-name">Properties - Observable</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch15MediaControllerC11invitationsAA17MutableObservableCyAA12ConversationC12conversation_AA6MemberC6memberAC0B0O4typetAhI_AklnOtGvp"></a>
+                    <a name="//apple_ref/swift/Property/invitations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch15MediaControllerC11invitationsAA17MutableObservableCyAA12ConversationC12conversation_AA6MemberC6memberAC0B0O4typetAhI_AklnOtGvp">invitations</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Observe for incoming conversations with audio enabled</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">client</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">invitations</span><span class="o">.</span><span class="n">subscribe</span> <span class="p">{</span> <span class="n">invitation</span> <span class="k">in</span>
+   <span class="n">invitation</span><span class="o">.</span><span class="n">conversation</span>
+   <span class="n">invitation</span><span class="o">.</span><span class="n">member</span>
+
+   <span class="k">switch</span> <span class="n">invitation</span><span class="o">.</span><span class="n">type</span> <span class="p">{</span>
+   <span class="k">case</span> <span class="o">.</span><span class="nv">none</span><span class="p">:</span> <span class="k">break</span>
+   <span class="k">case</span> <span class="o">.</span><span class="nv">audio</span><span class="p">:</span> <span class="k">break</span>
+   <span class="k">case</span> <span class="o">.</span><span class="nv">video</span><span class="p">:</span> <span class="k">break</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+
+<p>See Objective-C compatibility support method</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">invitations</span><span class="p">:</span> <span class="kt"><a href="../Classes/MutableObservable.html">MutableObservable</a></span><span class="o">&lt;</span><span class="kt">MediaController</span><span class="o">.</span><span class="kt"><a href="../Classes/MediaController.html#/s:6Stitch15MediaControllerC10Invitationa">Invitation</a></span><span class="p">,</span> <span class="kt">MediaController</span><span class="o">.</span><span class="kt"><a href="../Classes/MediaController.html#/s:6Stitch15MediaControllerC10Invitationa">Invitation</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch15MediaControllerC12inboundCallsAA17MutableObservableCyAA4CallCAHGvp"></a>
+                    <a name="//apple_ref/swift/Property/inboundCalls" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch15MediaControllerC12inboundCallsAA17MutableObservableCyAA4CallCAHGvp">inboundCalls</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Register to receive inbound Calls from another users</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">client</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">inboundCalls</span><span class="o">.</span><span class="n">subscribe</span> <span class="p">{</span> <span class="n">call</span> <span class="k">in</span>
+    <span class="c1">// code here</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+
+<p>See Objective-C compatibility support method</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">inboundCalls</span><span class="p">:</span> <span class="kt"><a href="../Classes/MutableObservable.html">MutableObservable</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Call.html">Call</a></span><span class="p">,</span> <span class="kt"><a href="../Classes/Call.html">Call</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Make%20a%20Call"></a>
+                <a name="//apple_ref/swift/Section/Make a Call" class="dashAnchor"></a>
+                <a href="#/Make%20a%20Call">
+                  <h3 class="section-name">Make a Call</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMMediaController(im)call:onSuccess:onError:"></a>
+                    <a name="//apple_ref/swift/Method/call(_:onSuccess:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMMediaController(im)call:onSuccess:onError:">call(_:onSuccess:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Make an IP-IP call</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">usernames</span> <span class="o">=</span> <span class="p">[</span><span class="s">"user1"</span><span class="p">,</span> <span class="s">"user2"</span><span class="p">,</span> <span class="s">"user3"</span><span class="p">]</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">usernames</span><span class="p">,</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+   <span class="c1">// list of errors</span>
+   <span class="n">result</span><span class="o">.</span><span class="n">error</span>
+
+   <span class="c1">// call object</span>
+   <span class="n">result</span><span class="o">.</span><span class="n">call</span>
+<span class="p">},</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// code here</span>
+<span class="p">})</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="kt">NSArray</span> <span class="o">*</span><span class="n">usernames</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span><span class="s">@"user1"</span><span class="p">,</span> <span class="s">@"user2"</span><span class="p">,</span> <span class="s">@"user3"</span><span class="p">];</span>
+
+<span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">media</span> <span class="nv">call</span><span class="p">:</span><span class="n">usernames</span>
+  <span class="nv">onSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMCall</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">call</span><span class="p">,</span> <span class="kt">NSArray</span><span class="o">&lt;</span><span class="kt">NSError</span> <span class="o">*&gt;</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">}</span> <span class="nv">onError</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">}];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">call</span><span class="p">(</span><span class="n">_</span> <span class="nv">usernames</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/MediaController.html#/s:6Stitch15MediaControllerC10CallResulta">CallResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>usernames</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>List of usernames to call
+
+<ul>
+<li>onSuccess: Active Call object</li>
+<li>onError: Reason of error</li>
+</ul></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMMediaController(im)callPhone:onSuccess:onError:"></a>
+                    <a name="//apple_ref/swift/Method/callPhone(_:onSuccess:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMMediaController(im)callPhone:onSuccess:onError:">callPhone(_:onSuccess:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Make an IP-PHONE call</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">client</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="nf">callPhone</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+   <span class="c1">// list of errors</span>
+   <span class="n">result</span><span class="o">.</span><span class="n">error</span>
+
+   <span class="c1">// call state</span>
+   <span class="n">result</span><span class="o">.</span><span class="n">state</span>
+
+   <span class="c1">// call object</span>
+   <span class="n">result</span><span class="o">.</span><span class="n">call</span>
+<span class="p">},</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// code here</span>
+<span class="p">})</span>
+</code></pre>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">media</span> <span class="nv">callPhone</span><span class="p">:</span><span class="n">number</span>
+              <span class="nv">onSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMCall</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">call</span><span class="p">,</span>
+                          <span class="kt">NSArray</span><span class="o">&lt;</span><span class="kt">NSError</span> <span class="o">*&gt;</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">,</span>
+                          <span class="kd">enum</span> <span class="kt">NXMCallState</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// current check call state</span>
+   <span class="k">switch</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">case</span> <span class="kt">NXMCallStateStarted</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>
+       <span class="k">default</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>
+   <span class="p">};</span>
+<span class="p">}</span> <span class="nv">onError</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// handle error here</span>
+<span class="p">}];</span>
+</code></pre>
+
+<ul>
+<li>Return: Request class. @Returns nil if any prerequisite fails</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">callPhone</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">number</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/MediaController.html#/s:6Stitch15MediaControllerC10CallResulta">CallResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span>
+    <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>number</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Phone number to call</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Active Call object</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Reason of error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Observable%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Observable - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Observable%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Observable - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMMediaController(im)invitations:"></a>
+                    <a name="//apple_ref/swift/Method/invitations(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMMediaController(im)invitations:">invitations(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Observe for incoming conversations with audio enabled</p>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">media</span> <span class="nv">invitations</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMConversation</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">conversation</span><span class="p">,</span> <span class="kt">NXMMember</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">member</span><span class="p">,</span> <span class="kd">enum</span> <span class="kt">NXMediaControllerMediaType</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">}];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invitations</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/MediaController.html#/s:6Stitch15MediaControllerC10Invitationa">Invitation</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>invite information</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMMediaController(im)inboundCalls:"></a>
+                    <a name="//apple_ref/swift/Method/inboundCalls(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMMediaController(im)inboundCalls:">inboundCalls(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Register to receive inbound Calls from another users</p>
+
+<ul>
+<li>Example: Objective-C</li>
+</ul>
+<pre class="highlight swift"><code><span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">media</span> <span class="nv">inboundCalls</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NXMCall</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">call</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">}];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">inboundCalls</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Call.html">Call</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>call object</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-06-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

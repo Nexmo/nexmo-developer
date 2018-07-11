@@ -7,7 +7,7 @@
     window.feedbackProps = {
       code_language_set_by_url: <%= params[:code_language].present? %>,
       code_language: '<%= request.parameters['code_language'] %>',
-      source: '<%= @canonical_url %>',
+      source: '<%= canonical_url %>',
 
       recaptcha: {
         enabled: <%= ENV['RECAPTCHA_ENABLED'] || false %>,
@@ -28,8 +28,14 @@
         },
       <% end %>
 
+      <% if @feedback_author %>
+        feedback_author: {
+          email: '<%= @feedback_author.email %>',
+        },
+      <% end %>
+
       <% if @document_path %>
-        github_url: '<%= "https://github.com/Nexmo/nexmo-developer/blob/master/#{@document_path}" %>',
+        github_url: '<%= "https://github.com/Nexmo/nexmo-developer/blob/#{ ENV['branch'] || 'master' }/#{@document_path}" %>',
       <% end %>
     }
   </script>

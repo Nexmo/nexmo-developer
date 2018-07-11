@@ -94,6 +94,13 @@ $ratio-total: $golden-ratio + 1;
     margin-bottom: $spacing;
   }
 
+  h4 .label {
+    font-size: 13px;
+    padding: 1px 3px;
+    position: relative;
+    top: -2px;
+  }
+
   h2 {
     font-size: 32px;
     line-height: 32px;
@@ -129,11 +136,12 @@ $ratio-total: $golden-ratio + 1;
   color: $white;
   border-bottom: 2px solid lighten($atom, 7%);
 
-  h1, h2, h3, h4, h5, h6, p, a {
+  h1, h2, h3, h4, h5, h6, p {
     color: $white;
   }
 
   a {
+    color: mix($blue, $white);
     border: none;
   }
 

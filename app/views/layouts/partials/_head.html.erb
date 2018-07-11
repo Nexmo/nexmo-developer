@@ -8,9 +8,18 @@
     <meta name="description" content="<%= @frontmatter['description'] %>">
   <% end %>
 
-  <% if ENV['BUGSNAG_API_KEY'] %>
+  <%
+    # Note: We use a different API Key for fontend since Bugsnag gives different project options
+    #       depending on the technology that was chosen for the product.
+  %>
+
+  <% if ENV['BUGSNAG_JS_API_KEY'] %>
     <% if ['staging', 'production'].include? Rails.env %>
-      <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js" data-apikey="<%= ENV['BUGSNAG_API_KEY'] %>"></script>
+      <script src="//d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js"></script>
+      <script>
+        window.bugsnagClient = bugsnag('<%= ENV['BUGSNAG_JS_API_KEY'] %>')
+        bugsnagClient.app.releaseStage = '<%= Rails.env %>'
+      </script>
     <% end %>
   <% end %>
 
@@ -43,8 +52,8 @@
     })(window,document,'script','dataLayer','<%= ENV['GOOGLE_TAG_MANAGER_ID'] %>');</script>
   <% end %>
 
-  <% if @show_canonical_meta %>
-    <link rel="canonical" href="<%= @canonical_url %>">
+  <% if show_canonical_meta? %>
+    <link rel="canonical" href="<%= canonical_url %>">
   <% end %>
 
   <%= stylesheet_link_tag "application" %>
@@ -56,8 +65,16 @@
     <% end %>
   <% end %>
 
+  <% if ENV['ENVIRONMENT_SCRIPTS'] %>
+    <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
+  <% end %>
+
   <%= javascript_pack_tag 'application', defer: true %>
   <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
+
+  <% if ENV['ALLOW_ROBOTS'].nil? || ENV['ALLOW_ROBOTS'] != 'true' %>
+    <meta name="robots" content="noindex,nofollow">
+  <% end %>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

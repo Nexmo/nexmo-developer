@@ -1,4 +1,5 @@
 $ball-size: 44px;
+$card-animation-speed: 200ms;
 
 @mixin card--product($color, $color-light) {
   color: $color;
@@ -12,6 +13,15 @@ $ball-size: 44px;
       background: $color-light;
       border-color: $color;
     }
+  }
+}
+
+@mixin card--image($color, $name, $extension: 'png') {
+  background-image: url('/assets/images/cards/#{$name}.#{$extension}');
+  border-color: rgba($color, 0.5);
+
+  &:hover {
+    border-color: rgba($color, 1);
   }
 }
 
@@ -41,6 +51,10 @@ $ball-size: 44px;
   margin-bottom: $spacing;
   font-size: 16px;
 
+  .icon-external-link {
+    display: none;
+  }
+
   .spacious {
     padding: $spacing 0;
   }
@@ -49,6 +63,7 @@ $ball-size: 44px;
     display: inline-block;
     padding: $spacing/2 0;
     color: $text;
+    border-bottom: none;
 
     &:hover {
       color: $blue;
@@ -90,6 +105,10 @@ $ball-size: 44px;
   h3 {
     color: $blue;
     margin-bottom: 5px;
+
+    .label {
+      font-size: 12px;
+    }
   }
 
   img {
@@ -111,6 +130,10 @@ $ball-size: 44px;
 
     br {
       line-height: 30px;
+    }
+
+    &.tight {
+      padding-top: 0;
     }
   }
 
@@ -146,5 +169,36 @@ $ball-size: 44px;
     text-align: center;
     left: $spacing;
     top: -$ball-size/2;
+  }
+}
+
+.card {
+  &--android { @include card--image(#A4C639, 'android'); }
+  &--android-outline { @include card--image(#A4C639, 'android-outline'); }
+  &--ios { @include card--image(#FF6537, 'ios'); }
+  &--ios-outline { @include card--image(#FF6537, 'ios-outline'); }
+  &--javascript { @include card--image(#F7DF1E, 'javascript'); }
+  &--javascript-outline { @include card--image(#F7DF1E, 'javascript-outline'); }
+
+  &--image {
+    background-position: right center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: border-color $card-animation-speed ease-in-out;
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba($white, 0.4);
+      transition: background $card-animation-speed ease-in-out;
+    }
+
+    &:hover {
+      &:before {
+        background: rgba($white, 0);
+      }
+    }
   }
 }

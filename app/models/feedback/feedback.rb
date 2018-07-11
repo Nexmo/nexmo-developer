@@ -1,5 +1,8 @@
 module Feedback
   class Feedback < ApplicationRecord
+    scope :created_after, -> (date) { where('feedback_feedbacks.created_at >= ?', date )}
+    scope :created_before, -> (date) { where('feedback_feedbacks.created_at <= ?', date )}
+    scope :created_between, -> (start_date, end_date) { where('feedback_feedbacks.created_at >= ? AND feedback_feedbacks.created_at <= ?', start_date, end_date )}
 
     belongs_to :resource, class_name: '::Feedback::Resource'
     belongs_to :owner, polymorphic: true
@@ -9,8 +12,6 @@ module Feedback
 
     validates :sentiment, presence: true
     validates :owner, presence: true
-
-    default_scope -> { order(created_at: :desc) }
 
     scope :positive, -> { where(sentiment: 'positive') }
     scope :negative, -> { where(sentiment: 'negative') }

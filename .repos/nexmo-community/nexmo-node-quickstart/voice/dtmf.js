@@ -19,7 +19,7 @@ const onInboundCall = (request, response) => {
 }
 
 const onInput = (request, response) => {
-  const dtmf = request.query.dtmf || request.body.dtmf
+  const dtmf = request.body.dtmf
 
   const ncco = [{
     action: 'talk',
@@ -31,8 +31,6 @@ const onInput = (request, response) => {
 
 app
   .get('/webhooks/answer', onInboundCall)
-  .post('/webhooks/answer', onInboundCall)
-  .get('/webhooks/dtmf', onInput)
   .post('/webhooks/dtmf', onInput)
 
 app.listen(3000)

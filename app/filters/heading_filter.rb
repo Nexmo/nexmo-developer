@@ -3,7 +3,12 @@ class HeadingFilter < Banzai::Filter
     @input = input
     @headings = []
 
-    document.css('h1,h2,h3,h4,h5,h6').each do |heading|
+    heading_tag_list = %w(h1 h2 h3 h4 h5 h6)
+    headings = document.children.select do |child|
+      heading_tag_list.include? child.name
+    end
+
+    headings.each do |heading|
       parameterized_heading = parameterized_heading_without_collision(heading)
       heading['id'] = parameterized_heading
       heading['data-id'] = SecureRandom.hex

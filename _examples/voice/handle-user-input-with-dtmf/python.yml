@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - '''flask>=1.0'''
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/handle-user-input.py
+    from_line: 8
+    to_line: 38
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/handle-user-input.py
+    from_line: 2
+    to_line: 5
+file_name: handle-user-input.py
+run_command: 'python3 handle-user-input.py'

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :feedback_feedback, class: 'Feedback::Feedback' do
     sentiment 'positive'
     comment 'Some feedback text'

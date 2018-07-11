@@ -39,7 +39,7 @@ The Number Insight Basic API is free to use. You can test it from the CLI using 
 $ nexmo insight:basic 447700900000
 ```
 
-The response will simply list the number along with the country the number is located in:
+The response will list the number along with the country the number is located in:
 
 ```bash
 447700900000 | GB

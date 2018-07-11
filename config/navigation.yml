@@ -4,18 +4,46 @@ navigation_weight:
   Voice: 2
   Verify: 3
   Number Insight: 4
+  Messages and Workflows: 5
   Account: 99
   Concepts: 0
 
   Overview: 1
-  Overviews: 1
-  Quickstarts: 2
-  Guides: 3
-  Building Blocks: 4
-  Tutorials: 5
+  Developer Preview: 2
+  Quickstarts: 3
+  Guides: 4
+  Building Blocks: 5
+
+  Tutorials: 6
+  API Reference: 7
+  Conversation: 8
 
   Voice API: 1
   SIP: 2
 
+  Client SDKs: 30
   NCCO Reference: 40
+  SDK Documentation: 40
   API Reference: 50
+
+  Getting Started: 2
+  In-App Messaging: 3
+  In-App Voice: 4
+  In-App Video: 5
+
+  Messages API: 1
+  Workflows API: 2
+
+navigation_overrides:
+  redact:
+    label: 'Developer Preview'
+  stitch:
+    label: 'Developer Preview'
+    sdk-documentation:
+      link: false
+      prevent_navigation_item_class: true
+  messages-and-workflows-apis:
+    messages:
+      label: 'Developer Preview'
+    workflows:
+      label: 'Developer Preview'

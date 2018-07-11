@@ -30,7 +30,7 @@ To work through this tutorial you need:
 
 ## Create a basic Web app
 
-Create a simple Web app for user authentication:
+Create a minimal web app for user authentication:
 
 ```
 $ rails new ruby-2fa
@@ -258,13 +258,13 @@ class VerificationsController < ApplicationController
 private
 
 def send_verification_request
-  response = client.start_verification(
+  response = client.verify.request(
     number: current_user.number,
     brand: 'MyApp'
   )
 
-  if response['status'] == '0'
-    session[:verification_id] = response['request_id']
+  if response.status == '0'
+    session[:verification_id] = response.request_id
   end
 end
 ```
@@ -319,12 +319,12 @@ The Verify API response tells you if the the user entered the correct PIN. If *s
 
 ```ruby
 def create
-  response = client.check_verification(
-    session[:verification_id],
+  response = client.verify.check(
+    request_id: session[:verification_id],
     code: params[:code]
   )
 
-  if response['status'] == '0'
+  if response.status == '0'
     session[:verified] = true
     redirect_to :root
   else

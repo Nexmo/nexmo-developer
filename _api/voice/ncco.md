@@ -35,8 +35,7 @@ Use the `record` action to record a Call or part of a Call:
 [
   {
     "action": "record",
-    "eventUrl": ["https://example.com/recordings"],
-    "endOnSilence": 3
+    "eventUrl": ["https://example.com/recordings"]
   },
   {
     "action": "connect",
@@ -52,7 +51,7 @@ Use the `record` action to record a Call or part of a Call:
 ]
 ```
 
-The record action is asynchronous. Recording starts when the record action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, `endOnSilence`, *timeOut* or *endOnKey*. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
+The record action is asynchronous. Recording starts when the record action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, `endOnSilence`, `timeOut` or `endOnKey`. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
 
 For information about the workflow to follow, see [Recordings](/voice/guides/record-calls-and-conversations).
 
@@ -61,6 +60,7 @@ You can use the following options to control a `record` action:
 Option | Description | Required
  -- | -- | --
 `format` | Record the Call in a specific format.  Options are: <ul><li>mp3</li><li>wav</li></ul> The default value is *mp3*. | No
+`split` | Record the sent and received audio in separate channels of a stereo recording—set to `conversation` to enable this.| No
 `endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to *event_url*. The range of possible values is *3<=endOnSilence<=10*. | No
 `endOnKey` | Stop recording when a digit is pressed on the handset. Possible values are: `*`, `#` or any single digit e.g. `9` | No
 `timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to *event_url*. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
@@ -292,7 +292,7 @@ You can use the following options to control a *talk* action:
 
 | Option | Description | Required |
 | -- | -- | -- |
-| `text` | A string of up to 1,500 characters (excluding SSML tags) containing the message to be synthesized in the Call or Conversation. Each comma in `text` adds a short pause to the synthesized speech. To use [SSML](/voice/voice-api/guides/ssml) tags, you must enclose the text in a `speak` element. | Yes |
+| `text` | A string of up to 1,500 characters (excluding SSML tags) containing the message to be synthesized in the Call or Conversation. A single comma in `text` adds a short pause to the synthesized speech. To add a longer pause a `break` tag needs to be used in SSML. To use [SSML](/voice/voice-api/guides/ssml) tags, you must enclose the text in a `speak` element. | Yes |
 | `bargeIn` | Set to `true` so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set `bargeIn` to `true` the next action in the NCCO stack <b>must</b> be an `input` action. The default value is `false`. | No |
 | `loop` | The number of times `text` is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely. | No |
 | `level` | The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.  | No |
@@ -300,60 +300,102 @@ You can use the following options to control a *talk* action:
 
 ### Voice names
 
-Name | Language | Gender
--- | -- | --
-`Salli` | `en-US` | `female`
-`Joey` | `en-US` | `male`
-`Naja` | `da-DK` | `female`
-`Mads` | `da-DK` | `male`
-`Marlene` | `de-DE` | `female`
-`Hans` | `de-DE` | `male`
-`Nicole` | `en-AU` | `female`
-`Russell` | `en-AU` | `male`
-`Amy` | `en-GB` | `female`
-`Brian` | `en-GB` | `male`
-`Emma` | `en-GB` | `female`
-`Gwyneth` | `en-GB` | `WLS female`
-`Geraint` | `en-GB` | `WLS male`
-`Gwyneth` | `cy-GB` | `WLS female`
-`Geraint` | `cy-GB` | `WLS male`
-`Raveena` | `en-IN` | `female`
-`Chipmunk` | `en-US` | `male`
-`Eric` | `en-US` | `male`
-`Ivy` | `en-US` | `female`
-`Jennifer` | `en-US` | `female`
-`Justin` | `en-US` | `male`
-`Kendra` | `en-US` | `female`
-`Kimberly` | `en-US` | `female`
-`Conchita` | `es-ES` | `female`
-`Enrique` | `es-ES` | `male`
-`Penelope` | `es-US` | `female`
-`Miguel` | `es-US` | `male`
-`Chantal` | `fr-CA` | `female`
-`Celine` | `fr-FR` | `female`
-`Mathieu` | `fr-FR` | `male`
-`Dora` | `is-IS` | `female`
-`Karl` | `is-IS` | `male`
-`Carla` | `it-IT` | `female`
-`Giorgio` | `it-IT` | `male`
-`Liv` | `nb-NO` | `female`
-`Lotte` | `nl-NL` | `female`
-`Ruben` | `nl-NL` | `male`
-`Agnieszka` | `pl-PL` | `female`
-`Jacek` | `pl-PL` | `male`
-`Ewa` | `pl-PL` | `female`
-`Jan` | `pl-PL` | `male`
-`Maja` | `pl-PL` | `female`
-`Vitoria` | `pt-BR` | `female`
-`Ricardo` | `pt-BR` | `male`
-`Cristiano` | `pt-PT` | `male`
-`Ines` | `pt-PT` | `female`
-`Carmen` | `ro-RO` | `female`
-`Maxim` | `ru-RU` | `male`
-`Tatyana` | `ru-RU` | `female`
-`Astrid` | `sv-SE` | `female`
-`Filiz` | `tr-TR` | `female`
+Name | Language | Gender | SSML support
+-- | -- | -- | -- 
+`Salli` | `en-US` | `female` | ✅
+`Joey` | `en-US` | `male` | ✅
+`Naja` | `da-DK` | `female` | ✅
+`Mads` | `da-DK` | `male` | ✅
+`Marlene` | `de-DE` | `female` | ✅
+`Hans` | `de-DE` | `male` | ✅
+`Nicole` | `en-AU` | `female` | ✅
+`Russell` | `en-AU` | `male` | ✅
+`Amy` | `en-GB` | `female` | ✅
+`Brian` | `en-GB` | `male` | ✅
+`Emma` | `en-GB` | `female` | ✅
+`Gwyneth` | `en-GB` | `WLS female` | ✅
+`Geraint` | `en-GB` | `WLS male` | ✅
+`Gwyneth` | `cy-GB` | `WLS female` | ✅
+`Geraint` | `cy-GB` | `WLS male` | ✅
+`Raveena` | `en-IN` | `female` | ✅
+`Ivy` | `en-US` | `female` | ✅
+`Justin` | `en-US` | `male` | ✅
+`Kendra` | `en-US` | `female` | ✅
+`Kimberly` | `en-US` | `female` | ✅
+`Joanna` | `en-US` | `female` | ✅
+`Conchita` | `es-ES` | `female` | ✅
+`Enrique` | `es-ES` | `male` | ✅
+`Penelope` | `es-US` | `female` | ✅
+`Miguel` | `es-US` | `male` | ✅
+`Chantal` | `fr-CA` | `female` | ✅
+`Celine` | `fr-FR` | `female` | ✅
+`Mathieu` | `fr-FR` | `male` | ✅
+`Dora` | `is-IS` | `female` | ✅
+`Karl` | `is-IS` | `male` | ✅
+`Carla` | `it-IT` | `female` | ✅
+`Giorgio` | `it-IT` | `male` | ✅
+`Liv` | `nb-NO` | `female` | ✅
+`Lotte` | `nl-NL` | `female` | ✅
+`Ruben` | `nl-NL` | `male` | ✅
+`Jacek` | `pl-PL` | `male` | ✅
+`Ewa` | `pl-PL` | `female` | ✅
+`Jan` | `pl-PL` | `male` | ✅
+`Maja` | `pl-PL` | `female` | ✅
+`Vitoria` | `pt-BR` | `female` | ✅
+`Ricardo` | `pt-BR` | `male` | ✅
+`Cristiano` | `pt-PT` | `male` | ✅
+`Ines` | `pt-PT` | `female` | ✅
+`Carmen` | `ro-RO` | `female` | ✅
+`Maxim` | `ru-RU` | `male` | ✅
+`Tatyana` | `ru-RU` | `female` | ✅
+`Astrid` | `sv-SE` | `female` | ✅
+`Filiz` | `tr-TR` | `female` | ✅
+`Mizuki` | `ja-JP` | `female` | ✅
+`Laila` | `ara-XWW` | `female` | ❎
+`Maged` | `ara-XWW` | `male` | ❎
+`Tarik` | `ara-XWW` | `male` | ❎
+`Damayanti` | `ind-IDN` | `female` | ❎
+`Miren` | `baq-ESP` | `female` | ❎
+`Sin-Ji` | `yue-CHN` | `female` | ❎
+`Jordi` | `cat-ESP` | `male` | ❎
+`Montserrat` | `cat-ESP` | `female` | ❎
+`Iveta` | `ces-CZE` | `female` | ❎
+`Zuzana` | `ces-CZE` | `female` | ❎
+`Tessa` | `eng-ZAF` | `female` | ❎
+`Satu` | `fin-FIN` | `female` | ❎
+`Melina` | `ell-GRC` | `female` | ❎
+`Nikos` | `ell-GRC` | `male` | ❎
+`Carmit` | `heb-ISR` | `female` | ❎
+`Lekha` | `hin-IND` | `female` | ❎
+`Mariska` | `hun-HUN` | `female` | ❎
+`Sora` | `kor-KOR` | `female` | ❎
+`Tian-Tian` | `cmn-CHN` | `female` | ❎
+`Mei-Jia` | `cmn-TWN` | `female` | ❎
+`Nora` | `nor-NOR` | `female` | ❎
+`Henrik` | `nor-NOR` | `male` | ❎
+`Luciana` | `por-BRA` | `female` | ❎
+`Felipe` | `por-BRA` | `male` | ❎
+`Catarina` | `por-PRT` | `female` | ❎
+`Joana` | `por-PRT` | `female` | ❎
+`Ioana` | `ron-ROU` | `female` | ❎
+`Laura` | `slk-SVK` | `female` | ❎
+`Alva` | `swe-SWE` | `female` | ❎
+`Oskar` | `swe-SWE` | `male` | ❎
+`Kanya` | `tha-THA` | `female` | ❎
+`Cem` | `tur-TUR` | `male` | ❎
+`Yelda` | `tur-TUR` | `female` | ❎
+`Empar` | `spa-ESP` | `female` | ❎
 
+#### Discontinued voices
+
+Some voices have been removed. The table below shows the discontinued voice names and which voice you will now get if you use the discontinued voice name.
+
+Name | Locale & Gender | Now redirects to
+-----|-----------------|-----------------
+`Chipmunk` | `en-US`, male | `Justin`
+`Eric` | `en-US`, male | `Justin`
+`Jennifer` | `en-US`, female | `Kimberly`
+`Agnieszka` | `pl-PL`, female | `Ewa`
 
 <a name="stream"></a>
 ## Stream
@@ -397,7 +439,7 @@ WAV:
 
 ## `input`
 
-You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#Input-Return-Parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
+You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input-return-parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
 
 The following NCCO example shows how to configure an IVR endpoint:
 
@@ -434,7 +476,7 @@ The following options can be used to control an `input` action:
 
 Option | Description | Required
 -- | -- | --
-`timeOut` | The result of the callee's activity is sent to the `eventUrl` webhook endpoint `timeOut` seconds after the last action. The default value is *3*. | No
+`timeOut` | The result of the callee's activity is sent to the `eventUrl` webhook endpoint `timeOut` seconds after the last action. The default value is *3*. Max is 10.| No
 `maxDigits` | The number of digits the user can press. The maximum value is `20`, the default is `4` digits. | No
 `submitOnHash` | Set to `true` so the callee's activity is sent to your webhook endpoint at `eventUrl` after he or she presses *#*. If *#* is not pressed the result is submitted after `timeOut` seconds. The default value is `false`. That is, the result is sent to your webhook endpoint after `timeOut` seconds. | No
 `eventUrl` | Nexmo sends the digits pressed by the callee to this URL after `timeOut` pause in activity or when *#* is pressed.  | No

@@ -1,4 +1,5 @@
 require 'colorize'
+require 'ruby-progressbar'
 
 namespace :repos do
   desc 'Pull repos to local'

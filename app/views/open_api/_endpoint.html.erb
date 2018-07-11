@@ -2,7 +2,9 @@
   <div class="slate-layout-documentation">
     <div>
       <%= content_tag :h3, endpoint.summary, id: endpoint.operationId %>
-      <%= content_tag :p, endpoint.description %>
+      <% if endpoint.description %>
+        <%= content_tag :p, endpoint.description.render_markdown %>
+      <% end %>
 
       <div class="api-path">
         <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
@@ -12,7 +14,7 @@
         </code>
       </div>
 
-      <% if endpoint.jwt? %>
+      <% if endpoint.jwt? || endpoint.basic_auth? %>
         <h4>Authentication</h4>
         <ul class="table-list table-list--dark">
           <li class="table-list-header">
@@ -33,11 +35,22 @@
                   <span class="flag flag--strong">REQUIRED</span> | <i>string</i>
                 </small>
               </div>
-              <div class="table-list-column" flex="3">
-                <b>Your JSON web token</b><br>
-                <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
-              </div>
-              <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
+
+              <% if endpoint.jwt? %>
+                <div class="table-list-column" flex="3">
+                  <b>Your JSON web token.</b><br>
+                  <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
+                </div>
+                <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
+              <% end %>
+
+              <% if endpoint.basic_auth? %>
+                <div class="table-list-column" flex="3">
+                  <b>Base64 encoded API key and secret joined by a colon.</b><br>
+                  <small><%= link_to "Read more", "/concepts/guides/authentication#header-based-api-key-secret-authentication" %></small>
+                </div>
+                <div class="table-list-column" flex="2"><code>Basic &lt;base64&gt;</code></div>
+              <% end %>
 
               <div class="table-list-column">
                 <i>None</i>
@@ -62,7 +75,7 @@
         <h4 class="js-collapsible collapsible <%= response.success? ? 'collapsible--active' : '' %>" data-collapsible-id="<%= id %>">
           <span class="label label--status--<%= response.code[0] %>xx"><%= response.code %></span> HTTP response
         </h4>
-        
+
         <div id="<%= id %>" style="display: <%= response.success? ? 'block' : 'none' %>;">
           <div class="tabs-content" data-tabs-content="<%= id %>">
             <% response.formats.each_with_index do |format, index| %>
@@ -85,12 +98,13 @@
                     <div class="tabs-content" data-tabs-content="<%= id %>">
                       <% response.split_schemas(format).each_with_index do |schema, index| %>
                         <div class="tabs-panel <%= index.zero? ? 'is-active' : '' %>" id="<%= schema_tab_ids[index] %>">
-                          <%= ResponseParserDecorator.new(schema).html(format) %>
+                          <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
                         </div>
                       <% end %>
                     </div>
                   <% else %>
-                    <%= ResponseParserDecorator.new(response.schema(format)).html(format) %>
+                    <% schema = response.schema(format) %>
+                    <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
                   <% end %>
                 </div>
 

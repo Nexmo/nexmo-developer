@@ -31,6 +31,8 @@ If your message is longer than a single SMS, carriers should send a DLR for each
 
 In practice, some carriers either do not send the delivery receipt or send a fake. Depending on the country you are sending to, Nexmo cannot be 100% certain that a *successfully delivered* delivery receipt means that the message reached your user.
 
+When sending messages using the [Nexmo SMS API](https://developer.nexmo.com/api/sms#delivery-receipt) or Nexmo client library, you can specify the `client-ref` parameter. This allows you to assign a customer-specific reference code to each SMS sent. This reference code will then be included in the delivery receipt so you can identify specific clients.
+
 ## Country specific
 
 Before you start your messaging campaign:

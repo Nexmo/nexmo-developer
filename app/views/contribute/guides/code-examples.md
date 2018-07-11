@@ -4,7 +4,7 @@ title: Code Examples
 
 # Contributing Code Examples
 
-Nexmo Developer hosts many code examples, we endeavour to make the as consistent as possible. You should follow this guide when contributing code examples to the building blocks repositories or directly to Nexmo Developer.
+Nexmo Developer hosts many code examples, and endeavours to make them as consistent as possible. You should follow this guide when contributing code examples to the building blocks repositories or directly to Nexmo Developer.
 
 ## Use the library
 
@@ -106,8 +106,8 @@ The following URL paths should be used in examples that use Webhooks.
 
 Path | Description
 -- | --
-`/webhook/answer` | The application `answer` event URL
-`/webhook/event` | The application `event` event URL
+`/webhooks/answer` | The application `answer` event URL
+`/webhooks/event` | The application `event` event URL
 
 Example code should always accept query string parameters for `GET` and `POST` requests.
 

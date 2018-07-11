@@ -39,13 +39,13 @@ export default () => {
     $('.navigation').siblings('div').remove()
     $('.navigation').removeAttr('style')
 
-    $('.navigation').scrollToFixed({
-      marginTop: 20,
-      minWidth: 575,
-      limit: () => {
-        return $('#footer').offset().top - $('.navigation').outerHeight(true) - 20
-      }
-    });
+    // $('.navigation').scrollToFixed({
+    //   marginTop: 20,
+    //   minWidth: 575,
+    //   limit: () => {
+    //     return $('#footer').offset().top - $('.navigation').outerHeight(true) - 20
+    //   }
+    // });
 
     $('.slate-layout-code > .tabs').scrollToFixed()
     const formatMargin = $('.slate-layout-code > .tabs').children().length > 0 ? 60 : 20

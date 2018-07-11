@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Number Insight Standard
 
-You can use Nexmo's Number Insight Basic API to retrieve a user's landline or mobile number, including checking to see that it is registered to an operator. This can help you verify that a phone number is real and give you information on how to format the number.
+You can use Nexmo's Number Insight Standard API to retrieve a user's landline or mobile number, including checking to see that it is registered to an operator. This can help you verify that a phone number is real and give you information on how to format the number.
 
 Number Insight Standard API is a synchronous, easy-to-use RESTful web service. For any phone number you can:
 

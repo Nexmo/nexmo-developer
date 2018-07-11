@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   rescue_from Errno::ENOENT, with: :no_document
   rescue_from Errno::ENOENT, with: :no_document
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
@@ -9,7 +10,6 @@ class ApplicationController < ActionController::Base
   before_action :set_show_feedback
   before_action :set_notices
   before_action :set_code_language
-  before_action :set_canonical_url
   before_action :set_feedback_author
 
   def not_found
@@ -42,23 +42,19 @@ class ApplicationController < ActionController::Base
   end
 
   def set_code_language
-    @code_language = request.params[:code_language]
+    return unless request.params[:code_language]
+    @code_language = CodeLanguageResolver.find(request.params[:code_language])
   end
 
   def ssl_configured?
+    return false if ENV['DISABLE_SSL']
     return false if Rails.env.development?
     return false if Rails.env.test?
-    return true
+    true
   end
 
   def set_notices
     @notices ||= YAML.load_file("#{Rails.root}/config/notices.yml")
-  end
-
-  def set_canonical_url
-    @show_canonical_meta = params[:code_language].present?
-    @canonical_url = request.path.chomp("/#{params[:code_language]}")
-    @canonical_url.prepend(request.base_url)
   end
 
   def set_feedback_author

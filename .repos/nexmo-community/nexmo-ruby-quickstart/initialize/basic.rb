@@ -1,6 +1,6 @@
 require 'nexmo'
 
 client = Nexmo::Client.new(
-  key: NEXMO_API_KEY,
-  secret: NEXMO_API_SECRET
+  api_key: NEXMO_API_KEY,
+  api_secret: NEXMO_API_SECRET
 )

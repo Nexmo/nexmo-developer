@@ -33,7 +33,7 @@ This request contains:
 
 * [Base URL](#base-url)
 * [Parameters](#parameters)
-* [Authentication information](authentication-information)
+* [Authentication information](#authentication-information)
 * [Security](#security)
 * [Encoding](#encoding)
 

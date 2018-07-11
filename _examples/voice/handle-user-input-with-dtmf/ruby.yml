@@ -1,0 +1,10 @@
+---
+title: Ruby
+language: ruby
+dependencies: null
+code:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/dtmf.rb
+    from_line: 5
+    to_line: 35
+file_name: dtmf.rb
+run_command: 'ruby dtmf.rb'

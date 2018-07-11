@@ -38,8 +38,8 @@ public class InboundCall {
         /*
          * Route to answer incoming calls with an NCCO response.
          */
-        Route answerRoute = (req, res) -> {
-            String from = extractCaller(req);
+        get("/webhook/answer", (req, res) -> {
+            String from = req.queryParams("from");
             String explodedFrom = String.join(" ", from.split(""));
 
             TalkNcco message = new TalkNcco(String.format("Thank you for calling from %s", explodedFrom));
@@ -47,28 +47,8 @@ public class InboundCall {
 
             res.type("application/json");
             return nccoMapper.writer().writeValueAsString(nccos);
-        };
+        });
 
         port(3000);
-
-        get("/webhooks/answer", answerRoute);
-        post("/webhooks/answer", answerRoute);
-    }
-
-    /**
-     * Extract the provided 'from' value either from the request params, or JSON body.
-     */
-    private static String extractCaller(Request req) throws IOException {
-        String from = req.queryParams("from");
-        if ("GET".equals(req.requestMethod())) {
-            return from;
-        } else {
-            if (from != null) {
-                return from;
-            } else {
-                InboundCallPayload payload = InboundCallPayload.fromJson(req.bodyAsBytes());
-                return payload.getFrom();
-            }
-        }
     }
 }

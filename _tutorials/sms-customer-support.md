@@ -52,7 +52,7 @@ cd customer-support
 rake db:create db:migrate
 ```
 
-The page will be at the root of our application and simply provide a link to your SMS app with some prefilled text.
+The page will be at the root of our application and will provide a link to your SMS app with some prefilled text.
 
 **Adding a first page**
 
@@ -163,7 +163,7 @@ def send_response
   return if ticket.messages.count > 1
 
   client = Nexmo::Client.new
-  result = client.send_message(
+  result = client.sms.send(
     from: ENV['NEXMO_NUMBER'],
     to: ticket.number,
     text: "Dear customer, your support" \

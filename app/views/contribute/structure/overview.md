@@ -10,7 +10,7 @@ This document provides a guide for how documentation is structured in Nexmo Deve
 
 Nexmo Developer content should be designed to be clear, concise and consistent in that order.
 
-Exceptions can be made to break consistency where it makes sense, particularly in scenarios where the content would be unnecessary verbose or the structures outlined in this guide are unsuited to material.
+Exceptions can be made to break consistency where it makes sense, particularly in scenarios where the content would be unnecessarily verbose or the structures outlined in this guide are unsuited to the material.
 
 ![Building Blocks](/assets/images/contributing/structure.png)
 
@@ -20,8 +20,7 @@ Nexmo Developer is structured by context and by product. The four main sections 
 
 #### Documentation
 
-This section hosts the bulk of the written content for the NDP. The content is structured by products each of which have the following four sections.
-
+This section hosts the bulk of the written content for the NDP. The content is structured by products each of which have the following four sections:
 
   * **[Overviews](/contribute/structure/guides/overviews)** - The first pages you reach when you select a product.
   * **[Guides](/contribute/structure/guides/guides)** - Provide an in depth look into an actionable task.
@@ -41,7 +40,7 @@ API Reference pages document the following properties of the API:
   - Parameters
   - Response
 
-#### SDKs & Tools
+#### SDKs and Tools
 
 A section that outlines our SDKs, Tools, Libraries etc. The repo README's should speak for themselves so the content for this page is deliberately very bare.
 

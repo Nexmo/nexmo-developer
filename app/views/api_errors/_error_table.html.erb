@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <th>Error ID</th>
+    <th>Information</th>
+    <th class="small-2">Actions</th>
+  </thead>
+  <tbody>
+    <% errors.each do |error| %>
+      <tr id="<%= error.id %>">
+        <td><code><%= error.id %></code></td>
+        <td>
+          <b>Details:</b>
+          <p><%= error.description %></p>
+
+          <b>Resolution:</b>
+          <p><%= error.resolution %></p>
+        </td>
+        <td>
+        <% if error.link %>
+          <%= link_to error.link.text, error.link.url, class: 'button' %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

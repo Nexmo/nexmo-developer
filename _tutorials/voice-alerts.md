@@ -75,7 +75,7 @@ nexmo link:app 14155550100 5555f9df-05bb-4a99-9427-6e43c83849b8
 
 ## Creating a Nexmo Call Control Object (NCCO)
 
-Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/api/voice/ncco) to deliver a text-to-speech message. Create `answer.php` with the following contents:
+Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/voice/voice-api/ncco-reference) to deliver a text-to-speech message. Create `answer.php` with the following contents:
 
 ```php
 <?php
@@ -99,7 +99,7 @@ $uuid = $request['conversation_uuid'];
 $ncco = [
     [
         "action" => "talk",
-        "voiceName" => "Emma",
+        "voiceName" => "Jennifer",
         "text" => "Hello, here is your message. I hope you have a nice day."
     ]
 ];
@@ -211,9 +211,9 @@ To use a pre-recorded message instead of (or as well as!) using Nexmo's text-to-
 If you want to keep track of which numbers went to voicemail instead of being answered, you need to add the `machine_detection` parameter to your call payload in your broadcast script. There are two options you can set for this, `continue` or `hangup`. If you want to log that the call went to voicemail, choose `continue`, and an HTTP request will be sent to your event script (the URL specified in `event_url`).
 
 ```php
-"answer_url" => ["https://example.com/answer.php"],
-"event_url" =>  ["https://example.com/event.php"],
-"machine_detection" => "continue"
+'answer_url' => ['https://example.com/answer.php'],
+'event_url' =>  ['https://example.com/event.php'],
+'machine_detection' => 'continue'
 ```
 
 Then, in your event script, you will now receive the status of "machine" when handling the call status for a call that goes to voicemail.
@@ -301,17 +301,17 @@ At this point we can make and receive phone calls, use text-to-speect, stream an
 
 The first thing to do is to update our log messages to contain the phone number that we're interacting with. The recipient's number is available as `$request['to']` in the `completed` event type, so let's update the `case 'complete':` block to also log the phone number by changing it to the following code:
 
-```
-    case 'complete':
-        // If you set eventUrl in your NCCO. The recording download URL
-        // is returned in recording_url. It has the following format
-        // https://api.nexmo.com/media/download?id=52343cf0-342c-45b3-a23b-ca6ccfe234b0
-        //
-        // Make a GET request to this URL using JWT authentication to download
-        // the recording. For more information, see
-        // https://developer.nexmo.com/voice/voice-api/guides/record-calls-and-conversations
-        record_steps("To: {$request['to'] - UUID: {$request['conversation_uuid']} - complete.");
-        break;
+```php
+case 'complete':
+    // If you set eventUrl in your NCCO. The recording download URL
+    // is returned in recording_url. It has the following format
+    // https://api.nexmo.com/media/download?id=52343cf0-342c-45b3-a23b-ca6ccfe234b0
+    //
+    // Make a GET request to this URL using JWT authentication to download
+    // the recording. For more information, see
+    // https://developer.nexmo.com/voice/voice-api/guides/record-calls-and-conversations
+    record_steps("To: {$request['to'] - UUID: {$request['conversation_uuid']} - complete.");
+    break;
 ```
 
 By storing the recipient's phone number along with the request `conversation_uuid`, we can link a set of call events to a specific phone number once the call has completed.
@@ -341,6 +341,7 @@ foreach ($contacts as $name => $number) {
         ],
         'answer_url' => ['https://example.com/answer.php'],
         'event_url' => ['https://example.com/event.php'],
+        'machine_detection' => 'continue'
     ]);
 
     // Sleep for half a second
@@ -359,4 +360,4 @@ You now have a simple, but working, voice-alert system where you can broadcast o
 - [JWT](/concepts/guides/authentication#json-web-tokens-jwt)
 - [Making an Outbound Call](/voice/voice-api/guides/outbound-calls)
 - [Creating Your Voice Application](/concepts/guides/applications#apps_quickstart)
-- [NCCO Reference](/api/voice/ncco)
+- [NCCO Reference](/voice/voice-api/ncco-reference)

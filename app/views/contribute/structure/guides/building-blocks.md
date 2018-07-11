@@ -1,5 +1,6 @@
 ---
 title: Building Blocks
+navigation_weight: 3
 ---
 
 # Building Blocks

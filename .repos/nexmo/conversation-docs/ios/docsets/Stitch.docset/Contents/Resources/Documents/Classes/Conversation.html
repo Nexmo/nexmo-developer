@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Conversation Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/Conversation" class="dashAnchor"></a>
+
+    <a title="Conversation Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Stitch Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/nexmo/stitch-ios-sdk">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Stitch Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      Conversation Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Client.html">Client</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient.html">ConversationClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/LoginResult.html">– LoginResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationClient/StateObjc.html">– StateObjc</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/SynchronizingState.html">SynchronizingState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Configuration.html">Configuration</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Configuration/LogLevel.html">– LogLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Facade.html">Facade</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation.html">Conversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Conversation/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptRecord/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media.html">Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call.html">Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Call/Event.html">– Event</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Controller.html">Controller</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AccountController.html">AccountController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AccountController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationController.html">ConversationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PushNotificationController/Notification.html">– Notification</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Event.html">Event</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventBase.html">EventBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TextEvent.html">TextEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ImageEvent.html">ImageEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Event.html#/c:@M@Stitch@objc(cs)NXMMembershipEvent">MembershipEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberJoinedEvent.html">MemberJoinedEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberInvitedEvent.html">MemberInvitedEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Model.html">Model</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Event/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationModel.html">ConversationModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel.html">MemberModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/Channel.html">– Channel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MemberModel/ChannelModel.html">– ChannelModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/NetworkError.html">NetworkError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Certificate.html">Certificate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Session.html">Session</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Collection.html">Collection</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection.html">ConversationCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ConversationCollection/Reason.html">– Reason</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MemberCollection/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ReceiptCollection.html">ReceiptCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventCollection.html">EventCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EventCollection/Change.html">– Change</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Guides.html">Other Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../changelog.html">CHANGELOG</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Signal.html">Signal</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Global Variables.html">Other Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateInvitedSSvp">NXMMemberModelStateInvited</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch25NXMMemberModelStateJoinedSSvp">NXMMemberModelStateJoined</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch23NXMMemberModelStateLeftSSvp">NXMMemberModelStateLeft</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Global Variables.html#/s:6Stitch26NXMMemberModelStateUnknownSSvp">NXMMemberModelStateUnknown</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Enums.html">Other Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Change.html">Change</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Deletable.html">Deletable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ObservableConvertible.html">ObservableConvertible</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>Conversation</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">@objcMembers</span>
+<span class="kd">@objc(NXMConversation)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">Conversation</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Conversation Facade Object</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enum"></a>
+                <a name="//apple_ref/swift/Section/Enum" class="dashAnchor"></a>
+                <a href="#/Enum">
+                  <h3 class="section-name">Enum</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch12ConversationC5MediaO"></a>
+                    <a name="//apple_ref/swift/Enum/Media" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch12ConversationC5MediaO">Media</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invitation media type</p>
+
+<ul>
+<li>audio: audio invite, Default: @muted, @earmuffed set to false</li>
+</ul>
+
+                        <a href="../Classes/Conversation/Media.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Media</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch12ConversationC6ErrorsO"></a>
+                    <a name="//apple_ref/swift/Enum/Errors" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch12ConversationC6ErrorsO">Errors</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error</p>
+
+<ul>
+<li>eventBodyIsEmpty: event could not be found in storage or database</li>
+<li>cannotProcessRequest: cannot process request</li>
+<li>memberNotFound: member not found in cache/db</li>
+<li>usernameNotFound: username not found</li>
+</ul>
+
+                        <a href="../Classes/Conversation/Errors.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Errors</span> <span class="p">:</span> <span class="kt">LocalizedError</span><span class="p">,</span> <span class="kt">CustomNSError</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)uuid"></a>
+                    <a name="//apple_ref/swift/Property/uuid" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)uuid">uuid</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UUID identifying this conversation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)name"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)name">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Conversation name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch12ConversationC5stateAA11MemberModelV5StateOvp"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch12ConversationC5stateAA11MemberModelV5StateOvp">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The state of the user in this conversation.  Can be any of the states in Member.State</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/MemberModel.html">MemberModel</a></span><span class="o">.</span><span class="kt">State</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)media"></a>
+                    <a name="//apple_ref/swift/Property/media" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)media">media</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Media</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">media</span><span class="p">:</span> <span class="kt">Stitch</span><span class="o">.</span><span class="kt"><a href="../Classes/Conversation/Media.html">Media</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)lastSequence"></a>
+                    <a name="//apple_ref/swift/Property/lastSequence" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)lastSequence">lastSequence</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Last event number</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lastSequence</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)creationDate"></a>
+                    <a name="//apple_ref/swift/Property/creationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)creationDate">creationDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Date conversation was created</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">creationDate</span><span class="p">:</span> <span class="kt">Date</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties%20-%20Collection"></a>
+                <a name="//apple_ref/swift/Section/Properties - Collection" class="dashAnchor"></a>
+                <a href="#/Properties%20-%20Collection">
+                  <h3 class="section-name">Properties - Collection</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)users"></a>
+                    <a name="//apple_ref/swift/Property/users" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)users">users</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of all of the users in the conversation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)members"></a>
+                    <a name="//apple_ref/swift/Property/members" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)members">members</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A collection of all of the members in the conversation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">members</span><span class="p">:</span> <span class="kt"><a href="../Classes/MemberCollection.html">MemberCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)events"></a>
+                    <a name="//apple_ref/swift/Property/events" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)events">events</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All events in this conversation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">events</span><span class="p">:</span> <span class="kt"><a href="../Classes/EventCollection.html">EventCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Event"></a>
+                <a name="//apple_ref/swift/Section/Event" class="dashAnchor"></a>
+                <a href="#/Event">
+                  <h3 class="section-name">Event</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(im)sendText:error:"></a>
+                    <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(im)sendText:error:">send(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send text event</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    error if task cannot be added to queue or event is empty
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc(sendText:error:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>text</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>text</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(im)sendImage:error:"></a>
+                    <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(im)sendImage:error:">send(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send image event</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    error if task cannot be added to queue or event is empty
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc(sendImage:error:)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>raw image, use UIImagePNGRepresentation or UIImageJPEGRepresentation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(im)send:error:"></a>
+                    <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(im)send:error:">send(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send event</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>error if task cannot be added to queue or event is empty</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>event</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(im)delete:"></a>
+                    <a name="//apple_ref/swift/Method/delete(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(im)delete:">delete(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>event to delete</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>if event is scheduled to be deleted</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Membership"></a>
+                <a name="//apple_ref/swift/Section/Membership" class="dashAnchor"></a>
+                <a href="#/Membership">
+                  <h3 class="section-name">Membership</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch12ConversationC6inviteAA10ObservableCyytSgGSS_SSSg6userIdAC5MediaOSg4withtF"></a>
+                    <a name="//apple_ref/swift/Method/invite(_:userId:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch12ConversationC6inviteAA10ObservableCyytSgGSS_SSSg6userIdAC5MediaOSg4withtF">invite(_:userId:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invite user to this conversation</p>
+
+<ul>
+<li>Example: Swift (invite a username)</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">conversation</span><span class="o">.</span><span class="nf">invite</span><span class="p">(</span><span class="n">username</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">})</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// handle join error here</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li>Example: Swift (invite a username with media enabled)</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">conversation</span><span class="o">.</span><span class="nf">invite</span><span class="p">(</span>
+   <span class="n">username</span><span class="p">,</span>
+   <span class="nv">userId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span>
+   <span class="nv">with</span><span class="p">:</span> <span class="kt">Conversation</span><span class="o">.</span><span class="kt">Media</span><span class="o">.</span><span class="nf">audio</span><span class="p">(</span><span class="nv">muted</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">earmuffed</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">})</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// handle join error here</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li><p>Example: Objective-c
+See Objective-c method</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="n">_</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="n">with</span> <span class="nv">media</span><span class="p">:</span> <span class="kt"><a href="../Classes/Conversation/Media.html">Media</a></span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Stitch</span><span class="o">.</span><span class="kt"><a href="../Classes/Observable.html">Observable</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>userId optional</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>media</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>media type i.e audio</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Completion of inviting a member to the conversation</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch12ConversationC4joinAA10ObservableCyytGSSSg8username_AH8memberIdtF"></a>
+                    <a name="//apple_ref/swift/Method/join(username:memberId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch12ConversationC4joinAA10ObservableCyytGSSSg8username_AH8memberIdtF">join(username:memberId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Join conversatation, @default not passing any values in parameter this method will join the current loggedin in user.
+Passing a username/memberId will directly join another user.
+@Warning If you are joining another user, alway&rsquo;s provide username</p>
+
+<ul>
+<li>Example: Swift (Join your user)</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">conversation</span><span class="o">.</span><span class="nf">join</span><span class="p">()</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">})</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// handle join error here</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li>Example: Swift (Join another user)</li>
+</ul>
+<pre class="highlight swift"><code><span class="c1">// username of user who joining</span>
+<span class="k">let</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"example1"</span>
+
+<span class="c1">// known member Id</span>
+<span class="k">let</span> <span class="nv">memberId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="n">conversation</span><span class="o">.</span><span class="nf">join</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="nv">memberId</span><span class="p">:</span> <span class="n">memberId</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">})</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// handle join error here</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li><p>Example: Objective-C
+See Objective-C method</p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="nv">memberId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Stitch</span><span class="o">.</span><span class="kt"><a href="../Classes/Observable.html">Observable</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>required username of user. @default is current user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>memberId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional memberId of member</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an operation which joins the user to the conversation</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Stitch12ConversationC5leaveAA10ObservableCyytGyF"></a>
+                    <a name="//apple_ref/swift/Method/leave()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Stitch12ConversationC5leaveAA10ObservableCyytGyF">leave()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Leave this conversation</p>
+
+<ul>
+<li>Example: Swift</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">conversation</span><span class="o">.</span><span class="nf">leave</span><span class="p">()</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+   <span class="c1">// code here</span>
+<span class="p">})</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+   <span class="c1">// handle join error here</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>returns: an operation which removes the user from the conversation and can be used to cancel the request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Stitch</span><span class="o">.</span><span class="kt"><a href="../Classes/Observable.html">Observable</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Indicator"></a>
+                <a name="//apple_ref/swift/Section/Indicator" class="dashAnchor"></a>
+                <a href="#/Indicator">
+                  <h3 class="section-name">Indicator</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(im)startTyping"></a>
+                    <a name="//apple_ref/swift/Method/startTyping()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(im)startTyping">startTyping()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicate user is trying</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">startTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>result of request was sent</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(im)stopTyping"></a>
+                    <a name="//apple_ref/swift/Method/stopTyping()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(im)stopTyping">stopTyping()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicate user has stopped trying</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>result of request was sent</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Sync"></a>
+                <a name="//apple_ref/swift/Section/Sync" class="dashAnchor"></a>
+                <a href="#/Sync">
+                  <h3 class="section-name">Sync</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Stitch@objc(cs)NXMConversation(py)requireSync"></a>
+                    <a name="//apple_ref/swift/Property/requireSync" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Stitch@objc(cs)NXMConversation(py)requireSync">requireSync</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mark as current conversation requires a sync</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">requireSync</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/State%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/State - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/State%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">State - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMConversation(py)stateObjc"></a>
+                    <a name="//apple_ref/swift/Property/stateObjc" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMConversation(py)stateObjc">stateObjc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The state of the user in this conversation.  Can be any of the states in Member.State</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">stateObjc</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Membership%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Membership - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Membership%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Membership - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMConversation(im)inviteWithUsername:userId:withAudio:onSuccess:onError:"></a>
+                    <a name="//apple_ref/swift/Method/invite(username:userId:withAudio:onSuccess:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMConversation(im)inviteWithUsername:userId:withAudio:onSuccess:onError:">invite(username:userId:withAudio:onSuccess:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invite current conversation</p>
+
+<ul>
+<li><p>Example: Swift
+See Swift method</p></li>
+<li><p>Example: Objective-C</p>
+<pre class="highlight plaintext"><code>NSString *username = @"example1";
+NSString *userId;
+BOOL audio = NO;
+[conversation inviteWithUsername:username userId:userId withAudio:audio onSuccess:^{
+// code here
+} onError:^(NSError * _Nonnull error) {
+// handle code here
+}];
+</code></pre></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">withAudio</span> <span class="nv">audio</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(())</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of inviting the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon failing to inviting conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMConversation(im)join:onError:"></a>
+                    <a name="//apple_ref/swift/Method/join(_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMConversation(im)join:onError:">join(_:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Join current conversation</p>
+
+<ul>
+<li><p>Example: Swift
+See Swift method</p></li>
+<li><p>Example: Objective-C</p>
+<pre class="highlight swift"><code><span class="p">[</span><span class="n">conversation</span> <span class="nv">join</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+<span class="c1">// code here</span>
+<span class="p">}</span> <span class="nv">onError</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// handle error here</span>
+<span class="p">}];</span>
+</code></pre></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of joining the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon failing to join conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMConversation(im)joinWithUsername:memberId:onSuccess:onError:"></a>
+                    <a name="//apple_ref/swift/Method/join(username:memberId:onSuccess:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMConversation(im)joinWithUsername:memberId:onSuccess:onError:">join(username:memberId:onSuccess:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Join current conversation</p>
+
+<ul>
+<li><p>Example: Swift
+See Swift method</p></li>
+<li><p>Example: Objective-C</p>
+<pre class="highlight plaintext"><code>NSString *username = @"example1";
+NSString *memberId;
+[conversation joinWithUsername:username memberId:memberId onSuccess:^{
+// code here
+} onError:^(NSError * _Nonnull error) {
+// handle error here
+}];
+</code></pre></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="nv">memberId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>required username of user. @default is current user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>memberId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional memberId of member</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of joining the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon failing to join conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Stitch@objc(cs)NXMConversation(im)leave:onError:"></a>
+                    <a name="//apple_ref/swift/Method/leave(_:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Stitch@objc(cs)NXMConversation(im)leave:onError:">leave(_:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Leave current conversation</p>
+
+<ul>
+<li><p>Example: Swift
+See Swift method</p></li>
+<li><p>Example: Objective-C</p>
+<pre class="highlight swift"><code><span class="p">[</span><span class="n">conversation</span> <span class="nv">leave</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+<span class="c1">// code here</span>
+<span class="p">}</span> <span class="nv">onError</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// handle error here</span>
+<span class="p">}];</span>
+</code></pre></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">(</span><span class="n">_</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of member leaving the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon failing to leave conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-06-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

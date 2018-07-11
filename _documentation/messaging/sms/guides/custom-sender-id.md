@@ -27,7 +27,7 @@ Depending on the jurisdiction one or more of the following can happen:
 
 Before you start your messaging campaign:
 
-1. Check the Sender ID columns in the [Country Specific Features](#country-specific-features).
+1. Check the Sender ID columns in the [Country Specific Features](country-specific-features).
 2. Batch send your messages to each country and set `from` to match the Sender ID capabilities.
 
 ## SMS Spoofing

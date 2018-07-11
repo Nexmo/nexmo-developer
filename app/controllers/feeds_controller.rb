@@ -1,3 +1,5 @@
+require 'icalendar'
+
 class FeedsController < ApplicationController
   def events
     calendar = Icalendar::Calendar.new

@@ -80,6 +80,10 @@ h2 {
     font-size: 20px;
     line-height: 20px;
   }
+
+  small {
+    font-size: 0.8em;
+  }
 }
 
 h3 {
@@ -181,6 +185,10 @@ a {
   text-align: right;
 }
 
+.indent {
+  margin-left: $spacing * 1.5;
+}
+
 pre.highlight {
   background: $code-background;
   padding: $spacing;
@@ -250,6 +258,10 @@ blockquote {
   h1, h2, h3, h4, h5, h6 {
     color: darken($text, 5%);
     position: relative;
+
+    + div {
+      margin-top: $spacing;
+    }
   }
 
   h2, h3, h4, h5, h6 {
@@ -465,8 +477,13 @@ b {
   text-transform: uppercase;
   font-size: 0.82em;
   font-weight: 600;
+  color: $blue;
 
   &--strong {
     color: $red;
   }
+}
+
+.subtle {
+  color: $text-subtle;
 }

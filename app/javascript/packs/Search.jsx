@@ -17,7 +17,15 @@ class Search extends React.Component {
       analyticsTriggered: false
     }
 
+    $(document).on('click', '.wrapper', this.onClickOutside.bind(this))
+
     this.triggerAnalyticalSearch = this.triggerAnalyticalSearch.bind(this)
+  }
+
+  onClickOutside(event) {
+    if (this.shouldShowResults()) {
+      this.reset()
+    }
   }
 
   handleChange(event) {

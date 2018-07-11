@@ -128,8 +128,8 @@ You need Set your [API key and secret](https://dashboard.nexmo.com/settings) in 
 ```ruby
 require 'nexmo'
 nexmo = Nexmo::Client.new(
-  key: ENV['NEXMO_API_KEY'],
-  secret: ENV['NEXMO_API_SECRET']
+  api_key: ENV['NEXMO_API_KEY'],
+  api_secret: ENV['NEXMO_API_SECRET']
 )
 ```
 
@@ -140,21 +140,21 @@ We now integrate sending the verification code to the user into the application,
 ```ruby
 post '/start_login' do
   # start verification request
-  response = nexmo.start_verification(
+  response = nexmo.verify.request(
     number: params['number'],
     brand: 'MyApp'
   )
 
   # any status that's not '0' is an error
-  if response['status'] == '0'
+  if response.status == '0'
     # store the number so we can show it later
     session[:number] = params['number']
     # store the verification ID so we can verify the user's code against it
-    session[:verification_id] = response['request_id']
+    session[:verification_id] = response.request_id
 
     redirect '/verify'
   else
-    flash[:error] = response['error_text']
+    flash[:error] = response.error_text
 
     redirect '/login'
   end
@@ -215,19 +215,19 @@ The Verify API response tells you if the user entered the correct PIN. If the `s
 ```ruby
 post '/finish_login' do
   # check the code with Nexmo
-  response = nexmo.check_verification(
-    session[:verification_id],
+  response = nexmo.verify.check(
+    request_id: session[:verification_id],
     code: params[:code]
   )
 
   # any status that's not '0' is an error
-  if response['status'] == '0'
+  if response.status == '0'
     # set the current user to the number
     session[:user] = session[:number]
 
     redirect '/'
   else
-    flash[:error] = response['error_text']
+    flash[:error] = response.error_text
 
     redirect '/login'
   end

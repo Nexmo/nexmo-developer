@@ -1,5 +1,7 @@
 require 'nexmo'
-client = Nexmo::Client.new(key: API_KEY, secret: API_SECRET)
 
-resp = client.check_verification(REQUEST_ID, code: '1234')
-puts "User verification complete!" if response['status'] == '0'
+client = Nexmo::Client.new(api_key: API_KEY, api_secret: API_SECRET)
+
+response = client.verify.check(request_id: REQUEST_ID, code: '1234')
+
+puts "User verification complete!" if response.status == '0'

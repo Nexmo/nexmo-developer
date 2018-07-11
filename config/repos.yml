@@ -42,3 +42,5 @@ nexmo-community/nexmo-java-quickstart:
 nexmo-community/nexmo-python-quickstart:
   repo: nexmo-community/nexmo-python-quickstart
   # path: ../nexmo-python-quickstart
+nexmo/conversation-docs:
+  repo: nexmo/conversation-docs

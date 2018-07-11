@@ -2,7 +2,7 @@
 <html>
   <%= render partial: 'layouts/partials/head' %>
 
-  <body class="<%= theme %>">
+  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper">
       <div class="container">
@@ -16,7 +16,7 @@
             <% end %>
             <%= navigation_from_content(content: @content, title: @document_title) %>
           </nav>
-          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks="false" data-initial-language="<%= @code_language %>">
+          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks="false">
             <%= yield %>
             <%= render partial: 'layouts/partials/feedback' %>
           </div>

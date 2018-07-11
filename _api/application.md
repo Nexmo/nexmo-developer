@@ -27,7 +27,7 @@ The following table shows the parameters you use to create a new application:
 Parameter | Description | Required
 -- | -- | --
 `name` | The name of your application. | Yes
-`type` |type	The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | Yes
 `answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | No
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes
@@ -166,7 +166,7 @@ Parameter | Description
 `count` | The number of items associated with your account.
 `page_size` | Set the number of items returned on each call to this endpoint. The default is 10 records.
 `page_index` | Set the offset from the first page. The default value is `0`.
-`applications` | The collection of your applications. Each object contains information about an an individual application. The public_key in not included in the application information.
+`applications` | The collection of your applications. Each object contains information about an an individual application. The public_key is not included in the application information.
 `_links` | A series of links between resources in this API in the following [HAL specification](http://stateless.co/hal_specification.html).
 
 ## Retrieve an application
@@ -247,7 +247,7 @@ The following table shows the parameters you use to update an application:
 Parameter | Description | Required
 -- | -- | --
 `name` | The name of your application. | Yes
-`type` |type	The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | Yes
 `answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | No
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes

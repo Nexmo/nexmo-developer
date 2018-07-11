@@ -8,11 +8,11 @@ TO_NUMBER = ENV['TO_NUMBER']
 require 'nexmo'
 
 client = Nexmo::Client.new(
-  key: NEXMO_API_KEY,
-  secret: NEXMO_API_SECRET
+  api_key: NEXMO_API_KEY,
+  api_secret: NEXMO_API_SECRET
 )
 
-client.send_message(
+client.sms.send(
   from: 'Acme Inc',
   to: TO_NUMBER,
   text: 'A text message sent using the Nexmo SMS API'

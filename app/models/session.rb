@@ -1,10 +1,11 @@
 class Session < ApplicationRecord
-  belongs_to :event
+  belongs_to :event, optional: true
 
   validates :title, presence: true
   validates :author, presence: true
-  validates :event, presence: true
   validates :video_url, presence: true
+
+  scope :published, -> { where(published: true) }
 
   def video_content
     video_id = video_url.gsub('https://www.youtube.com/watch?v=', '')

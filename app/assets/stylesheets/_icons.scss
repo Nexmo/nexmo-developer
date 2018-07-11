@@ -4,6 +4,11 @@ $icon-php: "\e90b";
 $icon-ruby: "\e90c";
 $icon-python: "\e90d";
 $icon-node: "\e90e";
+$icon-in-app-video: "\e914";
+$icon-in-app-messaging: "\e910";
+$icon-in-app-voice: "\e911";
+$icon-stitch-messaging: "\e912";
+$icon-stitch: "\e913";
 $icon-webhook: "\e90f";
 $icon-account: "\e904";
 $icon-voice: "\e905";
@@ -105,6 +110,31 @@ $icon-callback: "\ea2d";
 .icon-node {
   &:before {
     content: $icon-node;
+  }
+}
+.icon-in-app-messaging {
+  &:before {
+    content: $icon-in-app-messaging;
+  }
+}
+.icon-in-app-voice {
+  &:before {
+    content: $icon-in-app-voice;
+  }
+}
+.icon-in-app-video {
+  &:before {
+    content: $icon-in-app-video;
+  }
+}
+.icon-stitch-messaging {
+  &:before {
+    content: $icon-stitch-messaging;
+  }
+}
+.icon-stitch {
+  &:before {
+    content: $icon-stitch;
   }
 }
 .icon-webhook {

@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/earmuff-a-call.py
+    from_line: 11
+    to_line: 15
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/earmuff-a-call.py
+    from_line: 2
+    to_line: 9
+file_name: earmuff-a-call.py
+run_command: 'python3 earmuff-a-call.py'

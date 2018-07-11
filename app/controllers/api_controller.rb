@@ -37,6 +37,10 @@ class ApiController < ApplicationController
   end
 
   def set_document
-    @document = params[:document]
+    if params[:code_language] == "ncco"
+      @document = "voice/ncco"
+    else
+      @document = params[:document]
+    end
   end
 end

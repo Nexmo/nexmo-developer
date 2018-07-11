@@ -1,0 +1,4622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Conversation</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Conversation</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Conversation<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    
+    <h4 class="name" id="Conversation"><span class="type-signature"></span>new Conversation<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    A single conversation Object.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>me</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">my Member object that belongs to this conversation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>application</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Application.html">Application</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the parent Application</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the name of the Conversation (unique)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>display_name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the display_name of the Conversation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>members</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the members of the Conversation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>events</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Map</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the events of the Conversation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sequence_number</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the last event id</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="me"><span class="type-signature"></span>me<span class="type-signature"> :<a href="Member.html">Member</a></span></h4>
+
+
+
+
+<div class="description">
+    A Member Object representing the current user.
+Only set if the user is or has been a member of the Conversation,
+otherwise the value will be `null`.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line55">line 55</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="abortSendImage"><span class="type-signature"></span>abortSendImage<span class="signature">(imageRequest)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Cancel sending an Image message to the conversation.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imageRequest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">XMLHttpRequest</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line435">line 435</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    void
+</div>
+
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">cancel sending an image</p>
+    
+    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
+   conversation.abortSendImage(imageRequest);
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="del"><span class="type-signature"></span>del<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Delete a conversation
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line195">line 195</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">delete the conversation</p>
+    
+    <pre class="prettyprint"><code>       conversation.del().then(() => {
+				console.log("conversation deleted");
+		})</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="deleteEvent"><span class="type-signature"></span>deleteEvent<span class="signature">(event)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Delete an Event (e.g. Text)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line217">line 217</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getEvents"><span class="type-signature"></span>getEvents<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Event.html">Event</a>>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Query the service to get a list of events in this conversation.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">leave empty to get all the events
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>start_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the id of the event to begin the batch</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>end_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the id of the event to finish the batch</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line490">line 490</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - A promise to the Events list
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;<a href="Event.html">Event</a>>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="invite"><span class="type-signature"></span>invite<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Member.html">Member</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Invite the given user (id or name) to this conversation
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id or username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the id or the username of the user to invite</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line243">line 243</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Member.html">Member</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">invite a user to a conversation</p>
+    
+    <pre class="prettyprint"><code> const user_id = 'user to invite';
+ const user_name = 'username to invite';
+
+ conversation.invite({
+         id: user_id,
+         user_name: user_name
+     })
+       .then((member) => {
+           displayMessage(member.state + " user: " + user_id + " " + user_name);
+      }).catch((error) => {
+         console.log(error);
+ });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="inviteWithAudio"><span class="type-signature"></span>inviteWithAudio<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Member.html">Member</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Invite the given user (id or name) to this conversation with media audio
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id or username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the id or the username of the user to invite</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line292">line 292</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Member.html">Member</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">invite a user to a conversation</p>
+    
+    <pre class="prettyprint"><code> const user_id = 'user to invite';
+ const user_name = 'username to invite';
+
+ conversation.inviteWithAudio({
+         id: user_id,
+         user_name: user_name
+     })
+       .then((member) => {
+           displayMessage(member.state + " user: " + user_id + " " + user_name);
+      }).catch((error) => {
+         console.log(error);
+ });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="join"><span class="type-signature"></span>join<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Member.html">Member</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Join the given user to this conversation, will typically use this to join
+ourselves to a conversation we create.
+Accept an invitation if our member has state INVITED and no user_id / user_name is given
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    this.application.me.id
+                
+                </td>
+            
+
+            <td class="description last">The user to join (defaults to this)
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user_name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the user_name of the user to join</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the user_id of the user to join</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line136">line 136</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Member.html">Member</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">join a user to a conversation</p>
+    
+    <pre class="prettyprint"><code>       conversation.join().then((member) => {
+				console.log("joined as member: ", member)
+		})</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="leave"><span class="type-signature"></span>leave<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Leave from the conversation
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line310">line 310</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sendImage"><span class="type-signature"></span>sendImage<span class="signature">(file)</span><span class="type-signature"> &rarr; {Promise.&lt;XMLHttpRequest>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Send an Image message to the conversation, which will be relayed to every other member of the conversation.
+implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">File</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">single input file (jpeg/jpg)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params.quality_ratio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    100
+                
+                </td>
+            
+
+            <td class="description last">a value between 0 and 100. 0 indicates 'maximum compression' and the lowest quality, 100 will result in the highest quality image</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params.medium_size_ratio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    50
+                
+                </td>
+            
+
+            <td class="description last">a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params.thumbnail_size_ratio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    10
+                
+                </td>
+            
+
+            <td class="description last">a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line378">line 378</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;XMLHttpRequest></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">sending an image</p>
+    
+    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
+
+        imageRequest.onabort = (e) => {
+           console.log(e);
+         console.log("Image:" + e.type);
+     };
+         imageRequest.onloadend = (e) => {
+         console.log("Image:" + e.type);
+     };
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sendText"><span class="type-signature"></span>sendText<span class="signature">(text)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="TextEvent.html">TextEvent</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Send a text message to the conversation, which will be relayed to every other member of the conversation
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">text the text message to be sent</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line328">line 328</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - the text message that was sent
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="TextEvent.html">TextEvent</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption"> sending a text </p>
+    
+    <pre class="prettyprint"><code>   conversation.sendText("Hi Nexmo").then(() => {
+			console.log('message was sent');
+		}).catch((error)=>{
+			console.log('error sending the message', error);
+	});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="startTyping"><span class="type-signature"></span>startTyping<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Send start typing indication
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line468">line 468</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - resolves the promise on successful sent
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="stopTyping"><span class="type-signature"></span>stopTyping<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Send stop typing indication
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line477">line 477</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - resolves the promise on successful sent
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+        <h3 class="subsection-title">Events</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:event:delete">event:delete</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for deleted events.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member who deleted an event</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">deleted event: event.id</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line290">line 290</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">get details about the deleted event</p>
+    
+    <pre class="prettyprint"><code>conversation.on("event:delete", (member, event) => {
+     console.log(event.id);
+     console.log(event.body.timestamp.deleted);
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:image">image</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for image events.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sender</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The sender of the image</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>image</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ImageEvent.html">ImageEvent</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The image message received</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line271">line 271</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">listen for image events</p>
+    
+    <pre class="prettyprint"><code>conversation.on("image", (sender, image) => {
+     console.log(sender,image);
+
+// Identify your own imageEvent.
+     if (image.from !== conversation.me.id)
+
+ // Identify if the event corresponds to the currently open conversation.
+     if (image.cid === conversation.id)
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:text">text</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for text events.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sender</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The sender of the text</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Text</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The text message received</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line253">line 253</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">listen for text events</p>
+    
+    <pre class="prettyprint"><code>conversation.on("text",(sender, message) => {
+     console.log(sender,message);
+
+// Identify your own message.
+     if (message.from !== conversation.me.id)
+
+// Identify if the event corresponds to the currently open conversation.
+     if (message.cid === conversation.id)
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:image:seen">image:seen</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for members' seen images.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member that saw the image</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>image</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ImageEvent.html">ImageEvent</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the image that was seen</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line386">line 386</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">listen for seen image events</p>
+    
+    <pre class="prettyprint"><code>conversation.on("image:seen", (data, image) => {
+     console.log(image);
+
+// Check if the event belongs to this conversation
+     if (image.cid === conversation.id)
+// Get the list of members that have seen this event
+     for (let member_id in image.state.seen_by) {
+          if (conversation.me.id !== member_id) {
+              console.log(conversation.members[member_id].name);
+           }
+      }
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:member:invited">member:invited</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for members being invited.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member that is invited</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data regarding the receiver of the invitation</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line316">line 316</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">get the name of the invited member</p>
+    
+    <pre class="prettyprint"><code>conversation.on("member:invited", (member, event) => {
+     console.log(member.user.name + " invited to the conversation");
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:member:joined">member:joined</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for new members.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member that joined</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the join event</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line303">line 303</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">get the name of the new member</p>
+    
+    <pre class="prettyprint"><code>conversation.on("member:joined", (member, event) => {
+		console.log(event.id)
+     console.log(member.user.name+ " joined the conversation");
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:member:left">member:left</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for members leaving (kicked or left).
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member that has left</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data regarding the receiver of the invitation</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line328">line 328</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">get the username of the member that left</p>
+    
+    <pre class="prettyprint"><code>conversation.on("member:left", (member , event) => {
+     console.log(member.user.name + " left");
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:member:media">member:media</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for members media changes (audio, video,text)
+
+Change in media presence state. They are in the conversation with text, audio or video.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member object linked to this event</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">information about media presence state
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>body.audio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">is audio enabled</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line406">line 406</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">get every member's media change events </p>
+    
+    <pre class="prettyprint"><code>conversation.on("member:media", (from, media) => {
+     console.log(from.media.audio); //true
+		console.log(event.body.media); //{"audio":true}
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:text:seen">text:seen</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for members' seen texts.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member that saw the text</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Text</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the text that was seen</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line364">line 364</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">listen for seen text events</p>
+    
+    <pre class="prettyprint"><code>conversation.on("text:seen", (data, text) => {
+     console.log(text);
+
+// Check if the event belongs to this conversation
+     if (text.cid === conversation.id)
+
+// Get the list of members that have seen this event
+     for (let member_id in text.state.seen_by) {
+         if (conversation.me.id !== member_id) {
+             console.log(conversation.members[member_id].name);
+         }
+      }
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:text:typing:off">text:typing:off</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for members stopped typing.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member that stopped typing</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the stop typing event</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line352">line 352</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">get the username of the member that stopped typing</p>
+    
+    <pre class="prettyprint"><code>conversation.on("text:typing:off", (data) => {
+     console.log(data.name + " stopped typing...");
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:text:typing:on">text:typing:on</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Conversation listening for members typing.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>member</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the member that started typing</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Event.html">Event</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the start typing event</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line340">line 340</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">get the username of the member that is typing</p>
+    
+    <pre class="prettyprint"><code>conversation.on("text:typing:on", (data) => {
+     console.log(data.name + " is typing...");
+});</code></pre>
+
+
+
+        
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 26 2018 11:08:32 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

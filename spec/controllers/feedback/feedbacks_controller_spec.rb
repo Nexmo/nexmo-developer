@@ -40,7 +40,7 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
 
       context 'and the author exists already' do
         before do
-          @author = FactoryGirl.create(:feedback_author)
+          @author = FactoryBot.create(:feedback_author)
         end
 
         it 'reuses the author' do
@@ -60,7 +60,7 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
 
     context 'when an author cookie is provided' do
       before do
-        @author = FactoryGirl.create(:feedback_author)
+        @author = FactoryBot.create(:feedback_author)
         request.cookies['feedback_author_id'] = @author.id
       end
 
@@ -96,7 +96,7 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
     context 'when a user is logged in' do
       before do
         @email = Faker::Internet.safe_email
-        @user = FactoryGirl.create(:user, email: @email)
+        @user = FactoryBot.create(:user, email: @email)
         sign_in(@user)
       end
 
@@ -132,7 +132,7 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
 
     context 'when a feedback already exists' do
       before do
-        @feedback = FactoryGirl.create(:feedback_feedback, sentiment: 'positive')
+        @feedback = FactoryBot.create(:feedback_feedback, sentiment: 'positive')
       end
 
       it 'can be updated' do

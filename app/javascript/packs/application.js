@@ -26,6 +26,7 @@ import Notices from './Notices'
 import Feedback from './Feedback'
 import Concatenation from './Concatenation'
 import APIStatus from './APIStatus'
+import Markdown from './Markdown'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
@@ -58,6 +59,10 @@ let refresh = () => {
 
   if (document.getElementById('ConcatenationComponent')) {
     ReactDOM.render(<Concatenation/>, document.getElementById('ConcatenationComponent'))
+  }
+
+  if (document.getElementById('MarkdownComponent')) {
+    ReactDOM.render(<Markdown/>, document.getElementById('MarkdownComponent'))
   }
 }
 

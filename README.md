@@ -4,7 +4,7 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 
 ### Prerequisites
 
-- Ruby 2.4.1 + bundler
+- Ruby 2.5.0 + bundler
 - PostgreSQL
 - Yarn
 
@@ -31,7 +31,6 @@ If you don't want to install Ruby & PostgreSQL then you can use docker to sandbo
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
 $ cp .env.example .env
-$ ./bin/yarn install
 
 # Start the web server
 $ docker-compose up
@@ -81,6 +80,17 @@ $ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
 
 # Docker users run:
 # $ docker-compose exec web rake repos:pull nexmo-community/nexmo-ruby-quickstart master
+```
+
+## Bootstrapping a new section
+
+Each new section requires an overview, guides, building blocks and an API reference. To bootstrap a new section, use the `section:create` `rake` task
+
+```
+$ rake section:create "Example Name"
+
+# Docker users run:
+# $ docker-compose exec web rake section:create "Example Name"
 ```
 
 ### Pre-Commit hooks

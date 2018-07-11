@@ -9,6 +9,7 @@ ActiveAdmin.register User do
     column :sign_in_count
     column :created_at
     column :admin
+    column :nexmo_developer_api_secret
     actions
   end
 

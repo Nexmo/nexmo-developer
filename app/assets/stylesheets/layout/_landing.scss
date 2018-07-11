@@ -6,6 +6,7 @@
   text-align: center;
   border: $border;
   border-radius: $radius;
+  margin-bottom: $spacing;
 
   h3 {
     color: lighten($text-subtle, 20%);

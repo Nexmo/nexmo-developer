@@ -15,6 +15,11 @@ library:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/initialize/basic.rb'
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/initialize/basic.py'
+      dotnet:
+        source: '.repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Authentication/BasicAuth.cs'
+        from_line: 13
+        to_line: 17
+        unindent: true
     application:
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/initialize/application.php'
@@ -68,6 +73,11 @@ messaging:
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms.py'
         from_line: 16
+      dotnet:
+        source: '.repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Controllers/SMSController.cs'
+        from_line: 34
+        to_line: 39
+        unindent: true
     delivery-receipts:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'
@@ -110,11 +120,11 @@ voice:
       from_line: 21
     python:
       source: '.repos/nexmo-community/nexmo-python-quickstart/voice/make-an-outbound-call.py'
-      from_line: 20
+      from_line: 10
     java:
       source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java'
-      from_line: 25
-      to_line: 30
+      from_line: 27
+      to_line: 33
       unindent: true
   inbound:
     node:
@@ -126,3 +136,53 @@ voice:
   inbound-connect:
     node:
       source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'
+number_insight:
+  standard:
+    curl:
+      source: '_examples/curl/number_insight/standard.sh'
+  async:
+    curl:
+      source: '_examples/curl/number_insight/async.sh'
+messages_and_workflows_apis:
+  messages:
+    send-sms:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-sms.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-sms.sh'
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/channels/send-sms.js'
+        from_line: 11
+    send-viber:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-viber.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-viber.sh'
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/channels/send-viber.js'
+        from_line: 11
+    send-facebook-messenger:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-facebook-messenger.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-facebook-messenger.sh'
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/channels/send-facebook-messenger.js'
+        from_line: 11
+  workflows:
+    send-failover-sms-viber:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/workflows/send-failover-sms-viber.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/workflows/send-failover-sms-viber.sh'
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/workflows/send-failover-sms-viber.js'
+        from_line: 11
+    send-failover-sms-facebook:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/workflows/send-failover-sms-facebook.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/workflows/send-failover-sms-facebook.sh'
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/workflows/send-failover-sms-facebook.js'
+        from_line: 11

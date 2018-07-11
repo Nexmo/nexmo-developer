@@ -5,38 +5,54 @@ namespace NexmoDotNetQuickStarts.Controllers
 {
     public class VerifyController : Controller
     {
+        public Client Client { get; set; }
+
+        public VerifyController()
+        {
+            Client = new Client(creds: new Nexmo.Api.Request.Credentials
+            {
+                ApiKey = "NEXMO_API_KEY",
+                ApiSecret = "NEXMO_API_SECRET"
+            });
+        }
+
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult Start()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Start(string to)
         {
-            var NEXMO_TO_NUMBER = to;
+            var TO_NUMBER = to;
 
-            var start = NumberVerify.Verify(new NumberVerify.VerifyRequest
+            var start = Client.NumberVerify.Verify(new NumberVerify.VerifyRequest
             {
-                number = NEXMO_TO_NUMBER,
+                number = TO_NUMBER,
                 brand = "NexmoQS"
             });
+
             Session["requestID"] = start.request_id;
 
             return RedirectToAction("Check");
         }
+
         [HttpGet]
         public ActionResult Check()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Check(string code)
         {
-            var result = NumberVerify.Check(new NumberVerify.CheckRequest
+            var result = Client.NumberVerify.Check(new NumberVerify.CheckRequest
             {
                 request_id = Session["requestID"].ToString(),
                 code = code
@@ -59,10 +75,11 @@ namespace NexmoDotNetQuickStarts.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Search(string requestID)
         {
-            var search = NumberVerify.Search(new NumberVerify.SearchRequest
+            var search = Client.NumberVerify.Search(new NumberVerify.SearchRequest
             {
                 request_id = requestID
             });
@@ -81,7 +98,7 @@ namespace NexmoDotNetQuickStarts.Controllers
         [HttpPost]
         public ActionResult Cancel(string requestID)
         {
-            var results = NumberVerify.Control(new NumberVerify.ControlRequest
+            var results = Client.NumberVerify.Control(new NumberVerify.ControlRequest
             {
                 request_id = requestID,
                 cmd = "cancel"

@@ -1,3 +1,5 @@
+require 'octokit'
+
 class JobsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -9,7 +11,7 @@ class JobsController < ApplicationController
           "request": {
             "branch": 'master',
             "config": {
-              "script": 'rake diff:execute',
+              "script": 'bundle exec rake diff:execute',
               "env": {
                 "SSH_KEY_REQUIRED": true,
               },

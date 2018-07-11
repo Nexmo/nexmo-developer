@@ -2,7 +2,7 @@
 
 Value | Description
 -- | --
-`started` | Platform has stared the call.
+`started` | Platform has started the call.
 `ringing` | the user's handset is ringing.
 `answered` | the user has answered your call.
 `machine` | Platform detected an answering machine.

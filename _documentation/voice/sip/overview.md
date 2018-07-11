@@ -33,7 +33,7 @@ If your system is not enabled for [Service records](https://en.wikipedia.org/wik
 
 **Recipient**
 
-Recipient numbers must be in [E.164](https://en.wikipedia.org/wiki/E.164) format: 
+Recipient numbers must be in [E.164](https://en.wikipedia.org/wiki/E.164) format:
 
 **Caller ID**
 
@@ -88,10 +88,11 @@ To configure for SIP forwarding:
 1. Sign into [Dashboard](https://dashboard.nexmo.com/sign-in).
 2. In Dashboard, click *Products* > *Numbers*.
 3. Scroll to the number to forward from, then select *Forward to SIP*.
-4. Type a valid SIP URI and click *Update*. For example 1234@example.com.
-  This field supports comma-separated entries for failover capabilities. For example: `1234@example.com, 1234@example.net, 1234@example.org`. If you set more than one endpoint in *Forward to SIP* the call is initially forwarded to the first endpoint in the list. If this fails, the call is forwarded to the second endpoint in the list, and so on.
+4. Type a valid SIP URI and click *Update*. For example `sip:1234@example.com`.
+  This field supports comma-separated entries for failover capabilities. For example: `sip:1234@example.com,sip:1234@example.net,sip:1234@example.org`. If you set more than one endpoint in *Forward to SIP* the call is initially forwarded to the first endpoint in the list. If this fails, the call is forwarded to the second endpoint in the list, and so on.
   Calls failover for the whole 5xx class of HTTP errors. The timeout is 486.
-5. Ensure that the traffic generated from the following IP addresses can pass your firewall:
+5. You can specify a timeout for non responding SIP endpoints, by appending a `;timeout=xxxxx` to the related URI. For example: `sip:1234@example.com;timeout=2000,sip:1234@example.net` will attempt to forward to the first URI, and in case of no response within 2 seconds it will try the second one. Timeouts are expressed in milliseconds and can range from 2000 to 20000. This is useful to quickly fail over when an endpoint is temporarily unavailable. The default value is 5000 ms.
+6. Ensure that the traffic generated from the following IP addresses can pass your firewall:
 
   * 173.193.199.24
   * 174.37.245.34
@@ -112,3 +113,6 @@ We have provided examples for a number of different SIP capable systems:
 * [FreePBX](/voice/sip/configure/freepbx)
 * [FreeSWITCH](/voice/sip/configure/freeswitch)
 * [MiTel MiVoice and MiTel Border Gateway](/voice/sip/configure/mitel-mivoice)
+* [ShoreTel Director and InGate SIParator](/voice/sip/configure/shoretel)
+* [Skype for Business with Oracle E-SBC](/voice/sip/configure/skypeforbusiness)
+* [NEC SV9100](/voice/sip/configure/nec-sv9100)

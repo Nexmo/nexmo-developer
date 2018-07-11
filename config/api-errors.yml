@@ -1,0 +1,32 @@
+products:
+  sms:
+    title: SMS API
+  redact:
+    title: Redact API
+
+generic_errors:
+  low-balance:
+    description: This request could not be performed due to your account balance being low.
+    resolution: Top up your account in the Nexmo Dashboard
+    link:
+      text: Go to Dashboard
+      url: https://dashboard.nexmo.com/billing-and-payments
+
+  unauthorized:
+    description: You did not provide correct credentials.
+    resolution: Check your API key and secret are correct, you can find these credentials in the Nexmo Dashboard
+    link:
+      text: Find out more
+      url: /concepts/guides/authentication
+
+  unprovisioned:
+    description: The crendentials provided do not have access to the requested product
+    resolution: Check your API key is correct and has been whitelisted
+
+  invalid-id:
+    description: The ID provided does not exist in our system
+    resolution: Modify your request to provide a valid ID
+
+  invalid-json:
+    description: The request body did not contain valid JSON
+    resolution: Send a JSON request body, including a Content-Type header of application/json

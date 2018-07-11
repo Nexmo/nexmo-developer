@@ -217,8 +217,8 @@ Use your Nexmo API [key and secret](http://developer.dev/concepts/guides/authent
 # Nexmo library
 require 'nexmo'
 nexmo = Nexmo::Client.new(
-  key: ENV['NEXMO_API_KEY'],
-  secret: ENV['NEXMO_API_SECRET']
+  api_key: ENV['NEXMO_API_KEY'],
+  api_secret: ENV['NEXMO_API_SECRET']
 )
 ```
 
@@ -239,18 +239,18 @@ post '/send_sms' do
   message = "Download our app on #{url('/')}"
 
   # send the message
-  response = nexmo.send_message(
+  response = nexmo.sms.send(
     from: 'My App',
     to: params[:number],
     text: message
-  )['messages'].first
+  ).messages.first
 
   # verify the response
-  if response['status'] == '0'
+  if response.status == '0'
     flash[:notice] = 'SMS sent'
     redirect '/'
   else
-    flash[:error] = response['error-text']
+    flash[:error] = response.error-text
     erb :download
   end
 end

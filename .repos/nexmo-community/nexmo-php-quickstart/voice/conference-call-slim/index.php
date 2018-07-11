@@ -10,11 +10,11 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
     $ncco = [
         [
             'action' => 'talk',
-            'text' => 'Welcome to a Nexmo powered conference call'
+            'text' => 'Hi, welcome to this Nexmo conference call.'
         ],
         [
             'action' => 'conversation',
-            'name' => 'room-name'
+            'name' => 'nexmo-conference-standard'
         ]
     ];
 

@@ -142,8 +142,8 @@ Use your Nexmo API [key and secret](/concepts/guides/authentication) to initiali
 # nexmo library
 require 'nexmo'
 nexmo = Nexmo::Client.new(
-  key: ENV['NEXMO_API_KEY'],
-  secret: ENV['NEXMO_API_SECRET']
+  api_key: ENV['NEXMO_API_KEY'],
+  api_secret: ENV['NEXMO_API_SECRET']
 )
 ```
 
@@ -166,7 +166,7 @@ post '/notify' do
                  "reply by typing 1 (tomorrow), 2 (Thursday) or 3 (deliver to"
                  "post office) below.\n\n";
 
-  nexmo.send_message(
+  nexmo.sms.send(
     from: ENV['NEXMO_NUMBER'],
     to: params['number'],
     text: notification
@@ -203,7 +203,7 @@ get '/update' do
   message = "Thank you for picking option #{choice}. " +
             "Your delivery is now fully scheduled in."
 
-  nexmo.send_message(
+  nexmo.sms.send(
     from: ENV['NEXMO_NUMBER'],
     to: number,
     text: message

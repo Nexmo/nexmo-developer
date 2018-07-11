@@ -9,6 +9,10 @@ export default () => {
     return `notice-dismissed(id:${id})`
   }
 
+  const isDismissible = function (notice) {
+    return notice.data('notice-dismissible')
+  }
+
   const bootstrap = function() {
     $(document).on('click', '.notice a[data-close]', function(event) {
       const notice = $(this).parents('.notice')
@@ -34,6 +38,7 @@ export default () => {
   const clearRead = function() {
     $('.notices .notice').each(function() {
       const notice = $(this)
+      if(isDismissible(notice)) { return }
       if (localStorage.getItem(noticeKey(notice))) {
         $(this).remove()
       }

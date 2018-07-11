@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.5.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.1.5'
 gem 'webpacker', github: 'rails/webpacker'
 
 # Use postgresql as the database for Active Record
@@ -28,7 +28,7 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -50,15 +50,13 @@ gem 'banzai', '~> 0.1.2'
 gem 'foundation-rails', '6.4.1.2'
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '1.8.1'
+gem 'nokogiri', '1.8.2'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Ruby/ProgressBar is a text progress bar library for Ruby.
-gem 'ruby-progressbar'
-
-gem 'rubocop'
+gem 'ruby-progressbar', require: false
 
 # Ruby notifier for bugsnag.com
 gem 'bugsnag'
@@ -76,24 +74,28 @@ gem 'rest-client'
 gem 'recaptcha', require: "recaptcha/rails"
 
 # Implements the iCalendar specification (RFC-5545) in Ruby.
-gem 'icalendar'
+gem 'icalendar', require: false
 
 # A parser for Open API specifications
 #
 # If using development copy uncomment:
 # gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
 #
+# Development & staging environments may use a dependency from a repo:
+#
+# gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'definition-path-methods'
+#
 # Otherwise use a published gem:
-gem 'oas_parser', '~> 0.2.0'
+  gem 'oas_parser', '0.11.2'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
 
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
-gem 'faker', '1.8.4'
+gem 'faker', '1.8.4', require: false
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
-gem 'factory_girl_rails', '4.8.0'
+gem 'factory_bot_rails', '4.8.2', require: false
 
 # A slim ruby wrapper for posting to slack webhooks
 gem 'slack-notifier', '2.3.1'
@@ -102,10 +104,10 @@ gem 'slack-notifier', '2.3.1'
 gem 'activeadmin', '1.1.0'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '4.3.0'
+gem 'devise', '4.4.3'
 
 # Simple wrapper for the GitHub API
-gem 'octokit'
+gem 'octokit', require: false
 
 # Cross-language UserAgent classifier library, ruby implementation
 gem 'woothee'
@@ -120,19 +122,30 @@ gem 'groupdate', '3.2.0'
 gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
-gem 'nexmo_api_specification', '0.6.1'
+gem 'nexmo_api_specification', '0.11.4'
 
 # Really simple JSON and XML parsing, ripped from Merb and Rails.
 gem 'crack', '0.4.3'
+
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
+gem 'friendly_id', '5.2.3'
+
+# Boot large ruby/rails apps faster
+gem 'bootsnap', require: false
+
+# Convenient diffing in ruby
+gem 'diffy', require: false
+
+# Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
+gem 'rubocop'
 
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'diffy'
-  gem 'pry'
+  gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
@@ -144,7 +157,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
-  gem 'pry'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
   gem 'git-hookshot', git: 'https://github.com/brandonweiss/git-hookshot.git'

@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Sending a message
 
-You can send broadcast a message out to an SNS topic. Simply replace the following variables in the example below:
+You can send broadcast a message out to an SNS topic. Replace the following variables in the example below:
 
 Key | Description
 -- | --

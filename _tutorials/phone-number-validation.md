@@ -41,7 +41,7 @@ After you have created a project, add the *Nexmo REST API client for Ruby*.
 **Gemfile**
 
 ```ruby
-gem 'nexmo', '~> 4.4.0'
+gem 'nexmo', '~> 5.0'
 ```
 
 Set the `NEXMO_API_KEY` and `NEXMO_API_SECRET` environmental variables to initialize the library:
@@ -65,7 +65,7 @@ To retrieve country information about a phone number:
 ```ruby
 # Perform a  Number Insight
 # basic inquiry
-p nexmo.get_basic_number_insight(
+p nexmo.number_insight.basic(
   number:  "442079460000"
 )
 ```
@@ -97,12 +97,12 @@ To retrieve a phone number in international format, call the Number Insight Basi
 ```ruby
 # Perform a  Number Insight
 # basic inquiry
-insight = nexmo.get_basic_number_insight(
+insight = nexmo.number_insight.basic(
   number:  "020 7946 0000",
   country: 'GB'
 )
 
-p insight['international_format_number']
+p insight.international_format_number
 ```
 
 And it returns the phone number in international format:
@@ -124,7 +124,7 @@ To make a request to the Developer API and retrieve the cost of making a voice c
 ```ruby
 # Perform a  Number Insight
 # basic inquiry
-insight = nexmo.get_basic_number_insight(
+insight = nexmo.number_insight.basic(
   number:  "020 7946 0000",
   country: 'GB'
 )
@@ -169,12 +169,12 @@ The Number Insight Standard API supplies a lot more information about a phone nu
 ```ruby
 # Perform a Number Insight
 # standard inquiry
-insight = nexmo.get_standard_number_insight(
+insight = nexmo.number_insight.standard(
   number:  "020 7946 0000",
   country: 'GB'
 )
 
-p insight['current_carrier']
+p insight.current_carrier
 ```
 
 You see that this phone number is assigned to a UK landline:
@@ -199,12 +199,12 @@ To see if a phone number is valid:
 ```ruby
 # Perform a  Number Insight
 # basic inquiry
-insight = nexmo.get_advanced_number_insight(
+insight = nexmo.number_insight.advanced(
   number:  "020 7946 0000",
   country: 'GB'
 )
 
-p insight['valid_number']
+p insight.valid_number
 ```
 
 In this case the number is valid.

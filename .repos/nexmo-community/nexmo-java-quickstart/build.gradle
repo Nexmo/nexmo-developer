@@ -15,8 +15,9 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
     
-    compile 'com.nexmo:client:3.2.0'
+    compile 'com.nexmo:client:latest.release'
     compile "com.sparkjava:spark-core:2.6.0"
+    compile 'javax.xml.bind:jaxb-api:2.3.0'
 }
 
 task fatJar(type: Jar, dependsOn:configurations.runtime) {

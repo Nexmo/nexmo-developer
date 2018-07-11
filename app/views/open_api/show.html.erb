@@ -11,10 +11,20 @@
     <div id="overview">
       <div class="slate-layout-documentation">
         <div>
-          <h1><%= @definition.info['title'] %></h1>
-          <p><%= @definition.info['description'] %></p>
+          <h1>
+            <%= @definition.info['title'] %>
+            <% if @definition.info['x-label'] %>
+              <span class="label label--<%= @definition.info['x-label'].parameterize %>">
+                <%= @definition.info['x-label'] %>
+              </span>
+            <% end %>
+          </h1>
 
-          <%= link_to open_api_path({ format: @definition_format, params: request.query_parameters }), class: 'button button--secondary' do %>
+          <% if @definition.info['description'] %>
+            <p><%= @definition.info['description'].render_markdown %></p>
+          <% end %>
+
+          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'button button--secondary' do %>
             <i class="icon icon-swagger"></i>
             Download OpenAPI 3 Definition
           <% end %>
@@ -26,12 +36,17 @@
           <ul class="tabs tabs--code" data-tabs>
             <% if @definition_initialization_config['tabs'] %>
               <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
-                <li class="tabs-title <%= index.zero? ? 'is-active' : '' %>" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
+                <li
+                  class="tabs-title <%= index.zero? ? 'is-active' : '' %>"
+                  language-linkable="false"
+                  data-language="<%= tab %>"
+                  data-language-type="<%= CodeLanguageResolver.find(tab).type %>"
+                ><a href="#<%= tab %>"><%= CodeLanguageResolver.find(tab).label %></a></li>
               <% end %>
             <% end %>
           </ul>
 
-          <% if @definition_initialization_config['formats'] %>
+          <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
             <select class="js-format-selector">
               <% @definition_initialization_config['formats'].each do |value, name| %>
                 <option value="<%= value %>"><%= name %></option>
@@ -48,32 +63,7 @@
 
     <% @groups.each do |name, endpoints| %>
       <% if name %>
-        <% group = @definition.raw['x-groups'][name] %>
-        <div>
-          <div class="slate-layout-documentation slate-layout-documentation--group">
-            <div>
-              <%= content_tag :h2, group['name'], id: group['name'].parameterize %>
-              <%= content_tag :p, group['description'] %>
-              <% if group['schema'] %>
-                <%
-                  properties = group['schema']['properties'].map do |name, definition|
-                    OasParser::Property.new(self, group['schema'], name, definition)
-                  end
-                %>
-
-                <%= render 'parameters', parameters: properties, model: true %>
-              <% end %>
-            </div>
-          </div>
-          <div class="slate-layout-code">
-            <% if group['schema'] %>
-              <div class="slate-layout-code__inner">
-                <%= ResponseParserDecorator.new(group['schema']).html %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
+        <%= render partial: 'model', locals: { group: @definition.raw['x-groups'][name] } %>
       <% end %>
 
       <% endpoints.each do |endpoint| %>

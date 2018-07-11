@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/play-audio-stream-into-call.py
+    from_line: 8
+    to_line: 9
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/play-audio-stream-into-call.py
+    from_line: 1
+    to_line: 6
+file_name: play-audio-stream-into-call.py
+run_command: 'python3 play-audio-stream-into-call.py'

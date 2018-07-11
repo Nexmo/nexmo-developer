@@ -1,6 +1,6 @@
 ---
 title: Developer - Messages API Reference
-description: Reference guide for the Account API.
+description: Reference guide for the Messages API.
 api: Developer API
 ---
 
@@ -12,7 +12,7 @@ The Messages API lets you retrieve messages you have sent via the SMS API by ID,
 
 ### Search
 
-Retrieve information about a single messages that you sent using SMS API or were received on your number.
+Retrieve information about a single message that you sent using SMS API or that was received on your number.
 
 #### Request
 
@@ -66,7 +66,7 @@ Key | Value
 `price` | Price in Euros for a MT message
 `date-closed` | The date and time at UTC+0 when Platform received the delivery receipt from the carrier who delivered the MT message. This parameter is in the following format YYYY-MM-DD HH:MM:SS
 `latency` | The overall latency between `date-received` and `date-closed` in milliseconds.
-`client-ref` | The [internal reference](/api/sms#keys-and-values) you set in the request.
+`client-ref` | The [internal reference](/api/sms#send-an-sms) you set in the request.
 `final-status` | The status of `message-id` at `date-closed`. @[Possible values](/_modals/api/developer/message/search/response/final-status.md).
 `error-code-label` | A text label to explain `error-code`
 `status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](/_modals/api/developer/message/search/response/status.md).
@@ -129,7 +129,7 @@ Key | Value
 `price` | Price in Euros for a MT message
 `date-closed` | The date and time at UTC+0 when Platform received the delivery receipt from the carrier who delivered the MT message. This parameter is in the following format YYYY-MM-DD HH:MM:SS
 `latency` | The overall latency between `date-received` and `date-closed` in milliseconds.
-`client-ref` | The [internal reference](/api/sms#keys-and-values) you set in the request.
+`client-ref` | The [internal reference](/api/sms#send-an-sms) you set in the request.
 `final-status` | The status of `message-id` at `date-closed`. @[Possible values](/_modals/api/developer/message/search/response/final-status.md).
 `error-code-label` | A text label to explain `error-code`
 `status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](/_modals/api/developer/message/search/response/status.md).

@@ -6,7 +6,7 @@ navigation_weight: 1
 
 # Sending an SMS
 
-Sending an SMS message with Nexmo is easy. Simply sign up for an account and replace the following variables in the example below:
+Sending an SMS message with Nexmo is straightforward. Sign up for an account and replace the following variables in the example below:
 
 Key |	Description
 -- | --

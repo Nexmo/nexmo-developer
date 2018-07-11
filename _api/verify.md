@@ -40,7 +40,7 @@ Parameter | Description | Required
 `brand` | The name of the company or App you are using Verify for.  This 18 character alphanumeric string is used in the body of Verify message. For example: "Your *brand* PIN is ..". |  Yes
 `sender_id` | An 11 character alphanumeric string to specify the SenderID for SMS sent by Verify. Depending on the destination of the phone number you are applying, restrictions may apply. By default, `sender_id` is VERIFY.   |  No
 `code_length` |  The length of the PIN. Possible values are 6 or 4 characters. The default value is 4. |  No
-`lg` |  By default, the SMS or text-to-speech (TTS) message is generated in the locale that matches the *number*. For example, the text message or TTS message for a 33* number is sent in French. Use this parameter to explicitly control the [language, accent and gender](#language-codes) used for the Verify request. The default language is `en-us`. |  No
+`lg` |  By default, the SMS or text-to-speech (TTS) message is generated in the locale that matches the *number*. For example, the text message or TTS message for a 33* number is sent in French. Use this parameter to explicitly control the [language and accent](#language-codes) used for the Verify request. The default language is `en-us`. |  No
 `require_type` |  Restrict verification to a certain network type. Possible values are: <ul><li>All (Default)</li><li>Mobile</li><li>Landline</li></ul><br>**Note**: contact [support@nexmo.com](mailto:support@nexmo.com) to enable this feature. |  No
 `pin_expiry` |  The PIN validity time from generation. This is an integer value between 60 and 3600 seconds. The default is 300 seconds. When specified together, pin_expiry must be an integer multiple of `next_event_wait`. Otherwise, pin_expiry is set to equal next_event_wait. For example: <ul><li>`pin_expiry` = 360 seconds, so `next_event_wait` = 120 seconds - all three attempts have the same PIN.</li><li>`pin_expiry` = 240 seconds, so `next_event_wait` = 120 seconds - 1st and 2nd attempts have the same PIN, third attempt has a different PIN.</li><li>`pin_expiry` = 120 (or 200 or 400 seconds) - each attempt has a different PIN.</li></ul> |  No
 `next_event_wait` |  An integer value between 60 and 900 seconds inclusive that specifies the wait time between attempts to deliver the PIN. Verify calculates the default value based on the average time taken by users to complete verification. |  No
@@ -333,33 +333,33 @@ Key | Value
 
 ## Language codes
 
-The following languages are accepted on the Verify API. The language code is used to manually set the language of the SMS text message and both the language, accent and voice gender for the subsequent phone call.
+The following languages are accepted on the Verify API. The language code is used to manually set the language of the SMS text message and both the language and accent for the subsequent phone call.
 
-Code    | Language | Available genders
---------|----------|------------------
-`de-de` | German, German | female / male
-`en-au` | English, Australian | female / male
-`en-gb` | English, UK | female / male
-`en-us` | English, US (default) | female / male
-`en-in` | English, Indian | female
-`es-es` | Spanish, Spanish | female / male
-`es-mx` | Spanish, Mexican | female
-`es-us` | Spanish, US | female / male
-`fr-ca` | French, Canadian | female
-`fr-fr` | French, French | female / male
-`is-is` | Icelandic, Icelandic | female / male
-`it-it` | Italian, Italian | female / male
-`ja-jp` | Japanese, Japanese | female / male
-`ko-kr` | Korean, Korean | female / male
-`nl-nl` | Dutch, Netherlands | female / male
-`pl-pl` | Polish, Polish | female / male
-`pt-pt` | Portuguese, Portuguese | male
-`pt-br` | Portuguese, Brazilian | female / male
-`ro-ro` | Romanian, Romanian | female
-`ru-ru` | Russian, Russian | female
-`sv-se` | Swedish, Sweden | female
-`tr-tr` | Turkish, Turkish | female
-`zh-cn` | Chinese (Mandarin), Simplified Chinese | female / male
-`zh-tw` | Chinese, Traditional | text only - see note below
+Code    | Language
+--------|---------
+`de-de` | German, German
+`en-au` | English, Australian
+`en-gb` | English, UK
+`en-us` | English, US (default)
+`en-in` | English, Indian
+`es-es` | Spanish, Spanish
+`es-mx` | Spanish, Mexican
+`es-us` | Spanish, US
+`fr-ca` | French, Canadian
+`fr-fr` | French, French
+`is-is` | Icelandic, Icelandic
+`it-it` | Italian, Italian
+`ja-jp` | Japanese, Japanese
+`ko-kr` | Korean, Korean
+`nl-nl` | Dutch, Netherlands
+`pl-pl` | Polish, Polish
+`pt-pt` | Portuguese, Portuguese
+`pt-br` | Portuguese, Brazilian
+`ro-ro` | Romanian, Romanian
+`ru-ru` | Russian, Russian
+`sv-se` | Swedish, Sweden
+`tr-tr` | Turkish, Turkish
+`zh-cn` | Chinese (Mandarin), Simplified Chinese
+`zh-tw` | Chinese, Traditional
 
 If you request Taiwanese (`zh-tw`), the text message will be sent in Traditional Chinese, but the voice call uses a female voice speaking English with a Chinese accent.

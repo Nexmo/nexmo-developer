@@ -2,6 +2,7 @@ module Feedback
   class Resource < ApplicationRecord
     has_many :feedbacks, dependent: :destroy
 
+    before_validation :set_product
     validates :uri, presence: true, allow_blank: false
 
     def display_name
@@ -30,6 +31,15 @@ module Feedback
 
     def self.best_performing
       worst_performing.reverse
+    end
+
+    private
+
+    def set_product
+      products = DocumentationConstraint.product_with_parent_list
+      self.product = products.detect do |product|
+        break product if URI(uri).path.start_with? "/#{product}"
+      end
     end
   end
 end
