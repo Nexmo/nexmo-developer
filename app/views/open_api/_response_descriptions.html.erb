@@ -21,6 +21,7 @@
             <% response.formats.each_with_index do |format, index| %>
                 <% if response.exhibits_one_of_multiple_schemas?(format) %>
                     <% response.split_schemas(format).each_with_index do |schema, index| %>
+                        <% next unless schema['properties'] %>
                         <% schema['properties'].each do |key, value| %>
                             <% next if key == '_links' %>
                             <% next if value['x-skip-response-description'] %>
