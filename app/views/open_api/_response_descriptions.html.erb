@@ -23,6 +23,7 @@
                     <% response.split_schemas(format).each_with_index do |schema, index| %>
                         <% schema['properties'].each do |key, value| %>
                             <% next if key == '_links' %>
+                            <% next if value['x-skip-response-description'] %>
                             <li>
                                 <div class="table-list-columns">
                                     <div class="table-list-column" flex="2"><b><%= key %></b></div>
@@ -35,6 +36,7 @@
                     <% schema = response.schema(format) %>
                     <% schema['properties'].each do |key, value| %>
                         <% next if key == '_links' %>
+                        <% next if value['x-skip-response-description'] %>
                         <%
                             desc = ''
                             desc = value['title'].render_markdown if value['title']
