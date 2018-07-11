@@ -15,8 +15,8 @@
 
         <p class="color-text"><%= tutorial.description %></p>
 
-        <% if tutorial.languages %>
-          <p class="languages color-text"><%= tutorial.languages.join(", ") %></p>
+        <% if tutorial.languages.count > 0 %>
+            <p class="languages color-text">Language: <strong><%= tutorial.languages.join(", ") %></strong></p>
         <% end %>
       </a>
     </div>
