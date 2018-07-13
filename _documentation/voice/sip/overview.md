@@ -30,6 +30,8 @@ If your system is not enabled for [Service records](https://en.wikipedia.org/wik
 - `sip-eu2.nexmo.com` (London)
 - `sip-ap1.nexmo.com` (Singapore)
 - `sip-ap2.nexmo.com` (Singapore)
+- `sip-us-2-1.nexmo.com` (Dallas)
+- `sip-us-2-2.nexmo.com` (Dallas)
 
 **Recipient**
 
@@ -100,6 +102,8 @@ To configure for SIP forwarding:
   * 5.10.112.122
   * 119.81.44.6
   * 119.81.44.7
+  * 169.60.141.29
+  * 169.60.141.30
 
 > **Note**: Nexmo supports TLS on inbound connections. To enable this, enter a valid URI in the format sip:user@(IP|domain);transport=tls. For example, *sip:1234@example.com;transport=tls*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your domain or IP address: *sip:1234@example.com:5062;transport=tls*.
 
