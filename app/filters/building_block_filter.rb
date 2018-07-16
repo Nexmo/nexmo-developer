@@ -20,7 +20,8 @@ class BuildingBlockFilter < Banzai::Filter
           dependency_html = generate_dependencies(lexer.tag, config['dependencies'])
       end
 
-      source_url = generate_source_url(config['code']['source'])
+      source_url = generate_source_url(config['code'])
+
       client_html = ""
       if highlighted_client_source
       id = SecureRandom.hex
@@ -219,10 +220,25 @@ HEREDOC
         HEREDOC
     end
 
-  def generate_source_url(source)
+  def generate_source_url(code)
     # Source example: .repos/nexmo-community/java-quickstart/ExampleClass.java
     # Direct link on GitHub is in form https://github.com/nexmo-community/java-quickstart/blob/master/ExampleClass.java
+    start_section = 'https://github.com'
+
     # Insert "blob/master" and strip ".repos"
-    "https://github.com/" + source.sub(".repos", "").sub(/-quickstart\//, "\\0blob/master/")
+    file_section = code['source'].sub('.repos', '').sub(/-quickstart\//, '\\0blob/master/')
+
+    # Line highlighting
+    line_section = ''
+    if code['from_line']
+      line_section += "#L#{code['from_line']}"
+      if code['to_line']
+        line_section += "-L#{code['to_line']}"
+      else
+        line_section += "-L#{File.read(code['source']).lines.count}"
+      end
+    end
+
+    start_section + file_section + line_section
   end
 end
