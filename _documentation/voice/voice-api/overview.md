@@ -78,7 +78,7 @@ application:
 * [Download a recording](/voice/voice-api/building-blocks/download-a-recording)
 * [Earmuff a call](/voice/voice-api/building-blocks/earmuff-a-call)
 * [Handle user input with DTMF](/voice/voice-api/building-blocks/handle-user-input-with-dtmf)
-* [Join multiple calls into a conversation](/voice/voice-api/building-blocks/join-multiple-calls-into-a-conversation)
+* [Connect callers to a conference](/voice/voice-api/building-blocks/connect-callers-into-a-conference)
 * [Make an outbound call](/voice/voice-api/building-blocks/make-an-outbound-call)
 * [Mute a call](/voice/voice-api/building-blocks/mute-a-call)
 * [Play an audio stream into a call](/voice/voice-api/building-blocks/play-an-audio-stream-into-a-call)
