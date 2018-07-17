@@ -13,7 +13,7 @@ Lex](https://aws.amazon.com/lex/) bot and then have an audio
 conversation with the bot.
 
 Lex Connector makes use of the [WebSockets
-feature](/concepts/guides/websockets) of Nexmo's Voice API. When a
+feature](/voice/voice-api/guides/websockets) of Nexmo's Voice API. When a
 call is established, the API makes a websocket connection to Lex
 Connector and streams the audio to and from the call in real-time.
 
