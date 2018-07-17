@@ -82,7 +82,13 @@ GEM
       execjs (~> 2.0)
     banzai (0.1.2)
     bcrypt (3.1.11)
+    better_errors (2.4.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.2.1)
       msgpack (~> 1.0)
     bugsnag (5.3.3)
@@ -102,6 +108,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.3)
+    debug_inspector (0.0.3)
     deep_merge (1.2.1)
     devise (4.4.3)
       bcrypt (~> 3.0)
@@ -398,6 +405,8 @@ DEPENDENCIES
   algoliasearch
   awesome_print
   banzai (~> 0.1.2)
+  better_errors
+  binding_of_caller
   bootsnap
   bugsnag
   byebug
