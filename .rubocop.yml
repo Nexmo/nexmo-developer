@@ -4,13 +4,16 @@ Style/FrozenStringLiteralComment:
 Metrics/LineLength:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 Style/BlockComments:
   Enabled: false
 
-Style/AlignParameters:
+Layout/AlignParameters:
   Enabled: false
 
 Style/Documentation:
@@ -19,7 +22,7 @@ Style/Documentation:
 Rails/FilePath:
   Enabled: false
 
-Style/IndentHash:
+Layout/IndentHash:
   Enabled: false
 
 Style/BracesAroundHashParameters:

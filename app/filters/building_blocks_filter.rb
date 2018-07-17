@@ -86,7 +86,7 @@ class BuildingBlocksFilter < Banzai::Filter
 
   def validate_config
     return if @config && @config['source']
-    raise 'A source key must be present in this tabbed_example config'
+    raise 'A source key must be present in this building_blocks config'
   end
 
   def content_from_source
@@ -112,10 +112,6 @@ class BuildingBlocksFilter < Banzai::Filter
 ```
       HEREDOC
 
-      if @config['title']
-          source = "<h2>#{@config['title']}</h2>" + source
-      end
-
       content[:body] = MarkdownPipeline.new(options).call(source)
 
       content
@@ -137,39 +133,6 @@ class BuildingBlocksFilter < Banzai::Filter
       end
 
       content
-    end
-  end
-
-  def format_code(contents)
-    contents.each do |content|
-      if content[:from_line] || content[:to_line]
-        lines = content[:source].lines
-        total_lines = lines.count
-        from_line = (content[:from_line] || 1) - 1
-        to_line = (content[:to_line] || total_lines) - 1
-        content[:source] = lines[from_line..to_line].join
-      end
-
-      content[:source].unindent! if content[:unindent]
-    end
-  end
-
-  def resolve_code(contents)
-    contents.map do |content|
-      @formatter ||= Rouge::Formatters::HTML.new
-      lexer = content[:language].lexer
-      highlighted_source = @formatter.format(lexer.lex(content[:source]))
-      body = <<~HEREDOC
-        <pre class="highlight #{content[:language_key]}"><code>#{highlighted_source}</code></pre>
-      HEREDOC
-
-      content.merge!({ :body => body })
-    end
-  end
-
-  def resolve_tab_title(contents)
-    contents.map do |content|
-      content.merge!({ :tab_title => content[:language].label })
     end
   end
 
