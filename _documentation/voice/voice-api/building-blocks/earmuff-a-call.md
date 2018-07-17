@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Earmuff a call
 
-This building block earmuffs and unearmuffs a call.
+This building block earmuffs and unearmuffs a call.  When a call is earmuffed, the user cannot hear other participants, but other particpants can hear the user.
 
 ## Example
 
@@ -14,7 +14,6 @@ Replace the following variables in the example code:
 Key |	Description
 -- | --
 `UUID` | The UUID of the call you want to update.
-`action` | The action. In this case `earmuff` or `unearmuff`.
 
 ```building_blocks
 source: '_examples/voice/earmuff-a-call'

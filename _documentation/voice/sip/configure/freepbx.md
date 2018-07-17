@@ -57,6 +57,22 @@ insecure=port,invite
 ; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
 allow=ulaw,alaw,g729
 dtmfmode=rfc2833
+
+host=169.60.141.29
+type=friend
+insecure=port,invite
+;Add your codec list here.
+; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
+allow=ulaw,alaw,g729
+dtmfmode=rfc2833
+
+host=169.60.141.30
+type=friend
+insecure=port,invite
+;Add your codec list here.
+; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
+allow=ulaw,alaw,g729
+dtmfmode=rfc2833
 ````
 
 ## Outbound configuration

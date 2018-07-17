@@ -1,6 +1,6 @@
 class Tutorial
   include ActiveModel::Model
-  attr_accessor :title, :description, :products, :document_path
+  attr_accessor :title, :description, :products, :document_path, :languages
 
   def body
     File.read(document_path)
@@ -43,6 +43,7 @@ class Tutorial
         title: frontmatter['title'],
         description: frontmatter['description'],
         products: frontmatter['products'].split(',').map(&:strip),
+        languages: frontmatter['languages'] || [],
         document_path: document_path,
       })
     end

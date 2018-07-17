@@ -2,6 +2,8 @@
 title: Broadcast Voice-based Critical Alerts
 products: voice/voice-api
 description: In this tutorial, you will learn how to send out voice messages and see who was contacted, who responded, and when. These voice-based critical alerts are more persistent than a text message, making your message more likely to be noticed. Additionally, with the recipient confirmation, you can be sure that your message made it through.
+languages:
+    - PHP
 ---
 
 # Broadcast Voice-based Critical Alerts

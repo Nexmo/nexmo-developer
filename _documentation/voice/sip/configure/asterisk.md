@@ -40,6 +40,12 @@ host=119.81.44.6
 
 [nexmo-sip-06](nexmo-sip)
 host=119.81.44.7
+
+[nexmo-sip-07](nexmo-sip)
+host=169.60.141.29
+
+[nexmo-sip-08](nexmo-sip)
+host=169.60.141.30
 ````
 
 
@@ -109,4 +115,6 @@ host=119.81.44.7
   match = 174.37.245.34
   match = 119.81.44.6
   match = 119.81.44.7
+  match = 169.60.141.29
+  match = 169.60.141.30
 ````

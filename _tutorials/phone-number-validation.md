@@ -2,6 +2,8 @@
 title: Phone number validation
 products: number-insight
 description: By asking your customer to provide a phone number — and then validating the legitimacy of that number — you minimize fraud and ensure that you can easily contact that customer in the future.
+languages:
+    - Ruby
 ---
 
 # Phone number validation
