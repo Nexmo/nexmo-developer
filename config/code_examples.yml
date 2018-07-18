@@ -78,6 +78,11 @@ messaging:
         from_line: 34
         to_line: 39
         unindent: true
+    send-unicode:
+      curl:
+        source: '_examples/curl/messaging/sms/send-an-sms-with-unicode.sh'
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms-with-unicode.py'
     delivery-receipts:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'

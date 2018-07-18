@@ -1,6 +1,6 @@
 ---
 title: Receiving an SMS
-navigation_weight: 2
+navigation_weight: 3
 ---
 
 # Receiving an SMS
