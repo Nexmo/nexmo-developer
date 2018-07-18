@@ -9,7 +9,7 @@ code:
     to_line: 44
 client:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/EarmuffCall.java
-    from_line: 18
+    from_line: 22
     to_line: 23
 run_command: java-ide
 file_name: EarmuffCall.java

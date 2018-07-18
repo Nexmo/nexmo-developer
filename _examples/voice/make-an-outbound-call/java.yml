@@ -3,15 +3,14 @@ title: Java
 language: java
 dependencies:
     - 'com.nexmo:client:latest.release'
-    - 'com.sparkjava:spark-core:2.7.2'
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java
     from_line: 27
-    to_line: 33
+    to_line: 27
 client:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java
-    from_line: 17
-    to_line: 25
+    from_line: 20
+    to_line: 21
 run_command: java-ide
 file_name: OutboundTextToSpeech.java
 unindent: true

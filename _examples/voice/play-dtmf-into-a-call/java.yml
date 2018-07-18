@@ -6,11 +6,11 @@ dependencies:
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/SendDtmfToCall.java
     from_line: 58
-    to_line: 60
+    to_line: 58
 client:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/SendDtmfToCall.java
-    from_line: 39
-    to_line: 46
+    from_line: 43
+    to_line: 44
 run_command: java-ide
 file_name: SendDtmfToCall.java
 unindent: true

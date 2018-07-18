@@ -6,8 +6,8 @@ dependencies:
     - 'com.sparkjava:spark-core:2.7.2'
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/DtmfInput.java
-    from_line: 35
-    to_line: 66
+    from_line: 33
+    to_line: 64
 run_command: java-ide
 file_name: DtmfInput.java
 unindent: true
