@@ -6,7 +6,7 @@ navigation_weight: 2
 
 # Sending a Unicode message via SMS
 
-A building block that shows how to send a Unicode SMS.
+Nexmo's SMS API supports Unicode if you specify the type of message as Unicode when sending.  This allows sending of characters from beyond the Latin/ASCII character sets, as we'll see in the example below.
 
 Key | Description
 -- | --
@@ -15,6 +15,6 @@ Key | Description
 `TO_NUMBER` | The number you are sending the SMS to.
 `FROM` | Used to identify sender.
 
-```tabbed_content
+```building_blocks
 source: '_examples/messaging/sms/send-an-sms-with-unicode'
 ```
