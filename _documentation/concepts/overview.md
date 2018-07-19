@@ -8,6 +8,7 @@ There are a number of shared concepts between the Nexmo APIs: the use of JSON We
 
 ## Guides
 
+* [Numbers](/concepts/guides/numbers) - About Nexmo Numbers and how to obtain them.
 * [Applications](/concepts/guides/applications) - Security and configuration information you need to connect to Nexmo endpoints.
 * [Authentication](/concepts/guides/authentication) – API keys, OAuth, and JSON Web Tokens (JWTs).
 * [OAuth](/concepts/guides/oauth) – how to use OAuth 1.0a with Nexmo's API.
