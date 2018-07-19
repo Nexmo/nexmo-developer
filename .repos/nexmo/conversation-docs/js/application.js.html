@@ -38,17 +38,17 @@ const logger = require('loglevel');
 
 const User = require('./user')
 const Conversation = require('./conversation');
-const Event = require('./events/event');
 const Call = require('./modules/call');
 const SipEventHandler = require('./handlers/sip_events');
+const ApplicationEventsHandler = require('./handlers/application_events');
 
-const Utils = require('./utils');
 const ConversationClientError = require('./conversationClientError');
 
 const NexmoApiError = ConversationClientError.NexmoApiError;
 const NexmoClientError = ConversationClientError.NexmoClientError;
 
 let sipEventHandler = null;
+let applicationEventsHandler = null;
 
 /**
  * Core application class for the SDK.
@@ -75,12 +75,14 @@ class Application {
 		this.synced_conversations_count = 0;
 		this.start_sync_time = 0;
 		this.stop_sync_time = 0;
-		/** conversation_id, call */
+		/* conversation_id, call */
 		this.calls = new Map();
-		/** knocking_id, call */
+		/* knocking_id, call */
 		this._call_draft_list = new Map();
 
 		sipEventHandler = new SipEventHandler(this);
+		applicationEventsHandler = new ApplicationEventsHandler(this);
+
 		this.me = null;
 		Object.assign(this, params);
 		WildEmitter.mixin(Application);
@@ -99,7 +101,7 @@ class Application {
 	updateOrCreateConversation(payload) {
 		const conversation = this.conversations[payload.id];
 		if (conversation) {
-			conversation.updateObjectInstance(conversation, payload);
+			conversation._updateObjectInstance(payload);
 			this.conversations[payload.id] = conversation;
 		} else {
 			this.conversations[payload.id] = new Conversation(this, payload);
@@ -187,55 +189,8 @@ class Application {
 	 * @private
 	 */
 	_handleApplicationEvent(event) {
-		const conversation = this.conversations[event.cid];
-		const copied_event = Object.assign({}, event);
-		let payload;
-		switch (event.type) {
-			// case: call to PSTN, after knocking event we receive joined
-			case 'member:joined':
-				if (event.body.channel &amp;&amp; event.body.channel.knocking_id &amp;&amp; this._call_draft_list.has(event.body.channel.knocking_id)) {
-					const call = this._call_draft_list.get(event.body.channel.knocking_id);
-					call._setupConversationObject(conversation);
-					call._setConversationFrom(conversation.me);
-					this._call_draft_list.delete(event.body.channel.knocking_id);
-					// remove the knocking id for the calls list
-					// needs to be part of the call_draft_list for call.hangup to perform knocking:delete
-					delete call.knocking_id;
-					this.calls.set(conversation.id, call);
-					call._handleStateChange(event);
-				}
-				payload = new Event(conversation, copied_event);
-				break;
-			case 'member:invited':
-				if (conversation.me &amp;&amp; (conversation.me.user.name === event.body.invited_by)) return;
-				//media audio invite
-				if (copied_event.body.user.media &amp;&amp; copied_event.body.user.media.audio) {
-					if (conversation.display_name &amp;&amp; conversation.display_name.startsWith('CALL_')) {
-						//audio call module (IP - IP call)
-						const caller = Utils.getMemberFromNameOrNull(conversation, copied_event.body.invited_by) || 'unknown';
-						const call = new Call(this, conversation, caller);
-						payload = call;
-						this.calls.set(conversation.id, call);
-						copied_event.type = 'member:call';
-					} else {
-						payload = new Event(conversation, copied_event);
-					}
-					if (!copied_event.body.invited_by) {
-						// VAPI invites (PHONE - IP)
-						const call = new Call(this, conversation, "unknown");
-						payload = call;
-						this.calls.set(conversation.id, call);
-						copied_event.type = 'member:call';
-					}
-				} else {
-					payload = new Event(conversation, copied_event);
-				}
-				break;
-			default:
-				payload = new Event(conversation, copied_event);
-				break;
-		}
-		this.emit(copied_event.type, conversation.members[copied_event.from], payload);
+		const processed_event = applicationEventsHandler.handleEvent(event);
+		this.emit(processed_event.type, this.conversations[event.cid].members[processed_event.from], processed_event);
 	}
 
 	/**
@@ -260,7 +215,7 @@ class Application {
 	/**
 	 * Creates a call to phone a number.
 	 * The call object is created under application.calls when the call has started.
-	 * listen for it with application.on("call:state:changed")
+	 * listen for it with application.on("call:status:changed")
 	 *
 	 * You don't need to start the stream, the SDK will play the audio for you
 	 *
@@ -268,8 +223,8 @@ class Application {
 	 * @param {string} phoneNumber - the number you want to call
 	 * @returns {Promise&lt;Call>}
 	 * @example &lt;caption>Create a call to a phone&lt;/caption>
-	 *        application.on("call:state:changed", (call) => {
-            if (call.state === call.CALL_STATES.STARTED) {
+	 *        application.on("call:status:changed", (call) => {
+			if (call.status === call.CALL_STATUS.STARTED) {
 				console.log('the call has started');
 	 *		}
 	 * application.callPhone(phone_number).then(() => {
@@ -497,13 +452,13 @@ module.exports = Application;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:status:changed">call:status:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 26 2018 11:08:32 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 17 2018 11:33:17 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
