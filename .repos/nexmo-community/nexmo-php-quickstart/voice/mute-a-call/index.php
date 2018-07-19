@@ -5,6 +5,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 $keypair = new \Nexmo\Client\Credentials\Keypair(file_get_contents(NEXMO_APPLICATION_PRIVATE_KEY_PATH), NEXMO_APPLICATION_ID);
 $client = new \Nexmo\Client($keypair);
 
-$client->calls[NEXMO_CALL_UUID]->put(new \Nexmo\Call\Mute());
+$client->calls[UUID]->put(new \Nexmo\Call\Mute());
 sleep(3);
-$client->calls[NEXMO_CALL_UUID]->put(new \Nexmo\Call\Unmute());
+$client->calls[UUID]->put(new \Nexmo\Call\Unmute());

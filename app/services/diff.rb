@@ -29,8 +29,13 @@ class Diff
         FileUtils.mkdir_p(directory) unless File.directory?(directory)
 
         begin
+
+          # Read the source file and compile the markdown, which will include all sub-content too
           document = File.read(document_path)
           body_html = MarkdownPipeline.new.call(document)
+
+          # Some IDs are dynamically generated, which makes the diff noisy. Iterate over them and set to nil so that
+          # they never show up in the diff
           document = Nokogiri::HTML::DocumentFragment.parse(body_html)
 
           ['id', 'data-tabs-content', 'data-id', 'data-open', 'data-collapsible-id'].each do |attribute|
@@ -43,10 +48,11 @@ class Diff
             element['href'] = nil
           end
 
+          # Write the file to /tmp/{mode} to run through a diff later
           File.open(path, 'w') do |file|
             file.write document.to_html
           end
-        rescue Exception
+        rescue Exception # rubocop:disable Lint/RescueException - This is old code and I don't know the impact of swapping
           puts "File failed to generate - #{relative_path}".colorize(:yellow)
           File.open(path, 'w') do |file|
             file.write <<~HEREDOC
