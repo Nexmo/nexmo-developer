@@ -26,6 +26,7 @@ class BuildingBlockFilter < Banzai::Filter
 
       client_html = ''
       if highlighted_client_source
+        client_url = generate_source_url(config['client'])
         id = SecureRandom.hex
         erb = File.read("#{Rails.root}/app/views/building_blocks/_configure_client.html.erb")
         client_html = ERB.new(erb).result(binding)
