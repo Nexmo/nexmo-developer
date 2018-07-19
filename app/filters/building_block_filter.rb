@@ -122,16 +122,19 @@ class BuildingBlockFilter < Banzai::Filter
     start_section = 'https://github.com'
 
     # Insert "blob/master" and strip ".repos"
-    file_section = code['source'].sub('.repos', '').sub(%r{/-quickstart\//}, '\\0blob/master/')
+    file_section = code['source'].sub('.repos', '').sub(/-quickstart\//, '\\0blob/master/')
 
     # Line highlighting
     line_section = ''
     if code['from_line']
       line_section += "#L#{code['from_line']}"
-      # By default we read to the end of the file
-      line_section += "-L#{File.read(code['source']).lines.count}"
-      # If we've provided a to_line, use that instead
-      line_section += "-L#{code['to_line']}" if code['to_line']
+      if code['to_line']
+        # If we've provided a to_line, use that
+        line_section += "-L#{code['to_line']}" if code['to_line']
+      else
+        # By default we read to the end of the file
+        line_section += "-L#{File.read(code['source']).lines.count}"
+      end
     end
 
     start_section + file_section + line_section
