@@ -121,8 +121,12 @@ class BuildingBlockFilter < Banzai::Filter
     # Direct link on GitHub is in form https://github.com/nexmo-community/java-quickstart/blob/master/ExampleClass.java
     start_section = 'https://github.com'
 
-    # Insert "blob/master" and strip ".repos"
-    file_section = code['source'].sub('.repos', '').sub(/-quickstart\//, '\\0blob/master/')
+    # Insert "blob/master" and strip ".repos" - except dotnet that needs "blob/ASPNET" instead
+    repo_path = '\\0blob/master/'
+    if code['source'].include?("dotnet")
+      repo_path = '\\0blob/ASPNET/'
+    end
+    file_section = code['source'].sub('.repos', '').sub(/-quickstart\//, repo_path)
 
     # Line highlighting
     line_section = ''
