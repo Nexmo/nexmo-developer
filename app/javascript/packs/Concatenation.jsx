@@ -29,7 +29,6 @@ const safeCharacters = [
   '§', 'o', 'à', ' '
 ]
 
-// TODO: Need to realize that these characters do not require Unicode type, but do require two bytes per character.
 // These require two bytes per character: ESC followed by the character
 const extGSMChars = [
   '|', '^', '€', '{', '}', '[', ']', '~', '\\'
@@ -68,7 +67,7 @@ class Concatenation extends React.Component {
   }
 
   shouldEncodeAs16Bit() {
-    var remainder = difference(this.splitStringByCodePoint(), safeCharacters)
+    var remainder = difference(this.splitStringByCodePoint(), [...safeCharacters, ...extGSMChars])
     return remainder.length !== 0
   }
 
