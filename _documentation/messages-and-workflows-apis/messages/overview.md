@@ -10,15 +10,24 @@ The Messages API provides integration with the following communications channels
 * SMS
 * Facebook Messenger
 * Viber
+* WhatsApp
 
 Further channels may be supported in the future.
 
 In this release the following features are supported:
 
-* Outbound text messages on SMS, Viber Service Messages and Facebook Messenger.
-* Outbound image message on Viber Service Messages.
-* Outbound image, audio, video and file messages on Facebook Messenger.
-* Inbound text, image, audio, video, file and location messages on Facebook Messenger.
+Channel | Outbound Text | Outbound Image | Outbound Audio | Outbound Video | Outbound File | Outbound Template
+-- | -- | -- | -- | -- | -- | --
+SMS | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
+Viber Service Messages | ✅ | ✅ | ❎ | ❎ | ❎ | ❎
+Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ❎
+WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ✅
+
+Channel | Inbound Text | Inbound Image | Inbound Audio | Inbound Video | Inbound File | Inbound Location
+-- | -- | -- | -- | -- | -- | --
+Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
+WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
+
 
 The following diagram illustrates the relationship between the Messages API and the Workflows API:
 

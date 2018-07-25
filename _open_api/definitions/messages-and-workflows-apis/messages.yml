@@ -207,6 +207,7 @@ components:
               example: messenger
               enum:
                 - messenger
+                - whatsapp
             id:
               type: string
               description: The ID of the recipient.
@@ -222,6 +223,7 @@ components:
               example: messenger
               enum:
                 - messenger
+                - whatsapp
             id:
               type: string
               description: The ID of the sender.
@@ -276,13 +278,14 @@ components:
             - sms
             - viber_service_msg
             - messenger
+            - whatsapp
         id:
           description: |
             The ID of the message recipient.
 
             **Messenger**: This value should be the `from.id` value you received in the inbound messenger event.
 
-            **SMS**: or **Viber**: This value is not required.
+            **SMS**: or **Viber**: or **WhatsApp** This value is not required.
           type: string
           minLength: 1
           maxLength: 50
@@ -293,7 +296,7 @@ components:
           maxLength: 50
           example: '447700900000'
           description: |
-            **SMS**: or **Viber**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
+            **SMS**: or **Viber**: or **WhatsApp** The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
 
             **Messenger**: This value is not required.
     FromProperty:
@@ -309,6 +312,7 @@ components:
             - sms
             - viber_service_msg
             - messenger
+            - whatsapp
         id:
           description: |
             Your ID for the platform that you are sending from.
@@ -317,7 +321,7 @@ components:
 
             **Viber**: This is your Service Message ID given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
 
-            **SMS**: This value is not required.
+            **SMS**:  or **WhatsApp** This value is not required.
           type: string
           minLength: 1
           maxLength: 50
@@ -329,6 +333,8 @@ components:
           example: '447700900000'
           description: |
             **SMS**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
+            
+            **WhatsApp**: This is your WhatsApp Business Number  given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
 
             **Messenger**: or **Viber**: This value is not required.
     MessageProperty:
@@ -346,6 +352,8 @@ components:
                 **Messenger**: supports all types.
 
                 **Viber Service Messages**: supports `image` and `text`.
+                
+                **WhatsApp**: supports `template` and `text`.
 
                 **SMS**: supports `text`.
               type: string
@@ -355,6 +363,7 @@ components:
                 - audio
                 - video
                 - file
+                - template
                 - custom
               example: 'text'
             text:
@@ -364,10 +373,12 @@ components:
                 **Messenger**: Is limited to 640 characters
 
                 **SMS** or **Viber**: Is 1000 characters
+                
+                **WhatsApp**: is 4096 characters
               type: string
               minLength: 1
-              maxLength: 1000
-              example: 'Hello world!'
+              maxLength: 4096
+              example: 'Nexmo Verification code: 64873. Valid for 10 minutes.'
             image:
               $ref: '#/components/schemas/ImageProperty'
             audio:
@@ -376,6 +387,8 @@ components:
               $ref: '#/components/schemas/VideoProperty'
             file:
               $ref: '#/components/schemas/FileProperty'
+            template:
+              $ref: '#/components/schemas/TemplateProperty'
             # @TODO: Clarify requirements
             # custom:
             #   type: object
@@ -458,6 +471,22 @@ components:
           minLength: 1
           maxLength: 2000
           example: 'https://example.com/file.zip'
+    TemplateProperty:
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'The name of the template.'
+          example: 'whatsapp:hsm:technology:nexmo:verify'
+        parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              default:
+                type: string
+                description: 'The parameters are an array. The first value being {{1}} in the template.'
+                example: '1234'
     LocationProperty:
       type: object
       properties:
