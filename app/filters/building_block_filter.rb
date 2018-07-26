@@ -127,7 +127,7 @@ class BuildingBlockFilter < Banzai::Filter
     if code['source'].include?("dotnet")
       repo_path = '\\0blob/ASPNET/'
     end
-    file_section = code['source'].sub('.repos', '').sub(/-quickstart\//, repo_path)
+    file_section = code['source'].sub('.repos', '').sub(/(-quickstart|-building-blocks)\//, repo_path)
 
     # Line highlighting
     line_section = ''
@@ -143,5 +143,6 @@ class BuildingBlockFilter < Banzai::Filter
     end
 
     start_section + file_section + line_section
+
   end
 end

@@ -179,7 +179,7 @@ If we want to be notified when the call status changes, we need to add a listene
 
 Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Call one from the other, accept the call and start talking. You'll also see events being logged in the browser console.
 
-Thats's it! Your page should now look something like [this](https://github.com/Nexmo/conversation-js-quickstart/blob/master/examples/calling-users/index.html).
+Thats's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/calling-users/index.html).
 
 ### 1.6 - Calling a Stitch user from a phone
 

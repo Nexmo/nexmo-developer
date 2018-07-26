@@ -187,7 +187,7 @@ setupConversationEvents(conversation) {
 
 Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Open the developer tools console and start chatting. You'll see events being logged in the console.
 
-That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/examples/utilizing-events/index.html).
+That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/utilizing-events/index.html).
 
 
 ## Where next?

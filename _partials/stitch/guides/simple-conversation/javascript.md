@@ -357,7 +357,7 @@ setupUserEvents() {
 }
 ```
 
-That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/examples/simple-conversation/index.html).
+That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/simple-conversation/index.html).
 
 Run `index.html` in two side-by-side browser windows to see the conversation take place.
 

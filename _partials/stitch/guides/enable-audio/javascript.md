@@ -128,7 +128,7 @@ showConversationHistory(conversation) {
 
 Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Enable audio on both and start talking. You'll also see events being logged in the browser console.
 
-That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/examples/enable-audio/index.html).
+That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-audio/index.html).
 
 ## Where next?
 

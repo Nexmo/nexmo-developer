@@ -64,7 +64,7 @@ this.callPhoneForm.addEventListener('submit', (event) => {
 
 Now run `index.html` in the browser, making sure to login with the user name `jamie`. Call a phone number, accept the call and start talking. You'll also see the call status events being logged in the browser console.
 
-Thats's it! Your page should now look something like [this](https://github.com/Nexmo/conversation-js-quickstart/blob/master/examples/calling-phones/index.html).
+Thats's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/calling-phones/index.html).
 
 ## Where next?
 
