@@ -132,7 +132,7 @@ Please note that free form text messages can only be sent when a customer sends 
 Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` | The ID of the Nexmo Application that you created.
-`WHATSAPP_NUMBER` | Your Viber Service Message ID.
+`WHATSAPP_NUMBER` | Your WhatsApp number.
 `TO_NUMBER` | The phone number you are sending the message to.
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
