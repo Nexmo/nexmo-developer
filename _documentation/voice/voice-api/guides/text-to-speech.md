@@ -38,7 +38,7 @@ if you do not specify a voice name then nexmo will default to
 
 ### Voice Names
 
-Name | Language | Gender | [SSML](#ssml) support
+Name | Language | Gender | [SSML](#ssml) support 
 -- | -- | -- | -- 
 `Salli` | `en-US` | `female` | ✅
 `Joey` | `en-US` | `male` | ✅
