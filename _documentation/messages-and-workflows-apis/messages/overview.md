@@ -18,15 +18,18 @@ In this release the following features are supported:
 
 Channel | Outbound Text | Outbound Image | Outbound Audio | Outbound Video | Outbound File | Outbound Template
 -- | -- | -- | -- | -- | -- | --
-SMS | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
-Viber Service Messages | ✅ | ✅ | ❎ | ❎ | ❎ | ❎
-Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ❎
+SMS | ✅ | n/a | n/a | n/a | n/a | n/a
+Viber Service Messages | ✅ | ✅ | n/a | n/a | n/a | ✅
+Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ✅
 
 Channel | Inbound Text | Inbound Image | Inbound Audio | Inbound Video | Inbound File | Inbound Location
 -- | -- | -- | -- | -- | -- | --
 Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
+
+Key: ✅ = Supported. ❎ = Supported by the channel, but not by Nexmo. n/a = Not supported by the channel.
+
 
 
 The following diagram illustrates the relationship between the Messages API and the Workflows API:
