@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   get '/documentation', to: 'static#documentation'
 
+  get '/hansel', to: 'static#podcast'
+
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
   resources :careers, only: [:show], path: 'team'

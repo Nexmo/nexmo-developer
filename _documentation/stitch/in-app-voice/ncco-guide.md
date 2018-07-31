@@ -42,21 +42,21 @@ nexmo app:create "Stitch Outbound PSTN" https://example.com/answer https://examp
 or
 
 ```sh
-nexmo app:update 96b0f981-a03f-4bc8-b521-149978b9243c "Stitch Outbound PSTN" https://example.com/answer https://example.com/events
+nexmo app:update aaaaaaaa-bbbb-cccc-dddd-0123456789ab "Stitch Outbound PSTN" https://example.com/answer https://example.com/events
 ```
 
 Then you'll need to buy a number with Nexmo and link the number to your new or existing Stitch application.
 
 ```sh
 nexmo number:buy 16625461410
-nexmo link:app 16625461410 96b0f981-a03f-4bc8-b521-149978b9243c
+nexmo link:app 16625461410 aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
 ## Using the SDKs with an answer URL.
 
 The new or existing application should be used to generate a user JWT that your user will use to login to one of the Stitch SDKs. For more info about creating a JWT and associating with a user or application. See the first [In-App Messaging quickstart](/stitch/in-app-messaging/guides/simple-conversation)
 
-When you use one of the Nexmo Stitch SDKs to make a PSTN call, you'll pass in the PSTN number you want to call as an argument to that SDK's `callPhone()` method. Then the Stitch API will make a request to your answer URL `https://example.com/answer` with the following parameters:
+When you use one of the Nexmo Stitch SDKs to make a PSTN call, you'll pass in the phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format you want to call as an argument to that SDK's `callPhone()` method. Then the Stitch API will make a request to your answer URL `https://example.com/answer` with the following parameters:
 
 ```
 ?from=demo

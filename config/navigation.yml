@@ -41,6 +41,11 @@ navigation_overrides:
     sdk-documentation:
       link: false
       prevent_navigation_item_class: true
+  voice:
+    voice-api:
+      guides:
+        lex-connector:
+          label: 'Developer Preview'
   messages-and-workflows-apis:
     messages:
       label: 'Developer Preview'

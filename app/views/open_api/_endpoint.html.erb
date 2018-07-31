@@ -16,6 +16,12 @@
 
       <% if endpoint.jwt? || endpoint.basic_auth? %>
         <h4>Authentication</h4>
+        <% if endpoint.jwt? && endpoint.basic_auth? %>
+            <p>This API supports both JWT and Basic authentication. Basic authentication is easier to get started with, but does not support advanced features such as ACLs.</p>
+
+            <p>You can use <em>either</em> JWT or Basic authentication, but not both at the same time.</p>
+      <% end %>
+
         <ul class="table-list table-list--dark">
           <li class="table-list-header">
             <div class="table-list-columns">
@@ -26,37 +32,45 @@
               <div class="table-list-column">Default</div>
             </div>
           </li>
+          <% if endpoint.jwt? %>
           <li>
             <div class="table-list-columns">
               <div class="table-list-column" flex="2">
                 <b>Authorization</b>
                 <br>
-                <small>
-                  <span class="flag flag--strong">REQUIRED</span> | <i>string</i>
-                </small>
               </div>
 
-              <% if endpoint.jwt? %>
                 <div class="table-list-column" flex="3">
                   <b>Your JSON web token.</b><br>
                   <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
                 </div>
                 <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
-              <% end %>
+             <div class="table-list-column">
+                <i>None</i>
+              </div>
+            </div>
+          </li>
+      <% end %>
+          <% if endpoint.basic_auth? %>
+          <li>
+            <div class="table-list-columns">
+              <div class="table-list-column" flex="2">
+                <b>Authorization</b>
+                <br>
+              </div>
 
-              <% if endpoint.basic_auth? %>
                 <div class="table-list-column" flex="3">
                   <b>Base64 encoded API key and secret joined by a colon.</b><br>
                   <small><%= link_to "Read more", "/concepts/guides/authentication#header-based-api-key-secret-authentication" %></small>
                 </div>
                 <div class="table-list-column" flex="2"><code>Basic &lt;base64&gt;</code></div>
-              <% end %>
-
-              <div class="table-list-column">
+             <div class="table-list-column">
                 <i>None</i>
               </div>
             </div>
           </li>
+      <% end %>
+
         </ul>
       <% end %>
 
