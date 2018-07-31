@@ -54,7 +54,7 @@ Here is an example of the NCCO you should return to handle incoming calls with L
         "action": "connect",
         "endpoint": [
             {
-                "content-type": "audio/l16;rate=8000",
+                "content-type": "audio/l16;rate=16000",
                 "headers": {
                     "aws_key": "AAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "aws_secret": "eescOz9xisx+gx-PFU3G4AJg4NE4UExnHYaijI+o6xgNT0"

@@ -15,6 +15,62 @@
   hr {
     width: 40px;
     margin: $spacing auto;
+  }
+}
 
+.blog-excerpt {
+  padding: 37px 30px 0px;
+  min-height: 210px;
+  margin-bottom: 30px;
+  max-height: 210px;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  h2,
+  h3 {
+    color: #0077c8;
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 300;
+    margin: 5px 0 2px;
+    display: table;
+    margin-bottom: 14px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 23px;
+    color: #335269;
+    margin: 10px auto 0;
+    font-weight: 300;
+  }
+}
+
+.article {
+  float: left;
+
+  a {
+    display: inline-block;
+    padding: 10px 0;
+    color: #224e66;
+    border-bottom: none;
+  }
+
+  :after {
+    background: #2db276;
+    content: "";
+    height: 8px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px;
   }
 }
