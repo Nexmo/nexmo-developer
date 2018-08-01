@@ -12,15 +12,15 @@ An introductory guide for first time contributors to understand how and where co
 
 ## [Writing Style Guide](/contribute/guides/writing-style-guide)
 
-The Writing Style guide provides guidance and templates for how Nexmo Developer should be written and structured as well as what we use in place of API credentials and other variables throughout the guides.
+The Writing Style Guide provides guidance and templates for how Nexmo Developer should be written and structured as well as what we use in place of API credentials and other variables throughout the guides.
 
 ## [Markdown Guide](/contribute/guides/markdown-guide)
 
-The Markdown style guide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
+The Markdown Guide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
 
 ## [Structure](/contribute/structure/overview)
 
-The structure section provides an overview of our documentation content types, which type to use and how our documentation content should be structured.
+The Structure section provides an overview of our documentation content types, which type to use and how our documentation content should be structured.
 
 ## [Code Examples](/contribute/guides/code-examples)
 

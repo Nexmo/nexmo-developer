@@ -1,9 +1,9 @@
 ---
-title: Writing style guide
+title: Writing Style Guide
 navigation_weight: 2
 ---
 
-# Writing style guide
+# Writing Style Guide
 
 These are technical writing guidelines that can be used across all Nexmo technical documentation as well as blog posts.
 
@@ -44,9 +44,11 @@ Examples:
 * *Active voice:* Nexmo provides a Messages API.
 * *Passive voice:* A Messages API is provided by Nexmo.
 
+Active voice leads to text that is simpler and more direct, and is easier to translate.
+
 ## Paragraph breaks
 
-In technical writing, and especially blog posts, you can be a little more generous with your use of paragraph breaks. They make the text less overwhelming and easier to read.
+In technical writing, and especially blog posts, you can be a little more generous with your use of paragraph breaks. Paragraph breaks make the text less overwhelming and easier to read.
 
 ## Avoid vague and cautious language
 
@@ -95,12 +97,52 @@ Examples:
 
 ## Headings
 
-Be consistent.
+Try to be consistent with capitalization of headings. You can follow these guidelines:
 
-For example:
+* Use word case for top-level topics and sections. For example, 'Building Blocks', 'Guides', 'Markdown Guide', 'Writing Style Guide', 'Installation Guide', 'Messages and Workflows API', 'Stitch Developer Guide'.
+* Use sentence case for topic titles below a top-level section. For example, 'This is the topic title'. The exception to this is if the heading references a top-level section. For example, 'How to use the Getting Started Guide', as Getting Started Guide is a top-level section in this example.
+* Use sentence case for sub-section headings. For example, 'This is a sub-section heading'.
 
-* Use word case for documentation main sections. For example, 'Building Blocks'.
-* Use sentence case for section headings. For example, 'This is a section heading'.
+There is no need to capitalize minor words in headings. For example:
+
+* *Avoid:* Messages And Workflows API.
+* *Better:* Messages and Workflows API.
+
+Always capitalize words that would normally be capitalized. For example:
+
+* *Avoid:* How to send an sms
+* *Better:* How to send an SMS
+
+The following shows an example of correct heading case:
+
+```
+Getting Started Guide (top-level topic)
+  Overview
+    Concepts
+    How to send an SMS
+    How to use the Installation Guide
+
+Installation Guide
+  Configure your Dashboard
+  Install the client library
+    How to install the Node library
+      Clone the source code from GitHub (sub-section heading, not visible in TOC)
+    How to install the Python library
+      Clone the source code from GitHub (sub-section heading, not visible in TOC)
+  Test the installation
+```
+
+Another example demonstrates correct heading case:
+
+```
+Building Blocks  (main section)
+  Before you begin
+  Connect an inbound call
+  Download a recording
+  Earmuff a call
+  Handle user input with DTMF
+  ...
+```
 
 ## Bulleted lists
 
@@ -111,6 +153,12 @@ This is an example of a bulleted list:
 * Use bulleted lists for lists.
 * Use numbered lists for ordered sequences (procedures, tasks and so on).
 
+Note the following points:
+
+* The list has a piece of text introducing the list followed by a colon.
+* Each item in the list is terminated by a full-stop (period).
+* If each item in the list is a single word a terminating period is not required.
+
 ## Codeblocks
 
 When inserting codeblocks for example code in the text:
@@ -119,20 +167,19 @@ When inserting codeblocks for example code in the text:
 * Break the text before a codeblock with a colon, not a period (which is a hard stop in the mind of the reader, rather than a continuation).
 * There should not be a space before the colon.
 
-## Three Letter Acronyms (TLAs)
+## Acronyms
 
-Define Three Letter Acronyms (TLAs) before first use. On subsequent use on a page/section you do not need to redefine the TLA.
+Define acronyms before first use. On subsequent use on a page/section you do not need to redefine the acronym.
 
 ## Be explicit
 
 Try to be explicit, that is use precise terms where necessary to improve clarity and avoid ambiguity.
 
-Examples:
+Some examples are given here:
 
 * Using 'Nexmo Number' rather than 'number'.
-* Using 'Nexmo Application' rather than 'application'.
-* Using 'web application' rather than 'application'.
-* Using 'webhook server' rather than 'server' or 'application'.
+* Using 'Nexmo Application' rather than 'application' (where appropriate).
+* Using 'web application' rather than 'application' (where appropriate).
 * Using 'webhook URL' rather than 'endpoint' or 'callback URL'.
 * Using Nexmo Client Library rather than 'library'.
 * Using Nexmo Command Line Interface, or Nexmo CLI, rather than 'command line'.
@@ -156,7 +203,7 @@ Some additional points to bear in mind:
 * Avoid statements that predict the future, for example, "the next version will have feature X". There are good legal reasons for avoiding predicting the future.
 * Avoid time sensitive information. Specify an exact version where possible, for example '1.1', rather than 'current version' as the current version may change.
 * Avoid using ampersand ('&') instead of 'and', unless you are specifying a programming language operator or similar.
-* "It's" is _always_ 'it is'.
+* "It's" _always_ means 'it is'.
 
 ## Replaceable values
 

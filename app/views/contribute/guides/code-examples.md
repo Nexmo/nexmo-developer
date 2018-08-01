@@ -1,5 +1,6 @@
 ---
 title: Code Examples
+navigation_weight: 4
 ---
 
 # Contributing Code Examples
