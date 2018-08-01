@@ -49,10 +49,6 @@ A Telecommunications Service Provider. The company that a phone connects to is t
 
 Call Detail Record. CDRs completely describe a message or call and the submission state. Technically, this is data for a particular Request.
 
-## Chat App API
-
-Supplies two-way messaging with users of all different chat apps, plus access to data about the users’ profiles. Chat App API gives access to all the chat apps in one place after a single integration.
-
 ## Cloud number
 
 A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging) or [Voice](#voice) communication.
