@@ -23,33 +23,13 @@ Adaptive Routing technology actively reroutes messages through the alternate car
 
 This technology in the Platform is an algorithm that actively monitors and dynamically adjusts the routes used to deliver SMS. The route choice is made using millions of real-time conversion data points.
 
-## AD
-
-Admin Dashboard. See [Dashboard](#dashboard).
-
 ## Analytics
 
 See [insights](#insights).
 
-## Android Virtual Device
-
-A device configuration that is run with the Android emulator.
-
-For more information, see the [Android developer website](http://developer.android.com/tools/devices/index.html).
-
 ## API
 
 API, which stands for Application Program Interface, is a set of protocols, tools and routines for building applications. An API specifies how the various software components interact.  Nexmo’s Cloud Communications Platform provides a comprehensive suite of APIS than allow you to implement Messaging, Voice, Verification, and Chat App API solutions.
-
-## App
-
-Software that runs on a computer, mobile device or a Web browser.
-
-See the [Wikipedia article](https://en.wikipedia.org/wiki/App).
-
-## Application
-
-A Nexmo Application.
 
 ## AR
 
@@ -65,23 +45,11 @@ The Answer Seizure Ratio is a metric used to measure the quality of a carrier’
 
 The ASR calculation is `Number of successfully answered calls / Number of calls received`.
 
-## AVD
-
-See [Android Virtual Device](#android-virtual-device).
-
-## BI
-
-See [Business Intelligence](#business-intelligence).
-
-## Business Intelligence
-
-Team managing data and analytical tools, such as Tableau Server or Data Warehouse.
-
 ## Call API
 
 You use Call API to generate voice calls over regular phone numbers. You can:
 
-* Create Call me buttons.
+* Create 'Call Me' buttons.
 * Automate calls in your App.
 * Manage event-prompted calls.
 
@@ -113,29 +81,13 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Challenge–response_authe
 
 Supplies two-way messaging with users of all different chat apps, plus access to data about the users’ profiles. Chat App API gives access to all the chat apps in one place after a single integration.
 
-## CLI
-
-See [Caller ID](#caller-id).
-
 ## Cloud number
 
-A virtual number that is assigned to a customers account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging) or [Voice](#voice) communication.
+A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging) or [Voice](#voice) communication.
 
 ## Conversions
 
 The successful validation that a message was delivered to a user.
-
-## Customer
-
-A company who uses Nexmo products or services.
-
-## CD
-
-Customer Dashboard. See [Dashboard](#dashboard).
-
-## DA
-
-Destination Address. Receiving number or equivalent.
 
 ## Dashboard
 
@@ -176,15 +128,7 @@ If the message is not received, this delivery receipt explains why the message f
 
 ## Destination Number
 
-The phone number a message or call is sent to. This is the to parameter in the Nexmo APIs.
-
-## Developer API
-
-The API you use to manage your Nexmo account.
-
-## Direct downloadable link
-
-A direct downloadable link provides a hyperlink that points to a location within the Internet where the user can download a file.
+The phone number a message or call is sent to. This is the `to` parameter in the Nexmo APIs.
 
 ## Direct-to-Carrier Network
 
@@ -230,10 +174,6 @@ A [Delivery Receipt](#delivery-receipt) suspected to be fake. That is, when ther
 
 Sometimes delivery receipts are faked because the Telecommunications Service Provider sends it early. Some Telecommunications Service Providers never return a delivery receipt. In this case Nexmo creates a delivery receipt and sends it to you.
 
-## Enterprise-grade call quality
-
-Ensures that your communications network provides high-quality voice traffic. Call quality is never less than that of a major Telecommunications Service Provider.
-
 ## Geo
 
 The geographic region of the world.
@@ -250,37 +190,17 @@ A [Delivery Receipt](#delivery-receipt) that is sent when the message is deliver
 
 Home Location Register. These databases contain details of each subscriber phone number, including the current active status and more.
 
-## HTTP
-
-An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the [Web](#web), it is the most common standard internet communication protocol.
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol).
-
-## HTTPS
-
-The secure version of [HTTP](#http).
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/HTTPS).
-
-## Inactive number
-
-A phone number that is no longer active.
-
 ## Inbound message
 
 An SMS sent as a reply to the originator.
 
 ## Inbound number
 
-Make it easy for your users to call you and route calls.
+Makes it easy for your users to call you and route calls.
 
 ## Inbound SMS
 
 A simple, cost-effective way to interact with your users. They can send SMS to you using a virtual number.
-
-## Insights
-
-Reliable data collected for specific goals.
 
 ## Interactive Voice Response
 
@@ -292,21 +212,9 @@ A Telecommunications Service Provider that does not own the wireless network inf
 
 See [Wikipedia article](https://en.wikipedia.org/wiki/Mobile_virtual_network_operator).
 
-## Internet
-
-The Internet is a global system of interconnected computer networks that use the standard Internet protocol suite (TCP/IP) to link several billion devices worldwide. It is a network of networks.
-
-See [Wikipedia](https://en.wikipedia.org/wiki/Internet).
-
 ## IVR
 
 See [Interactive Voice Response](#interactive-voice-response).
-
-## JSON
-
-A data format. When you make a request against the Nexmo APIs, you can choose to send and/or receive data in JSON format.
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/JSON).
 
 ## Latency
 
@@ -318,7 +226,7 @@ See [HLR](#hlr).
 
 ## Local Supplier
 
-An intermediate carrier we believe has direct connections Telecommunications Service Providers in a country.
+An intermediate carrier Nexmo believes has direct connections Telecommunications Service Providers in a country.
 
 ## Low friction integration
 
@@ -340,10 +248,6 @@ This product enables Nexmo customers to have a conversation with their users. Th
 * US Short Codes API
 * SMS Cloud Numbers
 
-## Metrics
-
-See [insights](#insights).
-
 ## MO
 
 Mobile Originated. Sent from a phone number to Nexmo. When a phone sends a text to a virtual number it is MO because the message originates from the phone.
@@ -359,10 +263,6 @@ A Telecommunications Service Provider.
 ## Network Delivery Receipt
 
 A [Delivery Receipt](#delivery-receipt).
-
-## Nexmo
-
-Nexmo offers the most advanced solutions to organizations who need to easily embed scalable and trusted communications into their applications and business processes. Nexmo customers communicate with their users through the Platform.
 
 ## Nexmo Dashboard
 
@@ -429,23 +329,13 @@ Post-Dial Delay is the time it takes to receive feedback after a user has finish
 * Recorded announcement
 * Abandoned call
 
-## P2P
+## Per-second billing
 
-Person to Person
-
-## Per second billing
-
-With Nexmo per second billing, you maintain full control over how much you spend. For example, if your call lasts 2.5 minutes, you are charged for 2.5 minutes, not 3. This billing model allows you to make more calls for the same amount of money.
+With Nexmo per-second billing, you maintain full control over how much you spend. For example, if your call lasts 2.5 minutes, you are charged for 2.5 minutes, not 3. This billing model allows you to make more calls for the same amount of money.
 
 ## Performance volatility
 
 The frequent changes in throughput that constantly occur in SMS networks. For example, the fastest and most reliable network connection to a Telecommunications Service Providers may suddenly become unavailable, in which case alternate routes must be immediately switched to.
-
-## PIN
-
-A numeric password shared between a user and a system that can be used to authenticate the user to the system.
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/Personal_identification_number).
 
 ## Platform
 
@@ -466,7 +356,7 @@ These APIs are:
 * [Number Cloud](#number-cloud)
 * Developer API
 
-Virtual Numbers - phone numbers that customers rent:
+**Virtual Numbers** - phone numbers that customers rent:
 
 * SMS Cloud Numbers
 * Voice Cloud Numbers
@@ -474,10 +364,6 @@ Virtual Numbers - phone numbers that customers rent:
 * Dedicated Short Codes
 
 Customers interact and manage their account in the Platform using the [Dashboard](#dashboard).
-
-## Phone number
-
-The number that is either a [telephone number](https://en.wikipedia.org/wiki/Telephone_number) or a virtual number.
 
 ## Ported Phone Number
 
@@ -498,24 +384,6 @@ If the phone number associated with a user is currently reachable. You use this 
 ## Read rate
 
 The number of times a user opened the message you sent. SMS has a 95% read rate, most inbound messages are read within 90 seconds of arrival.
-
-## Request
-
-A call to the APIs offered by Nexmo.
-
-## Response
-
-After you send a Request, the response returns the the status and cost of your Request to the Nexmo API. Depending on your Request, the Response is in either JSON or XML format.
-
-## REST
-
-An architectural style of remote execution applied over HTTP. REST is not completely defined, many people refer to remote requests using HTTP as REST requests. 
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/Representational_state_transfer).
-
-## Rich interaction
-
-The interface model for a rich client. This interaction model supports several input methods and that responds intuitively and in a timely fashion.
 
 ## Roaming
 
@@ -581,12 +449,6 @@ Cloud numbers enabled to receive [SMS](#sms).
 
 See [SMS Cloud Numbers](sms-cloud-numbers).
 
-## Stochastic
-
-Events or systems that are unpredictable due to the influence of a random variable. 
-
-See [Wikipedia](https://en.wikipedia.org/wiki/Stochastic).
-
 ## Supplier
 
 Any company furnishing telecoms services to Nexmo that does not fit into the category of carrier or intermediate carrier.
@@ -634,10 +496,6 @@ TTS Prompt API is part of Voice API.
 
 Send and receive SMS directly from your system or App.
 
-## User
-
-A person that uses a customer's services. A user is associated with a phone number.
-
 ## US Short Codes API
 
 You use Nexmo's US Short Codes API to:
@@ -653,7 +511,7 @@ A turnkey, pay-per-conversation phone verification solution that allows you to i
 * Verify transactions
 * Implement [2FA](#2fa) and one-time passwords
 
-## Virtual number
+## Virtual Number
 
 A virtual number such as `+44 7624 80055` in international notation or `757-772-8555` in typical U.S. notation. Nexmo purchases virtual numbers from various carriers. Nexmo customers rent these virtual numbers to receive inbound messages and voice communication in their [App](#app).
 
@@ -706,15 +564,3 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Voice_over_IP).
 ## VXML
 
 See [Voice XML](#voicexml).
-
-## Web
-
-An information system of interlinked hypertext documents and other digital resources that are accessed via the [Internet](#internet).
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/World_Wide_Web).
-
-## XML
-
-A data format. When you make a request against the Nexmo APIs, you can choose to receive data in XML format.
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/XML).
