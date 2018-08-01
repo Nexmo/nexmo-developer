@@ -1,11 +1,11 @@
 ---
-title: Markdown guide
+title: Markdown Guide
 navigation_weight: 3
 ---
 
 ⚓ Anchor Example
 
-# Markdown guide
+# Markdown Guide
 
 Here is a complete overview of the basic markdown and custom plugins that Nexmo Developer supports.
 
@@ -13,7 +13,7 @@ We use plugins sparingly to extend functionality where the only other option wou
 
 You can find this document in `/app/views/contribute/guides/markdown-guide.md`. The side navigation has been left present to be an accurate representation of the content width.
 
-There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
+There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping Markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
 
 ## Typography
 
