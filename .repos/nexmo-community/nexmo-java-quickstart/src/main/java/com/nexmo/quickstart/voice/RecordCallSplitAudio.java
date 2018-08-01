@@ -27,24 +27,25 @@ import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.RecordNcco;
 import com.nexmo.client.voice.ncco.SplitRecording;
 import spark.Route;
+import spark.Spark;
 
 import static com.nexmo.quickstart.Util.envVar;
-import static spark.Spark.*;
 
 public class RecordCallSplitAudio {
     public static void main(String[] args) {
+        final String TO_NUMBER = envVar("TO_NUMBER");
+        final String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
+
         /*
          * Route to answer and connect incoming calls with recording.
          */
         Route answerRoute = (req, res) -> {
-            String recordingUrl = String.format("%s://%s/webhook/recordings", req.scheme(), req.host());
+            String recordingUrl = String.format("%s://%s/webhooks/recordings", req.scheme(), req.host());
 
             RecordNcco record = new RecordNcco();
             record.setEventUrl(recordingUrl);
             record.setSplit(SplitRecording.CONVERSATION);
 
-            String TO_NUMBER = envVar("TO_NUMBER");
-            String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
             ConnectNcco connect = new ConnectNcco(TO_NUMBER);
             connect.setFrom(NEXMO_NUMBER);
 
@@ -57,15 +58,15 @@ public class RecordCallSplitAudio {
         /*
          * Webhook Route which prints out the recording URL it is given to stdout.
          */
-        Route recordingWebhookRoute = (req, res) -> {
+        Route recordingRoute = (req, res) -> {
             System.out.println(RecordingPayload.fromJson(req.bodyAsBytes()).getRecordingUrl());
 
             res.status(204);
             return "";
         };
 
-        port(3000);
-        get("/webhook/answer", answerRoute);
-        post("/webhook/recordings", recordingWebhookRoute);
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/recordings", recordingRoute);
     }
 }

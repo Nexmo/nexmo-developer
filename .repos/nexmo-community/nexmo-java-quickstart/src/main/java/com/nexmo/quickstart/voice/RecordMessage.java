@@ -26,8 +26,7 @@ import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.RecordNcco;
 import com.nexmo.client.voice.ncco.TalkNcco;
 import spark.Route;
-
-import static spark.Spark.*;
+import spark.Spark;
 
 public class RecordMessage {
     public static void main(String[] args) {
@@ -35,7 +34,7 @@ public class RecordMessage {
          * Route to answer and connect incoming calls with rec.ording.
          */
         Route answerRoute = (req, res) -> {
-            String recordingUrl = String.format("%s://%s/webhook/recordings", req.scheme(), req.host());
+            String recordingUrl = String.format("%s://%s/webhooks/recordings", req.scheme(), req.host());
 
             TalkNcco intro = new TalkNcco(
                     "Please leave a message after the tone, then press #. We will get back to you as soon as we can.");
@@ -57,15 +56,15 @@ public class RecordMessage {
         /*
          * Webhook Route which prints out the recording URL it is given to stdout.
          */
-        Route recordingWebhookRoute = (req, res) -> {
+        Route recordingRoute = (req, res) -> {
             System.out.println(RecordingPayload.fromJson(req.bodyAsBytes()).getRecordingUrl());
 
             res.status(204);
             return "";
         };
 
-        port(3000);
-        get("/webhook/answer", answerRoute);
-        post("/webhook/recordings", recordingWebhookRoute);
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/recordings", recordingRoute);
     }
 }

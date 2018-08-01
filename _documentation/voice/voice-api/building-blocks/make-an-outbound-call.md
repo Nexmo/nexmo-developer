@@ -1,35 +1,31 @@
 ---
 title: Make an outbound call
-navigation_weight: 1
+navigation_weight: 7
 ---
 
 # Make an outbound call
 
-Making outbound calls from Nexmo is easy. In this building block we'll use the Voice API to start a call and play a text-to-speech message on answer.
-
-## Prerequisites
-
-- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
-- *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
+This building block makes an outbound call and plays a
+text-to-speech message when the call is answered.
 
 ## Example
 
-To make a test outbound voice call, sign up for an account and replace the following variables in the example below:
+Replace the following variables in the example code:
 
 Key |	Description
 -- | --
-`NEXMO_NUMBER` |	Your Nexmo number that the call will be made from. For example `447700900001`.
-`TO_NUMBER` |	The number you would like to call to in E.164 format. For example `447700900000`.
-`NEXMO_APPLICATION_ID` |	The ID of the application that you created.
+`NEXMO_NUMBER` |	Your Nexmo number that the call will be made from. For example `447700900000`.
+`TO_NUMBER` |	The number you would like to call to in E.164 format. For example `447700900001`.
 
-Depending on which library you are using you will need to replace any occurrences of the following:
-
-Key |	Description
--- | --
-`NEXMO_API_KEY` | You can find this in your account overview
-`NEXMO_API_SECRET` | You can find this in your account overview
-`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to your private key file. e.g. `private.key`
-
-```tabbed_content
+```building_blocks
 source: '_examples/voice/make-an-outbound-call'
+application:
+  name: 'Outbound Call Building Block'
+  answer_url: https://developer.nexmo.com/ncco/tts.json
+  disable_ngrok: true
 ```
+
+## Try it out
+
+When you run the code the `TO_NUMBER` will be called and a text-to-speech message
+will be heard if the call is answered.

@@ -1,6 +1,7 @@
 package com.nexmo.quickstart.voice;
 
 import com.nexmo.client.NexmoClient;
+import com.nexmo.client.auth.AuthMethod;
 import com.nexmo.client.auth.JWTAuthMethod;
 import com.nexmo.client.voice.Call;
 import com.nexmo.client.voice.CallEvent;
@@ -15,15 +16,14 @@ public class MuteCall {
     public static void main(String... args) throws Exception {
         configureLogging();
 
-        String APPLICATION_ID = envVar("APPLICATION_ID");
-        String PRIVATE_KEY = envVar("PRIVATE_KEY");
+        final String NEXMO_APPLICATION_ID = envVar("APPLICATION_ID");
+        final String NEXMO_PRIVATE_KEY = envVar("PRIVATE_KEY");
 
-        NexmoClient nexmo = new NexmoClient(
-                new JWTAuthMethod(APPLICATION_ID, FileSystems.getDefault().getPath(PRIVATE_KEY))
-        );
+        AuthMethod auth = new JWTAuthMethod(NEXMO_APPLICATION_ID, FileSystems.getDefault().getPath(NEXMO_PRIVATE_KEY));
+        NexmoClient nexmo = new NexmoClient(auth);
 
-        String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
-        String TO_NUMBER = envVar("TO_NUMBER");
+        final String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
+        final String TO_NUMBER = envVar("TO_NUMBER");
         /*
         Establish a call for testing purposes.
          */
@@ -38,7 +38,7 @@ public class MuteCall {
          */
         Thread.sleep(10000);
 
-        String UUID = call.getUuid();
+        final String UUID = call.getUuid();
         nexmo.getVoiceClient().modifyCall(UUID, ModifyCallAction.MUTE);
         Thread.sleep(3000);
         nexmo.getVoiceClient().modifyCall(UUID, ModifyCallAction.UNMUTE);

@@ -2,6 +2,8 @@
 title: Smart local numbers
 products: voice/voice-api
 description: "Replace your toll-free numbers (e.g. 800, 0800) with easy to use, smart local numbers that allow you to provide a better customer service."
+languages:
+    - Ruby
 ---
 
 # Voice - Smart Local Numbers

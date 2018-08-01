@@ -40,9 +40,9 @@ const Member = require('./member');
 const Event = require('./events/event');
 const TextEvent = require('./events/text_event');
 const ImageEvent = require('./events/image_event');
-const Recording = require('./events/recording');
 const Media = require('./modules/media');
 
+const ConversationEventHandler = require('./handlers/conversation_events');
 const ConversationClientError = require('./conversationClientError');
 const Utils = require('./utils');
 
@@ -73,6 +73,8 @@ class Conversation {
 		this.sequence_number = 0;
 		this.is_video_conversation = false;
 
+		this.conversationEventHandler = new ConversationEventHandler(application, this);
+
 		this.media = new Media(this);
         /**
          * A Member Object representing the current user.
@@ -82,11 +84,14 @@ class Conversation {
          */
 		this.me = null; // We are not in the conversation ourselves by default
 		// Map the params (which includes the id)
-		this.updateObjectInstance(application, params);
+		this._updateObjectInstance(params);
 		WildEmitter.mixin(Conversation);
 	}
-
-	updateObjectInstance(application, params) {
+	/** Update Conversation object params
+	 * @property {object} params the params to update
+	 * @private
+	 */
+	_updateObjectInstance(params) {
 		for (let key in params) {
 			switch (key) {
 				case 'id':
@@ -139,7 +144,7 @@ class Conversation {
 					}
 					break;
 				case 'properties':
-                    this.is_video_conversation = params.properties.video;
+					this.is_video_conversation = params.properties.video;
 					break;
 			}
 		}
@@ -163,23 +168,25 @@ class Conversation {
 	 */
 	join(params) {
 		const request_body = {};
-
-		if (params) {
-			if (params.user_id) {
-				request_body.user_id = params.user_id;
+		const _normalizeParams = (params) => {
+			if (params) {
+				if (params.user_id) {
+					request_body.user_id = params.user_id;
+				}
+				if (params.user_name) {
+					request_body.user_name = params.user_name;
+				}
+			} else {
+				if (this.me &amp;&amp; this.me.id &amp;&amp; this.me.state === 'INVITED') {
+					request_body.member_id = this.me.id;
+				}
+				request_body.user_name = this.application.me.name;
+				request_body.user_id = this.application.me.id;
 			}
-			if (params.user_name) {
-				request_body.user_name = params.user_name;
-			}
-		} else {
-			if (this.me &amp;&amp; this.me.id &amp;&amp; this.me.state === 'INVITED') {
-				request_body.member_id = this.me.id;
-			}
-			request_body.user_name = this.application.me.name;
-			request_body.user_id = this.application.me.id;
-		}
+		};
 
 		return new Promise((resolve, reject) => {
+			_normalizeParams(params);
 			this.application.session.sendRequest({
 				type: 'conversation:join',
 				cid: this.id,
@@ -191,17 +198,17 @@ class Conversation {
 					if (response.body.user_id === this.application.me.id) {
 						this.me = member;
 					}
-                    this.members[member.id] = member;
+					this.members[member.id] = member;
 					// We added this part because of a use case where between the time we got the conversation and the time we finished joining
 					// the conversation object changed. We didn't find a "clean" solution for this right now so we get the conversation again
 					// so we know for sure it's state is up to date
 					// TODO: Find a more correct way to make sure the conversation is up to date(probably with changes in cs in order to get another solution)
-                    return this.application.getConversation(this.id)
-                        .then(() => resolve(member))
-                        .catch(() => {
-                            this.log.warn('Failed getting conversation after joining');
-                        	return resolve(member);
-                        });
+					return this.application.getConversation(this.id)
+						.then(() => resolve(member))
+						.catch(() => {
+							this.log.warn('Failed getting conversation after joining');
+							return resolve(member);
+						});
 				} else {
 					reject(new NexmoApiError(response));
 				}
@@ -403,12 +410,12 @@ class Conversation {
 	 *      };
 	 * });
 	 */
-	sendImage(fileInput, params) {
-		params = params || {
-			quality_ratio: 100,
-			medium_size_ratio: 50,
-			thumbnail_size_ratio: 30
-		};
+	sendImage(fileInput, params = {
+		quality_ratio: 100,
+		medium_size_ratio: 50,
+		thumbnail_size_ratio: 30
+	}) {
+
 		const formData = new FormData();
 		formData.append("file", fileInput);
 		formData.append("quality_ratio", params.quality_ratio);
@@ -557,25 +564,19 @@ class Conversation {
 		});
 	}
 
-
 	/**
 	 * Handle and event from the cloud.
-	 *
-	 * Identify the type of the event,
-	 * create the corresponding Class instance
-	 * to emit to the corresponding Objects
+	 * using conversationEventHandler
 	 * @param {object} event
 	 * @private
 	 */
 	_handleEvent(event) {
-
 		if (event.type.startsWith('rtc')) {
 			// keep the rtc events going to the application layer, we use them in media module
 			this.emit(event.type, event);
 			return;
 		}
 
-		let persist_event;
 		this.sequence_number++;
 
 		if (event.from &amp;&amp; !this.members[event.from]) { //TODO - remove when CSJ-695
@@ -588,114 +589,16 @@ class Conversation {
 
 		const from = this.members[event.from];
 
-		switch (event.type) {
-			case 'audio:record':
-			case 'audio:record:done':
-				persist_event = new Recording(this, event);
-				break;
-			case 'image':
-				persist_event = new ImageEvent(this, event);
-				// Automatically send a delivery
-				// avoid sending delivered to our own events
-				if (this.me.id !== persist_event.from) {
-					persist_event.delivered().catch((error) => {
-						this.log.debug(error);
-					});
-				}
-				break;
-			case 'text':
-				persist_event = new TextEvent(this, event);
-				// Automatically send a delivery
-				// avoid sending delivered to our own events
-				if (this.me.id !== persist_event.from) {
-					persist_event.delivered().catch((error) => {
-						this.log.debug(error);
-					});
-				}
-				break;
-			case 'image:seen':
-				persist_event = new ImageEvent(this, event);
-			case 'text:seen':
-				persist_event = persist_event || new TextEvent(this, event);
-				const seen_id = event.body.event_id;
-				if (this.events.has(seen_id)) {
-					let event_to_mark = this.events.get(seen_id);
-					event_to_mark.state = event_to_mark.state || {};
-					event_to_mark.state.seen_by = event_to_mark.state.seen_by || {};
-					event_to_mark.state.seen_by[event.from] = event.timestamp;
-					persist_event = event_to_mark;
-				} else {
-					this.log.warn('try to mark seen an unknown event');
-				}
-				break;
-			case 'image:delivered':
-				persist_event = new ImageEvent(this, event);
-			case 'text:delivered':
-				persist_event = persist_event || new TextEvent(this, event);
-				const delivered_id = event.body.event_id;
-				if (this.events.has(delivered_id)) {
-					let event_to_mark = this.events.get(delivered_id);
-					event_to_mark.state = event_to_mark.state || {};
-					event_to_mark.state.delivered_to = event_to_mark.state.delivered_to || {};
-					event_to_mark.state.delivered_to[event.from] = event.timestamp;
-					persist_event = event_to_mark;
-				} else {
-					this.log.warn('try to mark delivered an unknown event');
-				}
-				break;
-			case 'event:delete':
-				//handle both text events or image
-				const event_to_delete = this.events.get(event.body.event_id);
-				if (event_to_delete.body.text) event_to_delete.body.text = "";
-				if (event_to_delete.body.representations) event_to_delete.body.representations = "";
-				event_to_delete.body.timestamp = {
-					deleted: event.timestamp
-				};
-				persist_event = event_to_delete;
-				break;
-			case 'member:joined':
-			case 'member:invited':
-			case 'member:left':
-				//use the member object to handle the state
-				from._handleEvent(event);
-				persist_event = new Event(this, event);
-				break;
-			case 'member:media':
-				if (this.application.calls &amp;&amp; this.application.calls.has(this.id)) {
-					this.application.calls.get(this.id)._handleStateChange(event);
-				}
-				persist_event = new Event(this, event);
-				this.members[event.from]._handleEvent(event);
-				break;
-			case 'audio:dtmf':
-			case 'audio:ringing:stop':
-			case 'audio:ringing:start':
-			case 'say:text':
-				persist_event = new Event(this, event);
-				break;
-			case 'audio:mute:on':
-			case 'audio:mute:off':
-			case 'video:mute:on':
-			case 'video:mute:off':
-				if (this.rtcObjects[event.body.rtc_id]) {
-					const streamIndex = this.rtcObjects[event.body.rtc_id].streamIndex;
-					event.index = streamIndex;
-				} else if (this.remoteMembers) {
-					const remote = this.remoteMembers.find((remoteMember) => remoteMember.remote_leg_id === event.body.rtc_id);
-					if (remote) {
-						event.index = remote.streamIndex;
-					}
-				}
-			default:
-				persist_event = new Event(this, event);
-		}
+		let constructed_event = this.conversationEventHandler.handleEvent(event);
 
 		// Unless they are typing events, add the event to the conversation.events map
 		if (!["text:typing:on", "text:typing:off"].includes(event.type)) {
-			this.events.set(persist_event.id, persist_event);
+			this.events.set(constructed_event.id, constructed_event);
 		}
-		this.emit(event.type, from, persist_event);
+		this.emit(event.type, from, constructed_event);
+
 	}
+
 }
 module.exports = Conversation;
 </code></pre>
@@ -708,13 +611,13 @@ module.exports = Conversation;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ANSWERED">ANSWERED</a></li><li><a href="global.html#COMPLETED">COMPLETED</a></li><li><a href="global.html#FAILED">FAILED</a></li><li><a href="global.html#HUNGUP">HUNGUP</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#REJECTED">REJECTED</a></li><li><a href="global.html#RINGING">RINGING</a></li><li><a href="global.html#STARTED">STARTED</a></li><li><a href="global.html#TIMEOUT">TIMEOUT</a></li><li><a href="global.html#UNANSWERED">UNANSWERED</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:status:changed">call:status:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 19 2018 13:59:14 GMT+0300 (Eastern European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 17 2018 11:33:17 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -6,7 +6,7 @@ title: Overview
 
 Nexmo's Number Insight API provides details about the validity, reachability and roaming status of a phone number, as well as give you details on how to format the number properly in your application.
 
-There are three levels of Number Insight API available: Basic, Standard and Advanced. The advanced API is available asynchronously as well as synchronously.
+There are three levels of Number Insight API available: Basic, Standard and Advanced. The advanced API can be used asynchronously as well as synchronously.
 
 Feature | Basic | Standard | Advanced
 --|--|--|--

@@ -4,7 +4,8 @@
   format = nil if local_assigns[:format].nil?
 %>
 
-<% if parameters[0] && parameters[0].subproperties_are_one_of_many? %>
+<% # @mheap: I'm not sure why this check is here. I checked other OAS docs and we may be able to remove it. It renders better if the else statement is triggered %>
+<% if false && parameters[0] && parameters[0].subproperties_are_one_of_many? %>
     <h3>Any one of the following:</h3>
     <div style="margin-left: 20px;">
       <% parameters[0].properties.each do |property| %>
@@ -34,9 +35,7 @@
       <li>
         <div class="table-list-columns <%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
           <div class="table-list-column" flex="2">
-            <b><%= parameter.name %></b><br>
-
-
+              <b><%= parameter.name %></b><br>
             <small>
               <% if parameter.required %>
                 <span class="flag flag--strong">Required</span> |
@@ -120,7 +119,9 @@
             <% if parameter.collection? %>
               <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
                 <!-- Just for spacing -->
-                <div class="table-list-column" flex="2"></div>
+                <div class="table-list-column">
+                <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
+                </div>
               <% end %>
             <% else %>
               <div class="table-list-column" flex="2">
@@ -151,8 +152,10 @@
               <% end %>
             </div>
 
-          <% else %>
-            <%= render 'parameters', parameters: parameter.properties, model: model, format: format, callback: callback %>
+        <% else %>
+            <% if parameter.properties and parameter.object? %>
+                <%= render 'parameters', parameters: parameter.properties, model: model, format: format, callback: callback %>
+                <% end %>
           <% end %>
         <% end %>
       </li>

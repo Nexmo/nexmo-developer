@@ -5,6 +5,8 @@ description: How to set and use webhook endpoints for the Nexmo APIs.
 
 # Webhooks
 
+Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API and Nexmo virtual numbers is sent in an HTTP request to your [webhook](https://en.wikipedia.org/wiki/Webhook) endpoint, running on a web server.
+
 ## What is a webhook?
 
 A [webhook](https://en.wikipedia.org/wiki/Webhook) is a callback sent via HTTP to a URL of your choice. It is a simple way of enabling communication from our servers to yours. Nexmo uses webhooks to notify you about incoming calls and messages, events in calls and delivery receipts for messages.
@@ -16,7 +18,7 @@ Information resulting from requests to the SMS API, Voice API, Number Insight AP
 Nexmo sends and retrieves the following information using webhooks:
 
 * SMS API - sends the delivery status of your message and receives inbound SMS
-* Voice API - retrieves the [Nexmo Call Control Objects](/voice/guides/ncco) you use to control the call from one webhook endpoint, and sends information about the call status to another
+* Voice API - retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another
 * Number Insight Advanced Async API - receives complete information about a phone number
 * US Short Codes API - sends the delivery status of your message and receives inbound SMS
 

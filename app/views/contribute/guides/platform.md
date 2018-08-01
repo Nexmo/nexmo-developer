@@ -42,7 +42,7 @@ navigation_weight: 1
 
 The `title` is used for both the meta `<title>` and also the navigation text.
 
-The `navigation_weight` is used to force the order of the page within the navigation in relation to it's siblings. By default pages are ordered Alphabetically by giving pages weights this default can be overridden.
+The `navigation_weight` is used to force the order of the page within the navigation in relation to its siblings. By default pages are ordered Alphabetically by giving pages weights this default can be overridden.
 
 Folders however don't have any document that could provide front-matter so these care configured by a configuration YAML documents:
 
@@ -51,7 +51,7 @@ Document | Description
 `/config/locales/en.yml` | This file translates the directory name into the display name. For example `in-app-messaging` to `In-app Messaging`.
 `/config/navigation.yml` | This file provides the `navigation_weight` for directories so that products or content types can be placed in a defined order.
 
-> **Gotcha**: Complex ordering or navigation items that share a display name.
+> **NOTE**: Complex ordering or navigation items that share a display name.
 >
 > §
 >
@@ -63,7 +63,7 @@ Document | Description
 
 ## Pages and content
 
-Documentation pages can be created by creating a new markdown file for the content within the `/_documentation` directory hierarchy. For existing products adding the file is sufficient enough to create new content. To create documentation for new products however requires a small update to the `DocumentationConstraint`.
+Documentation pages can be created by creating a new Markdown file for the content within the `/_documentation` directory hierarchy. For existing products adding the file is sufficient enough to create new content. To create documentation for new products however requires a small update to the `DocumentationConstraint`.
 
 You can find this at `/app/constraints/documentation_constraint.rb`. The `product` and `product_with_parent` methods supply a hash of constraints back to the router so that context can be inferred by the application. Any new products should be added to this list.
 
@@ -71,7 +71,7 @@ You can find this at `/app/constraints/documentation_constraint.rb`. The `produc
 
 API pages use a custom Open API parser and renderer. The parser belongs to a separate dependency you can find at [https://github.com/nexmo/oas_parser](https://github.com/nexmo/oas_parser). The rendering is provided by views that can be found at `/app/views/open_api/`.
 
-The Open API pages consume an Open API Specification 3 definition. This is usually supplied by the [Nexmo API Specification](https://github.com/nexmo/api-specification) dependency by can be supplied or overridden if the definition is placed in the `/_open_api/definitions/` directory.
+The Open API pages consume an Open API Specification 3 definition. This is usually supplied by the [Nexmo API Specification](https://github.com/nexmo/api-specification) dependency but can be supplied or overridden if the definition is placed in the `/_open_api/definitions/` directory.
 
 The parser has been built in such a way that it has tested against several OAS definitions however full compatibility with the specification shouldn't be assumed and development work may be required to support new features as they are authored within our definitions.
 
@@ -91,9 +91,9 @@ You should refer to the [Active Admin Docs](https://activeadmin.info/documentati
 
 ## Search
 
-Our search is powered by [Algolia](https://www.algolia.com/), we have indices for development, staging (including review apps) and production.
+Our search is powered by [Algolia](https://www.algolia.com/). There are indices for development, staging (including review apps) and production.
 
-The indices are automatically refreshed on each deployment by the `refresh` rake task. There are three rake tasks available for performing search actions:
+The indices are automatically refreshed on each deployment by the `refresh` Rake task. There are three Rake tasks available for performing search actions:
 
 ```
 rake search_terms:algolia:clear         # Clear the index in Algolia
@@ -101,11 +101,11 @@ rake search_terms:algolia:generate      # Publish search terms to Algolia
 rake search_terms:algolia:refresh       # Refresh the Algolia index
 ```
 
-Searching is performed directly from the client to Algolia. Protected resources such as restricting the indices or filtering items from the knowlegebase are handled by using [Algolias Secured API Keys](https://www.algolia.com/doc/tutorials/security/api-keys/secured-api-keys/how-to-restrict-the-search-to-a-subset-of-records-belonging-to-a-specific-user/) functionality.
+Searching is performed directly from the client to Algolia. Protected resources such as restricting the indices or filtering items from the knowlegebase are handled by using [Algolia's Secured API Keys](https://www.algolia.com/doc/tutorials/security/api-keys/secured-api-keys/how-to-restrict-the-search-to-a-subset-of-records-belonging-to-a-specific-user/) functionality.
 
 The configuration object that configures the secured API key can be found in the `ALGOLIA_CONFIG` environment variable or for easier local development the `/config/algolia.yml.example` file can be renamed to `/config/algolia.yml`.
 
-## Non-markdown pages
+## Non-Markdown pages
 
 Some pages including the landing, tools and community pages are not Markdown pages since they usually have more complicated layouts or database concerns.
 
@@ -128,6 +128,8 @@ Nexmo Developer has a powerful Markdown pipeline that adds additional support to
 Here is a video to help explain this concept starts at 6 minutes, 58 seconds:
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/AnvqMb1VT40?t=456" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+### Filters
 
 Here is a quick explanation of all of the filters:
 

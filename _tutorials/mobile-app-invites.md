@@ -2,6 +2,8 @@
 title: Mobile app invites
 products: messaging/sms
 description: Link your customers to your app with SMS
+languages:
+    - Ruby
 ---
 
 # Mobile app invites
@@ -12,7 +14,7 @@ If your mobile app has a Website you are probably familiar with:
 
 ![Mobile app button example](/assets/images/app_store_play_badges.png)
 
-These buttons make it easy for anyone to navigate to the correct store for their mobile device. However, this flow quickly falls part if the user is not mobile. What happens when your user is using a desktop computer? Using **Mobile app promotion** you quickly convert a browsing user into an active customer by sending them a link to your app Website in an SMS message.
+These buttons make it easy for anyone to navigate to the correct store for their mobile device. However, this flow quickly falls apart if the user is not mobile. What happens when your user is using a desktop computer? By using **Mobile app promotion**, you can quickly convert a browsing user into an active customer by sending them a link to your app via SMS.
 
 ## In this tutorial
 
@@ -29,7 +31,7 @@ You see how easy it is to build a mobile app invites system using the Nexmo APIs
 In order to work through this tutorial you need:
 
 * A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* A publicly accessible Web server so Nexmo can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/)
+* A publicly accessible Web server so Nexmo can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/) ([see our ngrok tutorial blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/))
 * The source code for this tutorial from <https://github.com/Nexmo/ruby-mobile-app-promotion>
 
 ## Create a Web app

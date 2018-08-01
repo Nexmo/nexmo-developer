@@ -62,48 +62,6 @@ class StaticController < ApplicationController
     render layout: 'static'
   end
 
-  def styleguide
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/styleguide.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @side_navigation = 'api/styleguide'
-
-    @content = MarkdownPipeline.new.call(document)
-
-    @return_link = {
-      title: "Contribute",
-      path: contribute_path,
-    }
-
-    render layout: 'static'
-  end
-
-  def write_the_docs
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/write-the-docs.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @side_navigation = 'api/write-the-docs'
-
-    @content = MarkdownPipeline.new.call(document)
-
-    @return_link = {
-      title: "Contribute",
-      path: contribute_path,
-    }
-
-    render layout: 'static'
-  end
-
   def legacy
     # Read document
     document = File.read("#{Rails.root}/app/views/static/legacy.md")
@@ -118,6 +76,16 @@ class StaticController < ApplicationController
 
   def robots
     render 'robots.txt'
+  end
+
+  def podcast
+    # Get URL and split the / to retrieve the landing page name
+    yaml_name = request.fullpath.split('/')[1]
+
+    # Load the YAML for that particular page
+    @content = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
+
+    render layout: 'landing'
   end
 
   def team

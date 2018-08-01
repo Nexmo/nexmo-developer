@@ -46,7 +46,7 @@ override func viewDidLoad() {
 }
  ```
 
-In this example we're assuming the user has already logged in with the `conversationClient.login()` method. For more details about how to implement that read the [simple conversation quickstart](/stitch/in-app-messaging/guides/1-simple-conversation/ios).
+In this example we're assuming the user has already logged in with the `conversationClient.login()` method. For more details about how to implement that read the [simple conversation quickstart](/stitch/in-app-messaging/guides/simple-conversation/ios).
 
  ```swift
 @IBAction

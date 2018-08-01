@@ -31,6 +31,7 @@ module ApplicationHelper
     data = { title: (name || path), path: path }
     data[:children] = []
     Dir.foreach(path) do |entry|
+      next if entry.start_with?(".")
       next if IGNORED_PATHS.include? entry
       full_path = File.join(path, entry)
       if File.directory?(full_path)

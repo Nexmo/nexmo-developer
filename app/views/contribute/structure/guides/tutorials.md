@@ -1,5 +1,6 @@
 ---
 title: Tutorials
+navigation_weight: 4
 ---
 
 # Tutorials

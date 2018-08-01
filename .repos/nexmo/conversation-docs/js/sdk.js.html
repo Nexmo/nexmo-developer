@@ -77,9 +77,9 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @param {Boolean} params.autoConnect=true socket.io autoConnect attribute
  * @param {string} params.ips_url=ips_url Nexmo IPS url for image upload
  * @param {string} params.environment='production' development / production environment
- * @param {object} params.iceServers=[] iceServers for RTCPeerConnection
+ * @param {object} params.iceServers=[{'stun:stun.l.google.com:19302'}] iceServers for RTCPeerConnection
  *
- * @fires ConversationClient#ready
+ * @emits ConversationClient#ready
  */
 
 class ConversationClient {
@@ -100,6 +100,9 @@ class ConversationClient {
 			repository: '@@repository',
 			SDK_version: '@@SDK_version',
 			url: '@@ws_url',
+			iceServers: [{
+				urls: 'stun:stun.l.google.com:19302'
+			}],
 			rtcstarts_enables: false,
 			rtcstarts_url: '@@rtcstarts_url'
 		};
@@ -461,7 +464,6 @@ class ConversationClient {
 
 	/**
 	 * Login to the cloud.
-	 *x
 	 * @param {string} params.token - the login token
 	 */
 	login(token) {
@@ -494,16 +496,16 @@ class ConversationClient {
 						token: token,
 						username: response.body.name
 					});
+					if (typeof (Bugsnag) !== "undefined") {
+						Bugsnag.user = {
+							id: application.me.id
+						};
+					}
 					// Retrieve the existing conversation data for this user
 					application.getConversations()
 						.then(() => {
 							// Complete the login process
 							resolve(this.application);
-							if (typeof Bugsnag !== "undefined") {
-								Bugsnag.user = {
-									id: application.me.id
-								};
-							}
 						}, (reason) => {
 							reject(new NexmoApiError(reason));
 						});
@@ -552,7 +554,7 @@ class ConversationClient {
 					disablePromises.push(this.application.conversations[conversation_id].media.disable());
 				}
 				Promise.all(disablePromises)
-					.then(() => { }).catch((err) => { this.log.info(err); }).then(() => {
+					.catch((err) => { this.log.info(err); }).then(() => {
 						logoutRequest();
 					});
 			} else {
@@ -589,13 +591,13 @@ module.exports = ConversationClient;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ANSWERED">ANSWERED</a></li><li><a href="global.html#COMPLETED">COMPLETED</a></li><li><a href="global.html#FAILED">FAILED</a></li><li><a href="global.html#HUNGUP">HUNGUP</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#REJECTED">REJECTED</a></li><li><a href="global.html#RINGING">RINGING</a></li><li><a href="global.html#STARTED">STARTED</a></li><li><a href="global.html#TIMEOUT">TIMEOUT</a></li><li><a href="global.html#UNANSWERED">UNANSWERED</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:status:changed">call:status:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 19 2018 13:59:14 GMT+0300 (Eastern European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 17 2018 11:33:17 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

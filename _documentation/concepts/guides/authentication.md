@@ -30,7 +30,7 @@ In this document you can learn about authentication via the following means:
 
 ## API Key and Secret
 
-When you create a Nexmo account you will be provided an API key and an API secret. The API key is used to identify the Nexmo account and the API secret is used to verify the identity. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
+When you create a Nexmo account, an API key and secret will be created for you. These are located in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. You should always keep these secure and never share them: be careful when adding it to your codebase to make sure they are not shared with anyone who may use it maliciously.
 
 > Note: The secret should always be kept secure and never shared. Be careful when adding it to your codebase to make sure it is not shared with anyone who may use it maliciously. Read more about the [Best Security Practices for your Nexmo Account](https://help.nexmo.com/hc/en-us/articles/115014939548).
 
@@ -87,7 +87,7 @@ It is possible to have two API secrets to be used against one API key at the sam
 
 JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties.
 
-JWTs are supported by the Voice API as a means of authenticating your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
+JWTs are used by the Voice API to authenticate your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
 
 Values for the Header are:
 
@@ -104,13 +104,13 @@ Name | Description | Required
 `iat` | The UNIX timestamp at UTC + 0 indicating the moment the JWT was requested. | ✅
 `jti` | The unique ID of the JWT. | ✅
 `nbf` | The UNIX timestamp at UTC + 0 indicating the moment the JWT became valid. | ❎
-`exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. Minimum time of 30 seconds from the time the JWT is generated. Maximim value of 24 hours from the time the JWT is generated. Default value of 15 minutes from the time the JWT is generation. | ❎
+`exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. Minimum value of 30 seconds from the time the JWT is generated. Maximim value of 24 hours from the time the JWT is generated. Default value of 15 minutes from the time the JWT is generated. | ❎
 
 If you are not using a Nexmo library you should refer to [RFC 7519](https://tools.ietf.org/html/rfc7519) to implement JWT.
 
 ## OAuth
 
-Some Nexmo APIs support OAuth as a means of authenticating. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
+Some Nexmo APIs support OAuth as an authentication option. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
 
 ## References
 

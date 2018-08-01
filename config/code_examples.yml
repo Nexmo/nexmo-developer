@@ -78,6 +78,11 @@ messaging:
         from_line: 34
         to_line: 39
         unindent: true
+    send-unicode:
+      curl:
+        source: '_examples/curl/messaging/sms/send-an-sms-with-unicode.sh'
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms-with-unicode.py'
     delivery-receipts:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'
@@ -169,6 +174,11 @@ messages_and_workflows_apis:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/channels/send-facebook-messenger.js'
         from_line: 11
+    send-whatsapp:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-whatsapp.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-whatsapp.sh'
   workflows:
     send-failover-sms-viber:
       curl:

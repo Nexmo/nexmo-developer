@@ -1,4 +1,5 @@
 class OpenApiController < ApplicationController
+  before_action :check_redirect
   before_action :set_definition
   before_action :set_navigation
 
@@ -40,6 +41,13 @@ class OpenApiController < ApplicationController
     @groups = @groups.sort_by do |name, _|
       next 999 if name.nil?
       @definition.raw['x-groups'][name]['order'] || 999
+    end
+  end
+
+  def check_redirect
+    redirect = Redirector.find(request)
+    if redirect
+      redirect_to redirect
     end
   end
 end

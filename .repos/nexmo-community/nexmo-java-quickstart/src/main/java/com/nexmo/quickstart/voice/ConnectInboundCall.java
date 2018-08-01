@@ -31,7 +31,6 @@ import static com.nexmo.quickstart.Util.envVar;
 
 public class ConnectInboundCall {
     public static void main(String[] args) {
-
         final String RECIPIENT_NUMBER = envVar("RECIPIENT_NUMBER");
         final String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
 
@@ -39,19 +38,17 @@ public class ConnectInboundCall {
          * Route to answer incoming calls with an NCCO response.
          */
         Route answerRoute = (req, res) -> {
-            final ConnectNcco connect = new ConnectNcco(RECIPIENT_NUMBER);
+            ConnectNcco connect = new ConnectNcco(RECIPIENT_NUMBER);
             connect.setFrom(NEXMO_NUMBER);
 
-            final Ncco[] nccos = new Ncco[]{connect};
+            Ncco[] nccos = new Ncco[]{connect};
 
             res.type("application/json");
-
             return new ObjectMapper().writer().writeValueAsString(nccos);
         };
 
         Spark.port(3000);
-
-        Spark.get("/webhook/answer", answerRoute);
-        Spark.post("/webhook/answer", answerRoute);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/answer", answerRoute);
     }
 }

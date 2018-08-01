@@ -6,7 +6,7 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 
 - Ruby 2.5.0 + bundler
 - PostgreSQL
-- Yarn
+- [Yarn](https://yarnpkg.com/en/docs/install)
 
 ### Setup
 

@@ -2,6 +2,8 @@
 title: Private SMS communication
 products: messaging/sms
 description: All mobile phones can send and receive SMS messages, and nearly everybody has a phone. This makes SMS a great choice to communicate with your users from your application.
+languages:
+    - Node
 ---
 
 # Private SMS communication

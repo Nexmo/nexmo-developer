@@ -1,0 +1,482 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: SMS API
+  description: With the Nexmo SMS API you can send SMS from your account and lookup messages both messages that you've sent as well as messages sent to your virtual numbers.
+servers:
+  - url: https://rest.nexmo.com
+paths:
+  /sms/{format}:
+    post:
+      x-group: sms
+      operationId: send-an-sms
+      summary: Send an SMS
+      description: Send an outbound SMS from your Nexmo account
+      x-code-example-path: messaging.sms.send
+      parameters:
+        - name: format
+          description: The format of the response
+          in: path
+          required: true
+          schema:
+            example: json
+            type: string
+            enum:
+              - json
+              - xml
+        - name: api_key
+          description: Your API key
+          required: true
+          in: query
+          example: abcd1234
+          schema:
+            type: string
+            minLength: 8
+            maxLength: 8
+        - name: api_secret
+          description: Your API secret. Required unless `sig` is provided
+          required: false
+          in: query
+          example: abcdef0123456789
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
+        - name: sig
+          description: The hash of the request parameters in alphabetical order, a timestamp and the signature secret. See [Signing Requests](/concepts/guides/signing-messages) for more details.
+          required: false
+          in: query
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NewMessage'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/MessageXmlWrapper'
+
+      callbacks:
+        delivery-receipt:
+          '{$request.body#/callback}':
+            post:
+              summary: Delivery Receipt
+              operationId: delivery-receipt
+              x-example-path: '/webhooks/delivery-receipt'
+              description: The following are parameters sent in as a [delivery receipt](/messaging/sms/guides/delivery-receipts) callback. You can subscribe to [webhooks](/concepts/guides/webhooks) to receive notification when the delivery status of an SMS that you have sent with Nexmo changes.
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/DeliveryReceipt'
+              responses:
+                '200':
+                  description: Your server returns this code if it accepts the callback
+x-webhooks:
+  inbound-sms:
+    '{$request.body#/callback}':
+      post:
+        summary: Inbound SMS
+        operationId: inbound-sms
+        x-example-path: '/webhooks/inbound-sms'
+        description: |
+          If you rent one or more virtual numbers from Nexmo, inbound messages to that number are sent to your [webhook endpoint](/concepts/guides/webhooks).
+
+          When you receive an inbound message, you must send a 2xx response. If you do not send a 2xx response Nexmo will resend the inbound message for the next 24 hours.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundMessage'
+        responses:
+          '200':
+            description: Your server returns this code if it accepts the callback
+
+components:
+  schemas:
+    NewMessage:
+      required:
+        - from
+        - to
+      properties:
+        from:
+          description: The name or number the message should be sent from. Alphanumeric senderID's are not supported in all countries, see [Global Messaging](/messaging/sms/guides/global-messaging#country-specific-features) for more details.
+          type: string
+          example: 'Acme Inc'
+        to:
+          description: The number that the message should be sent to
+          type: string
+          minLength: 7
+          maxLength: 15
+          pattern: '\d{7,15}'
+          example: 447700900000
+        text:
+          description: The body of the message being sent. If your message contains characters that can be encoded according to the GSM Standard and Extended tables then you can set the `type` to `text`. If your message contains characters outside this range, then you will need to set the `type` to `unicode`.
+          type: string
+          example: Hello World!
+        ttl:
+          description: '**Advanced**: The duration in milliseconds the delivery of an SMS will be attempted.§§ By default Nexmo attempt delivery for 72 hours, however the maximum effective value depends on the operator and is typically 24 - 48 hours. We recommend this value should be kept at its default or at least 30 minutes.'
+          type: integer
+          example: 900000
+          default: 259200000
+          minimum: 20000
+          maximum: 604800000
+        status-report-req:
+          description: '**Advanced**: Boolean indicating if you like to receive a [Delivery Receipt](/messaging/sms/building-blocks/receive-a-delivery-receipt).'
+          type: boolean
+          example: false
+          default: true
+        callback:
+          description: '**Advanced**: The webhook endpoint the delivery receipt for this sms is sent to. This parameter overrides the webhook endpoint you set in Dashboard.'
+          type: string
+          example: 'https://example.com/sms-dlr'
+        message-class:
+          description: '**Advanced**: The Data Coding Scheme value of the message'
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+        type:
+          description: '**Advanced**: The format of the message body'
+          type: string
+          enum:
+            - text
+            - binary
+            - wappush
+            - unicode
+            - vcal
+            - vcard
+          example: text
+          default: text
+        vcard:
+          description: '**Advanced**: A business card in [vCard format](https://en.wikipedia.org/wiki/VCard). Depends on `type` parameter having the value `vcard`.'
+          type: string
+          format: vcard
+        vcal:
+          description: '**Advanced**: A calendar event in [vCal format](https://en.wikipedia.org/wiki/VCal). Depends on `type` parameter having the value `vcal`.'
+          type: string
+          format: vcal
+        body:
+          description: '**Advanced**: Hex encoded binary data. Depends on `type` parameter having the value `binary`.'
+          type: string
+          example: 0011223344556677
+        udh:
+          description: '**Advanced**: Your custom Hex encoded [User Data Header](https://en.wikipedia.org/wiki/User_Data_Header). Depends on `type` parameter having the value `binary`.'
+          type: string
+          example: 06050415811581
+        protocol-id:
+          description: '**Advanced**: The value of the [protocol identifier](https://en.wikipedia.org/wiki/GSM_03.40#Protocol_Identifier) to use. Ensure that the value is aligned with `udh`.'
+          type: integer
+          example: 127
+        title:
+          description: '**Advanced**: The title for a wappush SMS. Depends on `type` parameter having the value `wappush`.'
+          type: string
+          example: Welcome
+        url:
+          description: '**Advanced**: The URL of your website. Depends on `type` parameter having the value `wappush`.'
+          type: string
+          example: https://example.com
+        validity:
+          description: '**Advanced**: The availability for an SMS in milliseconds. Depends on `type` parameter having the value `wappush`.'
+          type: string
+          example: 300000
+        client-ref:
+          description: '**Advanced**: You can optionally include your own reference of up to 40 characters.'
+          type: string
+          example: my-personal-reference
+    Error:
+      type: object
+      properties:
+        message-count:
+          type: integer
+          description: The amount of messages in the request
+          example: 1
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorMessage'
+    ErrorMessage:
+      type: object
+      properties:
+        status:
+          type: string
+          description: The error status of the message
+          example: '2'
+        error-text:
+          type: string
+          description: The description of the error
+          example: 'Missing to param'
+    SMS:
+      type: object
+      properties:
+        message-count:
+          type: integer
+          description: The amount of messages in the request
+          example: 1
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    InboundMessage:
+      type: object
+      properties:
+        msisdn:
+          type: string
+          description: The phone number that this inbound message was sent from.
+          example: '447700900001'
+          required: true
+        to:
+          type: string
+          description: The phone number the message was sent to. **This is your virtual number**.
+          example: '447700900000'
+          required: true
+        messageId:
+          type: string
+          description: The ID of the message
+          example: 0A0000000123ABCD1
+          required: true
+        text:
+          type: string
+          description: The message body for this inbound message.
+          example: Hello world
+          required: true
+        type:
+          type: string
+          description: |
+            Possible values are:
+
+              - `text` - standard text.
+              - `unicode` - URLencoded   unicode  . This is valid for standard GSM, Arabic, Chinese, double-encoded characters and so on.
+              - `binary` - a binary message.
+          example: 'text'
+          required: true
+        keyword:
+          type: string
+          description: The first word in the message body. This is typically used with short codes.
+          example: Hello
+          required: true
+        message-timestamp:
+          description: The time when Nexmo started to push this Delivery Receipt to your webhook endpoint.
+          type: string
+          example: 2020-01-01 12:00:00
+          required: true
+        timestamp:
+          description: A unix timestamp representation of message-timestamp.
+          type: string
+          example: "1578787200"
+        nonce:
+          type: string
+          description: A random string that forms part of the signed set of parameters, it adds an extra element of unpredictability into the signature for the request. You use the nonce and timestamp parameters with your shared secret to calculate and validate the signature for inbound messages.
+          example: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+        concat:
+          type: string
+          description: True - if this is a concatenated message.
+          example: 'true'
+        concat-ref:
+          type: string
+          description: The transaction reference. All parts of this message share this value.
+          example: '1'
+        concat-total:
+          type: string
+          description: The number of parts in this concatenated message.
+          example: '3'
+        concat-part:
+          type: string
+          description: The number of this part in the message. Counting starts at 1.
+          example: '2'
+        data:
+          type: string
+          format: binary
+          description: The content of this message, if type is binary.
+        udh:
+          type: string
+          description: The hex encoded User Data Header, if type is binary
+    Message:
+      type: object
+      properties:
+        to:
+          type: string
+          description: The number the message was sent to
+          example: '447700900000'
+        message-id:
+          type: string
+          description: The ID of the message
+          example: 0A0000000123ABCD1
+          xml:
+            name: messageId
+        status:
+          type: string
+          description: The status of the message
+          example: '0'
+        remaining-balance:
+          type: string
+          description: Your remaining balance
+          example: '3.14159265'
+          xml:
+            name: remainingBalance
+        message-price:
+          type: string
+          description: The cost of the message
+          example: '0.03330000'
+          xml:
+            name: messagePrice
+        network:
+          type: string
+          description: The ID of the network of the recipient
+          example: '12345'
+    MessageXmlWrapper:
+      type: object
+      xml:
+        name: mt-submission-response
+      properties:
+        messages:
+          x-skip-response-description: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+          properties:
+            count:
+              type: integer
+              example: 1
+              xml:
+                attribute: true
+    DeliveryReceipt:
+      type: object
+      properties:
+        msisdn:
+          type: string
+          description: The number the message was sent to
+          example: '447700900000'
+        to:
+          type: string
+          description: The SenderID you set in from in your request
+          example: Acme Inc
+        network-code:
+          type: string
+          description: The Mobile Country Code Mobile Network Code (MCCMNC) of the carrier this phone number is registered with.
+          example: '12345'
+        messageId:
+          type: string
+          description: The Nexmo ID for this message.
+          example: '0A0000001234567B'
+        price:
+          type: string
+          description: The cost of the message
+          example: '0.03330000'
+        status:
+          type: string
+          description: A code that explains where the message is in the delivery process.
+          example: 'delivered'
+          x-possible-values:
+            - delivered
+            - expired
+            - failed
+            - rejected
+            - accepted
+            - buffered
+            - unknown
+        scts:
+          type: string
+          description: When the DLR was recieved from the carrier in the following format `YYMMDDHHMM`. For example, `2001011400` is at `2020-01-01 14:00`
+          example: '2001011400'
+        err-code:
+          type: string
+          description: The status of the request. Will be a non `0` value if there has been an error. See the [SMS error reference](/api-errors/sms) for more details
+          example: '0'
+        message-timestamp:
+          description: The time when Nexmo started to push this Delivery Receipt to your webhook endpoint.
+          type: string
+          example: 2020-01-01 12:00:00
+x-groups:
+  sms:
+    name: "SMS"
+    order: 1
+    description: The SMS object contains information about the request and details of the message information.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/SMS'
+      text/xml:
+        $ref: '#/components/schemas/MessageXmlWrapper'
+
+x-errors:
+  1:
+    description: An unknown error was received from the carrier who tried to send this this message. Depending on the carrier, that `to` is unknown.
+    resolution: When you see this error, and status is rejected, always check if `to` in your request was valid.
+
+  2:
+    description: This message was not delivered because `to` was temporarily unavailable. For example, the handset used for to was out of coverage or switched off.
+    resolution: This is a temporary failure, retry later for a positive result.
+
+  3:
+    description: The `to` number is no longer active
+    resolution: Remove this phone number from your database.
+
+  4:
+    description: Call barred by user
+    resolution: You should remove this phone number from your database. If the user wants to receive messages from you, they need to contact their carrier directly.
+
+  5:
+    description: Portability error. There is an issue after the user has changed carrier for `to`
+    resolution: If the user wants to receive messages from you, they need to contact their carrier directly.
+
+  6:
+    description: Anti-Spam rejection. Carriers often apply restrictions that block messages following different criteria. For example, on SenderID or message content
+    resolution: If you believe that your message is being blocked incorrectly, either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com
+
+  7:
+    description: Handset busy. The handset associated with to was not available when this message was sent. 
+    resolution: If status is Failed, this is a temporary failure; retry later for a positive result. If status is Accepted, this message has is in the retry scheme and will be resent until it expires in 24-48 hours.
+
+  8:
+    description: Network error. A network failure occured while sending your message
+    resolution: This is a temporary failure, retry later for a positive result.
+
+  9:
+    description: Insufficent funds. `To`’s pre-paid account does not have enough credit to receive the message.
+    resolution: The `to` number must top up, then you can retry sending the message
+
+  10:
+    description: The message could not be sent because one of the parameters in the message was incorrect. For example, incorrect type or udh.
+    resolution: Check your outbound request and try again
+    link:
+      text: View API reference
+      url: /api/sms#send-an-sms
+
+  11:
+    description: The chosen route to send your message is not available. This is because the phone number is either currently on an unsupported network or on a pre-paid or reseller account that could not receive a message sent by `from`.
+    resolution: Either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com
+
+  12:
+    description: Desintation unreachable. The message could not be delivered to the phone number.
+    resolution: Check that your `to` number is valid. Make sure to use the country prefix (e.g. `44` for the UK) and not a `0`
+
+  13:
+    description: The carrier blocked this message because the content is not suitable for `to` based on age restrictions.)
+    resolution: N/A
+
+  14:
+    description: The carrier blocked this message. This could be due to several reasons. For example, `to`'s plan does not include SMS or the account is suspended.
+    resolution: N/A
+
+  15:
+    description: You tried to send a message to a blacklisted phone number. That is, the user has already sent a STOP opt-out message and no longer wishes to receive messages from you.
+    resolution: N/A
+
+  99:
+    description: There is a problem with the chosen route to send your message
+    resolution: To resolve this issue either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com.

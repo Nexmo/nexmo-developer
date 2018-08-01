@@ -61,6 +61,19 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
 /**
  * WebRTC Media class
  * @class Media
+ * @property {Application} application The parent application object
+ * @property {object} eventsQueue Incoming sip events queue (used for buffering while we're not ready to process them)
+ * @property {string} extensionId The screen share extension id
+ * @property {Conversation} parentConversation the conversation object this media instance belongs to
+ * @property {Member} parentConversation.remoteMembers The remote members
+ * @property {number} parentConversation.streamIndex the index of the streams, updated in each new peer offer
+ * @property {object[]} parentConversation.rtcObjects data related to the rtc connection
+ * @property {string} parentConversation.rtcObjects.id the rtc_id
+ * @property {PeerConnection} parentConversation.rtcObjects.pc the current PeerConnection object
+ * @property {Stream} parentConversation.rtcObjects.localStream the stream of the specific rtc_id
+ * @property {string} parentConversation.rtcObjects.type=video|screenshare the type of the stream
+ * @property {number} parentConversation.rtcObjects.streamIndex the index number of the stream (e.g. use to mute)
+ *
  */
 
 class Media {
@@ -210,7 +223,7 @@ class Media {
 
         // We want to be able to handle these events, for this  member, before they get propagated out
         if (!this.listeningToRtcEvent) {
-            this.parentConversation.on('rtc:answer', 'media_module', (event) => {
+            this.parentConversation.once('rtc:answer', 'media_module', (event) => {
                 let setRemoveDescriptionFunc =
                     () => {
                         this.parentConversation.rtcObjects[event.body.rtc_id].pc.setRemoteDescription(new RTCSessionDescription({
@@ -727,10 +740,10 @@ class Media {
     /**
      * Mute our member
      *
-     * @param {int} [streamIndex] stream id to set
-     * @param {Boolean} [mute] true for mute, false for unmute
-     * @param {Boolean} [audio=true] true for audio stream
-     * @param {Boolean} [video=false] true for video stream
+     * @param {number} [streamIndex] stream id to set
+     * @param {boolean} [mute] true for mute, false for unmute
+     * @param {boolean} [audio=true] true for audio stream
+     * @param {boolean} [video=false] true for video stream
      * @example &lt;caption>Mute audio stream&lt;/caption>
      * media.mute(true, true, false)
      * @example &lt;caption>Mute audio and video streams&lt;/caption>
@@ -828,7 +841,7 @@ class Media {
     /**
      * Earmuff our member
      *
-     * @param {Boolean} [params]
+     * @param {boolean} [params]
      *
      * @returns {Promise}
      * @private
@@ -870,8 +883,7 @@ class Media {
        * @param {object} [params.screenshare=false] -screen sharing enablement mode. possible values "send_only", "none", true or false
        * @param {object} [params.screenshare={direction: 'some_direction'}] - screen sharing enablement mode. possible values for direction "send_only", "none", true or false  -->
        * @returns {Promise&lt;MediaStream>}
-       * @example
-       * Enable media in this conversation
+       * @example &lt;caption>Enable media in this conversation&lt;/caption>
        * function enable() {
        *   conversation.media.enable()
        *      .then((stream) => {
@@ -931,13 +943,13 @@ class Media {
                         })
                 }
                 if (this.application.activeStream.rtc_id) {
-                    onClientError(new NexmoClientError('error:media:already-connecting'));
+                    return onClientError(new NexmoClientError('error:media:already-connecting'));
                 }
-                this.application.activeStream = {
-                    conversation: this.parentConversation
-                };
                 this.rtcHelper.getUserAudio()
                     .then((localStream) => {
+                        if (this.application.activeStream.rtc_id) {
+                            return onClientError(new NexmoClientError('error:media:already-connecting'));
+                        }
                         const clientId = Utils.allocateUUID();
                         const pc_config = {
                             'iceTransportPolicy': 'all',
@@ -1027,7 +1039,7 @@ class Media {
                     })
                     .then(() => {
                         // We want to be able to handle these events, for this  member, before they get propagated out
-                        this.parentConversation.on('rtc:answer', 'media_module', (event) => {
+                        this.parentConversation.once('rtc:answer', 'media_module', (event) => {
 
                             if (!this.application.activeStream.rtc_id) {
                                 this.log.warn("RTC: rtc:new hasn't been resolved yet");
@@ -1095,8 +1107,8 @@ class Media {
      * @param {string} params.text - the text to say in the conversation
      * @param {string} params.voice_name -
      * @param {number} params.level - [0] -
-     * @param {Boolean} params.queue -
-     * @param {Boolean} params.loop -
+     * @param {boolean} params.queue -
+     * @param {boolean} params.loop -
      *
      * @returns {Promise&lt;Event>}
      * @example
@@ -1131,11 +1143,11 @@ class Media {
      * Record the audio stream in a conversation
      * @param {object} params
      * @param {string} params.format = (mp3, wav, ogg)
-     * @param {Boolean} params.streamed -
+     * @param {boolean} params.streamed -
      * @param {number} params.validity_time -
-     * @param {Boolean} params.beep_start -
-     * @param {Boolean} params.beep_stop -~
-     * @param {Boolean} params.detect_speech -
+     * @param {boolean} params.beep_start -
+     * @param {boolean} params.beep_stop -~
+     * @param {boolean} params.detect_speech -
      *
      * @returns {Promise&lt;Recording>}
      * @example
@@ -1302,13 +1314,13 @@ module.exports = Media;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ANSWERED">ANSWERED</a></li><li><a href="global.html#COMPLETED">COMPLETED</a></li><li><a href="global.html#FAILED">FAILED</a></li><li><a href="global.html#HUNGUP">HUNGUP</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#REJECTED">REJECTED</a></li><li><a href="global.html#RINGING">RINGING</a></li><li><a href="global.html#STARTED">STARTED</a></li><li><a href="global.html#TIMEOUT">TIMEOUT</a></li><li><a href="global.html#UNANSWERED">UNANSWERED</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:status:changed">call:status:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 19 2018 13:59:14 GMT+0300 (Eastern European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 17 2018 11:33:17 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

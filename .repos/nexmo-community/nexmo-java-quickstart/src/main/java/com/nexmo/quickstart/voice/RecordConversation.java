@@ -25,19 +25,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nexmo.client.voice.ncco.ConversationNcco;
 import com.nexmo.client.voice.ncco.Ncco;
 import spark.Route;
-
-import static spark.Spark.*;
+import spark.Spark;
 
 public class RecordConversation {
     public static void main(String[] args) {
+        final String CONV_NAME = "conf-name";
+
         /*
          * Route to answer and connect incoming calls with recording.
          */
         Route answerRoute = (req, res) -> {
-            String recordingUrl = String.format("%s://%s/webhook/recordings", req.scheme(), req.host());
+            String recordingUrl = String.format("%s://%s/webhooks/recordings", req.scheme(), req.host());
 
-            String CONF_NAME = "conf-name";
-            ConversationNcco conversation = new ConversationNcco(CONF_NAME);
+            ConversationNcco conversation = new ConversationNcco(CONV_NAME);
             conversation.setRecord(true);
             conversation.setEventMethod("POST");
             conversation.setEventUrl(recordingUrl);
@@ -58,8 +58,8 @@ public class RecordConversation {
             return "";
         };
 
-        port(3000);
-        get("/webhook/answer", answerRoute);
-        post("/webhook/recordings", recordingWebhookRoute);
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/recordings", recordingWebhookRoute);
     }
 }

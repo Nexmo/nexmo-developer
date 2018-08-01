@@ -25,7 +25,7 @@
     <% end %>
   <% else %>
     <% endpoint.request_body.split_properties_for_format(format).each_with_index do |parameters, index| %>
-      <h2><%= index %></h2>
+      <h4><%= parameters[0].schema['oneOf'][index]['description'] %></h4>
       <%= render 'parameters', parameters: parameters, callback: callback %>
     <% end %>
   <% end %>

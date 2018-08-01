@@ -24,31 +24,26 @@ package com.nexmo.quickstart.voice;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.TalkNcco;
-import spark.Request;
 import spark.Route;
-
-import java.io.IOException;
-
-import static spark.Spark.*;
+import spark.Spark;
 
 public class InboundCall {
-    public static void main(String[] args) throws Exception {
-        ObjectMapper nccoMapper = new ObjectMapper();
+    public static void main(String[] args) {
+        Route answerRoute = (req, res) -> {
+            String from = req.queryParams("from").replace("", " ");
+            TalkNcco message = new TalkNcco(String.format("Thank you for calling from %s", from));
 
-        /*
-         * Route to answer incoming calls with an NCCO response.
-         */
-        get("/webhook/answer", (req, res) -> {
-            String from = req.queryParams("from");
-            String explodedFrom = String.join(" ", from.split(""));
-
-            TalkNcco message = new TalkNcco(String.format("Thank you for calling from %s", explodedFrom));
             Ncco[] nccos = new Ncco[]{message};
 
             res.type("application/json");
-            return nccoMapper.writer().writeValueAsString(nccos);
-        });
+            return new ObjectMapper().writer().writeValueAsString(nccos);
+        };
 
-        port(3000);
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/events", (req, res) -> {
+            System.out.println(req.body());
+            return "";
+        });
     }
 }

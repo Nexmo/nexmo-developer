@@ -4,6 +4,7 @@ navigation_weight:
   Voice: 2
   Verify: 3
   Number Insight: 4
+  Messages and Workflows: 5
   Account: 99
   Concepts: 0
 
@@ -25,9 +26,12 @@ navigation_weight:
   SDK Documentation: 40
   API Reference: 50
 
-  Getting Started: 2
-  In-App Messaging: 3
-  In-App Voice: 4
+  In-App Messaging: 2
+  In-App Voice: 3
+  In-App Video: 4
+
+  Messages API: 1
+  Workflows API: 2
 
 navigation_overrides:
   redact:
@@ -37,6 +41,11 @@ navigation_overrides:
     sdk-documentation:
       link: false
       prevent_navigation_item_class: true
+  voice:
+    voice-api:
+      guides:
+        lex-connector:
+          label: 'Developer Preview'
   messages-and-workflows-apis:
     messages:
       label: 'Developer Preview'

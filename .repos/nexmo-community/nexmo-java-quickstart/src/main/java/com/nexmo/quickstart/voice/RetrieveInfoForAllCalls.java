@@ -2,6 +2,7 @@ package com.nexmo.quickstart.voice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nexmo.client.NexmoClient;
+import com.nexmo.client.auth.AuthMethod;
 import com.nexmo.client.auth.JWTAuthMethod;
 import com.nexmo.client.voice.CallInfoPage;
 import com.nexmo.client.voice.CallsFilter;
@@ -18,21 +19,18 @@ public class RetrieveInfoForAllCalls {
     public static void main(String... args) throws Exception {
         configureLogging();
 
-        String APPLICATION_ID = envVar("APPLICATION_ID");
-        String PRIVATE_KEY = envVar("PRIVATE_KEY");
+        final String NEXMO_APPLICATION_ID = envVar("APPLICATION_ID");
+        final String NEXMO_PRIVATE_KEY = envVar("PRIVATE_KEY");
 
-        NexmoClient nexmo = new NexmoClient(
-                new JWTAuthMethod(APPLICATION_ID, FileSystems.getDefault().getPath(PRIVATE_KEY))
-        );
+        AuthMethod auth = new JWTAuthMethod(NEXMO_APPLICATION_ID, FileSystems.getDefault().getPath(NEXMO_PRIVATE_KEY));
+        NexmoClient nexmo = new NexmoClient(auth);
 
         CallsFilter filter = new CallsFilter();
         filter.setDateStart(getYesterdaysDate());
         filter.setDateEnd(getTodaysDate());
 
         CallInfoPage calls = nexmo.getVoiceClient().listCalls(filter);
-        System.out.println(
-                new ObjectMapper().writer().writeValueAsString(calls)
-        );
+        System.out.println(new ObjectMapper().writer().writeValueAsString(calls));
     }
 
     private static Date getTodaysDate() {

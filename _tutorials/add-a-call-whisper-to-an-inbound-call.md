@@ -2,6 +2,8 @@
 title: Add a Call whisper to an inbound call
 products: voice/voice-api
 description: "Phone numbers are everywhere in advertising: on billboards, in TV ads, on websites, in newspapers. Often these numbers all redirect to the same call center, where an agent needs to inquire why the person is calling, and where they saw the advert. Call Whispers make this so much simpler."
+languages:
+    - Node
 ---
 
 # Voice - Add a Call whisper to an inbound call
@@ -172,7 +174,7 @@ module.exports = function(app){
 
 ## Place the caller into a conference
 
-Once the outbound call has started, your code will need to return an [Nexmo Call Control Object (NCCO)](/voice/guides/ncco) to give instructions to our servers on how to handle the call. The []`talk`](/voice/guides/ncco-reference#talk) action lets you play text-to-speech to the caller to inform them they are being connected.
+Once the outbound call has started, your code will need to return an [Nexmo Call Control Object (NCCO)](/voice/guides/ncco) to give instructions to our servers on how to handle the call. The [`talk`](/voice/guides/ncco-reference#talk) action lets you play text-to-speech to the caller to inform them they are being connected.
 
 Then use the [`conversation`](/voice/guides/ncco-reference#conversation) NCCO action to put the caller into a conference. Since the caller is the only participant. This effectively puts them on hold and you can inform Nexmo to play hold music to them using the `musicOnHoldUrl` attribute. This music will stop when the next caller joins the conference.
 

@@ -1,0 +1,11 @@
+---
+title: PHP
+language: php
+dependencies:
+    - 'slim/slim:^3.8'
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/voice/record-a-call/index.php
+    from_line: 7
+    to_line: 40
+file_name: index.php
+run_command: 'php index.php'

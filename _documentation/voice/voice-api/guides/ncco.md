@@ -1,5 +1,6 @@
 ---
 title: Nexmo Call Control Objects
+navigation_weight: 2
 description: The Nexmo Call Control Objects used to manage your Voice API calls.
 ---
 
@@ -56,14 +57,14 @@ For your NCCO to execute correctly, the JSON syntax must be valid. It is better 
 
 The actions you can use in an NCCO are:
 
-* [`record`](/api/voice/ncco#record) - all or part of a call
-* [`conversation`](/api/voice/ncco#conversation) - create a standard or hosted conversation
-* [`connect`](/api/voice/ncco#connect) - connect to a connectable endpoint such as a phone number
-* [`talk`](/api/voice/ncco#talk) - send synthesized speech to a conversation
-* [`stream`](/api/voice/ncco#stream) - send audio files to a conversation
-* [`input`](/api/voice/ncco#input) - collect digits and speech from the person you are calling, then process them
+* [`record`](/voice/voice-api/ncco-reference#record) - all or part of a call
+* [`conversation`](/voice/voice-api/ncco-reference#conversation) - create a standard or hosted conversation
+* [`connect`](/voice/voice-api/ncco-reference#connect) - connect to a connectable endpoint such as a phone number
+* [`talk`](/voice/voice-api/ncco-reference#talk) - send synthesized speech to a conversation
+* [`stream`](/voice/voice-api/ncco-reference#stream) - send audio files to a conversation
+* [`input`](/voice/voice-api/ncco-reference#input) - collect digits and speech from the person you are calling, then process them
 
-##Creating a custom call or conversation for each user
+## Creating a custom call or conversation for each user
 
 When you make an outbound call or accept an inbound call, Nexmo makes a request to your webhook endpoint at *answer_url* and retrieves your NCCO. This  request contains the following parameters:
 
@@ -79,3 +80,4 @@ You can use these parameters to customize the NCCO you return to Nexmo. The foll
 ```tabbed_examples
 source: '_examples/voice/ncco/creating-a-custom-call-or-conversation-for-each-user'
 ```
+

@@ -23,7 +23,7 @@ You should read the [Outbound PSTN Calling NCCO guide](/stitch/in-app-voice/ncco
 First you'll need the latest version of the Nexmo Stitch SDK in your `app/build.gradle`
 
 ```groovy
-implementation 'com.nexmo:stitch:1.4.0'
+implementation 'com.nexmo:stitch:3.0.0'
 ```
 
 Now that you have the SDK included in your project, you'll need to create a new instance on the `ConversationClient`. You can do this in a new Activity where you'll be making the outbound PSTN call. For this purpose let's create a `CallActivity` with and its layout:
@@ -78,7 +78,7 @@ class CallActivity : BaseActivity() {
 </android.support.constraint.ConstraintLayout>
 ```
 
-In this example we're assuming the user has already logged in with the `conversationClient.login()` method. For more details about how to implement that read the [simple conversation quickstart](/stitch/in-app-messaging/guides/1-simple-conversation/android) or view the `LoginActivity` in the [source code for this quickstart](https://github.com/Nexmo/stitch-android-quickstart/blob/master/examples/StitchOutboundPSTNCalling/app/src/main/java/com/nexmo/stitchoutboundpstncalling/LoginActivity.kt)
+In this example we're assuming the user has already logged in with the `conversationClient.login()` method. For more details about how to implement that read the [simple conversation quickstart](/stitch/in-app-messaging/guides/simple-conversation/android) or view the `LoginActivity` in the [source code for this quickstart](https://github.com/Nexmo/stitch-android-quickstart/blob/master/examples/StitchOutboundPSTNCalling/app/src/main/java/com/nexmo/stitchoutboundpstncalling/LoginActivity.kt)
 
 
 ## Making an outbound PSTN call

@@ -4,7 +4,7 @@ title: Overview
 
 # Nexmo Stitch Overview [Developer Preview]
 
-Nexmo Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. Stitch enables communications across multiple channels including in-app messaging and in-app voice over IP; with PSTN voice coming soon.
+Nexmo Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. Stitch enables communications across multiple channels including in-app messaging and in-app voice over IP, in-app voice to PSTN and PSTN to in-app voice, and in-app video.
 
 Enable chat or voice on your mobile or web application with our SDKs so that your users can seamlessly communicate no matter which device they are on.
 
@@ -29,6 +29,18 @@ Enable chat or voice on your mobile or web application with our SDKs so that you
 
 - Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
+## In-App Video
+
+- Nexmo In-App Video uses WebRTC and includes all the essentials you need to build a feature rich video experience.
+
+- User Control – Users can control whether their video stream is muted or unmuted.
+
+- Notifications  – Users can be notified when other members have enabled a video channel.
+
+- Group Calls – Configure conversations so users can start a group video call by adding participants in real time.
+
+- Screen Sharing – Allow users to share their screens
+
 ## Participating in the developer preview
 
 This Developer Preview will focus on the In-App Messaging and Voice capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the preview it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
@@ -44,22 +56,23 @@ Read more about:
 
 - [In-App Messaging](/stitch/in-app-messaging/overview)
 - [In-App Voice](/stitch/in-app-voice/overview)
+- [In-App Video](/stitch/in-app-video/overview)
 
 ## SDK Documentation
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/stitch/sdk-documentation/javascript" class="card spacious card--image card--javascript">
+    <a href="/sdk/stitch/javascript/" target="_blank" class="card spacious card--image card--javascript">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/stitch/sdk-documentation/android" class="card spacious card--image card--android">
+    <a href="/sdk/stitch/android/" class="card spacious card--image card--android">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/stitch/sdk-documentation/ios" class="card spacious card--image card--ios">
+    <a href="/sdk/stitch/ios/" class="card spacious card--image card--ios">
       <h2>iOS</h2>
     </a>
   </div>
@@ -70,23 +83,3 @@ Read more about:
 * [API Reference](/api/stitch)
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 * [Node.JS and Angular Demo](https://github.com/Nexmo/stitch-demo) with an [Android](https://github.com/Nexmo/stitch-demo-android) client demo
-
-## Find the SDKs online
-
-<div class="row">
-  <div class="columns small-12 medium-4">
-    <a href="https://www.npmjs.com/package/nexmo-stitch" class="card spacious card--image card--javascript-outline">
-      <h2>JavaScript</h2>
-    </a>
-  </div>
-  <div class="columns small-12 medium-4">
-    <a href="https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.nexmo%22%20AND%20a%3A%22stitch%22" class="card spacious card--image card--android-outline">
-      <h2>Android</h2>
-    </a>
-  </div>
-  <div class="columns small-12 medium-4">
-    <a href="https://github.com/nexmo/stitch-ios-sdk" class="card spacious card--image card--ios-outline">
-      <h2>iOS</h2>
-    </a>
-  </div>
-</div>
