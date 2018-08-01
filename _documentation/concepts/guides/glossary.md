@@ -13,23 +13,11 @@ Many Nexmo customers authenticate their users by sending them a [PIN](#pin) code
 
 See the [Wikipedia article](https://en.wikipedia.org/wiki/Two-factor_authentication).
 
-## A2P
-
-Application to Person.
-
 ## Adaptive Routing(™)
 
 Adaptive Routing technology actively reroutes messages through the alternate carrier routes to ensure that messages are delivered in an optimal manner. It identifies the aggregator partners that are providing the best performance to a given destination, and as a result, both latency and performance volatility are reduced.
 
 This technology in the Platform is an algorithm that actively monitors and dynamically adjusts the routes used to deliver SMS. The route choice is made using millions of real-time conversion data points.
-
-## Analytics
-
-See [insights](#insights).
-
-## API
-
-API, which stands for Application Program Interface, is a set of protocols, tools and routines for building applications. An API specifies how the various software components interact.  Nexmo’s Cloud Communications Platform provides a comprehensive suite of APIS than allow you to implement Messaging, Voice, Verification, and Chat App API solutions.
 
 ## AR
 
@@ -38,12 +26,6 @@ See [Adaptive Routing](#adaptive-routing).
 ## ARDW
 
 Adaptive Routing Dynamic Weights. See [Adaptive Routing](#adaptive-routing).
-
-## ASR
-
-The Answer Seizure Ratio is a metric used to measure the quality of a carrier’s network.
-
-The ASR calculation is `Number of successfully answered calls / Number of calls received`.
 
 ## Call API
 
@@ -66,16 +48,6 @@ A Telecommunications Service Provider. The company that a phone connects to is t
 ## CDR
 
 Call Detail Record. CDRs completely describe a message or call and the submission state. Technically, this is data for a particular Request.
-
-## Challenge
-
-See [Challenge-response](#challenge-response).
-
-## Challenge-response
-
-A family of protocols in which one party presents a question ("challenge") and another party must provide a valid answer ("response") in order to be authenticated.
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/Challenge–response_authentication).
 
 ## Chat App API
 
