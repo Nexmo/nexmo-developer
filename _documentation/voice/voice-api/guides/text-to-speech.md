@@ -68,6 +68,7 @@ Name | Language | Gender | [SSML](#ssml) support
 `Chantal` | `fr-CA` | `female` | ✅
 `Celine` | `fr-FR` | `female` | ✅
 `Mathieu` | `fr-FR` | `male` | ✅
+`Aditi` | `hi-IN` | `female` | ✅
 `Dora` | `is-IS` | `female` | ✅
 `Karl` | `is-IS` | `male` | ✅
 `Carla` | `it-IT` | `female` | ✅
