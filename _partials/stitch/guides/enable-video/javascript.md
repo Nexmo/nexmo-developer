@@ -9,15 +9,15 @@ In this getting started guide we'll cover adding video events to the Conversatio
 
 ## Concepts
 
-This guide will introduce you to the following concepts.
+This guide will introduce you to the following concepts:
 
-- **Video Conversations** - creating Video enabled Conversations
-- **Video** - enabling and disabling Video streams in a Conversation
+- **Video Conversations** - creating Video enabled Conversations.
+- **Video** - enabling and disabling Video streams in a Conversation.
 - **Media Stream Events** - `media:stream:on` events that fire on a Member in a Conversation when media streams are available.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-voice/guides/enable-audio/javascript)
+Ensure you have run through the [previous guide](/stitch/in-app-voice/guides/enable-audio/javascript).
 
 ## 1 - Extra Setup
 
@@ -48,7 +48,7 @@ $ nexmo member:add YOUR_VIDEO_CONVERSATION_ID action=join channel='{"type":"app"
 $ nexmo member:add YOUR_VIDEO_CONVERSATION_ID action=join channel='{"type":"app"}' user_id=ALICE_USER_ID
 ```
 
-The output of these commands will confirm that the user has been added to the "Nexmo Video Chat" conversation.
+The output of these commands will confirm that the user has been added to the "Nexmo Video Chat" conversation:
 
 ```bash
 Member added: MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
@@ -77,7 +77,7 @@ We will use the application we already created for [the audio quick start guide]
 
 ### 2.1 - Add video UI
 
-First, we'll add the UI for a user to enable and disable video, as well as two `<video>` elements that we'll use to play the Video streams we're sending and receiving in the conversation. Let's add the UI at the top of the messages area.
+First, we'll add the UI for a user to enable and disable video, as well as two `<video>` elements that we'll use to play the Video streams we're sending and receiving in the conversation. Let's add the UI at the top of the messages area:
 
 ```html
 <section id="messages">
@@ -93,7 +93,7 @@ First, we'll add the UI for a user to enable and disable video, as well as two `
 </section>
 ```
 
-And add the buttons and `<video>` elements in the class constructor
+And add the buttons and `<video>` elements in the class constructor:
 
 ```javascript
 constructor() {
@@ -107,7 +107,7 @@ constructor() {
 
 ### 2.2 - Add enable and disable video handler
 
-We'll then update the `setupUserEvents` method to trigger `conversation.media.enable({video: "both"})` when the user clicks the `Enable Video` button. We'll also add the corresponding `conversation.media.disable({video: "both"})` trigger for disabling the video stream.
+We'll then update the `setupUserEvents` method to trigger `conversation.media.enable({video: "both"})` when the user clicks the `Enable Video` button. We'll also add the corresponding `conversation.media.disable({video: "both"})` trigger for disabling the video stream:
 
 ```javascript
 setupUserEvents() {
@@ -125,7 +125,7 @@ setupUserEvents() {
 
 ### 2.3 - Change member:media listener
 
-We already have a listener for `member:media` events from the conversation dealing with audio events. Now we're going to change that listener to handle video events as well and update the `messageFeed`. In order to do that, we'll change the listener for `member:media` events at the end of the `setupConversationEvents` method
+We already have a listener for `member:media` events from the conversation dealing with audio events. Now we're going to change that listener to handle video events as well and update the `messageFeed`. In order to do that, we'll change the listener for `member:media` events at the end of the `setupConversationEvents` method:
 
 ```javascript
 setupConversationEvents(conversation) {
@@ -165,7 +165,7 @@ showConversationHistory(conversation) {
 
 ### 2.4 - Add media:stream:on listeners
 
-With these first parts we're listening and reacting to `member:media` events that occur in the conversation. In order to get access to the video streams, we need to listen to `media:stream:on` events as well. These events don't fire on the Conversation though, they fire on a Member. Now we're going to register a listener on `conversation.me` in order to get our own video feed. Let's add the listener at the end of the `setupConversationEvents` method
+With these first parts we're listening and reacting to `member:media` events that occur in the conversation. In order to get access to the video streams, we need to listen to `media:stream:on` events as well. These events don't fire on the Conversation though, they fire on a Member. Now we're going to register a listener on `conversation.me` in order to get our own video feed. Let's add the listener at the end of the `setupConversationEvents` method:
 
 ```javascript
 setupConversationEvents(conversation) {
@@ -213,4 +213,4 @@ Thats's it! You can see a full example of what your project should look like in 
 
 ## Where next?
 
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
+Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>.

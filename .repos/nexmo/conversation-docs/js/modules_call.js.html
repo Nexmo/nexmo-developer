@@ -62,7 +62,7 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  *
  * @event Call#member:call:state
  * @property {Member} from - the member that is changed
- * @property {MEMBER_CALL_STATES} state - the new state
+ * @property {Call.MEMBER_CALL_STATES} state - the new state
  * @property {Event} event -  the actual event
  * @example &lt;caption>listen for member state events&lt;/caption>
  *  call.on("member:call:state",(from, state, event) => {
@@ -74,10 +74,10 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
 /**
  * Call listening for call status changed events.
  *
- * @event Call#call:status:changed
+ * @event Application#call:status:changed
  * @property {Call} call -  the actual event
  * @example &lt;caption>listen for call status events&lt;/caption>
- *  call.on("call:status:changed",(call) => {
+ *  application.on("call:status:changed",(call) => {
  *              console.log("call: " + call.status);
  *       });
  *   });
@@ -145,6 +145,7 @@ class Call {
 	 * @private
 	 */
 	_attachCallListeners() {
+		// Conversation level listeners
 		this.conversation.releaseGroup('call_module');
 		this.conversation.on('member:left', 'call_module', (from, event) => {
 			let state = null;
@@ -163,6 +164,11 @@ class Call {
 		this.conversation.on('member:invited', 'call_module', (from, event) => {
 			const state = this.MEMBER_CALL_STATES.RINGING;
 			this.emit('member:call:state', from, state, event);
+		});
+		this.conversation.on('member:media', 'call_module', (from, event) => {
+			if (this.application.calls &amp;&amp; this.application.calls.has(this.conversation.id)) {
+				this.application.calls.get(this.conversation.id)._handleStatusChange(event);
+			}
 		});
 	}
 
@@ -308,7 +314,7 @@ class Call {
 	 * Set the call.status and emit a call:status:changed event
 	 *
 	 * @param {Call.CALL_STATUS} this.CALL_STATUS the call status to set
-	 * @emits Call#call:status:changed
+	 * @emits Application#call:status:changed
 	 * @private
 	 */
 	_setStatusAndEmit(status) {
@@ -423,6 +429,9 @@ class Call {
 	 * @returns {Promise}
 	 */
 	hangUp() {
+		if (this.conversation) {
+			this.conversation.media.disable();
+		}
 		if (!this.knocking_id) {
 			return this.conversation.leave();
 		} else {
@@ -502,13 +511,13 @@ module.exports = Call;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:status:changed">call:status:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 17 2018 11:33:17 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 31 2018 11:22:20 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
