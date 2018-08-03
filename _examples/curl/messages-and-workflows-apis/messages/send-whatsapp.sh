@@ -3,7 +3,7 @@ curl -X POST https://api.nexmo.com/beta/messages \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -d $'{
-    "from": { "type": "whatsapp", "id": "WHATSAPP_NUMBER" },
+    "from": { "type": "whatsapp", "number": "WHATSAPP_NUMBER" },
     "to": { "type": "whatsapp", "number": "TO_NUMBER" },
     "message": {
       "content": {

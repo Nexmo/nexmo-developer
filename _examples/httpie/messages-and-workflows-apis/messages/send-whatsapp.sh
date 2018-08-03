@@ -1,6 +1,6 @@
 http POST 'https://api.nexmo.com/beta/messages' \
   'Authorization':'Bearer '$JWT\
-  from:='{ "type": "whatsapp", "id": "WHATSAPP_NUMBER" }' \
+  from:='{ "type": "whatsapp", "number": "WHATSAPP_NUMBER" }' \
   to:='{ "type": "whatsapp", "number": "TO_NUMBER" }' \
   message:='{
     "content": {
