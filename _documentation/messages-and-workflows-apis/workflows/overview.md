@@ -23,7 +23,7 @@ The following diagram illustrates the relationship between the Workflows API and
 
 ## Developer Preview
 
-This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
+This API is currently in Developer Preview.
 
 In this release Nexmo provides a failover template. The failover template instructs the [Messages API](/messages-and-workflows-apis/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
