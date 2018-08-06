@@ -9,7 +9,7 @@ description: Glossary of terms based on the Nexicon
 
 Two-factor authentication: unambiguous identification of users by means of the combination of two different components. For example, to withdraw cash from an ATM, you need both a card and a PIN code. These components may be something that the user knows, something that the user possesses or something that is inseparable from the user.
 
-Many Nexmo customers authenticate their users by sending them a [PIN](#pin) code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. For example, password reset. In this case the two components are the account details, and possession of the phone number registered to that account.
+Many Nexmo customers authenticate their users by sending them a [PIN](#pin) code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. An example of usage is where the customer requires a password reset. In this case the two components are the account details, and possession of the phone number registered to that account.
 
 See the [Wikipedia article](https://en.wikipedia.org/wiki/Two-factor_authentication).
 
@@ -22,10 +22,6 @@ This technology in the Platform is an algorithm that actively monitors and dynam
 ## AR
 
 See [Adaptive Routing](#adaptive-routing).
-
-## ARDW
-
-Adaptive Routing Dynamic Weights. See [Adaptive Routing](#adaptive-routing).
 
 ## Call API
 
@@ -52,6 +48,8 @@ Call Detail Record. CDRs completely describe a message or call and the submissio
 ## Cloud number
 
 A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging) or [Voice](#voice) communication.
+
+See also [Virtual Number](#virtual-number).
 
 ## Conversions
 
@@ -126,11 +124,11 @@ Enables you to present any phone number on your account as your outbound Caller 
 
 ## Dynamic phone number insertion
 
-A measure of the impact of inbound phone calls in digital marketing efforts. For example, when a potential customer clicks on your site, dynamic phone number insertion will show a phone numbers that is unique to the  search engine, website, key terms or other source.
+A measure of the impact of inbound phone calls in digital marketing efforts. For example, when a potential customer clicks on your site, dynamic phone number insertion will show a phone number that is unique to the search engine, website key terms or other source.
 
-## Dynamic Routing
+## E.164 format
 
-See [Adaptive Routing](#adaptive-routing).
+Number format for Nexmo APIs. See [Number format](#number-format).
 
 ## Extended shortcode
 
@@ -138,17 +136,13 @@ A short number between 4 and 6 digits that has been extended to create a large q
 
 ## Fake Delivery Receipt
 
-A [Delivery Receipt](#delivery-receipt) suspected to be fake. That is, when there is no intention to deliver the SMS. In cases of filtering, this usually occurs in the Middle East.
+A [Delivery Receipt](#delivery-receipt) suspected to be fake. That is, when there is no intention to deliver the SMS.
 
 Sometimes delivery receipts are faked because the Telecommunications Service Provider sends it early. Some Telecommunications Service Providers never return a delivery receipt. In this case Nexmo creates a delivery receipt and sends it to you.
 
 ## Geo
 
 The geographic region of the world.
-
-## GSM
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/GSM).
 
 ## Handset Delivery Receipt
 
@@ -157,18 +151,6 @@ A [Delivery Receipt](#delivery-receipt) that is sent when the message is deliver
 ## HLR
 
 Home Location Register. These databases contain details of each subscriber phone number, including the current active status and more.
-
-## Inbound message
-
-An SMS sent as a reply to the originator.
-
-## Inbound number
-
-Makes it easy for your users to call you and route calls.
-
-## Inbound SMS
-
-A simple, cost-effective way to interact with your users. They can send SMS to you using a virtual number.
 
 ## Interactive Voice Response
 
@@ -202,13 +184,15 @@ Allows you to build conferencing apps that scale with dynamic phone number provi
 
 ## LVN
 
+Long Virtual Number.
+
 See [Virtual Number](#virtual-number).
 
 ## Meshed carrier network
 
 A seamless network of Telecommunications Service Providers. This enables you to pick and choose Telecommunications Service Providers for each location. This gives maximum flexibility and savings compared to MPLS or Wide Area Networking solutions.
 
-## Messaging
+## Messaging API
 
 This product enables Nexmo customers to have a conversation with their users. The products that make up Messaging are:
 
@@ -246,16 +230,16 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Notification_Service).
 
 Using Number Cloud you check and retrieve information about phone numbers. It includes:
 
-* Number Insight API
-* Verify API
+* [Number Insight API](#number-insight-api)
+* [Verify API](#verify-api)
 
 ## Number Insight API
 
 A group of products in the Number Cloud that provides actionable intelligence on phone numbers without interfering with the end-user experience. Number Insight is made up of:
 
-* Number Insight Basic
-* Number Insight Standard
-* Number Insight Advanced
+* [Number Insight Basic](#number-insight-basic)
+* [Number Insight Standard](#number-insight-standard)
+* [Number Insight Advanced](#number-insight-advanced)
 
 ## Number Insight Basic
 
@@ -272,6 +256,17 @@ This  Number Insight  product is an synchronous API that verifies the relationsh
 ## Number inventory
 
 Search for, buy and update your inventory of numbers using Nexmo Dashboard.
+
+## Number format
+
+Within the Nexmo Voice API all numbers are in E.164 format. This means that numbers:
+
+* Omit both a leading `+` and the international access code such as `00` or `001`.
+* Contain no special characters, such as a space, `(`, `)` or `-`.
+
+For example, a US number would have the format 14155550101. A UK number would have the format 447700900123.
+
+If you are unsure how to format the number the Number Insight API can be used to find correct information about a number.
 
 ## Number validity
 
@@ -303,16 +298,16 @@ With Nexmo per-second billing, you maintain full control over how much you spend
 
 ## Performance volatility
 
-The frequent changes in throughput that constantly occur in SMS networks. For example, the fastest and most reliable network connection to a Telecommunications Service Providers may suddenly become unavailable, in which case alternate routes must be immediately switched to.
+The frequent changes in throughput that constantly occur in SMS networks. For example, the fastest and most reliable network connection to a Telecommunications Service Provider may suddenly become unavailable, in which case alternate routes must be immediately switched to.
 
 ## Platform
 
-The Nexmo technologies that facilitate the interaction between Nexmo customers and their users. The Cloud Communications Platform is an API based, fully redundant global communication platform that delivers mission critical multi-channel solutions. The main products in the cloud are:
+The Nexmo technologies that facilitate the interaction between Nexmo customers and their users. The Cloud Communications Platform is an API-based, fully redundant global communication platform that delivers mission critical multi-channel solutions. The main products in the cloud are:
 
 **Technologies** - the components and algorithms that make the Platform work:
 
 * Direct-to-Carrier Network
-* Adaptive Routing(™)
+* [Adaptive Routing(™)](#adaptive-routing)
 * Platform Infrastructure
 
 **Services** - Customers communicate with the cloud using the comprehensive suite of Nexmo APIs in order to optimize their communication experience.
@@ -361,7 +356,7 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Roaming).
 
 ## RTP
 
-Media protocol used for transfer of voice data once a Voip call is established.
+Real-Time Transport Protocol. Media protocol used for transfer of voice data once a VOIP call is established.
 
 ## Sender ID
 
@@ -379,7 +374,7 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Short_code).
 
 ## Short Message Service
 
-A text messaging service component of phone, Web, or mobile communication systems. 
+A text messaging service component of phone, Web, or mobile communication systems.
 
 See [Wikipedia](https://en.wikipedia.org/wiki/Short_Message_Service).
 
@@ -395,7 +390,7 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Session_Initiation_Protoco
 
 ## SIP Trunking
 
-In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) enpoint (sip.nexmo.com) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can use this flexible as a SIP trunk and a SIP User Agent gateway.
+In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) enpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can use this flexibly as a SIP trunk and a SIP User Agent gateway.
 
 ## SMPP
 
@@ -407,7 +402,7 @@ See [Short Message Service](#short-message-service).
 
 ## SMS API
 
-A [Messaging](#messaging) API you use to send and receive a high volume of [SMS](#sms) anywhere in the world. The SMS API provides instant access to the highest quality global messaging network. The SMS API uses Adaptive Routing and delivery optimization technologies to ensure the highest quality message delivery.
+A [Messaging](#messaging) API you use to send and receive a high volume of [SMS](#sms) anywhere in the world. The SMS API provides instant access to the highest quality global messaging network. The SMS API uses [Adaptive Routing](#adaptive-routing) and delivery optimization technologies to ensure the highest quality message delivery.
 
 ## SMS Cloud Numbers
 
@@ -431,7 +426,7 @@ A type of communications service provider that has traditionally provided teleph
 
 ## Trace ID
 
-Proposed id code for an API request to be in all logs that the API request triggers, used for linking of related logs.
+Proposed ID code for an API request to be in all logs that the API request triggers, used for linking of related logs.
 
 ## TSP
 
@@ -439,7 +434,7 @@ See [Telecommunications Service Provider](#telecommunications-service-provider).
 
 ## TTS API
 
-You use the [TTS](#tts) API to play synthesized messages and audio files to a live call. Using this API you can:
+Text-to-Speech API. You use the [TTS](#tts) API to play synthesized messages and audio files to a live call. Using this API you can:
 
 * Specify the language to use for synthesized speech.
 * Change the cadence of the synthesized speech to speed up or slow down the voice.
@@ -451,7 +446,7 @@ TTS API is part of Voice API.
 
 ## TTS Prompt API
 
-You use the Nexicon (Glossary)#TTS Prompt API to:
+You use the TTS Prompt API to:
 
 * Collect digits following a TTS message.
 * Collect digits for [2FA](#2fa).
@@ -475,13 +470,13 @@ You use Nexmo's US Short Codes API to:
 
 A turnkey, pay-per-conversation phone verification solution that allows you to instantly verify users globally and achieve highest conversion in order to:
 
-* Easily register users
-* Verify transactions
-* Implement [2FA](#2fa) and one-time passwords
+* Easily register users.
+* Verify transactions.
+* Implement [2FA](#2fa) and one-time passwords.
 
 ## Virtual Number
 
-A virtual number such as `+44 7624 80055` in international notation or `757-772-8555` in typical U.S. notation. Nexmo purchases virtual numbers from various carriers. Nexmo customers rent these virtual numbers to receive inbound messages and voice communication in their [App](#app).
+A virtual number such as `+44 7624 80055` in international notation or `757-772-8555` in typical U.S. notation. Nexmo purchases virtual numbers from various carriers. Nexmo customers rent these virtual numbers to receive inbound messages and voice communication in their application.
 
 See [Long Number](https://en.wikipedia.org/wiki/Long_number) and [Virtual Number](https://en.wikipedia.org/wiki/Virtual_number) on Wikipedia.
 
@@ -493,7 +488,7 @@ Voice includes:
 
 * Voice API
 * SIP Trunking
-* Voice Enabled Numbers (LVNS)
+* Voice Enabled Numbers (LVNs)
 
 ## Voice API
 
@@ -501,9 +496,9 @@ This [Voice](#voice) product provides a simple and affordable personalized voice
 
 Voice API contains:
 
-* Call API - generate voice calls over regular phone numbers
-* TTS API - play synthesized messages and audio files to a live call
-* TTS Prompt API -  Collect digits following a TTS message
+* Call API - generate voice calls over regular phone numbers.
+* TTS API - play synthesized messages and audio files to a live call.
+* TTS Prompt API -  Collect digits following a TTS message.
 
 ## Voice Cloud Numbers
 
