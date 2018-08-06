@@ -26,4 +26,4 @@ For example, a US number would have the format `14155550101`. A UK number would 
 
 If you are unsure how to format the number, the [Number Insight API](/number-insight/overview) can be used to find correct information about a number.
 
-See also [Number format](/voice/voice-api/overview) in the Voice API documentation.
+See also [Number format](/voice/voice-api/guides/numbers) in the Voice API documentation.
