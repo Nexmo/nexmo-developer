@@ -20,7 +20,7 @@ The following diagram illustrates the relationship between the Messages API and 
 
 ## Developer Preview
 
-This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
+This API is currently in Developer Preview.
 
 Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
