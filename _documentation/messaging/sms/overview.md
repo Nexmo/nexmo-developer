@@ -27,6 +27,8 @@ In this document you can learn about:
 
 To use the Nexmo SMS API, you may need to familiarise yourself with:
 
+* **[Number format](/voice/voice-api/guides/numbers)** - All phone numbers in the Nexmo APIs use E.164 format.
+
 * **[Authentication](/concepts/guides/authentication)** - Nexmo SMS API is authenticated with your account API Key and Secret.
 
 * **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, the SMS API will send the delivery receipts and inbound SMS.
