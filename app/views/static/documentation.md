@@ -16,11 +16,13 @@ There are a number of shared concepts between the various Nexmo APIs:
 - [Signing requests](/concepts/guides/signing-messages) – How to cryptographically sign requests
 - [Webhooks](/concepts/guides/webhooks) – Nexmo's API can send data back to your web server via a webhook
 
+You can also find definitions of commonly used terms in the [Glossary](/concepts/guides/glossary).
+
 ## Products
 
 Documentation within Nexmo Developer is organised by product. Within each product section you'll find the following types of documentation:
 
-- **Guides** - A walkthrough of the product highlighting core functionality and features
-- **Building** Blocks - Quick access code samples to help you construct your programmable communications apps
-- **Tutorials** - Step-by-step tutorials to help you build common communications use cases
+- **Guides** - Key concepts highlighting core functionality and features
+- **Building Blocks** - Quick access code samples to help you construct your programmable communications apps
+- **Tutorials** - Step-by-step tutorials to help you build solutions to common communications use cases
 - **API Reference** - The resources, parameters and payload examples
