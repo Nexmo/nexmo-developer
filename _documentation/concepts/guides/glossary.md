@@ -50,6 +50,19 @@ Call Detail Record. CDRs completely describe a message or call and the submissio
 
 For more information on managing CDRs see the [Redact API documentation](/redact/overview).
 
+## CLI
+
+Nexmo Command Line Interface (CLI) tool. 
+
+Further information can be found in the [CLI repository](https://github.com/Nexmo/nexmo-cli).
+
+## Client libraries
+
+Nexmo provides client libraries for various programming languages. These client libraries allow you to develop
+Nexmo applications quickly and reduce time to market.
+
+Further information can be found on the [Nexmo Tools page](https://developer.nexmo.com/tools).
+
 ## Cloud number
 
 A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging) or [Voice](#voice) communication.
@@ -218,9 +231,15 @@ A Telecommunications Service Provider.
 
 A [Delivery Receipt](#delivery-receipt).
 
+## Nexmo Application
+
+An application object that you create in the [Nexmo Dashboard](#nexmo-dashboard), or using the [CLI](#cli), [client libraries](#client-libraries) or [REST APIs](https://developer.nexmo.com).
+
 ## Nexmo Dashboard
 
-This product is a self-service customer tool. You use your Dashboard to:
+This product is a self-service customer tool.
+
+You use your Dashboard to:
 
 * Manage your account:
     * Secondary users
