@@ -1,6 +1,7 @@
 ---
 title: Signing requests
 description: Add an extra layer of security by sending and receiving signed requests.
+navigation_weight: 4
 ---
 
 # Signing requests

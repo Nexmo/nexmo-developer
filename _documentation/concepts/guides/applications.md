@@ -1,7 +1,7 @@
 ---
 title: Applications
 Description: A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products.
-
+navigation_weight: 1
 ---
 
 # Application Overview

@@ -1,5 +1,6 @@
 ---
 title: Authentication
+navigation_weight: 2
 ---
 
 # Authentication

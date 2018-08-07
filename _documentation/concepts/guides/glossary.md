@@ -1,6 +1,7 @@
 ---
 title: Glossary
 description: Glossary of terms based on the Nexicon
+navigation_weight: 6
 ---
 
 # Glossary
@@ -13,7 +14,9 @@ Many Nexmo customers authenticate their users by sending them a [PIN](#pin) code
 
 See the [Wikipedia article](https://en.wikipedia.org/wiki/Two-factor_authentication).
 
-## Adaptive Routing(™)
+See also the [Verify API documentation](/verify/overview).
+
+## Adaptive Routing™
 
 Adaptive Routing technology actively reroutes messages through the alternate carrier routes to ensure that messages are delivered in an optimal manner. It identifies the aggregator partners that are providing the best performance to a given destination, and as a result, both latency and performance volatility are reduced.
 
@@ -45,6 +48,8 @@ A Telecommunications Service Provider. The company that a phone connects to is t
 
 Call Detail Record. CDRs completely describe a message or call and the submission state. Technically, this is data for a particular Request.
 
+For more information on managing CDRs see the [Redact API documentation](/redact/overview).
+
 ## Cloud number
 
 A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging) or [Voice](#voice) communication.
@@ -75,9 +80,13 @@ This product is a self-service customer tool. You use your Dashboard to:
     * Make data-driven decisions
     * Optimize communication with their users
 
+[Access your Dashboard](https://dashboard.nexmo.com).
+
 ## Dedicated Short Codes
 
 This is a Short Code used by a single Nexmo Customer. Unlike a Shared Short Code, Nexmo manages a lengthy application process in order to purchase a US short code for you. Customers can also transfer their current short code to Nexmo.
+
+For more information see the [US Short Code documentation](/messaging/us-short-codes/overview).
 
 ## Delivery Receipt
 
@@ -114,9 +123,11 @@ See [Delivery Receipt](#delivery-receipt).
 
 ## DTMF
 
-Dual Tone Multi Frequency.
+Dual Tone Multi Frequency. Typically used when dealing with data entered by the caller using their phone keyboard.
 
 See [Wikipedia article](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling).
+
+For further information see the [Nexmo DTMF documentation](/voice/voice-api/guides/dtmf).
 
 ## Dynamic caller ID
 
@@ -128,7 +139,18 @@ A measure of the impact of inbound phone calls in digital marketing efforts. For
 
 ## E.164 format
 
-Number format for Nexmo APIs. See [Number format](#number-format).
+Phone number format for all Nexmo APIs.
+
+This means that numbers:
+
+* Omit both a leading `+` and the international access code such as `00` or `001`.
+* Contain no special characters, such as a space, `(`, `)`, or `-`.
+
+For example, a US number would have the format `14155550101`. A UK number would have the format `447700900123`.
+
+If you are unsure how to format the number the Number Insight API can be used to find correct information about a number.
+
+See [Number format](#number-format).
 
 ## Extended shortcode
 
@@ -155,6 +177,8 @@ Home Location Register. These databases contain details of each subscriber phone
 ## Interactive Voice Response
 
 Interactive Voice Response, or IVR, is nn automated telephony technology that enables a human caller to interact with a computer using voice and DTMF tones input on a keypad.
+
+See also the [Nexmo DTMF documentation](/voice/voice-api/guides/dtmf).
 
 ## Intermediate carrier
 
@@ -188,6 +212,8 @@ Long Virtual Number.
 
 See [Virtual Number](#virtual-number).
 
+You can rent LVNs via the [Dashboard](https://dashboard.nexmo.com/).
+
 ## Meshed carrier network
 
 A seamless network of Telecommunications Service Providers. This enables you to pick and choose Telecommunications Service Providers for each location. This gives maximum flexibility and savings compared to MPLS or Wide Area Networking solutions.
@@ -199,6 +225,8 @@ This product enables Nexmo customers to have a conversation with their users. Th
 * SMS API
 * US Short Codes API
 * SMS Cloud Numbers
+
+Further information can be found in the [Messaging API documentation](/messaging/sms/overview).
 
 ## MO
 
@@ -241,6 +269,8 @@ A group of products in the Number Cloud that provides actionable intelligence on
 * [Number Insight Standard](#number-insight-standard)
 * [Number Insight Advanced](#number-insight-advanced)
 
+Further information can be found in the [Number Insight documentation](/number-insight/overview).
+
 ## Number Insight Basic
 
 This Number Insight product is an synchronous API that returns local and international representations of a phone number. Use this API to pretty-print numbers in a UX.
@@ -264,13 +294,15 @@ Within the Nexmo Voice API all numbers are in E.164 format. This means that numb
 * Omit both a leading `+` and the international access code such as `00` or `001`.
 * Contain no special characters, such as a space, `(`, `)` or `-`.
 
-For example, a US number would have the format 14155550101. A UK number would have the format 447700900123.
+For example, a US number would have the format `14155550101`. A UK number would have the format `447700900123`.
 
-If you are unsure how to format the number the Number Insight API can be used to find correct information about a number.
+If you are unsure how to format the number the [Number Insight API](/number-insight/overview) can be used to find correct information about a number.
 
 ## Number validity
 
 Determine if the numbers in your database are valid according to local numbering plans and portability databases.
+
+See also [Number Insight API documentation](/number-insight/overview).
 
 ## Operator
 
@@ -307,7 +339,7 @@ The Nexmo technologies that facilitate the interaction between Nexmo customers a
 **Technologies** - the components and algorithms that make the Platform work:
 
 * Direct-to-Carrier Network
-* [Adaptive Routing(™)](#adaptive-routing)
+* [Adaptive Routing™](#adaptive-routing)
 * Platform Infrastructure
 
 **Services** - Customers communicate with the cloud using the comprehensive suite of Nexmo APIs in order to optimize their communication experience.
@@ -317,7 +349,7 @@ These APIs are:
 * [Messaging](#messaging)
 * [Voice](#voice)
 * [Number Cloud](#number-cloud)
-* Developer API
+* [Developer API](/api/developer/account)
 
 **Virtual Numbers** - phone numbers that customers rent:
 
@@ -388,6 +420,8 @@ Session Initiation Protocol (SIP) is an application-layer control protocol that 
 
 See [Wikipedia article](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
 
+See also the [Nexmo documentation on endpoints](/voice/voice-api/guides/endpoints).
+
 ## SIP Trunking
 
 In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) enpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can use this flexibly as a SIP trunk and a SIP User Agent gateway.
@@ -403,6 +437,8 @@ See [Short Message Service](#short-message-service).
 ## SMS API
 
 A [Messaging](#messaging) API you use to send and receive a high volume of [SMS](#sms) anywhere in the world. The SMS API provides instant access to the highest quality global messaging network. The SMS API uses [Adaptive Routing](#adaptive-routing) and delivery optimization technologies to ensure the highest quality message delivery.
+
+More information can be found in the [SMS API documentation](/messaging/sms/overview).
 
 ## SMS Cloud Numbers
 
@@ -442,7 +478,7 @@ Text-to-Speech API. You use the [TTS](#tts) API to play synthesized messages and
 * Repeat a message up to ten times.
 * Change the gender of the voice.
 
-TTS API is part of Voice API.
+TTS API is part of [Voice API](/voice/voice-api/overview).
 
 ## TTS Prompt API
 
@@ -453,7 +489,7 @@ You use the TTS Prompt API to:
 * Set a message to be played after users have entered digits.
 * Play a message after three failed [PIN](#pin) entries.
 
-TTS Prompt API is part of Voice API.
+TTS Prompt API is part of [Voice API](/voice/voice-api/overview).
 
 ## Two-way messaging
 
@@ -473,6 +509,8 @@ A turnkey, pay-per-conversation phone verification solution that allows you to i
 * Easily register users.
 * Verify transactions.
 * Implement [2FA](#2fa) and one-time passwords.
+
+Fuerther information can be found in the [Verify documentation](/verify/overview).
 
 ## Virtual Number
 
@@ -499,6 +537,8 @@ Voice API contains:
 * Call API - generate voice calls over regular phone numbers.
 * TTS API - play synthesized messages and audio files to a live call.
 * TTS Prompt API -  Collect digits following a TTS message.
+
+Further information can be found in the [Voice API documentation](/voice/voice-api/overview).
 
 ## Voice Cloud Numbers
 
