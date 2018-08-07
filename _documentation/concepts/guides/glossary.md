@@ -502,7 +502,7 @@ A turnkey, pay-per-conversation phone verification solution that allows you to i
 * Verify transactions.
 * Implement [2FA](#2fa) and one-time passwords.
 
-Fuerther information can be found in the [Verify documentation](/verify/overview).
+Further information can be found in the [Verify documentation](/verify/overview).
 
 ## Virtual Number
 
