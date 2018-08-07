@@ -19,7 +19,7 @@ This should be a bulleted outline of the contents of the current page, each item
 
 ## Concepts
 
-It's important to make sure that the user has a grasp of subjects that are common throughout the product you are documenting. Concepts introduces these in brief and links off to further reading where appropriate.
+It's important to make sure that the user has a grasp of subjects that are common throughout the product you are documenting. Concepts introduces these in brief and links off to further reading where appropriate. Concepts will usually be described in more detail in the Guides.
 
 ## Getting started
 
