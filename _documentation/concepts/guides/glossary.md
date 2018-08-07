@@ -62,25 +62,7 @@ The successful validation that a message was delivered to a user.
 
 ## Dashboard
 
-This product is a self-service customer tool. You use your Dashboard to:
-
-* Manage your account:
-    * Secondary users
-    * TopUps
-    * Notifications
-    * Profile
-
-* Manage your products:
-    * Virtual numbers
-    * US Short Codes
-
-* Analyse the success rates for your communication using the Nexmo APIs:
-    * Measure conversion
-    * Track and troubleshoot message delivery
-    * Make data-driven decisions
-    * Optimize communication with their users
-
-[Access your Dashboard](https://dashboard.nexmo.com).
+See [Nexmo Dashboard](#nexmo-dashboard).
 
 ## Dedicated Short Codes
 
@@ -238,7 +220,25 @@ A [Delivery Receipt](#delivery-receipt).
 
 ## Nexmo Dashboard
 
-Use [Dashboard](#dashboard).
+This product is a self-service customer tool. You use your Dashboard to:
+
+* Manage your account:
+    * Secondary users
+    * TopUps
+    * Notifications
+    * Profile
+
+* Manage your products:
+    * Virtual numbers
+    * US Short Codes
+
+* Analyse the success rates for your communication using the Nexmo APIs:
+    * Measure conversion
+    * Track and troubleshoot message delivery
+    * Make data-driven decisions
+    * Optimize communication with their users
+
+[Access your Nexmo Dashboard](https://dashboard.nexmo.com).
 
 ## Notification service
 
