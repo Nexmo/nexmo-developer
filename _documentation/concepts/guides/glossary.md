@@ -113,14 +113,6 @@ The Platform is a globally distributed communication network based on direct int
 
 See [Delivery Receipt](#delivery-receipt).
 
-## DN
-
-See [Delivery Receipt](#delivery-receipt).
-
-## DR
-
-See [Delivery Receipt](#delivery-receipt).
-
 ## DTMF
 
 Dual Tone Multi Frequency. Typically used when dealing with data entered by the caller using their phone keyboard.
