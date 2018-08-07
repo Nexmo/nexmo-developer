@@ -11,7 +11,7 @@ The Nexmo Voice API allows you to connect to a call via a WebSocket. This means 
 
 You can also send audio back into the call over this interface.
 
-The WebSocket is an endpoint in the same what that a phone or SIP address is. This means it is a participant in your call and not a passive monitor like a recording. If you connect a WebSocket to a conference call, or a third-party in a 1-1 call, the audio it receives is a mix of all the audio in the call. It is not possible to receive a single leg of the conversation via the WebSocket.
+The WebSocket is an endpoint in the same way that a phone or SIP address is. This means it is a participant in your call and not a passive monitor like a recording. If you connect a WebSocket to a conference call, or a third-party in a 1-1 call, the audio it receives is a mix of all the audio in the call. It is not possible to receive a single leg of the conversation via the WebSocket.
 
 The Nexmo Voice API always acts as the HTTP client when establishing the WebSocket connection. As the application developer you need to make a compatible server available to accept this connection and deal with the audio.
 

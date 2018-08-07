@@ -361,4 +361,4 @@ In `viewDidLoad()` we want to add a handler for handling new events like the Tex
 
 ## Try it out
 
-After this you should be able to run the app and send messages.
+After this you should be able to run the app and send messages. Try it out [here](https://github.com/Nexmo/stitch-ios-quickstart/tree/master/examples/QuickStartOne). 
