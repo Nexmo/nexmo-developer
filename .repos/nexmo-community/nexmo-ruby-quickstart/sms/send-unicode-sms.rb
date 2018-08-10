@@ -3,7 +3,7 @@ Dotenv.load
 
 NEXMO_API_KEY = ENV['NEXMO_API_KEY']
 NEXMO_API_SECRET = ENV['NEXMO_API_SECRET']
-VERIFY_REQUEST_ID = ENV['VERIFY_REQUEST_ID']
+TO_NUMBER = ENV['RECIPIENT_NUMBER']
 
 require 'nexmo'
 
@@ -12,10 +12,9 @@ client = Nexmo::Client.new(
   api_secret: NEXMO_API_SECRET
 )
 
-response = client.verify.cancel(VERIFY_REQUEST_ID)
-
-if response.status == '0'
-  # cancellation was a success
-else
-  puts response.error_text
-end
+client.sms.send(
+  from: 'Acme Inc',
+  to: TO_NUMBER,
+  text: 'こんにちは世界',
+  type: "unicode"
+)
