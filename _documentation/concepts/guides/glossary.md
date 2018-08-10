@@ -219,6 +219,10 @@ Further information can be found in the [Messaging API documentation](/messaging
 
 Mobile Originated. Sent from a phone number to Nexmo. When a phone sends a text to a virtual number it is MO because the message originates from the phone.
 
+## MSISDN
+
+Mobile Station International Subscriber Directory Number (MSISDN) is a number used to identify a mobile phone number internationally. MSISDN is defined by the [E.164 format](https://en.wikipedia.org/wiki/E.164). MSISDN includes a country code and a National Destination Code (NDC) that identifies the subscriber's network operator.
+
 ## MT
 
 Mobile Terminated. That is, sent by a customer to a phone number through the Platform. For example, requests to deliver an SMS are MT, they go to a phone number.
