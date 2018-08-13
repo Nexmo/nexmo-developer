@@ -31,6 +31,24 @@ class StaticController < ApplicationController
     render layout: 'page'
   end
 
+  def cli
+    @navigation = :tools
+
+    @document_path = "/app/views/static/cli.md"
+
+    # Read document
+    document = File.read("#{Rails.root}/#{@document_path}")
+
+    # Parse frontmatter
+    @frontmatter = YAML.safe_load(document)
+
+    @document_title = @frontmatter['title']
+
+    @content = MarkdownPipeline.new.call(document)
+
+    render layout: 'page'
+  end
+
   def community
     @navigation = :community
     @document_title = "Community"
