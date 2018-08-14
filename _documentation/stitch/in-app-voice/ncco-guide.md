@@ -2,9 +2,9 @@
 title: NCCO for Outbound Phone Calls
 ---
 
-# Outbound PSTN Calling NCCO guide
+# Calling NCCO Guide 
 
-In this guide we'll demonstrate how to set up a dynamic answer URL with an NCCO that will allow you to make outbound PSTN calls from within your application via the Voice API. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
+In this guide we'll demonstrate how to set up a dynamic answer URL with an NCCO that will allow you to configure more complex call flows from within your application via the Voice API. That includes the ability to make hybrid leg calls from your app(via WebRTC) to a phone(via PSTN) and vice versa which is what we will focus on in this guide. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
 
 ## Concepts
 
