@@ -2,12 +2,9 @@
 title: Calling In-App users from a phone
 ---
 
-# Calling In-App users from a phone
+# Phone to App Calls
 
-The [Voice API](/voice/voice-api/overview) allows you to build high-quality programmable voice applications in the cloud. With the Voice API, you can manage outbound and inbound calls in JSON, record and store calls, create a conference call, send text-to-speech messages in 23 languages with varieties of voices and accents, and so on.
-
-
-In this guide, we'll learn how to forward an incoming phone call from a Nexmo phone number to an in-app user user by implementing a Webhook and linking that to a Nexmo application.
+In this guide, we'll learn how to forward an incoming phone call from a Nexmo phone number to an in-app user by implementing a Webhook and linking that to a Nexmo application.
 
 ## Before you begin
 
@@ -25,8 +22,6 @@ $ npm install -g nexmo-cli@beta
 ```
 $ nexmo setup api_key api_secret
 ```
-
-
 
 ## Forwarding a call to a user
 
@@ -66,7 +61,7 @@ app.post('/event', (req, res) => {
 });
 ```
 
-We also need an endpoint for `/answer`, responding to HTTP GET requests, that is going to deliver the NCCO when the Nexmo Application retrieves the `answer_url`. We'll use a `talk` building block so the call generates text-to-speech letting the user know they're calling `Jamie`, followed by a `connect` block. We'll need to add a special `app` type to the endpoint in order to connect the call with an existing user. You can add your own phone number in the `from` field.
+We also need an endpoint for `/answer`, responding to HTTP GET requests, that is going to deliver the NCCO when the Nexmo Application retrieves the `answer_url`. We'll use a `talk` building block so the call generates text-to-speech letting the user know they're calling `Jamie`, followed by a `connect` block. Notice that the connect action is using type: `app`. This essentially means that the second leg of the call is completed using over In-App channel(via WebRTC) in order to then connect the call with an existing app user. You can add your own phone number in the `from` field.
 
 ```javascript
 app.get('/answer', (req, res) => {
