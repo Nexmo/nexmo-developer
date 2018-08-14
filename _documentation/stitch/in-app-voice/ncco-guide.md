@@ -4,25 +4,17 @@ title: NCCO for Outbound Phone Calls
 
 # Outbound PSTN Calling NCCO guide
 
-In this guide we'll demonstrate how to set up a dynamic answer URL with NCCO that will allow you to make outbound PSTN calls from within your application. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
+In this guide we'll demonstrate how to set up a dynamic answer URL with an NCCO that will allow you to make outbound PSTN calls from within your application via the Voice API. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
 
 ## Concepts
 
 This guide will introduce you to the following concepts:
 
-**Nexmo Applications**
-    -> Contain configuration for the application that you are building.
-
-**PSTN**
-    -> Short for "public switched telephone network". Basically the network of Telephones and Cell Phones that can make and receive calls.
-
-**NCCO**
-    -> Short for "Nexmo Call Control Object". A JSON array that you use to control the flow of a Voice API call. Read more in [the NCCO Reference Guide](https://developer.nexmo.com/voice/voice-api/ncco-reference).
+- **Nexmo Applications** - Contain configuration for the application that you are building.
+- **PSTN** - Short for "Public Switched Telephone Network". Basically the network of Telephones and Cell Phones that can make and receive calls.
+- **NCCO** -Short for "Nexmo Call Control Object". A JSON array that you use to control the flow of a Voice API call. Read more in [the NCCO Reference Guide](https://developer.nexmo.com/voice/voice-api/ncco-reference).
 
 ## Before you begin
-
-Ensure you have the following in place before you begin:
-
 * Ensure you have [Node.JS](https://nodejs.org/) installed.
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com).
 * Install the Nexmo CLI.
@@ -43,7 +35,7 @@ $ nexmo setup api_key api_secret
 
 ## Setup instructions
 
-For this guide, you'll need to link it an answer and event URL to either a preexisting Nexmo Application or create a new one:
+For this guide, you'll need to link it an answer and event URL from either a preexisting Nexmo Application or a newly created one:
 
 ```sh
 nexmo app:create "Stitch Outbound PSTN" https://example.com/answer https://example.com/events
@@ -79,7 +71,8 @@ We can use the `to` parameter to dynamically tell Nexmo which phone number to ca
 
 ## Setting up the answer and event URLs
 
-If you'd like to set the caller's number the PSTN recipient will see when their PSTN phone rings, we can use the NCCO to set a `from` parameter with a Nexmo virtual number.
+If you'd like to set the caller's number the PSTN recipient will see when their phone rings, we can use the NCCO to set a `from` parameter with a Nexmo virtual number.
+This can be retrieved from what the SDK is forwarding (like the phone number, user Id or any other field that is passed) or other retrieved information(for example the result of a lookup for the phone number of a specific user Id).
 
 Using the `to` parameter that Nexmo sends our answer URL and the `NEXMO_NUMBER` that you bought we can construct an NCCO like so:
 
@@ -97,6 +90,17 @@ Using the `to` parameter that Nexmo sends our answer URL and the `NEXMO_NUMBER` 
 This is the NCCO that should be served from the answer URL, with `NEXMO_NUMBER` replaced with the number you've bought from Nexmo and `TO_NUMBER` replaced with the `to` query parameter that the Nexmo API serves your answer URL.
 
 After you've implemented the `callPhone()` method and called it in your project using one of the Nexmo SDKs, the caller you just dialed should receive your call and see the from number that you've set with the `NEXMO_NUMBER`.
+
+## Making Calls as part of existing Conversations
+NCCOs create new conversation objects by default. If you would like the interaction to be part of an already existing conversation, you need to, in addition to the `connect` action, to use the `conversation` action in the NCCO to provide the name of the conversation under which the call can be nested; like so:
+
+```json
+[{
+  "action": "conversation",
+  "name": "conversation_name"
+  }]
+}]
+```
 
 ## Where next?
 
