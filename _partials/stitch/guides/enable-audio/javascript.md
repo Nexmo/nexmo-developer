@@ -15,7 +15,8 @@ This guide will introduce you to the following concepts:
 
 ## Before you begin
 
-## 0 - Run through the [previous guide](/stitch/in-app-messaging/guides/utilizing-events/javascript)
+## Before you begin
+- Run through the [previous guide](/stitch/in-app-messaging/guides/utilizing-events/javascript)
 
 ## 1 - Update the JavaScript App
 
