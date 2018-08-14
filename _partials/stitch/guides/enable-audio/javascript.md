@@ -5,7 +5,7 @@ language: javascript
 
 # Getting Started with Nexmo In-App Voice for JavaScript
 
-In this guide we'll cover adding audio events to the Conversation we have created in the [simple conversation with events](/stitch/in-app-messaging/guides/utilizing-events/javascript) getting started guide. We'll deal with sending and receiving  media events to and from the conversation.
+In this guide we'll cover adding audio events to the Conversation we have created in the [simple conversation with events](/stitch/in-app-messaging/guides/utilizing-events/javascript) guide. We'll deal with sending and receiving  media events to and from the conversation.
 ## Concepts
 
 This guide will introduce you to the following concepts:
