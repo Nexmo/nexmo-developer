@@ -4,7 +4,7 @@ title: NCCO for Outbound Phone Calls
 
 # Calling NCCO Guide 
 
-In this guide we'll demonstrate how to set up a dynamic answer URL with an NCCO that will allow you to configure more complex call flows from within your application via the Voice API. That includes the ability to make hybrid leg calls from your app(via WebRTC) to a phone(via PSTN) and vice versa which is what we will focus on in this guide. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
+In this guide we'll demonstrate how to set up a dynamic answer URL with a NCCO that will allow you to configure more complex call flows from within your application via the [Voice API](/voice/voice-api/overview). This includes the ability to make hybrid leg calls from your app (via WebRTC) to a phone (via PSTN) and vice versa. This guide will focus on making calls from your app to a PSTN phone. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
 
 ## Concepts
 
@@ -15,6 +15,7 @@ This guide will introduce you to the following concepts:
 - **NCCO** -Short for "Nexmo Call Control Object". A JSON array that you use to control the flow of a Voice API call. Read more in [the NCCO Reference Guide](https://developer.nexmo.com/voice/voice-api/ncco-reference).
 
 ## Before you begin
+
 * Ensure you have [Node.JS](https://nodejs.org/) installed.
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com).
 * Install the Nexmo CLI.
@@ -35,7 +36,7 @@ $ nexmo setup api_key api_secret
 
 ## Setup instructions
 
-For this guide, you'll need to link it an answer and event URL from either a preexisting Nexmo Application or a newly created one:
+For this guide, you'll need to connect to an answer and event URL from either a preexisting Nexmo Application or a newly created one:
 
 ```sh
 nexmo app:create "Stitch Outbound PSTN" https://example.com/answer https://example.com/events
@@ -58,16 +59,16 @@ nexmo link:app 16625461410 aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 
 The new or existing application should be used to generate a user JWT that your user will use to login to one of the Stitch SDKs. For more info about creating a JWT and associating with a user or application. See the first [In-App Messaging quickstart](/stitch/in-app-messaging/guides/simple-conversation)
 
-When you use one of the Nexmo Stitch SDKs to make a PSTN call, you'll pass in the phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format you want to call as an argument to that SDK's `callPhone()` method. Then the Stitch API will make a request to your answer URL `https://example.com/answer` with the following parameters:
+When you use one of the Nexmo Stitch SDKs to make a PSTN call, you can pass in the phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format you want to call as an argument to that SDK's `callPhone()` method. However, you are not required to pass in only phone numbers. If you prefer, you can pass in any string such as a user ID or name. Then the Stitch API will make a request to your answer URL `https://example.com/answer` with the following parameters:
 
 ```
-?from=demo
+?from_user=demo
 &to=14155550100\
 &conversation_uuid=CON-4e977dab-2abc-42b5-bf64-d468d4763e54\
 &uuid=NONE
 ```
 
-We can use the `to` parameter to dynamically tell Nexmo which phone number to call. The `from` parameter is the name of the Stitch user that initiated the call. The `conversation_uuid` is the ID of the conversation that is created for the IP and PSTN user for this call. The `UUID` parameter does not apply to this guide.
+The `to` parameter will contain the string or phone number you passed into the SDK's `callPhone` method. This parameter can be used to dynamically tell Nexmo which phone number to call. If you choose to pass in a string other than a phone number, such as a user ID or name, you can use that reference to look up that user's phone number instead. The `from_user` parameter is the name of the Stitch user that initiated the call. The `conversation_uuid` is the ID of the conversation that is created for the IP and PSTN user for this call. The `UUID` parameter does not apply to this guide.
 
 ## Setting up the answer and event URLs
 
@@ -92,12 +93,13 @@ This is the NCCO that should be served from the answer URL, with `NEXMO_NUMBER` 
 After you've implemented the `callPhone()` method and called it in your project using one of the Nexmo SDKs, the caller you just dialed should receive your call and see the from number that you've set with the `NEXMO_NUMBER`.
 
 ## Making Calls as part of existing Conversations
-NCCOs create new conversation objects by default. If you would like the interaction to be part of an already existing conversation, you need to, in addition to the `connect` action, to use the `conversation` action in the NCCO to provide the name of the conversation under which the call can be nested; like so:
+
+NCCOs create new conversation objects by default. If you would like the interaction to be part of an already existing conversation, you need to, in addition to the `connect` action, to use the `conversation` action in the NCCO to provide the name of the conversation under which the call can be nested like so:
 
 ```json
 [{
   "action": "conversation",
-  "name": "conversation_name"
+  "name": "CONVERSATION_NAME"
   }]
 }]
 ```
