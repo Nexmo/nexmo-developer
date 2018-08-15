@@ -15,12 +15,11 @@ This guide will introduce you to the following concepts:
 
 ## Before you begin
 
-## Before you begin
 - Run through the [previous guide](/stitch/in-app-messaging/guides/utilizing-events/javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we have already created for [the third getting started guide](/stitch/in-app-messaging/guides/utilizing-events/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we created for [the third getting started guide](/stitch/in-app-messaging/guides/utilizing-events/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add audio UI
 
