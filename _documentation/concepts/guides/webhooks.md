@@ -6,11 +6,24 @@ navigation_weight: 5
 
 # Webhooks
 
-Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API and Nexmo virtual numbers is sent in an HTTP request to your [webhook](https://en.wikipedia.org/wiki/Webhook) endpoint, running on a web server.
+Webhooks are an extension of an API, but instead of your code requesting data from Nexmo, instead Nexmo sends data to you. The data arrives in a web request to your own application. A webhook may be a result of an earlier API call (this type of webhook is also called a "callback"), such as an asynchronous request to the Number Insight API. Webhooks are also used to notify your application of events such as an incoming call or message.
 
-## What is a webhook?
+There many similarities between APIs and webhooks; there are also some big differences! Since the Nexmo servers need to be able to send data to your application, to use webhooks you need to set up a webserver to receive the incoming HTTP requests. You will also need to give the URL of that webserver to Nexmo so that we know where your data should be sent to.
 
-A [webhook](https://en.wikipedia.org/wiki/Webhook) is a callback sent via HTTP to a URL of your choice. It is a simple way of enabling communication from our servers to yours. Nexmo uses webhooks to notify you about incoming calls and messages, events in calls and delivery receipts for messages.
+## Webhooks workflow
+
+With webhooks, it's important that the URL to send the webhooks to is configured. When there is data available, Nexmo sends the webhook to your application as an HTTP request. Your application should respond with an HTTP success code to indicate that it successfully received the data.
+
+The process looks something like this:
+
+```js_sequence_diagram
+Your App->Nexmo: Configure URL for webhook
+Note over Your App, Nexmo: Some time later ...
+Nexmo->Your App: Have some interesting data
+Your App->Nexmo: 200 OK
+```
+
+Webhooks are a great way for Nexmo to send information about events such as an incoming call or message, an event during a call, or to send follow-up information such as a delivery receipt which may become available some time after the request it relates to. You will see webhooks used in a few of our applications.
 
 ## Which APIs support webhooks?
 
@@ -18,10 +31,12 @@ Information resulting from requests to the SMS API, Voice API, Number Insight AP
 
 Nexmo sends and retrieves the following information using webhooks:
 
-* SMS API - sends the delivery status of your message and receives inbound SMS
-* Voice API - retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another
-* Number Insight Advanced Async API - receives complete information about a phone number
-* US Short Codes API - sends the delivery status of your message and receives inbound SMS
+| API Name | Webhooks usage |
+|-------|--------|
+| SMS API | sends the delivery status of your message and receives inbound SMS |
+| Voice API | retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another |
+| Number Insight Advanced Async API | receives complete information about a phone number |
+| US Short Codes API | sends the delivery status of your message and receives inbound SMS |
 
 ## Setting webhook endpoints
 
@@ -34,17 +49,20 @@ source: '_examples/concepts/guides/webhooks-setup/'
 To interact with Nexmo webhooks:
 
 1. Create a Nexmo account.
-2. Write scripts to handle the information sent or requested by Nexmo. Your server must respond with ^[success status code](Any status code between 200 OK and 205 Reset Content) to inbound messages from Nexmo.
-3. Put your scripts on your HTTP server.
-4. Send a *request* with the [webhook endpoint](#setting-webhook-endpoints) set.
+2. Write scripts to handle the information sent or requested by Nexmo. Your server must respond with a success status code (any status code between 200 OK and 205 Reset Content) to inbound messages from Nexmo.
+3. Publish your scripts by deploying to a server (for local development, try [Ngrok](https://ngrok.com/)).
+4. [Configure a webhook endpoint](#setting-webhook-endpoints) in the API you would like to use.
+5. Take an action (such as sending an SMS) that will trigger that webhook.
 
 Information about your request is then sent to your webhook endpoint.
 
-The following code examples are webhooks for the SMS API:
+### Tips for debugging webhooks
 
-```tabbed_examples
-source: '_examples/messaging/webhooks/inbound'
-```
+**Start simple** Publish the simplest possible script that you can think of to respond when the webhook is received and perhaps print some debug information. This makes sure that the URL is what you think it is, and that you can see the output or logs of the application.
+
+**Code defensively** Inspect that data values exist and contain what you expected before you go ahead and use them. Depending on your setup, you could be open to receiving unexpected data so always bear this in mind.
+
+**Look at examples** We publish our examples in a few different technology stacks in an attempt to support as many developers as possible. For good webhook example code, how about one of these: [receive an SMS](/messaging/sms/building-blocks/receiving-an-sms), [handle delivery receipts](/messaging/sms/guides/delivery-receipts), [receive an incoming call](/voice/voice-api/building-blocks/receive-an-inbound-call) - or check the "building blocks" examples for the API you are using.
 
 ## Configuring your firewall
 
