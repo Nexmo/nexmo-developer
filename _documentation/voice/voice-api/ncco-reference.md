@@ -7,6 +7,10 @@ description: The Nexmo Call Control Objects used to manage your Voice API calls.
 
 A Nexmo Call Control Object (NCCO) is a JSON array that you use to control the flow of a Voice API call. For your NCCO to execute correctly, the JSON objects must be valid.
 
+While developing and testing NCCOs, you can use the Voice Playground to try out NCCOs interactively. You can [read more about it in the Voice API Overview](/voice/voice-api/overview#voice-playground) or [go directly to the Voice Playground in the Dashboard](https://dashboard.nexmo.com/voice/playground).
+
+## NCCO actions
+
 The order of actions in the NCCO controls the flow of the Call. Actions that have to complete before the next action can be executed are *synchronous*. Other actions are *asynchronous*. That is, they are supposed to continue over the following actions until a condition is met. For example, a `record` action terminates when the `endOnSilence` option is met. When all the actions in the NCCO are complete, the Call ends.
 
 The NCCO actions and the options and types for each action are:
@@ -20,11 +24,7 @@ Action | Description | Synchronous
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
 [input ](#input) | Collect digits from the person you are calling. | Yes
 
-All the actions can return the following [status codes](#status-codes).
-
 > **Note**: [Connect an inbound call](/voice/voice-api/building-blocks/connect-an-inbound-call) provides an example of how to serve your NCCOs to Nexmo after a Call or Conference is initiated
-
-While developing and testing NCCOs, you can use the Voice Playground to try out NCCOs interactively. You can [read more about it in the Voice API Overview](/voice/voice-api/overview#voice-playground) or [go directly to the Voice Playground in the Dashboard](https://dashboard.nexmo.com/voice/playground).
 
 ## Record
 
@@ -110,11 +110,11 @@ You can use the following options to control a *conversation* action:
 Option | Description | Required
 -- | -- | --
 `name` | The name of the Conversation room. Names have to be unique per account. | Yes
-`musicOnHoldUrl` | A URL to the *mp3* file to stream to participants until the conversation starts. By default the conversation starts when the first person calls the virtual number associated with your Voice app. To stream this mp3 before the moderator joins the conversation, set *startOnEnter* to *false* for all users other than the moderator. | no
-`startOnEnter` | The default value of *true* ensures that the conversation starts when this caller joins  conversation [name](#conversation_name). Set to *false* for attendees in a moderated conversation. | no
-`endOnExit` | For moderated conversations, set to *true* in the moderator NCCO so the conversation is ended when the moderator hangs up. The default value of *false* means the conversation is not terminated when a caller hangs up; the conversation ends when the last caller hangs up. | no
+`musicOnHoldUrl` | A URL to the *mp3* file to stream to participants until the conversation starts. By default the conversation starts when the first person calls the virtual number associated with your Voice app. To stream this mp3 before the moderator joins the conversation, set *startOnEnter* to *false* for all users other than the moderator. | No
+`startOnEnter` | The default value of *true* ensures that the conversation starts when this caller joins  conversation [name](#conversation_name). Set to *false* for attendees in a moderated conversation. | No
+`endOnExit` | For moderated conversations, set to *true* in the moderator NCCO so the conversation is ended when the moderator hangs up. The default value of *false* means the conversation is not terminated when a caller hangs up; the conversation ends when the last caller hangs up. | No
 `record` | Set to *true* to record this conversation. For standard conversations, recordings start when one or more attendees connects to the conversation. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where *startOnEnter* is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL. <br>By default audio is recorded in MP3 format. See the [recording](/voice/voice-api/guides/recording#file-formats) guide for more details | No
-`eventUrl` | Set the URL to the webhook endpoint Nexmo calls asynchronously on each of the call [states](/api/voice#status). | No
+`eventUrl` | Set the URL to the webhook endpoint Nexmo calls asynchronously on each of the [Call States](/voice/voice-api/guides/call-flow#call-states). | No
 `eventMethod` | Set the HTTP method used to make the request to `eventUrl`. The default value is POST. | No
 
 ## Connect
@@ -133,7 +133,7 @@ Option | Description | Required
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
 `machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul markdown="1"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
-`eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call states](/api/voice#status). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
+`eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call States](/voice/voice-api/guides/call-flow#call-states). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
 
 ### Endpoint Types
