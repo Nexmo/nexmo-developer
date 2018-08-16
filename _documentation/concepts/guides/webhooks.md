@@ -54,3 +54,4 @@ If you restrict inbound traffic (including delivery receipts), you need to white
 * `174.36.197.192/28`
 * `173.193.199.16/28`
 * `119.81.44.0/28`
+* `5.10.112.112/28`
