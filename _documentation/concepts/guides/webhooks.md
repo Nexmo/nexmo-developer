@@ -6,9 +6,9 @@ navigation_weight: 5
 
 # Webhooks
 
-Webhooks are an extension of an API, but instead of your code requesting data from Nexmo, instead Nexmo sends data to you. The data arrives in a web request to your own application. A webhook may be a result of an earlier API call (this type of webhook is also called a "callback"), such as an asynchronous request to the Number Insight API. Webhooks are also used to notify your application of events such as an incoming call or message.
+Webhooks are an extension of an API, but instead of your code requesting data from Nexmo, Nexmo sends data to you. The data arrives in a web request to your application. A webhook may be the result of an earlier API call (this type of webhook is also called a "callback"), such as an asynchronous request to the Number Insight API. Webhooks are also used to notify your application of events such as an incoming call or message.
 
-There many similarities between APIs and webhooks; there are also some big differences! Since the Nexmo servers need to be able to send data to your application, to use webhooks you need to set up a webserver to receive the incoming HTTP requests. You will also need to give the URL of that webserver to Nexmo so that we know where your data should be sent to.
+Since the Nexmo servers need to be able to send data to your application via webhooks, you need to set up a webserver to receive the incoming HTTP requests. You also need to specify the URL of each webhook on your webserver so that data can be sent to each one.
 
 ## Webhooks workflow
 
@@ -23,7 +23,7 @@ Nexmo->Your App: Have some interesting data
 Your App->Nexmo: 200 OK
 ```
 
-Webhooks are a great way for Nexmo to send information about events such as an incoming call or message, an event during a call, or to send follow-up information such as a delivery receipt which may become available some time after the request it relates to. You will see webhooks used in a few of our applications.
+Webhooks provide a convenient mechanism for Nexmo to send information to your application for events such as an incoming call or message, or a change in call status. They can also be used to send follow-up information such as a delivery receipt which may become available some time after the request it relates to.
 
 ## Which APIs support webhooks?
 
@@ -33,10 +33,10 @@ Nexmo sends and retrieves the following information using webhooks:
 
 | API Name | Webhooks usage |
 |-------|--------|
-| SMS API | sends the delivery status of your message and receives inbound SMS |
-| Voice API | retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another |
-| Number Insight Advanced Async API | receives complete information about a phone number |
-| US Short Codes API | sends the delivery status of your message and receives inbound SMS |
+| SMS API | Sends the delivery status of your message and receives inbound SMS |
+| Voice API | Retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another |
+| Number Insight Advanced Async API | Receives complete information about a phone number |
+| US Short Codes API | Sends the delivery status of your message and receives inbound SMS |
 
 ## Setting webhook endpoints
 
@@ -62,21 +62,27 @@ Information about your request is then sent to your webhook endpoint.
 
 **Code defensively** Inspect that data values exist and contain what you expected before you go ahead and use them. Depending on your setup, you could be open to receiving unexpected data so always bear this in mind.
 
-**Look at examples** We publish our examples in a few different technology stacks in an attempt to support as many developers as possible. For good webhook example code, how about one of these: [receive an SMS](/messaging/sms/building-blocks/receiving-an-sms), [handle delivery receipts](/messaging/sms/guides/delivery-receipts), [receive an incoming call](/voice/voice-api/building-blocks/receive-an-inbound-call) - or check the "building blocks" examples for the API you are using.
+**Look at examples** Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example code using webhooks see the following:
+
+* [Receive an SMS](/messaging/sms/building-blocks/receiving-an-sms)
+* [Handle delivery receipts](/messaging/sms/guides/delivery-receipts)
+* [Receive an incoming call](/voice/voice-api/building-blocks/receive-an-inbound-call)
+
+You can also check the Building Blocks section of the documentation for the API you are using.
 
 ### Using Ngrok for local development
 
-Webhooks are an unusual situation for developers; often we work on local platforms while we're getting the details worked out but for webhooks your code must be publicly accessible in order to be used. One way to work around this problem is to use a free tool called (Ngrok)[https://ngrok.com/] that creates a secure tunnel to your locally-running application from the outside world. To get started with Ngrok, follow these steps:
+Webhooks are an unusual situation for developers; often you will work on local platforms while you're getting the details worked out, but when using webhooks your webhook URLs must be publicly accessible in order for Nexmo or another service to access them. One way to work around this problem is to use a free tool called (Ngrok)[https://ngrok.com/]. Ngrok creates a secure tunnel to your locally-running application from the outside world. To get started with Ngrok, follow these steps:
 
 1. Download and install Ngrok using the [instructions](https://ngrok.com/download) for your platform.
-2. Start your webserver running locally, and check which port it uses (for example if you usually use <http://localhost:3000> to access your application, then the port is 3000).
-3. Create an Ngrok tunnel to this port with a command like `ngrok http 3000`.
-4. This command will show the URL of the tunnel, which will be something like `https://abcdef1.ngrok.io`. Copy this URL.
-5. Go ahead and [set up Nexmo webhooks](#setting-webhook-endpoints) to point to this URL, and you are up and running.
+2. Start your webserver running locally, and check which port it uses (for example, if you usually use <http://localhost:3000> to access your application, then the port is 3000).
+3. Create an Ngrok tunnel to this port with a command such as `ngrok http 3000`.
+4. This command will show the URL of the tunnel, which will look similar to `https://abcdef1.ngrok.io`. Copy this URL.
+5. Go ahead and [configure your Nexmo webhooks](#setting-webhook-endpoints) to point to this URL, and you are up and running.
 
-> Beware that each time you start up the Ngrok tunnel, you're likely to get a new URL so don't forget to update the webhooks configuration accordingly! Paid accounts can reserve tunnel names and choose which one to use when they start up.
+> Beware that each time you start up the Ngrok tunnel, you're likely to get a new URL so don't forget to update the webhooks configuration accordingly! Paid Ngrok accounts can reserve tunnel names and choose which one to use when they start up, so you can avoid having to reconfigure your webhooks.
 
-**Cool bonus feature of Ngrok:** in addition to the tunnel URL in the command output, you will also see a URL for `Web Interface`. The web interface offers an excellent way of examining the details of all the requests received by the tunnel and the responses returned, a very handy debugging tool. Even better, you can use the "Replay" button to repeat a request rather than having to send yourself lots of messages or continuously reproduce whatever other event your webhook code is responding to.
+**Cool bonus feature of Ngrok:** in addition to the tunnel URL displayed in the command output, you will also see a URL for the `Web Interface`. The web interface offers an excellent way of examining the details of all the requests received by the tunnel and the responses returned, and is therefore a very useful debugging tool. You can also use the "Replay" button to repeat a request rather than having to send yourself lots of text messages or continuously reproduce whatever event your webhook code is responding to. These features make testing your application's response to webhooks much more convenient.
 
 ## Configuring your firewall
 
