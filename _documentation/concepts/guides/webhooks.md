@@ -64,6 +64,20 @@ Information about your request is then sent to your webhook endpoint.
 
 **Look at examples** We publish our examples in a few different technology stacks in an attempt to support as many developers as possible. For good webhook example code, how about one of these: [receive an SMS](/messaging/sms/building-blocks/receiving-an-sms), [handle delivery receipts](/messaging/sms/guides/delivery-receipts), [receive an incoming call](/voice/voice-api/building-blocks/receive-an-inbound-call) - or check the "building blocks" examples for the API you are using.
 
+### Using Ngrok for local development
+
+Webhooks are an unusual situation for developers; often we work on local platforms while we're getting the details worked out but for webhooks your code must be publicly accessible in order to be used. One way to work around this problem is to use a free tool called (Ngrok)[https://ngrok.com/] that creates a secure tunnel to your locally-running application from the outside world. To get started with Ngrok, follow these steps:
+
+1. Download and install Ngrok using the [instructions](https://ngrok.com/download) for your platform.
+2. Start your webserver running locally, and check which port it uses (for example if you usually use <http://localhost:3000> to access your application, then the port is 3000).
+3. Create an Ngrok tunnel to this port with a command like `ngrok http 3000`.
+4. This command will show the URL of the tunnel, which will be something like `https://abcdef1.ngrok.io`. Copy this URL.
+5. Go ahead and [set up Nexmo webhooks](#setting-webhook-endpoints) to point to this URL, and you are up and running.
+
+> Beware that each time you start up the Ngrok tunnel, you're likely to get a new URL so don't forget to update the webhooks configuration accordingly! Paid accounts can reserve tunnel names and choose which one to use when they start up.
+
+**Cool bonus feature of Ngrok:** in addition to the tunnel URL in the command output, you will also see a URL for `Web Interface`. The web interface offers an excellent way of examining the details of all the requests received by the tunnel and the responses returned, a very handy debugging tool. Even better, you can use the "Replay" button to repeat a request rather than having to send yourself lots of messages or continuously reproduce whatever other event your webhook code is responding to.
+
 ## Configuring your firewall
 
 If you restrict inbound traffic (including delivery receipts), you need to whitelist the following IP addresses in your firewall. Inbound traffic from Nexmo might come from any of the following:
