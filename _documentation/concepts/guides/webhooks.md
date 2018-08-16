@@ -56,13 +56,13 @@ To interact with Nexmo webhooks:
 
 Information about your request is then sent to your webhook endpoint.
 
-### Tips for debugging webhooks
+## Tips for debugging webhooks
 
-**Start simple** Publish the simplest possible script that you can think of to respond when the webhook is received and perhaps print some debug information. This makes sure that the URL is what you think it is, and that you can see the output or logs of the application.
+**Start simple** - Publish the simplest possible script that you can think of to respond when the webhook is received and perhaps print some debug information. This makes sure that the URL is what you think it is, and that you can see the output or logs of the application.
 
-**Code defensively** Inspect that data values exist and contain what you expected before you go ahead and use them. Depending on your setup, you could be open to receiving unexpected data so always bear this in mind.
+**Code defensively** - Inspect that data values exist and contain what you expected before you go ahead and use them. Depending on your setup, you could be open to receiving unexpected data so always bear this in mind.
 
-**Look at examples** Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example code using webhooks see the following:
+**Look at examples** - Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example code using webhooks see the following:
 
 * [Receive an SMS](/messaging/sms/building-blocks/receiving-an-sms)
 * [Handle delivery receipts](/messaging/sms/guides/delivery-receipts)
@@ -70,7 +70,7 @@ Information about your request is then sent to your webhook endpoint.
 
 You can also check the Building Blocks section of the documentation for the API you are using.
 
-### Using Ngrok for local development
+## Using Ngrok for local development
 
 Webhooks are an unusual situation for developers; often you will work on local platforms while you're getting the details worked out, but when using webhooks your webhook URLs must be publicly accessible in order for Nexmo or another service to access them. One way to work around this problem is to use a free tool called (Ngrok)[https://ngrok.com/]. Ngrok creates a secure tunnel to your locally-running application from the outside world. To get started with Ngrok, follow these steps:
 
