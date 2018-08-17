@@ -1,5 +1,5 @@
 ---
-title: NCCO for Outbound Phone Calls
+title: Calling NCCO Guide
 ---
 
 # Calling NCCO Guide 
