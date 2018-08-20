@@ -15,17 +15,17 @@ class OpenApiDefinitionResolver
     raise "Could not find definition '#{name}'"
   end
 
-  private_class_method def self.paths(name)
+  def self.paths(name)
     ['json', 'yaml', 'yml'].map do |format|
       path(name, format)
     end
   end
 
-  private_class_method def self.path(name, format)
+  def self.path(name, format)
     "_open_api/definitions/#{name}.#{format}"
   end
 
-  private_class_method def self.resolve(path)
+  def self.resolve(path)
     OasParser::Definition.resolve(path)
   end
 end
