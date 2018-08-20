@@ -10,8 +10,8 @@ RSpec.describe Redirector do
     before do
       allow(ENV).to receive(:[]).with('ENVIRONMENT_REDIRECTS').and_return(<<~HEREDOC
         '^\/foo\/bar\.*?': 'https://google.com'
-        HEREDOC
-      )
+      HEREDOC
+                                                                         )
 
       stub_const('ENVIRONMENT_REDIRECTS', YAML.safe_load(ENV['ENVIRONMENT_REDIRECTS'] || ''))
     end

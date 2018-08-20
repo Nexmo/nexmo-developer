@@ -23,9 +23,9 @@ RSpec.describe OpenApiDefinitionResolver do
 
     context 'when given an invalid definition' do
       it 'raises an exception' do
-        expect {
+        expect do
           OpenApiDefinitionResolver.find('foobar')
-        }.to raise_error("Could not find definition 'foobar'")
+        end.to raise_error("Could not find definition 'foobar'")
       end
     end
   end
@@ -33,10 +33,10 @@ RSpec.describe OpenApiDefinitionResolver do
   describe '#paths' do
     it 'returns paths in the expected order' do
       expect(OpenApiDefinitionResolver.paths('foobar')).to eq([
-        "_open_api/definitions/foobar.json",
-        "_open_api/definitions/foobar.yaml",
-        "_open_api/definitions/foobar.yml",
-      ])
+                                                                '_open_api/definitions/foobar.json',
+                                                                '_open_api/definitions/foobar.yaml',
+                                                                '_open_api/definitions/foobar.yml',
+                                                              ])
     end
   end
 end
