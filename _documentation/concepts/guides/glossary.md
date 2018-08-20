@@ -461,7 +461,7 @@ Cloud numbers enabled to receive [SMS](#sms).
 
 ## SMS-Enabled Virtual Number
 
-See [SMS Cloud Numbers](sms-cloud-numbers).
+See [SMS Cloud Numbers](#sms-cloud-numbers).
 
 ## Supplier
 
