@@ -1,5 +1,5 @@
 ActiveAdmin.register Feedback::Author, as: 'Author' do
-  menu parent: "Feedback"
+  menu parent: 'Feedback'
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

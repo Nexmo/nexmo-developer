@@ -19,7 +19,7 @@ class MarkdownFilter < Banzai::Filter
       highlight: true,
       fenced_code_blocks: true,
       disable_indented_code_blocks: true,
-      start_inline: true
+      start_inline: true,
     })
   end
 end

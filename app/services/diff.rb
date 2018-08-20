@@ -46,7 +46,7 @@ class Diff
           File.open(path, 'w') do |file|
             file.write document.to_html
           end
-        rescue Exception
+        rescue StandardError
           puts "File failed to generate - #{relative_path}".colorize(:yellow)
           File.open(path, 'w') do |file|
             file.write <<~HEREDOC
@@ -117,7 +117,7 @@ class Diff
       puts 'Pushing'.colorize(:yellow)
       system "git push git@github.com:Nexmo/nexmo-developer.git #{branch}"
 
-      body =  "#{@output.size} changes detected\n\n"
+      body = "#{@output.size} changes detected\n\n"
       @output.reject.each do |result|
         body << <<~HEREDOC
           - [ ] `#{result[:path]}`

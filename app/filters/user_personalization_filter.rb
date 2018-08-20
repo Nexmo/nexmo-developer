@@ -8,7 +8,7 @@ class UserPersonalizationFilter < Banzai::Filter
     document.css('pre code').each do |code|
       html = code.to_s
 
-      html.gsub! /(['|"])?NEXMO_API_(KEY|SECRET)['|"]?/ do
+      html.gsub!(/(['|"])?NEXMO_API_(KEY|SECRET)['|"]?/) do
         quote = $1 || "'"
         value = (
           case $2

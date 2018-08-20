@@ -1,8 +1,8 @@
 module Feedback
   class Feedback < ApplicationRecord
-    scope :created_after, -> (date) { where('feedback_feedbacks.created_at >= ?', date )}
-    scope :created_before, -> (date) { where('feedback_feedbacks.created_at <= ?', date )}
-    scope :created_between, -> (start_date, end_date) { where('feedback_feedbacks.created_at >= ? AND feedback_feedbacks.created_at <= ?', start_date, end_date )}
+    scope :created_after, ->(date) { where('feedback_feedbacks.created_at >= ?', date) }
+    scope :created_before, ->(date) { where('feedback_feedbacks.created_at <= ?', date) }
+    scope :created_between, ->(start_date, end_date) { where('feedback_feedbacks.created_at >= ? AND feedback_feedbacks.created_at <= ?', start_date, end_date) }
 
     belongs_to :resource, class_name: '::Feedback::Resource'
     belongs_to :owner, polymorphic: true
@@ -59,7 +59,7 @@ module Feedback
           {
             title: "#{emoji} #{state} #{sentiment.upcase_first} feedback",
             title_link: admin_url,
-            text: "-",
+            text: '-',
             color: slack_color,
             fields: [
               {

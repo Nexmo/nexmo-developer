@@ -31,7 +31,7 @@ module ApplicationHelper
     data = { title: (name || path), path: path }
     data[:children] = []
     Dir.foreach(path) do |entry|
-      next if entry.start_with?(".")
+      next if entry.start_with?('.')
       next if IGNORED_PATHS.include? entry
       full_path = File.join(path, entry)
       if File.directory?(full_path)
@@ -96,7 +96,10 @@ module ApplicationHelper
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
     s = []
-    s << (root ? "<ul class='navigation js-navigation navigation--#{params[:namespace].present? ? params[:namespace] : 'documentation'}'>" : '<ul>') unless received_flatten
+    if received_flatten
+      namespace = params[:namespace].present? ? params[:namespace] : 'documentation'
+      s << (root ? "<ul class='navigation js-navigation navigation--#{namespace}'>" : '<ul>')
+    end
     s << context.map do |child|
       flatten = FLATTEN_TREES.include? normalised_title(child)
       class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''

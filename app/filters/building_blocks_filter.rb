@@ -95,7 +95,7 @@ class BuildingBlocksFilter < Banzai::Filter
     Dir[source_path].map do |content_path|
       source = File.read(content_path)
 
-      content  = YAML.safe_load(source)
+      content = YAML.safe_load(source)
       content[:id] = SecureRandom.hex
       content[:source] = source
       content[:language_key] = content['language']
@@ -104,12 +104,12 @@ class BuildingBlocksFilter < Banzai::Filter
 
       application = ''
       if @config['application']
-          application = {'application' => @config['application']}.to_yaml.lines[1..-1].join
+        application = { 'application' => @config['application'] }.to_yaml.lines[1..-1].join
       end
       source = <<~HEREDOC
-```single_building_block
-#{source}#{application}
-```
+        ```single_building_block
+        #{source}#{application}
+        ```
       HEREDOC
 
       content[:body] = MarkdownPipeline.new(options).call(source)
@@ -121,15 +121,11 @@ class BuildingBlocksFilter < Banzai::Filter
   def resolve_language(contents)
     contents.map do |content|
       if content[:language_key]
-        content.merge!({
-          :language => CodeLanguageResolver.find(content[:language_key]),
-        })
+        content[:language] = CodeLanguageResolver.find(content[:language_key])
       end
 
       if content[:platform_key]
-        content.merge!({
-          :platform => CodeLanguageResolver.find(content[:platform_key]),
-        })
+        content[:platform] = CodeLanguageResolver.find(content[:platform_key])
       end
 
       content
@@ -149,7 +145,7 @@ class BuildingBlocksFilter < Banzai::Filter
 
     if options[:code_language]
       contents.each_with_index do |content, index|
-        %i{language_key platform_key}.each do |key|
+        %i[language_key platform_key].each do |key|
           active_index = index if content[key] == options[:code_language].key
         end
       end

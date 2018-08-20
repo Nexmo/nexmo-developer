@@ -124,10 +124,8 @@ class BuildingBlockFilter < Banzai::Filter
 
     # Insert "blob/master" and strip ".repos" - except dotnet that needs "blob/ASPNET" instead
     repo_path = '\\0blob/master/'
-    if code['source'].include?("dotnet")
-      repo_path = '\\0blob/ASPNET/'
-    end
-    file_section = code['source'].sub('.repos', '').sub(/(-quickstart|-building-blocks)\//, repo_path)
+    repo_path = '\\0blob/ASPNET/' if code['source'].include?('dotnet')
+    file_section = code['source'].sub('.repos', '').sub(%r{(-quickstart|-building-blocks)/}, repo_path)
 
     # Line highlighting
     line_section = ''
@@ -143,6 +141,5 @@ class BuildingBlockFilter < Banzai::Filter
     end
 
     start_section + file_section + line_section
-
   end
 end

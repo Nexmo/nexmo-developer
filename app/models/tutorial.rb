@@ -18,22 +18,20 @@ class Tutorial
     normalized_products.sort.to_sentence
   end
 
-  private
-
-  def normalise_product_title(product)
+  private_class_method def normalise_product_title(product)
     return 'SMS' if product == 'messaging/sms'
     return 'Voice' if product == 'voice/voice-api'
     return 'Number Insight' if product == 'number-insight'
     product.camelcase
   end
 
-  def self.by_product(product)
+  private_class_method def self.by_product(product)
     all.select do |tutorial|
       tutorial.products.include? product
     end
   end
 
-  def self.all
+  private_class_method def self.all
     files.map do |document_path|
       document_path = Pathname.new(document_path)
       document = File.read(document_path)
@@ -51,11 +49,11 @@ class Tutorial
 
   private
 
-  def self.files
+  private_class_method def self.files
     Dir.glob("#{origin}/**/*.md")
   end
 
-  def self.origin
+  private_class_method def self.origin
     Pathname.new("#{Rails.root}/_tutorials")
   end
 end

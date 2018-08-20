@@ -2,8 +2,8 @@ class ExternalLinkFilter < Banzai::Filter
   def call(input)
     @input = input
 
-    document.css('a').each_with_index do |link, index|
-      if link['href'] && link['href'].start_with?('http')
+    document.css('a').each_with_index do |link, _index|
+      if link['href']&.start_with?('http')
         link['target'] = '_blank'
         if link.css('.icon-external-link').empty?
           link.add_child <<~HEREDOC
