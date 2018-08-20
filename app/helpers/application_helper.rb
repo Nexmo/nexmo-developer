@@ -96,8 +96,8 @@ module ApplicationHelper
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
     s = []
-    if received_flatten
-      namespace = params[:namespace].present? ? params[:namespace] : 'documentation'
+    unless received_flatten
+      namespace = params[:namespace].presence || 'documentation'
       s << (root ? "<ul class='navigation js-navigation navigation--#{namespace}'>" : '<ul>')
     end
     s << context.map do |child|

@@ -5,10 +5,10 @@ module Feedback
     def new; end
 
     def create
-      @feedback = ::Feedback::Feedback.find_by_id(params['feedback_feedback']['id'])
+      @feedback = ::Feedback::Feedback.find_by(id: params['feedback_feedback']['id'])
       @feedback ||= ::Feedback::Feedback.new
 
-      return render json: { error: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.' }, status: 401 unless validate_recapcha
+      return render json: { error: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.' }, status: :unauthorized unless validate_recapcha
 
       @feedback.assign_attributes(feedback_params)
       @feedback.ip = request.remote_ip
@@ -79,11 +79,11 @@ module Feedback
       return current_user if current_user
 
       if cookies[:feedback_author_id]
-        author = ::Feedback::Author.find_by_id(cookies[:feedback_author_id])
+        author = ::Feedback::Author.find_by(id: cookies[:feedback_author_id])
         return author if author && should_use_cookied_author?(author)
       end
 
-      ::Feedback::Author.find_by_email(params['feedback_feedback']['email']) ||
+      ::Feedback::Author.find_by(email: params['feedback_feedback']['email']) ||
         ::Feedback::Author.new
     end
 

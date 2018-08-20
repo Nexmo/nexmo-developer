@@ -67,7 +67,7 @@ class DashboardController < ApplicationController
   end
 
   def product
-    params[:product] if params[:product].present?
+    params[:product].presence
   end
 
   def created_before
@@ -79,7 +79,7 @@ class DashboardController < ApplicationController
   end
 
   def hide_response
-    params[:hide_response] if params[:hide_response].present?
+    params[:hide_response].presence
   end
 
   def coverage_from_config

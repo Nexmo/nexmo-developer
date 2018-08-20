@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   scope :upcoming, -> { where('ends_at > ?', Time.zone.today) }
   scope :past, -> { where('starts_at < ?', Time.zone.today).reverse_order }
 
-  has_many :sessions
+  has_many :sessions, dependent: :nullify
 
   validates :title, presence: true
   validates :description, presence: true

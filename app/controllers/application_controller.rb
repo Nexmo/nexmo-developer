@@ -59,6 +59,6 @@ class ApplicationController < ActionController::Base
 
   def set_feedback_author
     return unless cookies[:feedback_author_id]
-    @feedback_author = Feedback::Author.select(:email).find_by_id(cookies[:feedback_author_id])
+    @feedback_author = Feedback::Author.select(:email).find_by(id: cookies[:feedback_author_id])
   end
 end
