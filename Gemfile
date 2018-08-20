@@ -53,7 +53,7 @@ gem 'foundation-rails', '6.4.1.2'
 gem 'nokogiri', '1.8.2'
 
 # Autoload dotenv in Rails.
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %i[development test]
 
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar', require: false
@@ -71,7 +71,7 @@ gem 'algoliasearch'
 gem 'rest-client'
 
 # Helpers for the reCAPTCHA API
-gem 'recaptcha', require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # Implements the iCalendar specification (RFC-5545) in Ruby.
 gem 'icalendar', require: false
@@ -86,7 +86,7 @@ gem 'icalendar', require: false
 # gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'definition-path-methods'
 #
 # Otherwise use a published gem:
-  gem 'oas_parser', '0.11.2'
+gem 'oas_parser', '0.11.2'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
@@ -155,14 +155,14 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
   # Much nicer error experience, including repl
   gem 'better_errors'
   gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
