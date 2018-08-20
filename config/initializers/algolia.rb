@@ -6,8 +6,8 @@ begin
   else
     ALGOLIA_CONFIG = YAML.load_file("#{Rails.root}/config/algolia.yml")
   end
-rescue Errno::ENOENT => e
-  # No config is found, therefor search will simply be disabled.
+rescue Errno::ENOENT
+  Rails.logger.info('No Algolia config found. Search is now disabled')
 end
 
 if defined?(ALGOLIA_CONFIG) && ENV['ALGOLIA_SEARCH_KEY']

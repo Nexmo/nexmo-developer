@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
-  namespace :admin_api, defaults: {format: 'json'} do
+  namespace :admin_api, defaults: { format: 'json' } do
     resources :feedback, only: [:index]
   end
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'markdown/show'
 
-  match '/markdown', to: 'markdown#preview', via: [:get, :post]
+  match '/markdown', to: 'markdown#preview', via: %i[get post]
 
   get '/signout', to: 'sessions#destroy'
 
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   get '/changelog', to: 'changelog#index'
   get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }
 
-  match '/search', to: 'search#results', via: [:get, :post]
+  match '/search', to: 'search#results', via: %i[get post]
 
   get '/api-errors', to: 'api_errors#index'
   get '/api-errors/generic/:id', to: 'api_errors#show'
@@ -63,7 +63,7 @@ Rails.application.routes.draw do
 
   get '/*product/api-reference', to: 'markdown#api'
 
-  scope "(:namespace)", namespace: /contribute/, defaults: { namespace: '' } do
+  scope '(:namespace)', namespace: /contribute/, defaults: { namespace: '' } do
     get '/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
   end
 
