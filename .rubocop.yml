@@ -1,3 +1,11 @@
+AllCops:
+  Exclude:
+    - 'db/**/*.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.vendor/**/*'
+    - '.git/**/*'
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
