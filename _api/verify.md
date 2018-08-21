@@ -128,7 +128,6 @@ Parameter | Description | Required
 `format` | The response format. Either `json` or `xml`. | Yes
 `request_id` | The identifier of the Verify request to check. This is the [request_id](#keys-and-values) you received in the Verify Request [response](#response).  | Yes
 `code` | The PIN given by your user. | Yes
-`ip_address` | The IP Address used by your user when they entered the PIN. Nexmo uses this information to identify fraud and spam patterns across our customer base. This ultimately benefits all Nexmo customers. | No
 
 ⚓ cresponse
 ### Response
