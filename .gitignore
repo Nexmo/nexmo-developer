@@ -24,3 +24,5 @@
 config/algolia.yml
 
 .vscode/*
+coverage
+

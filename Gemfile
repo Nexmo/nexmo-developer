@@ -146,6 +146,7 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.7'
+  gem 'simplecov', require: false
 end
 
 group :development do

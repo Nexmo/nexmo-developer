@@ -6,6 +6,24 @@ This repository is the code and content for <https://developer.nexmo.com> includ
 
 We welcome contributions from everyone! Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information.
 
+## Testing
+
+We use [rspec](http://rspec.info/) to test Nexmo Developer.
+
+To run all tests:
+
+```bash
+bundle exec rspec
+```
+
+To generate code coverage, set the `COVERAGE` environment variable when running the tests.
+
+```bash
+COVERAGE=1 bundle exec rspec
+```
+
+This will create a folder named `coverage`. Open `index.hml` in this folder to view coverage statistics
+
 ## Running locally
 
 The project can be run on your laptop, either directly or using Docker. These instructions have been tested for mac.
