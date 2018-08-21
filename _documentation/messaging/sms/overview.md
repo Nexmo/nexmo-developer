@@ -54,8 +54,10 @@ path: /35772040f9cbf86b388ec61c0a004a3e1158/welcome/124993
 
 ## Building Blocks
 
-* [Sending an SMS](/messaging/sms/building-blocks/send-an-sms)
-* [Receiving an SMS](/messaging/sms/building-blocks/receiving-an-sms)
+
+```building_block_list
+product: messaging/sms
+```
 
 ## Guides
 

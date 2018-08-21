@@ -24,6 +24,7 @@ class MarkdownPipeline < Banzai::Pipeline
       PartialFilter.new(options),
       TechioFilter,
       TutorialsFilter,
+      BuildingBlockListFilter,
       LanguageFilter,
       ColumnsFilter,
       MarkdownFilter,

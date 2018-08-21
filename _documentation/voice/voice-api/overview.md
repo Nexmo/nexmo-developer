@@ -73,25 +73,9 @@ application:
 
 ## Building Blocks
 
-* [Before you begin](/voice/voice-api/building-blocks/before-you-begin)
-* [Connect an inbound call](/voice/voice-api/building-blocks/connect-an-inbound-call)
-* [Download a recording](/voice/voice-api/building-blocks/download-a-recording)
-* [Earmuff a call](/voice/voice-api/building-blocks/earmuff-a-call)
-* [Handle user input with DTMF](/voice/voice-api/building-blocks/handle-user-input-with-dtmf)
-* [Connect callers to a conference](/voice/voice-api/building-blocks/connect-callers-into-a-conference)
-* [Make an outbound call](/voice/voice-api/building-blocks/make-an-outbound-call)
-* [Mute a call](/voice/voice-api/building-blocks/mute-a-call)
-* [Play an audio stream into a call](/voice/voice-api/building-blocks/play-an-audio-stream-into-a-call)
-* [Play DTMF into a call](/voice/voice-api/building-blocks/play-dtmf-into-a-call)
-* [Play Text-to-Speech into a call](/voice/voice-api/building-blocks/play-text-to-speech-into-a-call)
-* [Receive an inbound call](/voice/voice-api/building-blocks/receive-an-inbound-call)
-* [Record a call with split audio](/voice/voice-api/building-blocks/record-a-call-with-split-audio)
-* [Record a call](/voice/voice-api/building-blocks/record-a-call)
-* [Record a conversation](/voice/voice-api/building-blocks/record-a-conversation)
-* [Record a message](/voice/voice-api/building-blocks/record-a-message)
-* [Retrieve information for a call](/voice/voice-api/building-blocks/retrieve-info-for-a-call)
-* [Retrieve information for all calls](/voice/voice-api/building-blocks/retrieve-info-for-all-calls)
-* [Transfer a call](/voice/voice-api/building-blocks/transfer-a-call)
+```building_block_list
+product: voice/voice-api
+```
 
 ## Tutorials
 
