@@ -1,5 +1,4 @@
 class ApiController < ApplicationController
-  before_action :set_document
   before_action :set_navigation
 
   def index
@@ -8,7 +7,7 @@ class ApiController < ApplicationController
   end
 
   def show
-    @document_path = "_api/#{@document}.md"
+    @document_path = "_api/#{params[:document]}.md"
 
     # Read document
     document = File.read("#{Rails.root}/#{@document_path}")
@@ -29,18 +28,10 @@ class ApiController < ApplicationController
     @navigation = :api
 
     # If side navigation is not present then the navigation_from_content helper will be used
-    @side_navigation = "api/#{@document}"
+    @side_navigation = "api/#{params[:document]}"
   end
 
   def set_product
     @product = params[:product]
-  end
-
-  def set_document
-    if params[:code_language] == "ncco"
-      @document = "voice/ncco"
-    else
-      @document = params[:document]
-    end
   end
 end

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get '/stats', to: 'dashboard#stats'
 
   get '/tutorials', to: 'tutorials#index'
-  get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
+  get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: -> (request) { DocumentationConstraint.exists?(request, :code_language) }
   get '/*product/tutorials', to: 'tutorials#index', constraints: DocumentationConstraint.product_with_parent
 
   get '/documentation', to: 'static#documentation'
@@ -59,15 +59,15 @@ Rails.application.routes.draw do
   get '/api', to: 'api#index'
 
   get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products
-  get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
+  get '/api/*document(/:code_language)', to: 'api#show', constraints: -> (request) { DocumentationConstraint.exists?(request, :code_language) }
 
   get '/*product/api-reference', to: 'markdown#api'
 
   scope "(:namespace)", namespace: /contribute/, defaults: { namespace: '' } do
-    get '/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
+    get '/*document(/:code_language)', to: 'markdown#show', constraints: -> (request) { DocumentationConstraint.exists?(request, :documentation) }
   end
 
-  get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
+  get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: -> (request) { DocumentationConstraint.exists?(request, :documentation) }
 
   get '*unmatched_route', to: 'application#not_found'
 

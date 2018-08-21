@@ -1,4 +1,30 @@
 class DocumentationConstraint
+  def self.exists?(request, constraints)
+    if request.parameters[:code_language]
+      if File.exist? "#{namespace_path(request)}/#{request.parameters[:document]}/#{request.parameters[:code_language]}.md"
+        request.parameters[:document] += "/#{request.parameters[:code_language]}"
+        request.parameters.delete(:code_language)
+      end
+    end
+
+    self.send(constraints).each do |key, value|
+      next unless request.parameters[key]
+      return false unless value.match?(request.parameters[key])
+    end
+
+    true
+  end
+
+  def self.namespace_path(request)
+    if request.parameters[:namespace].present?
+      namespace_path = "app/views/#{request.parameters[:namespace]}"
+    elsif request.path.start_with? '/api/'
+      namespace_path = "_api/"
+    else
+      namespace_path = "_documentation/#{request.parameters[:product]}"
+    end
+  end
+
   def self.documentation
     code_language.merge(product)
   end
