@@ -26,9 +26,11 @@ navigation_weight:
   SDK Documentation: 40
   API Reference: 50
 
-  In-App Messaging: 2
-  In-App Voice: 3
-  In-App Video: 4
+  Overview: 1
+  Concepts: 2
+  In-App Messaging: 3
+  In-App Voice: 4
+  In-App Video: 5
 
   Messages API: 1
   Workflows API: 2
