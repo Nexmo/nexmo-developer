@@ -20,15 +20,15 @@ class BuildingBlock
         navigation_weight: frontmatter['navigation_weight'] || 999,
         product: product,
         document_path: document_path,
-        url: generate_url(document_path)
+        url: generate_url(document_path),
       })
     end
 
-    blocks.sort_by { |f| f.navigation_weight }
+    blocks.sort_by(&:navigation_weight)
   end
 
   def self.generate_url(path)
-    '/' + path.gsub("#{origin}/", '').gsub(".md", '')
+    '/' + path.gsub("#{origin}/", '').gsub('.md', '')
   end
 
   def self.extract_product(path)

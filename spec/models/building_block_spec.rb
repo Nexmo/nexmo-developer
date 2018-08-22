@@ -34,7 +34,7 @@ RSpec.describe BuildingBlock, type: :model do
   describe '#files' do
     it 'has the correct glob pattern' do
       allow(BuildingBlock).to receive(:origin).and_return('/path/to/_documentation')
-      expect(Dir).to receive(:glob).with("/path/to/_documentation/**/building-blocks/**/*.md")
+      expect(Dir).to receive(:glob).with('/path/to/_documentation/**/building-blocks/**/*.md')
       BuildingBlock.files
     end
   end
@@ -69,16 +69,16 @@ def stub_available_blocks
     'Demo' => 'voice/voice-api',
   }.each do |title, product|
     i += 1
-      slug = title.parameterize
-      path = "/path/to/_documentation/#{product}/building-blocks/#{slug}.md"
-      paths.push(path)
+    slug = title.parameterize
+    path = "/path/to/_documentation/#{product}/building-blocks/#{slug}.md"
+    paths.push(path)
 
-      allow(File).to receive(:read).with(path) .and_return(
-        {
-          'title' => title,
-          'navigation_weight' => i
-        }.to_yaml
-      )
+    allow(File).to receive(:read).with(path) .and_return(
+      {
+        'title' => title,
+        'navigation_weight' => i,
+      }.to_yaml
+    )
   end
 
   allow(BuildingBlock).to receive(:origin).and_return('/path/to/_documentation')
