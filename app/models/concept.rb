@@ -2,10 +2,26 @@ class Concept
   include ActiveModel::Model
   attr_accessor :title, :product, :description, :navigation_weight, :document_path, :url, :ignore_in_list
 
+  def self.by_name(names)
+    matches = all.select do |block|
+      concept = "#{block.product}/#{block.filename}"
+      match = names.include?(concept)
+      names.delete(concept) if match
+      match
+    end
+
+    raise "Could not find concepts: #{names.join(', ')}" unless names.empty?
+    matches
+  end
+
   def self.by_product(product)
     all.select do |block|
       block.product == product
     end
+  end
+
+  def filename
+    Pathname(document_path).basename.to_s.gsub('.md', '')
   end
 
   def self.all

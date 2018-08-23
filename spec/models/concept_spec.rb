@@ -19,6 +19,17 @@ RSpec.describe Concept, type: :model do
     end
   end
 
+  describe '#by_name' do
+    it 'shows a single match' do
+      stub_available_concepts
+      expect(Concept.by_name(['voice/voice-api/pstn-update'])).to have(1).items
+    end
+    it 'shows multiple matches' do
+      stub_available_concepts
+      expect(Concept.by_name(['voice/voice-api/pstn-update', 'messaging/sms/shortcodes'])).to have(2).items
+    end
+  end
+
   describe '#by_product' do
     it 'shows only sms' do
       stub_available_concepts
@@ -44,17 +55,24 @@ RSpec.describe Concept, type: :model do
     end
   end
 
+  describe '#filename' do
+    it 'returns the correct filename' do
+      stub_available_concepts
+      expect(Concept.all.first.filename).to eq('pstn-update')
+    end
+  end
+
   describe '.instance' do
     it 'has the expected accessors' do
       stub_available_concepts
 
       block = Concept.all.first
-      expect(block.title).to eq('PSTN')
+      expect(block.title).to eq('PSTN Update')
       expect(block.description).to eq('Introduction to PSTN')
       expect(block.navigation_weight).to eq(1)
       expect(block.product).to eq('voice/voice-api')
-      expect(block.document_path).to eq('voice/voice-api/guides/pstn.md')
-      expect(block.url).to eq('/voice/voice-api/guides/pstn')
+      expect(block.document_path).to eq('voice/voice-api/guides/pstn-update.md')
+      expect(block.url).to eq('/voice/voice-api/guides/pstn-update')
       expect(block.ignore_in_list).to eq(true)
     end
   end
@@ -65,7 +83,7 @@ def stub_available_concepts
 
   i = 0
   {
-    'PSTN' => { 'product' => 'voice/voice-api', 'description' => 'Introduction to PSTN', 'ignore_in_list' => true },
+    'PSTN Update' => { 'product' => 'voice/voice-api', 'description' => 'Introduction to PSTN', 'ignore_in_list' => true },
     'Shortcodes' => { 'product' => 'messaging/sms', 'description' => 'You can use shortcodes whilst in the US' },
     'Demo' => { 'product' => 'voice/voice-api', 'description' => 'Demo Topic' },
   }.each do |title, details|
