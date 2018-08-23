@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting
 navigation_weight: 9
+ignore_in_list: true
 ---
 
 # Troubleshooting

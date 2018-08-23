@@ -60,16 +60,10 @@ application:
 
 ## Guides
 
-* [Call Flow](/voice/voice-api/guides/call-flow): The various stages of a call and how they interact.
-* [Legs & Conversations](/voice/voice-api/guides/legs-conversations): When a phone call is made or received by Nexmo it is added to a conversation. A single conversation contains one or more phone calls (sometimes referred to as legs).
-* [DTMF](/voice/voice-api/guides/dtmf): Capture user input by detecting DTMF tones (button presses) during a call.
-* [Endpoints](/voice/voice-api/guides/endpoints): When connecting a call, you can connect to another phone number, a `sip` endpoint or a `websocket`. These are known as endpoints.
-* [Lex connector](/voice/voice-api/guides/lex-connector): You can use the Lex Connector to connect a Nexmo voice call to an [AWS Lex](https://aws.amazon.com/lex/) bot and then have an audio conversation with the bot.
-* [NCCO](/voice/voice-api/guides/ncco): To tell Nexmo how to handle a phone call, you must provide Nexmo an Nexmo Call Control Objects (NCCO) when a call is placed or answered. There are various actions available, such as `talk`, `input` and `record`.
-* [Numbers](/voice/voice-api/guides/numbers): Numbers are a key part of using the Nexmo voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
-* [Recording](/voice/voice-api/guides/recording): Recording audio input from a caller or recording the conversation between two callers.
-* [Text to Speech](/voice/voice-api/guides/text-to-speech): Using our Text-To-Speech engine, you can play machine-generated speech to your callers
-* [Websockets](/voice/voice-api/guides/websockets): You can connect the audio of a call to a websocket to work with it in real time.
+```concept_list
+product: voice/voice-api
+```
+
 
 ## Building Blocks
 

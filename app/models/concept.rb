@@ -1,6 +1,6 @@
 class Concept
   include ActiveModel::Model
-  attr_accessor :title, :product, :description, :navigation_weight, :document_path, :url
+  attr_accessor :title, :product, :description, :navigation_weight, :document_path, :url, :ignore_in_list
 
   def self.by_product(product)
     all.select do |block|
@@ -19,6 +19,7 @@ class Concept
         title: frontmatter['title'],
         description: frontmatter['description'],
         navigation_weight: frontmatter['navigation_weight'] || 999,
+        ignore_in_list: frontmatter['ignore_in_list'],
         product: product,
         document_path: document_path,
         url: generate_url(document_path),
@@ -36,7 +37,7 @@ class Concept
     # Remove the prefix
     path = path.gsub!("#{origin}/", '')
 
-    # Each file is in the form building-blocks/<title>.md, so let's remove the last two segments
+    # Each file is in the form guides/<title>.md, so let's remove the last two segments
     parts = path.split('/')
     parts = parts[0...-2]
 

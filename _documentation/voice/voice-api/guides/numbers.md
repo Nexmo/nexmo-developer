@@ -1,6 +1,6 @@
 ---
 title: Numbers
-description: The key concepts of using phone numbers in the Nexmo voice API
+description: Numbers are a key part of using the Nexmo Voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
 navigation_weight: 2
 ---
 

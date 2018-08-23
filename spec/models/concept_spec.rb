@@ -55,6 +55,7 @@ RSpec.describe Concept, type: :model do
       expect(block.product).to eq('voice/voice-api')
       expect(block.document_path).to eq('voice/voice-api/guides/pstn.md')
       expect(block.url).to eq('/voice/voice-api/guides/pstn')
+      expect(block.ignore_in_list).to eq(true)
     end
   end
 end
@@ -64,9 +65,9 @@ def stub_available_concepts
 
   i = 0
   {
-    'PSTN' => {'product' => 'voice/voice-api', 'description' => 'Introduction to PSTN'},
-    'Shortcodes' => {'product' => 'messaging/sms', 'description' => 'You can use shortcodes whilst in the US'},
-    'Demo' => {'product' => 'voice/voice-api', 'description' => 'Demo Topic'},
+    'PSTN' => { 'product' => 'voice/voice-api', 'description' => 'Introduction to PSTN', 'ignore_in_list' => true },
+    'Shortcodes' => { 'product' => 'messaging/sms', 'description' => 'You can use shortcodes whilst in the US' },
+    'Demo' => { 'product' => 'voice/voice-api', 'description' => 'Demo Topic' },
   }.each do |title, details|
     i += 1
     slug = title.parameterize
@@ -78,6 +79,7 @@ def stub_available_concepts
         'title' => title,
         'description' => details['description'],
         'navigation_weight' => i,
+        'ignore_in_list' => details['ignore_in_list'] || false,
       }.to_yaml
     )
   end
