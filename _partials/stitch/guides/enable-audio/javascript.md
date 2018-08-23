@@ -10,8 +10,9 @@ In this guide we'll cover adding audio events to the Conversation we have create
 
 This guide will introduce you to the following concepts:
 
-- **Audio Legs** - enabling and disabling Audio Legs in a Conversation
-- **Media Events** - `member:media` events that fire on a Conversation when the media state changes for a member
+- **Audio Stream** - The stream that the SDK gives you in your browser to listen to audio and send audio
+- **Audio Leg** - A Conversation Service term. Legs are a part of a conversation. When audio is enabled on a conversation, a leg is created
+- **Media Event** - a `member:media` event that fires on a Conversation when the media state changes for a member
 
 ## Before you begin
 
@@ -52,8 +53,7 @@ constructor() {
 
 ### 1.2 - Add enable audio handler
 
-We'll then update the `setupUserEvents` method to trigger `conversation.media.enable()` when the user clicks the `Enable Audio` button. The `conversation.media.enable()` essentially establishes an audio leg or in oter words an audio stream for a member of the conversation. The audio is only streamed to other members of the conversation who have also enabled audio. In future guides you will notice that SDK convenience methods like `call()` actually wrap this low level method of `conversation.media.enable()` to offer the familiar claling experience.
-The `conversation.media.enable()`returns a promise with a stream object, which we'll use as the source for our `<audio>` element. We'll then add a listener on the `<audio>` element to start playing as soon as the metadata has been loaded.
+We'll then update the `setupUserEvents` method to trigger `conversation.media.enable()` when the user clicks the `Enable Audio` button. The `conversation.media.enable()` returns a promise with a stream object, which we'll use as the source for our `<audio>` element. We'll then add a listener on the `<audio>` element to start playing as soon as the metadata has been loaded. 
 
 ```javascript
 setupUserEvents() {
@@ -77,6 +77,8 @@ setupUserEvents() {
   })
 }
 ```
+
+Note that enabling audio in a conversation establishes an audio leg for a member of the conversation. The audio is only streamed to other members of the conversation who have also enabled audio. 
 
 ### 1.3 - Add disable audio handler
 
@@ -131,5 +133,5 @@ Now run `index.html` in two side-by-side browser windows, making sure to login w
 That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-audio/index.html).
 
 ## Where next?
-
+- The [next guide](/stitch/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method call(). This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
 - Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
