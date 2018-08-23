@@ -79,7 +79,9 @@ product: voice/voice-api
 
 ## Tutorials
 
-* [Tutorials](/voice/voice-api/tutorials)
+```tutorials
+product: voice/voice-api
+```
 
 ## Reference
 

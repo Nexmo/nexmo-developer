@@ -99,7 +99,7 @@ Examples:
 
 Try to be consistent with capitalization of headings. You can follow these guidelines:
 
-* Use word case for top-level topics and sections. For example, 'Building Blocks', 'Guides', 'Markdown Guide', 'Writing Style Guide', 'Installation Guide', 'Messages and Workflows API', 'Stitch Developer Guide'.
+* Use title case (also sometimes known as word case as significant words are capitalized) for top-level topics and sections. For example, 'Building Blocks', 'Guides', 'Markdown Guide', 'Writing Style Guide', 'Installation Guide', 'Messages and Workflows API', 'Stitch Developer Guide'.
 * Use sentence case for topic titles below a top-level section. For example, 'This is the topic title'. The exception to this is if the heading references a top-level section. For example, 'How to use the Getting Started Guide', as Getting Started Guide is a top-level section in this example.
 * Use sentence case for sub-section headings. For example, 'This is a sub-section heading'.
 
@@ -143,6 +143,12 @@ Building Blocks  (main section)
   Handle user input with DTMF
   ...
 ```
+
+## Blog article titles
+
+For Nexmo developer blog article titles, use title case. Blog article sub-headings should also use title case.
+
+You can refer to [these guidelines](https://www.bkacontent.com/wp-content/uploads/2015/10/Rules-of-AP-Title-Case.png) on using title case.
 
 ## Bulleted lists
 

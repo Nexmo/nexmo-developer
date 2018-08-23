@@ -45,13 +45,21 @@ module ApplicationHelper
   end
 
   def sort_navigation(context)
+    # Sort top level
     context[:children].sort_by! do |item|
       sort_array = []
-      sort_array << (NAVIGATION_WEIGHT[normalised_title(item)] || 1000)
-      sort_array << (item[:is_file?] ? 1 : 0)
-      sort_array << (item[:is_file?] && document_meta(item[:path])['navigation_weight'] ? document_meta(item[:path])['navigation_weight'] : 1000)
+      sort_array << (item[:is_file?] ? 0 : 1) if context[:path].include? 'building-blocks' # Directories *always* go after single files for building blocks (priority 1 rather than 0). This even overrides config entries
+      sort_array << (NAVIGATION_WEIGHT[normalised_title(item)] || 1000) # If we have a config entry for this, use it. Otherwise put it at the end
+      sort_array << (item[:is_file?] ? 0 : 1) # If it's a file it gets higher priority than a directory
+      sort_array << (item[:is_file?] && document_meta(item[:path])['navigation_weight'] ? document_meta(item[:path])['navigation_weight'] : 1000) # Use the config entry if we have it. Otherwise it goes to the end
       sort_array
     end
+
+    # Sort children if needed
+    context[:children].each do |child|
+      sort_navigation(child) if child[:children]
+    end
+
     context
   end
 
