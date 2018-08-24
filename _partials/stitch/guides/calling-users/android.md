@@ -369,7 +369,7 @@ private void showHangUpButton(boolean visible) {
 
 ### 2.3 Receive a PSTN Phone Call via Stitch
 
-After you've set up you're app to handle incoming calls, you can follow the [PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/13/connect-phone-call-to-stitch-in-app-voice-dr/) published on our blog. Now you can make PSTN Phone Calls via the Nexmo Voice API and receive those calls via the Stitch SDK.
+After you've set up you're app to handle incoming calls, you can follow the [phone to app calling](/stitch/in-app-voice/guides/inbound-pstn) guide. Now you can make PSTN Phone Calls via the Nexmo Voice API and receive those calls via the Stitch SDK.
 
 ### 3 - Open the app on two devices
 

@@ -16,7 +16,7 @@ This guide will cover the following concepts:
 
 ## Before you begin
 
-You should read the [Outbound PSTN Calling NCCO guide](/stitch/in-app-voice/ncco-guide) before completing this quickstart. In order to make an outbound PSTN call, you'll have to correctly link your application to an answer url with an NCCO. The NCCO guide goes into further detail.
+You should read the [NCCO guide for calling](/stitch/in-app-voice/guides/ncco-guide) before completing this quickstart. In order to make an outbound PSTN call, you'll have to correctly link your application to an answer url with an NCCO. The NCCO guide goes into further detail.
 
 # Setting up an Android Project.
 

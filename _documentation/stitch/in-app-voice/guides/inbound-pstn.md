@@ -127,6 +127,6 @@ Now that you've linked your number to your application, whenever someone calls y
 
 ## What's next?
 
-If you'd like to continue learning how to use the Nexmo Stitch SDK, check out our In-App Voice quick start where we show you how to [make an outbound PSTN call with Stitch](/stitch/in-app-voice/guides/outbound-pstn/) and read the [Outbound PSTN Calling NCCO guide](/stitch/in-app-voice/ncco-guide).
+If you'd like to continue learning how to use the Nexmo Stitch SDK, check out our In-App Voice quick start where we show you how to [make an outbound PSTN call with Stitch](/stitch/in-app-voice/guides/outbound-pstn/) and read the [NCCO guide for calling](/stitch/in-app-voice/guides/ncco-guide).
 
 > Note: Making calls from a phone to an app user via APAC(Asia Pacific) LVNs is unfortunately currently unsupported.
