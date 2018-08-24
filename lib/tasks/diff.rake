@@ -5,7 +5,7 @@ namespace :diff do
     Rake::Task['diff:build:base'].invoke
 
     puts 'Updating repos'.colorize(:yellow)
-    Rake::Task['repos:pull'].invoke
+    Rake::Task['repos:pull'].invoke(ARGV[1] ? ARGV[1] : '')
 
     puts 'Building comparison'.colorize(:yellow)
     Rake::Task['diff:build:compare'].invoke

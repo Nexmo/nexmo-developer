@@ -11,7 +11,7 @@ class JobsController < ApplicationController
           "request": {
             "branch": 'master',
             "config": {
-              "script": 'bundle exec rake diff:execute',
+              "script": "bundle exec rake diff:execute #{params['repository']['full_name']}",
               "env": {
                 "SSH_KEY_REQUIRED": true,
               },
