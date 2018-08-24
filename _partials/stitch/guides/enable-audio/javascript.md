@@ -11,7 +11,7 @@ In this guide we'll cover adding audio events to the Conversation we have create
 This guide will introduce you to the following concepts:
 
 - **Audio Stream** - The stream that the SDK gives you in your browser to listen to audio and send audio
-- **Audio Leg** - A Conversation Service term. Legs are a part of a conversation. When audio is enabled on a conversation, a leg is created
+- **Audio Leg** - A server side API term. Legs are a part of a conversation. When audio is enabled on a conversation, a leg is created
 - **Media Event** - a `member:media` event that fires on a Conversation when the media state changes for a member
 
 ## Before you begin
@@ -133,5 +133,5 @@ Now run `index.html` in two side-by-side browser windows, making sure to login w
 That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-audio/index.html).
 
 ## Where next?
-- The [next guide](/stitch/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method call(). This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
+- The [next guide](/stitch/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
 - Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
