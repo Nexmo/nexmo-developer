@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/voice/voice-api/play-audio-into-a-call.sh
+    from_line: 5
+    to_line: 8
+file_name: play-audio-into-a-call.sh
+run_command: bash play-audio-into-a-call.sh
