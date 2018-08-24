@@ -250,7 +250,7 @@ This produces the following output:
 
 ## Dynamic content
 
-You can use sytax such as:
+You can use syntax such as:
 
 ````
 Welcome to [~dynamic_content_example~]
@@ -259,3 +259,37 @@ Welcome to [~dynamic_content_example~]
 This will render as:
 
 Welcome to [~dynamic_content_example~]
+
+## Concept list (custom plugin)
+
+If you need to produce a list of concepts (also known as guides) on a page, you can specify a product and have it render an unstyled `<ul>`
+
+````
+```concept_list
+product: voice/voice-api
+```
+````
+
+This produces the following output:
+
+```concept_list
+product: voice/voice-api
+```
+
+Alternatively, you can specify the concepts to list manually if you need to show a subset of concepts, or concepts from multiple different products:
+
+````
+```concept_list
+concepts: 
+  - voice/voice-api/call-flow
+  - messaging/sms/delivery-receipts
+```
+````
+
+This produces the following output:
+
+```concept_list
+concepts: 
+  - voice/voice-api/call-flow
+  - messaging/sms/delivery-receipts
+```

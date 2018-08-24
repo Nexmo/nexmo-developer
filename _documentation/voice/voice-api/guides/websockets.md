@@ -1,5 +1,6 @@
 ---
 title: Websockets
+description: You can connect the audio of a call to a websocket to work with it in real time.
 navigation_weight: 7
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: DTMF
+description: Capture user input by detecting DTMF tones (button presses) during a call.
 navigation_weight: 6
 ---
 

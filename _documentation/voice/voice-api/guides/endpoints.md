@@ -1,5 +1,6 @@
 ---
 title: Endpoints
+description: When connecting a call, you can connect to another phone number, a `sip` endpoint or a `websocket`. These are known as endpoints.
 navigation_weight: 5
 ---
 

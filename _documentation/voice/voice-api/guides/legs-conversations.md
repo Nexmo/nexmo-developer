@@ -1,5 +1,6 @@
 ---
 title: Legs and Conversations
+description: When a phone call is made or received by Nexmo it is added to a conversation. A single conversation contains one or more phone calls (sometimes referred to as legs).
 navigation_weight: 2
 ---
 
