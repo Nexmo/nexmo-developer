@@ -7,6 +7,8 @@ NEXMO_PRIVATE_KEY=""
 TO_NUMBER=""
 NEXMO_NUMBER=""
 
+EVENT_UUID=""  # UUID of audit event
+
 # If we have a local config, override using that
 CONFIG_DIR=$(dirname "${BASH_SOURCE[0]}")
 if [ -f "$CONFIG_DIR/config.local.sh" ]; then

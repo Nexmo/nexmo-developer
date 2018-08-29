@@ -36,6 +36,8 @@ navigation_weight:
   Workflows API: 2
 
 navigation_overrides:
+  audit:
+    label: 'Developer Preview'
   redact:
     label: 'Developer Preview'
   stitch:

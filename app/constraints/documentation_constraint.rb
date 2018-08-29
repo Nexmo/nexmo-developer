@@ -10,6 +10,7 @@ class DocumentationConstraint
 
   def self.product_list
     [
+      'audit',
       'voice',
       'messaging',
       'verify',
@@ -27,6 +28,7 @@ class DocumentationConstraint
 
   def self.product_with_parent_list
     [
+      'audit',
       'voice/sip',
       'voice/voice-api',
       'messaging/sms',
