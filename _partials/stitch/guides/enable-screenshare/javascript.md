@@ -92,7 +92,7 @@ listConversations(userToken) {
 
   new ConversationClient({
       debug: false,
-      screenshareExtensionId: YOUR_EXTENSION_ID
+      screenShareExtensionId: YOUR_EXTENSION_ID
     })
     .login(userToken)
     ...
