@@ -249,11 +249,11 @@ Your `index.html` should now look something like [this](https://github.com/Nexmo
 
 ### 2.6 - Open the conversation in two browser windows
 
-Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Focus the browser window where you're logged in with `alice`.
+Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and login as `alice` in the other. Focus the browser window where you're logged in with `alice`.
 
 ### 2.7 - Invite the second user to the conversations
 
-Finally, let's invite the user to the conversation that we created. In your terminal, run the following command and remember to replace your `YOUR_CONVERSATION_ID` for the Conversation you created in the first guide and the `SECOND_USER_ID` with the one you got when creating the User for `alice`.
+Now you will invite `alice` to the conversation that you created. In your terminal, run the following command and remember to replace your `YOUR_CONVERSATION_ID` for the Conversation you created in the first guide and the `SECOND_USER_ID` with the one you got when creating the User for `alice`.
 
 ```bash
 $ nexmo member:add YOUR_CONVERSATION_ID action=invite channel='{"type":"app"}' user_id=SECOND_USER_ID
