@@ -19,7 +19,9 @@ If successful, your account manager will provide you with a WhatsApp number.
 
 A business can start a conversation with a user and a user can start a conversation with a business.
 
-A core concept with WhatsApp are Messages Templates (MTM), formally known as Highly Structured Messages (HSM). WhatsApp requires that a message sent to a user for the first time, or is outside the Customer Care Window, is a MTM message.
+WhatsApp has a core concept of Messages Templates (MTM). These were previously known as Highly Structured Messages (HSM).
+
+WhatsApp requires that a message sent to a user for the first time, or is outside the Customer Care Window, is an MTM message.
 
 The MTM allows a business to send just the template identifier along with the appropriate parameters instead of the full message content.
 
@@ -29,9 +31,11 @@ MTMs are designed to reduce the likelihood of spam to users on WhatsApp.
 
 For the purpose of testing Nexmo provides a template, `whatsapp:hsm:technology:nexmo:verify`, that you can use:
 
-`{{1}} code: {{2}}. Valid for {{3}} minutes.`
+```
+{{1}} code: {{2}}. Valid for {{3}} minutes.
+```
 
-The parameters are an array. The first value being `{{1}}` in the HSM.
+The parameters are an array. The first value being `{{1}}` in the MTM.
 
 Below is the example API call:
 
@@ -72,10 +76,12 @@ curl -X POST \
 '
 ```
 
-Additional WhatsApp Rules:
+## Additional WhatsApp Rules
 
-- If your customer initiates messaging with you, WhatsApp will not charge you for any messages (including MTMs) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which WhatsApp will charge you.
-- **Exclusions**: The WhatsApp Business Solution may not be used to send any messages to or from the following countries and regions: Crimea, Cuba, Iran, North Korea, and Syria.
+The following are some important additional considerations:
+
+* If your customer initiates messaging with you, WhatsApp will not charge you for any messages (including MTMs) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which WhatsApp will charge you.
+* **Exclusions**: The WhatsApp Business Solution may not be used to send any messages to or from the following countries and regions: Crimea, Cuba, Iran, North Korea, and Syria.
 
 ## 1. Configure your Webhook URLs
 
