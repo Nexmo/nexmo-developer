@@ -1,0 +1,49 @@
+{
+  "count": 1,
+  "page_size": 10,
+  "page_index": 1,
+  "_embedded": {
+    "applications": [
+      {
+        "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+        "name": "My Application",
+        "voice": {
+          "webhooks": [
+            {
+              "endpoint_type": "event_url",
+              "endpoint": "https://example.com/event",
+              "http_method": "POST"
+            },
+            {
+              "endpoint_type": "answer_url",
+              "endpoint": "https://example.com/answer",
+              "http_method": "GET"
+            }
+          ]
+        },
+        "keys": {
+          "public_key": "PUBLIC_KEY"
+        },
+        "_links": {
+          "self": {
+            "href": "/v1/applications/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "/v1/applications?page_size=10&page_index=1"
+    },
+    "first": {
+      "href": "/v1/applications?page_size=10"
+    },
+    "last": {
+      "href": "/v1/applications?page_size=10&page_index=5"
+    },
+    "next": {
+      "href": "/v1/applications?page_size=10&page_index=2"
+    }
+  }
+}

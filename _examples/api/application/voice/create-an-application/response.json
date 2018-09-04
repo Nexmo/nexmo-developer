@@ -1,0 +1,27 @@
+{
+  "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "name": "My Application",
+  "voice": {
+    "webhooks": [
+      {
+        "endpoint_type": "answer_url",
+        "endpoint": "https://example.com",
+        "http_method": "GET"
+      },
+      {
+        "endpoint_type": "event_url",
+        "endpoint": "https://example.com",
+        "http_method": "POST"
+      }
+    ]
+  },
+  "keys": {
+    "public_key": "PUBLIC_KEY",
+    "private_key": "PRIVATE_KEY"
+  },
+  "_links": {
+    "self": {
+      "href": "/v1/applications/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+    }
+  }
+}
