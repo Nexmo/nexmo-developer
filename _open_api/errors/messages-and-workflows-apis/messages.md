@@ -9,7 +9,7 @@ Code | Text | Meaning
 `1000` | Throttled | You have exceeded the submission capacity allowed on this account. Please wait and retry.
 `1010` | Missing params | Your request is incomplete and missing some mandatory parameters.
 `1020` | Invalid params | The value of one or more parameters is invalid.
-`1021` | Invalid tag | The tag value is invalid 
+`1021` | Invalid tag | The tag value is invalid
 `1030` | Internal error | There was an error processing your request in the Platform.
 `1040` | Invalid message | The Platform was unable to process your request. For example, due to an unrecognised prefix for the phone number.
 `1050` | Number barred | The number you are trying to submit to is blacklisted and may not receive messages.
