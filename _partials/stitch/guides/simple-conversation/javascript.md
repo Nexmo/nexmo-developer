@@ -31,7 +31,7 @@ $ npm install -g nexmo-cli@beta
 
 * Initialize the CLI:
 
-Setup the CLI to use your Nexmo API Key and API Secret. You can get these from the [setting page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. The following command will cfreate a `.nexmorc` file in your home directory, containing your API secret and API key. This is required for some of the other command line operations.
+Setup the CLI to use your Nexmo API Key and API Secret. You can get these from the [setting page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. The following command will create a `.nexmorc` file in your home directory, containing your API secret and API key. This is required for some of the other command line operations.
 
 ```bash
 $ nexmo setup api_key api_secret
