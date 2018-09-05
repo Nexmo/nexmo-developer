@@ -85,6 +85,12 @@ $ docker-compose down
 
 You can access the admin dashboard by visiting `/admin`. If you've populated data via `rake db:seed` you will have an admin user with the username of `admin@nexmo.com` and password of `development`.
 
+The following is an example if you are running Nexmo Developer within a Docker container:
+
+```sh
+docker exec -it <container_id> rake db:seed
+```
+
 New admin users can be created by visiting `/admin/users` or by accessing the rails console and creating a new User like so:
 
 ```ruby

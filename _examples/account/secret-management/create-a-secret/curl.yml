@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/account/secret-management/create-api-secret.sh
+    from_line: 4
+    to_line: 7
+file_name: create-secret.sh
+run_command: bash create-secret.sh

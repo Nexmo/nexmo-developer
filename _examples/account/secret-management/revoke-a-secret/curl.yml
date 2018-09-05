@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/account/secret-management/delete-api-secret.sh
+    from_line: 4
+    to_line: 5
+file_name: revoke-secret.sh
+run_command: bash revoke-secret.sh
