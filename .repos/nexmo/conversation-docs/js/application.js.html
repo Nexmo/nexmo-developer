@@ -65,7 +65,7 @@ let applicationEventsHandler = null;
   });
   * @emits Application#member:invited
   * @emits Application#member:joined
-  * @emits Application#member:call
+  * @emits Application#Stitch-errors
   */
 class Application {
 	constructor(session, params) {
@@ -143,42 +143,61 @@ class Application {
 	 *              });
 	 *      });
 	 */
-	/**
-	 * Application listening for calls.
-	 *
-	 * @event Application#member:call
-	 *
-	 * @property {Member} member - the member that initiated the call
-	 * @property {Call} call -  resolves the call object
-	 *
-	 * @example &lt;caption>listen for calls in Application level&lt;/caption>
-	 *  application.on("member:call", (member, call) => {
-	 *              console.log("Call ", call;
-	 *              });
-	 *      });
-	 */
 
 	/**
 	 * Entry point for events in Application level
 	 * @private
 	 */
 	_handleEvent(event) {
+		const isEventFromMe = event.body &amp;&amp; event.body.user &amp;&amp; event.body.user.user_id === this.me.id;
+
 		if (event.type.startsWith('sip')) {
 			sipEventHandler._handleSipCallEvent(event);
 			return;
 		}
+
 		if (event.cid in this.conversations) {
 			this.conversations[event.cid]._handleEvent(event);
+			if ((event.type === 'member:joined' || event.type === 'member:invited')
+				&amp;&amp; isEventFromMe) {
+				this._handleApplicationEvent(event);
+			}
 		} else {
 			//get the conversation you don't know about (case: joined by another user)
 			this.getConversation(event.cid)
 				.then((conversation) => {
 					this.conversations[event.cid] = conversation;
+					conversation._handleEvent(event);
 					this._handleApplicationEvent(event);
 				}).catch((error) => {
 					this.log.error(error);
 				});
 		}
+	}
+
+    /**
+     * update user's token
+     * @param {string} token - the new token
+     * @returns {Promise}
+     */
+	updateToken(token) {
+		return new Promise((resolve, reject) => {
+			this.session.sendRequest({
+				type: 'session:update-token',
+				body: {
+					token: token
+				}
+			}, (response) => {
+				if (response.type === "session:update-token:success") {
+					if (this.me) {
+						this.session._updateTokenInCache(token, this.me.name);
+					}
+					resolve();
+				} else {
+					reject(new NexmoApiError(response));
+				}
+			});
+		});
 	}
 
 	/**
@@ -206,6 +225,7 @@ class Application {
 			const call = new Call(this);
 			return call.createCall(usernames)
 				.then(() => {
+					call.direction = call.CALL_DIRECTION.OUTBOUND;
 					return resolve(call);
 				});
 		});
@@ -236,6 +256,7 @@ class Application {
 				return reject(new NexmoClientError("error:application:callPhone:params"));
 			}
 			const call = new Call(this);
+			call.direction = call.CALL_DIRECTION.OUTBOUND;
 			return call.createPhoneCall(phoneNumber)
 				.then((response) => {
 					call.knocking_id = response.body.id;
@@ -451,13 +472,13 @@ module.exports = Application;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 31 2018 11:22:20 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 30 2018 11:44:59 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

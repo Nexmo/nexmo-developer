@@ -47,6 +47,10 @@ current:
   - name: 'Tony Bedford'
     email: 'tony.bedford@vonage.com'
     role: 'Technical Writer'
+  - name: 'Myrsini Koukiasa'
+    email: 'myrsini.koukiasa@vonage.com'
+    twitter: 'myrsiningos'
+    role: 'Community Manager'
 alumni:
   - name: 'Adam Butler'
     email: 'adam.butler@vonage.com'

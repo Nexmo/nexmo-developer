@@ -158,22 +158,6 @@ print_hi('Adam')
 #=> prints 'Hi Adam' to STDOUT.
 ```
 
-### Tabbed Examples (custom plugin)
-
-For tabbed code we use a custom plugin. The `source` field gives the directory where the code samples live, and each tab is a file within that directory.  For example:
-
-````
-```tabbed_examples
-source: '/_examples/messaging/sending-an-sms/basic'
-```
-````
-
-Creates this block:
-
-```tabbed_examples
-source: '/_examples/messaging/sending-an-sms/basic'
-```
-
 ### Tabbed Examples (custom plugin) + pulling code in from external repository
 
 The custom plugin for tabbed code also supports pulling code from an external repository.  This example shows code from [nexmo-community/nexmo-ruby-quickstart](https://github.com/nexmo-community/nexmo-ruby-quickstart):
@@ -196,6 +180,7 @@ tabs:
     from_line: 9
 ```
 
+> There is an older version of the tabbed examples also in use, that uses a `source: ` field pointing to the `_examples/` directory, but this style is no longer used. Please use the new style above, and replace existing occurrences if possible.
 
 ### Linters, Formatters & Code Style Guides
 

@@ -189,7 +189,7 @@ user's invitations
 
     <li><a href="Application.html#event:member:joined">Application#member:joined</a></li>
 
-    <li><a href="Application.html#event:member:call">Application#member:call</a></li>
+    <li><a href="Application.html#event:Stitch-errors">Application#event:Stitch-errors</a></li>
 </ul>
 
 
@@ -342,7 +342,7 @@ user's invitations
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line173">line 173</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line192">line 192</a>
     </li></ul></dd>
     
 
@@ -503,7 +503,7 @@ You don't need to start the stream, the SDK will play the audio for you
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line205">line 205</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line225">line 225</a>
     </li></ul></dd>
     
 
@@ -671,7 +671,7 @@ Result added (or updated) in this.conversations
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line298">line 298</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line319">line 319</a>
     </li></ul></dd>
     
 
@@ -780,7 +780,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line326">line 326</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line347">line 347</a>
     </li></ul></dd>
     
 
@@ -949,7 +949,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line396">line 396</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line417">line 417</a>
     </li></ul></dd>
     
 
@@ -1187,7 +1187,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line242">line 242</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line263">line 263</a>
     </li></ul></dd>
     
 
@@ -1448,7 +1448,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line282">line 282</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line303">line 303</a>
     </li></ul></dd>
     
 
@@ -1511,6 +1511,159 @@ The conversation name must be unique per application.
     }).catch((error) => {
     console.log(error);
 });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateToken"><span class="type-signature"></span>updateToken<span class="signature">(token)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    update user's token
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>token</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the new token</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line155">line 155</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
 
 
 
@@ -1632,7 +1785,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line46">line 46</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line63">line 63</a>
     </li></ul></dd>
     
 
@@ -1667,6 +1820,160 @@ The conversation name must be unique per application.
              console.log("call: " + call.status);
       });
   });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:Stitch-errors">Stitch-errors</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Application listening for joins.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ConversationClientError</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_errors_emitter.js.html">modules/errors_emitter.js</a>, <a href="modules_errors_emitter.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+        <p class="code-caption">listen for errors</p>
+    
+    <pre class="prettyprint"><code>application.on('*', 'Stitch-errors', (error) => {
+   console.log('Error thrown with type ' + error.type);
+ });</code></pre>
+
+        <p class="code-caption">Update the token on expired-token error</p>
+    
+    <pre class="prettyprint"><code>application.on('system:error:expired-token', 'Stitch-errors', (error) => {
+	console.log('token expired');
+	application.updateToken(&lt;token>);
+});</code></pre>
 
 
 
@@ -1803,7 +2110,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line118">line 118</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line34">line 34</a>
     </li></ul></dd>
     
 
@@ -1835,7 +2142,7 @@ The conversation name must be unique per application.
         <p class="code-caption">listen for calls in Application level</p>
     
     <pre class="prettyprint"><code> application.on("member:call", (member, call) => {
-             console.log("Call ", call;
+             console.log("Call ", call);
              });
      });</code></pre>
 
@@ -2196,6 +2503,200 @@ console.log("Invited by: " + member.invited_by);
     
 
     
+    <h4 class="name" id="event:rtcstats:report">rtcstats:report</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Application listening for RTC stats.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>MOS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the calculated MOS score</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>report</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the stats report from WebRTC</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Conversation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Conversation.html">Conversation</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the conversation the report belongs to</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">listening for quality mos score</p>
+    
+    <pre class="prettyprint"><code> application.on("rtcstats:report",(mos, report, conversation) => {
+             console.log("call quality", mos);
+             });
+     });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="event:sync:progress">sync:progress</h4>
     
 
@@ -2300,7 +2801,7 @@ console.log("Invited by: " + member.invited_by);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line346">line 346</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line367">line 367</a>
     </li></ul></dd>
     
 
@@ -2350,13 +2851,13 @@ console.log("Invited by: " + member.invited_by);
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 31 2018 11:22:20 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 30 2018 11:45:00 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
