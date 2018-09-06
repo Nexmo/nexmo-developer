@@ -25,7 +25,7 @@ In this document you can learn about authentication via the following means:
 * [API Key and Secret](#api-key-secret)
   * [Request Body](#request-body)
   * [Query String](#query-string)
-  * [Header-based](#header-based-api-key-secret-authentication)
+  * [Header-based](#header-based-api-key-and-secret-authentication)
   * [Secret Rotation](#secret-rotation)
 * [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
 * [OAuth](#oauth)
