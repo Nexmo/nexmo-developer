@@ -72,7 +72,7 @@ Here is an example of the NCCO you should return to handle incoming calls with L
 
 The first `talk` action is a simple way to start the call. Lex expects the user to speak first, so you need to start the conversation as you would in a phone call, by greeting the caller. You can customise this text to fit your use case.
 
-By comparing the [range of voices available on Nexmo](/voice/voice-api/ncco-reference#voice-names) with those available on Lex, you can select a combination of voices that feels natural for the caller. There is some overlap in the choice of voices available from both Nexmo and Lex.
+By comparing the [range of voices available on Nexmo](/voice/voice-api/guides/text-to-speech#voice-names) with those available on Lex, you can select a combination of voices that feels natural for the caller. There is some overlap in the choice of voices available from both Nexmo and Lex.
 
 The next action is `connect`: this makes call connect to the WebSocket endpoint, specifically the Lex Connector WebSocket.
 
