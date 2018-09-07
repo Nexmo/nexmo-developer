@@ -23,11 +23,11 @@ https://api.nexmo.com/conversions/voice?api_key=xxxxxx&api_secret=xxxxxxx&messag
 
 This request contains:
 
-* A [Base URL](#base)
+* A [Base URL](#base-url)
 * [Parameters](#parameters )
-* [Authentication information](#authentic )
+* [Authentication information](#authentication-information )
 * [Security](#security )
-* [Encoding](#encode)
+* [Encoding](#encoding)
 
 ## Base URL
 
