@@ -51,6 +51,10 @@ current:
     email: 'myrsini.koukiasa@vonage.com'
     twitter: 'myrsiningos'
     role: 'Community Manager'
+  - name: 'Mark Lewin'
+    email: 'mark.lewin@vonage.com'
+    twitter: 'devtechwriter'
+    role: 'Technical Writer'
 alumni:
   - name: 'Adam Butler'
     email: 'adam.butler@vonage.com'
