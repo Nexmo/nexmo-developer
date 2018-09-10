@@ -18,8 +18,6 @@ class Tutorial
     normalized_products.sort.to_sentence
   end
 
-  private
-
   def normalise_product_title(product)
     return 'SMS' if product == 'messaging/sms'
     return 'Voice' if product == 'voice/voice-api'
@@ -31,6 +29,10 @@ class Tutorial
     all.select do |tutorial|
       tutorial.products.include? product
     end
+  end
+
+  def self.origin
+    Pathname.new("#{Rails.root}/_tutorials")
   end
 
   def self.all
@@ -51,11 +53,7 @@ class Tutorial
 
   private
 
-  def self.files
+  private_class_method def self.files
     Dir.glob("#{origin}/**/*.md")
-  end
-
-  def self.origin
-    Pathname.new("#{Rails.root}/_tutorials")
   end
 end

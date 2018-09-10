@@ -1,3 +1,10 @@
+require 'dotenv'
+
+Dotenv.load
+
+NEXMO_NUMBER = ENV['NEXMO_NUMBER']
+TO_NUMBER = ENV['RECIPIENT_NUMBER']
+
 require 'sinatra'
 require 'sinatra/multi_route'
 require 'json'
@@ -15,25 +22,23 @@ end
 route :get, :post, '/webhooks/answer' do
   [
     {
-      action: 'talk',
-      text: 'Please leave a message after the tone, then press pound.'
+      "action": "record",
+      "eventUrl": ["#{request.base_url}/webhooks/recordings"]
     },
     {
-      action: 'record',
-      endOnKey: '#',
-      beepStart: 'true',
-      eventUrl: [
-        "#{request.base_url}/webhooks/recording"
+      "action": "connect",
+      "from": NEXMO_NUMBER,
+      "endpoint": [
+        {
+          "type": "phone",
+          "number": TO_NUMBER
+        }
       ]
-    },
-    {
-      action: 'talk',
-      text: 'Thank you for your message.'
     }
   ].to_json
 end
 
-route :get, :post, '/webhooks/recording' do
+route :get, :post, '/webhooks/recordings' do
   recording_url = params['recording_url'] || parsed_body['recording_url']
   puts "Recording URL = #{recording_url}"
 

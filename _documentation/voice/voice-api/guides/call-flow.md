@@ -1,5 +1,6 @@
 ---
 title: Call Flow
+description: The various stages of a call and how they interact.
 navigation_weight: 1
 ---
 
@@ -17,7 +18,7 @@ Both inbound and outbound calls follow the same call flow once answered. This ca
 
 When a call is answered, Nexmo makes a call to the `answer_url` provided. For inbound calls the `answer_url` is fetched from the configuration of the application that the number is linked to. For outbound calls, an `answer_url` is provided in the API request made to create the call.
 
-## State
+## Call states
 
 Each call goes through a sequence of states in its lifecycle:
 
@@ -26,12 +27,14 @@ Each call goes through a sequence of states in its lifecycle:
 3. Answered
 4. Complete
 
-## Events
+## Event objects
 
-As the call progresses through the various states, the Nexmo platform
+As the call progresses through the various [call states](#call-states), the Nexmo platform
 will send event objects to your `event_url`. Like the `answer_url` the
 `event_url` is associated with the application for inbound calls, or is
 supplied as an `event_url` parameter when the call is created.
+
+The following table shows possible values for the `status` field of an event object:
 
 |Event Name | Description |
 | --------- | ----------- |
@@ -49,11 +52,46 @@ supplied as an `event_url` parameter when the call is created.
 | `recording`  | A `record` stage has completed. This event contains the recording URL |
 | `busy`  | The destination is on the line with another caller |
 
-In addition, certain errors are sent to the `event_url` such as your `answer_url` returning an invalid NCCO.
+An example event object is shown here:
+
+```
+{
+    'conversation_uuid': 'CON-4bf66420-d6cb-46e0-9ba9-f7eede9a7301',
+    'direction': 'inbound',
+    'from': '447700900000',
+    'status': 'started',
+    'timestamp': '2018-08-14T11:07:01.284Z',
+    'to': '447700900001',
+    'uuid': '688fd94bd0e1f59c36a4cbd36312fc28'
+}
+```
+
+In addition, certain errors are sent to the `event_url` such as when your `answer_url` returns an invalid NCCO.
+
+## Answer URL payload
+
+When a call is answered a payload is delivered to your `answer_url` [webhook](/concepts/guides/webhooks).
+
+The payload delivered to the `answer_url` is in the form of query parameters and these are shown in the following table:
+
+Query Parameter | Description
+----|----
+`to` | The number being called
+`from` | The number making the call
+`conversation_uuid` | The UUID of the [conversation](/voice/voice-api/guides/legs-conversations)
+`uuid` | The UUID of the [leg](/voice/voice-api/guides/legs-conversations)
+
+To illustrate this, an example GET request to the `answer_url` is given here:
+
+```
+/webhooks/answer?to=447700900000&from=447700900001&conversation_uuid=CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab&uuid=aaaaaaaa-bbbb-cccc-dddd-0123456789cd
+```
+
+In general, useful information such as the calling number and destination number is extracted from the query string and processed by your application.
 
 ## Synchronous vs Asynchronous Actions
 
-Each _action_ within an NCCO has certain conditions on which it will be considered "complete" and the call will progress to the next action. For some actions this complete state can depend on how they are configured.
+Each *action* within an NCCO has certain conditions on which it will be considered "complete" and the call will progress to the next action. For some actions this complete state can depend on how they are configured.
 
 ### Record
 
@@ -92,7 +130,6 @@ Input is unique in that when the webhook is sent with the entered digits, the re
 ## Transferring to a new NCCO
 
 You can replace the currently executing NCCO with a new one by making an HTTP `PUT` request to the REST API with the call UUID in it. This will replace whatever actions are being executed or queued in the current NCCO. One such use case for this is to transfer a call that is on hold (looping an audio file) to an agent by putting a new NCCO with a `connect` action. However, you can also use this approach to simply modify any aspect of an in progress call.
-
 
 ## Machine Detection
 

@@ -30,4 +30,4 @@ You will need to:
 
 1. Set up a call and obtain the call UUID. You could use the 'connect an inbound call' building block to do this.
 2. Record the call (this building block).
-3. Download the recording. See the 'Download a recording' building block for how to do this.
+3. Download the recording. See the [Download a recording](/voice/voice-api/building-blocks/download-a-recording) building block for how to do this.

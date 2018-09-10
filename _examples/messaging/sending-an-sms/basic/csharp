@@ -1,6 +1,0 @@
-SMS.Send(new SMS.SMSRequest
-{
-    from = "$FROM_NUMBER",
-    to = "$TO_NUMBER",
-    text = "A text message sent using the Nexmo SMS API"
-});

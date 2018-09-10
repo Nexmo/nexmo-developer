@@ -78,7 +78,6 @@ showCallIncoming(member) {
   } else {
     memberName = member.user.name
   }
-  console.log("shit");
   this.callIncoming.style.display = "block"
   this.callIncoming.children[0].textContent = "Incoming call from " + memberName + ". Do you want to answer?"
 }

@@ -13,7 +13,7 @@ Replace the following variables in the example code:
 
 Key |	Description
 -- | --
-`RECORDING_URL` |	The URL of the recording to download.
+`RECORDING_URL` |	The URL of the recording to download. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used.
 
 ```building_blocks
 source: '_examples/voice/download-a-recording'
@@ -24,6 +24,19 @@ application:
 ```
 
 ## Try it out
+
+You will need a Recording URL from which to download the recording file. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used when [recording a call](/voice/voice-api/building-blocks/record-a-call), connecting another call and so on. A typical JSON response will resemble the following:
+
+```
+{'conversation_uuid': 'CON-ddddaaaa-bbbb-cccc-dddd-0123456789de',
+ 'end_time': '2018-08-10T11:19:31Z',
+ 'recording_url': 'https://api.nexmo.com/v1/files/aaaaaaaa-bbbb-cccc-dddd-0123456789ab',
+ 'recording_uuid': 'ccccaaaa-dddd-cccc-dddd-0123456789ab',
+ 'size': 162558,
+ 'start_time': '2018-08-10T11:18:51Z',
+ 'timestamp': '2018-08-10T11:19:31.744Z'}
+1.2.3.4 - - [10/Aug/2018 11:19:31] "POST /webhooks/recordings HTTP/1.1" 200 -
+```
 
 When you run the script, the recording located at the recording URL will
 be downloaded. You can then listen to the recording.

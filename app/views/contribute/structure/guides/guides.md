@@ -5,27 +5,10 @@ navigation_weight: 2
 
 # Guides
 
-The guides provide an in depth look into an actionable task such as "How do I send an SMS programmatically". The guides support the user through this problem in an opinionated, isolated way that follows best practice.
+The Guides provide information on the key concepts associated with a product.
 
-## Opening
+Ideally the Guide should also point to further useful resources such as:
 
-Explain what the problem is and outline the steps that you'll take to overcome it in bullet points.
-
-> Note: The opening has no heading as the heading should serve this purpose.
-
-## Guide
-
-Every guide has its own problem to solve. Use headings and sections that align with the steps one would take to overcome the problem.
-
-## Conclusion
-
-Point to resources:
-
-* Tutorials - More in depth guides to support the user even further
-* API Reference - Given that the guide is opinionated, provide this as a resource to allow the user to see what other options are available to them.
-* Other relevant guides - Some guides are closely aligned, for example "Send an SMS" should suggest "Receive a delivery receipt" as further reading.
-
-Reflect on:
-
-* What you have done
-* How you could extend on what you have learnt
+* Building blocks - Guides may link to Building Blocks to show specific implementation details.
+* Tutorials - Step-by-step instructions to solve specific use cases with the Nexmo APIs.
+* API Reference - Full details of the API's functionality.

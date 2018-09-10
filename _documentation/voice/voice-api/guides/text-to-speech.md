@@ -1,5 +1,6 @@
 ---
 title: Text to Speech
+description: Using our Text-To-Speech engine, you can play machine-generated speech to your callers
 navigation_weight: 3
 ---
 
@@ -68,6 +69,7 @@ Name | Language | Gender | [SSML](#ssml) support
 `Chantal` | `fr-CA` | `female` | ✅
 `Celine` | `fr-FR` | `female` | ✅
 `Mathieu` | `fr-FR` | `male` | ✅
+`Aditi` | `hi-IN` | `female` | ✅
 `Dora` | `is-IS` | `female` | ✅
 `Karl` | `is-IS` | `male` | ✅
 `Carla` | `it-IT` | `female` | ✅
@@ -89,6 +91,7 @@ Name | Language | Gender | [SSML](#ssml) support
 `Astrid` | `sv-SE` | `female` | ✅
 `Filiz` | `tr-TR` | `female` | ✅
 `Mizuki` | `ja-JP` | `female` | ✅
+`Seoyeon`| `ko-KR` | `female`| ✅
 `Laila` | `ara-XWW` | `female` | ❎
 `Maged` | `ara-XWW` | `male` | ❎
 `Tarik` | `ara-XWW` | `male` | ❎

@@ -5,13 +5,13 @@ language: javascript
 
 # Getting Started with the Nexmo Stitch JavaScript SDK
 
-In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Stitch JavaScript SDK.
+In this getting started guide you'll see how to build a simple conversation app with IP messaging using the Nexmo Stitch JavaScript SDK.
 
 ## Concepts
 
-This guide will introduce you to the following concepts.
+This guide will introduce you to the following concepts:
 
-* **Nexmo Applications** - contain configuration for the application that you are building
+* **Nexmo Applications** - These contain configuration for the application that you are building.
 * **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Stitch API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions.
 * **Users** - users who are associated with the Nexmo Application. It's expected that Users will have a one-to-one mapping with your own authentication system.
 * **Conversations** - A thread of conversation between two or more Users.
@@ -19,19 +19,23 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-* Ensure you have [Node.JS](https://nodejs.org/) installed
+There are certain prerequisites you need to have in place before you begin this tutorial:
+
+* Ensure you have [Node.JS](https://nodejs.org/) installed.
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
 * Install the Nexmo CLI:
 
-    ```bash
-    $ npm install -g nexmo-cli@beta
-    ```
+```bash
+$ npm install -g nexmo-cli@beta
+```
 
-    Setup the CLI to use your Nexmo API Key and API Secret. You can get these from the [setting page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
+* Initialize the CLI:
 
-    ```bash
-    $ nexmo setup api_key api_secret
-    ```
+Setup the CLI to use your Nexmo API Key and API Secret. You can get these from the [setting page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. The following command will create a `.nexmorc` file in your home directory, containing your API secret and API key. This is required for some of the other command line operations.
+
+```bash
+$ nexmo setup api_key api_secret
+```
 
 ## 1 - Setup
 
@@ -90,9 +94,11 @@ User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 
 That is the User ID. Take a note of it as this is the unique identifier for the user that has been created. We'll refer to this as `YOUR_USER_ID` later.
 
+> **Note:** If you used a name other than 'jamie' you will need to specify your new name when you generate your JWT later.
+
 ### 1.4 - Add the User to the Conversation
 
-Finally, let's add the user to the conversation that we created. Remember to replace `YOUR_CONVERSATION_ID` and `YOUR_USER_ID` values:
+Now you will add the user to the conversation that we created. Remember to replace `YOUR_CONVERSATION_ID` and `YOUR_USER_ID` values:
 
 ```bash
 $ nexmo member:add YOUR_CONVERSATION_ID action=join channel='{"type":"app"}' user_id=YOUR_USER_ID
@@ -121,13 +127,13 @@ MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-012345678
 
 ### 1.5 - Generate a User JWT
 
-Generate a JWT for the user and take a note of it. Remember to change the `YOUR_APP_ID` value in the command:
+Generate a JWT for the user and take a note of it. Remember to change the `YOUR_APP_ID` value in the command. Also, if you used a username other than 'jamie' you will need to specify that in the following command:
 
 ```bash
 $ USER_JWT="$(nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{},"/v1/knocking/**":{}}}' application_id=YOUR_APP_ID)"
 ```
 
-*Note: The above command saves the generated JWT to a `USER_JWT` constant. It also sets the expiry of the JWT to one day from now.*
+> **Note:** The above command saves the generated JWT to a `USER_JWT` constant. It also sets the expiry of the JWT to one day from now.
 
 You can see the JWT for the user by running the following:
 
@@ -135,9 +141,11 @@ You can see the JWT for the user by running the following:
 $ echo $USER_JWT
 ```
 
+> **Tip:** It can be useful to test the validity of your JWT using [this website](https://jwt.io/). Make sure that `sub` matches the username you specified when you created a user.
+
 ## 2 - Create the JavaScript App
 
-With the basic setup in place we can now focus on the client-side application.
+With the basic setup in place you can now develop the client-side application.
 
 ### 2.1 - An HTML Page with a Basic UI
 
@@ -145,9 +153,9 @@ Create an `index.html` page and add a very basic UI for the conversation functio
 
 The UI contains:
 
-* A simple login area. We'll be stubbing out a fake login process, but in a real application it would be expected for you to integrate with your chosen login system.
+* A simple login area. You will stub out a fake login process, but in a real application it would be expected for you to integrate with your chosen login system.
 * A list of messages. All the messages will be output to this area.
-* An input area. We'll use this to send a new message
+* An input area. You will use this to send a new message.
 
 ```html
 <!DOCTYPE html>
@@ -192,17 +200,19 @@ The UI contains:
 
 ### 2.2 - Add the Nexmo Stitch JS SDK
 
-Install the Nexmo Stitch JS SDK
+Install the Nexmo Stitch JS SDK:
 
 ```bash
 $ npm install nexmo-stitch
 ```
 
-Include the Nexmo Stitch JS SDK in the `<head>`
+Include the Nexmo Stitch JS SDK in the `<head>`:
 
 ```html
 <script src="./node_modules/nexmo-stitch/dist/conversationClient.js"></script>
 ```
+
+> **Note:** Depending on where your Node modules are installed you may need to modify the path given here.
 
 ### 2.3 - Stubbed Out Login
 
@@ -210,7 +220,7 @@ Next, let's stub out the login workflow.
 
 Define a constant with a value of the User JWT that was created earlier and set the value to the `USER_JWT` that was generated earlier. Create a `YOUR_CONVERSATION_ID` with the value of the Conversation ID that was created earlier to indicate the conversation we're going to be using.
 
-Lastly we'll create a class called `ChatApp` that creates some instance variables selecting our HTML elements for use later, an error logging method, an event logging method and stub out the functions we'll be creating later.
+You will also create a class called `ChatApp` that creates some instance variables selecting our HTML elements for use later, an error logging method, an event logging method and stub out the functions you'll be creating later:
 
 ```html
 <script>
@@ -249,7 +259,7 @@ new ChatApp()
 </script>
 ```
 
-Let's fill in the `authenticate` function. For now, stub it out to always return the `USER_JWT` value. This is where you would normally use the users session to authenticate the user and return their JWT.
+Let's fill in the `authenticate` function. For now, stub it out to always return the `USER_JWT` value. This is where you would normally use the user's session to authenticate the user and return their JWT:
 
 ```js
 authenticate() {
@@ -258,7 +268,7 @@ authenticate() {
 }
 ```
 
-Within `setupUserEvents` we'll bind to `submit` events on the form. When this form is submitted then call `authenticate` to get the user token. Finally, hide the login, show the message elements and call `joinConversation`, passing the user token.
+Within `setupUserEvents` we'll bind to `submit` events on the form. When this form is submitted then call `authenticate` to get the user token. Then, hide the login, show the message elements and call `joinConversation`, passing the user token:
 
 ```js
 setupUserEvents() {
@@ -276,7 +286,7 @@ setupUserEvents() {
 
 ### 2.4 - Connect and Login to Nexmo
 
-Within the `joinConversation` function, create an instance of the `ConversationClient` and login the current user in using the User JWT.
+Within the `joinConversation` function, create an instance of the `ConversationClient` and login the current user using the User JWT:
 
 ```js
 joinConversation(userToken) {
@@ -289,7 +299,7 @@ joinConversation(userToken) {
 
 ### 2.5 - Accessing the Conversation Object
 
-The next step is to have a user to retrieve the Conversation that was created. The `login` method returns a promise with the `app`. A user can be a member of many conversations you can call `app.getConversations()` to get them all. In this case we know the conversation you want so we'll request it with `app.getConversation(YOUR_CONVERSATION_ID)`.
+The next step is to have a user to retrieve the Conversation that was created. The `login` method returns a promise with the `app`. A user can be a member of many conversations you can call `app.getConversations()` to get them all. In this case we know the conversation you want so we'll request it with `app.getConversation(YOUR_CONVERSATION_ID)`:
 
 ```js
 joinConversation(userToken) {
@@ -305,7 +315,7 @@ joinConversation(userToken) {
 
 ### 2.6 - Receiving and Sending `text` Events
 
-Once we have found the conversation let's pass it to `setupConversationEvents`. We then want to listen for `text` event on the `conversation` and show them in the UI.
+Once we have found the conversation let's pass it to `setupConversationEvents`. We then want to listen for `text` event on the `conversation` and show them in the UI:
 
 ```js
 setupConversationEvents(conversation) {
@@ -334,7 +344,7 @@ joinConversation(userToken) {
 }
 ```
 
-Finally, we'll add another event listener in the `setupUserEvents` function. When the user clicks the `send` button in the UI send whatever text has been placed in the `textarea`. This is achieved by calling `sendText` on the `conversation` reference we created in `setupConversationEvents`.
+You will now add another event listener in the `setupUserEvents` function. When the user clicks the `send` button in the UI send whatever text has been placed in the `textarea`. This is achieved by calling `sendText` on the `conversation` reference you created in `setupConversationEvents`:
 
 ```js
 setupUserEvents() {
@@ -357,11 +367,18 @@ setupUserEvents() {
 }
 ```
 
-That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/simple-conversation/index.html).
+Your `index.html` file should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/simple-conversation/index.html).
 
-Run `index.html` in two side-by-side browser windows to see the conversation take place.
+### Test your application
+
+To test your application:
+
+1. Run a local webserver using `static`, `http-server` or any that is convenient.
+2. Load `localhost:8080` in two side-by-side browser windows. This will automatically load `index.html`.
+3. Type any user name and click the Login button.
+4. Type a message and send it. You can create a two-way conversation by switching between the browser tabs or windows.
 
 ## Where next?
 
-- Try out [Quickstart 2](/stitch/in-app-messaging/guides/inviting-members/javascript)
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
+* Try out [Quickstart 2](/stitch/in-app-messaging/guides/inviting-members/javascript)
+* Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>

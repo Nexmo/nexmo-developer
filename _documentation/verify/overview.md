@@ -28,8 +28,10 @@ TTS messages are read in the locale that matches the phone number. (For example,
 
 ## Tutorials
 
-* [Two-factor authentication for security and spam prevention](/tutorials/two-factor-authentication)
-* [Passwordless authentication](/tutorials/passwordless-authentication)
+```tutorials
+product: verify
+```
+
 
 ## Further Reading
 

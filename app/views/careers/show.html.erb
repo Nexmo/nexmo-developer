@@ -2,6 +2,9 @@
   <h3>
     <i class="icon icon-<%= @career.icon %>"></i>
     <%= @career.title %>
+    <% unless @career.published %>
+      [Hidden]
+    <% end %>
   </h3>
   <p><%= @career.summary %></p>
   <i><%= @career.location %></i>

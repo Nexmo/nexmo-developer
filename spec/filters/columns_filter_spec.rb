@@ -25,6 +25,6 @@ RSpec.describe ColumnsFilter do
         FREEZESTARTPC9kaXY-FREEZEEND
         FREEZESTARTPC9kaXY-FREEZEEND
       HEREDOC
-     )
+    )
   end
 end

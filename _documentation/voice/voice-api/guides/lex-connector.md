@@ -1,7 +1,7 @@
 ---
 title: Amazon Lex Connector
+description: You can use the Lex Connector to connect a Nexmo voice call to an [AWS Lex](https://aws.amazon.com/lex/) bot and then have an audio conversation with the bot.
 navigation_weight: 8
-
 ---
 
 # Connecting voice calls to Amazon Lex bots
@@ -54,7 +54,7 @@ Here is an example of the NCCO you should return to handle incoming calls with L
         "action": "connect",
         "endpoint": [
             {
-                "content-type": "audio/l16;rate=8000",
+                "content-type": "audio/l16;rate=16000",
                 "headers": {
                     "aws_key": "AAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "aws_secret": "eescOz9xisx+gx-PFU3G4AJg4NE4UExnHYaijI+o6xgNT0"

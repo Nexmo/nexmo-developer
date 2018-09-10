@@ -46,10 +46,13 @@
     <div class="jobs">
       <% careers.each do |career| %>
         <div class="jobs__job">
-          <div class="box box--white">
+          <div class="box box--<%= career.published ? 'white' : 'pink' %>">
             <h2>
               <i class="icon icon--large icon-<%= career.icon %>"></i><br><br>
               <%= career.title %>
+              <% unless career.published %>
+                  [Hidden]
+              <% end %>
               <br><br><i><small class="subtle"><%= career.location %></small></i>
             </h2>
             <div class="left spacious">

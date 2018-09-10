@@ -3,28 +3,28 @@ title: JavaScript
 language: javascript
 ---
 
-# Getting Started with Nexmo In-App Voice and the Stitch JavaScript SDK
+# Getting Started with Nexmo In-App Voice for JavaScript
 
-In this getting started guide we'll cover adding audio events to the Conversation we created in the [simple conversation with events](/stitch/in-app-messaging/guides/utilizing-events/javascript) getting started guide. We'll deal with media events, the ones that come via the conversation, and the ones we send to the conversation.
-
+In this guide we'll cover adding audio events to the Conversation we have created in the [simple conversation with events](/stitch/in-app-messaging/guides/utilizing-events/javascript) guide. We'll deal with sending and receiving  media events to and from the conversation.
 ## Concepts
 
-This guide will introduce you to the following concepts.
+This guide will introduce you to the following concepts:
 
-- **Audio** - enabling and disabling Audio streams in a Conversation
-- **Media Events** - `member:media` events that fire on a Conversation when media state changes for a member
+- **Audio Stream** - The stream that the SDK gives you in your browser to listen to audio and send audio
+- **Audio Leg** - A server side API term. Legs are a part of a conversation. When audio is enabled on a conversation, a leg is created
+- **Media Event** - a `member:media` event that fires on a Conversation when the media state changes for a member
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/utilizing-events/javascript)
+- Run through the [previous guide](/stitch/in-app-messaging/guides/utilizing-events/javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we already created for [the third getting started guide](/stitch/in-app-messaging/guides/utilizing-events/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we created for [the third getting started guide](/stitch/in-app-messaging/guides/utilizing-events/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add audio UI
 
-First, we'll add the UI for user to enable and disable audio, as well as an `<audio>` element that we'll use to play the Audio stream from the conversation. Let's add the UI at the top of the messages area.
+First, we'll add the UI for the user to enable and disable audio, as well as an `<audio>` element that we'll use to play the Audio stream from the conversation. Let's add the UI at the top of the messages area.
 
 ```html
 <section id="messages">
@@ -53,7 +53,7 @@ constructor() {
 
 ### 1.2 - Add enable audio handler
 
-We'll then update the `setupUserEvents` method to trigger `conversation.media.enable()` when the user clicks the `Enable Audio` button. `conversation.media.enable()` returns a promise with a stream object, which we'll use as the source for our `<audio>` element. We'll then add a listener on the `<audio>` element to start playing as soon as the metadata has been loaded.
+We'll then update the `setupUserEvents` method to trigger `conversation.media.enable()` when the user clicks the `Enable Audio` button. The `conversation.media.enable()` returns a promise with a stream object, which we'll use as the source for our `<audio>` element. We'll then add a listener on the `<audio>` element to start playing as soon as the metadata has been loaded. 
 
 ```javascript
 setupUserEvents() {
@@ -77,6 +77,8 @@ setupUserEvents() {
   })
 }
 ```
+
+Note that enabling audio in a conversation establishes an audio leg for a member of the conversation. The audio is only streamed to other members of the conversation who have also enabled audio. 
 
 ### 1.3 - Add disable audio handler
 
@@ -131,5 +133,5 @@ Now run `index.html` in two side-by-side browser windows, making sure to login w
 That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-audio/index.html).
 
 ## Where next?
-
+- The [next guide](/stitch/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
 - Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>

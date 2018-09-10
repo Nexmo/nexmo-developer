@@ -5,11 +5,11 @@ dependencies:
     - sinatra
 code:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/record_a_call.rb
-    from_line: 15
-    to_line: 41
+    from_line: 22
+    to_line: 48
 client:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/record_a_call.rb
-    from_line: 1
-    to_line: 13
+    from_line: 8
+    to_line: 20
 file_name: record_a_call.rb
 run_command: 'ruby record_a_call.rb'

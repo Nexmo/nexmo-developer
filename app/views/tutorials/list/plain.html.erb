@@ -1,0 +1,5 @@
+<ul>
+  <% @tutorials.each do |tutorial| %>
+    <li><a href="<%= tutorial.path %>"><%= tutorial.title %></a></li>
+  <% end %>
+</ul>

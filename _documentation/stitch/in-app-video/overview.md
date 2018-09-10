@@ -4,7 +4,7 @@ title: Overview
 
 # In-App Video Overview [Developer Preview]
 
-Nexmo In-App Video uses WebRTC and includes all the essentials you need to build a feature rich video experience.
+Nexmo In-App Video uses WebRTC and includes all the essentials you need to build a feature rich video experience:
 
 - User Control – Users can control whether their video stream is muted or unmuted.
 

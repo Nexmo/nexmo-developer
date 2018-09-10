@@ -20,7 +20,7 @@ ActiveAdmin.register ::Feedback::Feedback, as: 'Feedback' do
     actions
   end
 
-  form do |f|
+  form do |_f|
     inputs 'Details' do
       input :resolved
     end

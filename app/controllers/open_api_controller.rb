@@ -11,7 +11,7 @@ class OpenApiController < ApplicationController
     end
 
     if File.file? "_open_api/errors/#{@definition_name}.md"
-      definition_errors = File.read("_open_api/errors/#{@definition_name}.md")
+      @definition_errors = File.read("_open_api/errors/#{@definition_name}.md")
       @definition_errors_content = MarkdownPipeline.new.call(File.read("_open_api/errors/#{@definition_name}.md"))
     end
 
@@ -46,8 +46,6 @@ class OpenApiController < ApplicationController
 
   def check_redirect
     redirect = Redirector.find(request)
-    if redirect
-      redirect_to redirect
-    end
+    redirect_to redirect if redirect
   end
 end

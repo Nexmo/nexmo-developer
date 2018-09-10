@@ -14,20 +14,20 @@ Exceptions can be made to break consistency where it makes sense, particularly i
 
 ![Building Blocks](/assets/images/contributing/structure.png)
 
-### Structure
+## Structure
 
 Nexmo Developer is structured by context and by product. The four main sections of Nexmo Developer are:
 
-#### Documentation
+### Documentation
 
 This section hosts the bulk of the written content for the NDP. The content is structured by products each of which have the following four sections:
 
   * **[Overviews](/contribute/structure/guides/overviews)** - The first pages you reach when you select a product.
-  * **[Guides](/contribute/structure/guides/guides)** - Provide an in depth look into an actionable task.
+  * **[Guides](/contribute/structure/guides/guides)** - Provide key concepts in more depth than the overview.
   * **[Building Blocks](/contribute/structure/guides/building-blocks)** - Used as a quick reference of how to so something specific.
-  * **[Tutorials](/contribute/structure/guides/tutorials)** - A complete example of how to build something practical
+  * **[Tutorials](/contribute/structure/guides/tutorials)** - A complete example of how to build something practical.
 
-#### API Reference
+### API Reference
 
 API Reference pages document the following properties of the API:
 
@@ -40,10 +40,10 @@ API Reference pages document the following properties of the API:
   - Parameters
   - Response
 
-#### SDKs and Tools
+### SDKs and Tools
 
-A section that outlines our SDKs, Tools, Libraries etc. The repo README's should speak for themselves so the content for this page is deliberately very bare.
+A section that outlines our SDKs, Tools, Libraries etc. The repository README should provide all necessary information.
 
-#### Community
+### Community
 
-As it develops the community section will be host for 'cool hacks', open source projects that use Nexmo, the events that we are present at or support and links to posts that the community have written about Nexmo.
+As it develops, the community section will be a repository for 'cool hacks', open source projects that use Nexmo, the events that Nexmo will attend or sponsor, and blog posts that the community has written about Nexmo.

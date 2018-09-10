@@ -1,19 +1,19 @@
 require 'dotenv'
 Dotenv.load
 
-API_KEY = ENV['API_KEY']
-API_SECRET = ENV['API_SECRET']
-TO_NUMBER = ENV['TO_NUMBER']
+NEXMO_API_KEY = ENV['NEXMO_API_KEY']
+NEXMO_API_SECRET = ENV['NEXMO_API_SECRET']
+RECIPIENT_NUMBER = ENV['RECIPIENT_NUMBER']
 
 require 'nexmo'
 
 client = Nexmo::Client.new(
-  api_key: API_KEY,
-  api_secret: API_SECRET
+  api_key: NEXMO_API_KEY,
+  api_secret: NEXMO_API_SECRET
 )
 
 response = client.verify.request(
-  number: TO_NUMBER,
+  number: RECIPIENT_NUMBER,
   brand: 'Quickstart'
 )
 

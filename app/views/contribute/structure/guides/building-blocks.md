@@ -15,11 +15,9 @@ Building blocks provide a quick reference to how to achieve a specific single co
 - Get details about a phone number
 - Buy a number
 
+You can see examples of Building Blocks in the [Voice API docs](/voice/voice-api/building-blocks/before-you-begin).
+
 **❎ Examples of when a building block is not appropriate**
-
-- Accepting an inbound call
-
-    *This topic requires more setup than is appropriate for a building block and would more appropriately be a guide.*
 
 - Two factor authentication
 

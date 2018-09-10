@@ -4,12 +4,11 @@ language: ruby
 dependencies:
     - sinatra
 code:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/play-text-to-speech-into-a-call.rb
     from_line: 15
-    to_line: 23
 client:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb
-    from_line: 1
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/play-text-to-speech-into-a-call.rb
+    from_line: 8
     to_line: 13
-file_name: inbound_tts_call.rb
-run_command: 'ruby inbound_tts_call.rb'
+file_name: play-text-to-speech-into-a-call.rb
+run_command: 'ruby play-text-to-speech-into-a-call.rb'

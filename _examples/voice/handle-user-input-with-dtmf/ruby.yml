@@ -1,10 +1,15 @@
 ---
 title: Ruby
 language: ruby
-dependencies: null
+dependencies:
+    - sinatra
 code:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/dtmf.rb
-    from_line: 5
-    to_line: 35
+    from_line: 15
+    to_line: 37
+client:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/dtmf.rb
+    from_line: 1
+    to_line: 13
 file_name: dtmf.rb
 run_command: 'ruby dtmf.rb'

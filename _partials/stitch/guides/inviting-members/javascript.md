@@ -66,13 +66,18 @@ Update `index.html` with a placeholder section to list conversations.
 
 ```html
 <style>
+...
     #conversations {
         display: none;
     }
-  </style>
-  <section id="conversations">
-      <h1>Conversations</h1>
-  </section>
+...
+</style>
+...
+<body>
+...
+    <section id="conversations">
+        <h1>Conversations</h1>
+    </section>
 ```
 
 We'll also update the constructor method with a reference to the `conversations` element.
@@ -225,7 +230,7 @@ listConversations(userToken) {
 
 ### 2.5 - Listening for members who joined a conversation
 
-We'll update the `setupConversationEvents` method to listen for the `member:joined` event on the conversation and then show a message in the UI about a member joining the conversation.
+Update the `setupConversationEvents` method by adding code to listen for the `member:joined` event on the conversation and then show a message in the UI about a member joining the conversation:
 
 ```javascript
 setupConversationEvents(conversation) {
@@ -240,13 +245,15 @@ setupConversationEvents(conversation) {
 }
 ```
 
+Your `index.html` should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/inviting-members/index.html).
+
 ### 2.6 - Open the conversation in two browser windows
 
-Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Focus the browser window where you're logged in with `alice`.
+Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and login as `alice` in the other. Focus the browser window where you're logged in with `alice`.
 
 ### 2.7 - Invite the second user to the conversations
 
-Finally, let's invite the user to the conversation that we created. In your terminal, run the following command and remember to replace `YOUR_APP_ID` and `YOUR_CONVERSATION_ID` ID of the Application and Conversation you created in the first guide and the `SECOND_USER_ID` with the one you got when creating the User for `alice`.
+Now you will invite `alice` to the conversation that you created. In your terminal, run the following command and remember to replace your `YOUR_CONVERSATION_ID` for the Conversation you created in the first guide and the `SECOND_USER_ID` with the one you got when creating the User for `alice`.
 
 ```bash
 $ nexmo member:add YOUR_CONVERSATION_ID action=invite channel='{"type":"app"}' user_id=SECOND_USER_ID
@@ -275,8 +282,6 @@ MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-012345678
 ```
 
 Return to the previously opened browser windows so you can see `alice` has a conversation listed now. You can click the conversation name and proceed to chat between `alice` and `jamie`.
-
-That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/inviting-members/index.html).
 
 ## Where next?
 

@@ -1,3 +1,26 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.vendor/**/*'
+    - '.git/**/*'
+
+# Temporarily disabled until we can refactor
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+# Always enabled
+Rails:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 

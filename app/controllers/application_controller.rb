@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   force_ssl if: :ssl_configured?
   before_action :set_show_feedback
-  before_action :set_notices
+  before_action :notices
   before_action :set_code_language
   before_action :set_feedback_author
 
@@ -53,12 +53,12 @@ class ApplicationController < ActionController::Base
     true
   end
 
-  def set_notices
+  def notices
     @notices ||= YAML.load_file("#{Rails.root}/config/notices.yml")
   end
 
   def set_feedback_author
     return unless cookies[:feedback_author_id]
-    @feedback_author = Feedback::Author.select(:email).find_by_id(cookies[:feedback_author_id])
+    @feedback_author = Feedback::Author.select(:email).find_by(id: cookies[:feedback_author_id])
   end
 end

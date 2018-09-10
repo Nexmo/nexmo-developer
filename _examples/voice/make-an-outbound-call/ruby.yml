@@ -9,7 +9,7 @@ code:
     to_line: 33
 client:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/outbound_tts_call.rb
-    from_line: 14
+    from_line: 12
     to_line: 19
 file_name: outbound_tts_call.rb
 run_command: 'ruby outbound_tts_call.rb'

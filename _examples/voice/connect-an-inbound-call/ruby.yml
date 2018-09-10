@@ -5,11 +5,11 @@ dependencies:
     - sinatra
 code:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/connect_an_inbound_call.rb
-    from_line: 5
+    from_line: 9
     to_line: 19
 client:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/connect_an_inbound_call.rb
     from_line: 1
-    to_line: 3
+    to_line: 7
 file_name: connect_an_inbound_call.rb
 run_command: 'ruby connect_an_inbound_call.rb'
