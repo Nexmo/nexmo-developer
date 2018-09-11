@@ -10,105 +10,124 @@ languages:
 
 Phone numbers are everywhere in advertising: on billboards, in TV ads, on websites, in newspapers. Often these numbers all redirect to the same call center, where an agent needs to inquire why the person is calling, and where they saw the advert.
 
-Call Whispers make this so much simpler. By combining unique inbound numbers to identify the source of the call, the call center operator can be notified of this information before they are connected to a caller. A call whisper redirects an incoming call from one number to another. When the call redirects, audio is played to the recipient to help identify the purpose of the call, while the caller is kept on hold. In the context of running a marketing campaign, a business could use this to advertise a phone number specific to that campaign. When someone calls the number, the call is forwarded to an existing customer service call centre. The agent answering the call is played a brief text-to-speech message explaining the topic of the call before the caller is connected.
+Using call whispers, the context of the incoming call is announced to the call center operator before being connected to the caller. This tutorial will show an application that implements this approach. A user will call one of two numbers. The application answers the call and the caller hears a holding message. Meanwhile, the application also makes a call to the call center operative, plays a different call whisper depending on which number was dialled, and then connects the operative to the conference with the incoming caller.
+
+The examples are written in NodeJS with express, and you can find the code [on Github](https://github.com/Nexmo/node-call-whisper).
 
 ## In this tutorial
 
 You will see how to build add a Call Whisper to an inbound call:
 
-* [Create a Voice Application](#create-a-voice-application) - create a voice application using the Nexmo CLI and configuring answer and event webhook endpoints
-* [Buy a Phone Number](#buy-a-phone-number) - buy a phone number for the inbound call
-* [Link the Phone Number to a Nexmo Application](#link-the-phone-number-to-a-nexmo-application) - configure the voice enabled phone number to be associated with your Voice Application
-* [Create a Web Server](#create-a-web-server) - create a webserver that can handle calls coming in
-* [Receive an Inbound Phone Call](#receive-an-inbound-phone-call) - use your webhook endpoint to handle an incoming voice call
-* [Make an Outbound Phone Call](#make-an-outbound-phone-call) - call the call center agent
-* [Place the caller into a conference](#place-the-caller-into-a-conference) - place the caller into a conference with hold music until an agent becomes available
-* [Play a Whisper and join the conference](#play-a-whisper-and-join-the-conference) - inform the call center operator of the source of the inbound call, and then connect them into the conference
+* [How it works](#how-it-works) - an overview of who is calling who and how the process flows throughout the example application.
+* [Before you begin](#before-you-begin) - set up the application and numbers needed for this tutorial.
+* [Getting started with code](#gettings-started-with-code) - clone the repository and get the application running.
+* [Code walkthrough](#code-walkthrough) - dive in to the finer points of how the application works.
+* [Further reading](#further-reading) - check out some other resources that you might find helpful.
 
-## Prerequisites
+## How it works
 
-In order to work through this tutorial you'll need:
-
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
-* A publicly accessible web server so Nexmo can make webhook requests to your app. If you're developing locally use a tool such as [ngrok](https://ngrok.com/) to help you accept webhooks in your local development environment.
-* Some knowledge of Node.js and the [Express](https://expressjs.com/) web framework
-
-## Create a Voice Application
-
-To create a voice application within the Nexmo platform you execute the following command.
-
-```bash
-$ nexmo app:create "Call Whisper" https://example.com/answer_inbound https://example.com/event --save app.key
-Application created: 5555f9df-05bb-4a99-9427-6e43c83849b8
+```js_sequence_diagram
+User->Nexmo number: User calls either of\nthe numbers linked\n to this Application
+Nexmo number->Application: /answer_inbound
+Application->Conference: Adds user\nto Conference
+Application-->Operative: Calls call center operative
+Note left of Operative: When operative\nanswers
+Operative-->Application: /answer_outbound
+Application-->Operative: Announces info related to incoming number
+Application-->Conference: Adds operative\nto conference
+Note right of Conference: Both participants\nnow in conference
 ```
 
-"Call Whisper" is the name of the application and the next parameter is the webhook endpoint that Nexmo will make a request to when a call is made to a number associated with the application. The final parameter is also a webhook endpoint so that Nexmo can inform your application of other events related your Nexmo app.
+## Before you begin
 
-The output of this command is the Application UUID (Universally Unique IDentifier) and the private key for your app in a new file called `app.key`.
+Before we grab and run the code, there are a few things we need to do first.
 
-## Buy a Phone Number
+### Sign up for Nexmo
 
-For our application to function you need two or more numbers that are placed in adverts. Buy a number as follows using the Nexmo CLI:
+[Sign up for a Nexmo account](https://nexmo.com) if you don't have one already.
+
+### Set up the CLI
+
+This tutorial uses the [Nexmo command line tool](https://github.com/Nexmo/nexmo-cli), so check it is installed before proceeding.
+
+
+### Buy two phone numbers
+
+You will want two phone numbers in order to observe different whispers when calling different numbers. Run this command twice and make a note of the numbers that you have bought:
 
 ```bash
 $ nexmo number:buy --country_code US --confirm
-Number purchased: 447700900000
 ```
 
-*Note: Repeat the step above to buy more numbers.*
+### Create an application
 
-## Link the Phone Number to a Nexmo Application
-
-Associate the newly purchased numbers with the application we've created. This ensures that our application's webhook endpoints are informed when the number is called or any event takes place relating to the number.
+Create a new nexmo application and save the private key - you'll need this later. Replace `https://example.com` with the URL of your own application for both the "answer" and "event" arguments in this command:
 
 ```bash
-$ nexmo link:app 447700900000 5555f9df-05bb-4a99-9427-6e43c83849b8
+nexmo app:create "Call Whisper" https://example.com/answer_inbound https://example.com/event --keyfile app.key
 ```
 
-*Note: Repeat the step above for each number that you rented and want to associate to this application*
+This command grabs the private key and puts it safely in `app.key` for you. Make a note of the application ID as it's used in the next command...
 
-## Create a Web Server
+### Link numbers to your application
 
-For this tutorial you require a web server to be running.
+Link the application to both numbers, by running the command below once for each number:
 
-**lib/server.js**
-
-```js
-// load environment variable
-// from .env file
-require('dotenv').config();
-
-// start a new app
-var app = require('./app')
-
-// handle all routes
-require('./routes')(app);
+```bash
+nexmo link:app [NEXMO_NUMBER] [APP_ID]
 ```
 
-**lib/app.js**
+> You can get a list of apps or numbers at any time with the `nexmo app:list` and `nexmo number:list` commands respectively.
 
-```js
-// create a new express server
-var express = require('express');
-var app = express();
-app.set('port', (process.env.PORT || 5000));
+## Getting started with code
 
-// start the app and listen on port 5000
-app.listen(app.get('port'), '127.0.0.1', function() {
-  console.log('Listening on port', app.get('port'));
-});
+The code for this project is on GitHub at <https://github.com/Nexmo/node-call-whisper>. This consists of a NodeJS project using Express and is intended to give you a working example that you can then adapt for your own needs.
 
-module.exports = app;
-```
+### Clone the repository
 
-With that the basic server is in place.
+Either clone or download the repository to your local machine, in a new directory.
 
-## Receive an Inbound Phone Call
+### Configure the settings
 
-Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a webhook request to your web app's `answer_url` endpoint.
+Your application will need to know more about you and your application before it can run. Copy the `.env-example` file to `.env` and edit this new file to reflect the settings you want to use:
 
-For this functionality you should use a [Nexmo client library](/tools). Add the Nexmo client to your application and initialize it with our credentials and application key.
+* `NEXMO_API_KEY`: Find this on your [Nexmo Dashboard](https://dashboard.nexmo.com)
+* `NEXMO_API_SECRET`: Find this on your [Nexmo Dashboard](https://dashboard.nexmo.com)
+* `NEXMO_APP_ID`: The application ID you just created
+* `NEXMO_APP_FILE_NAME`: The file holding the private key (`app.key` in the example above)
+* `CALL_CENTER_NUMBER`: The phone number to reach the call center operative on, such as your mobile number
+* `INBOUND_NUMBER_1`: One of the numbers you purchased
+* `INBOUND_NUMBER_2`: The other number you purchased
+* `DOMAIN`: The domain name of where your app will be running, for example mine is: `ff7b398a.ngrok.io`
+
+### Install the dependencies
+
+In the directory where you downloaded the code, run `npm install`. This brings in Express, the Nexmo library, and other dependencies needed for this project.
+
+### Start the server
+
+With the configuration done and the dependencies in place, your application is ready to go! Run it with:
+
+`npm start`
+
+By default the application runs on port 5000. If you're going to be using `ngrok`, you can start your tunnel now.
+
+> When the ngrok tunnel name changes, remember to update your application's URLs with the `nexmo app:update` command.
+
+## Try it out
+
+Let's try the demo. For this you need two phones (one to be the "caller" and one to be the "call centre operative") so you may need to recruit a friend or use Skype to make the first call.
+
+1. Call one of the numbers you purchased.
+2. The caller will hear a greeting message, and then the call center operative's phone number will ring.
+3. When the call center operative answers, they will hear the "whisper" message before they are connected to the original caller.
+4. Now try that again but call the other number and listen to the different "whisper".
+
+## Code walkthrough
+
+The demo is fun but if you're interested in building this yourself, then there are some key points that you probably want to see. This section looks at the key sections of the code for each step of the process so that you can find where things take place and can adapt this application to suit your needs.
+
+This NodeJS example uses the [Nexmo NodeJS library](https://github.com/Nexmo/nexmo-node), which is initialized before it is used:
 
 **lib/routes.js**
 
@@ -126,9 +145,9 @@ var nexmo = new Nexmo({
 });
 ```
 
-## Make an Outbound Phone Call
+### Answer the incoming call, and start an outbound call
 
-When a call is made to the number linked to the voice application the [Answer Webhook](/api/voice#cc_answer_webhook) will be recieved by the app webhook endpoint. When this happens, start a new call to the call center.
+Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a [webhook request](/api/voice#cc_answer_webhook) to your web app's `answer_url` endpoint - in this case `/answer_incoming`. When the call is answered, the application starts the outgoing call to the call center operative.
 
 **lib/routes.js**
 
@@ -172,7 +191,9 @@ module.exports = function(app){
 
 *Note: Take a look at the [Voice API reference](/api/voice) for more info.*
 
-## Place the caller into a conference
+When we start this outgoing call, we specify an "Answer URL" for it too. This URL will receive the answer webhook when this second call is answered, and the application includes information about which conference this call will join when that happens.
+
+### Place the caller into a conference
 
 Once the outbound call has started, your code will need to return an [Nexmo Call Control Object (NCCO)](/voice/guides/ncco) to give instructions to our servers on how to handle the call. The [`talk`](/voice/guides/ncco-reference#talk) action lets you play text-to-speech to the caller to inform them they are being connected.
 
@@ -211,7 +232,7 @@ Then use the [`conversation`](/voice/guides/ncco-reference#conversation) NCCO ac
 
 *Note: Take a look at the [NCCO reference](/voice/guides/ncco-reference) for information on other actions available.*
 
-## Play a Whisper and join the conference
+### Play a Whisper and join the conference
 
 When a new outbound call to the call center agent was started, a new `answer_url` was passed for that call to fetch instructions from. This URL provides Nexmo with another set of instructions. This endpoint identifies which number is related to each advertising campaign.
 
@@ -256,17 +277,10 @@ app.get('/answer_outbound', function(req, res) {
 });
 ```
 
-> *Note*: Take a look at the [NCCO reference](/voice/guides/ncco-reference) for information on other actions available.*
+> *Note*: Take a look at the [NCCO reference](/voice/guides/ncco-reference) for information on other actions available.
 
-## Conclusion
+## Further reading
 
-You have created a voice application, purchased phone numbers and linked them to a Nexmo voice application. You have then built a Call Whisper application that receives an inbound call, makes an outbound call to an agent, uses text-to-speech for Call Whisper, and uses a conference to hold a user before connecting the agent to the caller.
-
-## Get the Code
-
-All the code for this tutorial and more is in the [Call Whisper repository on GitHub](https://github.com/Nexmo/node-call-whisper).
-
-## Resources
-
-* [Voice Guides](/voice)
-* [Voice API Reference](/api/voice)
+* <https://github.com/Nexmo/node-call-whisper> contains all the code for this example application.
+* Check our our [Voice Guides](/voice) for more things you can do with voice.
+* The [Voice API Reference](/api/voice) has detailed documentation for each endpoint.
