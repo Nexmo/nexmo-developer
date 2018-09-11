@@ -6,7 +6,7 @@ api: Developer API
 
 # Developer - Numbers API Reference
 
-The Numbers API lets you manage your numbers and buy new virtual numbers for use with Nexmo's APIs. Read our (Authentication Guide)[/concepts/guides/authentication] for for information on how to pass your credentials by query string.
+The Numbers API lets you manage your numbers and buy new virtual numbers for use with Nexmo's APIs. Read our [Authentication Guide](/concepts/guides/authentication) for information on how to pass your credentials by query string.
 
 ## Numbers
 
