@@ -38,6 +38,9 @@ When recording a named conversation, the recording is always asynchronous and ti
 
 When recording a call, you can enable split recording which will result in the recording being a stereo file with one channel having the audio sent from the caller and another channel being the audio heard by the caller.
 
+## Multi channel recording
+
+When recording a call, you can enable multichannel recording which allows up to 32 call legs to be recorded separately. One file with the number of channels set will be returned.
 ## File formats
 
 * Nexmo supports recording in MP3 or WAV format, the default is MP3.

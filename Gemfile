@@ -124,9 +124,6 @@ gem 'gravatar_image_tag', '1.2.0'
 # Provides Open API Spec 3 definitions for Nexmo APIs
 gem 'nexmo_api_specification', '0.11.6'
 
-# Really simple JSON and XML parsing, ripped from Merb and Rails.
-gem 'crack', '0.4.3'
-
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem 'friendly_id', '5.2.3'
 

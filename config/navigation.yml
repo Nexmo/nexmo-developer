@@ -5,6 +5,7 @@ navigation_weight:
   Verify: 3
   Number Insight: 4
   Messages and Workflows: 5
+  Numbers: 98
   Account: 99
   Concepts: 0
 
@@ -34,6 +35,8 @@ navigation_weight:
 
   Messages API: 1
   Workflows API: 2
+
+  Secret Management: 3
 
 navigation_overrides:
   redact:

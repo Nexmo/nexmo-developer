@@ -78,11 +78,6 @@ messaging:
         from_line: 34
         to_line: 39
         unindent: true
-    send-unicode:
-      curl:
-        source: '_examples/curl/messaging/sms/send-an-sms-with-unicode.sh'
-      python:
-        source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms-with-unicode.py'
     delivery-receipts:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'
@@ -111,36 +106,6 @@ messaging:
         from_line: 15
         to_line: 42
         unindent: true
-voice:
-  outbound:
-    node:
-      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/make-call.js'
-      from_line: 20
-    php:
-      source: '.repos/nexmo-community/nexmo-php-quickstart/voice/text-to-speech-outbound.php'
-      from_line: 12
-      to_line: 22
-    ruby:
-      source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/outbound_tts_call.rb'
-      from_line: 21
-    python:
-      source: '.repos/nexmo-community/nexmo-python-quickstart/voice/make-an-outbound-call.py'
-      from_line: 10
-    java:
-      source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java'
-      from_line: 27
-      to_line: 33
-      unindent: true
-  inbound:
-    node:
-      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/receive-an-inbound-call.js'
-    php:
-      source: '.repos/nexmo-community/nexmo-php-quickstart/voice/inbound-calls-slim/index.php'
-    ruby:
-      source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb'
-  inbound-connect:
-    node:
-      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'
 number_insight:
   standard:
     curl:

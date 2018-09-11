@@ -25,7 +25,8 @@ In this document you can learn about authentication via the following means:
 * [API Key and Secret](#api-key-secret)
   * [Request Body](#request-body)
   * [Query String](#query-string)
-  * [Header-based](#header-based-api-key-secret-authentication)
+  * [Header-based](#header-based-api-key-and-secret-authentication)
+  * [Secret Rotation](#secret-rotation)
 * [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
 * [OAuth](#oauth)
 
@@ -76,10 +77,10 @@ Details on how to encode Base64 strings in a variety of programming languages ca
 * Ruby: [Base64](https://ruby-doc.org/stdlib-2.5.0/libdoc/base64/rdoc/Base64.html)
 * Swift: [Base64 Encode and Decode in Swift](http://iosdevelopertips.com/swift-code/base64-encode-decode-swift.html) from iOS Developer Tips
 
-### API Secret Rotation
+### Secret Rotation
 It is possible to have two API secrets to be used against one API key at the same time. This way you can create a second API secret and test it before revoking the existing API secret in your production network. The API secret rotation procedure consists of the following steps:
 
-1. Create a second API secret in your [account settings](https://dashboard.nexmo.com/settings)
+1. Create a second API secret in your [account settings](https://dashboard.nexmo.com/settings) or by using  the [secret rotation API](/api/account/secret-management).
 2. Update one or more of your servers to use the newly created API secret for making calls to Nexmo APIs
 3. Test that there are no connectivity issues and roll out the API secret update across the remaining servers
 4. Delete the replaced API secret
