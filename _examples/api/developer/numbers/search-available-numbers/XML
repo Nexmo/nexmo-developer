@@ -4,8 +4,8 @@
   <numbers>
      <country>GB</country>
      <msisdn>447700900000</msisdn>
-     <cost>0.50</cost>
-     <type>mobile</type>
+     <cost>1.25</cost>
+     <type>mobile-lvn</type>
      <features>
         <feature>VOICE</feature>
         <feature>SMS</feature>
