@@ -58,7 +58,7 @@ You can use the following options to control a `record` action:
 
 Option | Description | Required
  -- | -- | --
-`format` | Record the Call in a specific format.  Options are: <ul><li>`mp3`</li><li>`wav`</li></ul> The default value is `mp3`. | No
+`format` | Record the Call in a specific format.  Options are: <ul><li>`mp3`</li><li>`wav`</li><li>`ogg`</li></ul> The default value is `mp3`, or `wav` when recording more than 2 channels. | No
 `split` | Record the sent and received audio in separate channels of a stereo recording—set to `conversation` to enable this.|No
 `channel` | The number of channels to record (maximum `32`). If the number of participants exceeds `channel` any additional participants will be added to the last channel in file. split `conversation` must also be enabled.| No
 `endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to `event_url`. The range of possible values is 3<=`endOnSilence`<=10. | No
