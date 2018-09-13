@@ -1044,14 +1044,10 @@ x-groups:
     name: Member
     order: 3
     description: Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
-  session:
-    name: Session
-    order: 3
-    description: Coming soon
   event:
     name: Event
     order: 4
-    description: Events are event related to the events. Each event own to one conversation.
+    description: 'Events are event related to the events. Each event own to one conversation. Messages sent are '
   leg:
     name: Leg
     order: 5
