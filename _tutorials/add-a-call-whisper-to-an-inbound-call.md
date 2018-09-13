@@ -62,7 +62,7 @@ $ nexmo number:buy --country_code US --confirm
 Create a new nexmo application and save the private key - you'll need this later. Replace `https://example.com` with the URL of your own application for both the "answer" and "event" arguments in this command:
 
 ```bash
-nexmo app:create "Call Whisper" https://example.com/answer_inbound https://example.com/event --keyfile app.key
+nexmo app:create "Call Whisper" https://example.com/answer https://example.com/event --keyfile app.key
 ```
 
 This command grabs the private key and puts it safely in `app.key` for you. Make a note of the application ID as it's used in the next command...
@@ -189,8 +189,7 @@ When the call is connected, play a call whisper to the agent using the `talk` NC
 
 ```
 
-There are so many possibilties here that can help you to customise the whispers. You could pass the incoming caller's number with the `url` in `onAnswer` and look them up, allowing you to greet them by name or provide some other information. The possibilities are endless but hopefully this tutorial gives you a working example you can build on and customize.
-
+There are so many possibilities here that can help you to customise the whispers. You could pass the incoming caller's number with the `url` in `onAnswer` and look them up, allowing you to greet them by name or provide some other information. The possibilities are endless but hopefully this tutorial gives you a working example you can build on and customize.
 
 ## Further reading
 
