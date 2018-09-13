@@ -41,16 +41,17 @@ The following table shows possible values for the `status` field of an event obj
 | `started`    | The call is created on the Nexmo platform |
 | `ringing`    | The destination has confirmed that the call is ringing |
 | `answered`   | The destination has answered the call |
+| `completed`    | When a call has been completed successfully |
 | `machine`    | When machine detection has been requested and the call is answered by a machine|
 | `human`      | When machine detection has been requested and the call is answered by a human|
-| `completed`    | When a call has been completed successfully |
-| `timeout`    | The call timed out before it was answered|
-| `failed`     | The call attempt failed in the phone network |
-| `rejected`   | The call attempt was rejected by the Nexmo platform |
-| `cancelled`  | The call was cancelled by the originator before it was answered |
 | `input`  | User input has been collected via an `input` action |
-| `recording`  | A `record` stage has completed. This event contains the recording URL |
 | `busy`  | The destination is on the line with another caller |
+| `cancelled`  | The call was cancelled by the originator before it was answered |
+| `failed`     | The call attempt failed in the phone network |
+| `recording`  | A `record` stage has completed. This event contains the recording URL |
+| `rejected`   | The call attempt was rejected by the Nexmo platform |
+| `timeout`    | The call timed out before it was answered|
+| `unanswered` | The recipient handset was unreachable, or the recipient declined the call | 
 
 An example event object is shown here:
 
