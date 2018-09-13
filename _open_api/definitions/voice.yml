@@ -131,11 +131,12 @@ paths:
           - answered
           - machine
           - completed
-          - timeout
+          - busy
+          - cancelled
           - failed
           - rejected
-          - cancelled
-          - busy
+          - timeout
+          - unanswered
       - name: date_start
         in: query
         description: Return the records that occurred after this point in time
