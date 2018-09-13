@@ -758,7 +758,7 @@ components:
           enum:
           - inbound
           - outbound
-    voiceNames:
+    voice_name:
       type: string
       default: Kimberly
       enum:
