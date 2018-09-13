@@ -52,7 +52,7 @@ navigation_overrides:
         lex-connector:
           label: 'Developer Preview'
         websockets:
-          label: 'Developer Preview'
+          label: 'Beta'
   messages-and-workflows-apis:
     messages:
       label: 'Developer Preview'
