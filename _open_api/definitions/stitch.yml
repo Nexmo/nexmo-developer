@@ -1051,7 +1051,7 @@ x-groups:
   event:
     name: Event
     order: 4
-    description: Coming soon
+    description: Events are event related to the events. Each event own to one conversation.
   leg:
     name: Leg
     order: 5
