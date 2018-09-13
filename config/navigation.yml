@@ -51,6 +51,8 @@ navigation_overrides:
       guides:
         lex-connector:
           label: 'Developer Preview'
+        websockets:
+          label: 'Developer Preview'
   messages-and-workflows-apis:
     messages:
       label: 'Developer Preview'
