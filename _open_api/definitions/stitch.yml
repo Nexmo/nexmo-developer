@@ -1035,24 +1035,28 @@ x-groups:
   conversation:
     name: Conversation
     order: 1
-    description: Demo Example
-  event:
-    name: Event
-    order: 2
-    description: Demo Example
-  rtc:
-    name: RTC
-    order: 3
-    description: Demo Example
+    description: A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
   user:
     name: User
-    order: 4
-    description: Demo Example
+    order: 2
+    description: 'The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.'
   member:
     name: Member
-    order: 5
-    description: Demo Example
+    order: 3
+    description: Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+  session:
+    name: Session
+    order: 3
+    description: Coming soon
+  event:
+    name: Event
+    order: 4
+    description: Coming soon
   leg:
     name: Leg
+    order: 5
+    description: 'A leg can be a video call, IP call, or PSTN call that users participate in using multiple platforms. With this endpoint you can retrieve the details about all of the legs that took place in your application.'
+  rtc:
+    name: Rtc
     order: 6
-    description: Demo Example
+    description: 'Rtc calls. '
