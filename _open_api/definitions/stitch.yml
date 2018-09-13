@@ -365,7 +365,7 @@ paths:
       x-swagger-router-controller: rtc
       operationId: createRTC
       x-group: rtc
-      summary: Create an member
+      summary: Create an rtc call
       responses:
         '200':
           description: RTC created
@@ -1031,3 +1031,28 @@ components:
       bearerFormat: JWT
 security:
   - bearerAuth: []
+x-groups:
+  conversation:
+    name: Conversation
+    order: 1
+    description: Demo Example
+  event:
+    name: Event
+    order: 2
+    description: Demo Example
+  rtc:
+    name: RTC
+    order: 3
+    description: Demo Example
+  user:
+    name: User
+    order: 4
+    description: Demo Example
+  member:
+    name: Member
+    order: 5
+    description: Demo Example
+  leg:
+    name: Leg
+    order: 6
+    description: Demo Example
