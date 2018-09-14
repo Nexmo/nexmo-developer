@@ -10,23 +10,6 @@
   </div>
 </div>
 
-<% if @sessions.any? %>
-  <br>
-
-  <div class="row">
-    <% @sessions.each_with_position do |session, first, last| %>
-      <div class="columns small-12 medium-6 large-4 <%= 'end' if last %>">
-        <%= session.video_content.html_safe %>
-        <h3><%= session.title %></h3>
-        <p><%= session.description %></p>
-        <br>
-      </div>
-    <% end %>
-  </div>
-
-  <hr>
-<% end %>
-
 <br>
 
 <h2 class="center">You can find us at these upcoming events:</h2>
@@ -45,6 +28,23 @@
 </p>
 
 <hr>
+
+<% if @sessions.any? %>
+  <br>
+
+  <div class="row">
+    <% @sessions.each_with_position do |session, first, last| %>
+      <div class="columns small-12 medium-6 large-4 <%= 'end' if last %>">
+        <%= session.video_content.html_safe %>
+        <h3><%= session.title %></h3>
+        <p><%= session.description %></p>
+        <br>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+<% end %>
 
 <center class="spacious">
   <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Nexmo Community Slack", community_slack_path %></h2>
