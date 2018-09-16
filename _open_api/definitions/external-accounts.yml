@@ -672,19 +672,23 @@ components:
           type: string
           example: "Wrong authentication - You are not authorised to access this resource"
 x-groups:
+  applications:
+    name: "Application"
+    order: 1
+    description: Foo Bar Baz
   account:
     name: "Account"
-    order: 1
+    order: 2
     description: Foo Bar Baz
   messenger:
     name: "Facebook Messenger"
-    order: 2
+    order: 3
     description: Foo Bar Baz
   viber:
     name: "Viber"
-    order: 2
+    order: 4
     description: Foo Bar Baz
   whatsapp:
     name: "Whatsapp"
-    order: 2
+    order: 5
     description: Foo Bar Baz
