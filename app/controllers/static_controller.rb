@@ -6,7 +6,7 @@ class StaticController < ApplicationController
   def documentation
     @navigation = :documentation
 
-    @document_path = "/app/views/static/documentation.md"
+    @document_path = '/app/views/static/documentation.md'
 
     # Read document
     document = File.read("#{Rails.root}/#{@document_path}")
@@ -27,23 +27,23 @@ class StaticController < ApplicationController
 
   def tools
     @navigation = :tools
-    @document_title = "SDKs & Tools"
+    @document_title = 'SDKs & Tools'
     render layout: 'page'
   end
 
   def community
     @navigation = :community
-    @document_title = "Community"
+    @document_title = 'Community'
     @upcoming_events = Event.upcoming
     @past_events_count = Event.past.count
     @sessions = Session.published
-    @sessions = Session.all if current_user && current_user.admin?
+    @sessions = Session.all if current_user&.admin?
     render layout: 'page'
   end
 
   def past_events
     @navigation = :community
-    @document_title = "Community"
+    @document_title = 'Community'
     @past_events = Event.past
     render layout: 'page'
   end
@@ -58,48 +58,6 @@ class StaticController < ApplicationController
     @document_title = @frontmatter['title']
 
     @content = MarkdownPipeline.new.call(document)
-
-    render layout: 'static'
-  end
-
-  def styleguide
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/styleguide.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @side_navigation = 'api/styleguide'
-
-    @content = MarkdownPipeline.new.call(document)
-
-    @return_link = {
-      title: "Contribute",
-      path: contribute_path,
-    }
-
-    render layout: 'static'
-  end
-
-  def write_the_docs
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/write-the-docs.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @side_navigation = 'api/write-the-docs'
-
-    @content = MarkdownPipeline.new.call(document)
-
-    @return_link = {
-      title: "Contribute",
-      path: contribute_path,
-    }
 
     render layout: 'static'
   end
@@ -120,10 +78,20 @@ class StaticController < ApplicationController
     render 'robots.txt'
   end
 
+  def podcast
+    # Get URL and split the / to retrieve the landing page name
+    yaml_name = request.fullpath.split('/')[1]
+
+    # Load the YAML for that particular page
+    @content = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
+
+    render layout: 'landing'
+  end
+
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
 
-    if current_user && current_user.admin?
+    if current_user&.admin?
       @careers = Career.all
     else
       @careers = Career.published

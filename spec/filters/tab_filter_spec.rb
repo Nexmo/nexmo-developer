@@ -8,9 +8,9 @@ RSpec.describe TabFilter do
         ```
       HEREDOC
 
-      expect {
+      expect do
         TabFilter.new.call(input)
-      }.to raise_error('A source, tabs or config key must be present in this tabbed_example config')
+      end.to raise_error('A source, tabs or config key must be present in this tabbed_example config')
     end
   end
 
@@ -22,9 +22,9 @@ RSpec.describe TabFilter do
         ```
       HEREDOC
 
-      expect {
+      expect do
         TabFilter.new.call(input)
-      }.to raise_error('A source, tabs or config key must be present in this tabbed_example config')
+      end.to raise_error('A source, tabs or config key must be present in this tabbed_example config')
     end
   end
 end

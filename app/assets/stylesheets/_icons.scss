@@ -4,6 +4,7 @@ $icon-php: "\e90b";
 $icon-ruby: "\e90c";
 $icon-python: "\e90d";
 $icon-node: "\e90e";
+$icon-in-app-video: "\e914";
 $icon-in-app-messaging: "\e910";
 $icon-in-app-voice: "\e911";
 $icon-stitch-messaging: "\e912";
@@ -119,6 +120,11 @@ $icon-callback: "\ea2d";
 .icon-in-app-voice {
   &:before {
     content: $icon-in-app-voice;
+  }
+}
+.icon-in-app-video {
+  &:before {
+    content: $icon-in-app-video;
   }
 }
 .icon-stitch-messaging {

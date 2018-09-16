@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :career do
-    title "MyString"
+    title 'MyString'
     published false
-    location "MyString"
-    description "MyText"
-    url "MyString"
+    location 'MyString'
+    description 'MyText'
+    url 'MyString'
   end
 end

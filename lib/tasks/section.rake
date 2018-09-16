@@ -2,7 +2,7 @@ require 'yaml'
 namespace :section do
   desc 'Bootstrap a new section'
   task create: :environment do
-    ARGV.each { |a| task a.to_sym do ; end }
+    ARGV.each { |a| task a.to_sym }
     section_name = ARGV[1]
     current_dir = Dir.pwd
     slug = section_name.parameterize
@@ -10,9 +10,9 @@ namespace :section do
     base_url = "#{current_dir}/_documentation/#{slug}"
 
     if File.exist? base_url
-        warning = "The section '#{section_name}' already exists. Stopping generation"
-        puts warning.colorize(:red)
-        next
+      warning = "The section '#{section_name}' already exists. Stopping generation"
+      puts warning.colorize(:red)
+      next
     end
 
     # Create our folders
@@ -21,10 +21,10 @@ namespace :section do
     FileUtils.mkdir_p "#{base_url}/guides"
 
     # Create some placeholder content
-    File.write("#{base_url}/overview.md", overview_content(section_name, slug));
-    File.write("#{base_url}/api-reference.md", api_reference_content);
-    File.write("#{base_url}/building-blocks/block-title.md", building_block_content(section_name, slug));
-    File.write("#{base_url}/guides/guide-title.md", guide_content(section_name, slug));
+    File.write("#{base_url}/overview.md", overview_content(section_name, slug))
+    File.write("#{base_url}/api-reference.md", api_reference_content)
+    File.write("#{base_url}/building-blocks/block-title.md", building_block_content(section_name, slug))
+    File.write("#{base_url}/guides/guide-title.md", guide_content(section_name, slug))
 
     # Create the initial translation for the sidebar
     locale_path = "#{current_dir}/config/locales/en.yml"
@@ -41,106 +41,106 @@ namespace :section do
 end
 
 def overview_content(section_name, slug)
-<<~HEREDOC
----
-title: Overview
----
+  <<~HEREDOC
+    ---
+    title: Overview
+    ---
 
-# Overview
+    # Overview
 
-Nexmo's #{section_name} API allows you to...
+    Nexmo's #{section_name} API allows you to...
 
-* Selling point one
-* Selling point two
-* Selling point three
+    * Selling point one
+    * Selling point two
+    * Selling point three
 
-## Contents
+    ## Contents
 
-In this document you can learn about:
+    In this document you can learn about:
 
-* [Nexmo #{section_name} Concepts](#concepts)
-* [How to Get Started with the #{section_name} API](#getting-started)
-* [Building Blocks](#building-blocks)
-* [Guides](#guides)
-* [Tutorials](#tutorials)
-* [Reference](#reference)
+    * [Nexmo #{section_name} Concepts](#concepts)
+    * [How to Get Started with the #{section_name} API](#getting-started)
+    * [Building Blocks](#building-blocks)
+    * [Guides](#guides)
+    * [Tutorials](#tutorials)
+    * [Reference](#reference)
 
-## Concepts
+    ## Concepts
 
-* [Title](/url/goes/here)
+    * [Title](/url/goes/here)
 
-## Getting Started
+    ## Getting Started
 
-* [Title](/url/goes/here)
+    * [Title](/url/goes/here)
 
-## Building Blocks
+    ## Building Blocks
 
-* [Title](/url/goes/here)
+    * [Title](/url/goes/here)
 
-## Guides
+    ## Guides
 
-* [Title](/url/goes/here)
+    * [Title](/url/goes/here)
 
-## Tutorials
+    ## Tutorials
 
-* [Title](/url/goes/here)
+    * [Title](/url/goes/here)
 
-## Reference
+    ## Reference
 
-* [#{section_name} API Reference](/api/#{slug})
+    * [#{section_name} API Reference](/api/#{slug})
 
-HEREDOC
+  HEREDOC
 end
 
 def building_block_content(section_name, slug)
-<<~HEREDOC
----
-title: Block Title
-description: How do to this cool thing with the Nexmo #{section_name} API
-navigation_weight: 1
----
+  <<~HEREDOC
+    ---
+    title: Block Title
+    description: How do to this cool thing with the Nexmo #{section_name} API
+    navigation_weight: 1
+    ---
 
-# Title Goes Here
+    # Title Goes Here
 
-The #{section_name} API is great. So great that we're going to show you how
-it works right now!
+    The #{section_name} API is great. So great that we're going to show you how
+    it works right now!
 
-Sign up for an account and replace the following variables in the example below:
+    Sign up for an account and replace the following variables in the example below:
 
-Key |	Description
--- | --
-`TO_NUMBER` |	The number you are sending a #{section_name} to in E.164  format. For example `447700900000`.
-`NEXMO_API_KEY` | You can find this in your account overview
-`NEXMO_API_SECRET` | You can find this in your account overview
+    Key |	Description
+    -- | --
+    `TO_NUMBER` |	The number you are sending a #{section_name} to in E.164  format. For example `447700900000`.
+    `NEXMO_API_KEY` | You can find this in your account overview
+    `NEXMO_API_SECRET` | You can find this in your account overview
 
-```tabbed_content
-source: '_examples/#{slug}/building-block-name-here'
-```
-HEREDOC
+    ```tabbed_content
+    source: '_examples/#{slug}/building-block-name-here'
+    ```
+  HEREDOC
 end
 
-def guide_content(section_name, slug)
-<<~HEREDOC
----
-title: #{section_name} Guide Title
----
+def guide_content(section_name, _slug)
+  <<~HEREDOC
+    ---
+    title: #{section_name} Guide Title
+    ---
 
-# #{section_name} Guide Here
+    # #{section_name} Guide Here
 
-This is a placeholder page. Please update it with real content or delete this
-file
-HEREDOC
+    This is a placeholder page. Please update it with real content or delete this
+    file
+  HEREDOC
 end
 
 def api_reference_content
-<<~HEREDOC
----
-title: API Reference
----
+  <<~HEREDOC
+    ---
+    title: API Reference
+    ---
 
-# API Reference
+    # API Reference
 
-This page is never rendered, it is used as a placeholder to generate
-the necessary navigation item.
-HEREDOC
+    This page is never rendered, it is used as a placeholder to generate
+    the necessary navigation item.
+  HEREDOC
 end

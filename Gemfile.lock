@@ -1,10 +1,4 @@
 GIT
-  remote: https://github.com/brandonweiss/git-hookshot.git
-  revision: 10f4b35497fd1391b94baa77e4c986d2415f3d29
-  specs:
-    git-hookshot (0.1.0)
-
-GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -80,7 +74,7 @@ GEM
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
-    ast (2.3.0)
+    ast (2.4.0)
     awesome_print (1.8.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -88,7 +82,13 @@ GEM
       execjs (~> 2.0)
     banzai (0.1.2)
     bcrypt (3.1.11)
+    better_errors (2.4.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.2.1)
       msgpack (~> 1.0)
     bugsnag (5.3.3)
@@ -105,9 +105,8 @@ GEM
     coffee-script-source (1.12.2)
     colorize (0.8.1)
     concurrent-ruby (1.0.5)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
     crass (1.0.3)
+    debug_inspector (0.0.3)
     deep_merge (1.2.1)
     devise (4.4.3)
       bcrypt (~> 3.0)
@@ -117,6 +116,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.3)
     diffy (3.2.0)
+    docile (1.3.1)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
@@ -188,6 +188,7 @@ GEM
       has_scope (~> 0.6)
       railties (>= 3.2, < 5.2.x)
       responders
+    jaro_winkler (1.5.1)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -231,7 +232,7 @@ GEM
     neatjson (0.8.3)
     nenv (0.3.0)
     netrc (0.11.0)
-    nexmo_api_specification (0.11.1)
+    nexmo_api_specification (0.11.6)
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -249,19 +250,19 @@ GEM
     octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     orm_adapter (0.5.0)
-    parallel (1.12.0)
-    parser (2.4.0.0)
-      ast (~> 2.2)
+    parallel (1.12.1)
+    parser (2.5.1.2)
+      ast (~> 2.4.0)
     pg (0.21.0)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
-    powerpack (0.1.1)
+    powerpack (0.1.2)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.1)
     puma (3.9.1)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-proxy (0.6.2)
       rack
     rack-test (0.8.3)
@@ -289,8 +290,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rainbow (2.2.2)
-      rake
+    rainbow (3.0.0)
     rake (12.3.1)
     ransack (1.8.3)
       actionpack (>= 3.0)
@@ -316,6 +316,8 @@ GEM
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
       rspec-mocks (~> 3.7.0)
+    rspec-collection_matchers (1.1.3)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -333,15 +335,15 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    rubocop (0.49.1)
+    rubocop (0.58.2)
+      jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
-      parser (>= 2.3.3.1, < 3.0)
+      parser (>= 2.5, != 2.5.1.1)
       powerpack (~> 0.1)
-      rainbow (>= 1.99.1, < 3.0)
+      rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    ruby-progressbar (1.8.1)
-    safe_yaml (1.0.4)
+    ruby-progressbar (1.10.0)
     sass (3.4.25)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -353,13 +355,18 @@ GEM
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
     shellany (0.0.1)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     slack-notifier (2.3.1)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (3.7.1)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-es6 (0.9.2)
@@ -383,7 +390,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.4)
-    unicode-display_width (1.3.0)
+    unicode-display_width (1.4.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -404,13 +411,14 @@ DEPENDENCIES
   algoliasearch
   awesome_print
   banzai (~> 0.1.2)
+  better_errors
+  binding_of_caller
   bootsnap
   bugsnag
   byebug
   chartkick (= 2.2.5)
   coffee-rails (~> 4.2)
   colorize
-  crack (= 0.4.3)
   devise (= 4.4.3)
   diffy
   dotenv-rails
@@ -418,7 +426,6 @@ DEPENDENCIES
   faker (= 1.8.4)
   foundation-rails (= 6.4.1.2)
   friendly_id (= 5.2.3)
-  git-hookshot!
   gravatar_image_tag (= 1.2.0)
   groupdate (= 3.2.0)
   guard-livereload (~> 2.5)
@@ -428,7 +435,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   neatjson
-  nexmo_api_specification (= 0.11.1)
+  nexmo_api_specification (= 0.11.6)
   nokogiri (= 1.8.2)
   oas_parser (= 0.11.2)
   octokit
@@ -441,10 +448,12 @@ DEPENDENCIES
   redcarpet (~> 3.4.0)
   rest-client
   rouge (~> 2.0.7)
+  rspec-collection_matchers
   rspec-rails (~> 3.7)
   rubocop
   ruby-progressbar
   sass-rails (~> 5.0)
+  simplecov
   slack-notifier (= 2.3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -456,7 +465,7 @@ DEPENDENCIES
   woothee
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.1

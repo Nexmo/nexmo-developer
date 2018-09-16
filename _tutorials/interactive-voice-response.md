@@ -2,6 +2,8 @@
 title: Interactive Voice Response
 products: voice/voice-api
 description: Make it easy for visitors to navigate an Interactive Voice Response (IVR) application with simple text-to-speech (TTS) prompts.
+languages:
+    - PHP
 ---
 
 # Interactive Voice Response
@@ -12,15 +14,16 @@ This tutorial is based on the [Simple IVR](https://www.nexmo.com/use-cases/inter
 
 ## In this tutorial
 
-In this tutorial you build an interactive phone menu with different paths based on the user's responses and identity:
+In this tutorial you build an interactive phone menu. The scenario is that a user is calling an automated service to get an update on the status of their order. We will set up a number to call, prompt a user to input their order with the keypad and then inform them of the (completely random and fictitious) status of their order.
 
 - [Create a voice application](#create-a-voice-application) - create and configure an application using [Nexmo CLI](https://github.com/nexmo/nexmo-cli), then configure the webhook endpoints to provide NCCOs and handle changes in Call status
 - [Buy a phone number](#buy-a-phone-number) - buy voice enabled numbers for use in the application
-* [Link the phone numbers to the Nexmo Application](#link-phone-numbers-to-the-nexmo-application) - configure the voice enabled phone numbers to mask user numbers
-- [Route an inbound call](#route-an-inbound-call) - configure your webhook endpoint to handle incoming voice calls, find the phone number it is associated with and handle the call
-- [Send text-to-speech greeting](#send-text-to-speech-greeting) - Greet the user with text-to-speech upon answer
-- [Request user input via IVR](#request-user-input-via-ivr) - Create a text-to-speech prompt followed by requesting user input via IVR
-- [Receive user input webhook](#receive-user-input-webhook) - Handle the user order number input and play back status via text-to-speech
+* [Link the phone numbers to the Nexmo Application](#link-phone-numbers-to-the-nexmo-application) - configure application to use the chosen numbers
+- [Try it yourself](#try-it-yourself) - enough reading the code, let's run it!
+- [Handle an inbound call](#handle-an-inbound-call) - configure your webhook endpoint to handle incoming voice calls, find the phone number it is associated with and handle the call
+- [Send a text-to-speech greeting](#send-text-to-speech-greeting) - Greet the user with text-to-speech upon answer
+- [Request user input via IVR](#request-user-input-via-ivr) - Create a text-to-speech prompt followed by requesting user input via IVR (Interactive Voice Response)
+- [Respond to user input](#respond-to-user-input) - Handle the user order number input and play back status via text-to-speech
 
 ## Prerequisites
 
@@ -37,47 +40,73 @@ If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/)
 
 A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products. You make calls to a Nexmo product using the security information in the application. When you make a Call, Nexmo communicates with your webhook endpoints so you can manage your call.
 
-You can use Nexmo CLI to create an application for Voice API:
+You can use Nexmo CLI to create an application for Voice API by using the following command and replacing the `YOUR_URL` segments with the URL of your own application:
 
 ```bash
-nexmo app:create phone-menu https://example.com/answer https://example.com/event
+nexmo app:create phone-menu YOUR_URL/answer YOUR_URL/event
 Application created: 5555f9df-05bb-4a99-9427-6e43c83849b8
 ```
 
-This command returns the UUID (Universally Unique Identifier) that identifies your application.
-
-The parameters are:
+This command uses the `app:create` command to create a new app. The parameters are:
 
 * `phone-menu` - the name you give to this application
 * `https://example.com/answer` - when you receive an inbound call to your Nexmo number, Nexmo makes a [GET] request and retrieves the NCCO that controls the call flow from this webhook endpoint
 * `https://example.com/event` - as the call status changes, Nexmo sends status updates to this webhook endpoint
 
+It returns the UUID (Universally Unique Identifier) that identifies your application - we will need this later.
+
 ## Buy a phone number
 
-To handle inbound calls to the IVR, you need to buy a number from Nexmo.
+To handle inbound calls to your application, you need a number from Nexmo. If you already have a number to use, jump to the next section to associate the existing number with your application.
 
-Use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone numbers:
+If you don't have a number yet, use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone number:
 
 ```bash
 nexmo number:buy --country_code GB --confirm
 Number purchased: 441632960960
 ```
 
-**Note**: if you already bought a number from Nexmo, you do not need to buy another one for this tutorial. Associate your existing phone number with your application.
+Now we can set up the phone number to point to the application you created earlier.
 
 ## Link phone numbers to the Nexmo Application
 
-Now link each phone number with the *phone-menu* application. When any event occurs relating to a number associated with an application, Nexmo sends a request to your webhook endpoints with information about the event.
+Next you will link each phone number with the *phone-menu* application. When any event occurs relating to a number associated with an application, Nexmo sends a web request to your webhook endpoints with information about the event. To do this, use the `link:app` command in the Nexmo CLI:
 
 ```bash
 nexmo link:app 441632960960 5555f9df-05bb-4a99-9427-6e43c83849b8
 ```
 
-Parameters are a phone number and the UUID returned when you [Create a voice application](#create-a-voice-application).
+The parameters are the phone number you want to use and the UUID returned when you [created a voice application](#create-a-voice-application) earlier.
 
-## Route an Inbound Call
+## Try it yourself!
 
-When Nexmo receives an inbound call to your Nexmo number it makes a request to the webhook endpoint you set when you [created a Voice application](#create-a-voice-application). A call to your webhook endpoint is also made each time *dtmf* input is collected from the menu.
+There's a detailed walkthrough of the code sample but for the impatient, let's try the application before we dive in too deeply. You should have your number and application created and linked from the above instructions; now we'll grab and run the code.
+
+Start by cloning the repository if you haven't already: <git@github.com:Nexmo/php-phone-menu.git>
+
+In the project directory, install the dependencies with Composer:
+
+```
+composer install
+```
+
+Copy the `config.php.dist` to `config.php` and edit it to add your base URL (the same URL that you used when setting up the application above).
+
+> If you're using ngrok, it randomly generates a tunnel URL. It can be helpful to start ngrok before doing the other configuration so that you know what URL your endpoints will be on (paid ngrok users can reserve tunnel names). It might also be useful to know that there is a `nexmo app:update` command if you need update the URLs you set at any time
+
+All set? Then start up the PHP webserver:
+
+```
+php -S 0:8080 ./public/index.php
+```
+
+Once it's running, call your nexmo voice number and follow the instructions! The code receives webhooks to `/event` as the call is started, ringing, etc. When the system answers the call, a webhook comes in to `/answer` and the code responds with some text-to-speech and then waits for user input. The user's input then arrives by webhook to '/search' and again the code responds with some text-to-speech.
+
+Now you've seen it in action, you may be curious to know how the various elements work? Read on for a full walkthrough of our PHP code and how it manages the flow of the call...
+
+## Handle an Inbound Call
+
+When Nexmo receives an inbound call to your Nexmo number it makes a request to the event webhook endpoint you set when you [created a Voice application](#create-a-voice-application). A webhook is also sent each time *DTMF* input is collected from the user.
 
 This tutorial code uses a simple router to handle these inbound webhooks. The router determines the requested URI path and uses it to map the caller's navigation through the phone menu - the same as URLs in web application.
 
@@ -94,7 +123,7 @@ $uri = ltrim(strtok($_SERVER["REQUEST_URI"],'?'), '/');
 $data = file_get_contents('php://input');
 ```
 
-Nexmo sends a webhook for every change in (link: voice/voice-api/handle-call-state text: Call status). For example, when the phone is `ringing`, the Call has been `answered` or is `complete`. Menu uses a switch to log this data for debug purposes. Every other request goes to the IVR code:
+Nexmo sends a webhook for every change in call status. For example, when the phone is `ringing`, the call has been `answered` or is `complete`. The application uses a `switch()` statement to log the data received by the `/event` endpoint for debug purposes. Every other request goes to the code that handles the user input. Here is the code:
 
 ```php
 <?php
@@ -116,9 +145,9 @@ switch($uri) {
 }
 ```
 
-Any request that is not for `/event` is mapped to an `Action` method on the `Menu` object. Incoming request data is passed to that method. The router retrieves the NCCO and sends it in the response as a JSON body with the correct Content-Type.
+Any request that is not for `/event` is mapped to an `Action` method on the `Menu` object. Incoming request data is passed to that method. The router retrieves the NCCO (Nexmo Call Control Object) and sends it in the response as a JSON body with the correct `Content-Type`.
 
-The `$config` array is passed to the `Menu` object, as it needs to know the base URL for the application when generating NCCOs:
+The `$config` array is passed to the `Menu` object, as it needs to know the base URL for the application when generating NCCOs that could include callback URLs:
 
 ```php
 <?php
@@ -133,9 +162,9 @@ public function __construct($config)
 
 ## Generate NCCOs
 
-A Nexmo Call Control Object (NCCO) is a JSON array that is used to control the flow of a Voice API call. Nexmo expects your webhook to return an NCCO to control the Call.
+A Nexmo Call Control Object (NCCO) is a JSON array that is used to control the flow of a Voice API call. Nexmo expects your webhook to return an NCCO to control the call.
 
-To manage NCCOs this tutorial uses array manipulation and a few simple methods.
+To manage NCCOs this example application uses array manipulation and a few simple methods.
 
 The router handles encoding to JSON, the `Menu` object provides access to the the NCCO stack:
 
@@ -170,7 +199,7 @@ protected function prepend($ncco)
 
 ### Send text-to-speech greeting
 
-The `talk` action NCCO is added to the stack to greet the user:
+Nexmo sends a webhook to the `/answer` endpoint of the application when the call is answered. The routing code sends this to the `answerAction()` method of the `Menu` object, which begins by adding an NCCO containing a greeting.
 
 ```php
 <?php
@@ -188,9 +217,11 @@ public function answerAction()
 }
 ```
 
-### Request user input via IVR
+This is a great example of how to return a simple text-to-speech message.
 
-The user is then prompted to input an order ID. This prompt is in a separate method so the user is not greeted every time they are prompted:
+### Request user input via IVR (Interactive Voice Response)
+
+For our example application, the user needs to supply their order ID. For this part, first add another "talk" NCCO to the prompt (if the greeting was included, you'd greet the user every time we asked them for their order number). The next NCCO is where the user's input is received:
 
 ```php
 <?php
@@ -213,13 +244,13 @@ protected function promptSearch()
 }
 ```
 
-The `eventUrl` option in your NCCO is used to send the input to a particular `Action`. This is essentially the same thing you do with the `action` property of a HTML `<form>`. This is where the `$config` array and the base URL are used.
+The `eventUrl` option in your NCCO is used to specify where to send the webhook when the user has entered their data. This is essentially the same thing you do with the `action` property of a HTML `<form>`. This is where the `$config` array and the base URL are used.
 
-A few other `input` specific properties are used. `timeOut` gives the user more time to enter the order number and `submitOnHash` lets them avoid waiting by ending their order ID with the pound sign.
+A few other `input` specific properties are used. `timeOut` gives the user more time to enter the order number and `submitOnHash` lets them avoid waiting by ending their order ID with the pound sign (that's a hash symbol '#' for all you British English speakers).
 
-### Receive user input webhook
+### Respond to user input
 
-After the user has provided input, Nexmo sends a webhook to the `eventUrl` defined in the `input`. This is routed to `searchAction()`:
+After the user has provided input, Nexmo sends a webhook to the `eventUrl` defined in the `input`. This results in a request to `/search` and is routed to `searchAction()`:
 
 ```php
 <?php
@@ -249,9 +280,12 @@ public function searchAction($request)
 }
 ```
 
-Remember that the router script passes on any data sent in the body of the request. If the user provided input, you find it in the `dtmf` property. When that happens in this simple tutorial, some order data is randomized. A more useful menu would provide the user information from a database, or perhaps an API of another system.
+As you can see from the search action, the sample application sends some rather silly data back to the user! There is an NCCO that includes the order number from the incoming `dtmf` data field, a random order status and a random date (today, yesterday or a week ago) as a spoken "update". In your own application, there would probably be some more logical, err, logic.
 
 Once the order information is passed to the user, they are told that they can hang up at anytime. The method that adds the order prompt NCCO is reused. That way the user can search for another order, but does not hear the welcome prompt every time.
+
+
+### Some finer details of the tutorial application
 
 There are few more methods in our `Menu` code. Many times a phone menu interfaces with an existing system having data objects not easy converted to spoken prompts. In this example we have three things: objects that represent dates, an order ID, and a set of status constants.
 

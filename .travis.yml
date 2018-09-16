@@ -23,4 +23,4 @@ before_script:
   - bundle exec rake db:setup
 script:
   - bundle exec rake spec
-  - bundle exec rake test:rubocop
+  - bundle exec rubocop

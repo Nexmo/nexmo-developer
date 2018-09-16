@@ -1,0 +1,15 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/voice/play-tts-in-to-call/index.php
+    from_line: 8
+    to_line: 11
+client:
+    source: .repos/nexmo-community/nexmo-php-quickstart/initialize/application.php
+    from_line: 3
+    to_line: 8
+file_name: index.php
+run_command: 'php index.php'

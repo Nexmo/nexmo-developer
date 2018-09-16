@@ -4,7 +4,7 @@ require 'ruby-progressbar'
 namespace :repos do
   desc 'Pull repos to local'
   task pull: :environment do
-    ARGV.each { |a| task a.to_sym do ; end }
+    ARGV.each { |a| task a.to_sym }
 
     repos = []
 
@@ -26,25 +26,25 @@ namespace :repos do
 
     warnings = []
 
-    repos.each do |repo|
-      if repo.path
-        if File.directory?("#{Rails.root}/#{repo.path}")
-          warnings << "A path has been used for #{repo.namespace}. This should be removed or commented out and rake repos:pull run again before committing"
+    repos.each do |r|
+      if r.path
+        if File.directory?("#{Rails.root}/#{r.path}")
+          warnings << "A path has been used for #{r.namespace}. This should be removed or commented out and rake repos:pull run again before committing"
         else
-          puts "Path #{repo.path} provided for #{repo.namespace} but does not exist. Can not continue.".colorize(:light_red)
+          puts "Path #{r.path} provided for #{r.namespace} but does not exist. Can not continue.".colorize(:light_red)
           exit 1
         end
       end
     end
 
-    repos.each do |repo|
-      system "rm -rf #{repo.directory} 2>&1", out: File::NULL
+    repos.each do |r|
+      system "rm -rf #{r.directory} 2>&1", out: File::NULL
 
-      if repo.path
-        system "ln -s #{Rails.root}/#{repo.path} #{repo.directory}", out: File::NULL
+      if r.path
+        system "ln -s #{Rails.root}/#{r.path} #{r.directory}", out: File::NULL
       else
-        system "git clone --depth=1 #{repo.url} -b #{repo.branch} #{repo.directory} 2>&1", out: File::NULL
-        system "rm -rf #{repo.directory}/.git 2>&1", out: File::NULL
+        system "git clone --depth=1 #{r.url} -b #{r.branch} #{r.directory} 2>&1", out: File::NULL
+        system "rm -rf #{r.directory}/.git 2>&1", out: File::NULL
       end
 
       progressbar.increment

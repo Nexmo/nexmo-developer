@@ -1,2 +1,0 @@
-nexmo member:add CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab user_id=USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab channel='{"type":"app"}' action=join
-Member added: MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab

@@ -6,7 +6,7 @@ HEADING_TAG_DEPTHS = {
   'h4' => 4,
   'h5' => 5,
   'h6' => 6,
-}
+}.freeze
 
 module NavigationHelper
   def navigation_from_content(content:, title: nil)

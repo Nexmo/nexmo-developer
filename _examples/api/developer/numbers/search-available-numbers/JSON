@@ -4,8 +4,8 @@
     {
       "country": "GB",
       "msisdn": "447700900000",
-      "cost": "0.50",
-      "type": "mobile",
+      "cost": "1.25",
+      "type": "mobile-lvn",
       "features": [
         "VOICE",
         "SMS",

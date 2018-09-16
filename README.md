@@ -1,22 +1,56 @@
 # Nexmo Developer
 
-Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SDKs, Tools & Community content.
+This repository is the code and content for <https://developer.nexmo.com> including the Nexmo documentation, API reference, SDKs, Tools & Community content.
 
-### Prerequisites
+## Contributions
+
+We welcome contributions from everyone! Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information.
+
+## Testing
+
+We use [rspec](http://rspec.info/) to test Nexmo Developer.
+
+To run all tests:
+
+```bash
+bundle exec rspec
+```
+
+To generate code coverage, set the `COVERAGE` environment variable when running the tests.
+
+```bash
+COVERAGE=1 bundle exec rspec
+```
+
+This will create a folder named `coverage`. Open `index.hml` in this folder to view coverage statistics
+
+## Running locally
+
+The project can be run on your laptop, either directly or using Docker. These instructions have been tested for mac.
+
+### Setup for running directly on your laptop
+
+Before you start, you will need to make sure that you have:
 
 - Ruby 2.5.0 + bundler
 - PostgreSQL
-- Yarn
+- [Yarn](https://yarnpkg.com/en/docs/install)
 
-### Setup
+To set up the project, clone this project and configure your settings:
 
 ```
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
 $ cp .env.example .env
+```
+
+Edit the `.env` file as appropriate for your platform.  Then, run the following:
+
+```
 $ bundle install
 $ rake db:create
 $ rake db:migrate
+$ rake db:seed
 $ ./bin/yarn install
 $ rails s
 ```
@@ -31,14 +65,15 @@ If you don't want to install Ruby & PostgreSQL then you can use docker to sandbo
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
 $ cp .env.example .env
-$ ./bin/yarn install
-
-# Start the web server
-$ docker-compose up
-
-# Open the browser (takes about ~30 seconds for the first load)
-$ open http://localhost:3000
 ```
+
+Edit the `.env` file as appropriate for your platform.  Then, start the web server with this command:
+
+```
+$ docker-compose up
+```
+
+At this point, open your browser to http://localhost:3000/ ... and wait (it takes about 30 seconds for the first load).
 
 To stop the server cleanly run:
 
@@ -46,61 +81,21 @@ To stop the server cleanly run:
 $ docker-compose down
 ```
 
-### Features
+## Admin dashboard
 
-- A powerful markup engine with pipeline (see [this blog post](https://lab.io/articles/2017/02/12/extending-markdown-with-middleware/) for details on how this works).
-- Automatically generated navigation based on the contents of `_documentation`.
-- Turbolinks for progressively loading content into for a seamless user experience.
+You can access the admin dashboard by visiting `/admin`. If you've populated data via `rake db:seed` you will have an admin user with the username of `admin@nexmo.com` and password of `development`.
 
-### Future Features
+The following is an example if you are running Nexmo Developer within a Docker container:
 
-- Dynamic content for community section
-- Interactive examples of the Nexmo APIs
-
-## Pulling in code from other repos
-
-Some examples require code from repos such as [nexmo-community/nexmo-ruby-quickstart](https://github.com/nexmo-community/nexmo-ruby-quickstart) these repos can be defined in `config/repos.yml` as such:
-
-```
-nexmo-community/nexmo-ruby-quickstart: 'master'
+```sh
+docker exec -it <container_id> rake db:seed
 ```
 
-The code can then be pulled into the `.repo` directory with the following command:
+New admin users can be created by visiting `/admin/users` or by accessing the rails console and creating a new User like so:
 
+```ruby
+User.create!(email: 'example@example.com', password: 'password', admin: true)
 ```
-$ rake repos:pull
-
-# Docker users run:
-# $ docker-compose exec web rake repos:pull
-```
-
-To pull a single repo provide the GitHub repo name and optional branch:
-
-```
-$ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
-
-# Docker users run:
-# $ docker-compose exec web rake repos:pull nexmo-community/nexmo-ruby-quickstart master
-```
-
-## Bootstrapping a new section
-
-Each new section requires an overview, guides, building blocks and an API reference. To bootstrap a new section, use the `section:create` `rake` task
-
-```
-$ rake section:create "Example Name"
-
-# Docker users run:
-# $ docker-compose exec web rake section:create "Example Name"
-```
-
-### Pre-Commit hooks
-
-This repository uses Yelp's [Pre-Commit framework](http://pre-commit.com/) for managing shared pre-commit hooks.
-
-These include checks to ensure syntactic validity of XML, JSON and YAML files, as well as unfinished merge conflicts and case conflicts in filenames.
-
-This is optional. See the pre-commit website for installation instructions.
 
 ## Troubleshooting
 
@@ -126,6 +121,3 @@ Once PostgreSQL is running you'll need to create and migrate the database. See [
 
 Contributions are welcome, please follow [GitHub Flow](https://guides.github.com/introduction/flow/index.html)
 
-## License
-
-The content of this project itself is licensed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/Nexmo/nexmo-developer/blob/master/LICENSE.txt).

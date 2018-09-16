@@ -5,17 +5,18 @@ navigation_weight: 1
 
 # Send an SMS with Messages API
 
-Sending an SMS message with the Messages API is straightforward. Sign up for an account and replace the following variables in the example below:
+You will need to replace the following variables with your specific information in the example code:
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` |	The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the message from in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
-`TO_NUMBER` | The phone number you are sending the message to in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
+`NEXMO_APPLICATION_ID` | The ID of the application that you created.
+`FROM_NUMBER` | The phone number you are sending the message from.
+`TO_NUMBER` | The phone number you are sending the message to.
+
+> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ## Prerequisites
 
-- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
 - *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
 
 ## Generate a JWT

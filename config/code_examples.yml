@@ -15,6 +15,11 @@ library:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/initialize/basic.rb'
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/initialize/basic.py'
+      dotnet:
+        source: '.repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Authentication/BasicAuth.cs'
+        from_line: 13
+        to_line: 17
+        unindent: true
     application:
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/initialize/application.php'
@@ -68,6 +73,11 @@ messaging:
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms.py'
         from_line: 16
+      dotnet:
+        source: '.repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Controllers/SMSController.cs'
+        from_line: 34
+        to_line: 39
+        unindent: true
     delivery-receipts:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'
@@ -96,36 +106,6 @@ messaging:
         from_line: 15
         to_line: 42
         unindent: true
-voice:
-  outbound:
-    node:
-      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/make-call.js'
-      from_line: 20
-    php:
-      source: '.repos/nexmo-community/nexmo-php-quickstart/voice/text-to-speech-outbound.php'
-      from_line: 12
-      to_line: 22
-    ruby:
-      source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/outbound_tts_call.rb'
-      from_line: 21
-    python:
-      source: '.repos/nexmo-community/nexmo-python-quickstart/voice/make-an-outbound-call.py'
-      from_line: 20
-    java:
-      source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java'
-      from_line: 25
-      to_line: 30
-      unindent: true
-  inbound:
-    node:
-      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/receive-an-inbound-call.js'
-    php:
-      source: '.repos/nexmo-community/nexmo-php-quickstart/voice/inbound-calls-slim/index.php'
-    ruby:
-      source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb'
-  inbound-connect:
-    node:
-      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'
 number_insight:
   standard:
     curl:
@@ -159,6 +139,11 @@ messages_and_workflows_apis:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/channels/send-facebook-messenger.js'
         from_line: 11
+    send-whatsapp:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-whatsapp.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-whatsapp.sh'
   workflows:
     send-failover-sms-viber:
       curl:

@@ -17,6 +17,6 @@ class AdminApiController < ApplicationController
   def bearer_token
     pattern = /^Bearer /
     header  = request.headers['Authorization']
-    header.gsub(pattern, '') if header && header.match(pattern)
+    header.gsub(pattern, '') if header&.match(pattern)
   end
 end

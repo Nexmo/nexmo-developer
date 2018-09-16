@@ -25,8 +25,6 @@ class SearchTerms
         title = frontmatter['title']
         description = frontmatter['description']
 
-        puts document_path
-
         body_html = MarkdownPipeline.new.call(document)
 
         Nokogiri::HTML(body_html).split_html.map do |section_html|

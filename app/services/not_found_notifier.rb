@@ -1,4 +1,4 @@
-IGNORED_FORMATS = %w(php action swf)
+IGNORED_FORMATS = %w[php action swf].freeze
 
 class NotFoundNotifier
   def self.notify(request)

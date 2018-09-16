@@ -1,0 +1,15 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/sms/send-unicode-sms.php
+    from_line: 8
+    to_line: 13
+client:
+    source: .repos/nexmo-community/nexmo-php-quickstart/sms/send-unicode-sms.php
+    from_line: 5
+    to_line: 6
+file_name: send-unicode-sms.php
+run_command: 'php -f send-unicode-sms.php'

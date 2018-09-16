@@ -38,9 +38,10 @@ const socket_io = require('socket.io-client');
 const logger = require('loglevel');
 const prefix = require('loglevel-plugin-prefix');
 
-const utils = require('./utils');
+const Utils = require('./utils');
 const RTC_Cache = require('./modules/rtc_cache');
 const Application = require('./application');
+const ErrorsEmitter = require('./modules/errors_emitter');
 const User = require('./user')
 
 prefix.reg(logger);
@@ -70,16 +71,20 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @class ConversationClient
  * @param {object} [params]
  * @param {Boolean} params.debug=false set mode to debug
- * @param {string} params.url=nexmo_ws_url Nexmo Conversation Websocket url 
+ * @param {string} params.url=nexmo_ws_url Nexmo Conversation Websocket url
  * @param {string} params.path=/rtc Nexmo Conversation Websocket url path suffix
  * @param {Boolean} params.reconnection=true socket.io reconnection attribute
+ * @param {object} params.rtcstats set reporting for stream statistics (Websocket or internal event emit)
+ * @param {string} params.rtcstats.ws_url='' endpoint (weboscket) to send rtc stats.
+ * @param {Boolean} params.rtcstats.emit_events=false receive rtcstats:report event
  * @param {Boolean} params.forceNew=true socket.io forceNew attribute
  * @param {Boolean} params.autoConnect=true socket.io autoConnect attribute
  * @param {string} params.ips_url=ips_url Nexmo IPS url for image upload
  * @param {string} params.environment='production' development / production environment
- * @param {object} params.iceServers={'stun:stun.l.google.com:19302'} iceServers for RTCPeerConnection
+ * @param {object} params.iceServers=[{'stun:stun.l.google.com:19302'}] iceServers for RTCPeerConnection
  *
- * @fires ConversationClient#ready
+ * @emits ConversationClient#ready
+ * @emits ConversationClient#rtcstats:report
  */
 
 class ConversationClient {
@@ -98,22 +103,23 @@ class ConversationClient {
 			path: '/rtc',
 			reconnection: true,
 			repository: '@@repository',
+			screenShareExtensionId: '',
 			SDK_version: '@@SDK_version',
 			url: '@@ws_url',
-			iceServers: {
+			iceServers: [{
 				urls: 'stun:stun.l.google.com:19302'
-			},
-			rtcstarts_enables: false,
-			rtcstarts_url: '@@rtcstarts_url'
+			}],
+			rtcstats: {
+				ws_url: '',
+				emit_events: false
+			}
 		};
 		let connection;
 		this.sessionReady = false;
 		this.requests = {};
 		this.application = null;
-
 		// set our config from options
 		Object.assign(this.config, options);
-
 
 		if (config.debug === true) {
 			logger.setLevel("debug");
@@ -162,7 +168,8 @@ class ConversationClient {
 			path: config.path,
 			forceNew: config.forceNew,
 			reconnection: config.reconnection,
-			autoConnect: config.autoConnect
+			autoConnect: config.autoConnect,
+			transports: ['websocket']
 		});
 
 		this.connection = connection;
@@ -261,19 +268,20 @@ class ConversationClient {
 			if (packet.type !== 2) return;
 			if (packet.data[0] === 'echo') return; //ignore echo events
 			const response = packet.data[1];
-			// Set the type of the response		
+			// Set the type of the response
 			response.type = packet.data[0];
-			this.log.debug('&lt;--', response.type, JSON.stringify(response));
+			this.log.debug('&lt;--', response.type, response);
 			if (response.rid in this.requests) {
-				this.log.info('&lt;--', response.type, response.rid);
 				const callback = this.requests[response.rid].callback;
 				delete this.requests[response.rid];
 				delete response.delay;
+				if (this.errorsEmitter) {
+					this.errorsEmitter.emitResponseIfError(response);
+				}
 				callback(response);
 			} else {
-				this.log.info('&lt;--', response.type);
 				// This is an unsolicited event
-				//we are skipping here global application events.
+				// we emit it in application level.
 				if (this.application)
 					this.application._handleEvent(response);
 			}
@@ -384,7 +392,7 @@ class ConversationClient {
 	 * Conversation listening for members stopped typing.
 	 *
 	 * @event Conversation#text:typing:off
-	 * 
+	 *
 	 * @property {Member} member - the member that stopped typing
 	 * @property {Event} event - the stop typing event
 	 * @example &lt;caption>get the username of the member that stopped typing&lt;/caption>
@@ -438,10 +446,10 @@ class ConversationClient {
 	 * Conversation listening for members media changes (audio, video,text)
 	 *
 	 * Change in media presence state. They are in the conversation with text, audio or video.
-	 * 
+	 *
 	 * @event Conversation#member:media
 	 *
-	 * @property {Member} member - the member object linked to this event 
+	 * @property {Member} member - the member object linked to this event
 	 * @property {Event} event - information about media presence state
 	 * @property {boolean} event.body.audio  - is audio enabled
 	 * @example &lt;caption>get every member's media change events &lt;/caption>
@@ -452,10 +460,10 @@ class ConversationClient {
 	 */
 	sendRequest(request, callback) {
 		// Add a message ID to the request and set up a listener for the reply (or error)
-		request.tid = utils.allocateUUID();
+		request.tid = Utils.allocateUUID();
 		const type = request.type;
 		delete request.type;
-		this.log.debug('-->', type, JSON.stringify(request));
+		this.log.debug('-->', type, request);
 		this.log.info('-->', type, request.tid);
 		this.connection.emit(type, request);
 		this.requests[request.tid] = {
@@ -467,14 +475,13 @@ class ConversationClient {
 
 	/**
 	 * Login to the cloud.
-	 *x
 	 * @param {string} params.token - the login token
 	 */
 	login(token) {
 
 		// return a promise for the application
 		return new Promise((resolve, reject) => {
-			//make sure the token gets removed from localstorage until we work the retry mechanism
+			//make sure the token gets removed from localstorage
 			if (typeof (Storage) !== "undefined") {
 				localStorage.removeItem("NXMO_user_data");
 			}
@@ -483,40 +490,40 @@ class ConversationClient {
 				body: {
 					token: token,
 					SDK_version: this.config.SDK_version,
-					//device_id: //can use https://github.com/Valve/fingerprintjs2,
 					OS_family: 'js',
 					OS_revision: (typeof navigator !== "undefined") ? navigator.userAgent : (typeof window !== "undefined") ? window.navigator.userAgent : "Generic JS navigator"
 				}
 			}, (response) => {
 				if (response.type === "session:success") {
-					const application = new Application(this);
-					const me = new User(application, {
-						id: response.body.user_id,
-						name: response.body.name
-					});
-					this.application = application;
-					this.application.me = me;
-					if (this.cache) this.cache.updateToken({
-						token: token,
-						username: response.body.name
-					});
+					if (!this.application || (this.application.me &amp;&amp; this.application.me.id !== response.body.user_id)) {
+						this.application = new Application(this);
+					}
+					if (!this.application.me) {
+						this.application.me = new User(this.application, {
+							id: response.body.user_id,
+							name: response.body.name
+						});
+					}
+					if (!this.errorsEmitter) {
+						this.errorsEmitter = new ErrorsEmitter(this.application);
+					}
+					this._updateTokenInCache(token, response.body.name);
+					if (typeof (Bugsnag) !== "undefined") {
+						Bugsnag.user = {
+							id: this.application.me.id
+						};
+					}
 					// Retrieve the existing conversation data for this user
-					application.getConversations()
+					this.application.getConversations()
 						.then(() => {
 							// Complete the login process
 							resolve(this.application);
-							if (typeof Bugsnag !== "undefined") {
-
-								Bugsnag.user = {
-									id: application.me.id
-								};
-							}
 						}, (reason) => {
 							reject(new NexmoApiError(reason));
 						});
 				} else {
 					reject(new NexmoApiError(response));
-					//todo move this in cache module
+					//TODO move this in cache module
 					if (this.cache &amp;&amp; this.cache.worker) {
 						this.cache.worker.terminate();
 					}
@@ -528,7 +535,6 @@ class ConversationClient {
 
 	/**
 	 * logout from the cloud.
-	 *
 	 */
 	logout() {
 		return new Promise((resolve, reject) => {
@@ -538,27 +544,15 @@ class ConversationClient {
 					body: {}
 				}, (response) => {
 					if (response.type === "session:logged-out" || response.type === "session:terminated") {
-						//TODO make sure this is successful and add to the chain
-						//TODO move this in cache module
 						this.disconnect();
-						if (this.cache) this.cache.invalidate();
-
-						if (this.application) {
-							for (let conversation_id in this.application.conversations) {
-								//unregister all events
-								this.application.conversations[conversation_id].releaseGroup(conversation_id);
-							}
-						}
+						delete this.errorsEmitter;
 						delete this.application;
 						delete this.cache;
 						this.callbacks = {};
-						//this.connection is safe to stay
-						//this.log is safe to stay
 						this.requests = {};
 						this.sessionReady = false;
 						resolve(response);
 					} else {
-						// Previous state reject(response.reason); -- Untested
 						reject(new NexmoApiError(response));
 						if (typeof Bugsnag !== "undefined") Bugsnag.notifyException(Error(response.reason));
 					}
@@ -566,10 +560,13 @@ class ConversationClient {
 			}
 
 			// prepare for logout
-			if (this.application &amp;&amp; this.application.activeStream) {
-				this.application.activeStream.conversation.media.disable()
-					// mimicking .finally
-					.then(() => { }).catch(() => { }).then(() => {
+			if (this.application) {
+				let disablePromises = [];
+				for (let conversation_id in this.application.conversations) {
+					disablePromises.push(this.application.conversations[conversation_id].media.disable());
+				}
+				Promise.all(disablePromises)
+					.catch((err) => { this.log.info(err); }).then(() => {
 						logoutRequest();
 					});
 			} else {
@@ -594,8 +591,18 @@ class ConversationClient {
 	connect() {
 		return this.connection.connect();
 	}
+
+	_updateTokenInCache(token, username) {
+		if (this.cache) {
+			this.cache.updateToken({
+				token: token,
+				username: username
+			});
+		}
+	}
 }
-module.exports = ConversationClient;</code></pre>
+module.exports = ConversationClient;
+</code></pre>
         </article>
     </section>
 
@@ -605,13 +612,13 @@ module.exports = ConversationClient;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 18:14:13 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 30 2018 11:44:59 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

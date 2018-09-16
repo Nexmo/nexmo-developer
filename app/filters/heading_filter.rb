@@ -3,7 +3,7 @@ class HeadingFilter < Banzai::Filter
     @input = input
     @headings = []
 
-    heading_tag_list = %w(h1 h2 h3 h4 h5 h6)
+    heading_tag_list = %w[h1 h2 h3 h4 h5 h6]
     headings = document.children.select do |child|
       heading_tag_list.include? child.name
     end

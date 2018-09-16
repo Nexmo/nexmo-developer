@@ -8,7 +8,7 @@ api: Developer API
 
 ## Account
 
-The Account API allows you to retrieve your balance, change settings on your account, and lookup pricing information for particular countries.
+The Account API allows you to retrieve your balance, change settings on your account, and top-up your account.
 
 ### Authentication information
 

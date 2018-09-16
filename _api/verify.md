@@ -128,7 +128,6 @@ Parameter | Description | Required
 `format` | The response format. Either `json` or `xml`. | Yes
 `request_id` | The identifier of the Verify request to check. This is the [request_id](#keys-and-values) you received in the Verify Request [response](#response).  | Yes
 `code` | The PIN given by your user. | Yes
-`ip_address` | The IP Address used by your user when they entered the PIN. Nexmo uses this information to identify fraud and spam patterns across our customer base. This ultimately benefits all Nexmo customers. | No
 
 ⚓ cresponse
 ### Response
@@ -193,7 +192,7 @@ Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
 `request_id` | The [request_id](#keys-and-values) you received in the Verify Request [Response](#rresponse). | ^[Conditional](Either `request_id` or `request_ids` must be provided)
-`request_ids` | More than one [request_id](#keys-and-values). Each request_id is a new parameter in the Verify Search request. | ^[Conditional](Either `request_id` or `request_ids` must be provided)
+`request_ids` | More than one [request_id](#keys-and-values). Each request_id is a new parameter in the Verify Search request. A maximum of 10 request_id parameters can be specified. | ^[Conditional](Either `request_id` or `request_ids` must be provided)
 
 ### Response
 

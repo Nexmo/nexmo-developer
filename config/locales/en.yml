@@ -11,9 +11,10 @@ en:
     stitch: Stitch
     in-app-messaging: In-App Messaging
     in-app-voice: In-App Voice
-    messages-and-workflows-apis: Messages and Workflows APIs
-    messages: Messages
-    workflows: Workflows
+    in-app-video: In-App Video
+    messages-and-workflows-apis: Messages and Workflows
+    messages: Messages API
+    workflows: Workflows API
     us-short-codes: US Short Codes
     sms: SMS
     guides: Guides
@@ -33,3 +34,5 @@ en:
     javascript: JavaScript
     javascript-quickstart: JS Quickstart
     redact: Redact
+    numbers: Numbers
+    secret-management: Secret Management

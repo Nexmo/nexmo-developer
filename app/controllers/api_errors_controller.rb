@@ -1,5 +1,5 @@
 class ApiErrorsController < ApplicationController
-  before_action :set_error_config
+  before_action :error_config
 
   def index
     @errors_title = 'Generic Errors'
@@ -8,7 +8,7 @@ class ApiErrorsController < ApplicationController
       {
         key: key,
         config: config,
-        errors: scoped_errors(key)
+        errors: scoped_errors(key),
       }
     end
   end
@@ -46,7 +46,7 @@ class ApiErrorsController < ApplicationController
     ApiError.new(error)
   end
 
-  def set_error_config
+  def error_config
     @error_config ||= YAML.load_file("#{Rails.root}/config/api-errors.yml")
   end
 end

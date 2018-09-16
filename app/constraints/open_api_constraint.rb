@@ -1,4 +1,4 @@
-OPEN_API_PRODUCTS = %w(
+OPEN_API_PRODUCTS = %w[
   sms
   media
   number-insight
@@ -6,8 +6,10 @@ OPEN_API_PRODUCTS = %w(
   messages-and-workflows-apis/messages
   messages-and-workflows-apis/workflows
   redact
+  voice
+  account/secret-management
   external-accounts
-)
+].freeze
 
 class OpenApiConstraint
   def self.products

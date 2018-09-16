@@ -26,28 +26,27 @@ import com.nexmo.client.voice.ncco.ConversationNcco;
 import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.TalkNcco;
 import spark.Route;
-
-import static spark.Spark.*;
+import spark.Spark;
 
 public class ConferenceCall {
-    public static void main(String[] args) throws Exception {
-        ObjectMapper nccoMapper = new ObjectMapper();
+    public static void main(String[] args) {
+        final String CONF_NAME = "my-conference";
 
         /*
          * Route to answer incoming calls with an NCCO response.
          */
         Route answerRoute = (req, res) -> {
-            TalkNcco intro = new TalkNcco("Welcome to a Nexmo powered conference call.");
-            ConversationNcco conversation = new ConversationNcco("room-name");
+            TalkNcco intro = new TalkNcco("Please wait while we connect you to the conference.");
+            ConversationNcco conversation = new ConversationNcco(CONF_NAME);
+
             Ncco[] nccos = new Ncco[]{intro, conversation};
 
             res.type("application/json");
-            return nccoMapper.writer().writeValueAsString(nccos);
+            return new ObjectMapper().writer().writeValueAsString(nccos);
         };
 
-        port(3000);
-
-        get("/webhooks/answer", answerRoute);
-        post("/webhooks/answer", answerRoute);
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/answer", answerRoute);
     }
 }

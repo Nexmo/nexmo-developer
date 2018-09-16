@@ -1,3 +1,0 @@
-curl -X "POST" "https://api.nexmo.com/beta/users" \
-     -H "Authorization: Bearer <JWT>" \
-     -d name='Ann Example'

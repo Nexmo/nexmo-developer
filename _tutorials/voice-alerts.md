@@ -2,6 +2,8 @@
 title: Broadcast Voice-based Critical Alerts
 products: voice/voice-api
 description: In this tutorial, you will learn how to send out voice messages and see who was contacted, who responded, and when. These voice-based critical alerts are more persistent than a text message, making your message more likely to be noticed. Additionally, with the recipient confirmation, you can be sure that your message made it through.
+languages:
+    - PHP
 ---
 
 # Broadcast Voice-based Critical Alerts
@@ -75,7 +77,7 @@ nexmo link:app 14155550100 5555f9df-05bb-4a99-9427-6e43c83849b8
 
 ## Creating a Nexmo Call Control Object (NCCO)
 
-Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/api/voice/ncco) to deliver a text-to-speech message. Create `answer.php` with the following contents:
+Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/voice/voice-api/ncco-reference) to deliver a text-to-speech message. Create `answer.php` with the following contents:
 
 ```php
 <?php
@@ -360,4 +362,4 @@ You now have a simple, but working, voice-alert system where you can broadcast o
 - [JWT](/concepts/guides/authentication#json-web-tokens-jwt)
 - [Making an Outbound Call](/voice/voice-api/guides/outbound-calls)
 - [Creating Your Voice Application](/concepts/guides/applications#apps_quickstart)
-- [NCCO Reference](/api/voice/ncco)
+- [NCCO Reference](/voice/voice-api/ncco-reference)

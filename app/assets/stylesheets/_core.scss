@@ -67,6 +67,10 @@ table {
     th:last-child {
       border-top-right-radius: $radius;
     }
+
+    a {
+        color: white;
+    }
   }
 
   tbody tr:nth-child(even) {

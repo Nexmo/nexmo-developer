@@ -1,0 +1,15 @@
+---
+title: Ruby
+language: ruby
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/play-dtmf-into-call.rb
+    from_line: 15
+    to_line: 16
+client:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/play-dtmf-into-call.rb
+    from_line: 8
+    to_line: 13
+file_name: play-dtmf-into-call.rb
+run_command: 'ruby play-dtmf-into-call.rb'

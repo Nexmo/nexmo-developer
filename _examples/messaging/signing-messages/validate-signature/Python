@@ -1,5 +1,5 @@
-#To run this code, replace the MyHandler in
-#https://wiki.python.org/moin/BaseHttpServer With the following code,
+# To run this code, replace the MyHandler in
+# https://wiki.python.org/moin/BaseHttpServer With the following code,
 import urllib
 import time
 import BaseHTTPServer
@@ -28,11 +28,11 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         except:
                 callback = {}
 
-        #Check if the callback is signed
+        # Check if the callback is signed
         if 'sig' in callback:
-            #Message cannot be more than 5 minutes old
-            #The timestamps used in the signature are in UTC
-            #Create a UTC timestamp for now and compare
+            # Message cannot be more than 5 minutes old
+            # The timestamps used in the signature are in UTC
+            # Create a UTC timestamp for now and compare
             d = datetime.utcnow()
             now = calendar.timegm(d.utctimetuple())
             message_timestamp = int( callback['timestamp'])
@@ -41,7 +41,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             if (difference >  max_delta ):
                 print("Timestamp difference greater than 5 minutes")
             else:
-                #Remove the signature from the request parameters
+                # Remove the signature from the request parameters
                 message_signature = callback['sig']
                 del callback['sig']
                 # Sort the parameters into alphabetic order
@@ -50,7 +50,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 tempstamp = sortedparams['message-timestamp']
                 tempstamp = urllib.unquote_plus(tempstamp).decode('utf8')
                 sortedparams['message-timestamp'] = tempstamp
-                #Generate a signature from the parameters and your security secret
+                # Generate a signature from the parameters and your security secret
                 encoded_params = urllib.urlencode(sortedparams)
                 signing_url = '&' + urllib.unquote_plus(encoded_params).decode('utf8')
                 signing_url += security_secret

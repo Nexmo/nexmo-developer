@@ -192,6 +192,9 @@ class Feedback extends React.Component {
         <label>How could we improve it? (optional)</label>
         <textarea className="input" onChange={ (event) => this.setState({ comment: event.target.value }) }></textarea>
         <input type="submit" className="button" value="Send Feedback" onClick={ () => { this.sendFeedback() } } disabled={ this.sendFeedbackButtonDisabled() }/>
+
+        <p><br />Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
+        
       </div>
     )
   }

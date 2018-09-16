@@ -9,7 +9,8 @@ import calendar
 
 base_url = 'https://rest.nexmo.com/sms/json?'
 security_secret = 'SECURITY_SECRET'
-#The timestamps used in the signature are in UTC
+
+# The timestamps used in the signature are in UTC
 d = datetime.utcnow()
 
 params = {
@@ -20,19 +21,20 @@ params = {
     'type': 'text',
     'timestamp': calendar.timegm(d.utctimetuple())
 }
+
 # Sort your parameters
 sortedparams = collections.OrderedDict(sorted(params.items()))
 signing_url = '&' + urllib.unquote_plus(urllib.urlencode(sortedparams)) + security_secret
 
-#Add your md5 hash of your parameters to your parameters
+# Add your md5 hash of your parameters to your parameters
 m = md5.new()
 m.update(signing_url)
 params['sig'] = m.hexdigest()
 
-#Create the request
+# Create the request
 url = base_url + urllib.urlencode(params)
 request = urllib2.Request(url)
 request.add_header('Accept', 'application/json')
 
-#Make the request to Nexmo
+# Make the request to Nexmo
 response = urllib2.urlopen(request)

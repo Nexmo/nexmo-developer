@@ -1,15 +1,12 @@
-import urllib
-import urllib2
-import json
+import requests
 
-base_url = 'https://rest.nexmo.com'
-action = '/number/update'
+url = 'https://rest.nexmo.com/number/update'
 
 #Change msisdn and country to match your virtual number
 msisdn = '447700900000'
 country = 'GB'
 
-params = {
+data = {
     'api_key': 'API_KEY',
     'api_secret': 'API_SECRET',
     'country' : country,
@@ -18,21 +15,14 @@ params = {
     'voiceCallbackValue': 'APPLICATION_ID'
 }
 
-url =  base_url + action
-data =  urllib.urlencode(params)
-
-request = urllib2.Request(url, urllib.urlencode(params))
-request.add_header('Accept', 'application/json')
+resp = requests.post(url, params=data)
 
 try:
-    response = urllib2.urlopen(request)
-    data = response.read()
-    if response.code == 200:
+    if resp.status_code == 200:
         print "SUCESSS!"
-        app = json.loads(data.decode('utf-8'))
-        print json.dumps(app, indent=4)
+        print resp.json()
     else:
-        print "HTTP Response: " + response.code
-        print data
-except urllib2.HTTPError as e:
+        print "HTTP Response: " + resp.status_code
+        print resp.json()
+except requests.exceptions.HTTPError as e:
     print e

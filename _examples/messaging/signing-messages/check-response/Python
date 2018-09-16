@@ -1,11 +1,11 @@
 
 import json
 
-#Using the response object from the request
+# Using the response object from the request
 
 if response.code == 200 :
     data = response.read()
-    #Decode JSON response from UTF-8
+    # Decode JSON response from UTF-8
     decoded_response = json.loads(data.decode('utf-8'))
     # Check if your messages are succesful
     messages = decoded_response["messages"]
@@ -13,5 +13,5 @@ if response.code == 200 :
         if message["status"] == "0":
             print "success"
 else :
-    #Check the errors
-    print "unexpected http {code} response from nexmo api". response.code
+    # Check the errors
+    print "Unexpected HTTP {code} response from nexmo api". response.code

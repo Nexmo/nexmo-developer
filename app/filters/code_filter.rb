@@ -23,12 +23,6 @@ class CodeFilter < Banzai::Filter
 
       highlighted_source = highlight(code, lexer)
 
-      line_numbers = (1..total_lines).map do |line_number|
-        <<~HEREDOC
-          <span class="focus__lines__line">#{line_number}</span>
-        HEREDOC
-      end
-
       <<~HEREDOC
         <pre class="highlight #{lexer.tag}"><code>#{highlighted_source}</code></pre>
       HEREDOC

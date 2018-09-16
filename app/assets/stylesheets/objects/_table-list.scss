@@ -101,6 +101,7 @@ $table-list-spacing: $spacing * 0.6;
 
   > li {
     border: $border;
+    border-top: none;
     border-color: $gray-light;
     border-bottom-color: $gray-light;
 

@@ -27,7 +27,7 @@ To use our configuration:
 
 1. Email your monthly volume forecast to us at [smpp@nexmo.com](mailto:smpp@nexmo.com). We will configure our system for you and send back your SMPP credentials.
 
-2. Download the `kannel.conf` configuration from: <https://help.nexmo.com/hc/en-us/article_attachments/201429553/kannel.conf>.
+2. Download the `kannel.conf` configuration via [Nexmo Support](https://help.nexmo.com/hc/en-us/articles/204015673).
 
 3. In `kannel.conf`, replace `$nexmo_user` and `$nexmo_password` with your Nexmo SMPP credentials.
 

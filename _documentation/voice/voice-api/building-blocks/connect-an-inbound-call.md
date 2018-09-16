@@ -1,33 +1,29 @@
 ---
 title: Connect an inbound call
+navigation_weight: 2
 ---
 
 # Connect an inbound call
 
-Connecting two calls with Nexmo is easy. In this example we'll accept an inbound call and make an outbound call that will be connected.
+In this building block you see how to connect an inbound call to a second number.
 
-Replace the following variables in the example below.
+## Example
+
+Replace the following variables in the example code:
 
 Key |	Description
 -- | --
 `YOUR_SECOND_NUMBER` |	The number you wish the inbound caller to be connected to.
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/connect-an-inbound-call'
+application:
+  name: 'Connect Inbound Call Example'
 ```
 
-You'll need to expose your server to the open internet. During development you can use a tool like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to do that.
+## Try it out
 
+> You'll need to expose your server to the open internet. During development you can use a tool like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to do that.
 
-## Associate an application to your webhook
-
-To link your number to the endpoint you've just created we'll need an Application.
-
-```
-$ nexmo app:create demo <YOUR_HOSTNAME>/webhooks/answer <YOUR_HOSTNAME>/webhooks/event
-$ nexmo link:app <NEXMO_NUMBER> <NEXMO_APPLICATION_ID>
-```
-
-## Call your number
-
-When you call your Nexmo number you should be connected to the the number you specified in place of `YOUR_SECOND_NUMBER`
+When you call your Nexmo Number you will automatically be connected to the
+number you specified in place of `YOUR_SECOND_NUMBER`.

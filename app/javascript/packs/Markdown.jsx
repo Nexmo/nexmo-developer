@@ -42,7 +42,7 @@ print_hi('Adam')
 
 ## Need Help?
 
-Enjoy and checkout the [styleguide](/styleguide) to find out more.
+Enjoy and checkout the [markdown guide](/contribute/guides/markdown-guide) to find out more.
       `.trim()
     }
 

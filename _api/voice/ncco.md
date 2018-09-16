@@ -300,55 +300,92 @@ You can use the following options to control a *talk* action:
 
 ### Voice names
 
-Name | Language | Gender
--- | -- | --
-`Salli` | `en-US` | `female`
-`Joey` | `en-US` | `male`
-`Naja` | `da-DK` | `female`
-`Mads` | `da-DK` | `male`
-`Marlene` | `de-DE` | `female`
-`Hans` | `de-DE` | `male`
-`Nicole` | `en-AU` | `female`
-`Russell` | `en-AU` | `male`
-`Amy` | `en-GB` | `female`
-`Brian` | `en-GB` | `male`
-`Emma` | `en-GB` | `female`
-`Geraint` | `en-GB-WLS` | `male`
-`Gwyneth` | `cy-GB-WLS` | `female`
-`Raveena` | `en-IN` | `female`
-`Ivy` | `en-US` | `female`
-`Justin` | `en-US` | `male`
-`Kendra` | `en-US` | `female`
-`Kimberly` | `en-US` | `female`
-`Joanna` | `en-US` | `female`
-`Conchita` | `es-ES` | `female`
-`Enrique` | `es-ES` | `male`
-`Penelope` | `es-US` | `female`
-`Miguel` | `es-US` | `male`
-`Chantal` | `fr-CA` | `female`
-`Celine` | `fr-FR` | `female`
-`Mathieu` | `fr-FR` | `male`
-`Dora` | `is-IS` | `female`
-`Karl` | `is-IS` | `male`
-`Carla` | `it-IT` | `female`
-`Giorgio` | `it-IT` | `male`
-`Mizuki` | `ja-JP` | `female`
-`Liv` | `nb-NO` | `female`
-`Lotte` | `nl-NL` | `female`
-`Ruben` | `nl-NL` | `male`
-`Jacek` | `pl-PL` | `male`
-`Ewa` | `pl-PL` | `female`
-`Jan` | `pl-PL` | `male`
-`Maja` | `pl-PL` | `female`
-`Vitoria` | `pt-BR` | `female`
-`Ricardo` | `pt-BR` | `male`
-`Cristiano` | `pt-PT` | `male`
-`Ines` | `pt-PT` | `female`
-`Carmen` | `ro-RO` | `female`
-`Maxim` | `ru-RU` | `male`
-`Tatyana` | `ru-RU` | `female`
-`Astrid` | `sv-SE` | `female`
-`Filiz` | `tr-TR` | `female`
+Name | Language | Gender | SSML support
+-- | -- | -- | -- 
+`Salli` | `en-US` | `female` | ✅
+`Joey` | `en-US` | `male` | ✅
+`Naja` | `da-DK` | `female` | ✅
+`Mads` | `da-DK` | `male` | ✅
+`Marlene` | `de-DE` | `female` | ✅
+`Hans` | `de-DE` | `male` | ✅
+`Nicole` | `en-AU` | `female` | ✅
+`Russell` | `en-AU` | `male` | ✅
+`Amy` | `en-GB` | `female` | ✅
+`Brian` | `en-GB` | `male` | ✅
+`Emma` | `en-GB` | `female` | ✅
+`Gwyneth` | `en-GB` | `WLS female` | ✅
+`Geraint` | `en-GB` | `WLS male` | ✅
+`Gwyneth` | `cy-GB` | `WLS female` | ✅
+`Geraint` | `cy-GB` | `WLS male` | ✅
+`Raveena` | `en-IN` | `female` | ✅
+`Ivy` | `en-US` | `female` | ✅
+`Justin` | `en-US` | `male` | ✅
+`Kendra` | `en-US` | `female` | ✅
+`Kimberly` | `en-US` | `female` | ✅
+`Joanna` | `en-US` | `female` | ✅
+`Conchita` | `es-ES` | `female` | ✅
+`Enrique` | `es-ES` | `male` | ✅
+`Penelope` | `es-US` | `female` | ✅
+`Miguel` | `es-US` | `male` | ✅
+`Chantal` | `fr-CA` | `female` | ✅
+`Celine` | `fr-FR` | `female` | ✅
+`Mathieu` | `fr-FR` | `male` | ✅
+`Dora` | `is-IS` | `female` | ✅
+`Karl` | `is-IS` | `male` | ✅
+`Carla` | `it-IT` | `female` | ✅
+`Giorgio` | `it-IT` | `male` | ✅
+`Liv` | `nb-NO` | `female` | ✅
+`Lotte` | `nl-NL` | `female` | ✅
+`Ruben` | `nl-NL` | `male` | ✅
+`Jacek` | `pl-PL` | `male` | ✅
+`Ewa` | `pl-PL` | `female` | ✅
+`Jan` | `pl-PL` | `male` | ✅
+`Maja` | `pl-PL` | `female` | ✅
+`Vitoria` | `pt-BR` | `female` | ✅
+`Ricardo` | `pt-BR` | `male` | ✅
+`Cristiano` | `pt-PT` | `male` | ✅
+`Ines` | `pt-PT` | `female` | ✅
+`Carmen` | `ro-RO` | `female` | ✅
+`Maxim` | `ru-RU` | `male` | ✅
+`Tatyana` | `ru-RU` | `female` | ✅
+`Astrid` | `sv-SE` | `female` | ✅
+`Filiz` | `tr-TR` | `female` | ✅
+`Mizuki` | `ja-JP` | `female` | ✅
+`Seoyeon`| `ko-KR` | `female`| ✅
+`Laila` | `ara-XWW` | `female` | ❎
+`Maged` | `ara-XWW` | `male` | ❎
+`Tarik` | `ara-XWW` | `male` | ❎
+`Damayanti` | `ind-IDN` | `female` | ❎
+`Miren` | `baq-ESP` | `female` | ❎
+`Sin-Ji` | `yue-CHN` | `female` | ❎
+`Jordi` | `cat-ESP` | `male` | ❎
+`Montserrat` | `cat-ESP` | `female` | ❎
+`Iveta` | `ces-CZE` | `female` | ❎
+`Zuzana` | `ces-CZE` | `female` | ❎
+`Tessa` | `eng-ZAF` | `female` | ❎
+`Satu` | `fin-FIN` | `female` | ❎
+`Melina` | `ell-GRC` | `female` | ❎
+`Nikos` | `ell-GRC` | `male` | ❎
+`Carmit` | `heb-ISR` | `female` | ❎
+`Lekha` | `hin-IND` | `female` | ❎
+`Mariska` | `hun-HUN` | `female` | ❎
+`Sora` | `kor-KOR` | `female` | ❎
+`Tian-Tian` | `cmn-CHN` | `female` | ❎
+`Mei-Jia` | `cmn-TWN` | `female` | ❎
+`Nora` | `nor-NOR` | `female` | ❎
+`Henrik` | `nor-NOR` | `male` | ❎
+`Luciana` | `por-BRA` | `female` | ❎
+`Felipe` | `por-BRA` | `male` | ❎
+`Catarina` | `por-PRT` | `female` | ❎
+`Joana` | `por-PRT` | `female` | ❎
+`Ioana` | `ron-ROU` | `female` | ❎
+`Laura` | `slk-SVK` | `female` | ❎
+`Alva` | `swe-SWE` | `female` | ❎
+`Oskar` | `swe-SWE` | `male` | ❎
+`Kanya` | `tha-THA` | `female` | ❎
+`Cem` | `tur-TUR` | `male` | ❎
+`Yelda` | `tur-TUR` | `female` | ❎
+`Empar` | `spa-ESP` | `female` | ❎
 
 #### Discontinued voices
 
@@ -403,7 +440,7 @@ WAV:
 
 ## `input`
 
-You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#Input-Return-Parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
+You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input-return-parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
 
 The following NCCO example shows how to configure an IVR endpoint:
 

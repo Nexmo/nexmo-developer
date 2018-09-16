@@ -2,30 +2,24 @@ module Feedback
   class FeedbacksController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-    def new
-    end
+    def new; end
 
     def create
-      @feedback = ::Feedback::Feedback.find_by_id(params['feedback_feedback']['id'])
+      @feedback = ::Feedback::Feedback.find_by(id: params['feedback_feedback']['id'])
       @feedback ||= ::Feedback::Feedback.new
 
-      if validate_recapcha
-        @feedback.assign_attributes(feedback_params)
-        @feedback.ip = request.remote_ip
+      return render json: { error: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.' }, status: :unauthorized unless validate_recapcha
 
-        @feedback.owner = owner
-        set_email
-        @feedback.owner.save!
-        set_cookies
+      @feedback.assign_attributes(feedback_params)
+      @feedback.ip = request.remote_ip
 
-        if @feedback.save
-          return render json: @feedback
-        else
-          head 422
-        end
-      else
-        render json: { error: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.' }, status: 401
-      end
+      @feedback.owner = owner
+      set_email
+      @feedback.owner.save!
+      set_cookies
+
+      return render json: @feedback if @feedback.save
+      head 422
     end
 
     private
@@ -59,7 +53,7 @@ module Feedback
         :source,
         :code_language,
         :code_language_set_by_url,
-        :code_language_selected_whilst_on_page,
+        :code_language_selected_whilst_on_page
       )
     end
 
@@ -85,12 +79,12 @@ module Feedback
       return current_user if current_user
 
       if cookies[:feedback_author_id]
-        author = ::Feedback::Author.find_by_id(cookies[:feedback_author_id])
+        author = ::Feedback::Author.find_by(id: cookies[:feedback_author_id])
         return author if author && should_use_cookied_author?(author)
       end
 
-      ::Feedback::Author.find_by_email(params['feedback_feedback']['email']) ||
-      ::Feedback::Author.new
+      ::Feedback::Author.find_by(email: params['feedback_feedback']['email']) ||
+        ::Feedback::Author.new
     end
 
     def set_email

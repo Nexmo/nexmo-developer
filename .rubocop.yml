@@ -1,16 +1,42 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.vendor/**/*'
+    - '.git/**/*'
+
+# Temporarily disabled until we can refactor
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+# Always enabled
+Rails:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/LineLength:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 Style/BlockComments:
   Enabled: false
 
-Style/AlignParameters:
+Layout/AlignParameters:
   Enabled: false
 
 Style/Documentation:
@@ -19,7 +45,7 @@ Style/Documentation:
 Rails/FilePath:
   Enabled: false
 
-Style/IndentHash:
+Layout/IndentHash:
   Enabled: false
 
 Style/BracesAroundHashParameters:

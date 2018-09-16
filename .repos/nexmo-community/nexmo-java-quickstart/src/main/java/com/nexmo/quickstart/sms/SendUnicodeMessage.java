@@ -38,14 +38,14 @@ public class SendUnicodeMessage {
         String API_KEY = envVar("API_KEY");
         String API_SECRET = envVar("API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
-        String FROM_NUMBER = envVar("FROM_NUMBER");
+        String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
 
         AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
         NexmoClient client = new NexmoClient(auth);
-        System.out.println(FROM_NUMBER);
+        System.out.println(NEXMO_NUMBER);
 
         SmsSubmissionResult[] responses = client.getSmsClient().submitMessage(new TextMessage(
-                FROM_NUMBER,
+                NEXMO_NUMBER,
                 TO_NUMBER,
                 "Blue Öyster Cult \uD83E\uDD18",
                 true));

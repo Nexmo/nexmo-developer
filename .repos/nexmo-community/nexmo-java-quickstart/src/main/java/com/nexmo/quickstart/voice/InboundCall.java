@@ -24,51 +24,26 @@ package com.nexmo.quickstart.voice;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.TalkNcco;
-import spark.Request;
 import spark.Route;
-
-import java.io.IOException;
-
-import static spark.Spark.*;
+import spark.Spark;
 
 public class InboundCall {
-    public static void main(String[] args) throws Exception {
-        ObjectMapper nccoMapper = new ObjectMapper();
-
-        /*
-         * Route to answer incoming calls with an NCCO response.
-         */
+    public static void main(String[] args) {
         Route answerRoute = (req, res) -> {
-            String from = extractCaller(req);
-            String explodedFrom = String.join(" ", from.split(""));
+            String from = req.queryParams("from").replace("", " ");
+            TalkNcco message = new TalkNcco(String.format("Thank you for calling from %s", from));
 
-            TalkNcco message = new TalkNcco(String.format("Thank you for calling from %s", explodedFrom));
             Ncco[] nccos = new Ncco[]{message};
 
             res.type("application/json");
-            return nccoMapper.writer().writeValueAsString(nccos);
+            return new ObjectMapper().writer().writeValueAsString(nccos);
         };
 
-        port(3000);
-
-        get("/webhooks/answer", answerRoute);
-        post("/webhooks/answer", answerRoute);
-    }
-
-    /**
-     * Extract the provided 'from' value either from the request params, or JSON body.
-     */
-    private static String extractCaller(Request req) throws IOException {
-        String from = req.queryParams("from");
-        if ("GET".equals(req.requestMethod())) {
-            return from;
-        } else {
-            if (from != null) {
-                return from;
-            } else {
-                InboundCallPayload payload = InboundCallPayload.fromJson(req.bodyAsBytes());
-                return payload.getFrom();
-            }
-        }
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/events", (req, res) -> {
+            System.out.println(req.body());
+            return "";
+        });
     }
 }

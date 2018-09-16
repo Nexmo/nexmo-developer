@@ -25,30 +25,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nexmo.client.voice.ncco.ConnectNcco;
 import com.nexmo.client.voice.ncco.Ncco;
 import spark.Route;
+import spark.Spark;
 
 import static com.nexmo.quickstart.Util.envVar;
-import static spark.Spark.*;
 
 public class ConnectInboundCall {
-    public static void main(String[] args) throws Exception {
-        ObjectMapper nccoMapper = new ObjectMapper();
-
-        String YOUR_SECOND_NUMBER = envVar("YOUR_SECOND_NUMBER");
+    public static void main(String[] args) {
+        final String RECIPIENT_NUMBER = envVar("RECIPIENT_NUMBER");
+        final String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
 
         /*
          * Route to answer incoming calls with an NCCO response.
          */
         Route answerRoute = (req, res) -> {
-            ConnectNcco connect = new ConnectNcco(YOUR_SECOND_NUMBER);
+            ConnectNcco connect = new ConnectNcco(RECIPIENT_NUMBER);
+            connect.setFrom(NEXMO_NUMBER);
+
             Ncco[] nccos = new Ncco[]{connect};
 
             res.type("application/json");
-            return nccoMapper.writer().writeValueAsString(nccos);
+            return new ObjectMapper().writer().writeValueAsString(nccos);
         };
 
-        port(3000);
-
-        get("/webhooks/answer", answerRoute);
-        post("/webhooks/answer", answerRoute);
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/answer", answerRoute);
     }
 }

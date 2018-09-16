@@ -1,10 +1,11 @@
 ---
 title: Code Examples
+navigation_weight: 4
 ---
 
 # Contributing Code Examples
 
-Nexmo Developer hosts many code examples, we endeavour to make the as consistent as possible. You should follow this guide when contributing code examples to the building blocks repositories or directly to Nexmo Developer.
+Nexmo Developer hosts many code examples, and endeavours to make them as consistent as possible. You should follow this guide when contributing code examples to the building blocks repositories or directly to Nexmo Developer.
 
 ## Use the library
 
@@ -28,6 +29,8 @@ Key | Description | User customisation (future)
 `TO_NUMBER` for outbound §§ `YOUR_NUMBER` for inbound | The number that the user owns or wants to communicate with | ❓
 `NEXMO_APPLICATION_PRIVATE_KEY` | Represents a string of the actual private key | ❎
 `NEXMO_APPLICATION_PRIVATE_KEY_PATH` | Represents a string that relates to the private key directory | ❎
+
+See also: [our replaceable values](/contribute/guides/writing-style-guide#replaceable-values) listed in the writing style guide.
 
 ### Future auto-magical user customisation
 
@@ -106,8 +109,8 @@ The following URL paths should be used in examples that use Webhooks.
 
 Path | Description
 -- | --
-`/webhook/answer` | The application `answer` event URL
-`/webhook/event` | The application `event` event URL
+`/webhooks/answer` | The application `answer` event URL
+`/webhooks/event` | The application `event` event URL
 
 Example code should always accept query string parameters for `GET` and `POST` requests.
 
@@ -133,6 +136,51 @@ The capacity before scrolling occurs is 101 characters however not all code exam
 ----------------------- I am a line with 80 characters ------------------------
 --------------------------------- I am a line with 101 characters ----------------------------------
 ```
+
+### Code blocks
+
+Normal code blocks are specified using three backticks at the start and end.
+
+```
+This is a normal code block.
+
+It does not specify a language so is not syntax highlighted.
+```
+
+Here is some Ruby:
+
+```ruby
+def print_hi(name)
+  puts "Hi #{name}"
+end
+
+print_hi('Adam')
+#=> prints 'Hi Adam' to STDOUT.
+```
+
+### Tabbed Examples (custom plugin) + pulling code in from external repository
+
+The custom plugin for tabbed code also supports pulling code from an external repository.  This example shows code from [nexmo-community/nexmo-ruby-quickstart](https://github.com/nexmo-community/nexmo-ruby-quickstart):
+
+````
+```tabbed_examples
+tabs:
+  Ruby:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+    from_line: 9
+```
+````
+
+And here's the example:
+
+```tabbed_examples
+tabs:
+  Ruby:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+    from_line: 9
+```
+
+> There is an older version of the tabbed examples also in use, that uses a `source: ` field pointing to the `_examples/` directory, but this style is no longer used. Please use the new style above, and replace existing occurrences if possible.
 
 ### Linters, Formatters & Code Style Guides
 

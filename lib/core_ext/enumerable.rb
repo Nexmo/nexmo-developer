@@ -1,9 +1,9 @@
 module Enumerable
-  def each_with_position(&block)
+  def each_with_position
     each_with_index do |element, index|
-      first = index == 0
+      first = index.zero?
       last = index.equal?(size - 1)
-      block.call(element, first, last)
+      yield(element, first, last)
     end
   end
 end
