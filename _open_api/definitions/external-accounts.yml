@@ -17,7 +17,7 @@ paths:
       operationId: CreateMessengerAccount
       x-group: messenger
       requestBody:
-        description: Parameters marked with * are optional
+        description: Parameters marked with * are required
         required: true
         content:
           application/json:
@@ -25,6 +25,7 @@ paths:
               type: object
               required: 
               - external_id
+              - access_token
               properties:
                 external_id:
                   type: string
@@ -32,10 +33,10 @@ paths:
                 access_token:
                   type: string
                   example: "myAccessToken"
-                name*:
+                name:
                   type: string
                   example: "optionalName" # optional
-                applications*:
+                applications:
                   type: "array"
                   items:
                     type: string
@@ -63,7 +64,7 @@ paths:
                   detail:
                     type: string
                     example: "Found errors validating 1 of your submitted parameters."
-                  instace:
+                  instance:
                     type: string
                     example: null
                   invalid_params:
@@ -140,8 +141,6 @@ paths:
           application/json:
             schema:
               type: object
-              required: 
-              - external_id
               properties:
                 name:
                   type: string
@@ -161,10 +160,20 @@ paths:
             application/json:
               schema:
                 type: object
+                required: 
+                - external_id
+                - api_key
+                - provider
+                - access_token
                 properties:
-                  name*:
+                  name:
                     type: string
                     example: "newName"
+                  applications:
+                    type: "array"
+                    items:
+                      type: string
+                      example: "newApplicationId"
                   external_id:
                     type: string
                     example: "12345678"
@@ -193,7 +202,7 @@ paths:
                   detail:
                     type: string
                     example: "Found errors validating 1 of your submitted parameters."
-                  instace:
+                  instance:
                     type: string
                     example: null
                   invalid_params:
@@ -259,7 +268,7 @@ paths:
         - basicAuth: []
       summary: Retrieve a Viber Service Message account
       operationId: GetVSMAccount
-      x-group: viber
+      x-group: viber_service_msg
       parameters:
         - in: path
           name: external_id
@@ -417,14 +426,18 @@ paths:
           name: provider
           schema:
             type: string
+            enum:
+              - messenger
+              - viber_service_msg
+              - whatsapp
           required: true
-          description: One of&#58;  messenger, viber_service_msg, whatsapp
+          description: Provider of the account you want to assign an application to
         - in: path
           name: external_id
           schema:
             type: string
           required: true
-          description: External id of the account you want to retrieve
+          description: External id of the account you want to assign an application to
       requestBody:
         description: Request body can contain any of the following
         required: true
@@ -433,7 +446,7 @@ paths:
             schema:
               type: object
               required: 
-              - external_id
+              - application
               properties:
                 application:
                   type: string
@@ -496,14 +509,18 @@ paths:
           name: provider
           schema:
             type: string
+            enum:
+              - messenger
+              - viber_service_msg
+              - whatsapp
           required: true
-          description: One of&#58;  messenger, viber_service_msg, whatsapp
+          description: Provider of the account you want to unlink an application from
         - in: path
           name: external_id
           schema:
             type: string
           required: true
-          description: External id of the account you want to retrieve
+          description: External id of the account you want to unlink an application from
         - in: path
           name: application_id
           schema:
@@ -570,15 +587,20 @@ components:
   schemas:
     MessengerAccountResponse:
       type: object
+      required: 
+        - external_id
+        - api_key
+        - provider
+        - access_token
       properties:
-        name*:
+        name:
           type: string
           example: "optionalName"
-        applications*:
+        applications:
           type: "array"
           items:
             type: string
-            example: "optionalApplicationId" # optional
+            example: "optionalApplicationId"
         external_id:
           type: string
           example: "12345678"
@@ -594,32 +616,15 @@ components:
           
     VSMAccountResponse:
       type: object
+      required:
+      - external_id
+      - api_key
+      - provider
       properties:
-        name*:
+        name:
           type: string
           example: "optionalName"
-        applications*:
-                  type: "array"
-                  items:
-                    type: string
-                    example: "optionalApplicationId" # optional
-        external_id:
-          type: string
-          example: "12345678"
-        api_key:
-          type: string
-          example: "abcd1234"
-        provider:
-          type: string
-          example: viber_service_msg
-          
-    WAAccountResponse:
-      type: object
-      properties:
-        name*:
-          type: string
-          example: "optionalName"
-        applications*:
+        applications:
           type: "array"
           items:
             type: string
@@ -632,12 +637,41 @@ components:
           example: "abcd1234"
         provider:
           type: string
+          example: viber_service_msg
+          
+    WAAccountResponse:
+      type: object
+      required:
+      - external_id
+      - api_key
+      - provider
+      properties:
+        name:
+          type: string
+          example: "optionalName"
+        applications:
+          type: "array"
+          items:
+            type: string
+            example: "optionalApplicationId"
+        external_id:
+          type: string
+          example: "12345678"
+        api_key:
+          type: string
+          example: "abcd1234"
+        provider:
+          type: string
           example: whatsapp
           
     WAAccountResponseWithoutApplication:
       type: object
+      required:
+      - external_id
+      - api_key
+      - provider
       properties:
-        name*:
+        name:
           type: string
           example: "optionalName"
         external_id:
@@ -675,20 +709,20 @@ x-groups:
   applications:
     name: "Application"
     order: 1
-    description: Foo Bar Baz
+    description: Callbacks related an external-account which is linked to an application, will be delivered to the application's callback endpoints.
   account:
     name: "Account"
     order: 2
-    description: Foo Bar Baz
+    description: An external-account used as the `from` field in Messages API and Dispatch API
   messenger:
     name: "Facebook Messenger"
     order: 3
-    description: Foo Bar Baz
-  viber:
-    name: "Viber"
+    description: Facebook Messenger account
+  viber_service_msg:
+    name: "Viber Service Message"
     order: 4
-    description: Foo Bar Baz
+    description: Viber Service Message account
   whatsapp:
     name: "Whatsapp"
     order: 5
-    description: Foo Bar Baz
+    description: Whatsapp account
