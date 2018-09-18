@@ -14,11 +14,16 @@ You can also send audio back into the call over this interface.
 
 The WebSocket is an endpoint in the same way that a phone or SIP address is. This means it is a participant in your call and not a passive monitor like a recording. If you connect a WebSocket to a conference call, or a third-party in a 1-1 call, the audio it receives is a mix of all the audio in the call. It is not possible to receive a single leg of the conversation via the WebSocket.
 
-The Nexmo Voice API acts as the client when establishing the WebSocket connection. As the application developer you need to make a compatible server available to accept this connection and handle Nexmo Voice API WebSocket protocol JSON messages and the audio sent as binary messages.
+The Nexmo Voice API acts as the client when establishing the WebSocket connection. As the application developer you need to make a compatible server available to:
+
+* return an NCCO instructing Nexmo to connect to your WebSocket endpoint
+* accept this WebSocket connection
+* handle JSON text-based protocol messages
+* handle mixed call audio binary messages
 
 ## Connecting to a WebSocket
 
-To instruct Nexmo to connect to a WebSocket you provide a `connect` action with an `endpoint.type` of `websocket`. For example:
+To instruct Nexmo to connect to a WebSocket your applicaiton server must return an [NCCO](/voice/voice-api/guides/ncco) when requested from your Nexmo Application's [answer_url](/voice/voice-api/guides/call-flow#answer-url-payload). In order to do this the NCCO must contain a `connect` action with an `endpoint.type` of `websocket`. For example:
 
 ``` json
 [
@@ -84,7 +89,7 @@ This results in the following JSON in the first message on the WebSocket:
 
 ``` json
 {
-    "content-type":"audio/l16;rate=16000"
+    "content-type":"audio/l16;rate=16000",
     "prop1": "value1",
     "prop2": "value2"
 }
