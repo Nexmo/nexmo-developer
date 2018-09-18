@@ -7,7 +7,7 @@ dependencies:
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/ConnectInboundCall.java
     from_line: 40
-    to_line: 52
+    to_line: 54
 run_command: java-ide
 file_name: ConnectInboundCall.java
 unindent: true
