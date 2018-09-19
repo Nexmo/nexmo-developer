@@ -728,11 +728,11 @@ components:
       type: string
       format: url
       example: 'https://mydomain.com/static/my_image.png'
-      description: A link towards an image
+      description: 'A link towards an image, is used for conversations / users avatars'
     display_name:
       type: string
       example: My Conversation Name
-      description: A string that is gonna be dispalyed as conversation name. It does not need to be unique
+      description: The display name for the conversation. It does not have to be unique
     display_name_user:
       type: string
       example: My User Name
@@ -743,6 +743,13 @@ components:
         pstn: 07479123456
         sms: 07479123456
       description: 'An object containing number on differnet channels. '
+      properties:
+        sms:
+          type: string
+          description: phone number used for sms channel
+        pstn:
+          type: string
+          description: phone number used for pstn  channel
     conversation_properties:
       type: object
       example:
@@ -887,7 +894,7 @@ components:
         - href
     knocker_id:
       type: string
-      description: Knocker ID
+      description: Knocker ID. A knocker is a pre-member of a conversation who does not exist yet
       example: a972836a-450f-35fa-156c-52a2ab5b7d25
   parameters:
     leg_id:
@@ -936,7 +943,7 @@ components:
       required: false
       description: Return the records that occurred after this point in time.
       schema:
-        example: '2020-01-01 12:00:00'
+        example: '2018-01-01 10:00:00'
         type: string
         format: dateTime
     date_end:
@@ -945,7 +952,7 @@ components:
       required: false
       description: Return the records that occurred at this point in time.
       schema:
-        example: '2020-01-01 12:00:00'
+        example: '2018-01-01 12:00:00'
         type: string
         format: dateTime
     page_size:
@@ -1055,4 +1062,4 @@ x-groups:
   rtc:
     name: Rtc
     order: 6
-    description: 'Rtc calls. '
+    description: Rtc actions. Any rtc action related (like starting a new rtc connection).
