@@ -17,7 +17,6 @@ paths:
       operationId: CreateMessengerAccount
       x-group: messenger
       requestBody:
-        description: Parameters marked with * are required
         required: true
         content:
           application/json:
@@ -37,10 +36,10 @@ paths:
                   type: string
                   example: "optionalName" # optional
                 applications:
-                  type: "array"
+                  type: array
                   items:
                     type: string
-                    example: "optionalApplicationId" # optional
+                  example: ["optionalApplicationId"]
       responses:
         '201':
           description: Created.
@@ -149,7 +148,8 @@ paths:
                   type: "array"
                   items:
                     type: string
-                    example: "newApplicationId"
+                  example: ["newApplicationId"]
+
                 access_token:
                   type: string
                   example: "updatedAccessToken"
@@ -173,7 +173,7 @@ paths:
                     type: "array"
                     items:
                       type: string
-                      example: "newApplicationId"
+                    example: ["newApplicationId"]
                   external_id:
                     type: string
                     example: "12345678"
@@ -596,7 +596,7 @@ components:
           type: "array"
           items:
             type: string
-            example: "optionalApplicationId"
+          example: ["optionalApplicationId"]
         external_id:
           type: string
           example: "12345678"
@@ -624,7 +624,7 @@ components:
           type: "array"
           items:
             type: string
-            example: "optionalApplicationId" # optional
+          example: ["optionalApplicationId"]
         external_id:
           type: string
           example: "12345678"
@@ -649,7 +649,7 @@ components:
           type: "array"
           items:
             type: string
-            example: "optionalApplicationId"
+          example: ["optionalApplicationId"]
         external_id:
           type: string
           example: "12345678"
