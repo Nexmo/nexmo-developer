@@ -118,6 +118,7 @@ paths:
                     description: the last event id
                   members:
                     type: array
+                    description: Users associated to this conversation as members
                     items:
                       type: object
                       properties:
@@ -679,7 +680,7 @@ components:
       description: Unique name
     name_conversation:
       type: string
-      example: my_conversation_name
+      example: customer_chat
       description: Unique name for a conversation
     name_user:
       type: string
@@ -727,34 +728,41 @@ components:
     image_url:
       type: string
       format: url
-      example: 'https://mydomain.com/static/my_image.png'
-      description: 'A link towards an image, is used for conversations / users avatars'
+      example: 'https://example.com/image.png'
+      description: "A link to an image for conversations' and users' avatars"
     display_name:
       type: string
-      example: My Conversation Name
+      example: Customer Chat
       description: The display name for the conversation. It does not have to be unique
     display_name_user:
       type: string
       example: My User Name
-      description: A string that is gonna be dispalyed as user name. It does not need to be unique
+      description: A string to be displayed as user name. It does not need to be unique
     numbers:
       type: object
+      description: 'An object containing number on different channels. '
       example:
-        pstn: 07479123456
-        sms: 07479123456
-      description: 'An object containing number on differnet channels. '
+        pstn: 14155550100
+        sms: 442079460000
       properties:
         sms:
           type: string
           description: phone number used for sms channel
+          example: 442079460000
         pstn:
           type: string
-          description: phone number used for pstn  channel
+          description: phone number used for pstn channel
+          example: 14155550100
     conversation_properties:
       type: object
-      example:
-        speaking_detection_level: 0
-        ttl: 60
+      description: Conversation properties
+      properties: 
+        speaking_detection_level:
+          type: number
+          example: 0
+        ttl:
+          type: number
+          example: 60
       description: 'An object containing conversation, properties, like ttl (time to leave)'
     _links_conversations_list:
       type: object
@@ -785,7 +793,7 @@ components:
       default: 10
     record_index:
       type: number
-      description: 'Return page_size calls from this index in the response. That is, if your request returns 300 conversations, set record_index to 5 in order to return calls 50 to 59. The default value is 0. That is, the first page_size calls.'
+      description: 'Return `page_size` amount of conversations from this index in the response. That is, if your request returns 300 conversations, set `record_index` to 5 in order to return conversations 50 to 59. The default value is 0. That is, the first `page_size` calls.'
       default: 0
       minimum: 0
     timestamp_created:
@@ -918,6 +926,7 @@ components:
       in: path
       required: true
       description: Conversation ID
+      example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
       x-example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
       schema:
         type: string
