@@ -528,12 +528,8 @@ paths:
           required: true
           description: Id of the application you want to unlink
       responses:
-        '200':
-          description: OK.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/WAAccountResponseWithoutApplication'
+        '204':
+          description: No Content.
         '401':
           description: Unauthorized.
           content:
