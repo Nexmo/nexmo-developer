@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20180827133110) do
   create_table "usage_building_block_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "language", null: false
     t.string "block", null: false
+    t.string "section", null: false
     t.string "action", null: false
     t.string "ip", null: false
     t.datetime "created_at", null: false

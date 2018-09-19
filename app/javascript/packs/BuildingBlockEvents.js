@@ -53,12 +53,12 @@ export default () => {
         if (e.which === 3) { return; }
         let trigger = $(this);
 
-        let type = trigger.attr("data-type");
+        let section = trigger.attr("data-section");
 
         let params = {
             "language": trigger.attr("data-lang"),
             "block": trigger.attr("data-block"),
-            "section": type,
+            "section": section,
             "event": "source"
         };
 
