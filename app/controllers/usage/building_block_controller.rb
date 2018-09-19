@@ -7,6 +7,7 @@ module Usage
         language: params['language'],
         block: params['block'],
         action: params['event'],
+        section: params['section'],
         ip: request.remote_ip
       )
 
