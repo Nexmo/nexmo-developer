@@ -35,7 +35,7 @@ To use the Messages API with Facebook Messenger you must have a Facebook Account
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
-When creating a Nexmo Voice Application, you will be asked to provide an Event URL and an Answer URL. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs, so in this case you can just set them to the suggested values of `http://example.com/event` and `http://example.com/answer` respectively.
+When creating a Nexmo Voice Application, you will be asked to provide an Event URL and an Answer URL. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs, so in this case you can just set them to the suggested values of `https://example.com/webhooks/event` and `https://example.com/webhooks/answer` respectively.
 
 When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
 
@@ -45,7 +45,7 @@ Make a note of the Nexmo Application ID for the created application.
 
 Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
 
-**TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
+> **TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
 
 You can generate a JWT with the Nexmo Application you previously created with the following:
 
@@ -60,7 +60,7 @@ Key | Description
 
 Remember that by default JWTs only last fifteen minutes.
 
-**TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
+> **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
 
 ## 4. Link your Facebook Page to Nexmo
 
@@ -87,7 +87,14 @@ script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/assets/screenshots/dashboardSettings.png
 ```
 
-**NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
+The values you enter for webhook URLs depends on where your webhook server is located. If your server was running on port 9000 on `example.com` your webhook URLs might be:
+
+Webhook | URL
+---|---
+Inbound message | https://www.example.com:9000/webhooks/inbound-sms
+Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
+
+> **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
 ## 6. Receive a message
 
@@ -127,6 +134,8 @@ Key | Description
 
 ### Example
 
-```tabbed_examples
-config: 'messages_and_workflows_apis.messages.send-facebook-messenger'
+```building_blocks
+source: '_examples/olympus/send-facebook-message'
+application:
+  name: 'Send a Facebook message'
 ```
