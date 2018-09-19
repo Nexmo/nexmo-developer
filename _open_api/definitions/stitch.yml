@@ -1,0 +1,1595 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://api.nexmo.com/beta'
+info:
+  version: 1.6.0
+  title: Nexmo Stitch API
+  description: >-
+      The Nexmo Stitch API enables you to build conversation features where communication can take place across multiple mediums including IP Messaging, PSTN Voice, SMS and WebRTC Audio and Video. The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
+  contact:
+    name: Nexmo Support
+    url: 'https://developer.nexmo.com/'
+    email: ea-support@nexmo.com
+  x-label: Developer Preview
+paths:
+
+  /conversations:
+    post:
+      x-swagger-router-controller: createConversation
+      operationId: createConversation
+      x-group: conversation
+      summary: Create a conversation
+      responses:
+        '201':
+          $ref: '#/components/responses/ConversationUpdated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateConversation'
+    get:
+      x-swagger-router-controller: listConversations
+      operationId: listConversations
+      x-group: conversation
+      summary: List conversations
+      parameters:
+        - name: name
+          in: query
+          schema:
+            example: 'nexmo-conference-standard'
+            type: string
+            description: 'Unique name (within the same application) for the conversation.'
+        - name: date_start
+          in: query
+          schema:
+            example: '2020-01-01 12:00:00'
+            type: string
+            format: dateTime
+            description: 'Return the records that occurred after this point in time.'
+        - name: date_end
+          in: query
+          schema:
+            example: '2020-01-01 12:00:00'
+            type: string
+            format: dateTime
+            description: 'Return the records that occurred at this point in time.'
+        - name: page_size
+          in: query
+          schema:
+            type: number
+            minimum: 1
+            maximum: 100
+        - name: record_index
+          in: query
+          schema:
+            type: number
+            minimum: 0
+        - name: order
+          in: query
+          schema:
+            type: string
+            description: 'Return the records in ascending or descending order.'
+            enum:
+            - asc
+            - desc
+            - ASC
+            - DESC
+      responses:
+        '200':
+          $ref: '#/components/responses/ConversationsListed'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+
+  '/conversations/{conv_id}':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+        schema:
+          type: string
+    put:
+      x-swagger-router-controller: conversations
+      operationId: replaceConversation
+      x-group: conversation
+      summary: Update a conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/ConversationUpdated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplaceConversation'
+    get:
+      x-swagger-router-controller: retrieveConversation
+      operationId: retrieveConversation
+      x-group: conversation
+      summary: Retrieve a conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/ConversationRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+    delete:
+      x-swagger-router-controller: deleteConversation
+      operationId: deleteConversation
+      x-group: conversation
+      summary: Delete a conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/ClientError'
+  '/conversations/{conv_id}/events':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+        schema:
+          type: string
+    post:
+      x-swagger-router-controller: createEvent
+      operationId: createEvent
+      x-group: event
+      summary: Create an event
+      responses:
+        '201':
+          $ref: '#/components/responses/EventCreated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEvent'
+    get:
+      x-swagger-router-controller: getEvents
+      operationId: getEvents
+      x-group: event
+      summary: List events
+      responses:
+        '200':
+          $ref: '#/components/responses/EventsRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  '/conversations/{conv_id}/events/{event_id}':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+        schema:
+          type: string
+      - name: event_id
+        in: path
+        required: true
+        description: Event ID
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: getEvent
+      operationId: getEvent
+      x-group: event
+      summary: Retrieve an event
+      responses:
+        '200':
+          $ref: '#/components/responses/EventRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      x-swagger-router-controller: deleteEvent
+      operationId: deleteEvent
+      x-group: event
+      summary: Delete an event
+      responses:
+        '200':
+          $ref: '#/components/responses/EventDeleted'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  '/conversations/{conv_id}/members':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: members
+      operationId: getMembers
+      x-group: member
+      summary: List members
+      responses:
+        '200':
+          $ref: '#/components/responses/MembersRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+    post:
+      x-swagger-router-controller: members
+      operationId: createMember
+      x-group: member
+      summary: Create a member
+      responses:
+        '201':
+          $ref: '#/components/responses/MemberCreated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMember'
+  '/conversations/{conv_id}/members/{member_id}':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+        schema:
+          type: string
+      - name: member_id
+        in: path
+        required: true
+        description: Member ID
+        example: MEM-00092382-3017-4abb-8306-4bee9e772f7f
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: members
+      operationId: getMember
+      x-group: member
+      summary: Retrieve a member
+      responses:
+        '200':
+          $ref: '#/components/responses/MemberRetrieved'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      x-swagger-router-controller: members
+      operationId: updateMember
+      x-group: member
+      summary: Update a member
+      responses:
+        '200':
+          $ref: '#/components/responses/MemberUpdated'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMember'
+    delete:
+      x-swagger-router-controller: members
+      operationId: deleteMember
+      x-group: member
+      summary: Delete a member
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+  '/conversations/{conv_id}/rtc':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+        schema:
+          type: string
+  /users:
+    post:
+      x-swagger-router-controller: users
+      operationId: createUser
+      x-group: user
+      summary: Create a user
+      responses:
+        '201':
+          $ref: '#/components/responses/Created'
+        '400':
+          $ref: '#/components/responses/NotFound'
+      requestBody:
+        $ref: '#/components/requestBodies/UserDetails'
+    get:
+      x-swagger-router-controller: users
+      operationId: getUsers
+      x-group: user
+      summary: List users
+      responses:
+        '200':
+          $ref: '#/components/responses/FoundUsers'
+  '/users/{user_id}':
+    parameters:
+      - name: user_id
+        in: path
+        required: true
+        description: User ID
+        example: USR-00092382-3017-4abb-8306-4bee9e772f7f
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: users
+      operationId: getUser
+      x-group: user
+      summary: Retrieve a user
+      responses:
+        '200':
+          $ref: '#/components/responses/FoundUser'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      x-swagger-router-controller: users
+      operationId: updateUser
+      x-group: user
+      summary: Update a user
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      requestBody:
+        $ref: '#/components/requestBodies/UserDetails'
+    delete:
+      x-swagger-router-controller: users
+      operationId: deleteUser
+      x-group: user
+      summary: Delete a user
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+  '/users/{user_id}/conversations':
+    parameters:
+      - name: user_id
+        in: path
+        required: true
+        description: User ID
+        example: USR-00092382-3017-4abb-8306-4bee9e772f7f
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: users
+      operationId: getuserConversations
+      x-group: user
+      summary: List user conversations
+      responses:
+        '200':
+          $ref: '#/components/responses/FoundList'
+
+  /legs:
+    get:
+      x-swagger-router-controller: listLegs
+      operationId: listLegs
+      x-group: leg
+      summary: List legs
+      responses:
+        '200':
+          $ref: '#/components/responses/LegsListed'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+  '/legs/{leg_id}':
+    parameters:
+      - name: leg_id
+        in: path
+        required: true
+        description: Leg ID
+        example: 6e99034ce755c5ad7fde645a46d140a4
+        schema:
+          type: string
+    delete:
+      x-swagger-router-controller: deleteLeg
+      operationId: deleteLeg
+      x-group: leg
+      summary: Delete a leg
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/ClientError'
+components:
+  responses:
+    LegsListed:
+      description: List Legs Succesfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LegsListed'
+    ConversationUpdated:
+      description: Create / Update Conversation Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConversationUpdated'
+    ConversationRetrieved:
+      description: Retrieved Conversation Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Conversation'
+    ConversationsListed:
+      description: List Conversations Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConversationsListed'
+    DeviceCreated:
+      description: Create Device Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeviceCreated'
+    EventCreated:
+      description: Create Event Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventCreated'
+    EventRetrieved:
+      description: Retrieved Event Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventRetrieved'
+    EventsRetrieved:
+      description: Retrieved Events Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventsRetrieved'
+    EventDeleted:
+      description: Delete Event Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventDeleted'
+    Success:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Success'
+    EmptyJSON:
+      description: Empty JSON
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyJSON'
+    ClientError:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ClientError'
+    ValidationError:
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalServerError'
+    Created:
+      description: Created Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Created'
+    Updated:
+      description: Updated Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Updated'
+    FoundList:
+      description: Retrieved Listing Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FoundList'
+    MemberCreated:
+      description: Create Member Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MemberCreated'
+    MemberUpdated:
+      description: Update Member Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MemberRetrieved'
+    MemberRetrieved:
+      description: Member Retrieved Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MemberRetrieved'
+    MembersRetrieved:
+      description: Members Retrieved Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MembersRetrieved'
+    CallCreated:
+      description: Create Call Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CallCreated'
+    OfferCreated:
+      description: Create Offer Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OfferCreated'
+    CallAnswered:
+      description: Call Answered Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CallAnswered'
+    CallTerminated:
+      description: Call Terminated Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CallTerminated'
+    SessionCreated:
+      description: Create Session Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionCreated'
+    SessionDeleted:
+      description: Delete Session Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionDeleted'
+    SessionsPurged:
+      description: Purge Session Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionsPurged'
+    FoundUser:
+      description: Retrieved User Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+    FoundUsers:
+      description: Retrieved Users Successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FoundUsers'
+  requestBodies:
+    UserDetails:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserDetails'
+  schemas:
+    Leg:
+      discriminator:
+        propertyName: Leg
+      type: object
+      description: Leg
+      properties:
+        uuid:
+          type: string
+          description: >-
+            The unique identifier for this call leg. The UUID is created when
+            your call request is accepted by Nexmo. You use the UUID in all
+            requests for individual live calls
+          
+        conversation_uuid:
+          type: string
+          example: CON-f972836a-550f-45fa-956c-12a2ab5b7d22
+          description: The unique identifier for the conversation this call leg is part of.
+        status:
+          type: string
+          example: started
+          description: The status of the call. [See possible values](/voice/voice-api/guides/call-flow#events)
+        from:
+          type: string
+          description: The Endpoint you called from. Possible values are the same as `to`.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                title: The type of Endpoint that made the call
+                example: phone
+              number:
+                type: string
+                title: The number that made the call
+                example: '447700900001'
+        to:
+          type: string
+          description: The single or mixed collection of endpoint types you connected to.
+          title: The number or address to call
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                title: The Type of Endpoint Called
+                example: phone
+              number:
+                type: string
+                title: The number of the endpoint called
+                example: '447700900000'
+        direction:
+          type: string
+          description: Possible values are `outbound` or `inbound`
+          example: outbound
+          enum:
+          - outbound
+          - inbound
+        rate:
+          description: The price per minute for this call. This is only sent if `status` is `completed`.
+          type: string
+          title: The Price per minute of the called destination
+          example: '0.39'
+        price:
+          type: string
+          description: The total price charged for this call. This is only sent if `status` is `completed`.
+          title: 'The total price of the call '
+          example: '23.40'
+        duration:
+          description: The time elapsed for the call to take place in seconds. This is only sent if `status` is `completed`.
+          type: string
+          title: 'The Duration of the call '
+          example: '60'
+        network:
+          type: string
+          description: >-
+            The Mobile Country Code Mobile Network Code 
+            ([MCCMNC](https://en.wikipedia.org/wiki/Mobile_country_code)) for
+            the carrier network used to make this call.
+          example: '65512' 
+        start_time:
+          description: 'The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.'
+          type: string
+          format: timestamp
+          title: 'The Start Time of the call '
+          example: '2020-01-01 12:00:00'
+          
+        end_time:
+          type: string
+          description: 'The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`. This is only sent if `status` is `completed`.'
+      required:
+        - uuid
+        - type
+        - start_time
+        - end_time
+    Legs:
+      discriminator:
+        propertyName: Legs
+      type: object
+      description: Legs Object
+      properties:
+        count:
+          type: number
+          description: Count
+        page_size:
+          type: number
+        record_index:
+          type: number
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+        _embedded:
+          type: object
+          properties:
+            legs:
+              type: object
+              properties:
+                _links:
+                  type: array
+                  items:
+                    allOf:
+                      - $ref: '#/components/schemas/Leg'
+                      - type: object
+                        properties:
+                          _links:
+                            type: object
+                            properties:
+                              self:
+                                type: object
+                                properties:
+                                  href:
+                                    type: string
+    CreateConversation:
+      discriminator:
+          propertyName: CreateConversation
+      type: object
+      description: Create Conversation Request Payload Object
+      properties:
+        name:
+          type: string
+          example: 'nexmo-conference-standard'
+          default: '63f61863-4a51-4f6b-86e1-46edebio0391'
+          description: >-
+            Unique name (within the same application) for the conversation. If
+            not provided, one will be automatically generated.
+        display_name:
+          type: string
+          example: 'My-Conversation'
+          description: The display name of the conversation
+
+      required:
+        - display_name
+        - image_url
+    ConversationUpdated:
+        discriminator:
+          propertyName: ConversationUpdated
+        type: object
+        description: Create / Update Conversation Response Payload Object
+        properties:
+         id:
+            type: string
+            example: '63f61863-4a51-4f6b-86e1-46edebio0391'
+            description: Conversation ID
+         href:
+            type: string
+            description: URL to the conversation
+        required:
+        - id
+        - href
+    ReplaceConversation:
+      discriminator:
+        propertyName: ReplaceConversation
+      type: object
+      description: Replace Conversation Request Payload Object
+      properties:
+        name:
+          example: 'nexmo-conference-standard'
+          default: '63f61863-4a51-4f6b-86e1-46edebio0391'
+          type: string
+          description: >-
+            Unique name (within the same application) for the conversation. If
+            not provided, one will be automatically generated.
+        display_name:
+          type: string
+          example: 'My-Conversation'
+          description: The display name of the conversation
+
+    Conversation:
+      discriminator:
+        propertyName: Conversation
+      type: object
+      description: Conversation Object
+      properties:
+        uuid:
+          type: string
+          example: '63f61863-4a51-4f6b-86e1-46edebio0391'
+          description: Conversation ID
+        name:
+          example: 'nexmo-conference-standard'
+          type: string
+          description: Conversation Name
+        display_name:
+          example: 'My-Conversation'
+          type: string
+          description: The display name of the conversation
+        timestamp:
+          type: string
+          example: '2020-01-01T14:00:00.00Z'
+          description: time when conversation was created
+        sequence_number:
+          type: string
+          example: '1'
+          description: the last event id
+
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        api_key:
+          type: string
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+        _embedded:
+          type: object
+          properties:
+            legs:
+              type: object
+              properties:
+                _links:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ConversationLeg'
+      required:
+        - uuid
+    ListConversations:
+      discriminator:
+        propertyName: ListConversations
+      description: List Conversations query parameter
+      properties:
+        name:
+          example: 'nexmo-conference-standard'
+          type: string
+          description: Unique name (within the same application) for the conversation.
+        date_start:
+          example: '2020-01-01 12:00:00'
+          type: string
+          format: dateTime
+          description: Return the records that occurred after this point in time.
+        date_end:
+          example: '2020-01-01 12:00:00'
+          type: string
+          format: dateTime
+          description: Return the records that occurred at this point in time.
+        page_size:
+          type: number
+          minimum: 1
+          maximum: 100
+        record_index:
+          type: number
+          minimum: 0
+        order:
+          type: string
+          description: 'Return the records in ascending or descending order.'
+          enum:
+            - asc
+            - desc
+            - ASC
+            - DESC
+    ConversationsListed:
+      discriminator:
+        propertyName: ConversationsListed
+      type: object
+      description: 'List Conversations Response Payload Object.'
+      properties:
+        count:
+          type: number
+          example: '100'
+          description: 'The total number of records returned by your request.'
+        page_size:
+          type: number
+          example: '20'
+          description: 'The amount of records returned in this response.'
+
+        record_index:
+          type: number
+          description: 'Return page_size calls from this index in the response. That is, if your request returns 300 concersations, set record_index to 5 in order to return calls 50 to 59. The default value is 0. That is, the first page_size calls.'
+        _links:
+          type: object
+          description: 'A series of links between resources in this API in the http://stateless.co/hal_specification.html.'
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+              required:
+                - href
+          required:
+            - self
+        _embedded:
+          type: object
+          properties:
+            conversations:
+              type: array
+              items:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                  name:
+                    type: string
+                  href:
+                    type: string
+                required:
+                  - uuid
+                  - name
+                  - href
+          required:
+            - conversations
+      required:
+        - count
+        - page_size
+        - record_index
+        - _links
+        - _embedded
+    LegsListed:
+      discriminator:
+        propertyName: LegsListed
+      type: object
+      description: List Legs Response Payload Object
+      properties:
+        count:
+          type: number
+        page_size:
+          type: number
+        record_index:
+          type: number
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+              required:
+                - href
+          required:
+            - self
+        _embedded:
+          type: object
+          properties:
+            conversations:
+              type: array
+              items:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                  name:
+                    type: string
+                  href:
+                    type: string
+                required:
+                  - uuid
+                  - name
+                  - href
+          required:
+            - legs
+      required:
+        - count
+        - page_size
+        - record_index
+        - _links
+        - _embedded
+
+    CreateDeviceObject:
+      discriminator:
+        propertyName: CreateDeviceObject
+      type: object
+      description: 'Create New Device Request Payload Object'
+      properties:
+        device_token:
+          type: string
+        device_type:
+          type: string
+        device_push_environment:
+          type: string
+      required:
+        - device_token
+        - device_type
+    DeviceCreated:
+      discriminator:
+        propertyName: DeviceCreated
+      type: object
+      description: 'Create New Device Response Payload Object'
+      properties:
+        id:
+          type: string
+          description: Device ID
+        href:
+          type: string
+    CreateEvent:
+      discriminator:
+        propertyName: CreateEvent
+      type: object
+      description: 'Create New Event Request Payload Object'
+      properties:
+        type:
+          type: string
+        to:
+          type: string
+        from:
+          type: string
+        body:
+          type: object
+      required:
+        - type
+        - to
+        - from
+    EventCreated:
+      discriminator:
+        propertyName: EventCreated
+      type: object
+      description: 'Create New Event Response Payload Object'
+      properties:
+        id:
+          type: string
+          description: Event ID
+        timestamp:
+          type: string
+          description: 'time when event was created'
+        href:
+          type: string
+    EventRetrieved:
+      discriminator:
+        propertyName: EventRetrieved
+      type: object
+      description: 'Retrieve Event Response Payload Object'
+      properties:
+        id:
+          type: string
+          description: Event ID
+        type:
+          type: string
+        application_id:
+          type: string
+        conversation_id:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        body:
+          type: object
+        timestamp:
+          type: string
+      required:
+        - id
+        - type
+        - application_id
+        - conversation_id
+        - body
+        - timestamp
+    GetEventsObject:
+      discriminator:
+        propertyName: GetEventsObject
+      type: object
+      description: 'Get Events Request Payload Object'
+      properties:
+        start_id:
+          type: string
+        end_id:
+          type: string
+    EventsRetrieved:
+      discriminator:
+        propertyName: EventsRetrieved
+      type: array
+      description: Retrieve Events Response Payload Object
+      items:
+        $ref: '#/components/schemas/EventsRetrievedItem'
+    EventsRetrievedItem:
+      discriminator:
+        propertyName: EventsRetrievedItem
+      type: object
+      description: Retrieve Events Response Payload Object Item
+      properties:
+        id:
+          type: string
+          description: Event ID
+        type:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        body:
+          type: object
+        state:
+          type: string
+        timestamp:
+          type: string
+        href:
+          type: string
+      required:
+        - id
+        - type
+        - body
+        - timestamp
+        - href
+    deleteEventRequestPayload:
+      discriminator:
+        propertyName: deleteEventRequestPayload
+      type: object
+      description: Delete Event Request Payload Object
+      properties:
+        from:
+          type: string
+    EventDeleted:
+      discriminator:
+        propertyName: EventDeleted
+      type: object
+      description: Delete Event Response Payload Object
+    Success:
+      type: object
+      description: Success
+      discriminator:
+        propertyName: Success
+    EmptyJSON:
+      type: object
+      description: Empty JSON payload
+      discriminator:
+        propertyName: empty
+    GenericError:
+      type: object
+      description: Generic Error
+      discriminator:
+        propertyName: error
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+        description:
+          type: string
+      required:
+        - code
+    ClientError:
+      discriminator:
+        propertyName: notFound
+      allOf:
+        - $ref: '#/components/schemas/GenericError'
+    NotFoundError:
+      discriminator:
+        propertyName: notFound
+      allOf:
+        - $ref: '#/components/schemas/GenericError'
+    ValidationError:
+      type: object
+      description: Validation Error
+      discriminator:
+        propertyName: validationError
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        validation:
+          type: object
+          description: >-
+            Validation Errors. See https://validatejs.org/ for the format of the
+            errors.
+      required:
+        - code
+    InternalServerError:
+      discriminator:
+        propertyName: internalServer
+      allOf:
+        - $ref: '#/components/schemas/GenericError'
+    Created:
+      discriminator:
+        propertyName: created
+      allOf:
+        - $ref: '#/components/schemas/Success'
+        - $ref: '#/components/schemas/GenericResource'
+        - description: Created Successfully
+    Updated:
+      discriminator:
+        propertyName: updated
+      allOf:
+        - $ref: '#/components/schemas/Created'
+        - description: Updated Successfully
+    FoundList:
+      discriminator:
+        propertyName: foundList
+      allOf:
+        - $ref: '#/components/schemas/Success'
+        - type: array
+          items:
+            $ref: '#/components/schemas/GenericResource'
+    GenericResource:
+      discriminator:
+        propertyName: resource
+      type: object
+      description: Generic Resource
+      properties:
+        id:
+          description: ID of resource
+          type: string
+        href:
+          description: Link to resource
+          type: string
+      required:
+        - id
+        - href
+    ConversationLeg:
+      discriminator:
+        propertyName: ConversationLeg
+      type: object
+      description: Conversation Leg Object
+      properties:
+        leg_id:
+          type: string
+        member_id:
+          type: string
+      required:
+        - leg_id
+        - member_id
+    Member:
+      discriminator:
+        propertyName: Member
+      type: object
+      description: Member Object
+      properties:
+        member_id:
+          type: string
+        user_id:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        timestamp:
+          type: string
+        invited_by:
+          type: string
+      required:
+        - member_id
+        - user_id
+        - name
+        - state
+        - timestamp
+        - invited_by
+    CreateMember:
+      discriminator:
+        propertyName: CreateMember
+      type: object
+      description: Create Member Request Payload Object
+      properties:
+        user_id:
+          type: string
+          example: USR-00092382-3017-4abb-8306-4bee9e772f7f
+        user_name:
+          type: string
+          description: The name of the user
+          example: Bob
+        member_id:
+          type: string
+          description: Member ID
+          example: MEM-00092382-3017-4abb-8306-4bee9e772f7f
+        channel:
+          type: string
+          enum:
+            - phone
+            - app
+            - sip
+            - websocket
+        media:
+          type: string
+        action:
+          type: string
+          enum:
+            - invite
+            - join
+      required:
+        - user_id
+        - user_name
+        - member_id
+        - channel
+        - media
+    MemberCreated:
+      discriminator:
+        propertyName: MemberCreated
+      type: object
+      description: Member Created Object
+      properties:
+        id:
+          type: string
+          description: Member ID
+          example: MEM-00092382-3017-4abb-8306-4bee9e772f7f
+        user_id:
+          type: string
+          example: USR-00092382-3017-4abb-8306-4bee9e772f7f
+        state:
+          type: string
+          description: The state that the member is in.
+          enum:
+          - invited
+          - joined
+        timestamp:
+          type: string
+          description: The time that the member was created.
+        channel:
+          type: string
+          enum:
+            - phone
+            - app
+            - sip
+            - websocket
+        href:
+          type: string
+          description: link to the resource
+          format: url
+      required:
+        - id
+        - user_id
+        - state
+        - timestamp
+        - channel
+        - href
+    UpdateMember:
+      discriminator:
+        propertyName: UpdateMember
+      type: object
+      description: Update Member Request Payload Object
+      properties:
+        channel:
+          type: string
+          enum:
+            - phone
+            - app
+            - sip
+            - websocket
+        action:
+          type: string
+          enum:
+            - join
+    MemberRetrieved:
+      discriminator:
+        propertyName: MemberRetrieved
+      type: object
+      description: Member Retrieved Object
+      properties:
+        id:
+          type: string
+          description: Member ID
+        href:
+          type: string
+          format: url
+      required:
+        - id
+        - href
+    MembersListItem:
+      discriminator:
+        propertyName: MembersListItem
+      type: object
+      description: Members List Object
+      properties:
+        user_id:
+          type: string
+        user_name:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+      required:
+        - user_id
+        - name
+        - user_name
+        - state
+    MembersRetrieved:
+      discriminator:
+        propertyName: MembersRetrieved
+      description: Members List
+      type: array
+      items:
+        $ref: '#/components/schemas/MembersListItem'
+    CreateCall:
+      discriminator:
+        propertyName: CreateCall
+      type: object
+      description: Create Call Request Payload Object
+      properties:
+        body:
+          type: object
+        originating_session:
+          type: string
+        from:
+          type: string
+    CallCreated:
+      discriminator:
+        propertyName: CallCreated
+      type: object
+      description: Create Call Response Payload Object
+      properties:
+        rtc_id:
+          type: string
+        href:
+          type: string
+          format: url
+    CreateOffer:
+      discriminator:
+        propertyName: CreateOffer
+      type: object
+      description: Create Offer Request Payload Object
+      properties:
+        body:
+          type: object
+    OfferCreated:
+      discriminator:
+        propertyName: OfferCreated
+      type: object
+      description: Create Offer Response Payload Object
+      properties:
+        id:
+          type: string
+        href:
+          type: string
+          format: url
+    AnswerCall:
+      discriminator:
+        propertyName: AnswerCall
+      type: object
+      description: Answer Call Request Payload Object
+      properties:
+        body:
+          type: object
+    CallAnswered:
+      discriminator:
+        propertyName: CallAnswered
+      type: object
+      description: Answer Call Response Payload Object
+      properties:
+        id:
+          type: string
+        href:
+          type: string
+          format: url
+    TerminateCall:
+      discriminator:
+        propertyName: TerminatCall
+      type: object
+      description: Terminate Call Request Payload Object
+      properties:
+        body:
+          type: object
+          properties:
+            from:
+              type: string
+    CallTerminated:
+      discriminator:
+        propertyName: CallTerminated
+      type: object
+      description: Terminate Call Response Payload Object
+      properties:
+        id:
+          type: string
+        href:
+          type: string
+          format: url
+    SessionCreated:
+      discriminator:
+        propertyName: SessionCreated
+      type: object
+      description: Create Session Response Payload Object
+      properties:
+        id:
+          type: string
+        user_id:
+          type: string
+        name:
+          type: string
+        href:
+          type: string
+          format: url
+    SessionDeleted:
+      discriminator:
+        propertyName: SessionDeleted
+      type: object
+      description: Delete Session Response Payload Object
+    SessionsPurged:
+      discriminator:
+        propertyName: SessionsPurged
+      type: object
+      description: Purge Session Response Payload Object
+      properties:
+        count:
+          type: integer
+          description: Number of sessions purged
+    FoundUsers:
+      discriminator:
+        propertyName: foundUsers
+      allOf:
+        - $ref: '#/components/schemas/FoundList'
+        - type: array
+          items:
+            $ref: '#/components/schemas/UserOverview'
+    UserOverview:
+      discriminator:
+        propertyName: userOverview
+      allOf:
+        - $ref: '#/components/schemas/GenericResource'
+        - description: User Overview Object
+    UserDetails:
+      discriminator:
+        propertyName: userDetails
+      type: object
+      description: User Details Object
+      properties:
+        name:
+          type: string
+        image_url:
+          type: string
+        display_name:
+          type: string
+        channels:
+          type: string
+    User:
+      discriminator:
+        propertyName: user
+      type: object
+      description: User Object
+      allOf:
+        - $ref: '#/components/schemas/UserOverview'
+        - $ref: '#/components/schemas/UserDetails'
+x-groups:
+  conversation:
+    name: 'Conversation'
+    order: 1
+    description: >-
+      A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/Conversation'
+  user:
+    name: 'User'
+    order: 2
+    description: >-
+      The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/GenericResource'
+  member:
+    name: 'Member'
+    order: 3
+    description: >-
+      Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/MemberCreated'
+  session:
+    name: 'Session'
+    order: 3
+    description: >-
+      Coming soon
+    schema:
+      application/json:
+        $ref: '#/components/schemas/SessionCreated'
+  event:
+    name: 'Event'
+    order: 4
+    description: >-
+      Coming soon
+    schema:
+      application/json:
+        $ref: '#/components/schemas/EventCreated'
+  leg:
+    name: 'Leg'
+    order: 5
+    description: >-
+      A leg can be a video call, IP call, or PSTN call that users participate in using multiple platforms. With this endpoint you can retrieve the details about all of the legs that took place in your application.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/Leg'
