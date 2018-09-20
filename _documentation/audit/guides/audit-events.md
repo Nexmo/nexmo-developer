@@ -1,7 +1,7 @@
 ---
 title: Audit Events
 navigation_weight: 1
-description: A guide to Audit Events.
+description: Audit events concepts, including types and structure of audit events.
 ---
 
 # Audit Events

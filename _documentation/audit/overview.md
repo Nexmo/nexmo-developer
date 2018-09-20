@@ -100,18 +100,21 @@ application:
 
 ## Guides
 
-* [Audit events](/audit/guides/audit-events): Audit events concepts, including types and structure of audit events.
+```concept_list
+product: audit
+```
 
 ## Building Blocks
 
-* [Get Audit events](/audit/building-blocks/get-events)
-* [Get Audit event](/audit/building-blocks/get-event)
-* [Get Audit events with filtering](/audit/building-blocks/get-events-with-filtering)
-* [Get Audit event types](/audit/building-blocks/get-event-types)
+```building_block_list
+product: audit
+```
 
 ## Tutorials
 
-* [Tutorials](/audit/tutorials)
+```tutorials
+product: audit
+```
 
 ## Reference
 
