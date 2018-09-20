@@ -15,7 +15,7 @@ RSpec.describe Concept, type: :model do
   describe '#all' do
     it 'returns all building blocks' do
       stub_available_concepts
-      expect(Concept.all).to have(3).items
+      expect(Concept.all).to have(4).items
     end
   end
 
@@ -44,8 +44,9 @@ RSpec.describe Concept, type: :model do
   describe '#files' do
     it 'has the correct glob pattern' do
       allow(Concept).to receive(:origin).and_return('/path/to/_documentation')
-      expect(Dir).to receive(:glob).with('/path/to/_documentation/**/guides/**/*.md')
-      Concept.files
+      expect(Dir).to receive(:glob).with('/path/to/_documentation/**/guides/**/*.md') .and_return(['guide'])
+      expect(Dir).to receive(:glob).with('/path/to/_documentation/**/concepts/**/*.md') .and_return(['concept'])
+      expect(Concept.files).to eq(['guide', 'concept'])
     end
   end
 
@@ -83,13 +84,14 @@ def stub_available_concepts
 
   i = 0
   {
-    'PSTN Update' => { 'product' => 'voice/voice-api', 'description' => 'Introduction to PSTN', 'ignore_in_list' => true },
-    'Shortcodes' => { 'product' => 'messaging/sms', 'description' => 'You can use shortcodes whilst in the US' },
-    'Demo' => { 'product' => 'voice/voice-api', 'description' => 'Demo Topic' },
+    'PSTN Update' => { 'product' => 'voice/voice-api', 'description' => 'Introduction to PSTN', 'ignore_in_list' => true, 'folder' => 'guides' },
+    'Shortcodes' => { 'product' => 'messaging/sms', 'description' => 'You can use shortcodes whilst in the US', 'folder' => 'guides' },
+    'Demo' => { 'product' => 'voice/voice-api', 'description' => 'Demo Topic', 'folder' => 'guides' },
+    'New Concept' => { 'product' => 'verify/concept', 'description' => 'Demo Topic', 'folder' => 'concepts' },
   }.each do |title, details|
     i += 1
     slug = title.parameterize
-    path = "/path/to/_documentation/#{details['product']}/guides/#{slug}.md"
+    path = "/path/to/_documentation/#{details['product']}/#{details['folder']}/#{slug}.md"
     paths.push(path)
 
     allow(File).to receive(:read).with(path) .and_return(

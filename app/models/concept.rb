@@ -63,7 +63,7 @@ class Concept
   end
 
   def self.files
-    Dir.glob("#{origin}/**/guides/**/*.md")
+    Dir.glob("#{origin}/**/guides/**/*.md") + Dir.glob("#{origin}/**/concepts/**/*.md")
   end
 
   def self.origin
