@@ -1,4 +1,6 @@
 class BuildingBlockFilter < Banzai::Filter
+  include OcticonsHelper
+
   def call(input)
     input.gsub(/```single_building_block(.+?)```/m) do |_s|
       config = YAML.safe_load($1)
@@ -6,6 +8,7 @@ class BuildingBlockFilter < Banzai::Filter
       @renderer = get_renderer(config['language'])
 
       lexer = CodeLanguageResolver.find(config['language']).lexer
+      lang = config['title'].delete('.')
 
       application_html = generate_application_block(config['application'])
 
