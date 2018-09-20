@@ -67,6 +67,7 @@
 "/stitch": "/stitch/overview"
 "/stitch/api-reference": "/api/stitch"
 "/tools/cli": "/tools"
+"/tutorials/call-whisper-with-on-answer": "/tutorials/add-a-call-whisper-to-an-inbound-call"
 "/verify": "/verify/overview"
 "/verify/api-reference": "/api/verify"
 "/verify/guides": "/verify/guides/verify-a-user"

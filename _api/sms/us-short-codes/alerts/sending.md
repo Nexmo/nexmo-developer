@@ -9,7 +9,7 @@ api: Alerts API - Sending
 This defines Event Based Alerts API:
 
 * [Request](#request) - send an Event Based Alert to you user.  If you have multiple templates, remember to set the *template* number in your request.
-* [Response](#response) - Check the [response codes](#status-codes) to ensure that  you sent the request to Nexmo correctly.
+* [Response](#response) - Check the `status` field to ensure that you sent the request to Nexmo correctly.
 * [Delivery receipt](#delivery-receipt) - verify that the Event Based Alert was delivered.
 
 ## Request
@@ -63,7 +63,7 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `to`  | The single phone number to send *pin* to.  Mobile number in **US format** and one recipient per request. For example, to=16365553226. | ✅
-`status-report-req` | Set to `1` to receive a [delivery receipt](#delivery_receipt). To receive the delivery receipt, you have to configure a webhook endpoint in Dashboard. | ❎
+`status-report-req` | Set to `1` to receive a [delivery receipt](#delivery-receipt). To receive the delivery receipt, you have to configure a webhook endpoint in Dashboard. | ❎
 `client-ref` | A 40 character reference string for your internal reporting. | ❎
 `template` | If you have multiple templates, this is the index of the template to call. The default template starts is 0, each Event Based Alert campaign can have up to 6 templates. §§ If you have one template only it is the default. That is, *template=0*. If you create a request with *template=1* the API call will default, *template=0*  instead. After you add a valid campaign alert for 2FA, the request will call template 1 instead of template 0. | ❎
 `type` | Default value is *text*. Possible values are: `text` for plain text SMS or `unicode` only use this when your SMS must contain special characters.| ❎

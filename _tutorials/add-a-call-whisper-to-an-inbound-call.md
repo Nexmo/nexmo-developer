@@ -28,14 +28,12 @@ You will see how to build add a Call Whisper to an inbound call:
 
 ```js_sequence_diagram
 User->Nexmo number: User calls either of\nthe numbers linked\n to this Application
-Nexmo number->Application: /answer_inbound
-Application->Conference: Adds user\nto Conference
-Application-->Operative: Calls call center operative
+Nexmo number-->Application: /answer
+Application->Operative: Connects to operative's number
 Note left of Operative: When operative\nanswers
 Operative-->Application: /answer_outbound
-Application-->Operative: Announces info related to incoming number
-Application-->Conference: Adds operative\nto conference
-Note right of Conference: Both participants\nnow in conference
+Application->Operative: Announces key information\nabout original caller
+Note left of Operative: Callers are connected
 ```
 
 ## Before you begin
@@ -64,7 +62,7 @@ $ nexmo number:buy --country_code US --confirm
 Create a new nexmo application and save the private key - you'll need this later. Replace `https://example.com` with the URL of your own application for both the "answer" and "event" arguments in this command:
 
 ```bash
-nexmo app:create "Call Whisper" https://example.com/answer_inbound https://example.com/event --keyfile app.key
+nexmo app:create "Call Whisper" https://example.com/answer https://example.com/event --keyfile app.key
 ```
 
 This command grabs the private key and puts it safely in `app.key` for you. Make a note of the application ID as it's used in the next command...
@@ -91,10 +89,6 @@ Either clone or download the repository to your local machine, in a new director
 
 Your application will need to know more about you and your application before it can run. Copy the `.env-example` file to `.env` and edit this new file to reflect the settings you want to use:
 
-* `NEXMO_API_KEY`: Find this on your [Nexmo Dashboard](https://dashboard.nexmo.com)
-* `NEXMO_API_SECRET`: Find this on your [Nexmo Dashboard](https://dashboard.nexmo.com)
-* `NEXMO_APP_ID`: The application ID you just created
-* `NEXMO_APP_FILE_NAME`: The file holding the private key (`app.key` in the example above)
 * `CALL_CENTER_NUMBER`: The phone number to reach the call center operative on, such as your mobile number
 * `INBOUND_NUMBER_1`: One of the numbers you purchased
 * `INBOUND_NUMBER_2`: The other number you purchased
@@ -102,7 +96,7 @@ Your application will need to know more about you and your application before it
 
 ### Install the dependencies
 
-In the directory where you downloaded the code, run `npm install`. This brings in Express, the Nexmo library, and other dependencies needed for this project.
+In the directory where you downloaded the code, run `npm install`. This brings in Express and other dependencies needed for this project.
 
 ### Start the server
 
@@ -127,114 +121,43 @@ Let's try the demo. For this you need two phones (one to be the "caller" and one
 
 The demo is fun but if you're interested in building this yourself, then there are some key points that you probably want to see. This section looks at the key sections of the code for each step of the process so that you can find where things take place and can adapt this application to suit your needs.
 
-This NodeJS example uses the [Nexmo NodeJS library](https://github.com/Nexmo/nexmo-node), which is initialized before it is used:
-
-**lib/routes.js**
-
-```js
-// load environment variables
-require('dotenv').config();
-
-// initialize Nexmo with App credentials
-var Nexmo = require('nexmo');
-var nexmo = new Nexmo({
-  apiKey: process.env['NEXMO_API_KEY'],
-  apiSecret: process.env['NEXMO_API_SECRET'],
-  applicationId: process.env['NEXMO_APP_ID'],
-  privateKey: process.env['NEXMO_APP_FILE_NAME']
-});
-```
-
 ### Answer the incoming call, and start an outbound call
 
-Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a [webhook request](/api/voice#cc_answer_webhook) to your web app's `answer_url` endpoint - in this case `/answer_incoming`. When the call is answered, the application starts the outgoing call to the call center operative.
+Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a [webhook request](/api/voice#cc_answer_webhook) to your web app's `answer_url` endpoint - in this case `/answer`. When the call is answered, the application connects that caller to the call center operative.
 
 **lib/routes.js**
 
 ```js
-// Set an index for the current conference ID
-var conferenceID = 0;
+  app.get('/answer', function(req, res) {
+    var answer_url = 'http://'+process.env['DOMAIN']+'/on-answer'
+    console.log(answer_url);
 
-module.exports = function(app){
+      res.json([
+        {
+          "action": "talk",
+          "text": "Thanks for calling. Please wait while we connect you"
+        },
+        {
+          "action": "connect",
+          "from": req.query.to,
+          "endpoint": [{
+            "type": "phone",
+            "number": process.env['CALL_CENTER_NUMBER'],
+            "onAnswer": {"url": answer_url}
+          }]
+        }
+      ]);
+  });
 
-  // Process an inbound call from an inbound
-  // call made to one of the two numbers
-  // we've set up
-  app.get('/answer_inbound', function(req, res) {
-    // increment the conference ID so
-    // that every call has a unique conference
-    conferenceID++;
-
-    // create a new call from the number called
-    // to the call center
-    nexmo.calls.create({
-      to: [{
-        type: 'phone',
-        number: process.env['CALL_CENTER_NUMBER']
-      }],
-      from: {
-        type: 'phone',
-        number: req.query.to
-      },
-      // when the second leg of this call is
-      // set up we make sure to pass along the
-      // conference ID
-      answer_url: [
-        'http://'+process.env['DOMAIN']+'/answer_outbound?conference_id='+conferenceID
-      ]
-    }, function(err, suc) {
-
-    })
-  })
-}
 ```
 
 *Note: Take a look at the [Voice API reference](/api/voice) for more info.*
 
-When we start this outgoing call, we specify an "Answer URL" for it too. This URL will receive the answer webhook when this second call is answered, and the application includes information about which conference this call will join when that happens.
+The response we return is an array of [NCCOs](https://developer.nexmo.com/voice/voice-api/ncco-reference) (Nexmo Call Control Objects). The first one is the spoken message that the caller hears; the second connects to the other caller and specifies which URL should be used when that person answers the call.
 
-### Place the caller into a conference
+### Play a Whisper and Connect the Call
 
-Once the outbound call has started, your code will need to return an [Nexmo Call Control Object (NCCO)](/voice/guides/ncco) to give instructions to our servers on how to handle the call. The [`talk`](/voice/guides/ncco-reference#talk) action lets you play text-to-speech to the caller to inform them they are being connected.
-
-Then use the [`conversation`](/voice/guides/ncco-reference#conversation) NCCO action to put the caller into a conference. Since the caller is the only participant. This effectively puts them on hold and you can inform Nexmo to play hold music to them using the `musicOnHoldUrl` attribute. This music will stop when the next caller joins the conference.
-
-**lib/routes.js**
-
-```js
-}, function(err, suc) {
-  console.log("Error:", err);
-  console.log("Success:", suc);
-
-  // When the call has been set up successfully
-  // we connect the inbound call to a new
-  // conference with the ID specified
-  if (suc) {
-    res.json([
-      {
-        "action": "talk",
-        "text": "Please wait while we connect you"
-      },
-      // When we connect the inbound call to a conference
-      // we keep them on hold and play a ringing sound
-      // until the operator is connected
-      {
-        "action": "conversation",
-        "name": "conversation-"+conferenceID,
-        "startOnEnter": "false",
-        "musicOnHoldUrl": ["https://nexmo-community.github.io/ncco-examples/assets/phone-ringing.mp3"]
-      }
-    ]);
-  }
-});
-});
-```
-
-*Note: Take a look at the [NCCO reference](/voice/guides/ncco-reference) for information on other actions available.*
-
-### Play a Whisper and join the conference
-
-When a new outbound call to the call center agent was started, a new `answer_url` was passed for that call to fetch instructions from. This URL provides Nexmo with another set of instructions. This endpoint identifies which number is related to each advertising campaign.
+When the call center operative answers the call, the `onAnswer` URL is used, in our application that's the `/on-answer` endpoint. This is the code that looks up which number was dialled and works out what announcement to make.
 
 **lib/routes.js**
 
@@ -245,39 +168,28 @@ topics[process.env['INBOUND_NUMBER_1']] = 'the summer offer';
 topics[process.env['INBOUND_NUMBER_2']] = 'the winter offer';
 ```
 
-When the call comes in to the call center, play a call whisper to the agent using the `talk` NCCO action, informing them which advertising campaign the call is about, before connecting them to the caller waiting in the conference.
+When the call is connected, play a call whisper to the agent using the `talk` NCCO action, informing them which advertising campaign the call is about, before connecting them to the caller waiting in the conference.
 
 **lib/routes.js**
 
 ```js
-// Process an outbound call to the call center,
-// playing a message to the call center operator
-// before connecting them to the conference ID
-app.get('/answer_outbound', function(req, res) {
-  // we determine the topic of the call
-  // based on the inbound call number
-  var topic = topics[req.query.from]
+  app.get('/on-answer', function(req, res) {
+    // we determine the topic of the call based on the inbound call number
+    var topic = topics[req.query.from]
 
-  res.json([
-    // We first play back a little message
-    // telling the call center operator what
-    // the call regards to. This "whisper" can
-    // only be heard by the call center operator
-    {
-      "action": "talk",
-      "text": "Incoming call regarding "+topic
-    },
-    // Next we connect the call to the same conference,
-    // connecting the 2 parties
-    {
-      "action": "conversation",
-      "name": "conversation-"+req.query.conference_id
-    }
-  ]);
-});
+    res.json([
+      // We first play back a little message telling the call center operator what
+      // the call relates to. This "whisper" can only be heard by the call center operator
+      {
+        "action": "talk",
+        "text": "Incoming call regarding "+topic
+      }
+    ]);
+  });
+
 ```
 
-> *Note*: Take a look at the [NCCO reference](/voice/guides/ncco-reference) for information on other actions available.
+There are so many possibilities here that can help you to customise the whispers. You could pass the incoming caller's number with the `url` in `onAnswer` and look them up, allowing you to greet them by name or provide some other information. The possibilities are endless but hopefully this tutorial gives you a working example you can build on and customize.
 
 ## Further reading
 

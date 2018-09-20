@@ -131,11 +131,12 @@ paths:
           - answered
           - machine
           - completed
-          - timeout
+          - busy
+          - cancelled
           - failed
           - rejected
-          - cancelled
-          - busy
+          - timeout
+          - unanswered
       - name: date_start
         in: query
         description: Return the records that occurred after this point in time
@@ -449,9 +450,9 @@ paths:
                   type: string
                   description: The text to read
                   example: Hello. How are you today?
-                voiceName:
+                voice_name:
                   description: The voice & language to use
-                  "$ref": "#/components/schemas/voiceNames"
+                  "$ref": "#/components/schemas/voice_name"
                 loop:
                   type: integer
                   description: The number of times to repeat the text the file, 0
@@ -632,7 +633,7 @@ components:
         type: string
         title: The State of the call
         example: started
-        description: The status of the call. [See possible values](/voice/voice-api/guides/call-flow#events)
+        description: The status of the call. [See possible values](/voice/voice-api/guides/call-flow#event-objects)
     endpoints:
       type: object
       properties:
@@ -757,7 +758,7 @@ components:
           enum:
           - inbound
           - outbound
-    voiceNames:
+    voice_name:
       type: string
       default: Kimberly
       enum:

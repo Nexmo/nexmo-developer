@@ -36,14 +36,18 @@ public class InboundCall {
             Ncco[] nccos = new Ncco[]{message};
 
             res.type("application/json");
+
+            // com.fasterxml.jackson.databind.ObjectMapper;
             return new ObjectMapper().writer().writeValueAsString(nccos);
+        };
+
+        Route eventRoute = (req, res) -> {
+            System.out.println(req.body());
+            return "";
         };
 
         Spark.port(3000);
         Spark.get("/webhooks/answer", answerRoute);
-        Spark.post("/webhooks/events", (req, res) -> {
-            System.out.println(req.body());
-            return "";
-        });
+        Spark.post("/webhooks/events", eventRoute);
     }
 }

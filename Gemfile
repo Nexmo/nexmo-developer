@@ -25,6 +25,10 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Add clipboard for copying content
+gem 'clipboard-rails'
+# Icons!
+gem 'octicons_helper'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -123,9 +127,6 @@ gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
 gem 'nexmo_api_specification', '0.11.6'
-
-# Really simple JSON and XML parsing, ripped from Merb and Rails.
-gem 'crack', '0.4.3'
 
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem 'friendly_id', '5.2.3'

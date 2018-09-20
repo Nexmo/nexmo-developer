@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
+  namespace :usage do
+    resources :building_block
+  end
+
   namespace :admin_api, defaults: { format: 'json' } do
     resources :feedback, only: [:index]
   end

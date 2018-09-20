@@ -6,7 +6,7 @@ api: Developer API
 
 # Developer - Numbers API Reference
 
-The Numbers API lets you manage your numbers and buy new virtual numbers for use with Nexmo's APIs.
+The Numbers API lets you manage your numbers and buy new virtual numbers for use with Nexmo's APIs. Read our [Authentication Guide](/concepts/guides/authentication) for information on how to pass your credentials by query string.
 
 ## Numbers
 
@@ -67,6 +67,7 @@ Parameter | Description | Required
 `country` | The two character country code in ISO 3166-1 alpha-2 format. | Yes
 `pattern` | A number pattern to search for. | No
 `search_pattern` | Strategy for matching pattern. Expected values: `0` (starts with, default), `1` (anywhere), `2` (ends with). | No
+`type` | The type of number to search for. Accepted values: `landline`, `landline-toll-free` and `mobile-lvn`. | No
 `features` | Available features are SMS and VOICE. For both features, use a comma-separated value SMS,VOICE. | No
 `size` | Page size [Max: 100] [Default: 10] | No
 `index` | Page index [Default: 1] | No
