@@ -47,6 +47,11 @@
     margin-right: 5px;
   }
 
+  &--small {
+    font-size: 10px !important;
+    background: $pink;
+  }
+
   &--code {
     font-family: Consolas, monospace;
     font-size: 15px;

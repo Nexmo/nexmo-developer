@@ -27,6 +27,7 @@ import Feedback from './Feedback'
 import Concatenation from './Concatenation'
 import APIStatus from './APIStatus'
 import Markdown from './Markdown'
+import BuildingBlockEvents from './BuildingBlockEvents'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
@@ -48,6 +49,7 @@ let refresh = () => {
   new Format
   Modals()
   APIStatus()
+  BuildingBlockEvents()
 
   if (document.getElementById('SearchComponent')) {
     ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
