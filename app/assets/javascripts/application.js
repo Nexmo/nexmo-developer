@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require smooth-scroll
 //= require jquery-scrolltofixed
+//= require clipboard
+

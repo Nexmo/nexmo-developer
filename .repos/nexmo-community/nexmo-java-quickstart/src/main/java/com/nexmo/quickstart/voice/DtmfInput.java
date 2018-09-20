@@ -27,18 +27,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nexmo.client.voice.ncco.InputNcco;
 import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.TalkNcco;
+import spark.Route;
 import spark.Spark;
 
 import java.io.IOException;
 
 public class DtmfInput {
     public static void main(String[] args) {
-        Spark.port(3000);
-
         /*
          * Route to answer incoming calls.
          */
-        Spark.get("/webhooks/answer", (req, res) -> {
+        Route answerRoute = (req, res) -> {
             TalkNcco intro = new TalkNcco("Hello. Please press any key to continue.");
 
             InputNcco input = new InputNcco();
@@ -48,21 +47,29 @@ public class DtmfInput {
             Ncco[] nccos = new Ncco[]{intro, input};
 
             res.type("application/json");
+
+            // com.fasterxml.jackson.databind.ObjectMapper;
             return new ObjectMapper().writer().writeValueAsString(nccos);
-        });
+        };
 
         /*
          * Route which returns NCCO saying which DTMF code was received.
          */
-        Spark.post("/webhooks/dtmf", (req, res) -> {
+        Route inputRoute = (req, res) -> {
             DtmfPayload dtmfPayload = DtmfPayload.fromJson(req.body());
 
             TalkNcco response = new TalkNcco(String.format("You pressed %s, Goodbye.", dtmfPayload.getDtmf()));
             Ncco[] nccos = new Ncco[]{response};
 
             res.type("application/json");
+
+            // com.fasterxml.jackson.databind.ObjectMapper;
             return new ObjectMapper().writer().writeValueAsString(nccos);
-        });
+        };
+
+        Spark.port(3000);
+        Spark.get("/webhooks/answer", answerRoute);
+        Spark.post("/webhooks/dtmf", inputRoute);
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
