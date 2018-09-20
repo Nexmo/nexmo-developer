@@ -24,6 +24,7 @@
 "/api/account": "/api/developer/account"
 "/api/messages": "/api/developer/account"
 "/api/numbers": "/api/developer/account"
+"/audit/api-reference": "/api/audit"
 "/contribute/guides/styleguide": "/contribute/guides/markdown-guide"
 "/contribute/guides/write-the-docs": "/contribute/guides/writing-style-guide"
 "/events": "/community"
