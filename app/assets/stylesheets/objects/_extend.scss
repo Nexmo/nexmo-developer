@@ -1,0 +1,40 @@
+.extend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+
+  > div {
+    flex: 1;
+    max-width: 300px;
+    height: 300px;
+    padding: 10px;
+    margin: 10px;
+    @include mobile() {
+      min-width: 280px;
+    }
+  }
+}
+
+.extend-card {
+    position: relative;
+    background: $white;
+    border: $border;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    margin-bottom: $spacing;
+    font-size: 16px;
+    h2 {
+        padding: 20px 0;
+        margin: 0;
+        color: $text;
+        border-bottom: 2px solid $blue;
+    }
+    p {
+        padding: 20px 0;
+    }
+    > a {
+        position: absolute;
+        bottom:20px;
+        right:20px;
+    }
+}

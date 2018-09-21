@@ -1,0 +1,15 @@
+<div class="center spacious content-block">
+  <h1>Extend</h1>
+  <p>Something about Extend goes here<p>
+</div>
+
+<div class="extend-grid">
+<% @extensions.each do |extension| %>
+
+    <div class="extend-card">
+      <h2><a><%= extension[:title] %></a></h2>
+      <p><%= extension[:description] %></p>
+      <a href="#">Learn More &rarr;</a>
+    </div>
+<% end %>
+</div>

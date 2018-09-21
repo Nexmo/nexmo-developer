@@ -49,6 +49,9 @@ Rails.application.routes.draw do
   get '/community/past-events', to: 'static#past_events'
 
   get '/feeds/events', to: 'feeds#events'
+  
+  get '/extend', to: 'extend#index'
+  get '/extend/:title', to: 'extend#show'
 
   get '/changelog', to: 'changelog#index'
   get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }
