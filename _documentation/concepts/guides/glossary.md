@@ -10,7 +10,7 @@ navigation_weight: 6
 
 Two-factor authentication: unambiguous identification of users by means of the combination of two different components. For example, to withdraw cash from an ATM, you need both a card and a PIN code. These components may be something that the user knows, something that the user possesses or something that is inseparable from the user.
 
-Many Nexmo customers authenticate their users by sending them a [PIN](#pin) code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. An example of usage is where the customer requires a password reset. In this case the two components are the account details, and possession of the phone number registered to that account.
+Many Nexmo customers authenticate their users by sending them a PIN code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. An example of usage is where the customer requires a password reset. In this case the two components are the account details, and possession of the phone number registered to that account.
 
 See the [Wikipedia article](https://en.wikipedia.org/wiki/Two-factor_authentication).
 
@@ -65,7 +65,7 @@ Further information can be found on the [Nexmo Tools page](https://developer.nex
 
 ## Cloud number
 
-A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging) or [Voice](#voice) communication.
+A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging-api) or [Voice](#voice) communication.
 
 See also [Virtual Number](#virtual-number).
 
@@ -361,7 +361,7 @@ The Nexmo technologies that facilitate the interaction between Nexmo customers a
 
 These APIs are:
 
-* [Messaging](#messaging)
+* [Messaging](#messaging-api)
 * [Voice](#voice)
 * [Number Cloud](#number-cloud)
 * [Developer API](/api/developer/account)
@@ -383,9 +383,6 @@ When somebody changes Telecommunications Service Provider but keeps the same pho
 
 Used when certain services are provided over the phone. Part of the call charge is paid to the service provider, this enables businesses to be funded through calls to the premium number.
 
-## PSTN
-
-See [Public Switched Telephone Network](#public-switched-telephone-network).
 
 ## Presence
 
@@ -443,7 +440,7 @@ In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) enpoint (`si
 
 ## SMPP
 
-The Short Message Peer-to-Peer (SMPP) protocol is used to communicate [SMS](#sms) between carriers. [Nexmo](#nexmo) supports SMPP. However, the majority of our customers use the [HTTP](#http) interface.
+The Short Message Peer-to-Peer (SMPP) protocol is used to communicate [SMS](#sms) between carriers. Nexmo supports SMPP. However, the majority of our customers use the [HTTP](#sms-api) interface.
 
 ## SMS
 
@@ -451,7 +448,7 @@ See [Short Message Service](#short-message-service).
 
 ## SMS API
 
-A [Messaging](#messaging) API you use to send and receive a high volume of [SMS](#sms) anywhere in the world. The SMS API provides instant access to the highest quality global messaging network. The SMS API uses [Adaptive Routing](#adaptive-routing) and delivery optimization technologies to ensure the highest quality message delivery.
+A [Messaging API](#messaging-api) you use to send and receive a high volume of [SMS](#sms) anywhere in the world. The SMS API provides instant access to the highest quality global messaging network. The SMS API uses [Adaptive Routing](#adaptive-routing) and delivery optimization technologies to ensure the highest quality message delivery.
 
 More information can be found in the [SMS API documentation](/messaging/sms/overview).
 
@@ -485,7 +482,7 @@ See [Telecommunications Service Provider](#telecommunications-service-provider).
 
 ## TTS API
 
-Text-to-Speech API. You use the [TTS](#tts) API to play synthesized messages and audio files to a live call. Using this API you can:
+Text-to-Speech API. You use the TTS API to play synthesized messages and audio files to a live call. Using this API you can:
 
 * Specify the language to use for synthesized speech.
 * Change the cadence of the synthesized speech to speed up or slow down the voice.
@@ -502,7 +499,7 @@ You use the TTS Prompt API to:
 * Collect digits following a TTS message.
 * Collect digits for [2FA](#2fa).
 * Set a message to be played after users have entered digits.
-* Play a message after three failed [PIN](#pin) entries.
+* Play a message after three failed PIN entries.
 
 TTS Prompt API is part of [Voice API](/voice/voice-api/overview).
 
@@ -557,7 +554,7 @@ Further information can be found in the [Voice API documentation](/voice/voice-a
 
 ## Voice Cloud Numbers
 
-Cloud numbers enabled to send and receive [Voice Messages](#voice-messages).
+Cloud numbers enabled to send and receive Voice Messages.
 
 ## Voice-Enabled Landline Virtual Number
 
