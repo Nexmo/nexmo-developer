@@ -48,6 +48,7 @@
 "/messages-and-workflows-apis/workflows/guides": "/messages-and-workflows-apis/workflows/guides/failover"
 "/messages-and-workflows-apis/messages/building-blocks": "/messages-and-workflows-apis/messages/building-blocks/send-an-sms-with-messages-api"
 "/messages-and-workflows-apis/workflows/building-blocks": "/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover"
+"/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover": "/messages-and-workflows-apis/workflows/building-blocks/send-a-facebook-message-with-failover"
 "/number-insight": "/number-insight/overview"
 "/number-insight/guides": "/number-insight/guides/cnam"
 "/number-insight/building-blocks": "/number-insight/building-blocks/number-insight-basic"
