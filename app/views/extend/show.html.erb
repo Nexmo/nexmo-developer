@@ -1,4 +1,36 @@
 <div class="spacious content-block">
-  <a href="/extend">&larr; Back to Extend Catalog</a>
+  <small><a href="/extend">&larr; Back to Extend Catalog</a></small>
   <h1><%= @extension[:title] %></h1>
+</div>
+
+<div class="extend-info-banner">
+    <div class="extend-info-banner--content">
+        <div class="description">
+            <%= @extension[:description] %>
+        </div>
+        <div class="details">
+            <div class="tags">
+                <h2>Tags</h2>
+                <ul>
+                <% @extension[:tags].each do |tag| %>
+                <li><%= tag %></li>
+                <% end %>
+                </ul>
+            </div>
+
+            <div class="languages">
+                <h2>Supported Languages</h2>
+                <ul>
+                <% @extension[:languages].each do |language| %>
+                <li><%= language %></li>
+                <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="extend-info-banner--background"></div>
+</div>
+
+<div class="extend-content">
+    <%= @extension[:body].html_safe %>
 </div>

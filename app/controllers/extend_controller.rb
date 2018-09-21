@@ -26,8 +26,12 @@ class ExtendController < ApplicationController
       body = MarkdownPipeline.new.call(document)
       frontmatter = YAML.safe_load(document)
       title = frontmatter['title']
+      description = frontmatter['description']
+      tags = frontmatter['tags'] || []
+      languages = frontmatter['languages'] || []
+      image = frontmatter['image'] || ''
 
-      @extension = { title: title }
+      @extension = { title: title, body: body, image: image, description: description, tags: tags, languages: languages }
 
       render layout: 'page'
     end
