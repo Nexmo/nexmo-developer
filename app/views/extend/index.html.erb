@@ -7,9 +7,9 @@
 <% @extensions.each do |extension| %>
 
     <div class="extend-card">
-      <h2><a><%= extension[:title] %></a></h2>
+      <h2><a href="/extend/<%= extension[:route] %>"><%= extension[:title] %></a></h2>
       <p><%= extension[:description] %></p>
-      <a href="#">Learn More &rarr;</a>
+      <a href="/extend/<%= extension[:route] %>">Learn More &rarr;</a>
     </div>
 <% end %>
 </div>

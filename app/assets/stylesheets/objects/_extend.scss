@@ -7,7 +7,7 @@
     flex: 1;
     max-width: 300px;
     height: 300px;
-    padding: 10px;
+    padding: 20px;
     margin: 10px;
     @include mobile() {
       min-width: 280px;
@@ -24,13 +24,13 @@
     margin-bottom: $spacing;
     font-size: 16px;
     h2 {
-        padding: 20px 0;
+        padding-top: 20px;
         margin: 0;
         color: $text;
-        border-bottom: 2px solid $blue;
+        border-top: 2px solid $blue;
     }
     p {
-        padding: 20px 0;
+        padding: 10px 0;
     }
     > a {
         position: absolute;
