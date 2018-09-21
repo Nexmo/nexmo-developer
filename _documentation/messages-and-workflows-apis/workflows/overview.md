@@ -33,11 +33,8 @@ Nexmo always welcomes your feedback. Your suggestions help us improve the produc
 
 The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
-```tabbed_examples
-tabs:
-  Curl:
-    source: .repos/nexmo/curl-building-blocks/olympus/send-message-with-failover-basic-auth.sh
-    from_line: 6
+```building_blocks
+source: '_examples/olympus/send-message-with-failover-basic-auth'
 ```
 
 In the above example code you will need to replace the following variables with actual values:

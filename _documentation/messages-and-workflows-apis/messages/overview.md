@@ -52,11 +52,8 @@ WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
 
 The following code shows how to send an SMS message using the Messages API:
 
-```tabbed_examples
-tabs:
-  Curl:
-    source: .repos/nexmo/curl-building-blocks/olympus/send-sms-basic-auth.sh
-    from_line: 6
+```building_blocks
+source: '_examples/olympus/send-sms-basic-auth'
 ```
 
 In the above example you will need to replace the following variable with actual values:
