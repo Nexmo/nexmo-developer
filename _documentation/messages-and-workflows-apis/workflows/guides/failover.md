@@ -82,7 +82,7 @@ Key | Description
 ### Example
 
 ```building_blocks
-source: '_examples/olympus/send-message-with-failover'
+source: '_examples/olympus/send-facebook-message-with-failover'
 application:
   name: 'Send a Facebook message with failover to SMS'
 ```
