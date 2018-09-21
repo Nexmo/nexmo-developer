@@ -52,21 +52,11 @@ WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
 
 The following code shows how to send an SMS message using the Messages API:
 
-```
-curl -X POST https://api.nexmo.com/beta/messages \
-     -u 'NEXMO_API_KEY:NEXMO_API_SECRET' \
-     -H 'Content-Type: application/json' \
-     -H 'Accept: application/json' \
-     -d $'{
-	      "from": { "type": "sms", "number": "FROM_NUMBER" },
-	      "to": { "type": "sms", "number": "TO_NUMBER" },
-	      "message": {
-	        "content": {
-		      "type": "text",
-		      "text": "This is an SMS sent from the Messages API"
-	    }
-   }
-}'
+```tabbed_examples
+tabs:
+  Curl:
+    source: .repos/nexmo/curl-building-blocks/olympus/send-sms-basic-auth.sh
+    from_line: 6
 ```
 
 In the above example you will need to replace the following variable with actual values:
