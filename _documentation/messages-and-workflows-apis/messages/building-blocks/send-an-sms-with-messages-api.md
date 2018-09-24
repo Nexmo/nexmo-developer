@@ -5,7 +5,11 @@ navigation_weight: 1
 
 # Send an SMS with Messages API
 
-You will need to replace the following variables with your specific information in the example code:
+In this building block you will see how to send an SMS using the Messages API.
+
+## Example
+
+Ensure the following variables are set to your required values using any convenient method:
 
 Key | Description
 -- | --
@@ -15,19 +19,12 @@ Key | Description
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
-## Prerequisites
-
-- *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
-
-## Generate a JWT
-
-```curl
-$ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
-$ echo $JWT
+```building_blocks
+source: '_examples/olympus/send-sms'
+application:
+  name: 'Send an SMS'
 ```
 
-## Example
+## Try it out
 
-```tabbed_examples
-config: 'messages_and_workflows_apis.messages.send-sms'
-```
+When you run the code a message will be sent to the destination number.

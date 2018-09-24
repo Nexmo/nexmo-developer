@@ -39,6 +39,8 @@ navigation_weight:
   Secret Management: 3
 
 navigation_overrides:
+  audit:
+    label: 'Beta'
   redact:
     label: 'Developer Preview'
   stitch:

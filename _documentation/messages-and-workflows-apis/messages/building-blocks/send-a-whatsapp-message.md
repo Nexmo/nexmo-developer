@@ -5,7 +5,11 @@ navigation_weight: 4
 
 # Send a WhatsApp Message
 
-You will need to replace the following variables with your specific information in the example code:
+In this building block you will see how to send a WhatsApp message using the Messages API.
+
+## Example
+
+Ensure the following variables are set to your required values using any convenient method:
 
 Key | Description
 -- | --
@@ -13,21 +17,14 @@ Key | Description
 `WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Nexmo.
 `TO_NUMBER` | The phone number you are sending the message to.
 
-> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.**
+> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
-## Prerequisites
-
-- *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
-
-## Generate a JWT
-
-```curl
-$ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
-$ echo $JWT
+```building_blocks
+source: '_examples/olympus/send-whatsapp-message'
+application:
+  name: 'Send a WhatsApp message'
 ```
 
-## Example
+## Try it out
 
-```tabbed_examples
-config: 'messages_and_workflows_apis.messages.send-whatsapp'
-```
+When you run the code a WhatsApp message will be sent to the destination number.
