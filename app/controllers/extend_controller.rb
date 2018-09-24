@@ -10,7 +10,6 @@ class ExtendController < ApplicationController
       title = frontmatter['title']
       description = frontmatter['description']
       tags = frontmatter['tags'] || []
-      languages = frontmatter['languages'] || []
       image = frontmatter['image'] || ''
       route = File.basename(document_path, '.*')
       { title: title, description: description, tags: tags, image: image, route: route }
