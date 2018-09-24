@@ -26,7 +26,9 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
+            <pre class="prettyprint source linenums"><code>const RTCStatsReporter = require('./rtcstats-reporter');
+
+/**
  * Collect WebRTC Report data
  * Removes credential information from the STUN.TURN server configuration.
  * performs Delta compression
@@ -36,320 +38,42 @@
  * @param {object} trace the function will be attached to the RTCPeerConnection object and will be used as a callback
  * @param {boolean} isCallback this set to true the reports will be passed uncompressed to the trace function: trace('mos', mos, res);
  * @param {number} getStatsInterval
- * @param {string} prefixesToWrap
+ * @property {number} mos_report the final mos report to be sent when the stream is closed
+ * @property {number} _reportsCount the number of reports taken for mos average
+ * @property {number} _mosSum the summary of mos scores
  * @private
  */
 
 class RTCStats {
     constructor(trace, isCallback, getStatsInterval, prefixesToWrap) {
-        var peerconnectioncounter = 0;
-        var isFirefox = !!window.mozRTCPeerConnection;
-        var isEdge = !!window.RTCIceGatherer;
-
+        this.mos_report = { min: 5, max: 0 };
+        this._reportsCount = 0;
+        this._mosSum = 0;
         var self = this;
-
-        prefixesToWrap.forEach(function(prefix) {
-            if (!window[prefix + 'RTCPeerConnection']) {
-                return;
-            }
-            if (prefix === 'webkit' &amp;&amp; isEdge) {
-                // dont wrap webkitRTCPeerconnection in Edge.
-                return;
-            }
-            var origPeerConnection = window[prefix + 'RTCPeerConnection'];
+        if (isCallback) {
+            var origPeerConnection = window['RTCPeerConnection'];
             var peerconnection = function(config, constraints) {
-                var id = 'PC_' + peerconnectioncounter++;
                 var pc = new origPeerConnection(config, constraints);
-                trace('clientId', id, constraints.optional[constraints.optional.length - 1].clientId);
-
-                if (!config) {
-                    config = { nullConfig: true };
-                }
-
-                config = JSON.parse(JSON.stringify(config)); // deepcopy
-                // don't log credentials
-                ((config &amp;&amp; config.iceServers) || []).forEach(function(server) {
-                    delete server.credential;
-                });
-
-                if (isFirefox) {
-                    config.browserType = 'moz';
-                } else if (isEdge) {
-                    config.browserType = 'edge';
-                } else {
-                    config.browserType = 'webkit';
-                }
-                trace('create', id, config);
-                // TODO: do we want to log constraints here? They are chrome-proprietary.
-                // http://stackoverflow.com/questions/31003928/what-do-each-of-these-experimental-goog-rtcpeerconnectionconstraints-do
-                if (constraints) {
-                    trace('constraints', id, constraints);
-                }
-
-                pc.trace = function(key, value) {
-                    if (key &amp;&amp; value) {
-                        trace(key, id, value);
-                    }
-                };
-
-                ['createDataChannel', 'close', 'addTrack', 'removeTrack'].forEach(function(method) {
-                    if (origPeerConnection.prototype[method]) {
-                        var nativeMethod = pc[method];
-                        pc[method] = function() {
-                            trace(method, id, arguments);
-                            return nativeMethod.apply(pc, arguments);
-                        };
-                    }
-                });
-
-                ['addStream', 'removeStream'].forEach(function(method) {
-                    if (origPeerConnection.prototype[method]) {
-                        var nativeMethod = pc[method];
-                        pc[method] = function(stream) {
-                            var streamInfo = stream.getTracks().map(function(t) {
-                                return t.kind + ':' + t.id;
-                            });
-
-                            trace(method, id, stream.id + ' ' + streamInfo);
-                            return nativeMethod.call(pc, stream);
-                        };
-                    }
-                });
-
-                ['createOffer', 'createAnswer'].forEach(function(method) {
-                    if (origPeerConnection.prototype[method]) {
-                        var nativeMethod = pc[method];
-                        pc[method] = function() {
-                            var args = arguments;
-                            var opts;
-                            if (arguments.length === 1 &amp;&amp; typeof arguments[0] === 'object') {
-                                opts = arguments[0];
-                            } else if (arguments.length === 3 &amp;&amp; typeof arguments[2] === 'object') {
-                                opts = arguments[2];
-                            }
-                            trace(method, id, opts);
-                            return new Promise(function(resolve, reject) {
-                                nativeMethod.apply(pc, [
-                                    function(description) {
-                                        trace(method + 'OnSuccess', id, description);
-                                        resolve(description);
-                                        if (args.length > 0 &amp;&amp; typeof args[0] === 'function') {
-                                            args[0].apply(null, [description]);
-                                        }
-                                    },
-                                    function(err) {
-                                        trace(method + 'OnFailure', id, err.toString());
-                                        reject(err);
-                                        if (args.length > 1 &amp;&amp; typeof args[1] === 'function') {
-                                            args[1].apply(null, [err]);
-                                        }
-                                    }
-
-                                ]);
-                            });
-                        };
-                    }
-                });
-
-                ['setLocalDescription', 'setRemoteDescription', 'addIceCandidate'].forEach(function(method) {
-                    if (origPeerConnection.prototype[method]) {
-                        var nativeMethod = pc[method];
-                        pc[method] = function() {
-                            var args = arguments;
-                            trace(method, id, args[0]);
-                            return new Promise(function(resolve, reject) {
-                                nativeMethod.apply(pc, [args[0],
-                                function() {
-                                    trace(method + 'OnSuccess', id);
-                                    resolve();
-                                    if (args.length >= 2) {
-                                        args[1].apply(null, []);
-                                    }
-                                },
-                                function(err) {
-                                    trace(method + 'OnFailure', id, err.toString());
-                                    reject(err);
-                                    if (args.length >= 3) {
-                                        args[2].apply(null, [err]);
-                                    }
-                                }]
-                                );
-                            });
-                        };
-                    }
-                });
-
-                pc.addEventListener('icecandidate', function(e) {
-                    trace('onicecandidate', id, e.candidate);
-                });
-                pc.addEventListener('addstream', function(e) {
-                    trace('onaddstream', id, e.stream.id + ' ' + e.stream.getTracks().map(function(t) { return t.kind + ':' + t.id; }));
-                });
-                pc.addEventListener('removestream', function(e) {
-                    trace('onremovestream', id, e.stream.id + ' ' + e.stream.getTracks().map(function(t) { return t.kind + ':' + t.id; }));
-                });
-                pc.addEventListener('signalingstatechange', function() {
-                    trace('onsignalingstatechange', id, pc.signalingState);
-                });
-                pc.addEventListener('iceconnectionstatechange', function() {
-                    trace('oniceconnectionstatechange', id, pc.iceConnectionState);
-                });
-                pc.addEventListener('icegatheringstatechange', function() {
-                    trace('onicegatheringstatechange', id, pc.iceGatheringState);
-                });
-                pc.addEventListener('negotiationneeded', function() {
-                    trace('onnegotiationneeded', id);
-                });
-                pc.addEventListener('datachannel', function(event) {
-                    trace('ondatachannel', id, [event.channel.id, event.channel.label]);
-                });
-
-                // TODO: do we want one big interval and all peerconnections
-                //    queried in that or one setInterval per PC?
-                //    we have to collect results anyway so...
-
-                var prev = {};
                 self.stats_interval = window.setInterval(() => {
                     if (pc.signalingState === 'closed') {
                         window.clearInterval(self.stats_interval);
+                        let mos_report = self.getMOSReport();
+                        trace('mos_report', mos_report.last, null, mos_report);
                         return;
                     }
                     pc.getStats(null).then((res) => {
-                        if (isCallback) {
-                            let mos = RTCStats.getMos(res);
-                            trace('mos', mos, res);
-                        } else {
-                            var now = RTCStats.map2obj(res);
-                            var base = JSON.parse(JSON.stringify(now)); // our new prev
-                            trace('getstats', id, RTCStats.deltaCompression(prev, now));
-                            prev = base;
-                        }
+                        let mos = self.getMos(res);
+                        trace('mos', mos, res);
                     });
                 }, getStatsInterval);
-
                 return pc;
             };
-            // wrap static methods. Currently just generateCertificate.
-            if (origPeerConnection.generateCertificate) {
-                Object.defineProperty(peerconnection, 'generateCertificate', {
-                    get: function() {
-                        return arguments.length ?
-                            origPeerConnection.generateCertificate.apply(null, arguments)
-                            : origPeerConnection.generateCertificate;
-                    }
-                });
-            }
-            window[prefix + 'RTCPeerConnection'] = peerconnection;
-            window[prefix + 'RTCPeerConnection'].prototype = origPeerConnection.prototype;
-        });
-
-        // getUserMedia wrappers
-        prefixesToWrap.forEach(function(prefix) {
-            var name = prefix + (prefix.length ? 'GetUserMedia' : 'getUserMedia');
-            if (!navigator[name]) {
-                return;
-            }
-            var origGetUserMedia = navigator[name].bind(navigator);
-            var gum = function() {
-                trace('getUserMedia', null, arguments[0]);
-                var cb = arguments[1];
-                var eb = arguments[2];
-                origGetUserMedia(arguments[0],
-                    function(stream) {
-                        // we log the stream id, track ids and tracks readystate since that is ended GUM fails
-                        // to acquire the cam (in chrome)
-                        trace('getUserMediaOnSuccess', null, RTCStats.dumpStream(stream));
-                        if (cb) {
-                            cb(stream);
-                        }
-                    },
-                    function(err) {
-                        trace('getUserMediaOnFailure', null, err.name);
-                        if (eb) {
-                            eb(err);
-                        }
-                    }
-                );
-            };
-            navigator[name] = gum.bind(navigator);
-        });
-
-        if (navigator.mediaDevices &amp;&amp; navigator.mediaDevices.getUserMedia) {
-            var origGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
-            var gum = function() {
-                trace('navigator.mediaDevices.getUserMedia', null, arguments[0]);
-                return origGetUserMedia.apply(navigator.mediaDevices, arguments)
-                    .then(function(stream) {
-                        trace('navigator.mediaDevices.getUserMediaOnSuccess', null, RTCStats.dumpStream(stream));
-                        return stream;
-                    }, function(err) {
-                        trace('navigator.mediaDevices.getUserMediaOnFailure', null, err.name);
-                        return Promise.reject(err);
-                    });
-            };
-            navigator.mediaDevices.getUserMedia = gum.bind(navigator.mediaDevices);
+            window['RTCPeerConnection'] = peerconnection;
+            window['RTCPeerConnection'].prototype = origPeerConnection.prototype;
+        } else {
+            RTCStatsReporter(trace, isCallback, getStatsInterval, prefixesToWrap);
         }
     }
-    /**
-     * Transforms a maplike to an object. Mostly for getStats
-     * JSON.parse(JSON.stringify())
-     * @param {Map} map
-     * @returns {object}
-     */
-    static map2obj(m) {
-        if (!m.entries) {
-            return m;
-        }
-        var o = {};
-        m.forEach(function(v, k) {
-            o[k] = v;
-        });
-        return o;
-    }
-    /**
-     * Apply a delta compression to the stats report. Reduces size by ~90%.
-     * To reduce further, report keys could be compressed.
-     * @param {Stats} oldStats
-     * @param {Stats} newStats
-     */
-    static deltaCompression(oldStats, newStats) {
-        newStats = JSON.parse(JSON.stringify(newStats));
-        Object.keys(newStats).forEach(function(id) {
-            if (!oldStats[id]) {
-                return;
-            }
-            var report = newStats[id];
-            Object.keys(report).forEach(function(name) {
-                if (report[name] === oldStats[id][name]) {
-                    delete newStats[id][name];
-                }
-                delete report.timestamp;
-                if (Object.keys(report).length === 0) {
-                    delete newStats[id];
-                }
-            });
-        });
-        // TODO: moving the timestamp to the top-level is not compression but...
-        newStats.timestamp = new Date();
-        return newStats;
-    }
-
-    static dumpStream(stream) {
-        return {
-            id: stream.id,
-            tracks: stream.getTracks().map(function(track) {
-                return {
-                    id: track.id,                 // unique identifier (GUID) for the track
-                    kind: track.kind,             // `audio` or `video`
-                    label: track.label,           // identified the track source
-                    enabled: track.enabled,       // application can control it
-                    muted: track.muted,           // application cannot control it (read-only)
-                    readyState: track.readyState // `live` or `ended`
-                };
-            })
-        };
-    }
-
     disable() {
         if (!this.stats_interval) {
             throw new Error('rtc stats not enabled');
@@ -358,7 +82,7 @@ class RTCStats {
         }
     }
 
-    static getMos(report) {
+    getMos(report) {
         let jitter_time = 0;
         let recv_pkts = 0;
         let lost_pkts = 0;
@@ -392,7 +116,41 @@ class RTCStats {
             r_value = 1;
         }
         mos = 1 + (0.035) * r_value + (0.000007) * r_value * (r_value - 60) * (100 - r_value);
-        return parseFloat(mos).toFixed(6);
+        this.updateMOSReport(mos);
+        return RTCStats.normaliseFloat(mos);
+    }
+    /**
+     * Update the mos_report object
+     * @param {number} mos the MOS score
+     * @returns {object} the report object
+     */
+    updateMOSReport(mos) {
+        this._reportsCount++;
+        this._mosSum += mos;
+        this.mos_report.last = mos;
+        this.mos_report.min = (mos &lt; this.mos_report.min) ? mos : this.mos_report.min;
+        this.mos_report.max = (mos > this.mos_report.max) ? mos : this.mos_report.max;
+        this.mos_report.average = this._mosSum / this._reportsCount;
+        return this.mos_report;
+    }
+    /**
+     * Update the MOS report object
+     * mos_report.min - the minimum MOS value during the stream
+     * mos_report.max - the maximum MOS value during the stream
+     * mos_report.last - the last MOS value during the stream
+     * mos_report.average - the average MOS value during the stream
+     * @returns {Object} mos_report - a report for the MOS values
+     *
+     */
+    getMOSReport() {
+        this.mos_report.min = RTCStats.normaliseFloat(this.mos_report.min);
+        this.mos_report.max = RTCStats.normaliseFloat(this.mos_report.max);
+        this.mos_report.last = RTCStats.normaliseFloat(this.mos_report.last);
+        this.mos_report.average = RTCStats.normaliseFloat(this.mos_report.average);
+        return this.mos_report;
+    }
+    static normaliseFloat(value) {
+        return parseFloat(value).toFixed(6);
     }
 
 }
@@ -407,13 +165,13 @@ module.exports = RTCStats;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 30 2018 11:44:59 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Sep 19 2018 16:25:56 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

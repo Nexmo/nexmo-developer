@@ -7,6 +7,9 @@ class MarkdownController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:preview]
 
   def show
+    redirect = Redirector.find(request)
+    return redirect_to redirect if redirect
+
     @frontmatter = YAML.safe_load(document)
 
     raise Errno::ENOENT if @frontmatter['redirect']
