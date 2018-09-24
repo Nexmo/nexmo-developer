@@ -216,7 +216,7 @@
 
             
 
-            <td class="description last">the index of the streams, updated in each new peer offer</td>
+            <td class="description last">the latest index of the streams, updated in each new peer offer</td>
         </tr>
 
     
@@ -542,6 +542,8 @@
 
 <div class="description">
     Disable media particiaption in the conversation for this application
+if RtcStats MOS is enabled, a final report will be available in
+ConversationClient#rtcstats:report
 </div>
 
 
@@ -585,7 +587,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1193">line 1193</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1203">line 1203</a>
     </li></ul></dd>
     
 
@@ -1011,7 +1013,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line966">line 966</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line972">line 972</a>
     </li></ul></dd>
     
 
@@ -1197,7 +1199,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1290">line 1290</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1296">line 1296</a>
     </li></ul></dd>
     
 
@@ -1441,12 +1443,10 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
             
                 <td class="default">
                 
-                    0
-                
                 </td>
             
 
-            <td class="description last">stream id to set - relevant only in video conversation</td>
+            <td class="description last">stream id to set - if it's not set all streams will be muted</td>
         </tr>
 
     
@@ -1487,7 +1487,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line857">line 857</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line859">line 859</a>
     </li></ul></dd>
     
 
@@ -1588,7 +1588,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1320">line 1320</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1326">line 1326</a>
     </li></ul></dd>
     
 
@@ -1905,7 +1905,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1259">line 1259</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1265">line 1265</a>
     </li></ul></dd>
     
 
@@ -2204,7 +2204,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1220">line 1220</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1226">line 1226</a>
     </li></ul></dd>
     
 
@@ -2313,7 +2313,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1355">line 1355</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1361">line 1361</a>
     </li></ul></dd>
     
 
@@ -2433,7 +2433,7 @@ console.log("ringing");
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1390">line 1390</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1396">line 1396</a>
     </li></ul></dd>
     
 
@@ -2511,13 +2511,13 @@ console.log("ringing stopped");
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 30 2018 11:45:00 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Sep 19 2018 16:25:56 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
