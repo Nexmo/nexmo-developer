@@ -7,7 +7,7 @@ dependencies:
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/RecordConversation.java
     from_line: 34
-    to_line: 63
+    to_line: 65
 run_command: java-ide
 file_name: RecordConversation.java
 unindent: true
