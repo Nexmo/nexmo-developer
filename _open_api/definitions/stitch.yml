@@ -52,6 +52,10 @@ paths:
                   _links:
                     $ref: '#/components/schemas/_links_conversations_list'
                   _embedded:
+                    description: >-
+                        A list of conversation objects. See the
+                        [get details of a specific conversation](#retrieveConversation)
+                        response fields for a description of the nested objects
                     type: object
                     properties:
                       conversations:
@@ -115,7 +119,7 @@ paths:
                   sequence_number:
                     type: string
                     example: '1'
-                    description: the last event id
+                    description: The last Event ID in this conversation. This ID can be used to [retrieve a specific event](#getEvent)
                   members:
                     type: array
                     description: Users associated to this conversation as members
@@ -138,6 +142,7 @@ paths:
                           $ref: '#/components/schemas/channel'
                   api_key:
                     type: string
+                    description: The API key for your account
                   _links:
                     $ref: '#/components/schemas/_links_conversation'
                 required:
@@ -204,7 +209,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/event_retrived'
+                  $ref: '#/components/schemas/event_retrieved'
   '/conversations/{conversation_id}/events/{event_id}':
     parameters:
       - $ref: '#/components/parameters/conversation_id'
@@ -220,7 +225,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/event_retrived'
+                $ref: '#/components/schemas/event_retrieved'
     delete:
       x-swagger-router-controller: deleteEvent
       operationId: deleteEvent
@@ -264,7 +269,7 @@ paths:
       x-swagger-router-controller: members
       operationId: createMember
       x-group: member
-      summary: 'Create a member. A member can be invited or joined to the conversation (param ''action''). '
+      summary: 'Create a member'
       responses:
         '201':
           description: 'Create or invite Member in invite state '
@@ -553,10 +558,12 @@ paths:
                 properties:
                   count:
                     type: number
+                    example: '100'
+                    description: The total number of records returned by your request.
                   page_size:
-                    type: number
+                    $ref: '#/components/schemas/page_size'
                   record_index:
-                    type: number
+                    $ref: '#/components/schemas/record_index'
                   _links:
                     type: object
                     properties:
@@ -570,6 +577,10 @@ paths:
                     required:
                       - self
                   _embedded:
+                    description: >-
+                        A list of conversation objects. See the
+                        [get details of a specific conversation](#retrieveConversation)
+                        response fields for a description of the nested objects
                     type: object
                     properties:
                       conversations:
@@ -656,13 +667,15 @@ components:
     conversation_id:
       type: string
       example: CON-63f61863-4a51-4f6b-86e1-46edebio0391
-      description: Conversation ID
+      description: The unique identifier for this conversation
     member_id:
       type: string
       example: MEM-63f61863-4a51-4f6b-86e1-46edebio0391
       description: Member ID
     member_action:
       type: string
+      description: Invite or join a member to a conversation
+      example: join
       enum:
         - invite
         - join
@@ -695,7 +708,7 @@ components:
       type: string
       format: url
       example: 'https://api.nexmo.com/beta/converations/CON-63f61863-4a51-4f6b-86e1-46edebio0391'
-      description: A link towards a conversation  included in Conversation Service API
+      description: A link towards a conversation included in Conversation Service API
     href_conversations_list:
       type: string
       format: url
@@ -787,7 +800,7 @@ components:
               $ref: '#/components/schemas/href_conversation'
     page_size:
       type: number
-      description: Page size
+      description: The amount of records returned in this response
       minimum: 1
       maximum: 100
       default: 10
@@ -799,21 +812,24 @@ components:
     timestamp_created:
       type: string
       example: '2020-01-01T14:00:00.00Z'
-      description: time of creation
+      description: Time of creation
     timestamp_leg_start_time:
       type: string
       example: '2020-01-01T14:00:00.00Z'
-      description: time of leg start
+      description: Time of leg start
     timestamp_leg_end_time:
       type: string
       example: '2020-01-01T14:00:00.00Z'
-      description: time of leg end
+      description: Time of leg end
     member_state:
       type: string
-      description: The state that the member is in.
+      description: The state that the member is in. Possible values are `invited`, `joined`, `left`, or `unknown`
+      example: invited
       enum:
         - invited
         - joined
+        - left
+        - unknown
     leg_id:
       type: string
       example: a595959595959595995
@@ -833,6 +849,7 @@ components:
         - websocket
     channel:
       type: object
+      description: When a user joins a conversation as a member, they can have one channel per membership. Channels can be `app`, `phone`, `sip`, or `websocket`
       properties:
         type:
           $ref: '#/components/schemas/channel_type'
@@ -855,7 +872,9 @@ components:
         leg_ids:
           type: array
           items:
-            $ref: '#/components/schemas/leg_id'
+            properties:
+              leg_id:
+                $ref: '#/components/schemas/leg_id'
     media:
       type: object
       description: Media Object
@@ -874,7 +893,7 @@ components:
       description: Event Body
       example:
         text: My Text
-    event_retrived:
+    event_retrieved:
       type: object
       description: Retrieve Events Response Payload Object Item
       properties:
@@ -959,7 +978,7 @@ components:
       name: date_end
       in: query
       required: false
-      description: Return the records that occurred at this point in time.
+      description: Return the records that occurred before this point in time.
       schema:
         example: '2018-01-01 12:00:00'
         type: string
@@ -967,14 +986,14 @@ components:
     page_size:
       name: page_size
       in: query
-      description: Page size param
+      description: Return this amount of records in the response
       required: false
       schema:
         $ref: '#/components/schemas/page_size'
     record_index:
       name: record_index
       in: query
-      description: Start from this index
+      description: Return calls from this index in the response
       required: false
       schema:
         $ref: '#/components/schemas/record_index'
@@ -985,6 +1004,7 @@ components:
       required: false
       schema:
         type: string
+        default: asc
         enum:
           - asc
           - desc
@@ -1063,7 +1083,7 @@ x-groups:
   event:
     name: Event
     order: 4
-    description: 'Events are event related to the events. Each event own to one conversation. Messages sent are '
+    description: 'Events are actions that occur within a conversation. Examples of this includes: Text events from members, or invite events from users'
   leg:
     name: Leg
     order: 5
