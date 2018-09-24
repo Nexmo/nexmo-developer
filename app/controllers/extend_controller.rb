@@ -13,7 +13,7 @@ class ExtendController < ApplicationController
       languages = frontmatter['languages'] || []
       image = frontmatter['image'] || ''
       route = File.basename(document_path, '.*')
-      { title: title, description: description, tags: tags, languages: languages, image: image, route: route }
+      { title: title, description: description, tags: tags, image: image, route: route }
     end
 
     render layout: 'page'
@@ -28,10 +28,9 @@ class ExtendController < ApplicationController
     title = frontmatter['title']
     description = frontmatter['description']
     tags = frontmatter['tags'] || []
-    languages = frontmatter['languages'] || []
     image = frontmatter['image'] || ''
 
-    @extension = { title: title, body: body, image: image, description: description, tags: tags, languages: languages }
+    @extension = { title: title, body: body, image: image, description: description, tags: tags }
 
     render layout: 'page'
   end
