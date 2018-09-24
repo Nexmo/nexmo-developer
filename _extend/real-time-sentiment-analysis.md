@@ -1,7 +1,7 @@
 ---
 title: Real-time Sentiment Analysis with Voicebase
 description: Nexmo Websocket application that stream audio data to Voice for Real-Time sentiment analysis as well as a real-time transcription 
-tags: ["AI"]
+tags: ["Sentiment Analysis", "Transcription", "AI"]
 link: https://github.com/VonageGarage/Nexmo-RTS-Voicebase
 image: ![voicebase](voicebase.png)
 ---
