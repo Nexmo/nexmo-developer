@@ -1,8 +1,8 @@
 ---
-title: Send a message with failover
+title: Send a Facebook message with failover
 ---
 
-# Send a message with failover
+# Send a Facebook message with failover
 
 In this example you will send a Facebook Messenger message that fails over to sending an SMS. In the Workflow object message objects can be placed in any order to suit your use case. Each message object must contain a failover object, except for the last message, as there are no more message objects to failover to.
 
@@ -21,7 +21,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ```building_blocks
-source: '_examples/olympus/send-message-with-failover'
+source: '_examples/olympus/send-facebook-message-with-failover'
 application:
   name: 'Send a message with failover'
 ```

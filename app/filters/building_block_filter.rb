@@ -38,7 +38,7 @@ class BuildingBlockFilter < Banzai::Filter
       erb = File.read("#{Rails.root}/app/views/building_blocks/_write_code.html.erb")
       code_html = ERB.new(erb).result(binding)
 
-      run_html = @renderer.run_command(config['run_command'], config['file_name'])
+      run_html = @renderer.run_command(config['run_command'], config['file_name'], config['code']['source'])
 
       prereqs = (application_html + dependency_html + client_html).strip
       prereqs = "<h2>Prerequisites</h2>#{prereqs}" unless prereqs.empty?

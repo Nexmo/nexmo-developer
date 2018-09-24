@@ -81,6 +81,8 @@ Key | Description
 
 ### Example
 
-```tabbed_examples
-config: 'messages_and_workflows_apis.workflows.send-failover-sms-facebook'
+```building_blocks
+source: '_examples/olympus/send-facebook-message-with-failover'
+application:
+  name: 'Send a Facebook message with failover to SMS'
 ```
