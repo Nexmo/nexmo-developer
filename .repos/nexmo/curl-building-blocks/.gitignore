@@ -1,1 +1,4 @@
 config.local.sh
+private.key
+_config.sh
+.nexmo-app
