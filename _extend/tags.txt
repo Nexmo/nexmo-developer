@@ -7,3 +7,5 @@
 "SMS"
 "Watson"
 "Sentiment Analysis"
+"Voicebase"
+"Google"
