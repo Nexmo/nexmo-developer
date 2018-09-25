@@ -4,7 +4,7 @@ title: Overview
 
 # Workflows API Overview
 
-The Workflows API enables the developer to send messages to users using a multiple channel strategy. 
+The Workflows API enables the developer to send messages to users using a multiple channel strategy.
 
 An example workflow might specify a message to be sent a message via Facebook Messenger, and if that message is not read then the user can be sent a message via Viber. If that message is also not read a user could then be sent a message via SMS.
 
@@ -12,7 +12,7 @@ The Workflows API provides the mechanism by which to order messages and specify 
 
 In this release you can:
 
-* **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
+* **Send** SMS, Facebook Messenger, WhatsApp, and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
 * **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
 
 The condition status is the status that the message returns. With Facebook Messenger and Viber Service Messages, you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
@@ -33,40 +33,8 @@ Nexmo always welcomes your feedback. Your suggestions help us improve the produc
 
 The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
-```
-curl -X POST https://api.nexmo.com/beta/workflows \
-  -u 'NEXMO_API_KEY:NEXMO_API_SECRET' \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -d $'{
-    "template":"failover",
-    "workflow": [
-      {
-        "from": { "type": "messenger", "id": "SENDER_ID" },
-        "to": { "type": "messenger", "id": "RECIPIENT_ID" },
-        "message": {
-          "content": {
-            "type": "text",
-            "text": "This is a Facebook Messenger Message sent from the Workflows API"
-          }
-        },
-        "failover":{
-          "expiry_time": 600,
-          "condition_status": "read"
-        }
-      },
-      {
-        "from": {"type": "sms", "number": "FROM_NUMBER"},
-        "to": { "type": "sms", "number": "TO_NUMBER"},
-        "message": {
-          "content": {
-            "type": "text",
-            "text": "This is an SMS sent from the Workflows API"
-          }
-        }
-      }
-    ]
-  }'
+```building_blocks
+source: '_examples/olympus/send-message-with-failover-basic-auth'
 ```
 
 In the above example code you will need to replace the following variables with actual values:

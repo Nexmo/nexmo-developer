@@ -15,7 +15,6 @@ paths:
         - basicAuth: []
       summary: Send a Message
       operationId: NewMessage
-      x-code-example-path: messages_and_workflows_apis.messages.send-sms
       x-group: message
       requestBody:
         description: Send a Message.

@@ -17,18 +17,22 @@ API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web
 [Developer](/api/developer) | ✅ | ❎ | ❎| ❎
 [Messages](/api/messages-and-workflows-apis/messages) | ❎ | ✅ | ✅| ❎
 [Workflows](/api/messages-and-workflows-apis/workflows) | ❎ | ✅ | ✅| ❎
+[Audit](/api/audit) | ❎ | ✅ | ❎ | ❎
 
 ## Contents
 
 In this document you can learn about authentication via the following means:
 
-* [API Key and Secret](#api-key-secret)
-  * [Request Body](#request-body)
-  * [Query String](#query-string)
-  * [Header-based](#header-based-api-key-and-secret-authentication)
-  * [Secret Rotation](#secret-rotation)
-* [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
-* [OAuth](#oauth)
+- [Authentication](#authentication)
+  - [Contents](#contents)
+  - [API Key and Secret](#api-key-and-secret)
+    - [Request Body](#request-body)
+    - [Query String](#query-string)
+    - [Header-based API Key and Secret Authentication](#header-based-api-key-and-secret-authentication)
+    - [Secret Rotation](#secret-rotation)
+  - [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
+  - [OAuth](#oauth)
+  - [References](#references)
 
 ## API Key and Secret
 

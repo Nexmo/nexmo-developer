@@ -1,11 +1,12 @@
 <div class="masonry" data-turbolinks="false">
   <% @tutorials.each_with_index do |tutorial, index| %>
     <div class="item">
-      <a href="<%= tutorial.path %>" class="card card--with-icon">
+      <a href="<%= tutorial.path %>" class="card card--with-icon" <%= tutorial.external_link ? 'target="blank"': '' %>>
         <h2>
           <span class="unstyled spacious">
             <small><i><%= tutorial.subtitle %></i></small>
             <%= tutorial.title %>
+            <span class="<%= tutorial.external_link ? 'icon-external-link' : '' %>">&nbsp;</span>
           </span>
         </h2>
 
