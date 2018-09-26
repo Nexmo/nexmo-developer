@@ -83,4 +83,4 @@ product: messages-and-workflows-apis/workflows
 
 ## Reference
 
-* [Workflows API Reference](/api/messages-and-workflows-apis/messages)
+* [Workflows API Reference](/api/messages-and-workflows-apis/workflows)
