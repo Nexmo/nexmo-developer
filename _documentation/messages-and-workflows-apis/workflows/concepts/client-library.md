@@ -5,9 +5,9 @@ navigation_weight: 1
 
 # Nexmo client library support
 
-In addition to using the Messages and Workflows API via HTTP, the Nexmo Node client library also provides support.
+In addition to being able to use Messages and Workflows via the REST APIs, Nexmo also provides client library support. Currently client library support is only available for Node.
 
-During the Developer Preview the Node client library with support for the Messages and Workflows API can be installed using:
+During the Developer Preview the Node client library containing support for the Messages and Workflows API can be installed using:
 
 ```
 $ npm install nexmo@beta
@@ -23,3 +23,9 @@ Key | Description
 `NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to the `private.key` file that was generated when you created your Nexmo Application.
 
 These variables can then be replaced with actual values in the client library example code.
+
+Further examples on using the client library can be found here:
+
+```building_block_list
+product: messages-and-workflows-apis/workflows
+```
