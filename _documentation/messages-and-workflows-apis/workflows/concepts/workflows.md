@@ -1,6 +1,7 @@
 ---
 title: What is a workflow?
 navigation_weight: 1
+description: Workflows help you to build a robust messaging plan that incorporates failover to a secondary channel.
 ---
 
 # What is a workflow?
