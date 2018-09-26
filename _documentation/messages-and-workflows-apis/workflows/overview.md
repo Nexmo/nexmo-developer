@@ -10,16 +10,20 @@ An example workflow might specify a message to be sent a message via Facebook Me
 
 The Workflows API provides the mechanism by which to order messages and specify their _success conditions_. The Workflows API uses the Messages API to actually send the messages.
 
-In this release you can:
-
-* **Send** SMS, Facebook Messenger, WhatsApp, and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
-* **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
-
-The condition status is the status that the message returns. With Facebook Messenger and Viber Service Messages, you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
 
 The following diagram illustrates the relationship between the Workflows API and the Messages API:
 
 ![Messages and Workflows Overview](/assets/images/messages-workflows-overview.png)
+
+## Contents
+
+* [Developer Preview](#developer-preview)
+* [Supported features](#supported-features)
+* [Getting started](#getting-started)
+* [Concepts](#concepts)
+* [Building Blocks](#building-blocks)
+* [Tutorials](#tutorials)
+* [Reference](#reference)
 
 ## Developer Preview
 
@@ -29,15 +33,18 @@ In this release Nexmo provides a failover template. The failover template instru
 
 Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
+## Supported features
+
+In this release you can:
+
+* **Send** SMS, Facebook Messenger, WhatsApp, and Viber Service Messages with Workflows built on-top of the [Messages API](/messages-and-workflows-apis/messages/overview).
+* **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
+
+The condition status is the status that the message returns. With Facebook Messenger and Viber Service Messages, you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
+
 ## Getting started
 
-The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
-
-```building_blocks
-source: '_examples/olympus/send-message-with-failover-basic-auth'
-```
-
-In the above example code you will need to replace the following variables with actual values:
+In the following example code you will need to replace the following variables with actual values by any convenient method:
 
 Key | Description
 -- | --
@@ -50,27 +57,30 @@ Key | Description
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
-### Run the code
+The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
-The example code will send a message via Facebook Messenger and if not read within the expiry time an SMS will be sent.
-
-## Nexmo Node library support
-
-In addition to using the Messages and Workflows API via HTTP, the Nexmo Node client library also provides support. 
-
-During the Developer Preview the Node client library with support for the Messages and Workflows API can be installed using:
-
-```
-$ npm install nexmo@beta
+```building_blocks
+source: '_examples/olympus/send-message-with-failover-basic-auth'
 ```
 
-If you decide to use the client library you will need the following information:
+## Concepts
 
-Key | Description
--- | --
-`NEXMO_API_KEY` | The Nexmo API key which you can obtain from your [Nexmo Dashboard](https://dashboard.nexmo.com).
-`NEXMO_API_SECRET` | The Nexmo API secret which you can obtain from your [Nexmo Dashboard](https://dashboard.nexmo.com).
-`NEXMO_APPLICATION_ID` | The Nexmo Application ID for your Nexmo Application which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
-`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to the `private.key` file that was generated when you created your Nexmo Application.
+```concept_list
+product: messages-and-workflows-apis/workflows
+```
 
-These variables can then be replaced with actual values in the client library example code.
+## Building Blocks
+
+```building_block_list
+product: messages-and-workflows-apis/workflows
+```
+
+## Tutorials
+
+```tutorials
+product: messages-and-workflows-apis/workflows
+```
+
+## Reference
+
+* [Workflows API Reference](/api/messages-and-workflows-apis/messages)

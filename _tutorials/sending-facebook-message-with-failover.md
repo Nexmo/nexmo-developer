@@ -1,13 +1,19 @@
 ---
-title: SMS Messages
-navigation_weight: 1
+title: Sending a Facebook message with failover
+products: messages-and-workflows-apis/workflows
+description: The Workflows API provides the ability to create message workflows with failover to secondary channels. This tutorial looks at using the Workflows API to send a Facebook message with failover to the SMS channel.
+languages:
+    - Curl
+    - Node
 ---
 
-# SMS Messages
+# Sending a Facebook message with failover
 
-In this guide you will see how to send an SMS. The same steps taken here can be easily modified to send a message across Viber Service Messages, Facebook Messenger and future channels that Nexmo might add.
+This tutorial shows you how to use the failover functionality of the Workflows API.
 
-## 1. Configure your Webhook URLs
+The example Workflow given here will attempt to send a Facebook message using the Messages API, and if this fails it then attempts to send an SMS message to the user using the Messages API.
+
+## Configure your Webhook URLs
 
 If you intend to receive inbound messages you will need to configure an Inbound Message Webhook URL.
 
@@ -35,7 +41,7 @@ Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
 
 > **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
-## 2. Create a Nexmo Application
+## Create a Nexmo Application
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
@@ -45,11 +51,11 @@ When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https
 
 Make a note of the Nexmo Application ID for the created application.
 
-## 3. Generate a JWT
+## Generate a JWT
 
 Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
 
-> **TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
+**TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
 
 If you're using the Nexmo CLI the command to create the JWT is:
 
@@ -60,25 +66,28 @@ $ echo $JWT
 
 This JWT will be valid for fifteen minutes. After that, you will need to generate a new one.
 
-> **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
+**TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
 
-## 4. Send an SMS message with the Messages API
+## Send a message with failover
 
-Sending an SMS message with the Messages API can be done with one API call, authenticated using the JWT you just created.
+Sending an message with failover to another channel is achieved by making a single request to the Workflows API endpoint.
 
-In the example code below you will need to replace the following variables with actual values:
+In this example you will implement the following workflow:
+
+1. Send a Facebook Messenger message to the user using the Messages API.
+2. If the failover condition is met proceed to the next step. In this example the failover condition is the message not being read.
+3. Send an SMS to the user using the Messages API.
 
 Key | Description
 -- | --
-`FROM_NUMBER` | The phone number you are sending the message from.
-`TO_NUMBER` | The phone number you are sending the message to.
+`FROM_NUMBER` | The phone number you are sending the message from. **Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.**
+`SENDER_ID` | Your Page ID. The `SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+`RECIPIENT_ID` | The PSID of the user you want to reply to. The `RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 
-> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
-
-### Example
+## Example
 
 ```building_blocks
-source: '_examples/olympus/send-sms'
+source: '_examples/olympus/send-facebook-message-with-failover'
 application:
-  name: 'Send an SMS'
+  name: 'Send a Facebook message with failover to SMS'
 ```

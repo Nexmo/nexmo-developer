@@ -1,9 +1,13 @@
 ---
-title: Facebook Messenger
-navigation_weight: 2
+title: Sending Facebook Messenger messages with Messages API
+products: messages-and-workflows-apis/messages
+description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the Facebook Messenger channel using the Messages API.
+languages:
+    - Curl
+    - Node
 ---
 
-# Facebook Messenger
+# Sending Facebook Messenger messages with Messages API
 
 You can use the Messages API to send and receive messages using Facebook Messenger.
 
@@ -24,14 +28,14 @@ You can then test things by sending a message as a Facebook User to your own Fac
 
 The following steps show you how to send a Facebook Messenger message using the Messages API.
 
-## 1. Setup a Facebook Page
+## Setup a Facebook Page
 
 To use the Messages API with Facebook Messenger you must have a Facebook Account and a Facebook Page.
 
 * [How do I create a Facebook Account?](https://en-gb.facebook.com/help/570785306433644/?helpref=hc_fnav)
 * [How do I create a Facebook Page?](https://en-gb.facebook.com/help/104002523024878?helpref=about_content)
 
-## 2. Create a Nexmo Application
+## Create a Nexmo Application
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
@@ -41,7 +45,7 @@ When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https
 
 Make a note of the Nexmo Application ID for the created application.
 
-## 3. Generate a JWT
+## Generate a JWT
 
 Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
 
@@ -62,7 +66,7 @@ Remember that by default JWTs only last fifteen minutes.
 
 > **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
 
-## 4. Link your Facebook Page to Nexmo
+## Link your Facebook Page to Nexmo
 
 Next you'll need to link your Facebook Page to Nexmo. This will allow Nexmo to handle the inbound messages and allow you to send messages from the Nexmo Messages API. This process needs to be authenticated by JWT. You will need to paste in the JWT you created in the previous step when prompted.
 
@@ -70,7 +74,7 @@ Click the following link when you have your JWT pasted to the clipboard and you 
 
 * [Link your Facebook Page to Nexmo](https://static.nexmo.com/messenger/)
 
-## 5. Configure your Webhook URLs
+## Configure your Webhook URLs
 
 If you have not already done so, you will need to configure the Inbound Message Webhook and Delivery Receipt Webhook URLs.
 
@@ -96,7 +100,7 @@ Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
 
 > **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
-## 6. Receive a message
+## Receive a message
 
 When a message is sent to your Facebook Page an event will be sent to your Inbound Message Webhook URL. An example event is shown here:
 
@@ -121,9 +125,9 @@ When a message is sent to your Facebook Page an event will be sent to your Inbou
 }
 ```
 
-## 7. Reply to a message
+## Reply to a message
 
-You can use the Messages API to respond to the inbound message received from the Facebook User. 
+You can use the Messages API to respond to the inbound message received from the Facebook User.
 
 Replace the following variables in the example below with actual values:
 
@@ -132,7 +136,7 @@ Key | Description
 `SENDER_ID` | Your Page ID. The `SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 `RECIPIENT_ID` | The PSID of the user you want to reply to. The `RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 
-### Example
+## Example
 
 ```building_blocks
 source: '_examples/olympus/send-facebook-message'

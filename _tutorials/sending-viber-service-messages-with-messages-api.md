@@ -1,14 +1,25 @@
 ---
-title: Using Failover
+title: Sending Viber Service messages with Messages API
+products: messages-and-workflows-apis/messages
+description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the Viber Service channel using the Messages API.
+languages:
+    - Curl
+    - Node
 ---
 
-# Using failover
+# Sending Viber Service messages with Messages API
 
-This guide shows you how to use the failover functionality of the Workflows API.
+You can use the Messages API to send outbound Viber Service Messages to Viber Users.
 
-The example Workflow given here will attempt to send a Facebook message using the Messages API, and if this fails it then attempts to send an SMS message to the user using the Messages API.
+Viber Service Messages can only be sent by businesses that have been approved by Viber. This business profile will also have a green check to indicate that it is a legitimate business.
 
-## 1. Configure your Webhook URLs
+The advantage of Viber Service Messages is that the identifier of users on the platform is their mobile phone number. The business accounts are limited to only outbound messages to the customer. This means there is no way for a customer to respond and means that you don't need to worry about dealing with inbound messages.
+
+In order to get started with Viber Service Messages you will need to email [sales@nexmo.com](mailto:sales@nexmo.com). Nexmo is an official partner and will handle the application and creation of your Viber Service Messages account for you.
+
+If successful, your account manager will provide you with a Viber Service Messages ID. This ID can only be used on Nexmo.
+
+## Configure your Webhook URLs
 
 If you intend to receive inbound messages you will need to configure an Inbound Message Webhook URL.
 
@@ -36,7 +47,7 @@ Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
 
 > **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
-## 2. Create a Nexmo Application
+## Create a Nexmo application
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
@@ -46,11 +57,11 @@ When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https
 
 Make a note of the Nexmo Application ID for the created application.
 
-## 3. Generate a JWT
+## Generate a JWT
 
 Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
 
-**TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
+> **TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
 
 If you're using the Nexmo CLI the command to create the JWT is:
 
@@ -61,28 +72,22 @@ $ echo $JWT
 
 This JWT will be valid for fifteen minutes. After that, you will need to generate a new one.
 
-**TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
+> **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
 
-## 4. Send a message with failover
-
-Sending an message with failover to another channel is achieved by making a single request to the Workflows API endpoint.
-
-In this example you will implement the following workflow:
-
-1. Send a Facebook Messenger message to the user using the Messages API.
-2. If the failover condition is met proceed to the next step. In this example the failover condition is the message not being read.
-3. Send an SMS to the user using the Messages API.
+## Send a message
 
 Key | Description
 -- | --
-`FROM_NUMBER` | The phone number you are sending the message from. **Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.**
-`SENDER_ID` | Your Page ID. The `SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
-`RECIPIENT_ID` | The PSID of the user you want to reply to. The `RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+`NEXMO_APPLICATION_ID` | The ID of the Nexmo Application that you created.
+`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
+`TO_NUMBER` | The phone number you are sending the message to.
 
-### Example
+> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
+
+## Example
 
 ```building_blocks
-source: '_examples/olympus/send-facebook-message-with-failover'
+source: '_examples/olympus/send-viber-message'
 application:
-  name: 'Send a Facebook message with failover to SMS'
+  name: 'Send a Viber message'
 ```

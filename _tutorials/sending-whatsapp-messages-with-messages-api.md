@@ -1,9 +1,13 @@
 ---
-title: WhatsApp
-navigation_weight: 4
+title: Sending WhatsApp messages with Messages API
+products: messages-and-workflows-apis/messages
+description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the WhatsApp channel using the Messages API.
+languages:
+    - Curl
+    - Node
 ---
 
-# WhatsApp
+# Sending WhatsApp messages with Messages API
 
 You can use the Messages API to exchange messages with WhatsApp users.
 
