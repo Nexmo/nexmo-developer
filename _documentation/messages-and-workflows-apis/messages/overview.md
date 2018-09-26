@@ -60,7 +60,7 @@ WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
 
 ## Getting started
 
-In the following example you will need to replace the following variable with actual values using any convenient method:
+In this example you will need to replace the following variables with actual values using any convenient method:
 
 Key | Description
 -- | --

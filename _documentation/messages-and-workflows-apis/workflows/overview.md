@@ -10,7 +10,6 @@ An example workflow might specify a message to be sent a message via Facebook Me
 
 The Workflows API provides the mechanism by which to order messages and specify their _success conditions_. The Workflows API uses the Messages API to actually send the messages.
 
-
 The following diagram illustrates the relationship between the Workflows API and the Messages API:
 
 ![Messages and Workflows Overview](/assets/images/messages-workflows-overview.png)
@@ -44,7 +43,7 @@ The condition status is the status that the message returns. With Facebook Messe
 
 ## Getting started
 
-In the following example code you will need to replace the following variables with actual values by any convenient method:
+In this example you will need to replace the following variables with actual values using any convenient method:
 
 Key | Description
 -- | --
