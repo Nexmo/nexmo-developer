@@ -7,7 +7,7 @@ There are at least two webhooks you may need to configure:
 
 If you want to receive inbound messages you will need to configure an Inbound Message Webhook URL. When an inbound message is received this webhook URL will be invoked with the message payload.
 
-If you wish to get a status update on a sent message, such as received or read, then you will need to configure the delivery receipt webhook.
+If you wish to get a status update on a sent message, such as `delivered`, `rejected` or `accepted`, then you will need to configure the delivery receipt webhook.
 
 ### To configure the webhook URLs
 
