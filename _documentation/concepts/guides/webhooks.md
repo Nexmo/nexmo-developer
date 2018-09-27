@@ -72,7 +72,7 @@ You can also check the Building Blocks section of the documentation for the API 
 
 ## Using Ngrok for local development
 
-Webhooks are an unusual situation for developers; often you will work on local platforms while you're getting the details worked out, but when using webhooks your webhook URLs must be publicly accessible in order for Nexmo or another service to access them. One way to work around this problem is to use a free tool called (Ngrok)[https://ngrok.com/]. Ngrok creates a secure tunnel to your locally-running application from the outside world. To get started with Ngrok, follow these steps:
+Webhooks are an unusual situation for developers; often you will work on local platforms while you're getting the details worked out, but when using webhooks your webhook URLs must be publicly accessible in order for Nexmo or another service to access them. One way to work around this problem is to use a free tool called [Ngrok](https://ngrok.com/). Ngrok creates a secure tunnel to your locally-running application from the outside world. To get started with Ngrok, follow these steps:
 
 1. Download and install Ngrok using the [instructions](https://ngrok.com/download) for your platform.
 2. Start your webserver running locally, and check which port it uses (for example, if you usually use <http://localhost:3000> to access your application, then the port is 3000).
