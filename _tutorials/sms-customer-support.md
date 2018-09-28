@@ -20,8 +20,8 @@ To do this:
 
 * [Create a basic web app](#a-basic-web-application) - create a basic web application with a link to open a support ticket.
 * [Purchase a number](#purchase-a-phone-number) - purchase a Nexmo phone number to send SMS and receive inbound SMS
-* [Process an inbound SMS](#process-inbound-sms) - accept and process inbound SMS received from the customer
-* [Send an SMS reply with a ticket number](#reply-with-a-ticket-number) - reply with a new ticket number when a ticket is opened
+* [Process an inbound SMS](#process-an-inbound-sms) - accept and process inbound SMS received from the customer
+* [Send an SMS reply with a ticket number](#send-an-sms-reply-with-a-ticket-number) - reply with a new ticket number when a ticket is opened
 
 ## Prerequisites
 
@@ -100,11 +100,12 @@ Number updated
 
 > *Note*: Ensure your server is running and publicly available before trying to set up a new callback URL for webhooks. When you are setting up a new webhook Nexmo will make a call to your server to confirm it's available.*
 
-## Process an SMS
+⚓ Process an SMS
+## Process an Inbound SMS
 
 When the customer sends their SMS it will be received by Nexmo via the mobile carrier network. Nexmo will subsequently make a webhook to your application.
 
-This webhook will contain the original text sent, the phone number the message came from, and a few more parameters. For more details see the [Inbound Message](/api/sms#inbound-messages) documentation.
+This webhook will contain the original text sent, the phone number the message came from, and a few more parameters. For more details see the [Inbound Message](/api/sms#inbound-sms) documentation.
 
 Your app should process the incoming webhook, extract the text and number, open a new ticket, or update an existing ticket. If this is a customer's first request the app should send a confirmation message back to the customer with their ticket number.
 
@@ -158,7 +159,7 @@ gem 'dotenv-rails'
 
 > *Note*: To initialize the Nexmo client library you will need to pass it your [API key and secret](https://dashboard.nexmo.com/settings). We highly recommend that you do not store your API credentials in your code but to use environment variables instead.*
 
-With the library initialized the application can now make an [SMS Request](/api/sms#request). Only send a response if this was the first message on this ticket.
+With the library initialized the application can now [send an SMS](/api/sms#send-an-sms). Only send a response if this was the first message on this ticket.
 
 ```ruby
 def send_response
