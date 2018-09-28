@@ -1,9 +1,13 @@
 ---
-title: WhatsApp
-navigation_weight: 4
+title: Sending WhatsApp messages with Messages API
+products: messages-and-workflows-apis/messages
+description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the WhatsApp channel using the Messages API.
+languages:
+    - Curl
+    - Node
 ---
 
-# WhatsApp
+# Sending WhatsApp messages with Messages API
 
 You can use the Messages API to exchange messages with WhatsApp users.
 
@@ -83,7 +87,7 @@ The following are some important additional considerations:
 * If your customer initiates messaging with you, WhatsApp will not charge you for any messages (including MTMs) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which WhatsApp will charge you.
 * **Exclusions**: The WhatsApp Business Solution may not be used to send any messages to or from the following countries and regions: Crimea, Cuba, Iran, North Korea, and Syria.
 
-## 1. Configure your Webhook URLs
+## Configure your Webhook URLs
 
 If you intend to receive inbound messages you will need to configure an Inbound Message Webhook URL.
 
@@ -111,7 +115,7 @@ Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
 
 > **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
-## 2. Create a Nexmo application
+## Create a Nexmo application
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
@@ -121,7 +125,7 @@ When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https
 
 Make a note of the Nexmo Application ID for the created application.
 
-## 3. Generate a JWT
+## Generate a JWT
 
 Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
 
@@ -138,7 +142,7 @@ This JWT will be valid for fifteen minutes. After that, you will need to generat
 
 > **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
 
-## 4. Send a message
+## Send a message
 
 Please note that free form text messages can only be sent when a customer sends a message to the business first. The business has up to 24 hours from the last moment the customer messages to send a free form message back. After that period a MTM needs to be used.
 

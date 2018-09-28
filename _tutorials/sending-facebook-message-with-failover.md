@@ -1,14 +1,19 @@
 ---
-title: Using Failover
+title: Sending a Facebook message with failover
+products: messages-and-workflows-apis/workflows
+description: The Workflows API provides the ability to create message workflows with failover to secondary channels. This tutorial looks at using the Workflows API to send a Facebook message with failover to the SMS channel.
+languages:
+    - Curl
+    - Node
 ---
 
-# Using failover
+# Sending a Facebook message with failover
 
-This guide shows you how to use the failover functionality of the Workflows API.
+This tutorial shows you how to use the failover functionality of the Workflows API.
 
 The example Workflow given here will attempt to send a Facebook message using the Messages API, and if this fails it then attempts to send an SMS message to the user using the Messages API.
 
-## 1. Configure your Webhook URLs
+## Configure your Webhook URLs
 
 If you intend to receive inbound messages you will need to configure an Inbound Message Webhook URL.
 
@@ -36,7 +41,7 @@ Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
 
 > **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
-## 2. Create a Nexmo Application
+## Create a Nexmo Application
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
@@ -46,7 +51,7 @@ When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https
 
 Make a note of the Nexmo Application ID for the created application.
 
-## 3. Generate a JWT
+## Generate a JWT
 
 Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
 
@@ -63,7 +68,7 @@ This JWT will be valid for fifteen minutes. After that, you will need to generat
 
 **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
 
-## 4. Send a message with failover
+## Send a message with failover
 
 Sending an message with failover to another channel is achieved by making a single request to the Workflows API endpoint.
 
@@ -79,7 +84,7 @@ Key | Description
 `FB_SENDER_ID` | Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 `FB_RECIPIENT_ID` | The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 
-### Example
+## Example
 
 ```building_blocks
 source: '_examples/olympus/send-facebook-message-with-failover'
