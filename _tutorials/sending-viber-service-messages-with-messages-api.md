@@ -19,60 +19,30 @@ In order to get started with Viber Service Messages you will need to email [sale
 
 If successful, your account manager will provide you with a Viber Service Messages ID. This ID can only be used on Nexmo.
 
-## Configure your Webhook URLs
-
-If you intend to receive inbound messages you will need to configure an Inbound Message Webhook URL.
-
-To receive updates about the status of a message, such as "delivered" or "read", you need to configure a Delivery Receipt Webhook URL.
-
-If you don't have a webhook server set up, you can use a service like [Ngrok](https://ngrok.com/) for testing purposes. If you've not used Ngrok before you can find out more in our [Ngrok tutorial](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
-
-> **TIP:** If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
-
-From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
-
-Enter your Webhook URLs in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
-
-```screenshot
-script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/dashboardSettings.png
+```partial
+source: _partials/olympus/prereqs.md
 ```
 
-The values you enter for webhook URLs depends on where your webhook server is located. If your server was running on port 9000 on `example.com` your webhook URLs might be:
+## The steps
 
-Webhook | URL
----|---
-Inbound message | https://www.example.com:9000/webhooks/inbound-sms
-Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
+After the prerequisites have been met, the steps are as follows:
 
-> **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
+1. [Configure your webhook URLs](#configure-your-webhook-urls) - This step only required for support of inbound message support and delivery receipts.
+2. [Create a Nexmo Application](#create-a-nexmo-application) - The resultant Application ID is used to generate a JWT that you need to make API calls. If you already have an Application ID you can use you don't need to do this step.
+3. [Generate a JWT](#generate-a-jwt) - This step is only required if you are not using the client library.
+4. **Send a Viber Service message** - This step uses the Nexmo Messages API to send a Viber Service message.
 
-## Create a Nexmo application
-
-In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
-
-When creating a Nexmo Voice Application, you will be asked to provide an Event URL and an Answer URL. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs, so in this case you can just set them to the suggested values of `https://example.com/webhooks/event` and `https://example.com/webhooks/answer` respectively.
-
-When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
-
-Make a note of the Nexmo Application ID for the created application.
-
-## Generate a JWT
-
-Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
-
-> **TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
-
-If you're using the Nexmo CLI the command to create the JWT is:
-
-``` curl
-$ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
-$ echo $JWT
+```partial
+source: _partials/olympus/configure-webhook-urls.md
 ```
 
-This JWT will be valid for fifteen minutes. After that, you will need to generate a new one.
+```partial
+source: _partials/olympus/create-a-nexmo-application.md
+```
 
-> **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
+```partial
+source: _partials/olympus/generate-a-jwt.md
+```
 
 ## Send a message
 
@@ -88,6 +58,8 @@ Key | Description
 
 ```building_blocks
 source: '_examples/olympus/send-viber-message'
-application:
-  name: 'Send a Viber message'
 ```
+
+## Further reading
+
+* [Messages documentation](/messages-and-workflows-apis/messages/overview)
