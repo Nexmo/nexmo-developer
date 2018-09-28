@@ -33,7 +33,7 @@ showConversationHistory(conversation) {
     var eventsHistory = ""
 
     events.forEach((value, key) => {
-      if (conversation.members[value.from]) {
+      if (conversation.members.get(value.from)) {
         const date = new Date(Date.parse(value.timestamp))
         switch (value.type) {
           case 'text:seen':
@@ -41,21 +41,21 @@ showConversationHistory(conversation) {
           case 'text:delivered':
             break;
           case 'text':
-            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>${value.body.text}</b><br>` + eventsHistory
+            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>${value.body.text}</b><br>` + eventsHistory
             break;
 
           case 'member:joined':
-            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>joined the conversation</b><br>` + eventsHistory
+            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>joined the conversation</b><br>` + eventsHistory
             break;
           case 'member:left':
-            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>left the conversation</b><br>` + eventsHistory
+            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>left the conversation</b><br>` + eventsHistory
             break;
           case 'member:invited':
-            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>invited to the conversation</b><br>` + eventsHistory
+            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>invited to the conversation</b><br>` + eventsHistory
             break;
 
           default:
-            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>unknown event</b><br>` + eventsHistory
+            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>unknown event</b><br>` + eventsHistory
         }
       }
     })

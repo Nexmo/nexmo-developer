@@ -118,7 +118,7 @@ showConversationHistory(conversation) {
   switch (value.type) {
     ...
     case 'member:media':
-      eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>${value.body.audio ? "enabled" : "disabled"} audio</b><br>` + eventsHistory
+      eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>${value.body.audio ? "enabled" : "disabled"} audio</b><br>` + eventsHistory
       break;
     ...
   }
