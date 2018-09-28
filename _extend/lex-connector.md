@@ -11,9 +11,9 @@ The Lex connector is a middleware component which sits between the [Nexmo Voice 
 The connector is supplied as an open source project written in python and also has a hosted service on Nexmo in Developer Preview.
 
 ## Resources
-*[GitHub Repository]([https://github.com/nexmo/lex-connector)
-*[Hosted Service Docs}](https://developer.nexmo.com/voice/voice-api/guides/lex-connector)
-*[Lex PostContent Endpoint](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html) For information
+* [GitHub Repository]([https://github.com/nexmo/lex-connector)
+* [Hosted Service Docs](https://developer.nexmo.com/voice/voice-api/guides/lex-connector)
+* [Lex PostContent Endpoint](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html) For information
 
 ## Support
 The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the github repository.
