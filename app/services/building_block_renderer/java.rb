@@ -20,7 +20,7 @@ module BuildingBlockRenderer
         mainClassName = project.hasProperty('main') ? project.getProperty('main') : ''
         ```
 
-         Run the following `gradle` command to execute your application:
+         Run the following `gradle` command to execute your application, replacing `#{package}` with the package containing `#{filename.gsub('.java', '')}`:
 
          ```sh
         gradle run -Pmain=#{package}#{filename.gsub('.java', '')}
