@@ -1,8 +1,0 @@
-import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.insight.AdvancedInsightResponse;
-
-AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-NexmoClient client = new NexmoClient(auth);
-
-AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(TO_NUMBER);
