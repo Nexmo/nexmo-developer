@@ -1,1 +1,0 @@
-curl "https://api.nexmo.com/ni/advanced/json?api_key=API_KEY&api_secret=API_SECRET&number=447700900000"

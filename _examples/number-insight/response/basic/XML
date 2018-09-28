@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<format>
-  <request_id>fcb1e9a2-db9c-4ea2-84be-4e60da45e187</request_id>
-  <international_format_number>447700900000</international_format_number>
-  <local_number country_code="GB" country_code_iso3="GBR" country_name="United Kingdom" country_prefix="44">07700 900000</local_number>
-  <error code="0">Success</error>
-</format>

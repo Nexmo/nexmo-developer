@@ -1,4 +1,0 @@
-import nexmo
-
-client = nexmo.Client(key=API_KEY, secret=API_SECRET)
-resp = client.get_basic_number_insight({'number': '447700900000'})

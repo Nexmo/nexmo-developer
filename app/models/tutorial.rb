@@ -28,9 +28,19 @@ class Tutorial
     product.camelcase
   end
 
-  def self.by_product(product)
-    all.select do |tutorial|
+  def self.by_product(product, tutorials = [])
+    tutorials = all if tutorials.empty?
+    tutorials.select do |tutorial|
       tutorial.products.include? product
+    end
+  end
+
+  def self.by_language(language, tutorials = [])
+    language = language.downcase
+    tutorials = all if tutorials.empty?
+
+    tutorials.select do |tutorial|
+      tutorial.languages.map(&:downcase).include? language
     end
   end
 
