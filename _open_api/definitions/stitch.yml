@@ -641,7 +641,7 @@ components:
     member_id_inviting:
       type: string
       example: MEM-63f61863-4a51-4f6b-86e1-46edebio0391
-      description: Member ID (inside a member object). This is the member if of the mamber that sent the initation
+      description: Member ID of the member that sends the invitation
     member_action:
       type: string
       description: Invite or join a member to a conversation
