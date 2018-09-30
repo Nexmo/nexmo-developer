@@ -746,7 +746,7 @@ components:
         ttl:
           type: number
           example: 60
-          description: 'An object containing conversation, properties, like ttl (time to leave)'
+          description: 'Time to leave'
     _links_conversations_list:
       type: object
       description: 'A series of links between resources in this API in the http://stateless.co/hal_specification.html.'
