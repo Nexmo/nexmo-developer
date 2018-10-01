@@ -24,7 +24,7 @@ After the prerequisites have been met, the steps are as follows:
 1. [Configure your webhook URLs](#configure-your-webhook-urls) - This step only required for support of inbound message support and delivery receipts.
 2. [Create a Nexmo Application](#create-a-nexmo-application) - The resultant Application ID is used to generate a JWT that you need to make API calls. If you already have an Application ID you can use you don't need to do this step.
 3. [Generate a JWT](#generate-a-jwt) - This step is only required if you are not using the client library.
-4. **Send a Viber Service message** - This step uses the Nexmo Messages API to send a Viber Service message.
+4. [Send a Viber Service message](#send-a-viber-service-message) - This step uses the Nexmo Messages API to send a Viber Service message.
 
 ```partial
 source: _partials/olympus/configure-webhook-urls.md
@@ -38,7 +38,7 @@ source: _partials/olympus/create-a-nexmo-application.md
 source: _partials/olympus/generate-a-jwt.md
 ```
 
-## Send a message
+## Send a Viber Service message
 
 Key | Description
 -- | --
