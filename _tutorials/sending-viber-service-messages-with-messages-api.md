@@ -1,13 +1,25 @@
 ---
-title: SMS Messages
-navigation_weight: 1
+title: Sending Viber Service messages with Messages API
+products: messages-and-workflows-apis/messages
+description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the Viber Service channel using the Messages API.
+languages:
+    - Curl
+    - Node
 ---
 
-# SMS Messages
+# Sending Viber Service messages with Messages API
 
-In this guide you will see how to send an SMS. The same steps taken here can be easily modified to send a message across Viber Service Messages, Facebook Messenger and future channels that Nexmo might add.
+You can use the Messages API to send outbound Viber Service Messages to Viber Users.
 
-## 1. Configure your Webhook URLs
+Viber Service Messages can only be sent by businesses that have been approved by Viber. This business profile will also have a green check to indicate that it is a legitimate business.
+
+The advantage of Viber Service Messages is that the identifier of users on the platform is their mobile phone number. The business accounts are limited to only outbound messages to the customer. This means there is no way for a customer to respond and means that you don't need to worry about dealing with inbound messages.
+
+In order to get started with Viber Service Messages you will need to email [sales@nexmo.com](mailto:sales@nexmo.com). Nexmo is an official partner and will handle the application and creation of your Viber Service Messages account for you.
+
+If successful, your account manager will provide you with a Viber Service Messages ID. This ID can only be used on Nexmo.
+
+## Configure your Webhook URLs
 
 If you intend to receive inbound messages you will need to configure an Inbound Message Webhook URL.
 
@@ -35,7 +47,7 @@ Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
 
 > **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
 
-## 2. Create a Nexmo Application
+## Create a Nexmo application
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
@@ -45,7 +57,7 @@ When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https
 
 Make a note of the Nexmo Application ID for the created application.
 
-## 3. Generate a JWT
+## Generate a JWT
 
 Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
 
@@ -62,23 +74,20 @@ This JWT will be valid for fifteen minutes. After that, you will need to generat
 
 > **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
 
-## 4. Send an SMS message with the Messages API
-
-Sending an SMS message with the Messages API can be done with one API call, authenticated using the JWT you just created.
-
-In the example code below you will need to replace the following variables with actual values:
+## Send a message
 
 Key | Description
 -- | --
-`FROM_NUMBER` | The phone number you are sending the message from.
+`NEXMO_APPLICATION_ID` | The ID of the Nexmo Application that you created.
+`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
 `TO_NUMBER` | The phone number you are sending the message to.
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
-### Example
+## Example
 
 ```building_blocks
-source: '_examples/olympus/send-sms'
+source: '_examples/olympus/send-viber-message'
 application:
-  name: 'Send an SMS'
+  name: 'Send a Viber message'
 ```

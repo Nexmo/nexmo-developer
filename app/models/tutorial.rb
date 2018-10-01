@@ -23,6 +23,8 @@ class Tutorial
     return 'SMS' if product == 'messaging/sms'
     return 'Voice' if product == 'voice/voice-api'
     return 'Number Insight' if product == 'number-insight'
+    return 'Messages' if product == 'messages-and-workflows-apis/messages'
+    return 'Workflows' if product == 'messages-and-workflows-apis/workflows'
     product.camelcase
   end
 

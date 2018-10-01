@@ -7,6 +7,8 @@ navigation_weight: 1
 
 In this building block you will see how to send an SMS using the Messages API.
 
+For a step-by-step guide to this topic, you can read our tutorial [Sending SMS messages with Messages API](/tutorials/sending-sms-messages-with-messages-api).
+
 ## Example
 
 Ensure the following variables are set to your required values using any convenient method:

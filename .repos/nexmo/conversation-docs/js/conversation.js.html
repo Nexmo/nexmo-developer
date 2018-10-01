@@ -56,8 +56,8 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @property {Application} application - the parent Application
  * @property {string} name - the name of the Conversation (unique)
  * @property {string} [display_name] - the display_name of the Conversation
- * @property {object} [members] - the members of the Conversation
- * @property {Map&lt;number,Member>} [events] - values (event.id, Member), the events of the Conversation
+ * @property {Map&lt;string, Member>} [members] - the members of the Conversation keyed by a member's id
+ * @property {Map&lt;string, Event>} [events] - the events of the Conversation keyed by an event's id
  * @property {number} [sequence_number] - the last event id
  */
 class Conversation {
@@ -68,7 +68,7 @@ class Conversation {
 		this.name = null;
 		this.display_name = null;
 		this.timestamp = null;
-		this.members = {};
+		this.members = new Map();
 		this.events = new Map();
 		this.sequence_number = 0;
 		this.is_video_conversation = false;
@@ -111,17 +111,19 @@ class Conversation {
 
 					// Iterate the list
 					params.members.map((m) => {
-						if (this.members[m.member_id]) {
-							this.members[m.member_id]._normalise(m);
+						if (this.members.has(m.member_id)) {
+							this.members.get(m.member_id)._normalise(m);
 							if (m.user_id === this.application.me.id &amp;&amp; m.state !== "LEFT") {
-								this.me = this.members[m.member_id];
+								this.me = this.members.get(m.member_id);
+								this.members.set(this.me.id, this.me);
+
 							}
 						} else {
 							const member = new Member(this, m);
 							if (m.user_id === this.application.me.id &amp;&amp; m.state !== "LEFT") {
 								this.me = member;
 							}
-							this.members[member.id] = member;
+							this.members.set(member.id, member);
 						}
 					});
 					break;
@@ -141,13 +143,13 @@ class Conversation {
 					};
 
 					// update the member object or create a new instance
-					let member_object = this.members[params.member_id];
-					if (member_object) {
+					if (this.members.has(params.member_id)) {
+						const member_object = this.members.get(params.member_id);
 						Object.assign(member_object, object_params);
 					} else {
 						const member = new Member(this, object_params);
 						this.me = member;
-						this.members[member.id] = member;
+						this.members.set(member.id, member);
 					}
 					break;
 				case 'properties':
@@ -201,16 +203,13 @@ class Conversation {
 				body: request_body
 			}, (response) => {
 				if (response.type === 'conversation:join:success') {
-					// Create a new member object, response.body will contain all the parameters from the service
 					const member = new Member(this, response.body);
 					if (response.body.user_id === this.application.me.id) {
 						this.me = member;
 					}
-					this.members[member.id] = member;
-					// We added this part because of a use case where between the time we got the conversation and the time we finished joining
-					// the conversation object changed. We didn't find a "clean" solution for this right now so we get the conversation again
-					// so we know for sure it's state is up to date
-					// TODO: Find a more correct way to make sure the conversation is up to date(probably with changes in cs in order to get another solution)
+					this.members.set(member.id, member);
+					// use case where between the time we got the conversation and the time we finished joining
+					// the conversation object changed.
 					return this.application.getConversation(this.id)
 						.then(() => resolve(member))
 						.catch(() => {
@@ -226,9 +225,7 @@ class Conversation {
 
     /**
      * Delete a conversation
-     *
      * @return {Promise}
-     *
      * @example &lt;caption>delete the conversation&lt;/caption>
      *
      *        conversation.del().then(() => {
@@ -299,9 +296,8 @@ class Conversation {
 				}
 			}, (response) => {
 				if (response.type === 'conversation:invite:success') {
-					// Create a new member object, response.body will contain all the parameters from the service
 					const member = new Member(this, response.body);
-					this.members[member.id] = member;
+					this.members.set(member.id, member);
 					resolve(member);
 				} else {
 					reject(new NexmoApiError(response));
@@ -527,8 +523,7 @@ class Conversation {
 	 * @param {object} [params] - leave empty to get all the events
 	 * @param {string} params.start_id - the id of the event to begin the batch
 	 * @param {string} params.end_id - the id of the event to finish the batch
-	 *
-	 * @returns {Promise&lt;Array&lt;Event>>} - A promise to the Events list
+	 * @returns {Promise&lt;Map&lt;string, Event>>} - A promise to the Events Map
 	 */
 	getEvents(params) {
 		return new Promise((resolve, reject) => {
@@ -584,27 +579,21 @@ class Conversation {
 			this.emit(event.type, event);
 			return;
 		}
-
 		this.sequence_number++;
-
-		if (event.from &amp;&amp; !this.members[event.from]) { //TODO - remove when CSJ-695
-			this.members[event.from] = new Member(this, event);
+		if (event.from &amp;&amp; !this.members.has(event.from)) {
+			this.members.set(event.from, new Member(this, event));
 		}
 		//make sure the event_id is not a string
 		if (event.body &amp;&amp; event.body.event_id &amp;&amp; typeof event.body.event_id === "string") {
 			event.body.event_id = parseInt(event.body.event_id);
 		}
-
-		const from = this.members[event.from];
-
+		const from = this.members.get(event.from);
 		let constructed_event = this.conversationEventHandler.handleEvent(event);
-
 		// Unless they are typing events, add the event to the conversation.events map
 		if (!["text:typing:on", "text:typing:off"].includes(event.type)) {
 			this.events.set(constructed_event.id, constructed_event);
 		}
 		this.emit(event.type, from, constructed_event);
-
 	}
 
 }
@@ -625,7 +614,7 @@ module.exports = Conversation;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Sep 19 2018 16:25:56 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Sep 28 2018 14:58:54 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>

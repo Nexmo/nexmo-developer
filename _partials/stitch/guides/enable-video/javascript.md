@@ -63,7 +63,7 @@ $ nexmo member:list YOUR_VIDEO_CONVERSATION_ID -v
 Where you should see an output similar to the following:
 
 ```bash
-name                                     | user_id                                  | user_name | state  
+name                                     | user_id                                  | user_name | state
 ---------------------------------------------------------------------------------------------------------
 MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | jamie     | JOINED
 MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | alice     | JOINED
@@ -153,9 +153,9 @@ showConversationHistory(conversation) {
     ...
     case 'member:media':
       if (value.body.audio !== undefined) {
-        eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>${value.body.audio ? "enabled" : "disabled"} audio</b><br>` + eventsHistory
+        eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>${value.body.audio ? "enabled" : "disabled"} audio</b><br>` + eventsHistory
       } else {
-        eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>${value.body.video ? "enabled" : "disabled"} video</b><br>` + eventsHistory
+        eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>${value.body.video ? "enabled" : "disabled"} video</b><br>` + eventsHistory
       }
       break;
     ...
@@ -189,9 +189,9 @@ In order to get the video from the other members of the conversation, we'll have
 setupConversationEvents(conversation) {
   ...
 
-  for (var i = Object.keys(conversation.members).length; i > 0; i--) {
-    if (conversation.members[Object.keys(conversation.members)[i - 1]].user.name != conversation.me.user.name) {
-      conversation.members[Object.keys(conversation.members)[i - 1]].on("media:stream:on", (stream) => {
+  for (let member of conversation.members.values()) {
+    if (member.user.name != conversation.me.user.name) {
+      member.on("media:stream:on", (stream) => {
           if ("srcObject" in this.conversationVideo) {
             this.conversationVideo.srcObject = stream.stream;
           } else {
@@ -199,8 +199,8 @@ setupConversationEvents(conversation) {
             this.conversationVideo.src = window.URL.createObjectURL(stream.stream);
           }
         }
-      }
-    )
+      )
+    }
   }
 }
 ```

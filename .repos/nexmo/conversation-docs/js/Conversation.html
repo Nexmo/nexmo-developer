@@ -216,7 +216,7 @@
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">Map.&lt;string, <a href="Member.html">Member</a>></span>
 
 
             
@@ -234,7 +234,7 @@
 
             
 
-            <td class="description last">the members of the Conversation</td>
+            <td class="description last">the members of the Conversation keyed by a member's id</td>
         </tr>
 
     
@@ -247,7 +247,7 @@
             <td class="type">
             
                 
-<span class="param-type">Map.&lt;number, <a href="Member.html">Member</a>></span>
+<span class="param-type">Map.&lt;string, <a href="Event.html">Event</a>></span>
 
 
             
@@ -265,7 +265,7 @@
 
             
 
-            <td class="description last">values (event.id, Member), the events of the Conversation</td>
+            <td class="description last">the events of the Conversation keyed by an event's id</td>
         </tr>
 
     
@@ -568,7 +568,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line450">line 450</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line446">line 446</a>
     </li></ul></dd>
     
 
@@ -673,7 +673,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line210">line 210</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line207">line 207</a>
     </li></ul></dd>
     
 
@@ -835,7 +835,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line232">line 232</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line229">line 229</a>
     </li></ul></dd>
     
 
@@ -887,7 +887,7 @@ otherwise the value will be `null`.
     
 
     
-    <h4 class="name" id="getEvents"><span class="type-signature"></span>getEvents<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Event.html">Event</a>>>}</span></h4>
+    <h4 class="name" id="getEvents"><span class="type-signature"></span>getEvents<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Map.&lt;string, <a href="Event.html">Event</a>>>}</span></h4>
     
 
     
@@ -1072,7 +1072,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line505">line 505</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line500">line 500</a>
     </li></ul></dd>
     
 
@@ -1099,7 +1099,7 @@ otherwise the value will be `null`.
 
         
 <div class="param-desc">
-    - A promise to the Events list
+    - A promise to the Events Map
 </div>
 
 
@@ -1110,7 +1110,7 @@ otherwise the value will be `null`.
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;Array.&lt;<a href="Event.html">Event</a>>></span>
+<span class="param-type">Promise.&lt;Map.&lt;string, <a href="Event.html">Event</a>>></span>
 
 
     </dd>
@@ -1290,7 +1290,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line258">line 258</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line255">line 255</a>
     </li></ul></dd>
     
 
@@ -1522,7 +1522,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line307">line 307</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line303">line 303</a>
     </li></ul></dd>
     
 
@@ -1787,7 +1787,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line148">line 148</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line150">line 150</a>
     </li></ul></dd>
     
 
@@ -1900,7 +1900,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line325">line 325</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line321">line 321</a>
     </li></ul></dd>
     
 
@@ -2187,7 +2187,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line393">line 393</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line389">line 389</a>
     </li></ul></dd>
     
 
@@ -2356,7 +2356,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line343">line 343</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line339">line 339</a>
     </li></ul></dd>
     
 
@@ -2475,7 +2475,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line483">line 483</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line479">line 479</a>
     </li></ul></dd>
     
 
@@ -2583,7 +2583,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line492">line 492</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line488">line 488</a>
     </li></ul></dd>
     
 
@@ -3660,7 +3660,7 @@ A member has muted their audio
 // Get the list of members that have seen this event
      for (let member_id in image.state.seen_by) {
           if (conversation.me.id !== member_id) {
-              console.log(conversation.members[member_id].name);
+              console.log(conversation.members.get(member_id).name);
            }
       }
 });</code></pre>
@@ -4572,7 +4572,7 @@ Change in media presence state. They are in the conversation with text, audio or
 // Get the list of members that have seen this event
      for (let member_id in text.state.seen_by) {
          if (conversation.me.id !== member_id) {
-             console.log(conversation.members[member_id].name);
+             console.log(conversation.members.get(member_id).name);
          }
       }
 });</code></pre>
@@ -4937,7 +4937,7 @@ Change in media presence state. They are in the conversation with text, audio or
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Sep 19 2018 16:25:56 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Sep 28 2018 14:58:54 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>
