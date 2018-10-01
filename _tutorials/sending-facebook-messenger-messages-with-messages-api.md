@@ -11,20 +11,7 @@ languages:
 
 You can use the Messages API to send and receive messages using Facebook Messenger.
 
-Only an individual may have a Facebook Profile, whereas a business must have a Facebook Page.
-
-A Facebook user must initiate communication using Facebook Messenger via the business's Facebook Page. A message from the business to the Facebook user will otherwise be refused.
-
-Facebook Messenger uses its own form of IDs for the Facebook User and the Facebook Page :
-
-* Facebook User (profile) - Page-Scoped ID (PSID)
-* Facebook Page (business) - Page ID
-
-The Facebook User will have a Page-scoped ID (PSID) and this is unique for each Facebook Profile. The business can only obtain the PSID of a user when the user sends a message to the business. In Facebook Messenger, the default is for the customer to initiate a conversation with a business.
-
-In order to get started with Facebook Messenger you will need to link your business's Facebook Page to Nexmo. At this point Nexmo will provide you with your Facebook Page ID.
-
-You can then test things by sending a message as a Facebook User to your own Facebook Page. At this point you will receive an inbound message webhook to your server with the PSID of the Facebook user. You can now use this PSID to send a message back to the user.
+Before continuing with this tutorial you should review the information on [Understanding Facebook messaging](/messages-and-workflows-apis/messages/concepts/facebook).
 
 ```partial
 source: _partials/olympus/prereqs.md
@@ -34,7 +21,7 @@ source: _partials/olympus/prereqs.md
 
 After the prerequisites have been met, the steps are as follows:
 
-1. [Create a Facebook Page](#create-a-facebook-page) - You require a Facebook Account and a Facebook Page. 
+1. [Create a Facebook Page](#create-a-facebook-page) - You require a Facebook Account and a Facebook Page.
 2. [Configure your webhook URLs](#configure-your-webhook-urls) - This step only required for support of inbound message support and delivery receipts.
 3. [Create a Nexmo Application](#create-a-nexmo-application) - The resultant Application ID is used to generate a JWT that you need to make API calls. If you already have an Application ID you can use you don't need to do this step.
 4. [Generate a JWT](#generate-a-jwt) - This step is only required if you are not using the client library.
