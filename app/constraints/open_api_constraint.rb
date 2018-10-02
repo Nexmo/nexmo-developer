@@ -3,8 +3,8 @@ OPEN_API_PRODUCTS = %w[
   media
   number-insight
   stitch
-  messages-and-workflows-apis/messages
-  messages-and-workflows-apis/workflows
+  messages-olympus
+  dispatch
   redact
   audit
   voice

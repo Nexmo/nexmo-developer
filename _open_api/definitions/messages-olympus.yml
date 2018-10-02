@@ -127,7 +127,7 @@ components:
         text: Check your request parameters against the API documentation.
         link:
           text: See API request format
-          url: /api/messages-and-workflows-apis/messages
+          url: /api/messages
 
     MessageStatus:
       type: object

@@ -14,9 +14,9 @@ The Messages API allows you to send and in some cases receive messages over the 
 
 Further channels may be supported in the future.
 
-The following diagram illustrates the relationship between the Messages API and the Workflows API:
+The following diagram illustrates the relationship between the Messages API and the Dispatch API:
 
-![Messages and Workflows Overview](/assets/images/messages-workflows-overview.png)
+![Messages and Dispatch Overview](/assets/images/messages-dispatch-overview.png)
 
 ## Contents
 
@@ -74,27 +74,27 @@ Key | Description
 The following code shows how to send an SMS message using the Messages API:
 
 ```building_blocks
-source: '_examples/olympus/send-sms-basic-auth'
+source: '_examples/messages/send-sms-basic-auth'
 ```
 
 ## Concepts
 
 ```concept_list
-product: messages-and-workflows-apis/messages
+product: messages
 ```
 
 ## Building Blocks
 
 ```building_block_list
-product: messages-and-workflows-apis/messages
+product: messages
 ```
 
 ## Tutorials
 
 ```tutorials
-product: messages-and-workflows-apis/messages
+product: messages
 ```
 
 ## Reference
 
-* [Messages API Reference](/api/messages-and-workflows-apis/messages)
+* [Messages API Reference](/api/messages)

@@ -4,7 +4,8 @@ navigation_weight:
   Voice: 2
   Verify: 3
   Number Insight: 4
-  Messages and Workflows: 5
+  Messages: 5
+  Dispatch: 6
   Numbers: 98
   Account: 99
   Concepts: 0
@@ -34,7 +35,7 @@ navigation_weight:
   In-App Video: 5
 
   Messages API: 1
-  Workflows API: 2
+  Dispatch API: 2
 
   Secret Management: 3
 
@@ -55,8 +56,7 @@ navigation_overrides:
           label: 'Developer Preview'
         websockets:
           label: 'Beta'
-  messages-and-workflows-apis:
-    messages:
-      label: 'Developer Preview'
-    workflows:
-      label: 'Developer Preview'
+  messages:
+    label: 'Beta'
+  dispatch:
+    label: 'Beta'

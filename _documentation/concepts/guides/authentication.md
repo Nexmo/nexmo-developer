@@ -15,8 +15,8 @@ API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web
 [Number Insight](/api/number-insight) | ✅ | ❎ | ❎| ❎
 [Conversion](/api/conversion) | ✅ | ❎ | ❎| ❎
 [Developer](/api/developer) | ✅ | ❎ | ❎| ❎
-[Messages](/api/messages-and-workflows-apis/messages) | ❎ | ✅ | ✅| ❎
-[Workflows](/api/messages-and-workflows-apis/workflows) | ❎ | ✅ | ✅| ❎
+[Messages](/api/messages) | ❎ | ✅ | ✅| ❎
+[Dispatch](/api/dispatch) | ❎ | ✅ | ✅| ❎
 [Audit](/api/audit) | ❎ | ✅ | ❎ | ❎
 
 ## Contents

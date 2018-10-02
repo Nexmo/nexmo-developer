@@ -23,7 +23,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ```building_blocks
-source: '_examples/olympus/send-facebook-message-with-failover'
+source: '_examples/dispatch/send-facebook-message-with-failover'
 application:
   name: 'Send a message with failover'
 ```

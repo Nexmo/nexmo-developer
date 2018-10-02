@@ -22,7 +22,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ```building_blocks
-source: '_examples/olympus/send-sms'
+source: '_examples/messages/send-sms'
 application:
   name: 'Send an SMS'
 ```

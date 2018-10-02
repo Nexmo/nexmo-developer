@@ -1,6 +1,6 @@
 ---
 title: Sending SMS messages with Messages API
-products: messages-and-workflows-apis/messages
+products: messages
 description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages over the SMS channel using the Messages API.
 languages:
     - Curl
@@ -14,7 +14,7 @@ In this tutorial you will see how to send an SMS using the Messages API.
 The same steps taken here can be easily modified to send a message across Viber Service Messages, Facebook Messenger, WhatsApp.
 
 ```partial
-source: _partials/olympus/prereqs.md
+source: _partials/reusable/prereqs.md
 ```
 
 ## The steps
@@ -27,15 +27,15 @@ After the prerequisites have been met, the steps are as follows:
 4. [Send an SMS message](#send-an-sms-message) - This step uses the Nexmo Messages API to send an SMS message.
 
 ```partial
-source: _partials/olympus/configure-webhook-urls.md
+source: _partials/reusable/configure-webhook-urls.md
 ```
 
 ```partial
-source: _partials/olympus/create-a-nexmo-application.md
+source: _partials/reusable/create-a-nexmo-application.md
 ```
 
 ```partial
-source: _partials/olympus/generate-a-jwt.md
+source: _partials/reusable/generate-a-jwt.md
 ```
 
 ## Send an SMS message
@@ -54,11 +54,11 @@ Key | Description
 ## Example
 
 ```building_blocks
-source: '_examples/olympus/send-sms'
+source: '_examples/messages/send-sms'
 ```
 
 This will send an SMS message to the destination number you specified.
 
 ## Further reading
 
-* [Messages documentation](/messages-and-workflows-apis/messages/overview)
+* [Messages documentation](/messages/overview)

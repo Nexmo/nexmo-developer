@@ -20,7 +20,7 @@ Key | Description
 `FB_RECIPIENT_ID` | The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 
 ```building_blocks
-source: '_examples/olympus/send-facebook-message'
+source: '_examples/messages/send-facebook-message'
 application:
   name: 'Send a Facebook message'
 ```

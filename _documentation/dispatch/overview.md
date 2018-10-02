@@ -2,17 +2,17 @@
 title: Overview
 ---
 
-# Workflows API Overview
+# Dispatch API Overview
 
-The Workflows API enables the developer to send messages to users using a multiple channel strategy.
+The Dispatch API enables the developer to send messages to users using a multiple channel strategy.
 
 An example workflow might specify a message to be sent a message via Facebook Messenger, and if that message is not read then the user can be sent a message via Viber. If that message is also not read a user could then be sent a message via SMS.
 
-The Workflows API provides the mechanism by which to order messages and specify their _success conditions_. The Workflows API uses the Messages API to actually send the messages.
+The Dispatch API provides the mechanism by which to order messages and specify their _success conditions_. The Dispatch API uses the Messages API to actually send the messages.
 
-The following diagram illustrates the relationship between the Workflows API and the Messages API:
+The following diagram illustrates the relationship between the Dispatch API and the Messages API:
 
-![Messages and Workflows Overview](/assets/images/messages-workflows-overview.png)
+![Messages and Dispatch Overview](/assets/images/messages-dispatch-overview.png)
 
 ## Contents
 
@@ -28,7 +28,7 @@ The following diagram illustrates the relationship between the Workflows API and
 
 This API is currently in Developer Preview.
 
-In this release Nexmo provides a failover template. The failover template instructs the [Messages API](/messages-and-workflows-apis/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
+In this release Nexmo provides a failover template. The failover template instructs the [Messages API](/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
 Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
@@ -36,7 +36,7 @@ Nexmo always welcomes your feedback. Your suggestions help us improve the produc
 
 In this release you can:
 
-* **Send** SMS, Facebook Messenger, WhatsApp, and Viber Service Messages with Workflows built on-top of the [Messages API](/messages-and-workflows-apis/messages/overview).
+* **Send** SMS, Facebook Messenger, WhatsApp, and Viber Service Messages with Dispatch built on-top of the [Messages API](/messages/overview).
 * **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
 
 The condition status is the status that the message returns. With Facebook Messenger and Viber Service Messages, you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
@@ -59,27 +59,27 @@ Key | Description
 The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
 ```building_blocks
-source: '_examples/olympus/send-message-with-failover-basic-auth'
+source: '_examples/dispatch/send-message-with-failover-basic-auth'
 ```
 
 ## Concepts
 
 ```concept_list
-product: messages-and-workflows-apis/workflows
+product: dispatch
 ```
 
 ## Building Blocks
 
 ```building_block_list
-product: messages-and-workflows-apis/workflows
+product: dispatch
 ```
 
 ## Tutorials
 
 ```tutorials
-product: messages-and-workflows-apis/workflows
+product: dispatch
 ```
 
 ## Reference
 
-* [Workflows API Reference](/api/messages-and-workflows-apis/workflows)
+* [Dispatch API Reference](/api/dispatch)

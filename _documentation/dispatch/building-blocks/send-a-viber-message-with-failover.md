@@ -20,7 +20,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ```building_blocks
-source: '_examples/olympus/send-viber-message-with-failover'
+source: '_examples/dispatch/send-viber-message-with-failover'
 application:
   name: 'Send a Viber message with failover'
 ```
