@@ -24,8 +24,13 @@
     box-shadow: $shadow;
     margin-bottom: $spacing;
     font-size: 16px;
+    img {
+        height: 75px;
+        padding-bottom: 10px;
+    }
     h2 {
-        padding-top: 20px;
+        padding-top: 10px;
+        font-size: 16px;
         margin: 0;
         color: $text;
         border-top: 2px solid $blue;
@@ -33,6 +38,7 @@
     }
     p {
         padding: 10px 0;
+        font-size: 12px;
     }
     > a {
         position: absolute;
@@ -41,6 +47,12 @@
     }
 }
 
+.extend-title {
+    img {
+        display: block;
+        padding: 20px 0;
+    }
+}
 .extend-info-banner {
     position: relative;
     color: white;
@@ -48,15 +60,14 @@
     &--background {
         background: $gray-dark;
         min-height: 250px;
-        width: 300%;
-        margin-left: -999px;
+        width: 100%;
     }
 
     &--content {
         display: flex;
         flex-direction: row;
         position: absolute;
-        padding: 20px 0;
+        padding: 15px;
         width:100%;
         height: 100%;
 
