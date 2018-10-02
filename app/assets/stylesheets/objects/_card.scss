@@ -52,7 +52,7 @@ $card-animation-speed: 200ms;
   font-size: 16px;
 
   .icon-external-link {
-    display: none;
+    display: inline;
   }
 
   .spacious {
@@ -200,5 +200,10 @@ $card-animation-speed: 200ms;
         background: rgba($white, 0);
       }
     }
+  }
+
+  .color-text {
+    margin-left: 70px;
+    padding: 10px;
   }
 }

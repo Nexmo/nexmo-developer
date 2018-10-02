@@ -1,5 +1,0 @@
-require 'nexmo'
-
-client = Nexmo::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
-
-client.number_insight.advanced(number: '447700900000')

@@ -20,7 +20,7 @@ module BuildingBlockRenderer
         mainClassName = project.hasProperty('main') ? project.getProperty('main') : ''
         ```
 
-         Run the following command to execute your application replacing `com.nexmo.quickstart.voice` with the package containing `#{filename.gsub('.java', '')}`:
+         Run the following `gradle` command to execute your application, replacing `#{package.chomp('.')}` with the package containing `#{filename.gsub('.java', '')}`:
 
          ```sh
         gradle run -Pmain=#{package}#{filename.gsub('.java', '')}

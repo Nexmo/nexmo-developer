@@ -11,8 +11,8 @@ curl -X POST https://api.nexmo.com/beta/workflows \
     "template":"failover",
     "workflow": [
       {
-        "from": { "type": "messenger", "id": '$SENDER_ID' },
-        "to": { "type": "messenger", "id": '$RECIPIENT_ID' },
+        "from": { "type": "messenger", "id": '$FB_SENDER_ID' },
+        "to": { "type": "messenger", "id": '$FB_RECIPIENT_ID' },
         "message": {
           "content": {
             "type": "text",

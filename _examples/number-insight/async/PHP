@@ -1,9 +1,0 @@
-<?php 
-require_once __DIR__ . '/../vendor/autoload.php';
-
-$basic  = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
-$client = new \Nexmo\Client($basic);
-
-// Async requests do not return the standard payload. Instead, the information is sent 
-// to a webhook at some point in the future
-$response = $client->insights()->advancedAsync('447700900000', 'https://example.com/my-webhook');
