@@ -7,7 +7,7 @@ There are two ways to create a Nexmo Application:
 * Using the Dashboard
 * Using the Nexmo Command Line Interface
 
-## Create a Nexmo Application using the Dashboard
+### Create a Nexmo Application using the Dashboard
 
 This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application).
 
@@ -15,7 +15,7 @@ This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.
 
 When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
 
-## Create a Nexmo Application using the Nexmo CLI
+### Create a Nexmo Application using the Nexmo CLI
 
 Alternatively, you can create a Nexmo Application using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 

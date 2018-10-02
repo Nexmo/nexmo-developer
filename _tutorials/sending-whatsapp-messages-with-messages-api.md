@@ -9,140 +9,37 @@ languages:
 
 # Sending WhatsApp messages with Messages API
 
-You can use the Messages API to exchange messages with WhatsApp users.
+You can use the Messages API to exchange messages with WhatsApp users. 
 
-WhatsApp Business Solution can only be sent by businesses that have been approved by WhatsApp. This business profile will also have a green verfied label to indicate that it is a legitimate business.
+Before continuing with this tutorial you should review the information on [Understanding WhatsApp messaging](/messages-and-workflows-apis/messages/concepts/whatsapp).
 
-The advantage of WhatsApp is that the identifier of users on the platform is their mobile phone number.
-
-In order to get started with WhatsApp you will need to email [sales@nexmo.com](mailto:sales@nexmo.com). Nexmo is an official partner and will handle the application and creation of your WhatsApp Business account for you. Currently WhatsApp is in Limited Availability and only a certain number of customers will be onboarded.
-
-If successful, your account manager will provide you with a WhatsApp number.
-
-## How WhatsApp works
-
-A business can start a conversation with a user and a user can start a conversation with a business.
-
-WhatsApp has a core concept of Messages Templates (MTM). These were previously known as Highly Structured Messages (HSM).
-
-WhatsApp requires that a message sent to a user for the first time, or is outside the Customer Care Window, is an MTM message.
-
-The MTM allows a business to send just the template identifier along with the appropriate parameters instead of the full message content.
-
-New templates need to be approved by WhatsApp. Please contact your Nexmo Account Manager to submit the templates. Over time Nexmo will also add generic templates that can be used by all businesses.
-
-MTMs are designed to reduce the likelihood of spam to users on WhatsApp.
-
-For the purpose of testing Nexmo provides a template, `whatsapp:hsm:technology:nexmo:verify`, that you can use:
-
-```
-{{1}} code: {{2}}. Valid for {{3}} minutes.
+```partial
+source: _partials/olympus/prereqs.md
 ```
 
-The parameters are an array. The first value being `{{1}}` in the MTM.
+## The steps
 
-Below is the example API call:
+After the prerequisites have been met, the steps are as follows:
 
-```
-curl -X POST \
-  https://api.nexmo.com/beta/messages \
-  -H 'Authorization: Bearer' $JWT \
-  -H 'Content-Type: application/json' \
-  -d '{
-   "from":{
-      "type":"whatsapp",
-      "number":"WHATSAPP_NUMBER"
-   },
-   "to":{
-      "type":"whatsapp",
-      "number":"TO_NUMBER"
-   },
-   "message":{
-      "content":{
-         "type":"template",
-         "template":{
-            "name":"whatsapp:hsm:technology:nexmo:verify",
-            "parameters":[
-               {
-                  "default":"Nexmo Verification"
-               },
-               {
-                  "default":"64873"
-               },
-               {
-                  "default":"10"
-               }
-            ]
-         }
-      }
-   }
-}
-'
+1. [Contact Nexmo](mailto:sales@nexmo.com) - You will need to obtain a WhatsApp number.
+2. [Configure your webhook URLs](#configure-your-webhook-urls) - This step only required for support of inbound message support and delivery receipts.
+3. [Create a Nexmo Application](#create-a-nexmo-application) - The resultant Application ID is used to generate a JWT that you need to make API calls. If you already have an Application ID you can use you don't need to do this step.
+4. [Generate a JWT](#generate-a-jwt) - This step is only required if you are not using the client library.
+5. [Send a WhatsApp message](#send-a-whatsapp-message) - This step uses the Nexmo Messages API to send a WhatsApp message.
+
+```partial
+source: _partials/olympus/configure-webhook-urls.md
 ```
 
-## Additional WhatsApp Rules
-
-The following are some important additional considerations:
-
-* If your customer initiates messaging with you, WhatsApp will not charge you for any messages (including MTMs) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which WhatsApp will charge you.
-* **Exclusions**: The WhatsApp Business Solution may not be used to send any messages to or from the following countries and regions: Crimea, Cuba, Iran, North Korea, and Syria.
-
-## Configure your Webhook URLs
-
-If you intend to receive inbound messages you will need to configure an Inbound Message Webhook URL.
-
-To receive updates about the status of a message, such as "delivered" or "read", you need to configure a Delivery Receipt Webhook URL.
-
-If you don't have a webhook server set up, you can use a service like [Ngrok](https://ngrok.com/) for testing purposes. If you've not used Ngrok before you can find out more in our [Ngrok tutorial](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
-
-> **TIP:** If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
-
-From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
-
-Enter your Webhook URLs in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
-
-```screenshot
-script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/dashboardSettings.png
+```partial
+source: _partials/olympus/create-a-nexmo-application.md
 ```
 
-The values you enter for webhook URLs depends on where your webhook server is located. If your server was running on port 9000 on `example.com` your webhook URLs might be:
-
-Webhook | URL
----|---
-Inbound message | https://www.example.com:9000/webhooks/inbound-sms
-Delivery receipt | http://www.example.com:9000/webhooks/delivery-receipt
-
-> **NOTE:** You need to explicitly set the HTTP Method to `POST`, as the default is `GET`.
-
-## Create a Nexmo application
-
-In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Voice Application. This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
-
-When creating a Nexmo Voice Application, you will be asked to provide an Event URL and an Answer URL. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs, so in this case you can just set them to the suggested values of `https://example.com/webhooks/event` and `https://example.com/webhooks/answer` respectively.
-
-When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
-
-Make a note of the Nexmo Application ID for the created application.
-
-## Generate a JWT
-
-Once you have created a Voice application you can use the Nexmo Application ID and the downloaded private key file, `private.key`, to generate a JWT.
-
-> **TIP:** If you are using the client library for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
-
-If you're using the Nexmo CLI the command to create the JWT is:
-
-``` curl
-$ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
-$ echo $JWT
+```partial
+source: _partials/olympus/generate-a-jwt.md
 ```
 
-This JWT will be valid for fifteen minutes. After that, you will need to generate a new one.
-
-> **TIP:** In production systems, it is advisable to generate a JWT dynamically for each request.
-
-## Send a message
+## Send a WhatsApp message
 
 Please note that free form text messages can only be sent when a customer sends a message to the business first. The business has up to 24 hours from the last moment the customer messages to send a free form message back. After that period a MTM needs to be used.
 
@@ -158,6 +55,8 @@ Key | Description
 
 ```building_blocks
 source: '_examples/olympus/send-whatsapp-message'
-application:
-  name: 'Send a WhatsApp message'
 ```
+
+## Further reading
+
+* [Messages documentation](/messages-and-workflows-apis/messages/overview)
