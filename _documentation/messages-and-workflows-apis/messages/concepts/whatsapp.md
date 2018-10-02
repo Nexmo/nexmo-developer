@@ -6,7 +6,7 @@ description: WhatsApp messaging solution for businesses.
 
 # Understanding WhatsApp messaging
 
-WhatsApp Business Solution can only be sent by businesses that have been approved by WhatsApp. This business profile will also have a green verfied label to indicate that it is a legitimate business.
+WhatsApp Business Solution can only be sent by businesses that have been approved by WhatsApp. This business profile will also have a green verified label to indicate that it is a legitimate business.
 
 The advantage of WhatsApp is that the identifier of users on the platform is their mobile phone number.
 
