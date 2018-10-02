@@ -22,7 +22,7 @@ class DocumentationConstraint
       'concepts',
       'stitch',
       'messages',
-      'dispatch'
+      'dispatch',
     ]
   end
 
