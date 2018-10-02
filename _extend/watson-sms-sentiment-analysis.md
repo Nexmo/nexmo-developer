@@ -3,12 +3,12 @@ title: Watson SMS Sentiment Analysis
 description: Read incoming SMS messages and have IBM Watson to analyze the messages
 tags: ["Watson","AI", "SMS", "Sentiment Analysis"]
 link: https://github.com/nexmo-community/sms-sentiment-watson
-image: /assets/extend/ibm_watson_avatar_purple.png
+image: /assets/images/extend/ibm_watson_avatar_purple.png
 ---
 
 ## About
 This is an application that will return the sentiment of a incoming SMS using Watson
-![emotion-analysis](/assets/extend/emotion-analysis.png)
+![emotion-analysis](/assets/images/extend/emotion-analysis.png)
 
 ## Usage
 - To run the application, you will need to have a [Nexmo Account](https://dashboard.nexmo.com/) as well as a account on [IBM Bluemix](https://console.ng.bluemix.net/).

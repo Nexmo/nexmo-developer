@@ -3,7 +3,7 @@ title: Google CCML Integration
 description: An integration between Comms Router and Google's Contact Center APIs adds capabilities to the programmable contact center space.
 tags: ["Google","AI"]
 link: 
-image: /assets/extend/google_cloud_icon.png
+image: /assets/images/extend/google_cloud_icon.png
 ---
 
 ## About
@@ -17,7 +17,7 @@ The Vonage Team had worked hard to foster a close relationship to be involved in
 ## Usage
 For the Google Next demo we produced an application that leveraged the Voice API, Comms Router and Google CC AI as well as Dialogflow.
 
-## High-level overview
+## High-level Overview
 
 - Customer calls Contact Center number (Nexmo Virtual Number).
 - Conference created using Nexmo Voice API and connected to Google CC AI via a Google Virtual Number.

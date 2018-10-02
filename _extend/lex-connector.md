@@ -3,7 +3,7 @@ title: Lex Connector
 description: A hosted and opensource connector to bridge between Nexmo websockets and Amazon Lex
 tags: ["Amazon","Lex","AI","Bots"]
 link:
-image: /assets/extend/amazon-lex-logo.jpeg
+image: /assets/images/extend/amazon-lex-logo.jpeg
 ---
 
 ## Overview
