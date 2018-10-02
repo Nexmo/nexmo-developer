@@ -3,7 +3,7 @@ title: Microsoft Azure Speech To Text
 description: Sample of Azure speech transcribing audio from a call in realtime.
 tags: ["Microsoft", "Azure", "Speech to Text","Transcription","Python"]
 link:
-image:
+image: /assets/extend/azure-icon.png
 ---
 
 

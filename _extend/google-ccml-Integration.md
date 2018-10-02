@@ -1,9 +1,9 @@
 ---
 title: Google CCML Integration
-description: With a integration between Comms Router, Nexmo's open sourced Contact Center solution, and Google's Contact Center APIs, we are able to expand the capabilities we are bringing into the programmable contact center space.
+description: An integration between Comms Router and Google's Contact Center APIs adds capabilities to the programmable contact center space.
 tags: ["Google","AI"]
 link: 
-image: 
+image: /assets/extend/google_cloud_icon.png
 ---
 
 ## About

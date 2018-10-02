@@ -3,7 +3,7 @@ title: IBM Watson Speech to Text
 description: Sample of Watson speech transcribing audio from a call in realtime.
 tags: ["IBM", "Watson", "Speech to Text","Transcription","Python"]
 link:
-image:
+image: /assets/extend/ibm_watson_avatar_purple.png
 ---
 
 

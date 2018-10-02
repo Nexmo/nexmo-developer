@@ -1,6 +1,9 @@
-<div class="spacious content-block">
-  <small><a href="/extend">&larr; Back to Extend Catalog</a></small>
-  <h1><%= @extension[:title] %></h1>
+<div class="spacious content-block extend-title">
+    <small><a href="/extend">&larr; Back to Extend Catalog</a></small>
+    <% if @extension[:image] != '' %>
+    <img src='<%= @extension[:image] %>' alt='<%= @extension[:title]%>' />
+    <% end %>
+    <h1><%= @extension[:title] %></h1>
 </div>
 
 <div class="extend-info-banner">

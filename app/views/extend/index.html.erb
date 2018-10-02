@@ -5,8 +5,10 @@
 
 <div class="extend-grid">
 <% @extensions.each do |extension| %>
-
     <div class="extend-card">
+      <% if extension[:image] != '' %>
+      <img src='<%= extension[:image] %>' alt='<%= extension[:title]%>' />
+      <% end %>
       <h2><a href="/extend/<%= extension[:route] %>"><%= extension[:title] %></a></h2>
       <p><%= extension[:description] %></p>
       <a href="/extend/<%= extension[:route] %>">Learn More &rarr;</a>
