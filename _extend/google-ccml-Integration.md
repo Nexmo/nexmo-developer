@@ -30,5 +30,5 @@ For the Google Next demo we produced an application that leveraged the Voice API
 
 
 ## Resources
-- How AI is Transforming Customer Care (Cloud Next '18) conference: https://www.youtube.com/watch?v=n5vMhntiReg 
-- Overview of the integration with Google CC AI: https://www.youtube.com/watch?v=q4n1bID79Zk 
+- [How AI is Transforming Customer Care (Cloud Next '18) conference](https://www.youtube.com/watch?v=n5vMhntiReg)
+- [Overview of the integration with Google CC AI](https://www.youtube.com/watch?v=q4n1bID79Zk)
