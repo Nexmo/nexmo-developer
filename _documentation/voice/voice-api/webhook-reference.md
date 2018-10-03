@@ -64,6 +64,8 @@ The format of the data included depends on which event has occurred:
 * [`answered`](#answered)
 * [`busy`](#busy)
 * [`cancelled`](#cancelled)
+* [`unanswered`](#unanswered)
+* [`failed`](#failed)
 * [`human/machine`](#human-machine)
 * [`timeout`](#timeout)
 * [`completed`](#completed)
@@ -140,6 +142,34 @@ Field | Example | Description
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `status` | `cancelled` | Call status
+`direction` | `outbound` | Call direction, this will be `outbound` in this context
+`timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+
+### Unanswered
+
+The outgoing call is ringing, but is never answered.
+
+Field | Example | Description
+ -- | -- | --
+`from` | `442079460000` | The number the call came from
+`to` | `447700900000` | The number the call was made to 
+`uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
+`conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
+`status` | `unanswered` | Call status
+`direction` | `outbound` | Call direction, this will be `outbound` in this context
+`timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+
+### Failed
+
+The outgoing call could not be connected.
+
+Field | Example | Description
+ -- | -- | --
+`from` | `442079460000` | The number the call came from
+`to` | `447700900000` | The number the call was made to 
+`uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
+`conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
+`status` | `failed` | Call status
 `direction` | `outbound` | Call direction, this will be `outbound` in this context
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
 
