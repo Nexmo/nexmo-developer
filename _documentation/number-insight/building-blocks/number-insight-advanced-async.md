@@ -29,4 +29,4 @@ The API acknowledges the request by returning the following information to the c
 }
 ```
 
-When it becomes available, the Advanced Number Insight API data is sent to the specified webhook via a `POST` request. See the [Number Insight Advanced Async Callback](#number-insight-advanced-async-callback) building block to learn how to code the webhook handler.
+When it becomes available, the Advanced Number Insight API data is sent to the specified webhook via a `POST` request. See the [Number Insight Advanced Async Callback](/number-insight/building-blocks/number-insight-advanced-async-callback) building block to learn how to code the webhook handler.

@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Number Insight Advanced
 
-The Number Insight Advanced API provides all the data from the [Number Insight Standard API](number-insight-standard) together with the following additional information:
+The Number Insight Advanced API provides all the data from the [Number Insight Standard API](/number-insight/building-blocks/number-insight-standard) together with the following additional information:
 
 * If the number is likely to be valid
 * If the number is reachable
@@ -13,9 +13,9 @@ The Number Insight Advanced API provides all the data from the [Number Insight S
 
 Use this information to determine the risk associated with a number.
 
-> Note that the Advanced API does not provide any extra information about landlines than the [Number Insight Standard API](number-insight-standard). For insights about landline numbers, use the Standard API.
+> Note that the Advanced API does not provide any extra information about landlines than the [Number Insight Standard API](/number-insight/building-blocks/number-insight-standard). For insights about landline numbers, use the Standard API.
 
-Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](before-you-begin#replaceable-variables).
+Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/building-blocks/before-you-begin#replaceable-variables).
 
 ```building_blocks
 source: '_examples/number-insight/advanced'

@@ -9,9 +9,9 @@ You can optionally use the [Number Insight Advanced API](number-insight-advanced
 
 > Note that the Basic and Standard API levels do no offer this feature.
 
-This building block shows you how to code the webhook handler that deals with the data returned by an asynchronous call to the Number Insight Advanced API. See the [Number Insight Advanced Async Trigger](#number-insight-advanced-async-trigger) building block to learn how to code the initial request for the insight data.
+This building block shows you how to code the webhook handler that deals with the data returned by an asynchronous call to the Number Insight Advanced API. See the [Number Insight Advanced Async Trigger](/number-insight/building-blocks/number-insight-advanced-async) building block to learn how to code the initial request for the insight data.
 
-Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](before-you-begin#replaceable-variables).
+Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/building-blocks/before-you-begin#replaceable-variables).
 
 ```building_blocks
 source: '_examples/number-insight/async-callback'

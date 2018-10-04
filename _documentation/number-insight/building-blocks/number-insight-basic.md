@@ -12,7 +12,7 @@ Use Nexmo's Number Insight Basic API to determine:
 
 This can help you present numbers to your users in the correct format for their locale.
 
-Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](before-you-begin#replaceable-variables).
+Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/building-blocks/before-you-begin#replaceable-variables).
 
 ```building_blocks
 source: '_examples/number-insight/basic'
