@@ -1,21 +1,23 @@
----
-title: Number Insight Advanced Async
+--
+title: Number Insight Advanced Async Trigger
 navigation_weight: 5
 ---
 
-# Number Insight Advanced Async
+# Number Insight Advanced Async Trigger
 
 You can optionally use the [Number Insight Advanced API](number-insight-advanced) asynchronously to return the insight data when it becomes available, via a webhook.
 
 > Note that the Basic and Standard API levels do no offer this feature.
 
+This building block shows you how to trigger an asynchronous call to the Number Insight API. 
+
 Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](before-you-begin#replaceable-variables).
 
 ```building_blocks
-source: '_examples/number-insight/async'
+source: '_examples/number-insight/async-trigger'
 ```
 
-The API sends the Advanced Number Insight API data to the specified webhook via a `POST` request. It also acknowledges the request by returning the following information to the client:
+The API acknowledges the request by returning the following information to the client:
 
 ```json
 {
@@ -26,3 +28,5 @@ The API sends the Advanced Number Insight API data to the specified webhook via 
     "status": 0
 }
 ```
+
+When it becomes available, the Advanced Number Insight API data is sent to the specified webhook via a `POST` request. See the [Number Insight Advanced Async Callback](#number-insight-advanced-async-callback) building block to learn how to code the webhook handler.
