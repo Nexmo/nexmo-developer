@@ -105,6 +105,12 @@
 }
 
 @media only screen and (max-width: 900px) {
+    .extend-title {
+        text-align: center;
+        img {
+            margin: 0 auto;
+        }
+    }
     .extend-info-banner--content {
         flex-direction: column;
     }
