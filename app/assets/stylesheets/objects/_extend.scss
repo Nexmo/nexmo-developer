@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 -10px;
-
+  justify-content: center;
   > div {
     flex: 1;
     min-width: 300px;
@@ -58,20 +58,15 @@
     position: relative;
     color: white;
     margin-bottom: 50px;
-    &--background {
-        background: $gray-dark;
-        min-height: 250px;
-        width: 100%;
-    }
+    background: $gray-dark;
+    min-height: 250px;
+    width: 100%;
 
     &--content {
         display: flex;
         flex-direction: row;
-        position: absolute;
         padding: 15px;
         width:100%;
-        height: 100%;
-
         > div {
             flex: 1;
             display: flex;
@@ -106,5 +101,11 @@
 .extend-content {
     p {
         padding-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .extend-info-banner--content {
+        flex-direction: column;
     }
 }

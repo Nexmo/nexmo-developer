@@ -20,9 +20,14 @@
                 <% end %>
                 </ul>
             </div>
+            <% if @extension[:link] != '' %>
+            <div class="cta">
+                <% @extension[:link] %>
+                <a href="<% @extension[:link] %>" class="button-link">Get This Now</a>
+            </div>
+            <% end %>
         </div>
     </div>
-    <div class="extend-info-banner--background"></div>
 </div>
 
 <div class="extend-content">
