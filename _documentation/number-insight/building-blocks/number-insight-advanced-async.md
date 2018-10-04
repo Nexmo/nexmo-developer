@@ -1,4 +1,4 @@
---
+---
 title: Number Insight Advanced Async Trigger
 navigation_weight: 5
 ---

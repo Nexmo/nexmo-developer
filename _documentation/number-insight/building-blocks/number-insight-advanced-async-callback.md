@@ -1,4 +1,4 @@
---
+---
 title: Number Insight Advanced Async Callback
 navigation_weight: 5
 ---
