@@ -23,14 +23,11 @@ The context of the conversations is maintained though each communication event t
 
 ## Concepts
 
-**Conversation**
-    -> A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
+You should familiarize yourself with the following concepts:
 
-**User**
-    -> The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
-
-**Member**
-    -> Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+```concept_list
+product: stitch
+```
 
 ## Try out the Quick Start Guides
 
