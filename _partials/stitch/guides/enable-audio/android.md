@@ -3,25 +3,26 @@ title: Android
 platform: android
 ---
 
-# Getting Started with Nexmo In-App Voice and the Stitch Android SDK
+# Getting Started with Nexmo In-App Voice for Android
 
 In this getting started guide we'll cover adding audio events to the Conversation we created in the previous quickstarts. We'll deal with media events, the ones that come via the conversation, and the ones we send to the conversation.
 
 ## Concepts
 
-This guide will introduce you to the following concepts.
+This guide will introduce you to the following concepts:
 
-- **Audio** - enabling and disabling Audio streams in a Conversation
+- **Audio Stream** - The stream that the SDK gives you in your browser to listen to audio and send audio
+- **Audio Leg** - A server side API term. Legs are a part of a conversation. When audio is enabled on a conversation, a leg is created
 - **MemberMedia** - `MemberMedia` events that fire on a Conversation when media state changes for a member
 
 ## Before you begin
 
-- Ensure you have run through the [previous quickstarts](/stitch/in-app-messaging/guides/utilizing-events/android)
+- Run through the [previous quickstarts](/stitch/in-app-messaging/guides/utilizing-events/android)
 - If you're continuing on from the previous guide you may need to regenerate the users JWTs. See quickstarts 1 and 2 for how to do so.
 
 ## 1 - Update the Android App
 
-We will use the application we already created for the previous quickstarts. All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we created for the previous quickstarts. All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Update permissions in `AndroidManifest`
 
@@ -190,6 +191,8 @@ private void toggleAudio() {
 
 Now we could try out In-App Voice right now by launching the app on two devices and pressing the audio button, but we wouldn't know if the other user enabled audio on their device! In order to know that we need to make some changes to `ChatAdapter.java`
 
+Note that enabling audio in a conversation establishes an audio leg for a member of the conversation. The audio is only streamed to other members of the conversation who have also enabled audio.
+
 ## 2 - Showing `MemberMedia` events
 
 In the previous quickstart we added a `RecyclerView` to our app and showed the chat history by adding `ChatAdapter.java`. As a refresher, to observe events that happens in a conversation we've tapped into `conversation.messageEvent()` and added a `ResultListener` that's fired whenever there's new event. Up until now, the only events we've dealt with are `Text`. Now we're going to handle any `MemberMedia` events that get sent to a conversation.
@@ -222,5 +225,7 @@ After we check that the event `equals(EventType.MEMBER_MEDIA)` we'll show a mess
 After this you should be able to run the app in two different android devices or emulators. Try enabling or disabling audio and speaking to yourself or a friend!
 
 _Note: Don't forget to generate new JWTs for you users if it's been over 24 hours since you last generated the user JWTs._
+
+The [next guide](/stitch/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
 
 [View the source code for this example.](https://github.com/Nexmo/conversation-android-quickstart)

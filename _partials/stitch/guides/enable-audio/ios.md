@@ -3,21 +3,16 @@ title: iOS
 platform: ios
 ---
 
-# Getting Started with Nexmo In-App Voice!
+# Getting Started with Nexmo In-App Voice for iOS
 
-In this getting started guide we'll demonstrate how to use In-App Voice for the Nexmo Stitch iOS SDK.
+In this guide we'll cover adding audio events to the Conversation we have created in the [simple conversation with events](/stitch/in-app-messaging/guides/utilizing-events/ios) guide. We'll deal with sending and receiving media events to and from the conversation.
 
 ## Concepts
 
-Our previous guides introduced you to the following concepts:
+This guide will introduce you to the following concepts:
 
-- **Nexmo Applications**
-- **JWTs**
-- **Users**
-- **Conversations**
-- **Members**
-
-If you are unfamiliar with any of the above referenced concepts, checkout our quick start on [simple conversation.](/stitch/in-app-messaging/guides/simple-conversation/ios)
+- **Audio Stream** - The stream that the SDK gives you in your browser to listen to audio and send audio
+- **Audio Leg** - A server side API term. Legs are a part of a conversation. When audio is enabled on a conversation, a leg is created
 
 ### Before you begin
 
@@ -249,6 +244,7 @@ conversation?.events.newEventReceived.subscribe(onSuccess: { event in
    self.textView.insertText(" \(text) \n ")
 })
 ```
+
 ## 2.0 - Building Audio
 
 Since we will be tapping into protected device functionality we will have to ask for permission. We will update our `.plist` as well as display an alert. After permissions we will add AVFoundation class, set up audio from within the SDK and add a speaker emoji for our UI 🔈
@@ -287,6 +283,8 @@ private func setupAudio() {
 ## 2.3 Enable / Disable
 
 To add functionality for enable / disable, we simple create functions that call the `.enable()` or `.disable()` methods on media property of our instance of the conversation client like so down below in sections 2.3.1 and 2.3.2
+
+Note that enabling audio in a conversation establishes an audio leg for a member of the conversation. The audio is only streamed to other members of the conversation who have also enabled audio.
 
 ### 2.3.1 Enable
 Create a function for enable.
@@ -341,3 +339,5 @@ By implementing our enable / disable functions, we will see the updates right th
 ## Try it out!
 
 After this you should be able to run the app and enable / disable audio. Try it out [here](https://github.com/Nexmo/stitch-ios-quickstart/tree/master/examples/enable-audio)!
+
+The [next guide](/stitch/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
