@@ -16,7 +16,7 @@ The following diagram illustrates the relationship between the Dispatch API and 
 
 ## Contents
 
-* [Developer Preview](#developer-preview)
+* [Beta](#beta)
 * [Supported features](#supported-features)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
@@ -24,13 +24,13 @@ The following diagram illustrates the relationship between the Dispatch API and 
 * [Tutorials](#tutorials)
 * [Reference](#reference)
 
-## Developer Preview
+## Beta
 
-This API is currently in Developer Preview.
+This API is currently in Beta.
 
 In this release Nexmo provides a failover template. The failover template instructs the [Messages API](/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
 
 ## Supported features
 

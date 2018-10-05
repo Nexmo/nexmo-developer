@@ -20,7 +20,7 @@ The following diagram illustrates the relationship between the Messages API and 
 
 ## Contents
 
-* [Developer Preview](#developer-preview)
+* [Beta](#beta)
 * [Supported features](#supported-features)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
@@ -28,13 +28,13 @@ The following diagram illustrates the relationship between the Messages API and 
 * [Tutorials](#tutorials)
 * [Reference](#reference)
 
-## Developer Preview
+## Beta
 
-This API is currently in Developer Preview.
+This API is currently in Beta.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
 
-During Developer Preview Nexmo will expand the capabilities of the API.
+During Beta Nexmo will expand the capabilities of the API.
 
 ## Supported features
 

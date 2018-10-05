@@ -8,7 +8,7 @@ description: Client libraries are used to help you rapidly develop your messagin
 
 In addition to being able to use Messages and Dispatch via the REST APIs, Nexmo also provides client library support. Currently client library support is only available for Node.
 
-During the Developer Preview the Node client library containing support for the Messages and Dispatch API can be installed using:
+During Beta the Node client library containing support for the Messages and Dispatch API can be installed using:
 
 ```
 $ npm install nexmo@beta
