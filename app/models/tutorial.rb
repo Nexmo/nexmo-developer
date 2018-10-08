@@ -1,12 +1,13 @@
 class Tutorial
   include ActiveModel::Model
-  attr_accessor :title, :description, :products, :document_path, :languages
+  attr_accessor :title, :description, :external_link, :products, :document_path, :languages
 
   def body
     File.read(document_path)
   end
 
   def path
+    return external_link if external_link
     "/tutorials/#{document_path.relative_path_from(Tutorial.origin)}".gsub('.md', '')
   end
 
@@ -22,12 +23,24 @@ class Tutorial
     return 'SMS' if product == 'messaging/sms'
     return 'Voice' if product == 'voice/voice-api'
     return 'Number Insight' if product == 'number-insight'
+    return 'Messages' if product == 'messages-and-workflows-apis/messages'
+    return 'Workflows' if product == 'messages-and-workflows-apis/workflows'
     product.camelcase
   end
 
-  def self.by_product(product)
-    all.select do |tutorial|
+  def self.by_product(product, tutorials = [])
+    tutorials = all if tutorials.empty?
+    tutorials.select do |tutorial|
       tutorial.products.include? product
+    end
+  end
+
+  def self.by_language(language, tutorials = [])
+    language = language.downcase
+    tutorials = all if tutorials.empty?
+
+    tutorials.select do |tutorial|
+      tutorial.languages.map(&:downcase).include? language
     end
   end
 
@@ -44,6 +57,7 @@ class Tutorial
       Tutorial.new({
         title: frontmatter['title'],
         description: frontmatter['description'],
+        external_link: frontmatter['external_link'],
         products: frontmatter['products'].split(',').map(&:strip),
         languages: frontmatter['languages'] || [],
         document_path: document_path,

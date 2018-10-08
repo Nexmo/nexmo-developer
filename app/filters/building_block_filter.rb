@@ -1,4 +1,6 @@
 class BuildingBlockFilter < Banzai::Filter
+  include OcticonsHelper
+
   def call(input)
     input.gsub(/```single_building_block(.+?)```/m) do |_s|
       config = YAML.safe_load($1)
@@ -6,6 +8,7 @@ class BuildingBlockFilter < Banzai::Filter
       @renderer = get_renderer(config['language'])
 
       lexer = CodeLanguageResolver.find(config['language']).lexer
+      lang = config['title'].delete('.')
 
       application_html = generate_application_block(config['application'])
 
@@ -35,7 +38,7 @@ class BuildingBlockFilter < Banzai::Filter
       erb = File.read("#{Rails.root}/app/views/building_blocks/_write_code.html.erb")
       code_html = ERB.new(erb).result(binding)
 
-      run_html = @renderer.run_command(config['run_command'], config['file_name'])
+      run_html = @renderer.run_command(config['run_command'], config['file_name'], config['code']['source'])
 
       prereqs = (application_html + dependency_html + client_html).strip
       prereqs = "<h2>Prerequisites</h2>#{prereqs}" unless prereqs.empty?

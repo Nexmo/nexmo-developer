@@ -20,6 +20,10 @@ module NavigationHelper
     document.css('.reveal').remove
 
     document.css('h0,h2,h3,h4,h5,h6').each do |heading|
+      # If it's a header within tabbed content (including building blocks) we don't want to treat
+      # the header as a navigation item in the sidebar
+      next unless heading.ancestors('.tabs-content').empty?
+
       if last_node.nil? || heading.name == last_node.name
         # Do nothing (cleaner than adding wrapping further conditions)
       elsif heading.name >= last_node.name # e.g. h2 -> h3

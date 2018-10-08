@@ -7,7 +7,9 @@ module BuildingBlockRenderer
       }
     end
 
-    def self.run_command(_command, filename)
+    def self.run_command(_command, filename, file_path)
+      package = file_path.gsub('.repos/nexmo-community/nexmo-java-quickstart/src/main/java/', '').tr('/', '.').gsub(filename, '')
+
       <<~HEREDOC
         ## Run your code
         We can use the `application` plugin for Gradle to simplify the running of our application.
@@ -18,10 +20,10 @@ module BuildingBlockRenderer
         mainClassName = project.hasProperty('main') ? project.getProperty('main') : ''
         ```
 
-         Run the following command to execute your application replacing `com.nexmo.quickstart.voice` with the package containing `#{filename.gsub('.java', '')}`:
+         Run the following `gradle` command to execute your application, replacing `#{package.chomp('.')}` with the package containing `#{filename.gsub('.java', '')}`:
 
          ```sh
-        gradle run -Pmain=com.nexmo.quickstart.voice.#{filename.gsub('.java', '')}
+        gradle run -Pmain=#{package}#{filename.gsub('.java', '')}
         ```
 
       HEREDOC

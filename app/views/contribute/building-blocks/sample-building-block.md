@@ -26,6 +26,8 @@ application:
   name: 'Example Application'
 ```
 
+Note the `application` section of the `building_blocks` construct is optional. If not used there will be no prerequisite section in the rendered block.
+
 ## Try it out
 
 What did the user just build?  How should they use it?  Add the instructions

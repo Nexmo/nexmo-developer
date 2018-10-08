@@ -1,4 +1,8 @@
-REDIRECTS = YAML.load_file("#{Rails.root}/config/redirects.yml")
+CORE_REDIRECTS = YAML.load_file("#{Rails.root}/config/redirects.yml")
+STITCH_REDIRECTS = YAML.load_file("#{Rails.root}/config/stitch-redirects.yml")
+
+REDIRECTS = CORE_REDIRECTS.merge(STITCH_REDIRECTS)
+
 ENVIRONMENT_REDIRECTS = YAML.safe_load(ENV['ENVIRONMENT_REDIRECTS'] || '')
 
 class Redirector

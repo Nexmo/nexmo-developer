@@ -1,7 +1,7 @@
 ---
 title: Broadcast Voice-based Critical Alerts
 products: voice/voice-api
-description: In this tutorial, you will learn how to send out voice messages and see who was contacted, who responded, and when. These voice-based critical alerts are more persistent than a text message, making your message more likely to be noticed. Additionally, with the recipient confirmation, you can be sure that your message made it through.
+description: In this tutorial, you will learn how to contact a list of people by phone, convey a message, and see who confirmed that they had received the message. These voice-based critical alerts are more persistent than a text message, making your message more likely to be noticed. Additionally, with the recipient confirmation, you can be sure that your message made it through.
 languages:
     - PHP
 ---
@@ -10,99 +10,63 @@ languages:
 
 A persistently ringing phone is harder to miss than a text message or push alert, so when you need to ensure that [critical  alerts](https://www.nexmo.com/use-cases/voice-based-critical-alerts) make it through to the right person a phone call is one of the best options available.
 
-In this tutorial, you will learn how to send out voice messages and see who was contacted, who responded, and when. These voice-based critical alerts are more persistent than a text message, making your message more likely to be noticed. Additionally, with the recipient confirmation, you can be sure that your message made it through.
+In this tutorial, you will learn how to contact a list of people by phone, convey a message, and see who confirmed that they had received the message. These voice-based critical alerts are more persistent than a text message, making your message more likely to be noticed. Additionally, with the recipient confirmation, you can be sure that your message made it through.
 
-- [Create a Voice Application](#create-a-voice-application) - create a Nexmo application using the Nexmo API and Nexmo CLI
-- [Provision a Virtual Number](#provision-a-virtual-number) - rent the number from which your message will come
-- [Creating a Nexmo Call Control Object](#creating-a-nexmo-call-control-object-ncco) - using Nexmo Call Control Objects, return information to the user, and prompt for input
-- [Creating a call](#creating-a-call) - initiate the calls to everyone who needs to be notified
-- [Using a Recording Instead of Text-To-speech](#using-a-recording-instead-of-text-to-speech) - Use a pre-recorded message for the call instead of a text-to-speech message
-- [Handling Answering Machines and Voicemail](#handling-answering-machines-and-voicemail) - Log if a call is answered by an answering machine or voicemail
-- [Confirming Receipt of the Message](#confirming-receipt-of-the-message) - Receive and log confirmation of receipt from the user
-- [Broadcasting to multiple people](#broadcasting-to-multiple-people) - Broadcast the alert to multiple people who all need to be aware
-
-# Prerequisites
+## Prerequisites
 
 In order to work through this tutorial you need:
 
 * A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
 * [Composer](http://getcomposer.org/) to install the [Nexmo PHP library](https://github.com/nexmo/nexmo-php)
-* A publicly accessible web server so Nexmo can make webhook requests to your app
-* The tutorial code from <https://github.com/Nexmo/php-voice-alerts-tutorial>
+* A publicly accessible web server so Nexmo can make webhook requests to your app, or [ngrok](https://ngrok.com/) to be able to access your local development platform from the outside world.
+* The tutorial code from <https://github.com/Nexmo/php-voice-alerts-tutorial> - either clone the project or download the zip file.
 
-If you're developing behind a firewall or a NAT, use [ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to tunnel access to your Web server.
+⚓ Create a Voice Application
+⚓ Provision a Virtual Number
+## Getting Started
 
-# Getting Started
+We'll start by registering a Nexmo number to use with this application. Follow the instructions for [getting started with applications](https://developer.nexmo.com/concepts/guides/applications#getting-started-with-applications). This will walk you through buying a number, creating an application, and linking the two.
 
-First, you'll need to collect a few details for the configuration. The project will be comprised of:
+You will need to give the URL of your publicly-accessible webserver or ngrok endpoint when you configure your application, as part of both the `answer_url` and the `event_url`. Those files are called `answer.php` and `event.php` respectively in this project. For example if your ngrok URL is `Https://25b8c071.ngrok.io` then the your configuration would be:
 
-**A Web Application**: this will initiate the calls and track the user response by responding to a series of webhooks from Nexmo. We need the publicly accessible URL of the application. A tool like [ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) will provide you a subdomain pointing to your local development system.
+* **answer_url** `https://25b8c071.ngrok.io/answer.php`
+* **event_url** `https://25b8c071.ngrok.io/event.php`
 
-> For the rest of this tutorial, we will use `http://example.com/` as our domain. You will need to replace that domain with your own (and include any additional URL path info) for your application to work.
+When you create an application, you will get a key to use for authentication. Save this into a file called `private.key` and keep it safe! You will need it later on to make outgoing phone calls.
 
-**A Nexmo Application**: this holds the configuration that Nexmo needs to interact with your Web Application.
+Once the application is created, configured and linked to a phone number, take a look at the code and then go ahead and try it out.
 
-**A Nexmo Virtual Number**: this number will be associated with the Nexmo Application and is the number users will see when they receive your alert.
+⚓ Creating a Nexmo Call Control Object
+⚓ Creating a call
+## Teach Your Application to "Speak"
 
-## Create a Voice Application
+When a human is connected to your application by phone, you control what the human hears with Nexmo Call Control Objects (NCCOs). These can be used for both incoming and outgoing calls - once the call is in progress, it doesn't make much different which it was.
 
-To create a voice application on the Nexmo platform, you can use either the [use the Nexmo API](https://dashboard.nexmo.com) or the Nexmo API. We're going to use the API via the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool. Execute the following command to create a Nexmo Application with the Nexmo CLI:
+When a call is made to the number we linked to it earlier. Nexmo will make a request to the `answer_url` that you configured in the application and will expect the response to be an array of NCCOs.
 
-```bash
-nexmo app:create --keyfile private.key phone-alerts https://example.com/answer.php https://example.com/event.php
-Application created: 5555f9df-05bb-4a99-9427-6e43c83849b8
-```
-
-`phone-alerts` is the name of the application and the next parameter is the webhook endpoint that Nexmo will make a request to when a call is made to a number associated with the application. The final parameter is also a webhook endpoint so that Nexmo can inform your application of other events related your Nexmo app.
-
-The output of this command is the Application UUID (Universally Unique IDentifier) - make a note of this as we'll need it soon. The command will also write `private.key` to disk (thanks to the `--keyfile private.key` option) so that we can authenticate our requests later.
-
-## Provision a Virtual Number
-
-To make the calls to send out the alert, you need a phone number. Numbers can be managed with the API or in the Nexmo Dashboard. You can also buy a number using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli). If you're using the CLI, the following command will purchase a US number for you automatically:
-
-> If you have an existing number in your Nexmo account, you can skip purchasing a new number and just associate it with your application.
-
-```bash
-nexmo number:buy --country_code US --confirm
-Number purchased: 14155550100
-```
-
-Next, associate the number you just purchased with the application that you created above. This ensures that a request is made to your application's webhook when any event takes place relating to the number, like user input after your alert message plays.
-
-```bash
-nexmo link:app 14155550100 5555f9df-05bb-4a99-9427-6e43c83849b8
-```
-
-## Creating a Nexmo Call Control Object (NCCO)
-
-Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/voice/voice-api/ncco-reference) to deliver a text-to-speech message. Create `answer.php` with the following contents:
+Take a look at `answer.php` in the repository. This is the code that will return the NCCOs: in this case some text-to-speech messages and also a prompt for user input.
 
 ```php
-<?php
-
-// The incoming request could be a GET or a POST, depending on how your
-// account is configured
-$request = array_merge($_GET, $_POST);
-
-// This is the phone number being called
-$to = $request['to'];
-
-// This is the caller's phone number
-$from = $request['from'];
-
-// Nexmo provide a unique ID for all calls
-$uuid = $request['conversation_uuid'];
-
-// For more advanced Conversations you use the above parameters to
-// dynamically create the NCCO and provide a personalised experience
-
 $ncco = [
     [
         "action" => "talk",
         "voiceName" => "Jennifer",
         "text" => "Hello, here is your message. I hope you have a nice day."
+    ],
+    [
+        "action" => "talk",
+        "voiceName" => "Jennifer",
+        "text" => "To confirm receipt of this message, please press 1 followed by the pound sign"
+    ],
+    [
+        "action" => "input",
+        "submitOnHash" => "true",
+        "timeout" => 10
+    ],
+    [
+        "action" => "talk",
+        "voiceName" => "Jennifer",
+        "text" => "Thank you, you may now hang up."
     ]
 ];
 
@@ -111,9 +75,15 @@ header('Content-Type: application/json');
 echo json_encode($ncco);
 ```
 
-This configures Nexmo to respond to our call with "Hello, here is your message. I hope you have a nice day".
+This shows off a few different types of NCCO in action, and hopefully gives you an idea of the types of things you can do with an NCCO (a detailed [NCCO reference](https://developer.nexmo.com/voice/voice-api/ncco-reference) is available if you're curious!). These are all JSON objects and your code builds the output and then sends it as the response, with correct JSON headers.
 
-As well as responding with JSON to configure our call, we need an endpoint that Nexmo will use to send call events to our system. Create `event.php` with the following contents to handle status changes to your call:
+This would be an excellent time to dial your Nexmo number from another phone and see the above in action! Go ahead and feel free to edit things and see what else you can do.
+
+## Track Events During a Call
+
+It's helpful to be able to include information about the status of the phone call when you let your application talk on the phone unsupervised. To help with this Nexmo send webhooks to the `event_url` that you configured when you set up the application. These webhooks contain status updates to let you know the phone is ringing, has been answered, and so on.
+
+The code for this is in `event.php` in our project: it checks for particular statuses and writes information about them to a log file.
 
 ```php
 <?php
@@ -131,13 +101,6 @@ if (isset($request['status'])) {
         record_steps("UUID: {$request['conversation_uuid']} - was answered.");
         break;
     case 'complete':
-        // If you set eventUrl in your NCCO. The recording download URL
-        // is returned in recording_url. It has the following format
-        // https://api.nexmo.com/media/download?id=52343cf0-342c-45b3-a23b-ca6ccfe234b0
-        //
-        // Make a GET request to this URL using JWT authentication to download
-        // the recording. For more information, see
-        // https://developer.nexmo.com/voice/voice-api/guides/record-calls-and-conversations
         record_steps("UUID: {$request['conversation_uuid']} - complete.");
         break;
     default:
@@ -152,44 +115,83 @@ function record_steps($message) {
 
 > The `record_steps()` function here is just a very basic logging example, writing to a text file. You can replace this with your preferred logging protocol.
 
-At this point, we've written enough code to test our voice call system. Call the number you purchased earlier using your own phone, and you should hear a text to speech message played. However, we're creating a system to broadcast alerts out when they happen, which means we need to make outbound calls.
+You can look at what happened when you called your application earlier by inspecting the contents of `call_log.txt`. This file holds a record of each status that a particular phone call or "conversation" went through. Each line includes the conversation identifier; this becomes very important in a moment when we start making many outgoing calls at one time to pass on our broadcast message. We will still want to know which event belongs to which conversation!
 
-## Creating a call
+You can try a few different things when you call your number, and watch the log file as you do. How about:
 
-Creating an outbound call involves using the private key we saved earlier to generate an authentication token for the Nexmo API. To make things easier, we've wrapped up all of the code to do this in the [Nexmo PHP library](https://github.com/nexmo/nexmo-php).You'll need to [install the library](https://github.com/nexmo/nexmo-php#installation), then create a file named `broadcast.php` with the following contents:
+* Enter a number that isn't `1` when prompted
+* Don't answer the call but instead send it to voicemail
+
+Your application is ready to handle the calls once we make them so it's time to build the broadcasting part of the project.
+
+⚓ Broadcasting to multiple people
+## Make Outgoing Calls
+
+We need to [broadcast our message](https://www.nexmo.com/use-cases/voice-broadcast) out to multiple people to avoid a critical message only going to one person and being missed. The script therefore loops through all the contacts you set up in `config.php` and requests that each one gets a call.
+
+To make phone calls you will need to configure your PHP application with information about your Nexmo credentials, the application itself and the people you want to call.
+
+Copy `config.php.example` to `config.php` and edit to add your own values for:
+
+* API key and secret, which you can find from [your dashboard](https://dashboard.nexmo.com)
+* The ID of the application you created at the beginning of this tutorial
+* The Nexmo number that your users will be called from
+* The public URL of your application
+* An array of names and numbers of the people who should receive the broadcast message
+
+> Also check that you have the key generated when you created the application saved in `private.key` in the top level of the project.
+
+You will also need to run `composer install` to bring in the project dependencies. This includes the [Nexmo PHP library](https://github.com/nexmo/nexmo-php) which offers some helper code to make working with the Nexmo APIs easier.
+
+Back in the repo, the code we need for this step is in `broadcast.php`:
 
 ```php
-<?php
+require 'vendor/autoload.php';
+require 'config.php';
 
-require_once 'vendor/autoload.php';
-
-$basic  = new \Nexmo\Client\Credentials\Basic('API_KEY', 'API_SECRET');
+$basic  = new \Nexmo\Client\Credentials\Basic($config['api_key'], $config['api_secret']);
 $keypair = new \Nexmo\Client\Credentials\Keypair(
     file_get_contents(__DIR__ . '/private.key'),
-    '5555f9df-05bb-4a99-9427-6e43c83849b8'
+    $config['application_id']
 );
 
 $client = new \Nexmo\Client(new \Nexmo\Client\Credentials\Container($basic, $keypair));
 
-$client->calls()->create([
-    'to' => [[
-        'type' => 'phone',
-        'number' => 'TO_NUMBER'
-    ]],
-    'from' => [
-        'type' => 'phone',
-        'number' => '14155550100'
-    ],
-    'answer_url' => ['https://example.com/answer.php'],
-    'event_url' => ['https://example.com/event.php'],
-]);
+$contacts = $config['contacts'];
+
+foreach ($contacts as $name => $number) {
+    $client->calls()->create([
+        'to' => [[
+            'type' => 'phone',
+            'number' => $number
+        ]],
+        'from' => [
+            'type' => 'phone',
+            'number' => $config['from_number']
+        ],
+        'answer_url' => [$config['base_url'] . '/answer.php'],
+        'event_url' => [$config['base_url'] . '/event.php'],
+        'machine_detection' => 'continue'
+    ]);
+
+    // Sleep for half a second
+    usleep(500000);
+}
 ```
 
-At this point, you have a functioning call system. Test it out now by updating the "to" number in the call payload in your answer script and then running `php broadcast.php`. You can modify the message that is spoken in the NCCO file. You can also specify different voices and languages (see the full list of options in the [NCCO Reference section](https://docs.nexmo.com/voice/voice-api/ncco-reference#talk).
+The code in `broadcast.php` uses your configured API key and secret, the application ID and the `private.key` file you saved earlier to create a `Nexmo\Client` object. This gives a simple interface to make a call and pass the [call options](https://developer.nexmo.com/api/voice#createCall) required.
 
-## Using a Recording Instead of Text-To-Speech
+You'll probably notice that there is an instruction for a short pause with the `usleep()` method. This is to avoid hitting the [API rate limit](https://help.nexmo.com/hc/en-us/articles/207100288-What-is-the-maximum-number-of-calls-per-second-).
 
-To use a pre-recorded message instead of (or as well as!) using Nexmo's text-to-speech functionality, update the NCCO file with a new action, `stream`. `stream` allows you to play back an audio file to the caller. The "streamUrl" will point to your audio file.
+Test your application out now by running `php broadcast.php` and seeing all the phone numbers you supplied ring at once. You can modify the message that is spoken by modifying the NCCOs that are returned to the user. You can also specify different voices and languages (see the full list of options in the [NCCO Reference section](https://docs.nexmo.com/voice/voice-api/ncco-reference#talk).
+
+> You can add GET parameters to the `answer_url` if you have extra parameters that you want to pass along to that context. For example, you could add the person's name and then access that when the request arrives in `answer.php`.
+
+There are a few other things you might choose to do with your application such as using a recording rather than the text-to-speech functionality, or recording responses from users. The next few sections show how to approach those activities.
+
+### Using a Recording Instead of Text-To-Speech
+
+To use a pre-recorded message instead of (or as well as!) using Nexmo's text-to-speech functionality, use an NCCO with action `stream`. `stream` allows you to play back an audio file to the caller. The "streamUrl" will point to your audio file.
 
 ```php
 [
@@ -208,9 +210,11 @@ To use a pre-recorded message instead of (or as well as!) using Nexmo's text-to-
 ],
 ```
 
-## Handling Answering Machines and Voicemail
+For more information, checkout the [NCCO reference docs for stream](https://developer.nexmo.com/voice/voice-api/ncco-reference#stream).
 
-If you want to keep track of which numbers went to voicemail instead of being answered, you need to add the `machine_detection` parameter to your call payload in your broadcast script. There are two options you can set for this, `continue` or `hangup`. If you want to log that the call went to voicemail, choose `continue`, and an HTTP request will be sent to your event script (the URL specified in `event_url`).
+### Handling Answering Machines and Voicemail
+
+If you want to keep track of which numbers went to voicemail instead of being answered, you can add the `machine_detection` parameter when making the outgoing call, as you saw in `broadcast.php`. There are two options you can set for this, `continue` or `hangup`. If you want to log that the call went to voicemail, choose `continue`, and an HTTP request will be sent to your event webhook (the URL specified in `event_url`).
 
 ```php
 'answer_url' => ['https://example.com/answer.php'],
@@ -218,49 +222,11 @@ If you want to keep track of which numbers went to voicemail instead of being an
 'machine_detection' => 'continue'
 ```
 
-Then, in your event script, you will now receive the status of "machine" when handling the call status for a call that goes to voicemail.
+In `event.php` the script looks for the status "machine" and logs the event accordingly. 
 
-```php
-if (isset($request['status'])) {
-    switch ($request['status']) {
-    case 'ringing':
-        record_steps("UUID: {$request['conversation_uuid']} - ringing.");
-        break;
-    case 'answered':
-        record_steps("UUID: {$request['conversation_uuid']} - was answered.");
-        break;
-    case 'machine':
-        record_steps("UUID: {$request['conversation_uuid']} - answering machine.");
-        break;
-    case 'complete':
-        // If you set eventUrl in your NCCO. The recording download URL
-        // is returned in recording_url. It has the following format
-        // https://api.nexmo.com/media/download?id=52343cf0-342c-45b3-a23b-ca6ccfe234b0
-        //
-        // Make a GET request to this URL using JWT authentication to download
-        // the recording. For more information, see
-        // https://developer.nexmo.com/voice/voice-api/guides/record-calls-and-conversations
-        record_steps("UUID: {$request['conversation_uuid']} - complete.");
-        break;
-    default:
-        break;
-    }
-}
-```
+### Confirming Receipt of the Message
 
-## Confirming Receipt of the Message
-
-If you would like your call recipients to confirm that they have received your message, you can ask them to push a button and record that action in your log. To do this, update the NCCO file with a second "talk" action giving the recipient instructions to follow.
-
-```php
-[
-  "action" => "talk",
-  "voiceName" => "Jennifer",
-  "text" => "To confirm receipt of this message, please press 1 followed by the pound sign"
-],
-```
-
-Next, add an "input" action to capture any buttons that the recipient presses. We set `submitOnHash` to true to allow early submission of their confirmation. If they don't confirm within 10 seconds (the `timeout` parameter - it defaults to 3 seconds) the call will automatically progress.
+You'll have noticed that when the message is delivered, as a user you are then asked to press some keys to confirm that you have received the message. This is achieved by a `talk` action that gives instructions to the user, followed by an `input` action to capture the button presses.
 
 ```php
 [
@@ -270,19 +236,9 @@ Next, add an "input" action to capture any buttons that the recipient presses. W
 ],
 ```
 
-Finally, add another "talk" action to acknowledge their action and finish the call.
+By setting `submitOnHash` to true, the call will move to the next NCCO when the hash or pound sign (`#`) is entered. Otherwise, the call waits for the specified `timeout` number of seconds (the default is 3) before moving on automatically.
 
-```php
-[
-  "action" => "talk",
-  "voiceName" => "Jennifer",
-  "text" => "Thank you, you may now hang up."
-]
-```
-
-Altogether, your NCCO file should now contain five actions - a `talk` action, a `stream` action, another `talk` action, an `input` action and then one final `talk` action to round it off.
-
-In your event script, you'll need to add some code to handle the input action. The data from the input action will be provided under the `dtmf` key, with the number that was pressed as the value. You can add this after the `$request['status']` case statement.
+In your event script, you'll see some code to handle the input action. The data from the input action arrives under the `dtmf` key, with the number that was pressed as the value.
 
 ```php
 if (isset($request['dtmf'])) {
@@ -297,69 +253,20 @@ if (isset($request['dtmf'])) {
 }
 ```
 
-## Broadcasting to multiple people
+In this example we just log what happened, but in your own applications you could store or respond to the user input to suit your own needs.
 
-At this point we can make and receive phone calls, use text-to-speect, stream an mp3 to the receiver and capture that they got the message via DTMF. It's a great start, but there's just one thing missing - we still have a single point of failure. If we call a single person and they don't see the message, our critical alert goes unnoticed. We need to [broadcast our message](https://www.nexmo.com/use-cases/voice-broadcast) out to multiple people.
-
-The first thing to do is to update our log messages to contain the phone number that we're interacting with. The recipient's number is available as `$request['to']` in the `completed` event type, so let's update the `case 'complete':` block to also log the phone number by changing it to the following code:
-
-```php
-case 'complete':
-    // If you set eventUrl in your NCCO. The recording download URL
-    // is returned in recording_url. It has the following format
-    // https://api.nexmo.com/media/download?id=52343cf0-342c-45b3-a23b-ca6ccfe234b0
-    //
-    // Make a GET request to this URL using JWT authentication to download
-    // the recording. For more information, see
-    // https://developer.nexmo.com/voice/voice-api/guides/record-calls-and-conversations
-    record_steps("To: {$request['to'] - UUID: {$request['conversation_uuid']} - complete.");
-    break;
-```
-
-By storing the recipient's phone number along with the request `conversation_uuid`, we can link a set of call events to a specific phone number once the call has completed.
-
-Now that we can track which phone number a call is made to, it's time to add support for broadcasting out to multiple people! This data could come from any data source you like, but we'll add a static array in our script. At the top of `broadcast.php`, define an array of people to call like so:
-
-
-```php
-$contacts = [
-    "Bob Smith" => 14155550200,
-    "Jenny Cable" => 14155550355
-];
-```
-
-Once you have this array, there's just one small change left to make. We need to wrap `$client->calls()->create()` in a loop so that it calls each number in turn. We also add a small delay after each call to ensure that we don't hit the [API rate limit](https://help.nexmo.com/hc/en-us/articles/207100288-What-is-the-maximum-number-of-calls-per-second-):
-
-```php
-foreach ($contacts as $name => $number) {
-    $client->calls()->create([
-        'to' => [[
-            'type' => 'phone',
-            'number' => $number
-        ]],
-        'from' => [
-            'type' => 'phone',
-            'number' => '14155550100'
-        ],
-        'answer_url' => ['https://example.com/answer.php'],
-        'event_url' => ['https://example.com/event.php'],
-        'machine_detection' => 'continue'
-    ]);
-
-    // Sleep for half a second
-    usleep(500000);
-}
-```
-
-Once you've made this change, run `php broadcast.php` again and watch as each number you've listed is called simultaneously!
-
-# Conclusion
+⚓ Conclusion
+## Your Broadcast Call Application
 
 You now have a simple, but working, voice-alert system where you can broadcast out a text-to-speech or pre-recorded message, log which calls are answered versus sent to voicemail, and receive confirmation of receipt from users who receive the message.
 
-# References
+⚓ References
+## Next Steps and Further Reading
 
-- [JWT](/concepts/guides/authentication#json-web-tokens-jwt)
-- [Making an Outbound Call](/voice/voice-api/guides/outbound-calls)
-- [Creating Your Voice Application](/concepts/guides/applications#apps_quickstart)
-- [NCCO Reference](/voice/voice-api/ncco-reference)
+* [Using Ngrok for local development](https://developer.nexmo.com/concepts/guides/webhooks#using-ngrok-for-local-development) section from our Webhooks documentation
+* [Making an Outbound Call](/voice/voice-api/guides/outbound-calls) - code snippets for making calls in different programming languages
+* [Handling user input with DTMF](/voice/voice-api/building-blocks/handle-user-input-with-dtmf) - examples using code of various technology stacks to capture the user's button presses.
+* [NCCO Reference](/voice/voice-api/ncco-reference) - the reference documentation for call control objects
+* [Voice API Reference](/api/voice) - API reference documentation
+
+

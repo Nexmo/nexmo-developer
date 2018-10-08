@@ -56,8 +56,8 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @property {Application} application - the parent Application
  * @property {string} name - the name of the Conversation (unique)
  * @property {string} [display_name] - the display_name of the Conversation
- * @property {object} [members] - the members of the Conversation
- * @property {Map&lt;number,Member>} [events] - values (event.id, Member), the events of the Conversation
+ * @property {Map&lt;string, Member>} [members] - the members of the Conversation keyed by a member's id
+ * @property {Map&lt;string, Event>} [events] - the events of the Conversation keyed by an event's id
  * @property {number} [sequence_number] - the last event id
  */
 class Conversation {
@@ -68,7 +68,7 @@ class Conversation {
 		this.name = null;
 		this.display_name = null;
 		this.timestamp = null;
-		this.members = {};
+		this.members = new Map();
 		this.events = new Map();
 		this.sequence_number = 0;
 		this.is_video_conversation = false;
@@ -111,17 +111,19 @@ class Conversation {
 
 					// Iterate the list
 					params.members.map((m) => {
-						if (this.members[m.member_id]) {
-							this.members[m.member_id]._normalise(m);
+						if (this.members.has(m.member_id)) {
+							this.members.get(m.member_id)._normalise(m);
 							if (m.user_id === this.application.me.id &amp;&amp; m.state !== "LEFT") {
-								this.me = this.members[m.member_id];
+								this.me = this.members.get(m.member_id);
+								this.members.set(this.me.id, this.me);
+
 							}
 						} else {
 							const member = new Member(this, m);
 							if (m.user_id === this.application.me.id &amp;&amp; m.state !== "LEFT") {
 								this.me = member;
 							}
-							this.members[member.id] = member;
+							this.members.set(member.id, member);
 						}
 					});
 					break;
@@ -141,13 +143,13 @@ class Conversation {
 					};
 
 					// update the member object or create a new instance
-					let member_object = this.members[params.member_id];
-					if (member_object) {
+					if (this.members.has(params.member_id)) {
+						const member_object = this.members.get(params.member_id);
 						Object.assign(member_object, object_params);
 					} else {
 						const member = new Member(this, object_params);
 						this.me = member;
-						this.members[member.id] = member;
+						this.members.set(member.id, member);
 					}
 					break;
 				case 'properties':
@@ -201,16 +203,13 @@ class Conversation {
 				body: request_body
 			}, (response) => {
 				if (response.type === 'conversation:join:success') {
-					// Create a new member object, response.body will contain all the parameters from the service
 					const member = new Member(this, response.body);
 					if (response.body.user_id === this.application.me.id) {
 						this.me = member;
 					}
-					this.members[member.id] = member;
-					// We added this part because of a use case where between the time we got the conversation and the time we finished joining
-					// the conversation object changed. We didn't find a "clean" solution for this right now so we get the conversation again
-					// so we know for sure it's state is up to date
-					// TODO: Find a more correct way to make sure the conversation is up to date(probably with changes in cs in order to get another solution)
+					this.members.set(member.id, member);
+					// use case where between the time we got the conversation and the time we finished joining
+					// the conversation object changed.
 					return this.application.getConversation(this.id)
 						.then(() => resolve(member))
 						.catch(() => {
@@ -226,9 +225,7 @@ class Conversation {
 
     /**
      * Delete a conversation
-     *
      * @return {Promise}
-     *
      * @example &lt;caption>delete the conversation&lt;/caption>
      *
      *        conversation.del().then(() => {
@@ -299,9 +296,8 @@ class Conversation {
 				}
 			}, (response) => {
 				if (response.type === 'conversation:invite:success') {
-					// Create a new member object, response.body will contain all the parameters from the service
 					const member = new Member(this, response.body);
-					this.members[member.id] = member;
+					this.members.set(member.id, member);
 					resolve(member);
 				} else {
 					reject(new NexmoApiError(response));
@@ -527,8 +523,7 @@ class Conversation {
 	 * @param {object} [params] - leave empty to get all the events
 	 * @param {string} params.start_id - the id of the event to begin the batch
 	 * @param {string} params.end_id - the id of the event to finish the batch
-	 *
-	 * @returns {Promise&lt;Array&lt;Event>>} - A promise to the Events list
+	 * @returns {Promise&lt;Map&lt;string, Event>>} - A promise to the Events Map
 	 */
 	getEvents(params) {
 		return new Promise((resolve, reject) => {
@@ -584,27 +579,21 @@ class Conversation {
 			this.emit(event.type, event);
 			return;
 		}
-
 		this.sequence_number++;
-
-		if (event.from &amp;&amp; !this.members[event.from]) { //TODO - remove when CSJ-695
-			this.members[event.from] = new Member(this, event);
+		if (event.from &amp;&amp; !this.members.has(event.from)) {
+			this.members.set(event.from, new Member(this, event));
 		}
 		//make sure the event_id is not a string
 		if (event.body &amp;&amp; event.body.event_id &amp;&amp; typeof event.body.event_id === "string") {
 			event.body.event_id = parseInt(event.body.event_id);
 		}
-
-		const from = this.members[event.from];
-
+		const from = this.members.get(event.from);
 		let constructed_event = this.conversationEventHandler.handleEvent(event);
-
 		// Unless they are typing events, add the event to the conversation.events map
 		if (!["text:typing:on", "text:typing:off"].includes(event.type)) {
 			this.events.set(constructed_event.id, constructed_event);
 		}
 		this.emit(event.type, from, constructed_event);
-
 	}
 
 }
@@ -619,13 +608,13 @@ module.exports = Conversation;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 30 2018 11:44:59 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Sep 28 2018 14:58:54 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>

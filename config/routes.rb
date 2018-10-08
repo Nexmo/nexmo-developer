@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
+  namespace :usage do
+    resources :building_block
+  end
+
   namespace :admin_api, defaults: { format: 'json' } do
     resources :feedback, only: [:index]
   end
@@ -25,9 +29,22 @@ Rails.application.routes.draw do
   get '/coverage', to: 'dashboard#coverage'
   get '/stats', to: 'dashboard#stats'
 
-  get '/tutorials', to: 'tutorials#index'
+  get '/tutorials/(:code_language)', to: 'tutorials#index', constraints: DocumentationConstraint.code_language
   get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
-  get '/*product/tutorials', to: 'tutorials#index', constraints: DocumentationConstraint.product_with_parent
+  get '/*product/tutorials(/:code_language)', to: 'tutorials#index', constraints: lambda { |request|
+    products = DocumentationConstraint.product_with_parent_list
+
+    # If there's no language in the URL it's an implicit match
+    includes_language = true
+
+    # If there's a language in the URL, match on that too
+    if request['code_language']
+      language = DocumentationConstraint.code_language_list.map(&:downcase)
+      includes_language = language.include?(request['code_language'])
+    end
+
+    products.include?(request['product']) && includes_language
+  }
 
   get '/documentation', to: 'static#documentation'
 
