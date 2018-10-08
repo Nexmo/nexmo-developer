@@ -85,7 +85,7 @@ components:
       type: object
       properties:
         template:
-          description: 'The template that the workflow API will execute. For the initial version of the API the only available value will be failover'
+          description: 'The template that the Dispatch API will execute. For the initial version of the API the only available value will be failover'
           type: string
           enum:
             - failover
