@@ -49,84 +49,62 @@
     }
 }
 
-.extend-title {
+.extend-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     img {
-        display: block;
-        padding: 20px 0;
-        max-height: 200px;
+        align-self: center;
+        margin: 17px 0;
+        max-height: 100px;
     }
-}
-
-.extend-info-banner {
-    position: relative;
-    color: white;
-    margin-bottom: 50px;
-    background: $gray-dark;
-    width: 100%;
-    align-items: center;
-
-    &--content {
-        display: flex;
-        flex-direction: row;
-        padding: 25px;
-        width:100%;
-        > div {
-            flex: 1;
-            display: flex;
-            margin: 0 10px;
-            align-items: center;
-        }
-
-        .description {
-            align-items: center;
-            font-size: 130%;
-            padding:10px;
-        }
-        .details {
-            align-content: center;
-            h2 {
+    .tags {
+        > ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px;
+            li {
+                display: inline;
                 color: white;
-                padding-bottom: 10px;
-                border-bottom: 1px solid white;
+                padding: 3px 10px;
+                font-size: 12px;
+                line-height: 12px;
+                border-radius: 12px;
+                letter-spacing: 0px;
+                background-color: #42ADE8;
             }
-            > div {
-                flex: 1;
-                align-items: center;
-                padding: 20px;
-                > ul {
-                    list-style: none;
-                    padding-left: 0;
-                }
-            }
+        } 
+    }
+    .description {
+        margin-top: 18px;
+        h4 {
+            font-size: 1.3em;
         }
     }
     .cta {
-        text-align: center;
-    }
-    .button-link {
-        background-color: $blue;
-        border-radius: 10px;
-        padding: 15px;
-        color: white;
-        text-decoration: none;
+        margin: 80px;
+        a {
+            background: #fb8f36;
+            color: white;
+            padding: 16px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
     }
 }
 
 .extend-content {
+    background: $white;
+    border: $border;
+    border-radius: 10px;
+    box-shadow: $shadow;
+    padding: 80px 60px;
     margin-bottom: 40px;
-    h2 {
-        padding-top: 20px;
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    .extend-title {
-        text-align: center;
-        img {
-            margin: 0 auto;
-        }
-    }
-    .extend-info-banner--content {
-        flex-direction: column;
+    width: 80%;
+    margin: 15px auto;
+    img {
+        max-width: 80%;
+        margin: 15px auto;
+        display: block;
     }
 }
