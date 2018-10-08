@@ -6,7 +6,7 @@ title: Overview
 
 The Dispatch API enables the developer to send messages to users using a multiple channel strategy.
 
-An example workflow might specify a message to be sent a message via Facebook Messenger, and if that message is not read then the user can be sent a message via Viber. If that message is also not read a user could then be sent a message via SMS.
+An example workflow might specify a message to be sent a message via Facebook Messenger, and if that message is not read then the user can be sent a message via Viber. If that message is also not read, a user could then be sent a message via SMS.
 
 The Dispatch API provides the mechanism by which to order messages and specify their _success conditions_. The Dispatch API uses the Messages API to actually send the messages.
 
