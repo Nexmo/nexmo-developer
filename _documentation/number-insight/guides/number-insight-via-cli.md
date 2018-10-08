@@ -4,52 +4,57 @@ title: Using Number Insight via the Nexmo CLI
 
 # Using Number Insight via the Nexmo CLI
 
-[Nexmo CLI](https://github.com/Nexmo/nexmo-cli) allows you to try out the Number Insight API.
+## Overview
+
+You can use the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) to work with the Number Insight API without having to create the requests using `curl` or by writing program code. This guide shows you how.
 
 ## Getting Started
 
-Before you begin:
+### Before you begin:
 
-* Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
-* Install [Node.JS](https://nodejs.org/en/download/)
+* Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup) - this will give you the API key and secret that you will need to access the Number Insight API.
+* Install [Node.JS](https://nodejs.org/en/download/) - you will use `npm` (the Node Package Manager) to install the Nexmo CLI.
 
-> *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](/concepts/guides/applications)*
+### Install and Setup the Nexmo CLI (Command Line Interface)
 
-Install and Setup the Nexmo CLI (Command Line Interface)
-
-Install the Nexmo CLI:
+Execute the following command at a terminal prompt to install the Nexmo CLI:
 
 ```bash
 $ npm install -g nexmo-cli
 ```
 
-> *Note*: Depending on your system setup you may need to prefix the above command with `sudo`*
+> *Note*: If you do not have sufficient system privileges you might need to prefix the above command with `sudo`.
 
-Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you now setup the CLI with these credentials.
+Then, provide the Nexmo CLI with your `NEXMO_API_KEY` and `NEXMO_API_SECRET` which you can 
+find on the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide):
 
 ```bash
-$ nexmo setup API_KEY API_SECRET
+$ nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
 ```
 
-## Try your own number
+You only need to do this the first time you use the Nexmo CLI.
 
-The Number Insight Basic API is free to use. You can test it from the CLI using `nexmo insight:basic` (or `nexmo ib`):
+## Try your own number with the Basic API
+
+The Number Insight Basic API is free to use. Test it with your own number by using `nexmo insight:basic` (or `nexmo ib`) and replacing the number shown with your own number. The number must be in [international format](/voice/voice-api/guides/numbers#formatting):
 
 ```bash
 $ nexmo insight:basic 447700900000
 ```
 
-The response will list the number along with the country the number is located in:
+The Nexmo CLI displays the number you entered and the country it belongs to:
 
 ```bash
 447700900000 | GB
 ```
 
-You can get fuller details of what's contained in the API response by using the `--verbose` flag (or `-v` for short):
+To see the other details that the response from the Number Insight API contains, use the `--verbose` switch (or `-v` for short):
 
 ```bash
 $ nexmo insight:basic --verbose 447700900000
 ```
+
+The full response from the Basic API contains the following information:
 
 ````
 [status]
@@ -59,7 +64,7 @@ $ nexmo insight:basic --verbose 447700900000
 Success
 
 [request_id]
-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+385bf642-d096-4b85-9dfc-4c1910d65300
 
 [international_format_number]
 447700900000
@@ -80,21 +85,25 @@ United Kingdom
 44
 ````
 
-This human readable output mirrors the field names and data available in the JSON response: it gives you back some data about your request (`status`, `status_message`, `request_id`) and details of the country of the number (`country_name`, `country_prefix` etc.) and how to format the number appropriately for that country (`national_format_number`).
+This human-readable output mirrors the field names and data available in the JSON response: it returns data about your request (`status`, `status_message`, `request_id`), details of the country that the number belongs to (`country_name`, `country_prefix` etc.) and how to format the number appropriately for that country (`national_format_number`).
 
-If you are not getting a response using the Number Insight Basic API, you may need to check your API credentials and ensure that you have set up Node.js and `nexmo-cli` properly.
+> If you do not see a response similar to that shown above, check your API credentials and ensure that you have installed Node.js and `nexmo-cli` properly.
 
-## Test the Standard or Advanced API
+## Test the Standard and Advanced APIs
 
-Once you have checked to make sure a call to the free Number Insight Basic API has worked, you can use the Standard or Advanced APIs, which provide more detail about the number including details of mobile operator, roaming status and so on (see the [Overview](/number-insight/overview) for a comparison table showing the difference between the various products).
+The Standard and Advanced Number Insight APIs provide even more information about the number including details of the operator and roaming status (for mobile numbers). See the [feature comparison table](/number-insight/overview#basic-standard-and-advanced-apis) to see the response data that each API level includes.
 
-To test using the Number Insight Standard API, use `nexmo insight:standard` (or `nexmo is`). To use the Advanced API, use `insight:advanced` (or `ia`).
+> **Note**: Calls to the Standard and Advanced APIs are not free, and you will be asked to confirm that you wish to charge your account when you use them.
+
+### Using the Number Insight Standard API
+
+To use the Number Insight Standard API, use `nexmo insight:standard` (or `nexmo is`). 
 
 ```bash
 $ nexmo insight:standard --verbose 447700900000
 ```
 
-The response will look like this:
+A typical response from the Standard API looks like this:
 
 ````
 [status]
@@ -157,3 +166,32 @@ mobile
 [ported]
 assumed_ported
 ````
+
+### Using the Number Insight Advanced API
+
+To use the Advanced API, use `insight:advanced` (or `ia`):
+
+```bash
+$ nexmo insight:advanced --verbose 447700900000
+```
+
+Look for the following additional fields in the response:
+
+````
+[lookup_outcome]
+0
+
+[lookup_outcome_message]
+Success
+
+[valid_number]
+valid
+
+[reachable]
+reachable
+
+[roaming.status]
+not_roaming
+````
+
+The `[lookup_outcome]` and `[lookup_outcome_message]` fields tell you whether the Advanced API was able to determine the validity (`[valid_number]`), reachability (``[reachable]``) and roaming status (``[roaming.status]``) of the number.

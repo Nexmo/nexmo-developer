@@ -1,4 +1,4 @@
-require('dotenv').config({path: __dirname + '/../.env'})
+require('dotenv').config({ path: __dirname + '/../.env' })
 
 const NEXMO_API_KEY = process.env.NEXMO_API_KEY
 const NEXMO_API_SECRET = process.env.NEXMO_API_SECRET
@@ -13,8 +13,12 @@ const nexmo = new Nexmo({
   apiSecret: NEXMO_API_SECRET
 });
 
-nexmo.numberInsight.get({level: 'standard', number: INSIGHT_NUMBER}, (error, result) => {
-  if(error) {
+nexmo.numberInsight.get({
+  level: 'advancedAsync',
+  number: INSIGHT_NUMBER,
+  callback: 'https://demo.ngrok.io/webhooks/insight'
+}, (error, result) => {
+  if (error) {
     console.error(error);
   }
   else {

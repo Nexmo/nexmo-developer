@@ -36,7 +36,7 @@ To rent a Nexmo virtual number:
 4. Click the number you want and validate your purchase.
 5. Your virtual number is now listed in **Your numbers**.
 
-If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](#add_payment_method).
+If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](/numbers/guides/payments#auto-reload-your-account-balance).
 
 > **Note**: to rent virtual numbers programmatically, call [Number: Search](/api/developer/numbers#search-available-numbers) to list the available numbers, then [Number: Buy](/api/developer/numbers#buy-a-number) to rent one of the numbers returned by the search.
 

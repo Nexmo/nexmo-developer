@@ -1,21 +1,40 @@
 ---
-title: CNAM - retrieve number owner's name
+title: Retrieving CNAM Owner Details
 ---
 
-# CNAM - retrieve number owner's name
+# Retrieving CNAM Owner Details
 
-Nexmo's Number Insight Advanced API allows you to retrieve details about the owner of many United States phone numbers, both landline and cellular. This includes both residential and business lines. It only works for numbers based in the United States—no information will be provided for numbers in any other country.
+## Overview
 
-Passing `cname=true` as an extra parameter to a call to the [Number Insight Advanced API](/number-insight/building-blocks/number-insight-advanced) or its [async equivalent](/number-insight/building-blocks/number-insight-advanced-async) will look up that number's CNAM called ID.
+Nexmo's Number Insight Advanced API enables you to retrieve CNAM owner details for many United States phone numbers. This includes landline and cellular numbers for both consumers and businesses.
 
-In the response sent back by the Number Insight Advanced API, the following fields relate to CNAM:
+CNAM is an acronym which stands for Caller ID Name. US networks use it to display the calling party’s name alongside the phone number, to help users identify a caller.
 
-* `lookup_outcome`: 
-* `caller_name`: the full formatted name of the line owner.
-* `caller_type`: either `business` or `consumer` depending on the type of number.
-* `first_name` and `last_name`: for individual consumers.
+> The Number Insight Advanced API only provides CNAM details for US numbers: it cannot return this information for numbers in other countries.
 
-## Consumer example
+## Making the request
+
+Passing `cname=true` as an extra parameter in a call to the Advanced API looks up that number's CNAM.
+
+The following example shows how you would request CNAM data using `curl`:
+
+```bash
+$ curl -X "POST" "https://api.nexmo.com/ni/advanced/json" \
+> -d "api_key=NEXMO_API_KEY" \
+> -d "api_secret=NEXMO_API_KEY" \
+> -d "number=14155550100" \
+> -d "cname=true"
+```
+
+## Understanding the response
+
+In the response returned by the Number Insight Advanced API, the following fields relate to CNAM:
+
+* `caller_name`: the owner name
+* `caller_type`: either `business` or `consumer` depending on the type of number
+* `first_name` and `last_name`: for consumer numbers only
+
+### Consumer example
 
 ```json
 {
@@ -56,7 +75,7 @@ In the response sent back by the Number Insight Advanced API, the following fiel
 }
 ```
 
-## Business example
+### Business example
 
 ```json
 {

@@ -1,24 +1,20 @@
 ---
-title: Number Insight Advanced
-navigation_weight: 4
+title: Number Insight Advanced Async Callback
+navigation_weight: 5
 ---
 
-# Number Insight Advanced
+# Number Insight Advanced Async Callback
 
-The Number Insight Advanced API provides all the data from the [Number Insight Standard API](/number-insight/building-blocks/number-insight-standard) together with the following additional information:
+You can optionally use the [Number Insight Advanced API](number-insight-advanced) asynchronously to return the insight data when it becomes available, via a webhook.
 
-* If the number is likely to be valid
-* If the number is reachable
-* If the number is roaming and, if so, the carrier and country
+> Note that the Basic and Standard API levels do no offer this feature.
 
-Use this information to determine the risk associated with a number.
-
-> Note that the Advanced API does not provide any extra information about landlines than the [Number Insight Standard API](/number-insight/building-blocks/number-insight-standard). For insights about landline numbers, use the Standard API.
+This building block shows you how to code the webhook handler that deals with the data returned by an asynchronous call to the Number Insight Advanced API. See the [Number Insight Advanced Async Trigger](/number-insight/building-blocks/number-insight-advanced-async) building block to learn how to code the initial request for the insight data.
 
 Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/building-blocks/before-you-begin#replaceable-variables).
 
 ```building_blocks
-source: '_examples/number-insight/advanced'
+source: '_examples/number-insight/async-callback'
 ```
 
 The response from the API contains the following data:
@@ -56,3 +52,5 @@ The response from the API contains the following data:
     "roaming": {"status": "not_roaming"}
 }
 ```
+
+
