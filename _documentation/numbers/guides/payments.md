@@ -44,15 +44,15 @@ To add a payment method to your Nexmo account:
   * Credit card - enter your card details. Your payment is processed in the Dashboard.
   **Note**: You must provide the address associated with your credit card or PayPal account to successfully complete payment.
 
-The payment method is saved for future one-click payments. You can also set up [auto reload](#auto_reload). If you do not see auto reload as an option in the Paypal payments page, ask support@nexmo.com to add the capability.
+The payment method is saved for future one-click payments. You can also set up [auto reload](#auto-reload-your-account-balance). If you do not see auto reload as an option in the Paypal payments page, ask support@nexmo.com to add the capability.
 
 Payments will appear as *Nexmo* on your bank/card statements.
 
 ## Auto reload your account balance
 
-Using auto reload you configure the balance when Dashboard automatically adds funds to your Nexmo account from your stored payment method. You can also configure the payment method and amount added. By default, the amount added to your account is based on the transaction amount chosen when you [added a payment method](#add_payment_method).
+Using auto reload you configure the balance when Dashboard automatically adds funds to your Nexmo account from your stored payment method. You can also configure the payment method and amount added. By default, the amount added to your account is based on the transaction amount chosen when you [added a payment method](#add-a-payment-method).
 
-When auto-reload is enabled your account balance is checked every 10 minutes. If you are sending a lot of messages, use [Developer API](/api/developer/account#top-up) to manage reloads when [remaining-balance](/api/sms#remaining-balance) in the response goes below a specific amount. Currently only PayPal auto-reload is available with the Developer API.
+When auto-reload is enabled your account balance is checked every 10 minutes. If you are sending a lot of messages, use [Developer API](/api/developer/account#top-up) to manage reloads when `remaining-balance` in the SMS API response goes below a specific amount. Currently only PayPal auto-reload is available with the Developer API.
 
 To setup auto reload on a payment method:
 
