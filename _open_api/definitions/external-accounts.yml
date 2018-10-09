@@ -705,7 +705,7 @@ x-groups:
   applications:
     name: "Application"
     order: 1
-    description: Callbacks related an external-account which is linked to an application, will be delivered to the application's callback endpoints.
+    description: Inbound messages to an external account which is linked to an application will be delivered to the applications inbound URL.
   account:
     name: "Account"
     order: 2
