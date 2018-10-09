@@ -3,7 +3,7 @@
 source "../config.sh"
 source "../jwt.sh"
 
-curl -X POST https://api.nexmo.com/beta/messages \
+curl -X POST https://api.nexmo.com/v0.1/messages \
   -H 'Authorization: Bearer '$JWT\
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \

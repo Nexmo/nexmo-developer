@@ -17,14 +17,14 @@ const nexmo = new Nexmo({
   privateKey: NEXMO_APPLICATION_PRIVATE_KEY_PATH
 })
 
-nexmo.workflow.create("failover", [
+nexmo.dispatch.create("failover", [
   {
     "from": { "type": "viber_service_msg", "id": "VIBER_SERVICE_MESSAGE_ID"},
     "to": { "type": "viber_service_msg", "number": "TO_NUMBER"},
     "message": {
       "content": {
         "type": "text",
-        "text": "This is a Viber Service Message sent from the Messages API"
+        "text": "This is a Viber Service Message sent from the Dispatch API"
       }
     },
     "failover":{
@@ -38,9 +38,9 @@ nexmo.workflow.create("failover", [
     "message": {
       "content": {
         "type": "text",
-        "text": "This is an SMS sent from the Messages API"
+        "text": "This is an SMS sent from the Dispatch API"
       }
     }
   },
-  (err, data) => { console.log(data.workflow_uuid); }
+  (err, data) => { console.log(data.dispatch_uuid); }
 ])

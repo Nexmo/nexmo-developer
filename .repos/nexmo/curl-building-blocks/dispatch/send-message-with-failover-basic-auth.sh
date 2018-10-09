@@ -3,7 +3,7 @@
 source "../config.sh"
 source "../jwt.sh"
 
-curl -X POST https://api.nexmo.com/beta/workflows \
+curl -X POST https://api.nexmo.com/v0.1/dispatch \
   -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
@@ -16,7 +16,7 @@ curl -X POST https://api.nexmo.com/beta/workflows \
         "message": {
           "content": {
             "type": "text",
-            "text": "This is a Facebook Messenger Message sent from the Workflows API"
+            "text": "This is a Facebook Messenger Message sent from the Dispatch API"
           }
         },
         "failover":{
@@ -30,7 +30,7 @@ curl -X POST https://api.nexmo.com/beta/workflows \
         "message": {
           "content": {
             "type": "text",
-            "text": "This is an SMS sent from the Workflows API"
+            "text": "This is an SMS sent from the Dispatch API"
           }
         }
       }

@@ -17,14 +17,14 @@ const nexmo = new Nexmo({
   privateKey: NEXMO_APPLICATION_PRIVATE_KEY_PATH
 })
 
-nexmo.workflow.create("failover", [
+nexmo.dispatch.create("failover", [
   {
-    "from": { "type": "messenger", "id": "SENDER_ID" },
-    "to": { "type": "messenger", "id": "RECIPIENT_ID" },
+    "from": { "type": "messenger", "id": "FB_SENDER_ID" },
+    "to": { "type": "messenger", "id": "FB_RECIPIENT_ID" },
     "message": {
       "content": {
         "type": "text",
-        "text": "This is a Facebook Messenger message sent from the Workflows API"
+        "text": "This is a Facebook Messenger message sent from the Dispatch API"
       }
     },
     "failover":{
@@ -38,9 +38,9 @@ nexmo.workflow.create("failover", [
     "message": {
       "content": {
         "type": "text",
-        "text": "This is an SMS sent from the Workflows API"
+        "text": "This is an SMS sent from the Dispatch API"
       }
     }
   },
-  (err, data) => { console.log(data.workflow_uuid); }
+  (err, data) => { console.log(data.dispatch_uuid); }
 ])

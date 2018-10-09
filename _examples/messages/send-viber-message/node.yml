@@ -2,7 +2,7 @@
 title: Node
 language: node
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/channels/send-viber.js
+    source: .repos/nexmo-community/nexmo-node-quickstart/messages/send-viber.js
     from_line: 11
     to_line: 30
 file_name: app.js
