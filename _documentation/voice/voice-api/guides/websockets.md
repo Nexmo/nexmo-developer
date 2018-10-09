@@ -54,11 +54,11 @@ You can send additional optional properties to your WebSocket server by adding k
 
 ### First Message
 
-The initial message sent on an established WebSocket connection will be text-based and contain a JSON payload, it will have the `event` field set to `conversation:created` and detail the audio format in `content-type`, along with any other metadata that you have put in the `headers` property of the WebSocket endpoint in your NCCO `connect`. The `headers` property is not present on the JSON payload so the properties are at the top-level of the JSON. For example:
+The initial message sent on an established WebSocket connection will be text-based and contain a JSON payload, it will have the `event` field set to `websocket:connected` and detail the audio format in `content-type`, along with any other metadata that you have put in the `headers` property of the WebSocket endpoint in your NCCO `connect`. The `headers` property is not present on the JSON payload so the properties are at the top-level of the JSON. For example:
 
 ``` json
 {
-    "event":"conversation:created",
+    "event":"websocket:connected",
     "content-type":"audio/l16;rate=16000",
     "prop1": "value1",
     "prop2": "value2"
@@ -90,7 +90,7 @@ This results in the following JSON in the first message on the WebSocket:
 
 ``` json
 {
-    "event":"conversation:created",
+    "event":"websocket:connected",
     "content-type":"audio/l16;rate=16000",
     "language": "en-GB",
     "callerID": "447700900123"
@@ -120,7 +120,7 @@ Various JSON text-based messages may be sent at any point in the call, developer
 If any party on the call connected to the websocket sends a DTMF tone this will trigger an event on the websocket, this event is a *text* message with a JSON payload, it will be interleaved between the audio frames and have the follwing format:
 
 ```json
-{"event":"audio:dtmf","digit":"5","duration":260}
+{"event":"websocket:dtmf","digit":"5","duration":260}
 ```
 
 `event` allows you to identify it as a DTMF event
