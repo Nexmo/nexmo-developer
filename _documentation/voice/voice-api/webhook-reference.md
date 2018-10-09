@@ -66,6 +66,7 @@ The format of the data included depends on which event has occurred:
 * [`busy`](#busy)
 * [`cancelled`](#cancelled)
 * [`unanswered`](#unanswered)
+* [`rejected`](#rejected)
 * [`failed`](#failed)
 * [`human/machine`](#human-machine)
 * [`timeout`](#timeout)
@@ -75,7 +76,7 @@ The format of the data included depends on which event has occurred:
 
 ### Started
 
-Indicates that the call has begun.
+Indicates that the call has been created.
 
 Field | Example | Description
  -- | -- | --
@@ -126,7 +127,7 @@ Field | Example | Description
 
 ### Busy
 
-The destination number was busy.
+The destination is on the line with another caller.
 
 Field | Example | Description
  -- | -- | --
@@ -142,7 +143,7 @@ Field | Example | Description
 
 ### Cancelled
 
-An outgoing call was cancelled before it was answered.
+An outgoing call is cancelled by the originator before being answered.
 
 Field | Example | Description
  -- | -- | --
@@ -158,7 +159,7 @@ Field | Example | Description
 
 ### Unanswered
 
-The outgoing call is ringing, but is never answered.
+Either the recipient is unreachable or the recipient declined the call.
 
 Field | Example | Description
  -- | -- | --
@@ -167,6 +168,22 @@ Field | Example | Description
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `status` | `unanswered` | Call status
+`direction` | `outbound` | Call direction, this will be `outbound` in this context
+`timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+
+[Back to event webhooks list](#event-webhook)
+
+### Rejected
+
+The call was rejected by Nexmo before it was connected.
+
+Field | Example | Description
+ -- | -- | --
+`from` | `442079460000` | The number the call came from
+`to` | `447700900000` | The number the call was made to 
+`uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
+`conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
+`status` | `rejected` | Call status
 `direction` | `outbound` | Call direction, this will be `outbound` in this context
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
 
