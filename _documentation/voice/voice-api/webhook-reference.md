@@ -1,5 +1,5 @@
 ---
-title: Voice Webhook reference
+title: Webhook Reference
 description: Details of the webhooks that Nexmo sends relating to voice calls.
 api: "Voice API: Webhooks"
 ---
