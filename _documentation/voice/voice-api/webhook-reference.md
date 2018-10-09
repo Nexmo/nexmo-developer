@@ -9,16 +9,16 @@ api: "Voice API: Webhooks"
 Nexmo uses webhooks alongside its Voice API to enable your application to interact with the call. There are two webhook endpoints:
 
 * [Answer webhook](#answer-webhook) is sent when a call is answered. This is for both incoming and outgoing calls.
-* [Event webhook](#event-webhook) is sent for all the events during a call. Your application can log, react to or ignore each event type.
+* [Event webhook](#event-webhook) is sent for all the events that occur during a call. Your application can log, react to or ignore each event type.
 * [Errors](#errors) are also delivered to the event webhook endpoint if they occur.
 
 For more general information, check out our [webhooks guide](/concepts/guides/webhooks).
 
 ## Answer Webhook
 
-When an incoming call is answered, an HTTP request will be sent to the `answer_url` you specified when setting up the application. For outgoing calls, the `answer_url` is specified when making the call.
+When an incoming call is answered, an HTTP request is sent to the `answer_url` you specified when setting up the application. For outgoing calls, specify the `answer_url` when you make the call.
 
-By default, the answer webhook will be a `GET` request but this can be overridden to `POST` by setting the `answer_method` when making an outbound call with the Nexmo Voice API.
+By default, the answer webhook will be a `GET` request but this can be overridden to `POST` by setting the `answer_method` field. For incoming calls, you configure these values when you create the application. For outgoing calls, you specify these values when making a call.
 
 ### Answer webhook data fields
 
@@ -50,13 +50,13 @@ If you set the `answer_method` to `POST` then you will receive the request with 
 
 ### Responding to the answer webhook
 
-Nexmo expect you to return an array of [NCCO](/voice/voice-api/ncco-reference) in JSON.
+Nexmo expect you to return an [NCCO](/voice/voice-api/ncco-reference) in JSON format containing the actions to perform.
 
 ## Event webhook
 
 HTTP requests will arrive at the event webhook endpoint when there is any status change for a call. The URL will be the `event_url` you specified when creating your application unless you override it by setting a specific `event_url` when starting a call.
 
-The incoming requests are `POST` requests with a JSON body.
+By default the incoming requests are `POST` requests with a JSON body. You can override the method to `GET` by configuring the `event_method` in addition to the `event_url`.
 
 The format of the data included depends on which event has occurred:
 
@@ -223,7 +223,7 @@ Field | Example | Description
 
 ### Record
 
-This webhook arrives when an NCCO with a "record" action has finished. When creating a record action, you can set a different `eventURL` for this event to be sent to if you wish.
+This webhook arrives when an NCCO with a "record" action has finished. When creating a record action, you can set a different `eventURL` for this event to be sent to. This can be useful if you want to use separate code to handle this event type.
 
 Field | Example | Description
  -- | -- | --
