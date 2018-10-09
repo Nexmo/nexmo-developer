@@ -10,6 +10,7 @@ Nexmo uses webhooks alongside its Voice API to enable your application to intera
 
 * [Answer webhook](#answer-webhook) is sent when a call is answered. This is for both incoming and outgoing calls.
 * [Event webhook](#event-webhook) is sent for all the events during a call. Your application can log, react to or ignore each event type.
+* [Errors](#errors) are also delivered to the event webhook endpoint if they occur.
 
 For more general information, check out our [webhooks guide](/concepts/guides/webhooks).
 
@@ -245,3 +246,14 @@ Field | Example | Description
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+
+## Errors
+
+The event endpoint will also receive webhooks in the event of an error. This can be useful when debugging your application.
+
+Field | Example | Description
+ -- | -- | --
+`reason` | `Syntax error in NCCO. Invalid value type or action.` | Information about the nature of the error
+`conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
+`timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+
