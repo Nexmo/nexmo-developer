@@ -4,8 +4,8 @@ from pprint import pprint
 
 app = Flask(__name__)
 
-@app.route("/webhooks/delivery-receipt", methods=['POST'])
-def delivery_receipt():
+@app.route("/webhooks/message-status", methods=['POST'])
+def message_status():
     data = request.get_json()
     pprint(data)
     return "200"
