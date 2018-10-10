@@ -7,7 +7,7 @@ navigation_weight: 1
 
 The Messages API allows you to send and in some cases receive messages over the following communications channels:
 
-* SMS
+* SMS/MMS
 * Facebook Messenger
 * Viber
 * WhatsApp
@@ -52,9 +52,9 @@ Channel | Inbound Text | Inbound Image | Inbound Audio | Inbound Video | Inbound
 Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
 
-**Key:** 
+**Key:**
 
-* ✅ = Supported. 
+* ✅ = Supported.
 * ❎ = Supported by the channel, but not by Nexmo. 
 * n/a = Not supported by the channel.
 
