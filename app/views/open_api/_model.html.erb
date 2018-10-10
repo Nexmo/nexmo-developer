@@ -2,7 +2,7 @@
   <div class="slate-layout-documentation slate-layout-documentation--group">
     <div>
       <%= content_tag :h2, group['name'], id: group['name'].parameterize %>
-      <%= content_tag :p, group['description'] %>
+      <%= content_tag :p, group['description'].render_markdown %>
 
       <% if group['schema'] %>
         <% group['schema'].each do |format, schema| %>
