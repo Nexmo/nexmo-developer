@@ -51,7 +51,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 }
             ]
 
-        #For more advanced Conversations you use the paramaters to personalize the NCCO
+        #For more advanced Conversations you use the parameters to personalize the NCCO
         #Dynamically create the NCCO to run a conversation from your virtual number
 
         print "GET Request from " + s.path

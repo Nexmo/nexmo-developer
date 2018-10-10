@@ -7,7 +7,7 @@ navigation_weight: 1
 
 To make and receive calls with the [Voice API](/voice/), and to receive messages using the [SMS API](/sms/), you need to buy a number to use with the API.
 
-You can purchase numbers using the Dashboard in the [Your Numbers](https://dashboard.nexmo.com/your-numbers) section, or programatically.
+You can purchase numbers using the Dashboard in the [Your Numbers](https://dashboard.nexmo.com/your-numbers) section, or programmatically.
 
 ### Search for a number
 

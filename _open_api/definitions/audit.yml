@@ -551,7 +551,7 @@ components:
           description: A human readable description of the error
         message:
           type: string
-          example: "An exmaple goes here"
+          example: "An example goes here"
           description: A longer description of the error
   
     ErrorNotFound:

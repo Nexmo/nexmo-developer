@@ -19,7 +19,7 @@ The workflow for Two-factor Authentication API is:
 
 To ensure that your traffic is send over the best possible route, use [Conversion API](/messaging/conversion-api/overview) to tell us about the reliability of your 2FA communication. Adding your conversion data means Nexmo delivers your messages faster and more reliably.
 
-> Note: Nexmo calcualtes quality of delivery (QoD) statistics using delivery receipts (DLR). In the United States, we only receive intermediate and not handset DLRs. This means Dashboard analytics cannot show QoD statistics for messages sent via the US short code API.
+> Note: Nexmo calculates quality of delivery (QoD) statistics using delivery receipts (DLR). In the United States, we only receive intermediate and not handset DLRs. This means Dashboard analytics cannot show QoD statistics for messages sent via the US short code API.
 
 ## Implementing the Two-factor Authentication API workflow
 

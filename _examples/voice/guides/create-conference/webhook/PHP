@@ -14,7 +14,7 @@ switch ($method) {
     //Send the header
     header('Content-Type: application/json');
 
-    //For more advanced Conversations you use the paramaters to personalize the NCCO
+    //For more advanced Conversations you use the parameters to personalize the NCCO
     //Dynamically create the NCCO to run a moderated conversation from your virtual number
     if( $from == "441632960960")
       $ncco='[

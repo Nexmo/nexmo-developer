@@ -23,7 +23,7 @@ The Nexmo Voice API acts as the client when establishing the WebSocket connectio
 
 ## Connecting to a WebSocket
 
-To instruct Nexmo to connect to a WebSocket your applicaiton server must return an [NCCO](/voice/voice-api/guides/ncco) when requested from your Nexmo Application's [answer_url](/voice/voice-api/guides/call-flow#answer-url-payload). In order to do this the NCCO must contain a `connect` action with an `endpoint.type` of `websocket`. For example:
+To instruct Nexmo to connect to a WebSocket your application server must return an [NCCO](/voice/voice-api/guides/ncco) when requested from your Nexmo Application's [answer_url](/voice/voice-api/guides/call-flow#answer-url-payload). In order to do this the NCCO must contain a `connect` action with an `endpoint.type` of `websocket`. For example:
 
 ``` json
 [

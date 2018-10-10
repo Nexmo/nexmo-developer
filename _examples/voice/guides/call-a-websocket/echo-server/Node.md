@@ -48,7 +48,7 @@ wsServer.on('connect', function(connection) {
             console.log(message.utf8Data);
         }
         else if (message.type === 'binary') {
-            console.log("Binary Message Recieved");
+            console.log("Binary Message Received");
             // Reflect the message back
             connection.sendBytes(message.binaryData);
         }

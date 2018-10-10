@@ -19,7 +19,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         frm = params["from"]
         uuid = params["uuid"]
 
-        #For more advanced Conversations you use the paramaters to personalize the NCCO
+        #For more advanced Conversations you use the parameters to personalize the NCCO
         #Dynamically create the NCCO to run a conversation from your virtual number
         #Create NCCO Object for your conversation
 

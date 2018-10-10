@@ -1,6 +1,6 @@
 #!/bin/bash
 #This script assumes you have already installed Nexmo CLI
-#1. Set the recording_url that you recieved at eventURL
+#1. Set the recording_url that you received at eventURL
 recording_url="https://api.nexmo.com/v1/files/17cb9958-3878-4562-b6a7-f67a0adsfsdfd"
 #2. Set a Generic file name for the file holding the private key for this Application.
 private_key_file="./tts_application.key"

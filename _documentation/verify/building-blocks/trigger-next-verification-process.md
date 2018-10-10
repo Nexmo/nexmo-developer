@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Trigger next verification process
 
-Trigger the next verification in the process. This can be used if a user has previously indicated they prefer to recieve a code via text-to-speech.
+Trigger the next verification in the process. This can be used if a user has previously indicated they prefer to receive a code via text-to-speech.
 
 ```tabbed_examples
 source: '_examples/verify/building-blocks/trigger-next-verification-process'

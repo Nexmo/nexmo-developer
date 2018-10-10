@@ -59,7 +59,7 @@ Document | Description
 >
 > §
 >
-> Although this specific issue hasn't been addressed some work has been made towards having a tree based overides, this could allow an individual item to be overridden by specifying it's location within the the document hirearchy. You can see the start of this work under `navigation_overrides` within the `/config/navigation.yml` file.
+> Although this specific issue hasn't been addressed some work has been made towards having a tree based overrides, this could allow an individual item to be overridden by specifying it's location within the the document hirearchy. You can see the start of this work under `navigation_overrides` within the `/config/navigation.yml` file.
 
 ## Pages and content
 
@@ -166,7 +166,7 @@ ExternalLink | No | [Implicit] | Automatically adds an icon and `target="blank"`
 
 ## Webpack
 
-We use [Webpacker](https://github.com/rails/webpacker) to handle JavaScript in webpack with Ruby on Rails. We use the React intergration with this tool.
+We use [Webpacker](https://github.com/rails/webpacker) to handle JavaScript in webpack with Ruby on Rails. We use the React integration with this tool.
 
 The JavaScript file that is loaded can be found at `/app/javascript/packs/application.js`.
 

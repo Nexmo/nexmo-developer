@@ -15,5 +15,5 @@ Code | Description
 `12` | Destination unreachable - the message could not be delivered to the phone number.
 `13` | Subscriber Age Restriction - the carrier blocked this message because the content is not suitable for to based on age restrictions.
 `14` | Number Blocked by Carrier - the carrier blocked this message. This could be due to several reasons. For example, to's plan does not include SMS or the account is suspended.
-`15` | Pre-Paid - Insufficent funds - to’s pre-paid account does not have enough credit to receive the message.
+`15` | Pre-Paid - Insufficient funds - to’s pre-paid account does not have enough credit to receive the message.
 `99` | General Error - there is a problem with the chosen route to send your message. To resolve this issue either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com.

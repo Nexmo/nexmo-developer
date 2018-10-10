@@ -25,7 +25,7 @@ This guide will introduce you to the following concepts.
 We will use the application we already created for [the first audio getting started guide](/stitch/in-app-voice/guides/enable-audio/ios). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 Modify the ChatController with `.storyboard` files 
-To modify the `.storyboard` to accomodate a call convenience method, let's perform the following changes: 
+To modify the `.storyboard` to accommodate a call convenience method, let's perform the following changes: 
 
 - Inside of the scene for `ChatViewController.swift` add an instance of `UIBarButtonItem` to the upper right hand corner of the `UINavigationController`. 
 
@@ -94,7 +94,7 @@ With our chat set up, we are ready to move onto setting up the call method.
 
 ## 2.0 -  📞 + ☎️ equals a call
 
-Earlier we droped the following in an action for our call emoji 📞: `call()`. We will program this function with our call convenience method now. Below `viewDidLoad()` declare a private function called `call()` like so: 
+Earlier we dropped the following in an action for our call emoji 📞: `call()`. We will program this function with our call convenience method now. Below `viewDidLoad()` declare a private function called `call()` like so: 
 
 ```swift 
 private func call() {

@@ -6,7 +6,7 @@ if response.code == 200 :
     data = response.read()
     #Decode JSON response from UTF-8
     decoded_response = json.loads(data.decode('utf-8'))
-    # Check if your messages are succesful
+    # Check if your messages are successful
     messages = decoded_response["messages"]
     for message in messages:
         if message["status"] == "0":

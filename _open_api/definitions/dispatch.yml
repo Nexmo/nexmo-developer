@@ -41,7 +41,7 @@ paths:
               summary: Message Status
               operationId: message-status
               x-example-path: '/webhooks/message-status'
-              description: staus of the message read or delivered etc.
+              description: status of the message read or delivered etc.
               requestBody:
                 required: true
                 content:

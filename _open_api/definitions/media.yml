@@ -59,7 +59,7 @@ paths:
             example: '2020-01-01T14:00:00.000Z'
       responses:
         '200':
-          description: Successfully retrived
+          description: Successfully retrieved
           content:
             application/json:
               schema:
@@ -124,7 +124,7 @@ paths:
       x-group: media
       responses:
         '200':
-          description: Successfully retrived
+          description: Successfully retrieved
           content:
             application/json:
               schema:
@@ -170,7 +170,7 @@ paths:
                   example: 100
       responses:
         '204':
-          description: Successfuly updated
+          description: Successfully updated
     delete:
       summary: Delete a media item
       operationId: delete-a-media-item
@@ -178,7 +178,7 @@ paths:
       x-group: media
       responses:
         '204':
-          description: Successfuly deleted
+          description: Successfully deleted
 components:
   schemas:
     Media:

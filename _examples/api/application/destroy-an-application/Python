@@ -8,7 +8,7 @@ data = {
 
 resp = requests.delete(url, params=data)
 if resp.status_code == 204:
-    print "Your applicaiton was deleted"
+    print "Your application was deleted"
 else :
     print "Your request failed because:"
     print resp.json()

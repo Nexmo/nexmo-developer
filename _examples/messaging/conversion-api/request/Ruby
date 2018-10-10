@@ -1,7 +1,7 @@
 require "net/http"
 require "uri"
 
-#You use the information you recieved in response from a request to SMS API or Call API.
+#You use the information you received in response from a request to SMS API or Call API.
 
 uri = URI.parse("https://api.nexmo.com/conversions/sms?")
 params = {

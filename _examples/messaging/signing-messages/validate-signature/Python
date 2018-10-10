@@ -16,7 +16,7 @@ security_secret = 'SECURITY_SECRET'
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(s):
-        """Tell Nexmo that you have recieved the GET request."""
+        """Tell Nexmo that you have received the GET request."""
         s.send_response(200)
         s.send_header("Content-type", "text/html")
         s.end_headers()
