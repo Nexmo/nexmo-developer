@@ -1,10 +1,12 @@
 ---
-title: Send an MMS
+title: Send an MMS with Basic Authentication
 ---
 
-# Send an MMS
+# Send an MMS with Basic Authentication
 
 In this building block you will see how to send an MMS using the Messages API.
+
+> **IMPORTANT:** Only US Short codes are currently supported.  
 
 ## Example
 
@@ -12,16 +14,16 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` | The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the message from.
+`US_SHORT_CODE` | The US Short Code you are sending the message from.
 `TO_NUMBER` | The phone number you are sending the message to.
+`IMG_URL` | The URL of the media you want to send
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ```building_blocks
-source: '_examples/messages/send-mms'
+source: '_examples/messages/send-mms-basic-auth'
 application:
-  name: 'Send an MMS'
+  name: 'Send an MMS with Basic Authentication'
 ```
 
 ## Try it out
