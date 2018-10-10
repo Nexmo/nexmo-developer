@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: 0.1.0
   title: External Accounts
-  description: 'The External Accounts API is used to manage accounts for VSM, Messenger and Whatsapp for use in the [Messages](https://developer.nexmo.com/messages/overview) and [Dispatch](https://developer.nexmo.com/dispatch/overview) APIs.'
+  description: 'The External Accounts API is used to manage accounts for VSM, Messenger and Whatsapp for use in the [Messages](/messages/overview) and [Dispatch](/dispatch/overview) APIs.'
   x-label: Developer Preview
 servers:
 - url: https://api.nexmo.com/beta/chatapp-accounts
@@ -54,7 +54,7 @@ paths:
                     <li>There is just one application allowed per an account.</li>
                     <li>The application type must be type "messages".</li>
                     </ul>
-                    For more information see [Application API spec](https://developer.nexmo.com/api/application)
+                    For more information see [Application API spec](/api/application)
       responses:
         '201':
           description: Created.
@@ -773,12 +773,12 @@ x-groups:
   messenger:
     name: "Facebook Messenger"
     order: 3
-    description: 'Managing your [Facebook Messenger](https://developer.nexmo.com/messages/concepts/facebook) account'
+    description: 'Managing your [Facebook Messenger](/messages/concepts/facebook) account'
   viber_service_msg:
     name: "Viber Service Message"
     order: 4
-    description: 'Managing your [Viber Service Message](https://developer.nexmo.com/messages/concepts/viber) account'
+    description: 'Managing your [Viber Service Message](/messages/concepts/viber) account'
   whatsapp:
     name: "Whatsapp"
     order: 5
-    description: 'Managing your [Whatsapp](https://developer.nexmo.com/messages/concepts/whatsapp) account'
+    description: 'Managing your [Whatsapp](/messages/concepts/whatsapp) account'
