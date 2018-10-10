@@ -2,22 +2,23 @@
 
 In order to create a JWT to authenticate your API requests, you will need to first create a Nexmo Application.
 
-There are two ways to create a Nexmo Application:
-
-* Using the Dashboard
-* Using the Nexmo Command Line Interface
-
 ### Create a Nexmo Application using the Dashboard
 
-This can be done under the [Voice tab in the Dashboard](https://dashboard.nexmo.com/voice/create-application).
+Depending on the product you are willing to use, there are two application types which can be created: Voice and Messages.
 
-> **NOTE:** When creating a Nexmo Voice Application, you will be asked to provide an Event URL and an Answer URL. These are currently only used by the Voice API and are ignored by the Messages and Dispatch APIs, so in this case you can just set them to the suggested values of `https://example.com/webhooks/event` and `https://example.com/webhooks/answer` respectively.
+Messages applications are also used by Dispatch API.
 
-When you are creating the Nexmo Voice Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
+[Create Voice application](https://dashboard.nexmo.com/voice/create-application)
 
-### Create a Nexmo Application using the Nexmo CLI
+[Create Messages application](https://dashboard.nexmo.com/messages/create-application)
 
-Alternatively, you can create a Nexmo Application using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
+Applications provide fine-grained control over system notifications and inbound flows.
+
+When you are creating Nexmo Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
+
+### Create Voice Nexmo Application using the Nexmo CLI
+
+Alternatively, for Voice applications, you can create a Nexmo Application using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool if you have [installed it](https://github.com/Nexmo/nexmo-cli).
 
 Using the Nexmo CLI create your application as follows:
 
