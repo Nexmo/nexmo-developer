@@ -11,7 +11,7 @@ There are two ways to create a Nexmo Application:
 
 This can be done under the [Messages and Dispatch tab in the Dashboard](https://https://dashboard.nexmo.com/messages/create-application).
 
-When you are creating the Nexmo Application in the [Nexmo Dashboard](https://dashboard.nexmo.com) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
+When you are creating the Nexmo Application in the [Nexmo Dashboard](https://dashboard.nexmo.com/messages/create-application) you can click the link _Generate public/private key pair_ - this will create a public/private key pair and the private key will be downloaded by your browser.
 
 ### Create a Nexmo Application using the Nexmo CLI
 

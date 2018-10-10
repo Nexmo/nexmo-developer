@@ -24,6 +24,8 @@ Webhook | URL
 Status URL | https://www.example.com:3000/webhooks/message-status
 Inbound URL | http://www.example.com:3000/webhooks/inbound-message
 
+> **NOTE:** The default method of `POST` should be used for both of the webhook URLs.
+
 ### Testing locally via Ngrok
 
 If you want to test your application locally you can use Ngrok.
