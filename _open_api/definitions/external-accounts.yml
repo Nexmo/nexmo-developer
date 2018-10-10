@@ -35,7 +35,7 @@ paths:
                   example: "myAccessToken"
                   description: It is a Facebook Page token. There ways how to obtain the token
                     <ul>
-                    <li>Use our tool witch helps go get it [https://static.nexmo.com/messenger/](https://static.nexmo.com/messenger/)</li>
+                    <li>Use our tool to link a page to your Nexmo account[https://static.nexmo.com/messenger/](https://static.nexmo.com/messenger/)</li>
                     <li>Following the official [token reference](https://developers.facebook.com/docs/pages/access-tokens/)</li>
                     </ul>
                 name:
@@ -204,7 +204,7 @@ paths:
                   provider:
                     type: string
                     example: "messenger"
-                    description: The provider (must be `messenger`).
+                    description: The provider (will be `messenger`).
                   access_token:
                     type: string
                     example: "updatedAccessToken"
@@ -639,7 +639,7 @@ components:
             enum: [messenger, viber_service_msg, whatsapp]
           example: "messenger"
           description: The provider
-            (must be one of `messenger, viber_service_msg, whatsapp`).
+            (will be one of `messenger, viber_service_msg, whatsapp`).
         access_token:
           type: string
           example: "accessToken" #optional
@@ -674,7 +674,7 @@ components:
         provider:
           type: string
           example: "messenger"
-          description: The provider (must be `messenger`).
+          description: The provider (will be `messenger`).
         access_token:
           type: string
           example: "myAccessToken"
@@ -708,7 +708,7 @@ components:
         provider:
           type: string
           example: "viber_service_msg"
-          description: The provider (must be `viber_service_msg`).
+          description: The provider (will be `viber_service_msg`).
 
     WAAccountResponse:
       type: object
@@ -738,7 +738,7 @@ components:
         provider:
           type: string
           example: whatsapp
-          description: The provider (must be `whatsapp`).
+          description: The provider (will be `whatsapp`).
 
     GetAllAccountResponse:
       allOf:
