@@ -2,8 +2,8 @@ openapi: "3.0.0"
 info:
   version: 0.3.0
   title: Dispatch API
-  description: 'The Dispatch API enables the developer to specify a multiple message workflow. A workflow follows a template. The first one we are adding is the failover template. The failover template instructs the Messages API to first send a message to the specified channel. If that message fails immediately or if the condition_status is not reached within the given time period the next message is sent. The developer will also receive status webhooks from the messages resource for each delivery and read event. This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.'
-  x-label: Developer Preview
+  description: 'The Dispatch API enables the developer to specify a multiple message workflow. A workflow follows a template. The first one we are adding is the failover template. The failover template instructs the Messages API to first send a message to the specified channel. If that message fails immediately or if the condition_status is not reached within the given time period the next message is sent. The developer will also receive status webhooks from the messages resource for each delivery and read event. This API is currently Beta.'
+  x-label: Beta
 servers:
   - url: https://api.nexmo.com/v0.1
 paths:
