@@ -57,6 +57,8 @@
 "/messages-and-workflows-apis/messages/guides/facebook-messenger": "/tutorials/sending-facebook-messenger-messages-with-messages-api"
 "/messages-and-workflows-apis/messages/guides/viber-service-messages": "/tutorials/sending-viber-service-messages-with-messages-api"
 "/messages-and-workflows-apis/messages/guides/whatsapp": "/tutorials/sending-whatsapp-messages-with-messages-api"
+"/messages-and-workflows-apis/messages/external-accounts": "/external-accounts/overview"
+"/messages-and-workflows-apis/messages/external-accounts/api-reference": "/api/external-accounts.yml"
 "/messages-and-workflows-apis/workflows/api-reference": "/api/dispatch"
 "/messages-and-workflows-apis/workflows/guides": "/dispatch/concepts/client-library"
 "/messages-and-workflows-apis/workflows/building-blocks": "/dispatch/building-blocks/send-a-message-with-failover"
