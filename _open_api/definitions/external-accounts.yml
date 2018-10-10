@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: 0.1.0
   title: External Accounts
-  description: 'The external accounts API is a new API that creates accounts for VSM, Messenger and Whatsapp which will be used by the Messages and Workflows APIs. (https://developer.nexmo.com/messages-and-workflows-apis/messages/overview)'
+  description: 'The External Accounts API is used to manage accounts for VSM, Messenger and Whatsapp for use in the [Messages](https://developer.nexmo.com/messages/overview) and [Dispatch](https://developer.nexmo.com/dispatch/overview) APIs.'
   x-label: Developer Preview
 servers:
 - url: https://api.nexmo.com/beta/chatapp-accounts
@@ -773,12 +773,12 @@ x-groups:
   messenger:
     name: "Facebook Messenger"
     order: 3
-    description: Facebook Messenger account
+    description: 'Managing your [Facebook Messenger](https://developer.nexmo.com/messages/concepts/facebook) account'
   viber_service_msg:
     name: "Viber Service Message"
     order: 4
-    description: Viber Service Message account
+    description: 'Managing your [Viber Service Message](https://developer.nexmo.com/messages/concepts/viber) account'
   whatsapp:
     name: "Whatsapp"
     order: 5
-    description: Whatsapp account
+    description: 'Managing your [Whatsapp](https://developer.nexmo.com/messages/concepts/whatsapp) account'
