@@ -34,6 +34,10 @@ DATE_TO="2018-08-01"
 INSIGHT_NUMBER="447700900000"
 WEBHOOK_URL=""
 
+# MMS
+US_SHORT_CODE=""
+IMG_URL=""
+
 # If we have a local config, override using that
 CONFIG_DIR=$(dirname "${BASH_SOURCE[0]}")
 if [ -f "$CONFIG_DIR/config.local.sh" ]; then

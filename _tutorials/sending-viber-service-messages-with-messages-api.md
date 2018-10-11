@@ -1,6 +1,6 @@
 ---
 title: Sending Viber Service messages with Messages API
-products: messages-and-workflows-apis/messages
+products: messages
 description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the Viber Service channel using the Messages API.
 languages:
     - Curl
@@ -11,10 +11,10 @@ languages:
 
 You can use the Messages API to send outbound Viber Service Messages to Viber Users.
 
-Before continuing with this tutorial you should review the information on [Understanding Viber messaging](/messages-and-workflows-apis/messages/concepts/viber).
+Before continuing with this tutorial you should review the information on [Understanding Viber messaging](/messages/concepts/viber).
 
 ```partial
-source: _partials/olympus/prereqs.md
+source: _partials/reusable/prereqs.md
 ```
 
 ## The steps
@@ -27,15 +27,15 @@ After the prerequisites have been met, the steps are as follows:
 4. [Send a Viber Service message](#send-a-viber-service-message) - This step uses the Nexmo Messages API to send a Viber Service message.
 
 ```partial
-source: _partials/olympus/configure-webhook-urls.md
+source: _partials/reusable/configure-webhook-urls.md
 ```
 
 ```partial
-source: _partials/olympus/create-a-nexmo-application.md
+source: _partials/reusable/create-a-nexmo-application.md
 ```
 
 ```partial
-source: _partials/olympus/generate-a-jwt.md
+source: _partials/reusable/generate-a-jwt.md
 ```
 
 ## Send a Viber Service message
@@ -51,9 +51,9 @@ Key | Description
 ## Example
 
 ```building_blocks
-source: '_examples/olympus/send-viber-message'
+source: '_examples/messages/send-viber-message'
 ```
 
 ## Further reading
 
-* [Messages documentation](/messages-and-workflows-apis/messages/overview)
+* [Messages documentation](/messages/overview)

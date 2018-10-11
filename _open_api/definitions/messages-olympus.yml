@@ -1,0 +1,510 @@
+openapi: "3.0.0"
+info:
+  version: 0.3.0
+  title: Messages API
+  description: 'The Messaging API is a new API that consolidates all messaging channels. It encapsulates a user (developer) from having to use multiple APIs to interact with our various channels such as SMS, MMS, Viber, Facebook Messenger, etc. The API normalises information across all channels to abstracted to, from and content. This API is currently Beta.'
+  x-label: Beta
+servers:
+  - url: https://api.nexmo.com/v0.1
+
+paths:
+  /messages:
+    post:
+      security:
+        - bearerAuth: []
+        - basicAuth: []
+      summary: Send a Message
+      operationId: NewMessage
+      x-group: message
+      requestBody:
+        description: Send a Message.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewMessage'
+      responses:
+        '202':
+          description: Accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      callbacks:
+        message-status:
+          '{$request.body#/callback}':
+            post:
+              summary: Message Status
+              operationId: message-status
+              x-example-path: '/webhooks/message-status'
+              description: 'Webhooks to inform about events happening to the message at communication level (has it been delivered, rejected by the provider...).'
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/MessageStatus'
+              responses:
+                  '200':
+                    description: Your server returns this code if it accepts the callback.
+        inbound-message:
+          '{$request.body#/callback}':
+            post:
+              summary: Inbound Message
+              operationId: inbound-message
+              x-example-path: '/webhooks/inbound-message'
+              description: An inbound message from a customer to you.
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/InboundMessage'
+              responses:
+                  '200':
+                    description: Your server returns this code if it accepts the callback.
+
+
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    basicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+
+    NewMessage:
+      required:
+        - to
+        - from
+        - message
+      properties:
+        to:
+          $ref: '#/components/schemas/ToProperty'
+        from:
+          $ref: '#/components/schemas/FromProperty'
+        message:
+          $ref: '#/components/schemas/MessageProperty'
+
+    Response:
+      required:
+        - message_uuid
+      properties:
+        message_uuid:
+          type: string
+          description: The UUID of the message.
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+    Error:
+      description: 'The error format is standardized to the 4xx/5xx range with a code and a human readable explanation.'
+      required:
+        - type
+        - title
+        - detail
+        - instance
+      properties:
+        type:
+          type: string
+          example: 'https://www.nexmo.com/messages/Errors#InvalidParams'
+        detail:
+          type: string
+          example: 'Your request parameters did not validate.'
+        instance:
+          type: string
+          example:
+
+      resolution:
+        text: Check your request parameters against the API documentation.
+        link:
+          text: See API request format
+          url: /api/messages
+
+    MessageStatus:
+      type: object
+      required:
+        - message_uuid
+        - to
+        - from
+        - timestamp
+        - status
+      properties:
+        message_uuid:
+          type: string
+          description: The UUID of the message.
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+        to:
+          $ref: '#/components/schemas/ToProperty'
+        from:
+          $ref: '#/components/schemas/FromProperty'
+        timestamp:
+          $ref: '#/components/schemas/TimestampProperty'
+        status:
+          type: string
+          example: delivered
+          description: The status of the message. The `read` message status is only available for `viber_service_msg` and `messenger`.
+          enum:
+            - submitted
+            - delivered
+            - read
+            - rejected
+            - undeliverable
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              example: 1300
+              description: The error code. See [Errors](#errors) for a table of descriptions.
+            reason:
+              type: string
+              example: 'Not part of the provider network'
+              description: Text describing the error. See [Errors](#errors) for a more details.
+        usage:
+          type: object
+          properties:
+            currency:
+              type: string
+              example: EUR
+              description: The charge currency in ISO 4217 format.
+              enum:
+                - EUR
+            price:
+              type: string
+              example: '0.0333'
+              description: The charge amount as a stringified number.
+
+    InboundMessage:
+      type: object
+      required:
+        - message_uuid
+        - to
+        - from
+        - timestamp
+      properties:
+        message_uuid:
+          type: string
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+          description: The UUID of the message.
+        to:
+          type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              description: The type of message being received.
+              example: messenger
+              enum:
+                - messenger
+                - whatsapp
+            id:
+              type: string
+              description: The ID of the recipient.
+              example: '0123456678901234'
+        from:
+          type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              description: The type of message being sent.
+              example: messenger
+              enum:
+                - messenger
+                - whatsapp
+            id:
+              type: string
+              description: The ID of the sender.
+              example: '0123456789012345'
+        timestamp:
+          type: string
+          format: ISO 8601
+          description: The datetime of when the event occurred.
+          example: '2020-01-01T14:00:00.000Z'
+        message:
+          type: object
+          properties:
+            content:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: The type of message being received.
+                  example: 'text'
+                  enum:
+                    - text
+                    - image
+                    - audio
+                    - video
+                    - file
+                    - location
+                text:
+                  type: string
+                  description: The body of the message.
+                  example: 'Hello World!'
+                image:
+                  $ref: '#/components/schemas/ImageProperty'
+                audio:
+                  $ref: '#/components/schemas/AudioProperty'
+                video:
+                  $ref: '#/components/schemas/VideoProperty'
+                file:
+                  $ref: '#/components/schemas/FileProperty'
+                location:
+                  $ref: '#/components/schemas/LocationProperty'
+
+    ToProperty:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          description: The type of message that you want to send.
+          example: 'sms'
+          enum:
+            - sms
+            - viber_service_msg
+            - messenger
+            - whatsapp
+        id:
+          description: |
+            The ID of the message recipient.
+
+            **Messenger**: This value should be the `from.id` value you received in the inbound messenger event.
+
+            **SMS**: or **Viber**: or **WhatsApp** This value is not required.
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '0123456789012345'
+        number:
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '447700900000'
+          description: |
+            **SMS**: or **Viber**: or **WhatsApp** The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
+
+            **Messenger**: This value is not required.
+    FromProperty:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          description: The type of message that you want to send.
+          example: sms
+          enum:
+            - sms
+            - viber_service_msg
+            - messenger
+            - whatsapp
+        id:
+          description: |
+            Your ID for the platform that you are sending from.
+
+            **Messenger**: This value should be the `to.id` value you received in the inbound messenger event.
+
+            **Viber**: This is your Service Message ID given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
+
+            **SMS**:  or **WhatsApp** This value is not required.
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '0123456789012345'
+        number:
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '447700900000'
+          description: |
+            **SMS**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
+            
+            **WhatsApp**: This is your WhatsApp Business Number  given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
+
+            **Messenger**: or **Viber**: This value is not required.
+    MessageProperty:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          type: object
+          properties:
+            type:
+              description: |
+                The type of message that you are sending.
+
+                **Messenger**: supports all types.
+
+                **Viber Service Messages**: supports `image` and `text`.
+                
+                **WhatsApp**: supports `template` and `text`.
+
+                **SMS**: supports `text`.
+              type: string
+              enum:
+                - text
+                - image
+                - audio
+                - video
+                - file
+                - template
+                - custom
+              example: 'text'
+            text:
+              description: |
+                The text of the message.
+
+                **Messenger**: Is limited to 640 characters
+
+                **SMS** or **Viber**: Is 1000 characters
+                
+                **WhatsApp**: is 4096 characters
+              type: string
+              minLength: 1
+              maxLength: 4096
+              example: 'Nexmo Verification code: 64873. Valid for 10 minutes.'
+            image:
+              $ref: '#/components/schemas/ImageProperty'
+            audio:
+              $ref: '#/components/schemas/AudioProperty'
+            video:
+              $ref: '#/components/schemas/VideoProperty'
+            file:
+              $ref: '#/components/schemas/FileProperty'
+            template:
+              $ref: '#/components/schemas/TemplateProperty'
+            # @TODO: Clarify requirements
+            # custom:
+            #   type: object
+            #   description: This is a highly experimental feature. To enable the user to send any type of Messenger message we have included a custom object. To use this feature include the original Messenger API payload from the message object onwards.
+            #   properties:
+            #     custom:
+            #       type: object
+        viber_service_msg:
+          type: object
+          properties:
+            category:
+              description: 'The use of different category tags enables the business to send messages for different use cases. For Viber Service Messages the first message sent from a business to a user must be personal, informative & a targeted message - not promotional. By default Nexmo sends the `transaction` category to Viber Service Messages.'
+              type: string
+              example: 'transaction'
+              enum:
+                - transaction
+                - promotion
+            ttl:
+              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
+              type: integer
+              example: 600
+              minimum: 30
+              maximum: 86400
+        messenger:
+          type: object
+          properties:
+            category:
+              description: 'The use of different category tags enables the business to send messages for different use cases. For Facebook Messenger they need to comply with their [Messaging Types policy]( https://developers.facebook.com/docs/messenger-platform/send-messages#messaging_types). Nexmo maps our `category` to their `messaging_type`. If `message_tag` is used, then an additional `tag` for that type is mandatory. By default Nexmo sends the `response` category to Facebook Messenger.'
+              type: string
+              example: 'message_tag'
+              enum:
+                - response
+                - update
+                - message_tag
+            tag:
+              description: ‘A full list of the possible tags is available on [developers.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)'
+              type: string
+              example: 'ticket_update'
+
+
+    TimestampProperty:
+      type: string
+      format: ISO 8601
+      description: The datetime of when the event occurred.
+      example: '2020-01-01T14:00:00.000Z'
+
+    ImageProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: 'The URL of the image attachment. `messenger` supports .jpg, .png and .gif. `viber_service_msg` supports .jpg and .png.'
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/image.jpg'
+    AudioProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: 'The URL of the audio attachment. `messenger` supports .mp3.'
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/audio.mp3'
+    VideoProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: 'The URL of the video attachment. `messenger` supports .mp4'
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/video.mp4'
+    FileProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: 'The URL of the file attachment. `messenger` supports a wide range of attachments including .zip, .csv and .pdf'
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/file.zip'
+    TemplateProperty:
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'The name of the template.'
+          example: 'whatsapp:hsm:technology:nexmo:verify'
+        parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              default:
+                type: string
+                description: 'The parameters are an array. The first value being {{1}} in the template.'
+                example: '1234'
+    LocationProperty:
+      type: object
+      properties:
+        lat:
+          type: string
+          description: The latitude of the location attachment.
+          example: '51.5228349'
+        long:
+          type: string
+          description: The longitude of the location attachment.
+          example: '-0.0854414'
+        url:
+          type: string
+          description: The location on a map.
+x-groups:
+  message:
+    name: "Message"
+    order: 1
+    description: The Message object contains information about the request and details of the message object.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/Response'

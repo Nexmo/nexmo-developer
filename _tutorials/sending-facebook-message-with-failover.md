@@ -1,7 +1,7 @@
 ---
 title: Sending a Facebook message with failover
-products: messages-and-workflows-apis/workflows
-description: The Workflows API provides the ability to create message workflows with failover to secondary channels. This tutorial looks at using the Workflows API to send a Facebook message with failover to the SMS channel.
+products: dispatch
+description: The Dispatch API provides the ability to create message workflows with failover to secondary channels. This tutorial looks at using the Dispatch API to send a Facebook message with failover to the SMS channel.
 languages:
     - Curl
     - Node
@@ -9,12 +9,12 @@ languages:
 
 # Sending a Facebook message with failover
 
-This tutorial shows you how to use the failover functionality of the Workflows API.
+This tutorial shows you how to use the failover functionality of the Dispatch API.
 
 The example Workflow given here will attempt to send a Facebook message using the Messages API, and if this fails it then attempts to send an SMS message to the user using the Messages API.
 
 ```partial
-source: _partials/olympus/prereqs.md
+source: _partials/reusable/prereqs.md
 ```
 
 ## The steps
@@ -27,20 +27,20 @@ After the prerequisites have been met, the steps are as follows:
 4. [Send a Facebook message with failover](#send-a-message-with-failover) - This step uses the Nexmo Messages API to send a Facebook message with failover.
 
 ```partial
-source: _partials/olympus/configure-webhook-urls.md
+source: _partials/reusable/configure-webhook-urls.md
 ```
 
 ```partial
-source: _partials/olympus/create-a-nexmo-application.md
+source: _partials/reusable/create-a-nexmo-application.md
 ```
 
 ```partial
-source: _partials/olympus/generate-a-jwt.md
+source: _partials/reusable/generate-a-jwt.md
 ```
 
 ## Send a message with failover
 
-Sending an message with failover to another channel is achieved by making a single request to the Workflows API endpoint.
+Sending an message with failover to another channel is achieved by making a single request to the Dispatch API endpoint.
 
 In this example you will implement the following workflow:
 
@@ -57,9 +57,9 @@ Key | Description
 ## Example
 
 ```building_blocks
-source: '_examples/olympus/send-facebook-message-with-failover'
+source: '_examples/dispatch/send-facebook-message-with-failover'
 ```
 
 ## Further reading
 
-* [Workflows documentation](/messages-and-workflows-apis/workflows/overview)
+* [Dispatch documentation](/dispatch/overview)

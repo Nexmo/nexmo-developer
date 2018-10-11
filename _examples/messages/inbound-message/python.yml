@@ -1,0 +1,9 @@
+---
+title: Python
+language: python
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/messages/inbound-message.py
+    from_line: 1
+    to_line: 14
+file_name: app.py
+run_command: 'python3 app.py'

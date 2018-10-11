@@ -1,6 +1,6 @@
 ---
 title: Sending WhatsApp messages with Messages API
-products: messages-and-workflows-apis/messages
+products: messages
 description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the WhatsApp channel using the Messages API.
 languages:
     - Curl
@@ -11,10 +11,10 @@ languages:
 
 You can use the Messages API to exchange messages with WhatsApp users. 
 
-Before continuing with this tutorial you should review the information on [Understanding WhatsApp messaging](/messages-and-workflows-apis/messages/concepts/whatsapp).
+Before continuing with this tutorial you should review the information on [Understanding WhatsApp messaging](/messages/concepts/whatsapp).
 
 ```partial
-source: _partials/olympus/prereqs.md
+source: _partials/reusable/prereqs.md
 ```
 
 ## The steps
@@ -28,15 +28,15 @@ After the prerequisites have been met, the steps are as follows:
 5. [Send a WhatsApp message](#send-a-whatsapp-message) - This step uses the Nexmo Messages API to send a WhatsApp message.
 
 ```partial
-source: _partials/olympus/configure-webhook-urls.md
+source: _partials/reusable/configure-webhook-urls.md
 ```
 
 ```partial
-source: _partials/olympus/create-a-nexmo-application.md
+source: _partials/reusable/create-a-nexmo-application.md
 ```
 
 ```partial
-source: _partials/olympus/generate-a-jwt.md
+source: _partials/reusable/generate-a-jwt.md
 ```
 
 ## Send a WhatsApp message
@@ -54,9 +54,9 @@ Key | Description
 ## Example
 
 ```building_blocks
-source: '_examples/olympus/send-whatsapp-message'
+source: '_examples/messages/send-whatsapp-message'
 ```
 
 ## Further reading
 
-* [Messages documentation](/messages-and-workflows-apis/messages/overview)
+* [Messages documentation](/messages/overview)
