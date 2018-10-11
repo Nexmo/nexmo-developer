@@ -18,6 +18,7 @@ The following diagram illustrates the relationship between the Dispatch API and 
 
 * [Beta](#beta)
 * [Supported features](#supported-features)
+* [External Accounts API](#external-accounts-api)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Building Blocks](#building-blocks)
@@ -40,6 +41,10 @@ In this release you can:
 * **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
 
 The condition status is the status that the message returns. With Facebook Messenger and Viber Service Messages, you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
+
+## External Accounts API
+
+The [External Accounts API](/api/external-accounts) is used to manage your accounts for Viber Service Messages, Facebook Messenger and Whatsapp when using those channels with the Messages and Dispatch APIs.
 
 ## Getting started
 
@@ -83,3 +88,4 @@ product: dispatch
 ## Reference
 
 * [Dispatch API Reference](/api/dispatch)
+* [External Accounts API Reference](/api/external-accounts)
