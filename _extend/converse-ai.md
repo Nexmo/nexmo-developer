@@ -2,7 +2,7 @@
 title: Converse.ai
 description: Nexmo plugin allows users to build and host IVR (Interactive Voice Response) systems with in Converse platform and handle SMS messages.
 tags: ["Converse.ai","IVR","SMS"]
-link: "https://get.converse.ai/docs/nexmo"
+link: https://get.converse.ai/docs/nexmo
 image: /assets/images/extend/converse_small.png
 ---
 

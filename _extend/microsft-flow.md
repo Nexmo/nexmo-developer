@@ -1,7 +1,7 @@
 ---
 title: Microsoft Flow
 description: Add communications within the context of your applications, including SMS, Voice and Chat.
-tags: ["Amazon","Lex","AI","Bots"]
+tags: ["Microsoft","Flow"]
 link: https://flow.microsoft.com/en-us/connectors/shared_nexmo/nexmo/
 image: /assets/images/extend/msft_flow.png
 ---

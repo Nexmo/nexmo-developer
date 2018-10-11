@@ -1,5 +1,5 @@
 ---
-title: Watson SMS Sentiment Analysis
+title: IBM Watson SMS Sentiment Analysis
 description: Read incoming SMS messages and have IBM Watson to analyze the messages
 tags: ["Watson","AI", "SMS", "Sentiment Analysis"]
 link: https://github.com/nexmo-community/sms-sentiment-watson

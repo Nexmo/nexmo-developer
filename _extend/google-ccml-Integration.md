@@ -4,6 +4,7 @@ description: An integration between Comms Router and Google's Contact Center API
 tags: ["Google","AI"]
 link: 
 image: /assets/images/extend/google_cloud_icon.png
+published: false
 ---
 
 ## About

@@ -2,7 +2,7 @@
 title: IBM Watson Speech to Text
 description: Sample of Watson speech transcribing audio from a call in realtime.
 tags: ["IBM", "Watson", "Speech to Text","Transcription","Python"]
-link:
+link: https://github.com/nexmo-community/voice-watson-speechtotext
 image: /assets/images/extend/ibm_watson_avatar_purple.png
 ---
 

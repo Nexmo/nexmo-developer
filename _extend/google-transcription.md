@@ -2,7 +2,7 @@
 title: Google Cloud Speech Transcription
 description: Sample of Google Cloud speech transcribing audio from a call in realtime, supports 120 language/dialects
 tags: ["Google","Speech to Text","Transcription","Node"]
-link:
+link: https://github.com/nexmo-community/voice-google-speechtotext
 image: /assets/images/extend/google_cloud_icon.png
 ---
 
