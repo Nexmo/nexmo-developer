@@ -47,7 +47,7 @@ Audit Events are activities that occur when a user interacts with the Nexmo API 
 * A Nexmo Number gets assigned to an application.
 * Creation of a Nexmo application.
 
-Further information on types of audit events is given in the [Audit Event Guide](/audit/concepts/audit-events).
+Further information on types of audit events is given on the [Audit Events](/audit/concepts/audit-events) page.
 
 ## Audit Event object
 
