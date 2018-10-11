@@ -7,5 +7,5 @@ description: Client libraries are used to help you rapidly develop your messagin
 # Client library
 
 ```partial
-source: _partials/reusable/node-client-library.md
+source: _partials/reusable/beta-node-client-library-messages-dispatch.md
 ```
