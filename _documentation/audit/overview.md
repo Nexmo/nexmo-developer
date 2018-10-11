@@ -116,6 +116,8 @@ product: audit
 product: audit
 ```
 
+There is also a blog post on [using the Audit API with Python](https://www.nexmo.com/blog/2018/10/09/get-nexmo-audit-events-with-python-dr/) you might find useful.
+
 ## Reference
 
 * [Audit API Reference](/api/audit)
