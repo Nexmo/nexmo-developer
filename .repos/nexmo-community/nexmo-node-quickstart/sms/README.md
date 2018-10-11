@@ -17,7 +17,7 @@ $ node you_dir/send.js
 
 To run "send" examples, just set up your ENV and run locally.
 
-To run "receive" examples, you need to run the webhook file on a server, or tunnel from your local server using the services like [ngrok](http://ngrok.io). See the tutorials for more details.
+To run "receive" examples, you need to run the webhook file on a server, or tunnel from your local server using the services like [ngrok](https://ngrok.com/). See the tutorials for more details.
 
 ## Tutorials
 
