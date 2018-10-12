@@ -1,6 +1,5 @@
 ---
 title: Send a Viber Service Message
-navigation_weight: 3
 ---
 
 # Send a Viber Service Message
@@ -24,6 +23,8 @@ Key | Description
 ```building_blocks
 source: '_examples/messages/send-viber-message'
 application:
+  use_existing: |
+    If you do not have an application you can create one in the <a href="https://dashboard.nexmo.com/messages/create-application">Messages and Dispatch tab in the Dashboard</a>. Also make sure you <a href="https://developer.nexmo.com/messages/building-blocks/configure-webhooks">configure your webhooks</a>.
   name: 'Send a Viber message'
 ```
 
