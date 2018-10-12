@@ -113,21 +113,21 @@ Each message will be a 20ms sample of the audio from the call. If you choose the
 
 ### JSON Messages
 
-Various JSON text-based messages may be sent at any point in the call, developers should handle these appropriately and examine the `event` field to determine the message type and if it is of interest. 
+Various JSON text-based messages may be sent at any point in the call, developers should handle these appropriately and examine the `event` field to determine the message type and if it is of interest.
 
 ### DTMF Events
 
-If any party on the call connected to the websocket sends a DTMF tone this will trigger an event on the websocket, this event is a *text* message with a JSON payload, it will be interleaved between the audio frames and have the follwing format:
+If any party on the call connected to the websocket sends a DTMF tone this will trigger an event on the websocket, this event is a *text* message with a JSON payload, it will be interleaved between the audio frames and have the following format:
 
 ```json
 {"event":"websocket:dtmf","digit":"5","duration":260}
 ```
 
-`event` allows you to identify it as a DTMF event
-`digit` contains the digit pressed `0-9` `*` or `#`
-`duration` is the duration the key was pressed for in ms, on most digital phone systems this will be a fixed length.
-
 You will receive one event for each keypress and each event will contain only one digit.
+
+* `event` allows you to identify it as a DTMF event
+* `digit` contains the digit pressed `0-9` `*` or `#`
+* `duration` is the duration the key was pressed for in milliseconds, on most digital phone systems this will be a fixed length.
 
 ## Writing audio to the WebSocket
 
