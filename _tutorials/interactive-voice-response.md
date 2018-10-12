@@ -170,7 +170,7 @@ A Nexmo Call Control Object (NCCO) is a JSON array that is used to control the f
 
 To manage NCCOs this example application uses array manipulation and a few simple methods.
 
-The router handles encoding to JSON, the `Menu` object provides access to the the NCCO stack with its `getStack()` method:
+The router handles encoding to JSON, the `Menu` object provides access to the NCCO stack with its `getStack()` method:
 
 ```php
 <?php

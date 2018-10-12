@@ -13,7 +13,7 @@ For this solution, we have taken a fully programmable approach, using our Nexmo 
 
 The first part of this solution, brings together the Dialogflow Virtual agent, our integration to a CRM platform and the Contact center AI, all flowing over VAPI our voice API. This allows us to pull contextual information about the caller from CRM, helping to inform the virtual agent then collect responses from the customer, giving the virtual agent all the information it needs to return a suggested answer thru the Google Contact Center AI APIs.
 
-The Vonage Team had worked hard to foster a close relationship to be involved in key alpha product developments and we were able to show an integration live at the the Google Next conference in San Francisco in July 2018.
+The Vonage Team had worked hard to foster a close relationship to be involved in key alpha product developments and we were able to show an integration live at the Google Next conference in San Francisco in July 2018.
 
 ## Usage
 For the Google Next demo we produced an application that leveraged the Voice API, Comms Router and Google CC AI as well as Dialogflow.
