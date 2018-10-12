@@ -2,8 +2,8 @@ openapi: "3.0.0"
 info:
   version: 0.3.0
   title: Messages API
-  description: 'The Messaging API is a new API that consolidates all messaging channels. It encapsulates a user (developer) from having to use multiple APIs to interact with our various channels such as SMS, MMS, Viber, Facebook Messenger, etc. The API normalises information across all channels to abstracted to, from and content. This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.'
-  x-label: Developer Preview
+  description: 'The Messaging API is a new API that consolidates all messaging channels. It encapsulates a user (developer) from having to use multiple APIs to interact with our various channels such as SMS, MMS, Viber, Facebook Messenger, etc. The API normalises information across all channels to abstracted to, from and content. This API is currently Beta.'
+  x-label: Beta
 servers:
   - url: https://api.nexmo.com/v0.1
 

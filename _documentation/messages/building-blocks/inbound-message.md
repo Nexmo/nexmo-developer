@@ -1,6 +1,6 @@
 ---
 title: Inbound message
-navigation_weight: 5
+navigation_weight: 2
 ---
 
 # Inbound message
@@ -14,6 +14,8 @@ Ensure that your inbound message [webhook is set](/messages/building-blocks/conf
 ```building_blocks
 source: '_examples/messages/inbound-message'
 application:
+  use_existing: |
+    If you do not have an application you can create one in the <a href="https://dashboard.nexmo.com/messages/create-application">Messages and Dispatch tab in the Dashboard</a>. Also make sure you <a href="https://developer.nexmo.com/messages/building-blocks/configure-webhooks">configure your webhooks</a>.
   name: 'Inbound message'
 ```
 
