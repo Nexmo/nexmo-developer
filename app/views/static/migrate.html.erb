@@ -1,106 +1,124 @@
-<div class="center spacious">
-  <h1>Migrate from Tropo to Nexmo with €25 free credit*</h1>
-  <small>(* To claim your free credit, email sales@nexmo.com with your API key)</small>
-  <br />
-  <br />
-  <p>
-    As of October 2018, Tropo have started a phased shutdown of their services.<br />
-    This means that you're looking for another communications provider for your application
-  </p>
-  <p><strong>Nexmo are here to help</strong></p>
-  <br />
-  <a role="link" aria-label="Try it free" class="button" href="https://dashboard.nexmo.com/sign-up?ref=tropo-migrate">Sign Up Free</a>
-</div>
 <div class="container">
+  
   <div class="row">
-    <div class="columns small-12">
+    <div class="columns small-offset-2 small-8 center spacious">
+
+      <h1>Migrate from Tropo to Nexmo with €25 free credit*</h1>
+      <small>(* To claim your free credit, email sales@nexmo.com with your API key)</small>
+      <br />
+      <br />
+      <p>
+        As of October 2018, Tropo have started a phased shutdown of their services.
+        This means that you're looking for another communications provider the SMS and Voice functionality within your applications. This guide will help you with that migration.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns small-offset-2 small-8">
 
         <hr>
         <br />
         <div class="center">
           <h1>Get Started</h1>
+
+          <p>Get started with the Nexmo platform in four steps:</p>
+          <br />
         </div>
+
+        <h2>1. Register for a Nexmo account</h2>
+        <p>Sign up for a Nexmo account. Once you've signed up you'll receive €2 free credit which is enough to get started. To claim €25 of additional free credit, email <a href="mailto:sales@nexmo.com?subject=Migrate from Tropo to Nexmo">sales@nexmo.com</a> with your API key.</p>
+
+        <div class="center">
+          <a role="link" aria-label="Try it free" class="button" href="https://dashboard.nexmo.com/sign-up?ref=tropo-migrate">Sign Up</a>
+        </div>
+
+        <br />
+
+        <h2>2. Purchase a phone number</h2>
+        <p>Head over to the <a href="https://dashboard.nexmo.com/buy-numbers">Nexmo dashboard</a> and purchase a virtual number to use for your application. You may not need it if you're in a country that supports alpha senders - search for your destination country on the <a href="https://help.nexmo.com/hc/en-us">knowledge base</a> for more information. If you've already got a US number and would like to keep it, you can port the number to Nexmo <a href="https://dashboard.nexmo.com/keep-your-number">using the Nexmo dashboard</a>.</p>
+        <br />
+
+        <h2>3. Install the Nexmo Client Library</h2>
+        <p>Nexmo provides client libraries in six different languages! Whether you write Javascript, PHP, Python, Java, .net or Ruby, we've got you covered. Head over to the <a href="/tools">tools page</a> to learn more about what's available.</p>
+
+        <br />
+
+        <h2>4. Develop your application</h2>
+        <p>Finally, it's time to build your application! We've put together some examples for common tasks involving SMS and voice calls based on the Tropo documentation.</p>
+
+        <br />
         <div class="columns small-12 medium-6 content-block">
           <div class="center">
+            <p>Migrate from Tropo SMS</p>
             <h3>
               <a href="/migrate/tropo/sms">
                 <i class="icon icon-sms"></i>
                 SMS
               </a>
             </h3>
-            <p>The Nexmo libraries allow you to get up and running with<br>Nexmo APIs quickly in your language of choice.</p>
           </div>
         </div>
         <div class="columns small-12 medium-6 content-block">
           <div class="center">
+          <p>Migrate from Tropo Voice</p>
             <h3>
               <a href="/migrate/tropo/voice">
                 <i class="icon icon-voice"></i>
                 Voice
               </a>
             </h3>
-            <p>Find out about our talks, community hacks,<br>and what events we'll be at.</p>
           </div>
         </div>
       </div>
 
-      <hr>
+      <br />
+    
+  </div>
 
-      <div class="center spacious content-block">
+  <div class="row">
+    <hr>
+    <br />
+
+    <div class="center">
+      <h1>FAQ</h1>
+      <br />
+    </div>
+
+    <div class="columns small-offset-1">
+
+      <h2>Nexmo vs Tropo - Main differences</h2>
+      <table>
+        <tr>
+          <th width="50%">Tropo</th>
+          <th width="50%">Nexmo</th>
+        </tr>
+        <tr>
+          <td>The Tropo scripting API allows you to store code on inside a Tropo application and trigger that code via a web request</td>
+          <td>Code runs on your own server, talking directly to the Nexmo platform</td>
+        </tr>
+        <tr>
+          <td>Any metadata available is stored in the session metadata</td>
+          <td>Nexmo sends metadata as GET parameters to your webhook endpoint. Common parameters include <code>to</code>, <code>msisdn</code> and <code>text</code></td>
+        </tr>
+        <tr>
+        </tr>
+      </table>
+      <br />
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <br />
+    <hr>
+
+    <div class="center spacious content-block">
         <h3>Do you have any questions?</h3>
         <p>We're always here to help, <a href="mailto:support@nexmo.com">send us an email</a> or join our developers <a href="/community/slack">Slack community</a></p>
-      </div>
-    
-
+    </div>
   </div>
-</div>
 
-
-<div class="container">
-  <div class="row">
-    <div class="columns small-12">
-      
-        <hr /><br />
-        <div class="center">
-          <h1>Building with Nexmo</h1>
-          <p>Getting started with the Nexmo platform couldn't be easier. In just four easy steps your application continue working </p>
-          <br />
-        </div>
-
-        <h2>1. Register for a Nexmo account</h2>
-        <p>Join the likes of Airbnb, Github, Viber, Expedia and Fitbit and <a href="https://dashboard.nexmo.com/sign-up">sign up</a> for a Nexmo account. Once you've signed up you'll receive €2 free credit which is enough to get started. To unlock €25 of additional free credit, email sales@nexmo.com with your API key
-        <br />
-
-        <h2>2. Purchase a phone number</h2>
-        <p>Head over to the <a href="https://dashboard.nexmo.com/buy-numbers">Nexmo dashboard</a> and purchase a virtual number to use for your application. You may not need it if you're in a country that supports alpha senders - search for your destination country on the <a href="https://help.nexmo.com/hc/en-us">knowledge base</a> for more information. If you've already got a US number and would like to keep it, you can port the number to Nexmo <a href="https://dashboard.nexmo.com/keep-your-number">using the Nexmo dashboard</a></p>
-        <br />
-
-        <h2>3. Install the Nexmo Client Library</h2>
-        <p>Nexmo provides client libraries in six different languages! Whether you write Javascript, PHP, Python, Java, .net or Ruby, we've got you covered. Head over to the <a href="/tools">tools page</a> to learn more about what's available</p>
-        <br />
-
-        <h2>Sidebar: Nexmo vs Tropo - Main differences</h2>
-        <table>
-          <tr>
-            <th width="50%">Tropo</th>
-            <th width="50%">Nexmo</th>
-          </tr>
-          <tr>
-            <td>The Tropo scripting API allows you to store code on inside a Tropo application and trigger that code via a web request</td>
-            <td>Code runs on your own server, talking directly to the Nexmo platform</td>
-          </tr>
-          <tr>
-            <td>Any metadata available is stored in the session metadata</td>
-            <td>Nexmo sends metadata as GET parameters to your webhook endpoint. Common parameters include <code>to</code>, <code>msisdn</code> and <code>text</code></td>
-          </tr>
-          <tr>
-          </tr>
-        </table>
-        <br />
-
-        <h2>4. Develop your application</h2>
-        <p>Finally, it's time to build your application! We've put together some examples for common tasks involving SMS and voice calls based on the Tropo documentation. Choose <a href="/migrate/tropo/sms">SMS</a> or <a href="/migrate/tropo/voice">Voice</a> to get started</p>
-      </div>
-    
-  </div>
 </div>
