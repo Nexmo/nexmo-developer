@@ -7,7 +7,7 @@ navigation_weight: 1
 
 The Messages API allows you to send and in some cases receive messages over the following communications channels:
 
-* SMS
+* SMS/MMS
 * Facebook Messenger
 * Viber
 * WhatsApp
@@ -22,6 +22,7 @@ The following diagram illustrates the relationship between the Messages API and 
 
 * [Beta](#beta)
 * [Supported features](#supported-features)
+* [External Accounts API](#external-accounts-api)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Building Blocks](#building-blocks)
@@ -52,11 +53,15 @@ Channel | Inbound Text | Inbound Image | Inbound Audio | Inbound Video | Inbound
 Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
 
-**Key:** 
+**Key:**
 
-* ✅ = Supported. 
+* ✅ = Supported.
 * ❎ = Supported by the channel, but not by Nexmo. 
 * n/a = Not supported by the channel.
+
+## External Accounts API
+
+The [External Accounts API](/api/external-accounts) is used to manage your accounts for Viber Service Messages, Facebook Messenger and Whatsapp when using those channels with the Messages and Dispatch APIs.
 
 ## Getting started
 
@@ -98,3 +103,5 @@ product: messages
 ## Reference
 
 * [Messages API Reference](/api/messages)
+* [External Accounts API Reference](/api/external-accounts)
+
