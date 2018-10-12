@@ -1,0 +1,17 @@
+<div class="center spacious content-block">
+  <h1>Extend</h1>
+  <p>The Nexmo Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.<p>
+</div>
+
+<div class="extend-grid">
+<% @extensions.each do |extension| %>
+    <div class="extend-card">
+      <% if extension[:image] != '' %>
+      <img src='<%= extension[:image] %>' alt='<%= extension[:title]%>' />
+      <% end %>
+      <h2><a href="/extend/<%= extension[:route] %>"><%= extension[:title] %></a></h2>
+      <p><%= extension[:description] %></p>
+      <a href="/extend/<%= extension[:route] %>">Learn More &rarr;</a>
+    </div>
+<% end %>
+</div>
