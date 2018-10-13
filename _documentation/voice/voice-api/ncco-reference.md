@@ -124,6 +124,12 @@ You can use the `connect` action to connect a call to endpoints such as phone nu
 
 This action is synchronous, after a *connect* the next action in the NCCO stack is processed. A connect action ends when the endpoint you are calling is busy or unavailable. You ring endpoints sequentially by nesting connect actions.
 
+The following NCCO examples show how to configure different types of connections. 
+
+```tabbed_content
+source: '/_examples/voice/guides/ncco-reference/connect’
+```
+
 You can use the following options to control a `connect` action:
 
 Option | Description | Required
@@ -137,7 +143,7 @@ Option | Description | Required
 `eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call States](/voice/voice-api/guides/call-flow#call-states). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
 
-### Endpoint Types
+### Endpoint Types and Values
 
 #### Phone - phone numbers in e.164 format
 
@@ -161,68 +167,7 @@ Value | Description
 -- | --
 `uri` | the SIP URI to the endpoint you are connecting to in the format sip:rebekka@sip.example.com.
 
-#### Examples
-
-The following NCCO examples show how to configure different types of connection:
-
-* [Connect to a PSTN endpoint](#connect-to-a-pstn-endpoint)
-* [Connect to a WebSocket endpoint](#connect-to-a-websocket-endpoint)
-* [Connect with fallback NCCO](#connect-with-fallback-ncco)
-* [Connect to a SIP endpoint](#connect-to-a-sip-endpoint)
-* [Recorded proxy call](#recorded-proxy-call)
-
-#### Connect to a PSTN endpoint
-
-```json
-[
-  {
-    "action": "talk",
-    "text": "Please wait while we connect you"
-  },
-  {
-    "action": "connect",
-    "eventUrl": ["https://example.com/events"],
-    "timeout": "45",
-    "from": "447700900000",
-    "endpoint": [
-      {
-        "type": "phone",
-        "number": "447700900001",
-        "dtmfAnswer": "2p02p"
-      }
-    ]
-  }
-]
-```
-
-#### Connect to a WebSocket endpoint
-
-```json
-[
-  {
-    "action": "talk",
-    "text": "Please wait while we connect you"
-  },
-  {
-    "action": "connect",
-    "eventUrl": [
-      "https://example.com/events"
-    ],
-    "from": "447700900000",
-    "endpoint": [
-    {
-      "type": "websocket",
-      "uri": "ws://example.com/socket",
-      "content-type": "audio/l16;rate=16000",
-      "headers": {
-        "whatever": "metadata_you_want"
-      }
-      }
-    ]}
-]
-```
-
-#### Connect with fallback NCCO
+### Fallback NCCO
 
 You can provide a fallback for Calls that do not connect. To do this set the `eventType` to `synchronous` and return an NCCO from the `eventUrl` if the Call enters any of the following states:
 
@@ -231,72 +176,6 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
 * `rejected` - the call was rejected
 * `unanswered` - the call was not answered
 * `busy` - the person being called was on another call
-
-```json
-[
-  {
-    "action": "connect",
-    "from": "447700900000",
-    "timeout": 5,
-    "eventType": "synchronous",
-    "eventUrl": [
-      "https://example.com/event-fallback"
-    ],
-    "endpoint": [
-      {
-        "type": "phone",
-        "number": "447700900001"
-      }
-    ]
-  }
-]
-```
-
-#### Connect to a SIP endpoint
-
-```json
-[
-  {
-    "action": "talk",
-    "text": "Please wait while we connect you"
-  },
-  {
-    "action": "connect",
-    "eventUrl": [
-      "https://example.com/events"
-    ],
-    "from": "447700900000",
-    "endpoint": [
-      {
-        "type": "sip",
-        "uri": "sip:rebekka@sip.mcrussell.com"
-      }
-    ]
-  }
-]
-```
-
-#### Recorded proxy call
-
-```json
-[
-  {
-    "action": "record",
-    "eventUrl": ["https://example.com/recordings"]
-  },
-  {
-    "action": "connect",
-    "eventUrl": ["https://example.com/events"],
-    "from": "447700900000",
-    "endpoint": [
-      {
-        "type": "phone",
-        "number": "447700900001"
-      }
-    ]
-  }
-]
-```
 
 ## Talk
 
