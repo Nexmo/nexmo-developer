@@ -127,7 +127,7 @@ This action is synchronous, after a *connect* the next action in the NCCO stack 
 The following NCCO examples show how to configure different types of connections. 
 
 ```tabbed_content
-source: '/_examples/voice/guides/ncco-reference/connect’
+source: '/_examples/voice/guides/ncco-reference/connect'
 ```
 
 You can use the following options to control a `connect` action:
