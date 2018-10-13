@@ -22,7 +22,7 @@ To generate code coverage, set the `COVERAGE` environment variable when running 
 COVERAGE=1 bundle exec rspec
 ```
 
-This will create a folder named `coverage`. Open `index.hml` in this folder to view coverage statistics
+This will create a folder named `coverage`. Open `index.hml` in this folder to view coverage statistics.
 
 ## Running locally
 
@@ -101,7 +101,7 @@ User.create!(email: 'example@example.com', password: 'password', admin: true)
 
 #### I'm having issues with my Docker container
 
-The image may have changed, try rebuild it with the following command:
+The image may have changed, try rebuilding it with the following command:
 
 ```
 $ docker-compose up --build
