@@ -93,17 +93,17 @@ class StaticController < ApplicationController
   end
 
   def migrate_details
-    page = params[:guide].split("/")[0]
+    page = params[:guide].split('/')[0]
     if page == 'sms'
       @product = 'SMS'
-    @blocks = [
-      {
-        'title' => 'Send an SMS',
-        'content' => 'Flavour text for sending an SMS',
-        'nexmo' => '_examples/migrate/tropo/send-an-sms/nexmo',
-        'tropo' => '_examples/migrate/tropo/send-an-sms/tropo'
-      }
-    ]
+      @blocks = [
+        {
+          'title' => 'Send an SMS',
+          'content' => 'Flavour text for sending an SMS',
+          'nexmo' => '_examples/migrate/tropo/send-an-sms/nexmo',
+          'tropo' => '_examples/migrate/tropo/send-an-sms/tropo',
+        },
+      ]
     end
 
     if page == 'voice'
