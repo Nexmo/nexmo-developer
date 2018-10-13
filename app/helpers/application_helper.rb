@@ -103,7 +103,7 @@ module ApplicationHelper
   end
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false, active_path = nil)
-    active_path = request.path unless active_path
+    active_path ||= request.path
 
     s = []
     unless received_flatten

@@ -93,7 +93,6 @@ class StaticController < ApplicationController
   end
 
   def migrate_details
-
     page = params[:guide].split('/')[0]
 
     @namespace_path = "_documentation/#{page}"
@@ -112,7 +111,7 @@ class StaticController < ApplicationController
           'nexmo' => '_examples/migrate/tropo/send-an-sms/nexmo',
           'tropo' => '_examples/migrate/tropo/send-an-sms/tropo',
           'content' => <<~TEXT
-            Sending an SMS with Nexmo couldn't be easier! Tell us who the message is from, who to send it 
+            Sending an SMS with Nexmo couldn't be easier! Tell us who the message is from, who to send it
             to and the text that you'd like to send and we'll take care of the rest.
 
             With support for [six different languages](/tools) and a simple [REST API](/api/sms), you can
@@ -131,7 +130,7 @@ class StaticController < ApplicationController
           'nexmo' => '_examples/migrate/tropo/make-an-outbound-call/nexmo',
           'tropo' => '_examples/migrate/tropo/make-an-outbound-call/tropo',
           'content' => <<~TEXT
-            When making a voice call with Tropo you provide the words to be spoken directly in your application. 
+            When making a voice call with Tropo you provide the words to be spoken directly in your application.
             On the Nexmo platform, calls are controlled using an [NCCO](/voice/voice-api/ncco-reference), which is a JSON file that tells the Nexmo voice API how to interact with the call.
 
             In the example below, we use a static JSON file that returns a single `talk` action containing text which will be spoken in to the call.
