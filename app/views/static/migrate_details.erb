@@ -15,13 +15,43 @@
 </div>
 <div class="container skip-pushstate" id="primary-content">
   <% @building_blocks.each do |block| %>
-  <h1><%= block['title'] %></h1>
-    <p><%= block['content'] %></p>
+  <h2><%= block['title'] %></h2>
+    <p><%= block['content'].render_markdown %></p>
+    <h2>Example code</h2>
     <div class="columns small-12 medium-12">
       <%= block['tropo'].render_markdown %>
     </div>
     <div class="columns small-12 medium-12">
       <%= block['nexmo'].render_markdown %>
     </div>
-  <% end %>
+<% end %>
+
+<br style="clear:both;">
+<hr>
+<br>
+  <%=
+    tutorials = <<~MD
+# What's next?
+
+Ready to get started? Here's some further reading to help you get started with the Nexmo platform
+
+## Tutorials
+
+Work through some in depth tutorials, covering common use cases
+
+```tutorials
+product: #{@product_list}
+```
+
+## Building Blocks
+
+Want to dive in to code? Take a look at our library of code snippets to get started quickly
+
+```building_block_list
+product: #{@product_list}
+```
+    MD
+
+    tutorials.render_markdown
+  %>
 </div>

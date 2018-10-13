@@ -105,12 +105,19 @@ class StaticController < ApplicationController
       @active_path = '/messaging/sms/overview'
       @active_title = 'Migrate from Tropo'
       @product = 'SMS'
+      @product_list = 'messaging/sms'
       @blocks = [
         {
           'title' => 'Send an SMS',
-          'content' => 'Flavour text for sending an SMS',
           'nexmo' => '_examples/migrate/tropo/send-an-sms/nexmo',
           'tropo' => '_examples/migrate/tropo/send-an-sms/tropo',
+          'content' => <<~TEXT
+            Sending an SMS with Nexmo couldn't be easier! Tell us who the message is from, who to send it 
+            to and the text that you'd like to send and we'll take care of the rest.
+
+            With support for [six different languages](/tools) and a simple [REST API](/api/sms), you can
+            get started with the Nexmo SMS API in under 10 minutes!
+          TEXT
         },
       ]
     end
@@ -119,12 +126,33 @@ class StaticController < ApplicationController
       @active_path = '/voice/voice-api/overview'
       @active_title = 'Migrate from Tropo'
       @product = 'Voice'
+      @product_list = 'voice/voice-api'
       @blocks = [
         {
           'title' => 'Make an outbound call',
-          'content' => 'Flavour text for making a voice call',
           'nexmo' => '_examples/migrate/tropo/make-an-outbound-call/nexmo',
           'tropo' => '_examples/migrate/tropo/make-an-outbound-call/tropo',
+          'content' => <<~TEXT
+            When making a voice call with Tropo you provide the words to be spoken directly in your application. 
+            On the Nexmo platform, calls are controlled using an [NCCO](/voice/voice-api/ncco-reference), which is a JSON file that tells the Nexmo voice API how to interact with the call.
+
+            In the example below, we use a static JSON file that returns a single `talk` action containing text which will be spoken in to the call.
+
+            ```json
+            [
+              {
+                "action": "talk",
+                "voiceName": "Russell",
+                "text": "You are listening to a test text-to-speech call made with Nexmo Voice API"
+              }
+            ]
+            ```
+
+            Text-to-speech is just one of the many actions you can perform with the Nexmo voice API. You can [record calls](/voice/voice-api/ncco-reference#record),
+            [stream audio](/voice/voice-api/ncco-reference#stream), [build interactive menus](/voice/voice-api/ncco-reference#input) and more! Take
+            a look at our [NCCO documentation](/voice/voice-api/ncco-reference) for more information
+
+          TEXT
         },
       ]
     end
