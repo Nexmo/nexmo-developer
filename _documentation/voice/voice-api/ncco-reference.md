@@ -136,7 +136,7 @@ Option | Description | Required
 -- | -- | --
 `endpoint` | Connect to a single endpoint. [Available endpoint types](#endpoint-types) | Yes
 `from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. | No
-`eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states. See the [Connect with fallback NCCO example](#connect-with-fallback-ncco).</li></ul> | No
+`eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states.</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
 `machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul markdown="1"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
@@ -166,16 +166,6 @@ Value | Description
 Value | Description
 -- | --
 `uri` | the SIP URI to the endpoint you are connecting to in the format sip:rebekka@sip.example.com.
-
-### Fallback NCCO
-
-You can provide a fallback for Calls that do not connect. To do this set the `eventType` to `synchronous` and return an NCCO from the `eventUrl` if the Call enters any of the following states:
-
-* `timeout` - your user did not answer your call with `ringing_timer` seconds
-* `failed` - the call failed to complete
-* `rejected` - the call was rejected
-* `unanswered` - the call was not answered
-* `busy` - the person being called was on another call
 
 ## Talk
 
