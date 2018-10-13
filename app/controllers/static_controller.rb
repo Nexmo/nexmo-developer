@@ -119,7 +119,14 @@ class StaticController < ApplicationController
       @active_path = '/voice/voice-api/overview'
       @active_title = 'Migrate from Tropo'
       @product = 'Voice'
-      @blocks = []
+      @blocks = [
+        {
+          'title' => 'Make an outbound call',
+          'content' => 'Flavour text for making a voice call',
+          'nexmo' => '_examples/migrate/tropo/make-an-outbound-call/nexmo',
+          'tropo' => '_examples/migrate/tropo/make-an-outbound-call/tropo',
+        },
+      ]
     end
 
     @building_blocks = @blocks.map do |block|

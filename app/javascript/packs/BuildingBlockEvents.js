@@ -19,7 +19,7 @@ export default () => {
             "event": "copy"
         };
 
-        let key = params['language'] + params['section'];
+        let key = params['language'] + params['section'] + params['block'];
 
         // We only want to track each copy once per page load
         if (hasTriggeredCopyStat[key]) { return true; }

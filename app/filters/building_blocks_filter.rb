@@ -102,9 +102,9 @@ class BuildingBlocksFilter < Banzai::Filter
       content[:platform_key] = content['platform']
       content[:tab_title] = content['title']
 
-      parent_config = { 'code_only' => @config['code_only'] }
+      parent_config = { 'code_only' => @config['code_only'], 'source' => @config['source'].gsub('_examples/', '') }
       if @config['application']
-        parent_config = parent_config.merge({ 'source' => @config['source'].gsub('_examples/', ''), 'application' => @config['application'] })
+        parent_config = parent_config.merge({ 'application' => @config['application'] })
       end
 
       parent_config = parent_config.to_yaml.lines[1..-1].join
