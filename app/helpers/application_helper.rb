@@ -88,7 +88,7 @@ module ApplicationHelper
     end
   end
 
-  def sidenav(path)
+  def sidenav(path, active_path = nil)
     context = directory_hash(path)[:children]
 
     if params[:namespace].present?
@@ -99,10 +99,12 @@ module ApplicationHelper
       }]
     end
 
-    directory(context, true, false)
+    directory(context, true, false, active_path)
   end
 
-  def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
+  def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false, active_path = nil)
+    active_path = request.path unless active_path
+
     s = []
     unless received_flatten
       namespace = params[:namespace].presence || 'documentation'
@@ -123,7 +125,7 @@ module ApplicationHelper
 
       unless flatten
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
-        has_active_class = (request.path == url) || request.path.start_with?("#{url}/")
+        has_active_class = (active_path == url) || active_path.start_with?("#{url}/")
 
         if options['link'] == false
           ss << "<span>#{normalised_title(child)}</span>"
@@ -140,7 +142,7 @@ module ApplicationHelper
         end
       end
 
-      ss << directory(child[:children], false, flatten) if child[:children]
+      ss << directory(child[:children], false, flatten, active_path) if child[:children]
       ss << '</li>' unless received_flatten
       ss.join("\n")
     end
@@ -149,7 +151,7 @@ module ApplicationHelper
       s << '<hr>'
       @side_navigation_extra_links.each do |title, path|
         s << <<~HEREDOC
-          <a href="#{path}" class="#{path == request.path ? 'active' : ''}">#{title}</a>
+          <a href="#{path}" class="#{path == active_path ? 'active' : ''}">#{title}</a>
         HEREDOC
       end
     end

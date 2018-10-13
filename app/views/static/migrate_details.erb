@@ -17,11 +17,11 @@
   <% @building_blocks.each do |block| %>
   <h1><%= block['title'] %></h1>
     <p><%= block['content'] %></p>
-    <div class="columns small-12 medium-6">
-      <%= block['nexmo'].render_markdown %>
-    </div>
-    <div class="columns small-12 medium-6">
+    <div class="columns small-12 medium-12">
       <%= block['tropo'].render_markdown %>
+    </div>
+    <div class="columns small-12 medium-12">
+      <%= block['nexmo'].render_markdown %>
     </div>
   <% end %>
 </div>

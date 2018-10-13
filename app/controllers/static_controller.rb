@@ -93,8 +93,17 @@ class StaticController < ApplicationController
   end
 
   def migrate_details
+
     page = params[:guide].split('/')[0]
+
+    @namespace_path = "_documentation/#{page}"
+    @namespace_root = '_documentation'
+    @sidenav_root = "#{Rails.root}/_documentation"
+    @skip_feedback = true
+
     if page == 'sms'
+      @active_path = '/messaging/sms/overview'
+      @active_title = 'Migrate from Tropo'
       @product = 'SMS'
       @blocks = [
         {
@@ -107,6 +116,8 @@ class StaticController < ApplicationController
     end
 
     if page == 'voice'
+      @active_path = '/voice/voice-api/overview'
+      @active_title = 'Migrate from Tropo'
       @product = 'Voice'
       @blocks = []
     end
@@ -126,7 +137,7 @@ class StaticController < ApplicationController
 
       block
     end
-    render layout: 'landing'
+    render layout: 'documentation'
   end
 
   def team
