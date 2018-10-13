@@ -120,9 +120,7 @@ class StaticController < ApplicationController
           TEXT
         },
       ]
-    end
-
-    if page == 'voice'
+    elsif page == 'voice'
       @active_path = '/voice/voice-api/overview'
       @active_title = 'Migrate from Tropo'
       @product = 'Voice'
@@ -155,6 +153,8 @@ class StaticController < ApplicationController
           TEXT
         },
       ]
+    else
+      return render 'static/404', status: :not_found, formats: [:html]
     end
 
     @building_blocks = @blocks.map do |block|
