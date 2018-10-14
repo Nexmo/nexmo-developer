@@ -20,6 +20,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/make-an-outbound-call'
 application:
+  type: voice
   name: 'Outbound Call Building Block'
   answer_url: https://developer.nexmo.com/ncco/tts.json
   disable_ngrok: true

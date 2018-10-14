@@ -54,6 +54,7 @@ To make this easier, we provide client libraries in various languages that take 
 ```building_blocks
 source: '_examples/voice/make-an-outbound-call'
 application:
+  type: voice
   name: 'Outbound Call Building Block'
   answer_url: https://developer.nexmo.com/ncco/tts.json
 ```

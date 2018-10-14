@@ -20,6 +20,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/record-a-call-with-split-audio'
 application:
+  type: voice
   name: 'Record Call Split Audio Example'
 ```
 

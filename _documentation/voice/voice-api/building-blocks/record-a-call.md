@@ -21,6 +21,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/record-a-call'
 application:
+  type: voice
   name: 'Record Call Example'
 ```
 
