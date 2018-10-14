@@ -110,12 +110,14 @@ class BuildingBlockFilter < Banzai::Filter
     base_url = 'http://demo.ngrok.io'
     base_url = 'https://example.com' if app['disable_ngrok']
 
-    if app['type'] == 'voice'
-      app['name'] = 'ExampleProject' unless app['name']
+    app['name'] = 'ExampleProject' unless app['name']
 
+    if app['type'] == 'voice'
       app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
       app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
       erb = File.read("#{Rails.root}/app/views/building_blocks/_application_voice.html.erb")
+    elsif ['messages', 'dispatch'].include? app['type']
+      erb = File.read("#{Rails.root}/app/views/building_blocks/_application_messages_dispatch.html.erb")
     else
       raise "Invalid application type when creating building block: '#{app['type']}'"
     end

@@ -1,0 +1,11 @@
+<h3 class="collapsible">
+    <a class="js-collapsible" data-collapsible-id="<%=id %>">
+        <%= app['use_existing'] ? 'Use your existing application' : 'Create an application' %>
+    </a>
+</h3>
+
+<div id="<%=id %>" class="collapsible-content" style="display: none;">
+  <p>
+    If you do not have an application you can create one in the <a href="https://dashboard.nexmo.com/messages/create-application">Messages and Dispatch tab in the Dashboard</a>. Also make sure you <a href="https://developer.nexmo.com/messages/building-blocks/configure-webhooks">configure your webhooks</a>.
+  </p>
+</div>
