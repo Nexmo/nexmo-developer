@@ -1,12 +1,14 @@
-# Nexmo Developer
+<p align"center">
+<h1><b>Nexmo Developer</b></h1>
+<p>
 
 This repository is the code and content for <https://developer.nexmo.com> including the Nexmo documentation, API reference, SDKs, Tools & Community content.
 
-## Contributions
+## :pencil: Contributions
 
 We welcome contributions from everyone! Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information.
 
-## Testing
+## :computer: Testing
 
 We use [rspec](http://rspec.info/) to test Nexmo Developer.
 
@@ -24,11 +26,11 @@ COVERAGE=1 bundle exec rspec
 
 This will create a folder named `coverage`. Open `index.hml` in this folder to view coverage statistics
 
-## Running locally
+## :computer: Running locally
 
 The project can be run on your laptop, either directly or using Docker. These instructions have been tested for mac.
 
-### Setup for running directly on your laptop
+### :computer: Setup for running directly on your laptop
 
 Before you start, you will need to make sure that you have:
 
