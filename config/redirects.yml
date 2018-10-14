@@ -1,4 +1,6 @@
 ---
+"/messages/external-accounts/api-reference": "/api/external-accounts"
+"/dispatch/external-accounts/api-reference": "/api/external-accounts"
 "/contribute": "/contribute/overview"
 "/styleguide": "/contribute/guides/markdown-guide"
 "/write-the-docs": "/contribute/guides/writing-style-guide"

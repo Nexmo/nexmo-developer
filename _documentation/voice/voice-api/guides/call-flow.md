@@ -67,7 +67,7 @@ An example event object is shown here:
 }
 ```
 
-In addition, certain errors are sent to the `event_url` such as when your `answer_url` returns an invalid NCCO.
+In addition, certain errors are sent to the `event_url` such as when your `answer_url` returns an invalid NCCO. You can find more detail in the [Webhooks Reference](/voice/voice-api/webhook-reference#event-webhook).
 
 ## Answer URL payload
 
@@ -88,7 +88,7 @@ To illustrate this, an example GET request to the `answer_url` is given here:
 /webhooks/answer?to=447700900000&from=447700900001&conversation_uuid=CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab&uuid=aaaaaaaa-bbbb-cccc-dddd-0123456789cd
 ```
 
-In general, useful information such as the calling number and destination number is extracted from the query string and processed by your application.
+In general, useful information such as the calling number and destination number is extracted from the query string and processed by your application. For more information, refer to the [Webhooks Reference](/voice/voice-api/webhook-reference).
 
 ## Synchronous vs Asynchronous Actions
 

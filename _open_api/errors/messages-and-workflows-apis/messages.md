@@ -44,6 +44,6 @@ Code | Text | Meaning
 `1320` | Message already sent | The message was already sent.
 `1330` | Unknown | An unknown error was received from the carrier who tried to send this this message. Depending on the carrier, that to is unknown. When you see this error, and status is rejected, always check if to in your request was valid.
 `1340` | Outside of the allowed window | This message is sent outside of allowed response window.
-`1350` | Phone matching fee not paid | Requires phone matching access fee to be paid by the the Facebook Page.
+`1350` | Phone matching fee not paid | Requires phone matching access fee to be paid by the Facebook Page.
 `1360` | TTL was activated | TTL was activated, no callbacks and no charge will be issued.
 `1370` | Expired access Token | The access token has expired, for Facebook Messenger, the consent has to be periodically given every 90 days. Try to delete and reconnect the Facebook page to Nexmo.

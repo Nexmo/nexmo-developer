@@ -66,7 +66,7 @@ tableView.delegate = self
 tableView.dataSource = self
 ```
 
-Designating `ChatViewController` as delegate for the `UITableView` means that the `ChatViewController` agrees to act on behalf of the `UITableView` to take care of whatever delegate methods are required for our instance of `UITableView`. Similarly, designating `ChatViewController` as the the dataSource means that the `ChatViewController` agrees to act on behalf of the `UITableView` to handle methods required for funneling data into the UITableView. Accordingly, we must now program these methods. This is called 'conforming'.
+Designating `ChatViewController` as delegate for the `UITableView` means that the `ChatViewController` agrees to act on behalf of the `UITableView` to take care of whatever delegate methods are required for our instance of `UITableView`. Similarly, designating `ChatViewController` as the dataSource means that the `ChatViewController` agrees to act on behalf of the `UITableView` to handle methods required for funneling data into the UITableView. Accordingly, we must now program these methods. This is called 'conforming'.
 
 ### 2.3.1 Programming Delegate and Datasource
 
