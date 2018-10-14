@@ -2,7 +2,7 @@
   <img src="nexmo_dev.PNG">
 </p>
 <p align="center">
-    <b>This repository is the code and content for <https://developer.nexmo.com> including the Nexmo documentation, API reference, SDKs, Tools & Community content.</b>
+    <b>This repository is the code and content for https://developer.nexmo.com, including the Nexmo documentation, API reference, SDKs, Tools & Community content.</b>
     <br>
         <a href='#contribution'>Contributions</a> &middot; <a href='#testing'>Testing</a> &middot; <a href='#running-locally'>Running Locally</a> &middot; <a href='#admin-dashboard'>Admin Dashboard</a> &middot; <a href='#troubleshooting'>Troubleshooting</a>
 </p>
