@@ -4,14 +4,14 @@ RSpec.describe Nokogiri::HTML::Document do
   context '#split_html' do
     it 'returns an array of split HTML' do
       input = <<~HEREDOC
-      <h1>Alpha Heading</h1>
-      <p>Alpha content</p>
-      <h2>Bravo Heading</h2>
-      <p>Bravo content 1</p>
-      <p>Bravo content 2</p>
-      <h2>Charlie Heading</h2>
-      <p>Charlie content 1</p>
-      <p>Charlie content 2</p>
+        <h1>Alpha Heading</h1>
+        <p>Alpha content</p>
+        <h2>Bravo Heading</h2>
+        <p>Bravo content 1</p>
+        <p>Bravo content 2</p>
+        <h2>Charlie Heading</h2>
+        <p>Charlie content 1</p>
+        <p>Charlie content 2</p>
       HEREDOC
 
       document = Nokogiri::HTML(input)

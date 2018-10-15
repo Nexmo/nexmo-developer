@@ -1,23 +1,35 @@
 ---
 title: Number Insight Basic
-navigation_weight: 1
+navigation_weight: 2
 ---
 
 # Number Insight Basic
 
-You can use Nexmo's Number Insight Basic API to retrieve local and international representations of a phone number by doing semantic checks on the number you submit. This can help you normalise and consistently print numbers in your user interface and gives you information to help you decide if a phone number accept the phone number entered by your user, or ask them to check and correct it.
+Use Nexmo's Number Insight Basic API to determine:
 
-Number Insight Basic API is a free synchronous, easy-to-use RESTful web service. For any phone number you can:
+* The country where a number is registered
+* The local and international representation of that number
 
-* Retrieve the international and local format.
-* Know the country where the number is registered.
+This can help you present numbers to your users in the correct format for their locale.
 
-```tabbed_examples
-source: '/_examples/number-insight/basic/'
+Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/building-blocks/before-you-begin#replaceable-variables).
+
+```building_blocks
+source: '_examples/number-insight/basic'
 ```
 
 The response from the API contains the following data:
 
-```tabbed_examples
-source: '/_examples/number-insight/response/basic/'
+```json
+{
+    "status": 0,
+    "status_message": "Success",
+    "request_id": "fcb1e9a2-db9c-4ea2-84be-4e60da45e187",
+    "international_format_number": "447700900000",
+    "national_format_number": "07700 900000",
+    "country_code": "GB",
+    "country_code_iso3": "GBR",
+    "country_name": "United Kingdom",
+    "country_prefix": "44"
+}
 ```

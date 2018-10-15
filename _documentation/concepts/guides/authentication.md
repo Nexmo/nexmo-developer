@@ -1,12 +1,13 @@
 ---
 title: Authentication
+navigation_weight: 2
 ---
 
 # Authentication
 
 Nexmo API provides various means of Authentication depending on what product you are using.
 
-API | API Key & Secret (Query String) | API Key & Secret (Header) | JSON Web Token (JWT) | OAuth
+API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web Token (JWT) | OAuth
 -- | -- | -- | -- | --
 [SMS](/api/sms) | ✅ | ❎ | ❎ | ✅
 [Voice](/api/voice) | ❎ | ❎ | ✅ | ❎
@@ -14,23 +15,28 @@ API | API Key & Secret (Query String) | API Key & Secret (Header) | JSON Web Tok
 [Number Insight](/api/number-insight) | ✅ | ❎ | ❎| ❎
 [Conversion](/api/conversion) | ✅ | ❎ | ❎| ❎
 [Developer](/api/developer) | ✅ | ❎ | ❎| ❎
-[Messages](/api/messages-and-workflows-apis/messages) | ❎ | ✅ | ✅| ❎
-[Workflows](/api/messages-and-workflows-apis/workflows) | ❎ | ✅ | ✅| ❎
+[Messages](/api/messages) | ❎ | ✅ | ✅| ❎
+[Dispatch](/api/dispatch) | ❎ | ✅ | ✅| ❎
+[Audit](/api/audit) | ❎ | ✅ | ❎ | ❎
 
 ## Contents
 
 In this document you can learn about authentication via the following means:
 
-* [API Key & Secret](#api-key-secret)
-  * [Request Body](#request-body)
-  * [Query String](#query-string)
-  * [Header-based](#header-based-api-key-secret-authentication)
-* [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
-* [OAuth](#oauth)
+- [Authentication](#authentication)
+  - [Contents](#contents)
+  - [API Key and Secret](#api-key-and-secret)
+    - [Request Body](#request-body)
+    - [Query String](#query-string)
+    - [Header-based API Key and Secret Authentication](#header-based-api-key-and-secret-authentication)
+    - [Secret Rotation](#secret-rotation)
+  - [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
+  - [OAuth](#oauth)
+  - [References](#references)
 
-## API Key & Secret
+## API Key and Secret
 
-When you create a Nexmo account you will be provided an API key and an API secret. The API key is used to identify the Nexmo account and the API secret is used to verify the identity. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
+When you create a Nexmo account, an API key and secret will be created for you. These are located in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. You should always keep these secure and never share them: be careful when adding it to your codebase to make sure they are not shared with anyone who may use it maliciously.
 
 > Note: The secret should always be kept secure and never shared. Be careful when adding it to your codebase to make sure it is not shared with anyone who may use it maliciously. Read more about the [Best Security Practices for your Nexmo Account](https://help.nexmo.com/hc/en-us/articles/115014939548).
 
@@ -44,7 +50,7 @@ For `POST` requests to the SMS API, your API key and secret should be sent as pa
 
 Your API key and secret should be included in the parameters of requests you make to the Conversion, Number Insight or Developer API.
 
-### Header-based API Key & Secret Authentication
+### Header-based API Key and Secret Authentication
 
 A number of newer Nexmo APIs require authentication to be done using an API key and secret sent Base64-encoded in the `Authorization` header.
 
@@ -60,7 +66,11 @@ If your API key were `aaa012` and your API secret were `abc123456789`, you would
 Authorization: Basic YWFhMDEyOmFiYzEyMzQ1Njc4OQ==
 ```
 
-Below is a list of resources providing details on how to encode base64 strings in a variety of programming languages.
+A website for generating Base64 encoded strings can be found here:
+
+* General: [Base64 Encode and Decode](https://www.base64encode.org/)
+
+Details on how to encode Base64 strings in a variety of programming languages can be found at the following websites:
 
 * C#/.NET: [How do I encode and decode a base64 string?](https://stackoverflow.com/questions/11743160/how-do-i-encode-and-decode-a-base64-string) from StackOverflow
 * Go: [Base64 Encoding](https://gobyexample.com/base64-encoding) from Go By Example
@@ -71,10 +81,10 @@ Below is a list of resources providing details on how to encode base64 strings i
 * Ruby: [Base64](https://ruby-doc.org/stdlib-2.5.0/libdoc/base64/rdoc/Base64.html)
 * Swift: [Base64 Encode and Decode in Swift](http://iosdevelopertips.com/swift-code/base64-encode-decode-swift.html) from iOS Developer Tips
 
-### API Secret Rotation
+### Secret Rotation
 It is possible to have two API secrets to be used against one API key at the same time. This way you can create a second API secret and test it before revoking the existing API secret in your production network. The API secret rotation procedure consists of the following steps:
 
-1. Create a second API secret in your [account settings](https://dashboard.nexmo.com/settings)
+1. Create a second API secret in your [account settings](https://dashboard.nexmo.com/settings) or by using  the [secret rotation API](/api/account/secret-management).
 2. Update one or more of your servers to use the newly created API secret for making calls to Nexmo APIs
 3. Test that there are no connectivity issues and roll out the API secret update across the remaining servers
 4. Delete the replaced API secret
@@ -83,7 +93,7 @@ It is possible to have two API secrets to be used against one API key at the sam
 
 JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties.
 
-JWTs are supported by the Voice API as a means of authenticating your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
+JWTs are used by the Voice API to authenticate your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
 
 Values for the Header are:
 
@@ -100,13 +110,13 @@ Name | Description | Required
 `iat` | The UNIX timestamp at UTC + 0 indicating the moment the JWT was requested. | ✅
 `jti` | The unique ID of the JWT. | ✅
 `nbf` | The UNIX timestamp at UTC + 0 indicating the moment the JWT became valid. | ❎
-`exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. Minimum time of 30 seconds from the time the JWT is generated. Maximim value of 24 hours from the time the JWT is generated. Default value of 15 minutes from the time the JWT is generation. | ❎
+`exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. Minimum value of 30 seconds from the time the JWT is generated. Maximim value of 24 hours from the time the JWT is generated. Default value of 15 minutes from the time the JWT is generated. | ❎
 
 If you are not using a Nexmo library you should refer to [RFC 7519](https://tools.ietf.org/html/rfc7519) to implement JWT.
 
 ## OAuth
 
-Some Nexmo APIs support OAuth as a means of authenticating. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
+Some Nexmo APIs support OAuth as an authentication option. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
 
 ## References
 

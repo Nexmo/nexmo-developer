@@ -2,6 +2,8 @@
 title: Fraud scoring and phone number verification
 products: number-insight
 description: While it would be easy to confirm a phone number with Nexmo Verify every time a user provides you with their number this is hardly always necessary. By combining Nexmo Verify with Nexmo Number Insight, and applying your own fraud scoring logic, it is easy to build your own fraud detection system.
+languages:
+    - Node
 ---
 
 # Fraud scoring and phone number verification

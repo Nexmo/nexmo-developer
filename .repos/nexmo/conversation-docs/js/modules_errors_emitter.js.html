@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: modules/errors_emitter.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: modules/errors_emitter.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Nexmo Stitch SDK
+ *  Errors Emitter
+ *
+ * Copyright (c) Nexmo Inc. 2018
+ */
+
+const logger = require('loglevel');
+const NexmoClientError = require('../conversationClientError').NexmoClientError;
+
+/**
+ * Class that can emit errors via any emitter passed to it.
+ * @class ErrorsEmitter
+ * @param {Emitter} emitter - Any event emitter that implements "emit" and "releaseGroup". Basically object that is mixed with Wildemitter.
+ * @property {string} LISTENER_GROUP='Stitch-errors' - the group this emitter will register
+ * @emits Emitter#Stitch-errors
+ * @private
+ */
+/**
+ * Application listening for joins.
+ *
+ * @event Application#Stitch-errors
+ *
+ * @property {ConversationClientError} error
+ *
+ * @example &lt;caption>listen for errors&lt;/caption>
+ * application.on('*', 'Stitch-errors', (error) => {
+ *    console.log('Error thrown with type ' + error.type);
+ *  });
+ * @example &lt;caption>Update the token on expired-token error&lt;/caption>
+ * application.on('system:error:expired-token', 'Stitch-errors', (error) => {
+ * 	console.log('token expired');
+ * 	application.updateToken(&lt;token>);
+ * });
+ */
+class ErrorsEmitter {
+    constructor(emitter) {
+        this.log = logger.getLogger(this.constructor.name);
+
+        if (!emitter) {
+            throw new NexmoClientError('no emitter object passed for the Error Emitter');
+        }
+        this.emitter = emitter;
+        this.LISTENER_GROUP = 'Stitch-errors';
+    }
+    /**
+     * Detect if the param.type includes error and emit that payload in the LISTENER_GROUP
+     * @param param - the payload to forward in the LISTENER_GROUP
+     * @param param.type - the type of the event to check if it's an error
+     */
+    emitResponseIfError(param) {
+        if (this._isTypeError(param.type)) {
+            return this.emitter.emit(param.type, this.LISTENER_GROUP, param);
+        }
+        return;
+    }
+
+    /**
+     * Release Group on the registered emitter (using the namespace LISTENER_GROUP that is set)
+     */
+    cleanup() {
+        return this.emitter.releaseGroup(this.LISTENER_GROUP);
+    }
+
+    /**
+     * Returns true if the param includes 'error'
+     * @param {string} type - the error type to check
+     */
+    _isTypeError(param) {
+        return param.indexOf('error') !== -1;
+    }
+}
+
+module.exports = ErrorsEmitter;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Sep 28 2018 14:58:54 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

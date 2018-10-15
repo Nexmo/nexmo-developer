@@ -7,6 +7,9 @@ class MarkdownController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:preview]
 
   def show
+    redirect = Redirector.find(request)
+    return redirect_to redirect if redirect
+
     @frontmatter = YAML.safe_load(document)
 
     raise Errno::ENOENT if @frontmatter['redirect']
@@ -71,11 +74,10 @@ class MarkdownController < ApplicationController
 
   def set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
     path = "#{@namespace_path}/#{@document}/#{params[:code_language]}.md"
-    if File.exist? path
-      @document_path = path
-      [params, request.parameters].each { |o| o.delete(:code_language) }
-      @code_language = nil
-    end
+    return unless File.exist? path
+    @document_path = path
+    [params, request.parameters].each { |o| o.delete(:code_language) }
+    @code_language = nil
   end
 
   def document

@@ -1,6 +1,7 @@
 ---
 title: Signing requests
 description: Add an extra layer of security by sending and receiving signed requests.
+navigation_weight: 4
 ---
 
 # Signing requests
@@ -36,27 +37,14 @@ The workflow for using signed messages is:
 ![Signing requests workflow](/assets/images/workflow_call_api_outbound.svg)
 
 1. Create a signed [request](/api/sms#request) to send an SMS.
-2. Check the [response codes](/api/sms#status-codes) and ensure that you sent the request correctly.
+2. Check the [response codes](/api/sms#errors) and ensure that you sent the request correctly.
 3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
 4. If you requested signed delivery receipts and inbound messages validate the signature.
 
-## Setting up message signing
-
-To setup message signing:
-
-1. Contact <support@nexmo.com> and request message signing. The options are:
-
-  * Outbound messages can be signed.
-  * Outbound messages must be signed.
-  * Inbound messages and DLRs sent to your webhook endpoint are signed.
-
-2. Nexmo supplies you with the `SIGNATURE_SECRET` you use to encode and decode signatures.
-
-    > Note: this is not your `api_secret`.
-
-3. Implement the message signing workflow.
 
 ## Implementing the message signing workflow
+
+When you create a Nexmo account you will be provided a signature secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
 
 To sign your messages:
 
@@ -81,3 +69,23 @@ To sign your messages:
     ```tabbed_examples
     source: '_examples/messaging/signing-messages/validate-signature'
     ```
+
+## Troubleshooting signatures
+
+Here are some tips and pitfalls to look out for when working with signed messages.
+
+### Check the response for details
+
+If the message isn't sent as expected, check the response for any [error codes](/api/sms#errors) that were returned. This will usually give you more detail on what to do next.
+
+### Error 14: Invalid Signature
+
+If the text being sent includes any special characters such as `&` (ampersand) or `=` (equals), then these need to be replaced in the text used to create the signature.
+
+A general approach would be:
+
+- Detect that the text includes `&` or `=`.
+- Create a version of the text that uses `_` (underscore) in place of these special characters.
+- Use the sanitised version of the text to create the signature.
+
+The original text can be still be sent/received, the character replacements are only needed to generate the signature.

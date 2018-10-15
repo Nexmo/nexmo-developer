@@ -22,40 +22,40 @@
 package com.nexmo.quickstart.voice;
 
 import com.nexmo.client.NexmoClient;
+import com.nexmo.client.auth.AuthMethod;
 import com.nexmo.client.auth.JWTAuthMethod;
+import spark.Route;
+import spark.Spark;
 
 import java.nio.file.FileSystems;
 
 import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
-import static spark.Spark.port;
-import static spark.Spark.post;
 
 public class DownloadRecording {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String APPLICATION_ID = envVar("APPLICATION_ID");
-        String PRIVATE_KEY = envVar("PRIVATE_KEY");
+        final String NEXMO_APPLICATION_ID = envVar("APPLICATION_ID");
+        final String NEXMO_PRIVATE_KEY = envVar("PRIVATE_KEY");
 
-        NexmoClient nexmo = new NexmoClient(
-                new JWTAuthMethod(APPLICATION_ID, FileSystems.getDefault().getPath(PRIVATE_KEY))
-        );
+        AuthMethod auth = new JWTAuthMethod(NEXMO_APPLICATION_ID, FileSystems.getDefault().getPath(NEXMO_PRIVATE_KEY));
+        NexmoClient nexmo = new NexmoClient(auth);
 
-        port(8080);
-
-        /**
+        /*
          * A recording webhook endpoint which automatically downloads the specified recording to a file in the
          * current working directory, called "downloaded_recording.mp3"
          */
-        post("/recording", (req, res) -> {
+        Route downloadRoute = (req, res) -> {
             RecordingPayload payload = RecordingPayload.fromJson(req.bodyAsBytes());
+            final String RECORDING_URL = payload.getRecordingUrl();
 
-            System.out.println("Downloading from " + payload.getRecordingUrl());
-            nexmo.getVoiceClient()
-                    .downloadRecording(payload.getRecordingUrl())
-                    .save("downloaded_recording.mp3");
+            System.out.println("Downloading from " + RECORDING_URL);
+            nexmo.getVoiceClient().downloadRecording(RECORDING_URL).save("downloaded_recording.mp3");
             return "OK";
-        });
+        };
+
+        Spark.port(3000);
+        Spark.post("/recording", downloadRoute);
     }
 }

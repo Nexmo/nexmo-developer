@@ -4,7 +4,7 @@ const NEXMO_API_KEY = process.env.NEXMO_API_KEY
 const NEXMO_API_SECRET = process.env.NEXMO_API_SECRET
 
 // By default use the command line argument. Otherwise use the environment variable.
-const NEXMO_TO_LOOKUP = process.argv[2] || process.env.NEXMO_TO_NUMBER;
+const INSIGHT_NUMBER = process.argv[2] || process.env.INSIGHT_NUMBER;
 
 const Nexmo = require('nexmo');
 
@@ -13,7 +13,7 @@ const nexmo = new Nexmo({
   apiSecret: NEXMO_API_SECRET
 });
 
-nexmo.numberInsight.get({level: 'basic', number: NEXMO_TO_LOOKUP}, (error, result) => {
+nexmo.numberInsight.get({level: 'basic', number: INSIGHT_NUMBER}, (error, result) => {
   if(error) {
     console.error(error);
   }

@@ -6,14 +6,12 @@ namespace :search_terms do
     Algolia.init(application_id: ENV['ALGOLIA_APPLICATION_ID'], api_key: ENV['ALGOLIA_API_KEY'])
     index = Algolia::Index.new "#{Rails.env}_nexmo_developer"
     search_articles = SearchTerms.generate
-    
+
     search_articles.each do |search_article|
-      begin
-        index.add_object(search_article)
-      rescue Algolia::AlgoliaProtocolError
-        # puts search_article
-        puts "#{search_article[:document_path]} could not be processed"
-      end
+      index.add_object(search_article)
+    rescue Algolia::AlgoliaProtocolError
+      # puts search_article
+      puts "#{search_article[:document_path]} could not be processed"
     end
   end
 

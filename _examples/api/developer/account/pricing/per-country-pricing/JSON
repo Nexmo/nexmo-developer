@@ -1,14 +1,16 @@
 {
-  "country": "GB",
-  "name": "United Kingdom",
-  "prefix": "44",
-  "mt": "0.03330000",
+  "countryCode": "GB",
+  "countryDisplayName": "United Kingdom",
+  "countryName": "United Kingdom",
+  "currency": "EUR",
+  "defaultPrice": "0.03330000",
+  "dialingPrefix": "44",
   "networks": [
     {
-      "code": "12345",
-      "network": "Acme Telco",
-      "mtPrice": "0.03330000"
-    },
-  ],
-  "countryDisplayName": "United Kingdom"
+      "currency": "EUR",
+      "networkCode": "12345",
+      "networkName": "Acme Telco",
+      "price": "0.03330000"
+    }
+  ]
 }

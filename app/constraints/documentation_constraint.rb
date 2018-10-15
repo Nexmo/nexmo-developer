@@ -3,13 +3,17 @@ class DocumentationConstraint
     code_language.merge(product)
   end
 
-  def self.code_language
-    linkable_languages = CodeLanguageResolver.linkable.map(&:key)
-    { code_language: Regexp.new(linkable_languages.compact.join('|')) }
+  def self.code_language_list
+    CodeLanguageResolver.linkable.map(&:key)
   end
 
-  def self.product
-    products = [
+  def self.code_language
+    { code_language: Regexp.new(code_language_list.compact.join('|')) }
+  end
+
+  def self.product_list
+    [
+      'audit',
       'voice',
       'messaging',
       'verify',
@@ -17,14 +21,18 @@ class DocumentationConstraint
       'account',
       'concepts',
       'stitch',
-      'messages-and-workflows-apis',
+      'messages',
+      'dispatch',
     ]
+  end
 
-    { product: Regexp.new(products.compact.join('|')) }
+  def self.product
+    { product: Regexp.new(product_list.compact.join('|')) }
   end
 
   def self.product_with_parent_list
     [
+      'audit',
       'voice/sip',
       'voice/voice-api',
       'messaging/sms',
@@ -37,8 +45,8 @@ class DocumentationConstraint
       'concepts',
       'stitch/in-app-voice',
       'stitch/in-app-messaging',
-      'messages-and-workflows-apis/messages',
-      'messages-and-workflows-apis/workflows',
+      'messages',
+      'dispatch',
     ]
   end
 

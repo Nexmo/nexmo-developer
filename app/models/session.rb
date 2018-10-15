@@ -8,7 +8,6 @@ class Session < ApplicationRecord
   scope :published, -> { where(published: true) }
 
   def video_content
-    video_id = video_url.gsub('https://www.youtube.com/watch?v=', '')
     <<~HEREDOC
       <div class="video">
         <iframe src="#{embed_url}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -28,5 +27,7 @@ class Session < ApplicationRecord
       video_id = video_url.match(/(\d{7})/)[1]
       return "https://player.vimeo.com/video/#{video_id}"
     end
+
+    video_url
   end
 end

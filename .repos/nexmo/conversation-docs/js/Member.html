@@ -271,7 +271,7 @@
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -332,7 +332,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="member.js.html">member.js</a>, <a href="member.js.html#line219">line 219</a>
+        <a href="member.js.html">member.js</a>, <a href="member.js.html#line198">line 198</a>
     </li></ul></dd>
     
 
@@ -436,7 +436,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="member.js.html">member.js</a>, <a href="member.js.html#line137">line 137</a>
+        <a href="member.js.html">member.js</a>, <a href="member.js.html#line152">line 152</a>
     </li></ul></dd>
     
 
@@ -488,7 +488,7 @@
     
 
     
-    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(mute<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(mute<span class="signature-attributes">opt</span>, audio<span class="signature-attributes">opt</span>, video<span class="signature-attributes">opt</span>, streamIndex<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -496,7 +496,7 @@
 
 
 <div class="description">
-    Mute this member
+    Mute a stream
 </div>
 
 
@@ -523,6 +523,8 @@
         <th>Attributes</th>
         
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -540,7 +542,7 @@
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -559,8 +561,127 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
-            <td class="description last">is muted</td>
+            <td class="description last">true for mute, false for unmute</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>audio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">true for audio stream</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>video</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">true for video stream</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>streamIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">stream id to set</td>
         </tr>
 
     
@@ -601,7 +722,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="member.js.html">member.js</a>, <a href="member.js.html#line164">line 164</a>
+        <a href="member.js.html">member.js</a>, <a href="member.js.html#line186">line 186</a>
     </li></ul></dd>
     
 
@@ -624,32 +745,33 @@
 
 
 
-<h5>Returns:</h5>
+
+
+
+
+    <h5>Examples</h5>
+    
+        <p class="code-caption">Mute audio stream</p>
+    
+    <pre class="prettyprint"><code>media.mute(true, true, false)</code></pre>
+
+        <p class="code-caption">Mute audio and video streams</p>
+    
+    <pre class="prettyprint"><code>media.mute(true, true, true)</code></pre>
+
+        <p class="code-caption">Mute only video</p>
+    
+    <pre class="prettyprint"><code>media.mute(true, false, true)</code></pre>
+
+
 
         
-<div class="param-desc">
-    -
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-    </dd>
-</dl>
+    
 
     
 
-
-
-
+    
+        <h3 class="subsection-title">Events</h3>
 
         
             
@@ -657,7 +779,7 @@
     
 
     
-    <h4 class="name" id="sayText"><span class="type-signature"></span>sayText<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Event.html">Event</a>>}</span></h4>
+    <h4 class="name" id="event:media:stream:on">media:stream:on</h4>
     
 
     
@@ -665,7 +787,7 @@
 
 
 <div class="description">
-    Speak the given text only to this member within the conversation
+    Application listening for calls.
 </div>
 
 
@@ -676,10 +798,15 @@
 
 
 
-    <h5>Parameters:</h5>
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
     
 
-<table class="params">
+<table class="props">
     <thead>
     <tr>
         
@@ -688,8 +815,6 @@
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
         
 
         
@@ -703,7 +828,30 @@
 
         <tr>
             
-                <td class="name"><code>params</code></td>
+                <td class="name"><code>payload.index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the index number of this stream</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>payload.remote_member_id</code></td>
             
 
             <td class="type">
@@ -716,27 +864,107 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
 
-                
+            
 
+            <td class="description last">the id of the Member the stream belongs to</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>payload.name</code></td>
+            
+
+            <td class="type">
+            
                 
-                </td>
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
             
 
             
 
-            <td class="description last"></td>
+            <td class="description last">the stream's display name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>payload.stream</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">MediaStream</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the stream that is activated</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>payload.video_mute</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if the video is hidden</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>payload.audio_mute</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if the audio is muted</td>
         </tr>
 
     
     </tbody>
 </table>
-
-
 
 
 
@@ -770,7 +998,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="member.js.html">member.js</a>, <a href="member.js.html#line114">line 114</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -793,34 +1021,12 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;<a href="Event.html">Event</a>></span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
 
 
         
-    
-
-    
-
     
 </article>
 
@@ -832,13 +1038,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 18:14:13 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Sep 28 2018 14:58:54 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>

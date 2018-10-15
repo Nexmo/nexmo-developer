@@ -1,47 +1,41 @@
-#To run this code, replace the MyHandler in
-#https://wiki.python.org/moin/BaseHttpServer With the following code,
-import time
-import BaseHTTPServer
-import re
-import json
+from flask import Flask, request, jsonify
 
-class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
-    def do_GET(s):
-        #Parse parameters in the GET request
-        parsed_path = urlparse(s.path)
-        try:
-                params = dict(
-                [p.split('=') for p in parsed_path[4].split('&')])
-        except:
-                params = {}
+app = Flask(__name__)
 
-        #Retrieve with the parameters in this request
-        call_to = params['to']      #The endpoint being called
-        call_form = params['from']  #The endpoint you are calling from
-        conversation_uuid = params['conversation_uuid']     #The unique ID for this Conversation
-        call_uuid = params['uuid']     #The unique ID for this Call
+HOST = "localhost"
+PORT = 3000
 
-        #Dynamically create the NCCO to run a conversation from your virtual number
-        if call_to == "441632960960":
-            ncco=[
+@app.route("/webhooks/answer")
+def answer_call():
+
+    call_from = request.args['from']
+
+    # Dynamically build NCCO based on source phone
+    if call_from == "447700900000":
+        ncco = [
             {
                 "action": "talk",
-                "text": "Hello Russell, welcome to a Call made with Voice API"
-                }
-            ]
-        else:
-            ncco=[
+                "text": "Hi John, we will be with you shortly."
+            }
+        ]
+        
+    elif call_from == "447700900001":
+        ncco = [
             {
                 "action": "talk",
-                "text": "Hello Rebekka, welcome to a Call made with Voice API"
-                }
-            ]
+                "text": "Hi Jane, we will be with you shortly."
+            }
+        ]
+        
+    else:
+            ncco = [
+            {
+                "action": "talk",
+                "text": "Hello, sorry, we do not recognize your number."
+            }
+        ]
+    
+    return jsonify(ncco)
 
-        #For more advanced Conversations you use the paramaters to personalize the NCCO
-        #Dynamically create the NCCO to run a conversation from your virtual number
-
-        print "GET Request from " + s.path
-        s.send_response(200)
-        s.send_header("Content-type", "application/json")
-        s.end_headers()
-        s.wfile.write(json.dumps(ncco))
+if __name__ == '__main__':
+    app.run(host=HOST, port=PORT)

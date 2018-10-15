@@ -2,51 +2,12 @@ openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Media API
-  description: The Media API can be used to upload, download and delete media items such as audio files for use with other Nexmo APIs.
+  description: The Media API can be used to query, download and delete media items such as audio files for use with other Nexmo APIs.
   x-label: 'BETA'
 servers:
   - url: https://api.nexmo.com/v3
 paths:
   /media:
-    post:
-      summary: Upload media
-      operationId: upload-media
-      description: |
-        This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back a response with status `201 Created` giving you a `Location` header pointing to the metadata for the media file.
-
-        The media file will be associated with both your account and the Application ID of the JWT you use. This enables you to separate media files out by application.
-
-        The binary of the file can be downloaded at `/v3/media/:id`.
-      x-group: media
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                filedata:
-                  type: string
-                  format: binary
-                  description: |
-                    A URL to a file to upload.
-
-                    **Note**: Can not be used in conjunction with `url`.
-                url:
-                  type: string
-                  format: url
-                  description: |
-                    A URL to a file to upload.
-
-                    **Note**: Can not be used in conjunction with `filedata`.
-                  example: https://example.com/audio.wav
-                filename:
-                  type: string
-                  format: binary
-                  description: You can give a string here for replace the file name
-                  example: my-file.wav
-      responses:
-        '201':
-          description: Successfuly created
     get:
       summary: List and search media items
       operationId: list-and-search-media-items
@@ -90,7 +51,7 @@ paths:
           default: '1 week ago'
           x-default-is-meta: true
         - name: end_time
-          description: Retrieve results created on or before this timestap.
+          description: Retrieve results created on or before this timestamp.
           required: false
           in: query
           schema:
@@ -106,12 +67,12 @@ paths:
                 properties:
                   page_size:
                     type: integer
-                    description: An explanation about the purpose of this instance.
+                    description: The amount of records returned in this response.
                     default: 0
                     example: 20
                   page_index:
                     type: integer
-                    description: An explanation about the purpose of this instance.
+                    description: The `page_index` used in your request.
                     default: 0
                     example: 0
                   _links:
@@ -122,7 +83,6 @@ paths:
                         properties:
                           href:
                             type: string
-                            description: An explanation about the purpose of this instance.
                             default: ''
                             example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
                       first:
@@ -130,7 +90,6 @@ paths:
                         properties:
                           href:
                             type: string
-                            description: An explanation about the purpose of this instance.
                             default: ''
                             example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
                       last:
@@ -138,16 +97,19 @@ paths:
                         properties:
                           href:
                             type: string
-                            description: An explanation about the purpose of this instance.
                             default: ''
                             example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
                   count:
                     type: integer
-                    description: An explanation about the purpose of this instance.
+                    description: The total number of records returned by your request.
                     default: 0
                     example: 1
                   _embedded:
                     type: object
+                    description: >-
+                      A collection of media items.
+                      See [retrieve a media item](#retrieve-a-media-item) for a
+                      description of the returned fields
                     properties:
                       media:
                         type: array

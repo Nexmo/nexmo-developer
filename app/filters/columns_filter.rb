@@ -1,6 +1,6 @@
 class ColumnsFilter < Banzai::Filter
   def call(input)
-    input.gsub! /{column\:([1-4])\/([1-4])}\n(.+?){end}/m do
+    input.gsub!(%r{{column\:([1-4])\/([1-4])}\n(.+?){end}}m) do
       s = []
       s << row_start if $1 == '1'
       s << column_start($2)

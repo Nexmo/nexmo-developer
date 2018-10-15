@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/messages/send-sms.sh
+    from_line: 6
+    to_line: 19
+file_name: send-sms.sh
+run_command: bash send-sms.sh

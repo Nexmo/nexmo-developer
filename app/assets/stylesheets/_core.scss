@@ -18,6 +18,7 @@ body {
 .wrapper {
   flex: 1;
   transition: filter 400ms ease-in-out;
+  overflow-x: hidden;
 
   &--tint {
     background: $ice;
@@ -66,6 +67,10 @@ table {
 
     th:last-child {
       border-top-right-radius: $radius;
+    }
+
+    a {
+        color: white;
     }
   }
 

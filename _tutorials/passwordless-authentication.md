@@ -2,6 +2,8 @@
 title: Passwordless authentication
 products: verify
 description: Using the Verify API to allow users to login to a Ruby application.
+languages:
+    - Ruby
 ---
 # Passwordless authentication
 
@@ -161,7 +163,7 @@ post '/start_login' do
 end
 ```
 
-You can see that we have stored the user's phjone number and the `request_id` that the Verify API returns to us as session data. We will need that request identifier in the next step.
+You can see that we have stored the user's phone number and the `request_id` that the Verify API returns to us as session data. We will need that request identifier in the next step.
 
 ## Collect the PIN
 

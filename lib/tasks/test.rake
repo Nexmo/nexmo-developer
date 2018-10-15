@@ -23,10 +23,10 @@ namespace :test do
     if ENV['PORT']
       system("rawler 127.0.0.1:#{ENV['PORT']} --local --wait 0 --ignore-fragments")
     else
-      system("rawler developer.dev --local --wait 0 --ignore-fragments")
+      system('rawler developer.dev --local --wait 0 --ignore-fragments')
     end
 
-    exit $?.exitstatus unless $?.exitstatus.zero?
+    exit $CHILD_STATUS.exitstatus unless $CHILD_STATUS.exitstatus.zero?
   end
 
   desc 'Run all tests'

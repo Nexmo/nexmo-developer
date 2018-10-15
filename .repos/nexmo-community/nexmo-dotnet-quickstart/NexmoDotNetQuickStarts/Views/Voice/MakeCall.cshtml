@@ -5,3 +5,54 @@
     <input type="text" name="to" id="to" placeholder="To" />
     <input type="submit" value="Call" />
 }
+</br>
+
+<p>
+    Did you know that you can modify any existing call as long as you have the call uuid? You can: 
+
+    @using (Html.BeginForm("HangupCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Terminate the current call" />
+    }</br>
+
+    @using (Html.BeginForm("MuteCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Mute the current call" />
+    }</br>
+
+    @using (Html.BeginForm("UnmuteCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Unmute the current call" />
+    }</br>
+
+    @using (Html.BeginForm("EarmuffCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Earmuff the current call" />
+    }</br>
+
+    @using (Html.BeginForm("UnearmuffCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Unearmuff the current call" />
+    }</br>
+    @using (Html.BeginForm("PlayttsToCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Play text-to-speech to the current call" />
+    }</br>
+    @using (Html.BeginForm("PlayAudioStreamToCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Play audio stream to the current call" />
+    }</br>
+    @using (Html.BeginForm("PlayDTMFToCall", "Voice", FormMethod.Post))
+    {
+        <br />
+        <input type="submit" value="Play DTMF to the current call" />
+    }</br>
+</p>
+

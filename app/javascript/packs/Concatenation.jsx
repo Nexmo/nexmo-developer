@@ -2,6 +2,7 @@ import React from 'react'
 import chunk from 'lodash/chunk'
 import difference from 'lodash/difference'
 
+// GSM standard table
 const safeCharacters = [
   '@', '0', '¡', 'P', '¿',
   'p', '£', '_', '!', '1',
@@ -26,6 +27,11 @@ const safeCharacters = [
   '.', '>', 'N', 'Ü', 'n',
   'ü', 'å', 'É', '/', 'O',
   '§', 'o', 'à', ' '
+]
+
+// These require two bytes per character: ESC followed by the character
+const extGSMChars = [
+  '|', '^', '€', '{', '}', '[', ']', '~', '\\'
 ]
 
 class Concatenation extends React.Component {
@@ -61,7 +67,7 @@ class Concatenation extends React.Component {
   }
 
   shouldEncodeAs16Bit() {
-    var remainder = difference(this.splitStringByCodePoint(), safeCharacters)
+    var remainder = difference(this.splitStringByCodePoint(), [...safeCharacters, ...extGSMChars])
     return remainder.length !== 0
   }
 

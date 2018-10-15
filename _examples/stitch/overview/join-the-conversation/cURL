@@ -1,5 +1,0 @@
-curl -X "POST" "https://api.nexmo.com/beta/conversations/<CONVERSATION_ID>/members" \
-     -H "Authorization: Bearer <JWT>" \
-     -d action='join' \
-     -d user_id='<USER_ID>' \
-     -d channel.type='app'

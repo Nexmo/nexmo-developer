@@ -31,7 +31,7 @@ ActiveAdmin.register Career do
     actions
   end
 
-  form do |f|
+  form do |_f|
     inputs 'Details' do
       input :title
       input :summary

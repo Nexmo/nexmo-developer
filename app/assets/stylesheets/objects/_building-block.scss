@@ -1,0 +1,29 @@
+.copy-button {
+  background: $pink;
+  width: 140px;
+  height: 24px;
+  padding-top: 3px;
+  text-align: center;
+  clear: both;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: $white;
+  font-size: 0.8em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: $white;
+}
+
+.highlight {
+  position: relative;
+}
+
+div.highlight pre {
+  margin-top: 10px;
+}

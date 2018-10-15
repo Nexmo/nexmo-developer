@@ -1,0 +1,9 @@
+---
+title: Curl
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/number-insight/ni-standard.sh
+    from_line: 5
+    to_line: 8
+file_name: ni-standard.sh
+run_command: 'sh ni-standard.sh'

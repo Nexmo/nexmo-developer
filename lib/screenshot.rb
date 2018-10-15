@@ -26,12 +26,12 @@ class Screenshot
 
   def self.execute(config:)
     output = `node #{config['script']}`.strip
-    config['image'] = output if output.start_with? ('public/assets/screenshots/')
+    config['image'] = output if output.start_with? 'public/assets/screenshots/'
 
     output = <<~HEREDOC
-    ```screenshot
-    #{config.to_yaml.gsub("---\n", '').strip}
-    ```
+      ```screenshot
+      #{config.to_yaml.gsub("---\n", '').strip}
+      ```
     HEREDOC
 
     output.strip

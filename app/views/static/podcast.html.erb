@@ -1,0 +1,46 @@
+<div class="center spacious">
+  <h1>
+      <i class="icon icon--large <%=@content['images']['top_icon']%>"></i><br><br>
+      <%=@content['headers']['leader']%>
+  </h1>
+  <br />
+  <h2 class="light"><%=@content['headers']['subheading']%></h2>
+  <br />
+  <% if @content['button']['signup']['show'] %>
+    <a role="link" aria-label="Try it free" class="button" href="https://dashboard.nexmo.com/sign-up?ref=<%= @content['url']['reference'] %>">Try It Free</a>
+  <% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="columns small-12">
+
+      <br>
+      <%= render 'community' %>
+      <%= render 'slack' %>
+      <hr>
+      <%= render 'xwithy' %>
+      
+      <% if @content['sdk']['highlight'] %>
+        <br />
+        <%= render partial: @content['sdk']['library_name'] %>
+      <% end %>
+
+      <hr>
+      <br>
+      <%= render 'products' %>
+      <hr>
+
+      
+
+
+      <div class="center spacious content-block">
+        <h3>Do you have a question?</h3>
+        <p>We're always here to help, <a href="mailto:support@nexmo.com">send us an email</a> or get in touch on <a href="http://stackoverflow.com/questions/tagged/nexmo">Stack Overflow</a>. Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

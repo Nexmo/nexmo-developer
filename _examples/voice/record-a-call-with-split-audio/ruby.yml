@@ -1,0 +1,15 @@
+---
+title: Ruby
+language: ruby
+dependencies:
+    - sinatra
+code:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/record-a-call-with-split-audio.rb
+    from_line: 22
+    to_line: 49
+client:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/record-a-call-with-split-audio.rb
+    from_line: 12
+    to_line: 20
+file_name: record-a-call-with-split-audio.rb
+run_command: 'ruby record-a-call-with-split-audio.rb'

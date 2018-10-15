@@ -1,31 +1,58 @@
 ---
 title: Number Insight Advanced
-navigation_weight: 3
+navigation_weight: 4
 ---
 
 # Number Insight Advanced
 
-You can use Nexmo's Number Insight Advanced API to retrieve a user's landline or mobile number, including checking to see that it is registered to an operator. This can help you verify that a phone number is real and give you information on how to format the number.
+The Number Insight Advanced API provides all the data from the [Number Insight Standard API](/number-insight/building-blocks/number-insight-standard) together with the following additional information:
 
-Number Insight Advanced Async API is a synchronous, easy-to-use RESTful web service. For any phone number you can:
+* If the number is likely to be valid
+* If the number is reachable
+* If the number is roaming and, if so, the carrier and country
 
-* Retrieve the international and local format.
-* Know the country where the number is registered.
-* Line type detection (mobile/landline/virtual number/premium/toll-free)
-* Detect mobile country code (MCC) and mobile network code (MNC)
-* Detect if number is ported
-* Identify caller name (USA only) - see the [CNAM guide](/number-insight/guides/cnam) for details
-* Identify network when roaming
-* Confirm user's IP address is in same location as their mobile phone
+Use this information to determine the risk associated with a number.
 
-Users are advised that the Advanced API does not give any information about landlines that is not already given by the [Standard API](/number-insight/building-blocks/number-insight-standard). For number insights about landlines, you should use the [Standard API](/number-insight/building-blocks/number-insight-standard).
+> Note that the Advanced API does not provide any extra information about landlines than the [Number Insight Standard API](/number-insight/building-blocks/number-insight-standard). For insights about landline numbers, use the Standard API.
 
-```tabbed_examples
-source: '/_examples/number-insight/advanced/'
+Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/building-blocks/before-you-begin#replaceable-variables).
+
+```building_blocks
+source: '_examples/number-insight/advanced'
 ```
 
 The response from the API contains the following data:
 
-```tabbed_examples
-source: '/_examples/number-insight/response/advanced/'
+```json
+{
+    "status": 0,
+    "status_message": "Success",
+    "lookup_outcome": 0,
+    "lookup_outcome_message": "Success",
+    "request_id": "75fa272e-4743-43f1-995e-a684901222d6",
+    "international_format_number": "447700900000",
+    "national_format_number": "07700 900000",
+    "country_code": "GB",
+    "country_code_iso3": "GBR",
+    "country_name": "United Kingdom",
+    "country_prefix": "44",
+    "request_price": "0.03000000",
+    "remaining_balance": "10.000000",
+    "current_carrier": {
+        "network_code": "23420",
+        "name": "Hutchison 3G Ltd",
+        "country": "GB",
+        "network_type": "mobile"
+    },
+    "original_carrier": {
+        "network_code": "23410",
+        "name": "Telefonica UK Limited",
+        "country": "GB",
+        "network_type": "mobile"
+    },
+    "valid_number": "valid",
+    "reachable": "reachable",
+    "ported": "ported",
+    "roaming": {"status": "not_roaming"}
+}
 ```

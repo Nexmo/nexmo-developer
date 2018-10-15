@@ -23,7 +23,7 @@ To create a Voice app and send a text-to-speech message:
 4. Create an Application:
 
     ```sh
-    $ nexmo app:create "VoiceApplication" http://example.com http://example.com  --keyfile private.key
+    $ nexmo app:create "VoiceApplication" http://example.com/webhooks/answer http://example.com/webhooks/event  --keyfile private.key
     ```
 
 5. Associate the application_id with your virtual number.

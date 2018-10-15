@@ -64,6 +64,385 @@
 
 
 
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>application</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Application.html">Application</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The parent application object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eventsQueue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Incoming sip events queue (used for buffering while we're not ready to process them)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parentConversation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Conversation.html">Conversation</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the conversation object this media instance belongs to
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>remoteMembers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Member.html">Member</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The remote members</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>streamIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the latest index of the streams, updated in each new peer offer</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rtcObjects</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data related to the rtc connection
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">the rtc_id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">PeerConnection</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">the current PeerConnection object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>localStream</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Stream</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">the stream of the specific rtc_id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    video|screenshare
+                
+                </td>
+            
+
+            <td class="description last">the type of the stream</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>streamIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">the index number of the stream (e.g. use to mute)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rtcNewPromises</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Promise></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an array that contains all the promises of the rtc:new requests</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
 <dl class="details">
 
     
@@ -93,7 +472,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line33">line 33</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line18">line 18</a>
     </li></ul></dd>
     
 
@@ -107,6 +486,13 @@
 
 
 
+
+<h5>Fires:</h5>
+<ul>
+    <li><a href="Application.html#event:rtcstats:report">Application#rtcstats:report</a></li>
+
+    <li><a href="Member.html#event:media:stream:on">Member#media:stream:on</a></li>
+</ul>
 
 
 
@@ -156,6 +542,8 @@
 
 <div class="description">
     Disable media particiaption in the conversation for this application
+if RtcStats MOS is enabled, a final report will be available in
+ConversationClient#rtcstats:report
 </div>
 
 
@@ -199,7 +587,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line643">line 643</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1204">line 1204</a>
     </li></ul></dd>
     
 
@@ -253,171 +641,6 @@
           console.log(error);
       });
 }</code></pre>
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="earmuff"><span class="type-signature"></span>earmuff<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Earmuff our member
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line65">line 65</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
 
 
 
@@ -631,6 +854,46 @@
 
         <tr>
             
+                <td class="name"><code>video</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {direction: 'some_direction', constraints: constraints_object}
+                
+                </td>
+            
+
+            <td class="description last">video enablement mode.
+possible values for direction "both", "send_only", "receive_only", "none", true or false</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>screenshare</code></td>
             
 
@@ -663,7 +926,46 @@
                 </td>
             
 
-            <td class="description last">screen sharing enablement mode. possible values "send_only", "none", true or false --></td>
+            <td class="description last">screen sharing enablement mode. possible values "send_only", "none", true or false</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>screenshare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {direction: 'some_direction'}
+                
+                </td>
+            
+
+            <td class="description last">screen sharing enablement mode. possible values for direction "send_only", "none", true or false  --></td>
         </tr>
 
     
@@ -711,7 +1013,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line489">line 489</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line973">line 973</a>
     </li></ul></dd>
     
 
@@ -758,29 +1060,30 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>Enable media in this conversation
-function enable() {
+        <p class="code-caption">Enable media in this conversation</p>
+    
+    <pre class="prettyprint"><code>function enable() {
   conversation.media.enable()
      .then((stream) => {
-                const media = document.createElement("video");
-                const source = document.createElement("source");
-                const media_div = document.createElement("div");
+                  const media = document.createElement("audio");
+                  const source = document.createElement("source");
+                  const media_div = document.createElement("div");
 
-                media.appendChild(source);
-                media_div.appendChild(media);
-                document.insertBefore(media_div);
+                  media.appendChild(source);
+                  media_div.appendChild(media);
+                  document.insertBefore(media_div);
 
-                // Older browsers may not have srcObject
-                if ("srcObject" in media) {
-                    media.srcObject = stream;
-                } else {
-                    // Avoid using this in new browsers, as it is going away.
-                    media.src = window.URL.createObjectURL(stream);
-                }
+                  // Older browsers may not have srcObject
+                  if ("srcObject" in media) {
+                      media.srcObject = stream;
+                  } else {
+                      // Avoid using this in new browsers, as it is going away.
+                      media.src = window.URL.createObjectURL(stream);
+                  }
 
-                media.onloadedmetadata = (e) => {
-                    media.play();
-                };
+                  media.onloadedmetadata = (e) => {
+                      media.play();
+                  };
 
 		 }).catch((error) => {
           console.log(error);
@@ -896,7 +1199,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line862">line 862</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1297">line 1297</a>
     </li></ul></dd>
     
 
@@ -948,7 +1251,7 @@ function enable() {
     
 
     
-    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(mute<span class="signature-attributes">opt</span>, audio<span class="signature-attributes">opt</span>, video<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(mute<span class="signature-attributes">opt</span>, audio<span class="signature-attributes">opt</span>, video<span class="signature-attributes">opt</span>, streamIndex<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1002,83 +1305,7 @@ function enable() {
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">true for mute, false for unmute</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>audio</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-
-            <td class="description last">true for audio stream</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>video</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1104,7 +1331,122 @@ function enable() {
                 </td>
             
 
-            <td class="description last">true for video stream</td>
+            <td class="description last">true for mute, false for unmute</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>audio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">true for audio stream - relevant only in video conversation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>video</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">true for video stream - relevant only in video conversation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>streamIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">stream id to set - if it's not set all streams will be muted</td>
         </tr>
 
     
@@ -1145,7 +1487,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line711">line 711</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line860">line 860</a>
     </li></ul></dd>
     
 
@@ -1174,17 +1516,17 @@ function enable() {
 
     <h5>Examples</h5>
     
-        <p class="code-caption">Mute audio stream</p>
+        <p class="code-caption">Mute audio stream in non video conversation</p>
     
-    <pre class="prettyprint"><code>media.mute(true, true, false)</code></pre>
+    <pre class="prettyprint"><code>media.mute(true)</code></pre>
 
-        <p class="code-caption">Mute audio and video streams</p>
+        <p class="code-caption">Mute audio and video streams in video conversation</p>
     
-    <pre class="prettyprint"><code>media.mute(true, true, true)</code></pre>
+    <pre class="prettyprint"><code>media.mute(true, true, true, 0)</code></pre>
 
-        <p class="code-caption">Mute only video</p>
+        <p class="code-caption">Mute only video in video conversation</p>
     
-    <pre class="prettyprint"><code>media.mute(true, false, true)</code></pre>
+    <pre class="prettyprint"><code>media.mute(true, false, true, 0)</code></pre>
 
 
 
@@ -1246,7 +1588,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line892">line 892</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1327">line 1327</a>
     </li></ul></dd>
     
 
@@ -1298,7 +1640,7 @@ function enable() {
     
 
     
-    <h4 class="name" id="record"><span class="type-signature"></span>record<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;Recording>}</span></h4>
+    <h4 class="name" id="record"><span class="type-signature"></span>record<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Recording.html">Recording</a>>}</span></h4>
     
 
     
@@ -1413,7 +1755,7 @@ function enable() {
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1459,7 +1801,7 @@ function enable() {
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1482,7 +1824,7 @@ function enable() {
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1505,7 +1847,7 @@ function enable() {
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1563,7 +1905,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line831">line 831</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1266">line 1266</a>
     </li></ul></dd>
     
 
@@ -1597,7 +1939,7 @@ function enable() {
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;Recording></span>
+<span class="param-type">Promise.&lt;<a href="Recording.html">Recording</a>></span>
 
 
     </dd>
@@ -1781,7 +2123,7 @@ function enable() {
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1804,7 +2146,7 @@ function enable() {
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1862,7 +2204,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line792">line 792</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1227">line 1227</a>
     </li></ul></dd>
     
 
@@ -1971,7 +2313,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line927">line 927</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1362">line 1362</a>
     </li></ul></dd>
     
 
@@ -2091,7 +2433,7 @@ console.log("ringing");
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line962">line 962</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1397">line 1397</a>
     </li></ul></dd>
     
 
@@ -2169,13 +2511,13 @@ console.log("ringing stopped");
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 18:14:13 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Sep 28 2018 14:58:54 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>

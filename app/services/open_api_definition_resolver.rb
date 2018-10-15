@@ -1,8 +1,7 @@
 class OpenApiDefinitionResolver
-
   def self.find(name)
-    path = paths(name).detect do |path|
-      break path if File.file? path
+    path = paths(name).detect do |p|
+      break p if File.file? p
     end
 
     unless path
@@ -16,11 +15,9 @@ class OpenApiDefinitionResolver
     raise "Could not find definition '#{name}'"
   end
 
-  private
-
   def self.paths(name)
     ['json', 'yaml', 'yml'].map do |format|
-      self.path(name, format)
+      path(name, format)
     end
   end
 

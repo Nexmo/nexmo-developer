@@ -1,0 +1,13 @@
+---
+title: Node
+language: node
+dependencies:
+    - nexmo
+    - express
+    - body-parser
+code:
+    source: .repos/nexmo-community/nexmo-node-quickstart/number_insight/ni-advanced-async-client.js
+    from_line: 9
+    to_line: 27
+file_name: ni-advanced-async-client.js
+run_command: 'node ni-advanced-async-client.js'

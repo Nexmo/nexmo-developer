@@ -67,6 +67,12 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/ErrorInvalidJson'
                   - $ref: '#/components/schemas/ErrorUnsupportedProduct'
+        '429':
+          description: "Rate Limited"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorThrottled'
 x-groups:
   transaction:
     name: Transaction
@@ -218,6 +224,30 @@ components:
        description: Internal Trace ID
        example: bf0ca0bf927b3b52e3cb03217e1a1ddf
 
+   ErrorThrottled:
+     type: object
+     properties:
+      type:
+       type: string
+       required: true
+       description: Link to error / remediation options
+       example: https://developer.nexmo.com/api-errors/redact#rate-limit
+      title:
+       type: string
+       required: true
+       description: Generic error message
+       example: Rate Limit Hit
+      detail:
+       type: string
+       required: false
+       description: Additional information about the error
+       example: Please wait, then retry your request
+      instance:
+       type: string
+       required: true
+       description: Internal Trace ID
+       example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
    RedactTransaction:
      type: object
      properties:
@@ -259,3 +289,7 @@ x-errors:
   premature-redaction:
     description: There is a 1 hour time period before data can be redacted to allow for all data to propogate through the Nexmo system
     resolution: Wait until the data becomes valid for redaction
+
+  rate-limit:
+    description: The request was rate limited
+    resolution: The Redact API supports 170 requests per second. Slow down your request rate

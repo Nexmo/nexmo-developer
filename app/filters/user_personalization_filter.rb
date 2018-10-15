@@ -1,14 +1,14 @@
 class UserPersonalizationFilter < Banzai::Filter
   def call(input)
     return input unless options[:current_user]
-    return input unless options[:current_user].api_key.present?
-    return input unless options[:current_user].api_secret.present?
+    return input if options[:current_user].api_key.blank?
+    return input if options[:current_user].api_secret.blank?
 
     @input = input
     document.css('pre code').each do |code|
       html = code.to_s
 
-      html.gsub! /(['|"])?NEXMO_API_(KEY|SECRET)['|"]?/ do
+      html.gsub!(/(['|"])?NEXMO_API_(KEY|SECRET)['|"]?/) do
         quote = $1 || "'"
         value = (
           case $2

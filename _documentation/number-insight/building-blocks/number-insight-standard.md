@@ -1,28 +1,79 @@
 ---
 title: Number Insight Standard
-navigation_weight: 2
+navigation_weight: 3
 ---
 
 # Number Insight Standard
 
-You can use Nexmo's Number Insight Standard API to retrieve a user's landline or mobile number, including checking to see that it is registered to an operator. This can help you verify that a phone number is real and give you information on how to format the number.
+The Number Insight Standard API provides all the information from the [Number Insight Basic API](/number-insight/building-blocks/number-insight-basic) together with the following additional data:
 
-Number Insight Standard API is a synchronous, easy-to-use RESTful web service. For any phone number you can:
+* The line type (mobile/landline/virtual number/premium/toll-free)
+* The Mobile Country Code (MCC) and Mobile Network Code (MNC)
+* If the number is ported
+* The name of the caller (USA only)
 
-* Retrieve the international and local format.
-* Know the country where the number is registered.
-* Line type detection (mobile/landline/virtual number/premium/toll-free)
-* Detect mobile country code (MCC) and mobile network code (MNC)
-* Detect if number is ported
-* Identify caller name (USA only)
-* Check if phone number is reachable
+Use this information to determine the best type of communication for a number (SMS or voice) and block virtual numbers.
 
-```tabbed_examples
-source: '/_examples/number-insight/standard/'
+Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/building-blocks/before-you-begin#replaceable-variables).
+
+```building_blocks
+source: '_examples/number-insight/standard'
 ```
 
 The response from the API contains the following data:
 
-```tabbed_examples
-source: '/_examples/number-insight/response/standard/'
+```json
+{
+    "status": 0,
+    "status_message": "Success",
+    "request_id": "e98e0dfb-c485-491b-8d2a-283f35e21d04",
+    "international_format_number": "447700900000",
+    "national_format_number": "07700 900000",
+    "country_code": "GB",
+    "country_code_iso3": "GBR",
+    "country_name": "United Kingdom",
+    "country_prefix": "44",
+    "request_price": "0.00500000",
+    "remaining_balance": "10.000000",
+    "current_carrier": {
+        "network_code": "23420",
+        "name": "Hutchison 3G Ltd",
+        "country": "GB",
+        "network_type": "mobile"
+    },
+    "original_carrier": {
+        "network_code": "23410",
+        "name": "Telefonica UK Limited",
+        "country": "GB",
+        "network_type": "mobile"
+    },
+    "ported": "assumed_ported",
+    "roaming": {"status": "unknown"}
+}{
+    "status": 0,
+    "status_message": "Success",
+    "request_id": "e98e0dfb-c485-491b-8d2a-283f35e21d04",
+    "international_format_number": "447700900000",
+    "national_format_number": "07700 900000",
+    "country_code": "GB",
+    "country_code_iso3": "GBR",
+    "country_name": "United Kingdom",
+    "country_prefix": "44",
+    "request_price": "0.00500000",
+    "remaining_balance": "10.000000",
+    "current_carrier": {
+        "network_code": "23420",
+        "name": "Hutchison 3G Ltd",
+        "country": "GB",
+        "network_type": "mobile"
+    },
+    "original_carrier": {
+        "network_code": "23410",
+        "name": "Telefonica UK Limited",
+        "country": "GB",
+        "network_type": "mobile"
+    },
+    "ported": "assumed_ported",
+    "roaming": {"status": "unknown"}
+}
 ```

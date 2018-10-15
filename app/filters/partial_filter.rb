@@ -9,7 +9,7 @@ class PartialFilter < Banzai::Filter
       if config['platform']
         <<~HEREDOC
           <div class="js-platform" data-platform="#{config['platform']}" data-active="#{active}">
-            #{ content.render_markdown }
+            #{content.render_markdown}
           </div>
         HEREDOC
       else

@@ -1,5 +1,6 @@
 ---
 title: OAuth
+navigation_weight: 3
 ---
 
 # OAuth
@@ -14,7 +15,7 @@ When you use OAuth for authentication:
 * Your app identifies the user
 * The user's privacy is protected
 
-**Note**: We strongly recommend you use an existing [OAuth Library](http://oauth.net/code/) for your App.
+**Note**: We strongly recommend you use an existing [OAuth Library](https://oauth.net/1/) for your App.
 
 This section contains:
 
@@ -33,7 +34,7 @@ To do this:
 4. In Dashboard, click *Apps* > *Developer*.
 5. Click *create a new developer app*.
 6. Fill the form and click *Save*. You see your *Consumer Key* and *Consumer Secret* in Dashboard.
-7. Install an OAuth 1.0a library for your programming language from: <http://oauth.net/code/>.
+7. Install an OAuth 1.0a library for your programming language from: <https://oauth.net/1/>.
 
 ## Using OAuth in your App
 
@@ -99,7 +100,7 @@ Access Token | `https://dashboard.nexmo.com/oauth/access_token`
 The code used in this page is part of a small PHP App that you can run locally. To do this:
 
 1. [Setup OAuth access](#setting-up-oauth-access) with Nexmo.
-2. Setup an [OAuth 1.0a](http://oauth.net/code) library for PHP.
+2. Setup an [OAuth 1.0a](https://oauth.net/1/) library for PHP.
 2. Download the sample from (file: nexmoOAuthDriver.sample text: nexmoOAuthDriver) and rename it *nexmoOAuthDriver.php*.
 3. In *nexmoOAuthDriver.php*, replace `<YOUR Consumer Key>` and `<YOUR Consumer Secret>` with the values for your App.
   To find your Consumer Key and Secret, in **Dashboard**, click *Apps* > *Developer*.
