@@ -1,0 +1,41 @@
+<?php
+
+$base_url = 'https://api.nexmo.com' ;
+$version = '/v1';
+$action = '/applications/?';
+
+$url = $base_url . $version . $action . http_build_query([
+    'api_key' => 'API_KEY',
+    'api_secret' => 'API_SECRET'
+]);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+curl_setopt($ch, CURLOPT_HEADER, 1);
+$response = curl_exec($ch);
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+$header = substr($response, 0, $header_size);
+$body = substr($response, $header_size);
+
+if (strpos($header, '200')){
+    $decoded_response = json_decode($body, true);
+    echo("You have " . $decoded_response['count'] . " applications\n");
+    echo("Page " . $decoded_response['page_index']
+        . " lists " . $decoded_response['page_size'] . " applications\n");
+    echo("Use the links to navigate. For example: "
+        . $base_url .  $decoded_response['_links']['last']['href'] . "\n"  );
+    $applications = $decoded_response['_embedded']['applications'] ;
+
+    foreach ( $applications as $application ) {
+        echo "  Application ID is:" . $application['id'] . "\n"  ;
+        foreach($application['voice']['webhooks'] as $webhook)
+            echo ( "    " . $webhook['endpoint_type'] . " is " . $webhook['endpoint'] . "\n"  );
+    }
+}
+else {
+    $error = json_decode($body, true);
+    echo("Your request failed because:\n");
+    echo("  " . $error['type'] . "  " . $error['error_title']   );
+}

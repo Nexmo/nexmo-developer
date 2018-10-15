@@ -1,0 +1,9 @@
+#!/bin/bash
+
+base_url='https://api.nexmo.com'
+version='/v1'
+action='/applications/?'
+key='API_KEY'
+secret='API_SECRET'
+
+curl -X GET "$base_url$version$action?api_key=$key&api_secret=$secret"

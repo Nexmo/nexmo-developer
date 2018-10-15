@@ -18,6 +18,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/connect-an-inbound-call'
 application:
+  type: voice
   name: 'Connect Inbound Call Example'
 ```
 

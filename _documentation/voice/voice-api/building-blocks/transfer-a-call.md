@@ -22,6 +22,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/transfer-a-call'
 application:
+  type: voice
   use_existing: |
     Modifying an existing call requires that the <code>UUID</code> provided is a currently active call. To modify a call, you must use the same <code>NEXMO_APPLICATION_ID</code> and private key that were used to create the call.
 ```
