@@ -1,6 +1,6 @@
 ---
 title: Inbound message
-navigation_weight: 5
+navigation_weight: 2
 ---
 
 # Inbound message
@@ -14,6 +14,7 @@ Ensure that your inbound message [webhook is set](/messages/building-blocks/conf
 ```building_blocks
 source: '_examples/messages/inbound-message'
 application:
+  type: messages
   name: 'Inbound message'
 ```
 

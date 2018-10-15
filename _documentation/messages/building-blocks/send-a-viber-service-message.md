@@ -1,6 +1,5 @@
 ---
 title: Send a Viber Service Message
-navigation_weight: 3
 ---
 
 # Send a Viber Service Message
@@ -24,6 +23,7 @@ Key | Description
 ```building_blocks
 source: '_examples/messages/send-viber-message'
 application:
+  type: messages
   name: 'Send a Viber message'
 ```
 

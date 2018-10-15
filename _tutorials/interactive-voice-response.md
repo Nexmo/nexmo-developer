@@ -170,7 +170,7 @@ A Nexmo Call Control Object (NCCO) is a JSON array that is used to control the f
 
 To manage NCCOs this example application uses array manipulation and a few simple methods.
 
-The router handles encoding to JSON, the `Menu` object provides access to the the NCCO stack with its `getStack()` method:
+The router handles encoding to JSON, the `Menu` object provides access to the NCCO stack with its `getStack()` method:
 
 ```php
 <?php
@@ -356,5 +356,5 @@ Here are a few more resources that could be useful for building this type of app
 
 * [Text-To-Speech Guide](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech) - includes the different voices on offer and information about SSML (Speech Synthesis Markup Language) for better control of the spoken output.
 * [Twitter IVR](https://www.nexmo.com/blog/2018/06/26/twitter-interactive-voice-response-dr/) - another fairly silly example but a great example app written in Python.
-* [Text To Speect With Prompt Calls Using Python on AWS Lambda](https://www.nexmo.com/blog/2018/02/16/text-speech-prompt-calls-using-python-aws-lambda-dr/) - a similar application but this time using AWS Lambda (a serverless platform) and Python.
+* [Text To Speech With Prompt Calls Using Python on AWS Lambda](https://www.nexmo.com/blog/2018/02/16/text-speech-prompt-calls-using-python-aws-lambda-dr/) - a similar application but this time using AWS Lambda (a serverless platform) and Python.
 * [Code Samples for handling DTMF](https://developer.nexmo.com/voice/voice-api/building-blocks/handle-user-input-with-dtmf) - examples in various programming languages for handling the user keypad input as used in this tutorial.

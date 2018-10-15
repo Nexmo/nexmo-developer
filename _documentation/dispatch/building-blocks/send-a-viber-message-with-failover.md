@@ -22,6 +22,7 @@ Key | Description
 ```building_blocks
 source: '_examples/dispatch/send-viber-message-with-failover'
 application:
+  type: dispatch
   name: 'Send a Viber message with failover'
 ```
 

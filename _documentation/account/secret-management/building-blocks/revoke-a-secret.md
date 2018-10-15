@@ -7,7 +7,11 @@ navigation_weight: 2
 
 To create a new API secret, you must send a `DELETE` request to the secret management API.
 
-You must have at least one API secret at all times
+You must have at least one API secret at all times.
+
+Key | Description
+ -- | --
+`NEXMO_SECRET_ID` | The ID of the secret to delete.
 
 ```building_blocks
 source: _examples/account/secret-management/revoke-a-secret

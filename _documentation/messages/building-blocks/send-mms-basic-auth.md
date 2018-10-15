@@ -23,6 +23,7 @@ Key | Description
 ```building_blocks
 source: '_examples/messages/send-mms-basic-auth'
 application:
+  type: messages
   name: 'Send an MMS with Basic Authentication'
 ```
 

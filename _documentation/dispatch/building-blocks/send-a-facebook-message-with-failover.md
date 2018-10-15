@@ -25,6 +25,7 @@ Key | Description
 ```building_blocks
 source: '_examples/dispatch/send-facebook-message-with-failover'
 application:
+  type: dispatch
   name: 'Send a message with failover'
 ```
 

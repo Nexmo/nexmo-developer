@@ -1,6 +1,6 @@
 ---
 title: Send an SMS with Messages API
-navigation_weight: 1
+navigation_weight: 4
 ---
 
 # Send an SMS with Messages API
@@ -24,6 +24,7 @@ Key | Description
 ```building_blocks
 source: '_examples/messages/send-sms'
 application:
+  type: messages
   name: 'Send an SMS'
 ```
 

@@ -1,6 +1,5 @@
 ---
 title: Send with Facebook Messenger
-navigation_weight: 2
 ---
 
 # Send with Facebook Messenger
@@ -22,6 +21,7 @@ Key | Description
 ```building_blocks
 source: '_examples/messages/send-facebook-message'
 application:
+  type: messages
   name: 'Send a Facebook message'
 ```
 

@@ -16,28 +16,41 @@ A Nexmo application contains the security and configuration information you need
 
 You use a POST request to create a new application:
 
+
+### Voice
+
 ```tabbed_examples
-source: _examples/api/application/create-an-application
+source: _examples/api/application/voice/create-an-application
+```
+
+### Messages and Dispatch
+
+```tabbed_examples
+source: _examples/api/application/messages/create-an-application
 ```
 
 ### Parameters
 
 The following table shows the parameters you use to create a new application:
 
-Parameter | Description | Required
--- | -- | --
-`name` | The name of your application. | Yes
-`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
-`answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | Yes
-`answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | No
-`event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes
-`event_method` | The HTTP method used to send event information to event_url. The default value is POST. | No
+Parameter | Description | Required Voice | Required Messages
+-- | -- | -- | --
+`name` | The name of your application. | ✓ | ✓
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ | ✓
+`answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | ✓ | n/a
+`answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | x | n/a
+`event_url` | Nexmo sends event information asynchronously to this URL when status changes. | ✓ | n/a
+`event_method` | The HTTP method used to send event information to event_url. The default value is POST. | x | n/a
+`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every messageto this URL. | n/a | ✓
+`inbound_url` | Nexmo sends Inbound Messages to this URL. | n/a | ✓
 
 ### Response
 
 The JSON object for a `201 Created` response looks like:
 
-```json
+### Voice
+
+```bash
 {
   "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "name": "My Application",
@@ -67,19 +80,51 @@ The JSON object for a `201 Created` response looks like:
 }
 ```
 
+### Messages and Dispatch
+
+```bash
+{
+  "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "name": "My Application",
+  "messages": {
+    "webhooks": [
+      {
+        "endpoint_type": "status_url",
+        "endpoint": "https://example.com/status"
+      },
+      {
+        "endpoint_type": "inbound_url",
+        "endpoint": "https://example.com/inbound"
+      }
+    ]
+  },
+  "keys": {
+    "public_key": "PUBLIC_KEY",
+    "private_key": "PRIVATE_KEY"
+  },
+  "_links": {
+    "self": {
+      "href": "/v1/applications/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+    }
+  }
+}
+```
+
 The response contains the following keys and values:
 
-Parameter | Description
--- | --
-`name` | The name of your application
-`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported.
-`id` | The ID allocated to your application by Nexmo.
-`keys.public_key` | The public key used to validate the [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token).
-`keys.private_key` | The private key you use to generate the JSON Web Token (JWT) that authenticates your requests to Voice API.
-`answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to answer_url.
-`answer_method` | The HTTP method used to make the request to answer_url.
-`event_url` | Nexmo sends event information asynchronously to this URL when status changes.
-`event_method` | The HTTP method used to send event information to event_url.
+Parameter | Description | Voice | Messages
+-- | -- | -- | --
+`name` | The name of your application | ✓ | ✓
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ | ✓
+`id` | The ID allocated to your application by Nexmo. | ✓ | ✓
+`keys.public_key` | The public key used to validate the [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token). | ✓ | ✓
+`keys.private_key` | The private key you use to generate the JSON Web Token (JWT) that authenticates your requests to Voice API. | ✓ | ✓
+`answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to answer_url. | ✓ | x
+`answer_method` | The HTTP method used to make the request to answer_url. | ✓ | x
+`event_url` | Nexmo sends event information asynchronously to this URL when status changes. | ✓ | x
+`event_method` | The HTTP method used to send event information to event_url. | ✓ | x
+`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every messageto this URL. | x | ✓
+`inbound_url` | Nexmo sends Inbound Messages to this URL. | x | ✓
 `_links` | A series of links between resources in this API in the following [HAL specification](http://stateless.co/hal_specification.html).
 
 ## Retrieve your applications
@@ -91,7 +136,7 @@ Parameter | Description
 You use a [GET] request to retrieve details of all applications associated with your account:
 
 ```tabbed_examples
-source: _examples/api/application/retrieve-your-applications
+source: _examples/api/application/shared/retrieve-your-applications
 ```
 
 ### Parameters
@@ -128,6 +173,30 @@ The JSON object for a 200 success response looks like:
               "endpoint_type": "answer_url",
               "endpoint": "https://example.com/answer",
               "http_method": "GET"
+            }
+          ]
+        },
+        "keys": {
+          "public_key": "PUBLIC_KEY"
+        },
+        "_links": {
+          "self": {
+            "href": "/v1/applications/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+          }
+        }
+      },
+      {
+        "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+        "name": "My Application",
+        "voice": {
+          "messages": [
+            {
+              "endpoint_type": "status_url",
+              "endpoint": "https://example.com/status"
+            },
+            {
+              "endpoint_type": "inbound_url",
+              "endpoint": "https://example.com/inbound"
             }
           ]
         },

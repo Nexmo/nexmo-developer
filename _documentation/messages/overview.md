@@ -22,6 +22,7 @@ The following diagram illustrates the relationship between the Messages API and 
 
 * [Beta](#beta)
 * [Supported features](#supported-features)
+* [External Accounts API](#external-accounts-api)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Building Blocks](#building-blocks)
@@ -57,6 +58,10 @@ WhatsApp | ✅ | ❎ | ❎ | ❎ | ❎ | ❎
 * ✅ = Supported.
 * ❎ = Supported by the channel, but not by Nexmo. 
 * n/a = Not supported by the channel.
+
+## External Accounts API
+
+The [External Accounts API](/api/external-accounts) is used to manage your accounts for Viber Service Messages, Facebook Messenger and Whatsapp when using those channels with the Messages and Dispatch APIs.
 
 ## Getting started
 
@@ -98,3 +103,5 @@ product: messages
 ## Reference
 
 * [Messages API Reference](/api/messages)
+* [External Accounts API Reference](/api/external-accounts)
+

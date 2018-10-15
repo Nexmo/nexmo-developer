@@ -1,6 +1,5 @@
 ---
 title: Send a WhatsApp Message
-navigation_weight: 4
 ---
 
 # Send a WhatsApp Message
@@ -24,6 +23,7 @@ Key | Description
 ```building_blocks
 source: '_examples/messages/send-whatsapp-message'
 application:
+  type: messages
   name: 'Send a WhatsApp message'
 ```
 

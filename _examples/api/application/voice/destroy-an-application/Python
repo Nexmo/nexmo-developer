@@ -1,0 +1,14 @@
+import requests
+
+url = 'https://api.nexmo.com/v1/applications/APPLICATION_ID'
+data = {
+    'api_key': 'API_KEY',
+    'api_secret': 'API_SECRET',
+}
+
+resp = requests.delete(url, params=data)
+if resp.status_code == 204:
+    print "Your applicaiton was deleted"
+else :
+    print "Your request failed because:"
+    print resp.json()

@@ -170,7 +170,7 @@ After the user logs in, they'll press the "Chat" button which will take them to 
 
 ### 1.6 Navigate to ChatViewController
 
-As we mentioned above, creating a conversation results from a call to the the `new()` method. In the absence of a server we’ll 'simulate' the creation of a conversation within the app when the user clicks the chatBtn.
+As we mentioned above, creating a conversation results from a call to the `new()` method. In the absence of a server we’ll 'simulate' the creation of a conversation within the app when the user clicks the chatBtn.
 
 When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](/stitch/in-app-messaging/guides/simple-conversation/ios).
 

@@ -1,6 +1,6 @@
 ---
 title: Message status
-navigation_weight: 6
+navigation_weight: 3
 ---
 
 # Message status
@@ -14,6 +14,7 @@ Ensure that your message status [webhook is set](/messages/building-blocks/confi
 ```building_blocks
 source: '_examples/messages/message-status'
 application:
+  type: messages
   name: 'Message status'
 ```
 
