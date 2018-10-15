@@ -29,7 +29,7 @@ paths:
                 external_id:
                   type: string
                   example: "12345678"
-                  description: The unique identifier within provider realm domain. It is Facebook page ID. Go to your Facebook page, click on "About" link, scroll down and there should be lised your "Page ID"
+                  description: This is the unique identifier within the provider's domain. In this case it is the Page ID for your Facebook Page. Go to your Facebook Page, click "Settings", click "Messenger platform " scroll down to "Messenger link" to find your Page ID.
                 access_token:
                   type: string
                   example: "myAccessToken"
@@ -298,7 +298,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to retrieve
+        description: External id of the account you want to retrieve. In this case it will be your Viber Service Message ID.
       responses:
         '200':
           description: OK.
@@ -328,7 +328,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to retrieve
+        description: External id of the account you want to retrieve. In this case it will be the WhatsApp number. 
       responses:
         '200':
           description: OK.
@@ -765,7 +765,7 @@ x-groups:
   applications:
     name: "Application"
     order: 1
-    description: Inbound messages to an external account which is linked to an application will be delivered to the applications inbound URL.
+    description: Inbound messages to an external account which is linked to an application will be delivered to the application's inbound URL.
   account:
     name: "Account"
     order: 2
