@@ -51,12 +51,13 @@ The primary way that you'll interact with the Nexmo Voice platform is via the [p
 
 To make this easier, we provide client libraries in various languages that take care of authentication and creating the correct request body for you. Choose your language below to get started:
 
-* [Java](https://github.com/Nexmo/nexmo-java)
-* [PHP](https://github.com/Nexmo/nexmo-php)
-* [Ruby](https://github.com/Nexmo/nexmo-ruby)
-* [Python](https://github.com/Nexmo/nexmo-python)
-* [Node.js](https://github.com/Nexmo/nexmo-node)
-* [.NET](https://github.com/Nexmo/nexmo-dotnet)
+```building_blocks
+source: '_examples/voice/make-an-outbound-call'
+application:
+  type: voice
+  name: 'Outbound Call Building Block'
+  answer_url: https://developer.nexmo.com/ncco/tts.json
+```
 
 ## Guides
 
