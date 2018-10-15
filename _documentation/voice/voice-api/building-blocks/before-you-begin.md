@@ -10,7 +10,7 @@ navigation_weight: 1
 Building blocks are short pieces of code you can reuse in your own applications.
 The building blocks utilise code from the [Nexmo Quickstart](https://github.com/nexmo-community) repositories.
 
-Please read this information carefully, so you can best use the building blocks.  
+Please read this information carefully so that you can best use the building blocks.  
 
 ## Prerequisites
 
@@ -41,13 +41,13 @@ Key |	Description
 
 ### Numbers
 
-All phone numbers are in E.164 format.
+All phone numbers are in [E.164 format](https://www.itu.int/rec/T-REC-E.164/).
 
 Key |	Description
 -- | --
-`NEXMO_NUMBER` | Replace with your Nexmo Number. E.g. 447700900000
-`TO_NUMBER` | Replace with the number you are calling. E.g. 447700900001
-`SECOND_NUMBER` | Replace with number you are forwarding to. E.g. 447700900002
+`NEXMO_NUMBER` | Your Nexmo Number. E.g. `447700900000`
+`TO_NUMBER` | The number you are calling. E.g. `447700900001`
+`SECOND_NUMBER` | The number you are forwarding to. E.g. `447700900002`
 
 ### UUIDs
 
@@ -55,24 +55,23 @@ UUIDs are typically used in the building blocks to identify a specific call.
 
 Key |	Description
 -- | --
-`UUID` | Replace with the UUID of the call to modify. For example code use: `aaaaaaaa-bbbb-cccc-dddd-0123456789ab`.
+`UUID` | The UUID of the call to modify. E.g. `aaaaaaaa-bbbb-cccc-dddd-0123456789ab`.
 
 ### Specific replaceable/variables
 
-Some building blocks have more specialised variables that will need to be
+Some building blocks have more specialised variables that need to be
 replaced by actual values. These may be specified on a per-building block basis.
 
 ## Webhooks
 
-The main ones you will meet here are:
+The main ones you will interact with are:
 
 * `/webhooks/answer` - Nexmo callback GETs from here. You supply an NCCO.
-* `/webhooks/event` - Nexmo callback POSTs to here. You receive JSON event.
-* `/webhooks/recordings` - Nexmo callback POSTs to here. You receive JSON object with recording details.
+* `/webhooks/event` - Nexmo callback POSTs to here. You receive a JSON event.
+* `/webhooks/recordings` - Nexmo callback POSTs to here. You receive a JSON object with recording details.
 * `/webhooks/dtmf` - Nexmo POSTs user DTMF input here in a JSON object.
 
-If you are using Ngrok you will set your webhook URLs in the Nexmo Application object to
-something like:
+If you are using Ngrok you will need to set your webhook URLs in the Nexmo Application object. Examples include:
 
 * `https://demo.ngrok.io/webhooks/answer`
 * `https://demo.ngrok.io/webhooks/event`
