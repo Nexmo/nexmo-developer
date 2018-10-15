@@ -27,7 +27,7 @@ You can also create a new application within the [Nexmo Dashboard](https://dashb
 
 ### Claims
 
-Using that `private.key` and the application ID, we can mint a new JWT. In order to log a user in to a Stitch client, the JWT will need the following claims:
+Usinhttps://github.com/Nexmo/nexmo-developer that `private.key` and the application ID, we can mint a new JWT. In order to log a user into a Stitch client, the JWT will need the following claims:
 
 |Claim | Description |
 | --------- | ----------- |
@@ -72,7 +72,7 @@ Once all the claims have been provided, the resulting claims should appear like 
 
 ### Overview
 
-In the previous section, you can see that the `acl` claim has `paths` object containing multiple endpoints. These endpoints correspond with certain permissions a user can have when utilizing Stitch features.
+In the previous section, you can see that the `acl` claim has `paths` object containing multiple endpoints. These endpoints corresponds with certain permissions a user can have when utilizing Stitch features.
 
 ### Paths
 
@@ -145,4 +145,3 @@ Nexmo::generateJwt([
 ### Other languages
 
 Creating a JWT with the appropriate claims for authenticating a Stitch user is not currently provided in any of the other Nexmo Client Libraries. Instead, we encourage you to use your JWT library of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload). [JWT.io](https://jwt.io/#libraries-io) has a selection of libraries for generating JWTs in multiple languages.
-
