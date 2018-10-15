@@ -460,7 +460,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to assign an application to. This is channel dependent.
+        description: External id of the account you want to assign an application to. This is channel dependent. For Facebook it will be your Facebook Page ID, for Viber your Viber Service Message ID and for WhatsApp your WhatsApp number.
       requestBody:
         description: Request body can contain any of the following. Please note, the only one application can be linked to the account.
         required: true
