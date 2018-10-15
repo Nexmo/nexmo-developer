@@ -17,12 +17,16 @@ A Nexmo application contains the security and configuration information you need
 You use a POST request to create a new application:
 
 
+### Voice
+
 ```tabbed_examples
-tabs:
-  Voice:
-    source: _examples/api/application/voice/create-an-application
-  Messages:
-    source: _examples/api/application/messages/create-an-application
+source: _examples/api/application/voice/create-an-application
+```
+
+### Messages and Dispatch
+
+```tabbed_examples
+source: _examples/api/application/messages/create-an-application
 ```
 
 ### Parameters
@@ -44,18 +48,72 @@ Parameter | Description | Required Voice | Required Messages
 
 The JSON object for a `201 Created` response looks like:
 
-```tabbed_examples
-tabs:
-  Voice:
-    source: _examples/api/application/voice/create-an-application/response.json
-  Messages:
-    source: _examples/api/application/messages/create-an-application/response.json
+### Voice
+
+```bash
+{
+  "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "name": "My Application",
+  "voice": {
+    "webhooks": [
+      {
+        "endpoint_type": "answer_url",
+        "endpoint": "https://example.com",
+        "http_method": "GET"
+      },
+      {
+        "endpoint_type": "event_url",
+        "endpoint": "https://example.com",
+        "http_method": "POST"
+      }
+    ]
+  },
+  "keys": {
+    "public_key": "PUBLIC_KEY",
+    "private_key": "PRIVATE_KEY"
+  },
+  "_links": {
+    "self": {
+      "href": "/v1/applications/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+    }
+  }
+}
+```
+
+### Messages and Dispatch
+
+```bash
+{
+  "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "name": "My Application",
+  "messages": {
+    "webhooks": [
+      {
+        "endpoint_type": "status_url",
+        "endpoint": "https://example.com/status"
+      },
+      {
+        "endpoint_type": "inbound_url",
+        "endpoint": "https://example.com/inbound"
+      }
+    ]
+  },
+  "keys": {
+    "public_key": "PUBLIC_KEY",
+    "private_key": "PRIVATE_KEY"
+  },
+  "_links": {
+    "self": {
+      "href": "/v1/applications/aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+    }
+  }
+}
 ```
 
 The response contains the following keys and values:
 
 Parameter | Description | Voice | Messages
--- | --
+-- | -- | -- | --
 `name` | The name of your application | ✓ | ✓
 `type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ | ✓
 `id` | The ID allocated to your application by Nexmo. | ✓ | ✓
