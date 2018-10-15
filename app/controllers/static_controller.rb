@@ -171,7 +171,7 @@ class StaticController < ApplicationController
 
       block
     end
-    render layout: 'documentation'
+    render layout: 'landing'
   end
 
   def team
