@@ -1,14 +1,14 @@
 ---
 title: Call tracking
 products: voice/voice-api
-description: We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
+description: We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions to fine-tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television radio, magazine, print or online advertising, and the times those phone numbers are used, to improve future campaigns.
 languages:
     - Node
 ---
 
 # Call tracking
 
-We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine-tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television, radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
+We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine-tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television, radio, magazine, print or online advertising, and the times those phone numbers are used, to improve future campaigns.
 
 This tutorial is based on the [Call Tracking](https://www.nexmo.com/use-cases/call-tracking/) use case. You download the code from <https://github.com/Nexmo/node-call-tracker>.
 
@@ -18,17 +18,17 @@ In this tutorial you see how to build an application that keeps track of inbound
 
 * [Create a Voice Application](#create-a-voice-application) - create and configure an application using [Nexmo CLI](https://github.com/nexmo/nexmo-cli), then configure the webhook endpoints to provide NCCOs and handle changes in Call status
 * [Buy phone numbers](#provision-virtual-voice-numbers) - Buy phone numbers you use to mask real user numbers
-* [Link the phone numbers to the Nexmo Application](#link-numbers) - configure the voice enabled phone numbers you use to mask user numbers
+* [Link the phone numbers to the Nexmo Application](#link-numbers) - configure the voice-enabled phone numbers you use to mask user numbers
 * [Handle inbound voice calls](#handle-inbound-voice-calls) - configure your webhook endpoint to handle incoming voice calls and track of the popularity of the inbound number
 * [Proxy the Call](#proxy-the-call) - instruct Nexmo to make a masked Call to a phone number
 
 ## Prerequisites
 
-In order to work through this tutorial you need:
+To work through this tutorial you need:
 
 * A [Nexmo account](https://dashboard.nexmo.com/sign-up)
 * The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
-* A publicly accessible web server so Nexmo can make webhook requests to your app. If you're developing locally we recommend [ngrok](https://ngrok.com/).
+* A publicly accessible web server so Nexmo can make webhook requests to your app. If you're developing locally, we recommend [ngrok](https://ngrok.com/).
 
 ## Create a Voice application
 
