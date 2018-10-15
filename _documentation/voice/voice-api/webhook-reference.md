@@ -18,7 +18,7 @@ For more general information, check out our [webhooks guide](/concepts/guides/we
 
 When an incoming call is answered, an HTTP request is sent to the `answer_url` you specified when setting up the application. For outgoing calls, specify the `answer_url` when you make the call.
 
-By default, the answer webhook will be a `GET` request but this can be overridden to `POST` by setting the `answer_method` field. For incoming calls, you configure these values when you create the application. For outgoing calls, you specify these values when making a call.
+By default, the answer webhook will be a `GET` request, but this can be overridden to `POST` by setting the `answer_method` field. For incoming calls, you configure these values when you create the application. For outgoing calls, you specify these values when making a call.
 
 ### Answer webhook data fields
 
@@ -31,7 +31,7 @@ Field | Example | Description
 
 ### Answer webhook data field examples
 
-For a `GET` request, the variables will be in the URL, like this:
+For a `GET` request, the variables will be in the URL:
 
 ```
 /answer.php?to=442079460000&from=447700900000&conversation_uuid=CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab&uuid=aaaaaaaa-bbbb-cccc-dddd-0123456789ab
@@ -50,7 +50,7 @@ If you set the `answer_method` to `POST` then you will receive the request with 
 
 ### Responding to the answer webhook
 
-Nexmo expect you to return an [NCCO](/voice/voice-api/ncco-reference) in JSON format containing the actions to perform.
+Nexmo expects you to return an [NCCO](/voice/voice-api/ncco-reference) in JSON format containing the actions to perform.
 
 ## Event webhook
 
@@ -207,7 +207,7 @@ Field | Example | Description
 
 ### Human / Machine
 
-For an outbound call made programmatically, if the `machine_detection` option is set then an event with a status of `human` or `machine` will be sent depending whether a person answered the call or not.
+For an outbound call made programmatically, if the `machine_detection` option is set, then an event with a status of `human` or `machine` will be sent depending on whether a person answered the call or not.
 
 Field | Example | Description
  -- | -- | --
@@ -238,7 +238,7 @@ Field | Example | Description
 
 ### Completed
 
-The call is over, this event also includes summary data about the call.
+The call is over, and this event also includes summary data about the call.
 
 Field | Example | Description
  -- | -- | --
