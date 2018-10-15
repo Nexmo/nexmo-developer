@@ -27,7 +27,7 @@ In order to work through this tutorial you need:
 
 We'll start by registering a Nexmo number to use with this application. Follow the instructions for [getting started with applications](https://developer.nexmo.com/concepts/guides/applications#getting-started-with-applications). This will walk you through buying a number, creating an application, and linking the two.
 
-You will need to give the URL of your publicly-accessible webserver or ngrok endpoint when you configure your application, as part of both the `answer_url` and the `event_url`. Those files are called `answer.php` and `event.php` respectively in this project. For example if your ngrok URL is `Https://25b8c071.ngrok.io` then the your configuration would be:
+You will need to give the URL of your publicly-accessible webserver or ngrok endpoint when you configure your application, as part of both the `answer_url` and the `event_url`. Those files are called `answer.php` and `event.php` respectively in this project. For example if your ngrok URL is `https://25b8c071.ngrok.io` then your configuration would be:
 
 * **answer_url** `https://25b8c071.ngrok.io/answer.php`
 * **event_url** `https://25b8c071.ngrok.io/event.php`
