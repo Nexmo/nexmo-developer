@@ -34,7 +34,7 @@ To do this:
 4. In Dashboard, click *Apps* > *Developer*.
 5. Click *create a new developer app*.
 6. Fill the form and click *Save*. You see your *Consumer Key* and *Consumer Secret* in Dashboard.
-7. Install an OAuth 1.0a library for your programming language from: <http://oauth.net/code/>.
+7. Install an OAuth 1.0a library for your programming language from: <https://oauth.net/1/>.
 
 ## Using OAuth in your App
 
