@@ -1,6 +1,7 @@
 # Nexmo Developer
 
 <p><a href='#contributions'>Contributions</a> &middot; <a href='#testing'>Testing</a> &middot; <a href='#running-locally'>Running Locally</a> &middot; <a href='#admin-dashboard'>Admin Dashboard</a> &middot; <a href='#troubleshooting'>Troubleshooting</a></p>
+
 This repository is the code and content for <https://developer.nexmo.com>, which includes the Nexmo documentation, API reference, SDKs, Tools & Community content.
         
 ## Contributions
