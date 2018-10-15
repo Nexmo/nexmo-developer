@@ -27,7 +27,7 @@ You can also create a new application within the [Nexmo Dashboard](https://dashb
 
 ### Claims
 
-Usinhttps://github.com/Nexmo/nexmo-developer that `private.key` and the application ID, we can mint a new JWT. In order to log a user into a Stitch client, the JWT will need the following claims:
+Using https://github.com/Nexmo/nexmo-developer that `private.key` and the application ID, we can mint a new JWT. In order to log a user into a Stitch client, the JWT will need the following claims:
 
 |Claim | Description |
 | --------- | ----------- |
