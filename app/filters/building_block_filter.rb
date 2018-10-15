@@ -106,17 +106,28 @@ class BuildingBlockFilter < Banzai::Filter
 
   def generate_application_block(app)
     return '' unless app
-    app['name'] = 'ExampleVoiceProject' unless app['name']
 
     base_url = 'http://demo.ngrok.io'
     base_url = 'https://example.com' if app['disable_ngrok']
 
-    app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
-    app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
+    app['name'] = 'ExampleProject' unless app['name']
+
+    # We should remove this default once we're sure that all building blocks
+    # have a type set e.g audit
+    app['type'] ||= 'voice'
+
+    if app['type'] == 'voice'
+      app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
+      app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
+      erb = File.read("#{Rails.root}/app/views/building_blocks/_application_voice.html.erb")
+    elsif ['messages', 'dispatch'].include? app['type']
+      erb = File.read("#{Rails.root}/app/views/building_blocks/_application_messages_dispatch.html.erb")
+    else
+      raise "Invalid application type when creating building block: '#{app['type']}'"
+    end
 
     id = SecureRandom.hex
 
-    erb = File.read("#{Rails.root}/app/views/building_blocks/_application.html.erb")
     ERB.new(erb).result(binding)
   end
 

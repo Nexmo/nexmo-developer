@@ -1,0 +1,27 @@
+import requests
+
+url = 'https://api.nexmo.com/v1/applications'
+data = {
+    'api_key': 'API_KEY',
+    'api_secret': 'API_SECRET'
+}
+
+resp = requests.get(url, params=data)
+try:
+    if resp.status_code == 200:
+        resp_data = resp.json()
+        print "You have " + str(resp_data['count']) + " applications"
+        print "Page " + str(resp_data['page_index']) + \
+            " lists " + str(resp_data['page_size']) + " applications"
+        print "Use the links to navigate. For example: https://api.nexmo.com" \
+            +  resp_data['_links']['last']['href']
+        for application in resp_data['_embedded']['applications'] :
+            print "Application " + application['name'] + \
+                " has an ID of: " + application['id']
+            for webhook in application['voice']['webhooks'] :
+                print "  " + webhook['endpoint_type'] + " is " + webhook['endpoint']
+    else:
+        print "Your request failed because:"
+        print resp.json()
+except requests.exceptions.HTTPError as e:
+    print e

@@ -1,0 +1,15 @@
+---
+title: Node
+language: node
+dependencies:
+    - express
+code:
+    source: .repos/nexmo-community/nexmo-node-quickstart/voice/receive-an-inbound-call.js
+    from_line: 3
+    to_line: 15
+client:
+    source: .repos/nexmo-community/nexmo-node-quickstart/voice/receive-an-inbound-call.js
+    from_line: 1
+    to_line: 1
+file_name: app.js
+run_command: 'node app.js'

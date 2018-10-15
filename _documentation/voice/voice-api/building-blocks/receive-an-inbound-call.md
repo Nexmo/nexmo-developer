@@ -12,6 +12,7 @@ In this building block you see how to receive an inbound call.
 ```building_blocks
 source: '_examples/voice/receive-an-inbound-call'
 application:
+  type: voice
   name: 'Receive Inbound Call Example'
 ```
 

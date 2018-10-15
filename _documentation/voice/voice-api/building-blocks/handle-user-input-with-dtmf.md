@@ -21,6 +21,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/handle-user-input-with-dtmf'
 application:
+  type: voice
   name: 'User Input DTMF Example'
 ```
 
