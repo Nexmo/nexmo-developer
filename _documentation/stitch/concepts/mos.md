@@ -6,10 +6,10 @@ title: Measuring Voice Or Video Quality
 
 The overall quality of a voice or video stream is often depicted through a metric called [*Mean Opinion Score (MOS)*](https://en.wikipedia.org/wiki/Mean_opinion_score).
 
-It is common that MOS is represented as a rational number, or a float type variable, between 1 and 5, with the following scale: 
+It is common that MOS is represented as a rational number, or a float type variable, between 1 and 5, with the following scale:
 
 1. Bad
-2. Poor 
+2. Poor
 3. Fair
 4. Good
 5. Excellent
@@ -19,13 +19,13 @@ Frequently, MOS higher than 4 reflects a satisfying quality. For MOS higher than
 
 ### How is MOS calculated?
 
-The MOS is [calculated using a formula](https://docs.telcobridges.com/tbwiki/MOS), which utilizes multiple features of the data steam passed over the network via the stats WebRTC exposes. Among those features, the ones with the most significant impact are: 
+The MOS is [calculated using a formula](https://docs.telcobridges.com/tbwiki/MOS), which utilizes multiple features of the data stream passed over the network via the stats WebRTC exposes. Among those features, the ones with the most significant impact are:
 
 * Packet loss - the amount of data packets that never made it from the sender to the receiver
 
 * Latency - the time it takes a data packet to get from the sender to the receiver, and back to the sender
 
-* Jitter - the difference between the latency of one data flow to the other. In other words, how delayed was a received data packet, comparing to the previous received data packet
+* Jitter - the difference between the latency of one data flow to the other. In other words, how delayed was a received data packet, comparing to the previously received data packet
 
 
 An R-value is calculated based on those factors and is later used to calculate the final MOS, by the following formula:  
@@ -36,11 +36,10 @@ The MOS score reflects the quality of the audio or video stream that a participa
 
 ### What a MOS can be used for
 
-Among typical usages are 
+Among typical usages are
 
 * Indicating overall call quality through a UI element
 
 * Automatically dropping the call when MOS is insufficient
- 
-* Triggering a fallback to another communication channel. For example from in-app call via IP to a telephony call via PSTN
 
+* Triggering a fallback to another communication channel. For example from in-app call via IP to a telephony call via PSTN
