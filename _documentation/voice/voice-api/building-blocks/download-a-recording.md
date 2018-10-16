@@ -18,6 +18,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/download-a-recording'
 application:
+  type: voice
   use_existing: |
     To fetch a recording you must use the same <code>NEXMO_APPLICATION_ID</code>
     and private key for the application that owns the call that you're trying to download.

@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Earmuff a call
 
-This building block earmuffs and unearmuffs a call.  When a call is earmuffed, the user cannot hear other participants, but other particpants can hear the user.
+This building block earmuffs and unearmuffs a call. When a call is earmuffed, the user cannot hear other participants, but other participants can hear the user.
 
 ## Example
 
@@ -18,6 +18,7 @@ Key |	Description
 ```building_blocks
 source: '_examples/voice/earmuff-a-call'
 application:
+  type: voice
   use_existing: |
     Modifying an existing call requires that the <code>UUID</code> provided is a currently active call. To modify a call, you must use the same <code>NEXMO_APPLICATION_ID</code> and private key that were used to create the call.
 ```

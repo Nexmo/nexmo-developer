@@ -35,11 +35,18 @@ For some of the examples you will need to [buy a number](https://dashboard.nexmo
 
 | Code Sample                              |
 | ---------------------------------------- |
-| Send Phone Verification Code | [verify/request.php] |
-| Check Phone Verification Code | [verify/verify.php] |
-| Cancel Phone Verification | [verify/cancel.php] |
+| [Send Phone Verification Code](verify/request.php) |
+| [Check Phone Verification Code](verify/verify.php) |
+| [Cancel Phone Verification](verify/cancel.php) |
 
+### Secret Management
 
+| Code Sample                              |
+| ---------------------------------------- |
+| [List Secrets](secret-management/fetch-secrets.php) |
+| [Get a Secret](secret-management/get-a-secret.php) |
+| [Create a Secret](secret-management/create-a-secret.php) |
+| [Delete a Secret](secret-management/delete-a-secret.php) |
 
 ## Request More Examples
 
@@ -47,6 +54,6 @@ Please [raise an issue](/../../issues/) to request an example that isn't present
 
 ## Licenses
 
-- The code samples in this repo is under [MIT](LICENSE)
+- The sample code in this repo is licensed under [MIT](LICENSE)
 
   ​

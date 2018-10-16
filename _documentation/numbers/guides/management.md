@@ -13,24 +13,12 @@ Dashboard is a web application that makes it easy to:
 
 ## Contents
 
-* [Manage your account](#manage-your-account)
 * [Create and configure a Nexmo account](#create-and-configure-a-nexmo-account)
 * [Retrieve your account information](#retrieve-your-account-information)
 * [Manage users](#manage-users)
 * [Manage your profile](#manage-your-profile)
 * [Reset your password](#reset-your-password)
 * [Supported browsers](#supported-browsers)
-
-## Manage your account
-
-You use Dashboard to:
-
-* [Create and configure a Nexmo account](#create-and-configure-a-nexmo-account)
-* [Retrieve your account information](#retrieve-your-account-information)
-* [Manage users](#manage-users)
-* [Manage your profile](#manage-your-profile)
-* [Reset your password](#reset-your-password)
-
 
 ## Create and configure a Nexmo account
 
@@ -39,11 +27,11 @@ To create your free Nexmo account:
 1. In your browser, navigate to [Dashboard](https://dashboard.nexmo.com/sign-up).
 2. Add  your company information and click **Sign up**.
    Nexmo sends a PIN to your phone as a text message or automated phone call. The timeout for each verification attempt is 5 minutes.
-   **Note**: you can associate a phone number with one account only. If your phone number is already associated with a Nexmo account you should [remove that phone number](#manage_profile) from the existing account.
+   **Note**: you can associate a phone number with one account only. If your phone number is already associated with a Nexmo account you should [remove that phone number](#manage-your-profile) from the existing account.
 3. In **Phone number verification**, enter the PIN sent to you by Nexmo and click **Verify**.
   You are logged into Dashboard and shown how to start developing with Nexmo. This page is displayed each time you login until you have made your first successful call with Nexmo API.
 
-When you create your Nexmo account you are given €2 free test credit and your account is set in DEMO mode. You can use our products to send messages to up to 10 destination numbers, *[Nexmo DEMO]* is added to all the SMS you send. To move out of the Demo mode [add credit to your account](#add_payment_method).
+When you create your Nexmo account you are given €2 free test credit and your account is set in DEMO mode. You can use our products to send messages to up to 10 destination numbers, *[Nexmo DEMO]* is added to all the SMS you send. To move out of the Demo mode [add credit to your account](/numbers/guides/payments#add-a-payment-method).
 
 For very few countries we cannot create a Nexmo account automatically. This is because of payment restrictions or legal trading restrictions for a US registered company.
 
@@ -79,7 +67,7 @@ You use the *api_key* and *api_secret* associated with primary and secondary acc
 
 ## Manage your profile
 
-Dashboard uses the the information you gave during setup to create your Nexmo profile. This includes:
+Dashboard uses the information you gave during setup to create your Nexmo profile. This includes:
 
 * Contact information - phone number, email, skype and password.
 * Company information - name, address and VAT number.
@@ -96,7 +84,7 @@ To reset your Nexmo password:
 
 1. Navigate to [Forgot your password?](https://dashboard.nexmo.com/sign-in/forgot-password).
 2. Enter the email address associated with your Nexmo account and click **Reset password**.
-3. You receive a password reset link at the the email address associated with your Nexmo account. This link is valid for 15 minutes.
+3. You receive a password reset link at the email address associated with your Nexmo account. This link is valid for 15 minutes.
 4. Navigate to the reset link and reset your password.
 
 If having are still having issues, please contact <support@nexmo.com>.

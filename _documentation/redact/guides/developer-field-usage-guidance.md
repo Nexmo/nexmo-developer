@@ -31,7 +31,7 @@ The fields detailed in the following sections should be carefully populated to e
 
 ### NCCO
 
-Note that the NCCO provided by the customer server to the Voice API may contain many customer-defined strings; additionally, the NCCO may be created programatically. These fields in particular should be checked to ensure no personal data is inadvertently populated (generally any numbers in these fields should be owned by the customer/developer, not an end user):
+Note that the NCCO provided by the customer server to the Voice API may contain many customer-defined strings; additionally, the NCCO may be created programmatically. These fields in particular should be checked to ensure no personal data is inadvertently populated (generally any numbers in these fields should be owned by the customer/developer, not an end user):
 
 * `eventUrl`
 * `endpoint.uri`

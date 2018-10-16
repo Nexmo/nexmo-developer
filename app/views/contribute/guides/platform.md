@@ -55,11 +55,11 @@ Document | Description
 >
 > §
 >
-> The ordering is a flat lookup of the name. This can cause issues if two different orderings are required relating to two or more menu items with the same name. An example of this is that at the time of writing this Concepts sits as the very first and top-most element. If a product was to need a concepts section this would be forced to the the top the the product tree since they would both share a common name.
+> The ordering is a flat lookup of the name. This can cause issues if two different orderings are required relating to two or more menu items with the same name. An example of this is that at the time of writing this Concepts sits as the very first and top-most element. If a product was to need a concepts section this would be forced to the top the product tree since they would both share a common name.
 >
 > §
 >
-> Although this specific issue hasn't been addressed some work has been made towards having a tree based overides, this could allow an individual item to be overridden by specifying it's location within the the document hirearchy. You can see the start of this work under `navigation_overrides` within the `/config/navigation.yml` file.
+> Although this specific issue hasn't been addressed some work has been made towards having a tree based overrides, this could allow an individual item to be overridden by specifying it's location within the document hirearchy. You can see the start of this work under `navigation_overrides` within the `/config/navigation.yml` file.
 
 ## Pages and content
 
@@ -136,7 +136,7 @@ Here is a quick explanation of all of the filters:
 Filter | Current User Context | Type | Description
 --- | --- | --- | ---
 Frontmatter | No | [Implicit] | Strips frontmatter from documents
-PHPInliner | No | [Implicit] | Fixes a quirk with our code parser that requires PHP code to to have `<?php` at the start. This filter adds an option onto PHP code examples that makes this not required.
+PHPInliner | No | [Implicit] | Fixes a quirk with our code parser that requires PHP code to have `<?php` at the start. This filter adds an option onto PHP code examples that makes this not required.
 InlineEscape | No | [Extended] | Allows for escaping of inline code where normally the internals would be processes by the markdown. For example this isn't turned into a ``[label]`` when surrounded by two backticks.
 BlockEscape | No | [Extended] | Allows for escaping of code fences where normally the internals would be processes by the markdown.
 Screenshot | No | [Plugin] | Allows for screenshots be put into documentation that are captured by a headless browser so they can be easily refreshed.
@@ -166,7 +166,7 @@ ExternalLink | No | [Implicit] | Automatically adds an icon and `target="blank"`
 
 ## Webpack
 
-We use [Webpacker](https://github.com/rails/webpacker) to handle JavaScript in webpack with Ruby on Rails. We use the React intergration with this tool.
+We use [Webpacker](https://github.com/rails/webpacker) to handle JavaScript in webpack with Ruby on Rails. We use the React integration with this tool.
 
 The JavaScript file that is loaded can be found at `/app/javascript/packs/application.js`.
 

@@ -12,7 +12,7 @@ Phone numbers are everywhere in advertising: on billboards, in TV ads, on websit
 
 Using call whispers, the context of the incoming call is announced to the call center operator before being connected to the caller. This tutorial will show an application that implements this approach. A user will call one of two numbers. The application answers the call and the caller hears a holding message. Meanwhile, the application also makes a call to the call center operative, plays a different call whisper depending on which number was dialled, and then connects the operative to the conference with the incoming caller.
 
-The examples are written in NodeJS with express, and you can find the code [on Github](https://github.com/Nexmo/node-call-whisper).
+The examples are written in NodeJS with express, and you can find the code [on GitHub](https://github.com/Nexmo/node-call-whisper).
 
 ## In this tutorial
 

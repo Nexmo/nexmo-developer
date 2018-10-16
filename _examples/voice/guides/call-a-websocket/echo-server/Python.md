@@ -19,7 +19,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     def on_message(self, message):
         #Check if message is Binary or Text
         if type(message) == str:
-            print("Binary Message recieved")
+            print("Binary Message received")
             # Echo the binary message back to where it came from
             self.write_message(message, binary=True)
         else:

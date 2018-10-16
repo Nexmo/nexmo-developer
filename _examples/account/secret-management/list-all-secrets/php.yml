@@ -1,0 +1,13 @@
+---
+title: PHP
+language: php
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/secret-management/fetch-secrets.php
+    from_line: 8
+    to_line: 11
+client:
+    source: .repos/nexmo-community/nexmo-php-quickstart/secret-management/fetch-secrets.php
+    from_line: 5
+    to_line: 6
+file_name: list-secrets.php
+run_command: php list-secrets.php

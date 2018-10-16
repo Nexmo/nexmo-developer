@@ -25,7 +25,7 @@ This guide will introduce you to the following concepts.
 We will use the application we already created for [the first audio getting started guide](/stitch/in-app-voice/guides/enable-audio/ios). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 Modify the ChatController with `.storyboard` files 
-To modify the `.storyboard` to accomodate a call convenience method, let's perform the following changes: 
+To modify the `.storyboard` to accommodate a call convenience method, let's perform the following changes: 
 
 - Inside of the scene for `ChatViewController.swift` add an instance of `UIBarButtonItem` to the upper right hand corner of the `UINavigationController`. 
 
@@ -69,7 +69,7 @@ To ensure the chat is setup, we will configure an instance of `UITableView` to h
 - Add an instance of `UITableView` to the scene for `ChatViewController` in `.storyboard`
 - Control drag to create an reference in `ChatViewController`
 - Inside of `ChatViewController`'s `viewDidLoad(:)` configure both the `dataSource` and `delegate` properties on our reference to `tableView` to `.self`. 
-- Last but not least we will add an extension to ensure confirmity to the required methods:
+- Last but not least we will add an extension to ensure conformity to the required methods:
 
 ```swift
 extension ChatController : UITableViewDataSource {
@@ -94,7 +94,7 @@ With our chat set up, we are ready to move onto setting up the call method.
 
 ## 2.0 -  📞 + ☎️ equals a call
 
-Earlier we droped the following in an action for our call emoji 📞: `call()`. We will program this function with our call convenience method now. Below `viewDidLoad()` declare a private function called `call()` like so: 
+Earlier we dropped the following in an action for our call emoji 📞: `call()`. We will program this function with our call convenience method now. Below `viewDidLoad()` declare a private function called `call()` like so: 
 
 ```swift 
 private func call() {
@@ -114,7 +114,7 @@ private func call() {
 
 }
 ``` 
-We no longer need the generic do-try-catch.  Inside of the function, however, we will add an instance of `UIAlertController`. We will loop over each member in the a conversation displayed in the `UITableView` with the higher order function `.forEach` so that we add an action for calling each member to the activity sheet:
+We no longer need the generic do-try-catch. Inside of the function, however, we will add an instance of `UIAlertController`. We will loop over each member in the a conversation displayed in the `UITableView` with the higher order function `.forEach` so that we add an action for calling each member to the activity sheet:
 
 ```swift
     // MARK: - Call Convenience Methods

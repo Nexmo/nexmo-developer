@@ -26,6 +26,7 @@
     <a href="/api" class="<%= @navigation == :api ? 'active' : '' %>">API Reference</a>
     <a href="/tools" class="<%= @navigation == :tools ? 'active' : '' %>">SDKs &amp; Tools</a>
     <a href="/community" class="<%= @navigation == :community ? 'active' : '' %>">Community</a>
+    <a href="/extend" class="<%= @navigation == :extend ? 'active' : '' %>">Extend</a>
 
     <% if search_enabled? %>
       <%= form_tag '/search' do %>

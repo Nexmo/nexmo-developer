@@ -176,10 +176,10 @@ We'll be running this device on two different devices (on an iOS simulator and a
 
 ### 2.2 Listening for Conversation invites and accepting them
 
-The next step is to update the login method to listen to changes in conversations' array on the `client.conversation` that we will configure to subscribe to events for users inivited to a conversation. Once a user receives an invite, we're going to automatically join the user to that Conversation.
+The next step is to update the login method to listen to changes in conversations' array on the `client.conversation` that we will configure to subscribe to events for users invited to a conversation. Once a user receives an invite, we're going to automatically join the user to that Conversation.
 
 ```swift
- // whenver the conversations array is modified
+ // whenever the conversations array is modified
                     self.client.conversation.conversations.asObservable.subscribe(onNext: { (change) in
                         switch change {
                         case .inserted(let conversations, let reason):

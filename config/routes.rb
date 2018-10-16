@@ -50,6 +50,9 @@ Rails.application.routes.draw do
 
   get '/hansel', to: 'static#podcast'
 
+  get '/migrate/tropo', to: 'static#migrate'
+  get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'
+
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
   resources :careers, only: [:show], path: 'team'
@@ -62,6 +65,9 @@ Rails.application.routes.draw do
   get '/community/past-events', to: 'static#past_events'
 
   get '/feeds/events', to: 'feeds#events'
+
+  get '/extend', to: 'extend#index'
+  get '/extend/:title', to: 'extend#show'
 
   get '/changelog', to: 'changelog#index'
   get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }

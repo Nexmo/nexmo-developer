@@ -53,7 +53,7 @@ Some actions and options are:
 source: '_examples/voice/ncco/actions'
 ```
 
-For your NCCO to execute correctly, the JSON syntax must be valid. It is better to generate JSON dynamically using a JSON library than to attempt to write it yourself programatically.
+For your NCCO to execute correctly, the JSON syntax must be valid. It is better to generate JSON dynamically using a JSON library than to attempt to write it yourself programmatically.
 
 The actions you can use in an NCCO are:
 

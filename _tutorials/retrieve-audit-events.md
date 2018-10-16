@@ -50,7 +50,7 @@ The list of audit events you receive in the previous step may well be overwhelmi
 
 Query Parameter | Description
 --- | ---
-`event_type` | The type of the audit event, for example: `APP_CREATE`, `NUMBER_ASSIGN`, and so on. You can specify a comma-delimited list of [event types](/audit/guides/audit-events#audit-event-types) here.
+`event_type` | The type of the audit event, for example: `APP_CREATE`, `NUMBER_ASSIGN`, and so on. You can specify a comma-delimited list of [event types](/audit/concepts/audit-events#audit-event-types) here.
 `search_text` | JSON compatible search string. Look for specific text in an audit event.
 `date_from` | Retrieve audit events from this date (in ISO-8601 format).
 `date_to` | Retrieve audit events to this date (in ISO-8601 format).
@@ -67,7 +67,7 @@ $ curl "https://api.nexmo.com/beta/audit/events?date_from=2018-08-01&date_to=201
 
 This will return all audit events that occurred during August 2018.
 
-You can narrow this down further in various ways. For example you can also filter based on [audit event type](/audit/guides/audit-events#audit-event-types).
+You can narrow this down further in various ways. For example you can also filter based on [audit event type](/audit/concepts/audit-events#audit-event-types).
 
 So for example, to find audit events in August of type `NUMBER_ASSIGN` you could enter the following:
 

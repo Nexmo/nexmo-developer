@@ -1,4 +1,4 @@
-//You use the information you recieved in response from a request to SMS API or Call API.
+//You use the information you received in response from a request to SMS API or Call API.
 
 var https = require('https');
 

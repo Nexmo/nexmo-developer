@@ -335,7 +335,7 @@ paths:
       summary: Update a member
       responses:
         '200':
-          description: Member retrived
+          description: Member retrieved
           content:
             application/json:
               schema:
@@ -518,7 +518,7 @@ paths:
       summary: List legs
       responses:
         '200':
-          description: List Legs Succesfully
+          description: List Legs Successfully
           content:
             application/json:
               schema:

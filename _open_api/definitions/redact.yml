@@ -287,7 +287,7 @@ x-errors:
       url: /api/redact#transaction
 
   premature-redaction:
-    description: There is a 1 hour time period before data can be redacted to allow for all data to propogate through the Nexmo system
+    description: There is a 1 hour time period before data can be redacted to allow for all data to propagate through the Nexmo system
     resolution: Wait until the data becomes valid for redaction
 
   rate-limit:

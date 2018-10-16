@@ -50,7 +50,7 @@ Access asynchronously | ❎ | ❎ | ✅
 
 ## Getting Started
 
-This example shows you how to use the the [Nexmo CLI](/tools) to access the Number Insight Basic API and display information about a number.
+This example shows you how to use the [Nexmo CLI](/tools) to access the Number Insight Basic API and display information about a number.
 
 > For examples of how to use Basic, Standard and Advanced Number Insight with `curl` and the developer SDKs see the [Building Blocks](#building-blocks).
 

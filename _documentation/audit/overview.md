@@ -26,20 +26,20 @@ During the Beta period Nexmo may expand the capabilities of the Audit API.
 
 In this document you can learn about:
 
-* [Concepts](#concepts)
+* [Authentication](#authentication)
+* [Audit Events](#audit-events)
+* [Audit Event Object](#audit-event-object)
 * [**How to Get Started with the Audit API**](#getting-started)
-* [Guides](#guides)
+* [Concepts](#concepts)
 * [Building Blocks](#building-blocks)
 * [Tutorials](#tutorials)
 * [Reference](#reference)
 
-## Concepts
-
-### Authentication
+## Authentication
 
 Interactions with the Audit API are authenticated using Basic Authentication. Basic Authentication allows you to use your `NEXMO_API_KEY` and `NEXMO_API_SECRET` to validate your API requests. For more general information on authentication see [Authentication](/concepts/guides/authentication).
 
-### Audit Events
+## Audit Events
 
 Audit Events are activities that occur when a user interacts with the Nexmo API or the Nexmo Dashboard. Audit events are represented by a JSON object. Examples of audit events include:
 
@@ -47,9 +47,9 @@ Audit Events are activities that occur when a user interacts with the Nexmo API 
 * A Nexmo Number gets assigned to an application.
 * Creation of a Nexmo application.
 
-Further information on types of audit events is given in the [Audit Event Guide](/audit/guides/audit-events).
+Further information on types of audit events is given on the [Audit Events](/audit/concepts/audit-events) page.
 
-### Audit Event object
+## Audit Event object
 
 An example audit event object is 'updating a number' which has `event_type` of `NUMBER_UPDATED`:
 
@@ -98,7 +98,7 @@ application:
   name: 'Get Audit Events'
 ```
 
-## Guides
+## Concepts
 
 ```concept_list
 product: audit
@@ -115,6 +115,8 @@ product: audit
 ```tutorials
 product: audit
 ```
+
+There is also a blog post on how to [monitor your applications with the Audit API with Python](https://www.nexmo.com/blog/2018/10/09/get-nexmo-audit-events-with-python-dr/) you might find useful.
 
 ## Reference
 

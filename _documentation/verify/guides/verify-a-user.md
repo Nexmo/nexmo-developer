@@ -34,7 +34,7 @@ Once you have collected a user's phone number, you can start the verification pr
 source: '_examples/verify/building-blocks/send-verification-request'
 ```
 
-The API will return an `request_id`. This is used in subsequent API calls.
+The API will return a `request_id`. This is used in subsequent API calls.
 
 ⚓ check
 ## Check phone verification code

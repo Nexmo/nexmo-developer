@@ -169,7 +169,7 @@ Let's add a few view controllers. Start by adding a custom subclass of `UIViewCo
 
 
 ### 2.4 Creating the login layout
-Let's layout the login functionality. Set constraints on the top & leading attributes of an instance of UIButton with a constant HxW at 71x94 to the top of the Bottom Layout Guide + 20 and the leading attribute of `view` + 16. This is our login button. Reverse leading to trailing for another instance of UIButton with the same constraints. This our chat button. Set the text on these instances accordingly. Add a status label centered horizontally & vertically. Finally, embedd this scene into a navigation controller. Control drag from the chat button to scene assigned to the chat controller, naming the segue `chatView`.
+Let's layout the login functionality. Set constraints on the top & leading attributes of an instance of UIButton with a constant HxW at 71x94 to the top of the Bottom Layout Guide + 20 and the leading attribute of `view` + 16. This is our login button. Reverse leading to trailing for another instance of UIButton with the same constraints. This our chat button. Set the text on these instances accordingly. Add a status label centered horizontally & vertically. Finally, embed this scene into a navigation controller. Control drag from the chat button to scene assigned to the chat controller, naming the segue `chatView`.
 
 
 ### 2.5 - Create the Login Functionality
@@ -264,7 +264,7 @@ We also need to wire up the buttons in `LoginViewController.swift` Don't forget 
 
 Next, let's stub out the login workflow.
 
-Create an authenticate struct with a member set as `userJWT`. For now, stub it out to always return the vaue for `USER_JWT`.
+Create an authenticate struct with a member set as `userJWT`. For now, stub it out to always return the value for `USER_JWT`.
 
 ```swift
 // a stub for holding the value for private.key
@@ -279,7 +279,7 @@ After the user logs in, they'll press the "Chat" button which will take them to 
 
 ### 2.5 Navigate to ChatViewController
 
-As we mentioned above, creating a conversation results from a call to the the new() method. In the absence of a server we’ll ‘simulate’ the creation of a conversation within the app when the user clicks the chatBtn.
+As we mentioned above, creating a conversation results from a call to the new() method. In the absence of a server we’ll ‘simulate’ the creation of a conversation within the app when the user clicks the chatBtn.
 
 When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in step 1.2.
 

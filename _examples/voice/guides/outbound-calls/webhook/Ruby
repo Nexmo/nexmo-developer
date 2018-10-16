@@ -13,7 +13,7 @@ def generate_ncco(request_line)
   to = params['to']         #The endpoint being called
   from = params['from']     #The endpoint you are calling from
   uuid = params['conversation_uuid']    #The unique ID for this Conversation
-  #For more advanced Conversations you use the paramaters to personalize the NCCO
+  #For more advanced Conversations you use the parameters to personalize the NCCO
 
   #Dynamically create the NCCO to run a conversation from your virtual number
   if to == "441632960960"

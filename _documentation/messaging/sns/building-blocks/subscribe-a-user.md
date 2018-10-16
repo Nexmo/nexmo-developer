@@ -12,7 +12,7 @@ Key | Description
 `TO_NUMBER` | The number you would like to subscribe
 `API_KEY` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview)
 `API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview)
-`SNS_ARN` | The ARN for the the SNS that you are subscribing the user to. It's policy must allow the Nexmo user ID `564623767830` to subscribe & publish.
+`SNS_ARN` | The ARN for the SNS that you are subscribing the user to. It's policy must allow the Nexmo user ID `564623767830` to subscribe & publish.
 
 ```sh
 curl -X "POST" "https://sns.nexmo.com/sns/json?api_key=API_KEY&api_secret=API_SECRET" \

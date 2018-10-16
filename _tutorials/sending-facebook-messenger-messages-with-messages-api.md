@@ -1,6 +1,6 @@
 ---
 title: Sending Facebook Messenger messages with Messages API
-products: messages-and-workflows-apis/messages
+products: messages
 description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the Facebook Messenger channel using the Messages API.
 languages:
     - Curl
@@ -11,10 +11,10 @@ languages:
 
 You can use the Messages API to send and receive messages using Facebook Messenger.
 
-Before continuing with this tutorial you should review the information on [Understanding Facebook messaging](/messages-and-workflows-apis/messages/concepts/facebook).
+Before continuing with this tutorial you should review the information on [Understanding Facebook messaging](/messages/concepts/facebook).
 
 ```partial
-source: _partials/olympus/prereqs.md
+source: _partials/reusable/prereqs.md
 ```
 
 ## The steps
@@ -37,15 +37,15 @@ To use the Messages API with Facebook Messenger you must have a Facebook Account
 * [How do I create a Facebook Page?](https://en-gb.facebook.com/help/104002523024878?helpref=about_content)
 
 ```partial
-source: _partials/olympus/configure-webhook-urls.md
+source: _partials/reusable/configure-webhook-urls.md
 ```
 
 ```partial
-source: _partials/olympus/create-a-nexmo-application.md
+source: _partials/reusable/create-a-nexmo-application.md
 ```
 
 ```partial
-source: _partials/olympus/generate-a-jwt.md
+source: _partials/reusable/generate-a-jwt.md
 ```
 
 ## Link your Facebook Page to Nexmo
@@ -97,9 +97,9 @@ Key | Description
 ## Example
 
 ```building_blocks
-source: '_examples/olympus/send-facebook-message'
+source: '_examples/messages/send-facebook-message'
 ```
 
 ## Further reading
 
-* [Messages documentation](/messages-and-workflows-apis/messages/overview)
+* [Messages documentation](/messages/overview)

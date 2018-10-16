@@ -722,7 +722,7 @@ components:
       - status
       properties:
         conversation_uuid:
-          description: The UUID of the Converstion that the event relates to
+          description: The UUID of the Conversion that the event relates to
           type: string
           format: uuid
           example: CON-171b3991-49b0-4dfa-badd-2bc6e68b57b4
@@ -821,7 +821,7 @@ x-groups:
   call:
     name: Call
     order: 2
-    description: Manage a specfic call
+    description: Manage a specific call
   stream:
     name: Stream
     order: 3

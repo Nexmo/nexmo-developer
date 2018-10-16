@@ -21,7 +21,8 @@ class DocumentationConstraint
       'account',
       'concepts',
       'stitch',
-      'messages-and-workflows-apis',
+      'messages',
+      'dispatch',
     ]
   end
 
@@ -44,8 +45,8 @@ class DocumentationConstraint
       'concepts',
       'stitch/in-app-voice',
       'stitch/in-app-messaging',
-      'messages-and-workflows-apis/messages',
-      'messages-and-workflows-apis/workflows',
+      'messages',
+      'dispatch',
     ]
   end
 

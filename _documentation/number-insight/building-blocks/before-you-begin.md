@@ -34,7 +34,7 @@ Key |	Description
 -- | --
 `NEXMO_API_KEY` | API key.
 `NEXMO_API_SECRET` | API secret.
-`SEARCH_NUMBER` | The number you want to retrieve insight information for.
+`INSIGHT_NUMBER` | The number you want to retrieve insight information for.
 
 ## Webhooks
 

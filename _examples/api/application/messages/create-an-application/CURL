@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#Create an Application for Messages API.
+
+  base_url='https://api.nexmo.com'
+  version='/v1'
+  action='/applications/?'
+  key='API_KEY'
+  secret='API_SECRET'
+  name='MyFirstApplication'
+  type='messages'
+  status_url='https://example.com/status'
+  inbound_url='https://example.com/inbound'
+
+  curl $base_url$version$action \
+    -d api_key=$key \
+    -d api_secret=$secret \
+    -d name=$name \
+    -d type=$type \
+    -d status_url=$answer_url \
+    -d inbound_url=$event_url

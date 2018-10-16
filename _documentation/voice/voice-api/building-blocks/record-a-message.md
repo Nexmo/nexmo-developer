@@ -13,6 +13,7 @@ A building block that shows how to record a message.
 ```building_blocks
 source: '_examples/voice/record-a-message'
 application:
+  type: voice
   name: 'Record Message Example'
 ```
 

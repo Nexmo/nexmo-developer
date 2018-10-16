@@ -1,0 +1,27 @@
+import requests
+
+application_id = 'APPLICATION_ID'
+url = 'https://api.nexmo.com/v1/applications/' + application_id
+
+data = {
+        'api_key': 'API_KEY',
+        'api_secret': 'API_SECRET',
+        'name' : 'MyFirstApplication',
+        'type' : 'voice',
+        'answer_url' : 'https://example.com/ncco',
+        'event_url' : 'https://example.com/call_status'
+}
+
+resp = requests.put(url, params=data)
+try:
+    if resp.status_code == 200:
+        application = resp.json()
+        print "Application " + application['name'] + " has an ID of:" + application['id']
+        for webhook in application['voice']['webhooks']:
+                print "  " + webhook['endpoint_type'] + " is " + webhook['endpoint']
+    else:
+        print "Your request failed because:"
+        print resp.json()
+
+except requests.exceptions.HTTPError as e:
+    print e

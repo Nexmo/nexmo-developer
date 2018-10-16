@@ -60,7 +60,7 @@ Let's add a few view controllers. Start by adding a custom subclass of `UIViewCo
 
 
 ### 1.3 Creating the login layout
-Let's layout the login functionality. Set constraints on the top & leading attributes of an instance of UIButton with a constant HxW at 71x94 to the top of the Bottom Layout Guide + 20 and the leading attribute of `view` + 16. This is our login button. Reverse leading to trailing for another instance of UIButton with the same constraints. This our chat button. Set the text on these instances accordingly. Add a status label centered horizontally & vertically. Finally, embedd this scene into a navigation controller. Control drag from the chat button to scene assigned to the chat controller, naming the segue `chatView`.
+Let's layout the login functionality. Set constraints on the top & leading attributes of an instance of UIButton with a constant HxW at 71x94 to the top of the Bottom Layout Guide + 20 and the leading attribute of `view` + 16. This is our login button. Reverse leading to trailing for another instance of UIButton with the same constraints. This our chat button. Set the text on these instances accordingly. Add a status label centered horizontally & vertically. Finally, embed this scene into a navigation controller. Control drag from the chat button to scene assigned to the chat controller, naming the segue `chatView`.
 
 
 ### 1.4 - Create the Login Functionality
@@ -170,7 +170,7 @@ After the user logs in, they'll press the "Chat" button which will take them to 
 
 ### 1.6 Navigate to ChatViewController
 
-As we mentioned above, creating a conversation results from a call to the the `new()` method. In the absence of a server we’ll 'simulate' the creation of a conversation within the app when the user clicks the chatBtn.
+As we mentioned above, creating a conversation results from a call to the `new()` method. In the absence of a server we’ll 'simulate' the creation of a conversation within the app when the user clicks the chatBtn.
 
 When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](/stitch/in-app-messaging/guides/simple-conversation/ios).
 

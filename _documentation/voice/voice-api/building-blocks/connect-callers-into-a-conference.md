@@ -20,6 +20,7 @@ conference called `nexmo-conference` and there would be no problem.
 ```building_blocks
 source: '_examples/voice/connect-callers-to-a-conference'
 application:
+  type: voice
   name: 'Conference Call Example'
 ```
 

@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/messages/send-viber-message.sh
+    from_line: 6
+    to_line: 19
+file_name: send-viber-message.sh
+run_command: bash send-viber-message.sh

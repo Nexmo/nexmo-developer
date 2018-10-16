@@ -1,5 +1,5 @@
 <?php
-//You use the information you recieved in response from a request to SMS API or Call API.
+//You use the information you received in response from a request to SMS API or Call API.
   $url = 'https://api.nexmo.com/conversions/sms?' . http_build_query([
           'api_key' => 'API_KEY',
           'api_secret' => 'API_SECRET',

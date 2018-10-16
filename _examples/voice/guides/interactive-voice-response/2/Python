@@ -59,7 +59,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
               }
             ]
 
-        """Tell Nexmo that you have recieved the POST request."""
+        """Tell Nexmo that you have received the POST request."""
         s.send_response(200)
         s.send_header("Content-Type", "application/json")
         s.end_headers()

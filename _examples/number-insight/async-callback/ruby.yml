@@ -1,0 +1,13 @@
+---
+title: Ruby
+language: ruby
+dependencies:
+    - sinatra
+    - sinatra/multi-route
+    - json
+code:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/number-insight/ni-advanced-async.rb
+    from_line: 1
+    to_line: 21
+file_name: ni-advanced-async.rb
+run_command: 'ruby ni-advanced-async.rb'

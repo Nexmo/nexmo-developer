@@ -23,7 +23,7 @@ The Nexmo Voice API acts as the client when establishing the WebSocket connectio
 
 ## Connecting to a WebSocket
 
-To instruct Nexmo to connect to a WebSocket your applicaiton server must return an [NCCO](/voice/voice-api/guides/ncco) when requested from your Nexmo Application's [answer_url](/voice/voice-api/guides/call-flow#answer-url-payload). In order to do this the NCCO must contain a `connect` action with an `endpoint.type` of `websocket`. For example:
+To instruct Nexmo to connect to a WebSocket your application server must return an [NCCO](/voice/voice-api/guides/ncco) when requested from your Nexmo Application's [answer_url](/voice/voice-api/guides/call-flow#answer-url-payload). In order to do this the NCCO must contain a `connect` action with an `endpoint.type` of `websocket`. For example:
 
 ``` json
 [
@@ -54,10 +54,11 @@ You can send additional optional properties to your WebSocket server by adding k
 
 ### First Message
 
-The initial message sent on an established WebSocket connection will be text-based and contain a JSON payload detailing the audio format in `content-type`, along with any other metadata that you have put in the `headers` property of the WebSocket endpoint in your NCCO `connect`. The `headers` property is not present on the JSON payload so the properties are at the top-level of the JSON. For example:
+The initial message sent on an established WebSocket connection will be text-based and contain a JSON payload, it will have the `event` field set to `websocket:connected` and detail the audio format in `content-type`, along with any other metadata that you have put in the `headers` property of the WebSocket endpoint in your NCCO `connect`. The `headers` property is not present on the JSON payload so the properties are at the top-level of the JSON. For example:
 
 ``` json
 {
+    "event":"websocket:connected",
     "content-type":"audio/l16;rate=16000",
     "prop1": "value1",
     "prop2": "value2"
@@ -76,8 +77,8 @@ Consider the following `connect` action example:
               "uri": "wss://example.com/socket",
               "content-type": "audio/l16;rate=16000", 
               "headers": {
-                 "prop1": "value1",
-                 "prop2": "value2"
+                 "language": "en-GB",
+                 "callerID": "447700900123"
               }
            }
        ]
@@ -89,12 +90,12 @@ This results in the following JSON in the first message on the WebSocket:
 
 ``` json
 {
+    "event":"websocket:connected",
     "content-type":"audio/l16;rate=16000",
-    "prop1": "value1",
-    "prop2": "value2"
+    "language": "en-GB",
+    "callerID": "447700900123"
 }
 ```
-
 After the initial text message subsequent messages on the WebSocket can be text or binary.
 
 ### Binary Audio Messages
@@ -112,10 +113,26 @@ Each message will be a 20ms sample of the audio from the call. If you choose the
 
 ### JSON Messages
 
-At present only the first message will be a JSON text-based message. However, there are plans to add additional text-based messages in future.
+Various JSON text-based messages may be sent at any point in the call, developers should handle these appropriately and examine the `event` field to determine the message type and if it is of interest.
+
+### DTMF Events
+
+If any party on the call connected to the websocket sends a DTMF tone this will trigger an event on the websocket, this event is a *text* message with a JSON payload, it will be interleaved between the audio frames and have the following format:
+
+```json
+{"event":"websocket:dtmf","digit":"5","duration":260}
+```
+
+You will receive one event for each keypress and each event will contain only one digit.
+
+* `event` allows you to identify it as a DTMF event
+* `digit` contains the digit pressed `0-9` `*` or `#`
+* `duration` is the duration the key was pressed for in milliseconds, on most digital phone systems this will be a fixed length.
 
 ## Writing audio to the WebSocket
 
 You can send audio back into the call by writing binary messages to the WebSocket. The audio must be in the same format as described in the previous section. It is important that each message is 320 or 640 bytes (depending on sample rate) and contains 20ms of audio.
 
 You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed. Nexmo will only buffer 1024 messages which should be enough for around 20sec of audio, if your file is longer than this you should implement a delay of 18-19ms between each message, or consider using the [REST API to play an audio file](/voice/voice-api/building-blocks/play-an-audio-stream-into-a-call/).
+
+

@@ -81,9 +81,10 @@ export default class TabbedExamples {
 
       if (linkable) {
         $(document).trigger('codeLanguageChange', { language })
-
-        const rootPath = $('body').data('push-state-root')
-        window.history.pushState({ language }, 'language', `${rootPath}/${language}`)
+          if ($(".skip-pushstate").length == 0) {
+              const rootPath = $('body').data('push-state-root')
+              window.history.pushState({language}, 'language', `${rootPath}/${language}`)
+          }
       }
 
       this.persistLanguage(language, languageType, linkable)

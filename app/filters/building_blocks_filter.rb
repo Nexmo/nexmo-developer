@@ -102,13 +102,16 @@ class BuildingBlocksFilter < Banzai::Filter
       content[:platform_key] = content['platform']
       content[:tab_title] = content['title']
 
-      parent_config = ''
+      parent_config = { 'code_only' => @config['code_only'], 'source' => @config['source'].gsub('_examples/', '') }
       if @config['application']
-        parent_config = { 'source' => @config['source'].gsub('_examples/', ''), 'application' => @config['application'] }.to_yaml.lines[1..-1].join
+        parent_config = parent_config.merge({ 'application' => @config['application'] })
       end
+
+      parent_config = parent_config.to_yaml.lines[1..-1].join
+
       source = <<~HEREDOC
         ```single_building_block
-        #{source}#{parent_config}
+        #{source}\n#{parent_config}
         ```
       HEREDOC
 
