@@ -9,7 +9,7 @@ You can read all about our markdown additions, writing style guide and standard 
 This project uses [GitHub Flow](https://guides.github.com/introduction/flow/index.html). We are happy to have issues opened for discussion, but we don't require an issue to be created before a pull request is opened. When you have a change you want us to consider:
 
 * Create a new branch on your own fork, from an up-to-date master branch.
-* Make the changes on that new branch.
+* Make the changes to that new branch.
 * Open a pull request for us, making sure to tell us what you changed and why in the pull request title and description.  Pull requests without a meaningful title and a completed template may be closed.
 
 If you need more information about how to do any of the above, we recommend the [GitHub Help pages](https://help.github.com/), which are indeed very helpful.
@@ -21,7 +21,7 @@ Tips:
 
 ### For maintainers/reviewers
 
-* If you know who can review a particular pull request, tag those people. Tagging a few can be useful as we're in different timezones and can often be travelling.
+* If you know who can review a particular pull request, tag those people. Tagging a few can be useful as we're in different time zones and can often be traveling.
 * Review with an eye to accuracy and maintainability as well as correctness. Ask yourself "do we want this change?" and "will users find this information here, could it be added to existing docs?" as well as "is everything spelled correctly?"
 * Before accepting a change, check that the markdown renders as expected, and the code runs ... this probably means either pulling the code down to your development platform or deploying a review application.
 * If changes are needed, then either:
@@ -41,6 +41,6 @@ Tips:
 
 We use a few different labels for our pull request workflows:
 
-* `don't merge` for things that might need external review, or where it needs to be merged on a specific date, or to clearly note that things are not ready yet!
+* `don't merge` for things that might need external review, where it needs to be merged on a specific date, or to clearly note that things are not ready yet!
 * `help wanted` when anyone is welcome to dive in.
 * `stale` when the pull request is abandoned and will soon be closed.
