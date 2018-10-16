@@ -85,6 +85,7 @@
 "/sms/guides": "/messaging/sms/guides/us-short-codes/overview"
 "/tools/cli": "/tools"
 "/tutorials/call-whisper-with-on-answer": "/tutorials/add-a-call-whisper-to-an-inbound-call"
+"/tutorials/smart-local-numbers": "/tutorials/local-numbers"
 "/verify": "/verify/overview"
 "/verify/api-reference": "/api/verify"
 "/verify/guides": "/verify/guides/verify-a-user"

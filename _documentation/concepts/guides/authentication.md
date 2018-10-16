@@ -18,6 +18,7 @@ API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web
 [Messages](/api/messages) | ❎ | ✅ | ✅| ❎
 [Dispatch](/api/dispatch) | ❎ | ✅ | ✅| ❎
 [Audit](/api/audit) | ❎ | ✅ | ❎ | ❎
+[Redact](/api/redact) | ❎ | ✅ | ❎ | ❎
 
 ## Contents
 
