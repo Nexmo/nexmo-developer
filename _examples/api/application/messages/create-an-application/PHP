@@ -4,7 +4,7 @@ $base_url = 'https://api.nexmo.com' ;
 $version = '/v1';
 $action = '/applications/?';
 
-//Create an Application for Voice API.
+# Create an Application for Messages & Dispatch API
 $url = $base_url . $version . $action . http_build_query([
     'api_key' =>  'API_KEY',
     'api_secret' => 'API_SECRET',

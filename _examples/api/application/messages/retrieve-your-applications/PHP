@@ -30,7 +30,7 @@ if (strpos($header, '200')){
 
     foreach ( $applications as $application ) {
         echo "  Application ID is:" . $application['id'] . "\n"  ;
-        foreach($application['voice']['webhooks'] as $webhook)
+        foreach($application['messages']['webhooks'] as $webhook)
             echo ( "    " . $webhook['endpoint_type'] . " is " . $webhook['endpoint'] . "\n"  );
     }
 }

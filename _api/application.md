@@ -23,32 +23,41 @@ You use a POST request to create a new application:
 source: _examples/api/application/voice/create-an-application
 ```
 
+#### Parameters
+
+The following table shows the parameters you use to create a new application:
+
+Parameter | Description | Required
+-- | -- | -- | --
+`name` | The name of your application. | ✓ 
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ 
+`answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | ✓ 
+`answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | x 
+`event_url` | Nexmo sends event information asynchronously to this URL when status changes. | ✓ 
+`event_method` | The HTTP method used to send event information to event_url. The default value is POST. | x
+
 ### Messages and Dispatch
 
 ```tabbed_examples
 source: _examples/api/application/messages/create-an-application
 ```
 
-### Parameters
+#### Parameters
 
 The following table shows the parameters you use to create a new application:
 
-Parameter | Description | Required Voice | Required Messages
+Parameter | Description | Required
 -- | -- | -- | --
-`name` | The name of your application. | ✓ | ✓
-`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ | ✓
-`answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | ✓ | n/a
-`answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | x | n/a
-`event_url` | Nexmo sends event information asynchronously to this URL when status changes. | ✓ | n/a
-`event_method` | The HTTP method used to send event information to event_url. The default value is POST. | x | n/a
-`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every messageto this URL. | n/a | ✓
-`inbound_url` | Nexmo sends Inbound Messages to this URL. | n/a | ✓
+`name` | The name of your application. | ✓ 
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ 
+`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every messageto this URL. | ✓
+`inbound_url` | Nexmo sends Inbound Messages to this URL. | ✓
 
 ### Response
 
 The JSON object for a `201 Created` response looks like:
 
-### Voice
+#### Voice
 
 ```bash
 {
@@ -80,7 +89,7 @@ The JSON object for a `201 Created` response looks like:
 }
 ```
 
-### Messages and Dispatch
+#### Messages and Dispatch
 
 ```bash
 {
@@ -288,7 +297,7 @@ The response contains:
 Parameter | Description
 -- | --
 `name` | The name of your application
-`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported.
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported.
 `id` | The ID allocated to your application by Nexmo.
 `keys.public_key` | The public key used to validate the [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token).
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to answer_url.
@@ -316,7 +325,7 @@ The following table shows the parameters you use to update an application:
 Parameter | Description | Required
 -- | -- | --
 `name` | The name of your application. | Yes
-`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | Yes
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | Yes
 `answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | No
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes
@@ -360,7 +369,7 @@ The response contains:
 Parameter | Description
 -- | --
 `name` | The name of your application
-`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported.
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported.
 `id` | The ID allocated to your application by Nexmo.
 `keys.public_key` | The public key used to validate the [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token).
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to answer_url.

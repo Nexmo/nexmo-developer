@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Create an Application for Messages API.
+# Create an Application for Messages & Dispatch API
 
   base_url='https://api.nexmo.com'
   version='/v1'
