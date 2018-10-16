@@ -21,7 +21,7 @@ Nexmo In-App Voice also integrates with the Nexmo [Voice API](/voice/voice-api/o
 ## Concepts
 
 **Conversation**
-    -> A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
+    -> A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and can have associated Users through Memberships.
 
 **User**
     -> The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
@@ -33,7 +33,7 @@ Nexmo In-App Voice also integrates with the Nexmo [Voice API](/voice/voice-api/o
     -> Audio streams can be enabled and disabled in a Conversation so that Members can communicate with voice.
 
 **Media Events**
-    -> Media events will fire in a Conversation when media state changes for a member. This can be when an Audio stream is started or ended.
+    -> Media events will fire in a Conversation when media state changes for a member. This can be when an Audio stream starts or ends.
 
 ## Try out the Quick Start Guides
 
