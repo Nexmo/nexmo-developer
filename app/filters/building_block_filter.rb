@@ -35,8 +35,14 @@ class BuildingBlockFilter < Banzai::Filter
         client_html = ERB.new(erb).result(binding)
       end
 
-      erb = File.read("#{Rails.root}/app/views/building_blocks/_write_code.html.erb")
+      if config['code_only']
+        erb = File.read("#{Rails.root}/app/views/building_blocks/_code_only.html.erb")
+      else
+        erb = File.read("#{Rails.root}/app/views/building_blocks/_write_code.html.erb")
+      end
       code_html = ERB.new(erb).result(binding)
+
+      return code_html if config['code_only']
 
       run_html = @renderer.run_command(config['run_command'], config['file_name'], config['code']['source'])
 

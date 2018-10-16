@@ -1,10 +1,12 @@
 # Nexmo Developer
 
-This repository is the code and content for <https://developer.nexmo.com> including the Nexmo documentation, API reference, SDKs, Tools & Community content.
+<p><a href='#contributions'>Contributions</a> &middot; <a href='#testing'>Testing</a> &middot; <a href='#running-locally'>Running Locally</a> &middot; <a href='#admin-dashboard'>Admin Dashboard</a> &middot; <a href='#troubleshooting'>Troubleshooting</a></p>
 
+This repository is the code and content for <https://developer.nexmo.com>, which includes the Nexmo documentation, API reference, SDKs, Tools & Community content.
+        
 ## Contributions
 
-We welcome contributions from everyone! Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information.
+We welcome contributions from everyone! Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information, and please follow the [GitHub Flow](https://guides.github.com/introduction/flow/index.html).
 
 ## Testing
 
@@ -32,8 +34,8 @@ The project can be run on your laptop, either directly or using Docker. These in
 
 Before you start, you will need to make sure that you have:
 
-- Ruby 2.5.0 + bundler
-- PostgreSQL
+- [Ruby 2.5.1](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
+- [PostgreSQL](https://www.postgresql.org/download/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
 
 To set up the project, clone this project and configure your settings:
@@ -116,8 +118,3 @@ $ brew info postgresql
 ```
 
 Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#Setup) for instructions.
-
-## Contributing
-
-Contributions are welcome, please follow [GitHub Flow](https://guides.github.com/introduction/flow/index.html)
-

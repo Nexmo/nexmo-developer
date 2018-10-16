@@ -1,0 +1,2 @@
+const text = "Don't forget your meeting at 2 p.m. on Wednesday!"
+nexmo.message.sendSms('Acme Inc', '61491570157', text, opts, function(){})

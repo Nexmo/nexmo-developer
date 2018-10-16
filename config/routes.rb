@@ -50,6 +50,9 @@ Rails.application.routes.draw do
 
   get '/hansel', to: 'static#podcast'
 
+  get '/migrate/tropo', to: 'static#migrate'
+  get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'
+
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
   resources :careers, only: [:show], path: 'team'

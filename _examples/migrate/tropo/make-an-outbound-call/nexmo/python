@@ -1,0 +1,5 @@
+response = client.create_call({
+  'to': [{'type': 'phone', 'number': '611300975708'}],
+  'from': {'type': 'phone', 'number': NEXMO_NUMBER},
+  'answer_url': ['https://developer.nexmo.com/ncco/tts.json']
+})

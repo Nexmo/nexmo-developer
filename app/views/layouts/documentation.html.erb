@@ -8,11 +8,11 @@
       <div class="container">
         <div class="row">
           <nav class="columns small-12 medium-3 sidenav" id="sidenav" data-turbolinks-permanent>
-            <%= sidenav(@sidenav_root) %>
+            <%= sidenav(@sidenav_root, @active_path) %>
           </nav>
           <div data-turbolinks-permanent class="columns small-12 medium-9" id="primary-content">
             <%= yield %>
-            <%= render partial: 'layouts/partials/feedback' %>
+            <%= render partial: 'layouts/partials/feedback' unless @skip_feedback %>
           </div>
         </div>
       </div>
