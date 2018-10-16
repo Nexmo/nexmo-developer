@@ -32,8 +32,8 @@ The project can be run on your laptop, either directly or using Docker. These in
 
 Before you start, you will need to make sure that you have:
 
-- Ruby 2.5.0 + bundler
-- PostgreSQL
+- [Ruby 2.5.0 + bundler](https://www.ruby-lang.org/en/downloads/)
+- [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
 
 To set up the project, clone this project and configure your settings:
