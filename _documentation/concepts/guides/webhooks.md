@@ -18,16 +18,16 @@ The process looks something like this:
 
 ```js_sequence_diagram
 Your App->Nexmo: Configure URL for webhook
-Note over Your App, Nexmo: Some time later ...
+Note over Your App, Nexmo: Sometime later ...
 Nexmo->Your App: Have some interesting data
 Your App->Nexmo: 200 OK
 ```
 
-Webhooks provide a convenient mechanism for Nexmo to send information to your application for events such as an incoming call or message, or a change in call status. They can also be used to send follow-up information such as a delivery receipt which may become available some time after the request it relates to.
+Webhooks provide a convenient mechanism for Nexmo to send information to your application for events such as an incoming call or message, or a change in call status. They can also be used to send follow-up information such as a delivery receipt which may become available sometime after the request it relates to.
 
 ## Which APIs support webhooks?
 
-Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API and Nexmo virtual numbers is sent in an HTTP request to your webhook endpoint on an HTTP server.
+Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API, and Nexmo virtual numbers are sent in an HTTP request to your webhook endpoint on an HTTP server.
 
 Nexmo sends and retrieves the following information using webhooks:
 
@@ -62,7 +62,7 @@ Information about your request is then sent to your webhook endpoint.
 
 **Code defensively** - Inspect that data values exist and contain what you expected before you go ahead and use them. Depending on your setup, you could be open to receiving unexpected data so always bear this in mind.
 
-**Look at examples** - Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example code using webhooks see the following:
+**Look at examples** - Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example, code using webhooks see the following:
 
 * [Receive an SMS](/messaging/sms/building-blocks/receiving-an-sms)
 * [Handle delivery receipts](/messaging/sms/guides/delivery-receipts)
@@ -82,7 +82,7 @@ Webhooks are an unusual situation for developers; often you will work on local p
 
 > Beware that each time you start up the Ngrok tunnel, you're likely to get a new URL so don't forget to update the webhooks configuration accordingly! Paid Ngrok accounts can reserve tunnel names and choose which one to use when they start up, so you can avoid having to reconfigure your webhooks.
 
-**Cool bonus feature of Ngrok:** in addition to the tunnel URL displayed in the command output, you will also see a URL for the "Web Interface". The web interface offers an excellent way of examining the details of all the requests received by the tunnel and the responses returned, and is therefore a very useful debugging tool. You can also use the "Replay" button to repeat a request rather than having to send yourself lots of text messages or continuously reproduce whatever event your webhook code is responding to. These features make testing your application's response to webhooks much more convenient.
+**Cool bonus feature of Ngrok:** in addition to the tunnel URL displayed in the command output, you will also see a URL for the "Web Interface". The web interface offers an excellent way of examining the details of all the requests received by the tunnel and the responses returned and is, therefore, a very useful debugging tool. You can also use the "Replay" button to repeat a request rather than having to send yourself lots of text messages or continuously reproduce whatever event your webhook code is responding to. These features make testing your application's response to webhooks much more convenient.
 
 ## Configuring your firewall
 

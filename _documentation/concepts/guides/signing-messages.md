@@ -11,10 +11,10 @@ Signatures validate the authenticity of the person who interacts with Nexmo.
 You use a signature to:
 
 * Verify that a request originates from a trusted source
-* Ensure that the message has not been tampered with en-route
+* Ensure that the message has not been tampered en-route
 * Defend against interception and later replay
 
-A signature is the [MD5 hash](https://en.wikipedia.org/wiki/MD5) of:
+A signature is an [MD5 hash](https://en.wikipedia.org/wiki/MD5) of:
 
 * The parameters - all the parameters in a request sorted in alphabetic order
 * A timestamp - a UNIX timestamp at UTC + 0 to protect against replay attacks

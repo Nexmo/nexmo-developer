@@ -17,10 +17,10 @@ There are a number of shared concepts between the Nexmo APIs: the use of JSON We
 
 ## Number format
 
-Within the Nexmo APIs all phone numbers are in [E.164 format](https://en.wikipedia.org/wiki/E.164). This means that numbers:
+Within the Nexmo APIs, all phone numbers are in [E.164 format](https://en.wikipedia.org/wiki/E.164). This means that numbers:
 
 * Omit both a leading `+` and the international access code such as `00` or `001`. 
-* Contain no special characters, such as a space, `()` or `-`
+* Contain no special characters, such as space, `()` or `-`
 
 For example, a US number would have the format `14155550101`. A UK number would have the format `447700900123`.
 
