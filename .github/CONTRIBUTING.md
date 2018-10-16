@@ -1,6 +1,6 @@
 # Contributing
 
-We welcome everybody contributing to Nexmo Developer. These guidelines outline how to contribute reports, bug fixes, features, suggestions and content.
+We welcome everybody contributing to Nexmo Developer. These guidelines outline how to contribute reports, bug fixes, features, suggestions, and content.
 
 ### Setup
 
