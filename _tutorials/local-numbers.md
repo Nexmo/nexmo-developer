@@ -90,7 +90,7 @@ get '/answer' do
 end
 ```
 
-This code answers the call, checks the incoming phone number, and fetches the status that relates to that geographical number. Then it makes a call to `respond_with()` function that takes care of building the [Nexmo Call Control Object (NCCO)](/voice/guides/ncco). These objects tell Nexmo what text-to-speech messages should be played to the caller and which other actions, such as accepting number input, should be performed.
+This code answers the call, checks the incoming phone number, and fetches the status that relates to that geographical number. Then it makes a call to the `respond_with()` function that takes care of building the [Nexmo Call Control Object (NCCO)](/voice/guides/ncco). These objects tell Nexmo what text-to-speech messages should be played to the caller and which other actions, such as accepting number input, should be performed.
 
 ```ruby
 # This method is shared between both endpoints to play
@@ -129,7 +129,7 @@ end
 
 > *Note*: Take a look at the [NCCO reference](/voice/guides/ncco-reference) for information on other actions available.
 
-Call your Nexmo numbers and check your application speaks the (imaginary) transport status for Chicago on one number, San Francisco on the other, and offers multiple options afterwards using the `input` NCCO action.
+Call your Nexmo numbers and check that your application speaks the (imaginary) transport status for Chicago on one number, San Francisco on the other, and offers multiple options afterwards using the `input` NCCO action.
 
 ## Prompt for Other Localities
 
