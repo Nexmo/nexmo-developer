@@ -12,6 +12,6 @@ This is an application that will return the sentiment of a incoming SMS using Wa
 
 ## Usage
 - To run the application, you will need to have a [Nexmo Account](https://dashboard.nexmo.com/) as well as a account on [IBM Bluemix](https://console.ng.bluemix.net/).
-- Clone the repo on [Github](https://github.com/nexmo-community/sms-sentiment-watson)
-- Follow the [Readme on our Github page](https://raw.githubusercontent.com/nexmo-community/sms-sentiment-watson/master/README.md).
+- Clone the repo on [GitHub](https://github.com/nexmo-community/sms-sentiment-watson)
+- Follow the [Readme on our GitHub page](https://raw.githubusercontent.com/nexmo-community/sms-sentiment-watson/master/README.md).
 

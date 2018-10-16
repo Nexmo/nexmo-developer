@@ -163,7 +163,7 @@ Home Location Register. These databases contain details of each subscriber phone
 
 ## Interactive Voice Response
 
-Interactive Voice Response, or IVR, is nn automated telephony technology that enables a human caller to interact with a computer using voice and DTMF tones input on a keypad.
+Interactive Voice Response, or IVR, is an automated telephony technology that enables a human caller to interact with a computer using voice and DTMF tones input on a keypad.
 
 See also the [Nexmo DTMF documentation](/voice/voice-api/guides/dtmf).
 
@@ -436,7 +436,7 @@ See also the [Nexmo documentation on endpoints](/voice/voice-api/guides/endpoint
 
 ## SIP Trunking
 
-In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) enpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can use this flexibly as a SIP trunk and a SIP User Agent gateway.
+In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) endpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can use this flexibly as a SIP trunk and a SIP User Agent gateway.
 
 ## SMPP
 

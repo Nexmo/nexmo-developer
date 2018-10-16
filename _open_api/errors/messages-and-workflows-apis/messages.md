@@ -26,7 +26,7 @@ Code | Text | Meaning
 `1150` | Invalid Message class | The value of `message-`class in your request was out of range. See https://en.wikipedia.org/wiki/Data_Coding_Scheme.
 `1160` | Non White-listed Destination | The phone number you set in to is not in your pre-approved destination list. To send messages to this phone number, add it using Dashboard.
 `1170` | Invalid or Missing Msisdn Param | The phone number you supplied in the to parameter of your request was either missing or invalid.
-`1180` | Absent Subscriber Temporary | This message was not delivered because to was temporarily unavailable. For example, the handset used for to was out of coverage or switched off. This is a temporary failure, rety later for a positive result.
+`1180` | Absent Subscriber Temporary | This message was not delivered because to was temporarily unavailable. For example, the handset used for to was out of coverage or switched off. This is a temporary failure, retry later for a positive result.
 `1190` | Absent Subscriber Permanent | `to` is no longer active, You should remove this phone number from your database.
 `1200` | Portability Error | There is an issue after the user has changed carrier for to. If the user wants to receive messages from you, they need to contact their carrier directly.
 `1210` | Anti-Spam Rejection | Carriers often apply restrictions that block messages following different criteria. For example on SenderID or message content.

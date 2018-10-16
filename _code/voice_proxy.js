@@ -179,7 +179,7 @@ var fromUserBToUserA = function(from, to, conversation) {
 };
 
 /**
- * Work out real number to virual number mapping between users.
+ * Work out real number to virtual number mapping between users.
  */
 VoiceProxy.prototype.getProxyRoute = function(from, to) {
   var proxyRoute = null;
@@ -205,7 +205,7 @@ VoiceProxy.prototype.getProxyRoute = function(from, to) {
 };
 
 /**
- * Build the NCCO response to intruct Nexmo how to handle the inbound call.
+ * Build the NCCO response to instruct Nexmo how to handle the inbound call.
  */
 VoiceProxy.prototype.getProxyNCCO = function(from, to) {
   // Determine how the call should be routed
