@@ -126,7 +126,7 @@ gem 'groupdate', '3.2.0'
 gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
-gem 'nexmo_api_specification', '0.11.6'
+gem 'nexmo_api_specification', '0.11.7'
 
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem 'friendly_id', '5.2.3'
