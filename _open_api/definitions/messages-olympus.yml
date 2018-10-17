@@ -503,7 +503,7 @@ components:
         address:
           type: string
           description: The address of the location attachment.
-          example: '15 Bonhill St London EC2A 4DN Bonhill St, London EC2A 4DN'
+          example: '15 Bonhill St London EC2A 4DN'
         name:
           type: string
           description: The name of the location attachment.
