@@ -19,7 +19,7 @@ Frequently, MOS higher than 4 reflects a satisfying quality. For MOS higher than
 
 ### How is MOS calculated?
 
-The MOS is [calculated using a formula](https://docs.telcobridges.com/tbwiki/MOS), which utilizes multiple features of the data steam passed over the network via the stats WebRTC exposes. Among those features, the ones with the most significant impact are: 
+The MOS is [calculated using a formula](https://docs.telcobridges.com/tbwiki/MOS), which utilizes multiple features of the data stream passed over the network via the stats WebRTC exposes. Among those features, the ones with the most significant impact are: 
 
 * Packet loss - the amount of data packets that never made it from the sender to the receiver
 

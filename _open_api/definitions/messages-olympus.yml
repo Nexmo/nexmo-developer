@@ -499,7 +499,15 @@ components:
           example: '-0.0854414'
         url:
           type: string
-          description: The location on a map.
+          description: Depending on the provider, this can either be the location on a map or the website of the business at this location.
+        address:
+          type: string
+          description: The address of the location attachment.
+          example: '15 Bonhill St London EC2A 4DN'
+        name:
+          type: string
+          description: The name of the location attachment.
+          example: 'Nexmo London'
 x-groups:
   message:
     name: "Message"
