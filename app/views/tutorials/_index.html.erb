@@ -1,30 +1,27 @@
 <div class="masonry" data-turbolinks="false">
   <% @tutorials.each_with_index do |tutorial, index| %>
-    <div class="item card card--with-icon">
-      <a href="<%= tutorial.path %>" class="" <%= tutorial.external_link ? 'target="blank"': '' %>>
-        <h2>
-          <span class="unstyled spacious">
-            <small><i><%= tutorial.subtitle %></i></small>
-            <%= tutorial.title %>
-            <span class="<%= tutorial.external_link ? 'icon-external-link' : '' %>">&nbsp;</span>
-          </span>
-        </h2>
-
-        <div class="card--with-icon__divider">
-          <i class="icon icon-book"></i>
+    <div class="item">
+      <a href="<%= tutorial.path %>" class="Vlt-card Vlt-card--image Nxd-card--tutorials">
+        <div class="Vlt-card__image Vlt-card__image--tech Vlt-card__image--blue">
+          <div class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Nxd-tutorials__product--<%= tutorial.subtitle %>"><%= tutorial.subtitle %></div>
         </div>
+        <div class="Vlt-card__content">
+          <h2>
+              <span><%= tutorial.title %></span>
+          </h2>
+          <p><%= tutorial.description %></p>        
+          
+          <% if tutorial.languages.count > 0 %>
+            <% tutorial.languages.each do |language| %>
+              <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language %>"><span>●</span> <%= language %></small>
+            <% end %>
+          <% end %>
 
-        <p class="color-text"><%= tutorial.description %></p>
+          <div class="Vlt-card__cta">
+            <div class="Vlt-btn Vlt-btn--secondary">Read more</div>
+          </div>
+        </div>
       </a>
-
-        <% if tutorial.languages.count > 0 %>
-            <%
-              tutorial.languages.map! do |lang|
-                "<a class='inline' href='#{@base_path}/#{lang.downcase}'>#{lang}</a>".html_safe
-              end
-            %>
-            <p class="languages color-text">Language: <strong><%= tutorial.languages.join(", ").html_safe %></strong></p>
-        <% end %>
     </div>
   <% end %>
 </div>

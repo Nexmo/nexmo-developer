@@ -140,6 +140,9 @@ gem 'diffy', require: false
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop'
 
+# Volta needs a CSS autoprefixer
+gem 'autoprefixer-rails'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,17 +1,18 @@
 .copy-button {
-  background: $pink;
+  background: $blue;
   width: 140px;
   height: 24px;
   padding-top: 3px;
   text-align: center;
   clear: both;
-  position: absolute;
-  top: 0px;
-  right: 0px;
   color: $white;
   font-size: 0.8em;
   cursor: pointer;
   font-weight: bold;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 50;
 }
 
 .octicon {
@@ -20,10 +21,12 @@
   fill: $white;
 }
 
-.highlight {
+.copy-wrapper {
   position: relative;
+  top: auto;
+  left: auto;
 }
 
-div.highlight pre {
+.copy-wrapper pre {
   margin-top: 10px;
 }

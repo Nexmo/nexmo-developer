@@ -1,0 +1,125 @@
+.Vlt-tooltip {
+	display: inline-flex;
+	position: relative;
+}
+
+span.Vlt-tooltip {
+	margin-left: $unit0;
+	vertical-align: bottom;
+}
+
+.Vlt-tooltip__content {
+	@extend %tooltip-content;
+}
+
+.Vlt-tooltip--js {
+	z-index: $z-index-tooltips;
+
+	&[x-placement^='bottom'] {
+		.Vlt-tooltip__content {
+			@extend .tooltip-bottom-mixin;
+		}
+
+		.Vlt-tooltip__arrow {
+			@extend .tooltip-arrow, .arrow-bottom-mixin;
+		}
+	}
+
+	&[x-placement^='top'] {
+		.Vlt-tooltip__content {
+			@extend .tooltip-top-mixin;
+		}
+
+		.Vlt-tooltip__arrow {
+			@extend .tooltip-arrow, .arrow-top-mixin;
+		}
+	}
+
+	&[x-placement^='right'] {
+		.Vlt-tooltip__content {
+			@extend .tooltip-right-mixin;
+		}
+
+		.Vlt-tooltip__arrow {
+			@extend .tooltip-arrow, .arrow-right-mixin;
+		}
+	}
+
+	&[x-placement^='left'] {
+		.Vlt-tooltip__content {
+			@extend .tooltip-left-mixin;
+		}
+
+		.Vlt-tooltip__arrow {
+			@extend .tooltip-arrow, .arrow-left-mixin;
+		}
+	}
+}
+
+// Mixins
+.tooltip-arrow {
+	border-style: solid;
+	position: absolute;
+}
+
+.arrow-bottom-mixin {
+	border-color: transparent transparent $black;
+	border-width: 0 6px 6px;
+	top: 3px;
+}
+
+.arrow-top-mixin {
+	border-color: $black transparent transparent;
+	border-width: 6px 6px 0px;
+	bottom: 3px;
+}
+
+.arrow-right-mixin {
+	border-color: transparent $black transparent transparent;
+	border-width: 6px 6px 6px 0;
+	left: 3px;
+}
+
+.arrow-left-mixin {
+	border-color: transparent transparent transparent $black;
+	border-width: 6px 0px 6px 6px;
+	right: 3px;
+}
+
+.tooltip-bottom-mixin {
+	margin-top: 9px;
+	text-align: center;
+}
+
+.tooltip-top-mixin {
+	margin-bottom: 9px;
+	text-align: center;
+}
+
+.tooltip-right-mixin {
+	margin-left: 9px;
+	text-align: left;
+}
+
+.tooltip-left-mixin {
+	margin-right: 9px;
+	text-align: left;
+}
+
+@mixin tooltip-content {
+	background: $black;
+	border-radius: 4px;
+	color: $white;
+	cursor: default;
+	font-size: 1.4rem;
+	max-width: 300px;
+	padding: 8px 10px;
+	transition: display 0.2s;
+	white-space: normal;
+	width: max-content;
+	z-index: $z-index-tooltips;
+}
+
+%tooltip-content {
+	@include tooltip-content;
+}

@@ -1,0 +1,53 @@
+.Vlt-text-separator {
+	display: block;
+	line-height: 1.4rem;
+	margin: $unit2 0;
+	overflow: hidden;
+	text-align: center;
+
+	span {
+		color: $grey-darker;
+		font-size: 1.4rem;
+		font-weight: 600;
+		padding: 0 $unit1;
+		position: relative;
+
+		&:before,
+		&:after {
+			background: $grey-light;
+			content: '';
+			display: block;
+			height: 1px;
+			position: absolute;
+			top: 50%;
+			width: 100vw;
+		}
+
+		&:before {
+			right: 100%;
+		}
+
+		&:after {
+			left: 100%;
+		}
+	}
+
+	&--red {
+		span {
+			color: $red;
+
+			&:before,
+			&:after {
+				background: $red-light;
+			}
+		}
+	}
+
+	&--big {
+		line-height: 1.7rem;
+
+		span {
+			font-size: 1.7rem;
+		}
+	}
+}

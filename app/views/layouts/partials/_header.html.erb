@@ -1,32 +1,38 @@
 <%= render partial: 'layouts/partials/post-body-tags' %>
 
-<header id="header">
-  <div class="container">
-    <a href="/" id="logo">
-      <span></span>
-      Nexmo Developer
-    </a>
-    <a href="/team#join">
-      <span id="header-hiring">We're hiring</span>
-    </a>
+<div class="Nxd-header">
+  <header id="header" class="Nxd-header__main">
+    <div class="Nxd-logo">
+      <a href="/" id="logo" class="Nxd-logo__image Vlt-M-plus">
+        <%= image_tag 'nexmo-developer-logo.svg' %>
+      </a>
+      <a href="/" id="logo" class="Nxd-logo__image Vlt-S-only">
+        <%= image_tag 'nexmo-logo-collapsed.svg' %>
+      </a>
+      <a href="/team#join" class="Vlt-M-plus">
+        <span id="header-hiring" class="Nxd-logo__hiring">We're hiring</span>
+      </a>
+    </div>
 
-    <nav data-turbolinks="false">
-      <a href="https://nexmo.com">Nexmo.com</a>
-      <a href="https://help.nexmo.com/hc/en-us">Support</a>
-      <a href="https://dashboard.nexmo.com/sign-in">Sign In</a>
-      <a href="https://dashboard.nexmo.com/sign-up"><b>Try it free</b></a>
+    <nav data-turbolinks="false" class="Nxd-header__nav">
+      <a class="Nxd-main-header__link Vlt-M-plus" href="https://nexmo.com">Nexmo.com</a>
+      <a class="Nxd-main-header__link Vlt-M-plus" href="https://help.nexmo.com/hc/en-us">Support</a>
+      <a class="Nxd-main-header__link Vlt-M-plus" href="https://dashboard.nexmo.com/sign-in">Sign In</a>
+      <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--secondary"><b>Try it free</b></a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<nav id="subnav" data-turbolinks="false">
-  <div class="container">
-    <a href="/documentation" class="<%= @navigation == :documentation ? 'active' : '' %>">Documentation</a>
-    <a href="/tutorials" class="<%= @navigation == :tutorials ? 'active' : '' %>">Tutorials</a>
-    <a href="/api" class="<%= @navigation == :api ? 'active' : '' %>">API Reference</a>
-    <a href="/tools" class="<%= @navigation == :tools ? 'active' : '' %>">SDKs &amp; Tools</a>
-    <a href="/community" class="<%= @navigation == :community ? 'active' : '' %>">Community</a>
-    <a href="/extend" class="<%= @navigation == :extend ? 'active' : '' %>">Extend</a>
+  <nav id="subnav" class="Nxd-header__sub" data-turbolinks="false"> 
+    <a id="Vlt-sidenav-mobile-trigger"><svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-menu"></use></svg></a>
+
+    <div class="Nxd-header__sub__menu">
+      <a href="/documentation" class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>">Documentation</a>
+      <a href="/tutorials" class="Vlt-tabs__link <%= @navigation == :tutorials ? 'Vlt-tabs__link_active' : '' %>">Tutorials</a>
+      <a href="/api" class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>">API Reference</a>
+      <a href="/tools" class="Vlt-tabs__link <%= @navigation == :tools ? 'Vlt-tabs__link_active' : '' %>">SDKs &amp; Tools</a>
+      <a href="/community" class="Vlt-tabs__link <%= @navigation == :community ? 'Vlt-tabs__link_active' : '' %>">Community</a>
+      <a href="/extend" class="Vlt-tabs__link <%= @navigation == :extend ? 'Vlt-tabs__link_active' : '' %>">Extend</a>
+    </div>
 
     <% if search_enabled? %>
       <%= form_tag '/search' do %>
@@ -35,7 +41,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-</nav>
-
-<%= render partial: 'layouts/partials/notices' %>
+  </nav>
+</div>

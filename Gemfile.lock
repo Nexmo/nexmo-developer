@@ -75,6 +75,8 @@ GEM
       activesupport (>= 3.0.0)
     arel (8.0.0)
     ast (2.4.0)
+    autoprefixer-rails (9.1.4)
+      execjs
     awesome_print (1.8.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -415,6 +417,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (= 1.1.0)
   algoliasearch
+  autoprefixer-rails
   awesome_print
   banzai (~> 0.1.2)
   better_errors
@@ -476,4 +479,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.1
+   1.16.4

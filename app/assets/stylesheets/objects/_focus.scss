@@ -1,31 +1,3 @@
-$code-line-height: 22px;
-$code-context: $code-line-height * 5;
-$code-background-dark: darken($code-background, 5%);
-
-.focus {
-  overflow: hidden;
-  position: relative;
-  margin-bottom: $spacing;
-  border-radius: $radius;
-
-  > pre {
-    position: relative;
-    padding-left: 50px;
-  }
-
-}
-
-.focus__lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  text-align: right;
-  width: 35px;
-  line-height: 22px;
-  padding: $spacing 0;
-}
-
 .focus__lines__line {
   display: block;
   color: lighten($code-background, 10%);

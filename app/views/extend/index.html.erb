@@ -3,15 +3,32 @@
   <p>The Nexmo Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.<p>
 </div>
 
-<div class="extend-grid">
+<div class="Vlt-grid extend">
 <% @extensions.each do |extension| %>
-    <div class="extend-card">
-      <% if extension[:image] != '' %>
-      <img src='<%= extension[:image] %>' alt='<%= extension[:title]%>' />
-      <% end %>
-      <h2><a href="/extend/<%= extension[:route] %>"><%= extension[:title] %></a></h2>
-      <p><%= extension[:description] %></p>
-      <a href="/extend/<%= extension[:route] %>">Learn More &rarr;</a>
+    <div class="Vlt-card Vlt-card--footer Vlt-card--image">
+    	<div class="Vlt-card__image Vlt-card__image Vlt-card__image--tech">
+        <div class="Vlt-card__image__icon">
+          <img src='<%= extension[:image] %>' alt='<%= extension[:title]%>' />
+        </div>
+      </div>
+      <div class="Vlt-card__content">
+        
+        <h5 class="Vlt-title--icon">
+          <%= extension[:title] %>
+        </h5>
+        <p><%= extension[:description] %></p>
+
+      </div>
+      <div class="Vlt-card__footer">
+        <div class="Vlt-card__cta">
+      	  <a href="/extend/<%= extension[:route] %>" class="Vlt-btn Vlt-btn--secondary Vlt-btn--app Vlt-btn--small">
+           Learn More
+          </a>
+        </div>
+      </div>
     </div>
 <% end %>
 </div>
+
+
+

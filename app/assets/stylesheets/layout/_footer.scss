@@ -1,10 +1,13 @@
 #footer {
-  background: $gray-dark;
-  color: $gray;
+  background: $blue-darker;
+  border-radius: 4px;
+  color: rgba($white, 0.7);
   padding: $spacing*2 0 $spacing;
   margin-top: $spacing;
   line-height: 1.8;
   z-index: 2;
+  flex: 0 0 100%;
+  width: 100%;
 
   .container {
     display: flex;
@@ -24,7 +27,7 @@
     #footer-outbound-links {
       flex: 4;
       margin-right: 0;
-      min-width: 245px;
+      min-width: 260px;
       text-align: center;
     }
 
@@ -48,12 +51,13 @@
 
   h5 {
     color: $white;
-    text-transform: uppercase;
   }
 
   a {
-    color: $gray;
+    color: rgba($white, 0.7);
+    font-size: 1.4rem;
     display: block;
+
     &:hover {
       color: $white;
     }

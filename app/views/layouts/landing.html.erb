@@ -5,8 +5,10 @@
   <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper wrapper--tint">
+      <%= render partial: 'layouts/partials/notices' %>
       <%= yield %>
     </div>
     <%= render partial: 'layouts/partials/footer' %>
+    <%= render partial: 'layouts/partials/scripts' %>
   </body>
 </html>

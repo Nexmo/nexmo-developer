@@ -2,7 +2,7 @@
 language: node
 ---
 
-#### Install the Nexmo library
+##### Install the Nexmo library
 
 ```sh
 $ npm install --save nexmo

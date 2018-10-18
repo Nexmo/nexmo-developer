@@ -10,10 +10,10 @@ class OpenApiController < ApplicationController
       @definition_initialization_config = YAML.safe_load(definition_initialization)
     end
 
-    if File.file? "_open_api/errors/#{@definition_name}.md"
-      @definition_errors = File.read("_open_api/errors/#{@definition_name}.md")
-      @definition_errors_content = MarkdownPipeline.new.call(File.read("_open_api/errors/#{@definition_name}.md"))
-    end
+    # if File.file? "_open_api/errors/#{@definition_name}.md"
+    #  @definition_errors = File.read("_open_api/errors/#{@definition_name}.md")
+    #  @definition_errors_content = MarkdownPipeline.new.call(File.read("_open_api/errors/#{@definition_name}.md"))
+    # end
 
     @definition = OpenApiDefinitionResolver.find(@definition_name)
 

@@ -1,154 +1,168 @@
-#header {
-  background: $blue;
+.Nxd-header {
+  height: 111px;
+  width: 100%;
+  z-index: 700;
+
+  @media #{$S-only} {
+    height: auto;
+  }
+}
+
+.Nxd-header__main {
+  align-items: center;
+  background: $blue-darker;
   color: $white;
-  padding: $spacing 0;
+  display: flex;
+  height: 55px;
+  flex: 0 0 100%;
+  padding: $unit2;
+  transition: height .5s;
 
-  @include mobile {
+  @media #{$S-only} {
+    justify-content: space-between;
     text-align: center;
-    padding: $spacing*0.75 0 $spacing*0.5 0;
-  };
+    padding: 0 $unit2;
 
-  a {
-    color: mix($white, $blue, 90%);
-    border: none;
+    .Nxd-scroll-minify & {
+      height: 0;
+      overflow: hidden;     
+    }
   }
 
-  nav {
-    float: right;
-    line-height: 38px;
+  .Vlt-btn {
+    margin: 0;
+  }
+}
 
-    a {
-      margin-left: $spacing;
-      letter-spacing: 0.13px;
+.Nxd-logo {
+  display: flex;
+  max-width: 100%;
+  flex: 1 0 0;
 
-      @include mobile {
-        margin: 0 $spacing/2 0 $spacing/2;
-      }
+  @media #{$M-plus} {
+    position: relative;
+    align-items: center;
+  }
 
-      b, &:hover {
-        color: $white;
-        font-weight: 600;
-        letter-spacing: 0px;
-      }
+  @media #{$S-only} {
+    flex: 0 0 auto;
+  }
+
+  a:nth-child(2) {
+    flex-shrink: 0;
+  }
+
+  img {
+    height: 35px;
+  }
+
+  &__hiring {
+    font-size: 1.3rem;
+    padding: 6px 8px;
+    margin-left: 10px;
+    position: relative;
+    background: $white;
+    color: $blue-dark;
+    line-height: 1em;
+    transform: translateX(0);
+    transition: transform  200ms ease-in-out;
+    display: inline-block;
+    border-radius: 4px;
+
+    &:hover {
+      transform: translateX(5px);
     }
 
-    @include mobile {
-      float: none;
-    };
-  }
-
-  // @media screen and (max-width: )
-}
-
-#logo {
-  display: inline-block;
-  line-height: 38px;
-  font-size: 26px;
-
-  // @ https://css-tricks.com/the-image-replacement-museum/#ir-h5bp
-  span {
-    display: block;
-    float: left;
-    margin-right: 10px;
-    border: 0;
-    font: 0/0 a;
-    text-shadow: none;
-    color: transparent;
-    background: image-url('logo@3x.png');
-    background-size: contain;
-    width: 43px;
-    height: 38px;
-  }
-
-  @include tablet-only {
-    font-size: 20px;
+    &:after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 5px 5px 5px 0;
+      border-color: transparent $white;
+      display: block;
+      width: 0;
+      left: -4px;
+      top: 7px;
+    }
   }
 }
 
-#header-hiring {
-  font-size: 13px;
-  padding: 3px 6px;
-  margin-left: 8px;
-  top: -3px;
-  position: relative;
-  height: $spacing;
-  background: $white;
-  color: $blue;
-  line-height: 1em;
-  transform: translateX(0);
-  transition: transform  200ms ease-in-out;
-  display: inline-block;
-  border-radius: 2px;
+.Nxd-header__nav {
+  display: flex;
+  text-align: right;
 
-  &:hover {
-    transform: translateX(5px);
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 5px 5px 5px 0;
-    border-color: transparent $white;
-    display: block;
-    width: 0;
-    left: -5px;
-    top: 5px;
-  }
-}
-
-#subnav {
-  background: $white;
-  border-bottom: $border;
-  margin-bottom: $spacing;
-  box-shadow: $shadow-soft;
-
-  .container {
-    position: relative;
+  @media #{$M-plus} {
+    white-space: nowrap;
+    text-align: right;
   }
 
   a {
     display: inline-block;
-    margin-right: $spacing;
-    color: $gray;
-    padding: $spacing/2 5px;
-    padding-bottom: $spacing/2 - 3px;
+    margin: $unit2 $unit1;
+    color: rgba($white, 80);
 
-    &.active {
-      font-weight: 600;
-      color: $blue;
-      border-bottom: 3px solid $blue;
+    @media #{$M-plus} {
+       margin: $unit1 $unit3 $unit1 0;
+    }
+
+    &:hover {
+      color: $white;
     }
   }
 
-  .quicksearch a {
-    padding: 0;
+  @media #{$S-only} {
+    text-align: right
+  }
+}
+
+.Nxd-header__sub {
+  align-items: center;
+  background: $white;
+  box-shadow: $shadow-soft;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 $unit2 4px;
+  position: relative;
+
+  &__menu {
+    flex: 1;
+
+    a {
+      display: inline-block;
+    }
+
+    @media #{$S-only} {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
   }
 
   form {
     float: right;
-  }
+    min-width: 350px;
 
-  @include tablet {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      > a {
-        margin-right: 0;
-        text-align: center;
-        flex-grow: 1;
+    @media only screen and (max-width: 876px) {
+      min-width: auto;
+      float: none;
+      margin-top: -$unit1;
+      margin-bottom: -$unit1;
+      margin-right: -$unit2;
+      flex-shrink: 0;
+
+      .Vlt-input input {
+        border: 0;
+        border-left: 1px solid $grey;
+        border-radius: 0;
       }
 
-      form {
-        flex-grow: 1;
-        margin: 0;
-        margin-bottom: 10px;
-        min-width: 150px;
-        input {
-          float: none;
-          width: 100%;
-        }
+      input {
+        transition: width .5s;
+        width: 0;
+      }
+
+      .Nxd-search-expanded input {
+        width: 350px;
       }
     }
-  };
+  }
 }

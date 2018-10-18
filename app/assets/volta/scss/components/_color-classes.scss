@@ -1,0 +1,73 @@
+$colors: (
+	'white': $white,
+	orange-lighter: $orange-lighter,
+	orange-light: $orange-light,
+	'orange': $orange,
+	orange-dark: $orange-dark,
+	orange-darker: $orange-darker,
+	blue-lighter: $blue-lighter,
+	blue-light: $blue-light,
+	'blue': $blue,
+	blue-dark: $blue-dark,
+	blue-darker: $blue-darker,
+	blue-text: $blue-text,
+	green-lighter: $green-lighter,
+	green-light: $green-light,
+	'green': $green,
+	green-dark: $green-dark,
+	green-darker: $green-darker,
+	green-text: $green-text,
+	purple-lighter: $purple-lighter,
+	purple-light: $purple-light,
+	'purple': $purple,
+	purple-dark: $purple-dark,
+	purple-darker: $purple-darker,
+	purple-text: $purple-text,
+	teal-lighter: $teal-lighter,
+	teal-light: $teal-light,
+	'teal': $teal,
+	teal-dark: $teal-dark,
+	teal-darker: $teal-darker,
+	teal-text: $teal-text,
+	yellow-lighter: $yellow-lighter,
+	yellow-light: $yellow-light,
+	'yellow': $yellow,
+	yellow-dark: $yellow-dark,
+	yellow-darker: $yellow-darker,
+	yellow-text: $yellow-text,
+	indigo-lighter: $indigo-lighter,
+	indigo-light: $indigo-light,
+	'indigo': $indigo,
+	indigo-dark: $indigo-dark,
+	indigo-darker: $indigo-darker,
+	indigo-text: $indigo-text,
+	grey-lighter: $grey-lighter,
+	grey-light: $grey-light,
+	'grey': $grey,
+	grey-dark: $grey-dark,
+	grey-darker: $grey-darker,
+	'black': $black,
+	red-lighter: $red-lighter,
+	red-light: $red-light,
+	'red': $red,
+	red-dark: $red-dark,
+	red-darker: $red-darker,
+	red-text: $red-text,
+	aqua-lighter: $aqua-lighter,
+	aqua-light: $aqua-light,
+	'aqua': $aqua,
+	aqua-dark: $aqua-dark,
+	aqua-darker: $aqua-darker,
+	aqua-text: $aqua-text
+);
+
+@each $color, $color-variable in $colors {
+	.Vlt-#{$color} {
+		color: $color-variable !important;
+		fill: $color-variable !important;
+	}
+
+	.Vlt-bg-#{$color} {
+		background-color: $color-variable !important;
+	}
+}

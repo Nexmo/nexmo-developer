@@ -1,12 +1,7 @@
 @mixin highlighted-navigation($color) {
   a, span {
-    border: 1px solid $color;
     color: $color;
-    border-radius: 4px;
-    padding: 1px 4px;
-    margin: 4px 0;
-    font-size: 0.85em;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: opacity 200ms ease-in-out;
 
     &:hover {
@@ -15,139 +10,78 @@
   }
 }
 
-.sidenav {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 18px;
+.Vlt-sidenav {
+  flex: 0 0 300px;
+  width: 300px;
+}
 
-  > ul {
-    position: relative;
-  }
-
-  .sidenav-back {
-    color: $link-subtle;
-    font-size: 0.9em;
-    font-weight: 500;
-  }
-
-  a, span {
-    color: $gray;
-    font-weight: 600;
-    padding: 5px 0;
-    display: inline-block;
-
-    &.active {
-      font-weight: 600;
-      color: $blue;
-    }
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  ul {
-    overflow: hidden;
-
-    &.has-label {
-      overflow: visible;
-      border-left: none;
-    }
-  }
-
-  .expanded {
-    border-left: 1px solid $gray-light;
-    margin-left: 5px;
-    padding-left: $spacing - 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
-  }
-
-  ul, li {
-    margin: 0;
+.Vlt-sidemenu--flat {
+  .Vlt-sidemenu__link {
+    padding: 4px 10px;
   }
 
   li {
-    position: relative;
-  }
+    a {
+      font-weight: 900;
+    }
 
-  ul ul {
-    padding-left: $spacing;
-    font-size: 15px;
-    font-weight: 500;
+    li {
+      a {
+        font-weight: 600;
+      }
 
-    ul {
-      font-size: 14px;
-
-      a, span {
-        font-weight: 500;
+      li {
+        a {
+          font-weight: 400;
+        }
       }
     }
   }
+}
 
-  hr {
-    border-top-width: 1px;
-    border-top-style: dotted;
-  }
+.Vlt-sidemenu__title + ul > li {
+  margin-left: 0 !important;
+}
 
-  &--spacious {
-    margin: 0 $spacing;
+@media #{$M-plus} {
+  .Vlt-sidenav {
+    height: calc(100vh - 111px);
   }
 }
 
 .navigation--documentation {
-  .navigation-item--tutorials {
-    @include highlighted-navigation($pink);
+  .navigation-item--tutorials a {
+    color: $green-dark;
   }
 
-  .navigation-item--api-reference {
-    @include highlighted-navigation($blue);
+  .navigation-item--api-reference a {
+    color: $blue-dark;
   }
 
-  .navigation-item--sdk-documentation > {
-    @include highlighted-navigation($pink);
+  .navigation-item--sdk-documentation > a {
+    color: $green
   }
 
-  .navigation-item--ncco-reference {
-    @include highlighted-navigation($gray-dark);
-    .navigation-item--ncco-reference {
-      @include highlighted-navigation($gray-dark);
+  .navigation-item--ncco-reference a {
+    color: $teal;
+
+    .navigation-item--ncco-reference a {
+      color: $teal;
     }
   }
 }
 
-@media screen and (max-width: 640px) {
-  .sidenav {
-    > ul {
-      position: relative !important;
-      width: auto !important;
-      margin-bottom: 40px;
-    }
-  }
-}
+#Vlt-sidenav-mobile-trigger {
+  display: inline-block;
+  margin-top: $unit0;
+  margin-right: $unit2;
 
-@media screen and (max-width: 640px) {
-  .sidenav {
-    > ul {
-      width: 20%;
-    }
+  svg {
+    height: 24px;
+    width: 24px;
   }
-}
 
-#sidenav .navigation {
-  .navigation-item__label {
-    font-size: 11px;
-    color: $blue;
-    margin: 0 5px;
-    position: relative;
-    top: -1px;
-    line-height: 14px;
-    background: $mint;
-    color: darken($mint, 40%);
-    border-radius: $radius;
-    padding: 0 3px;
-    font-weight: 500;
+  @media #{$M-plus} {
+    display: none;
   }
 }

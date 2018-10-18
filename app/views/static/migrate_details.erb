@@ -11,7 +11,7 @@
     Nexmo provide server-side libraries in six different libraries to help you integrate our platform more easily.<br>
     Head to the <a href="/tools">tools</a> page to find out more.
   </p>
-  <a role="link" aria-label="Try it free" class="button" href="https://dashboard.nexmo.com/sign-up?ref=tropo-migrate">Sign Up Free</a>
+  <a role="link" aria-label="Try it free" class="Vlt-btn Vlt-btn--primary Vlt-btn--large" href="https://dashboard.nexmo.com/sign-up?ref=tropo-migrate">Sign Up</a>
 </div>
 <div class="container skip-pushstate" id="primary-content">
   <% @building_blocks.each do |block| %>
@@ -19,16 +19,15 @@
     <p><%= block['content'].render_markdown %></p>
     <h2>Example code</h2>
     <br />
-    <div class="columns small-12 medium-6">
-      <%= block['nexmo'].render_markdown %>
-    </div>
-    <div class="columns small-12 medium-6">
+    <div class="columns small-12 medium-12">
       <%= block['tropo'].render_markdown %>
+    </div>
+    <div class="columns small-12 medium-12">
+      <%= block['nexmo'].render_markdown %>
     </div>
 <% end %>
 
 <br style="clear:both;">
-<hr>
 <br>
   <%=
     tutorials = <<~MD

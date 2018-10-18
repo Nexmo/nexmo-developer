@@ -1,45 +1,57 @@
+<div  class="Vlt-card Vlt-article">
 <center>
   <h1>Feedback Stats</h1>
-
-  <br>
-  <div class="box">
-    <h2>Filter</h2>
+</center>
+  <div>
     <%= form_tag({}, {:method => :get}) do %>
-      <div>
-        Product: <%= select_tag :product,
-          options_for_select([['All', nil]].concat(DocumentationConstraint.product_with_parent_list), params[:product]),
-          onchange: "this.form.submit();" %>
+       <div class="Vlt-form__group">
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+            Product
+          </label> 
+          <div class="Vlt-select">
+          <%= select_tag :product,
+            options_for_select([['All', nil]].concat(DocumentationConstraint.product_with_parent_list), params[:product]),
+            onchange: "this.form.submit();" %>
+          </div>
+        </div>
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+          Created After
+        </label> 
+        <div class="Vlt-input"><%= date_field_tag :created_after, @created_after %></div>
+        </div>
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+          Created Before
+        </label> 
+        <div class="Vlt-input"><%= date_field_tag :created_before, @created_before %></div>
+        </div>
+      
+      <%= link_to 'Reset', '/stats', class: "Vlt-btn Vlt-btn--tertiary Vlt-btn--app" %> &nbsp;
+      <%= submit_tag 'Update', class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
       </div>
-      <br>
-      <div>
-        Created After: <%= date_field_tag :created_after, @created_after %>
-        &nbsp;
-        Created Before: <%= date_field_tag :created_before, @created_before %>
-      </div>
-      <br>
-      <%= link_to 'Reset', '/stats' %> &nbsp;
-      <%= submit_tag 'Update', class: 'button' %>
     <% end %>
   </div>
-</center>
+
 <br>
-<div class="row">
-  <div class="column small-12 medium-4">
-    <div class="center spacious content-block">
-      <h1><%= @feedbacks.positive.count %></h1>
-      Positive Feedbacks
+<div class="Vlt-grid Vlt-section">
+  <div class="Vlt-col">
+    <div class="Vlt-box Vlt-box--data">
+        <div class="Vlt-box__data"><%= @feedbacks.positive.count %></div>
+        <small class="Vlt-box__data-desc">Positive Feedbacks</small>
     </div>
   </div>
-  <div class="column small-12 medium-4">
-    <div class="center spacious content-block">
-      <h1><%= @feedbacks.negative.count %></h1>
-      Negative Feedbacks
+  <div class="Vlt-col">
+    <div class="Vlt-box Vlt-box--data">
+      <div class="Vlt-box__data"><%= @feedbacks.negative.count %></div>
+      <small class="Vlt-box__data-desc">Negative Feedbacks</small>
     </div>
   </div>
-  <div class="column small-12 medium-4">
-    <div class="center spacious content-block">
-      <h1><%= ((@feedbacks.positive.count.to_f / @feedbacks.count.to_f) * 100).round(1)  %>%</h1>
-      Percent Positive
+  <div class="Vlt-col">
+    <div class="Vlt-box Vlt-box--data">
+      <div class="Vlt-box__data"><%= ((@feedbacks.positive.count.to_f / @feedbacks.count.to_f) * 100).round(1)  %>% </div>
+      <small  class="Vlt-box__data-desc">Percent Positive</small>
     </div>
   </div>
 </div>
@@ -78,7 +90,7 @@
 <br>
 
 <center>
-  <h2>Feedback split percent by month</h2>
+  <h3>Feedback split percent by month</h3>
 </center>
 
 <%= column_chart(
@@ -91,16 +103,21 @@
 
 <hr>
 
-<div class="row">
-  <div class="column small-12 medium-6">
-    <div class="center spacious content-block">
-      <h2>Worst Performing Content</h2>
-      <%= render 'performance_table', resources: Feedback::Resource.worst_performing.first(5) %>
+<div class="Vlt-grid Vlt-section">
+  <div class="Vlt-col">
+    <div>
+      <center><h3>Worst Performing Content</h3></center>
+      <div class="Vlt-table Vlt-table--data">
+        <%= render 'performance_table', resources: Feedback::Resource.worst_performing.first(5) %>
+      </div>
     </div>
   </div>
-  <div class="column small-12 medium-6">
-    <div class="center spacious content-block">
-      <h2>Best Performing Content</h2>
-      <%= render 'performance_table', resources: Feedback::Resource.best_performing.first(5) %>
+  <div class="Vlt-col">
+    <div>
+      <center><h3>Best Performing Content</h3></center>
+      <div class="Vlt-table Vlt-table--data">
+        <%= render 'performance_table', resources: Feedback::Resource.best_performing.first(5) %>
+      </div>
     </div>
   </div>
+</div>

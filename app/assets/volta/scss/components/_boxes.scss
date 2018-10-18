@@ -1,0 +1,105 @@
+.Vlt-box {
+	background: $grey-lighter;
+	border: 1px solid $grey-light;
+	border-radius: 8px;
+	margin-bottom: $unit2;
+	padding: $unit4;
+	text-align: left;
+	width: 100%;
+
+	&__cta {
+		.Vlt-btn {
+			margin-bottom: 0;
+		}
+	}
+
+	h2,
+	h3,
+	h4 {
+		margin-bottom: $unit1 !important;
+		margin-top: 0;
+	}
+
+	&__data {
+		color: $black;
+		font-size: 3.6rem;
+		line-height: 3.6rem;
+
+		.Vlt-box--white {
+			h2,
+			h3,
+			h4 {
+				color: $grey-dark;
+			}
+		}
+	}
+
+	&__data-desc {
+		color: $grey-darker;
+		display: block;
+		margin-top: $unit0;
+	}
+
+	&--data {
+		padding: $unit2;
+		text-align: center;
+
+		h2,
+		h3,
+		h4 {
+			color: $grey-darker;
+			font-size: 1.6rem;
+			line-height: 2rem;
+			margin-bottom: $unit0 !important;
+		}
+	}
+
+	&--fancy {
+		text-align: center;
+
+		img {
+			margin-bottom: $unit2;
+			max-height: 100px;
+			max-width: 100px;
+		}
+
+		p {
+			color: $grey-darker;
+			margin: 0;
+
+			& + p {
+				margin-top: $unit1;
+			}
+		}
+	}
+
+	&--white {
+		background: $white;
+
+		.Vlt-box__data-desc {
+			color: $grey-dark;
+		}
+	}
+
+	&--left {
+		text-align: left;
+	}
+
+	&--lesspadding {
+		padding: $unit2;
+	}
+}
+
+a.Vlt-box,
+.Vlt-box--clickable {
+	cursor: pointer;
+	transition: transform 0.2s;
+
+	&:hover {
+      transform: scale(1.03);
+    }
+
+    &:active {
+    	transform: scale(1);
+    }
+}

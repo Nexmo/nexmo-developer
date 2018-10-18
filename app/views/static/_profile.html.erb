@@ -1,9 +1,9 @@
-<div>
-  <%= gravatar_image_tag email, gravatar: { size: 140 }, class: 'avatar' %>
-  <br>
-  <h3><b><%= name %></b></h3>
-  <h4><%= local_assigns[:role] ? role : 'Developer Advocate' %></h4>
-  <% if local_assigns[:twitter] %>
-    <h5><a target="_blank" href="https://twitter.com/<%= twitter %>">@<%= twitter %></a></h5>
-  <% end %>
+<div class="Nxd-profile Vlt-col Vlt-col--M-1of3">
+  <%= gravatar_image_tag email, gravatar: { size: 140 }, class: 'Nxd-profile__avatar avatar' %>
+  <h3><%= name %></h3>
+  <p class="Vlt-grey-darker p-large"><%= local_assigns[:role] ? role : 'Developer Advocate' %>
+  	<% if local_assigns[:twitter] %>
+    <small><a target="_blank" href="https://twitter.com/<%= twitter %>">@<%= twitter %></a></small>
+  	<% end %>
+  </p>
 </div>

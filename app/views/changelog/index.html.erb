@@ -3,13 +3,10 @@
 </center>
 
 
-<div class="row" id="primary-content">
-  <div class="columns small-12 medium-10 small-centered medium-centered">
-    <br>
+<div class="Vlt-card" id="primary-content">
+  <div class="">
     <% @versions.reverse.each do |version| %>
-      <br>
       <%= render 'show', version: version %>
-      <br>
     <% end %>
   </div>
 </div>

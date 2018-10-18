@@ -1,26 +1,22 @@
-@import "reset";
+@import "../volta/scss/lib/reset";
+@import "../volta/scss/lib/mediaqueries";
+@import "../volta/scss/lib/variables";
+@import "../volta/scss/lib/type";
+@import "../volta/scss/lib/grid";
 
-$blue: #0077C8;
-$blue-light: #00bfff;
+$blue-light: $blue;
 $pink: #E6547B;
-$purple: #936FD2;
-$green: #32BA86;
-$orange: #f6a85a;
-$yellow: #ffe030;
 $peach: #F88175;
-$red: #ea5353;
 $ice: #f9fbfd;
 $mint: #E4EEF3;
 $atom: #282c34;
 
-$white: #fff;
 $gray: #A1A1A1;
 $gray-light: lighten($gray, 25%);
 $stone-light: #93B6C7;
 $stone: #224E66;
 $stone-dark: #193c56;
 $gray-dark: #252A2D;
-$black: #1A1E20;
 
 $sms: #40569F;
 $sms-light: #EFF3FE;
@@ -35,9 +31,6 @@ $account: #D65E7C;
 $account-light: #FDF3F8;
 
 $primary: $pink;
-$link: $blue;
-$link-hover: $blue-light;
-$link-subtle: desaturate(lighten($link, 25%), 65%);
 $positive: $green;
 $negative: $red;
 $warning: $orange;
@@ -53,7 +46,7 @@ $spacing: 20px;
 $radius: 3px;
 $radius-top: $radius $radius 0 0;
 $radius-bottom: 0 0 $radius $radius;
-$shadow-soft: 0 2px 14px 0 rgba(0, 0, 0, 0.04);
+$shadow-soft: 1px 0 8px rgba(44, 45, 48, 0.2);
 $shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
 $shadow-hard: 0 1px 8px 0 rgba(0,0,0,0.30);
 
@@ -63,7 +56,39 @@ $border: 1px solid $border-color;
 
 $golden-ratio: 1.618;
 
-$font-family: 'Averta', sans-serif;
+$font-family: 'Lato', sans-serif;
+
+@import "../volta/scss/components/buttons";
+@import "../volta/scss/components/tabs";
+@import "../volta/scss/components/side-navigation/side-nav--structure";
+@import "../volta/scss/components/side-navigation/side-nav--rounded";
+@import "../volta/scss/components/side-navigation/side-nav--light";
+@import "../volta/scss/components/card";
+@import "../volta/scss/components/badge";
+@import "../volta/scss/components/color-classes";
+@import "../volta/scss/components/boxes";
+@import "../volta/scss/components/form-elements";
+@import "../volta/scss/components/spinner";
+@import "../volta/scss/components/tables";
+@import "../volta/scss/components/callouts";
+@import "../volta/scss/components/tabs";
+@import "../volta/scss/components/lists";
+@import "../volta/scss/components/accordions";
+@import "../volta/scss/components/tooltips";
+@import "../volta/scss/components/dropdowns";
+
+@import "../volta/scss/layout/article";
+@import "../volta/scss/layout/utils";
+
+@import "../volta/scss/templates/volta-templates";
+
+.Vlt-sidenav {
+	display: inline-flex; // Temporary
+}
+
+body {
+	background: $grey-lighter;
+}
 
 @import "mixins";
 
@@ -72,39 +97,27 @@ $font-family: 'Averta', sans-serif;
 @import "icons";
 @import "syntax";
 
-@import "objects/api-status";
-@import "objects/avatar";
-@import "objects/button";
 @import "objects/building-block";
-@import "objects/box";
 @import "objects/card";
 @import "objects/collapsible";
 @import "objects/content-block";
 @import "objects/extend";
-@import "objects/feedback";
 @import "objects/focus";
-@import "objects/forms";
-@import "objects/github-cards";
 @import "objects/js-sequence-diagram";
-@import "objects/labels";
 @import "objects/masonry";
 @import "objects/navigation";
 @import "objects/notices";
-@import "objects/slate-layout";
 @import "objects/tabs";
-@import "objects/table-list";
-@import "objects/techio";
-@import "objects/truncate";
-@import "objects/loading-bar";
 @import "objects/video";
 
 @import "layout/community";
 @import "layout/header";
 @import "layout/hero";
 @import "layout/footer";
-@import "layout/jobs";
-@import "layout/landing";
+@import "layout/team";
 @import "layout/markdown";
 @import "layout/search";
+@import "layout/changelog";
+@import "layout/api";
 
 @import "themes/ea";

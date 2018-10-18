@@ -1,15 +1,13 @@
-.extend-grid {
+.extend {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -10px;
   justify-content: center;
 
-  > div {
+  > .Vlt-card {
     flex: 1;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 350px;
+    max-width: 350px;
     height: 300px;
-    padding: 20px;
     margin: 10px;
     justify-self: start;
     @include mobile() {
@@ -17,94 +15,43 @@
     }
   }
 }
+.extend-wrapper {
+    width: 80vw;
 
-.extend-card {
-    position: relative;
-    background: $white;
-    border: $border;
-    border-radius: $radius;
-    box-shadow: $shadow;
-    margin-bottom: $spacing;
-    font-size: 16px;
-    img {
-        height: 75px;
-        padding-bottom: 10px;
-    }
-    h2 {
-        padding-top: 10px;
-        font-size: 16px;
-        margin: 0;
-        color: $text;
-        border-top: 2px solid $blue;
-        line-height: 30px;
-    }
-    p {
-        padding: 10px 0;
-        font-size: 12px;
-    }
-    > a {
-        position: absolute;
-        bottom:20px;
-        right:20px;
-    }
-}
-
-.extend-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    img {
-        align-self: center;
-        margin: 17px 0;
-        max-height: 100px;
-    }
-    .tags {
-        > ul {
-            list-style: none;
-            padding: 0;
-            margin: 5px;
-            li {
-                display: inline;
-                color: white;
-                padding: 3px 10px;
-                font-size: 12px;
-                line-height: 12px;
-                border-radius: 12px;
-                letter-spacing: 0px;
-                background-color: #42ADE8;
-            }
-        } 
-    }
-    .description {
-        margin-top: 18px;
-        h4 {
-            font-size: 1.3em;
+    .extend-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        img {
+            align-self: center;
+            margin: 17px 0;
+            max-height: 100px;
+        }
+        .tags {
+            > ul {
+                list-style: none;
+                padding: 0;
+                margin: 5px;
+            } 
+        }
+        .cta {
+            margin: 60px;
         }
     }
-    .cta {
-        margin: 80px;
-        a {
-            background: #fb8f36;
-            color: white;
-            padding: 16px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-    }
-}
 
-.extend-content {
-    background: $white;
-    border: $border;
-    border-radius: 10px;
-    box-shadow: $shadow;
-    padding: 80px 60px;
-    margin-bottom: 40px;
-    width: 80%;
-    margin: 15px auto;
-    img {
-        max-width: 80%;
+    .extend-content {
+        background: $white;
+        border: $border;
+        border-radius: 10px;
+        box-shadow: $shadow;
+        padding: 80px 60px;
+        margin-bottom: 40px;
+        width: 80%;
         margin: 15px auto;
-        display: block;
+        img {
+            max-width: 80%;
+            margin: 15px auto;
+            display: block;
+        }
     }
 }

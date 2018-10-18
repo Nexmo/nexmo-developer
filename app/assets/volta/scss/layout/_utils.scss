@@ -1,0 +1,106 @@
+.Vlt-center {
+	text-align: center;
+}
+
+.Vlt-right {
+	text-align: right;
+}
+
+.Vlt-left {
+	text-align: left;
+}
+
+.Vlt-truncate {
+	display: block;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	&--inline {
+		display: inline;
+	}
+}
+
+hr {
+	border-bottom: 0;
+	border-top: 1px solid $grey-light;
+	flex: 0 0 100%;
+	height: 0;
+	margin: $unit3 0;
+}
+
+.hr--tall {
+	margin: $unit4 0;
+}
+
+.hr--short {
+	margin: $unit2 0;
+}
+
+.hr--shorter {
+	margin: $unit1 0;
+}
+
+.Vlt-icon {
+	display: inline-block;
+	height: 24px;
+	vertical-align: middle;
+	width: 24px;
+
+	&--18 {
+		height: 18px;
+		width: 18px;
+	}
+
+	&--small {
+		height: 20px;
+		width: 20px;
+	}
+
+	&--smaller {
+		height: 16px;
+		width: 16px;
+	}
+
+	&--text-bottom {
+		vertical-align: text-bottom;
+	}
+
+	&--large {
+		height: 32px;
+		width: 32px;
+	}
+
+	&--larger {
+		height: 40px;
+		width: 40px;
+	}
+}
+
+$devices: (
+	#{$L-plus}: '',
+	#{$S-only}: 'S-',
+	#{$M-only}: 'M-',
+	'': 'A-'
+	);
+
+$directions: 'top', 'bottom';
+$units: ($unit1, $unit2, $unit3, $unit4);
+
+@each $direction in $directions {
+	@each $media, $devicePrefix in $devices {
+		@for $i from 1 through 4 {
+
+			.Vlt-margin--#{$devicePrefix}#{$direction}#{$i} {
+				@if $media != '' {
+					@media #{$media} {
+						margin-#{$direction}: nth($units, $i);
+					}
+				} @else {
+					margin-#{$direction}: nth($units, $i);
+				}
+			}
+		}
+	}
+}

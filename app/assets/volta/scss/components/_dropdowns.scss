@@ -1,0 +1,305 @@
+.Vlt-dropdown {
+	display: inline-block;
+	position: relative;
+
+	&--full {
+		width: 100%;
+	}
+
+	&__link,
+	&__block {
+		color: $black;
+		overflow: hidden;
+		padding: 12px 20px;
+		position: relative;
+		text-align: left;
+
+		&:before {
+			background: $grey-light;
+			content: '';
+			display: block;
+			height: 1px;
+			left: 20px;
+			position: absolute;
+			top: 0;
+			width: calc(100% - 40px);
+		}
+
+		&--noborder {
+			// Fixes the spacing without changing the proportion of the element
+			margin-top: -4px;
+
+			&:before {
+				display: none;
+			}
+		}
+
+		&--disabled,
+		&--selected {
+			color: $grey-dark;
+			cursor: default;
+			pointer-events: none;
+		}
+
+		&--highlighted {
+			color: $blue;
+		}
+
+		&__icon {
+			flex: 0 0 20px;
+			height: 20px;
+			margin-bottom: -3px;
+			margin-right: 10px;
+			opacity: 0.8;
+			vertical-align: middle;
+			width: 20px;
+		}
+	}
+
+	&__link {
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		white-space: nowrap;
+
+		&:hover {
+			background: rgba($black, 0.05);
+		}
+
+		&:active {
+			background: rgba($black, 0.1);
+		}
+
+		&--nohover {
+			&:hover {
+				background: transparent;
+			}
+		}
+	}
+
+	&__block {
+		&--nowrap {
+			white-space: nowrap;
+		}
+
+		&--center {
+			text-align: center;
+		}
+	}
+
+	&__label {
+		flex: 1;
+	}
+
+	& + .Vlt-btn,
+	.Vlt-btn + & {
+		margin-left: $unit1;
+	}
+}
+
+.Vlt-dropdown__btn {
+	@extend %Vlt-btn;
+	@extend %Vlt-btn--tertiary;
+	margin-bottom: 0;
+	margin-top: 0;
+
+	&:after {
+		background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20Generator%3A%20Adobe%20Illustrator%2022.0.1%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200)%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2020%2020%22%20style%3D%22enable-background%3Anew%200%200%2020%2020%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20style%3D%22fill%3A%239B9B9B%3B%22%20d%3D%22M7%2C7.8C6.7%2C7.5%2C6.2%2C7.6%2C5.9%2C7.9S5.7%2C8.7%2C6%2C9l4%2C3.4l4-3.4c0.3-0.3%2C0.3-0.8%2C0-1.1%0A%09c-0.3-0.3-0.7-0.3-1-0.1l-3%2C2.6L7%2C7.8L7%2C7.8z%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+		display: inline-block;
+		height: 20px;
+		margin-bottom: -1px;
+		margin-left: 5px;
+		margin-top: -1px;
+		vertical-align: middle;
+		width: 20px;
+	}
+
+	&:hover {
+		transform: none;
+	}
+
+	&:active {
+		transform: none;
+	}
+
+	&--large {
+		@extend %Vlt-btn--large;
+	}
+
+	&--small {
+		@extend %Vlt-btn--small;
+	}
+
+	&--app {
+		@include btn-app-radius;
+	}
+
+	.Vlt-form__element & {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}
+
+.Vlt-native-dropdown {
+	display: inline-flex; // Needed for vertical alignment on Firefox
+	position: relative;
+	width: fit-content;
+
+	select {
+		@extend %Vlt-btn, .Vlt-btn--tertiary;
+		margin-bottom: 0;
+		margin-top: 0;
+		padding-right: 38px;
+
+		&::-ms-expand {
+		    display: none;
+		}
+	}
+
+	&:after {
+		background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20Generator%3A%20Adobe%20Illustrator%2022.0.1%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200)%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2020%2020%22%20style%3D%22enable-background%3Anew%200%200%2020%2020%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20style%3D%22fill%3A%239B9B9B%3B%22%20d%3D%22M7%2C7.8C6.7%2C7.5%2C6.2%2C7.6%2C5.9%2C7.9S5.7%2C8.7%2C6%2C9l4%2C3.4l4-3.4c0.3-0.3%2C0.3-0.8%2C0-1.1%0A%09c-0.3-0.3-0.7-0.3-1-0.1l-3%2C2.6L7%2C7.8L7%2C7.8z%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+		display: inline-block;
+		height: 20px;
+		margin-left: 5px;
+		margin-top: -10px;
+		pointer-events: none;
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		width: 20px;
+	}
+
+	&--large {
+		select {
+			@extend %Vlt-btn--large;
+		}
+	}
+
+	.Vlt-form__element--big &,
+	&--large {
+
+		&:after {
+			right: 25px;
+		}
+
+		select {
+			margin-bottom: 0;
+			margin-top: 0;
+			padding-right: 50px !important;
+		}
+	}
+
+	& + .Vlt-btn,
+	.Vlt-btn + & {
+		margin-left: $unit1;
+	}
+
+	&--app {
+		select {
+			@include btn-app-radius;
+		}
+	}
+}
+
+.Vlt-dropdown__selection {
+	color: $red;
+	margin-left: 5px;
+}
+
+.Vlt-dropdown__panel {
+	max-height: 0;
+	min-width: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 100%;
+	z-index: 99999999;
+
+	&__content {
+		background: $white;
+		border-radius: $unit1;
+		box-shadow: inset 0 0 0 1px $grey-light, 0 1px 10px rgba($black, 0.1);
+		font-size: 1.5rem;
+		margin-bottom: 4px;
+
+		@media #{$M-less}  {
+			-webkit-overflow-scrolling: touch;
+			overflow-y: scroll;
+		}
+
+		> *:first-child {
+			border-top-left-radius: $unit1;
+			border-top-right-radius: $unit1;
+
+				&:before {
+					display: none;
+				}
+			}
+
+		> *:last-child {
+			border-bottom-left-radius: $unit1;
+			border-bottom-right-radius: $unit1;
+		}
+
+		li:not([class]) {
+			display: block; // Needed for IE if the __link or __block is in a nested div to avoid extra spacing
+		}
+	}
+
+	&--left {
+		right: 0;
+	}
+
+	&--width2 {
+		min-width: 200px;
+	}
+
+	&--width3 {
+		min-width: 300px;
+	}
+
+	&--nomaxheight {
+		max-height: none;
+	}
+
+	.Vlt-btn {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}
+
+.Vlt-dropdown__scroll {
+	flex: auto; // Has to be auto for IE
+	overflow-y: auto;
+}
+
+.Vlt-dropdown--expanded .Vlt-dropdown__panel,
+.Vlt-dropdown_expanded .Vlt-dropdown__panel,
+.Vlt-dropdown__panel_open {
+	max-height: 100vh;
+	overflow: visible;
+	transition: 0.3s;
+
+	.Vlt-dropdown__panel__content {
+		max-height: 400px;
+		overflow-y: auto;
+
+		&--scroll-area {
+			display: flex;
+			flex-flow: column;
+			overflow-y: hidden;
+
+			.Vlt-dropdown__link,
+			.Vlt-dropdown__block {
+				flex-shrink: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,141 @@
+.Vlt-badge {
+	background: $blue;
+	border-radius: 40px;
+	color: $white;
+	display: inline-block;
+	flex-shrink: 0;
+	font-size: 1.2rem;
+	font-weight: 600;
+	height: 20px;
+	line-height: 1;
+	margin: 0;
+	padding: 4px 10px;
+	vertical-align: bottom;
+	white-space: nowrap;
+
+	&--red {
+		background: $red;
+	}
+
+	&--yellow {
+		background: $yellow;
+	}
+
+	&--orange {
+		background: $orange;
+	}
+
+	&--green {
+		background: $green;
+	}
+
+	&--grey {
+		background: $grey;
+	}
+
+	&--large {
+		font-size: 1.4rem;
+		height: 26px;
+		padding: 6px 14px;
+
+		.Vlt-badge__dismiss {
+			height: 16px;
+			margin-left: 2px;
+			opacity: 0.6;
+			width: 16px;
+		}
+	}
+
+	&--small {
+		font-size: 0.9rem;
+		height: 13px;
+		padding: 2px 6px;
+	}
+
+	p & {
+		margin: 0 5px;
+	}
+
+	&__dismiss {
+		@extend .reset-button;
+		background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23ffffff%22%3E%0A%20%20%20%20%3Cpath%20fill-rule%3D%22nonzero%22%20d%3D%22M10.742%2012L4%205.258%205.258%204%2012%2010.742%2018.742%204%2020%205.258%2013.258%2012%2020%2018.742%2018.742%2020%2012%2013.258%205.258%2020%204%2018.742%2010.742%2012z%22/%3E%0A%3C/svg%3E%0A');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		cursor: pointer;
+		height: 13px;
+		margin-right: -4px;
+		opacity: 0.7;
+		transition: opacity 0.2s;
+		vertical-align: middle;
+		width: 13px;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&--dismissed {
+		border: 0 !important;
+		height: 0;
+		opacity: 0;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	&-combined {
+		display: flex;
+
+		.Vlt-badge {
+			&:first-child {
+				border-bottom-right-radius: 0;
+				border-top-right-radius: 0;
+				margin-right: 0;
+			}
+
+			&:last-child {
+				border-bottom-left-radius: 0;
+				border-top-left-radius: 0;
+				margin-left: 0;
+			}
+		}
+	}
+
+	& + .Vlt-badge {
+		margin-left: $unit1;
+	}
+
+	&--margin {
+		margin-bottom: $unit1;
+		margin-top: $unit1;
+
+		&-left {
+			margin-left: $unit1;
+		}
+	}
+
+	&--middle {
+		vertical-align: middle;
+	}
+
+	&--app {
+		border-radius: $unit0;
+	}
+
+	&-group {
+		.Vlt-badge {
+			margin-bottom: $unit0;
+			margin-right: $unit1;
+			margin-top: $unit0;
+
+			&.Vlt-badge--large {
+				margin-bottom: $unit1;
+				margin-top: $unit1;
+			}
+
+			& + .Vlt-badge {
+				margin-left: 0;
+			}
+		}
+	}
+}

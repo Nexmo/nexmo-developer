@@ -1,0 +1,275 @@
+%tabs-panel {
+	// We use display and not visibility to prevent problems with nested tabs
+	display: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+%tabs-panel-active {
+	display: block;
+	position: static;
+}
+
+%tabs-link {
+	background: none;
+	border: 0;
+	border-radius: 0;
+	color: $black;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin: 0 20px 0 0; // iOS adds margin around buttons so the 0s need to be declared
+	outline: none;
+	padding: 14px 0px;
+	position: relative;
+
+	svg {
+		height: 20px;
+		margin-bottom: -$unit0;
+		width: 20px;
+
+		& + span {
+			margin-left: $unit1;
+		}
+	}
+
+	&:after {
+		background: $blue-lighter;
+		bottom: 0;
+		content: '';
+		height: 3px;
+		left: 50%;
+		position: absolute;
+		transition: none;
+		width: 0px;
+	}
+
+	@media #{$L-plus} {
+		// On iOS, the browsers treat the first click as :hover if there's a style for it
+		// So we're keeping this only on desktop
+
+		&:hover:not(.Vlt-tabs__link_active) {
+			background: none;
+			color: $black;
+
+			&:after {
+				left: 0;
+				transition: all 0.2s;
+				width: 100%;
+			}
+		}
+	}
+}
+
+%tabs-link-bordered {
+	border-top-left-radius: $unit0;
+	border-top-right-radius: $unit0;
+	box-shadow: inset 0 -1px 0 $grey-light;
+	margin: 0;
+	padding-left: $unit2;
+	padding-right: $unit2;
+
+	&:after {
+		background: $grey-light;
+		content: '';
+		display: block;
+		height: 60%;
+		left: 0;
+		position: absolute;
+		top: 20%;
+		width: 1px !important;
+	}
+
+	&:first-child {
+		&:after {
+			display: none;
+		}
+	}
+
+	@media #{$L-plus} {
+		&:hover:not(.Vlt-tabs__link_active) {
+			background: rgba($blue-lighter, 0.5);
+		}
+	}
+}
+
+%tabs-link-active {
+	background: none;
+
+	&:after {
+		background: $blue;
+		left: 0;
+		width: 100%;
+
+		@media #{$M-less} {
+			transition: all 0.2s;
+		}
+	}
+}
+
+%tabs-link-active-bordered {
+	box-shadow: 0px -1px 6px rgba($black, 0.1), inset -1px 1px 0 $grey-light, inset 1px 1px 0 $grey-light;
+
+	&:after {
+		display: none;
+	}
+}
+
+%tabs-header {
+	border-bottom: 1px solid $grey-light;
+	display: flex;
+	margin: 0;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+%tabs-header-bordered {
+	border-bottom: 0;
+	margin-top: $unit1;
+
+	.Vlt-tabs__link {
+		margin-top: $unit0;
+
+		&:first-child {
+			margin-left: $unit1;
+		}
+	}
+}
+
+.Vlt-tabs {
+	&__header {
+		@extend %tabs-header;
+
+		&--shadow:not(.Vlt-tabs__header--icons) {
+			background: linear-gradient(90deg, rgba($black, 0.1) 0, transparent 10px), linear-gradient(90deg, transparent calc(100% - 10px), rgba($black, 0.1) 100%) 100% 0;
+			background-color: $white;
+			background-repeat: no-repeat;
+			background-size: 20px 100%, 20px 100%, 14px 100%, 14px 100%;
+
+			.Vlt-tabs__header__wrapper {
+				background: linear-gradient(90deg, $white 20px, transparent 20px), linear-gradient(90deg, transparent calc(100% - 20px), $white calc(100% - 20px)) 100% 0;
+				display: flex;
+				min-width: min-content;
+				width: 100%;
+			}
+		}
+
+		&--spaced {
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+		&--bordered {
+			@extend %tabs-header-bordered;
+
+			.Vlt-tabs__link {
+				@extend %tabs-link-bordered;
+
+				&_active {
+					@extend %tabs-link-active-bordered;
+
+					& + .Vlt-tabs__link {
+						&:after {
+							display: none;
+						}
+					}
+				}
+
+				&_disabled {
+					&:hover {
+						background: none !important;
+					}
+				}
+			}
+		}
+
+		&--icons {
+			flex-flow: row wrap;
+			overflow-x: visible;
+			white-space: normal;
+
+			.Vlt-tabs__link {
+				display: inline-block;
+
+				&_disabled {
+					pointer-events: inherit;
+				}
+
+				.Vlt-tooltip--js[x-placement^='bottom'] {
+					margin-top: 15px;
+				}
+			}
+
+			&:not(.Vlt-tabs__header--bordered) {
+				.Vlt-tabs__link {
+					padding: $unit1 $unit0;
+				}
+			}
+		}
+	}
+
+	&__link {
+		@extend %tabs-link;
+
+		svg {
+			fill: $blue;
+		}
+
+		&_active,
+		&:active {
+			@extend %tabs-link-active
+		}
+
+		&:focus {
+			background: none;
+		}
+
+		&_disabled {
+			background: none;
+			color: $grey;
+			cursor: default;
+			pointer-events: none;
+
+			&:after {
+				display: none;
+			}
+
+			svg {
+				fill: $grey;
+			}
+		}
+	}
+
+	&__content {
+		margin-top: $unit2;
+		position: relative;
+
+		&--flush {
+			margin-top: 0;
+		}
+	}
+
+	&__panel {
+		@extend %tabs-panel;
+
+		&_active {
+			@extend %tabs-panel-active;
+		}
+	}
+}
+
+.Vlt-js-tabs__link {
+	cursor: pointer;
+}
+
+.Vlt-js-tabs__panel {
+	@extend %tabs-panel;
+
+	&_active {
+		@extend %tabs-panel-active;
+	}
+}

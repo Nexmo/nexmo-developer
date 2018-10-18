@@ -1,0 +1,167 @@
+.Vlt-list {
+	margin-bottom: $unit2;
+	padding-left: $unit4;
+
+	ul,
+	ol {
+		margin-top: $unit1;
+		padding-left: $unit3;
+	}
+
+	li {
+		margin-bottom: 0.5em;
+		position: relative;
+	}
+}
+
+.Vlt-list--simple {
+	li {
+		&:before {
+			color: $blue-dark;
+		}
+
+		li {
+			&:before {
+				color: $blue;
+			}
+
+			li {
+				&:before {
+					color: $blue-darker;
+				}
+			}
+		}
+	}
+}
+
+ul.Vlt-list--simple {
+
+	li {
+		&:before {
+			content: '•';
+			left: -$unit2;
+			position: absolute;
+			top: 0em;
+		}
+	}
+}
+
+ol.Vlt-list--simple {
+	counter-reset: list;
+
+	ol {
+		counter-reset: list;
+	}
+
+	li {
+		&:before {
+			content: counter(list) '.';
+			counter-increment: list;
+			font-weight: 600;
+			left: -20px;
+			position: absolute;
+			top: 0em;
+		}
+	}
+}
+
+.Vlt-list--square {
+	li {
+		margin-bottom: 30px;
+		padding-left: 30px;
+		position: relative;
+
+		&:before {
+			background: $blue-dark;
+			border-radius: 2px;
+			content: '';
+			height: 10px;
+			left: 5px;
+			position: absolute;
+			top: 0.6em;
+			width: 10px;
+		}
+
+		li {
+			&:before {
+				color: inherit;
+				content: inherit;
+			}
+		}
+	}
+}
+
+.Vlt-list--icon {
+	padding-left: 0;
+
+	li {
+		margin-bottom: $unit2;
+		padding-left: 30px;
+		position: relative;
+
+		&:before {
+			display: none;
+		}
+
+		& > svg {
+			background: none;
+			height: 20px;
+			left: 0px;
+			position: absolute;
+			top: 0px;
+			width: 20px;
+		}
+	}
+}
+
+.Vlt-big-number {
+	margin-top: $unit1;
+	min-height: 40px;
+	padding-left: 50px;
+	padding-top: $unit0;
+	position: relative;
+
+	&:before {
+		align-items: center;
+		background: $green;
+		border-radius: 50px;
+	    color: $white;
+	    content: attr(data-index);
+		display: flex;
+		font-size: 1.5rem;
+		font-weight: bold;
+		height: 30px;
+		justify-content: center;
+		left: 5px;
+		position: absolute;
+		top: 0;
+		width: 30px;
+	}
+
+	&--h3 {
+		&:before {
+			top: 0;
+		}
+	}
+
+	&__inset {
+		margin-left: 48px;
+	}
+}
+
+.Vlt-list--big-number {
+	counter-reset: list;
+
+	& > li,
+	ol > li {
+		@extend .Vlt-big-number;
+		counter-increment: list;
+		padding-left: $unit3;
+
+		&:before {
+			content: counter(list);
+			left: -$unit2;
+			top: 0;
+		}
+	}
+}

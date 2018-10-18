@@ -1,28 +1,30 @@
-<div class="center spacious content-block">
-  <h3>
-    <i class="icon icon-<%= @career.icon %>"></i>
-    <%= @career.title %>
-    <% unless @career.published %>
-      [Hidden]
-    <% end %>
-  </h3>
-  <p><%= @career.summary %></p>
-  <i><%= @career.location %></i>
-</div>
+<div class="Vlt-card">
+  <center>
+    <h2 class="Vlt-title--icon Vlt-title--center">
+      <svg class="Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= @career.icon == 'account' ? 'user' : @career.icon == 'book' ? 'books' : @career.icon %>"/></svg>
+      <%= @career.title %>
+      <% unless @career.published %>
+        [Hidden]
+      <% end %>
+    </h2>
+    <p class="p-large"><%= @career.summary %></p>
+    <p class="Vlt-grey-dark"><%= @career.location %></p>
+  </center>
 
-<div class="row">
-  <div id="primary-content" class="columns small-12 medium-10 large-8 medium-centered">
-    <hr><br><br>
-    <% if @career.description %>
-      <%= @career.description.render_markdown %>
-    <% elsif @career.description_short %>
-      <%= @career.description_short.render_markdown %>
-    <% end %>
+  <div class="row">
+    <div id="primary-content" class="Nxd-career-description">
+      <hr><br><br>
+      <% if @career.description %>
+        <%= @career.description.render_markdown %>
+      <% elsif @career.description_short %>
+        <%= @career.description_short.render_markdown %>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<center>
-  <br>
-  <%= link_to "Find out more", @career.url, class: 'button' %>
-  <br><br>
-</center>
+  <center>
+    <br>
+    <%= link_to "Find out more", @career.url, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+    <br><br>
+  </center>
+</div>

@@ -1,6 +1,6 @@
 <li>
   <a href="#<%= endpoint.id %>">
-    <span class="label label--code label--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
+    <span class="Vlt-badge Vlt-badge--<%= endpoint.method == 'post' ? 'green' : 'blue' %>"><%= endpoint.method.upcase %></span>
     <%= endpoint.title %>
   </a>
 </li>

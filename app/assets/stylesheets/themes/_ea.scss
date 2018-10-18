@@ -1,23 +1,38 @@
 .theme--ea {
-  #header {
+  #header,
+  #footer {
     background: image-url("themes/ea/topography.png");
+  }
 
-    #logo:after {
+
+  .Nxd-logo__image img {
+    vertical-align: middle;
+  }
+
+  .Nxd-logo__hiring {
+    color: $black;
+  }
+
+  .Nxd-header__main {
+     #logo:after {
       content: "Developer Preview";
-      font-size: 0.5em;
+      font-size: 1.2rem;
       text-transform: uppercase;
       font-weight: 600;
       border: 1px solid rgba($white, 0.7);
       border-radius: 4px;
       padding: 2px 4px;
       position: relative;
-      top: -3px;
+      top: 1px;
       opacity: 0.8;
       margin: 0 5px;
+      vertical-align: middle;
     }
 
     a {
       color: $white;
     }
   }
+
+ 
 }

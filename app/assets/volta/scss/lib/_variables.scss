@@ -1,0 +1,90 @@
+$deep-black: #000000;
+$white: #ffffff;
+
+$orange-lighter: #ffe9cc;
+$orange-light: #ffbc67;
+$orange: #ff8f02;
+$orange-dark: #c05717;
+$orange-darker: #4a1504;
+$orange-text: #594430;
+
+$blue-lighter: #d6eefc;
+$blue-light: #85ccf5;
+$blue: #33aaee;
+$blue-dark: #117bb8;
+$blue-darker: #005282;
+$blue-text: #3e4e57;
+
+$red-lighter: #fde8eb;
+$red-light: #f79ca6;
+$red: #f25a6b;
+$red-dark: #bb3241;
+$red-darker: #330202;
+$red-text: #583c35;
+
+$green-lighter: #d7f2e8;
+$green-light: #86d8b9;
+$green: #35be8b;
+$green-dark: #2d966f;
+$green-darker: #173630;
+$green-text: #414f3e;
+
+$purple-lighter: #f3e7f8;
+$purple-light: #dcb6e9;
+$purple: #c485db;
+$purple-dark: #8f4fa7;
+$purple-darker: #230051;
+$purple-text: #50495a;
+
+$teal-lighter: #dbf3f6;
+$teal-light: #94dbe4;
+$teal: #4cc3d2;
+$teal-dark: #00848e;
+$teal-darker: #003136;
+$teal-text: #405352;
+
+$yellow-lighter: #fff2cc;
+$yellow-light: #f8e71c;
+$yellow: #ffc000;
+$yellow-dark: #9c6f19;
+$yellow-darker: #573b00;
+$yellow-text: #595130;
+
+$indigo-lighter: #e4e6f7;
+$indigo-light: #b3bcf5;
+$indigo: #7683d8;
+$indigo-dark: #5664b5;
+$indigo-darker: #202e78;
+$indigo-text: #3e4155;
+
+$grey-lighter: #f8fafc;
+$grey-light: #e7ebee;
+$grey: #c4cdd5;
+$grey-dark: #919eab;
+$grey-darker: #4e5a64;
+$black: #2c2d30;
+
+$aqua-lighter: #d0e7f1;
+$aqua-light: #9ccde2;
+$aqua: #3298c4;
+$aqua-dark: #0070a1;
+$aqua-darker: #035879;
+$aqua-text: #004059;
+
+$unit0: 4px;
+$unit1: 8px;
+$unit2: 16px;
+$unit3: 24px;
+$unit4: 32px;
+$unit5: 40px;
+
+$Vlt-font-url: '../../fonts/' !default;
+
+$z-index-dropdowns: 500;
+$z-index-flash: 1000;
+$z-index-modals: 900;
+$z-index-tooltips: 600;
+$z-index-sidenav: 650;
+$z-index-sidenav-mobile: 800; // Sidenav needs to be higher than the header for mobile
+$z-index-sidenav-mobile-trigger: 650; // Sidenav button on mobile needs to be lower than the header for mobile
+$z-index-header: 700;

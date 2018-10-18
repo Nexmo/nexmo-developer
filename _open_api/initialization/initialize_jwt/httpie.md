@@ -2,7 +2,7 @@
 language: httpie
 ---
 
-#### Install HTTPie
+##### Install HTTPie
 
 To install with [homebrew](https://brew.sh) on MacOS:
 
@@ -14,7 +14,7 @@ Alternatively follow [Linux](https://github.com/jakubroztocil/httpie#id5) or [Wi
 
 §
 
-#### Generate a JWT
+##### Generate a JWT
 
 We'll use this `$JWT` variable in our HTTPie commands.
 

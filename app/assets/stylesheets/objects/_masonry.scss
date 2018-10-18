@@ -15,3 +15,9 @@
     column-count: 2;
   }
 }
+
+@media all and (min-width: 1500px) {
+  .masonry {
+    column-count: 3;
+  }
+}

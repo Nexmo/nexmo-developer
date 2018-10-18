@@ -1,14 +1,15 @@
 <% if @notices && @notices.any? %>
-  <div class="notices">
+  <div class="Nxd-header-notices">
     <% @notices.each do |id, config| %>
       <% if config['path'].nil? || request.path.match(Regexp.new(config['path'])) %>
-        <div class="notice" data-notice-dismissible="<%= config['dismissible'] || true %>" data-notice-id="<%= id %>">
-          <div>
-            <% unless config['dismissible'] == false %>
-              <a data-close><i class="icon icon-times"></i></a>
-            <% end %>
+        <div class="Vlt-callout Vlt-callout--shoutout" data-notice-dismissible="<%= config['dismissible'] || true %>" data-notice-id="<%= id %>">
+          <i></i>
+          <div class="Vlt-callout__content">
             <%= config['content'].html_safe %>
           </div>
+           <% unless config['dismissible'] == false %>
+              <button class="Vlt-callout__dismiss"></button>
+            <% end %>
         </div>
       <% end %>
     <% end %>

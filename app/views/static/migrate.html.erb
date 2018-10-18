@@ -31,7 +31,7 @@
       <p>Sign up for a Nexmo account. Once you've signed up you'll receive €2 free credit which is enough to get started. We're offering a migration package to Tropo customers, including 10% off your monthly usage fee for the first three months and free migration support from our renowned customer support team. See our <a href="https://www.nexmo.com/blog/2018/10/15/nexmo-welcomes-tropo-customers/">migration blog post</a> for more information</p>
 
         <div class="center">
-          <a role="link" aria-label="Try it free" class="button" href="https://dashboard.nexmo.com/sign-up?ref=tropo-migrate">Sign Up</a>
+          <a role="link" aria-label="Try it free" class="Vlt-btn Vlt-btn--primary Vlt-btn--large" href="https://dashboard.nexmo.com/sign-up?ref=tropo-migrate">Sign Up</a>
         </div>
 
         <br />
@@ -51,7 +51,7 @@
         <br />
         <div class="columns small-12 medium-6 content-block">
           <div class="center">
-            <p>Migrate from Tropo SMS</p>
+            <h4>Migrate from Tropo SMS</h4><br />
             <h3>
               <a href="/migrate/tropo/sms">
                 <i class="icon icon-sms"></i>
@@ -62,7 +62,7 @@
         </div>
         <div class="columns small-12 medium-6 content-block">
           <div class="center">
-          <p>Migrate from Tropo Voice</p>
+            <h4>Migrate from Tropo Voice</h4><br />
             <h3>
               <a href="/migrate/tropo/voice">
                 <i class="icon icon-voice"></i>
@@ -89,11 +89,16 @@
     <div class="columns small-offset-1">
 
       <h2>Nexmo vs Tropo - Main differences</h2>
+
+      <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
       <table>
+        <thead>
         <tr>
-          <th width="50%">Tropo</th>
-          <th width="50%">Nexmo</th>
+          <th>Tropo</th>
+          <th>Nexmo</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
           <td>The Tropo scripting API allows you to store code inside a Tropo application and trigger that code via a web request</td>
           <td>Code runs on your own server, talking directly to the Nexmo platform</td>
@@ -101,10 +106,9 @@
         <tr>
           <td>Any metadata available is stored in the session metadata</td>
           <td>Nexmo sends metadata as GET parameters to your webhook endpoint. Common parameters include <code>to</code>, <code>msisdn</code> and <code>text</code></td>
-        </tr>
-        <tr>
-        </tr>
+        </tr></tbody>
       </table>
+      </div>
       <br />
 
     </div>

@@ -6,7 +6,7 @@ class MarkdownFilter < Banzai::Filter
   private
 
   def renderer
-    @renderer ||= HTML.new
+    @renderer ||= VoltaRender.new
   end
 
   def markdown
@@ -21,5 +21,45 @@ class MarkdownFilter < Banzai::Filter
       disable_indented_code_blocks: true,
       start_inline: true,
     })
+  end
+end
+
+class VoltaRender < HTML
+  def table(header, body)
+    '<div class="Vlt-table Vlt-table--data Vlt-table--bordered">' \
+    '<table>' \
+      "<thead>#{header}</thead>" \
+      "<tbody>#{body}</tbody>" \
+    '</table>' \
+    '</div>'
+  end
+
+  def block_quote(quote)
+    '<div class="Vlt-callout Vlt-callout--tip">' \
+      '<i></i>' \
+      '<div class="Vlt-callout__content">' \
+        "#{quote}" \
+      '</div>' \
+    '</div>'
+  end
+
+  def image(link, _title, _alt_text)
+    '<figure>' \
+      '<img src="'\
+      "#{link}"\
+      '" alt="#{alt_text}">' \
+    '</figure>'
+  end
+
+  def list(contents, list_type)
+    if "#{list_type}" == 'unordered'
+      '<ul class="Vlt-list Vlt-list--simple">' \
+      "#{contents}" \
+      '</ul>'
+    else
+      '<ol class="Vlt-list Vlt-list--simple">' \
+      "#{contents}" \
+      '</ol>' \
+    end
   end
 end
