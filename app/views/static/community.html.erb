@@ -5,25 +5,6 @@
 
 </div>
 
-<% if @sessions.any? %>
-  
-  <div class="Vlt-card">
-    <div class="Vlt-grid">
-      <% @sessions.each_with_position do |session, first, last| %>
-        <div class="Vlt-col Vlt-col--1of3">
-          <h4><%= session.title %></h4>
-          <%= session.video_content.html_safe %>
-          <p><%= session.description %></p>
-          <br>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-<% end %>
-
-<hr>
-
 <div class="Vlt-grid Vlt-grid--margin-bottom1">
   <div class="Vlt-col Vlt-col--2of3">
     <h2>You can find us at these upcoming events</h2>
@@ -43,6 +24,25 @@
     <%= render 'event', event: event, first: first, last: last %>
   <% end %>
 </div>
+
+<hr>
+
+<% if @sessions.any? %>
+  
+  <div class="Vlt-card">
+    <div class="Vlt-grid">
+      <% @sessions.each_with_position do |session, first, last| %>
+        <div class="Vlt-col Vlt-col--1of3">
+          <h4><%= session.title %></h4>
+          <%= session.video_content.html_safe %>
+          <p><%= session.description %></p>
+          <br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
 
 <hr>
 
