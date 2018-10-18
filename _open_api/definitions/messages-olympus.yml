@@ -98,7 +98,7 @@ components:
           $ref: '#/components/schemas/MessageProperty'
         client_ref:
           type: string
-          description: Client reference of up to 40 characters
+          description: Client reference of up to 40 characters. The reference will be present in every message status.
           example: 'my-personal-reference'
 
     Response:
@@ -496,7 +496,8 @@ components:
                 example: '1234'
         fallback_locale:
           type: string
-          description: 'Templates sent to a user will be localized according to the device locale settings. Optionally specify a fallback locale for displaying the message if a translation does not exist.'
+          description: 'Templates sent to a user will be localized according to the device locale settings. Optionally specify a fallback locale for displaying the message if a translation does not exist'
+          default: 'en'
           example: 'en'
 
     LocationProperty:
