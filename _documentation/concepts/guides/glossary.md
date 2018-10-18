@@ -436,7 +436,7 @@ See also the [Nexmo documentation on endpoints](/voice/voice-api/guides/endpoint
 
 ## SIP Trunking
 
-In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) endpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can felxibly use this as a SIP trunk and a SIP User Agent gateway.
+In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) endpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can flexibly use this as a SIP trunk and a SIP User Agent gateway.
 
 ## SMPP
 

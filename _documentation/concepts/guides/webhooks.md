@@ -18,12 +18,12 @@ The process looks something like this:
 
 ```js_sequence_diagram
 Your App->Nexmo: Configure URL for webhook
-Note over Your App, Nexmo: Sometime later ...
+Note over Your App, Nexmo: Some time later ...
 Nexmo->Your App: Have some interesting data
 Your App->Nexmo: 200 OK
 ```
 
-Webhooks provide a convenient mechanism for Nexmo to send information to your application for events such as an incoming call or message, or a change in call status. They can also be used to send follow-up information such as a delivery receipt which may become available sometime after the request it relates to.
+Webhooks provide a convenient mechanism for Nexmo to send information to your application for events such as an incoming call or message, or a change in call status. They can also be used to send follow-up information such as a delivery receipt which may become available some time after the request it relates to.
 
 ## Which APIs support webhooks?
 
@@ -62,7 +62,7 @@ Information about your request is then sent to your webhook endpoint.
 
 **Code defensively** - Inspect that data values exist and contain what you expected before you go ahead and use them. Depending on your setup, you could be open to receiving unexpected data so always bear this in mind.
 
-**Look at examples** - Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example, code using webhooks see the following:
+**Look at examples** - Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example code using webhooks see the following:
 
 * [Receive an SMS](/messaging/sms/building-blocks/receiving-an-sms)
 * [Handle delivery receipts](/messaging/sms/guides/delivery-receipts)
