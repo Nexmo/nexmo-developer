@@ -14,9 +14,6 @@ A Nexmo application contains the security and configuration information you need
 [POST] https://api.nexmo.com/v1/applications
 ```
 
-You use a POST request to create a new application:
-
-
 ### Voice
 
 ```tabbed_examples
@@ -25,7 +22,7 @@ source: _examples/api/application/voice/create-an-application
 
 #### Parameters
 
-The following table shows the parameters you use to create a new application:
+The following table shows the parameters you use to create a new voice application:
 
 Parameter | Description | Required
 -- | -- | -- | --
@@ -36,6 +33,9 @@ Parameter | Description | Required
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | ✓ 
 `event_method` | The HTTP method used to send event information to event_url. The default value is POST. | x
 
+
+<br>
+
 ### Messages and Dispatch
 
 ```tabbed_examples
@@ -44,7 +44,7 @@ source: _examples/api/application/messages/create-an-application
 
 #### Parameters
 
-The following table shows the parameters you use to create a new application:
+The following table shows the parameters you use to create a new messages and dispatch application:
 
 Parameter | Description | Required
 -- | -- | -- | --
@@ -52,6 +52,8 @@ Parameter | Description | Required
 `type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ 
 `status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every messageto this URL. | ✓
 `inbound_url` | Nexmo sends Inbound Messages to this URL. | ✓
+
+<br>
 
 ### Response
 
