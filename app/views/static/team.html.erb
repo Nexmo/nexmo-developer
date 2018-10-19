@@ -27,7 +27,7 @@
 
   <h2><b>Alumni</b></h2>
 
-  <div class="avatar-grid">
+  <div class="Vlt-grid">
     <% @team['alumni'].shuffle.each do |member| %>
       <%= render partial: 'profile', locals: member.symbolize_keys %>
     <% end %>

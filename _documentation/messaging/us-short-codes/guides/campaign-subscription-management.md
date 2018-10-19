@@ -29,15 +29,15 @@ Once a recipient number has unsubscribed from your campaign, any outbound SMS to
 
 2. Send a [request](/api/sms/us-short-codes/alerts/subscription#request) and see the list of phone numbers that are unsubscribed from your campaign:
 
-    ```tabbed_examples
-    source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/unsubscribe/request'
-    ```
+```tabbed_examples
+source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/unsubscribe/request'
+```
 
 3. Check the [response](/api/sms/us-short-codes/alerts/subscription#response):
 
-    ```tabbed_examples
-    source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/unsubscribe/response'
-    ```
+```tabbed_examples
+source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/unsubscribe/response'
+```
 
 ## Resubscribe to your campaign
 
@@ -49,12 +49,12 @@ To handle resubscribe requests:
 
 2. Send a [request](/api/sms/us-short-codes/alerts/subscription#request) to opt-in the phone number again:
 
-    ```tabbed_examples
-    source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/resubscribe/request'
-    ```
+```tabbed_examples
+source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/resubscribe/request'
+```
 
 3. Check the [response](/api/sms/us-short-codes/alerts/subscription#response):
 
-    ```tabbed_examples
-    source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/resubscribe/response'
-    ```
+```tabbed_examples
+source: '/_examples/messaging/us-short-codes/guides/campaign-subscription-management/resubscribe/response'
+```

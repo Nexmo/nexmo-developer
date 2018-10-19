@@ -1,18 +1,6 @@
 .extend {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  > .Vlt-card {
-    flex: 1;
-    min-width: 350px;
-    max-width: 350px;
-    height: 300px;
-    margin: 10px;
-    justify-self: start;
-    @include mobile() {
-      min-width: 280px;
-    }
+  .Vlt-card {
+    min-width: 280px;
   }
 }
 .extend-wrapper {

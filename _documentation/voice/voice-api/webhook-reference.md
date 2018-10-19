@@ -267,7 +267,7 @@ Field | Example | Description
 `start_time` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
 `recording_url` | `https://api.nexmo.com/v1/files/bbbbbbbb-aaaa-cccc-dddd-0123456789ab` | Where to download the recording
 `size` | 12222 | The size of the recording file (in bytes)
-`recording_uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | A unique identifer for this recording
+`recording_uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | A unique identifier for this recording
 `end_time` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
