@@ -50,7 +50,7 @@ Parameter | Description | Required
 -- | -- | -- | --
 `name` | The name of your application. | ✓ 
 `type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ 
-`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every messageto this URL. | ✓
+`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every message to this URL. | ✓
 `inbound_url` | Nexmo sends Inbound Messages to this URL. | ✓
 
 <br>
