@@ -12,6 +12,8 @@
 
     <div id="acc<%= id %>" class="Vlt-js-accordion__content">
         <h4>Response Fields</h4>
+      <% response.formats.each_with_index do |format, index| %>
+        <div class="js-format" data-format="<%= format %>">
         <div class="Vlt-table">
             <table>
                 <thead>
@@ -21,7 +23,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                <% response.formats.each_with_index do |format, index| %>
                     <% if response.exhibits_one_of_multiple_schemas?(format) %>
                         <% response.split_schemas(format).each_with_index do |schema, index| %>
                             <% next unless schema['properties'] %>
@@ -53,10 +54,11 @@
                         <% end %>
                     <% end %>
 
-                <% end %>
                 </tbody>
             </table>
         </div>
+        </div>
+      <% end %>
     </div>
 
 <% end %>
