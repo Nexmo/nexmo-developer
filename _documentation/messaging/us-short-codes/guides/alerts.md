@@ -31,15 +31,15 @@ To send Event Based Alerts to your users:
 
 1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts/sending#request). If you have multiple templates, remember to set the <i>template</i> number in your request.
 
-    ```tabbed_examples
-    source: '_examples/messaging/us-short-codes-api/alerts/send-alerts-request'
-    ```
+```tabbed_examples
+source: '_examples/messaging/us-short-codes-api/alerts/send-alerts-request'
+```
 
 2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Nexmo correctly:
 
-    ```tabbed_examples
-    source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'
-    ```
+```tabbed_examples
+source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'
+```
 
 3. Nexmo sends the alert to your user.
 
@@ -51,8 +51,8 @@ To send Event Based Alerts to your users:
 
     3. How much the message cost.
 
-    ```tabbed_examples
-    source: '_examples/messaging/us-short-codes-api/generic/delivery-receipt'
-    ```
+```tabbed_examples
+source: '_examples/messaging/us-short-codes-api/generic/delivery-receipt'
+```
 
 > Note: remember to send return *200 ok* when you receive the delivery receipt.

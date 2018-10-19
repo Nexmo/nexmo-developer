@@ -141,7 +141,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.23)
+    ffi (1.9.25)
     formatador (0.2.5)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -434,6 +434,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails (= 4.8.2)
   faker (= 1.8.4)
+  ffi (>= 1.9.24)
   foundation-rails (= 6.4.1.2)
   friendly_id (= 5.2.3)
   gravatar_image_tag (= 1.2.0)
