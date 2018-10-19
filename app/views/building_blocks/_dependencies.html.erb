@@ -1,11 +1,9 @@
-<h3 class="collapsible">
-    <a class="js-collapsible" data-collapsible-id="<%= id %>">
-        Install dependencies
-    </a>
-</h3>
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
+	<h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">Install dependencies</h5>
 
-<div id="<%= id %>" class="collapsible-content" style="display: none;">
-    <p><%=deps['text']%></p>
-    <pre class="highlight bash"><code><%=deps['code']%></code></pre>
+	<div id="acc<%= id %>" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+		    <p><%=deps['text']%></p>
+		    <pre class="highlight bash"><code><%=deps['code']%></code></pre>
+	</div>
 </div>
 

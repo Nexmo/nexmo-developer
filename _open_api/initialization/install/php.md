@@ -2,7 +2,7 @@
 language: php
 ---
 
-#### Install the Nexmo library
+##### Install the Nexmo library
 
 ```sh
 $ composer require nexmo/client:@beta

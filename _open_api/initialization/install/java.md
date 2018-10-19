@@ -2,7 +2,7 @@
 language: java
 ---
 
-#### Install the Nexmo library
+##### Install the Nexmo library
 
 Add the following to `build.gradle`:
 

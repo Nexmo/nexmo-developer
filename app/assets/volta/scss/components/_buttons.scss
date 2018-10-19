@@ -1,0 +1,498 @@
+$shadow-standard: 0 1px 0px rgba($black, 0.15);
+$shadow-active: inset 0 2px 3px rgba($black, 0.2);
+$shadow-tertiary: inset 0 0 0px 1px $grey;
+
+@mixin btn-app-radius {
+	border-radius: 4px;
+}
+
+%Vlt-btn {
+	align-items: center;
+	appearance: none;
+	border: 0;
+	border-radius: 36px;
+	box-shadow: $shadow-standard;
+	cursor: pointer;
+	display: inline-block; // can't be inline-flex because of Safari
+	font-size: 1.4rem;
+	font-weight: 600;
+	justify-content: center;
+	line-height: 1.9rem; // needed for Safari
+	margin: $unit1 0;
+	min-height: 36px;
+	outline: none;
+	padding: $unit1 $unit2; // both paddings added for IE alignment
+	text-align: center;
+	transition: transform 0.2s, background 0.2s;
+	vertical-align: middle;
+	white-space: nowrap;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	&:active {
+		border: 0;
+		box-shadow: inset 0 2px 3px rgba($black, 0.12);
+		outline: none;
+		transform: scale(0.99);
+	}
+
+	svg {
+		display: inline-block;
+		fill: $white;
+		height: 20px;
+		margin-left: -5px;
+		margin-right: 6px;
+		margin-top: -2px;
+		vertical-align: middle;
+		width: 20px;
+	}
+}
+
+.Vlt-btn {
+	@extend %Vlt-btn;
+
+	&--app {
+		@extend %Vlt-btn--app;
+	}
+
+	&--block {
+		width: 100%;
+	}
+
+	&--small {
+		@extend %Vlt-btn--small;
+	}
+
+	&--large {
+		@extend %Vlt-btn--large;
+	}
+
+	&--primary {
+		@extend %Vlt-btn--primary;
+	}
+
+	&--secondary {
+		@extend %Vlt-btn--secondary;
+	}
+
+	&--tertiary {
+		@extend %Vlt-btn--tertiary;
+	}
+
+	&--quaternary {
+		@extend %Vlt-btn--quaternary;
+	}
+
+	&--destructive {
+		@extend %Vlt-btn--destructive;
+	}
+
+	&--icon {
+		@extend %Vlt-btn--icon;
+	}
+
+	& + & {
+		margin-left: $unit1;
+	}
+
+	&--nomargin {
+		margin: 0;
+	}
+}
+
+%Vlt-btn--app {
+	@include btn-app-radius;
+}
+
+%Vlt-btn--small {
+	line-height: 1.5rem; //needed for Safari
+	min-height: 30px;
+	padding: 7px 14px;
+
+	svg {
+		height: 16px;
+		width: 16px;
+	}
+}
+
+%Vlt-btn--large {
+	font-size: 1.6rem;
+	line-height: 2.2rem; //needed for Safari
+	margin: $unit1 0 $unit2;
+	min-height: 50px;
+	padding: 13px 25px;
+
+	svg {
+		height: 24px;
+		margin-top: -4px;
+		width: 24px;
+
+		&  span {
+			margin-left: $unit1;
+		}
+	}
+}
+
+%Vlt-btn--icon {
+	svg {
+		margin-left: -8px;
+		margin-right: -8px;
+	}
+
+	&.Vlt-btn--large {
+		svg {
+			margin-left: -12px;
+			margin-right: -12px;
+		}
+	}
+
+	&.Vlt-btn--small {
+		svg {
+			margin-left: -7px;
+			margin-right: -7px;
+		}
+	}
+}
+
+%Vlt-btn--primary {
+	background: $orange;
+	color: $white;
+
+	&:hover,
+	&:not(.Vlt-btn--no-focus):focus {
+		background: darken($orange, 5);
+		color: $white;
+	}
+
+	&:active
+	&.Vlt-btn_active {
+		background: darken($orange, 5);
+		box-shadow: $shadow-active, 0 0 0 rgba($black, 0);
+		color: $white;
+	}
+
+	&:disabled,
+	&.Vlt-btn--disabled {
+		@extend %disabled-btn-style
+	}
+}
+
+%Vlt-btn--secondary {
+	background: $blue;
+	color: $white;
+
+	&:hover,
+	&:not(.Vlt-btn--no-focus):focus {
+		background: darken($blue, 5);
+		color: $white;
+	}
+
+	&:active,
+	&.Vlt-btn_active {
+		background: darken($blue, 5);
+		box-shadow: $shadow-active;
+		color: $white;
+	}
+
+	&:disabled,
+	&.Vlt-btn--disabled {
+		@extend %disabled-btn-style
+	}
+}
+
+%Vlt-btn--tertiary {
+	background: $grey-lighter;
+	box-shadow: $shadow-tertiary, $shadow-standard;
+	color: $black;
+	font-weight: 400;
+
+	svg {
+		fill: $grey-darker;
+	}
+
+	&:hover,
+	&:not(.Vlt-btn--no-focus):focus {
+		background: $grey-light;
+		color: $black;
+	}
+
+	&:active,
+	&.Vlt-btn_active {
+		background: $grey-light;
+		box-shadow: $shadow-active, $shadow-tertiary;
+		color: $black;
+	}
+
+	&:disabled,
+	&.Vlt-btn--disabled {
+		@extend %disabled-btn-style
+	}
+}
+
+%Vlt-btn--destructive {
+	background: $red;
+	color: $white;
+
+	&:hover,
+	&:not(.Vlt-btn--no-focus):focus {
+		background: darken($red, 5);
+		color: $white;
+	}
+
+	&:active,
+	&.Vlt-btn_active {
+		background: darken($red, 5);
+		box-shadow: $shadow-active;
+		color: $white;
+	}
+
+	&:disabled,
+	&.Vlt-btn--disabled {
+		@extend %disabled-btn-style
+	}
+}
+
+%Vlt-btn--quaternary {
+	background: $green;
+	color: $white;
+
+	&:hover,
+	&:not(.Vlt-btn--no-focus):focus {
+		background: darken($green, 5);
+		color: $white;
+	}
+
+	&:active,
+	&.Vlt-btn_active {
+		background: darken($green, 5);
+		box-shadow: $shadow-active;
+		color: $white;
+	}
+
+	&:disabled,
+	&.Vlt-btn--disabled {
+		@extend %disabled-btn-style
+	}
+}
+
+.Vlt-btn-group {
+	display: flex;
+
+	.Vlt-btn {
+		margin-left: 0;
+		margin-right: 0;
+
+		&:hover {
+			transform: scale(1);
+		}
+
+		&:not(:first-child) {
+			border-bottom-left-radius: 0;
+			border-top-left-radius: 0;
+		}
+
+		&:not(:last-child) {
+			border-bottom-right-radius: 0;
+			border-top-right-radius: 0;
+		}
+
+		&--primary {
+			&:not(:first-child) {
+				border-left: 1px solid $orange-light;
+			}
+		}
+
+		&--secondary {
+			&:not(:first-child) {
+				border-left: 1px solid $blue-light;
+			}
+		}
+
+		&--tertiary {
+			&:not(:first-child):not(:last-child) {
+				// Override the shadow to only keep top and bottom in any button that isn't the first or the last
+				box-shadow: $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey;
+			}
+		}
+
+		&--destructive {
+			&:not(:first-child) {
+				border-left: 1px solid $red-light;
+			}
+		}
+
+		&:not(.Vlt-btn--no-focus):focus {
+			z-index: 2;
+		}
+	}
+
+	&--app {
+		.Vlt-btn {
+			&:first-child {
+				border-bottom-left-radius: 4px;
+				border-top-left-radius: 4px;
+			}
+
+			&:last-child {
+				border-bottom-right-radius: 4px;
+				border-top-right-radius: 4px;
+			}
+		}
+	}
+
+	&:not(.Vlt-btn-group--app) {
+		.Vlt-btn {
+			&:first-child {
+				padding-left: 20px;
+			}
+
+			&:last-child {
+				padding-right: 20px;
+			}
+		}
+	}
+
+	&--small {
+		.Vlt-btn {
+			@extend %Vlt-btn--small;
+		}
+
+		&:not(.Vlt-btn-group--app) {
+			.Vlt-btn {
+				&:last-child {
+					padding-right: 18px;
+				}
+
+				&:first-child {
+					padding-left: 18px;
+				}
+			}
+		}
+	}
+
+	&--large {
+		.Vlt-btn {
+			@extend %Vlt-btn--large;
+		}
+
+		&:not(.Vlt-btn-group--app) {
+			.Vlt-btn {
+				&:last-child {
+					padding-right: 30px;
+				}
+
+				&:first-child {
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+
+	&--icon {
+		.Vlt-btn {
+			@extend %Vlt-btn--icon;
+		}
+	}
+
+	&--hover {
+		border: 0 !important;
+		margin-top: -$unit1;
+		opacity: 0;
+		padding: 0 !important;
+		position: absolute;
+		right: $unit2;
+		transition: all 0.3s;
+		z-index: -1;
+
+		.Vlt-btn {
+			&:first-child {
+				border-bottom-left-radius: 30px;
+				border-top-left-radius: 30px;
+			}
+
+			&:last-child {
+				border-bottom-right-radius: 30px;
+				border-top-right-radius: 30px;
+			}
+		}
+	}
+
+	&--inline {
+		display: inline-flex;
+	}
+}
+
+.Vlt-btn-on-hover {
+	position: relative;
+
+	&:hover {
+		.Vlt-btn-group--hover {
+			opacity: 1;
+			z-index: 2;
+		}
+	}
+
+	&:not(tr):not(td):not(table) {
+		.Vlt-btn-group--hover {
+			top: -$unit1; // this is both here and above in the form of margin-top because that one works in tables and this works everywhere else
+		}
+	}
+}
+
+.Vlt-text-btn,
+%Vlt-text-btn {
+	@extend %Vlt-text-link;
+	@extend .reset-button;
+	border-radius: 0;
+	cursor: pointer;
+	font-size: 1.5rem;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.Vlt-text-link,
+%Vlt-text-link {
+	color: $blue-dark;
+	cursor: pointer;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+
+	&:hover {
+		color: $blue-darker;
+	}
+
+	&:active {
+		color: $blue-darker;
+	}
+
+	&:visited {
+		color: $blue-dark;
+
+		&:hover {
+			color: $blue-darker;
+		}
+	}
+}
+
+.reset-button {
+	appearance: none;
+	background: none;
+	border: 0;
+	outline: none;
+	padding: 0;
+}
+
+%disabled-btn-style {
+	background: $grey-light;
+	box-shadow: none;
+	color: $grey-dark;
+	font-weight: 400;
+	pointer-events: none;
+}

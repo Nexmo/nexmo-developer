@@ -1,0 +1,199 @@
+.Vlt-dialpad {
+	background: $aqua-dark;
+	border-radius: $unit0;
+	box-shadow: 0 5px 10px 0 rgba($black, 0.5);
+	margin: $unit1 auto;
+	max-width: 100%;
+	width: 300px;
+
+	&--nobg {
+		background: transparent;
+	}
+
+	&--noshadow {
+		box-shadow: none;
+	}
+
+	&--border {
+		border: 1px solid $teal-light;
+	}
+
+	&__keypad {
+		display: flex;
+		flex-flow: row wrap;
+		padding: $unit1 $unit1 $unit3;
+	}
+
+	&__key {
+		@extend .reset-button;
+		align-items: center;
+		border-radius: 3px;
+		cursor: pointer;
+		display: flex;
+		flex: 0 0 33%;
+		flex-flow: row wrap;
+		height: 60px;
+		justify-content: center;
+		margin: 2px 0;
+		transition: background 0.4s;
+
+		&__main {
+			align-self: flex-start;
+			color: $white;
+			flex: 0 0 100%;
+			font-size: 3rem;
+			font-weight: 600;
+			padding-bottom: 2px;
+			padding-top: 10px;
+			text-align: center;
+		}
+
+		&__sub {
+			color: $aqua-light;
+			flex: 0 0 100%;
+			font-size: 1.2rem;
+			font-weight: 600;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		&:hover {
+			background: rgba($aqua, 0.25);
+		}
+
+		svg {
+			height: 24px;
+			width: 24px;
+		}
+
+		.Vlt-btn {
+			margin: 0;
+		}
+
+		&--nohover {
+			&:hover {
+				background: transparent;
+			}
+		}
+	}
+
+	&__header {
+		color: $blue-lighter;
+		font-size: 1.2rem;
+		padding: 12px 32px;
+		position: relative;
+		text-align: center;
+
+		&__dismiss {
+			@extend .reset-button;
+			cursor: pointer;
+			height: 22px;
+			object-fit: contain;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			transition: opacity 0.2s;
+			width: 22px;
+
+			svg {
+				fill: $white;
+				height: 100%;
+				width: 100%;
+			}
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	&__strip {
+		align-items: center;
+		background: rgba($aqua, 0.25);
+		display: flex;
+		height: 52px;
+		padding: $unit1 $unit2;
+
+		&__icon {
+			flex: 0 0 28px;
+			width: 28px;
+		}
+
+		&__backspace {
+			cursor: pointer;
+			flex: 0 0 28px;
+			transition: opacity 0.2s;
+			width: 28px;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		&__number {
+			flex: 1;
+			padding: 0 $unit0;
+
+			input {
+				background: transparent;
+				border: 0;
+				color: $white;
+				direction: rtl;
+				font-size: 2.1rem;
+				font-weight: 600;
+  				overflow: hidden;
+  				text-align: center;
+  				text-overflow: ellipsis;
+  				white-space: nowrap;
+  				width: 100%;
+
+				&:focus {
+					direction: ltr;
+					outline: none;
+				}
+			}
+		}
+	}
+
+	&--light {
+		background: $white;
+		border: 1px solid $grey-light;
+		box-shadow: none;
+
+		.Vlt-dialpad {
+			&__key {
+				&__main {
+					color: $grey-darker;
+				}
+
+				&__sub {
+					color: $aqua;
+				}
+
+				&:hover {
+					background: rgba($aqua-light, 0.25);
+				}
+			}
+
+			&__header {
+				color: $grey-darker;
+
+				&__dismiss {
+					svg {
+						fill: $grey-darker;
+					}
+				}
+			}
+
+			&__strip {
+				background: rgba($aqua-lighter, 0.5);
+
+				&__number {
+					input {
+						color: $grey-darker;
+					}
+				}
+			}
+		}
+	}
+}

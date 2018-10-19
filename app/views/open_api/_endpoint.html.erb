@@ -1,77 +1,72 @@
-<div>
-  <div class="slate-layout-documentation">
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
     <div>
       <%= content_tag :h3, endpoint.summary, id: endpoint.operationId %>
       <% if endpoint.description %>
         <%= content_tag :p, endpoint.description.render_markdown %>
       <% end %>
 
-      <div class="api-path">
-        <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
-        <code>
-          <span class="api-path-host"><%= endpoint.definition.servers[0]['url'] %></span>
-          <%= endpoint.path.path.gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
+      <div class="Vlt-badge-combined">
+        <code class="Vlt-badge Vlt-badge--large Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><%= endpoint.method.upcase %></code>
+        <code class="Vlt-badge Vlt-badge--large Vlt-badge--grey">
+          <span><%= endpoint.definition.servers[0]['url'] %></span><%= endpoint.path.path.gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
         </code>
       </div>
 
-      <% if endpoint.jwt? || endpoint.basic_auth? %>
+       <% if endpoint.jwt? || endpoint.basic_auth? %>
         <h4>Authentication</h4>
+
         <% if endpoint.jwt? && endpoint.basic_auth? %>
             <p>This API supports both JWT and Basic authentication. Basic authentication is easier to get started with, but does not support advanced features such as ACLs.</p>
 
             <p>You can use <em>either</em> JWT or Basic authentication, but not both at the same time.</p>
-      <% end %>
+        <% end %>
 
-        <ul class="table-list table-list--dark">
-          <li class="table-list-header">
-            <div class="table-list-columns">
-              <div class="table-list-column" flex="2">Key</div>
-              <div class="table-list-column" flex="3">Description</div>
-              <div class="table-list-column" flex="2">Example</div>
+        <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Description</th>
+                <th>Example</th>
+                <th>Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if endpoint.jwt? %>
+              <tr>
+                <td>
+                  <b>Authorization</b>
+                </td>
+                <td>
+                    <b>Your JSON web token.</b><br>
+                    <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
+                </td>
+                <td><code>Bearer &lt;JWT&gt;</code></td>
+                <td>
+                    <em>None</em>
+                </td>
+              </tr>
+              <% end %>
 
-              <div class="table-list-column">Default</div>
-            </div>
-          </li>
-          <% if endpoint.jwt? %>
-          <li>
-            <div class="table-list-columns">
-              <div class="table-list-column" flex="2">
-                <b>Authorization</b>
-                <br>
-              </div>
-
-                <div class="table-list-column" flex="3">
-                  <b>Your JSON web token.</b><br>
-                  <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
-                </div>
-                <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
-             <div class="table-list-column">
-                <i>None</i>
-              </div>
-            </div>
-          </li>
-      <% end %>
-          <% if endpoint.basic_auth? %>
-          <li>
-            <div class="table-list-columns">
-              <div class="table-list-column" flex="2">
-                <b>Authorization</b>
-                <br>
-              </div>
-
-                <div class="table-list-column" flex="3">
+              <% if endpoint.basic_auth? %>
+              <tr>
+                <td>
+                  <b>Authorization</b>
+                </td>
+                <td>
                   <b>Base64 encoded API key and secret joined by a colon.</b><br>
-                  <small><%= link_to "Read more", "/concepts/guides/authentication#header-based-api-key-and-secret-authentication" %></small>
-                </div>
-                <div class="table-list-column" flex="2"><code>Basic &lt;base64&gt;</code></div>
-             <div class="table-list-column">
-                <i>None</i>
-              </div>
-            </div>
-          </li>
-      <% end %>
-
-        </ul>
+                  <small><%= link_to "Read more", "/concepts/guides/authentication#header-based-api-key-secret-authentication" %></small>
+                </td>
+                <td><code>Basic &lt;base64&gt;</code></td>
+                <td>
+                  <i>None</i>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       <% end %>
 
       <%= render 'parameter_groups', endpoint: endpoint %>
@@ -80,19 +75,20 @@
     </div>
   </div>
 
-  <div class="slate-layout-code">
-    <div class="slate-layout-code__inner">
-      <br>
+  <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
       <%= render 'code_examples', endpoint: endpoint %>
 
       <% endpoint.responses.each do |response| %>
         <% id = SecureRandom.hex %>
 
-        <h4 class="js-collapsible collapsible <%= response.success? ? 'collapsible--active' : '' %>" data-collapsible-id="<%= id %>">
-          <span class="label label--status--<%= response.code[0] %>xx"><%= response.code %></span> HTTP response
-        </h4>
+      <div class="Vlt-accordion">
+        <button tabindex="0" class="Vlt-accordion__trigger <%= response.code[0] == '2' ? 'Vlt-accordion__trigger_active' : '' %>">
+          <h5 class="Vlt-title--nomargin">HTTP response
+            <span class="Vlt-badge Vlt-badge--<%= response.code[0] == '2' ? 'green' : response.code[0] == '3' ? 'yellow' : 'red'  %>"><%= response.code %></span>
+          </h5>
+        </button>
 
-        <div id="<%= id %>" style="display: <%= response.success? ? 'block' : 'none' %>;">
+        <div class="Vlt-accordion__content <%= response.code[0] == '2' ? 'Vlt-accordion__content_open' : '' %>">
           <div class="tabs-content" data-tabs-content="<%= id %>">
             <% response.formats.each_with_index do |format, index| %>
 
@@ -127,6 +123,7 @@
 
             <% end %>
           </div>
+        </div>
 
           <% if response.code == '204' || response.formats.empty? %>
             <pre class="highlight"><code>No content</code></pre>
@@ -135,7 +132,6 @@
         </div>
       <% end %>
     </div>
-  </div>
 </div>
 
 <% endpoint.callbacks.each do |callback| %>

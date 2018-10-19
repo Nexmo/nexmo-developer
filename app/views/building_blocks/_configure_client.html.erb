@@ -1,18 +1,20 @@
-<h3 class="collapsible">
-    <a class="js-collapsible configure-dependencies" data-collapsible-id="<%= id %>">
-        Initialize your dependencies
-    </a>
-</h3>
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
+	<h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
+	        Initialize your dependencies
+	</h5>
 
-<div id="<%= id %>" class="collapsible-content" style="display: none;">
-    <p>Create a file named <code><%= config['file_name'] %></code> and add the following code:</p>
-    <div class="highlight <%= lexer.tag %>">
+	<div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+	    <p>Create a file named <code><%= config['file_name'] %></code> and add the following code:</p>
+
+    <div class="copy-wrapper">
       <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="configure">
         <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
       </div>
-      <pre><code class="copy-to-clipboard <%= config['title'] %>"><%= highlighted_client_source %></code></pre>
+      <pre class="highlight copy-to-clipboard <%= config['title'] %>"><code><%= highlighted_client_source %></code></pre>
     </div>
-    <a class="source-link" data-section="configure" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= client_url %>">View full source</a>
-</div>
 
+    <p><a data-section="configure" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= client_url %>">View full source</a></p>
+
+  </div>
+</div>
 

@@ -7,7 +7,9 @@ ENVIRONMENT_REDIRECTS = YAML.safe_load(ENV['ENVIRONMENT_REDIRECTS'] || '')
 
 class Redirector
   def self.find(request)
-    find_by_config(request) || find_by_environment_redirect(request) # rubocop:disable Rails/DynamicFindBy
+    url = find_by_config(request) || find_by_environment_redirect(request) # rubocop:disable Rails/DynamicFindBy
+    Redirect.where(url: request.path).first_or_create.increment!('uses') if url # rubocop:disable Rails/SkipsModelValidations
+    url
   end
 
   def self.find_by_config(request)

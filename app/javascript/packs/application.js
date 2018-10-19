@@ -12,8 +12,6 @@ import 'babel-polyfill'
 import { TweenLite, CSSPlugin } from 'gsap'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Collapsible from './Collapsible'
-import Scrollspy from './Scrollspy'
 import GithubCards from './GithubCards'
 import TabbedExamples from './TabbedExamples'
 import Format from './Format'
@@ -34,7 +32,6 @@ import {
   animate as turbolinksAnimate
 } from './Turbolinks'
 
-Collapsible()
 Navigation()
 Scroll()
 turbolinksPreventSamePage()
@@ -43,12 +40,13 @@ turbolinksAnimate()
 let refresh = () => {
   Notices()
   GithubCards()
-  Scrollspy()
   JsSequenceDiagrams()
   new TabbedExamples
   new Format
   Modals()
   APIStatus()
+  Scroll()
+  Navigation()
   BuildingBlockEvents()
 
   if (document.getElementById('SearchComponent')) {
@@ -66,8 +64,15 @@ let refresh = () => {
   if (document.getElementById('MarkdownComponent')) {
     ReactDOM.render(<Markdown/>, document.getElementById('MarkdownComponent'))
   }
+
+  // If we're on a two pane page, make sure that the main pane is focused
+  let rightPane = document.querySelector(".Vlt-main");
+  if (rightPane) { rightPane.click(); }
+
+  Volta.init(['accordion', 'tooltip'])
 }
 
 $(document).on('nexmo:load', function() {
-  refresh()
+  refresh();
 })
+

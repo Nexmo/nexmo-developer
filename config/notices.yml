@@ -1,0 +1,6 @@
+olympus-message-tag-notice:
+  content: |
+    <h4>Adding Message Category to Messages and Workflows APIs</h4>
+    <p>On the 7th May 2018 it will be possible to tag the type of messages sent to Facebook Messenger and Viber Service Messages. This will open up new use cases but might require additional development work to ensure your messaging is compliant with either Facebook Messenger or Viber Service Messages. Please read the <a href="https://developer.nexmo.com/messages-and-workflows-apis/messages/overview#notices">notice</a> for more details.</p>
+  path: /messages-and-workflows-apis\/.*?/
+  dismissible: false

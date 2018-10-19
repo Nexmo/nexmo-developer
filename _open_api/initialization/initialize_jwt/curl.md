@@ -2,7 +2,7 @@
 language: curl
 ---
 
-#### Generate a JWT
+##### Generate a JWT
 
 We'll use this `$JWT` variable in our cURL commands.
 

@@ -1,0 +1,88 @@
+.Vlt-switch {
+	height: 30px;
+	position: relative;
+	width: 50px;
+
+	&__slider {
+		background-color: lighten($black, 65);
+		border-radius: 30px;
+		cursor: pointer;
+		height: 100%;
+		left: 0px;
+		position: absolute;
+		top: 0px;
+		transition: 0.4s;
+		width: 100%;
+
+		&:before {
+			background-color: $white;
+			border: solid 0.5px rgba($deep-black, 0.1);
+			border-radius: 100%;
+			box-shadow: 0 3px 3px 0 rgba($deep-black, 0.05), 0 2px 2px 0 rgba($deep-black, 0.1);
+			content: '';
+			height: 28px;
+			left: 1px;
+			position: absolute;
+			top: 1px;
+			transition: 0.4s;
+			width: 28px;
+		}
+
+		&:hover {
+			background-color: lighten($black, 70);
+		}
+	}
+
+	input {
+		-webkit-tap-highlight-color: transparent;
+		appearance: none;
+		height: 0px;
+		left: 10px;
+		overflow: hidden;
+		position: absolute;
+		top: 10px;
+		visibility: hidden;
+		width: 0px;
+
+		&:focus,
+		&:focus,
+		&:active {
+			-webkit-tap-highlight-color: transparent;
+			box-shadow: none;
+			outline: none;
+		}
+
+		&:checked ~ .Vlt-switch__slider {
+			background-color: $blue;
+
+			&:before {
+				left: 21px;
+			}
+		}
+	}
+
+	&.Vlt-switch--red {
+		input {
+			&:checked ~ .Vlt-switch__slider {
+				background-color: $red;
+			}
+		}
+	}
+
+	&--small {
+		height: 20px;
+		position: relative;
+		width: 32px;
+
+		.Vlt-switch__slider:before {
+			height: 18px;
+			width: 18px;
+		}
+
+		input:checked ~ .Vlt-switch__slider {
+			&:before {
+				left: 13px;
+			}
+		}
+	}
+}

@@ -29,7 +29,7 @@ class BuildingBlocksFilter < Banzai::Filter
     end
 
     tab_link = Nokogiri::XML::Element.new 'a', @document
-    tab_link.content = content[:tab_title]
+    tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
     tab_link['href'] = "##{content[:id]}"
 
     tab.add_child(tab_link)

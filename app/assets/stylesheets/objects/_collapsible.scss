@@ -1,34 +1,18 @@
-.collapsible {
-  user-select: none;
-  cursor: pointer;
+.Nxd-accordion.Vlt-accordion__trigger_active {
+  border: 0;
+}
 
-  #primary-content & {
-    margin: $spacing 0;
-    margin-bottom: $spacing * 1.2;
-  }
-
-  &:before {
-    display: inline-block;
-    color: $stone-light;
-    width: 15px;
-    content: "▸";
-  }
-
-  &--active {
-    &:before {
-      content: "▾";
-    }
+.Nxd-accordion-button {
+  &:after {
+    display: none;
   }
 }
 
-.collapsible-content {
-  padding-left: 15px;
-  border-left: 2px solid $mint;
-  margin-left: 5px;
-  margin-bottom: $spacing;
-}
+.Nxd-accordion-emphasis {
+	border-color: $grey;
 
-.collapsible-no-indent {
-  padding-left: 0;
-  border-left: 0;
+	h5 {
+		padding: 0;
+		line-height: 2.5rem;
+	}
 }

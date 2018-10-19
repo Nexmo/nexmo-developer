@@ -1,0 +1,82 @@
+.Vlt-sidenav:not(.Vlt-sidenav--collapsed) .Vlt-sidetabs {
+	margin-left: 20px;
+	margin-right: 20px;
+
+    ul {
+		display: flex;
+		flex-shrink: 0;
+
+		li {
+			flex: 1;
+		}
+    }
+
+    &__label {
+		display: none;
+	}
+
+	&__trigger {
+		display: none;
+	}
+
+    .Vlt-js-tabs__link {
+    	@extend .reset-button;
+    	align-items: center;
+    	font-size: 1.3rem;
+    	font-weight: 400;
+    	height: 45px;
+    	justify-content: center;
+    	position: relative;
+    	width: 100%;
+
+    	&:after {
+			content: '';
+			height: 3px;
+			left: 50%;
+			position: absolute;
+			transition: none;
+			width: 0px;
+		}
+
+		@media #{$L-plus} {
+			// To prevent problems in iOS this is only on large screens
+			&:hover {
+				&:after {
+					left: 0;
+					transition: all 0.2s;
+					width: 100%;
+				}
+			}
+		}
+
+		&_active,
+		&:active {
+			&:after {
+				left: 0;
+				width: 100%;
+			}
+		}
+    }
+
+    &--bottom {
+    	padding-bottom: 5px;
+
+    	.Vlt-sidetabs__link:after {
+    		top: 0;
+    	}
+    }
+
+    &--top {
+    	padding-top: 5px;
+
+    	.Vlt-sidetabs__link:after {
+    		bottom: 0;
+    	}
+    }
+
+    svg {
+		height: 24px;
+		transition: fill 0.2s;
+		width: 24px;
+	}
+}

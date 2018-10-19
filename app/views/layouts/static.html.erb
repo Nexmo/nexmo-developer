@@ -2,27 +2,25 @@
 <html>
   <%= render partial: 'layouts/partials/head' %>
 
-  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
+  <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
-    <div class="wrapper">
-      <div class="container">
-        <div class="row">
-          <nav class="columns small-12 medium-3 sidenav" id="sidenav" data-turbolinks-permanent>
-            <% if @return_link %>
-              <%= link_to @return_link[:path], class: 'sidenav-back', data: { turbolinks: false } do %>
-                <i class="icon icon-angle-left"></i> Back to <%= @return_link[:title] %>
-              <% end %>
-              <hr>
-            <% end %>
-            <%= navigation_from_content(content: @content, title: @document_title) %>
-          </nav>
-          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks="false">
-            <%= yield %>
-            <%= render partial: 'layouts/partials/feedback' %>
-          </div>
-        </div>
+    <nav class="Vlt-sidenav Vlt-sidenav--light" id=Vlt-sidenav" data-turbolinks-permanent>
+      <% if @return_link %>
+        <%= link_to @return_link[:path], class: 'sidenav-back', data: { turbolinks: false } do %>
+          <i class="icon icon-angle-left"></i> Back to <%= @return_link[:title] %>
+        <% end %>
+        <hr>
+      <% end %>
+      <%= navigation_from_content(content: @content, title: @document_title) %>
+    </nav>
+    <div class="Vlt-main Vlt-main--light Nxd-main" id="primary-content" data-turbolinks="false" tabindex="2">
+      <%= render partial: 'layouts/partials/notices' %>
+      <div class="Vlt-card">
+        <%= yield %>
+        <%= render partial: 'layouts/partials/feedback' %>
+        <!--<%= render partial: 'layouts/partials/footer' %>-->
       </div>
     </div>
-    <%= render partial: 'layouts/partials/footer' %>
+    <%= render partial: 'layouts/partials/scripts' %>
   </body>
 </html>

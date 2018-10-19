@@ -66,20 +66,24 @@ Read more about:
 
 ## SDK Documentation
 
-<div class="row">
-  <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch/javascript/" target="_blank" class="card spacious card--image card--javascript">
-      <h2>JavaScript</h2>
+
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--center">
+    <a href="/sdk/stitch/javascript/" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg class="Vlt-yellow"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-js"></use></svg>
+      JavaScript
     </a>
   </div>
-  <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch/android/" class="card spacious card--image card--android">
-      <h2>Android</h2>
+  <div class="Vlt-col Vlt-col--center">
+    <a href="/sdk/stitch/android/" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg class="Vlt-green-light"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-android"></use></svg>
+      Android
     </a>
   </div>
-  <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch/ios/" class="card spacious card--image card--ios">
-      <h2>iOS</h2>
+  <div class="Vlt-col Vlt-col--center">
+    <a href="/sdk/stitch/ios/" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-apple"></use></svg>
+      iOS
     </a>
   </div>
 </div>
@@ -89,3 +93,4 @@ Read more about:
 * [API Reference](/api/stitch)
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 * [Node.JS and Angular Demo](https://github.com/Nexmo/stitch-demo) with an [Android](https://github.com/Nexmo/stitch-demo-android) client demo
+

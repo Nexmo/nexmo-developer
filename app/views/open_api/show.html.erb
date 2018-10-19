@@ -1,20 +1,14 @@
-<div class="slate-layout">
-  <div class="slate-layout-navigation">
-    <div>
-      <nav class="sidenav sidenav--spacious" data-turbolinks-permanent="">
-        <%= render 'navigation', definition: @definition %>
-      </nav>
-    </div>
-  </div>
+<%= render 'navigation', definition: @definition %>
 
-  <div class="slate-layout-main">
-    <div id="overview">
-      <div class="slate-layout-documentation">
+<div class="Vlt-main Vlt-main--light Nxd-main" tabindex="2">
+  <div class="Vlt-card Vlt-article Nxd-api">
+    <div id="overview" class="Vlt-grid">
+      <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
         <div>
           <h1>
             <%= @definition.info['title'] %>
             <% if @definition.info['x-label'] %>
-              <span class="label label--<%= @definition.info['x-label'].parameterize %>">
+              <span class="Vlt-badge Vlt-badge--<%= @definition.info['x-label'].parameterize %>">
                 <%= @definition.info['x-label'] %>
               </span>
             <% end %>
@@ -24,39 +18,48 @@
             <p><%= @definition.info['description'].render_markdown %></p>
           <% end %>
 
-          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'button button--secondary' do %>
-            <i class="icon icon-swagger"></i>
+          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' do %>
+            <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-download" /></svg>
             Download OpenAPI 3 Definition
           <% end %>
 
         </div>
       </div>
-      <div class="slate-layout-code">
-        <% if @definition_initialization_config && @definition_initialization_content %>
-          <ul class="tabs tabs--code" data-tabs>
-            <% if @definition_initialization_config['tabs'] %>
-              <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
-                <li
-                  class="tabs-title <%= index.zero? ? 'is-active' : '' %>"
-                  language-linkable="false"
-                  data-language="<%= tab %>"
-                  data-language-type="<%= CodeLanguageResolver.find(tab).type %>"
-                ><a href="#<%= tab %>"><%= CodeLanguageResolver.find(tab).label %></a></li>
-              <% end %>
+      <div class="Vlt-col Vlt-col--1of3 Nxd-api__code Nxd-api__code--install">
+
+          <% if @definition_initialization_config && @definition_initialization_content %>
+
+            <div class="Nxd-api__code__header">
+              <% if @definition_initialization_config['tabs'] %>
+              <ul class="tabs tabs--code" data-tabs>
+                <% if @definition_initialization_config['tabs'] %>
+                  <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
+                    <li
+                      class="tabs-title <%= index.zero? ? 'is-active' : '' %>"
+                      language-linkable="false"
+                      data-language="<%= tab %>"
+                      data-language-type="<%= CodeLanguageResolver.find(tab).type %>"
+                    ><a href="#<%= tab %>"><%= CodeLanguageResolver.find(tab).label %></a></li>
+                  <% end %>
+                <% end %>
+              </ul>
+                <% end %>
+
+              <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
+                <div class="Vlt-native-dropdown">
+                  <select class="js-format-selector">
+                    <% @definition_initialization_config['formats'].each do |value, name| %>
+                      <option value="<%= value %>"><%= name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
             <% end %>
-          </ul>
 
-          <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
-            <select class="js-format-selector">
-              <% @definition_initialization_config['formats'].each do |value, name| %>
-                <option value="<%= value %>"><%= name %></option>
-              <% end %>
-            </select>
-          <% end %>
 
-          <div class="slate-layout-code__inner">
-            <%= @definition_initialization_content.html_safe %>
-          </div>
+
+          <%= @definition_initialization_content.html_safe %>
+
         <% end %>
       </div>
     </div>
@@ -78,21 +81,19 @@
     <% end %>
 
     <% if @definition_errors_content %>
-      <div class="slate-layout-main" id="errors">
-        <div>
-          <div class="slate-layout-documentation">
-            <div>
-              <%= @definition_errors_content.html_safe %>
-            </div>
+      <div class="Vlt-grid" id="errors">
+        <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
+          <div>
+            <%= @definition_errors_content.html_safe %>
           </div>
-          <div class="slate-layout-code">
-            <div class="slate-layout-code__inner">
-              <h4>Example response</h4>
-              <%= ResponseParserDecorator.new(@definition.raw['components']['schemas']['Error']).html %>
-            </div>
-          </div>
+        </div>
+        <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
+            <h5>Example response</h5>
+            <%= ResponseParserDecorator.new(@definition.raw['components']['schemas']['Error']).html %>
         </div>
       </div>
     <% end %>
+    <!--<%= render partial: 'layouts/partials/footer' %>-->
   </div>
+  <%= render partial: 'layouts/partials/scripts' %>
 </div>

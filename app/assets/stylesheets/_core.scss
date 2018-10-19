@@ -5,37 +5,39 @@
 }
 
 body {
-  background: $ice;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 
-  > .container {
-    flex: 1;
+  // > .container {
+  //   flex: 1;
+  // }
+}
+
+.Nxd-template {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.Nxd-main {
+  outline: none;
+}
+
+@media #{$M-plus} {
+  .Nxd-main {
+    height: calc(100vh - 111px);
   }
 }
 
-.wrapper {
-  flex: 1;
-  transition: filter 400ms ease-in-out;
-  overflow-x: hidden;
-
-  &--tint {
-    background: $ice;
-  }
-
-  &--blur {
-    filter: blur(3px);
-
-    @include mobile {
-      filter: none;
-    }
-  }
+.Nxd-landing-main {
+  padding: $unit3 $unit4;
 }
 
 .container {
   max-width: 1300px;
-  padding: 0 $spacing;
+  padding: $unit3 $spacing 0;
   margin: auto;
 }
 
@@ -50,68 +52,8 @@ img {
 }
 
 table {
-  margin-bottom: $spacing;
-  border: $border;
-  border-radius: $radius;
-  box-shadow: $shadow-soft;
-
-  thead {
-    color: $white;
-    background: $blue;
-  }
-
-  thead {
-    th:first-child {
-      border-top-left-radius: $radius;
-    }
-
-    th:last-child {
-      border-top-right-radius: $radius;
-    }
-
-    a {
-        color: white;
-    }
-  }
-
-  tbody tr:nth-child(even) {
-    background: mix($ice, $mint);
-  }
-
-  th {
-    padding: $spacing/2 $spacing;
-    font-weight: 600;
-  }
-
-  td {
-    padding: $spacing;
-    border-bottom: $border;
-    line-height: 1.5em;
-  }
-
   code {
     white-space: nowrap;
-  }
-
-  .icon-check-circle, .icon-times-cirle {
-    align-self: center;
-  }
-}
-
-table, td, th { border-collapse:separate; }
-table { border-spacing: 0px }
-
-hr {
-  border: none;
-  border-top: 2px solid darken($mint, 3%);
-
-  &.hr--mini {
-    width: 150px;
-  }
-
-  &.spacious {
-    margin: $spacing 0;
-    padding: 0;
   }
 }
 
@@ -159,4 +101,37 @@ hr {
 
 .float-right {
   float: right;
+}
+
+.Nxd-header-notices {
+  .Vlt-callout {
+    margin-bottom: $unit4;
+  }
+}
+
+table {
+  .Vlt-icon:not(.Vlt-icon--smaller) {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.Vlt-title--icon {
+  position: relative
+}
+
+.heading-permalink {
+  opacity: 0;
+  transition: opacity 0.2s;
+  position: absolute;
+  left: -20px;
+
+  svg {
+    height: 18px !important;
+    width: 18px !important;
+  }
+
+  .Vlt-title--icon:hover & {
+    opacity: 1;
+  }
 }

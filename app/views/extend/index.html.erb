@@ -1,17 +1,36 @@
-<div class="center spacious content-block">
-  <h1>Extend</h1>
-  <p>The Nexmo Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.<p>
+<div class="container">
+  <div class="center spacious content-block">
+    <h1>Extend</h1>
+    <p>The Nexmo Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.<p>
+  </div>
+
+  <div class="Vlt-grid extend Vlt-grid--center">
+  <% @extensions.each do |extension| %>
+    <div class="Vlt-col Vlt-col--1of4 Vlt-col--M-1of2 Vlt-margin--bottom3">
+      <div class="Vlt-card Vlt-card--footer Vlt-card--image Vlt-card--stretch Vlt-card--scrollable">
+      	<div class="Vlt-card__image Vlt-card__image Vlt-card__image--tech Vlt-card__image--indigo">
+          <div class="Vlt-card__image__icon">
+            <img src='<%= extension[:image] %>' alt='<%= extension[:title]%>' />
+          </div>
+        </div>
+        <div class="Vlt-card__content">
+          
+          <h5 class="Vlt-title--icon">
+            <%= extension[:title] %>
+          </h5>
+          <p><%= extension[:description] %></p>
+
+        </div>
+        <div class="Vlt-card__footer">
+        	  <a href="/extend/<%= extension[:route] %>" class="Vlt-btn Vlt-btn--secondary Vlt-btn--app Vlt-btn--small">
+             Learn More
+            </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
 </div>
 
-<div class="extend-grid">
-<% @extensions.each do |extension| %>
-    <div class="extend-card">
-      <% if extension[:image] != '' %>
-      <img src='<%= extension[:image] %>' alt='<%= extension[:title]%>' />
-      <% end %>
-      <h2><a href="/extend/<%= extension[:route] %>"><%= extension[:title] %></a></h2>
-      <p><%= extension[:description] %></p>
-      <a href="/extend/<%= extension[:route] %>">Learn More &rarr;</a>
-    </div>
-<% end %>
-</div>
+
+

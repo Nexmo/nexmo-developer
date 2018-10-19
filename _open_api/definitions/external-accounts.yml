@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: 0.1.0
   title: External Accounts
-  description: 'The External Accounts API is used to manage accounts for VSM, Messenger and Whatsapp for use in the [Messages](/messages/overview) and [Dispatch](/dispatch/overview) APIs.'
+  description: 'The External Accounts API is used to manage accounts for Viber Service Messages, Facebook Messenger and Whatsapp for use in the [Messages](/messages/overview) and [Dispatch](/dispatch/overview) APIs.'
   x-label: Developer Preview
 servers:
 - url: https://api.nexmo.com/beta/chatapp-accounts
@@ -29,7 +29,7 @@ paths:
                 external_id:
                   type: string
                   example: "12345678"
-                  description: The unique identifier within provider realm domain. It is Facebook page ID. Go to your Facebook page, click on "About" link, scroll down and there should be lised your "Page ID"
+                  description: This is the unique identifier within the provider's domain. In this case it is the Page ID for your Facebook Page. Go to your Facebook Page, click "Settings", click "Messenger platform " scroll down to "Messenger link" to find your Page ID.
                 access_token:
                   type: string
                   example: "myAccessToken"
@@ -118,7 +118,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to retrieve
+        description: External id of the account you want to retrieve. In this case it is the Facebook Page ID.
       responses:
         '200':
           description: OK.
@@ -147,7 +147,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to update
+        description: External id of the account you want to update. In this case it is the Facebook Page ID.
       requestBody:
         description: Request body can contain any of the following
         required: true
@@ -196,7 +196,7 @@ paths:
                   external_id:
                     type: string
                     example: "12345678"
-                    description: The external identifier for this account
+                    description: The external identifier for this account. In this case it is the Facebook Page ID.
                   api_key:
                     type: string
                     example: "abcd1234"
@@ -266,7 +266,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to delete
+        description: External id of the account you want to delete. In this case it is the Facebook Page ID.
       responses:
         '204':
           description: No Content.
@@ -298,7 +298,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to retrieve
+        description: External id of the account you want to retrieve. In this case it will be your Viber Service Message ID.
       responses:
         '200':
           description: OK.
@@ -328,7 +328,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to retrieve
+        description: External id of the account you want to retrieve. In this case it will be the WhatsApp number. 
       responses:
         '200':
           description: OK.
@@ -460,7 +460,7 @@ paths:
         schema:
           type: string
         required: true
-        description: External id of the account you want to assign an application to
+        description: External id of the account you want to assign an application to. This is channel dependent. For Facebook it will be your Facebook Page ID, for Viber your Viber Service Message ID and for WhatsApp your WhatsApp number.
       requestBody:
         description: Request body can contain any of the following. Please note, the only one application can be linked to the account.
         required: true
@@ -765,7 +765,7 @@ x-groups:
   applications:
     name: "Application"
     order: 1
-    description: Inbound messages to an external account which is linked to an application will be delivered to the applications inbound URL.
+    description: Inbound messages to an external account which is linked to an application will be delivered to the application's inbound URL.
   account:
     name: "Account"
     order: 2

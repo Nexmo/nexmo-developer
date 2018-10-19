@@ -7,7 +7,7 @@ $hero-gradient: darken($mint, 3%);
     font-size: 55px;
     line-height: 55px;
 
-    @include mobile {
+    @media #{$S-only} {
 
         font-size: 32px;
         line-height: 32px;

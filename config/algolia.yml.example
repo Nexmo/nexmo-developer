@@ -1,5 +1,0 @@
-development_nexmo_developer:
-zendesk_nexmo_articles:
-  filters:
-    category.id:
-      - "SOME_CATEGORY_ID"

@@ -1,0 +1,395 @@
+.Vlt-sidenav {
+	display: flex;
+	flex: 0 0 270px;
+	flex-flow: column;
+	font-weight: 600;
+	height: 100vh;
+	padding-bottom: 10px; // space to allow for the browser url notice
+	width: 270px;
+
+	@media #{$S-only} {
+		height: 100vh;
+		padding-top: 5px;
+		position: fixed;
+		top: 0;
+		transform: translate(-100vw, 0);
+		transition: transform 0.2s;
+		width: 80vw;
+		z-index: $z-index-sidenav-mobile;
+
+		&_visible {
+			box-shadow: 4px 0 12px rgba($black, 0.15), 20vw 0 0 rgba($black, 0.15);
+			transform: translate(0, 0);
+		}
+	}
+
+	&--animate {
+		transition: width 0.2s, flex-basis 0.2s;
+	}
+
+	&__mobile-trigger {
+		display: none;
+
+		@media #{$S-only} {
+			display: block;
+		}
+	}
+
+	&__block {
+		flex-shrink: 0;
+		padding: 10px 20px;
+		position: relative;
+
+		&:before,
+		&:after {
+			content: '';
+			display: none;
+			flex: 0 0 100%;
+			height: 1px;
+			left: 20px;
+			margin: 0 auto;
+			position: absolute;
+			top: 0;
+			width: calc(100% - 40px);
+		}
+
+		&:after {
+			bottom: 0;
+			top: auto;
+		}
+
+		img,
+		svg {
+			max-width: 100%;
+		}
+
+		&--logo {
+			align-items: center;
+			display: flex;
+			flex-flow: row wrap;
+			padding-bottom: 15px;
+			padding-top: 15px;
+
+			&:after {
+				display: block;
+				margin-top: 15px;
+			}
+
+			.Vlt-sidenav__logo {
+				flex: 1;
+
+				svg {
+					width: 100%; // For IE
+				}
+
+				img {
+					height: 40px;
+				}
+			}
+		}
+
+		&--link {
+			padding: 0;
+		}
+
+		&--border-top {
+			&:before {
+				display: block;
+			}
+		}
+
+		&--border-bottom {
+			&:after {
+				display: block;
+			}
+		}
+	}
+
+	&__scroll {
+		flex: auto; // not flex: 1 because IE11 needs flex-basis: auto
+		overflow-y: auto;
+		padding-bottom: 10px;
+
+		@media #{$S-only} {
+			-webkit-overflow-scrolling: touch;
+			overflow-y: scroll;
+		}
+	}
+
+	.Vlt-sidemenu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		// Setting main margins with nesting
+
+		.Vlt-sidemenu__title {
+			margin-bottom: 0;
+			margin-left: 10px;
+		}
+
+		li {
+			margin: 0;
+			padding: 0;
+
+			.Vlt-sidemenu__link,
+			.Vlt-sidemenu__trigger {
+				font-size: 1.5rem;
+				padding-left: 24px;
+				padding-right: 20px;
+
+				@media #{$S-only} {
+					font-size: 1.7rem;
+				}
+			}
+
+			li {
+				.Vlt-sidemenu__link,
+				.Vlt-sidemenu__trigger {
+					font-size: 1.5rem;
+					padding-left: 53px;
+
+					@media #{$S-only} {
+						font-size: 1.7rem;
+					}
+				}
+
+				.Vlt-sidemenu__title {
+					margin-left: 43px;
+				}
+
+				li {
+					.Vlt-sidemenu__link,
+					.Vlt-sidemenu__trigger {
+						font-size: 1.5rem;
+						padding-left: 81px;
+
+						@media #{$S-only} {
+							font-size: 1.7rem;
+						}
+					}
+
+					.Vlt-sidemenu__title {
+						margin-left: 81px;
+					}
+				}
+			}
+		}
+
+		// Dropdown arrow
+
+		&__trigger {
+			&:after {
+				content: '';
+				display: inline-block;
+				height: 20px;
+				position: absolute;
+			    right: 15px;
+			    top: 8px;
+			    transition: transform 0.2s;
+			    width: 20px;
+			    z-index: 1;
+			}
+
+			&_active {
+				&:after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		// Styling links and triggers
+
+		&__link,
+		&__trigger {
+			align-items: flex-start;
+			cursor: pointer;
+			display: flex;
+			justify-content: space-between;
+			line-height: 1.3;
+			margin: 0;
+			padding: $unit1 10px;
+			text-decoration: none;
+			transition: background 0.2s;
+
+			@media #{$S-only} {
+				padding-bottom: 11px;
+				padding-top: 11px;
+			}
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			&--disabled {
+				cursor: default;
+				opacity: 0.3;
+				pointer-events: none;
+			}
+
+			svg {
+				flex: 0 0 20px;
+				height: 20px;
+				margin-bottom: -3px;
+				margin-right: 10px;
+				opacity: 0.8;
+				vertical-align: middle;
+				width: 20px;
+
+				@media #{$S-only} {
+					flex: 0 0 23px;
+					height: 23px;
+					width: 23px;
+				}
+			}
+
+			.Vlt-badge {
+				margin-right: 0;
+				position: relative;
+				z-index: 2;
+			}
+		}
+
+		// Labels
+
+		&__label {
+			flex: 1;
+		}
+
+		// Titles
+
+		&__title {
+			font-size: 1.2rem;
+			font-weight: 400;
+			margin: 0;
+			padding: 10px;
+			text-transform: uppercase;
+
+			&--border {
+				margin-top: 8px;
+				padding-bottom: 4px;
+				padding-top: 10px;
+			}
+		}
+
+		// Behavior of triggers (expanding and collapsing branches)
+
+		&__trigger {
+			position: relative;
+
+			&:not(.Vlt-sidemenu__trigger_active) + ul {
+			    margin: 0;
+			    opacity: 0;
+			    padding: 0;
+			    transition: opacity 0.1s,
+			    	padding 0.2s 0.2s,
+			    	margin 0.2s 0.2s;
+
+	            & * {
+	            	border: 0;
+					font-size: 0 !important;
+					line-height: 0;
+					margin-bottom: 0 !important;
+					margin-top: 0 !important;
+					opacity: 0;
+					padding-bottom: 0 !important;
+					padding-top: 0 !important;
+					transition: all 0.1s;
+
+			    	svg,
+			    	.Vlt-badge {
+			    		height: 0;
+			    		transition: height 0.1s;
+			    	}
+	            }
+			}
+
+			&_active {
+
+				& + ul {
+					margin-bottom: $unit1;
+					transition: font-size 0.2s,
+		                margin 0.2s,
+		                opacity 0.2s 0.2s,
+		                padding 0.2s;
+
+		            & > * {
+		            	opacity: 1;
+		            	transition: all 0.2s;
+		            }
+				}
+			}
+
+			.Vlt-sidemenu__label {
+				max-width: calc(100% - 25px);
+			}
+		}
+
+		// Compressed version
+		// For longer menus, it compresses the padding of menu items without icons while leaving the ones with icons the same
+
+		&__list--compressed {
+			.Vlt-sidemenu__link,
+			.Vlt-sidemenu__trigger {
+				padding: $unit0 10px;
+			}
+
+			.Vlt-sidemenu__trigger {
+				margin-bottom: 4px;
+			}
+		}
+	}
+
+	&__mobile {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		left: 0;
+		padding: 10px;
+		position: fixed;
+		top: 0;
+		width: 100%;
+
+		@media #{$M-plus} {
+			display: none;
+		}
+
+		&__logo {
+			height: 34px;
+		}
+
+		button {
+			@extend .reset-button;
+			flex: 0 0 40px;
+			height: 40px;
+
+			svg {
+				height: 24px;
+				width: 24px;
+			}
+		}
+
+		.Vlt-template--header & {
+			padding-bottom: 5px;
+			padding-top: 5px;
+		}
+	}
+}
+
+body {
+	@media #{$S-only} {
+		&.Vlt-body--has-sidenav {
+			padding-top: 60px;
+		}
+
+		&.Vlt-body--mobile-menu-open {
+			overflow: hidden;
+		}
+	}
+}

@@ -2,22 +2,22 @@
   webhook = false if local_assigns[:webhook].nil?
 %>
 
-<div>
-  <div class="slate-layout-documentation">
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
     <div>
-      <h3 id="<%= endpoint.operationId %>">
-        <span class="label label--<%= webhook ? 'webhook' : 'callback' %>">
+      <h3 id="<%= endpoint.operationId %>" class="Vlt-title--icon">
+        <%= endpoint.summary %>
+        <span class="Vlt-badge Vlt-badge--<%= webhook ? 'orange' : 'green' %>">
           <i class="icon icon-<%= webhook ? 'webhook' : 'callback' %>"></i> <%= webhook ? 'Webhook' : 'Callback' %>
         </span>
-        &nbsp;<%= endpoint.summary %>
       </h3>
       <% if endpoint.description %>
         <p><%= endpoint.description.render_markdown %></p>
       <% end %>
 
-      <div class="api-path">
-        <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
-        <code>
+      <div class="Vlt-badge-combined">
+        <code class="Vlt-badge Vlt-badge--large Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><%= endpoint.method.upcase %></code>
+        <code class="Vlt-badge Vlt-badge--large Vlt-badge--grey">
           <span class="api-path-host">https://example.com</span>
           <%= (endpoint.raw['x-example-path'] || '/webhooks/event').gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
         </code>
@@ -27,12 +27,10 @@
     </div>
   </div>
 
-  <div class="slate-layout-code">
-    <div class="slate-layout-code__inner">
-      <br>
+  <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
       <%= render 'code_examples', endpoint: endpoint %>
 
-      <h4>Request model</h4>
+      <h5>Request model</h5>
 
       <% endpoint.request_body.formats.each_with_index do |format, index| %>
         <div class="js-format" data-format="<%= format %>">
@@ -40,7 +38,6 @@
           <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
         </div>
       <% end %>
-    </div>
   </div>
 </div>
 

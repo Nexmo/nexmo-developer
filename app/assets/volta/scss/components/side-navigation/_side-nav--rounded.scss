@@ -1,0 +1,43 @@
+.Vlt-sidenav {
+	.Vlt-sidemenu {
+		&.Vlt-sidemenu--rounded {
+			padding: 10px;
+
+			.Vlt-sidemenu__title {
+				margin-left: 0;
+				padding-left: 10px;
+			}
+
+			li {
+				.Vlt-sidemenu__link,
+				.Vlt-sidemenu__trigger {
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+
+				li {
+					margin-left: 28px;
+
+					.Vlt-sidemenu__link,
+					.Vlt-sidemenu__trigger {
+						padding-left: 10px;
+					}
+				}
+			}
+
+			.Vlt-sidemenu__link,
+			.Vlt-sidemenu__trigger {
+				border-radius: 4px;
+				margin-bottom: 5px;
+			}
+
+			.Vlt-sidemenu__list--compressed {
+				.Vlt-sidemenu__link,
+				.Vlt-sidemenu__trigger {
+					margin-bottom: 0;
+					padding: 6px 10px;
+				}
+			}
+		}
+	}
+}

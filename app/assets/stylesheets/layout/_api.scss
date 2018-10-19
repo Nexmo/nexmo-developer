@@ -1,0 +1,175 @@
+.Nxd-content {
+	display: flex;
+}
+
+.Nxd-menu__indent {
+	margin-left: 31px !important;
+}
+
+.Nxd-method-badge {
+	text-transform: uppercase;
+
+	&--post {
+		background: $green;
+	}
+
+	&--get {
+		background: $blue-dark;
+	}
+
+	&--delete {
+		background: $red;
+	}
+
+	&--patch {
+		background: $teal;
+	}
+
+	&--put {
+		background: $purple-dark;
+	}
+}
+
+.table-no-line {
+	td {
+		border-bottom: none !important;
+	}
+}
+
+.Vlt-table {
+	.Vlt-table {
+		table thead {
+			th {
+				background-color: $grey-lighter;
+				border-bottom-color: $grey;
+				border-top-color: $grey-light;
+				color: $grey-darker;
+			}
+		}
+	}
+}
+
+.Nxd-api {
+	padding-top: 0;
+	padding-right: $unit2;
+
+	@media #{$S-only} {
+		padding-left: $unit2;
+	}
+
+	&__code {
+		background: $grey-light;
+		border-bottom: 1px solid $grey-lighter;
+		padding-top: $unit3;
+
+		h4,
+		h5 {
+			color: $grey-darker;
+		}
+
+		.tabs-content {
+			background: transparent;
+			border: 0;
+			padding: 0 0 0;
+
+			.tabs-panel {
+				background: transparent;
+			}
+		}
+
+		.tabs {
+			// horrible hack but it's how it was working before
+			display: none;
+		}
+
+		&__header {
+			margin: -#{$unit3} -#{$unit2} #{$unit2} -#{$unit2};
+
+			& > .tabs {
+				// horrible hack but the system is broken
+				display: inline-block;
+				padding-left: $unit2;
+				background: $grey-lighter;
+				width: 100%;
+				margin-top: 0;
+				padding-top: $unit1;
+				box-shadow: inset 0 -1px 0 $grey;
+
+				& .tabs-title {
+					box-shadow: inset 0 -1px 0 $grey;
+
+					&:after {
+						background: $grey;
+					}
+				}
+
+				& .tabs-title.is-active {
+					background: $grey-light;
+					box-shadow: 0px -1px 4px rgba(44, 45, 48, 0.3), inset -1px 1px 0 $grey-light, inset 1px 1px 0 $grey-light;
+
+					&:before {
+						background: $grey-light;
+					}
+				}
+			}
+
+			.Vlt-native-dropdown {
+				margin-right: $unit2;
+				float: right;
+			}
+
+			&--sticky {
+				position: fixed;
+				top: 135px;
+				width: 27.5%;
+				z-index: 1000;
+
+				@media #{$S-only} {
+					left: 0;
+					padding: 0 $unit1;
+					top: 52px;
+					width: 100vw;
+					margin: 0;
+
+				}
+			}
+		}
+
+		.Vlt-accordion__trigger {
+			&:after {
+				background-color: rgba($white, 0.2);
+				border-radius: 100%;
+			}
+		}
+	}
+
+	&__docs {
+		padding-top: $unit3;
+
+		@media #{$M-plus} {
+			border-bottom: 1px solid $grey-light;
+			padding-top: $unit5;
+		}
+
+		.Vlt-tooltip {
+			white-space: nowrap;
+		}
+	}
+
+	&--noborder {
+		margin-bottom: -$unit2;
+		
+		.Nxd-api__docs {
+			border: 0;
+		}
+
+		.Nxd-api__code {
+			border: 0;
+
+			@media #{$S-only} {
+				display: none;
+			}
+		}
+	}
+}
+

@@ -126,7 +126,7 @@ gem 'groupdate', '3.2.0'
 gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
-gem 'nexmo_api_specification', '0.11.6'
+gem 'nexmo_api_specification', '0.11.7'
 
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem 'friendly_id', '5.2.3'
@@ -139,6 +139,9 @@ gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop'
+
+# Volta needs a CSS autoprefixer
+gem 'autoprefixer-rails'
 
 group :development, :test do
   gem 'awesome_print'
@@ -167,3 +170,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+# The following are dependencies of dependencies, but we require them here to
+# force minimum versions due to security issues
+gem 'ffi', '>= 1.9.24'

@@ -1,0 +1,57 @@
+.Vlt-spinner {
+  display: inline-block;
+  height: 64px;
+  margin: $unit1;
+  position: relative;
+  width: 64px;
+
+  &:before,
+  &:after {
+    animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border: 6px solid $teal;
+    border-color: $teal transparent transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    content: '';
+    display: block;
+    height: 75%;
+    margin: 6px;
+    position: absolute;
+    width: 75%;
+  }
+
+  &:after {
+    animation-delay: -0.1s;
+  }
+
+  &--small {
+    height: 32px;
+    width: 32px;
+
+    &:before,
+    &:after {
+      border-width: 3px;
+      margin: 3px;
+    }
+  }
+
+  &--middle {
+    vertical-align: middle;
+  }
+
+  &--center {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

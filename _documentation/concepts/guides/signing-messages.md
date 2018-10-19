@@ -14,7 +14,7 @@ You use a signature to:
 * Ensure that the message has not been tampered with en-route
 * Defend against interception and later replay
 
-A signature is the [MD5 hash](https://en.wikipedia.org/wiki/MD5) of:
+A signature is an [MD5 hash](https://en.wikipedia.org/wiki/MD5) of:
 
 * The parameters - all the parameters in a request sorted in alphabetic order
 * A timestamp - a UNIX timestamp at UTC + 0 to protect against replay attacks
@@ -48,27 +48,27 @@ When you create a Nexmo account you will be provided a signature secret. These c
 
 To sign your messages:
 
-1. Create a signed [request](/api/sms#request):
+**Create a signed [request](/api/sms#request):**
 
-    ```tabbed_examples
-    source: '_examples/messaging/signing-messages/create-request'
-    ```
+```tabbed_examples
+source: '_examples/messaging/signing-messages/create-request'
+```
 
-2. Check the [response codes](/api/sms#response-codes) to ensure that you sent the request to Nexmo correctly:
+**Check the [response codes](/api/sms#response-codes) to ensure that you sent the request to Nexmo correctly:**
 
-    ```tabbed_examples
-    source: '_examples/messaging/signing-messages/check-response'
-    ```
+```tabbed_examples
+source: '_examples/messaging/signing-messages/check-response'
+```
 
-    If you did not generate the signature correctly the [status](/api/sms#status-codes) is `14, invalid signature`
+If you did not generate the signature correctly the [status](/api/sms#status-codes) is `14, invalid signature`
 
-3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
+Your message is delivered to the handset. The user's handset returns a delivery receipt.
 
-4. If your delivery receipts and inbound messages are signed, validate the signature:
+**If your delivery receipts and inbound messages are signed, validate the signature:**
 
-    ```tabbed_examples
-    source: '_examples/messaging/signing-messages/validate-signature'
-    ```
+```tabbed_examples
+source: '_examples/messaging/signing-messages/validate-signature'
+```
 
 ## Troubleshooting signatures
 

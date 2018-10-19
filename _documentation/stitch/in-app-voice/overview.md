@@ -37,6 +37,8 @@ Nexmo In-App Voice also integrates with the Nexmo [Voice API](/voice/voice-api/o
 
 ## Try out the Quick Start Guides
 
+
 * [JavaScript Quick Start](/stitch/in-app-voice/guides/enable-audio/javascript)
 * [Android Quick Start](/stitch/in-app-voice/guides/enable-audio/android)
 * [iOS Quick Start](/stitch/in-app-voice/guides/enable-audio/ios)
+

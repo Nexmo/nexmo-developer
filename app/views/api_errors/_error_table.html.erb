@@ -1,3 +1,4 @@
+<div class="Vlt-table Vlt-table--data Vlt-table--bordered">
 <table>
   <thead>
     <th>Error ID</th>
@@ -17,10 +18,11 @@
         </td>
         <td>
         <% if error.link %>
-          <%= link_to error.link.text, error.link.url, class: 'button' %>
+          <%= link_to error.link.text, error.link.url, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
         <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

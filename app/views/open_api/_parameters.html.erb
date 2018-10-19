@@ -18,24 +18,25 @@
       <% end %>
     </div>
 <% else %>
-  <ul class="table-list">
-    <li class="table-list-header">
-      <div class="table-list-columns <%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
-        <div class="table-list-column" flex="2">Key</div>
-        <div class="table-list-column" flex="3">Description</div>
+<div class="Vlt-table Vlt-section Vlt-table--data Vlt-table--bordered">
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Description</th>
         <% unless model %>
-          <div class="table-list-column" flex="2">Example</div>
+          <th>Example</th>
           <% unless callback %>
-            <div class="table-list-column">Default</div>
+            <th>Default</th>
           <% end %>
         <% end %>
-      </div>
-    </li>
-    <% parameters.each do |parameter| %>
-      <li>
-        <div class="table-list-columns <%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
-          <div class="table-list-column" flex="2">
-              <b><%= parameter.name %></b><br>
+      </tr>
+    </thead>
+    <tbody>
+    <% parameters.each do |parameter| %>    
+      <tr class="<% if parameter.collection? %> Vlt-table__row--noline <% end %>">
+          <td class="Vlt-table__cell--nowrap">
+            <b><%= parameter.name %></b><br>
             <small>
               <% if parameter.required %>
                 <span class="flag flag--strong">Required</span> |
@@ -68,9 +69,9 @@
                 <% end %>
               </i>
             </small>
-          </div>
+          </td>
 
-          <div class="table-list-column" flex="3">
+          <td>
             <% if parameter.collection? %>
               <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
                 <%= (parameter.description ? "#{parameter.description}" : '<i>None</i>').render_markdown %>
@@ -81,28 +82,23 @@
 
             <% if parameter.enum %>
               <br>
-              <small>
-                <i>
+              <small class="Vlt-grey-dark">
                   <%= (callback || model) ? "One of:" : "Must be one of:" %>
-                  <%= parameter.enum.map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
-                </i>
+                  <%= parameter.enum.map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: ' or ', two_words_connector: ' or ').html_safe %>
               </small>
             <% end %>
 
             <% if parameter.raw['x-possible-values'] %>
               <br>
-              <small>
-                <i>
+              <small class="Vlt-grey-dark">
                   Will be one of:
-                  <%= parameter.raw['x-possible-values'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
-                </i>
+                  <%= parameter.raw['x-possible-values'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: ' or ', two_words_connector: 'or').html_safe %>
               </small>
             <% end %>
 
             <% if parameter.minimum || parameter.maximum %>
               <br>
-              <small>
-                <i>
+              <small class="Vlt-grey-dark">
                   <% if parameter.minimum && parameter.maximum %>
                     Must be between <%= "<code>#{parameter.minimum}</code>".html_safe %> and <%= "<code>#{parameter.maximum}</code>".html_safe %>
                   <% elsif parameter.minimum %>
@@ -110,55 +106,57 @@
                   <% else %>
                     Must be at most <%= "<code>#{parameter.maximum}</code>".html_safe %>
                   <% end %>
-                </i>
               </small>
             <% end %>
-          </div>
+          </td>
 
           <% unless model %>
             <% if parameter.collection? %>
               <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
                 <!-- Just for spacing -->
-                <div class="table-list-column">
-                <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
-                </div>
+                <td></td>
               <% end %>
             <% else %>
-              <div class="table-list-column" flex="2">
+              <td>
                 <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
-              </div>
+              </td>
             <% end %>
           <% end %>
 
           <% unless model || callback %>
-            <div class="table-list-column">
+            <td>
               <% if parameter.raw['x-default-is-meta'] %>
                 <i><%= (parameter.default.nil? ? 'None' : parameter.default) %></i>
               <% else %>
                 <%= (parameter.default.nil? ? '<i>None</i>' : "<code>#{parameter.default}</code>").html_safe %>
               <% end %>
-            </div>
+            </td>
           <% end %>
-        </div>
+        
 
         <% if parameter.collection? %>
-          <% if parameter.subproperties_are_one_of_many? %>
+        <tr class="Vlt-table__row--nohighlight">
+          <td colspan="4">
+            <% if parameter.subproperties_are_one_of_many? %>
 
-            <div style="margin-left: 20px;">
-              <h4>Any one of the following:</h4>
-              <% parameter.properties.each do |property| %>
-                <h5><%= property['description'] %></h5>
-                <%= render 'parameters', parameters: property['properties'], model: model, format: format, callback: callback %>
-              <% end %>
-            </div>
-
-        <% else %>
-            <% if parameter.properties and parameter.object? %>
-                <%= render 'parameters', parameters: parameter.properties, model: model, format: format, callback: callback %>
+              <div style="margin-left: 20px;">
+                <h4>Any one of the following:</h4>
+                <% parameter.properties.each do |property| %>
+                  <h5><%= property['description'] %></h5>
+                  <%= render 'parameters', parameters: property['properties'], model: model, format: format, callback: callback %>
                 <% end %>
-          <% end %>
-        <% end %>
-      </li>
+              </div>
+            <% else %>
+              <% if parameter.properties and parameter.object? %>
+                <%= render 'parameters', parameters: parameter.properties, model: model, format: format, callback: callback %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>     
+    </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
+</div>
 <% end %>

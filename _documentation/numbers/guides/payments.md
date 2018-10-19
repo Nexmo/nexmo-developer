@@ -39,7 +39,6 @@ To add a payment method to your Nexmo account:
 1. On the top-right of Dashboard, click the arrow next to **&lt;username>**, then click **Billing & payments**.
 2. Select an amount, click **Add a new payment method**, then click **Make payment**.
 3. Choose a **Payment method**, fill in the **Billing method** and click **Next**.
-
   * PayPal - you are directed to the PayPal website to complete payment.
   * Credit card - enter your card details. Your payment is processed in the Dashboard.
   **Note**: You must provide the address associated with your credit card or PayPal account to successfully complete payment.
@@ -75,7 +74,7 @@ To receive an email whenever your account balance is less than a specific sum:
 3. In the top-right of Dashboard, click the arrow next to **&lt;username>**, then click **Settings**.
 3. Add your email to **Invoice & balance alerts**.
 4. Enable **Balance alert** and set the **Balance threshold**.
-4. Click **Save changes**.
+5. Click **Save changes**.
 
 Your account is automatically checked for a low balance every hour.
 

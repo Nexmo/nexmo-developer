@@ -1,51 +1,52 @@
-<br>
-<div class="row">
-  <div class="columns small-12 medium-8 medium-centered large-6 medium-centered">
-    <center>
-      <h1>Nexmo ❤️ community</h1>
-      <h2>Resources for and by the Community</h2>
-    </center>
-    <br>
-    <hr class="hr--mini">
+<div class="container">
+<div class="center">
+  <h1>Nexmo ❤️ community</h1>
+<p class="p-large">Resources for and by the Community</p>
+
+</div>
+
+<div class="Vlt-grid Vlt-grid--margin-bottom1">
+  <div class="Vlt-col Vlt-col--2of3">
+    <h2>You can find us at these upcoming events</h2>
+  </div>
+  <div class="Vlt-col Vlt-col--1of3 Vlt-col--right">
+    <p>
+      <%= link_to 'Subscribe to feed', feeds_events_url(protocol: :webcal, format: :ics), class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+      <% if @past_events_count > 0 %>
+        <%= link_to "View #{pluralize @past_events_count, 'past event'}", community_past_events_path, class: 'Vlt-btn Vlt-btn--tertiary Vlt-btn--app' %>
+      <% end %>
+    </p>
   </div>
 </div>
 
-<br>
-
-<h2 class="center">You can find us at these upcoming events:</h2>
-
-<div id="community-events">
+<div id="community-events" class="Vlt-grid">
   <% @upcoming_events.each_with_position do |event, first, last| %>
     <%= render 'event', event: event, first: first, last: last %>
   <% end %>
 </div>
 
-<p class="center">
-  <%= link_to 'Subscribe to feed', feeds_events_url(protocol: :webcal, format: :ics) %> |
-  <% if @past_events_count > 0 %>
-    <%= link_to "view #{pluralize @past_events_count, 'past event'}", community_past_events_path %>
-  <% end %>
-</p>
-
 <hr>
 
 <% if @sessions.any? %>
-  <br>
-
-  <div class="row">
-    <% @sessions.each_with_position do |session, first, last| %>
-      <div class="columns small-12 medium-6 large-4 <%= 'end' if last %>">
-        <%= session.video_content.html_safe %>
-        <h3><%= session.title %></h3>
-        <p><%= session.description %></p>
-        <br>
-      </div>
-    <% end %>
+  
+  <div class="Vlt-card">
+    <div class="Vlt-grid">
+      <% @sessions.each_with_position do |session, first, last| %>
+        <div class="Vlt-col Vlt-col--1of3">
+          <h4><%= session.title %></h4>
+          <%= session.video_content.html_safe %>
+          <p><%= session.description %></p>
+          <br>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <hr>
 <% end %>
 
+<hr>
+
 <center class="spacious">
-  <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Nexmo Community Slack", community_slack_path %></h2>
+  <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Nexmo Community Slack", community_slack_path, { :class=>"Vlt-text-btn" } %></h2>
 </center>
+</div>

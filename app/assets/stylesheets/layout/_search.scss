@@ -1,6 +1,6 @@
 $quick-search-width: 800px;
 
-#searchbox {
+/*#searchbox {
   width: 200px;
   height: 30px;
   border: $border;
@@ -14,101 +14,14 @@ $quick-search-width: 800px;
   font-family: $font-family;
 
   &:focus {
-    border-color: $blue;
+    border-color: $blue-dark;
   }
-}
+}*/
 
-.search-result {
-  overflow: hidden;
-
-  > a {
-    display: block;
-  }
-
-  > a > div {
-    border-bottom: 1px solid darken($mint, 3%);
-    padding: $spacing/2;
-
-    h3{
-      color: $link;
-      margin-top: 5px;
-      font-weight: 700;
-
-      small {
-        color: $link-subtle;
-      }
-
-      .quicksearch & {
-        font-size: 0.95em;
-        margin: 5px 0 0;
-      }
-    }
-
-    .meta {
-      background: lighten($stone-light, 25%);
-      padding: 2px 5px;
-      display: inline-block;
-      border-radius: $radius;
-
-      .quicksearch & {
-        font-size: 0.7em;
-        margin: 0;
-        padding: 1px 3px;
-      }
-    }
-
-    p {
-      overflow: hidden;
-      color: $text-subtle;
-      font-size: 0.85em;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-
-      &.search-highlighted {
-        color: $gray;
-        margin-top: 5px;
-        font-style: italic;
-
-        em {
-          color: $pink;
-          font-weight: 700;
-        }
-      }
-
-      .quicksearch & {
-        font-size: 0.8em;
-        // View width
-        // - margin around quicksearch (20px * 2)
-        // - padding within quicksearch (20px * 2)
-        // - padding for search-result (10px * 2)
-        max-width: calc(100vw - #{$spacing * 4} - #{10px * 2});
-        word-wrap: break-word;
-      }
-    }
-  }
-
-  &:hover {
-    > a > div {
-      background: darken($mint, 3%);
-
-      .quicksearch & {
-        background: lighten($stone-light, 25%);
-      }
-    }
-  }
-}
-
-form {
-  position: relative;
-}
-
-.quicksearch {
+.Nxd-search {
   @extend .clearfix;
   background: white;
   position: absolute;
-  border-radius: $radius;
-  border: $border;
   box-shadow: $shadow;
   width: $quick-search-width;
   right: 0;
@@ -120,48 +33,97 @@ form {
     width: calc(100vw - #{$spacing * 2});
   }
 
-  @include mobile {
+  @media #{$S-only} {
     position: relative;
-  }
-
-  .search-result > a {
-    #subnav & {
-      padding: 0;
-      display: block;
-      margin: 0;
-    }
-  }
-
-  .quicksearch__results {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -1px;
-
-    > .results-index {
-      flex: 1;
-      width: 50%;
-      padding: $spacing;
-      border-right: 1px solid $mint;
-      min-width: 280px;
-
-      > h3 {
-        font-size: 1.1em;
-        margin-bottom: $spacing;
-      }
-    }
   }
 }
 
-#search-clear {
+.Nxd-search--no-results {
+  padding-left: $spacing;
+}
+
+.Nxd-search__wrapper { 
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1px;
+}
+
+.Nxd-search__result {
+  overflow: hidden;
+  border-bottom: 1px solid $grey-light;
+
+  .Nxd-search__result__link {
+    display: block;
+    padding: $spacing/2 $spacing $spacing/2;
+
+    &:hover {
+      background: $grey-lighter;
+    }
+
+    h6 {
+      font-weight: 900;
+    }
+  }
+
+  .Nxd-search__result__highlight {
+    color: $grey-dark;
+    font-size: 0.85em;
+
+    em {
+      color: $red;
+      font-weight: 700;
+    }
+  }
+
+  .Nxd-search__result__desc {
+    overflow: hidden;
+    color: $black;
+    font-size: 0.85em;
+    display: -webkit-box; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .meta {
+    background: lighten($stone-light, 25%);
+    padding: 2px 5px;
+    display: inline-block;
+    border-radius: $radius;
+  }
+}
+
+form {
+  position: relative;
+}
+
+.Nxd-search__results {
+  flex: 1;
+  width: 50%;
+  padding: $spacing 0;
+  border-right: 1px solid $grey-light;
+  min-width: 280px;
+
+  .Nx-search__title {
+    padding-left: $spacing;
+  }
+}
+
+.Nxd-search__clear {
+  height: 38px;
   position: absolute;
   right: 4px;
   top: 7px;
   padding: 5px;
   font-size: 17px;
-  color: darken($mint, 5%);
+  fill: $grey;
   cursor: pointer;
+  width: 25px;
 
   &:hover {
-    color: $stone-light;
+    fill: $red;
   }
+}
+
+.Nxd-search__badge {
+  margin-left: 0;
 }

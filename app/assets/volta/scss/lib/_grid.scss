@@ -1,0 +1,362 @@
+.Vlt-grid {
+	align-items: stretch;
+	display: flex;
+	flex-flow: row wrap;
+	margin-left: -$unit2;
+	margin-right: -$unit2;
+
+	&--center {
+		justify-content: center;
+	}
+
+	&--nowrap {
+		flex-flow: row;
+	}
+
+	&--flush {
+		margin-left: 0;
+		margin-right: 0;
+
+		& > .Vlt-col {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	&--stack-flush {
+		@media #{$M-less} {
+			.Vlt-col:not([class*='Vlt-col--M']),
+			.Vlt-col:not([class*='Vlt-col--S']),
+			.Vlt-col:not([class*='Vlt-col--A']) {
+				margin-bottom: 0;
+				margin-top: 0;
+			}
+		}
+	}
+
+	&--narrow {
+		@media #{$L-plus} {
+			margin-left: -$unit1;
+			margin-right: -$unit1;
+		}
+
+		.Vlt-col {
+			@media #{$L-plus} {
+				padding-left: $unit1;
+				padding-right: $unit1;
+			}
+
+			@media #{$M-less} {
+				&:not([class*='Vlt-col--M']),
+				&:not([class*='Vlt-col--S']) {
+					margin-bottom: $unit0;
+					margin-top: $unit0;
+				}
+			}
+		}
+	}
+
+	&__separator {
+		flex: 0 0 100% !important;
+		max-width: 100% !important;
+
+		&--spaced {
+			height: 1.5rem;
+		}
+
+		&--tall {
+			height: 2.5rem;
+		}
+	}
+
+	&--middle {
+		align-items: center;
+	}
+
+	&--bottom {
+		align-items: flex-end;
+	}
+
+	&--margin {
+		&1 {
+			margin-bottom: $unit1;
+			margin-top: $unit1;
+		}
+
+		&2 {
+			margin-bottom: $unit2;
+			margin-top: $unit2;
+		}
+
+		&3 {
+			margin-bottom: $unit3;
+			margin-top: $unit3;
+		}
+
+		&4 {
+			margin-bottom: $unit4;
+			margin-top: $unit4;
+		}
+
+		&-top {
+			&1 {
+				margin-top: $unit1;
+			}
+
+			&2 {
+				margin-top: $unit2;
+			}
+
+			&3 {
+				margin-top: $unit3;
+			}
+
+			&4 {
+				margin-top: $unit4;
+			}
+		}
+
+		&-bottom {
+			&1 {
+				margin-bottom: $unit1;
+			}
+
+			&2 {
+				margin-bottom: $unit2;
+			}
+
+			&3 {
+				margin-bottom: $unit3;
+			}
+
+			&4 {
+				margin-bottom: $unit4;
+			}
+		}
+	}
+}
+
+.Vlt-col {
+	flex-basis: 0; // Important
+	flex-grow: 1;
+	// We used to have min-width: 0 to prevent things from overflowing but it prevented large elements from stacking properly so now we have max-width 100%
+	max-width: 100%;
+	padding-left: $unit2;
+	padding-right: $unit2;
+	position: relative;
+
+	@media #{$M-less} {
+		&:not([class*='Vlt-col--A']):not([class*='Vlt-col--M']):not([class*='Vlt-col--S']) {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		&:not([class*='Vlt-col--M']),
+		&:not([class*='Vlt-col--S']) {
+			margin-bottom: $unit1;
+			margin-top: $unit1;
+		}
+	}
+
+	&--full {
+		flex: 0 0 100%;
+	}
+
+	&- {
+		@media #{$L-plus} {
+			&-1of2 {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			&-1of3 {
+				flex: 0 0 33.33%;
+				max-width: 33.33%;
+			}
+
+			&-2of3 {
+				flex: 0 0 66.66%;
+				max-width: 66.66%;
+			}
+
+			&-1of4 {
+				flex: 0 0 25%;
+				max-width: 25%;
+			}
+
+			&-2of4 {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			&-3of4 {
+				flex: 0 0 75%;
+				max-width: 75%;
+			}
+
+			&-center {
+				text-align: center;
+			}
+
+			&-right {
+				text-align: right;
+			}
+
+			&-left {
+				text-align: left;
+			}
+		}
+	}
+
+	&--A {
+		// All sizes
+
+		flex-basis: 0;
+		flex-grow: 1;
+
+		&-1of2 {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+
+		&-1of3 {
+			flex: 0 0 33.33%;
+			max-width: 33.33%;
+		}
+
+		&-2of3 {
+			flex: 0 0 66.66%;
+			max-width: 66.66%;
+		}
+
+		&-1of4 {
+			flex: 0 0 25%;
+			max-width: 25%;
+		}
+
+		&-2of4 {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+
+		&-3of4 {
+			flex: 0 0 75%;
+			max-width: 75%;
+		}
+
+		&-center {
+			text-align: center;
+		}
+
+		&-right {
+			text-align: right;
+		}
+
+		&-left {
+			text-align: left;
+		}
+	}
+
+	&--S {
+		@media #{$S-only} {
+			flex-basis: 0; // Important
+			flex-grow: 1;
+
+			&-1of2 {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			&-1of3 {
+				flex: 0 0 33.33%;
+				max-width: 33.33%;
+			}
+
+			&-2of3 {
+				flex: 0 0 66.66%;
+				max-width: 66.66%;
+			}
+
+			&-1of4 {
+				flex: 0 0 25%;
+				max-width: 25%;
+			}
+
+			&-2of4 {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			&-3of4 {
+				flex: 0 0 75%;
+				max-width: 75%;
+			}
+
+			&-center {
+				text-align: center;
+			}
+
+			&-right {
+				text-align: right;
+			}
+
+			&-left {
+				text-align: left;
+			}
+		}
+	}
+
+	&--M {
+		@media #{$M-only} {
+			flex-basis: 0; // Important
+			flex-grow: 1;
+
+			&-1of2 {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			&-1of3 {
+				flex: 0 0 33.33%;
+				max-width: 33.33%;
+			}
+
+			&-2of3 {
+				flex: 0 0 66.66%;
+				max-width: 66.66%;
+			}
+
+			&-1of4 {
+				flex: 0 0 25%;
+				max-width: 25%;
+			}
+
+			&-2of4 {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			&-3of4 {
+				flex: 0 0 75%;
+				max-width: 75%;
+			}
+
+			&-center {
+				text-align: center;
+			}
+
+			&-right {
+				text-align: right;
+			}
+
+			&-left {
+				text-align: left;
+			}
+		}
+	}
+}
+
+.Vlt-row {
+	clear: both;
+	padding: 10px 0;
+}

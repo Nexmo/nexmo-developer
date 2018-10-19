@@ -1,0 +1,73 @@
+.Vlt-flash {
+	box-shadow: 0 2px 4px rgba($deep-black, 0.15);
+	left: 50%;
+	margin-left: -45%;
+	position: fixed;
+	top: -100%;
+	transition: top 0.3s;
+	width: 90%;
+	z-index: 10000000;
+
+	&.Vlt-flash_visible {
+		top: 20px;
+	}
+
+	&--bottom {
+		bottom: -100%;
+		top: auto;
+		transition: bottom 0.3s;
+
+		&.Vlt-flash_visible {
+			bottom: 20px;
+			top: auto;
+		}
+	}
+
+	&--small {
+		@media #{$L-plus} {
+			margin-left: -25%;
+			width: 50%;
+		}
+	}
+
+	&.Vlt-callout {
+		border: 0;
+
+		p {
+			color: $white;
+			font-weight: 600;
+		}
+
+		&--warning {
+			background: $orange;
+
+			i {
+				background-color: darken($orange, 10);
+			}
+		}
+
+		&--critical {
+			background: $red;
+
+			i {
+				background-color: $red-dark;
+			}
+		}
+
+		&--shoutout {
+			background: $blue;
+
+			i {
+				background-color: $blue-dark;
+			}
+		}
+
+		&--good {
+			background: $green;
+
+			i {
+				background-color: darken($green, 10);
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+.Nxd-changelog__release {
+	.Vlt-badge {
+		@media #{$L-plus} {
+			margin: 52px -4px $unit0 0;
+		}
+		
+		@media #{$M-only} {
+			margin: 8px -4px $unit0 0;
+		}
+
+		@media #{$S-only} {
+			margin-left: -4px;
+			margin-right: 4px;
+			display: inline-block;
+
+			+ p {
+				display: inline;
+			}
+		}
+	}
+}

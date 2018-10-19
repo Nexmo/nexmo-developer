@@ -1,0 +1,468 @@
+// Basic Tables
+
+.Vlt-table {
+	background: linear-gradient(90deg, rgba($black, 0.1) 0%, transparent 30%), linear-gradient(90deg, transparent 70%, rgba($black, 0.1) 100%) 100% 0;
+	background-color: $white;
+	background-repeat: no-repeat;
+	background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+	display: flex; // Takes care of an artifact that appears on certain screen sizes due to the shadow effect.
+	margin-bottom: $unit1;
+	overflow-x: auto;
+	overflow-y: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+
+	table {
+		background: linear-gradient(90deg, $white 20px, transparent 20px), linear-gradient(90deg, transparent calc(100% - 20px), $white calc(100% - 20px)) 100% 0;
+		font-size: 1.5rem;
+		min-width: min-content;
+		width: 100%;
+
+		tr {
+			position: relative;
+		}
+
+		thead {
+			th {
+				color: $black;
+				font-size: 1.6rem;
+				font-weight: 600;
+			}
+		}
+
+		td,
+		th {
+			background-clip: padding-box; // Needed for Firefox, otherwise the background covers the borders
+			border-bottom: 1px solid $grey-light;
+			min-height: 3.6rem;
+			min-width: min-content;
+			padding-bottom: $unit1;
+			padding-top: $unit1;
+			text-align: left;
+			vertical-align: middle;
+
+			& + td,
+			& + th {
+				padding-left: $unit1;
+			}
+		}
+
+		tbody {
+			tr {
+				&:hover {
+					> td {
+						@media #{$L-plus} { // Limiting to desktop because on mobile it's not good
+							// Declaring this in the td because otherwise in Firefox the background covers the borders
+							background-color: rgba($grey-darker, 0.05);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--tall {
+		table {
+			td,
+			th {
+				padding-bottom: $unit2;
+				padding-top: $unit2;
+			}
+		}
+	}
+
+	&--short {
+		table {
+			td,
+			th {
+				padding-bottom: $unit0;
+				padding-top: $unit0;
+			}
+		}
+	}
+
+	&--nowrap {
+		td,
+		th {
+			white-space: nowrap;
+		}
+	}
+
+	&--fixed {
+		table {
+			@media #{$M-plus} {
+				table-layout: fixed;
+			}
+		}
+	}
+
+	&--nohighlight {
+		table {
+			tbody {
+				tr {
+					&:hover {
+						> td {
+							background-color: transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--bordered {
+		border-bottom: 1px solid $grey-light;
+		border-left: 1px solid $grey-light;
+		border-radius: 2px 2px $unit0 $unit0;
+		border-right: 1px solid $grey-light;
+	}
+
+	table tbody &__cell,
+	table tfoot &__cell {
+		&--number {
+			text-align: right;
+		}
+
+		&--neg {
+			color: $red;
+		}
+
+		&--pos {
+			color: $green;
+		}
+
+		&--avg {
+			color: $yellow;
+		}
+
+		&--nowrap {
+			white-space: nowrap;
+		}
+	}
+
+	.Vlt-btn {
+		@extend %Vlt-btn--small;
+		@extend %Vlt-btn--app;
+		margin-bottom: -$unit0;
+		margin-top: -$unit0;
+	}
+
+	&__pagination {
+		padding: $unit1;
+		text-align: center;
+
+		ul {
+			display: inline-flex;
+			flex-flow: row wrap;
+
+			li {
+				border-radius: $unit0;
+				font-size: 1.3rem;
+				margin-left: $unit0;
+				min-width: $unit3;
+				padding: $unit0;
+				text-align: center;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				a {
+					display: block;
+					height: 100%;
+					width: 100%;
+				}
+			}
+		}
+
+		&__current {
+			background: $grey-light;
+			color: $grey-darker;
+		}
+
+		&__prev {
+			margin-right: $unit1;
+		}
+
+		&__next {
+			margin-left: $unit1;
+		}
+	}
+
+	&--mobile-stack,
+	&--mobile-stack.Vlt-table--data {
+		@media #{$S-only} {
+			background: none;
+
+			table {
+				background: none;
+				display: flex;
+				max-width: 100%;
+				min-width: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+				width: auto;
+
+				thead {
+					display: flex;
+					flex-shrink: 0;
+					min-width: min-content;
+
+					th {
+						border-bottom: 1px solid $grey-light;
+						border-top: 0;
+						font-size: 1.5rem;
+						height: auto;
+						min-height: 3.6rem;
+					}
+				}
+
+				tr {
+					display: flex;
+					flex-flow: column;
+					flex-shrink: 0;
+					min-width: min-content;
+				}
+
+				tbody {
+					background: linear-gradient(90deg, rgba($black, 0.1) 0%, transparent 30%), linear-gradient(90deg, transparent 70%, rgba($black, 0.1) 100%) 100% 0;
+					background-repeat: no-repeat;
+					background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+					display: flex;
+					overflow-x: auto;
+					overflow-y: hidden;
+					position: relative;
+
+					tr {
+						&:first-child {
+							background: linear-gradient(90deg, $white 20px, transparent 20px);
+						}
+
+						&:last-child {
+							background: linear-gradient(90deg, transparent calc(100% - 20px), $white calc(100% - 20px)) 100% 0;
+						}
+					}
+				}
+
+				td,
+				th {
+					border-left: 0;
+					border-right: 0;
+					display: block;
+					white-space: nowrap;
+				}
+
+				.Vlt-table__cell--number {
+					text-align: left;
+				}
+
+				tfoot {
+					display: none;
+				}
+			}
+
+			&:not(.Vlt-table--data) {
+				table {
+					thead th {
+						border-right: 1px solid $grey-light;
+						padding-left: 0;
+						padding-right: $unit2;
+					}
+
+					tbody td {
+						padding-left: $unit2;
+						padding-right: $unit2;
+					}
+				}
+			}
+		}
+	}
+
+	.Vlt-table__col {
+		&--sortable {
+			cursor: pointer;
+			padding-left: 16px;
+			position: relative;
+
+			&:before {
+				background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20width%3D%226px%22%20height%3D%2210px%22%20viewBox%3D%220%200%206%2010%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3C!--%20Generator%3A%20Sketch%2047.1%20(45422)%20-%20http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%20--%3E%0A%20%20%20%20%3Ctitle%3EGroup%3C%2Ftitle%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%0A%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20id%3D%22Symbols%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group%22%20fill%3D%22%239B9B9B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Triangle%22%20points%3D%223%200%206%204%200%204%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Triangle-Copy%22%20points%3D%223%209.5%200%205.5%206%205.5%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				content: '';
+				display: inline-block;
+				height: 10px;
+				left: 5px;
+				margin-top: -5px;
+				position: absolute;
+				top: 50%;
+				width: 6px;
+			}
+		}
+
+		&--descending,
+		&--ascending {
+			color: $black;
+			font-weight: 600;
+		}
+
+		&--descending {
+			&:before {
+				background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20width%3D%226px%22%20height%3D%2210px%22%20viewBox%3D%220%200%206%2010%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3C!--%20Generator%3A%20Sketch%2047.1%20(45422)%20-%20http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%20--%3E%0A%20%20%20%20%3Ctitle%3EGroup%3C%2Ftitle%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%0A%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20id%3D%22Symbols%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group%22%20fill%3D%22%234A4A4A%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Triangle-Copy%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20points%3D%223%209.5%200%205.5%206%205.5%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+		}
+
+		&--ascending {
+			&:before {
+				background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20width%3D%226px%22%20height%3D%224px%22%20viewBox%3D%220%200%206%204%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3C!--%20Generator%3A%20Sketch%2047.1%20(45422)%20-%20http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%20--%3E%0A%20%20%20%20%3Ctitle%3ETriangle%3C%2Ftitle%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%0A%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20id%3D%22Symbols%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group%22%20fill%3D%22%234A4A4A%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Triangle%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20points%3D%223%200%206%204%200%204%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+
+	.Vlt-table__row--nohighlight {
+		&:hover {
+			> td {
+				background-color: transparent;
+			}
+		}
+	}
+
+	.Vlt-table__row--noline {
+		> td {
+			border-bottom: 0;
+		}
+	}
+
+	// Hover buttons 
+
+	td:not(.Vlt-btn-group) {
+		.Vlt-btn + .Vlt-btn {
+			margin-left: $unit0;
+		}
+	}
+
+	td.Vlt-btn-group {
+		min-height: 0;
+	}
+}
+
+// Data Tables
+
+.Vlt-table--data {
+
+	table {
+		font-size: 1.4rem;
+		width: 100%;
+
+		thead {
+
+			th {
+				background-color: $grey-lighter;
+				border-bottom: 1px solid $grey;
+				border-top: 1px solid $grey-light;
+				color: $grey-darker;
+				font-size: 1.4rem;
+				height: 3.6rem;
+			}
+		}
+
+		tfoot {
+			td {
+				border-bottom: 0;
+				border-top: 2px solid $grey-light;
+				font-weight: bold;
+			}
+		}
+
+		td,
+		th {
+			padding-left: $unit2;
+			padding-right: $unit2;
+
+			& + td,
+			& + th {
+				padding-left: $unit2;
+			}
+		}
+	}
+
+	&--cols {
+		td + td,
+		th + th {
+			border-left: 1px solid $grey-light;
+		}
+	}
+
+	&--dark {
+		&.Vlt-table--data--cols {
+			thead {
+				th + th {
+					border-left-color: $grey;
+				}
+			}
+		}
+
+		table thead {
+			th {
+				background-color: $grey-light;
+				border-bottom-color: $grey-dark;
+				border-top-color: $grey;
+				color: $black;
+			}
+		}
+	}
+
+	&--teal {
+		&.Vlt-table--data--cols {
+			thead {
+				th + th {
+					border-left-color: $teal-light;
+				}
+			}
+		}
+
+		&.Vlt-table--bordered {
+			border-bottom: 1px solid $teal-lighter;
+			border-left: 1px solid $teal-lighter;
+			border-right: 1px solid $teal-lighter;
+		}
+
+		table {
+			thead {
+				th {
+					background-color: $teal-lighter;
+					border-bottom-color: $teal;
+					border-top-color: $teal-light;
+					color: $teal-text;
+				}
+			}
+
+			tbody {
+				td {
+					border-bottom-color: $teal-lighter;
+
+					+ td {
+						border-left-color: $teal-lighter;
+					}
+				}
+			}
+
+			tfoot {
+				td {
+					border-top-color: $teal-lighter;
+
+					+ td {
+						border-left-color: $teal-lighter;
+					}
+				}
+			}
+		}
+	}
+}

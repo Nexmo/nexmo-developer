@@ -10,7 +10,7 @@ navigation_weight: 6
 
 Two-factor authentication: unambiguous identification of users by means of the combination of two different components. For example, to withdraw cash from an ATM, you need both a card and a PIN code. These components may be something that the user knows, something that the user possesses or something that is inseparable from the user.
 
-Many Nexmo customers authenticate their users by sending them a PIN code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. An example of usage is where the customer requires a password reset. In this case the two components are the account details, and possession of the phone number registered to that account.
+Many Nexmo customers authenticate their users by sending them a PIN code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. An example of usage is where the customer requires a password reset. In this case, the two components are the account details and possession of the phone number registered to that account.
 
 See the [Wikipedia article](https://en.wikipedia.org/wiki/Two-factor_authentication).
 
@@ -122,7 +122,7 @@ Enables you to present any phone number on your account as your outbound Caller 
 
 ## Dynamic phone number insertion
 
-A measure of the impact of inbound phone calls in digital marketing efforts. For example, when a potential customer clicks on your site, dynamic phone number insertion will show a phone number that is unique to the search engine, website key terms or other source.
+A measure of the impact of inbound phone calls in digital marketing efforts. For example, when a potential customer clicks on your site, dynamic phone number insertion will show a phone number that is unique to the search engine, website key terms or other sources.
 
 ## E.164 format
 
@@ -141,11 +141,11 @@ See [Number format](#number-format).
 
 ## Extended shortcode
 
-A short number between 4 and 6 digits that has been extended to create a large quantity of numbers.
+A short number between 4 and 6 digits that has been extended to create a large pool of numbers.
 
 ## Fake Delivery Receipt
 
-A [Delivery Receipt](#delivery-receipt) suspected to be fake. That is, when there is no intention to deliver the SMS.
+A [Delivery Receipt](#delivery-receipt) suspected to be fake. That is when there is no intention to deliver the SMS.
 
 Sometimes delivery receipts are faked because the Telecommunications Service Provider sends it early. Some Telecommunications Service Providers never return a delivery receipt. In this case Nexmo creates a delivery receipt and sends it to you.
 
@@ -179,7 +179,7 @@ See [Interactive Voice Response](#interactive-voice-response).
 
 ## Latency
 
-The elapsed time between the moment a message is sent and when it is received. A delivery that encounters few or no delays has low latency. A delivery that encounters a significant amount of delay has high latency. The greater the number of hops associated with message delivery, the greater the number of opportunities for delay — and higher latency.
+The elapsed time between the moment a message is sent and when it is received. A delivery that encounters few or no delays has low latency. A delivery that encounters a significant amount of delay has high latency. The greater the number of hops associated with message delivery, the greater the number of opportunities for a delay — and higher latency.
 
 ## Live Handset Check
 
@@ -191,7 +191,7 @@ An intermediate carrier Nexmo believes has direct connections Telecommunications
 
 ## Low friction integration
 
-Allows you to build conferencing apps that scale with dynamic phone number provisioning and call control for improved experience.
+Allows you to build conferencing apps that scale with dynamic phone number provisioning and call control for an improved experience.
 
 ## LVN
 
@@ -207,7 +207,7 @@ A seamless network of Telecommunications Service Providers. This enables you to 
 
 ## Messaging API
 
-This product enables Nexmo customers to have a conversation with their users. The products that make up Messaging are:
+This product enables Nexmo customers to have a conversation with their users. The products that makeup Messaging are:
 
 * SMS API
 * US Short Codes API
@@ -288,15 +288,15 @@ Further information can be found in the [Number Insight documentation](/number-i
 
 ## Number Insight Basic
 
-This Number Insight product is an synchronous API that returns local and international representations of a phone number. Use this API to pretty-print numbers in a UX.
+This Number Insight product is a synchronous API that returns local and international representations of a phone number. Use this API to pretty-print numbers in a UX.
 
 ## Number Insight Standard
 
-This Number Insight product is an synchronous API that identifies the Telecommunications Service Provider network a number belongs to and the number type. Use this API to ensure that you are dealing with a real phone number that is semantically correct. This API also supplies the functionality in Number Insight Basic.
+This Number Insight product is a synchronous API that identifies the Telecommunications Service Provider network a number belongs to and the number type. Use this API to ensure that you are dealing with a real phone number that is semantically correct. This API also supplies the functionality in Number Insight Basic.
 
 ## Number Insight Advanced
 
-This  Number Insight  product is an synchronous API that verifies the relationship between a phone number and the Telecommunications Service Providers that have supplied it.
+This  Number Insight  product is a synchronous API that verifies the relationship between a phone number and the Telecommunications Service Providers that have supplied it.
 
 ## Number inventory
 
@@ -304,7 +304,7 @@ Search for, buy and update your inventory of numbers using Nexmo Dashboard.
 
 ## Number format
 
-Within the Nexmo Voice API all numbers are in E.164 format. This means that numbers:
+Within the Nexmo Voice API, all numbers are in E.164 format. This means that numbers:
 
 * Omit both a leading `+` and the international access code such as `00` or `001`.
 * Contain no special characters, such as a space, `(`, `)` or `-`.
@@ -349,7 +349,7 @@ The frequent changes in throughput that constantly occur in SMS networks. For ex
 
 ## Platform
 
-The Nexmo technologies that facilitate the interaction between Nexmo customers and their users. The Cloud Communications Platform is an API-based, fully redundant global communication platform that delivers mission critical multi-channel solutions. The main products in the cloud are:
+The Nexmo technologies that facilitate the interaction between Nexmo customers and their users. The Cloud Communications Platform is an API-based, fully redundant global communication platform that delivers mission-critical multi-channel solutions. The main products in the cloud are:
 
 **Technologies** - the components and algorithms that make the Platform work:
 
@@ -436,7 +436,7 @@ See also the [Nexmo documentation on endpoints](/voice/voice-api/guides/endpoint
 
 ## SIP Trunking
 
-In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) endpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can use this flexibly as a SIP trunk and a SIP User Agent gateway.
+In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) endpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can flexibly use this as a SIP trunk and a SIP User Agent gateway.
 
 ## SMPP
 
@@ -558,7 +558,7 @@ Cloud numbers enabled to send and receive Voice Messages.
 
 ## Voice-Enabled Landline Virtual Number
 
-An virtual number tied to a landline that you can send voice data to.
+A virtual number tied to a landline that you can send voice data to.
 
 ## Voice-Enabled Toll-Free Virtual Number
 

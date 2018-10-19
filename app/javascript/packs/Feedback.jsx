@@ -58,13 +58,13 @@ class Feedback extends React.Component {
   renderFeedbackImproveThisPage() {
     if (!this.props.github_url) { return }
 
+    var githubIcon = '<use xlink:href="/symbol/volta-icons.svg#Vlt-icon-github" />'
+
     return (
-      <div className="columns small-4 right" id="feedback__improve">
-        <p>
-          <i className="icon icon-github"></i>
-          <a href={ this.props.github_url } target="_blank">Improve this page</a>
-        </p>
-      </div>
+      <span id="feedback__improve">
+        <svg className="Vlt-icon Vlt-black" dangerouslySetInnerHTML={{__html: githubIcon }} />
+        <a href={ this.props.github_url } target="_blank"> Improve this page</a>
+      </span>
     )
   }
 
@@ -149,7 +149,10 @@ class Feedback extends React.Component {
     if (this.state.showExtendedFields) { return }
 
     return (
-      <span>Great! <a onClick={ () => this.setState({ showExtendedFields: true }) }>Give us some feedback</a>.</span>
+      <div>
+        <hr/>
+        <p>Great! <a onClick={ () => this.setState({ showExtendedFields: true }) }>Give us some feedback</a></p>
+      </div>
     )
   }
 
@@ -157,9 +160,11 @@ class Feedback extends React.Component {
     if (this.props.current_user) { return }
 
     return (
-      <div>
-        <label>Email (optional)</label>
-        <input type="email" className="input" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
+      <div className="Vlt-form__element Vlt-form__element--elastic">
+        <label className="Vlt-label">Email <small class="Vlt-grey-darker">(optional)</small></label>
+        <div className="Vlt-input">
+          <input type="email" size="20" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
+        </div>
       </div>
     )
   }
@@ -185,16 +190,19 @@ class Feedback extends React.Component {
 
     return (
       <div>
-        <hr className="spacious"/>
+        <hr/>
 
         { this.renderEmailField() }
 
-        <label>How could we improve it? (optional)</label>
-        <textarea className="input" onChange={ (event) => this.setState({ comment: event.target.value }) }></textarea>
-        <input type="submit" className="button" value="Send Feedback" onClick={ () => { this.sendFeedback() } } disabled={ this.sendFeedbackButtonDisabled() }/>
+        <div className="Vlt-form__element">
+          <label className="Vlt-label">How could we improve it? <small className="Vlt-grey-darker">(optional)</small></label>
+          <div className="Vlt-textarea">
+            <textarea onChange={ (event) => this.setState({ comment: event.target.value }) }></textarea>
+          </div>
+        </div>
 
-        <p><br />Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
-        
+        <input type="submit" className="Vlt-btn Vlt-btn--primary Vlt-btn--app" value="Send Feedback" onClick={ () => { this.sendFeedback() } } disabled={ this.sendFeedbackButtonDisabled() }/>
+        <p>Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
       </div>
     )
   }
@@ -208,26 +216,29 @@ class Feedback extends React.Component {
   }
 
   renderSentiments() {
+    var unhappyIcon = '<use xlink:href="/symbol/volta-icons.svg#Vlt-icon-unhappy"/>';
+    var happyIcon = '<use xlink:href="/symbol/volta-icons.svg#Vlt-icon-happy"/>';
+
     if (this.state.uploadingFeedbackSentiment) {
       return(
-        <div className="clearfix">
-          <span className={ 'sentiment ' + (this.state.sentiment == 'negative' ? 'sentiment--loading' : 'sentiment--disabled') }>
-            <div>
-              <i className={ 'icon ' + ( this.state.sentiment == 'negative' ? 'icon-spinner' : 'icon-thumbs-o-down' )}></i>
-            </div>
-          </span>
-          <span className={ 'sentiment ' + (this.state.sentiment == 'positive' ? 'sentiment--loading' : 'sentiment--disabled') }>
-            <div>
-              <i className={ 'icon ' + ( this.state.sentiment == 'positive' ? 'icon-spinner' : 'icon-thumbs-o-up' )}></i>
-            </div>
-          </span>
+        <div>
+          { (this.state.sentiment == 'negative' ?
+            <div className="Vlt-spinner Vlt-spinner--small"></div>
+            :
+            <span className="Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon Vlt-btn_disabled"><svg dangerouslySetInnerHTML={{__html: unhappyIcon }} /></span>
+          ) }
+          { (this.state.sentiment == 'positive' ?
+            <div className="Vlt-spinner Vlt-spinner--small"></div>
+           :
+            <span className="Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon Vlt-btn_disabled"><svg dangerouslySetInnerHTML={{__html: happyIcon }} /></span>
+          )}
         </div>
       )
     } else {
       return(
-        <div className="clearfix">
-          <span onClick={ () => this.setSentiment('negative') } className={ "sentiment sentiment--negative " + (this.state.sentiment == 'negative' ? 'sentiment--active' : '') }><i className="icon icon-thumbs-o-down"></i></span>
-          <span onClick={ () => this.setSentiment('positive') } className={ "sentiment sentiment--positive " + (this.state.sentiment == 'positive' ? 'sentiment--active' : '') }><i className="icon icon-thumbs-o-up"></i></span>
+        <div>
+          <span onClick={ () => this.setSentiment('negative') } className={ "Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon" + (this.state.sentiment == 'negative' ? ' Vlt-btn_active' : '') }><svg className="Vlt-red" dangerouslySetInnerHTML={{__html: unhappyIcon }} /></span>
+          <span onClick={ () => this.setSentiment('positive') } className={ "Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon" + (this.state.sentiment == 'positive' ? ' Vlt-btn_active' : '') }><svg className="Vlt-green" dangerouslySetInnerHTML={{__html: happyIcon }} /></span>
         </div>
       )
     }
@@ -238,25 +249,25 @@ class Feedback extends React.Component {
 
     return (
       <div>
-        <hr className="spacious"/>
-
-        <p>Thank you for your feedback.</p>
+        <hr/>
+        <p>Thank you for your feedback</p>
       </div>
     )
   }
 
   render() {
     return (
-      <div className="feedback">
-        <div className="row">
-          <div className="columns small-8">
-            <h2>Was this documentation helpful?</h2>
+      <div className="Vlt-box Vlt-box--left feedback">
+        <div className="Vlt-grid">
+          <div className="Vlt-col Vlt-col--3of4">
+            <h5>Was this documentation helpful?</h5>
+            <div className="sentiments">
+              { this.renderSentiments() }
+            </div>
           </div>
-          { this.renderFeedbackImproveThisPage() }
-        </div>
-
-        <div className="sentiments">
-          { this.renderSentiments() }
+          <div className="Vlt-col Vlt-col--right Vlt-col--1of4">
+            { this.renderFeedbackImproveThisPage() }
+          </div>
         </div>
 
         { this.renderError() }

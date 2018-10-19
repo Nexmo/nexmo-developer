@@ -1,39 +1,46 @@
-<div class="center spacious">
-  <h1>
-      <i class="icon icon--large icon-community"></i><br><br>
+<div class="container">
+<div class="center">
+  <h1 class="Vlt-title--icon Vlt-title--center">
+      <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-group"/></svg>
       Nexmo Developer Relations Team
   </h1>
 
   <br>
 
-  <h4>
+  <p class="p-large">
     Our mission is to build a world-class open source documentation platform to help developers build connected products.
-    <br><br>
+  </p>
+  <p class="p-large">
     Here are some of the people behind Nexmo Developer. Oh, and <a href="#join">we're hiring</a>.
-  </h4>
+  </p>
 
   <br>
 
-  <div class="avatar-grid">
+
+  <div class="Vlt-grid">
     <% @team['current'].shuffle.each do |member| %>
       <%= render partial: 'profile', locals: member.symbolize_keys %>
     <% end %>
   </div>
 
-  <h2 class="spacious"><b>Alumni</b></h2>
+  <hr>
 
-  <div class="avatar-grid">
+  <h2><b>Alumni</b></h2>
+
+  <div class="Vlt-grid">
     <% @team['alumni'].shuffle.each do |member| %>
       <%= render partial: 'profile', locals: member.symbolize_keys %>
     <% end %>
   </div>  
 
-  <h2 class="spacious"><b>Contributors</b></h2>
+  <hr />
+
+  <h2><b>Contributors</b></h2>
 
   <p>Many of the improvements made to Nexmo Developer have come from our wonderful community.</p>
   <p>Check out our <a href="https://github.com/Nexmo/nexmo-developer/graphs/contributors">Contributors</a> page on GitHub.</p>
 
-  <br><br>
+  <hr>
 
   <h2 id="join"><b>Join the team</b></h2>
 
@@ -42,26 +49,29 @@
   <br>
 
   <% @careers.group_by(&:role_group).each do |group_name, careers| %>
-    <h2 class="spacious"><%= group_name %></h2>
-    <div class="jobs">
+    <h3><%= group_name %></h3>
+    <div class="Vlt-grid Vlt-grid--margin-top1">
       <% careers.each do |career| %>
-        <div class="jobs__job">
-          <div class="box box--<%= career.published ? 'white' : 'pink' %>">
-            <h2>
-              <i class="icon icon--large icon-<%= career.icon %>"></i><br><br>
-              <%= career.title %>
-              <% unless career.published %>
-                  [Hidden]
-              <% end %>
-              <br><br><i><small class="subtle"><%= career.location %></small></i>
-            </h2>
-            <div class="left spacious">
+        <div class="Vlt-col Vlt-col--1of2">
+          <div class="Vlt-card Vlt-card--center Nxd-career">
+            <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= career.icon == 'account' ? 'user' : career.icon == 'book' ? 'books' : career.icon %>"/></svg>
+              <hr>
+              <h2>
+                <%= career.title %>
+                <% unless career.published %>
+                    [Hidden]
+                <% end %>
+                <small class="Nxd-career__subtitle"><%= career.location %></small>
+              </h2>
+
+            <div class="Nxd-career__content">
               <%= career.description_short.render_markdown %>
             </div>
-            <%= link_to "Find out more", career, class: 'button' %>
+            <%= link_to "Find out more", career, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
+</div>
 </div>

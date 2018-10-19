@@ -2,7 +2,7 @@
 language: python
 ---
 
-#### Initialize the library
+##### Initialize the library
 
 ```code
 config: library.initialization.basic.python

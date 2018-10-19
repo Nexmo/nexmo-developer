@@ -1,0 +1,160 @@
+.Vlt-sidenav {
+	&__mobile--light {
+		background: $white;
+		box-shadow: 1px 0 8px rgba($black, 0.2);
+
+		button {
+			svg {
+				fill: $grey-dark;
+			}
+		}
+
+		.Vlt-template--header & {
+			background: $grey-lighter;
+			border-bottom: 1px solid $grey-light;
+			box-shadow: none;
+		}
+	}
+
+	&--light {
+		background: $grey-lighter;
+
+		hr {
+			border-top: 1px solid $grey-light;
+		}
+
+		.Vlt-sidenav {
+			&__link {
+				&:hover {
+					background: $grey-light;
+				}
+			}
+		}
+
+		.Vlt-sidemenu {
+			&__link,
+			&__trigger {
+				color: $black;
+
+				&:hover {
+					background: $grey-light;
+				}
+
+				svg {
+					fill: $grey-dark;
+				}
+			}
+
+			&__link {
+				&_active {
+					background: $blue;
+					color: $white;
+
+					svg {
+						fill: $white !important;
+					}
+
+					&:hover {
+						background: $blue;
+						color: $white;
+					}
+				}
+			}
+
+			&__trigger {
+				&:after {
+					background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23C4CDD5%22%20fill-rule%3D%22evenodd%22%20d%3D%22M10%2013.524L4.692%208.136a.667.667%200%201%201%20.951-.937L10%2011.62l4.357-4.422a.668.668%200%200%201%20.95.937L10%2013.524z%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: contain;
+				}
+
+				&_current {
+					&:not(.Vlt-sidemenu__trigger_active) {
+						background: $grey-light;
+					}
+				}
+			}
+
+			&__title {
+				color: $grey-dark;
+
+				&--border {
+					border-top: 1px solid $grey-light;
+				}
+			}
+		}
+
+		.Vlt-sidetabs {
+
+			&--bottom {
+				border-top: 1px solid $grey-light;
+			}
+
+			&--top {
+				border-bottom: 1px solid $grey-light;
+			}
+
+			.Vlt-js-tabs__link {
+
+				svg {
+					fill: $grey-dark !important;
+				}
+
+				&:hover {
+					&:after {
+						background: $blue-lighter;
+					}
+
+					svg {
+						fill: $grey-darker !important;
+					}
+				}
+
+				&_active,
+				&:active {
+					&:after {
+						background: $blue;
+					}
+
+					svg {
+						fill: $grey-darker !important;
+					}
+				}
+			}
+		}
+
+		.Vlt-sidenav__block {
+			&:before,
+			&:after {
+				background: $grey-light;
+			}
+
+			&--logo {
+				.Vlt-sidenav__collapse {
+					svg {
+						fill: $grey-dark;
+					}
+				}
+			}
+		}
+
+		&.Vlt-sidenav--collapsed {
+			@media #{$M-plus} {
+				.Vlt-sidemenu__title {
+					border-bottom: 1px solid $grey-light;
+				}
+
+				li {
+					li {
+						.Vlt-sidemenu__link_active {
+							svg {
+								fill: $grey-dark !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

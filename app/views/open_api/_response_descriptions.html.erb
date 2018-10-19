@@ -3,59 +3,60 @@
     <% next if response.code.to_i == 204 %>
     <% id = SecureRandom.hex %>
     <p class="collapsible">
-    <a class="js-collapsible no-indent" data-collapsible-id="<%= id %>">
-        View response field descriptions
+    <a class="Vlt-js-accordion__trigger Nxd-accordion-button" data-accordion="acc<%= id %>">
+        <span class="Vlt-btn Vlt-btn--tertiary Vlt-btn--block">
+            View response field descriptions
+        </span>
     </a>
     </p>
 
-    <div id="<%= id %>" class="collapsible-content collapsible-no-indent" style="display: none;">
+    <div id="acc<%= id %>" class="Vlt-js-accordion__content">
         <h4>Response Fields</h4>
-        <ul class="table-list">
-            <li class="table-list-header">
-                <div class="table-list-columns">
-                    <div class="table-list-column" flex="2">Field</div>
-                    <div class="table-list-column" flex="4">Description</div>
-                </div>
-            </li>
+        <div class="Vlt-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% response.formats.each_with_index do |format, index| %>
+                    <% if response.exhibits_one_of_multiple_schemas?(format) %>
+                        <% response.split_schemas(format).each_with_index do |schema, index| %>
+                            <% next unless schema['properties'] %>
+                            <% schema['properties'].each do |key, value| %>
+                                <% next if key == '_links' %>
+                                <% next if value['x-skip-response-description'] %>
+                                <tr>
+                                    <td><b><%= key %></b></td>
+                                    <td><%= value['description'] ? value['description'].render_markdown : '' %></td>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    <% else %>
+                        <% schema = response.schema(format) %>
+                        <% if schema['properties']%>
+                            <% schema['properties'].each do |key, value| %>
+                                <% next if key == '_links' %>
+                                <% next if value['x-skip-response-description'] %>
+                                <%
+                                    desc = ''
+                                    desc = value['title'].render_markdown if value['title']
+                                    desc = value['description'].render_markdown if value['description']
+                                %>
+                                <tr>
+                                    <td><b><%= key %></b></td>
+                                    <td><%= desc %></td>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    <% end %>
 
-            <% response.formats.each_with_index do |format, index| %>
-                <% if response.exhibits_one_of_multiple_schemas?(format) %>
-                    <% response.split_schemas(format).each_with_index do |schema, index| %>
-                        <% next unless schema['properties'] %>
-                        <% schema['properties'].each do |key, value| %>
-                            <% next if key == '_links' %>
-                            <% next if value['x-skip-response-description'] %>
-                            <li>
-                                <div class="table-list-columns">
-                                    <div class="table-list-column" flex="2"><b><%= key %></b></div>
-                                    <div class="table-list-column" flex="4"><%= value['description'] ? value['description'].render_markdown : '' %></div>
-                                </div>
-                            </li>
-                        <% end %>
-                    <% end %>
-                <% else %>
-                    <% schema = response.schema(format) %>
-                    <% if schema['properties']%>
-                        <% schema['properties'].each do |key, value| %>
-                            <% next if key == '_links' %>
-                            <% next if value['x-skip-response-description'] %>
-                            <%
-                                desc = ''
-                                desc = value['title'].render_markdown if value['title']
-                                desc = value['description'].render_markdown if value['description']
-                            %>
-                            <li>
-                                <div class="table-list-columns">
-                                    <div class="table-list-column" flex="2"><b><%= key %></b></div>
-                                    <div class="table-list-column" flex="4"><%= desc %></div>
-                                </div>
-                            </li>
-                        <% end %>
-                    <% end %>
                 <% end %>
-
-            <% end %>
-        </ul>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 <% end %>

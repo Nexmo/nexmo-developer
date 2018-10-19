@@ -1,90 +1,84 @@
-<ul class="navigation js-scrollspy has-label">
-  <li>
-    <a href="/api/voice">Voice</a>
-    <ul class="has-label">
-      <li>
-        <a href="#calls">Calls</a>
-        <ul class="has-label">
+<div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light js-scrollspy">
+  <div class="Vlt-sidenav__scroll navigation js-navigation">
+    <ul class="Vlt-sidemenu Vlt-sidemenu--rounded Vlt-sidemenu--flat">
+        <li><a class="Vlt-sidemenu__link" href="#voice-api-reference">Voice</a> 
+        <ul>       
           <li>
-            <a href="#create-an-outbound-call">
-              <span class="label label--code label--positive">POST</span>
-              Create an outbound Call
-            </a>
+            <a class="Vlt-sidemenu__link" href="#calls">Calls</a>
+            <ul>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#create-an-outbound-call">
+                  Create an outbound Call
+                </a>
+              </li>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#retrieve-information-about-all-your-calls">
+                  Retrieve information about all your Calls
+                </a>
+              </li>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#retrieve-information-about-a-single-call">
+                  Retrieve information about a single Call
+                </a>
+              </li>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#modify-an-existing-call">
+                  Modify an existing Call
+                </a>
+              </li>
+            </ul>
           </li>
           <li>
-            <a href="#retrieve-information-about-all-your-calls">
-              <span class="label label--code">GET</span>
-              Retrieve information about all your Calls
-            </a>
+            <a class="Vlt-sidemenu__link" href="#stream">Stream</a>
+            <ul>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#stream-an-audio-file-to-an-active-call">
+                  Stream an audio file to an active Call
+                </a>
+              </li>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#stop-streaming-an-audio-file-to-an-active-call">
+                  Stop streaming an audio file to an active Call
+                </a>
+              </li>
+            </ul>
           </li>
           <li>
-            <a href="#retrieve-information-about-a-single-call">
-              <span class="label label--code">GET</span>
-              Retrieve information about a single Call
-            </a>
+            <a class="Vlt-sidemenu__link" href="#talk">Talk</a>
+            <ul>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#send-a-synthesized-speech-message-to-an-active-call">
+                  Send a synthesized speech message to an active Call
+                </a>
+              </li>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#stop-sending-a-synthesized-speech-message-to-an-active-call">
+                  Stop sending a synthesized speech message to an active Call
+                </a>
+              </li>
+            </ul>
           </li>
           <li>
-            <a href="#modify-an-existing-call">
-              <span class="label label--code label--warning">PUT</span>
-              Modify an existing Call
-            </a>
+            <a class="Vlt-sidemenu__link" href="#dtmf">DTMF</a>
+            <ul>
+              <li>
+                <a class="Vlt-sidemenu__link" href="#send-dual-tone-multi-frequency-dtmf-tones-to-an-active-call">
+                  Send Dual-tone multi-frequency (DTMF) tones to an active Call
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="Vlt-sidemenu__link" href="#generating-a-jwt">Generating a JWT</a>
+          </li>
+          <li>
+            <a class="Vlt-sidemenu__link" href="#status-values">Status values</a>
+          </li>
+          <li>
+            <a class="Vlt-sidemenu__link" href="#errors">Errors</a>
           </li>
         </ul>
-      </li>
-      <li>
-        <a href="#stream">Stream</a>
-        <ul class="has-label">
-          <li>
-            <a href="#stream-an-audio-file-to-an-active-call">
-              <span class="label label--code label--warning">PUT</span>
-              Stream an audio file to an active Call
-            </a>
-          </li>
-          <li>
-            <a href="#stop-streaming-an-audio-file-to-an-active-call">
-              <span class="label label--code label--negative">DELETE</span>
-              Stop streaming an audio file to an active Call
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#talk">Talk</a>
-        <ul class="has-label">
-          <li>
-            <a href="#send-a-synthesized-speech-message-to-an-active-call">
-              <span class="label label--code label--warning">PUT</span>
-              Send a synthesized speech message to an active Call
-            </a>
-          </li>
-          <li>
-            <a href="#stop-sending-a-synthesized-speech-message-to-an-active-call">
-              <span class="label label--code label--negative">DELETE</span>
-              Stop sending a synthesized speech message to an active Call
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#dtmf">DTMF</a>
-        <ul class="has-label">
-          <li>
-            <a href="#send-dual-tone-multi-frequency-dtmf-tones-to-an-active-call">
-              <span class="label label--code label--warning">PUT</span>
-              Send Dual-tone multi-frequency (DTMF) tones to an active Call
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#generating-a-jwt">Generating a JWT</a>
-      </li>
-      <li>
-        <a href="#status-values">Status values</a>
-      </li>
-      <li>
-        <a href="#errors">Errors</a>
-      </li>
+        </li>
     </ul>
-  </li>
-</ul>
+  </div>
+</div>

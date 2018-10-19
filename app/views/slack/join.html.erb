@@ -1,25 +1,25 @@
 <center>
   <%= image_tag 'slack.svg', width: 180 %>
-  <br>
-  <h1 class="spacious">Join the Nexmo Community Slack</h1>
+  <h1>Join the Nexmo Community Slack</h1>
 
   <% unless @success %>
     <%= form_tag community_slack_path do %>
-      <%= email_field_tag :email, (@email || ''), class: 'input input--large', placeholder: 'Enter Your Email Address' %>
+      <div class="Vlt-form__element Vlt-form__element--elastic">
+        <div class="Vlt-input">
+          <%= email_field_tag :email, (@email || ''), placeholder: 'Enter your email address', size: '40' %>
+        </div>
+      </div>
       <%= recaptcha_tags if ENV['RECAPTCHA_ENABLED'] %>
-      <%= submit_tag 'Join', class: 'button' %>
+      <%= submit_tag 'Join', class: 'Vlt-btn Vlt-btn--primary Vlt-btn--large' %>
     <% end %>
   <% end %>
 
   <% if @notice %>
-    <p class="flash"><%= @notice %></p>
+    <%= @notice %>
   <% end %>
 
-  <br>
-  <hr class="hr--mini spacious">
-  <br>
+  <hr class="hr--tall">
 
   <h2>Already a member?</h2>
-  <br>
-  <h4><%= link_to "Go to Nexmo Community on Slack", "https://#{ENV['SLACK_SUBDOMAIN']}.slack.com" %></h4>
+  <%= link_to "Go to Nexmo Community on Slack", "https://#{ENV['SLACK_SUBDOMAIN']}.slack.com", class: "Vlt-btn Vlt-btn--secondary" %>
 </center>

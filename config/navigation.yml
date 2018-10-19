@@ -40,23 +40,53 @@ navigation_weight:
   Secret Management: 3
 
 navigation_overrides:
-  audit:
-    label: 'Beta'
-  redact:
-    label: 'Developer Preview'
-  stitch:
-    label: 'Developer Preview'
-    sdk-documentation:
-      link: false
-      prevent_navigation_item_class: true
+  concepts:
+    svg: 'mind-map'
+    svgColor: 'red'
+  messaging:
+    svg: 'message'
+    svgColor: 'purple'
   voice:
+    svg: 'phone'
+    svgColor: 'green'
     voice-api:
       guides:
         lex-connector:
           label: 'Developer Preview'
         websockets:
           label: 'Beta'
+  verify:
+    svg: 'lock'
+    svgColor: 'indigo'
+  number-insight:
+    svg: 'file-search'
+    svgColor: 'orange'
+  account:
+    svg: 'user'
+    svgColor: 'blue'
+  redact:
+    label: 'Developer Preview'
+    svg: 'lock'
+    svgColor: 'red'
+  stitch:
+    svg: 'duplicate'
+    svgColor: 'teal'
+    label: 'Developer Preview'
+    sdk-documentation:
+      link: false
+      prevent_navigation_item_class: true
+  numbers:
+    svg: 'phone-number'
+    svgColor: 'red'
+  audit:
+    svg: 'file-search'
+    svgColor: 'green'
+    label: 'Beta'
   messages:
+    svg: 'chat'
+    svgColor: 'purple'
     label: 'Beta'
   dispatch:
+    svg: 'flow'
+    svgColor: 'purple'
     label: 'Beta'

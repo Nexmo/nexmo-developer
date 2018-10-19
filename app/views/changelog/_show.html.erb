@@ -1,11 +1,11 @@
-<div class="row">
-  <div class="columns small-2 right">
-    <p class="version">
-      <span class="label">v<%= version[:version] %></span><br>
-      <small><%= version[:date].strftime('%d %b %y') %></small>
+<div class="Vlt-grid Vlt-grid--margin-bottom1 Nxd-changelog__release">
+  <div class="Vlt-col Vlt-col--1of4 Vlt-col--M-1of4 Vlt-col--right Vlt-col--M-right">
+  	<div class="Vlt-badge Vlt-badge--blue">v<%= version[:version] %></div>
+    <p>
+      <small><b><%= version[:date].strftime('%d %b %y') %></b></small>
     </p>
   </div>
-  <div class="columns small-10">
+  <div class="Vlt-col Vlt-col--3of4 Vlt-col--M-3of4">
     <%= version[:body].html_safe %>
   </div>
 </div>

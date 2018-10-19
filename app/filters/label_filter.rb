@@ -1,7 +1,7 @@
 class LabelFilter < Banzai::Filter
   def call(input)
     input.gsub(/\[([a-zA-Z0-9\s:\-\.]+)\]/) do |_s|
-      "<span class='label #{class_name($1)}'>#{$1}</span> "
+      "<span class='Vlt-badge #{class_name($1)}'>#{$1}</span> "
     end
   end
 
@@ -10,13 +10,13 @@ class LabelFilter < Banzai::Filter
   def class_name(text)
     case text
     when 'POST'
-      'label--code label--positive'
+      'Vlt-badge--green'
     when 'GET'
-      'label--code'
+      'Vlt-badge--blue'
     when 'DELETE'
-      'label--code label--negative'
+      'Vlt-badge--red'
     when 'PUT'
-      'label--code label--warning'
+      'Vlt-badge--yellow'
     end
   end
 end

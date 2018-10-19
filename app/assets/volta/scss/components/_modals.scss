@@ -1,0 +1,175 @@
+@keyframes scaleUp {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(1000px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+@keyframes scaleDown {
+
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8) translateY(1000px);
+  }
+}
+
+.Vlt-modal {
+	align-items: center;
+	background: none;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	top: 0;
+	transform: scale(0);
+	transition: background 0.5s;
+	width: 100vw;
+	z-index: 99999999999;
+
+	&__panel {
+		background: $white;
+		border-radius: 8px;
+		box-shadow: 0 30px 40px rgba($black, 0.2);
+		display: flex;
+		flex-flow: column;
+		max-height: 95vh;
+		padding: $unit2 $unit3;
+		position: relative;
+		width: calc(100vw - 20px);
+
+		@media #{$M-plus} {
+			width: 400px;
+		}
+
+		@media #{$S-only} {
+			margin-bottom: 80px;
+			margin-top: 80px;
+			max-height: calc(70vh);
+		}
+
+		p {
+			color: $black;
+		}
+	}
+
+	&__header {
+		flex-shrink: 0;
+		padding-bottom: 6px;
+		text-align: center;
+
+		h3,
+		h4 {
+			justify-content: center;
+			margin-left: 25px;
+			width: calc(100% - 50px);
+		}
+	}
+
+	&__dismiss {
+		background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20width%3D%2220px%22%20height%3D%2220px%22%20viewBox%3D%220%200%2020%2020%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3C!--%20Generator%3A%20Sketch%2048.2%20(47327)%20-%20http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%20--%3E%0A%20%20%20%20%3Ctitle%3Eicn-close%3C%2Ftitle%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%0A%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20id%3D%22Modals---Desktop%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate(-512.000000%2C%20-62.000000)%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Modal%22%20transform%3D%22translate(156.000000%2C%2040.000000)%22%20fill%3D%22%23637381%22%20fill-rule%3D%22nonzero%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22icn-close%22%20transform%3D%22translate(356.000000%2C%2022.000000)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group-12%22%20transform%3D%22translate(2.083333%2C%202.500000)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Path-252%22%20points%3D%221.42258898%2015.115968%2015.115968%201.42258898%2013.9374567%200.244077682%200.244077682%2013.9374567%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Path-252-Copy%22%20points%3D%220.244077682%201.42258898%2013.9374567%2015.115968%2015.115968%2013.9374567%201.42258898%200.244077682%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 20px auto;
+		border: 0;
+		box-shadow: none;
+		cursor: pointer;
+		height: 40px;
+		opacity: 1;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		transition: opacity 0.2s;
+		width: 40px;
+
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+
+	&__footer {
+		border-top: 1px solid $grey-light;
+		flex-shrink: 0;
+		margin-bottom: -$unit1;
+		padding-top: $unit1;
+		text-align: center;
+
+		.Vlt-btn {
+			@extend %Vlt-btn--app;
+			min-width: 75px;
+		}
+	}
+
+	&_visible {
+		background: rgba($black, 0.5);
+		opacity: 1;
+		transform: scale(1) translateY(0px);
+
+		.Vlt-modal__panel {
+			animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+		}
+	}
+
+	&--out {
+		background: none;
+		opacity: 0;
+		transform: scale(0);
+
+		.Vlt-modal__panel {
+			animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+		}
+	}
+
+	&--large {
+		@media #{$M-plus} {
+			.Vlt-modal__panel {
+				width: 630px;
+			}
+		}
+	}
+
+	&--message {
+		text-align: center;
+
+		.Vlt-modal__content {
+			text-align: center;
+		}
+	}
+
+	&__content {
+		-webkit-overflow-scrolling: touch;
+		flex: auto; // not flex: 1 because IE11 needs flex-basis: auto or it gives it a 0 height
+		max-height: calc(95vh - 122px); // otherwise it overflows in IE
+		overflow-x: hidden; // otherwise IE11 shows a scrollbar on forms
+		overflow-y: auto;
+		padding-bottom: $unit3;
+
+		&--message {
+			text-align: center;
+		}
+	}
+
+	&--form {
+		text-align: left;
+	}
+}
+
+body.Vlt-body--modal-open {
+	overflow: hidden;
+
+	main {
+		overflow: hidden;
+	}
+}
+

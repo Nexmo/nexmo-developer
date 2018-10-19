@@ -2,17 +2,15 @@
 <html>
   <%= render partial: 'layouts/partials/head' %>
 
-  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
+  <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
-    <div class="wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="columns small-12">
-            <%= yield %>
-          </div>
-        </div>
+    <div class="wrapper wrapper--tint" tabindex="2">
+       <%= render partial: 'layouts/partials/notices' %>
+      <div class="Nxd-landing-main">
+        <%= yield %>
       </div>
     </div>
     <%= render partial: 'layouts/partials/footer' %>
+    <%= render partial: 'layouts/partials/scripts' %>
   </body>
 </html>

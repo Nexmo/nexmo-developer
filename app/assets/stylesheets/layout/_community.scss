@@ -4,17 +4,23 @@
 }
 
 #community-events {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: $spacing;
+	h3 {
+		color: $blue-dark;
+		margin-bottom: $unit1;
 
-  > div {
-    flex: 1;
-    min-width: 350px;
-    padding: $spacing/2;
+		&:hover {
+			color: $blue-darker;
+		}
+	}
 
-    @include mobile() {
-      min-width: 280px;
-    }
-  }
+	svg {
+		margin-right: $unit0;
+	}
+
+	.community-event__date {
+		border-top: 1px solid $grey-light;
+		border-bottom: 1px solid $grey-light;
+		padding: $unit1 0;
+		margin-bottom: $unit1;
+	}
 }

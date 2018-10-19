@@ -96,6 +96,10 @@ components:
           $ref: '#/components/schemas/FromProperty'
         message:
           $ref: '#/components/schemas/MessageProperty'
+        client_ref:
+          type: string
+          description: Client reference of up to 40 characters. The reference will be present in every message status.
+          example: 'my-personal-reference'
 
     Response:
       required:
@@ -182,6 +186,10 @@ components:
               type: string
               example: '0.0333'
               description: The charge amount as a stringified number.
+        client_ref:
+          type: string
+          description: The client's reference.
+          example: 'my-personal-reference'
 
     InboundMessage:
       type: object
@@ -332,7 +340,7 @@ components:
           example: '447700900000'
           description: |
             **SMS**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
-            
+
             **WhatsApp**: This is your WhatsApp Business Number  given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
 
             **Messenger**: or **Viber**: This value is not required.
@@ -351,7 +359,7 @@ components:
                 **Messenger**: supports all types.
 
                 **Viber Service Messages**: supports `image` and `text`.
-                
+
                 **WhatsApp**: supports `template` and `text`.
 
                 **SMS**: supports `text`.
@@ -372,7 +380,7 @@ components:
                 **Messenger**: Is limited to 640 characters
 
                 **SMS** or **Viber**: Is 1000 characters
-                
+
                 **WhatsApp**: is 4096 characters
               type: string
               minLength: 1
@@ -486,6 +494,12 @@ components:
                 type: string
                 description: 'The parameters are an array. The first value being {{1}} in the template.'
                 example: '1234'
+        fallback_locale:
+          type: string
+          description: 'Templates sent to a user will be localized according to the device locale settings. Optionally specify a fallback locale for displaying the message if a translation does not exist'
+          default: 'en'
+          example: 'en'
+
     LocationProperty:
       type: object
       properties:
@@ -499,7 +513,15 @@ components:
           example: '-0.0854414'
         url:
           type: string
-          description: The location on a map.
+          description: Depending on the provider, this can either be the location on a map or the website of the business at this location.
+        address:
+          type: string
+          description: The address of the location attachment.
+          example: '15 Bonhill St London EC2A 4DN'
+        name:
+          type: string
+          description: The name of the location attachment.
+          example: 'Nexmo London'
 x-groups:
   message:
     name: "Message"
