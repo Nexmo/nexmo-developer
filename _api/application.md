@@ -134,7 +134,7 @@ Parameter | Description | Voice | Messages
 `answer_method` | The HTTP method used to make the request to answer_url. | ✓ | x
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | ✓ | x
 `event_method` | The HTTP method used to send event information to event_url. | ✓ | x
-`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every messageto this URL. | x | ✓
+`status_url` | Nexmo sends Submitted, Delivered, Read and Rejected statuses for every message to this URL. | x | ✓
 `inbound_url` | Nexmo sends Inbound Messages to this URL. | x | ✓
 `_links` | A series of links between resources in this API in the following [HAL specification](http://stateless.co/hal_specification.html).
 

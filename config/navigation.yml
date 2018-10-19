@@ -37,7 +37,7 @@ navigation_weight:
   Messages API: 1
   Dispatch API: 2
 
-  Secret Management: 3
+  Secret Management: 30
 
 navigation_overrides:
   concepts:
