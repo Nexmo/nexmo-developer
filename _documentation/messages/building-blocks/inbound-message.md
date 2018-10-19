@@ -1,5 +1,5 @@
 ---
-title: Inbound message
+title: Receive an inbound message
 navigation_weight: 2
 ---
 
