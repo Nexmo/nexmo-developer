@@ -388,6 +388,10 @@ paths:
                   type: integer
                   description: the number of times to play the file, 0 for infinite
                   default: 1
+                level:
+                  type: string
+                  description: Set the audio level of the stream in the range `-1 >= level <= 1` with a precision of 0.1. The default value is 0.
+                  example: 0
       responses:
         '200':
           description: Ok
@@ -458,6 +462,10 @@ paths:
                   description: The number of times to repeat the text the file, 0
                     for infinite
                   default: 1
+                level:
+                  type: string
+                  description: The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.
+                  example: 0
       responses:
         '200':
           description: Ok

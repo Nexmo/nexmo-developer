@@ -124,7 +124,7 @@ Each request you make using the Nexmo API returns a:
 * Response - the status and cost of your request to Nexmo in JSON or XML format.
 * Delivery Receipt - if you have set a webhook endpoint, Nexmo forwards this delivery receipt to it. Carriers return a Delivery Receipt (DLR) to Nexmo to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
 
-The Delivery Receipt is sent using a [GET] HTTP request to your webhook endpoint. When you receive the DLR, you must send a 200 OK response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours.
+The Delivery Receipt is sent using a [GET] HTTP request to your webhook endpoint. When you receive the DLR, you must send a 200 OK response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours. Please ensure that you have configured [a webhook endpoint](https://dashboard.nexmo.com/settings) in the Nexmo dashboard.
 
 When you implement your response, ensure that your logic is not case-sensitive for the response codes.
 
