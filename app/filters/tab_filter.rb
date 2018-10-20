@@ -33,7 +33,7 @@ class TabFilter < Banzai::Filter
     if content[:language]
       tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
     else
-      tab_link.content = content[:tab_title]
+      tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:platform].key}.svg##{content[:platform].key}\" /></svg><span>" + content[:tab_title] + '</span>'
     end
 
     tab_link['href'] = "##{content[:id]}"
