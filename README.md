@@ -117,4 +117,4 @@ This error indicates that PostgreSQL is not running. If you installed PostgreSQL
 $ brew info postgresql
 ```
 
-Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#Setup) for instructions.
+Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#running-locally) for instructions.
