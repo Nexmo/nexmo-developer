@@ -6,27 +6,27 @@ title: Overview
 
 We're always looking at ways to improve our documentation and platform and would love to invite you to contribute your suggestions not only to the content but also the open-source platform that it is built upon.
 
-## [Introduction to contributing](/contribute/guides/introduction)
+## [Introduction to contributing](/app/views/contribute/guides/introduction.md)
 
 An introductory guide for first time contributors to understand how and where contributions to Nexmo Developer documentation can be made.
 
-## [Writing Style Guide](/contribute/guides/writing-style-guide)
+## [Writing Style Guide](/app/views/contribute/guides/writing-style-guide.md)
 
 The Writing Style Guide provides guidance and templates for how Nexmo Developer should be written and structured as well as what we use in place of API credentials and other variables throughout the guides.
 
-## [Markdown Guide](/contribute/guides/markdown-guide)
+## [Markdown Guide](/app/views/contribute/guides/markdown-guide.md)
 
 The Markdown Guide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
 
-## [Structure](/contribute/structure/overview)
+## [Structure](/app/views/contribute/structure/overview.md)
 
 The Structure section provides an overview of our documentation content types, which type to use and how our documentation content should be structured.
 
-## [Code Examples](/contribute/guides/code-examples)
+## [Code Examples](/app/views/contribute/guides/code-examples.md)
 
 The Code Examples page provides examples of how to use tabbed code examples and syntax highlighting.
 
-## [Platform](/contribute/guides/platform)
+## [Platform](/app/views/contribute/guides/platform.md)
 
 The platform guide goes into some of the details of how Nexmo Developer works internally including aspects such as Markdown handling, assets and supporting tools.
 
