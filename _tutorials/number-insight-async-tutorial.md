@@ -31,10 +31,8 @@ To achieve this, you perform the following steps:
 
 To complete the tutorial, you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* A publicly accessible web server so Nexmo can make webhook requests to your app. If you're developing locally, consider using [ngrok](https://ngrok.com/)
-
-> [This post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) on the Nexmo Developer blog shows you how to use `ngrok`
+* A [Nexmo account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
+* [ngrok](https://ngrok.com/) - to make your development web server accessible to Nexmo's servers over the Internet
 
 ## Create the project
 Make a directory for your application, `cd` into the directory and then use the Node.js package manager `npm` to create a `package.json` file for your application's dependencies:
@@ -47,7 +45,7 @@ $ npm init
 
 Press [Enter] to accept each of the defaults.
 
-Then, install the `express` web application framework and `body-parser` packages:
+Then, install the [express](https://expressjs.com) web application framework and [body-parser](https://www.npmjs.com/package/body-parser) packages:
 
 ```sh
 $ npm install express body-parser  --save
@@ -123,14 +121,14 @@ Now that your application can receive a phone number, you need to create the asy
 First, write the code that creates an instance of `Nexmo` with your account details:
 
 ```javascript
-var Nexmo = require('nexmo');
-var nexmo = new Nexmo({
+const Nexmo = require('nexmo');
+const nexmo = new Nexmo({
     apiKey: NEXMO_API_KEY,
     apiSecret: NEXMO_API_SECRET
 });
 ```
 
-Then, call the Number Insight API, passing in the number you are interested in and the URL of the webhook that deals with the response. You create the webhook in a later step.
+Then, extend the `/insight/:number` route to call the Number Insight API, passing in the number you are interested in and the URL of the webhook that deals with the response. You create the webhook in a later step.
 
 ```javascript
 app.get('/insight/:number', function(request, response) {
