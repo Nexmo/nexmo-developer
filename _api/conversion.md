@@ -31,7 +31,7 @@ This request contains:
 
 ## Base URL
 
-Conversion API only accepts POST requests. The reply is not in JSON or XML format.
+The Conversion API only accepts POST requests. The reply is not in JSON or XML format.
 Your base URL becomes either:
 
 **SMS API**
