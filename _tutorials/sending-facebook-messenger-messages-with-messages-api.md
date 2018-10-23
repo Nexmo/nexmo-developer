@@ -1,5 +1,5 @@
 ---
-title: Sending Facebook Messenger messages with Messages API
+title: Sending Facebook Messenger messages with the Messages API
 products: messages
 description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the Facebook Messenger channel using the Messages API.
 languages:
@@ -7,7 +7,7 @@ languages:
     - Node
 ---
 
-# Sending Facebook Messenger messages with Messages API
+# Sending Facebook Messenger messages with the Messages API
 
 You can use the Messages API to send and receive messages using Facebook Messenger.
 

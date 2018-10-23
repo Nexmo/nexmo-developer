@@ -769,7 +769,7 @@ x-groups:
   account:
     name: "Account"
     order: 2
-    description: An external-account used as the `from` field in Messages API and Dispatch API
+    description: An external-account used as the `from` field in the Messages API and Dispatch API
   messenger:
     name: "Facebook Messenger"
     order: 3

@@ -91,7 +91,7 @@ GEM
     bindex (0.5.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.2.1)
+    bootsnap (1.3.2)
       msgpack (~> 1.0)
     bugsnag (5.3.3)
     builder (3.2.3)
@@ -242,8 +242,8 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oas_parser (0.11.2)
-      activesupport (~> 5.1.2)
+    oas_parser (0.13.1)
+      activesupport (> 5.1.2, < 6)
       addressable (~> 2.3)
       builder (~> 3.2.3)
       deep_merge (~> 1.2.1)
@@ -448,7 +448,7 @@ DEPENDENCIES
   neatjson
   nexmo_api_specification (= 0.11.7)
   nokogiri (= 1.8.2)
-  oas_parser (= 0.11.2)
+  oas_parser (= 0.13.1)
   octicons_helper
   octokit
   pg (~> 0.18)

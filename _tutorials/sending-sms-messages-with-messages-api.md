@@ -1,5 +1,5 @@
 ---
-title: Sending SMS messages with Messages API
+title: Sending SMS messages with the Messages API
 products: messages
 description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages over the SMS channel using the Messages API.
 languages:
@@ -7,7 +7,7 @@ languages:
     - Node
 ---
 
-# Sending SMS messages with Messages API
+# Sending SMS messages with the Messages API
 
 In this tutorial you will see how to send an SMS using the Messages API.
 
