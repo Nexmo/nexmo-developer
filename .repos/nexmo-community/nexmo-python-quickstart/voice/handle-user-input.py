@@ -26,7 +26,7 @@ def answer_call():
 
 
 @app.route("/webhooks/dtmf", methods=['POST'])
-def inout_webhook():
+def dtmf():
     data = request.get_json()
     pprint(data)
     ncco =[
