@@ -7,17 +7,17 @@
       {
         "id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
         "name": "My Application",
-        "voice": {
+        "messages": {
           "webhooks": [
             {
-              "endpoint_type": "event_url",
-              "endpoint": "https://example.com/event",
+              "endpoint_type": "status_url",
+              "endpoint": "https://example.com/status",
               "http_method": "POST"
             },
             {
-              "endpoint_type": "answer_url",
-              "endpoint": "https://example.com/answer",
-              "http_method": "GET"
+              "endpoint_type": "inbound_url",
+              "endpoint": "https://example.com/inbound",
+              "http_method": "POST"
             }
           ]
         },

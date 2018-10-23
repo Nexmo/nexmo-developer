@@ -6,7 +6,7 @@ title: Send a WhatsApp Message
 
 In this building block you will see how to send a WhatsApp message using the Messages API.
 
-For a step-by-step guide to this topic, you can read our tutorial [Sending WhatsApp messages with Messages API](/tutorials/sending-whatsapp-messages-with-messages-api).
+For a step-by-step guide to this topic, you can read our tutorial [Sending WhatsApp messages with the Messages API](/tutorials/sending-whatsapp-messages-with-messages-api).
 
 ## Example
 

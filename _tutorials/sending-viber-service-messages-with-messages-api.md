@@ -1,5 +1,5 @@
 ---
-title: Sending Viber Service messages with Messages API
+title: Sending Viber Service messages with the Messages API
 products: messages
 description: The Messages API provides a unified facility for sending messages over multiple channel types. This tutorial looks at sending messages via the Viber Service channel using the Messages API.
 languages:
@@ -7,7 +7,7 @@ languages:
     - Node
 ---
 
-# Sending Viber Service messages with Messages API
+# Sending Viber Service messages with the Messages API
 
 You can use the Messages API to send outbound Viber Service Messages to Viber Users.
 

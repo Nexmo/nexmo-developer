@@ -18,7 +18,7 @@ class ResponseParserDecorator < OasParser::ResponseParser
 
       next(s) if (indentation.size + opening_tag.size + content.size) < 60
 
-      return "#{indentation}#{opening_tag}\n#{indentation_plus_one}#{content}\n#{indentation}#{closing_tag}"
+      next "#{indentation}#{opening_tag}\n#{indentation_plus_one}#{content}\n#{indentation}#{closing_tag}"
     end
 
     xml_string

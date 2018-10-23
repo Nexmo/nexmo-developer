@@ -18,7 +18,7 @@ try:
         for application in resp_data['_embedded']['applications'] :
             print "Application " + application['name'] + \
                 " has an ID of: " + application['id']
-            for webhook in application['voice']['webhooks'] :
+            for webhook in application['messages']['webhooks'] :
                 print "  " + webhook['endpoint_type'] + " is " + webhook['endpoint']
     else:
         print "Your request failed because:"

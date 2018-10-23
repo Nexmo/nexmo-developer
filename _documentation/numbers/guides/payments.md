@@ -1,5 +1,6 @@
 ---
 title: Payments
+description: How to set up payment methods, auto reload, and balance notifications
 ---
 
 # Payments

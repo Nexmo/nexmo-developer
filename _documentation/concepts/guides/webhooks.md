@@ -27,7 +27,7 @@ Webhooks provide a convenient mechanism for Nexmo to send information to your ap
 
 ## Which APIs support webhooks?
 
-Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API, and Nexmo virtual numbers are sent in an HTTP request to your webhook endpoint on an HTTP server.
+Information resulting from requests to the SMS API, Voice API, Number Insight API, US Short Codes API, and Nexmo virtual numbers are sent in an HTTP request to your webhook endpoint on an HTTP server. To configure your webhook endpoint, please visit the [Nexmo dashboard](https://dashboard.nexmo.com/settings)
 
 Nexmo sends and retrieves the following information using webhooks:
 

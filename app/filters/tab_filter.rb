@@ -32,6 +32,8 @@ class TabFilter < Banzai::Filter
     tab_link = Nokogiri::XML::Element.new 'a', @document
     if content[:language]
       tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
+    elsif content[:platform]
+      tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:platform].key}.svg##{content[:platform].key}\" /></svg><span>" + content[:tab_title] + '</span>'
     else
       tab_link.content = content[:tab_title]
     end

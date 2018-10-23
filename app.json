@@ -18,11 +18,6 @@
     { "url": "heroku/ruby" }
   ],
   "env": {
-    "ALGOLIA_API_KEY": { "required": false },
-    "ALGOLIA_APPLICATION_ID": { "required": false },
-    "ALGOLIA_CONFIG": { "required": false },
-    "ALGOLIA_PUBLISHABLE_KEY": { "required": false },
-    "BUGSNAG_API_KEY": { "required": false },
     "RACK_ENV": { "required": true },
     "RAILS_ENV": { "required": true }
   }

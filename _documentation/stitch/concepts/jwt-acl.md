@@ -18,7 +18,7 @@ nexmo app:create "My Stitch App" https://example.com/answer https://example.com/
 
 ```
 Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
-No existing config found. Writing to new file.
+No existing config found. Writing to a new file.
 Credentials written to /path/to/your/local/folder/.nexmo-app
 Private Key saved to: private.key
 ```
@@ -27,11 +27,11 @@ You can also create a new application within the [Nexmo Dashboard](https://dashb
 
 ### Claims
 
-Using that `private.key` and the application ID, we can mint a new JWT. In order to log a user in to a Stitch client, the JWT will need the following claims:
+Using that `private.key` and the application ID, we can mint a new JWT. In order to log a user into a Stitch client, the JWT will need the following claims:
 
 |Claim | Description |
 | --------- | ----------- |
-| `sub`| The "subject". The subject in this case will be the name of the user created in Stitch |
+| `sub`| The "subject". The subject, in this case, will be the name of the user created in Stitch |
 | `acl`| Access control list. The Stitch API uses this as a permission system for users. Read more about it in the [ACL overview](#acls) |
 | `application_id`| This is the ID of the Nexmo Application you created. |
 | `iat`| "Issued at time" This is the time the JWT was issued, in unix epoch time. |
@@ -88,13 +88,13 @@ In the previous section, you can see that the `acl` claim has `paths` object con
 | `/v1/devices/**`| Send push notifications.|
 | `/v1/applications/**`| Upload push notification certificate.|
 
-It is not necessary to provide users with the permissions to access all of these paths. For instance if a user was not going to upload or receive push notifications, you could create a JWT without including the `/v1/applications/**`or `/v1/push/**` paths.
+It is not necessary to provide users with the permissions to access all of these paths. For instance, if a user was not going to upload or receive push notifications, you could create a JWT without including the `/v1/applications/**`or `/v1/push/**` paths.
 
 ## Nexmo Client Libraries
 
 ### CLI
 
-Currently you can use the beta version of the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli/tree/beta) to create a JWT [including the appropriate claims](https://github.com/Nexmo/nexmo-cli/tree/beta#jwt)
+Currently, you can use the beta version of the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli/tree/beta) to create a JWT [including the appropriate claims](https://github.com/Nexmo/nexmo-cli/tree/beta#jwt)
 
 ```sh
 nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{},"/v1/knocking/**":{}}}' application_id=YOUR_APP_ID
@@ -145,4 +145,3 @@ Nexmo::generateJwt([
 ### Other languages
 
 Creating a JWT with the appropriate claims for authenticating a Stitch user is not currently provided in any of the other Nexmo Client Libraries. Instead, we encourage you to use your JWT library of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload). [JWT.io](https://jwt.io/#libraries-io) has a selection of libraries for generating JWTs in multiple languages.
-

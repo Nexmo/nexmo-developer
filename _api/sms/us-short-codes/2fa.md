@@ -54,14 +54,14 @@ Parameter | Description | Required
 
 ### Authentication information
 
-If you are not using applications, you use the following parameters for calls to Nexmo API:
+To authenticate your request, you must provide the following parameters:
 
 Parameter | Description
 -- | --
 `api_key` | Your Key. For example: `api_key=NEXMO_API_KEY`
 `api_secret` | Your Secret. For example: `api_secret=NEXMO_API_SECRET`
 
-You find your Key and Secret in [Dashboard](https://dashboard.nexmo.com/private/dashboard).
+You can find your Key and Secret in the [Dashboard](https://dashboard.nexmo.com/).
 
 If you are using signatures to verify your requests use:
 

@@ -13,4 +13,4 @@ You can also use the [nexmo-cli](https://github.com/nexmo/nexmo-cli) to set the 
 
 ### Delivery Receipts
 
-See the [Delivery Reciepts](/messaging/sms/guides/delivery-receipts) guide in the SMS documentation.
+See the [Delivery Receipts](/messaging/sms/guides/delivery-receipts) guide in the SMS documentation.

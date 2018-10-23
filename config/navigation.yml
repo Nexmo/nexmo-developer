@@ -8,7 +8,6 @@ navigation_weight:
   Dispatch: 6
   Numbers: 98
   Account: 99
-  Concepts: 0
 
   Overview: 1
   Developer Preview: 2
@@ -37,10 +36,11 @@ navigation_weight:
   Messages API: 1
   Dispatch API: 2
 
-  Secret Management: 3
+  Secret Management: 30
 
 navigation_overrides:
   concepts:
+    navigation_weight: 0
     svg: 'mind-map'
     svgColor: 'red'
   messaging:

@@ -4,7 +4,7 @@ title: Overview
 
 # Nexmo Stitch Overview [Developer Preview]
 
-Nexmo Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. 
+Nexmo Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API.
 
 Stitch enables communications across multiple channels including:
 
@@ -18,7 +18,7 @@ Enable chat or voice on your mobile or web application with our SDKs so that you
 
 ## In-App Messaging
 
-Build a feature rich chat experience that includes typing indicators and sent, delivered and read receipts.
+Build a feature-rich chat experience that includes typing indicators and sent, delivered and read receipts.
 
 Some features include:
 
@@ -28,7 +28,7 @@ Some features include:
 
 ## In-App Voice
 
-Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature rich voice experience.
+Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature-rich voice experience.
 
 Some features include:
 
@@ -38,7 +38,7 @@ Some features include:
 
 ## In-App Video
 
-Nexmo In-App Video uses WebRTC and includes all the essentials you need to build a feature rich video experience.
+Nexmo In-App Video uses WebRTC and includes all the essentials you need to build a feature-rich video experience.
 
 Some features include:
 
@@ -49,9 +49,9 @@ Some features include:
 
 ## Participating in the Developer Preview
 
-This Developer Preview will focus on the In-App Messaging and Voice capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the Developer Preview it is possible that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
+This Developer Preview will focus on the In-App Messaging and Voice capabilities. During this program, there will be frequent releases with new features and bug fixes based on your feedback. During the Developer Preview, it is possible that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
 
-If you want communicate with Nexmo during the developer preview you can:
+If you want to communicate with Nexmo during the developer preview you can:
 
 * Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and check out the [#stitch](https://nexmo-community.slack.com/messages/C9H152ATW) channel.
 * Email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) directly.

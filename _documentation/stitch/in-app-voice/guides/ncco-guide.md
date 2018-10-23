@@ -5,14 +5,14 @@ navigation_weight: 5
 
 # NCCO Guide for Calling
 
-In this guide we'll demonstrate how to set up a dynamic answer URL with a NCCO that will allow you to configure more complex call flows from within your application via the [Voice API](/voice/voice-api/overview). This includes the ability to make hybrid leg calls from your app (via WebRTC) to a phone (via PSTN) and vice versa. This guide will focus on making calls from your app to a PSTN phone. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
+In this guide, we'll demonstrate how to set up a dynamic answer URL with a NCCO that will allow you to configure more complex call flows from within your application via the [Voice API](/voice/voice-api/overview). This includes the ability to make hybrid leg calls from your app (via WebRTC) to a phone (via PSTN) and vice versa. This guide will focus on making calls from your app to a PSTN phone. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/outbound-pstn).
 
 ## Concepts
 
 This guide will introduce you to the following concepts:
 
 - **Nexmo Applications** - Contain configuration for the application that you are building.
-- **PSTN** - Short for "Public Switched Telephone Network". Basically the network of Telephones and Cell Phones that can make and receive calls.
+- **PSTN** - Short for "Public Switched Telephone Network". Basically, the network of Telephones and Cell Phones that can make and receive calls.
 - **NCCO** -Short for "Nexmo Call Control Object". A JSON array that you use to control the flow of a Voice API call. Read more in [the NCCO Reference Guide](https://developer.nexmo.com/voice/voice-api/ncco-reference).
 
 ## Before you begin
@@ -111,4 +111,4 @@ An example of an answer URL with a dynamic NCCO object using the `NEXMO_NUMBER` 
 
 After reading this guide, you should read more about implementing outbound PSTN calling with the [JavaScript, Android or iOS SDKs](/stitch/in-app-voice/guides/outbound-pstn).
 
-If you'd like to learn more about other actions you can use in your NCCO to control the flow of a call such as recording, sending audio files or synthesised speech, you can read more about that in the [NCCO reference guide for the Voice API](/voice/voice-api/ncco-reference).
+If you'd like to learn more about other actions you can use in your NCCO to control the flow of a call such as recording, sending audio files or synthesized speech, you can read more about that in the [NCCO reference guide for the Voice API](/voice/voice-api/ncco-reference).

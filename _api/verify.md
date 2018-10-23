@@ -6,9 +6,9 @@ api: Verify
 
 # Verify API Reference
 
-You use Verify API to Verify that a phone number is valid, reachable, and accessible by your user. You can customise the message used during verification.
+You use the Verify API to Verify that a phone number is valid, reachable, and accessible by your user. You can customise the message used during verification.
 
-The endpoints for Verify API are:
+The endpoints for the Verify API are:
 
 * [Verify Request](#verify-request): generate and send a PIN to your user. You use the `request_id` in the [response](#rresponse) for the Verify Check.
 * [Verify Check](#verify-check): confirm that the PIN you received from your user matches the one sent by Nexmo as a result of your [Verify Request](#verify-request).

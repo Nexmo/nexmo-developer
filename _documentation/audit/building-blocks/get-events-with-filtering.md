@@ -28,9 +28,9 @@ Key | Description
 -- | --
 `NEXMO_API_KEY` | Your Nexmo API key.
 `NEXMO_API_SECRET` | Your Nexmo API secret.
-`SEARCH_TEXT` | Some JSON compatible text to search for, for example "number".
+`SEARCH_TEXT` | Some JSON compatible text to search for. For example, "number".
 `DATE_FROM` | Audit events starting from this ISO-8601 datetime value. For example, "2018-07-01".
-`DATE_TO` | Audit events up to this ISO-8601 datetime value. For example, "2018-08-01"
+`DATE_TO` | Audit events up to this ISO-8601 datetime value. For example, "2018-08-01".
 
 > In the following example the _Create an application_ and _Initialize your dependencies_ procedures are optional.
 
