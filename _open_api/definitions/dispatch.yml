@@ -432,11 +432,11 @@ components:
             code:
               type: integer
               example: 1300
-              description: The error code. See [Errors](#errors) for a table of descriptions.
+              description: The error code. See [our errors list](/api-errors/messages-olympus) for a list of possible errors
             reason:
               type: string
               example: 'Not part of the provider network'
-              description: Text describing the error. See [Errors](#errors) for a more details.
+              description: Text describing the error. See [our errors list](/api-errors/messages-olympus) for a list of possible errors
         usage:
           type: object
           properties:
