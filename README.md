@@ -24,7 +24,7 @@ To generate code coverage, set the `COVERAGE` environment variable when running 
 COVERAGE=1 bundle exec rspec
 ```
 
-This will create a folder named `coverage`. Open `index.html` in the coverage folder to view coverage statistics.
+This will create a folder named `coverage`. Open `index.html` in this folder to view coverage statistics.
 
 ## Running locally
 
