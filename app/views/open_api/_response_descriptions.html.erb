@@ -25,33 +25,11 @@
                 <tbody>
                     <% if response.exhibits_one_of_multiple_schemas?(format) %>
                         <% response.split_schemas(format).each_with_index do |schema, index| %>
-                            <% next unless schema['properties'] %>
-                            <% schema['properties'].each do |key, value| %>
-                                <% next if key == '_links' %>
-                                <% next if value['x-skip-response-description'] %>
-                                <tr>
-                                    <td><b><%= key %></b></td>
-                                    <td><%= value['description'] ? value['description'].render_markdown : '' %></td>
-                                </tr>
-                            <% end %>
-                        <% end %>
+                            <%= render 'response_description_parameters', schema: schema %>
+                       <% end %>
                     <% else %>
                         <% schema = response.schema(format) %>
-                        <% if schema['properties']%>
-                            <% schema['properties'].each do |key, value| %>
-                                <% next if key == '_links' %>
-                                <% next if value['x-skip-response-description'] %>
-                                <%
-                                    desc = ''
-                                    desc = value['title'].render_markdown if value['title']
-                                    desc = value['description'].render_markdown if value['description']
-                                %>
-                                <tr>
-                                    <td><b><%= key %></b></td>
-                                    <td><%= desc %></td>
-                                </tr>
-                            <% end %>
-                        <% end %>
+                        <%= render 'response_description_parameters', schema: schema %>
                     <% end %>
 
                 </tbody>

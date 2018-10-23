@@ -1,6 +1,6 @@
 class BuildingBlock
   include ActiveModel::Model
-  attr_accessor :title, :product, :navigation_weight, :document_path, :url
+  attr_accessor :title, :product, :category, :navigation_weight, :document_path, :url
 
   def self.by_product(product)
     all.select do |block|
@@ -20,6 +20,7 @@ class BuildingBlock
         navigation_weight: frontmatter['navigation_weight'] || 999,
         product: product,
         document_path: document_path,
+        category: extract_category(document_path),
         url: generate_url(document_path),
       })
     end
@@ -35,13 +36,25 @@ class BuildingBlock
     # Remove the prefix
     path = path.gsub!("#{origin}/", '')
 
-    # Each file is in the form building-blocks/<title>.md, so let's remove the last two segments
-    parts = path.split('/')
-    parts = parts[0...-2]
+    # Each file is in the form building-blocks/<title>.md, so let's remove everything after building-blocks
+    path = path.gsub(%r{/building-blocks/.*}, '')
 
-    # What's left once we remove the start and end of the path is our product name. This could be any number
-    # of parts, but it's generally 1-2
-    parts.join('/')
+    path
+  end
+
+  def self.extract_category(path)
+    # Remove the prefix
+    path = path.gsub("#{origin}/", '')
+
+    # Each file is in the form building-blocks/<title>.md, so let's capture everything after building-blocks
+    path = path.gsub(%r{.*/building-blocks/(.*)$}, '\1')
+
+    parts = path.split('/')
+    parts = parts[0...-1]
+
+    return nil if parts.empty?
+
+    parts.join('/').tr('-', ' ').humanize
   end
 
   def self.files

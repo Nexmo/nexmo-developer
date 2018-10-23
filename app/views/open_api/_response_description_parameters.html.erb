@@ -1,0 +1,45 @@
+<% if schema['properties'] %>
+<% schema['properties'].each do |key, value| %>
+  <% next if key == '_links' %>
+  <% next if value['x-skip-response-description'] %>
+  <tr<% if value['properties'] %> class=" Vlt-table__row--noline" <% end %>>
+      <td>
+          <b><%= key %></b>
+          <% if value['items'] %>
+              <br />
+              <small>array of <%= value['items']['type'] %>s</small>
+          <% end %>
+      </td>
+    <td>
+    <%= value['description'] ? value['description'].render_markdown : '' %>
+      <% if value['enum']%>
+       <small class="Vlt-grey-dark">
+          One of: <%= value['enum'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: ' or ', two_words_connector: ' or ').html_safe %>
+        </small>
+      <% end %>
+
+      <% if value['items'] # If this is an array, we need to show the structure of the children %>
+          <% value['properties'] = value['items']['properties'] %>
+      <% end %>
+      <% if value['properties'] %>
+        </td></tr>
+        <tr class="Vlt-table__row--nohighlight">
+        <td colspan="2">
+        <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
+        <table>
+          <thead>
+          <tr>
+            <th>Field</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <%= render 'response_description_parameters', schema: value %>
+          </tbody>
+        </table>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+<% end %>

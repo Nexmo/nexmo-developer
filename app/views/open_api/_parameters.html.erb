@@ -39,27 +39,27 @@
             <b><%= parameter.name %></b><br>
             <small>
               <% if parameter.required %>
-                <span class="flag flag--strong">Required</span> |
+                <span class="flag flag--strong">Required</span>
               <% end %>
 
               <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
                 <% if @definition_initialization_config['formats'].include? 'text/xml' %>
                   <span class="js-format" data-format="text/xml">
                     <% if parameter.is_xml_attribute? %>
-                      <span class="flag">Attribute</span> |
+                      | <span class="flag">Attribute</span>
                     <% end %>
 
                     <% if parameter.is_xml_text? %>
-                      <span class="flag">Value</span> |
+                      | <span class="flag">Value</span>
                     <% end %>
                   </span>
                 <% end %>
               <% end %>
 
               <i>
-                <%= parameter.type %>
+                <% if parameter.required and parameter.type %>|<% end %> <%= parameter.type %>
                 <% if parameter.format %>
-                  (<%= parameter.format %>)
+                  | (<%= parameter.format %>)
                 <% end %>
                 <% if parameter.array? %>
                   <br>
@@ -72,7 +72,7 @@
           </td>
 
           <td>
-            <% if parameter.collection? %>
+            <% if parameter.collection? or parameter.oneOf? %>
               <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
                 <%= (parameter.description ? "#{parameter.description}" : '<i>None</i>').render_markdown %>
               <% end %>
@@ -111,7 +111,7 @@
           </td>
 
           <% unless model %>
-            <% if parameter.collection? %>
+            <% if parameter.collection? or parameter.oneOf? %>
               <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
                 <!-- Just for spacing -->
                 <td></td>
@@ -133,6 +133,16 @@
             </td>
           <% end %>
         
+
+        <% if parameter.oneOf? %>
+        <div style="margin-left: 20px;">
+          <h4>Any one of the following:</h4>
+          <% parameter.properties.each do |property| %>
+            <h5><%= property['description'] %></h5>
+            <%= render 'parameters', parameters: property['properties'], model: model, format: format, callback: callback %>
+          <% end %>
+        </div>
+          <% end %>
 
         <% if parameter.collection? %>
         <tr class="Vlt-table__row--nohighlight">
