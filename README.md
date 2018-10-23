@@ -24,7 +24,7 @@ To generate code coverage, set the `COVERAGE` environment variable when running 
 COVERAGE=1 bundle exec rspec
 ```
 
-This will create a folder named `coverage`. Open `index.html` in this folder to view coverage statistics.
+This will create a folder named `coverage`. Open `index.html` in the coverage folder to view coverage statistics.
 
 ## Running locally
 
@@ -32,7 +32,7 @@ The project can be run on your laptop, either directly or using Docker. These in
 
 ### Setup for running directly on your laptop
 
-Before you start, you will need to make sure that you have:
+Before you start, you need to make sure that you have:
 
 - [Ruby 2.5.1](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
 - [PostgreSQL](https://www.postgresql.org/download/)
