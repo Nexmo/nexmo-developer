@@ -88,7 +88,7 @@ To reset your Nexmo password:
 3. You receive a password reset link at the email address associated with your Nexmo account. This link is valid for 15 minutes.
 4. Navigate to the reset link and reset your password.
 
-If having are still having issues, please contact <support@nexmo.com>.
+If you are still having issues, please contact <support@nexmo.com>.
 
 ## Supported browsers
 

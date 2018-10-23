@@ -31,10 +31,7 @@ paths:
                     - "$ref": "#/components/schemas/endpoints/properties/sip"
                     - "$ref": "#/components/schemas/endpoints/properties/websocket"
                 from:
-                  oneOf:
-                    - "$ref": "#/components/schemas/endpoints/properties/phone"
-                    - "$ref": "#/components/schemas/endpoints/properties/sip"
-                    - "$ref": "#/components/schemas/endpoints/properties/websocket"
+                  "$ref": "#/components/schemas/endpoints/properties/phone"
                 answer_url:
                   description: The webhook endpoint where you provide the Nexmo Call
                     Control Object that governs this call.
