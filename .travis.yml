@@ -24,4 +24,5 @@ before_script:
 script:
   - bundle exec rake spec
   - bundle exec rubocop
-  - bundle exec rake ci:render_pages
+  - bundle exec rake ci:verify_pages
+  - bundle exec rake ci:verify_navigation
