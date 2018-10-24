@@ -13,10 +13,22 @@ RSpec.describe BuildingBlock, type: :model do
     end
   end
 
+  describe '#extract_category' do
+    it 'sets no category for top level building blocks' do
+      allow(BuildingBlock).to receive(:origin).and_return('/path/to/_documentation')
+      expect(BuildingBlock.extract_category("#{BuildingBlock.origin}/voice/voice-api/building-blocks/demo.md")).to eq(nil)
+    end
+
+    it 'sets the correct category for nested building blocks' do
+      allow(BuildingBlock).to receive(:origin).and_return('/path/to/_documentation')
+      expect(BuildingBlock.extract_category("#{BuildingBlock.origin}/messaging/sms/building-blocks/sub-folder/demo.md")).to eq('Sub folder')
+    end
+  end
+
   describe '#all' do
     it 'returns all building blocks' do
       stub_available_blocks
-      expect(BuildingBlock.all).to have(3).items
+      expect(BuildingBlock.all).to have(4).items
     end
   end
 
@@ -27,7 +39,7 @@ RSpec.describe BuildingBlock, type: :model do
     end
     it 'shows only voice' do
       stub_available_blocks
-      expect(BuildingBlock.by_product('voice/voice-api')).to have(2).items
+      expect(BuildingBlock.by_product('voice/voice-api')).to have(3).items
     end
   end
 
@@ -53,6 +65,7 @@ RSpec.describe BuildingBlock, type: :model do
       expect(block.title).to eq('Example Long Title')
       expect(block.navigation_weight).to eq(1)
       expect(block.product).to eq('voice/voice-api')
+      expect(block.category).to eq(nil)
       expect(block.document_path).to eq('voice/voice-api/building-blocks/example-long-title.md')
       expect(block.url).to eq('/voice/voice-api/building-blocks/example-long-title')
     end
@@ -80,6 +93,17 @@ def stub_available_blocks
       }.to_yaml
     )
   end
+
+  # Add an example that has nested folders
+  path = '/path/to/_documentation/voice/voice-api/building-blocks/nested-blocks/nested-example.md'
+  i += 1
+  allow(File).to receive(:read).with(path) .and_return(
+    {
+      'title' => 'This is a nested example',
+      'navigation_weight' => i,
+    }.to_yaml
+  )
+  paths.push(path)
 
   allow(BuildingBlock).to receive(:origin).and_return('/path/to/_documentation')
   allow(BuildingBlock).to receive(:files).and_return(paths)

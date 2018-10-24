@@ -96,7 +96,7 @@ Possible return parameters are:
 
 ## Conversation
 
-You can use the `conversation` action to create standard or moderated conversations. The first person to call the virtual number assigned to the conversation creates it. This action is synchronous, the conversation lasts until the number of participants is 0.
+You can use the `conversation` action to create standard or moderated conferences. The first person to call the virtual number assigned to the conversation creates it. This action is synchronous, the conversation lasts until the number of participants is 0.
 
 > **Note**: you can invite up to 50 people to your Conversation.
 

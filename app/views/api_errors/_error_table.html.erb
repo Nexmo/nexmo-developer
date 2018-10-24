@@ -11,10 +11,12 @@
         <td><code><%= error.id %></code></td>
         <td>
           <b>Details:</b>
-          <p><%= error.description %></p>
+          <p><%= error.description.render_markdown %></p>
 
+          <% if error.resolution %>
           <b>Resolution:</b>
           <%= error.resolution.render_markdown %>
+          <% end %>
         </td>
         <td>
         <% if error.link %>

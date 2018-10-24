@@ -31,12 +31,7 @@ paths:
                     - "$ref": "#/components/schemas/endpoints/properties/sip"
                     - "$ref": "#/components/schemas/endpoints/properties/websocket"
                 from:
-                  type: array
-                  items:
-                    oneOf:
-                    - "$ref": "#/components/schemas/endpoints/properties/phone"
-                    - "$ref": "#/components/schemas/endpoints/properties/sip"
-                    - "$ref": "#/components/schemas/endpoints/properties/websocket"
+                  "$ref": "#/components/schemas/endpoints/properties/phone"
                 answer_url:
                   description: The webhook endpoint where you provide the Nexmo Call
                     Control Object that governs this call.
@@ -61,6 +56,7 @@ paths:
                   items:
                     type: string
                     format: uri
+                  required: true
                 event_method:
                   description: The HTTP method used to send event information to event_url.
                   type: string
@@ -384,6 +380,7 @@ paths:
                   type: array
                   items:
                     type: string
+                  required: true
                 loop:
                   type: integer
                   description: the number of times to play the file, 0 for infinite
@@ -391,7 +388,8 @@ paths:
                 level:
                   type: string
                   description: Set the audio level of the stream in the range `-1 >= level <= 1` with a precision of 0.1. The default value is 0.
-                  example: 0
+                  example: 0.4
+                  default: 0
       responses:
         '200':
           description: Ok
@@ -451,6 +449,7 @@ paths:
             schema:
               properties:
                 text:
+                  required: true
                   type: string
                   description: The text to read
                   example: Hello. How are you today?
@@ -464,8 +463,9 @@ paths:
                   default: 1
                 level:
                   type: string
-                  description: The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.
-                  example: 0
+                  description: The volume level that the speech is played. This can be any value between `-1` to `1` in `0.1` increments, with `0` being the default.
+                  example: 0.4
+                  default: 0
       responses:
         '200':
           description: Ok
@@ -655,6 +655,7 @@ components:
               description: The type of connection. Must be `phone`
               enum:
               - phone
+              required: true
             number:
               "$ref": "#/components/schemas/addresses/properties/e164"
             dtmfAnswer:
@@ -671,9 +672,11 @@ components:
               example: websocket
               enum:
               - websocket
+              required: true
             uri:
               "$ref": "#/components/schemas/addresses/properties/wsurl"
             content-type:
+              required: true
               type: string
               example: audio/l16;rate=16000
               enum:
@@ -697,6 +700,7 @@ components:
               example: sip
               enum:
               - sip
+              required: true
             uri:
               "$ref": "#/components/schemas/addresses/properties/sipuri"
     addresses:
@@ -709,17 +713,20 @@ components:
           maxLength: 15
           example: '14155550100'
           pattern: "\\d{7,15}"
+          required: true
         sipuri:
           description: The SIP URI to connect to
           type: string
           minLength: 1
           maxLength: 50
           example: rebekka@sip.example.com
+          required: true
         wsurl:
           type: string
           minLength: 1
           maxLength: 50
           example: wss://example.com/socket
+          required: true
     callEvent:
       type: object
       required:

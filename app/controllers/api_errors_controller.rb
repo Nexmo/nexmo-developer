@@ -15,6 +15,7 @@ class ApiErrorsController < ApplicationController
 
   def index_scoped
     @errors_title = @error_config['products'][params[:definition]]['title']
+    @hide_rfc7807_header = @error_config['products'][params[:definition]]['hide_rfc7807_header']
     @errors = scoped_errors(params[:definition])
     render 'index'
   end
