@@ -510,7 +510,7 @@ See [Long Number](https://en.wikipedia.org/wiki/Long_number) and [Virtual Number
 
 ## Voice
 
-A suite of API's used to build voice enabled apps. These products allow customers to integrate text-to-speech into their workflow, build interactive voice response systems using JSON or make VOIP calls using [SIP](#sip) trunks.
+A suite of APIs used to build voice enabled apps. These products allow customers to integrate text-to-speech into their workflow, build interactive voice response systems using JSON or make VoIP calls using [SIP](#sip) trunks.
 
 Voice includes:
 
