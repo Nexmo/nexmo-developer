@@ -48,7 +48,7 @@ So, if you are ready to continue...
 First you will need to create a Nexmo Application if you have not already done so:
 
 ``` bash
-$ nexmo app:create "Conversation App" http://demo.ngrok.io:3000/webhooks/answer http://demo.ngrok.io:3000/webhooks/event --keyfile private.key
+nexmo app:create "Conversation App" http://demo.ngrok.io:3000/webhooks/answer http://demo.ngrok.io:3000/webhooks/event --keyfile private.key
 ```
 
 In this previous command you will need to replace `demo` by what applies to your setup.
@@ -68,7 +68,7 @@ nexmo link:app NEXMO_NUMBER APP_ID
 The Conversation API is authenticated using JWTs. You can generate a JWT with the following command:
 
 ``` bash
-$ JWT="$(nexmo jwt:generate private.key exp=$(($(date +%s)+86400)) application_id=APP_ID)"
+JWT="$(nexmo jwt:generate private.key exp=$(($(date +%s)+86400)) application_id=APP_ID)"
 ```
 
 You need to replace `APP_ID` with the ID for your application. Also, `private.key` is the key associated with this same application.
@@ -78,7 +78,7 @@ You need to replace `APP_ID` with the ID for your application. Also, `private.ke
 You can then view the JWT with:
 
 ``` bash
-$ echo $JWT
+echo $JWT
 ```
 
 > **TIP:** You can verify your JWT at [jwt.io](https://jwt.io).
@@ -116,7 +116,7 @@ if __name__ == '__main__':
 Run this webhook server locally with:
 
 ``` bash
-$ python3 app.py
+python3 app.py
 ```
 
 ## Call your Nexmo Number
