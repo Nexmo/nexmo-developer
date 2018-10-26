@@ -21,6 +21,7 @@ class DocumentationConstraint
       'account',
       'concepts',
       'stitch',
+      'conversation',
       'messages',
       'dispatch',
     ]
@@ -43,6 +44,7 @@ class DocumentationConstraint
       'number-insight',
       'account',
       'concepts',
+      'conversation',
       'stitch/in-app-voice',
       'stitch/in-app-messaging',
       'messages',

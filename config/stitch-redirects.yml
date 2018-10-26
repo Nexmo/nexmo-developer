@@ -38,3 +38,11 @@
 "/sdk/stitch/ios": "/sdk/stitch/ios/"
 "/stitch/in-app-voice/ncco-guide": "/stitch/in-app-voice/guides/ncco-guide"
 "/stitch/in-app-voice/inbound-pstn": "/stitch/in-app-voice/guides/inbound-pstn"
+
+# Conversation API
+
+"/conversation": "/conversation/overview"
+"/conversation/concepts": "/conversation/concepts/conversation"
+"/conversation/building-blocks": "/conversation/building-blocks/conversation/create-conversation"
+"/conversation/api-reference": "/api/conversation"
+"/api/stitch": "/api/conversation"

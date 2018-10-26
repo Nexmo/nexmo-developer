@@ -9,6 +9,11 @@ en:
     account: Account
     number-insight: Number Insight
     stitch: Stitch
+    conversation: Conversation
+    user: User
+    member: Member
+    event: Event
+    leg: Leg
     in-app-messaging: In-App Messaging
     in-app-voice: In-App Voice
     in-app-video: In-App Video

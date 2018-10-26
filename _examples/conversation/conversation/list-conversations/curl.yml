@@ -1,0 +1,10 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/conversation/conversation/list-conversations.sh
+    from_line: 6
+    to_line: 9
+file_name: list-conversations.sh
+run_command: bash list-conversations.sh
+

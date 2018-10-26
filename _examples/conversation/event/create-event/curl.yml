@@ -1,0 +1,10 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/conversation/event/create-event.sh
+    from_line: 6
+    to_line: 12
+file_name: create-event.sh
+run_command: bash create-event.sh
+

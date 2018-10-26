@@ -90,3 +90,7 @@ navigation_overrides:
     svg: 'flow'
     svgColor: 'purple'
     label: 'Beta'
+  conversation:
+    svg: 'message'
+    svgColor: 'teal'
+    label: 'Developer Preview'

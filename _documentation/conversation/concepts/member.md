@@ -1,0 +1,24 @@
+---
+title: Member
+description: A Member is created when a User joins a Conversation.
+---
+
+# Member
+
+In order for a User to communicate through a [Conversation](/conversation/concepts/conversation) they must join the Conversation through membership.
+
+Member objects connect Users with Conversations. When a User joins a Conversation a Member object has to be created. Each Member object has one Conversation and one User associated with it.
+
+A User can be associated with many Member objects in Conversations, just as a Conversation can have many Members.
+
+A Member can have various states such as `invited`, `joined` and `left`.
+
+A Member object has one associated Channel, so one User can have many Member objects associated with it, according to the Channels that they can be reached through.
+
+Each Member has a unique Member ID of the form:
+
+```
+MEM-df8e57d8-1c8e-4573-bf4d-29d5414dcb42
+```
+
+Memberships can be created in various ways: via the Conversation API, using the functions provided by the Comms SDKs, or using the command line.

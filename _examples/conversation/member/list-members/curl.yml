@@ -1,0 +1,10 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/conversation/member/list-members.sh
+    from_line: 6
+    to_line: 8
+file_name: list-members.sh
+run_command: bash list-members.sh
+
