@@ -39,9 +39,9 @@ Retrieve international and local format | ✅ | ✅ | ✅
 Identify origin country | ✅ | ✅ | ✅
 Detect line type (mobile/landline/virtual number/premium/toll-free) | ❎ | ✅ | ✅
 Determine mobile country code (MCC) and mobile network code (MNC) | ❎ | ✅ | ✅
-Check if number is ported | ❎ | ✅ | ✅
+Check if number is ported (not for US numbers) | ❎ | ✅ | ✅
 Identify caller name (USA only) | ❎ | ✅ | ✅
-Verify that number is reachable | ❎ | ❎ | ✅
+Verify that number is reachable (not for US numbers) | ❎ | ❎ | ✅
 Identify network when roaming | ❎ | ❎ | ✅
 Confirm that user's IP address is in same location as their mobile phone | ❎ | ❎ | ✅
 Access asynchronously | ❎ | ❎ | ✅
