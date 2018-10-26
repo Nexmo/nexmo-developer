@@ -40,14 +40,14 @@ You should be familiar with the following before you use the Conversation API:
 
 The Conversation API is authenticated using JWTs. You can generate a JWT with the following command:
 
-``` bash
-$ JWT="$(nexmo jwt:generate private.key exp=$(($(date +%s)+86400)) application_id=NEXMO_APPLICATION_ID)"
+``` shell
+JWT="$(nexmo jwt:generate private.key exp=$(($(date +%s)+86400)) application_id=NEXMO_APPLICATION_ID)"
 ```
 
 You can then view the JWT with:
 
 ```
-$ echo $JWT
+echo $JWT
 ```
 
 You need to replace `NEXMO_APPLICATION_ID` with the ID for your application. Also, `private.key` is the key associated with this same application.
