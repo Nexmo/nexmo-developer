@@ -70,7 +70,7 @@ You use the *api_key* and *api_secret* associated with primary and secondary acc
 
 Dashboard uses the information you gave during setup to create your Nexmo profile. This includes:
 
-* Contact information - phone number, email, skype and password.
+* Contact information - phone number, email, Skype and password.
 * Company information - name, address and VAT number.
 
 To change your profile information:

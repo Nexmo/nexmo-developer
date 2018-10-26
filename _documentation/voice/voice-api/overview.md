@@ -8,7 +8,7 @@ description: The Voice API overview.
 
 The Nexmo Voice API is the easiest way to build high-quality voice applications in the Cloud. With the Voice API you can:
 
-* Build apps that scale with the web technologies that you are already using
+* Build apps that scale with the web technologies you are already using
 * Control the flow of inbound and outbound calls in JSON with Nexmo Call Control Objects (NCCO)
 * Record and store inbound or outbound calls
 * Create conference calls
@@ -33,7 +33,7 @@ In this document you can learn about:
 
 * **[NCCOs](/voice/voice-api/ncco-reference)** - Nexmo Call Control Objects are a set of actions that instruct Nexmo how to control the call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference).
 
-* **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the nexmo voice API.
+* **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the Nexmo Voice API.
 
 * **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, an incoming call will send a webhook.
 

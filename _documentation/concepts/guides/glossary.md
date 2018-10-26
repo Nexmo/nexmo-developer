@@ -26,19 +26,9 @@ This technology in the Platform is an algorithm that actively monitors and dynam
 
 See [Adaptive Routing](#adaptive-routing).
 
-## Call API
-
-You use Call API to generate voice calls over regular phone numbers. You can:
-
-* Create 'Call Me' buttons.
-* Automate calls in your App.
-* Manage event-prompted calls.
-
-Call API is part of [Voice API](#voice-api).
-
 ## Caller ID
 
-The [Sender ID](#sender-id) for [voice](#voice) calls.
+The [Sender ID](#sender-id) for [voice](#voice) calls. Referred to as the CLI or ANI also.
 
 ## Carrier
 
@@ -55,6 +45,8 @@ For more information on managing CDRs see the [Redact API documentation](/redact
 Nexmo Command Line Interface (CLI) tool. 
 
 Further information can be found in the [CLI repository](https://github.com/Nexmo/nexmo-cli).
+
+Also, Caller Line Identity. See [Caller ID](#caller-id)
 
 ## Client libraries
 
@@ -116,7 +108,7 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_
 
 For further information see the [Nexmo DTMF documentation](/voice/voice-api/guides/dtmf).
 
-## Dynamic caller ID
+## Dynamic Caller ID
 
 Enables you to present any phone number on your account as your outbound Caller ID. You can have multiple Caller IDs based on the number you are calling. For example, if you call someone in San Francisco from New York City, the recipient would only see a local San Francisco number on their phone.
 
@@ -325,7 +317,7 @@ See [Telecommunications Service Provider](#telecommunications-service-provider).
 
 ## OA
 
-Originating Address see [Sender ID](#sender-id) or the MSISDN of the sender.
+Originating Address see [Sender ID](#sender-id) or the MSISDN of the sender of an SMS.
 
 ## Originating Number
 
@@ -383,7 +375,6 @@ When somebody changes Telecommunications Service Provider but keeps the same pho
 
 Used when certain services are provided over the phone. Part of the call charge is paid to the service provider, this enables businesses to be funded through calls to the premium number.
 
-
 ## Presence
 
 If the phone number associated with a user is currently reachable. You use this to see if a user is available to receive information. For example, an SMS or Voice message.
@@ -400,11 +391,11 @@ See [Wikipedia article](https://en.wikipedia.org/wiki/Roaming).
 
 ## RTP
 
-Real-Time Transport Protocol. Media protocol used for transfer of voice data once a VOIP call is established.
+Real-Time Transport Protocol. Media protocol used for transfer of voice data once a VoIP call is established.
 
 ## Sender ID
 
-The phone number or message shown on a handset when it receives an SMS API or Voice API message.
+The phone number or message shown on a handset when it receives an SMS API message.
 
 ## Shared Short Codes
 
@@ -490,19 +481,6 @@ Text-to-Speech API. You use the TTS API to play synthesized messages and audio f
 * Repeat a message up to ten times.
 * Change the gender of the voice.
 
-TTS API is part of [Voice API](/voice/voice-api/overview).
-
-## TTS Prompt API
-
-You use the TTS Prompt API to:
-
-* Collect digits following a TTS message.
-* Collect digits for [2FA](#2fa).
-* Set a message to be played after users have entered digits.
-* Play a message after three failed PIN entries.
-
-TTS Prompt API is part of [Voice API](/voice/voice-api/overview).
-
 ## Two-way messaging
 
 Send and receive SMS directly from your system or App.
@@ -526,13 +504,13 @@ Further information can be found in the [Verify documentation](/verify/overview)
 
 ## Virtual Number
 
-A virtual number such as `+44 7624 80055` in international notation or `757-772-8555` in typical U.S. notation. Nexmo purchases virtual numbers from various carriers. Nexmo customers rent these virtual numbers to receive inbound messages and voice communication in their application.
+Nexmo purchases virtual numbers from various carriers. Nexmo customers rent these virtual numbers to receive inbound messages and voice communication in their application.
 
 See [Long Number](https://en.wikipedia.org/wiki/Long_number) and [Virtual Number](https://en.wikipedia.org/wiki/Virtual_number) on Wikipedia.
 
 ## Voice
 
-A suite of API's used to build voice enabled apps. These products allow customers to integrate text-to-speech into their workflow, build interactive voice response systems using [VXML](#vxml) or make VOIP calls using [SIP](#sip) trunks.
+A suite of APIs used to build voice enabled apps. These products allow customers to integrate text-to-speech into their workflow, build interactive voice response systems using JSON or make VoIP calls using [SIP](#sip) trunks.
 
 Voice includes:
 
@@ -543,12 +521,6 @@ Voice includes:
 ## Voice API
 
 This [Voice](#voice) product provides a simple and affordable personalized voice communication experience.
-
-Voice API contains:
-
-* Call API - generate voice calls over regular phone numbers.
-* TTS API - play synthesized messages and audio files to a live call.
-* TTS Prompt API -  Collect digits following a TTS message.
 
 Further information can be found in the [Voice API documentation](/voice/voice-api/overview).
 
@@ -564,18 +536,8 @@ A virtual number tied to a landline that you can send voice data to.
 
 A Voice-Enabled Landline Virtual Number designated as Freephone. That is, calls to this LVN from within the local country are free for the caller.
 
-## VoiceXML
-
-A digital document standard for specifying interactive media and voice dialogs between humans and computers.
-
-See [Wikipedia article](https://en.wikipedia.org/wiki/VoiceXML).
-
-## VOIP
+## VoIP
 
 A methodology and group of technologies for delivering voice communications and multimedia sessions over Internet Protocol (IP) networks.
 
 See [Wikipedia article](https://en.wikipedia.org/wiki/Voice_over_IP).
-
-## VXML
-
-See [Voice XML](#voicexml).
