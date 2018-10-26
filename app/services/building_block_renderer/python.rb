@@ -14,11 +14,11 @@ module BuildingBlockRenderer
     end
 
     def self.create_verbiage(filename)
-      "<p>Create a file named <code>#{filename}</code> and add the following code:</p>"
+      "Create a file named `#{filename}` and add the following code:"
     end
 
     def self.add_verbiage(filename)
-      "<p>Add the following to <code>#{filename}</code>:</p>"
+      "Add the following to `#{filename}`:"
     end
   end
 end

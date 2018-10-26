@@ -30,11 +30,11 @@ module BuildingBlockRenderer
     end
 
     def self.create_verbiage(filename)
-      "<p>Create a class named <code>#{filename.gsub('.java', '')}</code> and add the following code to the <code>main</code> method:</p>"
+      "Create a class named `#{filename.gsub('.java', '')}` and add the following code to the `main` method:"
     end
 
     def self.add_verbiage(filename)
-      "<p>Add the following to the <code>main</code> method of the <code>#{filename.gsub('.java', '')}</code> class:</p>"
+      "Add the following to the `main` method of the `#{filename.gsub('.java', '')}` class:"
     end
   end
 end
