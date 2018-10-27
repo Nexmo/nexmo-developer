@@ -23,7 +23,7 @@ Code | Text | Meaning
 `20` | Invalid Message class | The value of message-class in your request was out of range. `See` https://en.wikipedia.org/wiki/Data_Coding_Scheme.
 `23` | Bad callback :: Missing Protocol | You did not include `https` in the URL you set in callback.
 `29` | Non White-listed Destination | The phone number you set in to is not in your pre-approved destination list. To send messages to this phone number, add it `using` Dashboard.
-`34` | Invalid or Missing Msisdn Param | The phone number you supplied in the to parameter of your request was either missing or invalid.
+`34` | Invalid or Missing Msisdn Param | The phone number you supplied in the `to` parameter of your request was either missing or invalid.
 
 **The following response codes are for 2FA and Campaign Subscription Management only.**
 
