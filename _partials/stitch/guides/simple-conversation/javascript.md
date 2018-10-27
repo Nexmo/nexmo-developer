@@ -374,7 +374,7 @@ Your `index.html` file should now look something like [this](https://github.com/
 To test your application:
 
 1. Run a local webserver using `static`, `http-server` or any that is convenient.
-2. Load `localhost:8080` in two side-by-side browser windows. This will automatically load `index.html`.
+2. Load `localhost:8080` (where `8080` is a port number and it can be different like `3000` etc) in two side-by-side browser windows. This will automatically load `index.html`.
 3. Type any user name and click the Login button.
 4. Type a message and send it. You can create a two-way conversation by switching between the browser tabs or windows.
 
