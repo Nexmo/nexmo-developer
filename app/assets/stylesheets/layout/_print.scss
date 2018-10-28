@@ -1,5 +1,14 @@
 @media print {
-  #footer, .Nxd-header {
+  .Nxd-main {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #footer, .Nxd-header, #Vlt-sidenav, #FeedbackComponent {
     display: none;
   }
+}
+
+@page {
+  size: A4;
 }
