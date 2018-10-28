@@ -66,6 +66,7 @@ product: messaging/sms
 * [Concatenation and Encoding](/messaging/sms/guides/concatenation-and-encoding): how multiple messages are concatenated to implement extended SMS and details of encoding schemes for messages
 * [SMPP access](/messaging/sms/guides/SMPP-access): bulk sending messages via the SMPP protocol
 * [Country specific features](/messaging/sms/guides/country-specific-features): what features are available in different countries
+* [Troubleshooting SMS](/messaging/sms/guides/troubleshooting-sms): how to handle errors and understand error codes
 
 ## Reference
 

@@ -168,11 +168,11 @@ components:
             code:
               type: integer
               example: 1300
-              description: The error code. See [Errors](#errors) for a table of descriptions.
+              description: The error code. See [our errors list](/api-errors/messages-olympus) for a list of possible errors
             reason:
               type: string
               example: 'Not part of the provider network'
-              description: Text describing the error. See [Errors](#errors) for a more details.
+              description: Text describing the error. See [our errors list](/api-errors/messages-olympus) for a list of possible errors
         usage:
           type: object
           properties:
@@ -530,3 +530,121 @@ x-groups:
     schema:
       application/json:
         $ref: '#/components/schemas/Response'
+
+x-errors:
+  1000:
+    description: Throttled - You have exceeded the submission capacity allowed on this account. Please wait and retry
+
+  1010:
+    description: Missing params - Your request is incomplete and missing some mandatory parameters.
+
+  1020:
+    description: Invalid params  -  The value of one or more parameters is invalid.
+
+  1021:
+    description: Invalid tag  -  The tag value is invalid.
+
+  1022:
+    description: Invalid template parameters  -  Some of the parameters of the template were invalid.
+
+  1030:
+    description: Internal error  -  There was an error processing your request in the Platform.
+
+  1040:
+    description: Invalid message  -  The Platform was unable to process your request. For example, due to an unrecognised prefix for the phone number.
+
+  1050:
+    description: Number barred  -  The number you are trying to submit to is blacklisted and may not receive messages.
+
+  1060:
+    description: Partner account barred  -  The `api_key` you supplied is for an account that has been barred from submitting messages.
+
+  1070:
+    description: Partner quota exceeded  -  Your pre-paid account does not have sufficient credit to process this message.
+
+  1080:
+    description: Account not enabled for REST  -  This account is not provisioned for REST submission, you should use SMPP on the SMS API.
+
+  1090:
+    description: Message too long  -  The length of `udh` and `body` was greater than 140 octets for a binary type SMS request.
+
+  1100:
+    description: Communication Failed  -  Message was not submitted because there was a communication failure.
+
+  1120:
+    description: Illegal Sender Address - rejected  -  Due to local regulations, the `SenderID` you set in from in the request was not accepted. Please check the Global messaging section.
+
+  1130:
+    description: Invalid TTL  -  The value of `ttl` in your request was invalid.
+
+  1140:
+    description: Facility not allowed  -  Your request makes use of a facility that is not enabled on your account.
+
+  1150:
+    description: Invalid Message class  -  The value of `message-`class in your request was out of range. See https://en.wikipedia.org/wiki/Data_Coding_Scheme.
+
+  1160:
+    description: Non White-listed Destination  -  The phone number you set in to is not in your pre-approved destination list. To send messages to this phone number, add it using Dashboard.
+
+  1170:
+    description: Invalid or Missing Msisdn Param  -  The phone number you supplied in the to parameter of your request was either missing or invalid.
+
+  1180:
+    description: Absent Subscriber Temporary  -  This message was not delivered because to was temporarily unavailable. For example, the handset used for to was out of coverage or switched off. This is a temporary failure, retry later for a positive result.
+
+  1190:
+    description: Absent Subscriber Permanent  -  `to` is no longer active, You should remove this phone number from your database.
+
+  1200:
+    description: Portability Error  -  There is an issue after the user has changed carrier for to. If the user wants to receive messages from you, they need to contact their carrier directly.
+
+  1210:
+    description: Anti-Spam Rejection  -  Carriers often apply restrictions that block messages following different criteria. For example on SenderID or message content.
+
+  1220:
+    description: Handset Busy  -  The handset associated with to was not available when this message was sent. If status is rejected, this is a temporary failure; retry later for a positive result. If status is submitted, this message has is in the retry scheme and will be resent until it expires in 24-48 hours.
+
+  1230:
+    description: Network Error  -  A network failure while sending your message. This is a temporary failure, retry later for a positive result.
+
+  1240:
+    description: Illegal Number  -  You tried to send a message to a blacklisted phone number. That is, the user has already sent a STOP opt-out message and no longer wishes to receive messages from you.
+
+  1241:
+    description: Too many send requests  -  Too many send requests to phone numbers.
+
+  1250:
+    description: Unroutable  -  The chosen route to send your message is not available. This is because the phone number is either currently on an unsupported network or on a pre-paid or reseller account that could not receive a message sent by from. To resolve this issue either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com.
+
+  1260:
+    description: Destination unreachable  -  The message could not be delivered to the phone number. If using Viber Service Messages your account might not be enabled for this country.
+
+  1270:
+    description: Subscriber Age Restriction  -  The carrier blocked this message because the content is not suitable for to based on age restrictions.
+
+  1280:
+    description: Number Blocked by Carrier  -  The carrier blocked this message. This could be due to several reasons. For example, to's plan does not include SMS or the account is suspended.
+
+  1290:
+    description: Pre-Paid - Insufficient funds  -  to’s pre-paid account does not have enough credit to receive the message.
+
+  1300:
+    description: Not part of the provider network  -  The number or ID is not a user in the provider network.
+
+  1310:
+    description: Not suitable device  -  The user's device can't receive the message.
+
+  1320:
+    description: Message already sent  -  The message was already sent.
+
+  1330:
+    description: Unknown  -  An unknown error was received from the carrier who tried to send this this message. Depending on the carrier, that to is unknown. When you see this error, and status is rejected, always check if to in your request was valid.
+
+  1340:
+    description: Outside of the allowed window  -  This message is sent outside of allowed response window.
+
+  1350:
+    description: Phone matching fee not paid  -  Requires phone matching access fee to be paid by the Facebook Page.
+
+  1360:
+    description: TTL was activated  -  TTL was activated, no callbacks and no charge will be issued.

@@ -60,7 +60,7 @@ Option | Description | Required
  -- | -- | --
 `format` | Record the Call in a specific format.  Options are: <ul><li>`mp3`</li><li>`wav`</li><li>`ogg`</li></ul> The default value is `mp3`, or `wav` when recording more than 2 channels. | No
 `split` | Record the sent and received audio in separate channels of a stereo recording—set to `conversation` to enable this.|No
-`channel` | The number of channels to record (maximum `32`). If the number of participants exceeds `channel` any additional participants will be added to the last channel in file. split `conversation` must also be enabled.| No
+`channels` | The number of channels to record (maximum `32`). If the number of participants exceeds `channels` any additional participants will be added to the last channel in file. split `conversation` must also be enabled.| No
 `endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to `event_url`. The range of possible values is 3<=`endOnSilence`<=10. | No
 `endOnKey` | Stop recording when a digit is pressed on the handset. Possible values are: `*`, `#` or any single digit e.g. `9` | No
 `timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to `event_url`. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
@@ -96,7 +96,7 @@ Possible return parameters are:
 
 ## Conversation
 
-You can use the `conversation` action to create standard or moderated conversations. The first person to call the virtual number assigned to the conversation creates it. This action is synchronous, the conversation lasts until the number of participants is 0.
+You can use the `conversation` action to create standard or moderated conferences. The first person to call the virtual number assigned to the conversation creates it. This action is synchronous, the conversation lasts until the number of participants is 0.
 
 > **Note**: you can invite up to 50 people to your Conversation.
 

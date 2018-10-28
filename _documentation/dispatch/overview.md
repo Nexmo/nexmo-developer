@@ -44,7 +44,7 @@ The condition status is the status that the message returns. With Facebook Messe
 
 ## External Accounts API
 
-The [External Accounts API](/api/external-accounts) is used to manage your accounts for Viber Service Messages, Facebook Messenger and Whatsapp when using those channels with the Messages and Dispatch APIs.
+The [External Accounts API](/api/external-accounts) is used to manage your accounts for Viber Service Messages, Facebook Messenger and WhatsApp when using those channels with the Messages and Dispatch APIs.
 
 ## Getting started
 

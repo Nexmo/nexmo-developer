@@ -18,7 +18,7 @@
                 <p>Nexmo needs to connect to your local machine to access your <code>answer_url</code>. We recommend using <a href="https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/">ngrok</a> to do this. Make sure to change <code>demo.ngrok.io</code> in the examples below to your own ngrok URL.</p>
             <% end %>
 
-            <pre class="highlight shell"><code>$ nexmo app:create "<%=app['name'] %>" <%=app['answer_ur'] %> <%=app['event_url'] %> --keyfile private.key</code></pre>
+            <pre class="highlight shell"><code>$ nexmo app:create "<%=app['name'] %>" <%=app['answer_url'] %> <%=app['event_url'] %> --keyfile private.key</code></pre>
         <% end %>
     </div>
 </div>
