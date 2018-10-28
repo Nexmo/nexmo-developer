@@ -32,7 +32,7 @@ class DashboardController < ApplicationController
       json
       xml
     ]
-    @product = product.tr('-', '_') if product
+    @product = product
 
     @complete_coverage = {}
 
@@ -44,10 +44,36 @@ class DashboardController < ApplicationController
       @supported_languages.delete(lang)
     end
 
-    return unless hide_response
+    if hide_response
+      @supported_languages.delete('json')
+      @supported_languages.delete('xml')
+    end
 
-    @supported_languages.delete('json')
-    @supported_languages.delete('xml')
+    @toplevel_summary = {}
+    @complete_coverage.each do |toplevel, blocks|
+      @toplevel_summary[toplevel] = { 'blocks' => 0, 'langs' => {} } unless @toplevel_summary[toplevel]
+      blocks.each do |_section, entries|
+        entries.each do |_name, languages|
+          @toplevel_summary[toplevel]['blocks'] += 1
+          @supported_languages.each do |lang|
+            @toplevel_summary[toplevel]['langs'][lang] = 0 unless @toplevel_summary[toplevel]['langs'][lang]
+            @toplevel_summary[toplevel]['langs'][lang] += 1 if languages[lang]
+          end
+        end
+      end
+    end
+
+    @overall_summary = { 'blocks' => 0, 'langs' => {} }
+    @supported_languages.each do |lang|
+      @overall_summary['langs'][lang] = 0
+    end
+
+    @toplevel_summary.each do |_title, summary|
+      @overall_summary['blocks'] += summary['blocks']
+      summary['langs'].each do |lang, value|
+        @overall_summary['langs'][lang] += value
+      end
+    end
   end
 
   private
@@ -130,6 +156,7 @@ class DashboardController < ApplicationController
       parts.insert(1, 'top-level') if parts.count < 4
       source = parts[-1]
       parts = parts[0..-2]
+      next if parts[0] == 'migrate'
 
       x = @complete_coverage
       parts.each do |key, _value|
@@ -163,6 +190,7 @@ class DashboardController < ApplicationController
       parts.insert(1, 'top-level') if parts.count < 3
 
       parts = [parts[0], parts[1], parts[2..-1].join('/')] if parts.count > 3
+      next if parts[0] == 'migrate'
 
       x = @complete_coverage
       parts.each do |key, _value|

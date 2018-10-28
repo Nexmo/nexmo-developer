@@ -67,7 +67,7 @@ Number updated
 
 > **Note**: ensure your server is running and publicly available before associating the webhook endpoint with your virtual number. Nexmo must receive a 200 OK response from your webhook endpoint for successful configuration. If you're developing locally use a tool such as [ngrok](https://ngrok.com/) to expose your local web server to the Internet.
 
-Now you have configured your virtual number, you can send SMS delivery notifications.
+Now that you have configured your virtual number, you can send SMS delivery notifications.
 
 ## Create a basic Web app
 

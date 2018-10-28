@@ -1,13 +1,13 @@
 ---
-title: Send an SMS with Messages API
+title: Send an SMS with the Messages API
 navigation_weight: 4
 ---
 
-# Send an SMS with Messages API
+# Send an SMS with the Messages API
 
 In this building block you will see how to send an SMS using the Messages API.
 
-For a step-by-step guide to this topic, you can read our tutorial [Sending SMS messages with Messages API](/tutorials/sending-sms-messages-with-messages-api).
+For a step-by-step guide to this topic, you can read our tutorial [Sending SMS messages with the Messages API](/tutorials/sending-sms-messages-with-messages-api).
 
 ## Example
 
