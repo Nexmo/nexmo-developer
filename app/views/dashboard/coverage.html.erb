@@ -50,6 +50,30 @@
 </center>
 <br>
 
+ <h2>Executive Summary</h2>
+<div class="Vlt-table Vlt-table--data Vlt-table--bordered">
+  <table>
+    <thead>
+    <tr>
+      <th>Language</th>
+      <th>Available</th>
+      <th>Percentage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @overall_summary['langs'].each do |lang, value| %>
+      <tr>
+        <td><%= lang %></td>
+        <td><%= value %>/<%= @overall_summary['blocks'] %></td>
+        <td><%= (value/@overall_summary['blocks'].to_f*100).round(2) %>%</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<hr style="clear:both;" />
+
 <div class="box">
     <h3>Building Block Rating Scale</h3>
 <div style="text-align: center; padding: 5px; background: red; width: 25%; float: left; color: white;">Missing block (worst)</div>
@@ -69,8 +93,38 @@
 <% @complete_coverage.each do |toplevel, blocks| %>
     <% next if @product and not toplevel == @product  %>
     <h2><%= toplevel %></h2>
+    <% # Per-section statistics per language%>
+
+  <%
+    section = @toplevel_summary[toplevel]
+  %>
+  <h3>Section Summary</h3>
+
+  <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
+  <table>
+    <thead>
+    <tr>
+      <th>Language</th>
+      <th>Available</th>
+      <th>Percentage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% section['langs'].each do |lang, value| %>
+      <tr>
+        <td><%= lang %></td>
+        <td><%= value %>/<%= section['blocks'] %></td>
+        <td><%= (value/section['blocks'].to_f*100).round(2) %>%</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <% # In-depth statistics about each block %>
     <% blocks.each do |section, entries| %>
         <h3><%= section %></h3>
+    <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
         <table>
             <thead>
                 <tr>
@@ -88,7 +142,7 @@
                     %>
                 <% entries.each do |name, languages| %>
                     <% count += 1 %>
-                    <tr>
+                    <tr class="Vlt-table__row--nohighlight">
                         <td style="width: 200px;"><strong><%= name %></strong></td>
                         <% @supported_languages.each do |lang| %>
                             <% next if lang == 'csharp' %>
@@ -104,7 +158,7 @@
                         <% end %>
                     </tr>
                 <% end %>
-                <tr>
+                <tr class="Vlt-table__row--nohighlight">
                     <td><strong>Coverage</strong></td>
                     <% @supported_languages.each do |lang| %>
                         <% next if lang == 'csharp' %>
@@ -113,6 +167,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
     <% end %>
     <hr>
 <% end %>
