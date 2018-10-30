@@ -1,12 +1,12 @@
 ---
 title: Send an SMS
 description: How to send an SMS with the Nexmo SMS API
-navigation_weight: 1
+navigation_weight: 2
 ---
 
 # Sending an SMS
 
-Sending an SMS message with Nexmo is straightforward. Sign up for an account and replace the following variables in the example below:
+To send an SMS, replace the following variables in the example below:
 
 Key | Description
 -- | --
@@ -14,6 +14,14 @@ Key | Description
 `NEXMO_API_KEY` | You can find this in your account overview
 `NEXMO_API_SECRET` | You can find this in your account overview
 
-```tabbed_content
+```building_blocks
 source: '_examples/messaging/sms/send-an-sms'
 ```
+## Try it out
+
+When you run the example above, the text message will be sent to the mobile number that you specified.
+
+## Further reading
+
+* [How to send SMS messages with Node.js and Express](https://www.nexmo.com/blog/2016/10/19/how-to-send-sms-messages-with-node-js-and-express-dr/)
+* [Two-way SMS for customer engagement](/tutorials/two-way-sms-for-customer-engagement)
