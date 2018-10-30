@@ -31,15 +31,18 @@ class BuildingBlockFilter < Banzai::Filter
       if highlighted_client_source
         client_url = generate_source_url(config['client'])
         id = SecureRandom.hex
+        create_instructions = @renderer.create_instructions(config['file_name']).render_markdown
         erb = File.read("#{Rails.root}/app/views/building_blocks/_configure_client.html.erb")
         client_html = ERB.new(erb).result(binding)
       end
 
+      add_instructions = @renderer.add_instructions(config['file_name']).render_markdown
       if config['code_only']
         erb = File.read("#{Rails.root}/app/views/building_blocks/_code_only.html.erb")
       else
         erb = File.read("#{Rails.root}/app/views/building_blocks/_write_code.html.erb")
       end
+
       code_html = ERB.new(erb).result(binding)
 
       return code_html if config['code_only']

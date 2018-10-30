@@ -28,5 +28,13 @@ module BuildingBlockRenderer
 
       HEREDOC
     end
+
+    def self.create_instructions(filename)
+      "Create a class named `#{filename.gsub('.java', '')}` and add the following code to the `main` method:"
+    end
+
+    def self.add_instructions(filename)
+      "Add the following to the `main` method of the `#{filename.gsub('.java', '')}` class:"
+    end
   end
 end

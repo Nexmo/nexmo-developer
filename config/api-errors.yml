@@ -1,6 +1,7 @@
 products:
   sms:
     title: SMS API
+    hide_rfc7807_header: true
   redact:
     title: Redact API
   account/secret-management:

@@ -1,11 +1,12 @@
 <h2 class="Vlt-title--margin-top3">Write the code</h2>
-<p>Add the following to <code><%= config['file_name'] %></code>:</p>
+<%= add_instructions %>
 
 <div class="copy-wrapper">
   <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="code">
     <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
   </div>
   <pre class="highlight <%= lexer.tag %> main-code"><code><%= highlighted_code_source %></code></pre>
+
 </div>
 
 <p><a data-section="code" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= source_url %>">View full source</a></p>

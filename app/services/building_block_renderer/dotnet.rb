@@ -12,5 +12,13 @@ module BuildingBlockRenderer
 
       HEREDOC
     end
+
+    def self.create_instructions(filename)
+      "Create a file named `#{filename}` and add the following code:"
+    end
+
+    def self.add_instructions(filename)
+      "Add the following to `#{filename}`:"
+    end
   end
 end
