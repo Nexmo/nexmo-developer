@@ -57,6 +57,10 @@ current:
     email: 'mark.lewin@vonage.com'
     twitter: 'devtechwriter'
     role: 'Technical Writer'
+  - name: 'Manik Sachdeva'
+    email: 'manik.sachdeva@vonage.com'
+    twitter: 'maniksach'
+    role: 'Developer Advocate'
 alumni:
   - name: 'Adam Butler'
     email: 'adam.butler@vonage.com'
