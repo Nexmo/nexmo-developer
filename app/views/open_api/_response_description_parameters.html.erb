@@ -1,3 +1,11 @@
+<%
+  # @mheap: This is hacky handling for allOf, but it works for now
+  allOf = schema['allOf']
+  if allOf
+    schema = allOf.reduce { |a,b| a.deep_merge(b) }
+  end
+%>
+
 <% if schema['properties'] %>
 <% schema['properties'].each do |key, value| %>
   <% next if key == '_links' %>
