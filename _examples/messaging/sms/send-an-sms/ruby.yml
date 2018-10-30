@@ -1,0 +1,15 @@
+---
+title: Ruby
+language: ruby
+dependencies:
+    - nexmo
+client:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+    from_line: 8
+    to_line: 13
+code:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+    from_line: 15
+    to_line: 19
+file_name: send.rb
+run_command: 'ruby send.rb'
