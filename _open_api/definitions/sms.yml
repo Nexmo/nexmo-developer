@@ -285,7 +285,7 @@ components:
           example: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
         concat:
           type: string
-          description: True - if this is a concatenated message.
+          description: True - if this is a concatenated message. This field does not exist if it is a single message
           example: 'true'
         concat-ref:
           type: string
