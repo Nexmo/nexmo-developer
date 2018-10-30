@@ -194,5 +194,5 @@ There are so many possibilities here that can help you to customise the whispers
 ## Further reading
 
 * <https://github.com/Nexmo/node-call-whisper> contains all the code for this example application.
-* Check our [Voice Guides](/voice) for more things you can do with voice.
+* Check out our [Voice Guides](/voice) for more things you can do with voice.
 * The [Voice API Reference](/api/voice) has detailed documentation for each endpoint.
