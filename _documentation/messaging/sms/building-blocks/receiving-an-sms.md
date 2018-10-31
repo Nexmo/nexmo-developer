@@ -1,33 +1,52 @@
 ---
-title: Receiving an SMS
-navigation_weight: 3
+title: Receive an SMS
+navigation_weight: 5
 ---
 
 # Receiving an SMS
 
-Handling inbound SMS with Nexmo is easy. You just need to create a webhook endpoint and configure your number or account to point to the endpoint.
+To receive an SMS, you need to:
 
-## Prerequisites
+* [Rent a virtual number](http://localhost:3000/account/guides/numbers#rent-virtual-numbers) to receive messages at
+* [Create a webhook endpoint](before-you-begin#webhooks) using one of the code examples shown below
+* [Configure the webhook in your Nexmo Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
 
-- *[Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)*
 
-```tabbed_content
+```building_blocks
 source: '_examples/messaging/sms/receiving-an-sms'
 ```
 
-You'll need to expose your server to the open internet. During development you can use a tool like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to do that.
+## Configure the webhook endpoint in your Nexmo Dashboard
 
-## Configure your SMS endpoint with Nexmo
+So that Nexmo knows how to access your webhook, you must configure it in your Nexmo account.
 
-From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
-
-Enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
+In the building blocks, the webhook is located at `/webhooks/inbound-sms`. If you are using Ngrok, the webhook you need to configure in your [Nexmo Dashboard API Settings page](https://dashboard.nexmo.com/settings) is of the form `https://demo.ngrok.io/webhooks/inbound-sms`. Replace `demo` with the subdomain provided by Ngrok and enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
+image: public/assets/screenshots/smsInboundWebhook.png
 ```
 
-## Send your Nexmo number an SMS
+## Try it out
 
-Now when you send your Nexmo number an SMS you should see it logged in your console.
+Now when you send your Nexmo number an SMS you should see it logged in your console. The message object contains the following properties:
+
+```json
+{
+  "msisdn": "447700900001",
+  "to": "447700900000",
+  "messageId": "0A0000000123ABCD1",
+  "text": "Hello world",
+  "type": "text",
+  "keyword": "Hello",
+  "message-timestamp": "2020-01-01T12:00:00.000+00:00",
+  "timestamp": "1578787200",
+  "nonce": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "concat": "true",
+  "concat-ref": "1",
+  "concat-total": "3",
+  "concat-part": "2",
+  "data": "abc123",
+  "udh": "abc123"
+}
+```

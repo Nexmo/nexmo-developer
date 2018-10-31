@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - flask
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/sms/dlr-flask.py
+    from_line: 6
+    to_line: 16
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/sms/dlr-flask.py
+    from_line: 1
+    to_line: 4    
+file_name: dlr-flask.py
+run_command: 'python dlr-flask.py'

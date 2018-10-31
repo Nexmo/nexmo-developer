@@ -1,12 +1,14 @@
 ---
 title: Send an SMS with Unicode
 description: How to send a Unicode SMS with the Nexmo SMS API
-navigation_weight: 2
+navigation_weight: 3
 ---
 
 # Sending an SMS with Unicode
 
-Nexmo's SMS API is easy to use and supports Unicode characters too. Sign up for an account and replace the following variables in the example below:
+Nexmo's SMS API supports Unicode characters too, which you will need to use when communicating with customers in Chinese, Japanese and Korean.
+
+To send an SMS that contains Unicode characters, replace the following variables in the example below:
 
 Key | Description
 -- | --
@@ -20,7 +22,7 @@ source: '_examples/messaging/sms/send-an-sms-with-unicode'
 
 ## Try it out
 
-When you run the example above, the text message will be sent to the mobile number specified with the unicode characters intact.
+When you run the example above, the text message will be sent to the mobile number specified with the Unicode characters intact.
 
 > Note that Unicode messages can only contain 70 characters, rather than the usual 160. There's more information about this [on the help page](https://help.nexmo.com/hc/en-us/articles/204076866-How-long-is-a-single-SMS-body-)
 

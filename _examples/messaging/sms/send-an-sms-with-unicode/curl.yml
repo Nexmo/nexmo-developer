@@ -5,10 +5,6 @@ code:
     source: .repos/nexmo/curl-building-blocks/messaging/sms/send-an-sms-with-unicode.sh
     from_line: 4
     to_line: 10
-client:
-    source: .repos/nexmo/curl-building-blocks/messaging/sms/send-an-sms-with-unicode.sh
-    from_line: 2
-    to_line: 2
 file_name: send-an-sms-with-unicode.sh
-run_command: './send-an-sms-with-unicode.sh'
+run_command: 'sh send-an-sms-with-unicode.sh'
 
