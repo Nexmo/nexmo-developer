@@ -51,9 +51,12 @@ If the message is longer than the maximum number of characters allowed in a sing
 
 Use the `concat-ref`, `concat-total` and `concat-part` properties to construct the message from the individual parts.
 
+> Not all carriers support concatenated messages. If the carrier does not support concatenation, the `concat` field will not be present in the payload.
+
 Key | Value 
 -- | -- 
 `concat` | `true` 
 `concat-ref` | The transaction reference. All parts of this message share this `concat-ref`.
 `concat-total` | The number of parts in this concatenated message.
 `concat-part` | The number of this part in the message. The first part of the message is `1`.
+
