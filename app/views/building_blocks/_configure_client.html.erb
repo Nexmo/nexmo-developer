@@ -4,9 +4,9 @@
 	</h5>
 
 	<div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
-	    <p>Create a file named <code><%= config['file_name'] %></code> and add the following code:</p>
-
+    <%= create_instructions %>
     <div class="copy-wrapper">
+
       <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="configure">
         <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
       </div>
