@@ -16,40 +16,44 @@ Messages are sent to your webhook endpoint as a JSON object with the following p
 
 Key | Value | Required
 --|--|--
-`type` | Possible values are: <ul><li>`text` - standard text</li><li>`unicode` - a text message that contains Unicode characters and is encoded using the `application/x-www-form-urlencoded` type - see [definition](https://en.wikipedia.org/wiki/Percent-encoding#The_application.2Fx-www-form-urlencoded_type)<li>`binary` - a binary message</li></ul>| Yes
+`type` | Possible values are: <ul><li>`text` - standard text</li><li>`unicode` - a text message that contains Unicode characters<li>`binary` - a binary message</li></ul>| Yes
 `to` | The phone number that the message was sent *to*. **This is your virtual number**.| Yes
 `msisdn` | The phone number that this inbound message was sent *from*. | Yes
 `messageId` | Nexmo's unique identifier for this message.| Yes
 `message-timestamp` | The [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00) time when Nexmo started to push this inbound message to your webhook endpoint, in the following format: `YYYY-MM-DD HH:MM:SS`.| Yes
-`timestamp` | The [unix timestamp](https://www.unixtimestamp.com/) representation of `message-timestamp`. | If your messages are [signed](/concepts/guides/signing-messages)
+`timestamp` | The [unix timestamp](https://www.unixtimestamp.com/) representation of `message-timestamp`. | No
 `nonce` | A random string that adds an extra element of unpredictability into the signature for the request. You use the `nonce` and `timestamp` parameters with your shared secret to calculate and validate the signature for inbound messages. | If your messages are [signed](/concepts/guides/signing-messages)
 
 
-### For messages of type `text`
+### For messages of type `text` or `unicode`
 
-Key | Value | Required
--- | -- | --
-`text` | The message body for this inbound message.| If `type` is `text` |
-`keyword` | The first word in the message body. This is typically used with short codes. | If `type` is `text` |
+If the `type` is `text` or `unicode`, the following properties appear in the request to your webhook endpoint.
 
-
-### For concatenated inbound messages
-
-If a message sent to your virtual number is longer than the maximum number of characters allowed in a single message, `concat` is `true` and you receive the message in parts.
-
-Use the `concat-ref`, `concat-total` and `concat-part` parameters to construct the message from the individual parts.
-
-Key | Value | Required
--- | -- | --
-`concat` | `true` if this is a concatenated message. | Yes
-`concat-ref` | The transaction reference. All parts of this message share this `concat-ref`.| If `concat` is `true`
-`concat-total` | The number of parts in this concatenated message.| If `concat` is `true`
-`concat-part` | The number of this part in the message. The first part of the message is `1`. | If `concat` is `true`
-
+Key | Value 
+-- | -- 
+`text` | The message body for this inbound message.
+`keyword` | The first word in the message body. This is typically used with short codes.
 
 ### For messages of type `binary`
 
-Key | Value | Required
--- | -- | --
-`data` | The content of this message | If `type` is `binary`
-`udh` | The hex encoded [user data header](https://en.wikipedia.org/wiki/User_Data_Header) | If `type` is `binary`
+If the `type` is `binary`, the following properties appear in the request to your webhook endpoint.
+
+Key | Value 
+-- | -- 
+`data` | The content of this message 
+`udh` | The hex encoded [user data header](https://en.wikipedia.org/wiki/User_Data_Header) 
+
+### For concatenated inbound messages
+
+If a message sent to your virtual number fits within the maximum-permitted length of a single message, the following properties do not appear in the request to your webhook endpoint.
+
+If the message is longer than the maximum number of characters allowed in a single message, you will receive the message in parts and the following properties appear in the request.
+
+Use the `concat-ref`, `concat-total` and `concat-part` properties to construct the message from the individual parts.
+
+Key | Value 
+-- | -- 
+`concat` | `true` 
+`concat-ref` | The transaction reference. All parts of this message share this `concat-ref`.
+`concat-total` | The number of parts in this concatenated message.
+`concat-part` | The number of this part in the message. The first part of the message is `1`.
