@@ -43,7 +43,7 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 Ä Å Æ Ç É Ñ Ø ø Ü ß Ö à ä å æ è é ì ñ ò ö ù ü Δ Φ Γ Λ Ω Π Ψ Σ Θ Ξ
 ````
 
-Characters from the [extended table](https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_/_GSM_03.38) require two characters to encode. The first, prefix, character is escape (`ESC`) and this is followed by the required character from the extended table:
+Characters from the [extended table](https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_/_GSM_03.38) require two characters to encode; an `ESC` character prefix followed by the required character from the extended table:
 
 ````
 | ^ € { } [ ] ~ \
@@ -57,11 +57,11 @@ When you set the `type` parameter to `unicode`, **all** characters within the me
 
 ### Encoding examples
 
-| Message | Type | Bytes per character | Character set used in message |
-|---|---|---|---|
-| `Bonjour monde` | `text` | 1 | GSM standard |
-| `This ^ That ` | `text` | 1 and 2 for `^` | GSM standard and GSM extended |
-| `こんにちは世界` | `unicode` | 2 (UCS-2) | Unicode | 
+| Message | Type | Bytes per character | Total bytes required | Character set used in message |
+|---|---|---|---|---|
+| `Bonjour monde` | `text` | 1 | 13  | GSM standard |
+| `This ^ That` | `text` | 1 (2 for `^` as it's in the extended character set) | 12 | GSM standard and GSM extended |
+| `こんにちは世界` | `unicode` | 2 (UCS-2) | 14 | Unicode |
 
 ## Maximum number of characters
 
