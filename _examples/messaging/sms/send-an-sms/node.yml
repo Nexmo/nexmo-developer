@@ -1,0 +1,15 @@
+---
+title: Node
+language: node
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo-community/nexmo-node-quickstart/sms/send.js
+    from_line: 14
+    to_line: 18
+client:
+    source: .repos/nexmo-community/nexmo-node-quickstart/sms/send.js
+    from_line: 7
+    to_line: 12
+file_name: send.js
+run_command: 'node send.js'
