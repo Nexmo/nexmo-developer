@@ -31,7 +31,12 @@ class TabFilter < Banzai::Filter
 
     tab_link = Nokogiri::XML::Element.new 'a', @document
     if content[:language]
-      tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
+      # We don't currently have icons for JSON/XML
+      if ['json', 'xml'].include? content[:language].key.downcase
+        tab_link.content = content[:tab_title]
+      else
+        tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
+      end
     elsif content[:platform]
       tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:platform].key}.svg##{content[:platform].key}\" /></svg><span>" + content[:tab_title] + '</span>'
     else

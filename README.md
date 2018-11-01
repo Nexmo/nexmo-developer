@@ -118,7 +118,7 @@ This error indicates that PostgreSQL is not running. If you installed PostgreSQL
 $ brew info postgresql
 ```
 
-Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#Setup) for instructions.
+Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#running-locally) for instructions.
 
 ## Contributing 
 We :heart: contributions from everyone! It is a good idea to [talk to us](https://nexmo-community-invite.herokuapp.com/) first if you plan to add any new functionality. Otherwise, [bug reports](https://github.com/Nexmo/nexmo-developer/issues/), [bug fixes](https://github.com/Nexmo/nexmo-developer/pulls) and feedback on the library is always appreciated. Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information and please follow the [GitHub Flow](https://guides.github.com/introduction/flow/index.html).

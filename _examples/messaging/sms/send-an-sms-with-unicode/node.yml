@@ -9,7 +9,7 @@ code:
     to_line: 21
 client:
     source: .repos/nexmo-community/nexmo-node-quickstart/sms/send-unicode-sms.js
-    from_line: 9
+    from_line: 7
     to_line: 12
 file_name: send-unicode-sms.js
 run_command: 'node send-unicode-sms.js'

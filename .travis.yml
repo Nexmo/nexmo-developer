@@ -4,7 +4,7 @@ services:
   - postgresql
 addons:
   postgresql: '9.4'
-install: bundle install --deployment --path vendor/bundle
+install: bundle install --deployment --path vendor/bundle && yarn install
 before_script:
   - |
     if [ -z "$SSH_KEY_REQUIRED" ]; then
@@ -24,3 +24,5 @@ before_script:
 script:
   - bundle exec rake spec
   - bundle exec rubocop
+  - bundle exec rake ci:verify_pages
+  - bundle exec rake ci:verify_navigation

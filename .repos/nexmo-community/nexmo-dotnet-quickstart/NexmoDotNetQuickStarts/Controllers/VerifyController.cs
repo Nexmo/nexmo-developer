@@ -106,5 +106,23 @@ namespace NexmoDotNetQuickStarts.Controllers
             ViewBag.status = results.status;
             return View();
         }
+
+        [HttpGet]
+        public ActionResult TriggerNext()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult TriggerNext(string requestID)
+        {
+            var results = Client.NumberVerify.Control(new NumberVerify.ControlRequest
+            {
+                request_id = requestID,
+                cmd = "trigger_next_event"
+            });
+            ViewBag.status = results.status;
+            return View();
+        }
     }
 }
