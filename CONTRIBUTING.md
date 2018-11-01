@@ -25,8 +25,8 @@ Tips:
 * Review with an eye to accuracy and maintainability as well as correctness. Ask yourself "do we want this change?" and "will users find this information here, could it be added to existing docs?" as well as "is everything spelled correctly?"
 * Before accepting a change, check that the markdown renders as expected, and the code runs ... this probably means either pulling the code down to your development platform or deploying a review application.
 * If changes are needed, then either:
- - make the changes yourself (especially for minor or editorial changes).
- - set your review as "changes requested" and comment for what is needed to make this pull request ready to accept.
+  - make the changes yourself (especially for minor or editorial changes).
+  - set your review as "changes requested" and comment for what is needed to make this pull request ready to accept.
 * If everything is good then go ahead and approve the pull request.
 * Now merge the pull request! If the change is good to go, then it should go (unless there are special circumstances of course). In the main, anyone can merge an accepted pull request at the earliest opportunity.
 * Delete the branch if it's on our repo.

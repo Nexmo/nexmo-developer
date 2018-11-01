@@ -37,7 +37,7 @@ Parameter | Description | Required
 
 The following shows example Responses in JSON or XML:
 
-**Outbound Message**
+**Outbound Message (MT)**
 
 ```tabbed_examples
 source: /_examples/api/developer/message/search/outbound
