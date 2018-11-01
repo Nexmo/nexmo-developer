@@ -185,8 +185,10 @@ Parameter | Description | Required
 `voiceCallbackType` | The voice webhook type. Possible values are `sip`, `tel`, or `app` | No
 `voiceCallbackValue` | A SIP URI, telephone number or Application ID  | No
 `voiceStatusCallback` | A webhook URI for Nexmo to send a request to when a call ends. | No
+`messagesCallbackType` | The messages API webhook type. Must be `app`. | No
+`messagesCallbackValue` | Application ID referencing application with defined URLs. | No
 
-Please note, that `voiceCallbackValue` has to be used together with `voiceCallbackType` parameter.
+Please note that if you specify a `voiceCallbackValue` you must also provide the `voiceCallbackType` parameter. If you specify a `messagesCallbackValue` you must also provide `messagesCallbackType`.
 
 #### Response
 

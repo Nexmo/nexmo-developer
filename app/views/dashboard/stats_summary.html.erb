@@ -1,0 +1,59 @@
+<div  class="Vlt-card Vlt-article">
+<center>
+  <h1>Product Feedback Summary</h1>
+</center>
+  <div>
+    <%= form_tag({}, {:method => :get}) do %>
+       <div class="Vlt-form__group">
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+          Created After
+        </label> 
+        <div class="Vlt-input"><%= date_field_tag :created_after, @created_after %></div>
+        </div>
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+          Created Before
+        </label> 
+        <div class="Vlt-input"><%= date_field_tag :created_before, @created_before %></div>
+        </div>
+      
+      <%= link_to 'Reset', '/stats', class: "Vlt-btn Vlt-btn--tertiary Vlt-btn--app" %> &nbsp;
+      <%= submit_tag 'Update', class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <% unless @summary %>
+    <p>Please choose a date range</p>
+    <% else %>
+    <% @summary.each do |product, months| %>
+    <h3><%= product %></h3>
+    <div class="Vlt-table Vlt-table--data Vlt-table--bordered"><table>
+      <thead>
+      <tr>
+        <th>Month</th>
+        <th>Positive</th>
+        <th>Negative</th>
+        <th>Percentage</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% months.each do |month, data| %>
+      <% data['positive'] = data['positive'] || 0 %>
+      <% data['negative'] = data['negative'] || 0 %>
+      <tr>
+        <td><%= month.strftime("%b %Y") %></td>
+        <td><%= data['positive'] %></td>
+        <td><%= data['negative'] %></td>
+        <td><%= (data['positive']/((data['positive'] + data['negative']).to_f)*100).round(2) %>%</td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+

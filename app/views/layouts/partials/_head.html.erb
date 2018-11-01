@@ -56,7 +56,7 @@
     <link rel="canonical" href="<%= canonical_url %>">
   <% end %>
 
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <% if @additional_scripts %>

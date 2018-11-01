@@ -59,7 +59,7 @@ $ nexmo number:buy --country_code US --confirm
 
 ### Create an application
 
-Create a new nexmo application and save the private key - you'll need this later. Replace `https://example.com` with the URL of your own application for both the "answer" and "event" arguments in this command:
+Create a new Nexmo application and save the private key - you'll need this later. Replace `https://example.com` with the URL of your own application for both the "answer" and "event" arguments in this command:
 
 ```bash
 nexmo app:create "Call Whisper" https://example.com/answer https://example.com/event --keyfile app.key
@@ -104,13 +104,13 @@ With the configuration done and the dependencies in place, your application is r
 
 `npm start`
 
-By default the application runs on port 5000. If you're going to be using `ngrok`, you can start your tunnel now.
+By default, the application runs on port 5000. If you're going to be using `ngrok`, you can start your tunnel now.
 
 > When the ngrok tunnel name changes, remember to update your application's URLs with the `nexmo app:update` command.
 
 ## Try it out
 
-Let's try the demo. For this you need two phones (one to be the "caller" and one to be the "call centre operative") so you may need to recruit a friend or use Skype to make the first call.
+Let's try the demo. For this you need two phones (one to be the "caller" and one to be the "call center operative") so you may need to recruit a friend or use Skype to make the first call.
 
 1. Call one of the numbers you purchased.
 2. The caller will hear a greeting message, and then the call center operative's phone number will ring.
@@ -194,5 +194,5 @@ There are so many possibilities here that can help you to customise the whispers
 ## Further reading
 
 * <https://github.com/Nexmo/node-call-whisper> contains all the code for this example application.
-* Check our our [Voice Guides](/voice) for more things you can do with voice.
+* Check out our [Voice Guides](/voice) for more things you can do with voice.
 * The [Voice API Reference](/api/voice) has detailed documentation for each endpoint.

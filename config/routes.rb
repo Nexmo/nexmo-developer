@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   get '/coverage', to: 'dashboard#coverage'
   get '/stats', to: 'dashboard#stats'
+  get '/stats/summary', to: 'dashboard#stats_summary'
 
   get '/tutorials/(:code_language)', to: 'tutorials#index', constraints: DocumentationConstraint.code_language
   get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
