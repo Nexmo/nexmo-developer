@@ -18,6 +18,32 @@ class DashboardController < ApplicationController
     end
   end
 
+  def stats_summary
+    return unless created_after || created_before
+    @feedbacks = Feedback::Feedback.joins(:resource)
+
+    if created_after && created_before
+      @feedbacks = @feedbacks.created_between(created_after, created_before)
+    elsif created_after
+      @feedbacks = @feedbacks.created_after(created_after)
+    elsif created_before
+      @feedbacks = @feedbacks.created_before(created_before)
+    end
+
+    grouped_results = @feedbacks.group(["DATE_TRUNC('month', feedback_feedbacks.created_at)", 'feedback_resources.product', 'feedback_feedbacks.sentiment']).count(:id)
+
+    # Reformat in to something usable
+    @summary = {}
+    grouped_results.each do |meta, count|
+      month = meta[0]
+      prod = meta[1] # Can't call it product due to the method defined in this class
+      sentiment = meta[2]
+      @summary[prod] = @summary[prod] || {}
+      @summary[prod][month] = @summary[prod][month] || {}
+      @summary[prod][month][sentiment] = count
+    end
+  end
+
   def coverage
     @supported_languages = %w[
       curl
