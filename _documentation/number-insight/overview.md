@@ -39,12 +39,14 @@ Retrieve international and local format | ✅ | ✅ | ✅
 Identify origin country | ✅ | ✅ | ✅
 Detect line type (mobile/landline/virtual number/premium/toll-free) | ❎ | ✅ | ✅
 Determine mobile country code (MCC) and mobile network code (MNC) | ❎ | ✅ | ✅
-Check if number is ported (not for US numbers) | ❎ | ✅ | ✅
+Check if number is ported * | ❎ | ✅ | ✅
 Identify caller name (USA only) | ❎ | ✅ | ✅
-Verify that number is reachable (not for US numbers) | ❎ | ❎ | ✅
+Verify that number is reachable | ❎ | ❎ | ✅
 Identify network when roaming | ❎ | ❎ | ✅
 Confirm that user's IP address is in same location as their mobile phone | ❎ | ❎ | ✅
 Access asynchronously | ❎ | ❎ | ✅
+
+\* This information is only available for US numbers in the Advanced API.
 
 > Check the legislation in your country to ensure that you are allowed to save user roaming information.
 
