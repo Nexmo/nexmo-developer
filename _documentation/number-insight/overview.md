@@ -46,7 +46,7 @@ Identify network when roaming | ❎ | ❎ | ✅
 Confirm that user's IP address is in same location as their mobile phone | ❎ | ❎ | ✅
 Access asynchronously | ❎ | ❎ | ✅
 
-\* This information is only available for US numbers in the Advanced API.
+\* For US numbers this information is only available in the Advanced API.
 
 > Check the legislation in your country to ensure that you are allowed to save user roaming information.
 
