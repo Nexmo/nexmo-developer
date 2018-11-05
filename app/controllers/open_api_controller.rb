@@ -17,6 +17,8 @@ class OpenApiController < ApplicationController
 
     @definition = OpenApiDefinitionResolver.find(@definition_name)
 
+    @auto_expand_responses = params[:expandResponses]
+
     respond_to do |format|
       format.any(:json, :yaml) { send_file(@definition.path) }
       format.html do

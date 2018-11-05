@@ -70,7 +70,7 @@
       <% end %>
 
       <%= render 'parameter_groups', endpoint: endpoint %>
-      <%= render 'response_descriptions', endpoint: endpoint %>
+      <%= render 'response_descriptions', endpoint: endpoint, anchor_prefix: "response-#{endpoint.operationId}", auto_expand_responses: @auto_expand_responses %>
 
     </div>
   </div>
