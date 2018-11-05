@@ -131,7 +131,7 @@ components:
         text: Check your request parameters against the API documentation.
         link:
           text: See API request format
-          url: /api/messages
+          url: /api/messages-olympus
 
     MessageStatus:
       type: object
