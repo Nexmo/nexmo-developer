@@ -415,68 +415,78 @@ x-groups:
 
 x-errors:
   1:
-    description: An unknown error was received from the carrier who tried to send this this message. Depending on the carrier, that `to` is unknown.
-    resolution: When you see this error, and status is rejected, always check if `to` in your request was valid.
+    description: Throttled. You are sending SMS faster than the account limit.
+    resolution: Refer to [What is the Throughput Limit for Outbound SMS?](https://help.nexmo.com/hc/en-us/articles/203993598) for more information.
 
   2:
-    description: This message was not delivered because `to` was temporarily unavailable. For example, the handset used for to was out of coverage or switched off.
-    resolution: This is a temporary failure, retry later for a positive result.
+    description: Missing Parameters. Your request is missing one of the required parameters `from`, `to`, `api_key`, `api_secret` or `text`.
+    resolution: Check your parameters and try again.
 
   3:
-    description: The `to` number is no longer active
-    resolution: Remove this phone number from your database.
+    description: Invalid Parameters. The value of one or more parameters is invalid.
+    resolution: Check your parameters and try again.
 
-  4:
-    description: Call barred by user
-    resolution: You should remove this phone number from your database. If the user wants to receive messages from you, they need to contact their carrier directly.
+  4: 
+    description: Invalid Credentials. Your API key and/or secret are incorrect, invalid or disabled.
+    resolution: Visit the [Dashboard](https://dashboard.nexmo.com) and check your credentials.
 
-  5:
-    description: Portability error. There is an issue after the user has changed carrier for `to`
-    resolution: If the user wants to receive messages from you, they need to contact their carrier directly.
+  5: 
+    description: Internal Error. An error has occurred in the platform whilst processing this message.
+    resolution: If the error persists, contact support@nexmo.com.
 
-  6:
-    description: Anti-Spam rejection. Carriers often apply restrictions that block messages following different criteria. For example, on SenderID or message content
-    resolution: If you believe that your message is being blocked incorrectly, either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com
-
-  7:
-    description: Handset busy. The handset associated with to was not available when this message was sent. 
-    resolution: If status is Failed, this is a temporary failure; retry later for a positive result. If status is Accepted, this message has is in the retry scheme and will be resent until it expires in 24-48 hours.
-
-  8:
-    description: Network error. A network failure occured while sending your message
-    resolution: This is a temporary failure, retry later for a positive result.
-
-  9:
-    description: Insufficent funds. `To`’s pre-paid account does not have enough credit to receive the message.
-    resolution: The `to` number must top up, then you can retry sending the message
-
-  10:
-    description: The message could not be sent because one of the parameters in the message was incorrect. For example, incorrect type or udh.
-    resolution: Check your outbound request and try again
-    link:
-      text: View API reference
-      url: /api/sms#send-an-sms
-
-  11:
-    description: The chosen route to send your message is not available. This is because the phone number is either currently on an unsupported network or on a pre-paid or reseller account that could not receive a message sent by `from`.
-    resolution: Either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com
-
-  12:
-    description: Desintation unreachable. The message could not be delivered to the phone number.
-    resolution: Check that your `to` number is valid. Make sure to use the country prefix (e.g. `44` for the UK) and not a `0`. Numbers are specified in E.164 format.
-
-  13:
-    description: The carrier blocked this message because the content is not suitable for `to` based on age restrictions.)
+  6: 
+    description: Invalid Message. The platform was unable to process this message, for example, an un-recognized number prefix.
     resolution: N/A
 
-  14:
-    description: The carrier blocked this message. This could be due to several reasons. For example, `to`'s plan does not include SMS or the account is suspended.
+  7: 
+    description: Number Barred. The number you are trying to send messages to is blacklisted and may not receive them.
     resolution: N/A
 
-  15:
-    description: You tried to send a message to a blacklisted phone number. That is, the user has already sent a STOP opt-out message and no longer wishes to receive messages from you.
-    resolution: N/A
+  8: 
+    description: Partner Account Barred. Your Nexmo account has been suspended.
+    resolution: Contact <support@nexmo.com>.
 
-  99:
-    description: There is a problem with the chosen route to send your message
-    resolution: To resolve this issue either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com.
+  9: 
+    description: Partner Quota Violation. You do not have sufficient credit to send the message.
+    resolution: Top-up and retry.
+
+  10: 
+    description: Too Many Existing Binds. The number of simultaneous connections to the platform exceeds your account allocation.
+    resolution: Back-off and retry.
+
+  11: 
+    description: Account Not Enabled For HTTP. This account is not provisioned for the SMS API.
+    resolution: This error usually indicates that you should use SMPP instead.
+
+  12: 
+    description: Message Too Long. The message length exceeds the maximum allowed.
+    resolution: Send shorter messages.
+
+  14: 
+    description: Invalid Signature. The signature supplied could not be verified.
+    resolution: Check the [documentation for signing messages](https://developer.nexmo.com/concepts/guides/signing-messages) or use one of the [SDKs](https://developer.nexmo.com/tools) to handle the signing.
+
+  15: 
+    description: Invalid Sender Address. You are using a non-authorized sender ID in the `from` field.
+    resolution: This is most commonly seen in North America, where a Nexmo long virtual number or short code is required.
+
+
+  22: 
+    description: Invalid Network Code. The network code supplied was either not recognized, or does not match the country of the destination address.
+    resolution: Check the network code or remove it from your request.
+
+  23: 
+    description: Invalid Callback Url. The callback URL supplied was either too long or contained illegal characters.
+    resolution: Supply a valid URL for the callback.
+
+  29: 
+    description: Non-Whitelisted Destination. Your Nexmo account is still in demo mode. While in demo mode you must add target numbers to your whitelisted destination list.
+    resolution: Top-up your account to remove this limitation.
+
+  32: 
+    description: Signature And API Secret Disallowed. A signed request may not also present an `api_secret`.
+    resolution: Remove the API secret from your request, or don't sign the message.
+
+  33: 
+    description: Number De-activated. The number you are trying to send messages to is de-activated and may not receive them.
+    resolution: N/A
