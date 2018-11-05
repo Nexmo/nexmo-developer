@@ -33,3 +33,5 @@ The response from the API contains the following data:
     "country_prefix": "44"
 }
 ```
+
+For a description of each returned field and to see all possible values, see the [Number Insights API documentation](/api/number-insight?expandResponses=true#response-getNumberInsightBasic)

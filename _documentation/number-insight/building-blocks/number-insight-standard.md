@@ -77,3 +77,5 @@ The response from the API contains the following data:
     "roaming": {"status": "unknown"}
 }
 ```
+
+For a description of each returned field and to see all possible values, see the [Number Insights API documentation](/api/number-insight?expandResponses=true#response-getNumberInsightStandard)
