@@ -18,6 +18,18 @@ By default, the PIN is first sent via text message (SMS). If there is no reply t
 
 TTS messages are read in the locale that matches the phone number. (For example, the TTS for a 61* phone number is sent using an Australian accent for the English language (`en-au`). You can explicitly control the language, accent and gender in TTS from the Verify Request.)
 
+## Default Timings
+
+Assuming that you make a request with the default `pin_expiry` and `next_event_wait` values, your request will be made using the following timings:
+
+1. Make request to the Verify API
+2. Nexmo immediately send an SMS containing the PIN
+3. Wait 125 seconds for the user to enter the value received
+4. Send 1st Text-To-Speech call to read the PIN to the customer
+5. Wait 180 more seconds
+6. Send 2nd TTS call (with new PIN, as the default `pin_expiry` time is 300s which will have expired)
+7. Wait for the user to enter the new PIN for 300 seconds (the default `pin_expiry`)
+
 ## Concepts
 
 * **Authentication** - Nexmo Verify API is authenticated with your account API Key and Secret. For more information on see the [Authenticating](/api/verify) in the API documentation.
