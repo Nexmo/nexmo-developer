@@ -2,7 +2,7 @@
 
 Next you'll need to link your Facebook Page to your Nexmo account. This will allow Nexmo to handle the inbound messages and allow you to send messages from the Nexmo Messages API.
 
-> **IMPORTANT:** This process needs to be authenticated by JWT. The JWT generated in this case can be based on any Application ID, as this JWT is only used to authenticate the linking process, and it not used to authenticate application-specific API calls.
+> **IMPORTANT:** This process needs to be authenticated by JWT. The JWT generated in this case can be based on any Application ID in your account, as this JWT is only used to authenticate the linking process, and it not used to authenticate application-specific API calls.
 
 You will need to paste in a valid JWT. If you don't have one you can create one as follows:
 
@@ -38,4 +38,12 @@ You are now ready to link your Facebook Page to Nexmo:
 
 You will see your Facebook Pages listed.
 
-**7.** Select the Facebook Page you want to connect to your Nexmo account. Paste in your JWT when required.
+**7.** Select the Facebook Page you want to connect to your Nexmo account from the drop down list. 
+
+**8.** Paste in your JWT in the box provided (2. Provide a valid JWT token).
+
+**9.** You will receive a message confirm successful subscription.
+
+At this point your Nexmo Account and this Facebook Page are linked.
+
+> **NOTE:** If at some point in the future you want to further link a specific application to this page you can now do this from the Dashboard on the External Accounts tab for the specific Messages and Dispatch application you want to link.

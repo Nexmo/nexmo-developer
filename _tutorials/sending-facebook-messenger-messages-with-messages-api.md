@@ -38,7 +38,9 @@ source: _partials/reusable/create-a-nexmo-application.md
 
 ## Receive a Facebook message
 
-When a Facebook message is sent by a Facebook User to your Facebook Page an event will be sent to your Inbound Message Webhook URL. An example event is shown here:
+First make sure your webhook server is running. It should correctly handle **both** [inbound message callbacks](/messages/building-blocks/inbound-message) and [message status callbacks](/messages/building-blocks/message-status)  returning at least a 200 to acknowledge each callback. You will need to have this in place so you can obtain the PSID of the Facebook User sending the inbound message. Once you have this you will be able to reply.
+
+When a Facebook message is sent by a Facebook User to your Facebook Page a callback will be sent to your Inbound Message Webhook URL. An example callback is shown here:
 
 ```json
 {
