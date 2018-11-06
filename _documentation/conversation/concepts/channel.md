@@ -21,13 +21,15 @@ Examples:
 
 The following table shows how each Channel supports each Media:
 
-| Channel | Messaging | Voice | Video |
-| ----| :----: | :----: | :----: |
-| App | ✅ | ✅ |  ✅ |
-| Phone | ✅ | ✅ |  ✅ |
-| SIP | ✅ | ✅ | ✅ |
-| Websocket | ✅ | ✅ | ✅ |
+| Channel | In-app Messaging | In-app Voice | PSTN | SIP | Websocket | In-app Video |
+| ----| :----: | :----: | :----: | :----: | :----: | :----: | 
+| App | ✅ | ✅ |   | | | ✅|
+| Phone |  |  | ✅ | | | |
+| SIP |  |  |  | ✅ |  | |
+| Websocket |  |  |  | | ✅ | |
 
-You can send any type of [Media](/conversation/concepts/media) through multiple Channels. You can also send multiple Media through a single Channel, as illustrated in the following diagram:
+You can send a type of [Media](/conversation/concepts/media) through a Channel. Some Channels (such as App, can support multiple media types, for example In-app Messaging, In-app Voice and In-app Video). 
+
+The relationship between Media and Channels is illustrated in the following diagram:
 
 ![Channels and Media](/assets/images/conversation-api/channels-media.png)
