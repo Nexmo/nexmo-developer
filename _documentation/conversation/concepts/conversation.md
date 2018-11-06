@@ -12,7 +12,7 @@ The Conversation object is key to understanding the Conversation API. In order f
 
 A Conversation is capable of supporting text messaging, audio calls, or video calls. For text messaging a Conversation can be thought of as like a chat room. Users can be invited to join a Conversation and they can leave a Conversation. A single User can also join multiple Conversations through multiple Member objects.
 
-Over the course of a Conversation, Nexmo emits various [Events](/conversation/concepts/event). These events can be communication events such as messages, voice and video streams or other events such as added or removed users, typing indicators and so on.
+Over the course of a Conversation, Nexmo emits various [Events](/conversation/concepts/event). These events can be communication events such as messages, voice and video streams or other events such as added or removed users, typing indicators and so on. The intention is that these events should be handled as they occur, although a log of events is recorded by Nexmo which can later be searched.
 
 There can be no communication outside of the context of a Conversation.
 
