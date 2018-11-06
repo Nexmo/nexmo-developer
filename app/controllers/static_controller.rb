@@ -88,6 +88,10 @@ class StaticController < ApplicationController
     render layout: 'landing'
   end
 
+  def developer_spotlight
+    render layout: 'landing'
+  end
+
   def migrate
     render layout: 'landing'
   end
