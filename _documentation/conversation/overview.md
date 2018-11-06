@@ -4,7 +4,13 @@ title: Overview
 
 # Conversation API
 
-The Conversation API allows you to create various objects such as Users, Members, Conversations used in text, voice and video communication between two endpoints.
+The Conversation API is a low-level API that allows you to create various objects such as Users, Members, and Conversations.
+
+The API also allows you to create Events and Legs to enable text, voice and video communications between two Users and store them in Conversations.
+
+Text, voice and video communications can currently flow through various Channels like App, Phone, SIP, and Websocket. To enable the App channel (for in-app messaging, voice and video), you would need to also utilize our Nexmo Client SDKs.
+
+Phone, SIP and Websocket Channels are enabled through the Voice API and they all flow into Conversations.
 
 ## Contents
 
@@ -24,7 +30,10 @@ Nexmo always welcomes your feedback. Your suggestions help us improve the produc
 
 ## Supported features
 
-Conversation API provides a fundamental mechanism that allows Text, Voice and Video communication. It supports four communication mechanisms App, Phone, SIP, and Websocket. Support for creating communication applications that use the Conversation API are provided by the [Comms SDKs](/comms-sdks/overview), which are available for JavaScript, Android, and iOS.
+The Conversation API currently supports a range of communication channels described in this documentation.
+
+As the Conversation API expands to support more and more Nexmo services, the supported Channels will also expand.
+Conversations would, as a result, become the container for the history of all your communication exchanged via Nexmo Services. This history would then be accessible through the Conversation API.
 
 ## Getting started
 
