@@ -26,7 +26,7 @@ Phone, SIP and Websocket Channels are enabled through the Voice API and they all
 
 This API is currently in Developer Preview.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Conversation API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) and include Conversation API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
 ## Supported features
 
@@ -35,13 +35,15 @@ The Conversation API currently supports a range of communication channels descri
 As the Conversation API expands to support more and more Nexmo services, the supported Channels will also expand.
 Conversations would, as a result, become the container for the history of all your communication exchanged via Nexmo Services. This history would then be accessible through the Conversation API.
 
+> **IMPORTANT:** If you are in APAC region there are some limitations. Please contact [ea-support@nexmo.com](mailto:ea-support@nexmo.com) for information on how to obtain APAC LVN support via our Singapore servers.
+
 ## Getting started
 
 You should be familiar with the following before you use the Conversation API:
 
 1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
 2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers)
-3. [Install the Nexmo Command Line tools](/tools)
+3. [Install the **Beta version** of the Nexmo Command Line tools](/conversation/cli-reference#install-the-beta-version-of-the-cli)
 4. [Create a Nexmo Application using the command line tools or Dashboard](/concepts/guides/applications#getting-started-with-applications)
 5. [Set up Ngrok](https://ngrok.com)
 

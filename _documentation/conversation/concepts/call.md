@@ -1,6 +1,6 @@
 ---
 title: Call
-description: A Call connects two Users in a Conversation.
+description: A Call consists of two or more Legs.
 ---
 
 # Call

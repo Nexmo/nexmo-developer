@@ -423,142 +423,19 @@ You can see the Events that occurred during this transient Conversation are as f
 
 > **NOTE:** Each event has an Event ID.
 
-As this is a transient Conversation (call) once the call ends the Conversation will no longer be available, so you can only see events that take place while the Conversation is live, and not the terminating event. You could see the terminating event if you looked at the activity on the Event webhook for your application, for example on `https://www.example.com:9000/webhooks/event` you would see something similar to the following trace output:
+As this is a transient Conversation (call) once the call ends the Conversation will no longer be available, so you can only see events that take place while the Conversation is live, and not the terminating event. You could see the terminating event if you looked at the activity on the Event webhook for your application, for example on `https://www.example.com:9000/webhooks/event` you would see a series of events such as the following:
 
-```
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'inbound',
- 'from': '447700000001',
- 'status': 'started',
- 'timestamp': '2018-10-25T09: 26: 18.991Z',
- 'to': '447700000002',
- 'uuid': '797168e24c19a3c45e74e05b10fef2b5'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 26: 19
-] "POST /webhooks/event HTTP/1.1" 200 -
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'inbound',
- 'from': '447700000001',
- 'status': 'ringing',
- 'timestamp': '2018-10-25T09: 26: 18.991Z',
- 'to': '447700000002',
- 'uuid': '797168e24c19a3c45e74e05b10fef2b5'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 26: 19
-] "POST /webhooks/event HTTP/1.1" 200 -
-ANSWER
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'from': '447700000001',
- 'to': '447700000002',
- 'uuid': '797168e24c19a3c45e74e05b10fef2b5'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 26: 19
-] "GET /webhooks/answer?to=447700000002&from=447700000001&conversation_uuid=CON-bc643220-2542-499a-892e-c982c4150c06&uuid=797168e24c19a3c45e74e05b10fef2b5 HTTP/1.1" 200 -
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'outbound',
- 'from': 'Unknown',
- 'status': 'started',
- 'timestamp': '2018-10-25T09: 26: 24.384Z',
- 'to': '447700000003',
- 'uuid': '30cecc87-7ac9-4d03-910a-e9d69558263c'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 26: 24
-] "POST /webhooks/event HTTP/1.1" 200 -
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'outbound',
- 'from': 'Unknown',
- 'status': 'ringing',
- 'timestamp': '2018-10-25T09: 26: 24.384Z',
- 'to': '447700000003',
- 'uuid': '30cecc87-7ac9-4d03-910a-e9d69558263c'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 26: 24
-] "POST /webhooks/event HTTP/1.1" 200 -
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'outbound',
- 'from': 'Unknown',
- 'network': None,
- 'rate': None,
- 'start_time': None,
- 'status': 'answered',
- 'timestamp': '2018-10-25T09: 26: 30.277Z',
- 'to': '447700000003',
- 'uuid': '30cecc87-7ac9-4d03-910a-e9d69558263c'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 26: 30
-] "POST /webhooks/event HTTP/1.1" 200 -
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'inbound',
- 'from': '447700000001',
- 'network': None,
- 'rate': None,
- 'start_time': None,
- 'status': 'answered',
- 'timestamp': '2018-10-25T09: 26: 30.340Z',
- 'to': '447700000002',
- 'uuid': '797168e24c19a3c45e74e05b10fef2b5'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 26: 30
-] "POST /webhooks/event HTTP/1.1" 200 -
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'inbound',
- 'duration': '300',
- 'end_time': '2018-10-25T09: 31: 30.000Z',
- 'from': '447700000001',
- 'network': '23409',
- 'price': '0.02250000',
- 'rate': '0.00450000',
- 'start_time': '2018-10-25T09: 26: 30.000Z',
- 'status': 'completed',
- 'timestamp': '2018-10-25T09: 31: 30.179Z',
- 'to': '447700000002',
- 'uuid': '797168e24c19a3c45e74e05b10fef2b5'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 31: 30
-] "POST /webhooks/event HTTP/1.1" 200 -
-EVENT
-{
- 'conversation_uuid': 'CON-bc643220-2542-499a-892e-c982c4150c06',
- 'direction': 'outbound',
- 'duration': '301',
- 'end_time': '2018-10-25T09: 31: 31.000Z',
- 'from': 'Unknown',
- 'network': '23430',
- 'price': '0.12040000',
- 'rate': '0.02400000',
- 'start_time': '2018-10-25T09: 26: 30.000Z',
- 'status': 'completed',
- 'timestamp': '2018-10-25T09: 31: 30.260Z',
- 'to': '447700000003',
- 'uuid': '30cecc87-7ac9-4d03-910a-e9d69558263c'
-}
-174.36.197.202 - - [
-    25/Oct/2018 09: 31: 30
-] "POST /webhooks/event HTTP/1.1" 200 -
-```
+Timestamp | Direction | From | To | Event Type (status) | Notes
+----|----|----|----|----|----
+2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `started` | Calls Nexmo number
+2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `ringing` | Now ringing
+09:26:19 | N/A | 447700000001 | 447700000002 | N/A | At this point the call is answered
+2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `started` | Nexmo calls out
+2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `ringing` | Phone 2 is ringing
+2018-10-25T09:26:30.277Z | Outbound | Unknown | 447700000003 | `answered` | Phone 2 answers
+2018-10-25T09:26:30.340Z | Inbound | 447700000001 | 447700000002 | `answered` | Phone 1 and Phone 2 connected
+2018-10-25T09:31:30.179Z | Inbound | 447700000001 | 447700000002 | `completed` | Inbound leg completes
+2018-10-25T09:31:30.179Z | Outbound | Unknown | 447700000003 | `completed` | Outbound leg completes
 
 This shows that phone 2 `completed` the call, and the Conversation was subsequently deleted.
 
