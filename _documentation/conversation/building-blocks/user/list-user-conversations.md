@@ -24,3 +24,23 @@ application:
 ## Try it out
 
 When you run the code you will get a list of Conversations associated with the specified User.
+
+In this case the User is associated with a single Conversation:
+
+``` json
+[
+  {
+    "name": "mega_chat",
+    "timestamp": {
+      "created": "2018-10-18T13:28:14.760Z"
+    },
+    "image_url": "",
+    "display_name": "Mega Chat Room",
+    "state": "JOINED",
+    "member_id": "MEM-62667429-e0fa-4adb-87a9-b4768fd46fce",
+    "sequence_number": 8,
+    "href": "https://api.nexmo.com/beta/users/USR-ebf6ca49-4941-4762-b7a6-c30cb0c06179/conversations/CON-0b72410c-e090-45b2-86b7-65ff0c986c02",
+    "id": "CON-0b72410c-e090-45b2-86b7-65ff0c986c02"
+  }
+]
+```
