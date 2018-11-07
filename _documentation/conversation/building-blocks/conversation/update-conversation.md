@@ -13,8 +13,8 @@ Ensure the following variables are set to your required values using any conveni
 Key | Description
 -- | --
 `CONVERSATION_ID` | Unique ID of the Conversation.
-`NAME` | The new name.
-`DISPLAY_NAME` | The new display name.
+`CONV_NEW_NAME` | The new name.
+`CONV_NEW_DISPLAY_NAME` | The new display name.
 
 ```building_blocks
 source: '_examples/conversation/conversation/update-conversation'

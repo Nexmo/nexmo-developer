@@ -12,8 +12,8 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NAME` | The unique name of the Conversation.
-`DISPLAY_NAME` | The display name of the Conversation.
+`CONV_NAME` | The unique name of the Conversation.
+`CONV_DISPLAY_NAME` | The display name of the Conversation.
 
 ```building_blocks
 source: '_examples/conversation/conversation/create-conversation'

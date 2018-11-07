@@ -12,8 +12,8 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NAME` | The unique name of the User.
-`DISPLAY_NAME` | The display name of the User.
+`USER_NEW_NAME` | The new unique name of the User.
+`USER_NEW_DISPLAY_NAME` | The new display name of the User.
 
 ```building_blocks
 source: '_examples/conversation/user/update-user'
