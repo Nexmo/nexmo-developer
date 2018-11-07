@@ -111,7 +111,7 @@ if __name__ == '__main__':
     app.run(port=3000)
 ```
 
-> **IMPORTANT:** You need to replace `TO_NUMBER` with the number of your second phone (phone 2).
+> **IMPORTANT:** You need to replace `TO_NUMBER` with the number of your second phone, phone 2 (Bob).
 
 Run this webhook server locally with:
 
@@ -121,7 +121,7 @@ python3 app.py
 
 ## Call your Nexmo Number
 
-Dial your Nexmo Number with phone 1. The inbound call is forwarded to your second phone, phone 2. Answer the call on phone 2. Do not cancel the call at this point.
+Dial your Nexmo Number with phone 1 (Alice). The inbound call is forwarded to your second phone, phone 2 (Bob). Answer the call on phone 2 (Bob). Do not cancel the call at this point.
 
 Now check the logging produced by your webhook server. You should see something similar to:
 
@@ -242,7 +242,7 @@ This API call will give you a response similar to the following:
 
 This response is explained in more detail in the [Conversation](/conversation/concepts/conversation) topic.
 
-You can now hang up phone 1 and phone 2 to terminate the call.
+You can now hang up phone 1 (Alice) and phone 2 (Bob) to terminate the call.
 
 ## Conclusion
 

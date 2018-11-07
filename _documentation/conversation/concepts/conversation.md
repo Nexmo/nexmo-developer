@@ -18,9 +18,13 @@ There can be no communication outside of the context of a Conversation.
 
 A Conversation can be used for a single temporary communication interaction with a beginning and end, such as a call. Alternatively, it can be utilized as a permanent container for the complete history of all related interactions.
 
+## An example Conversation
+
 Consider the following example. A User calls a Nexmo Number associated with a Nexmo Application. The application forwards the call to a second phone. This is illustrated in the following diagram:
 
 ![Conversation](/assets/images/conversation-api/call-forward-conversation.png)
+
+## Conversation details
 
 The Call consists of two legs: inbound and outbound, and two Members, all contained in a Conversation object. If you used the Conversation API call `Get Conversation` to obtain details of this Conversation you would obtain a response similar to the following:
 
@@ -116,9 +120,9 @@ In the above response the phone numbers are as follows:
 
 Number | Description
 ---- | ----
-447700000001 | Phone making inbound call
+447700000001 | Phone making inbound call (Alice)
 447700000002 | Nexmo Number linked to the Nexmo Application
-447700000003 | The destination phone
+447700000003 | The destination phone (Bob)
 
 If you look carefully at the response you can see the following:
 
@@ -135,6 +139,8 @@ This is illustrated in the following diagram:
 ![Conversation](/assets/images/conversation-api/conversation-detail.png)
 
 To summarize, in this example there is one call and one Conversation consisting of two Legs (inbound and outbound). Each User involved in the call is joined into the Conversation by becoming a Member of that Conversation.
+
+## Events
 
 If, while the call is in session, you get Events for the Conversation using the `List Events` API call you would see Events that have taken place so far during the call:
 
@@ -412,31 +418,33 @@ If, while the call is in session, you get Events for the Conversation using the 
 
 You can see the Events that occurred during this transient Conversation are as follows:
 
-1. `member:joined` - Phone 1 to Nexmo Number
-2. `sip:ringing` - Nexmo to phone 2
-3. `sip:answered` - Phone 2 answered
-4. `member:joined` - Phone 2 joined the Conversation
-5. `member:media` - Phone 2 audio setup
-6. `member:answered` - Phone 2 answers call
-7. `member:joined` - Phone 1 joins the Conversation
-8. `member:media` - Phone 1 audio set up
+Event ID | Member ID | Event type | Description
+----|----|----|----
+1 | MEM-f44c872e-cba9-444f-88ae-0bfa630865a6 | `member:joined` | Alice to Nexmo Number
+2 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `sip:ringing` | Nexmo to Bob
+3 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `sip:answered` | Bob answered
+4 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `member:joined` | Bob joined the Conversation
+5 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `member:media` | Bob audio setup
+6 | MEM-f44c872e-cba9-444f-88ae-0bfa630865a6 | `member:answered` | Alice answers
+7 | MEM-f44c872e-cba9-444f-88ae-0bfa630865a6 | `member:joined` | Alice joins the Conversation
+8 | MEM-f44c872e-cba9-444f-88ae-0bfa630865a6 | `member:media` | Alice audio set up
 
 > **NOTE:** Each event has an Event ID.
 
 As this is a transient Conversation (call) once the call ends the Conversation will no longer be available, so you can only see events that take place while the Conversation is live, and not the terminating event. You could see the terminating event if you looked at the activity on the Event webhook for your application, for example on `https://www.example.com:9000/webhooks/event` you would see a series of events such as the following:
 
-Timestamp | Direction | From | To | Event Type (status) | Notes
+Timestamp | Direction (Leg) | From | To | Event Type (status) | Notes
 ----|----|----|----|----|----
 2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `started` | Calls Nexmo number
 2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `ringing` | Now ringing
 09:26:19 | N/A | 447700000001 | 447700000002 | N/A | At this point the call is answered
 2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `started` | Nexmo calls out
-2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `ringing` | Phone 2 is ringing
-2018-10-25T09:26:30.277Z | Outbound | Unknown | 447700000003 | `answered` | Phone 2 answers
-2018-10-25T09:26:30.340Z | Inbound | 447700000001 | 447700000002 | `answered` | Phone 1 and Phone 2 connected
+2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `ringing` | Bob is ringing
+2018-10-25T09:26:30.277Z | Outbound | Unknown | 447700000003 | `answered` | Bob answers
+2018-10-25T09:26:30.340Z | Inbound | 447700000001 | 447700000002 | `answered` | Alice and Bob connected
 2018-10-25T09:31:30.179Z | Inbound | 447700000001 | 447700000002 | `completed` | Inbound leg completes
 2018-10-25T09:31:30.179Z | Outbound | Unknown | 447700000003 | `completed` | Outbound leg completes
 
-This shows that phone 2 `completed` the call, and the Conversation was subsequently deleted.
+This shows that Bob `completed` the call, and the Conversation was subsequently deleted.
 
 This description so far has dealt with a Voice (Media) call over Phone (Channel) with two Legs. However, the same basic concepts would apply for different Media (Text, Voice or Video) and different Channels (Phone, SIP, Websocket, or App). The details for different call types would be a little different, for example Video calls would include different Event types.
