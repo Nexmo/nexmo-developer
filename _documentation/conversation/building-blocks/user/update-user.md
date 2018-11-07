@@ -18,7 +18,8 @@ Key | Description
 ```building_blocks
 source: '_examples/conversation/user/update-user'
 application:
-  name: 'Update User'
+  use_existing: |
+    You will need to use an existing Application and have a User in order to be able to update a User. See the Create Conversation building block for information on how to create an Application. See also the Create User building block on how to create a User.
 ```
 
 ## Try it out

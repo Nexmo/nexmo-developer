@@ -18,7 +18,8 @@ Key | Description
 ```building_blocks
 source: '_examples/conversation/member/get-member'
 application:
-  name: 'Get Member'
+  use_existing: |
+    You will need to use an existing Application that contains a Conversation and at least one Member in order to be able to get a Member. See the Create Conversation building block for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

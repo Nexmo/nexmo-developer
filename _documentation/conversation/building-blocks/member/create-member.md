@@ -18,7 +18,8 @@ Key | Description
 ```building_blocks
 source: '_examples/conversation/member/create-member'
 application:
-  name: 'Create Member'
+  use_existing: |
+    You will need to use an existing Application that contains a Conversation in order to be able to create a Member. See the Create Conversation building block for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

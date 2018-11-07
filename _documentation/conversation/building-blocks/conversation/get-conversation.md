@@ -17,7 +17,8 @@ Key | Description
 ```building_blocks
 source: '_examples/conversation/conversation/get-conversation'
 application:
-  name: 'Get Conversation'
+  use_existing: |
+    You will need to use an existing Application that contains Conversations in order to receive some results here. See the Create Conversation building block for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

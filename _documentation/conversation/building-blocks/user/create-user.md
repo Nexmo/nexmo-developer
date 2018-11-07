@@ -4,7 +4,7 @@ title: Create a User
 
 # Create a User
 
-In this building block you will see how to create a Conversation.
+In this building block you will see how to create a User.
 
 ## Example
 
@@ -18,7 +18,8 @@ Key | Description
 ```building_blocks
 source: '_examples/conversation/user/create-user'
 application:
-  name: 'Create User'
+  use_existing: |
+    You will need to use an existing Application in order to be able to create a User. See the Create Conversation building block for information on how to create an Application.
 ```
 
 ## Try it out
