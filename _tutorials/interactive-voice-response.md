@@ -17,11 +17,11 @@ This tutorial is based on the [Simple IVR](https://www.nexmo.com/use-cases/inter
 ## In this tutorial
 
 - [Get set up](#setting-up-for-ivr) - Create an application, configure it to point to your code, and set up the numbers you will use for this tutorial.
-- [Make the call](#make-the-call) - Call your application and walk through the prompts to hear the spoken information.
+- [Make the call](#try-it-yourself) - Call your application and walk through the prompts to hear the spoken information.
 
 - [Code review: Handle an inbound call](#handle-an-inbound-call) - How to make the first response to the incoming call.
 - [Code review: Send a text-to-speech greeting](#send-text-to-speech-greeting) - Greet the user with text-to-speech upon answer.
-- [Code review: Request user input via IVR](#request-user-input-via-ivr) - Create a text-to-speech prompt then request user input.
+- [Code review: Request user input via IVR](#request-user-input-via-ivr-interactive-voice-response) - Create a text-to-speech prompt then request user input.
 - [Code review: Respond to user input](#respond-to-user-input) - Handle the user order number input and play back status via text-to-speech.
 - [Tips for better text-to-speech experiences](#tips-for-better-text-to-speech-experiences) - Inspect the helper methods we use to give better spoken responses.
 - [Next steps](#next-steps) - Some further reading for your enjoyment.
