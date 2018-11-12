@@ -53,7 +53,8 @@ Some possible use cases you could implement include:
 * SMS - inbound and outbound
 * Voice - SIP and TTS
 * Verify API
-Support for Number Insight records will be added soon.
+* Number Insight
+* Stitch IP Voice Leg
 
 ## Reference
 
