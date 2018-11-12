@@ -1,6 +1,7 @@
 ---
 title: User
 description: A User represents an entity such as a person that wishes to communicate.
+navigation_weight: 2
 ---
 
 # User

@@ -1,7 +1,7 @@
 ---
 title: Conversation
 description: A Conversation connects Users and allows them to communicate.
-navigation_weight: 0
+navigation_weight: 3
 ---
 
 # Conversation

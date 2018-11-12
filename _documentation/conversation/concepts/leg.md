@@ -1,6 +1,7 @@
 ---
 title: Leg
 description: A Leg connects a User with a Conversation.
+navigation_weight: 8
 ---
 
 # Leg
