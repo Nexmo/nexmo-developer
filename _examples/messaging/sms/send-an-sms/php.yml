@@ -1,0 +1,15 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+client:
+    source: .repos/nexmo-community/nexmo-php-quickstart/sms/send-sms.php
+    from_line: 5
+    to_line: 6    
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/sms/send-sms.php
+    from_line: 8
+    to_line: 12
+file_name: send-sms.php
+run_command: 'php send-sms.php'

@@ -1,9 +1,18 @@
+<%
+  # @mheap: This is hacky handling for allOf, but it works for now
+  allOf = schema['allOf']
+  if allOf
+    schema = allOf.reduce { |a,b| a.deep_merge(b) }
+  end
+%>
+
 <% if schema['properties'] %>
 <% schema['properties'].each do |key, value| %>
   <% next if key == '_links' %>
   <% next if value['x-skip-response-description'] %>
+  <% anchor_value = "#{anchor_prefix}-#{key}" %>
   <tr<% if value['properties'] %> class=" Vlt-table__row--noline" <% end %>>
-      <td>
+      <td id="<%= anchor_value %>">
           <b><%= key %></b>
           <% if value['items'] %>
               <br />
@@ -34,7 +43,7 @@
           </tr>
           </thead>
           <tbody>
-          <%= render 'response_description_parameters', schema: value %>
+          <%= render 'response_description_parameters', schema: value, anchor_prefix: anchor_value %>
           </tbody>
         </table>
         </div>

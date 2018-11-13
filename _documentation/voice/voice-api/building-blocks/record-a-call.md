@@ -5,8 +5,10 @@ navigation_weight: 14
 
 # Record a call
 
-A building block that shows how to record a call. The call
-to be recorded is identified via a UUID.
+A building blocks that shows how to answer an incoming call and set it up to
+record, then connect the call. When the call is completed, the `eventUrl`
+you specify in the `record` action of the NCCO will receive a webhook
+including the URL of the recording for download.
 
 ## Example
 
@@ -29,6 +31,5 @@ application:
 
 You will need to:
 
-1. Set up a call and obtain the call UUID. You could use the 'connect an inbound call' building block to do this.
-2. Record the call (this building block).
-3. Download the recording. See the [Download a recording](/voice/voice-api/building-blocks/download-a-recording) building block for how to do this.
+1. Answer and record the call (this building block).
+2. Download the recording. See the [Download a recording](/voice/voice-api/building-blocks/download-a-recording) building block for how to do this.

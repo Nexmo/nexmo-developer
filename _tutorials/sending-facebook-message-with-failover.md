@@ -17,25 +17,22 @@ The example Workflow given here will attempt to send a Facebook message using th
 source: _partials/reusable/prereqs.md
 ```
 
+> **NOTE:** This tutorial assumes you have already created a Facebook Profile and a Facebook Page.
+
 ## The steps
 
 After the prerequisites have been met, the steps are as follows:
 
-1. [Configure your webhook URLs](#configure-your-webhook-urls) - This step only required for support of inbound message support and delivery receipts.
-2. [Create a Nexmo Application](#create-a-nexmo-application) - The resultant Application ID is used to generate a JWT that you need to make API calls. If you already have an Application ID you can use you don't need to do this step.
-3. [Generate a JWT](#generate-a-jwt) - This step is only required if you are not using the client library.
-4. [Send a Facebook message with failover](#send-a-message-with-failover) - This step uses the Nexmo Messages API to send a Facebook message with failover.
+1. [Link your Facebook Page to Nexmo](#link-your-facebook-page-to-your-nexmo-account)
+2. [Create a Nexmo Application](#create-a-nexmo-application)
+3. [Send a Facebook message with failover](#send-a-message-with-failover)
 
 ```partial
-source: _partials/reusable/configure-webhook-urls.md
+source: _partials/reusable/link-facebook-to-nexmo.md
 ```
 
 ```partial
 source: _partials/reusable/create-a-nexmo-application.md
-```
-
-```partial
-source: _partials/reusable/generate-a-jwt.md
 ```
 
 ## Send a message with failover
@@ -59,6 +56,8 @@ Key | Description
 ```building_blocks
 source: '_examples/dispatch/send-facebook-message-with-failover'
 ```
+
+> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/building-blocks/before-you-begin#generate-a-jwt).
 
 ## Further reading
 

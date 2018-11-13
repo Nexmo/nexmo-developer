@@ -1,35 +1,46 @@
 ---
-title: Custom Sender ID
+title: Sender Identity
 ---
 
-# Custom Sender ID
+# Sender Identity
 
-The Sender ID is the number or text shown on a handset when it displays a message. You set a custom Sender ID to better represent your brand.
+Your messages will appear to be sent from any allowed value you enter in the `from` parameter of the request. You might want to use this capability to better represent your brand and maximise readership and response rates.
 
-## Overview
+However, there are limitations on what this parameter can contain. You should also be aware that a message recipient can only respond if the `from` parameter contains a valid mobile number which is able to accept inbound SMS.
 
-The Sender ID can be either:
+> Please note that Nexmo expressly prohibits [SMS spoofing](https://en.wikipedia.org/wiki/SMS_spoofing) where the Sender ID is used to impersonate another person, company or product.
 
-* **Numeric** - up to a 15 digit telephone number in international format without a leading `+` or `00`
-* **Alphanumeric** - an 11 character string of ^[supported characters](abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789).
+## Valid 
 
-> Note: Using other characters may result in failed delivery or an altered Sender ID.
+The `from` parameter in the request can only contain numeric or alphanumeric values that obey certain rules: 
 
-## Country specific
+* **Numeric**
+    * Must be a telephone number of up to 15 digits
+    * Must be in [international format](/concepts/guides/glossary#number-format)
+    * Cannot include the leading `+` or `00`
+* **Alphanumeric**
+    * Must be a string of up to 11 ^[supported characters](abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789).
+    * Cannot contain spaces
 
-Depending on the jurisdiction one or more of the following can happen:
+> **Note**: If the value in your `from` parameter does not obey these rules it might be modified in transit or not delivered at all.
 
-* Your Sender ID must be a virtual number.
-* SMS filtering is applied and the Sender ID is modified.
-* Numeric-only Sender IDs are replaced by short codes.
-* You can only send traffic in a limited time window.
-* For marketing traffic you have to implement a STOP system.
+## Country-specific considerations
+
+Some countries impose further limitations on where your message appears to be sent from, such as:
+
+* It must be a virtual number
+* Your stated phone number might be replaced by a [short code](https://en.wikipedia.org/wiki/Short_code)
+
+If your SMS does not appear to come from a valid telephone number, you might:
+
+* Have your sender details changed by SMS filtering
+* Only be allowed to send SMS at certain times of the day
+* Be required to implement a [STOP system](https://developer.nexmo.com/api/sms/us-short-codes/alerts/subscription) if your SMS is for marketing purposes 
 
 Before you start your messaging campaign:
 
-1. Check the Sender ID columns in the [Country Specific Features](country-specific-features).
-2. Batch send your messages to each country and set `from` to match the Sender ID capabilities.
+1. Check the `SenderID` column for the target country in [this document](https://help.nexmo.com/hc/en-us/articles/115011781468).
+2. Send your all your messages to numbers in the same country in a batch and set your sender identity to match what that country allows.
 
-## SMS Spoofing
 
-Illegitimate use of [SMS spoofing](https://en.wikipedia.org/wiki/SMS_spoofing) such as impersonating another person, company or product is strictly forbidden.
+

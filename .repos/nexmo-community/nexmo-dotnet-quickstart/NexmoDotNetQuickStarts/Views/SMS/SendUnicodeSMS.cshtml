@@ -1,0 +1,7 @@
+﻿@using (Html.BeginForm("SendUnicodeSMS", "SMS", FormMethod.Post))
+{
+    <br />
+    <input type="text" name="to" id="to" placeholder="To" />
+    <input type="text" name="text" id="text" placeholder="Unicode to send" />
+    <input type="submit" value="Send" />
+}

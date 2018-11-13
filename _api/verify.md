@@ -96,7 +96,7 @@ Status&nbsp;code | Text | Description
 8 | The api_key you supplied is for an account that has been barred from submitting messages |
 9 | Partner quota exceeded | Your account does not have sufficient credit to process this request.
 10 | Concurrent verifications to the same number are not allowed |
-15 | The destination number is not in a supported network | The request has been rejected.
+15 | The destination number is not in a supported network | The request has been rejected. You can find more detail about this [on our knowledgebase](https://help.nexmo.com/hc/en-us/articles/360018406532-Verify-On-demand-Service-to-High-Risk-Countries)
 16 | The code inserted does not match the expected value |
 17 | The wrong code was provided too many times | You can run Verify Check on a `request_id` up to three times unless a new PIN code is generated. If you check a request more than 3 times, it is set to FAILED and you cannot check it again.
 18 | Too many request_ids provided | You added more than the maximum of 10 `request_id`s to your request.
@@ -173,6 +173,8 @@ Key | Value
 
 
 ## Verify Search
+
+> <strong>Please note that the Verify Search API is rate limited to one request per second.</strong>
 
 1. Send a Verify Search [request](#request-3) containing the [request_id](#keys-and-values)'s of the Verify requests to search for.
 2. Check the *status* response parameter in the Search [Response](#response-4) to see if the request was successfully completed.

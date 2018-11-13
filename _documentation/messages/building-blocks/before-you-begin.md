@@ -66,3 +66,7 @@ If you are testing locally using [Ngrok](https://ngrok.com) you will set your we
 * `https://demo.ngrok.io/webhooks/message-status`
 
 Change `demo` in the above with whatever Ngrok generates for you, unless you have paid for a reusable URL.
+
+```partial
+source: _partials/reusable/generate-a-jwt.md
+```

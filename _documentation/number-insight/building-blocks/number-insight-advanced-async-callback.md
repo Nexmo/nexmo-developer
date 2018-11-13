@@ -53,4 +53,5 @@ The response from the API contains the following data:
 }
 ```
 
+For a description of each returned field and to see all possible values, see the [Number Insights API documentation](/api/number-insight#asyncCallback)
 

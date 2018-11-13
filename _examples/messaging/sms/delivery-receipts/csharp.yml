@@ -1,0 +1,16 @@
+---
+title: .NET
+language: dotnet
+dependencies:
+    - Nexmo.Csharp.Client
+client:
+    source: .repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Authentication/BasicAuth.cs
+    from_line: 13
+    to_line: 17
+code:
+    source: .repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Controllers/SMSController.cs
+    from_line: 94
+    to_line: 106
+run_command: 'Run using your IDE'
+file_name: SMSController.cs
+unindent: true 

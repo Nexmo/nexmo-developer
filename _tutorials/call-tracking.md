@@ -1,87 +1,76 @@
 ---
 title: Call tracking
 products: voice/voice-api
-description: We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
+description: Keep track of which campaigns are working well by using different numbers for each one and tracking the incoming calls. This tutorial shows you how to handle incoming calls, connect them to another number, and track the phone numbers that called each of your Nexmo numbers.
 languages:
     - Node
 ---
 
-# Call tracking
+# Track Usage Across Your Nexmo Numbers
 
-We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine-tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television, radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
+Gain insight into the effectiveness of your customer communications by keeping track of the calls received by your Nexmo numbers. By registering a different number for each of your marketing campaigns, you can see which one performs the best and use that information to improve your future marketing efforts.
 
-This tutorial is based on the [Call Tracking](https://www.nexmo.com/use-cases/call-tracking/) use case. You download the code from <https://github.com/Nexmo/node-call-tracker>.
-
-## In this tutorial
-
-In this tutorial you see how to build an application that keeps track of inbound calls using Nexmo APIs and libraries:
-
-* [Create a Voice Application](#create-a-voice-application) - create and configure an application using [Nexmo CLI](https://github.com/nexmo/nexmo-cli), then configure the webhook endpoints to provide NCCOs and handle changes in Call status
-* [Buy phone numbers](#provision-virtual-voice-numbers) - Buy phone numbers you use to mask real user numbers
-* [Link the phone numbers to the Nexmo Application](#link-numbers) - configure the voice enabled phone numbers you use to mask user numbers
-* [Handle inbound voice calls](#handle-inbound-voice-calls) - configure your webhook endpoint to handle incoming voice calls and track of the popularity of the inbound number
-* [Proxy the Call](#proxy-the-call) - instruct Nexmo to make a masked Call to a phone number
+Today's example uses NodeJS and all the code is [available on GitHub](https://github.com/Nexmo/node-call-tracker), however the same approach could be used for any other technology stack just as effectively.
 
 ## Prerequisites
 
 In order to work through this tutorial you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
+* A [Nexmo account](https://dashboard.nexmo.com/sign-up) (the free credit for new signups is plenty for this tutorial).
+* The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up.
 * A publicly accessible web server so Nexmo can make webhook requests to your app. If you're developing locally we recommend [ngrok](https://ngrok.com/).
 
-## Create a Voice application
+⚓ Create a Voice Application
+⚓ Buy Voice Enabled Phone Numbers
+⚓ Link phone numbers to the Nexmo Application
+## Get Started
 
-A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products. You make calls to a Nexmo product using the security information in the application. When you make a Call Nexmo communicates with your webhook endpoints so you can manage your call.
+Before you grab the code and dive in, you will to set up a Nexmo application and get some numbers to use with it. When you create a Nexmo application, you specify some [webhook](https://developer.nexmo.com/concepts/guides/webhooks) endpoints; these are URLs in your own application and are the reason that your code must be publicly accessible. When a caller calls your Nexmo number, Nexmo will make a web request to the `answer_url` endpoint you specify and follow the instructions it finds there.
 
-You first use Nexmo CLI to create an application for Voice API:
+There is also an `event_url` webhook, that receives updates whenever the call state changes. To keep things simple, in this application the code simply outputs the events to the console to make them easy to see while developing an application.
+
+To create the initial application, use the Nexmo CLI to run the command below, replacing your URL in two places:
 
 ```bash
-$ nexmo app:create call-tracker https://example.com/track-call https://example.com/event
-
-Application created: 5523f9df-05bb-4a93-9427-6e43c32449b8
+nexmo app:create --keyfile private.key call-tracker https://your-url-here/track-call https://your-url-here/event
 ```
-This command returns the UUID (Universally Unique Identifier) that identifies your application.
+
+This command returns the UUID (Universally Unique Identifier) that identifies your application. Copy it somewhere safe, you will need it later!
 
 The parameters are:
 
 * `call-tracker` - the name you give to this application
-* `https://example.com/proxy-call` - when you receive an inbound call to your Nexmo number, Nexmo makes a [GET] request and retrieves the NCCO that controls the call flow from this webhook endpoint
+* `private.key` - the name of the file to store the private key in, `private.key` is expected by the application
+* `https://example.com/track-call` - when you receive an inbound call to your Nexmo number, Nexmo makes a `GET` request and retrieves the NCCO that controls the call flow from this webhook endpoint
 * `https://example.com/event` - as the call status changes, Nexmo sends status updates to this webhook endpoint
 
-Then start your Web server:
-
-```js
-var app = require('express')();
-var config = require('../config');
-
-app.set('port', (config.port || 5000));
-app.use(require('body-parser').json());
-
-app.listen(app.get('port'), function() {
-  console.log('Example app listening on port', app.get('port'));
-});
-```
-
-If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/) to tunnel access to your Web server.
-
-
-## Buy Voice Enabled Phone Numbers
-
-For call tracking to work, you need one or more Nexmo numbers to track. Use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone numbers:
+You will need a couple of Nexmo numbers to try this application. To buy a number, use the Nexmo CLI again and a command like this:
 
 ```bash
 nexmo number:buy --country_code US --confirm
-Number purchased: 15554908975
 ```
 
-## Link phone numbers to the Nexmo Application
-
-Now link each phone number with the *call-tracker* application. When any event occurs relating to a number associated with an application Nexmo sends a request to your webhook endpoints with information about the event.
+You can use any country code in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/iso_3166-1_alpha-2) for this command. The result is the number you have bought so copy that (you can always get a list with `nexmo numbers:list`) and link it the the application you created:
 
 ```bash
-nexmo link:app 15554908975 5555f9df-05bb-4a99-9427-6e43c83849b8
+nexmo link:app [number] [application ID]
 ```
+
+Repeat the buying and linking step for as many numbers as you'd like to use.
+
+## Set Up and Run the Application
+
+Get the code from here: <https://github.com/Nexmo/node-call-tracker>. Either clone the repository to your local machine or download the zip file, it doesn't matter which.
+
+Install the dependencies with this command: `npm install`
+
+Then copy the config template `example.env` to a file called `.env`. In this file you will need to configure the phone number that Nexmo should connect out to, so this can be any phone that you are nearby and can answer.
+
+> You can also set the port number in the `.env` file by adding a `PORT` setting
+
+To start the webserver: `npm start`
+
+Check everything is working as expected by visiting <http://localhost:5000>. You should see "Hello Nexmo" as the response.
 
 ## Handle inbound voice calls
 
@@ -91,23 +80,17 @@ When Nexmo receives an inbound call to your Nexmo number it makes a request to t
 Participant App
 Participant Nexmo
 Participant Caller
-Participant Recipient
 Note over Caller,Nexmo: Caller calls one of\nthe tracking numbers
-Recipient->Nexmo: Calls Nexmo number
+Caller->Nexmo: Calls Nexmo number
 Nexmo->App:Inbound Call(from, to)
 ```
 
-Extract `to` and the `from` from the inbound webhook and pass this to your call tracking logic.
+When the caller makes the call, the application receives the incoming webhook. It extracts the number that the caller is calling from (the `to` number) and the number that they dialled (the `from` number) and passes these values to the call tracking logic.
+
+The incoming webhook is received by the `/track-call` route:
 
 ```js
-var CallTracker = require('./CallTracker');
-var callTracker = new CallTracker(config);
-
-/**
- * Webhook endpoint to handle a call being answered.
- * Return an NCCO to record a call and proxy it to another number.
- */
-app.get('/answer', function(req, res) {
+app.get('/track-call', function(req, res) {
   var from = req.query.from;
   var to = req.query.to;
 
@@ -116,62 +99,12 @@ app.get('/answer', function(req, res) {
 });
 ```
 
-## Track the Call
+⚓ Track the Call 
+## Track the Call Before Connecting the Caller
 
-The workflow for call tracking is:
+The logic for actually tracking the call is separate and super-simple in the example application. Possibly too simple, since it loses the data when you restart the server! For your own applications you may extend this part to write to a database, logging platform, or something else to suit your own needs. After tracking the call, the application returns a [Nexmo Call Control Object (NCCO)](https://developer.nexmo.com/voice/voice-api/ncco-reference) to tell Nexmo's servers what to do next with the call.
 
-```js_sequence_diagram
-Participant App
-Participant Nexmo
-Participant Caller
-Participant Recipient
-Caller->Nexmo: Calls Nexmo number
-Nexmo->App:Inbound Call(from, to)
-App->App:Track Call
-```
-
-Track the call and keep a count of how many times the `from` phone number has been called.
-
-```js
-/**
- * Create a new instance of a CallTracker.
- *
- * @param {Object} config - CallTracker configuration.
- */
-function CallTracker(config) {
-  this.config = config;
-
-  this.trackedCalls = {};
-}
-
-/**
- * Track the call and return an NCCO that proxies a call.
- */
-CallTracker.prototype.answer = function (from, to) {
-  if(!this.trackedCalls[to]) {
-    this.trackedCalls[to] = [];
-  }
-  this.trackedCalls[to].push({timestamp: Date.now(), from: from});
-}
-```
-
-## Proxy the Call
-
-Now your application has tracked the call information, proxy the call to the intended recipient. Keep the `from` number the same so the recipient has the correct contact details:
-
-```js_sequence_diagram
-Participant App
-Participant Nexmo
-Participant Caller
-Participant Recipient
-Caller->Nexmo: Calls Nexmo number
-Nexmo->App:Inbound Call(from, to)
-App->App:Track Call
-Note right of App:Proxy Inbound\ncall to Recipient
-App->Nexmo:Call
-```
-
-Build a Nexmo Call Control Object (NCCO) that instructs Nexmo to connect the call to another phone number. Keep the `from` number the same for the proxied call.
+You'll find this code in `lib/CallTracker.js`:
 
 ```js
 /**
@@ -182,40 +115,34 @@ CallTracker.prototype.answer = function (from, to) {
     this.trackedCalls[to] = [];
   }
   this.trackedCalls[to].push({timestamp: Date.now(), from: from});
-
+  
   var ncco = [];
-
+  
   var connectAction = {
     action: 'connect',
-    from: from,
+    from: to,
     endpoint: [{
       type: 'phone',
       number: this.config.proxyToNumber
     }]
   };
   ncco.push(connectAction);
-
+  
   return ncco;
+};
 ```
 
-> **Note**: take a look at the  [NCCO reference](/voice/guides/ncco-reference) for information.
-
-Your web server provides Nexmo with this NCCO and the Call is proxied to the `to` phone number.
-
-```js
-/**
- * Webhook endpoint to handle a call being answered.
- * Return an NCCO to record a call and proxy it to another number.
- */
-app.get('/answer', function(req, res) {
-  var from = req.query.from;
-  var to = req.query.to;
-
-  var ncco = callTracker.answer(from, to);
-  return res.json(ncco);
-});
-```
+The NCCO uses the `connect` action to connect the incoming caller with another call to the number you specified in the config file. The `from` number has to be a Nexmo number, so the code uses the tracked number as the caller ID for the outgoing call. Check the [NCCO documentation for the `connect` action](https://developer.nexmo.com/voice/voice-api/ncco-reference#connect) for more detail on the call control object.
 
 ## Conclusion
 
-And that's it. You have built a call tracking application that enables you to determine the most popular number for inbound calls. To do this you have provisioned and configured numbers, handled an inbound call, stored and tracked the inbound call and proxied that call to another user.
+With this approach you have been able to link some Nexmo numbers to your NodeJS application, make a record of incoming calls to those numbers and connect the callers to an outbound number. By recording the timestamp as well as the from and to numbers, you can go ahead and perform any analysis that you need to on this data to get the best results for your business.
+
+## Where Next?
+
+Here are a few more suggestions of resources that you might enjoy as a next step after this tutorial:
+
+* [Add a call whisper to an inbound call](https://developer.nexmo.com/tutorials/add-a-call-whisper-to-an-inbound-call) to announce some details about the incoming call to the outgoing call before conecting the two.
+* Blog post covering how to [Connect your local development server to the Nexmo API using an ngrok tunnel](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
+* The [Webhooks Reference for Voice](https://developer.nexmo.com/voice/voice-api/webhook-reference) shows the details of incoming webhooks for both `answer_url` and `event_url` endpoints.
+* Refer to the [NCCO Documentation](https://developer.nexmo.com/voice/voice-api/ncco-reference) to get details on other actions that you can use to control the flow of your Nexmo calls.

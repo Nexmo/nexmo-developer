@@ -2,78 +2,74 @@
 title: Overview
 ---
 
-# Overview
+# SMS API
 
-Nexmo's SMS API allows you to send and receive text messages to users around the globe through simple RESTful APIs.
+Nexmo's SMS API enables you to send and receive text messages to and from users worldwide, using simple REST APIs.
 
-* Programmatically send and receive high volume of SMS anywhere in the world.
-* Build apps that scale with the web technologies that you are already using.
+* Programmatically send and receive high volumes of SMS globally.
 * Send SMS with low latency and high delivery rates.
-* Receive SMS for free using SMS-enabled local numbers in countries around the world.
-* Only pay for what you use, nothing more.
-
-## Contents
-
-In this document you can learn about:
-
-* [Nexmo SMS API Concepts](#concepts)
-* [How to Get Started with the SMS API](#getting-started)
-* [Building Blocks](#building-blocks)
-* [Guides](#guides)
-* [Tutorials](#tutorials)
-* [Reference](#reference)
-
-## Concepts
-
-To use the Nexmo SMS API, you may need to familiarise yourself with:
-
-* **[Number format](/voice/voice-api/guides/numbers)** - All phone numbers in the Nexmo APIs use E.164 format.
-
-* **[Authentication](/concepts/guides/authentication)** - Nexmo SMS API is authenticated with your account API Key and Secret.
-
-* **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, the SMS API will send the delivery receipts and inbound SMS.
+* Receive SMS for free using local numbers.
+* Scale your applications with familiar web technologies.
+* Pay only for what you use, nothing more.
 
 ## Getting Started
 
 ### Send an SMS
 
-Before you begin, [Sign up for a Nexmo account](https://dashboard.nexmo.com/sign-up).
+This example shows you how to send an SMS to your chosen number.
 
-Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you can now send an SMS message:
+First, [sign up for a Nexmo account](https://dashboard.nexmo.com/sign-up) if you don't already have one, and make a note of your API key and secret on the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide).
 
-```tabbed_content
+Replace the following placeholder values in the sample code:
+
+Key | Description
+-- | --
+`NEXMO_API_KEY` | Your Nexmo API key.
+`NEXMO_API_SECRET` | Your Nexmo API secret.
+
+```building_blocks
 source: '_examples/messaging/sms/send-an-sms'
 ```
 
-### [icon="node"] Try it
+## Contents
 
-```techio
-title: Send an SMS
-path: /35772040f9cbf86b388ec61c0a004a3e1158/welcome/124993
+The rest of this document contains the following information:
+
+* [Nexmo SMS API Concepts](#concepts) - what you need to know
+* [Guides](#guides) - learn how to use the SMS API
+* [Building Blocks](#building-blocks) - code snippets to help with specific tasks
+* [Tutorials](#tutorials) - detailed tutorials for some common use cases
+* [Reference](#reference) - complete API documentation
+
+## Concepts
+
+Before using the Nexmo SMS API, familiarise yourself with the following:
+
+* **[Number format](/voice/voice-api/guides/numbers)** - The SMS API requires phone numbers in E.164 format.
+
+* **[Authentication](/concepts/guides/authentication)** - The SMS API authenticates using your account API key and secret.
+
+* **[Webhooks](/concepts/guides/webhooks)** - The SMS API makes HTTP requests to your application web server so that you can act upon them. For example: inbound SMS and delivery receipts.
+
+
+## Guides
+
+```concept_list
+product: messaging/sms
 ```
 
 ## Building Blocks
-
 
 ```building_block_list
 product: messaging/sms
 ```
 
-## Guides
+## Tutorials
 
-* [Custom Sender ID](/messaging/sms/guides/custom-sender-id): sending messages using an alphabetical identifier to match with your brand
-* [Delivery receipts](/messaging/sms/guides/delivery-receipts): how delivery receipts are produced and how to integrate them into your application
-* [Concatenation and Encoding](/messaging/sms/guides/concatenation-and-encoding): how multiple messages are concatenated to implement extended SMS and details of encoding schemes for messages
-* [SMPP access](/messaging/sms/guides/SMPP-access): bulk sending messages via the SMPP protocol
-* [Country specific features](/messaging/sms/guides/country-specific-features): what features are available in different countries
-* [Troubleshooting SMS](/messaging/sms/guides/troubleshooting-sms): how to handle errors and understand error codes
+```tutorials
+product: messaging/sms
+```
 
 ## Reference
 
 * [SMS API Reference](/api/sms)
-
-## Tutorials
-
-```tutorials
-product: 'messaging/sms'
-```

@@ -6,11 +6,13 @@ description: WhatsApp messaging solution for businesses.
 
 # Understanding WhatsApp messaging
 
-WhatsApp Business Solution can only be sent by businesses that have been approved by WhatsApp. This business profile will also have a green verified label to indicate that it is a legitimate business.
+WhatsApp Business Solution messages can only be sent by businesses that have been approved by WhatsApp. This business profile will also have a green verified label to indicate that it is a legitimate business.
 
 The advantage of WhatsApp is that the identifier of users on the platform is their mobile phone number.
 
 In order to get started with WhatsApp you will need to email [sales@nexmo.com](mailto:sales@nexmo.com). Nexmo is an official partner and will handle the application and creation of your WhatsApp Business account for you. Currently WhatsApp is in Limited Availability and only a certain number of customers will be onboarded.
+
+> **NOTE:** Nexmo cannot guarantee you will receive a WhatsApp account.
 
 If successful, your account manager will provide you with a WhatsApp number.
 
@@ -30,13 +32,13 @@ MTMs are designed to reduce the likelihood of spam to users on WhatsApp.
 
 For the purpose of testing Nexmo provides a template, `whatsapp:hsm:technology:nexmo:verify`, that you can use:
 
-``` bash
+``` shell
 {{1}} code: {{2}}. Valid for {{3}} minutes.
 ```
 
 The parameters are an array. The first value being `{{1}}` in the MTM.
 
-Below is the example API call:
+Below is an example API call:
 
 ```
 curl -X POST \
@@ -80,4 +82,3 @@ curl -X POST \
 If your customer initiates messaging with you, WhatsApp will not charge you for any messages (including MTMs) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which WhatsApp will charge you.
 
 > **IMPORTANT**: The WhatsApp Business Solution may not be used to send any messages to or receive messages from the following countries: Crimea, Cuba, Iran, North Korea, and Syria.
-

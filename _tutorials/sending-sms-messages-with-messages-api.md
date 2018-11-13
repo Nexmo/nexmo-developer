@@ -21,21 +21,11 @@ source: _partials/reusable/prereqs.md
 
 After the prerequisites have been met, the steps are as follows:
 
-1. [Configure your webhook URLs](#configure-your-webhook-urls) - This step only required for support of inbound message support and delivery receipts.
-2. [Create a Nexmo Application](#create-a-nexmo-application) - The resultant Application ID is used to generate a JWT that you need to make API calls. If you already have an Application ID you can use you don't need to do this step.
-3. [Generate a JWT](#generate-a-jwt) - This step is only required if you are not using the client library.
-4. [Send an SMS message](#send-an-sms-message) - This step uses the Nexmo Messages API to send an SMS message.
-
-```partial
-source: _partials/reusable/configure-webhook-urls.md
-```
+1. [Create a Nexmo Application](#create-a-nexmo-application)
+2. [Send an SMS message](#send-an-sms-message)
 
 ```partial
 source: _partials/reusable/create-a-nexmo-application.md
-```
-
-```partial
-source: _partials/reusable/generate-a-jwt.md
 ```
 
 ## Send an SMS message
@@ -58,6 +48,8 @@ source: '_examples/messages/send-sms'
 ```
 
 This will send an SMS message to the destination number you specified.
+
+> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/building-blocks/before-you-begin#generate-a-jwt).
 
 ## Further reading
 

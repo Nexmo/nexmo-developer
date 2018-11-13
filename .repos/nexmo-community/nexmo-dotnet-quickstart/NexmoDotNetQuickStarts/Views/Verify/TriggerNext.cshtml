@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    string message = "";
+    string status = ViewBag.status;
+    switch (status)
+    {
+        case "0":
+            message = "The request was successfully accepted by Nexmo.";
+            break;
+        case "1":
+            message = "You are trying to send more than the maximum of 30 requests-per-second.";
+            break;
+        case "2":
+            message = "A parameter is missing.";
+            break;
+        case "3":
+            message = "Invalid value for parameter.";
+            break;
+        case "4":
+            message = "The api_key or api_secret you supplied in the request is either invalid or disabled.";
+            break;
+        case "5":
+            message = "Internal Error.";
+            break;
+        case "6":
+            message = "The request could not be routed.";
+            break;
+        case "7":
+            message = "The number you are trying to verify is blacklisted for verification.";
+            break;
+        case "8":
+            message = "The api_key you supplied is for an account that has been barred from submitting messages.";
+            break;
+        case "9":
+            message = "Your account does not have sufficient credit to process this request.";
+            break;
+        case "10":
+            message = "Concurrent verifications to the same number are not allowed.";
+            break;
+        case "15":
+            message = "The destination number is not in a supported network.";
+            break;
+        case "16":
+            message = "The code inserted does not match the expected value.";
+            break;
+        case "17":
+            message = "The wrong code was provided too many times.";
+            break;
+        case "18":
+            message = "Too many request_ids provided.";
+            break;
+        case "19":
+            message = "No more events are left to execute for the request.";
+            break;
+        case "101":
+            message = "There are no matching Verify request.";
+            break;
+        default:
+            break;
+
+    }
+
+
+    if (ViewBag.status != null)
+    {
+        <h2>Status Code: @ViewBag.status</h2>
+        <h2>Status Text: @message</h2>
+    }
+    else
+    {
+        using (Html.BeginForm("TriggerNext", "Verify", FormMethod.Post))
+        {
+            <br />
+            <input type="text" name="requestID" id="requestID" placeholder="Request ID" />
+            <input type="submit" value="Trigger" />
+        }
+    }
+}
+

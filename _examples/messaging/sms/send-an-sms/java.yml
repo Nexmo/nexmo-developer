@@ -1,0 +1,16 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/SendMessage.java
+    from_line: 44
+    to_line: 56
+client:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/SendMessage.java
+    from_line: 43
+    to_line: 43
+file_name: SendMessage.java
+run_command: java-ide
+unindent: true

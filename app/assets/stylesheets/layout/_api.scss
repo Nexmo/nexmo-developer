@@ -77,11 +77,6 @@
 			}
 		}
 
-		.tabs {
-			// horrible hack but it's how it was working before
-			display: none;
-		}
-
 		&__header {
 			margin: -#{$unit3} -#{$unit2} #{$unit2} -#{$unit2};
 

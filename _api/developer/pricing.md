@@ -6,6 +6,8 @@ api: Developer API
 
 # Developer - Pricing API Reference
 
+> <strong>Please note that the Pricing API is rate limited to one request per second.</strong>
+
 ## Pricing
 
 ### Pricing by country

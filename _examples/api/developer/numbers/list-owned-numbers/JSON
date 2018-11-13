@@ -11,7 +11,9 @@
         "SMS"
       ],
       "voiceCallbackType": "app",
-      "voiceCallbackValue": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
-    },
+      "voiceCallbackValue": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+      "messagesCallbackType": "app",
+      "messagesCallbackValue": "aaaaaaaa-cccc-bbbb-dddd-0123456789ac"
+    }
   ]
 }

@@ -1,0 +1,16 @@
+---
+title: Node
+language: node
+dependencies:
+    - express
+    - body-parser
+code:
+    source: .repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js
+    from_line: 7
+    to_line: 18
+client:
+    source: .repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js
+    from_line: 1
+    to_line: 5    
+file_name: dlr-express.js
+run_command: 'node dlr-express.js'

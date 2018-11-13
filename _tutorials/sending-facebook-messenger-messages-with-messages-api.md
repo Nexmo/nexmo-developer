@@ -17,48 +17,30 @@ Before continuing with this tutorial you should review the information on [Under
 source: _partials/reusable/prereqs.md
 ```
 
+> **NOTE:** This tutorial assumes you have already created a Facebook Profile and a Facebook Page.
+
 ## The steps
 
 After the prerequisites have been met, the steps are as follows:
 
-1. [Create a Facebook Page](#create-a-facebook-page) - You require a Facebook Account and a Facebook Page.
-2. [Configure your webhook URLs](#configure-your-webhook-urls) - This step only required for support of inbound message support and delivery receipts.
-3. [Create a Nexmo Application](#create-a-nexmo-application) - The resultant Application ID is used to generate a JWT that you need to make API calls. If you already have an Application ID you can use you don't need to do this step.
-4. [Generate a JWT](#generate-a-jwt) - This step is only required if you are not using the client library.
-5. [Link your Facebook Page to Nexmo](#link-your-facebook-page-to-nexmo)
-6. [Receive a Facebook message](#Receive a Facebook message) - Receive a Facebook message from a Facebook User.
-7. [Reply to a Facebook message](#reply-to-a-facebook-message) - Reply to the Facebook User.
-
-## Create a Facebook Page
-
-To use the Messages API with Facebook Messenger you must have a Facebook Account and a Facebook Page.
-
-* [How do I create a Facebook Account?](https://en-gb.facebook.com/help/570785306433644/?helpref=hc_fnav)
-* [How do I create a Facebook Page?](https://en-gb.facebook.com/help/104002523024878?helpref=about_content)
+1. [Link your Facebook Page to Nexmo](#link-your-facebook-page-to-nexmo)
+2. [Create a Nexmo Application](#create-a-nexmo-application)
+3. [Receive a Facebook message](#receive-a-facebook-message)
+4. [Reply to a Facebook message](#reply-to-a-facebook-message)
 
 ```partial
-source: _partials/reusable/configure-webhook-urls.md
+source: _partials/reusable/link-facebook-to-nexmo.md
 ```
 
 ```partial
 source: _partials/reusable/create-a-nexmo-application.md
 ```
 
-```partial
-source: _partials/reusable/generate-a-jwt.md
-```
-
-## Link your Facebook Page to Nexmo
-
-Next you'll need to link your Facebook Page to Nexmo. This will allow Nexmo to handle the inbound messages and allow you to send messages from the Nexmo Messages API. This process needs to be authenticated by JWT. You will need to paste in the JWT you created in the previous step when prompted.
-
-Click the following link when you have your JWT pasted to the clipboard and you are ready to link your Facebook Page to Nexmo:
-
-* [Link your Facebook Page to Nexmo](https://static.nexmo.com/messenger/)
-
 ## Receive a Facebook message
 
-When a Facebook message is sent by a Facebook User to your Facebook Page an event will be sent to your Inbound Message Webhook URL. An example event is shown here:
+First make sure your webhook server is running. It should correctly handle **both** [inbound message callbacks](/messages/building-blocks/inbound-message) and [message status callbacks](/messages/building-blocks/message-status)  returning at least a 200 to acknowledge each callback. You will need to have this in place so you can obtain the PSID of the Facebook User sending the inbound message. Once you have this you will be able to reply.
+
+When a Facebook message is sent by a Facebook User to your Facebook Page a callback will be sent to your Inbound Message Webhook URL. An example callback is shown here:
 
 ```json
 {
@@ -99,6 +81,8 @@ Key | Description
 ```building_blocks
 source: '_examples/messages/send-facebook-message'
 ```
+
+> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/building-blocks/before-you-begin#generate-a-jwt).
 
 ## Further reading
 

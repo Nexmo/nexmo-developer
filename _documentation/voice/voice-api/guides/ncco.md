@@ -62,7 +62,7 @@ The actions you can use in an NCCO are:
 * [`connect`](/voice/voice-api/ncco-reference#connect) - connect to a connectable endpoint such as a phone number
 * [`talk`](/voice/voice-api/ncco-reference#talk) - send synthesized speech to a conversation
 * [`stream`](/voice/voice-api/ncco-reference#stream) - send audio files to a conversation
-* [`input`](/voice/voice-api/ncco-reference#input) - collect digits and speech from the person you are calling, then process them
+* [`input`](/voice/voice-api/ncco-reference#input) - collect digits from the person you are calling, then process them
 
 ## Creating a custom call or conversation for each user
 

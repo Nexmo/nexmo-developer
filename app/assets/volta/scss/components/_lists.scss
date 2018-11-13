@@ -53,7 +53,7 @@ ol.Vlt-list--simple {
 		counter-reset: list;
 	}
 
-	li {
+	> li {
 		&:before {
 			content: counter(list) '.';
 			counter-increment: list;
