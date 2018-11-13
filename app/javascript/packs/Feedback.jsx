@@ -161,7 +161,8 @@ class Feedback extends React.Component {
 
     return (
       <div className="Vlt-form__element Vlt-form__element--elastic">
-        <label className="Vlt-label">Email <small class="Vlt-grey-darker">(optional)</small></label>
+        <label className="Vlt-label">My email: <small className="Vlt-grey-darker">(optional)</small></label>
+        <label className="Vlt-label">We'd welcome the chance to work with you on this!</label> 
         <div className="Vlt-input">
           <input type="email" size="20" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
         </div>
@@ -179,7 +180,7 @@ class Feedback extends React.Component {
 
   sendFeedbackButtonDisabled() {
     if (this.state.uploadingFeedbackFull) { return true }
-    if (this.state.email === '' && this.state.comment === '') { return true }
+    if (this.state.comment === '') { return true }
     return false
   }
 
@@ -191,15 +192,16 @@ class Feedback extends React.Component {
     return (
       <div>
         <hr/>
-
-        { this.renderEmailField() }
-
         <div className="Vlt-form__element">
-          <label className="Vlt-label">How could we improve it? <small className="Vlt-grey-darker">(optional)</small></label>
+          <label className="Vlt-label">We see that this page didn’t meet your expectations. We’re really sorry!</label>
+          <label className="Vlt-label">We’d like a chance to fix that. Please would you give us some more information?</label>
+          <label className="Vlt-label">What didn’t work for me: <small className="Vlt-grey-darker">(required)</small></label>
           <div className="Vlt-textarea">
             <textarea onChange={ (event) => this.setState({ comment: event.target.value }) }></textarea>
           </div>
         </div>
+
+        { this.renderEmailField() }
 
         <input type="submit" className="Vlt-btn Vlt-btn--primary Vlt-btn--app" value="Send Feedback" onClick={ () => { this.sendFeedback() } } disabled={ this.sendFeedbackButtonDisabled() }/>
         <p>Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
