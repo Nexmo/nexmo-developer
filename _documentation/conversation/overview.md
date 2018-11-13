@@ -10,7 +10,7 @@ Conversations are the fundamental concept the API revolves around. Conversations
 
 The API also allows you to create Events and Legs to enable text, voice and video communications between two Users and store them in Conversations.
 
-Text, voice and video communications can currently flow through various Channels like App, Phone, SIP, and Websocket. To enable the App channel (for in-app messaging, voice and video), you would need to also utilize our Nexmo Client SDKs.
+Text, voice and video communications can currently flow through various Channels like App, Phone, SIP, and Websocket. To enable the App channel (for in-app messaging, voice and video), you would need to also utilize our Nexmo [Client SDK](/stitch/overview).
 
 Phone, SIP and Websocket Channels are enabled through the [Voice API](/voice/voice-api/overview) and they all flow into Conversations.
 
@@ -94,3 +94,4 @@ product: conversation
 ## Reference
 
 * [Conversation API Reference](/api/conversation)
+* [Client SDK](/stitch/overview)
