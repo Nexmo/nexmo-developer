@@ -6,7 +6,7 @@ navigation_weight: 4
 
 # Event
 
-Conversations and other Nexmo objects such as Members and Applications generate Events. When key activities occur an event is generated, which can be handled by the application. For example when a User joins a Conversation a `member:joined` event is fired. Other events include `member:left`, and `member:invited`.
+Conversations and other Nexmo objects such as Members and Applications generate Events. When key activities occur an event is generated, which can be handled by the application. For example when a User joins a Conversation a `member:joined` event is fired. Other events include `app:knocking`, and `conversation:created`.
 
 Event type | Posted to Event webhook | Description
 ----|----|----

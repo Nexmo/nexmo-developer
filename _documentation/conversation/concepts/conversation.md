@@ -431,7 +431,7 @@ Event ID | Member ID | Event type | Description
 
 > **NOTE:** Each event has an Event ID.
 
-As this is a transient Conversation (call) once the call ends the Conversation will no longer be available, so you can only see events that take place while the Conversation is live, and not the terminating event. You could see the terminating event if you looked at the activity on the Event webhook for your application, for example on `https://www.example.com:9000/webhooks/event` you would see a series of events such as the following:
+As this is a transient Conversation (call) once the call ends the Conversation will no longer be available unless otherwise specified, so you can only see events that take place while the Conversation is live, and not the terminating event. A Conversation could be made persistent, for example, by specifying the `conversation` action in an NCCO controlling the call. You could see the terminating event if you looked at the activity on the Event webhook for your application, for example on `https://www.example.com:9000/webhooks/event` you would see a series of events such as the following:
 
 Timestamp | Direction (Leg) | From | To | Event Type (status) | Notes
 ----|----|----|----|----|----

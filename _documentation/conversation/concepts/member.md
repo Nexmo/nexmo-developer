@@ -6,15 +6,15 @@ navigation_weight: 7
 
 # Member
 
-In order for a User to communicate through a [Conversation](/conversation/concepts/conversation) they must join the Conversation through membership.
+In order for a User to communicate through a [Conversation](/conversation/concepts/conversation) they must join the Conversation through a membership.
 
-Member objects connect Users with Conversations. When a User joins a Conversation a Member object has to be created. Each Member object has one Conversation and one User associated with it.
+Member objects connect Users with Conversations. When a User joins a Conversation, a Member object has to be created. Each Member object has one Conversation and one User associated with it.
+
+A Member object has one associated Channel, so one User can have many Member objects associated with it, according to the Channels that they can be reached through.
 
 A User can be associated with many Member objects in Conversations, just as a Conversation can have many Members.
 
-A Member can have various states such as `invited`, `joined` and `left`.
-
-A Member object has one associated Channel, so one User can have many Member objects associated with it, according to the Channels that they can be reached through.
+A Member can have one of several states such as `invited`, `joined` and `left`.
 
 Each Member has a unique Member ID of the form:
 

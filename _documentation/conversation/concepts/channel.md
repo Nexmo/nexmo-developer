@@ -6,7 +6,7 @@ navigation_weight: 6
 
 # Channel
 
-A Channel is a communication mechanism.
+A Channel is a communication mechanism. A User's available Channels determine how they can send and receive communications.
 
 The Channels supported are:
 
