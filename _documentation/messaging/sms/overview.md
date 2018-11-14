@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Send an SMS
 ---
 
 # SMS API

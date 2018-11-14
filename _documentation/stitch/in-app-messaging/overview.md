@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Realtime communication with In-App Messaging
 ---
 
 # In-App Messaging Overview [Developer Preview]

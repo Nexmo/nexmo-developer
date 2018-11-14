@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: 2FA with Nexmo Verify
 description: the Verify API overview.
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: Overview
+title: Connect external services to your Nexmo account for the Dispatch API
 navigation_weight: 1
 ---
 
-# Overview
+# External Accounts
 
 The External Accounts API is used to manage accounts for Viber Service Messages, Facebook Messenger and WhatsApp for use in the [Messages](/messages/overview) and [Dispatch](/dispatch/overview) APIs.
 

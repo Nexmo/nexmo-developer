@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Number Insights
 ---
 
 # Number Insight API Overview
