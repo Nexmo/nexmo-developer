@@ -37,14 +37,14 @@ Feature | Basic | Standard | Advanced
 --|--|--|--
 Retrieve international and local format | ✅ | ✅ | ✅
 Identify origin country | ✅ | ✅ | ✅
-Detect line type (mobile/landline/virtual number/premium/toll-free) | ❎ | ✅ | ✅
-Determine mobile country code (MCC) and mobile network code (MNC) | ❎ | ✅ | ✅
-Check if number is ported * | ❎ | ✅ | ✅
-Identify caller name (USA only) | ❎ | ✅ | ✅
-Verify that number is reachable | ❎ | ❎ | ✅
-Identify network when roaming | ❎ | ❎ | ✅
-Confirm that user's IP address is in same location as their mobile phone | ❎ | ❎ | ✅
-Access asynchronously | ❎ | ❎ | ✅
+Detect line type (mobile/landline/virtual number/premium/toll-free) | ❌ | ✅ | ✅
+Determine mobile country code (MCC) and mobile network code (MNC) | ❌ | ✅ | ✅
+Check if number is ported * | ❌ | ✅ | ✅
+Identify caller name (USA only) | ❌ | ✅ | ✅
+Verify that number is reachable | ❌ | ❌ | ✅
+Identify network when roaming | ❌ | ❌ | ✅
+Confirm that user's IP address is in same location as their mobile phone | ❌ | ❌ | ✅
+Access asynchronously | ❌ | ❌ | ✅
 
 \* For US numbers this information is only available in the Advanced API.
 
