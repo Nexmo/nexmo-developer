@@ -5,12 +5,12 @@ dependencies:
     - 'com.nexmo:client:4.0.0'
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/RetrieveCallInfo.java
-    from_line: 42
-    to_line: 42
+    from_line: 40
+    to_line: 40
 client:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/RetrieveCallInfo.java
-    from_line: 21
-    to_line: 22
+    from_line: 17
+    to_line: 20
 run_command: java-ide
 file_name: RetrieveCallInfo.java
 unindent: true

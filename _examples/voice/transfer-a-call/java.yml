@@ -5,12 +5,12 @@ dependencies:
     - 'com.nexmo:client:4.0.0'
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
-    from_line: 43
-    to_line: 43
+    from_line: 41
+    to_line: 41
 client:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
-    from_line: 21
-    to_line: 22
+    from_line: 17
+    to_line: 20
 run_command: java-ide
 file_name: TransferCall.java
 unindent: true
