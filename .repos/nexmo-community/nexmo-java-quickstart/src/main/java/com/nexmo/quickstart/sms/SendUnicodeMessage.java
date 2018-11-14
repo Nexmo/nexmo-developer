@@ -37,16 +37,14 @@ public class SendUnicodeMessage {
         String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
         String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
-        String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
-
 
         NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
-        System.out.println(NEXMO_NUMBER);
 
-        SmsSubmissionResponse responses = client
-                .getSmsClient()
-                .submitMessage(new TextMessage(NEXMO_NUMBER, TO_NUMBER, "Blue Öyster Cult \uD83E\uDD18", true));
-        for (SmsSubmissionResponseMessage message : responses.getMessages()) {
+        TextMessage message = new TextMessage("Acme Inc", TO_NUMBER, "Blue Öyster Cult \uD83E\uDD18", true);
+
+        SmsSubmissionResponse responses = client.getSmsClient().submitMessage(message);
+
+        for (SmsSubmissionResponseMessage responseMessage : responses.getMessages()) {
             System.out.println(message);
         }
     }

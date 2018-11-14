@@ -6,8 +6,8 @@ dependencies:
     - 'com.sparkjava:spark-core:2.7.2'
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/ReceiveSMS.java
-    from_line: 15
-    to_line: 42
+    from_line: 10
+    to_line: 55
 file_name: ReceiveSMS.java
 run_command: java-ide
 unindent: true

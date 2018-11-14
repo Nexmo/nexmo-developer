@@ -5,12 +5,12 @@ dependencies:
     - 'com.nexmo:client:4.0.0'
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/SendUnicodeMessage.java
-    from_line: 44
-    to_line: 54
+    from_line: 43
+    to_line: 49
 client:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/SendUnicodeMessage.java
-    from_line: 43
-    to_line: 43
+    from_line: 41
+    to_line: 41
 file_name: SendUnicodeMessage.java
 run_command: java-ide
 unindent: true
