@@ -161,8 +161,8 @@ class Feedback extends React.Component {
 
     return (
       <div className="Vlt-form__element Vlt-form__element--elastic">
-        <label className="Vlt-label">My email: <small className="Vlt-grey-darker">(optional)</small></label>
-        <label className="Vlt-label">We'd welcome the chance to work with you on this!</label> 
+      <p><strong>Can we let you know when we've solved your issue?</strong></p>
+        <label className="Vlt-label">My email: <small className="Vlt-grey-darker">(optional)</small></label>        
         <div className="Vlt-input">
           <input type="email" size="20" value={ this.state.email } onChange={ (event) => this.setState({ email: event.target.value }) }/>
         </div>
@@ -192,9 +192,9 @@ class Feedback extends React.Component {
     return (
       <div>
         <hr/>
+        <p>We see that this page didn’t meet your expectations. We’re really sorry!<br/></p>
         <div className="Vlt-form__element">
-          <label className="Vlt-label">We see that this page didn’t meet your expectations. We’re really sorry!</label>
-          <label className="Vlt-label">We’d like a chance to fix that. Please would you give us some more information?</label>
+          <p><strong>We’d like a chance to fix that. Please would you give us some more information?</strong></p>
           <label className="Vlt-label">What didn’t work for me: <small className="Vlt-grey-darker">(required)</small></label>
           <div className="Vlt-textarea">
             <textarea onChange={ (event) => this.setState({ comment: event.target.value }) }></textarea>
