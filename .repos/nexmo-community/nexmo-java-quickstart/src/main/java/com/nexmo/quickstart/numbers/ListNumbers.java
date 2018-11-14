@@ -22,22 +22,21 @@
 package com.nexmo.quickstart.numbers;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
 import com.nexmo.client.numbers.ListNumbersResponse;
 import com.nexmo.client.numbers.OwnedNumber;
 
-import static com.nexmo.quickstart.Util.*;
+import static com.nexmo.quickstart.Util.configureLogging;
+import static com.nexmo.quickstart.Util.envVar;
 
 public class ListNumbers {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NexmoClient client = new NexmoClient(auth);
+
+        NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
         ListNumbersResponse response = client.getNumbersClient().listNumbers();
         for (OwnedNumber ownedNumber : response.getNumbers()) {
             System.out.println("Tel: " + ownedNumber.getMsisdn());

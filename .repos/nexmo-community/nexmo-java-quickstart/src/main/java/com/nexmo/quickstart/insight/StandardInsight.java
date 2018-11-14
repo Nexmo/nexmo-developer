@@ -22,11 +22,8 @@
 package com.nexmo.quickstart.insight;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
-import com.nexmo.client.insight.standard.StandardInsightResponse;
+import com.nexmo.client.insight.StandardInsightResponse;
 
-import static com.nexmo.quickstart.Util.booleanEnvVar;
 import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
 
@@ -34,36 +31,23 @@ public class StandardInsight {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
-        String TO_NUMBER = envVar("TO_NUMBER");
-        boolean CNAM = booleanEnvVar("CNAM");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
+        String INSIGHT_NUMBER = envVar("INSIGHT_NUMBER");
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NexmoClient client = new NexmoClient(auth);
+        NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
 
-        StandardInsightResponse response = client.getInsightClient().getStandardNumberInsight(TO_NUMBER, null, CNAM);
+        StandardInsightResponse response = client.getInsightClient().getStandardNumberInsight(INSIGHT_NUMBER);
+
         System.out.println("BASIC INFO:");
         System.out.println("International format: " + response.getInternationalFormatNumber());
         System.out.println("National format: " + response.getNationalFormatNumber());
-        System.out.println("Country: " + response.getCountryName() +
-                " (" + response.getCountryCodeIso3() +
-                ", +" + response.getCountryPrefix() +
-                ")");
+        System.out.println("Country: " + response.getCountryName() + " (" + response.getCountryCodeIso3() + ", +"
+                + response.getCountryPrefix() + ")");
 
         System.out.println();
         System.out.println("CARRIER INFO:");
         System.out.println("Current carrier: " + response.getCurrentCarrier().getName());
         System.out.println("Original carrier: " + response.getOriginalCarrier().getName());
-
-        if (CNAM) {
-            System.out.println();
-            System.out.println("CNAM INFO:");
-            System.out.println("Caller Name: " + response.getCallerName());
-            System.out.println("Caller Type: " + response.getCallerType());
-            System.out.println("First, Last: " + response.getFirstName() + ", " + response.getLastName());
-        } else {
-            System.out.println("- No CNAM Info Requested -");
-        }
     }
 }

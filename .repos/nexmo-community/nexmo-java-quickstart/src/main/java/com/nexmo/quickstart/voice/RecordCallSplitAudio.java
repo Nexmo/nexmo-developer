@@ -21,11 +21,8 @@
  */
 package com.nexmo.quickstart.voice;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nexmo.client.voice.ncco.ConnectNcco;
-import com.nexmo.client.voice.ncco.Ncco;
-import com.nexmo.client.voice.ncco.RecordNcco;
-import com.nexmo.client.voice.ncco.SplitRecording;
+import com.nexmo.client.incoming.RecordEvent;
+import com.nexmo.client.voice.ncco.*;
 import spark.Route;
 import spark.Spark;
 
@@ -42,26 +39,25 @@ public class RecordCallSplitAudio {
         Route answerRoute = (req, res) -> {
             String recordingUrl = String.format("%s://%s/webhooks/recordings", req.scheme(), req.host());
 
-            RecordNcco record = new RecordNcco();
-            record.setEventUrl(recordingUrl);
-            record.setSplit(SplitRecording.CONVERSATION);
+            RecordAction record = new RecordAction.Builder()
+                    .eventUrl(recordingUrl)
+                    .split(SplitRecording.CONVERSATION)
+                    .build();
 
-            ConnectNcco connect = new ConnectNcco(TO_NUMBER);
-            connect.setFrom(NEXMO_NUMBER);
-
-            Ncco[] nccos = new Ncco[]{record, connect};
+            ConnectAction connect = new ConnectAction.Builder(new PhoneEndpoint.Builder(TO_NUMBER).build())
+                    .from(NEXMO_NUMBER)
+                    .build();
 
             res.type("application/json");
 
-            // com.fasterxml.jackson.databind.ObjectMapper;
-            return new ObjectMapper().writer().writeValueAsString(nccos);
+            return new Ncco(record, connect);
         };
 
         /*
          * Webhook Route which prints out the recording URL it is given to stdout.
          */
         Route recordingRoute = (req, res) -> {
-            System.out.println(RecordingPayload.fromJson(req.bodyAsBytes()).getRecordingUrl());
+            System.out.println(RecordEvent.fromJson(req.body()).getUrl());
 
             res.status(204);
             return "";

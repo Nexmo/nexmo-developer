@@ -22,8 +22,6 @@
 package com.nexmo.quickstart.numbers;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
 import com.nexmo.client.numbers.*;
 
 import static com.nexmo.quickstart.Util.configureLogging;
@@ -36,13 +34,13 @@ public class NumberLifecycle {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
 
-        String country = "gb";
+        String country = "GB";
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NumbersClient client = new NexmoClient(auth).getNumbersClient();
+
+        NumbersClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build().getNumbersClient();
         SearchNumbersResponse response = client.searchNumbers(country);
 
         if (response.getCount() == 0) {

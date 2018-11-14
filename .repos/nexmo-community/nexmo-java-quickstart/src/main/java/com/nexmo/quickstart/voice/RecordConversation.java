@@ -21,8 +21,9 @@
  */
 package com.nexmo.quickstart.voice;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nexmo.client.voice.ncco.ConversationNcco;
+import com.nexmo.client.incoming.RecordEvent;
+import com.nexmo.client.voice.ncco.ConversationAction;
+import com.nexmo.client.voice.ncco.EventMethod;
 import com.nexmo.client.voice.ncco.Ncco;
 import spark.Route;
 import spark.Spark;
@@ -37,24 +38,22 @@ public class RecordConversation {
         Route answerRoute = (req, res) -> {
             String recordingUrl = String.format("%s://%s/webhooks/recordings", req.scheme(), req.host());
 
-            ConversationNcco conversation = new ConversationNcco(CONV_NAME);
-            conversation.setRecord(true);
-            conversation.setEventMethod("POST");
-            conversation.setEventUrl(recordingUrl);
-
-            Ncco[] nccos = new Ncco[]{conversation};
+            ConversationAction conversation = new ConversationAction.Builder(CONV_NAME)
+                    .record(true)
+                    .eventMethod(EventMethod.POST)
+                    .eventUrl(recordingUrl)
+                    .build();
 
             res.type("application/json");
 
-            // com.fasterxml.jackson.databind.ObjectMapper;
-            return new ObjectMapper().writer().writeValueAsString(nccos);
+            return new Ncco(conversation).toJson();
         };
 
         /*
          * Webhook Route which prints out the recording URL it is given to stdout.
          */
         Route recordingWebhookRoute = (req, res) -> {
-            System.out.println(RecordingPayload.fromJson(req.bodyAsBytes()).getRecordingUrl());
+            System.out.println(RecordEvent.fromJson(req.body()).getUrl());
 
             res.status(204);
             return "";

@@ -22,35 +22,28 @@
 package com.nexmo.quickstart.verify;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
-import com.nexmo.client.verify.VerifyResult;
+import com.nexmo.client.verify.VerifyResponse;
+import com.nexmo.client.verify.VerifyStatus;
 
-import static com.nexmo.quickstart.Util.*;
+import static com.nexmo.quickstart.Util.configureLogging;
+import static com.nexmo.quickstart.Util.envVar;
 
 public class StartVerification {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NexmoClient client = new NexmoClient(auth);
-        VerifyResult result = client.getVerifyClient().verify(TO_NUMBER, "NEXMO");
-        if (result.getStatus() == 0) {
-            System.out.printf("RequestID: %s", result.getRequestId());
-        } else {
-            System.out.printf("ERROR! %s: %s", result.getStatus(), result.getErrorText());
-        }
-    }
 
-    private static String envVar(String key) {
-        String value = System.getenv(key);
-        if (value == null) {
-            throw new IllegalArgumentException("You must provide the " + key + " environment variable!");
+        NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
+        VerifyResponse response = client.getVerifyClient().verify(TO_NUMBER, "NEXMO");
+
+        if (response.getStatus() == VerifyStatus.OK) {
+            System.out.printf("RequestID: %s", response.getRequestId());
+        } else {
+            System.out.printf("ERROR! %s: %s", response.getStatus(), response.getErrorText());
         }
-        return value;
     }
 }

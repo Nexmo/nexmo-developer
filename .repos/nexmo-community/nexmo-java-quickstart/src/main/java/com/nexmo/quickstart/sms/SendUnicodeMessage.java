@@ -22,9 +22,8 @@
 package com.nexmo.quickstart.sms;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
-import com.nexmo.client.sms.SmsSubmissionResult;
+import com.nexmo.client.sms.SmsSubmissionResponse;
+import com.nexmo.client.sms.SmsSubmissionResponseMessage;
 import com.nexmo.client.sms.messages.TextMessage;
 
 import static com.nexmo.quickstart.Util.configureLogging;
@@ -35,22 +34,20 @@ public class SendUnicodeMessage {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
         String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NexmoClient client = new NexmoClient(auth);
+
+        NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
         System.out.println(NEXMO_NUMBER);
 
-        SmsSubmissionResult[] responses = client.getSmsClient().submitMessage(new TextMessage(
-                NEXMO_NUMBER,
-                TO_NUMBER,
-                "Blue Öyster Cult \uD83E\uDD18",
-                true));
-        for (SmsSubmissionResult response : responses) {
-            System.out.println(response);
+        SmsSubmissionResponse responses = client
+                .getSmsClient()
+                .submitMessage(new TextMessage(NEXMO_NUMBER, TO_NUMBER, "Blue Öyster Cult \uD83E\uDD18", true));
+        for (SmsSubmissionResponseMessage message : responses.getMessages()) {
+            System.out.println(message);
         }
     }
 }

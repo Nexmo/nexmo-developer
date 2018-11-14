@@ -23,12 +23,8 @@
 package com.nexmo.quickstart.voice;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.JWTAuthMethod;
 import com.nexmo.client.voice.Call;
 import com.nexmo.client.voice.CallEvent;
-
-import java.nio.file.FileSystems;
 
 import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
@@ -37,15 +33,17 @@ public class SendDtmfToCall {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        final String NEXMO_APPLICATION_ID = envVar("APPLICATION_ID");
-        final String NEXMO_PRIVATE_KEY = envVar("PRIVATE_KEY");
+        final String NEXMO_APPLICATION_ID = envVar("NEXMO_APPLICATION_ID");
+        final String NEXMO_PRIVATE_KEY_PATH = envVar("NEXMO_PRIVATE_KEY_PATH");
 
-        AuthMethod auth = new JWTAuthMethod(NEXMO_APPLICATION_ID, FileSystems.getDefault().getPath(NEXMO_PRIVATE_KEY));
-        NexmoClient nexmo = new NexmoClient(auth);
+        NexmoClient client = new NexmoClient.Builder()
+                .applicationId(NEXMO_APPLICATION_ID)
+                .privateKeyPath(NEXMO_PRIVATE_KEY_PATH)
+                .build();
 
         final String NEXMO_NUMBER = envVar("NEXMO_NUMBER");
         final String TO_NUMBER = envVar("TO_NUMBER");
-        CallEvent call = nexmo.getVoiceClient().createCall(new Call(
+        CallEvent call = client.getVoiceClient().createCall(new Call(
                 TO_NUMBER,
                 NEXMO_NUMBER,
                 "https://gist.githubusercontent.com/ChrisGuzman/d6add5b23a8cf913dcdc5a8eabc223ef/raw/a1eb52e0ce2d3cef98bab14d27f3adcdff2af881/long_talk.json"
@@ -55,6 +53,6 @@ public class SendDtmfToCall {
 
         final String UUID = call.getUuid();
         final String DIGITS = "332393";
-        nexmo.getVoiceClient().sendDtmf(UUID, DIGITS);
+        client.getVoiceClient().sendDtmf(UUID, DIGITS);
     }
 }

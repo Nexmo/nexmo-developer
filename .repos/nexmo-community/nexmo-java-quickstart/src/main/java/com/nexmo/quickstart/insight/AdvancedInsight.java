@@ -22,34 +22,33 @@
 package com.nexmo.quickstart.insight;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
+import com.nexmo.client.insight.AdvancedInsightResponse;
 import com.nexmo.client.insight.RoamingDetails;
-import com.nexmo.client.insight.advanced.AdvancedInsightResponse;
 
-import static com.nexmo.quickstart.Util.*;
+import static com.nexmo.quickstart.Util.configureLogging;
+import static com.nexmo.quickstart.Util.envVar;
 
 public class AdvancedInsight {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
-        String TO_NUMBER = envVar("TO_NUMBER");
-        boolean CNAM = booleanEnvVar("CNAM");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
+        String INSIGHT_NUMBER = envVar("INSIGHT_NUMBER");
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NexmoClient client = new NexmoClient(auth);
+        NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
 
-        AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(
-                TO_NUMBER, null, null, CNAM);
+        AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(INSIGHT_NUMBER);
+
+        printResults(response);
+    }
+
+    private static void printResults(AdvancedInsightResponse response) {
         System.out.println("BASIC INFO:");
         System.out.println("International format: " + response.getInternationalFormatNumber());
         System.out.println("National format: " + response.getNationalFormatNumber());
-        System.out.println("Country: " + response.getCountryName() +
-                " (" + response.getCountryCodeIso3() +
-                ", +" + response.getCountryPrefix() +
-                ")");
+        System.out.println("Country: " + response.getCountryName() + " (" + response.getCountryCodeIso3() + ", +"
+                + response.getCountryPrefix() + ")");
         System.out.println();
         System.out.println("STANDARD INFO:");
         System.out.println("Current carrier: " + response.getCurrentCarrier().getName());
@@ -60,6 +59,7 @@ public class AdvancedInsight {
         System.out.println("Validity: " + response.getValidNumber());
         System.out.println("Reachability: " + response.getReachability());
         System.out.println("Ported status: " + response.getPorted());
+
         RoamingDetails roaming = response.getRoaming();
         if (roaming == null) {
             System.out.println("- No Roaming Info -");
@@ -69,16 +69,6 @@ public class AdvancedInsight {
                 System.out.print("    Currently roaming in: " + roaming.getRoamingCountryCode());
                 System.out.println(" on the network " + roaming.getRoamingNetworkName());
             }
-        }
-
-        if (CNAM) {
-            System.out.println();
-            System.out.println("CNAM INFO:");
-            System.out.println("Caller Name: " + response.getCallerName());
-            System.out.println("Caller Type: " + response.getCallerType());
-            System.out.println("First, Last: " + response.getFirstName() + ", " + response.getLastName());
-        } else {
-            System.out.println("- No CNAM Info Requested -");
         }
     }
 }

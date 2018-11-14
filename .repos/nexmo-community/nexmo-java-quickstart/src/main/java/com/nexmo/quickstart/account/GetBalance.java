@@ -23,22 +23,16 @@ package com.nexmo.quickstart.account;
 
 import com.nexmo.client.NexmoClient;
 import com.nexmo.client.account.BalanceResponse;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
 
-import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
 
 public class GetBalance {
 
     public static void main(String[] args) throws Exception {
-        configureLogging();
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
-
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NexmoClient client = new NexmoClient(auth);
+        NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
 
         BalanceResponse response = client.getAccountClient().getBalance();
         System.out.printf("Balance: %s EUR\n", response.getValue());

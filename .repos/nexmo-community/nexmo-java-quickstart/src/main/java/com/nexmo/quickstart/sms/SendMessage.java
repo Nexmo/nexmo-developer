@@ -22,10 +22,9 @@
 package com.nexmo.quickstart.sms;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.SmsClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
-import com.nexmo.client.sms.SmsSubmissionResult;
+import com.nexmo.client.sms.SmsClient;
+import com.nexmo.client.sms.SmsSubmissionResponse;
+import com.nexmo.client.sms.SmsSubmissionResponseMessage;
 import com.nexmo.client.sms.messages.TextMessage;
 
 import static com.nexmo.quickstart.Util.configureLogging;
@@ -36,23 +35,26 @@ public class SendMessage {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String NEXMO_API_KEY = envVar("API_KEY");
-        String NEXMO_API_SECRET = envVar("API_SECRET");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
+        String FROM_NUMBER = envVar("NEXMO_NUMBER");
 
-        AuthMethod auth = new TokenAuthMethod(NEXMO_API_KEY, NEXMO_API_SECRET);
-        SmsClient client = new NexmoClient(auth).getSmsClient();
+        SmsClient client = new NexmoClient.Builder()
+                .apiKey(NEXMO_API_KEY)
+                .apiSecret(NEXMO_API_SECRET)
+                .build()
+                .getSmsClient();
 
-        TextMessage exampleMessage = new TextMessage(
-            "Acme Inc",
-            TO_NUMBER,
-            "A text message sent using the Nexmo SMS API"
+        TextMessage exampleMessage = new TextMessage(FROM_NUMBER,
+                TO_NUMBER,
+                "A text message sent using the Nexmo SMS API"
         );
 
-        SmsSubmissionResult[] responses = client.submitMessage(exampleMessage);
+        SmsSubmissionResponse response = client.submitMessage(exampleMessage);
 
-        for (SmsSubmissionResult response : responses) {
-            System.out.println(response);
+        for (SmsSubmissionResponseMessage message : response.getMessages()) {
+            System.out.println(message);
         }
     }
 }

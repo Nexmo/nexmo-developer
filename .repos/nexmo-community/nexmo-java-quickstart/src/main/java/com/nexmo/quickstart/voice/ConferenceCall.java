@@ -21,10 +21,9 @@
  */
 package com.nexmo.quickstart.voice;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nexmo.client.voice.ncco.ConversationNcco;
+import com.nexmo.client.voice.ncco.ConversationAction;
 import com.nexmo.client.voice.ncco.Ncco;
-import com.nexmo.client.voice.ncco.TalkNcco;
+import com.nexmo.client.voice.ncco.TalkAction;
 import spark.Route;
 import spark.Spark;
 
@@ -36,15 +35,12 @@ public class ConferenceCall {
          * Route to answer incoming calls with an NCCO response.
          */
         Route answerRoute = (req, res) -> {
-            TalkNcco intro = new TalkNcco("Please wait while we connect you to the conference.");
-            ConversationNcco conversation = new ConversationNcco(CONF_NAME);
-
-            Ncco[] nccos = new Ncco[]{intro, conversation};
+            TalkAction intro = new TalkAction.Builder("Please wait while we connect you to the conference.").build();
+            ConversationAction conversation = new ConversationAction.Builder(CONF_NAME).build();
 
             res.type("application/json");
 
-            // com.fasterxml.jackson.databind.ObjectMapper;
-            return new ObjectMapper().writer().writeValueAsString(nccos);
+            return new Ncco(intro, conversation).toJson();
         };
 
         Spark.port(3000);

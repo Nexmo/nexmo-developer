@@ -21,9 +21,9 @@
  */
 package com.nexmo.quickstart.voice;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nexmo.client.voice.ncco.ConnectNcco;
+import com.nexmo.client.voice.ncco.ConnectAction;
 import com.nexmo.client.voice.ncco.Ncco;
+import com.nexmo.client.voice.ncco.PhoneEndpoint;
 import spark.Route;
 import spark.Spark;
 
@@ -38,15 +38,14 @@ public class ConnectInboundCall {
          * Route to answer incoming calls with an NCCO response.
          */
         Route answerRoute = (req, res) -> {
-            ConnectNcco connect = new ConnectNcco(RECIPIENT_NUMBER);
-            connect.setFrom(NEXMO_NUMBER);
-
-            Ncco[] nccos = new Ncco[]{connect};
+            ConnectAction connect = new ConnectAction.Builder()
+                    .endpoint(new PhoneEndpoint.Builder(RECIPIENT_NUMBER).build())
+                    .from(NEXMO_NUMBER)
+                    .build();
 
             res.type("application/json");
 
-            // com.fasterxml.jackson.databind.ObjectMapper;
-            return new ObjectMapper().writer().writeValueAsString(nccos);
+            return new Ncco(connect).toJson();
         };
 
         Spark.port(3000);

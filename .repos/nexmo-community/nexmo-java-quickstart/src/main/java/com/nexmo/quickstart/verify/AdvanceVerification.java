@@ -22,30 +22,21 @@
 package com.nexmo.quickstart.verify;
 
 import com.nexmo.client.NexmoClient;
-import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.TokenAuthMethod;
 
 import static com.nexmo.quickstart.Util.configureLogging;
+import static com.nexmo.quickstart.Util.envVar;
 
 public class AdvanceVerification {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String API_KEY = envVar("API_KEY");
-        String API_SECRET = envVar("API_SECRET");
+        String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
+        String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
         String REQUEST_ID = envVar("REQUEST_ID");
 
-        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
-        NexmoClient client = new NexmoClient(auth);
+
+        NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
         client.getVerifyClient().advanceVerification(REQUEST_ID);
         System.out.println("Verification advanced to next stage!");
-    }
-
-    private static String envVar(String key) {
-        String value = System.getenv(key);
-        if (value == null) {
-            throw new IllegalArgumentException("You must provide the " + key + " environment variable!");
-        }
-        return value;
     }
 }

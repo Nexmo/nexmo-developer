@@ -21,45 +21,44 @@
  */
 package com.nexmo.quickstart.voice;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nexmo.client.incoming.RecordEvent;
 import com.nexmo.client.voice.ncco.Ncco;
-import com.nexmo.client.voice.ncco.RecordNcco;
-import com.nexmo.client.voice.ncco.TalkNcco;
+import com.nexmo.client.voice.ncco.RecordAction;
+import com.nexmo.client.voice.ncco.TalkAction;
 import spark.Route;
 import spark.Spark;
 
 public class RecordMessage {
     public static void main(String[] args) {
         /*
-         * Route to answer and connect incoming calls with rec.ording.
+         * Route to answer and connect incoming calls with recording.
          */
         Route answerRoute = (req, res) -> {
             String recordingUrl = String.format("%s://%s/webhooks/recordings", req.scheme(), req.host());
 
-            TalkNcco intro = new TalkNcco(
-                    "Please leave a message after the tone, then press #. We will get back to you as soon as we can.");
+            TalkAction intro = new TalkAction.Builder(
+                    "Please leave a message after the tone, then press #. We will get back to you as soon as we can.").build();
 
-            RecordNcco record = new RecordNcco();
-            record.setEventUrl(recordingUrl);
-            record.setEndOnSilence(3);
-            record.setEndOnKey('#');
-            record.setBeepStart(true);
+            RecordAction record = new RecordAction.Builder()
+                    .eventUrl(recordingUrl)
+                    .endOnSilence(3)
+                    .endOnKey('#')
+                    .beepStart(true)
+                    .build();
 
-            TalkNcco outro = new TalkNcco("Thank you for your message. Goodbye");
-
-            Ncco[] nccos = new Ncco[]{intro, record, outro};
+            TalkAction outro = new TalkAction.Builder("Thank you for your message. Goodbye").build();
 
             res.type("application/json");
 
-            // com.fasterxml.jackson.databind.ObjectMapper;
-            return new ObjectMapper().writer().writeValueAsString(nccos);
+            return new Ncco(intro, record, outro).toJson();
         };
 
         /*
          * Webhook Route which prints out the recording URL it is given to stdout.
          */
         Route recordingRoute = (req, res) -> {
-            System.out.println(RecordingPayload.fromJson(req.bodyAsBytes()).getRecordingUrl());
+            RecordEvent recordEvent = RecordEvent.fromJson(req.body());
+            System.out.println(recordEvent.getUrl());
 
             res.status(204);
             return "";

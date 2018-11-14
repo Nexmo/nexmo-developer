@@ -3,7 +3,7 @@
 Quickstarts also available for: [.NET](https://github.com/nexmo-community/nexmo-dotnet-quickstart), [Node.js](https://github.com/nexmo-community/nexmo-node-quickstart), [PHP](https://github.com/nexmo-community/nexmo-php-quickstart), [Python](https://github.com/nexmo-community/nexmo-python-quickstart), [Ruby](https://github.com/nexmo-community/nexmo-ruby-quickstart)
   
 The purpose of the quickstart guide is to provide simple examples focused on
-one goal. For example, sending and SMS, handling an incoming SMS webhook,
+one goal. For example, sending an SMS, handling an incoming SMS webhook,
 making a Text to Speech call.
 
 ## Setup
@@ -28,7 +28,7 @@ This will build the following file: `build/libs/nexmo-java-quickstart-with-depen
 
 Copy `.env-example` to `.env` and edit the values. You'll need to load those
 values into environment variables, so you'll probably want to use a tool like
-[Foreman](foreman) to run your code like this:
+[Foreman](https://github.com/ddollar/foreman) to run your code like this:
 
 ```sh
 foreman run java -cp build/libs/nexmo-java-quickstart-with-dependencies.jar CLASS
