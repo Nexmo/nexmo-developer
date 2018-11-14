@@ -286,13 +286,11 @@ components:
             - viber_service_msg
             - messenger
             - whatsapp
+            - mms
         id:
           description: |
             The ID of the message recipient.
-
             **Messenger**: This value should be the `from.id` value you received in the inbound messenger event.
-
-            **SMS**: or **Viber**: or **WhatsApp** This value is not required.
           type: string
           minLength: 1
           maxLength: 50
@@ -303,9 +301,8 @@ components:
           maxLength: 50
           example: '447700900000'
           description: |
-            **SMS**: or **Viber**: or **WhatsApp** The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
-
-            **Messenger**: This value is not required.
+           The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
+           **SMS**/**Viber**/**WhatsApp**/**MMS**
     FromProperty:
       type: object
       required:
@@ -320,6 +317,7 @@ components:
             - viber_service_msg
             - messenger
             - whatsapp
+            - mms
         id:
           description: |
             Your ID for the platform that you are sending from.
@@ -328,7 +326,6 @@ components:
 
             **Viber**: This is your Service Message ID given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
 
-            **SMS**:  or **WhatsApp** This value is not required.
           type: string
           minLength: 1
           maxLength: 50
@@ -343,7 +340,7 @@ components:
 
             **WhatsApp**: This is your WhatsApp Business Number  given to you by Nexmo Account Manager. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).
 
-            **Messenger**: or **Viber**: This value is not required.
+            **MMS**: US shortcode
     MessageProperty:
       type: object
       required:
@@ -358,11 +355,13 @@ components:
 
                 **Messenger**: supports all types.
 
-                **Viber Service Messages**: supports `image` and `text`.
+                **Viber Service Messages**: supports `image` and `text` and `custom`.
 
                 **WhatsApp**: supports `template` and `text`.
 
                 **SMS**: supports `text`.
+
+                **MMS**: supports `image`.
               type: string
               enum:
                 - text
@@ -414,11 +413,15 @@ components:
                 - transaction
                 - promotion
             ttl:
-              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
+              description: 'Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
               type: integer
               example: 600
               minimum: 30
-              maximum: 86400
+              maximum: 259200
+            type:
+              description: 'Domain-specific type definition. To use "template", please contact Nexmo Account Manager to setup your templates. To find out more please visit [nexmo.com/products/messages](https://www.nexmo.com/products/messages).'
+              type: string
+              example: 'template'
         messenger:
           type: object
           properties:
@@ -545,7 +548,7 @@ x-errors:
     description: Invalid tag  -  The tag value is invalid.
 
   1022:
-    description: Invalid template parameters  -  Some of the parameters of the template were invalid.
+    description: Invalid template  -  Invalid template or template parameters.
 
   1030:
     description: Internal error  -  There was an error processing your request in the Platform.
