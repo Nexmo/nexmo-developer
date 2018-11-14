@@ -2,7 +2,7 @@
 title: Java
 language: java
 dependencies:
-    - 'com.nexmo:client:latest.release'
+    - 'com.nexmo:client:4.0.0'
     - 'com.sparkjava:spark-core:2.7.2'
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/ReceiveDLR.java
