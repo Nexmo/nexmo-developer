@@ -24,9 +24,10 @@ public class RetrieveInfoForAllCalls {
                 .privateKeyPath(NEXMO_PRIVATE_KEY_PATH)
                 .build();
 
-        CallsFilter filter = new CallsFilter();
-        filter.setDateStart(getYesterdaysDate());
-        filter.setDateEnd(getTodaysDate());
+        CallsFilter filter = new CallsFilter.Builder()
+                .dateStart(getYesterdaysDate())
+                .dateEnd(getTodaysDate())
+                .build();
 
         CallInfoPage calls = client.getVoiceClient().listCalls(filter);
 

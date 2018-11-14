@@ -50,7 +50,7 @@ public class RecordConversation {
         };
 
         /*
-         * Webhook Route which prints out the recording URL it is given to stdout.
+         * Route which prints out the recording URL it is given to stdout.
          */
         Route recordingWebhookRoute = (req, res) -> {
             System.out.println(RecordEvent.fromJson(req.body()).getUrl());

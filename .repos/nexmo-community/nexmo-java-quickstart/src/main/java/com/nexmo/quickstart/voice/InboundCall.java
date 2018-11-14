@@ -28,6 +28,9 @@ import spark.Spark;
 
 public class InboundCall {
     public static void main(String[] args) {
+        /*
+         * Route to answer incoming call.
+         */
         Route answerRoute = (req, res) -> {
             String from = req.queryParams("from").replace("", " ");
             TalkAction message = new TalkAction.Builder(String.format("Thank you for calling from %s", from)).build();
@@ -37,6 +40,9 @@ public class InboundCall {
             return new Ncco(message).toJson();
         };
 
+        /*
+         * Route to print out call event info.
+         */
         Route eventRoute = (req, res) -> {
             System.out.println(req.body());
             return "";

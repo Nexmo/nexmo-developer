@@ -54,7 +54,7 @@ public class RecordMessage {
         };
 
         /*
-         * Webhook Route which prints out the recording URL it is given to stdout.
+         * Route which prints out the recording URL it is given to stdout.
          */
         Route recordingRoute = (req, res) -> {
             RecordEvent recordEvent = RecordEvent.fromJson(req.body());
