@@ -40,10 +40,6 @@ public class AdvancedInsight {
 
         AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(INSIGHT_NUMBER);
 
-        printResults(response);
-    }
-
-    private static void printResults(AdvancedInsightResponse response) {
         System.out.println("BASIC INFO:");
         System.out.println("International format: " + response.getInternationalFormatNumber());
         System.out.println("National format: " + response.getNationalFormatNumber());

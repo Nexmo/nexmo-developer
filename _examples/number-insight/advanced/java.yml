@@ -5,8 +5,8 @@ dependencies:
 - 'com.nexmo:client:4.0.0'
 code:
   source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/insight/AdvancedInsight.java
-  from_line: 33
-  to_line: 43
+  from_line: 41
+  to_line: 68
 client:
   source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/insight/AdvancedInsight.java
   from_line: 39
