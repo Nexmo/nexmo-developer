@@ -9,7 +9,7 @@ languages:
 
 # Receiving Concatenated SMS
 
-SMS messages that [exceed a certain length](/messaging/sms/guides/concatenation-and-encoding) are split into multiple SMS and transmitted seperately. The receiver must gather all the constituent parts and reassemble them to display the full message.
+SMS messages that [exceed a certain length](/messaging/sms/guides/concatenation-and-encoding) are split into two or more shorter messages and sent as multiple SMS. 
 
 When you use the SMS API to receive [inbound SMS](/messaging/sms/guides/inbound-sms) that might be longer than the byte-length allowed for a single SMS, you must check to see if the messages delivered to your [webhook](/concepts/guides/webhooks) are standalone or just one part of a multi-part SMS. If there are multiple parts to the message, you must reassemble them to display the full message text.
 
@@ -17,7 +17,7 @@ This tutorial shows you how.
 
 ## In this tutorial
 
-In this tutorial, you create a simple Node.js application using the Express framework that receives inbound SMS via a webhook and determines whether the message is a single-part or multi-part SMS.
+In this tutorial, you will create a simple Node.js application using the Express framework that receives inbound SMS via a webhook and determines whether the message is a single-part or multi-part SMS.
 
 If the incoming SMS is multi-part, the application waits until it has received all the message parts and then combines them in the right order to display to the user.
 
@@ -28,7 +28,7 @@ To achieve this, you perform the following steps:
 4. [Create the basic application](#create-the-basic-application) - build an application with a webhook to receive inbound SMS
 5. [Register your webhook with Nexmo](#register-your-webhook-with-nexmo) - tell Nexmo's servers about your webhook
 6. [Send a test SMS](#send-a-test-sms) - ensure that your webhook can receive incoming SMS
-7. [Handle multi-part SMS](#handle-multi-part-sms) - process the individual message parts of a larger SMS
+7. [Handle multi-part SMS](#handle-multi-part-sms) - reassemble a multi-part SMS into a single message
 8. [Test receipt of a concatenated SMS](#test-receipt-of-a-concatenated-sms) - see it in action!
 
 ## Prerequisites
@@ -43,9 +43,9 @@ To complete the tutorial, you need:
 Make a directory for your application, `cd` into the directory and then use the Node.js package manager `npm` to create a `package.json` file for your application's dependencies:
 
 ```sh
-$ mkdir myapp
-$ cd myapp
-$ npm init
+mkdir myapp
+cd myapp
+npm init
 ```
 
 Press [Enter] to accept each of the defaults.
@@ -53,7 +53,7 @@ Press [Enter] to accept each of the defaults.
 Then, install the [express](https://expressjs.com) web application framework and the [body-parser](https://www.npmjs.com/package/body-parser) packages:
 
 ```sh
-$ npm install express body-parser --save
+npm install express body-parser --save
 ```
 
 ## Expose your application to the Internet
@@ -65,7 +65,7 @@ For your application to be accessible to Nexmo's servers, it must be publicly av
 Download and install [ngrok](https://ngrok.com), then start it with the following command:
 
 ```sh
-$ ./ngrok http 5000
+ngrok http 5000
 ```
 
 This creates public URLs (HTTP and HTTPS) for any web site that is running on port 5000 on your local machine.
@@ -124,42 +124,15 @@ Now, if any of your virtual numbers receive an SMS, Nexmo will call that webhook
 
 ## Send a test SMS
 
-1. Create a new file in your application directory called `test.js`. Enter the following code, replacing `NEXMO_API_KEY` and `NEXMO_API_SECRET` with your own API key and secret from the [dashboard](https://dashboard.nexmo.com/) and `TO_NUMBER` with one of your virtual numbers:
-
-    ```javascript
-    const Nexmo = require('nexmo');
-
-    const nexmo = new Nexmo({
-    apiKey: 'NEXMO_API_KEY',
-    apiSecret: 'NEXMO_API_SECRET'
-    })
-
-    const from = 'TEST-NEXMO';
-    const to = 'TO_NUMBER';
-    const text = 'This is a short text message.';
-
-    nexmo.message.sendSms(from, to, text);
-    ```
-
-2. Install the Nexmo Node.js REST client library that `test.js` requires:
-
-    ```sh
-    npm install nexmo --save
-    ```
-
-3. Open a new terminal window and run the `index.js` file so that it listens for incoming SMS:
+1. Open a new terminal window and run the `index.js` file so that it listens for incoming SMS:
 
     ```sh
     node index.js
     ```
 
-4. In another terminal window, send a test SMS by running the `test.js` file:
+2. Send a test SMS to your Nexmo number from your mobile device, with a short text message. For example, "This is a short text message".
 
-    ```sh
-    node test.js
-    ```
-
-    If everything is configured correctly you should receive a `Inbound SMS received` message in the terminal window running `index.js`.
+If everything is configured correctly you should receive a `Inbound SMS received` message in the terminal window running `index.js`.
 
 Now, let's write some code to parse the incoming SMS to see what the message contains.
 
@@ -181,44 +154,42 @@ Now, let's write some code to parse the incoming SMS to see what the message con
     displaySms(params.msisdn, params.text);
     ```
 
-4. Restart `index.js` and then run `test.js` again. This time, you should see the following in the terminal window running `index.js`:
+4. Restart `index.js` and then send another short message from your mobile device. This time, you should see the following in the terminal window running `index.js`:
 
     ```sh
     Inbound SMS received
-    FROM: TEST-NEXMO
+    FROM: <YOUR_MOBILE_NUMBER>
     MESSAGE: This is a short text message.
     ```
 
-5. Keep `index.js` running, but modify `test.js` to send a message that is considerably longer than a single SMS allows. For example, the first sentence from Dickens' "A Tale of Two Cities":
+5. Keep `index.js` running, but this time use your mobile device to send a message that is considerably longer than a single SMS allows. For example, the first sentence from Dickens' "A Tale of Two Cities":
 
-    ```javascript
-    const from = 'TEST-NEXMO';
-    const to = 'TO_NUMBER';
-    const text = 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way ... in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.'
+    ```
+    It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way ... in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.'
     ```
 
-6. Run `test.js` again, and check the output in the terminal window that is running `index.js`. You should see something that resembles the following:
+6. Check the output in the terminal window that is running `index.js`. You should see something that resembles the following:
 
     ```
     ---
     Inbound SMS received
-    FROM: TEST-NEXMO
+    FROM: <YOUR_MOBILE_NUMBER>
     MESSAGE: It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epo
     ---
     Inbound SMS received
-    FROM: TEST-NEXMO
+    FROM: <YOUR_MOBILE_NUMBER>
     MESSAGE: ch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything
     ---
     Inbound SMS received
-    FROM: TEST-NEXMO
+    FROM: <YOUR_MOBILE_NUMBER>
     MESSAGE: e the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of compariso
     ---
     Inbound SMS received
-    FROM: TEST-NEXMO
+    FROM: <YOUR_MOBILE_NUMBER>
     MESSAGE:  before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way ... in short, the period was so far lik
     ---
     Inbound SMS received
-    FROM: TEST-NEXMO
+    FROM: <YOUR_MOBILE_NUMBER>
     MESSAGE: n only.
     ---
     ```
@@ -246,7 +217,7 @@ First, you need to detect if a message is concatenated. Modify the `handleInboun
 function handleInboundSms(request, response) {
     const params = Object.assign(request.query, request.body);
 
-    if (params['concat'] === 'true') {
+    if (params['concat']) {
         // Perform extra processing
     } else {
         // Not a concatenated message, so just display it
@@ -270,7 +241,7 @@ let concat_sms = []; // Array of message objects
 function handleInboundSms(request, response) {
     const params = Object.assign(request.query, request.body);
 
-    if (params['concat'] === 'true') {
+    if (params['concat']) {
         /* This is a concatenated message. Add it to an array
            so that we can process it later. */
         concat_sms.push({
@@ -296,7 +267,7 @@ Before we even attempt to reassemble the message from its parts, we need to ensu
 We can do this by filtering the `concat_sms` array to include only those SMS objects that share the same `concat-ref` as the SMS that we have just received. If the length of that filtered array is the same as `concat-total`, then we have all the parts for that message and can then reassemble them:
 
 ```javascript
-    if (params['concat'] === 'true') {
+    if (params['concat']) {
         /* This is a concatenated message. Add it to an array
            so that we can process it later. */
         concat_sms.push({
@@ -349,29 +320,29 @@ function processConcatSms(all_parts) {
 
 ## Test receipt of a concatenated SMS
 
-Run `index.js` in one terminal window and then run `test.js` in another.
+Run `index.js` and use your mobile device to re-send the long text message that you sent in step 5 of the [Send a test SMS](#send-a-test-sms) section above.
 
 If you have coded everything correctly then in the `index.js` window you should see the individual message parts arrive. When all the parts have been received, the full message displays:
 
 ```
 [ { ref: '08B5',
     part: '3',
-    from: 'TEST-NEXMO',
+    from: '<YOUR_MOBILE_NUMBER>',
     message: ' before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way ... in short, the period was so far lik' },
   { ref: '08B5',
     part: '1',
-    from: 'TEST-NEXMO',
+    from: '<YOUR_MOBILE_NUMBER>',
     message: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epo' },
   { ref: '08B5', part: '5', from: 'TEST-NEXMO', message: 'n only.' },
   { ref: '08B5',
     part: '2',
-    from: 'TEST-NEXMO',
+    from: '<YOUR_MOBILE_NUMBER>',
     message: 'ch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything' },
   { ref: '08B5',
     part: '4',
-    from: 'TEST-NEXMO',
+    from: '<YOUR_MOBILE_NUMBER>',
     message: 'e the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of compariso' } ]
-FROM: TEST-NEXMO
+FROM: <YOUR_MOBILE_NUMBER>
 MESSAGE: It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way ... in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.
 ---
 ```
