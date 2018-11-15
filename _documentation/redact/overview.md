@@ -45,25 +45,25 @@ Redaction from certain Nexmo APIs is not supported by the Redact API as either t
 
 #### Voice API
 
-When you use the Voice API to make calls, one or more call resources will be created, as well as call detail records (CDRs). While you can use the Redact API to remove personal data (in this case, the phone number) from the CDR, the call resources themselves will continue to exist. 
+When you use the Voice API to make calls, one or more call resources will be created, as well as call detail records (CDRs). While you can use the Redact API to remove personal data (in this case, the phone number) from the CDR, the call resources themselves will continue to exist.
 
 Call resources are stored as "legs". For instance, if a proxy call is set up between a virtual number V and two other phone numbers A and B, there will be two legs, one between A and V, and one between B and V. These will exist as two separate leg resources with their own unique identifiers.
 
-To determine the identifiers of the leg resources, use the [GET method](/api/stitch#listLegs) and add a query parameter to filter by the `conversationUuid` of the call.
+To determine the identifiers of the leg resources, use the [GET method](/api/conversation#listLegs) and add a query parameter to filter by the `conversationUuid` of the call.
 
-Once the identifiers are known, each leg resource can be deleted with the [DELETE method](/api/stitch#deleteLeg).
+Once the identifiers are known, each leg resource can be deleted with the [DELETE method](/api/conversation#deleteLeg).
 
 #### Call recordings
 
 For voice applications where a call recording is made, e.g. using the [record action](/voice/voice-api/ncco-reference#record) of an NCCO, a media resource will be created which holds the recording. This can be deleted using the `DELETE` method of the [Media API](/api/media#delete-a-media-item).
 
-#### Nexmo Stitch
+#### Nexmo Conversation
 
-For the multi-channel communications APIs of Stitch, a developer might decide to use personal data (such as a personal phone number) as a user handle. In that case, the [PUT method](/api/stitch#updateUser) of the User resource could be used to replace the personal data in the resource, or the [DELETE method](/api/stitch#deleteUser) could be used to simply delete the resource completely.
+For the multi-channel communications APIs of Conversation, a developer might decide to use personal data (such as a personal phone number) as a user handle. In that case, the [PUT method](/api/conversation#updateUser) of the User resource could be used to replace the personal data in the resource, or the [DELETE method](/api/conversation#deleteUser) could be used to simply delete the resource completely.
 
-If Stitch messages need to be redacted, the corresponding Event resource can be deleted using the [DELETE method](/api/stitch#deleteEvent).
+If Conversation messages need to be redacted, the corresponding Event resource can be deleted using the [DELETE method](/api/conversation#deleteEvent).
 
-Note that when a Stitch resource is deleted, it will no longer be available to query via a GET API call. If you need this information, you must store it in your own system/database outside of the Nexmo platform.
+Note that when a Conversation resource is deleted, it will no longer be available to query via a GET API call. If you need this information, you must store it in your own system/database outside of the Nexmo platform.
 
 ## Subject Access Requests
 

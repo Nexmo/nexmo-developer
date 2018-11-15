@@ -91,7 +91,6 @@ Read more about:
 
 ## References
 
-* [API Reference](/api/stitch)
+* [API Reference](/api/conversation)
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 * [Node.JS and Angular Demo](https://github.com/Nexmo/stitch-demo) with an [Android](https://github.com/Nexmo/stitch-demo-android) client demo
-
