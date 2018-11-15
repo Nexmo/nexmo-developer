@@ -9,16 +9,16 @@ Nexmo API provides various means of Authentication depending on what product you
 
 API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web Token (JWT) | OAuth
 -- | -- | -- | -- | --
-[SMS](/api/sms) | ✅ | ❎ | ❎ | ✅
-[Voice](/api/voice) | ❎ | ❎ | ✅ | ❎
-[Verify](/api/verify) | ✅ | ❎ | ❎| ❎
-[Number Insight](/api/number-insight) | ✅ | ❎ | ❎| ❎
-[Conversion](/api/conversion) | ✅ | ❎ | ❎| ❎
-[Developer](/api/developer) | ✅ | ❎ | ❎| ❎
-[Messages](/api/messages-olympus) | ❎ | ✅ | ✅| ❎
-[Dispatch](/api/dispatch) | ❎ | ✅ | ✅| ❎
-[Audit](/api/audit) | ❎ | ✅ | ❎ | ❎
-[Redact](/api/redact) | ❎ | ✅ | ❎ | ❎
+[SMS](/api/sms) | ✅ | ❌ | ❌ | ✅
+[Voice](/api/voice) | ❌ | ❌ | ✅ | ❌
+[Verify](/api/verify) | ✅ | ❌ | ❌ | ❌
+[Number Insight](/api/number-insight) | ✅ | ❌ | ❌| ❌
+[Conversion](/api/conversion) | ✅ | ❌ | ❌| ❌
+[Developer](/api/developer) | ✅ | ❌ | ❌ | ❌
+[Messages](/api/messages-olympus) | ❌ | ✅ | ✅ | ❌
+[Dispatch](/api/dispatch) | ❌ | ✅ | ✅ | ❌
+[Audit](/api/audit) | ❌ | ✅ | ❌ | ❌
+[Redact](/api/redact) | ❌ | ✅ | ❌ | ❌
 
 ## Contents
 
