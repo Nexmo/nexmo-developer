@@ -110,8 +110,8 @@ Name | Description | Required
 `application_id` | The unique ID allocated to your application by Nexmo. | ✅
 `iat` | The UNIX timestamp at UTC + 0 indicating the moment the JWT was requested. | ✅
 `jti` | The unique ID of the JWT. | ✅
-`nbf` | The UNIX timestamp at UTC + 0 indicating the moment the JWT became valid. | ❎
-`exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. A minimum value of 30 seconds from the time the JWT is generated. A maximum value of 24 hours from the time the JWT is generated. A default value of 15 minutes from the time the JWT is generated. | ❎
+`nbf` | The UNIX timestamp at UTC + 0 indicating the moment the JWT became valid. | ❌
+`exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. A minimum value of 30 seconds from the time the JWT is generated. A maximum value of 24 hours from the time the JWT is generated. A default value of 15 minutes from the time the JWT is generated. | ❌
 
 If you are not using a Nexmo library you should refer to [RFC 7519](https://tools.ietf.org/html/rfc7519) to implement JWT.
 
