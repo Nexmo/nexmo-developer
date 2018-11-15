@@ -1,5 +1,5 @@
 ---
-title: Send an SMS
+title: Send and receive SMS with the SMS API
 ---
 
 # SMS API
