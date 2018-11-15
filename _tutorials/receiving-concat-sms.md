@@ -48,7 +48,7 @@ cd myapp
 npm init
 ```
 
-Press [Enter] to accept each of the defaults.
+Press [Enter] to accept each of the defaults except `entry point` for which you should enter `server.js`.
 
 Then, install the [express](https://expressjs.com) web application framework and the [body-parser](https://www.npmjs.com/package/body-parser) packages:
 
@@ -74,9 +74,10 @@ Use the `ngrok` web interface at <http://localhost:4040> and make a note of the 
 
 ## Create the basic application
 
-Create an `index.js` file in your application directory with the following code, which will be our starting point:
+Create a `server.js` file in your application directory with the following code, which will be our starting point:
 
 ```javascript
+require('dotenv').config();
 const app = require('express')();
 const bodyParser = require('body-parser');
 
@@ -88,11 +89,9 @@ app
     .get(handleInboundSms)
     .post(handleInboundSms);
 
-function handleInboundSms(request, response) {
+const handleInboundSms = (request, response) => {
     const params = Object.assign(request.query, request.body);
 
-    console.log('Inbound SMS received');
-    
     // Send OK status
     response.status(204).send();
 }
@@ -124,37 +123,37 @@ Now, if any of your virtual numbers receive an SMS, Nexmo will call that webhook
 
 ## Send a test SMS
 
-1. Open a new terminal window and run the `index.js` file so that it listens for incoming SMS:
+1. Open a new terminal window and run the `server.js` file so that it listens for incoming SMS:
 
     ```sh
-    node index.js
+    node server.js
     ```
 
 2. Send a test SMS to your Nexmo number from your mobile device, with a short text message. For example, "This is a short text message".
 
-If everything is configured correctly you should receive a `Inbound SMS received` message in the terminal window running `index.js`.
+If everything is configured correctly you should receive a `Inbound SMS received` message in the terminal window running `server.js`.
 
 Now, let's write some code to parse the incoming SMS to see what the message contains.
 
-1. Press [Ctrl+C] to terminate the running `index.js` application.
+1. Press [Ctrl+C] to terminate the running `server.js` application.
 
-2. Create a new function in `index.js` called `displaySms()`:
+2. Create a new function in `server.js` called `displaySms()`:
 
     ```javascript
-    function displaySms(msisdn, text) {
+    const displaySms = (msisdn, text) => {
         console.log('FROM: ' + msisdn);
         console.log('MESSAGE: ' + text);
         console.log('---');
     }
     ```
 
-3. Also in `index.js` and just before your code sends the `204` response, add a call to `displaySms()` using the following parameters:
+3. Also in `server.js` and just before your code sends the `204` response, add a call to `displaySms()` using the following parameters:
 
     ```javascript
     displaySms(params.msisdn, params.text);
     ```
 
-4. Restart `index.js` and then send another short message from your mobile device. This time, you should see the following in the terminal window running `index.js`:
+4. Restart `server.js` and then send another short message from your mobile device. This time, you should see the following in the terminal window running `server.js`:
 
     ```sh
     Inbound SMS received
@@ -162,13 +161,13 @@ Now, let's write some code to parse the incoming SMS to see what the message con
     MESSAGE: This is a short text message.
     ```
 
-5. Keep `index.js` running, but this time use your mobile device to send a message that is considerably longer than a single SMS allows. For example, the first sentence from Dickens' "A Tale of Two Cities":
+5. Keep `server.js` running, but this time use your mobile device to send a message that is considerably longer than a single SMS allows. For example, the first sentence from Dickens' "A Tale of Two Cities":
 
     ```
     It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way ... in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.'
     ```
 
-6. Check the output in the terminal window that is running `index.js`. You should see something that resembles the following:
+6. Check the output in the terminal window that is running `server.js`. You should see something that resembles the following:
 
     ```
     ---
@@ -214,10 +213,10 @@ Nexmo passes four special parameters to your webhook when an inbound SMS is conc
 First, you need to detect if a message is concatenated. Modify the `handleInboundSms()` function so that it displays a single-part SMS to the user in the usual way, but performs extra processing for multi-part SMS which you will implement in a later step:
 
 ```javascript
-function handleInboundSms(request, response) {
+const handleInboundSms = (request, response) => {
     const params = Object.assign(request.query, request.body);
 
-    if (params['concat']) {
+    if (params['concat'] == 'true') {
         // Perform extra processing
     } else {
         // Not a concatenated message, so just display it
@@ -238,10 +237,10 @@ Declare an array outside of the `handleInboundSms()` function called `concat_sms
 ```javascript
 let concat_sms = []; // Array of message objects
 
-function handleInboundSms(request, response) {
+const handleInboundSms = (request, response) => {
     const params = Object.assign(request.query, request.body);
 
-    if (params['concat']) {
+    if (params['concat'] == 'true') {
         /* This is a concatenated message. Add it to an array
            so that we can process it later. */
         concat_sms.push({
@@ -267,7 +266,7 @@ Before we even attempt to reassemble the message from its parts, we need to ensu
 We can do this by filtering the `concat_sms` array to include only those SMS objects that share the same `concat-ref` as the SMS that we have just received. If the length of that filtered array is the same as `concat-total`, then we have all the parts for that message and can then reassemble them:
 
 ```javascript
-    if (params['concat']) {
+    if (params['concat'] == 'true') {
         /* This is a concatenated message. Add it to an array
            so that we can process it later. */
         concat_sms.push({
@@ -279,16 +278,14 @@ We can do this by filtering the `concat_sms` array to include only those SMS obj
 
         /* Do we have all the message parts yet? They might
            not arrive consecutively. */
-        let parts_for_ref = concat_sms.filter(function (part) {
-            return part.ref == params['concat-ref'];
-        });
+        const parts_for_ref = concat_sms.filter(part => part.ref == params['concat-ref']);
 
         // Is this the last message part for this reference?
         if (parts_for_ref.length == params['concat-total']) {
             console.dir(parts_for_ref);
             processConcatSms(parts_for_ref);
         }
-    }
+    } 
 ```
 
 ### Reassemble the message parts
@@ -296,20 +293,13 @@ We can do this by filtering the `concat_sms` array to include only those SMS obj
 Now that we have all the message parts but not necessarily in the right order, we can use the `Array.sort()` function to reassemble them in order of `concat-part`. Create the `processConcatSms()` function to do that:
 
 ```javascript
-function processConcatSms(all_parts) {
+const processConcatSms = (all_parts) => {
 
-    // Order all the message parts
-    all_parts.sort(function (a, b) {
-        if (Number(a.part) < Number(b.part)) {
-            return -1;
-        } else {
-            return 1;
-        }
-    })
-
-    let concat_message = '';
+    // Sort the message parts
+    all_parts.sort((a, b) => a.part - b.part);
 
     // Reassemble the message from the parts
+    let concat_message = '';
     for (i = 0; i < all_parts.length; i++) {
         concat_message += all_parts[i].message;
     }
@@ -320,9 +310,9 @@ function processConcatSms(all_parts) {
 
 ## Test receipt of a concatenated SMS
 
-Run `index.js` and use your mobile device to re-send the long text message that you sent in step 5 of the [Send a test SMS](#send-a-test-sms) section above.
+Run `server.js` and use your mobile device to re-send the long text message that you sent in step 5 of the [Send a test SMS](#send-a-test-sms) section above.
 
-If you have coded everything correctly then in the `index.js` window you should see the individual message parts arrive. When all the parts have been received, the full message displays:
+If you have coded everything correctly then in the `server.js` window you should see the individual message parts arrive. When all the parts have been received, the full message displays:
 
 ```
 [ { ref: '08B5',
