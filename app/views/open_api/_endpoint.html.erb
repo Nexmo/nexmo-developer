@@ -103,7 +103,7 @@
                     <div class="Vlt-tabs">
                       <div class="Vlt-tabs__header">
                         <% response.split_schemas(format).each_with_index do |schema, index| %>
-                          <div <%= schema_tab_ids[index] %>" <% if index.zero? %>class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true"<% else %>class="Vlt-tabs__link"<% end %>><%= schema['description'] || "Response #{index + 1}" %></div>
+                          <div tabindex="0" <%= schema_tab_ids[index] %>" <% if index.zero? %>class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true"<% else %>class="Vlt-tabs__link"<% end %>><%= schema['description'] || "Response #{index + 1}" %></div>
                         <% end %>
                       </div>
                       <div class="Vlt-tabs__content">

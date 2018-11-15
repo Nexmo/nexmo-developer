@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Audit your account by monitoring events as they happen
 navigation_weight: 1
 description: The Audit API overview.
 ---

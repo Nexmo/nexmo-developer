@@ -1,8 +1,8 @@
 ---
-title: Overview
+title: Redact your data to stay GDPR compliant
 ---
 
-# Overview
+# Redact your data
 
 To facilitate our customers' privacy compliance efforts, Nexmo provide an API that allows you to manage personal data within the Nexmo platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs.
 

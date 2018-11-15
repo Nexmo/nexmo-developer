@@ -6,6 +6,7 @@ AllCops:
     - 'vendor/**/*'
     - '.vendor/**/*'
     - '.git/**/*'
+    - '_open_api/**/*'
 
 # Temporarily disabled until we can refactor
 Metrics/BlockLength:

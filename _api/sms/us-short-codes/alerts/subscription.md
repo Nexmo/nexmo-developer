@@ -60,6 +60,8 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `msisdn` | The phone number to resubscribe to your campaign and remove from the opt-out list. | If Your base URL contains `https://rest.nexmo.com/sc/us/alert/opt-in/manage`.
+`page-size` | Return this amount of results in the response. The default value is 100. | No
+`page` | Return `page-size` results from this zero-based index in the response. If your request returns 300 Calls, set `page` to 2 in order to return Calls 201 to 300. The default value is 0. | No
 
 ## Authentication information
 

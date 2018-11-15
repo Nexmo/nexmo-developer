@@ -71,7 +71,7 @@ You can find this at `/app/constraints/documentation_constraint.rb`. The `produc
 
 API pages use a custom Open API parser and renderer. The parser belongs to a separate dependency you can find at [https://github.com/nexmo/oas_parser](https://github.com/nexmo/oas_parser). The rendering is provided by views that can be found at `/app/views/open_api/`.
 
-The Open API pages consume an Open API Specification 3 definition. This is usually supplied by the [Nexmo API Specification](https://github.com/nexmo/api-specification) dependency but can be supplied or overridden if the definition is placed in the `/_open_api/definitions/` directory.
+Each of the Open API pages consumes an Open API Specification 3 definition for that API. These are held in a separate repo <https://github.com/Nexmo/api-specification> and are brought into NDP as a git submodule.
 
 The parser has been built in such a way that it has tested against several OAS definitions however full compatibility with the specification shouldn't be assumed and development work may be required to support new features as they are authored within our definitions.
 
