@@ -36,8 +36,7 @@ To achieve this, you perform the following steps:
 To complete the tutorial, you need:
 
 * A [Nexmo account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
-* A [virtual number](/numbers/guides/numbers) - at which to receive inbound SMS
-* [ngrok](https://ngrok.com/) - to make your development web server accessible to Nexmo's servers over the Internet
+* [ngrok](https://ngrok.com/) - (optional) to make your development web server accessible to Nexmo's servers over the Internet
 
 ## Create the project
 Make a directory for your application, `cd` into the directory and then use the Node.js package manager `npm` to create a `package.json` file for your application's dependencies:
