@@ -30,3 +30,22 @@ Point to resources:
 * Building Blocks - cover specific bits of code to do single function operations.
 * API Reference - Given that the tutorial is opinionated, provide this as a resource to allow the user to see what other options are available to them.
 * Tutorials - Other relevant tutorials.
+
+## External Tutorials
+
+We can include tutorial entries for content that is actually elsewhere, such as on the blog. This is useful for bringing Tutorial Tuesday content and X with Y posts into the developer portal so that users can find other content that may be of interest.
+
+To create an external tutorial, create a markdown file with _just_ frontmatter. It should look something like this:
+
+```
+---
+title: Anything-to-SMS with IFTTT and Nexmo
+products: messaging/sms
+description: This is a description that will be shown on the tutorials list page
+external_link: https://www.nexmo.com/blog/2018/09/18/anything-to-sms-ifttt-nexmo-dr/
+languages:
+    - Node
+---
+```
+
+These will be rendered as tutorials in the tutorial listing pages, but when clicked the user will go to the original source of the content.
