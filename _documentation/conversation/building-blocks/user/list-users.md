@@ -6,14 +6,6 @@ title: List Users
 
 In this building block you will see how to get a list Users associated with an Application.
 
-## Example
-
-Ensure the following variables are set to your required values using any convenient method:
-
-Key | Description
--- | --
-None | None
-
 ```building_blocks
 source: '_examples/conversation/user/list-users'
 application:

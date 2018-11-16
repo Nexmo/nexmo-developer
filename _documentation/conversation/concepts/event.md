@@ -10,55 +10,55 @@ Conversations and other Nexmo objects such as Members and Applications generate 
 
 Event type | Posted to Event webhook | Description
 ----|----|----
-`app:knocking:cancel` | No | TBD
-`app:knocking` | No | TBD
-`audio:dtmf` | Yes | Fired when a DTMF tone is received into the Leg.
-`audio:earmuff:off` | Yes | Fired when a Leg is unearmuffed.
-`audio:earmuff:on` | Yes | Fired when a Leg is earmuffed.
-`audio:mute:off` | Yes | Fired when a Leg is unmuted.
-`audio:mute:on` | Yes | Fired when a Leg is muted.
-`audio:play:stop` | Yes | Fired when audio streamed into a Leg is stopped.
-`audio:play:done` | Yes | Fired when audio streamed into a Leg stops playing, that is the audio data finishes.
-`audio:play` | Yes | Fired when audio is streamed into a Leg.
-`audio:record:stop` | Yes | TBD
-`audio:record:done` | Yes | TBD
-`audio:record` | Yes | Fired when a Call is being recorded.
-`audio:ringing:start` | Yes | TBD
-`audio:say:stop` | Yes | TBD
-`audio:say:done` | Yes | TBD
-`audio:say` | Yes | TBD
-`audio:speaking:on` | No | TBD
-`audio:speaking:off` | No | TBD
-`conversation:created` | No | Fired when a new Conversation is created.
-`conversation:deleted` | No | Fired when a Conversation object is deleted.
-`conversation:updated` | No | Fired when a Conversation object is updated.
-`member:invited` | No | Fired when a Member is invited into a Conversation.
-`member:joined` | No | Fired when a Member joins a Conversation.
-`member:left` | No | Fired when a Member leaves a Conversation.
-`member:media` | No | TBD
-`event:delete` | Yes | Fired when an Event object is deleted.
-`image:delivered` | Yes | Fired when an Image is delivered.
-`image:seen` | Yes | Fired when an Image is viewed by the recipient.
-`image` | Yes | TBD
-`rtc:offer` | No | TBD
-`rtc:status` | No | TBD
-`rtc:transfer` | No | TBD
-`rtc:hangup` | No | TBD
-`rtc:answer` | No | TBD
-`rtc:terminate` | No | TBD
-`sip:status` | No | During a SIP call ...
-`sip:answered` | No | Fired when a SIP call is answered.
-`sip:machine` | No | Fired when the entity answering the SIP call is a machine.
-`sip:hangup` | No | Fired when a User on a Call hangs up.
-`sip:ringing` | No | Fired when a SIP call starts ringing, such as when Nexmo makes an Outbound Call.
-`text:seen` | Yes | Fired when a Text message is seen by the recipient.
-`text:delivered` | Yes | Fired when a Text message is delivered to the recipient.
-`text` | Yes | TBD
-`text:update` | No | TBD
-`text:typing:on` | Yes | TBD
-`text:typing:off` | Yes | TBD
-`video:mute:off` | Yes | TBD
-`video:mute:on` | Yes | TBD
+`app:knocking:cancel` | No |
+`app:knocking` | No |
+`audio:dtmf` | Yes | DTMF tone is received into the Leg.
+`audio:earmuff:off` | Yes | Leg is unearmuffed.
+`audio:earmuff:on` | Yes | Leg is earmuffed.
+`audio:mute:off` | Yes | Leg is unmuted.
+`audio:mute:on` | Yes | Leg is muted.
+`audio:play:stop` | Yes | Audio streamed into a Leg is stopped.
+`audio:play:done` | Yes | Audio streamed into a Leg stops playing, that is the audio data finishes.
+`audio:play` | Yes | Audio is streamed into a Leg.
+`audio:record:stop` | Yes |
+`audio:record:done` | Yes |
+`audio:record` | Yes | Call is being recorded.
+`audio:ringing:start` | Yes |
+`audio:say:stop` | Yes |
+`audio:say:done` | Yes |
+`audio:say` | Yes |
+`audio:speaking:on` | No |
+`audio:speaking:off` | No |
+`conversation:created` | No | new Conversation is created.
+`conversation:deleted` | No | Conversation object is deleted.
+`conversation:updated` | No | Conversation object is updated.
+`member:invited` | No | Member is invited into a Conversation.
+`member:joined` | No | Member joins a Conversation.
+`member:left` | No | Member leaves a Conversation.
+`member:media` | No |
+`event:delete` | Yes | Event object is deleted.
+`image:delivered` | Yes | Image is delivered.
+`image:seen` | Yes | Image is viewed by the recipient.
+`image` | Yes |
+`rtc:offer` | No |
+`rtc:status` | No |
+`rtc:transfer` | No |
+`rtc:hangup` | No |
+`rtc:answer` | No |
+`rtc:terminate` | No |
+`sip:status` | No |
+`sip:answered` | No | SIP call is answered.
+`sip:machine` | No | When the entity answering the SIP call is a machine.
+`sip:hangup` | No | User on a Call hangs up.
+`sip:ringing` | No | SIP call starts ringing, such as when Nexmo makes an Outbound Call.
+`text:seen` | Yes | Text message is seen by the recipient.
+`text:delivered` | Yes | Text message is delivered to the recipient.
+`text` | Yes |
+`text:update` | No |
+`text:typing:on` | Yes |
+`text:typing:off` | Yes |
+`video:mute:off` | Yes |
+`video:mute:on` | Yes |
 
 ## Handling Events
 

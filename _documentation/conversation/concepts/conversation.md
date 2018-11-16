@@ -26,7 +26,7 @@ Consider the following example. A User calls a Nexmo Number associated with a Ne
 
 ## Conversation details
 
-The Call consists of two legs: inbound and outbound, and two Members, all contained in a Conversation object. If you used the Conversation API call `Get Conversation` to obtain details of this Conversation you would obtain a response similar to the following:
+The Call consists of two legs: inbound and outbound, and two Members, all contained in a Conversation object. If you used the Conversation API call [Get Conversation](/conversation/building-blocks/conversation/get-conversation) to obtain details of this Conversation you would obtain a response similar to the following:
 
 ``` json
 {
@@ -142,7 +142,7 @@ To summarize, in this example there is one call and one Conversation consisting 
 
 ## Events
 
-If, while the call is in session, you get Events for the Conversation using the `List Events` API call you would see Events that have taken place so far during the call:
+If, while the call is in session, you get Events for the Conversation using the [List Events](/conversation/building-blocks/event/list-events) API call you would see Events that have taken place so far during the call:
 
 ``` json
 [
@@ -437,7 +437,7 @@ Timestamp | Direction (Leg) | From | To | Event Type (status) | Notes
 ----|----|----|----|----|----
 2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `started` | Calls Nexmo number
 2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `ringing` | Now ringing
-09:26:19 | N/A | 447700000001 | 447700000002 | N/A | At this point the call is answered
+2018-10-25T09:26:19.827Z | N/A | 447700000001 | 447700000002 | N/A | At this point the call is answered
 2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `started` | Nexmo calls out
 2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `ringing` | Bob is ringing
 2018-10-25T09:26:30.277Z | Outbound | Unknown | 447700000003 | `answered` | Bob answers
