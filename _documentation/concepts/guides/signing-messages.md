@@ -1,12 +1,12 @@
 ---
-title: Signing requests
+title: Signing messages
 description: Add an extra layer of security by sending and receiving signed requests.
 navigation_weight: 4
 ---
 
-# Signing requests
+# Signing Messages
 
-Signatures validate the authenticity of the person who interacts with Nexmo.
+You can use signatures with Nexmo when both sending and receiving SMS messages. When sending, you generate a signature to send with your message. When receiving, the incoming webhook will include the signature and all the fields you need to generate the signature in your application to verify that the two signatures match.
 
 You use a signature to:
 
@@ -14,68 +14,18 @@ You use a signature to:
 * Ensure that the message has not been tampered with en-route
 * Defend against interception and later replay
 
+## Use signatures when sending messages
 
-We support a number of different signing algorithms. You can choose one from the dashboard. The default is '[MD5 hash](https://en.wikipedia.org/wiki/MD5)'.
+To send a message with a signature, you will need to use the `SIGNATURE_SECRET` instead of your `API_SECRET` when sending the message. You can find the signature secret and choose which signing algorithm to use by visiting the [dashboard](https://dashboard.nexmo.com). The default algorithm is'[MD5 hash](https://en.wikipedia.org/wiki/MD5)' and we also support `MD5 HMAC`, `SHA1 HMAC`, `SHA-256 HMAC` and `SHA-512 HMAC`.
 
-You should use your Nexmo library's ability to generate or validate signatures. If you _can't_ do this for some reason, you _can_ generate and validate signatures yourself, but this can be complicated and potentially error-prone.
+We always recommend you use your Nexmo library's ability to generate or validate signatures. If you *can't* do this for some reason, you *can* generate and validate signatures yourself, but this can be complicated and potentially error-prone. Refer to the [section on manually generating signatures](#manually-generate-a-signature).
 
-> Note: Using signatures is an *optional* improvement on using the standard `api_secret`. You use the `SIGNATURE_SECRET` instead of your api_secret in a signed request.
-
-## Generating Signatures
-
-It is _highly recommended_ that you use your Nexmo library's existing functionality for generating and validating signatures. If you aren't using a library with this functionality, you'll need to generate the signature yourself. The technique is slightly different if are generating an 'MD5 hash' signature or one of the HMAC signatures.
-
-## Generating an MD5 Hash Signature
-
-The process for generating and using an MD5 hash signature is as follows:
-
-* Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as [UNIX time](https://en.wikipedia.org/wiki/Unix_time))
-* Loop through each of the parameters, sorted by key
-* For every value in the parameter list, replace all instances of `&` and `=` with an underscore `_`.
-* Generate a string consisting of `&akey=value&bkey=value`. **Note that there is an ampersand `&` at the start of the string!**
-* Add an ampersand `&` and the signature secret to the end of the string. It should now look something like this: `&akey=value&bkey=value&your_signature_secret`
-* Now run the string through an md5 hash function and convert the resulting bytes to a string of hexadecimal digits. This is your MD5 hash signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
-
-Note that although you changed the parameter values while generating the signature, the values passed as HTTP parameters should be __unchanged__.
-
-## Generating an HMAC Signature
-
-Nexmo supports MD5, SHA1, SHA256 & SHA512 HMAC signatures. To generate these signatures you will need an HMAC library that can support one or more of these algorithms.
-
-* Add the current timestamp to the parameters list with the key `time`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as [UNIX time](https://en.wikipedia.org/wiki/Unix_time))
-* Loop through each of the parameters, sorted by key
-* For every value in the parameter list, replace all instances of `&` and `=` with an underscore `_`.
-* Generate a string consisting of `&akey=value&bkey=value`. **Note that there is an ampersand `&` at the start of the string!**
-* Create an HMAC generator with your desired algorithm and your signature secret as the key.
-* Now run the string through an hmac generator and convert the resulting bytes to a string of hexadecimal digits. This is your HMAC signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
-
-Note that although you changed the parameter values while generating the signature, the values passed as HTTP parameters should be __unchanged__.
-
-## Validating a Signature
-
-Validating a Nexmo Signature requires generating a signature from an incoming request's parameters and comparing it to the signature that was provided in the request. **Note**: Remember to remove the `sig` parameter before generating your signature, and instead of adding a `timestamp`, use the `timestamp` provided in the request parameters.
-
-The following example shows a signed request to the SMS API:
-
-```
-https://rest.nexmo.com/sms/xml?api_key=API_KEY&from=Nexmo&to=447700900000&type=text&text=Hello+from+Nexmo&status-report-req=false&timestamp=1461605396&sig=SIGNATURE
-```
-
-The workflow for using signed messages is:
-
-![Signing requests workflow](/assets/images/workflow_call_api_outbound.svg)
+The overall process for sending a signed message looks like this:
 
 1. Create a signed [request](/api/sms#request) to send an SMS.
 2. Check the [response codes](/api/sms#errors) and ensure that you sent the request correctly.
 3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
-4. If you requested signed delivery receipts and inbound messages validate the signature for each incoming request.
-
-
-## Implementing the message signing workflow
-
-When you create a Nexmo account you will be provided a signature secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
-
-To sign your messages:
+4. *(optional)* If you requested signed delivery receipts and inbound messages, you will want to validate the signature for each incoming request.
 
 **Create a signed [request](/api/sms#request):**
 
@@ -89,15 +39,53 @@ source: '_examples/messaging/signing-messages/create-request'
 source: '_examples/messaging/signing-messages/check-response'
 ```
 
-If you did not generate the signature correctly the [status](/api/sms#status-codes) is `14, invalid signature`
+If you did not generate the signature correctly the [status](/api/sms#status-codes) is `14, invalid signature`. You can find more information in the [troubleshooting](#troubleshooting-signatures) section of this guide.
 
-Your message is delivered to the handset. The user's handset returns a delivery receipt.
+> It is possible to *require* that all outgoing SMS use message signing. Contact support@nexmo.com to enable or disable this setting on your account.
+
+## Validate the signature on incoming messages
+
+In order to verify the origin of incoming webhooks to your SMS endpoint, you can enable message signing for incoming messages - contact support@nexmo.com to request incoming messages be accompanied by a signature. With this setting enabled, the webhooks for both incoming SMS and delivery receipts will include a `sig` parameter. Use the other parameters in the request with your signature secret to generate the signature and compare it to the signature that was sent. If the two match, the request is valid.
+
+> Contact support to enable message signing on your account: support@nexmo.com
 
 **If your delivery receipts and inbound messages are signed, validate the signature:**
 
 ```tabbed_examples
 source: '_examples/messaging/signing-messages/validate-signature'
 ```
+
+## Manually generate a signature
+
+It is *highly recommended* that you use your Nexmo library's existing functionality for generating and validating signatures. If you aren't using a library with this functionality, you'll need to generate the signature yourself. The technique is slightly different if are generating an 'MD5 hash' signature or one of the HMAC signatures.
+
+Validating a Nexmo Signature requires generating a signature from an incoming request's parameters and comparing it to the signature that was provided in the request. **Note**: Remember to remove the `sig` parameter before generating your signature, and instead of adding a `timestamp`, use the `timestamp` provided in the request parameters.
+
+### Generating an MD5 Hash Signature
+
+The process for generating and using an MD5 hash signature is as follows:
+
+* Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as [UNIX time](https://en.wikipedia.org/wiki/Unix_time))
+* Loop through each of the parameters, sorted by key
+* For every value in the parameter list, replace all instances of `&` and `=` with an underscore `_`.
+* Generate a string consisting of `&akey=value&bkey=value`. **Note that there is an ampersand `&` at the start of the string!**
+* Add an ampersand `&` and the signature secret to the end of the string. It should now look something like this: `&akey=value&bkey=value&your_signature_secret`
+* Now run the string through an md5 hash function and convert the resulting bytes to a string of hexadecimal digits. This is your MD5 hash signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
+
+Note that although you changed the parameter values while generating the signature, the values passed as HTTP parameters should be __unchanged__ when sending those parameters to the SMS API.
+
+### Generating an HMAC Signature
+
+Nexmo supports MD5, SHA1, SHA256 & SHA512 HMAC signatures. To generate these signatures you will need an HMAC library that can support one or more of these algorithms.
+
+* Add the current timestamp to the parameters list with the key `time`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as [UNIX time](https://en.wikipedia.org/wiki/Unix_time))
+* Loop through each of the parameters, sorted by key
+* For every value in the parameter list, replace all instances of `&` and `=` with an underscore `_`.
+* Generate a string consisting of `&akey=value&bkey=value`. **Note that there is an ampersand `&` at the start of the string!**
+* Create an HMAC generator with your desired algorithm and your signature secret as the key.
+* Now run the string through an hmac generator and convert the resulting bytes to a string of hexadecimal digits. This is your HMAC signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
+
+Note that although you changed the parameter values while generating the signature, the values passed as HTTP parameters should be __unchanged__ when you are sending those parameters to the SMS API.
 
 ## Troubleshooting signatures
 
