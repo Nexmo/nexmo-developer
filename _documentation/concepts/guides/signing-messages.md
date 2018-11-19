@@ -61,31 +61,32 @@ It is *highly recommended* that you use your Nexmo library's existing functional
 
 Validating a Nexmo Signature requires generating a signature from an incoming request's parameters and comparing it to the signature that was provided in the request. **Note**: Remember to remove the `sig` parameter before generating your signature, and instead of adding a `timestamp`, use the `timestamp` provided in the request parameters.
 
-### Generating an MD5 Hash Signature
+### Step 1: for both hash and HMAC signatures
 
-The process for generating and using an MD5 hash signature is as follows:
-
-* Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as [UNIX time](https://en.wikipedia.org/wiki/Unix_time))
+* Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as UNIX time)
 * Loop through each of the parameters, sorted by key
 * For every value in the parameter list, replace all instances of `&` and `=` with an underscore `_`.
 * Generate a string consisting of `&akey=value&bkey=value`. **Note that there is an ampersand `&` at the start of the string!**
+
+At this point, the process for hash and HMAC will differ, so use the "Step 2" section that fits your needs:
+
+### Step 2: for hash
+
 * Add an ampersand `&` and the signature secret to the end of the string. It should now look something like this: `&akey=value&bkey=value&your_signature_secret`
 * Now run the string through an md5 hash function and convert the resulting bytes to a string of hexadecimal digits. This is your MD5 hash signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
 
-Note that although you changed the parameter values while generating the signature, the values passed as HTTP parameters should be __unchanged__ when sending those parameters to the SMS API.
+### Step 2: for HMAC
 
-### Generating an HMAC Signature
+For hmac
+Create an HMAC generator with your desired algorithm and your signature secret as the key.
+Now run the string through an hmac generator and convert the resulting bytes to a string of hexadecimal digits. This is your HMAC signature, and should be added to the HTTP parameters of your request as the sig parameter.
 
-Nexmo supports MD5, SHA1, SHA256 & SHA512 HMAC signatures. To generate these signatures you will need an HMAC library that can support one or more of these algorithms.
-
-* Add the current timestamp to the parameters list with the key `time`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as [UNIX time](https://en.wikipedia.org/wiki/Unix_time))
-* Loop through each of the parameters, sorted by key
-* For every value in the parameter list, replace all instances of `&` and `=` with an underscore `_`.
-* Generate a string consisting of `&akey=value&bkey=value`. **Note that there is an ampersand `&` at the start of the string!**
 * Create an HMAC generator with your desired algorithm and your signature secret as the key.
-* Now run the string through an hmac generator and convert the resulting bytes to a string of hexadecimal digits. This is your HMAC signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
+* Now run the string through an hmac generator and convert the resulting bytes to a string of hexadecimal digits. This is your HMAC signature, and should be added to the HTTP parameters of your request as the `sig` parameter (e.g. for PHP this looks like `hash_hmac($algorithm, $data, $secret)`).
 
-Note that although you changed the parameter values while generating the signature, the values passed as HTTP parameters should be __unchanged__ when you are sending those parameters to the SMS API.
+### Step 3: additional notes
+
+Bear in mind that although you changed the parameter values while generating the signature, the values passed as HTTP parameters should be __unchanged__ when sending those parameters to the SMS API.
 
 ## Troubleshooting signatures
 
