@@ -16,7 +16,7 @@ Today's example uses NodeJS and all the code is [available on GitHub](https://gi
 
 In order to work through this tutorial you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up) (the free credit for new signups is plenty for this tutorial).
+* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
 * The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up.
 * A publicly accessible web server so Nexmo can make webhook requests to your app. If you're developing locally we recommend [ngrok](https://ngrok.com/).
 
@@ -57,6 +57,8 @@ nexmo link:app [number] [application ID]
 ```
 
 Repeat the buying and linking step for as many numbers as you'd like to use.
+
+> For new users, you will need to top up your account before you can buy a number.
 
 ## Set Up and Run the Application
 
