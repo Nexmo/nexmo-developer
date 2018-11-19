@@ -9,7 +9,6 @@ The Number Insight Standard API provides all the information from the [Number In
 
 * The line type (mobile/landline/virtual number/premium/toll-free)
 * The Mobile Country Code (MCC) and Mobile Network Code (MNC)
-* If the number is ported (not for US numbers)
 * The name of the caller (USA only)
 
 Use this information to determine the best type of communication for a number (SMS or voice) and block virtual numbers.

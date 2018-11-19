@@ -35,19 +35,18 @@ Each API level builds upon the capabilities of the previous one. For example, th
 
 ### Feature comparison
 Feature | Basic | Standard | Advanced
---|--|--|--
-Retrieve international and local format | ✅ | ✅ | ✅
-Identify origin country | ✅ | ✅ | ✅
-Detect line type (mobile/landline/virtual number/premium/toll-free) | ❌ | ✅ | ✅
-Determine mobile country code (MCC) and mobile network code (MNC) | ❌ | ✅ | ✅
-Check if number is ported * | ❌ | ✅ | ✅
-Identify caller name (USA only) | ❌ | ✅ | ✅
-Verify that number is reachable | ❌ | ❌ | ✅
-Identify network when roaming | ❌ | ❌ | ✅
-Confirm that user's IP address is in same location as their mobile phone | ❌ | ❌ | ✅
-Access asynchronously | ❌ | ❌ | ✅
+:--|:--:|:--:|:--:
+Number format and origin| ✅ | ✅ | ✅    
+Number type| ❌ | ✅ | ✅
+Carrier and country| ❌ | ✅ | ✅
+Ported| ❌ | ❌ | ✅
+IP match| ❌ | ❌ | ✅
+Validity| ❌ | ❌ | ✅
+Reachability| ❌ | ❌ | ✅
+Roaming status| ❌ | ❌ | ✅
+Roaming carrier and country| ❌ | ❌ | ✅
+**US number** caller name and type| ❌ | ✅ | ✅
 
-\* For US numbers this information is only available in the Advanced API.
 
 > Check the legislation in your country to ensure that you are allowed to save user roaming information.
 
