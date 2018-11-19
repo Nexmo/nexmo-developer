@@ -17,5 +17,5 @@
     -d api_secret=$secret \
     -d name=$name \
     -d type=$type \
-    -d status_url=$answer_url \
-    -d inbound_url=$event_url
+    -d status_url=$status_url \
+    -d inbound_url=$inbound_url
