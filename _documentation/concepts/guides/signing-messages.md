@@ -63,7 +63,13 @@ Validating a Nexmo Signature requires generating a signature from an incoming re
 
 ### Step 1: for both hash and HMAC signatures
 
-* Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as UNIX time)
+
+If you're **generating a signature:** Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as UNIX time)
+
+If you're **validating a signature** from Nexmo: Remove the `sig` parameter before generating your signature, and use the `timestamp` provided in the request parameters.
+
+Then:
+
 * Loop through each of the parameters, sorted by key
 * For every value in the parameter list, replace all instances of `&` and `=` with an underscore `_`.
 * Generate a string consisting of `&akey=value&bkey=value`. **Note that there is an ampersand `&` at the start of the string!**
@@ -76,10 +82,6 @@ At this point, the process for hash and HMAC will differ, so use the "Step 2" se
 * Now run the string through an md5 hash function and convert the resulting bytes to a string of hexadecimal digits. This is your MD5 hash signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
 
 ### Step 2: for HMAC
-
-For hmac
-Create an HMAC generator with your desired algorithm and your signature secret as the key.
-Now run the string through an hmac generator and convert the resulting bytes to a string of hexadecimal digits. This is your HMAC signature, and should be added to the HTTP parameters of your request as the sig parameter.
 
 * Create an HMAC generator with your desired algorithm and your signature secret as the key.
 * Now run the string through an hmac generator and convert the resulting bytes to a string of hexadecimal digits. This is your HMAC signature, and should be added to the HTTP parameters of your request as the `sig` parameter (e.g. for PHP this looks like `hash_hmac($algorithm, $data, $secret)`).
