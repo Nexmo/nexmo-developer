@@ -59,10 +59,7 @@ source: '_examples/messaging/signing-messages/validate-signature'
 
 It is *highly recommended* that you use your Nexmo library's existing functionality for generating and validating signatures. If you aren't using a library with this functionality, you'll need to generate the signature yourself. The technique is slightly different if are generating an 'MD5 hash' signature or one of the HMAC signatures.
 
-Validating a Nexmo Signature requires generating a signature from an incoming request's parameters and comparing it to the signature that was provided in the request. **Note**: Remember to remove the `sig` parameter before generating your signature, and instead of adding a `timestamp`, use the `timestamp` provided in the request parameters.
-
 ### Step 1: for both hash and HMAC signatures
-
 
 If you're **generating a signature:** Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as UNIX time)
 
