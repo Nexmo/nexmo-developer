@@ -9,7 +9,7 @@ You will need to paste in a valid JWT. If you don't have one you can create one 
 **1.** Create a temporary application:
 
 ``` shell
-nexmo app:create "Delete Me Later" https://example.com/answer https://example.com/event --keyfile=temp.key
+nexmo app:create "Delete Me Later" https://example.com/inbound https://example.com/status --keyfile=temp.key --type=messages
 ```
 
 **2.** Copy the generated Application ID to the clipboard.
@@ -38,7 +38,7 @@ You are now ready to link your Facebook Page to Nexmo:
 
 You will see your Facebook Pages listed.
 
-**7.** Select the Facebook Page you want to connect to your Nexmo account from the drop down list. 
+**7.** Select the Facebook Page you want to connect to your Nexmo account from the drop down list.
 
 **8.** Paste in your JWT in the box provided (2. Provide a valid JWT token).
 
