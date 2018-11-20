@@ -12,18 +12,9 @@ The building blocks utilise code from the [Nexmo Node Quickstart](https://github
 
 Please read this information carefully, so you can best use the building blocks.  
 
-## Prerequisites
-
-1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
-2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers)
-3. [Install the Nexmo Command Line tools](/tools)
-4. [Create a Nexmo Application in the Dashboard](https://dashboard.nexmo.com/messages/create-application)
-5. [Install the Nexmo Node Client Library](/messages/concepts/client-library) - if writing applications using Node.
-6. [Set up Ngrok](https://ngrok.com) - if testing locally.
-
-Other resources:
-
-- [Nexmo's blog post on how to use Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
+```partial
+source: _partials/reusable/prereqs.md
+```
 
 ## Replaceable variables
 
