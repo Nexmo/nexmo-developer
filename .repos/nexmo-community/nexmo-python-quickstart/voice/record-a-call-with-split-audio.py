@@ -14,6 +14,7 @@ def answer_call():
         {
             "action": "record",
             "split" : "conversation",
+            "channels" : 2,
             "eventUrl": ["https://demo.ngrok.io/webhooks/recordings"]
         },
         {

@@ -41,6 +41,7 @@ public class RecordCallSplitAudio {
 
             RecordAction record = new RecordAction.Builder()
                     .eventUrl(recordingUrl)
+                    .channels(2)
                     .split(SplitRecording.CONVERSATION)
                     .build();
 

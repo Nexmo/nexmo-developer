@@ -24,6 +24,7 @@ route :get, :post, '/webhooks/answer' do
         {
           "action": "record",
           "split": "conversation",
+          "channels": 2,
           "eventUrl": ["#{request.base_url}/webhooks/recordings"]
         },
         {

@@ -6,6 +6,6 @@ dependencies:
 code:
     source: .repos/nexmo-community/nexmo-php-quickstart/voice/record-a-call-split-audio/index.php
     from_line: 9
-    to_line: 41
+    to_line: 42
 file_name: index.php
 run_command: 'php index.php'

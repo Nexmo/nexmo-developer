@@ -12,6 +12,7 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
         [
             'action' => 'record',
             'split' => 'conversation',
+            'channels' => 2,
             'eventUrl' => [
                 $uri->getScheme().'://'.$uri->getHost().':'.$uri->getPort().'/webhooks/recording'
             ]
