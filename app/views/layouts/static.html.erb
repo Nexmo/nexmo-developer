@@ -4,7 +4,7 @@
 
   <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
-    <nav class="Vlt-sidenav Vlt-sidenav--light" id=Vlt-sidenav" data-turbolinks-permanent>
+    <nav class="Vlt-sidenav Vlt-sidenav--light" id="Vlt-sidenav" data-turbolinks-permanent>
       <% if @return_link %>
         <%= link_to @return_link[:path], class: 'sidenav-back', data: { turbolinks: false } do %>
           <i class="icon icon-angle-left"></i> Back to <%= @return_link[:title] %>
