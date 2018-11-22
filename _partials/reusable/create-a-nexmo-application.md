@@ -29,9 +29,7 @@ To create your application using the Dashboard:
 
 ### How to create a Messages and Dispatch application using the Nexmo CLI
 
-To create your application using the Nexmo CLI:
-
-1. Enter the following command into the shell:
+To create your application using the Nexmo CLI, enter the following command into the shell:
 
 ``` shell
 nexmo app:create "My Messages App" https://example.com/webhooks/inbound-message https://example.com/webhooks/message-status --keyfile=private.key --type=messages
