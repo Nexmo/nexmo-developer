@@ -1,6 +1,6 @@
 ---
 title: What is a Dispatch workflow?
-navigation_weight: 1
+navigation_weight: 0
 description: Dispatch workflows help you to build a robust messaging plan that incorporates failover to a secondary channel.
 ---
 

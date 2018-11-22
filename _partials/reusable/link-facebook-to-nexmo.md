@@ -40,7 +40,7 @@ You will see your Facebook Pages listed.
 
 **7.** Select the Facebook Page you want to connect to your Nexmo account from the drop down list.
 
-**8.** Paste in your JWT in the box provided (2. Provide a valid JWT token).
+**8.** Paste your JWT into the box labeled "2. Provide a valid JWT token".
 
 **9.** You will receive a message confirm successful subscription.
 
