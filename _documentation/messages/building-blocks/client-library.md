@@ -1,6 +1,6 @@
 ---
 title: Client library
-navigation_weight: 1
+navigation_weight: 3
 description: Client libraries are used to help you rapidly develop your messaging applications.
 ---
 

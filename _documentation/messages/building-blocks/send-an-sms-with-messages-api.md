@@ -1,6 +1,6 @@
 ---
 title: Send an SMS with the Messages API
-navigation_weight: 4
+navigation_weight: 7
 ---
 
 # Send an SMS with the Messages API

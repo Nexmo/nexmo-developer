@@ -1,6 +1,6 @@
 ---
 title: Receive message status callback
-navigation_weight: 3
+navigation_weight: 6
 ---
 
 # Message status

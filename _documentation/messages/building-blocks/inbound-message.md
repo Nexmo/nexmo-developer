@@ -1,6 +1,6 @@
 ---
 title: Receive an inbound message
-navigation_weight: 2
+navigation_weight: 5
 ---
 
 # Inbound message

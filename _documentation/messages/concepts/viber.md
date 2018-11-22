@@ -1,6 +1,6 @@
 ---
 title: Understanding Viber messaging
-navigation_weight: 4
+navigation_weight: 2
 description: Viber messaging solution for businesses.
 ---
 

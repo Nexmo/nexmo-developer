@@ -67,7 +67,7 @@
 "/messages-and-workflows-apis/messages/building-blocks/send-with-facebook-messenger": "/messages/building-blocks/send-with-facebook-messenger"
 "/messages/api-reference": "/api/messages-olympus"
 "/messages/building-blocks": "/messages/building-blocks/send-an-sms-with-messages-api"
-"/messages/concepts": "/messages/concepts/client-library"
+"/messages/concepts": "/messages/concepts/facebook"
 "/number-insight": "/number-insight/overview"
 "/number-insight/guides": "/number-insight/guides/cnam"
 "/number-insight/building-blocks": "/number-insight/building-blocks/number-insight-basic"

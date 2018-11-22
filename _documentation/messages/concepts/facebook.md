@@ -1,6 +1,6 @@
 ---
 title: Understanding Facebook messaging
-navigation_weight: 3
+navigation_weight: 1
 description: Understanding Facebook messaging.
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Configure webhooks
-navigation_weight: 1
+navigation_weight: 4
 ---
 
 # Inbound message and message status webhooks

@@ -23,8 +23,8 @@ The values you enter for webhook URLs depends on where your webhook server is lo
 
 Webhook | URL
 ---|---
-Status URL | https://www.example.com:3000/webhooks/message-status
-Inbound URL | http://www.example.com:3000/webhooks/inbound-message
+Status URL | `https://www.example.com:3000/webhooks/message-status`
+Inbound URL | `https://www.example.com:3000/webhooks/inbound-message`
 
 > **NOTE:** The default method of `POST` should be used for both of the webhook URLs.
 
