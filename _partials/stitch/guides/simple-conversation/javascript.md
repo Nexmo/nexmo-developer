@@ -246,13 +246,21 @@ class ChatApp {
       }
   }
 
-  authenticate() { // TODO }
+  authenticate() {
+    // TODO 
+  }
 
-  setupConversationEvents(conversation) { // TODO }
+  setupConversationEvents(conversation) {
+    // TODO
+  }
 
-  joinConversation(userToken) { // TODO }
+  joinConversation(userToken) {
+    // TODO
+  }
 
-  setupUserEvents() { // TODO }
+  setupUserEvents() {
+    // TODO
+  }
 }
 
 new ChatApp()
