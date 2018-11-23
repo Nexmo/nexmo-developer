@@ -1,5 +1,7 @@
 ---
-title: Concatenation and Encoding
+title: Concatenation and encoding
+description: Determining whether the byte length of a message results in it being sent as multiple SMS.
+navigation_weight: 2
 ---
 
 # Concatenation and Encoding

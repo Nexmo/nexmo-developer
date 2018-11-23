@@ -1,5 +1,7 @@
 ---
 title: Inbound SMS
+description: How to receive SMS on your Nexmo virtual numbers.
+navigation_weight: 5
 ---
 
 # Inbound SMS

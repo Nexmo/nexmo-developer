@@ -1,5 +1,7 @@
 ---
-title: Troubleshooting SMS
+title: Troubleshooting
+description: What to do if your SMS delivery fails.
+navigation_weight: 6
 ---
 
 # Troubleshooting SMS

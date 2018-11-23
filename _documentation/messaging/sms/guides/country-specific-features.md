@@ -1,10 +1,12 @@
 ---
 title: Country specific features
+description: How different countries' SMS sending rules can affect your campaign.
+navigation_weight: 3
 ---
 
 # Country specific features
 
-Find out how SMS differences in SMS implementation in different markets and territories can affect your campaign
+Find out how different SMS implementations in different markets and territories can affect your campaign.
 
 ## Overview
 

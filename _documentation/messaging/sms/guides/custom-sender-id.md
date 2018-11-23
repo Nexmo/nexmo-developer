@@ -1,5 +1,7 @@
 ---
-title: Sender Identity
+title: Sender identity
+description: How to change where your SMS appears to come from.
+navigation_weight: 1
 ---
 
 # Sender Identity

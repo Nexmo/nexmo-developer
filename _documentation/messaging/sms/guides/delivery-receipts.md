@@ -1,5 +1,7 @@
 ---
 title: Delivery receipts
+description: How to request a delivery receipt (DLR) from the carrier.
+navigation_weight: 4
 ---
 
 # Delivery receipts
