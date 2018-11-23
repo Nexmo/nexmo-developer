@@ -8,6 +8,8 @@ In this building block you will see how to send a WhatsApp message using the Mes
 
 For a step-by-step guide to this topic, you can read our tutorial [Sending WhatsApp messages with the Messages API](/tutorials/sending-whatsapp-messages-with-messages-api).
 
+> **NOTE:** The first time you send a message to a user, WhatsApp requires that message contains a template. This is explained in more detail in the [Understanding WhatsApp topic](/messages/concepts/whatsapp).
+
 ## Example
 
 Ensure the following variables are set to your required values using any convenient method:

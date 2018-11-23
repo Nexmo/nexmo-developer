@@ -22,11 +22,11 @@ A business can start a conversation with a user and a user can start a conversat
 
 WhatsApp has a core concept of Messages Templates (MTM). These were previously known as Highly Structured Messages (HSM).
 
-WhatsApp requires that a message sent to a user for the first time, or is outside the Customer Care Window, is an MTM message.
+> **IMPORTANT:** WhatsApp requires that a message that is sent to a user for the first time, or that is outside the Customer Care Window, is an MTM message. This means the message you first send must contain a suitable template. An example is provided in the following section.
 
 The MTM allows a business to send just the template identifier along with the appropriate parameters instead of the full message content.
 
-New templates need to be approved by WhatsApp. Please contact your Nexmo Account Manager to submit the templates. Over time Nexmo will also add generic templates that can be used by all businesses.
+> **NOTE:** New templates need to be approved by WhatsApp. Please contact your Nexmo Account Manager to submit the templates. Over time Nexmo will also add generic templates that can be used by all businesses.
 
 MTMs are designed to reduce the likelihood of spam to users on WhatsApp.
 
