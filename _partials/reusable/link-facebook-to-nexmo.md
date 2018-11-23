@@ -46,4 +46,4 @@ You will see your Facebook Pages listed.
 
 At this point your Nexmo Account and this Facebook Page are linked.
 
-> **NOTE:** If at some point in the future you want to further link a specific application to this page you can now do this from the Dashboard on the External Accounts tab for the specific Messages and Dispatch application you want to link.
+> **NOTE:** If at some point in the future you want to further link a specific application to this Facebook Page you can now do this from the Dashboard on the External Accounts tab for the specific Messages and Dispatch application you want to link.
