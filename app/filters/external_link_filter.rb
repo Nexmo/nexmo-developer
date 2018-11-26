@@ -3,7 +3,7 @@ class ExternalLinkFilter < Banzai::Filter
     @input = input
 
     document.css('a').each_with_index do |link, _index|
-      if link['href']&.start_with?('http')
+      if link['href']&.start_with?('http') && link['class'] && !link['class'].include?('no-external-marker')
         link['target'] = '_blank'
         if link.css('svg').empty?
           link.add_child <<~HEREDOC
