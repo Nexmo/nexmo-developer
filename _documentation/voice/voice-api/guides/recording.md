@@ -6,7 +6,7 @@ navigation_weight: 4
 
 # Recording audio
 
-## Overview Double YAY!
+## Overview Double YAY! more yays
 
 The Nexmo Voice API offers the ability to record call audio in several ways. You can:
 
