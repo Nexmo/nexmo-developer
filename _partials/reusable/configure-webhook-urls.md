@@ -28,6 +28,10 @@ Inbound URL | `https://www.example.com:3000/webhooks/inbound-message`
 
 > **NOTE:** The default method of `POST` should be used for both of the webhook URLs.
 
+### Inbound SMS webhooks
+
+Messages and Dispatch API does not support inbound SMS message and SMS delivery receipt callbacks via the application-specific webhooks described in the previous section. In order to receive callbacks for SMS message and SMS delivery receipts you need to set the [account-level webhooks for SMS](https://dashboard.nexmo.com/settings).
+
 ### Testing locally via Ngrok
 
 If you want to test your application locally you can use Ngrok.
