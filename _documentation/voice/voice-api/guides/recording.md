@@ -41,6 +41,46 @@ When recording a call, you can enable split recording which will result in the r
 ## Multi channel recording
 
 When recording a call, you can enable multichannel recording which allows up to 32 call legs to be recorded separately. One file with the number of channels set will be returned.
+
+In this example, we start a multichannel recording that expects three participants (`channels: 3`), then connects two additional numbers to the conversation. Each participant will appear in their own channel in the recording.
+
+For more information about the `record` action, see the [NCCO reference](/voice/voice-api/ncco-reference#record)
+
+```json
+[
+  {
+    "action": "record",
+    "eventUrl": ["https://example.com/recordings"],
+    "split": "conversation",
+    "channels": 3
+  },
+  {
+    "action": "connect",
+    "eventUrl": ["https://example.com/events"],
+    "from":"447700900000",
+    "endpoint": [
+      {
+        "type": "phone",
+        "number": "447700900001"
+      }
+    ]
+  },
+  {
+    "action": "connect",
+    "eventUrl": ["https://example.com/events"],
+    "from":"447700900000",
+    "endpoint": [
+      {
+        "type": "phone",
+        "number": "447700900002"
+      }
+    ]
+  }
+]
+```
+
+If you added another `connect` action to this NCCO, the first two participants would appear in their own channels, whilst participants three and four would appear in channel 3 together. To make each participant have their own channel, update the `channels` parameter to be `channels: 4` (or however many participants you have, with a maximum of 32).
+
 ## File formats
 
 * Nexmo supports recording in MP3 or WAV format, the default is MP3.
