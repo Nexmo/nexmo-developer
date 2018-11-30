@@ -79,7 +79,7 @@ For more information about the `record` action, see the [NCCO reference](/voice/
 ]
 ```
 
-If you added another `connect` action to this NCCO, the first two participants would appear in their own channels, whilst participants three and four would appear in channel 3 together. To make each participant have their own channel, update the `channels` parameter to be `channels: 4` (or however many participants you have, with a maximum of 32).
+If you added another `connect` action to this NCCO, the first two participants would appear in their own channels, whilst participants three and four would appear in channel 3 together. In this scenario, you would need to increase the number of channels to 4 to give each participant their own channel. You can have up to 32 participants in a single conversation.
 
 ## File formats
 
