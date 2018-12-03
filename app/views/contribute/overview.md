@@ -37,7 +37,3 @@ Nexmo Developer is an open-source platform built using a mix of Ruby on Rails, H
 ## [Contribution Guidelines](https://github.com/nexmo/nexmo-developer)
 
 The Contribution Guidelines outline the process and steps for reporting bugs or suggesting features as well as the semantics of contributing to our codebase and dealing with pull requests.
-
-## [Markdown Preview Editor](/markdown)
-
-Try out editing Markdown without the need to setup Nexmo Developer in your development environment. Using this tool you can preview your Markdown with all the styling and added functionality that is possible with Nexmo Developer documentation.
