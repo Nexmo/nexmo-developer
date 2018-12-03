@@ -13,7 +13,7 @@ This document contains the following information:
 - [Concepts](#concepts) - what you need to know
 - [Basic, Standard and Advanced API levels](#basic-standard-and-advanced-apis) - understand their different capabilities
 - **[Getting Started with the Number Insight API](#getting-started)** - try it out
-- [Guides](/#guides) - learn how to use the Number Insight API
+- [Guides](#guides) - learn how to use the Number Insight API
 - [Building Blocks](#building-blocks) - code snippets to help with specific tasks
 - [Tutorials](#tutorials) - detailed tutorials for some common use cases
 - [Reference](#reference) - complete API documentation

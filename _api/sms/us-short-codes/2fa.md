@@ -93,7 +93,7 @@ Each [request](#request) you make using the US Short Codes API returns a:
 * [Response](#keys-and-values) - the status and cost of your request to Nexmo in [JSON or XML](#base-url) format.
 * [Delivery receipt](#delivery-receipt) - the status and cost of the SMS sent by Nexmo to your user.
 
-> *Note*: you are only charged for correctly submitted outbound SMS. If [status](#response-code) is not *0*, you are not charged.
+> *Note*: you are only charged for correctly submitted outbound SMS. If status is not *0*, you are not charged.
 
 The response is send in the *api.txt* file when you make a request from the browser.
 

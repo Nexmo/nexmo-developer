@@ -15,7 +15,7 @@ This section describes:
 
 ## About Nexmo Call Control Objects
 
-The Call event model is asynchronous. A static or dynamically created NCCO script provides the business logic for your Call. When a Call is placed to your number, Nexmo makes a synchronous request to the webhook endpoint you set as the [answer_url](/api/voice#answer_url) for your number and retrieves the [NCCO object](#controlling) that controls the Call.
+The Call event model is asynchronous. A static or dynamically created NCCO script provides the business logic for your Call. When a Call is placed to your number, Nexmo makes a synchronous request to the webhook endpoint you set as the `answer_url` for your number and retrieves the NCCO object that controls the Call.
 
 The general schema of an NCCO is:
 
