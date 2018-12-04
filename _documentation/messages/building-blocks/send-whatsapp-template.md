@@ -2,7 +2,7 @@
 title: Send a WhatsApp Template (MTM)
 ---
 
-# Send a WhatsApp Template (MTM
+# Send a WhatsApp Template (MTM)
 
 In this building block you will see how to send a WhatsApp Template using the Messages API.
 
