@@ -27,4 +27,4 @@ application:
 
 ## Try it out
 
-When you run the code a FaceBook message will be sent to the recipient.
+When you run the code a FaceBook message is sent to the recipient.

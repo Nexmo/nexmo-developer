@@ -29,4 +29,4 @@ application:
 
 ## Try it out
 
-When you run the code an MMS message will be sent to the destination number.
+When you run the code an MMS message is sent to the destination number.

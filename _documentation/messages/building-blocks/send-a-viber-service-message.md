@@ -29,4 +29,4 @@ application:
 
 ## Try it out
 
-When you run the code a Viber message will be sent to the destination number.
+When you run the code a Viber message is sent to the destination number.

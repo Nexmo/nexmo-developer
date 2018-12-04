@@ -33,6 +33,8 @@ source: _partials/reusable/create-a-nexmo-application.md
 
 Please note that free form text messages can only be sent when a customer sends a message to the business first. The business has up to 24 hours from the last moment the customer messages to send a free form message back. After that period a MTM needs to be used.
 
+If you have not received a message from the customer you will need to send an MTM before sending a message. You can learn how to do this in [Understanding WhatsApp Messaging](/messages/concepts/whatsapp).
+
 Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` | The ID of the Nexmo Application that you created.
@@ -52,3 +54,4 @@ source: '_examples/messages/send-whatsapp-message'
 ## Further reading
 
 * [Messages documentation](/messages/overview)
+* [Understanding WhatsApp Messaging](/messages/concepts/whatsapp)

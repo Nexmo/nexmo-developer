@@ -22,4 +22,4 @@ application:
 
 ## Try it out
 
-The webhook will be invoked on changing message status and details printed to the console.
+The webhook is invoked on changing message status and details printed to the console.

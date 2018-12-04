@@ -30,4 +30,4 @@ application:
 
 ## Try it out
 
-When you run the code a message will be sent to the destination number.
+When you run the code a message is sent to the destination number.

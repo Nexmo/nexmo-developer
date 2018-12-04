@@ -22,4 +22,4 @@ application:
 
 ## Try it out
 
-The webhook will be invoked on inbound message and the message details and data printed to the console.
+The webhook is invoked on inbound message and the message details and data printed to the console.
