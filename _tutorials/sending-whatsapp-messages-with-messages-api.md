@@ -31,9 +31,11 @@ source: _partials/reusable/create-a-nexmo-application.md
 
 ## Send a WhatsApp message
 
-Please note that free form text messages can only be sent when a customer sends a message to the business first. The business has up to 24 hours from the last moment the customer messages to send a free form message back. After that period a MTM needs to be used.
+Please note that free form text messages can only be sent when a customer sends a message to the business first. The business has up to 24 hours from the last moment the customer messages to send a free form message back. After that period a WhatsApp Template (MTM) needs to be used.
 
-If you have not received a message from the customer you will need to send an MTM before sending a message. You can learn how to do this in [Understanding WhatsApp Messaging](/messages/concepts/whatsapp).
+If you have not received a message from the customer you will need to send a WhatsApp Template (MTM) before sending a message. You can learn more about this in [Understanding WhatsApp Messaging](/messages/concepts/whatsapp).
+
+If you want to see the code for sending a WhatsApp Template you can view the [Sending a WhatsApp Template](/messages/building-blocks/send-whatsapp-template) building block.
 
 Key | Description
 -- | --
