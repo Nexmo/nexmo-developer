@@ -10,11 +10,11 @@ curl -X POST \
   -d '{
    "from":{
       "type":"whatsapp",
-      "number":"WHATSAPP_NUMBER"
+      "number":'$WHATSAPP_NUMBER'
    },
    "to":{
       "type":"whatsapp",
-      "number":"TO_NUMBER"
+      "number":'$TO_NUMBER'
    },
    "message":{
       "content":{
