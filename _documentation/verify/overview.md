@@ -32,7 +32,7 @@ source: '_examples/verify/building-blocks/send-verification-request'
 
 Nexmo handles code generation, verification and delivery via the fastest route available. You pay only for successful verifications, regardless of where your user resides.
 
-If the user does not reply [within a specified time period](), the Verify API sends it as a voice call using [TTS]() (Text to Speech) based on the user's locale. For example, the TTS for a `61*` phone number is sent in English with an Australian accent (`en-au`). You can specify the language, accent and gender in the request.
+If the user does not respond to one of two SMS [within a specified time period](/verify/guides/verification-stages), the Verify API sends it as a voice call using [TTS](/concepts/guides/glossary#tts-api) (Text to Speech) based on the user's locale. For example, the TTS for a `61*` phone number is sent in English with an Australian accent (`en-au`). You can specify the language, accent and gender in the request.
 
 By using the Verify API for [2FA]() (two-factor authentication), you can:
 
