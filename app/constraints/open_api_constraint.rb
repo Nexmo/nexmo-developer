@@ -11,6 +11,7 @@ OPEN_API_PRODUCTS = %w[
   account/secret-management
   external-accounts
   verify
+  application.v2
 ].freeze
 
 class OpenApiConstraint
