@@ -3,8 +3,18 @@ Dotenv.load
 
 NEXMO_API_KEY = ENV['NEXMO_API_KEY']
 NEXMO_API_SECRET = ENV['NEXMO_API_SECRET']
-VERIFY_REQUEST_ID = ENV['VERIFY_REQUEST_ID']
-VERIFY_CODE = ENV['VERIFY_CODE']
+
+REQUEST_ID = ARGV[0]
+if REQUEST_ID.empty?
+    puts 'Please supply the `request_id'
+    exit
+end
+
+CODE = ARGV[1]
+if CODE.empty?    
+    puts 'Please supply the confirmation code'
+    exit
+end
 
 require 'nexmo'
 
@@ -14,8 +24,8 @@ client = Nexmo::Client.new(
 )
 
 response = client.verify.check(
-  request_id: VERIFY_REQUEST_ID,
-  code: VERIFY_CODE
+  request_id: REQUEST_ID,
+  code: CODE
 )
 
 # when the check is successful

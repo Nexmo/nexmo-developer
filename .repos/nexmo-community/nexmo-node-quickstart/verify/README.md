@@ -9,7 +9,7 @@ This example includes a minimal web interface to demonstrate a proper 2FA UX.
 To use this sample you will first need a [Nexmo account](https://dashboard.nexmo.com/sign-up). Once you have your own API credentials, rename
 the `.env-example` file to `.env` and set the values as required.
 
-For some of the examples you will need to [buy a number](https://dashboard.nexmo.com/buy-numbers).
+For some of the examples, you will need to [buy a number](https://dashboard.nexmo.com/buy-numbers).
 
 ## Tutorials & Sample Code
 

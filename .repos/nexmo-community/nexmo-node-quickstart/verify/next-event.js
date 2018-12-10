@@ -21,7 +21,7 @@ const nexmo = new Nexmo({
 
 nexmo.verify.control({
   request_id: REQUEST_ID,
-  cmd: 'cancel'
+  cmd: 'trigger_next_event'
 }, (err, result) => {
   if (err) {
     console.error(err);

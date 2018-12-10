@@ -14,14 +14,11 @@ client = Nexmo::Client.new(
 
 response = client.verify.request(
   number: RECIPIENT_NUMBER,
-  brand: 'Quickstart'
+  brand: 'AcmeInc'
 )
 
-# verification request has
-# been created
 if response.status == '0'
-  # this VERIFY_REQUEST_ID can
-  # be used in the next steps
+  # display the Verify `request_id`
   puts response.request_id
 else
   puts response.error_text

@@ -11,6 +11,12 @@ if (!REQUEST_ID) {
   return;
 }
 
+const CODE = process.argv[3];
+if (!CODE) {
+  console.error('Please supply the confirmation code');
+  return;
+}
+
 const Nexmo = require('nexmo');
 const nexmo = new Nexmo({
   apiKey: NEXMO_API_KEY,
@@ -19,9 +25,9 @@ const nexmo = new Nexmo({
   debug: true
 });
 
-nexmo.verify.control({
+nexmo.verify.check({
   request_id: REQUEST_ID,
-  cmd: 'cancel'
+  code: CODE
 }, (err, result) => {
   if (err) {
     console.error(err);

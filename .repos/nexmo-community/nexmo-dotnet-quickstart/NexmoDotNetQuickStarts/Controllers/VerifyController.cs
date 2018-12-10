@@ -30,12 +30,12 @@ namespace NexmoDotNetQuickStarts.Controllers
         [HttpPost]
         public ActionResult Start(string to)
         {
-            var TO_NUMBER = to;
+            var RECIPIENT_NUMBER = to;
 
             var start = Client.NumberVerify.Verify(new NumberVerify.VerifyRequest
             {
-                number = TO_NUMBER,
-                brand = "NexmoQS"
+                number = RECIPIENT_NUMBER,
+                brand = "AcmeInc"
             });
 
             Session["requestID"] = start.request_id;

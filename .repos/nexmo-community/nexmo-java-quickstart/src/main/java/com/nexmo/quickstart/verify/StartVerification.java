@@ -34,11 +34,11 @@ public class StartVerification {
 
         String NEXMO_API_KEY = envVar("NEXMO_API_KEY");
         String NEXMO_API_SECRET = envVar("NEXMO_API_SECRET");
-        String TO_NUMBER = envVar("TO_NUMBER");
+        String RECIPIENT_NUMBER = envVar("RECIPIENT_NUMBER");
 
 
         NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
-        VerifyResponse response = client.getVerifyClient().verify(TO_NUMBER, "NEXMO");
+        VerifyResponse response = client.getVerifyClient().verify(RECIPIENT_NUMBER, "NEXMO");
 
         if (response.getStatus() == VerifyStatus.OK) {
             System.out.printf("RequestID: %s", response.getRequestId());
