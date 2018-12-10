@@ -1,12 +1,12 @@
 /* Two-Factor Auth Tutorial Code Sample
   `nexmo.verify.request` to send a temp code to a user's phone, then
-  `nexmo.verify.check` to validate the code entered by the user (on te web interface)
+  `nexmo.verify.check` to validate the code entered by the user (on the web interface)
 
-  In this sample app, upon a user registartion, store the user's phone number
+  In this sample app, upon user registration, store the user's phone number
   (as a key) and the generated request ID (as the value) in the persist storage.
 
   When the user enter the PIN code, look the info up and match the PIN with the
-  requerst ID fromt he storage to verify.
+  request ID from the storage to verify.
 
   Verify API Reference: https://developer.nexmo.com/api/verify
 */
