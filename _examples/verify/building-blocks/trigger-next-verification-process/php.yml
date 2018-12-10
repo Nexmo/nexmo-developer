@@ -1,0 +1,15 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+client:
+    source: .repos/nexmo-community/nexmo-php-quickstart/verify/trigger_next_event.php
+    from_line: 10
+    to_line: 11
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/verify/trigger_next_event.php
+    from_line: 13
+    to_line: 13
+file_name: trigger_next_event.php
+run_command: 'php trigger_next_event.php'

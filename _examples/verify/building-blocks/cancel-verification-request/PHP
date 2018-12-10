@@ -1,4 +1,0 @@
-$client = new Nexmo\Client(new Nexmo\Client\Credentials\Basic(API_KEY, API_SECRET));
-
-$verification = new \Nexmo\Verify\Verification(REQUEST_ID);
-$client->verify()->cancel($verification);

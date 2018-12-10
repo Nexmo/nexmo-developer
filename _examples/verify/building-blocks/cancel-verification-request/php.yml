@@ -1,0 +1,15 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+client:
+    source: .repos/nexmo-community/nexmo-php-quickstart/verify/cancel.php
+    from_line: 10
+    to_line: 11
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/verify/cancel.php
+    from_line: 13
+    to_line: 20
+file_name: cancel.php
+run_command: 'php cancel.php'

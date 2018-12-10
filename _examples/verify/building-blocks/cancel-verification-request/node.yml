@@ -1,0 +1,15 @@
+---
+title: Node
+language: node
+dependencies:
+    - nexmo
+client:
+    source: .repos/nexmo-community/nexmo-node-quickstart/verify/cancel.js
+    from_line: 14
+    to_line: 20
+code:
+    source: .repos/nexmo-community/nexmo-node-quickstart/verify/cancel.js
+    from_line: 22
+    to_line: 31
+file_name: cancel.js
+run_command: 'node cancel.js'

@@ -1,0 +1,15 @@
+---
+title: Ruby
+language: ruby
+dependencies:
+    - nexmo
+client:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/verify/request.rb
+    from_line: 8
+    to_line: 13
+code:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/verify/request.rb
+    from_line: 15
+    to_line: 25
+file_name: request.rb
+run_command: 'ruby request.rb'

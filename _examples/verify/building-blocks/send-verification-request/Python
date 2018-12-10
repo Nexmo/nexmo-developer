@@ -1,4 +1,0 @@
-import nexmo
-
-client = nexmo.Client(key=api_key, secret=api_secret)
-verify_resp = client.start_verification(number='447700900000', brand='MyApp')

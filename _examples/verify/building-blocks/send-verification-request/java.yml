@@ -1,0 +1,16 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:4.0.0'
+client:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/verify/StartVerification.java
+    from_line: 40
+    to_line: 40
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/verify/StartVerification.java
+    from_line: 41
+    to_line: 47
+file_name: StartVerification.java
+run_command: java-ide
+unindent: true

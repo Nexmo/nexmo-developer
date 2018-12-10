@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/curl-building-blocks/verify/trigger-next-verification-process.sh
+    from_line: 4
+    to_line: 4
+file_name: trigger-next-verification-process.sh
+run_command: 'sh trigger-next-verification-process.sh'

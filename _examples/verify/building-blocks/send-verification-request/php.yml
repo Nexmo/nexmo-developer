@@ -1,0 +1,15 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+client:
+    source: .repos/nexmo-community/nexmo-php-quickstart/verify/request.php
+    from_line: 5
+    to_line: 6
+code:
+    source: .repos/nexmo-community/nexmo-php-quickstart/verify/request.php
+    from_line: 8
+    to_line: 9
+file_name: request.php
+run_command: 'php request.php'

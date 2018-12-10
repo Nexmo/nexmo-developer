@@ -1,5 +1,0 @@
-require 'nexmo'
-
-client = Nexmo::Client.new(api_key: API_KEY, api_secret: API_SECRET)
-
-client.verify.request(number: '447700900000', brand: 'MyApp')
