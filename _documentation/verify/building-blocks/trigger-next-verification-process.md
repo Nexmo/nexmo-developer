@@ -10,5 +10,5 @@ The Verify API starts the verification process by sending an SMS to the user. If
 You can advance to the next verification attempt programmatically by making a [control request](/api/verify#verify-control). You would normally do this if your user indicates that they prefer to verify via a phone call instead of by SMS.
 
 ```building_blocks
-source: '_examples/verify/building-blocks/trigger-next-verification-process'
+source: '_examples/verify/trigger-next-verification-process'
 ```

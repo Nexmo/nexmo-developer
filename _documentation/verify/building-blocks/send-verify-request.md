@@ -10,5 +10,5 @@ When you have collected a user's phone number, start the verification process by
 The Verify API returns a `request_id`. Use this to identify a specific verification request in subsequent calls to the API, such as when making a [check request](/verify/building-blocks/check-verify-request) to see if the user provided the correct code.
 
 ```building_blocks
-source: '_examples/verify/building-blocks/send-verification-request'
+source: '_examples/verify/send-verification-request'
 ```
