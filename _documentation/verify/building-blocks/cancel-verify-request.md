@@ -1,37 +1,12 @@
 ---
 title: Cancel verification request
-navigation_weight: 3
+navigation_weight: 4
 ---
 
 # Cancel verification request
 
-Cancel a previously triggered a verification request using a `request_id`.
+If the user decides to cancel the verification process, you should send a [control request](/api/verify#verify-control) to the Verify API. This will terminate the verification process even if the user supplied the correct code.
 
-```tabbed_examples
-tabs:
-  cURL:
-    source: _examples/verify/building-blocks/cancel-verification-request/cURL
-  Node:
-    source: .repos/nexmo-community/nexmo-node-quickstart/verify/cancel.js
-    from_line: 13
-  Python:
-    source: _examples/verify/building-blocks/cancel-verification-request/Python
-  PHP:
-    source: _examples/verify/building-blocks/cancel-verification-request/PHP
-  Ruby:
-    source: _examples/verify/building-blocks/cancel-verification-request/Ruby
+```building_blocks
+source: '_examples/verify/building-blocks/cancel-verification-request'
 ```
-
-## Guides
-
-* [Verify a user Guide](/verify/guides/verify-a-user)
-
-## Building Blocks
-
-* [Send verification code](/verify/building-blocks/send-verify-request)
-* [Check verification code](/verify/building-blocks/check-verify-request)
-* [Trigger next verification process](/verify/building-blocks/trigger-next-verification-process)
-
-## Reference
-
-* [Verify API Reference](/api/verify)

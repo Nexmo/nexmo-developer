@@ -1,26 +1,14 @@
 ---
 title: Trigger next verification process
-navigation_weight: 4
+navigation_weight: 5
 ---
 
 # Trigger next verification process
 
-Trigger the next verification in the process. This can be used if a user has previously indicated they prefer to receive a code via text-to-speech.
+The Verify API starts the verification process by sending an SMS to the user. If the user does not confirm the code that they received within a [certain time period](/verify/guides/verification-stages), the Verify API sends a second SMS. If that does not elicit a response it attempts a Text-to-Speech (TTS) call.
 
-```tabbed_examples
+You can advance to the next verification attempt programmatically by making a [control request](/api/verify#verify-control). You would normally do this if your user indicates that they prefer to verify via a phone call instead of by SMS.
+
+```building_blocks
 source: '_examples/verify/building-blocks/trigger-next-verification-process'
 ```
-
-## Guides
-
-* [Verify a user Guide](/verify/guides/verify-a-user)
-
-## Building Blocks
-
-* [Send verification code](/verify/building-blocks/send-verify-request)
-* [Check verification code](/verify/building-blocks/check-verify-request)
-* [Cancel verification request](/verify/building-blocks/cancel-verify-request)
-
-## Reference
-
-* [Verify API Reference](/api/verify)
