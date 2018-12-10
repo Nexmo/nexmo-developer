@@ -4,7 +4,7 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 client:
-    source: .repos/nexmo-community/nexmo-dotnet-quickstart/blob/ASPNET/NexmoDotNetQuickStarts/Authentication/BasicAuth.cs
+    source: .repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Authentication/BasicAuth.cs
     from_line: 13
     to_line: 17
 code:
