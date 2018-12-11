@@ -1,6 +1,6 @@
 <br>
-<div class="row">
-  <div class="columns small-12">
+<div class="Vlt-grid">
+  <div class="Vlt-col">
     <center>
       <h1>Nexmo ❤️ community</h1>
       <h2>Here are some of the events we've been proud to support in the past:</h2>
@@ -10,12 +10,12 @@
   </div>
 </div>
 
-<div class="row">
+<div class="Vlt-grid">
   <% @past_events.each_with_position do |event, first, last| %>
     <%= render 'event', event: event, first: first, last: last %>
   <% end %>
 </div>
 
 <p class="center">
-  <%= link_to "view upcoming events", community_path %>
+  <%= link_to "View upcoming events", community_path %>
 </p>
