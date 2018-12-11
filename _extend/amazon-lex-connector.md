@@ -5,6 +5,7 @@ tags: ["Amazon","Lex","AI","Bots"]
 cta: Get this Repo
 link: https://github.com/nexmo/lex-connector
 image: /assets/images/extend/amazon-lex-logo.jpg
+published: true
 ---
 
 ## Overview

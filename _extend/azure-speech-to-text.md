@@ -5,6 +5,7 @@ tags: ["Microsoft", "Azure", "Speech to Text","Transcription","Python"]
 cta: Get this Repo
 link: https://github.com/nexmo-community/voice-microsoft-speechtotext
 image: /assets/images/extend/azure-icon.png
+published: true
 ---
 
 

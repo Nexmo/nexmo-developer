@@ -5,6 +5,7 @@ tags: ["Microsoft","Flow"]
 cta: Use Microsoft Flow
 link: https://flow.microsoft.com/en-us/connectors/shared_nexmo/nexmo/
 image: /assets/images/extend/msft_flow.png
+published: true
 ---
 
 ## About

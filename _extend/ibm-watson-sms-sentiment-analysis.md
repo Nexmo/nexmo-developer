@@ -5,6 +5,7 @@ tags: ["Watson","AI", "SMS", "Sentiment Analysis"]
 cta: Get this Repo
 link: https://github.com/nexmo-community/sms-sentiment-watson
 image: /assets/images/extend/ibm_watson_avatar_purple.png
+published: true
 ---
 
 ## About

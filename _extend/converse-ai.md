@@ -5,6 +5,7 @@ tags: ["Converse.ai","IVR","SMS"]
 cta: Use Converse AI
 link: https://get.converse.ai/docs/nexmo
 image: /assets/images/extend/converse_small.png
+published: true
 ---
 
 ## Usage

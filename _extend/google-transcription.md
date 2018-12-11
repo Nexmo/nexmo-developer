@@ -5,6 +5,7 @@ tags: ["Google","Speech to Text","Transcription","Node"]
 cta: Get this Repo
 link: https://github.com/nexmo-community/voice-google-speechtotext
 image: /assets/images/extend/google_cloud_icon.png
+published: true
 ---
 
 ## Usage

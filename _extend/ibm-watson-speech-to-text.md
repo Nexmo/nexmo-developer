@@ -5,6 +5,7 @@ tags: ["IBM", "Watson", "Speech to Text","Transcription","Python"]
 cta: Get this Repo
 link: https://github.com/nexmo-community/voice-watson-speechtotext
 image: /assets/images/extend/ibm_watson_avatar_purple.png
+published: true
 ---
 
 
