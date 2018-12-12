@@ -1,0 +1,28 @@
+---
+title: Changing the default event timings
+description: How to change the default timings for each verification event.
+navigation_weight: 2
+---
+
+# Changing the Default Event Timings
+
+You can change the [default timings](/verify/guides/verification-events#timing-of-each-event) by supplying custom values for `pin_expiry` and/or `next_event_wait` in the initial request:
+
+* `pin_expiry`:
+    * The time after which the code expires
+    * Must be an integer value between 60 and 3600 seconds
+    * The default is 300 seconds
+* `next_event_wait`:
+    * The time after which Nexmo triggers the next verification attempt
+    * Nexmo calculates the default value based on the average time users take to complete verification
+
+If you specify values for both `pin_expiry` and `next_event_wait`, the value of `pin_expiry` must be an exact multiple of `next_event_wait`.
+
+## Examples
+
+|`pin_expiry`|`next_event_wait`|Effect
+|--|--|--|
+|360 seconds|120 seconds|All three attempts use the same verification code
+|240 seconds|120 seconds|The first and second attempts use the same code and the Verify API generates a new code for the third attempt
+|120 seconds (or 90 or 200 seconds)|120 seconds|The Verify API generates a new code for each attempt
+

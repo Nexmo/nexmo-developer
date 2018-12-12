@@ -8,6 +8,8 @@ description: The Verify API overview.
 
 The Verify API enables you to use [2FA](/concepts/guides/glossary#2fa) (two-factor authentication) to check that you can contact a user at a specific number.
 
+The general workflow is shown in the following sequence diagram:
+
 ```js_sequence_diagram
 Participant Your server
 Participant Nexmo
@@ -19,6 +21,8 @@ User's phone->Your server: 3. User enters verification code into your app
 Your server->Nexmo: 4. You submit the `request_id` and code
 Nexmo-->Your server: Nexmo sends the verification result
 ```
+
+The Verify API makes three attempts to contact the user before failing the verification process. See [verification events](/verify/guides/verification-events).
 
 ## Getting Started
 
