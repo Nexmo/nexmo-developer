@@ -4,12 +4,12 @@ language: node
 dependencies:
     - nexmo
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/verify/check.js
-    from_line: 20
-    to_line: 26
+    source: .repos/nexmo-community/nexmo-node-quickstart/verify/request.js
+    from_line: 10
+    to_line: 14
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/verify/check.js
-    from_line: 28
-    to_line: 37
-file_name: check.js
-run_command: 'node check.js'
+    source: .repos/nexmo-community/nexmo-node-quickstart/verify/request.js
+    from_line: 18
+    to_line: 28
+file_name: request.js
+run_command: 'node request.js'
