@@ -30,7 +30,7 @@ The Verify API makes three attempts to contact the user before failing the verif
 
 ## Getting Started
 
-The following sample shows you how to start the verification process by sending a verification code to a user. To learn how to validate the code the user supplies and perform other operations, see the building blocks.
+The following sample shows you how to start the verification process by sending a verification code to a user. To learn how to validate the code the user supplies and perform other operations, see the [building blocks](/verify/overview#building-blocks).
 
 ```building_blocks
 source: '_examples/verify/send-verification-request'
