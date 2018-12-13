@@ -312,3 +312,11 @@ app.post('/check-code', (req, res) => {
 ## Conclusion
 
 You can now log a user into your web application without a password using just their phone number. To achieve this you collected their phone number, used the Verify API to send the user a code, collected this code from the user and sent it back to the Verify API to check.
+
+## Resources
+
+* [Code on GitHub](https://github.com/nexmo-community/node-passwordless-login) - all the code from this application
+* [Verify API reference](/api/verify) - detailed API documentation for the Verify API
+* [Passwordless authentication use case](https://www.nexmo.com/use-cases/passwordless-authentication/) - upon which this tutorial is based
+* [Number Insight API](/number-insight/overview) - if you want to ensure that user-provided phone numbers are in the correct international format that the Verify API requires
+
