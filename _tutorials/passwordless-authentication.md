@@ -1,244 +1,314 @@
 ---
 title: Passwordless authentication
 products: verify
-description: Using the Verify API to allow users to login to a Ruby application.
+description: Use the Verify API to log a user into an application with just their phone number instead of a password.
 languages:
-    - Ruby
+    - Node
 ---
-# Passwordless authentication
+# Passwordless Authentication
 
-Although logging in with usernames and passwords is very common, passwords can be hard to remember, insecure and do not always offer the best usability.
+Passwords can be hard to remember and insecure. By implementing passwordless login with the Verify API, you can replace passwords with single-use codes delivered to your user's mobile phone by SMS or a voice call. 
 
-By implementing passwordless login you replace static passwords with single use codes delivered by Nexmo in an SMS or a Voice calls. Your users can forget about passwords.
-
-This tutorial is based on the [Passwordless Authentication](https://www.nexmo.com/use-cases/passwordless-authentication/) use case. You can [download the source code from GitHub](https://github.com/Nexmo/ruby-passwordless-login).
+This tutorial is based on the [Passwordless Authentication](https://www.nexmo.com/use-cases/passwordless-authentication/) use case. You can [download the source code](https://github.com/nexmo-community/node-passwordless-login) from GitHub.
 
 ## In this tutorial
 
-We will build a simple app that uses the Nexmo Verify API to log a user in without them having to type a password.
+We will build a simple application that uses Node.js and the Nexmo Verify API to authenticate a user without requiring them to use a password.
 
 The following sections explain the code in this tutorial. They show you how to:
 
-* [Create a basic Web app](#create-a-basic-web-app) - create a basic Web app that the user logs into
-* [Collect the user's phone number](#collect-a-phone-number) - add a form to collect the user's phone number
-* [Send the verification request](#send-verification-request) - create a verification request and send a PIN to the user's phone number
-* [Collect the PIN](#collect-the-pin) - add a form to collect the PIN from the user
-* [Verify the PIN](#verify-the-pin) - verify that the PIN the user provided is valid and log him or her in
+* [Create the basic web application](#create-the-basic-web-application) - create the basic web application and login page
+* [Collect the user's phone number](#collect-the-user-s-phone-number) - add a form to collect the user's phone number
+* [Send the verification request](#send-the-verification-request) - create a verification request to send a verification code to the user's phone number
+* [Collect the verification code](#collect-the-verification-code) - add a form to collect the verification code from the user
+* [Check the verification code](#check-the-verification-code) - determine if the code that the user provided is valid and, if so, log them in
 
 ## Prerequisites
 
 To work through this tutorial you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* To download the tutorial from <https://github.com/Nexmo/ruby-passwordless-login>
-* Follow the installation instructions in the tutorial readme
+* A [Nexmo account](https://dashboard.nexmo.com/sign-up).
+* The [source code](https://github.com/nexmo-community/node-passwordless-login) from GitHub. Installation instructions are in the [README](https://github.com/nexmo-community/node-passwordless-login/blob/master/README.md).
 
-⚓ A basic web application
-## Create a basic Web app
+## Create the basic web application
 
-To build the web app, we use [Sinatra](http://www.sinatrarb.com) and [Rack-Flash](https://github.com/nakajima/rack-flash) to create a single page web app:
+The application uses the [Express](https://expressjs.com/) framework for routing and the [pug](https://www.npmjs.com/package/pug) templating system for building the UI.
 
-```ruby
-# enable sessions and set the
-# session secret
-enable :sessions
-set :session_secret, '123456'
+### Initialize dependencies
 
-# specify a default layout
-set :erb, layout: :layout
+In addition to `express` and `pug`, we will use the following external modules:
 
-# Index
-# - tries to show the current user's phone number if it is present
-#
-get '/' do
-  @user = session[:user]
-  erb :index
-end
+* `express-session` - to manage the login state of the user
+* `body-parser` - to parse `POST` requests
+* `dotenv` - to store your Nexmo API key and secret and the name of your application in a `.env` file
+
+We initialize the dependencies and start the web server in `server.js`: 
+
+```javascript
+require('dotenv').load();
+
+const path = require('path')
+const express = require('express');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const app = express();
+const Nexmo = require('nexmo');
+
+const NEXMO_API_KEY = process.env.NEXMO_API_KEY;
+const NEXMO_API_SECRET = process.env.NEXMO_API_SECRET;
+const NEXMO_BRAND_NAME = process.env.NEXMO_BRAND_NAME;
+
+let verifyRequestId = null;
+let verifyRequestNumber = null;
+
+// Location of the application's CSS files
+app.use(express.static('public'));
+
+// The session object we will use to manage the user's login state
+app.use(session({
+    secret: 'loadsofrandomstuff',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// For templating
+app.set('view engine', 'pug');
+
+// Run the web server
+const server = app.listen(3000, () => {
+    console.log(`Server running on port ${server.address().port}`);
+});
 ```
 
-In the HTML you display the user's phone number and either:
+### Define the routes
 
-* If the user is already logged in, show a logout link.
-* If not, show a link to the login page.
+We will use the following routes in our application:
 
-```erb
-<h1>
-  Hello <%= @user %>
-</h1>
+* `/` - the home page, where we will check if a user is logged in or not.
+* `/login` - to display a page (`login.html`) where the user can enter their phone number
+* `/verify` - when the user has entered their phone number, we redirect here to create a [verify request](/api/verify#verify-request) to start the verification process and display a page (`entercode.html`) where they can enter the code that they receive
+* `/check-code` - when the user has entered the verification code we will perform a [check request](/api/verify#verify-check) to determine if the code that they entered is the one that they were sent. We return them to the home page where they will either be logged in (check successful) or prompted to log in again (check unsuccessful).
+* `/logout` - to delete the user's session details and send them back to the home page
 
-<% if @user %>
-  <a href="/logout">Logout</a>
-<% else %>
-  <a href="/login">Login</a>
-<% end %>
+```javascript
+app.get('/', (req, res) => {
+    /*
+        If there is a session for the user, the `index.html`
+        page will display the number that was used to log
+        in. If not, it will prompt them to log in.
+    */
+});
+
+app.get('/login', (req, res) => {
+    // Display the login page
+    res.render('login');
+});
+
+app.post('/verify', (req, res) => {
+    // Start the verification process
+
+    /* 
+        Redirect to page where the user can 
+        enter the code that they received
+     */
+    res.render('entercode');
+});
+
+app.post('/check-code', (req, res) => {
+    // Check the code provided by the user
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+});
+```
+
+### Display the login page
+
+In the `/` route, you want to provide the `index.html` page with the user's login details (if the user is logged in) and the brand name for the application that you specified in the `.env` file, for example:
+
+```
+NEXMO_API_KEY=
+NEXMO_API_SECRET=
+NEXMO_BRAND_NAME=Acme Inc
+```
+
+Code the `/` route handler as shown below:
+
+```javascript
+app.get('/', (req, res) => {
+    /*
+        If there is a session for the user, the `index.html`
+        page will display the number that was used to log
+        in. If not, it will prompt them to log in.
+    */
+    if (!req.session.user) {
+        res.render('index', {
+            brand: NEXMO_BRAND_NAME
+        });
+    }
+    else {
+        res.render('index', {
+            number: req.session.user.number,
+            brand: NEXMO_BRAND_NAME
+        });
+    }
+});
+```
+
+This populates the `index.html` page using the variable interpolation and conditional processing provided by the `pug` tempating library.
+
+In the HTML you display the user's phone number and:
+
+* If the user is already logged in, show the number that they are logged in as and a logout button.
+* If not, show a login button that redirects to the `/login` route.
+
+```jade
+extends layout.pug
+
+block content
+    h1 Welcome to #{brand}!
+    if number
+        p You are logged in using number: #{number}
+        a(href="logout")
+            button.ghost-button(type="button") Logout
+    else
+        p Please log in to continue
+        a(href="login")
+            button.ghost-button(type="button") Login
+```
+
+## Collect the user's phone number
+
+When your user clicks the login button on your homepage, redirect to the `/login` route and show them the form where they can enter their number:
+
+```javascript
+app.get('/login', (req, res) => {
+    // Display the login page
+    res.render('login');
+});
+```
+
+The `login.html` page is generated from the `login.pug` file:
+
+```jade
+extends layout.pug
+
+block content
+    h1 Log in: Step 1
+    fieldset
+        form(action='/verify', method='post')
+            input.ghost-input(name='number', type='text', placeholder='Enter your mobile number', required='')
+            input.ghost-button(type='submit', value='Get Verification Code')
+```
+
+> Note: The application expects the phone number your users provide to be in [E.164](/voice/voice-api/guides/numbers) format that includes the country prefix. In a production application you would probably want to format local numbers for them. You can do this using the [Number Insight API](/number-insight/building-blocks/number-insight-basic).
+
+When the user has submitted this form, your application redirects to the `/verify` route where you will send a verification request using the Nexmo Verify API.
+
+## Send the verification request
+
+The [verify request](/api/verify#verify-request) starts the verification process by generating a verification code to send to the user. The first one is sent by SMS. If the user fails to respond within a [specified time period](/verify/guides/verification-events#timing-of-each-event) then the API makes a second and, if necessary, third attempt to deliver the PIN code using a voice call.
+
+To send the verification request, use the [nexmo-node](https://github.com/Nexmo/nexmo-node) REST API client library to your application. Add the following to `server.js`:
+
+```javascript
+const nexmo = new Nexmo({
+    apiKey: NEXMO_API_KEY,
+    apiSecret: NEXMO_API_SECRET
+}, {
+        debug: true
+    });
+```
+
+You must configure your [API key and secret](https://dashboard.nexmo.com/settings) in the `.env` file in order to initialize the `nexmo` library:
+
+```
+NEXMO_API_KEY=YOUR_NEXMO_API_KEY
+NEXMO_API_SECRET=YOUR_NEXMO_API_SECRET
+NEXMO_BRAND_NAME=Acme Inc
+```
+
+> **Note**: Nexmo recommends that you always store your API credentials in environment variables.
+
+You can then send the verification code to your user in the `/verify` route by making a [verify request](/api/verify#verify-request) to the Verify API:
+
+```javascript
+app.post('/verify', (req, res) => {
+    // Start the verification process
+    verifyRequestNumber = req.body.number;
+    nexmo.verify.request({
+        number: verifyRequestNumber,
+        brand: NEXMO_BRAND_NAME
+    }, (err, result) => {
+        if (err) {
+            console.error(err);
+        } else {
+            verifyRequestId = result.request_id;
+            console.log(`request_id: ${verifyRequestId}`);
+        }
+    });
+    /* 
+        Redirect to page where the user can 
+        enter the code that they received
+     */
+    res.render('entercode');
+});
+```
+
+We store the user's phone number and the `request_id` that the call to the Verify API returns. We will need the `request_id` to check the code that the user enters into our application. We will display the phone number on the home page if the user logs in successfully.
+
+## Collect the verification code
+
+When the user receives the verification code they enter it using the form provided in `entercode.html`:
+
+```jade
+extends layout.pug
+
+block content
+    h1 Log in: Step 2
+    fieldset
+        form(action='/check-code', method='post')
+            input.ghost-input(name='code', type='text', placeholder='Enter your verification code', required='')
+            input.ghost-button(type='submit', value='Verify me!')
 ```
 
 
-## Collect a phone number
+## Check the verification code
 
-To use the Verify API, you use two API calls. The first sends starts the verification process by generating a PIN to send to the user (first by SMS, then if that fails, through a voice call). The second call is where you send back the PIN the user enter in your app. The response to the second API call will tell you whether the user entered the PIN correctly.
+To verify the code submitted by the user you make a [verify check](/api/verify#verify-check) request. You pass in the `request_id` (which we stored in the `/verify` route handler) and the code provided.
 
-```js_sequence_diagram
-Participant App
-Participant Nexmo
-Participant User
-Note over App,Nexmo: Initialization
-App->Nexmo: Verify Request
-Nexmo-->App: Verify Request ID
-Nexmo->User: PIN
-```
+The response from the Verify API check request tells you if the user entered the correct code. If the `status` is `0`, log the user in by creating a `user` session object with a `number` property for display on the home page:
 
-When your user *Login* in your app, show them the login form:
-
-
-```ruby
-get '/login' do
-  erb :login
-end
-```
-
-The form accepts the user's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
-
-```html
-<form action="/start_login" method="post">
-  <div class="field">
-    <label for="number">
-      Phone number
-    </label>
-    <input type="text" name="number">
-  </div>
-
-  <div class="actions">
-    <input type="submit" value="Continue">
-  </div>
-</form>
-````
-
-When the user has submitted this form, you send a verification request via the Nexmo Verify API.
-
-## Send verification request
-
-To send the verification request, add the [nexmo-ruby](https://github.com/Nexmo/nexmo-ruby) client library to your application. Add it to your Gemfile:
-
-```ruby
-gem 'nexmo'
-```
-
-Remember to run `bundle install`.
-
-You need Set your [API key and secret](https://dashboard.nexmo.com/settings) in order to initialize the `nexmo` library.
-
-```ruby
-require 'nexmo'
-nexmo = Nexmo::Client.new(
-  api_key: ENV['NEXMO_API_KEY'],
-  api_secret: ENV['NEXMO_API_SECRET']
-)
-```
-
-  **Note**: Best practice is to store your API credentials in environment variables.
-
-We now integrate sending the verification code to the user into the application, so it occurs when the form above is submitted.
-
-```ruby
-post '/start_login' do
-  # start verification request
-  response = nexmo.verify.request(
-    number: params['number'],
-    brand: 'MyApp'
-  )
-
-  # any status that's not '0' is an error
-  if response.status == '0'
-    # store the number so we can show it later
-    session[:number] = params['number']
-    # store the verification ID so we can verify the user's code against it
-    session[:verification_id] = response.request_id
-
-    redirect '/verify'
-  else
-    flash[:error] = response.error_text
-
-    redirect '/login'
-  end
-end
-```
-
-You can see that we have stored the user's phone number and the `request_id` that the Verify API returns to us as session data. We will need that request identifier in the next step.
-
-⚓ Collect PIN Code
-## Collect the PIN
-
-When the user receives the PIN they enter it into the UI of your app. The app uses *request_id* to send a Verify check request for the PIN.
-
-```js_sequence_diagram
-Participant App
-Participant Nexmo
-Participant User
-Nexmo->User: PIN
-User->App: PIN
-App->Nexmo: Verify Check
-Nexmo-->App: Verify Check Status
-```
-
-The app uses the following form to collect the PIN entered by the user:
-
-```ruby
-get '/verify' do
-  erb :verify
-end
-```
-
-```erb
-<h1>Verify Number</h1>
-
-<p>
-  We have sent a verification code to your number.
-  This could take up to a minute to arrive.
-</p>
-
-<form action="/finish_login" method="post">
-
-  <div class="field">
-    <label for="number">Code</label>
-    <input type="text" name="code">
-  </div>
-
-  <div class="actions">
-    <input type="submit" value="Verify">
-  </div>
-</form>
-```
-
-⚓ Verify PIN Code
-## Verify the PIN
-
-To verify the PIN submitted by the user you use the Nexmo library to make a [Verify Check](/api/verify#verify-check) request. You pass in the `request_id` (which we stored in the user's session data) and the PIN entered by the user.
-
-The Verify API response tells you if the user entered the correct PIN. If the `status` is `0`, log the user in.
-
-```ruby
-post '/finish_login' do
-  # check the code with Nexmo
-  response = nexmo.verify.check(
-    request_id: session[:verification_id],
-    code: params[:code]
-  )
-
-  # any status that's not '0' is an error
-  if response.status == '0'
-    # set the current user to the number
-    session[:user] = session[:number]
-
-    redirect '/'
-  else
-    flash[:error] = response.error_text
-
-    redirect '/login'
-  end
-end
+```javascript
+app.post('/check-code', (req, res) => {
+    // Check the code provided by the user
+    nexmo.verify.check({
+        request_id: verifyRequestId,
+        code: req.body.code
+    }, (err, result) => {
+        if (err) {
+            console.error(err);
+        } else {
+            if (result.status == 0) {
+                /* 
+                    User provided correct code,
+                    so create a session for that user
+                */
+                req.session.user = {
+                    number: verifyRequestNumber
+                }
+            }
+        }
+        // Redirect to the home page
+        res.redirect('/');
+    });
+});
 ```
 
 ## Conclusion
 
-That's it. You can now log a user into this web app using just a phone number via SMS. To do this you collected their phone number, used Verify to send the user a PIN, collected this PIN from the user and sent it back to the Verify API to check.
+You can now log a user into your web application without a password using just their phone number. To achieve this you collected their phone number, used the Verify API to send the user a code, collected this code from the user and sent it back to the Verify API to check.
