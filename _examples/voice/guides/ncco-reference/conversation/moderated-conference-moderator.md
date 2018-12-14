@@ -7,8 +7,9 @@ menu_weight: 3
 [
   {
     "action": "conversation",
-    "name": "nexmo-conference-standard",
-    "record": "true"
+    "name": "nexmo-conference-moderated",
+    "record": true,
+    "startOnEnter": true
   }
 ]
 ```
