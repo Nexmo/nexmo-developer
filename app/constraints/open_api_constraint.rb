@@ -10,6 +10,7 @@ OPEN_API_PRODUCTS = %w[
   voice
   account/secret-management
   external-accounts
+  verify
 ].freeze
 
 class OpenApiConstraint
