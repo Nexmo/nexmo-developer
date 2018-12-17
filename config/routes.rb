@@ -81,7 +81,7 @@ Rails.application.routes.draw do
 
   # Show the old /verify/templates page
   get '/api/*definition/*code_language', to: 'api#show', constraints: lambda { |request|
-      request['definition'] == 'verify' && request['code_language'] == 'templates'
+    request['definition'] == 'verify' && request['code_language'] == 'templates'
   }
 
   get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products
