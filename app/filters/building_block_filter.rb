@@ -47,7 +47,8 @@ class BuildingBlockFilter < Banzai::Filter
 
       return code_html if config['code_only']
 
-      run_html = @renderer.run_command(config['run_command'], config['file_name'], config['code']['source'])
+      config['run_command'] = config['run_command'].gsub('{filename}', config['file_name']) if config['run_command']
+      run_html = @renderer.run_command(config['run_command'], config['file_name'], config['code']['source']).to_s
 
       prereqs = (application_html + dependency_html + client_html).strip
       prereqs = "<h2>Prerequisites</h2>#{prereqs}" unless prereqs.empty?

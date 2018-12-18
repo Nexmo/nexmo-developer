@@ -1,6 +1,4 @@
 ---
-title: Python
-language: python
 dependencies:
     - nexmo
     - pprint
@@ -8,5 +6,3 @@ code:
     source: .repos/nexmo-community/nexmo-python-quickstart/number-insight/ni-basic.py
     from_line: 15
     to_line: 18
-file_name: ni-basic.py
-run_command: 'python ni-basic.py'

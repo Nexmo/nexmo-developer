@@ -4,13 +4,8 @@ module BuildingBlockRenderer
       { 'code' => "$ Install-Package #{deps.join(' ')}" }
     end
 
-    def self.run_command(command, _filename, _file_path)
-      <<~HEREDOC
-        ## Run your code
-         Save this file to your machine and run it:
-         <pre class="highlight bash"><code>$ #{command}</code></pre>
-
-      HEREDOC
+    def self.run_command(_command, _filename, _file_path)
+      nil
     end
 
     def self.create_instructions(filename)
