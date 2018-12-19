@@ -42,7 +42,7 @@ class OpenApiController < ApplicationController
     @groups = @definition.endpoints.group_by { |endpoint| endpoint.raw['tags'] }
     @groups = @groups.sort_by do |name, _|
       next 999 if name.nil?
-      @definition.raw['tags'][name]['order'] || 999
+      @definition.raw['tags'][name]['x-order'] || 999
     end
   end
 
