@@ -40,8 +40,10 @@ class OpenApiController < ApplicationController
 
   def set_groups
     @groups = @definition.endpoints.group_by { |endpoint| endpoint.raw['tag'] }
-    @groups = @groups.sort_by do |name|
-      @definition.raw['tags'][name]
+    @groups = @groups.sort_by do |name, _|
+      @definition.raw['tags'].each do |tag|
+        tag[name.capitalize]
+      end
     end
   end
 
