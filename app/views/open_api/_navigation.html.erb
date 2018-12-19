@@ -19,7 +19,7 @@
                     <%= link_to "##{endpoint.operationId}", {:class=>"Vlt-sidemenu__link"} do %>
                       <svg class="Vlt-green"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-code" /></svg>
 
-                      <span class="Vlt-sidemenu__label"><%= endpoint.summary %> </span><span class="Vlt-badge Vlt-badge--margin-left Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><code class="Vlt-white"><%= endpoint.method %></code></span>
+                      <span class="Vlt-sidemenu__label"><%= normalize_summary_title(endpoint.summary, endpoint.operationId) %> </span><span class="Vlt-badge Vlt-badge--margin-left Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><code class="Vlt-white"><%= endpoint.method %></code></span>
                     <% end %>
                   </li>
                     <% if endpoint.callbacks.any? %>

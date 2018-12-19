@@ -207,4 +207,30 @@ module ApplicationHelper
     base_url = Rails.env.production? ? 'https://developer.nexmo.com' : request.base_url
     canonical_path.prepend(base_url)
   end
+
+  def normalize_summary_title(summary, operationID)
+    # define the regex for the matches
+    camelMatch = /^[a-zA-Z]\w+(?:[A-Z]\w+){1,}/x
+    underscoreMatch = /^([^_]*(_[^_])?)*_?$/
+    dashMatch = /^([^-]*(-[^-])?)*-?$/
+
+    # return summary and exit if it is provided
+    if !summary.nil?
+      return summary 
+    end
+
+    if summary.nil?
+      # run through the various possibilities
+      if operationID.match?(camelMatch)
+        revisedSummary = operationID.underscore.split('_').collect{|c| c.capitalize}.join(' ')
+      elsif operationID.match?(underscoreMatch)
+        revisedSummary = operationID.split('_').collect{|c| c.capitalize}.join(' ')
+      elsif operationID.match?(dashMatch)
+        revisedSummary = operationID.split('-').collect{|c| c.capitalize}.join(' ')
+      else # generic string manipulation if it doesn't match any of the above
+        revisedSummary = operationID.humanize.collect{|c| c.capitalize}.join(' ')
+      end
+      return revisedSummary
+    end
+  end
 end
