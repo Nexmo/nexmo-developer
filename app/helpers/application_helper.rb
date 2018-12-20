@@ -214,6 +214,9 @@ module ApplicationHelper
     underscoreMatch = /^([^_]*(_[^_])?)*_?$/
     dashMatch = /^([^-]*(-[^-])?)*-?$/
 
+    # define list of terms that must be made all uppercase
+    uppercase_array = ["SMS"]
+
     # return summary and exit if it is provided
     if !summary.nil?
       return summary 
@@ -223,12 +226,16 @@ module ApplicationHelper
       # run through the various possibilities
       if operationID.match?(camelMatch)
         revisedSummary = operationID.underscore.split('_').collect{|c| c.capitalize}.join(' ')
+        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
       elsif operationID.match?(underscoreMatch)
         revisedSummary = operationID.split('_').collect{|c| c.capitalize}.join(' ')
+        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
       elsif operationID.match?(dashMatch)
         revisedSummary = operationID.split('-').collect{|c| c.capitalize}.join(' ')
+        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
       else # generic string manipulation if it doesn't match any of the above
         revisedSummary = operationID.humanize.collect{|c| c.capitalize}.join(' ')
+        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
       end
       return revisedSummary
     end
