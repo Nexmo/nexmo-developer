@@ -7,13 +7,13 @@ RSpec.describe AudioFilter do
     HEREDOC
 
     audio = <<~HEREDOC
-        <audio controls>
-            <source src="https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/01-hola.mp3" type="audio/mpeg">
-        </audio>
+      <audio controls>
+        <source src="https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/01-hola.mp3" type="audio/mpeg">
+      </audio>
     HEREDOC
 
-    expected_output = "FREEZESTART#{Base64.urlsafe_encode64(audio)}FREEZEEND"
+    expected_output = "FREEZESTART#{Base64.urlsafe_encode64(audio)}FREEZEEND\n"
 
-    expect(AudioFilter.call(input)).to start_with("FREEZESTART")
+    expect(AudioFilter.call(input)).to eq(expected_output)
   end
 end
