@@ -12,4 +12,15 @@ RSpec.describe AnchorFilter do
 
     expect(AnchorFilter.call(input)).to eq(expected_output)
   end
+  it 'returns input if input already is an explicit anchor link' do
+    input = <<~HEREDOC
+    ⚓️ this-is-a-test
+    HEREDOC
+
+    expected_output = <<~HEREDOC
+      <a name="this-is-a-test"></a>
+    HEREDOC
+
+    expect(AnchorFilter.call(input)).to eq(expected_output)
+  end
 end
