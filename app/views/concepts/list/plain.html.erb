@@ -1,6 +1,5 @@
 <ul class="Vlt-list Vlt-list--simple">
   <% @concepts.each do |concept| %>
-    <% next if concept.ignore_in_list %>
     <li><a href="<%= concept.url %>"><%= concept.title %></a><% if concept.description %>: <%= concept.description.render_markdown.gsub(%r{^<p>},'').gsub(%r{^</p>}, '').strip %><% end %></li>
   <% end %>
 </ul>
