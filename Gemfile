@@ -140,6 +140,9 @@ gem 'rubocop'
 # Volta needs a CSS autoprefixer
 gem 'autoprefixer-rails'
 
+# Titleize modifies the existing Titleize Rails functionality to better suit our needs
+gem 'titleize'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -208,36 +208,29 @@ module ApplicationHelper
     canonical_path.prepend(base_url)
   end
 
-  def normalize_summary_title(summary, operationID)
+  def normalize_summary_title(summary, operation_id)
     # define the regex for the matches
-    camelMatch = /^[a-zA-Z]\w+(?:[A-Z]\w+){1,}/x
-    underscoreMatch = /^([^_]*(_[^_])?)*_?$/
-    dashMatch = /^([^-]*(-[^-])?)*-?$/
+    camel_match = /^[a-zA-Z]\w+(?:[A-Z]\w+){1,}/x
 
     # define list of terms that must be made all uppercase
-    uppercase_array = ["SMS"]
+    uppercase_array = ['SMS']
 
     # return summary and exit if it is provided
-    if !summary.nil?
-      return summary 
+    return summary unless summary.nil?
+
+    if operation_id.match?(camel_match)
+      summary = operation_id.underscore
+    else
+      summary = operation_id
     end
 
-    if summary.nil?
-      # run through the various possibilities
-      if operationID.match?(camelMatch)
-        revisedSummary = operationID.underscore.split('_').collect{|c| c.capitalize}.join(' ')
-        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
-      elsif operationID.match?(underscoreMatch)
-        revisedSummary = operationID.split('_').collect{|c| c.capitalize}.join(' ')
-        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
-      elsif operationID.match?(dashMatch)
-        revisedSummary = operationID.split('-').collect{|c| c.capitalize}.join(' ')
-        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
-      else # generic string manipulation if it doesn't match any of the above
-        revisedSummary = operationID.humanize.collect{|c| c.capitalize}.join(' ')
-        revisedSummary = revisedSummary.split(' ').collect{|c| uppercase_array.include?(c.upcase) ? c.upcase : c}.join(' ')
-      end
-      return revisedSummary
-    end
+    summary = summary.gsub(/(_|-)/, ' ').titleize
+
+    summary = summary.split(' ').map do |c|
+      next c.upcase if uppercase_array.include?(c.upcase)
+      c
+    end.join(' ')
+
+    summary
   end
 end
