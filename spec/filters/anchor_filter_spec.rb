@@ -14,7 +14,7 @@ RSpec.describe AnchorFilter do
   end
   it 'returns input if input already is an explicit anchor link' do
     input = <<~HEREDOC
-    ⚓️ this-is-a-test
+      ⚓️ this-is-a-test
     HEREDOC
 
     expected_output = <<~HEREDOC
