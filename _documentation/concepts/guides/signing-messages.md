@@ -57,7 +57,7 @@ At this point, the process for hash and HMAC will differ, so use the "Step 2" se
 
 ### Step 2: For hash
 
-* Add an ampersand `&` and the signature secret to the end of the string. It should now look something like this: `&akey=value&bkey=value&your_signature_secret`
+* Add signature secret to the end of the string, directly after the last value. It should now look something like this: `&akey=value&bkey=valueyour_signature_secret`
 * Now run the string through an md5 hash function and convert the resulting bytes to a string of hexadecimal digits. This is your MD5 hash signature, and should be added to the HTTP parameters of your request as the `sig` parameter.
 
 ### Step 2: For HMAC
