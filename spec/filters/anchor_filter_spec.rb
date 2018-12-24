@@ -10,7 +10,7 @@ RSpec.describe AnchorFilter do
       <a name="this-is-a-test"></a>
     HEREDOC
 
-    expect(AnchorFilter.call(input)).to eq(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
   it 'returns input if input already is an explicit anchor link' do
     input = <<~HEREDOC
@@ -21,6 +21,6 @@ RSpec.describe AnchorFilter do
       <a name="this-is-a-test"></a>
     HEREDOC
 
-    expect(AnchorFilter.call(input)).to eq(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
 end

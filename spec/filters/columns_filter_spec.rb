@@ -11,7 +11,7 @@ RSpec.describe ColumnsFilter do
       {end}
     HEREDOC
 
-    output = ColumnsFilter.call(input)
+    output = described_class.call(input)
 
     expect(output).to eq(
       <<~HEREDOC

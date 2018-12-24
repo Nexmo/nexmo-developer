@@ -14,6 +14,6 @@ RSpec.describe AudioFilter do
 
     expected_output = "FREEZESTART#{Base64.urlsafe_encode64(audio)}FREEZEEND\n"
 
-    expect(AudioFilter.call(input)).to eq(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
 end

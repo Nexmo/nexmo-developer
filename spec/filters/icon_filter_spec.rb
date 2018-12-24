@@ -10,7 +10,7 @@ RSpec.describe IconFilter do
       <svg class="Vlt-green Vlt-icon Vlt-icon--small"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-check" /></svg>
     HEREDOC
 
-    expect(IconFilter.call(input)).to eq(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
   it 'turns ❌ symbol into HTML' do
     input = <<~HEREDOC
@@ -21,7 +21,7 @@ RSpec.describe IconFilter do
       <svg class="Vlt-red Vlt-icon Vlt-icon--small"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-cross" /></svg>
     HEREDOC
 
-    expect(IconFilter.call(input)). to eq(expected_output)
+    expect(described_class.call(input)). to eq(expected_output)
   end
   it 'turns an icon text reference into the appropriate HTML tag' do
     input = <<~HEREDOC
@@ -32,6 +32,6 @@ RSpec.describe IconFilter do
       <svg class="Vlt-green Vlt-icon Vlt-icon--small"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-heart" /></svg>\n
     HEREDOC
 
-    expect(IconFilter.call(input)). to eq(expected_output)
+    expect(described_class.call(input)). to eq(expected_output)
   end
 end
