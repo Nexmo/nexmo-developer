@@ -25,7 +25,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'returns a green HTML class when string "[POST]" is provided and puts "POST" in between <span> tags stripped of brackets' do
+  it 'makes the span green' do
     input = '[POST]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--green'>POST</span> "
@@ -33,7 +33,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'returns a blue HTML class when string "[GET]" is provided and puts "GET" in between <span> tags stripped of brackets' do
+  it 'makes the span blue' do
     input = '[GET]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--blue'>GET</span> "
@@ -41,7 +41,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'returns a red HTML class when string "[DELETE]" is provided and puts "DELETE" in between <span> tags stripped of brackets' do
+  it 'makes the span red' do
     input = '[DELETE]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--red'>DELETE</span> "
@@ -49,7 +49,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'returns a yellow HTML class when string "[PUT]" is provided and puts "PUT" in between <span> tags stripped of brackets' do
+  it 'makes the span yellow' do
     input = '[PUT]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--yellow'>PUT</span> "
