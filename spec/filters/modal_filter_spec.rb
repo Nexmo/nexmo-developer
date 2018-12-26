@@ -41,4 +41,20 @@ RSpec.describe ModalFilter do
     # using .include because the <a data-open='..'> tag changes each time it is executed
     expect(described_class.call(input)).to include(expected_output)
   end
+
+  it 'does not transform text that does not match the regex' do
+    input = 'some text'
+
+    expected_output = 'some text'
+
+    expect(described_class.call(input)).to eql(expected_output)
+  end
+
+  it 'does not transform an argument of only a whitespace' do 
+    input = ' '
+
+    expected_output = ' '
+
+    expect(described_class.call(input)).to eql(expected_output)
+  end
 end
