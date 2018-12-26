@@ -50,7 +50,7 @@ RSpec.describe ModalFilter do
     expect(described_class.call(input)).to eql(expected_output)
   end
 
-  it 'does not transform an argument of only a whitespace' do 
+  it 'does not transform an argument of only a whitespace' do
     input = ' '
 
     expected_output = ' '
