@@ -9,12 +9,12 @@ RSpec.describe LanguageFilter do
     expect(described_class.call(input)).to eql(expected_output)
   end
 
-  it 'raises an error if input is whitespace' do
+  it 'returns whitespace unaltered' do
     input = ' '
 
-    expected_output = ' ' # rubocop:disable UselessAssignment
+    expected_output = ' '
 
-    expect { described_class(input) }.to raise_error(ArgumentError)
+    expect(described_class.call(input)).to eql(expected_output)
   end
 
   it 'wraps matching input in a span tag and assigns "lang" to the tag' do
