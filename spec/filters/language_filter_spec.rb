@@ -25,7 +25,7 @@ RSpec.describe LanguageFilter do
     expect(described_class.call(input)).to eql(expected_output)
   end
 
-  it 'does nothing if the text is in correct format but it is missing the correct formatting' do
+  it 'does nothing if the text is correct but the word is not within brackets' do
     input = "Bonjour(lang: 'fr')"
 
     expected_output = "Bonjour(lang: 'fr')"
