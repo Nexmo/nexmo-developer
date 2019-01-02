@@ -4,11 +4,11 @@ RSpec.describe ScreenshotFilter do
   it 'renders image markdown if image location is present in input' do
     input = <<~HEREDOC
       ```screenshot
-      image: public/assets/screenshots/smsInboundWebhook.png
+      image: /a/path/to/an/image.png
       ```
     HEREDOC
 
-    expected_output = '![Screenshot](/assets/screenshots/smsInboundWebhook.png)'
+    expected_output = '![Screenshot](/a/path/to/an/image.png)'
 
     # .chop to remove trailing \n from input
     expect(described_class.call(input.chop)).to eq(expected_output)
