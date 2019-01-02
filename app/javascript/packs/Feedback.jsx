@@ -239,8 +239,8 @@ class Feedback extends React.Component {
     } else {
       return(
         <div>
-          <span onClick={ () => this.setSentiment('negative') } className={ "Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon" + (this.state.sentiment == 'negative' ? ' Vlt-btn_active' : '') }><svg className="Vlt-red" dangerouslySetInnerHTML={{__html: unhappyIcon }} /></span>
           <span onClick={ () => this.setSentiment('positive') } className={ "Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon" + (this.state.sentiment == 'positive' ? ' Vlt-btn_active' : '') }><svg className="Vlt-green" dangerouslySetInnerHTML={{__html: happyIcon }} /></span>
+          <span onClick={ () => this.setSentiment('negative') } className={ "Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon" + (this.state.sentiment == 'negative' ? ' Vlt-btn_active' : '') }><svg className="Vlt-red" dangerouslySetInnerHTML={{__html: unhappyIcon }} /></span>
         </div>
       )
     }
