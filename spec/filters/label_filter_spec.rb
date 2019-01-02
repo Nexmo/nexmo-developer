@@ -25,7 +25,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'makes the span green' do
+  it 'converts [POST] to a green label' do
     input = '[POST]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--green'>POST</span> "
@@ -33,7 +33,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'makes the span blue' do
+  it 'converts [GET] to a blue label' do
     input = '[GET]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--blue'>GET</span> "
@@ -41,7 +41,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'makes the span red' do
+  it 'converts [DELETE] to a red label' do
     input = '[DELETE]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--red'>DELETE</span> "
@@ -49,7 +49,7 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'makes the span yellow' do
+  it 'converts [PUT] to a yellow label' do
     input = '[PUT]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--yellow'>PUT</span> "
@@ -57,7 +57,6 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  # possible undesired behavior to be discussed
   it 'returns a non-color HTML span tag with  "post" in between the tags when "[post]" is provided' do
     input = '[post]'
 
