@@ -13,4 +13,12 @@ RSpec.describe IndentFilter do
 
     expect(described_class.call(input)).to eq(expected_output)
   end
+
+  it 'returns unaltered less than four whitespaces followed by "->"' do
+    input = '   -> a'
+
+    expected_output = '   -> a'
+
+    expect(described_class.call(input)).to eq(expected_output)
+  end
 end
