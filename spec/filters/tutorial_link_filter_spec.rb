@@ -25,7 +25,7 @@ RSpec.describe TutorialLinkFilter do
     expect(described_class.call(input)).to eql(expected_output)
   end
 
-  it 'returns unaltered href input with "/tutorials" not at the beginning' do 
+  it 'returns unaltered href input with "/tutorials" not at the beginning' do
     input = '<a href="/a/path/to/tutorials/">this is a path</a>'
 
     expected_output = '<a href="/a/path/to/tutorials/">this is a path</a>'
