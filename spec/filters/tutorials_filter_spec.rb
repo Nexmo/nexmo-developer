@@ -13,7 +13,7 @@ RSpec.describe TutorialsFilter do
     expect(described_class.call(input)).to eql(expected_output)
   end
 
-  it 'returns a tutorial with matching input' do
+  it 'returns an instance of Tutorial with matching input' do
     allow(Tutorial).to receive(:all).and_return([mock_tutorial])
 
     input = <<~HEREDOC
@@ -38,6 +38,27 @@ RSpec.describe TutorialsFilter do
     HEREDOC
 
     expect { described_class.call(input) }.to raise_error(Errno::ENOENT)
+  end
+
+  it 'raises a NoMethodError if no content is provided' do
+    input = <<~HEREDOC
+      ```tutorials
+      ```
+    HEREDOC
+
+    expect { described_class.call(input) }.to raise_error(NoMethodError)
+  end
+
+  it 'returns encoded string even if product cannot be found' do
+    input = <<~HEREDOC
+      ```tutorials
+      product: not real
+      ```
+    HEREDOC
+
+    expected_output = "FREEZESTARTPHVsIGNsYXNzPSJWbHQtbGlzdCBWbHQtbGlzdC0tc2ltcGxlIj4KICAKPC91bD4KFREEZEEND\n"
+
+    expect(described_class.call(input)).to eql(expected_output)
   end
 
     private
