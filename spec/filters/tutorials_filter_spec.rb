@@ -38,6 +38,8 @@ RSpec.describe TutorialsFilter do
   end
 
   it 'returns encoded string even if product cannot be found' do
+    allow(Tutorial).to receive(:all).and_return([mock_tutorial])
+
     input = <<~HEREDOC
       ```tutorials
       product: not real
