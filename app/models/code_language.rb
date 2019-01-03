@@ -1,6 +1,6 @@
 class CodeLanguage
   include ActiveModel::Model
-  attr_accessor :key, :label, :type
+  attr_accessor :key, :label, :type, :dependencies, :unindent, :icon, :run_command
   attr_writer :weight, :linkable, :languages, :lexer
 
   def weight

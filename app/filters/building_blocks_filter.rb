@@ -15,22 +15,15 @@ class BuildingBlocksFilter < Banzai::Filter
     tab['class'] = 'tabs-title'
     tab['class'] += ' is-active' if content[:active]
 
-    if content[:language]
-      tab['data-language'] = content[:language].key
-      tab['data-language-type'] = content[:language].type
-      tab['data-language-linkable'] = content[:language].linkable?
-    end
-
-    if content[:platform]
-      tab['data-language'] = content[:platform].languages.map(&:key).join(',')
-      tab['data-platform'] = content[:platform].key
-      tab['data-platform-type'] = content[:platform].type
-      tab['data-platform-linkable'] = content[:platform].linkable?
+    if content['language']
+      tab['data-language'] = content['language']
+      tab['data-language-type'] = content['language_type']
+      tab['data-language-linkable'] = true
     end
 
     tab_link = Nokogiri::XML::Element.new 'a', @document
-    tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content[:language].key}.svg##{content[:language].key}\" /></svg><span>" + content[:tab_title] + '</span>'
-    tab_link['href'] = "##{content[:id]}"
+    tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content['icon']}.svg##{content['icon']}\" /></svg><span>" + content['title'] + '</span>'
+    tab_link['href'] = "##{content['id']}"
 
     tab.add_child(tab_link)
     @tabs.add_child(tab)
@@ -38,7 +31,7 @@ class BuildingBlocksFilter < Banzai::Filter
 
   def create_content(content)
     element = Nokogiri::XML::Element.new 'div', @document
-    element['id'] = content[:id]
+    element['id'] = content['id']
     element['class'] = 'tabs-panel'
     element['class'] += ' is-active' if content[:active]
     element.inner_html = content[:body]
@@ -76,8 +69,6 @@ class BuildingBlocksFilter < Banzai::Filter
 
     return list unless list.any?
 
-    list = resolve_language(list)
-
     list = sort_contents(list)
     resolve_active_tab(list)
 
@@ -95,12 +86,24 @@ class BuildingBlocksFilter < Banzai::Filter
     Dir[source_path].map do |content_path|
       source = File.read(content_path)
 
+      # Load the defaults for this language
+      filename = File.basename(content_path, '.yml')
+      defaults = CodeLanguageResolver.find(filename)
+
       content = YAML.safe_load(source)
-      content[:id] = SecureRandom.hex
-      content[:source] = source
-      content[:language_key] = content['language']
-      content[:platform_key] = content['platform']
-      content[:tab_title] = content['title']
+      content['source'] = source
+      content['id'] = SecureRandom.hex
+      content['title'] ||= defaults.label
+      content['language'] ||= defaults.key
+      content['language_type'] ||= defaults.type
+      content['dependencies'] ||= defaults.dependencies
+      content['icon'] = defaults.icon
+      content['weight'] ||= defaults.weight
+      content['run_command'] ||= defaults.run_command
+      content['unindent'] = defaults.unindent || false
+
+      # If we don't have a file_name in config, use the one in the repo
+      content['file_name'] ||= File.basename(content['code']['source'])
 
       parent_config = { 'code_only' => @config['code_only'], 'source' => @config['source'].gsub('_examples/', '') }
       if @config['application']
@@ -111,7 +114,7 @@ class BuildingBlocksFilter < Banzai::Filter
 
       source = <<~HEREDOC
         ```single_building_block
-        #{source}\n#{parent_config}
+        #{content.to_yaml}\n#{parent_config}
         ```
       HEREDOC
 
@@ -121,25 +124,9 @@ class BuildingBlocksFilter < Banzai::Filter
     end
   end
 
-  def resolve_language(contents)
-    contents.map do |content|
-      if content[:language_key]
-        content[:language] = CodeLanguageResolver.find(content[:language_key])
-      end
-
-      if content[:platform_key]
-        content[:platform] = CodeLanguageResolver.find(content[:platform_key])
-      end
-
-      content
-    end
-  end
-
   def sort_contents(contents)
     contents.sort_by do |content|
-      next content[:language].weight if content[:language]
-      next content[:frontmatter]['menu_weight'] || 999 if content[:frontmatter]
-      999
+      content['weight']
     end
   end
 
@@ -148,9 +135,7 @@ class BuildingBlocksFilter < Banzai::Filter
 
     if options[:code_language]
       contents.each_with_index do |content, index|
-        %i[language_key platform_key].each do |key|
-          active_index = index if content[key] == options[:code_language].key
-        end
+        active_index = index if content['language'] == options['language_key'].key
       end
     end
 

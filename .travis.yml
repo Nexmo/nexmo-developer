@@ -26,3 +26,4 @@ script:
   - bundle exec rubocop
   - bundle exec rake ci:verify_pages
   - bundle exec rake ci:verify_navigation
+  - bundle exec rake ci:verify_oas_reference

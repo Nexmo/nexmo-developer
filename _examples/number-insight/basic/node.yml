@@ -1,8 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo-community/nexmo-node-quickstart/number_insight/ni-basic.js
     from_line: 16
@@ -11,5 +7,3 @@ client:
     source: .repos/nexmo-community/nexmo-node-quickstart/number_insight/ni-basic.js
     from_line: 9
     to_line: 14
-file_name: ni-basic.js
-run_command: 'node ni-basic.js'

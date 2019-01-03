@@ -3,7 +3,7 @@ module BuildingBlockRenderer
     def self.dependencies(deps)
       {
           'text' => 'Add the following to <code>build.gradle</code>:',
-          'code' => deps.map { |d| "compile '#{d}'" }.join('<br />'),
+          'code' => deps.map { |d| "compile '#{d.gsub('@latest', '4.0.1')}'" }.join('<br />'),
       }
     end
 

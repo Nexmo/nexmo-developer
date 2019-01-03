@@ -1,11 +1,5 @@
 ---
-title: PHP
-language: php
-dependencies:
-    - nexmo/client
 code:
     source: .repos/nexmo-community/nexmo-php-quickstart/number-insights/basic.php
     from_line: 5
     to_line: 8
-file_name: basic.php
-run_command: 'php basic.php'

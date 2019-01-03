@@ -21,4 +21,13 @@ namespace :ci do
     res = session.get '/documentation'
     raise 'Error rendering documentation index page' if res == 500
   end
+
+  desc 'Render all OAS based API references'
+  task 'verify_oas_reference': :environment do
+    session = ActionDispatch::Integration::Session.new(Rails.application)
+    OpenApiConstraint.list.each do |name|
+      res = session.get "/api/#{name}"
+      raise "Error rendering /api/#{name} OAS page" if res == 500
+    end
+  end
 end

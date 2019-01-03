@@ -14,6 +14,10 @@ OPEN_API_PRODUCTS = %w[
 ].freeze
 
 class OpenApiConstraint
+  def self.list
+    OPEN_API_PRODUCTS
+  end
+
   def self.products
     { definition: Regexp.new(OPEN_API_PRODUCTS.join('|')) }
   end

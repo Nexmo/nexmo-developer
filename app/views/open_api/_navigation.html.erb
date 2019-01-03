@@ -8,10 +8,13 @@
 
           <% @groups.each do |name, endpoints| %>
             <% if name %>
-              <% group = @definition.raw['x-groups'][name] %>
-              <li>
-                <h5 class="Vlt-sidemenu__title Vlt-sidemenu__title--border"><%= group['name'] %></h5>
-              </li>
+              <%
+                group = @definition.raw['tags'].select { |tag| tag['name'].capitalize == name.capitalize }.first
+                raise "Could not find 'tags' entry for #{name.capitalize}" unless group
+              %>
+                <li>
+                  <h5 class="Vlt-sidemenu__title Vlt-sidemenu__title--border"><%= group['name'] %></h5>
+                </li>
             <% end %>
 
                 <% endpoints.each do |endpoint| %>
@@ -19,7 +22,7 @@
                     <%= link_to "##{endpoint.operationId}", {:class=>"Vlt-sidemenu__link"} do %>
                       <svg class="Vlt-green"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-code" /></svg>
 
-                      <span class="Vlt-sidemenu__label"><%= endpoint.summary %> </span><span class="Vlt-badge Vlt-badge--margin-left Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><code class="Vlt-white"><%= endpoint.method %></code></span>
+                      <span class="Vlt-sidemenu__label"><%= normalize_summary_title(endpoint.summary, endpoint.operationId) %> </span><span class="Vlt-badge Vlt-badge--margin-left Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><code class="Vlt-white"><%= endpoint.method %></code></span>
                     <% end %>
                   </li>
                     <% if endpoint.callbacks.any? %>
