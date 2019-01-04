@@ -52,9 +52,7 @@ Edit the `.env` file as appropriate for your platform.  Then, run the following:
 
 ```
 $ bundle install
-$ rake db:create
-$ rake db:migrate
-$ rake db:seed
+$ bin/rails db:create db:migrate db:seed
 $ ./bin/yarn install
 $ rails s
 ```
