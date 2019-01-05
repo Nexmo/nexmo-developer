@@ -143,6 +143,9 @@ gem 'autoprefixer-rails'
 # Titleize modifies the existing Titleize Rails functionality to better suit our needs
 gem 'titleize'
 
+# Used in our reporting rake tasks
+gem 'terminal-table'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
