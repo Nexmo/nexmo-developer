@@ -8,7 +8,7 @@ module BuildingBlockRenderer
       <<~HEREDOC
         ## Run your code
          Save this file to your machine and run it:
-         <pre class="highlight bash"><code>$ #{command}</code></pre>
+         <pre class="highlight bash run-command"><code>#{command}</code></pre>
 
       HEREDOC
     end

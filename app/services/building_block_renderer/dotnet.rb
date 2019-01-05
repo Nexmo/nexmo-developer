@@ -1,7 +1,7 @@
 module BuildingBlockRenderer
   class Dotnet
     def self.dependencies(deps)
-      { 'code' => "$ Install-Package #{deps.join(' ')}" }
+      { 'code' => "Install-Package #{deps.join(' ')}" }
     end
 
     def self.run_command(_command, _filename, _file_path)
