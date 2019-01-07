@@ -1,111 +1,96 @@
 ---
-title: Verify - Templates API Reference
-description: Reference guide customizing your verification message
+title: Verify Templates
+description: How to customize your verification message
 api: Verify
 ---
 
-# Verify - Templates API Reference
+# Verify Templates
 
-You use custom templates to modify the default messages sent by the Verify API. You can even add messages in currently unsupported languages.
+The messages that the Verify API sends during the verification process are defined in JSON templates. Default templates are provided. You can create your own templates to customize the content of any SMS or voice messages that the Verify API sends on your behalf, to create a fully branded experience for your users.
 
-By default Verify messages conform to the following templates:
+> If you want to continue using the default templates then no further configuration is required and you can ignore this guide.
+
+### Default templates
+
+By default, the Verify API uses the following templates:
 
 ```tabbed_content
 source: '_examples/api/templates/default'
 ```
 
-Nexmo inserts a random ${pin} into *template*. The *brand* and *pin_expiry* parameters in your call to [Verify Request](/api/verify#verify-request) fill ${brand} and ${pin_expiry} in the template.
+### Template variables
+The [default templates](#default-templates) use the following template variables. You can use these variables in your custom templates too:
 
-You use a custom template to create a fully branded experience for your user. You completely manage the text, variables and audio streams.
+* `${pin}`: a placeholder for the random verification code
+* `${brand}`: the name of your company or application
+* `${pin_expiry}`: how long the verification code is valid for, in seconds
 
-A custom template looks like:
+The `${pin}` is generated randomly by the Verify API. The values for `${brand}` and `${pin_expiry}` are the parameters you set in your call to [Verify request](/api/verify#verify-request).
+
+The `<break time=1s>` is a [Speech Synthesis Markup Language (SSML)](/voice/voice-api/guides/text-to-speech#ssml) tag. It adds a one second delay before the text-to-speech message is played.
+
+### Creating a custom template
+
+To create a custom template you must first define it in JSON format and then [register](#registering-a-custom-template) it.
+
+The following table lists the settings you can use in your custom templates:
+
+Parameter | Description | Required
+-- | -- | --
+`action_type` | Possible values are: `sms` - send a text message _or_ `voice` - send a text-to-speech message | Yes
+`lg` | Specifies the [locale](/voice/voice-api/guides/text-to-speech#locale) used to deliver text-to-speech verification messages in your chosen language, accent and gender. All calls to [Verify request](/api/verify#verify-request) for a custom template must use the same `lg`. <br>If you want to use a non-standard locale, you must supply links to audio files in your template as shown in the "Custom Locale" example [here](#custom-template-examples). | Yes
+`template` | The content displayed in an SMS message (when the `action_type` is `sms`) or spoken to your user in a text-to-speech call (when the `action_type` is `voice`). This content can include [variables](#template_variables).<br> If you provide a value for `template` do not specify `digit_n`, `welcome_message` or `bye_message`. | No
+`type` | The encoding used for `template` when the `action_type` is `sms`. Possible values are: `unicode` _or_ `text` | No
+`digit_n` | URL to the media file played when a digit is pressed on the user's handset. If you specify `digit_n`, you should also specify  `welcome_message` and `bye_message`. Nexmo inserts the verification code between the two. | No
+`welcome_message` | URL to the media file played at the start of the call. | Yes, if you specify `digit_n`
+`bye_message` | URL to the media file played at the end of the call. | Yes, if you specify `digit_n`
+`contact_email` | Set the email address used to generate a Zendesk ticket and activate your custom template. If you do not set this parameter, Verify uses the email address associated with your master API key. | No
+
+### Custom template examples
+
+The following are examples of templates:
 
 ```tabbed_content
 source: '_examples/api/templates/custom'
 ```
 
-> **Note**: you do not use the *type* parameter for Voice custom templates.
+### Registering a custom template
 
-To setup custom templates:
+#### Making the request
 
-```tabbed_examples
-source: '_examples/api/templates/register'
-```
+After you have defined the template, you need to register it with the Verify API. You do this by making a request to the `https://api.nexmo.com/verify/templates` endpoint, with the template as the payload.
 
-* [Create custom template](#create-a-custom-template): add a custom template used by Verify Request.
-
-
-### Create a custom template
-
-The following code examples show you how to register a custom template:
+The following code examples show you how to register your custom template:
 
 ```tabbed_examples
 source: '_examples/api/templates/register'
 ```
 
-This request contains:
-
-* [Base URL](#base-url)
-* [Payload](#payload)
-
-
-Information about the Call is sent to you in the:
-
-* [Response](#response) - parameters sent synchronously when the Call starts
-
-#### Base URL
-
-All requests to manage custom templates must contain:
-
-* `https://api.nexmo.com/verify/templates`
-
-#### Payload
-
-The payload to create a new custom template looks like:
-
-```tabbed_content
-source: '_examples/api/templates/payload'
-```
-
-The following table shows the parameters you use to create a custom template:
-
-Parameter | Description | Required
--- | -- | --
-`action_type` | Possible values are: `sms` - send a text message _or_ `voice` - send a text-to-speech message | Yes
-`lg` | Explicitly control the [language, accent and gender](/voice/voice-api/guides/text-to-speech#locale) used to deliver the message in your custom template. For example, *en-in* is a female voice that delivers your message in English with an Indian accent. Calls to [Verify Request](/api/verify#verify-request) for a custom template must use the same *lg*. <br>For templates in an [custom locale](/voice/voice-api/guides/text-to-speech#locale) such as *en-ie*, you must supply links to recorded files in your template. | yes
-`template` | The content displayed in the text message or spoken to your user in a text-to-speech call. For example: *Your ${brand} download code ${pin} is valid for the next ${pin_expiry} minutes*. You must set the custom template variables in calls to [Verify Request](/api/verify#verify-request).<br> If you set *action_type* to *voice* and specify a template, it is used in a text-to-speech call. Do not specify *digit_n*, *welcome_message* or *bye_message*. | No
-`type` | The encoding used for *template*. Possible values are: `unicode` _or_ `text` | No
-`digit_n` | URL to the media file played when digit n (0-9) is touched on the user's handset. If you specify *digit_n*, you must set *welcome_message* or *bye_message*. Nexmo inserts a PIN between *welcome_message* and *bye_message*. | No
-`welcome_message` | URL to the media file played at the start of the call. | If you set digit_n
-`bye_message` | URL to the media file played at the end of the call. | If you set digit_n
-`contact_email` | Set the email address used to generate a Zendesk ticket and activate your custom template. If you do not set this parameter, the email address associated to your Master API key is used. | No
-
-#### Response
+#### Understanding the response
 
 The JSON response looks like:
 
 ```tabbed_content
 source: '_examples/api/templates/response'
 ```
+The response header contains one of the following HTTP status codes:
 
-The response headers has one of the following HTTP status codes:
-
-* 201 - Your custom template has been created
-* 400 - Incorrect parameters in your request. This value is also returned when Nexmo could not upload the media files in your request.
-* 401 - The `api_key` / `api_secret` combination you used in your request was invalid or your account has been disabled.
-* 500 - Internal error.
+* [201] - Your custom template has been created
+* [400] - Your request contains incorrect parameters or Nexmo could not upload any media that you specified in your template.
+* [401] - The `api_key` / `api_secret` combination you used in your request was invalid or your account has been disabled.
+* [500] - Internal error.
 
 The response body contains the following keys and values:
 
 | Key | Value |
 |---- | --- |
 `account_id` | Your `api_key`.
-`action_type` | Possible values are: `sms` - an sms template was used _or_ `voice` - a voice template was used
-`bye_message` | The ID for the media file played at the end of the call.
-`digit_n` | The IDs for the media files used for each digit.
+`action_type` | Possible values are: `sms` - SMS template _or_ `voice` - Voice template was used
+`bye_message` | The ID of the media file played at the end of the call.
+`digit_n` | The IDs of the media files used for each digit.
 `lg` |  The template [locale](/voice/voice-api/guides/text-to-speech#locale).
-`status` | Possible values are: `ACTIVE` - this template is currently in us, `PENDING` - waiting to be approved and activated _or_ `RETIRED` - no longer active
-`template` | The message sent to your user in an SMS or a text-to-speech Call.
-`type` | The encoding used for *template* when *action_type* is *SMS*. Possible values are: `unicode` _or_ `text` (default)
-`version` | The version number for this custom template. This number is generated automatically.
-`welcome_message` | The ID for the media file played at the start of the call.
+`status` | The template's current status in the system. Possible values are: `ACTIVE` - currently in use, `PENDING` - waiting to be approved and activated _or_ `RETIRED` - no longer active
+`template` | The message that will be sent to your user in an SMS or a text-to-speech Call.
+`type` | The encoding used for the template when the `action_type` is `sms`. Possible values are: `unicode` _or_ `text` (default)
+`version` | The template's version number. This number is generated automatically.
+`welcome_message` | The ID of the media file played at the start of the call.
