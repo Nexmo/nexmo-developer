@@ -53,9 +53,11 @@ Edit the `.env` file as appropriate for your platform.  Then, run the following:
 ```
 $ bundle install
 $ bin/rails db:create db:migrate db:seed
-$ ./bin/yarn install
+$ bin/yarn install
 $ rails s
 ```
+
+**NB:** If a node incompatibility error is received, please use [nvm](https://github.com/creationix/nvm) for managing local node versions. Once installed, run `nvm use 9` before running `bin/yarn install`.
 
 You should now be able to see the site on http://localhost:3000/
 
