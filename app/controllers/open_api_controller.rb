@@ -19,6 +19,21 @@ class OpenApiController < ApplicationController
 
     @auto_expand_responses = params[:expandResponses]
 
+    # We need the base name to append our versions to later
+    @definition_base_name = @definition_name.gsub(/\.v\d+/, '')
+    m = /\.v(\d+)/.match(@definition_name)
+    @current_version = m.nil? ? '1' : m[1]
+
+    # Do we have multiple versions available for this API?
+    @available_versions = OpenApiConstraint.find_all_versions(@definition_base_name)
+
+    # Add in anything in the old /_api folder
+    if File.exist?("#{Rails.root}/_api/#{@definition_base_name}.md")
+      @available_versions.push({ 'version' => '1', 'name' => @definition_base_name })
+    end
+
+    @available_versions.sort_by! { |v| v['version'] }
+
     respond_to do |format|
       format.any(:json, :yaml) { send_file(@definition.path) }
       format.html do

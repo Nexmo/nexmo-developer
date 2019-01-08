@@ -6,6 +6,14 @@ description: Application API Reference
 
 # Application API Reference
 
+<div class="Vlt-callout Vlt-callout--warning">
+	<i></i>
+	<div class="Vlt-callout__content">
+		<h4>This version of the API has been deprecated</h4>
+		<p>Please use <a href="/api/application.v2">version 2</a> going forwards</p>
+	</div>
+</div>
+
 A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products.
 
 ## Create an application
