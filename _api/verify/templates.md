@@ -6,7 +6,7 @@ api: Verify
 
 # Verify Templates
 
-The messages that the Verify API sends during the verification process are defined using JSON. Default templates are provided. You can create your own templates to customize the content of any SMS or voice messages that the Verify API sends on your behalf, to create a fully branded experience for your users.
+The messages that the Verify API sends during the verification process are defined using JSON templates. Default templates are provided. You can create your own templates to customize the content of any SMS or voice messages that the Verify API sends on your behalf, to create a fully branded experience for your users.
 
 > If you want to continue using the default templates then no further configuration is required and you can ignore this guide.
 
@@ -18,8 +18,10 @@ By default, the Verify API uses the following templates:
 source: '_examples/api/templates/default'
 ```
 
+In the above template, `${pin}`, `${brand}` and `${pin_expiry}` are [template variables](#template-variables).
+
 ### Template variables
-The following variables can be used in any Verify templates:
+You can use the following variables in any Verify templates:
 
 * `${pin}`: a placeholder for the random verification code
 * `${brand}`: the name of your company or application
@@ -35,13 +37,13 @@ To create a custom template you must first define it in JSON format and then [re
 
 The following table lists the settings you can use in your custom templates:
 
-Parameter | Description | Required
+Parameter | Description | Required | 
 -- | -- | --
 `action_type` | Possible values are: `sms` - send a text message _or_ `voice` - send a text-to-speech message | Yes
 `lg` | Specifies the [locale](/voice/voice-api/guides/text-to-speech#locale) used to deliver text-to-speech verification messages in your chosen language, accent and gender. All calls to [Verify request](/api/verify#verify-request) for a custom template must use the same `lg`. <br>If you want to use a non-standard locale, you must supply links to audio files in your template as shown in the "Custom Locale" example [here](#custom-template-examples). | Yes
-`template` | The content displayed in an SMS message (when the `action_type` is `sms`) or spoken to your user in a text-to-speech call (when the `action_type` is `voice`). This content can include [variables](#template_variables).<br> If you provide a value for `template` and `action_type` is `voice`, do must not specify `digit_n`, `welcome_message` or `bye_message`. | No
+`template` | The content displayed in an SMS message (when the `action_type` is `sms`) or spoken to your user in a text-to-speech call (when the `action_type` is `voice`). This content can include [variables](#template_variables).<br> If you provide a value for `template` and `action_type` is `voice`, do not specify `digit_n`, `welcome_message` or `bye_message`. | No
 `type` | The encoding used for `template` when the `action_type` is `sms`. Possible values are: `unicode` _or_ `text` | No
-`digit_n` | URL to the media file played when Nexmo read out a digit to the user. If you specify `digit_n`, you should also specify  `welcome_message` and `bye_message`. Nexmo inserts the verification code between the two. | No
+`digit_n` | URL to the media file played when Nexmo reads out a digit to the user using text-to-speech. If you specify `digit_n`, you should also specify  `welcome_message` and `bye_message`. Nexmo inserts the verification code between the two. | No
 `welcome_message` | URL to the media file played at the start of the call. | Yes, if you specify `digit_n`
 `bye_message` | URL to the media file played at the end of the call. | Yes, if you specify `digit_n`
 `contact_email` | Set the email address used to generate a Zendesk ticket and activate your custom template. If you do not set this parameter, Verify uses the email address associated with your master API key. | No
