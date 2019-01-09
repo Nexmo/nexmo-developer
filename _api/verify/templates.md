@@ -6,7 +6,7 @@ api: Verify
 
 # Verify Templates
 
-The messages that the Verify API sends during the verification process are defined using JSON templates. Default templates are provided. You can create your own templates to customize the content of any SMS or voice messages that the Verify API sends on your behalf, to create a fully branded experience for your users.
+The messages that the Verify API sends during the verification process are created using a template. Default templates are provided. You can create your own templates to customize the content of any SMS or voice messages that the Verify API sends on your behalf, to create a fully branded experience for your users.
 
 > If you want to continue using the default templates then no further configuration is required and you can ignore this guide.
 
