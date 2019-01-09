@@ -6,8 +6,7 @@ title: Custom Locale
 {
   "action_type": "voice",
   "lg": "en_ie",
-  "contact_email" : "xyz@example.com",   
-  "template": "this is the template. with a ${pin}",
+  "contact_email" : "xyz@example.com",
   "welcome_message": "https://example.com/welcome.wav",
   "digit_0": "https://example.com/message_zero.wav",
   "digit_1": "https://example.com/message_one.wav",

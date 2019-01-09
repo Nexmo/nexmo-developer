@@ -16,12 +16,12 @@ $url = $base_url . $version . $action . "?api_key=" . $api_key . "&api_secret=" 
 $headers =  array('Content-Type: application/json', 'Accept: application/json') ;
 
 //Create the payload for an SMS custom template
-$payload = '{
-  "action_type" : "sms",
-  "lg" : "en-gb",
-  "contact_email" : "xyz@example.com",
-  "template" : "Your ${brand} verification code is ${pin}"
-}';
+$payload = json_encode([
+  "action_type" => "sms",
+  "lg" => "en-gb",
+  "contact_email" => "xyz@example.com",
+  "template" => "Your ${brand} verification code is ${pin}"
+]);
 
 //Create the request
 $ch = curl_init();
