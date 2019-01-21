@@ -2,14 +2,10 @@
 title: JavaScript
 language: javascript
 dependencies:
-    - To be decided
+    - nexmo-stitch
 code:
     source: .repos/nexmo/client-sdk-javascript-building-blocks/in-app-voice/earmuff-myself/EarmuffMyself.js
     from_line: 1
     to_line: 1
-client:
-    source: .repos/nexmo/client-sdk-javascript-building-blocks/in-app-voice/earmuff-myself/EarmuffMyself.js
-    from_line: 1
-    to_line: 1
 file_name: EarmuffMyself.js
-run_command: ' To be decided EarmuffMyself.js'
+run_command: 'Load in your browser'
