@@ -42,7 +42,7 @@
 # Client SDK 
 
 "/client-sdk/in-app-messaging/concepts": "/conversation/concepts"
-"/client-sdk/in-app-messaging/building-blocks": "/client-sdk/in-app-messaging/building-blocks/create-conversation"
+"/client-sdk/in-app-messaging/building-blocks": "/client-sdk/in-app-messaging/overview"
 "/client-sdk/in-app-messaging/tutorials": "/client-sdk/tutorials"
 
 "/client-sdk/in-app-voice/concepts": "/conversation/concepts"
