@@ -9,24 +9,24 @@ languages:
 
 # How to Add the Nexmo Client SDK to your iOS App
 
-Let's get started with adding Nexmo Client SDK on your iOS app!
+In this tutorial you learn how to add the Nexmo Client SDK to your iOS app.
 
 ## Prerequisites
 
-To use the Nexmo SDK for iOS, you will need to have the following installed:
+To use the Nexmo SDK for iOS, you need to have the following installed:
 
 * Xcode 10 or later
 * iOS 10 or later
 
-## Add The SDK To Your iOS Project
+## Add the SDK to your iOS Project
 
 Open XCode with your iOS project.
 
-You can either install the Nexmo Client SDK via CocoaPods or directly:
+You can either install the Nexmo Client SDK via CocoaPods or directly.
 
 ### CocoaPods
 
-1. Open your project's `PodFile`
+1. Open your project's `PodFile`.
 
 2. Under your target add the `NexmoClient` pod. Replace `TargetName` with your actual target name.
 
@@ -36,9 +36,9 @@ You can either install the Nexmo Client SDK via CocoaPods or directly:
    end
    ```
 
-   > *Note:* Make sure the pod file has the public CocoaPod specs repository source.
+   Make sure the pod file has the public CocoaPod specs repository source.
 
-3. Install the Pod by opening terminal and running the following command:
+3. Install the Pod by opening a terminal and running the following command:
 
     ```ruby
    $ cd 'Project Dir'
@@ -62,7 +62,7 @@ You can either install the Nexmo Client SDK via CocoaPods or directly:
 
 ### Frameworks
 
-1. Download the Nexmo SDK and add it to your project
+1. Download the Nexmo Client SDK and add it to your project.
 
 2. Open the `xcworkspace` with XCode and disable `bitcode` for your target.
 
@@ -77,11 +77,11 @@ You can either install the Nexmo Client SDK via CocoaPods or directly:
     #import <NexmoClient/NexmoClient.h>;
     ```
 
-## Add Permissions
+## Add permissions
 
-To use the in app voice features, you should add audio permissions:
+To use the in-app voice features, you need to add audio permissions:
 
-1. In your `Info.plist` add a new row with 'Privacy - Microphone Usage Description' and a description for using the microphone. For example `Audio Calls`.
+1. In your `Info.plist` add a new row with 'Privacy - Microphone Usage Description' and a description for using the microphone. For example, `Audio Calls`.
 
 2. In your code add a request for Audio Permissions:  
 
@@ -113,13 +113,13 @@ To use the in app voice features, you should add audio permissions:
     }
     ```
 
-AppDelegate is the best place to do this.
+`AppDelegate` is the best place to do this.
 
 ## Using NXMClient in your app
 
 ### Login
 
-Create a `NXMClient` object and login with a `jwt` user token. You can read more about generating the `jwt` [here](/client-sdk/concepts/jwt-acl).
+Create a `NXMClient` object and login with a `jwt` user token. If necessary, you can read more about [generating the JWT](/client-sdk/concepts/jwt-acl).
 
 **Swift:**
 ```swift
@@ -135,9 +135,9 @@ NXMClient *client = [[NXMClient alloc] initWithToken:@"your token"];
 [client login];
 ```
 
-> *Note*: self should implement `NXMClientDelegate` protocol.  
+Note that `self` should implement the `NXMClientDelegate` protocol.  
 
-On a succesfull login, The following delegate method is called with `NXMConnectionStatusConnected`.
+On a successful login, the following delegate method is called with `NXMConnectionStatusConnected`:
 
 **Swift:**
 ```swift
@@ -149,9 +149,9 @@ func loginStatusChanged(_ user: NXMUser?, loginStatus isLoggedIn: Bool, withErro
 - (void)connectionStatusChanged:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason;
 ```
 
-After the login succeeds, the logged in user will be available via:
-
 ### Get current user info
+
+After the login succeeds, the logged in user will be available via:
 
 **Swift:**
 ```swift
@@ -165,5 +165,5 @@ NXMUser *user = client.user;
 
 ## Conclusion
 
-You added the Nexmo Client SDK to your iOS app, and logged in to a `NXMClient` instance. You're all set to use that `NXMClient` client in your app, and utilize the NexmoClient SDK functionalities.
+You added the Nexmo Client SDK to your iOS app, and logged in to a `NXMClient` instance. You can now use the `NXMClient` client in your app, and use the Nexmo Client SDK functionality.
 

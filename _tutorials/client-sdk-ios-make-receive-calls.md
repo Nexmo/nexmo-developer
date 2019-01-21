@@ -9,31 +9,33 @@ languages:
 
 # How to Make and Receive Voice calls with the Nexmo Client SDK on iOS
 
-In this tutorial you'll learn how to use Nexmo Client SDK for iOS, in order to perform an in-app (IP to IP) call.
+In this tutorial you learn how to use Nexmo Client SDK for iOS, in order to perform an in-app (IP to IP) voice call.
 
 You will create a simple app to make a call and receive a call.
 
-The app will have 2 buttons, which will login different users: Jane or Joe. After logging in, Jane and Joe will be able to place a call and perform actions such as answer, decline or hangup.
+The app will have two buttons, which log in different users: Jane or Joe. After logging in, Jane and Joe are able to place a call and perform actions such as answer, decline or hangup.
 
 ## Prerequisites
 
-- Make sure you have [created a Nexmo Application.](/setup/generate-test-credentials)
+- [Create a Nexmo Application](/tutorials/client-sdk-generate-test-credentials).
 
-- Make sure you have at least [*2 users* for that Nexmo Application, with valid *JWTs*](/setup/generate-test-credentials)
+- Make sure you have at least [two users for your Nexmo Application, with valid JWTs](/tutorials/client-sdk-generate-test-credentials).
 
-- [Add Nexmo SDK to your project](/setup/add-sdk-to-you-app/ios)
+- [Add Nexmo SDK to your project](/tutorialas/client-sdk-ios-add-sdk-to-your-app).
 
-- [Clone this Github project](https://github.com/Nexmo/Client-Get-Started-InApp-Voice-ObjectiveC)
+## Create the project
 
-- On the Github project you cloned, on the Stater app, with XCode:
+Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-InApp-Voice-ObjectiveC).
+
+Using the Github project you cloned, in the Starter app, with XCode:
     
-1. Open `IAVAppDefine.h` file and swap the users IDs and tokens:
+1. Open `IAVAppDefine.h` file and replace the user IDs and tokens:
 
 ```objective-c
-    #define kInAppVoiceJaneUserId @"JANE_USER_ID" //TODO: swap with a userId for Jane
-    #define kInAppVoiceJaneToken @"JANE_TOKEN" //TODO: swap with a token for Jane
-    #define kInAppVoiceJoeUserId @"JOE_USER_ID" //TODO: swap with a userId for Joe
-    #define kInAppVoiceJoeToken @"JOE_TOKEN" //TODO: swap with a token for Joe
+    #define kInAppVoiceJaneUserId @"JANE_USER_ID" //TODO: replace with a userId for Jane
+    #define kInAppVoiceJaneToken @"JANE_TOKEN" //TODO: replace with a token for Joe
+    #define kInAppVoiceJoeUserId @"JOE_USER_ID" //TODO: replace with a userId for Joe
+    #define kInAppVoiceJoeToken @"JOE_TOKEN" //TODO: replace with a token for Joe
 ```
 
 2. Open `MainViewController.m` file and make sure the following lines exist:
@@ -46,11 +48,11 @@ The app will have 2 buttons, which will login different users: Jane or Joe. Afte
 
 ## Login
 
-Using the Nexmo SDK should start with logging in to `NexmoClient`, using a `jwt` user token.
+Using the Nexmo Client SDK should start with logging in to `NexmoClient`, using a `jwt` user token.
 
-On production apps, your server would authenticate the user, and would return to the app a [`jwt` with the configurations that fit.](https://developer.nexmo.com/stitch/concepts/jwt-acl).
+In production apps, your server would authenticate the user, and would return a [correctly configured JWT](/client-sdk/concepts/jwt-acl) to your app.
 
-For testing and getting started purposes, you can [use the Nexmo CLI to generate `jwt`s.](/setup/generate-test-credentials)
+For testing and getting started purposes, you can use the Nexmo CLI to [generate JWTs](/tutorials/client-sdk-generate-test-credentials).
 
 Open `MainViewController.m`. Explore the setup methods that were written for you on `viewDidLoad`.
 
@@ -64,16 +66,15 @@ Now locate the following line `#pragma mark - Tutorial Methods` and complete the
 }
 ```
 
-Notice that `self` is set to be the delegate for `NXMClient`. Don't forget to adopt the `NXMClientDelegate` protocol and implement the required methods.
+Notice that `self` is set to be the delegate for `NXMClient`. Do not forget to adopt the `NXMClientDelegate` protocol and implement the required methods.
 
-Add the required protocol adoption declaration to the class extension located in the `MainViewController.m` file.  
-It should look like this:
+Add the required protocol adoption declaration to the class extension located in the `MainViewController.m` file:
 
 ```objective-c
 @interface MainViewController () <NXMClientDelegate>
 ```
 
-The `NXMClientDelegate` let you know among other things, if the login was succesful and you can start using the sdk.
+The `NXMClientDelegate` indicates if the login was successful and you can start using the SDK.
 
 Add the following method under the `#pragma mark NXMClientDelegate` line.
 
@@ -83,15 +84,15 @@ Add the following method under the `#pragma mark NXMClientDelegate` line.
 }
 ```
 
-At this point you should already be able to run the app and see that you can login successfully with the sdk.
+At this point you should already be able to run the app and see that you can login successfully with the SDK.
 
 ## Start a Call
 
-Let's start a simple In App call. If you're logged in as Jane, you will call Joe, and vice versa.
+You can now make a simple In-App call. If you logged in as Jane, you can call Joe, and if you logged in as Joe you can call Jane.
 
 `Call Other` button press is already connected to the `MainViewController`.
 
-Go ahead and Implement the `didCallOtherButtonPress:` method to start a call. It should start the call, and also update the UIViews so that Jane or Joe know the call is in progress:
+Implement the `didCallOtherButtonPress:` method to start a call. It will start the call, and also update the UIViews so that Jane or Joe know the call is in progress:
 
 ```objective-c
 - (IBAction)didCallOtherButtonPress:(UIButton *)sender {
@@ -109,9 +110,9 @@ Go ahead and Implement the `didCallOtherButtonPress:` method to start a call. It
 }
 ```
 
-Pay attention that `NSArray` is initialized with `otherUser.userId`. In fact you can have multiple users in a call. However for our tutorial a simple 1 on 1 call should suffice.
+Ensure that `NSArray` is initialized with `otherUser.userId`. You can have multiple users in a call. However, this tutorial demonstrates a 1-on-1 call.
 
-As with `NXMClient`, `NXMCall` also receives a delegate which you supplied in  `call:callType:delegate:completion:` method.  
+As with `NXMClient`, `NXMCall` also receives a delegate which you supplied in the `call:callType:delegate:completion:` method.  
 
 Adopt the `NXMCallDelegate`. Your extension declaration should look like this:
 
@@ -120,7 +121,7 @@ Adopt the `NXMCallDelegate`. Your extension declaration should look like this:
 
 ```
 
-Copy the following Implementation for the `statusChanged` method of the `NXMCallDelegate` along with the aid methods under the `#pragma mark NXMCallDelegate` line:
+Copy the following implementation for the `statusChanged` method of the `NXMCallDelegate` along with the aid methods under the `#pragma mark NXMCallDelegate` line:
 
 ```objective-c
 - (void)statusChanged:(NXMCallMember *)callMember {
@@ -143,23 +144,23 @@ Copy the following Implementation for the `statusChanged` method of the `NXMCall
 }
 ```
 
-`statusChanged:` method notifies on changes that happens to members on the call.  
-`statusChangedForOtherMember` and `statusChangedForMyMember` will be updated later when you'll handle call hangup
+The `statusChanged:` method notifies on changes that happens to members on the call.  
 
-You can build the project now and make an outgoing call. Next you will implement receiving an incoming call.
+The `statusChangedForOtherMember` and `statusChangedForMyMember` methods are updated later when you will handle call hangup.
 
-> *Note:*
-While `NXMCallTypeInApp` is great for simple calls, you can also start a call with customized logic, defined by your backend ([using an NCCO](/client-sdk/in-app-voice/guides/ncco-guide) ) just as easy, by choosing `NXMCallTypeServer` as the callType.
+You can build the project now and make an outgoing call. Next you implement how to receive an incoming call.
+
+Note that while `NXMCallTypeInApp` is useful for simple calls, you can also start a call with customized logic [using an NCCO](/client-sdk/in-app-voice/concepts/ncco-guide) ), by choosing `NXMCallTypeServer` as the `callType`.
 
 ```objective-c
  [self.nexmoClient call:@[callees] callType:NXMCallTypeServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call){...}];
 ```
 
-This will also allow you to start a phone (PSTN) call, by adding a phone number to the `callees` array.
+This also allows you to start a PSTN phone call, by adding a phone number to the `callees` array.
 
 ## Receive incoming call
 
-When Jane calls Joe, Joe should be notified about it, for example, in order to answer or decline the call.
+When Jane calls Joe, Joe should be notified, so that Joe may decide to answer or decline the call.
 
 This is done by implementing the optional `incomingCall:` method which is declared in the `NXMClientDelegate`.
 
@@ -172,8 +173,7 @@ Go back to the `#pragma mark NXMClientDelegate` line and add the `incomingCall:'
 }
 ```
 
-This method takes as a parameter an `NXMCall` object with which you can answer or decline the call.
-An alert was implemented for you, to allow the user to choose whether to answer or decline the call.
+This method takes as a parameter an `NXMCall` object with which you can answer or decline the call. An alert was implemented for you, to allow the user to choose whether to answer or decline the call.
 
 ## Answer a call
 
@@ -197,12 +197,11 @@ Under the `#pragma mark IncomingCall`, implement this method to answer the incom
 }
 ```
 
-`answer:completionHandler` accepts an object adopting the `NXMCallDelegate`, and a `completionHandler`, to let you know if an error occurred in the process.  
-You already implemented `NXMCallDelegate` on a previous step.
+`answer:completionHandler` accepts an object adopting the `NXMCallDelegate`, and a `completionHandler`, to indicate if an error occurred in the process. You already implemented `NXMCallDelegate` in a previous step.
 
 ## Decline a call
 
-Similarily, under the `#pragma mark IncomingCall`, implement this method to decline the incoming call:
+Under the `#pragma mark IncomingCall`, implement this method to decline the incoming call:
 
 ```objective-c
 - (void)didPressDeclineIncomingCall {
@@ -221,20 +220,19 @@ Similarily, under the `#pragma mark IncomingCall`, implement this method to decl
 }
 ```
 
-`decline:` accepts a single `completionHandler` parameter to let you know if an error occurred in the process.
+`decline:` accepts a single `completionHandler` parameter to indicate if an error occurred in the process.
 
 ## Hangup a call
 
-Once Jane or Joe presses the big red button, it's time to hangup the call. 
-Implement `didEndButtonPress:` method and call hangup for myCallMember.
+Once Jane or Joe presses the red button, it is time to hangup the call. Implement `didEndButtonPress:` method and call hangup for `myCallMember`.
 
 ```objective-c
     [self.ongoingCall.myCallMember hangup];
 ```
 
-Updates for callMember statuses are received in `statusChanged` as part of the `NXMCallDelegate` as you've seen before.  
+Updates for `callMember` statuses are received in `statusChanged` as part of the `NXMCallDelegate` as you have seen before.  
 
-Update the implementation for `statusChangedForOtherMember` and `statusChangedForMyMember` to handle call hangup.
+Update the implementation for `statusChangedForOtherMember` and `statusChangedForMyMember` to handle call hangup:
 
 ```objective-c
 - (void)statusChangedForMyMember:(NXMCallMember *)myMember {
@@ -258,8 +256,9 @@ Update the implementation for `statusChangedForOtherMember` and `statusChangedFo
 
 ## Handle permissions
 
-For the call to happen, `Audio Permissions` are required. On the `appDelegate` of the sample project, you can find an implementation for the permissions request on `application:didFinishLaunchingWithOptions`.  
-To read more about the permissions needed, [see here](/client-sdk/setup/add-sdk-to-your-app/ios#Add-Permissions).
+For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.  
+
+To read more about the permissions required, [see the setup tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions).
 
 ## Conclusion
 
@@ -267,4 +266,4 @@ You have implemented your first In App Voice application with the Nexmo Client S
 
 Run the app on two simulators and see that you can call, answer, decline and hangup.
 
-If possible, run on a couple of phones using your developer signing and provisioning and start talking!
+If possible, test on two phones using your developer signing and provisioning facility.
