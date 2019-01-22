@@ -133,7 +133,9 @@ class TabFilter < Banzai::Filter
     source_path += '/*' if tabbed_code_examples?
     source_path += '/*.md' if tabbed_content?
 
-    Dir[source_path].map do |content_path|
+    files = Dir[source_path]
+    raise "Empty content_from_source file list in #{source_path}" if files.empty?
+    files.map do |content_path|
       raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
       source = File.read(content_path)
 
@@ -161,6 +163,7 @@ class TabFilter < Banzai::Filter
 
   def content_from_tabs
     @config['tabs'].map do |title, config|
+      raise "Could not find content_from_tabs file: #{config['source']}" unless File.exist? config['source']
       source = File.read(config['source'])
 
       config.symbolize_keys.merge({
