@@ -9,7 +9,10 @@ class ModalFilter < Banzai::Filter
     end
 
     modals = modals.map do |modal|
-      document = File.read("#{Rails.root}/#{modal[:document]}")
+      filename = "#{Rails.root}/#{modal[:document]}"
+      raise "Could not find modal #{filename}" unless File.exist? filename
+
+      document = File.read(filename)
       output = MarkdownPipeline.new.call(document)
 
       <<~HEREDOC
