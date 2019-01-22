@@ -69,7 +69,6 @@ class DashboardController < ApplicationController
 
     @complete_coverage = {}
 
-    coverage_from_config if ['all', 'config'].include?(only)
     coverage_from_yaml if ['all', 'yaml'].include?(only)
     coverage_from_files if ['all', 'file'].include?(only)
 
@@ -149,46 +148,6 @@ class DashboardController < ApplicationController
 
   def hide_response
     params[:hide_response].presence
-  end
-
-  def coverage_from_config
-    configs = YAML.load_file("#{Rails.root}/config/code_examples.yml")
-    configs.each do |type, value|
-      value.each do |subheader, entries|
-        coverage_from_config_items(subheader, entries, [type])
-      end
-    end
-  end
-
-  def coverage_from_config_items(language, items, stack)
-    stack = stack.clone
-    if @supported_languages.include?(language)
-      source_path = stack.join('.')
-
-      stack.insert(1, 'top-level') if stack.count < 3
-
-      stack = [stack[0], stack[1], stack[2..-1].join('/')] if stack.count > 3
-
-      x = @complete_coverage
-      stack.each do |key, _value|
-        x[key] = {} unless x[key]
-        x = x[key]
-      end
-
-      language = language.downcase
-      language = 'dotnet' if language == 'csharp'
-      x[language] = {
-        'source' =>  items['source'],
-        'source_path' =>  'config: ' + source_path,
-        'type' => 'config',
-      }
-    else
-      stack = stack.clone
-      stack << language
-      items.each do |header, details|
-        coverage_from_config_items(header, details, stack)
-      end
-    end
   end
 
   def coverage_from_yaml
