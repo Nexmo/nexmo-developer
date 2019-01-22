@@ -1,3 +1,0 @@
-<?php
-$verification = new \Nexmo\Verify\Verification('00e6c3377e5348cdaf567e1417c707a5');
-$client->verify()->trigger($verification);

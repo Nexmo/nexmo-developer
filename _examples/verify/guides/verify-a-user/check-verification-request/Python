@@ -1,3 +1,0 @@
-response = client.check_verification(verify_resp['request_id'], code='1234')
-if response['status'] == '0':
-    print 'User verification complete!'

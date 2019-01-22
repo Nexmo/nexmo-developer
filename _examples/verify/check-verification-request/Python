@@ -1,6 +1,0 @@
-import nexmo
-client = nexmo.Client(key=API_KEY, secret=API_SECRET)
-
-response = client.check_verification(REQUEST_ID, code='1234')
-if response['status'] == '0':
-    print 'User verification complete!'

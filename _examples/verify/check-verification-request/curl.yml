@@ -1,9 +1,0 @@
----
-title: cURL
-language: curl
-code:
-    source: .repos/nexmo/curl-building-blocks/verify/check-verification-code.sh
-    from_line: 4
-    to_line: 4
-file_name: send-verification-code.sh
-run_command: 'sh send-verification-code.sh'

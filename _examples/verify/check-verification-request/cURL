@@ -1,1 +1,0 @@
-curl "https://api.nexmo.com/verify/check/json?api_key=API_KEY&api_secret=API_SECRET&request_id=4952dfad368448fb9dd8e3591c7c5f52&code=1234"

@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<mt-submission-response>
-  <messages count='1'>
-   <message>
-    <status>2</status>
-    <errorText>Missing from param</errorText>
-   </message>
-  </messages>
-</mt-submission-response>

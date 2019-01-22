@@ -1,1 +1,0 @@
-client.cancel_verification(verify_resp['request_id'])

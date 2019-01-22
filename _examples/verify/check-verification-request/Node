@@ -1,8 +1,0 @@
-var Nexmo = require('nexmo');
-
-var nexmo = new Nexmo({
-    apiKey: API_KEY,
-    apiSecret: API_SECRET,
-  });
-
-nexmo.verify.check({request_id: UNIQUE_ID_FROM_VERIFICATION_REQUEST, code: '1234'}, callback);

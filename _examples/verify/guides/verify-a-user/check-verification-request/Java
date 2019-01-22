@@ -1,4 +1,0 @@
-import com.nexmo.client.verify.CheckResult;
-
-String requestId = request.getRequestId();
-CheckResult result = client.check(requestId, CODE);

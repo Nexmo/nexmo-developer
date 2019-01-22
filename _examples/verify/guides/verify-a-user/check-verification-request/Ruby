@@ -1,3 +1,0 @@
-response = client.verify.check(request_id: REQUEST_ID, code: '1234')
-
-puts "User verification complete!" if response.status == '0'

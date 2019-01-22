@@ -1,1 +1,0 @@
-nexmo.verify.check({request_id: UNIQUE_ID_FROM_VERIFICATION_REQUEST, code: '1234'}, callback);

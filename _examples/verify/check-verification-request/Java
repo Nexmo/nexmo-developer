@@ -1,2 +1,0 @@
-NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
-client.getVerifyClient().check(REQUEST_ID, "1234");
