@@ -125,7 +125,7 @@ class TabFilter < Banzai::Filter
 
   def validate_config
     return if @config && (@config['source'] || @config['tabs'])
-    raise 'A source or tabs must be present in this tabbed_example config'
+    raise 'Source or tabs must be present in this tabbed_example config'
   end
 
   def content_from_source
