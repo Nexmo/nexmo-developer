@@ -25,6 +25,22 @@ rows:
           content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
     - width: 2
       entries:
+      - type: html
+        html:
+          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
+    - width: 2
+      entries:
+      - type: html
+        html:
+          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
+    - width: 2
+      entries:
+      - type: html
+        html:
+          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
+  - columns:
+    - width: 2
+      entries:
       - type: structured_text
         structured_text:
           header: "What We're Looking For"
@@ -36,6 +52,8 @@ rows:
               type: small
             - content: "Well-written. Our standards are high, and we want everything published on our blog to meet those standards. That said, you don't have to be a professional writer to submit! If the post is original, helpful and interesting, our editorial team is happy to work with you to get it publication ready."
               type: small
+    - width: 2
+      entries:
       - type: structured_text
         structured_text:
           header: "What's in it for You?"
@@ -45,12 +63,6 @@ rows:
               type: large
             - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Nexmo marketing and social media teams behind you getting the word out about your work. Your success is our success."
               type: large
-  - columns:
-    - width: 2
-      entries:
-      - type: html
-        html:
-          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
     - width: 2
       entries:
       - type: structured_text
@@ -64,12 +76,6 @@ rows:
             type: small
           - content: "We'll be in touch to let you know if we want to publish your post and tell you what the next steps are."
             type: small
-  - columns:
-    - width: 2
-      entries:
-      - type: html
-        html:
-          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
     - width: 2
       entries:
       - type: structured_text
@@ -81,12 +87,6 @@ rows:
             type: large
           - content: "This means you are free to re-publish elsewhere (on your own Medium page, for example). All we require is that you add a `rel=canonical` tag to your post wherever possible, naming the original post at Nexmo the canonical URL."
             type: small
-  - columns:
-    - width: 2
-      entries:
-      - type: html
-        html:
-          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
     - width: 2
       entries:
       - type: structured_text
