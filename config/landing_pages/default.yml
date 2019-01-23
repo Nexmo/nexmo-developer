@@ -1,11 +1,15 @@
 # Default landing config page
 
-# Column Types: header, building_block, call_to_action, developer_resources, text, html
+# Column Types: 
+# header, building_block, call_to_action, tutorial, sdk, join_slack, github_org, github_repo, structured_text, linked_image, text, html
 
 # building_block: name (i.e. messaging/sms), language (i.e. ruby), pretext, posttext
 # call_to_action: header, icon, subheader
-# developer_resources: type (i.e. tutorial, sdk), name
+# tutorial: name
+# sdk: name
 # text: text
+# structured_text: header, icon, text (content, type (large or small))
+# linked_image: image, url, alt_text
 # html: html
 
 # columns width: if "width" is not provided then default to 100%
@@ -21,6 +25,11 @@ rows:
           title: "Thanks for joining us!"
           subtitle: "So glad you made it to OneHack Jupiter!"
           icon: "onehack-icon"
+      - type: linked_image
+        linked_image:
+          image:
+          url:
+          alt_text:  
   - columns:
     - width: 2
       entries:
