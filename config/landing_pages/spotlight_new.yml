@@ -12,6 +12,11 @@ rows:
           title: "Write for Nexmo"
           subtitle: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of high quality technical content and inspiring development stories."
           icon:
+    - entries:
+      - type: action_button
+        action_button:
+          text: "Apply Now"
+          url: "https://developer.nexmo.com/spotlight#submit-your-idea"
     - width: 3
       entries:
       - type: html

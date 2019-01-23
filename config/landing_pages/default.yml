@@ -1,7 +1,8 @@
 # Default landing config page
 
 # Column Types: 
-# header, building_block, call_to_action, tutorial, sdk, join_slack, github_org, github_repo, structured_text, linked_image, text, html
+# header, building_block, call_to_action, tutorial, sdk, join_slack, github_org, github_repo, structured_text, linked_image, text, html,
+# action_button
 
 # building_block: name (i.e. messaging/sms), language (i.e. ruby), pretext, posttext
 # call_to_action: header, icon, subheader
@@ -10,6 +11,7 @@
 # text: text
 # structured_text: header, icon, text (content, type (large or small))
 # linked_image: image, url, alt_text
+# action_button: text, url
 # html: html
 
 # columns width: if "width" is not provided then default to 100%
