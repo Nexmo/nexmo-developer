@@ -1,7 +1,7 @@
 module BuildingBlockRenderer
   class Kotlin
     def self.dependencies(deps)
-      deps.join("\n")
+      { 'code' => "#{deps.join(' ')}" }
     end
 
     def self.run_command(_command, _filename, _file_path)
