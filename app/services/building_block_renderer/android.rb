@@ -25,8 +25,7 @@ allprojects {
             url \"https://artifactory.ess-dev.com/artifactory/gradle-dev-local\"
         }
     }
-}"
-    }
+}"}
     end
 
     def self.run_command(_command, _filename, _file_path)
