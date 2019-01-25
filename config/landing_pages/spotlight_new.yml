@@ -30,29 +30,22 @@ rows:
           image: "babel-fish-tutorial-1200x600.png"
           url: "https://www.nexmo.com/blog/2018/03/14/speech-voice-translation-microsoft-dr/"
           alt_text: "speech voice teanslation with babel fish"
-    - width: 2
-      entries:
       - type: linked_image
         linked_image:
           image: "tts-superhero.png"
           url: "https://www.nexmo.com/blog/2017/08/14/text-to-speech-phone-call-with-django-dr/"
           alt_text: "text-to-speech with django and nexmo voice api"
-    - width: 2
-      entries:
       - type: linked_image
         linked_image:
           image: "escape-1200x600.png"
           url: "https://www.nexmo.com/blog/2018/03/02/getting-bad-date-fitbit-nexmo-dr/"
           alt_text: "get out of a bad date with nexmo and fitbit"
-    - width: 2
-      entries:
       - type: linked_image
         linked_image:
           image: "sms-fortune-cookie-1200x600.png"
           url: "https://www.nexmo.com/blog/2018/08/14/serverless-sms-nexmo-ibm-dr/"
           alt_text: "serverless sms fortune cookies with nexmo and ibm"
           content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
-  - columns:
     - width: 2
       entries:
       - type: structured_text
@@ -66,8 +59,6 @@ rows:
               type: small
             - content: "Well-written. Our standards are high, and we want everything published on our blog to meet those standards. That said, you don't have to be a professional writer to submit! If the post is original, helpful and interesting, our editorial team is happy to work with you to get it publication ready."
               type: small
-    - width: 2
-      entries:
       - type: structured_text
         structured_text:
           header: "What's in it for You?"
@@ -77,8 +68,6 @@ rows:
               type: large
             - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Nexmo marketing and social media teams behind you getting the word out about your work. Your success is our success."
               type: large
-    - width: 2
-      entries:
       - type: structured_text
         structured_text:
           header: "The Process"
@@ -90,8 +79,6 @@ rows:
             type: small
           - content: "We'll be in touch to let you know if we want to publish your post and tell you what the next steps are."
             type: small
-    - width: 2
-      entries:
       - type: structured_text
         structured_text:
           header: "Who Owns Your Work?"
@@ -101,8 +88,6 @@ rows:
             type: large
           - content: "This means you are free to re-publish elsewhere (on your own Medium page, for example). All we require is that you add a `rel=canonical` tag to your post wherever possible, naming the original post at Nexmo the canonical URL."
             type: small
-    - width: 2
-      entries:
       - type: structured_text
         structured_text:
           header: "Submit Your Idea"
