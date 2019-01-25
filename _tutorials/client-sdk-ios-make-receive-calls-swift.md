@@ -94,13 +94,6 @@ Add the following method under the `#pragma mark NXMClientDelegate` line.
 
 ```swift
 func connectionStatusChanged(_ status: NXMConnectionStatus, reason: NXMConnectionStatusReason) {
-    DispatchQueue.main.async { [weak self] in
-        if status == .connecting {
-            self?.activityIndicator.startAnimating()
-        } else {
-            self?.activityIndicator.stopAnimating()
-        }
-    }
     updateInterface()
 }
 ```
@@ -117,12 +110,15 @@ Implement the `call:` method to start a call.
 
 ```swift
 @IBAction func call(_ sender: Any) {
-    // check if a call already exists and start one if it doesn't
+    // call initiated but not yet active
+    if callStatus == .initiated && call == nil {
+        return
+    }
+    // start a new call (check if a call already exists)
     guard let call = call else {
         startCall()
         return
     }
-    // end call if already in progress
     end(call: call)
 }
 
@@ -140,34 +136,30 @@ Let's implement `startCall` - it will start the call, and also update the visual
 
 ```swift
 private func startCall() {
-    activityIndicator.startAnimating()
-    statusLabel.text = "Calling \(user.callee)"
-    callButton.setTitle("End call", for: .normal)
-    logoutButton.alpha = 0
-    
-    client?.call([user.callee.userId], callType:  .inApp, delegate: self) { [weak self] (error, call) in
+    callStatus = .initiated
+    client?.call([user.callee.userId], callType: .inApp, delegate: self) { [weak self] (error, call) in
         guard let self = self else { return }
         // Handle create call failure
         guard let call = call else {
             if let error = error {
                 // Handle create call failure
-                print("❌❌❌ call not created: \(error)")
+                print("❌❌❌ call not created: \(error.localizedDescription)")
             } else {
                 // Handle unexpected create call failure
                 print("❌❌❌ call not created: unknown error")
             }
+            self.callStatus = .error
             self.call = nil
             self.updateInterface()
             return
         }
-        
         // Handle call created successfully.
         // callDelegate's  statusChanged: will be invoked with needed updates.
-        print("🤙🤙🤙 call: \(call)")
         call.setDelegate(self)
         self.call = call
         self.updateInterface()
     }
+    updateInterface()
 }
 ```
 
@@ -178,11 +170,7 @@ NB: You can have multiple users in a call (`client?.call` method takes an array 
 Note the second parameter in the `client?.call` method above - while `NXMCallType.inApp` is useful for simple calls, you can also start a call with customized logic [using an NCCO](/client-sdk/in-app-voice/concepts/ncco-guide) ), by choosing `NXMCallType.server` as the `callType`.
 
 ```swift
-
 client?.call([calees], callType: .server, delegate: self) { [weak self] (error, call) in
-
-
- [self.nexmoClient call:@[callees] callType:NXMCallTypeServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call){...}];
 ```
 
 This also allows you to start a PSTN phone call, by adding a phone number to the `callees` array.
@@ -203,18 +191,37 @@ Copy the following implementation for the `statusChanged` method of the `NXMCall
 
 ```swift
 func statusChanged(_ member: NXMCallMember!) {
-    print("🤙🤙🤙 Call Status changed | participant: \(String(describing: member.userName))")
+    print("🤙🤙🤙 Call Status changed | member: \(String(describing: member.user.name))")
+    print("🤙🤙🤙 Call Status changed | member status: \(String(describing: member.status.description()))")
+    
     guard let call = call else {
         // this should never happen
+        self.callStatus = .unknown
         self.updateInterface()
         return
     }
-    if member == call.myCallMember && call.status == .disconnected {
+    
+    // call ended before it could be answered
+    if member == call.myCallMember, member.status == .answered, let otherMember = call.otherCallMembers.firstObject as? NXMCallMember, [NXMCallMemberStatus.completed, NXMCallMemberStatus.cancelled].contains(otherMember.status)  {
+        self.callStatus = .completed
+        self.call?.myCallMember.hangup()
         self.call = nil
-        print("🤙🤙🤙 Call Status changed | status: disconnected")
-    } else {
-        print("🤙🤙🤙 Call Status changed | status: connected")
     }
+    
+    // call rejected
+    if call.otherCallMembers.contains(member), member.status == .cancelled {
+        self.callStatus = .rejected
+        self.call?.myCallMember.hangup()
+        self.call = nil
+    }
+    
+    // call ended
+    if call.otherCallMembers.contains(member), member.status == .completed {
+        self.callStatus = .completed
+        self.call?.myCallMember.hangup()
+        self.call = nil
+    }
+
     updateInterface()
 }
 ```
@@ -236,9 +243,9 @@ Go back to the `#pragma mark NXMClientDelegate` line and add the `incomingCall:'
 func incomingCall(_ call: NXMCall) {
     print("📲 📲 📲 Incoming Call: \(call)")
     DispatchQueue.main.async {
-        let names: [String] = call.otherCallMembers.compactMap({ participant -> String? in
-            return (participant as? NXMCallMember)?.userName
-        })
+        let names: [String] = call.otherCallMembers?.compactMap({ participant -> String? in
+            return (participant as? NXMCallMember)?.user.name
+        }) ?? []
         let alert = UIAlertController(title: "Incoming call from", message: names.joined(separator: ", "), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Answer", style: .default, handler: { _ in
             self.answer(call: call)
@@ -267,6 +274,7 @@ private func answer(call: NXMCall) {
         }
         self?.updateInterface()
     }
+}
 ```
 
 The `answer:completionHandler` method accepts an object adopting the `NXMCallDelegate`, and a `completionHandler`, to indicate if an error occurred in the process. You already implemented `NXMCallDelegate` in a previous step.
@@ -290,18 +298,14 @@ private func reject(call: NXMCall) {
 
 ## Hangup a call
 
-Once Jane or Joe presses the red button, it is time to hangup the call. Implement the private `end:` method and call hangup for `myCallMember`.
+Once Jane or Joe presses the 'End Call' button, it is time to hangup the call. Implement the private `end:` method and call hangup for `myCallMember`.
 
 ```swift
 private func end(call: NXMCall) {
-    DispatchQueue.main.async { [weak self] in
-        self?.activityIndicator.startAnimating()
-        self?.statusLabel.text = "Hanging up..."
-    }
-    
     call.myCallMember.hangup()
+    callStatus = .completed
     self.call = nil
-    self.updateInterface()
+    updateInterface()
 }
 ```
 
