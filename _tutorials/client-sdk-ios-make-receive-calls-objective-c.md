@@ -1,13 +1,12 @@
 ---
-title: How to Make and Receive Voice calls with the Nexmo Client SDK on iOS
+title: How to Make and Receive Voice calls with the Nexmo Client SDK on iOS using Objective-C
 products: client-sdk
-description: This tutorial shows you how to create a Nexmo Client SDK application that can make and receive voice calls on iOS.
+description: This tutorial shows you how to create a Nexmo Client SDK application that can make and receive voice calls on iOS using Objective-C.
 languages:
     - Objective C
-    - Swift
 ---
 
-# How to Make and Receive Voice calls with the Nexmo Client SDK on iOS
+# How to Make and Receive Voice calls with the Nexmo Client SDK on iOS using Objective-C
 
 In this tutorial you learn how to use Nexmo Client SDK for iOS, in order to perform an in-app (IP to IP) voice call.
 
@@ -21,7 +20,7 @@ The app will have two buttons, which log in different users: Jane or Joe. After 
 
 - Make sure you have at least [two users for your Nexmo Application, with valid JWTs](/tutorials/client-sdk-generate-test-credentials).
 
-- [Add Nexmo SDK to your project](/tutorialas/client-sdk-ios-add-sdk-to-your-app).
+- [Add Nexmo SDK to your project](/tutorials/client-sdk-ios-add-sdk-to-your-app).
 
 ## Create the project
 

@@ -26,36 +26,46 @@ You can either install the Nexmo Client SDK via CocoaPods or directly.
 
 ### CocoaPods
 
-1. Open your project's `PodFile`.
+1. Open your project's `PodFile`. If you don't have one already, open a terminal and run the following commands:
+
+    ```
+    $ cd 'Project Dir'
+    $ pod init
+    ```
+
+    Where `Project Dir` is the path to the parent directory of the `PodFile`.
 
 2. Under your target add the `NexmoClient` pod. Replace `TargetName` with your actual target name.
 
-   ```ruby
-   target 'TargetName' do
-       pod 'NexmoClient'
-   end
-   ```
+    ```ruby
+    target 'TargetName' do
+        pod 'NexmoClient'
+    end
+    ```
 
-   Make sure the pod file has the public CocoaPod specs repository source.
+    Make sure the pod file has the public CocoaPod specs repository source.
 
 3. Install the Pod by opening a terminal and running the following command:
 
-    ```ruby
-   $ cd 'Project Dir'
-   $ pod update
-   ```
+    ```
+    $ cd 'Project Dir'
+    $ pod update
+    ```
 
-   Where `Project Dir` is the path to the parent directory of the `PodFile`.
+    Where `Project Dir` is the path to the parent directory of the `PodFile`.
 
 4. Open the `xcworkspace` with XCode and disable `bitcode` for your target.
 
 5. In your code, import the `NexmoClient` library:  
+   
     **Swift:**
+
     ```swift
     import NexmoClient  
     ```
 
     **Objective-C:**
+
     ```objective-c
     #import <NexmoClient/NexmoClient.h>;
     ```
@@ -66,13 +76,16 @@ You can either install the Nexmo Client SDK via CocoaPods or directly.
 
 2. Open the `xcworkspace` with XCode and disable `bitcode` for your target.
 
-3. In your code, import the NexmoClient library:  
+3. In your code, import the NexmoClient library:
+
     **Swift:**
+    
     ```swift
     import NexmoClient  
     ```
 
     **Objective-C:**
+
     ```objective-c
     #import <NexmoClient/NexmoClient.h>;
     ```
@@ -85,9 +98,9 @@ To use the in-app voice features, you need to add audio permissions:
 
 2. In your code add a request for Audio Permissions:  
 
-    **Swift**:
-    ```swift
+    **Swift**
 
+    ```swift
     import AVFoundation
 
     func askAudioPermissions() {
@@ -119,46 +132,52 @@ To use the in-app voice features, you need to add audio permissions:
 
 ### Login
 
-Create a `NXMClient` object and login with a `jwt` user token. If necessary, you can read more about [generating the JWT](/client-sdk/concepts/jwt-acl).
+1. Create a `NXMClient` object and login with a `jwt` user token. If necessary, you can read more about [generating the JWT](/client-sdk/concepts/jwt-acl).
 
-**Swift:**
-```swift
-let client = NXMClient(token: "your token")
-client?.setDelegate(self)
-client?.login()
-```
+    **Swift**:
 
-**Objective-C:**
-```objective-c
-NXMClient *client = [[NXMClient alloc] initWithToken:@"your token"];
-[client setDelegate:self];
-[client login];
-```
+    ```swift
+    let client = NXMClient(token: "your token")
+    client?.setDelegate(self)
+    client?.login()
+    ```
 
-Note that `self` should implement the `NXMClientDelegate` protocol.  
+    **Objective-C**:
 
-On a successful login, the following delegate method is called with `NXMConnectionStatusConnected`:
+    ```objective-c
+    NXMClient *client = [[NXMClient alloc] initWithToken:@"your token"];
+    [client setDelegate:self];
+    [client login];
+    ```
 
-**Swift:**
-```swift
-func loginStatusChanged(_ user: NXMUser?, loginStatus isLoggedIn: Bool, withError error: Error?)
-```
+    Note that `self` should implement the `NXMClientDelegate` protocol.  
 
-**Objective-C:**
-```objective-c
-- (void)connectionStatusChanged:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason;
-```
+2. On a successful login, the following delegate method is called with `NXMConnectionStatusConnected`:
+
+    **Swift**:
+
+    ```swift
+    func connectionStatusChanged(_ status: NXMConnectionStatus, reason: NXMConnectionStatusReason)
+    ```
+
+    **Objective-C**:
+
+    ```objective-c
+    - (void)connectionStatusChanged:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason;
+    ```
 
 ### Get current user info
 
 After the login succeeds, the logged in user will be available via:
 
-**Swift:**
+**Swift**:
+
 ```swift
 let user = client.user
 ```
 
-**Objective-C:**
+**Objective-C**:
+
 ```objective-c
 NXMUser *user = client.user;
 ```
