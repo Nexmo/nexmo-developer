@@ -53,12 +53,15 @@
 "/client-sdk/in-app-video/building-blocks": "/client-sdk/in-app-video/overview"
 "/client-sdk/in-app-video/tutorials": "/client-sdk/tutorials"
 
-# SDK docs for now
+# Redirect to SDK docs for now
+
+"/client-sdk/sdk-documentation/android": "/sdk/stitch/android/"
+"/client-sdk/sdk-documentation/ios": "/sdk/stitch/ios/"
+"/client-sdk/sdk-documentation/javascript": "/sdk/stitch/javascript/"
 
 "/sdk/client-sdk/android": "/sdk/stitch/android/"
 "/sdk/client-sdk/ios": "/sdk/stitch/ios/"
 "/sdk/client-sdk/javascript": "/sdk/stitch/javascript/"
-
 
 # Conversation API
 
