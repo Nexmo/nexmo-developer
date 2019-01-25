@@ -71,6 +71,10 @@ current:
     email: 'ben.greenberg@vonage.com'
     twitter: 'rabbigreenberg'
     role: 'Developer Advocate'
+  - name: 'Paul Ardeleanu'
+    email: 'paul.ardeleanu@vonage.com'
+    twitter: 'pardel'
+    role: 'Developer Advocate'
 alumni:
   - name: 'Adam Butler'
     email: 'adam.butler@vonage.com'
