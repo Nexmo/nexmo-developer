@@ -1,0 +1,12 @@
+---
+title: Kotlin
+language: kotlin
+dependencies:
+    - Install Nexmo Client SDK and add to project
+code:
+    source: .repos/nexmo/client-sdk-android-kotlin-building-blocks/in-app-voice/hangup-call/HangupCall.kt
+    from_line: 1
+    to_line: 12
+run_command: Run using your IDE
+file_name: HangupCall.kt
+unindent: true

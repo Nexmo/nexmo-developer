@@ -1,0 +1,11 @@
+---
+title: JavaScript
+language: javascript
+dependencies:
+    - nexmo-stitch
+code:
+    source: .repos/nexmo/client-sdk-javascript-building-blocks/in-app-voice/mute-myself/MuteMyself.js
+    from_line: 1
+    to_line: 1
+file_name: MuteMyself.js
+run_command: 'Load in your browser'

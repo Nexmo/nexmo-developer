@@ -1,0 +1,12 @@
+---
+title: Objective C
+language: objective_c
+dependencies:
+    - Install Nexmo Client SDK and add to project
+code:
+    source: .repos/nexmo/client-sdk-objective-c-building-blocks/in-app-voice/start-call/StartCall.m
+    from_line: 1
+    to_line: 16
+run_command: Run using your IDE
+file_name: StartCall.m
+unindent: true

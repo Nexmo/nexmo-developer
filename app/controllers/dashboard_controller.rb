@@ -55,7 +55,6 @@ class DashboardController < ApplicationController
   def coverage
     @supported_languages = %w[
       curl
-      httpie
       csharp
       dotnet
       java
@@ -97,6 +96,16 @@ class DashboardController < ApplicationController
       end
     end
 
+    # Remove non-GA features
+    if params[:show_ga_only]
+      params[:ignore_products] = 'conversation,messages,dispatch,audit'
+    end
+    params[:ignore_products]&.split(',')&.each do |key|
+      @complete_coverage.delete(key)
+      @toplevel_summary.delete(key)
+    end
+
+    # Calculate the overall summary
     @overall_summary = { 'blocks' => 0, 'langs' => {} }
     @supported_languages.each do |lang|
       @overall_summary['langs'][lang] = 0
@@ -169,9 +178,9 @@ class DashboardController < ApplicationController
       language = language.downcase
       language = 'dotnet' if language == 'csharp'
       x[language] = {
-          'source' =>  items['source'],
-          'source_path' =>  'config: ' + source_path,
-          'type' => 'config',
+        'source' =>  items['source'],
+        'source_path' =>  'config: ' + source_path,
+        'type' => 'config',
       }
     else
       stack = stack.clone

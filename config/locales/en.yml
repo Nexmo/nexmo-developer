@@ -9,6 +9,7 @@ en:
     account: Account
     number-insight: Number Insight
     stitch: Stitch
+    client-sdk: Client SDK
     conversation: Conversation
     user: User
     member: Member

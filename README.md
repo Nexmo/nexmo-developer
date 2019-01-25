@@ -36,7 +36,7 @@ The project can be run on your laptop, either directly or using Docker. These in
 
 Before you start, you need to make sure that you have:
 
-- [Ruby 2.5.1](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
+- [Ruby 2.5.3](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
 
@@ -52,12 +52,12 @@ Edit the `.env` file as appropriate for your platform.  Then, run the following:
 
 ```
 $ bundle install
-$ rake db:create
-$ rake db:migrate
-$ rake db:seed
-$ ./bin/yarn install
+$ bin/rails db:create db:migrate db:seed
+$ bin/yarn install
 $ rails s
 ```
+
+**NB:** If a node incompatibility error is received, please use [nvm](https://github.com/creationix/nvm) for managing local node versions. Once installed, run `nvm use 9` before running `bin/yarn install`.
 
 You should now be able to see the site on http://localhost:3000/
 

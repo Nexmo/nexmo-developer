@@ -25,8 +25,6 @@ Every INVITE request is authenticated with Digest authentication:
 
 If your system is not enabled for [Service records](https://en.wikipedia.org/wiki/SRV_record) (SRV records), you should load balance between the two closest endpoints and set the remaining ones as backup. The Nexmo SIP endpoints are:
 
-- `sip-us1.nexmo.com` (Washington)
-- `sip-us2.nexmo.com` (Washington)
 - `sip-eu1.nexmo.com` (London)
 - `sip-eu2.nexmo.com` (London)
 - `sip-ap1.nexmo.com` (Singapore)
@@ -97,8 +95,6 @@ To configure for SIP forwarding:
 5. You can specify a timeout for non responding SIP endpoints, by appending a `;timeout=xxxxx` to the related URI. For example: `sip:1234@example.com;timeout=2000,sip:1234@example.net` will attempt to forward to the first URI, and in case of no response within 2 seconds it will try the second one. Timeouts are expressed in milliseconds and can range from 2000 to 20000. This is useful to quickly fail over when an endpoint is temporarily unavailable. The default value is 5000 ms.
 6. Ensure that the traffic generated from the following IP addresses can pass your firewall:
 
-  * 173.193.199.24
-  * 174.37.245.34
   * 5.10.112.121
   * 5.10.112.122
   * 119.81.44.6

@@ -5,7 +5,8 @@ language: javascript
 
 # Getting Started with Nexmo In-App Voice for JavaScript
 
-In this guide we'll cover adding audio events to the Conversation we have created in the [simple conversation with events](/stitch/in-app-messaging/guides/utilizing-events/javascript) guide. We'll deal with sending and receiving  media events to and from the conversation.
+In this guide we'll cover adding audio events to the Conversation we have created in the [simple conversation with events](/client-sdk/in-app-messaging/guides/utilizing-events/javascript) guide. We'll deal with sending and receiving  media events to and from the conversation.
+
 ## Concepts
 
 This guide will introduce you to the following concepts:
@@ -16,11 +17,11 @@ This guide will introduce you to the following concepts:
 
 ## Before you begin
 
-- Run through the [previous guide](/stitch/in-app-messaging/guides/utilizing-events/javascript)
+- Run through the [previous guide](/client-sdk/in-app-messaging/guides/utilizing-events/javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we created for [the third getting started guide](/stitch/in-app-messaging/guides/utilizing-events/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we created for [the third getting started guide](/client-sdk/in-app-messaging/guides/utilizing-events/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add audio UI
 
@@ -133,5 +134,5 @@ Now run `index.html` in two side-by-side browser windows, making sure to login w
 That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-audio/index.html).
 
 ## Where next?
-- The [next guide](/stitch/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
+- The [next guide](/client-sdk/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
+- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript Reference</a>

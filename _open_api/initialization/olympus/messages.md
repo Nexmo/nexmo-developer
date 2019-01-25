@@ -1,7 +1,6 @@
 ---
 tabs:
   - curl
-  - httpie
 ---
 
 ```tabbed_content

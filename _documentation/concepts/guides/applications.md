@@ -17,7 +17,7 @@ Each application has the following
 Name | Description
 -- | --
 `msisdn` | A virtual phone number that you rent from Nexmo and is associated with this application.
-`type` | Describes the Nexmo API you access for your application currently only `voice` may be used for Voice API.
+`type` | Describes the Nexmo API you access for your application. Possible values: `voice`, `messages`, `rtc`
 `private_key` | You use the private key to generate the JWTs used to authenticate your calls to the Nexmo APIs.
 `public_key` | Used by Nexmo to authenticate the JWT in your requests to Nexmo API.
 `applicationID` | Used to identify each application & used in conjunction with *private_key* to generate JWTs.

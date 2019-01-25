@@ -3,9 +3,9 @@ title: JavaScript
 language: javascript
 ---
 
-# Inviting Members with the Nexmo Stitch JavaScript SDK
+# Inviting Members with the Nexmo Client SDK for JavaScript
 
-In this getting started guide we'll cover creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/simple-conversation/javascript) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
+In this getting started guide we'll cover creating a second user and inviting them to the Conversation we created in the [simple conversation](/client-sdk/in-app-messaging/guides/simple-conversation/javascript) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
 
 ## Concepts
 
@@ -17,7 +17,7 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/simple-conversation/javascript)
+- Ensure you have run through the [previous guide](/client-sdk/in-app-messaging/guides/simple-conversation/javascript)
 - Ensure you have the previous [application set up in the CLI](https://github.com/Nexmo/nexmo-cli/tree/beta#setup-an-application)
 
 ## 1 - Setup
@@ -58,7 +58,7 @@ $ echo $SECOND_USER_JWT
 
 ## 2 - Update the JavaScript App
 
-We will use the application we already created for [the first getting started guide](/stitch/in-app-messaging/guides/simple-conversation/javascript). With the basic setup in place we can now focus on updating the client-side application.
+We will use the application we already created for [the first getting started guide](/client-sdk/in-app-messaging/guides/simple-conversation/javascript). With the basic setup in place we can now focus on updating the client-side application.
 
 ### 2.1 - Add placeholder UI to list Conversations
 
@@ -285,5 +285,5 @@ Return to the previously opened browser windows so you can see `alice` has a con
 
 ## Where next?
 
-- Try out [Quickstart 3](/stitch/in-app-messaging/guides/utilizing-events/javascript)
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
+- Try out [Quickstart 3](/client-sdk/in-app-messaging/guides/utilizing-events/javascript)
+- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>

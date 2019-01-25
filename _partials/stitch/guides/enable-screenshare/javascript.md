@@ -5,7 +5,7 @@ language: javascript
 
 # Getting Started with Screen Sharing
 
-In this getting started guide we'll cover updating media streams to add screen sharing to the Conversation we created in the [simple conversation with video](/stitch/in-app-video/guides/enable-video/javascript) getting started guide. We'll deal with updating media stream events, the ones that come via the conversation.
+In this getting started guide we'll cover updating media streams to add screen sharing to the Conversation we created in the [simple conversation with video](/client-sdk/in-app-video/guides/enable-video/javascript) getting started guide. We'll deal with updating media stream events, the ones that come via the conversation.
 
 We’ll also build a Chrome extension needed for capturing our screen and update our media object with the screen stream.
 
@@ -18,9 +18,9 @@ This guide will introduce you to the following concepts:
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide.](/stitch/in-app-video/guides/enable-video/javascript)
+- Ensure you have run through the [previous guide.](/client-sdk/in-app-video/guides/enable-video/javascript)
 
-## 1 - Creating the Stitch SDK compatible Chrome extension
+## 1 - Creating the Nexmo Client SDK compatible Chrome extension
 
 In order to enable screen sharing into our application, we'll need to create a Chrome extension. First, let's create a new folder, call it `chrome-extension`.
 
@@ -30,7 +30,7 @@ We’ll have to create a `manifest.json` file that contains the metadata on how 
 
 ``` json
 {
-  "name": "Stitch Screen Share Helper",
+  "name": "Nexmo Screen Share Helper",
   "description": "Allows you to capture your desktop for use in video applications",
   "version": "0.0.1",
   "manifest_version": 2,
@@ -52,7 +52,7 @@ We’ll have to create a `manifest.json` file that contains the metadata on how 
 
 ### 1.2 - Adding the extension’s JavaScript code
 
-We’ll have to create the file `screen-capture.js` we referenced in the manifest, which is the code the extension will run. Stitch sends a `screenshare-extension-installed` message to the extension and expects a `success` answer, so we'll need to add code to check for that message. On any other message, we'll make the extension reply with the proper stream id from the screen capture. The code looks like this:
+We’ll have to create the file `screen-capture.js` we referenced in the manifest, which is the code the extension will run. Nexmo Client SDK sends a `screenshare-extension-installed` message to the extension and expects a `success` answer, so we'll need to add code to check for that message. On any other message, we'll make the extension reply with the proper stream id from the screen capture. The code looks like this:
 
 ```javascript
 chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
@@ -79,7 +79,7 @@ We'll need to install the extension on Chrome. There are a few ways to do that, 
 
 ### 2 - Updating the JavaScript application
 
-Next we'll have to update the existing JavaScript application we created in the [previous guide](/stitch/in-app-video/guides/enable-video/javascript).
+Next we'll have to update the existing JavaScript application we created in the [previous guide](/client-sdk/in-app-video/guides/enable-video/javascript).
 
 ### 2.1 -  Adding the extension’s id to ConversationClient
 
@@ -146,5 +146,5 @@ Thats's it! You can see a full example of what your project should look like in 
 
 ## Where next?
 
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
+- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>
 - Have a look at the documentation about [creating](https://developer.chrome.com/extensions/getstarted) and [publishing](https://developer.chrome.com/webstore/publish) Chrome extensions

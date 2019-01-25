@@ -36,8 +36,11 @@
                     onchange: "this.form.submit();" %>
             </div>
         <br>
-        <p><label>Ignore Languages:</label> <input type="text" name="ignore" placeholder="curl,httpie" value="<%=params[:ignore]%>" /></p>
+        <p><label>Ignore Languages:</label> <input type="text" name="ignore" placeholder="curl,php" value="<%=params[:ignore]%>" /></p>
         <p><label>Hide json/xml entries:</label> <input type="checkbox" name="hide_response" value="1" <%= params[:hide_response] ? 'checked' : '' %> /></p>
+        <br />
+        <p><label>Ignore Products:</label> <input type="text" name="ignore_products" placeholder="conversation,messages,dispatch,audit" value="<%=params[:ignore_products]%>" /></p>
+        <p><label>Show only GA products:</label> <input type="checkbox" name="show_ga_only" value="1" <%= params[:show_ga_only] ? 'checked' : '' %> /></p>
         <br>
     <%= link_to 'Reset', '/coverage' %> &nbsp;
     <%= submit_tag 'Update', class: 'button' %>

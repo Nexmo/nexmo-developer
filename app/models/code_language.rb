@@ -17,6 +17,7 @@ class CodeLanguage
   end
 
   def languages
+    @languages ||= []
     @languages.map do |language|
       CodeLanguageResolver.find(language)
     end

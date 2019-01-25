@@ -5,10 +5,6 @@ terminal_programs:
     lexer: sh
     icon: curl
     run_command: 'sh {filename}'
-  httpie:
-    weight: 1
-    label: HTTPie
-    lexer: sh
   cli:
     label: CLI
     lexer: sh
@@ -85,15 +81,29 @@ languages:
       - 'nexmo'
     run_command: 'ruby {filename}'
 
-  swift:
+  kotlin:
     weight: 8
+    label: Kotlin
+    lexer: java
+    icon: android
+    dependencies: []
+
+  android:
+    weight: 9
+    label: Java
+    lexer: java
+    icon: android
+    dependencies: []
+
+  swift:
+    weight: 10
     label: Swift
     lexer: swift
     icon: ios
     dependencies: []
 
   objective_c:
-    weight: 8
+    weight: 11
     label: Objective-C
     lexer: objective_c
     icon: ios

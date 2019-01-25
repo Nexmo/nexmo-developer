@@ -22,7 +22,7 @@ navigation_weight:
   Voice API: 1
   SIP: 2
 
-  Client SDKs: 30
+  Client SDK: 30
   NCCO Reference: 40
   SDK Documentation: 40
   API Reference: 50
@@ -68,8 +68,8 @@ navigation_overrides:
     label: 'Developer Preview'
     svg: 'lock'
     svgColor: 'red'
-  stitch:
-    svg: 'duplicate'
+  client-sdk:
+    svg: 'queue'
     svgColor: 'teal'
     label: 'Developer Preview'
     sdk-documentation:

@@ -39,10 +39,32 @@
 "/stitch/in-app-voice/ncco-guide": "/stitch/in-app-voice/guides/ncco-guide"
 "/stitch/in-app-voice/inbound-pstn": "/stitch/in-app-voice/guides/inbound-pstn"
 
+# Client SDK 
+
+"/client-sdk/in-app-messaging/concepts": "/conversation/concepts"
+"/client-sdk/in-app-messaging/building-blocks": "/client-sdk/in-app-messaging/overview"
+"/client-sdk/in-app-messaging/tutorials": "/client-sdk/tutorials"
+
+"/client-sdk/in-app-voice/concepts": "/conversation/concepts"
+"/client-sdk/in-app-voice/building-blocks": "/client-sdk/in-app-voice/building-blocks/answer-call"
+"/client-sdk/in-app-voice/tutorials": "/client-sdk/tutorials"
+
+"/client-sdk/in-app-video/concepts": "/conversation/concepts"
+"/client-sdk/in-app-video/building-blocks": "/client-sdk/in-app-video/overview"
+"/client-sdk/in-app-video/tutorials": "/client-sdk/tutorials"
+
+# SDK docs for now
+
+"/sdk/client-sdk/android": "/sdk/stitch/android/"
+"/sdk/client-sdk/ios": "/sdk/stitch/ios/"
+"/sdk/client-sdk/javascript": "/sdk/stitch/javascript/"
+
+
 # Conversation API
 
 "/conversation": "/conversation/overview"
 "/conversation/concepts": "/conversation/concepts/conversation"
 "/conversation/building-blocks": "/conversation/building-blocks/conversation/create-conversation"
 "/conversation/api-reference": "/api/conversation"
+
 "/api/stitch": "/api/conversation"

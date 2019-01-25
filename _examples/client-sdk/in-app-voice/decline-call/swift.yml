@@ -1,0 +1,12 @@
+---
+title: Swift
+language: swift
+dependencies:
+    - Install Nexmo Client SDK and add to project
+code:
+    source: .repos/nexmo/client-sdk-swift-building-blocks/in-app-voice/decline-call/DeclineCall.swift
+    from_line: 1
+    to_line: 13
+run_command: Run using your IDE
+file_name: DeclineCall.swift
+unindent: true

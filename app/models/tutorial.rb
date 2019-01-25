@@ -25,6 +25,7 @@ class Tutorial
     return 'Number Insight' if product == 'number-insight'
     return 'Messages' if product == 'messages'
     return 'Dispatch' if product == 'dispatch'
+    return 'Client SDK' if product == 'client-sdk'
     product.camelcase
   end
 

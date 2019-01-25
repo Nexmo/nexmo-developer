@@ -10,7 +10,12 @@ namespace :ci do
     document_paths.each do |path|
       Dir.glob(path).each do |filename|
         document = File.read(filename)
-        MarkdownPipeline.new.call(document)
+        begin
+          MarkdownPipeline.new.call(document)
+        rescue StandardError => e
+          puts "Error whilst processing #{filename}"
+          raise e
+        end
       end
     end
   end

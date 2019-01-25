@@ -5,7 +5,7 @@ language: javascript
 
 # Getting Started with the Nexmo In-App Video
 
-In this getting started guide we'll cover adding video events to the Conversation we created in the [simple conversation with audio](/stitch/in-app-voice/guides/enable-audio/javascript) getting started guide. We'll deal with video and media stream events, the ones that come via the conversation, and the ones we send to the conversation.
+In this getting started guide we'll cover adding video events to the Conversation we created in the [simple conversation with audio](/client-sdk/in-app-voice/guides/enable-audio/javascript) getting started guide. We'll deal with video and media stream events, the ones that come via the conversation, and the ones we send to the conversation.
 
 ## Concepts
 
@@ -17,7 +17,7 @@ This guide will introduce you to the following concepts:
 
 ## Before you begin
 
-Ensure you have run through the [previous guide](/stitch/in-app-voice/guides/enable-audio/javascript).
+Ensure you have run through the [previous guide](/client-sdk/in-app-voice/guides/enable-audio/javascript).
 
 ## 1 - Extra Setup
 
@@ -73,7 +73,7 @@ We don't need to generate new JWTs for `jamie` and `alice` because JWTs are user
 
 ## 2 - Update the JavaScript App
 
-We will use the application we already created for [the audio quick start guide](/stitch/in-app-voice/guides/enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the audio quick start guide](/client-sdk/in-app-voice/guides/enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 2.1 - Add video UI
 
@@ -213,4 +213,4 @@ Thats's it! You can see a full example of what your project should look like in 
 
 ## Where next?
 
-Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>.
+Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>.

@@ -102,6 +102,14 @@ class BuildingBlockFilter < Banzai::Filter
       BuildingBlockRenderer::Ruby
     when 'php'
       BuildingBlockRenderer::Php
+    when 'android'
+      BuildingBlockRenderer::Android
+    when 'kotlin'
+      BuildingBlockRenderer::Kotlin
+    when 'objective_c'
+      BuildingBlockRenderer::ObjectiveC
+    when 'swift'
+      BuildingBlockRenderer::Swift
     else
       raise "Unknown language: #{language}"
     end
@@ -126,10 +134,10 @@ class BuildingBlockFilter < Banzai::Filter
     # have a type set e.g audit
     app['type'] ||= 'voice'
 
-    if app['type'] == 'voice'
+    if ['voice', 'rtc'].include? app['type']
       app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
       app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
-      erb = File.read("#{Rails.root}/app/views/building_blocks/_application_voice.html.erb")
+      erb = File.read("#{Rails.root}/app/views/building_blocks/_application_#{app['type']}.html.erb")
     elsif ['messages', 'dispatch'].include? app['type']
       erb = File.read("#{Rails.root}/app/views/building_blocks/_application_messages_dispatch.html.erb")
     else

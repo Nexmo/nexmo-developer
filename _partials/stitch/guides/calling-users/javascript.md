@@ -5,7 +5,7 @@ language: javascript
 
 # Call Convenience methods for Stitch and JavaScript
 
-In this getting started guide we'll cover adding call methods to the Conversation we created in the [simple conversation with audio](/stitch/in-app-voice/guides/enable-audio/javascript) getting started guide. We'll deal with member call events that trigger on the application and call state events that trigger on the Call object.
+In this getting started guide we'll cover adding call methods to the Conversation we created in the [simple conversation with audio](/client-sdk/in-app-voice/guides/enable-audio/javascript) getting started guide. We'll deal with member call events that trigger on the application and call state events that trigger on the Call object.
 
 ## Concepts
 
@@ -17,11 +17,11 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-voice/guides/enable-audio/javascript)
+- Ensure you have run through the [previous guide](/client-sdk/in-app-voice/guides/enable-audio/javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we already created for [the first audio getting started guide](/stitch/in-app-voice/guides/enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the first audio getting started guide](/client-sdk/in-app-voice/guides/enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add call control UI
 
@@ -180,12 +180,12 @@ Now run `index.html` in two side-by-side browser windows, making sure to login w
 
 Thats's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/calling-users/index.html).
 
-### 1.6 - Calling a Stitch user from a phone
+### 1.6 - Calling a Client SDK user from a phone
 
-After you've set up you're app to handle incoming calls, you can follow the [PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/13/connect-phone-call-to-stitch-in-app-voice-dr/) published on our blog to find out how you can connect a phone call to a Stitch user. Now you can make PSTN Phone Calls via the Nexmo Voice API and receive those calls via the Stitch SDK.
+After you've set up you're app to handle incoming calls, you can follow the [PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/13/connect-phone-call-to-stitch-in-app-voice-dr/) published on our blog to find out how you can connect a phone call to a Client SDK user. Now you can make PSTN Phone Calls via the Nexmo Voice API and receive those calls via the Nexmo Client SDK SDK.
 
 Because we've added logic in this quick start guide in order to differentiate between Users and PSTN phone calls, we don't need to change the quick start code, just set up an NCCO, as shown in the [PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/13/connect-phone-call-to-stitch-in-app-voice-dr/).
 
 ## Where next?
 
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
+- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>
