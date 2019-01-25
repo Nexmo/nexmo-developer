@@ -1,7 +1,7 @@
 # Developer Spotlight Landing Page Config
 
 title: "Write for Nexmo"
-meta-title: "meta title goes here"
+meta_title: "meta title goes here"
 
 rows:
   - columns:
