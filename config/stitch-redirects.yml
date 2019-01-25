@@ -53,6 +53,8 @@
 "/client-sdk/in-app-video/building-blocks": "/client-sdk/in-app-video/overview"
 "/client-sdk/in-app-video/tutorials": "/client-sdk/tutorials"
 
+"/stitch/overview": "/client-sdk/overview"
+
 # Redirect to SDK docs for now
 
 "/client-sdk/sdk-documentation/android": "/sdk/stitch/android/"
