@@ -64,6 +64,13 @@ current:
     email: 'manik.sachdeva@vonage.com'
     twitter: 'maniksach'
     role: 'Developer Advocate'
+  - name: 'Garann Means'
+    email: 'garann.means@vonage.com'
+    role: 'Developer Advocate'
+  - name: 'Ben Greenberg'
+    email: 'ben.greenberg@vonage.com'
+    twitter: 'rabbigreenberg'
+    role: 'Developer Advocate'
 alumni:
   - name: 'Adam Butler'
     email: 'adam.butler@vonage.com'
