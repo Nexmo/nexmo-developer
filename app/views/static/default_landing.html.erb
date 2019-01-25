@@ -15,13 +15,7 @@
           <div class="Vlt-col Nxd-landing-col">
         <% end %>
         <% info["entries"].each do |data| %>
-          <% if data["type"] == "text" %>
-            <%= data["text"]["content"] %>
-          <% elsif data["type"] == "html" %>
-            <%= data["html"]["content"] %>
-          <% else%>
-            Unsupported block: <%= data['type'] %>
-          <% end %>
+        <%= render "landing_blocks/#{data['type']}", locals: data[data['type']] %>
         <% end %>
         </div>
         <% end %>

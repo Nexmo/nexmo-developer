@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   get '/hansel', to: 'static#podcast'
 
-  get '/spotlight', to: 'static#developer_spotlight'
+  get '/spotlight', to: 'static#default_landing'
 
   get '/migrate/tropo', to: 'static#migrate'
   get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'

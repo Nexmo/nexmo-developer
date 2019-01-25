@@ -16,7 +16,7 @@ class StaticController < ApplicationController
       end
     end
 
-    render layout: 'landing'
+    render layout: 'default_landing'
   end
 
   def landing
