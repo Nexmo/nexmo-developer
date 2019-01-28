@@ -15,7 +15,7 @@
           <div class="Vlt-col Nxd-landing-col">
         <% end %>
         <% info["entries"].each do |data| %>
-        <%= render "landing_blocks/#{data['type']}", locals: data[data['type']] %>
+        <%= render "layouts/partials/landing_pages/#{data['type']}", locals: data[data['type']] %>
         <% end %>
         </div>
         <% end %>

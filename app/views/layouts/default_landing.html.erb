@@ -1,0 +1,17 @@
+<div class="Vlt-grid">
+    <% @landing_config["rows"].each do |row| %>
+    <div class="row">
+      <% row["columns"].each do |info| %>
+        <% if row['column_count']%>
+          <div class="Vlt-col--<%= info["width"] %>of<%= row['column_count'] %>">
+        <% else %>
+          <div class="Vlt-col">
+        <% end %>
+        <% info["entries"].each do |data| %>
+          <%= render partial: "layouts/partials/landing_pages/#{data['type']}", data: data  %>
+        <% end %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+</div>
