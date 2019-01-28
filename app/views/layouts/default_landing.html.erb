@@ -5,9 +5,8 @@
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper wrapper--tint">
       <%= render partial: 'layouts/partials/notices' %>
-      <div class="Vlt-grid">
+      <div class="Vlt-grid Vlt-article container">
           <% @landing_config["rows"].each do |row| %>
-          <div class="row">
             <% row["columns"].each do |info| %>
               <% if row['column_count']%>
                 <div class="Vlt-col--<%= info["width"] %>of<%= row['column_count'] %>">
@@ -15,10 +14,9 @@
                 <div class="Vlt-col">
               <% end %>
               <% info["entries"].each do |data| %>
-                <%= render partial: "layouts/partials/landing_pages/#{data['type']}", data: data  %>
+                <%= render partial: "layouts/partials/landing_pages/#{data['type']}", locals: data["#{data['type']}"] %>
               <% end %>
-              </div>
-              <% end %>
+            <% end %>
             </div>
           <% end %>
       </div>
