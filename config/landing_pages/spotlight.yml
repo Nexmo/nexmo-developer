@@ -23,7 +23,7 @@ rows:
           content: '<img src="/assets/images/developer_spotlight.png" />'
   - columns:
     - entries:
-        - type: hr
+        - type: line_divider
   - columns:
     - width: 2
       entries:
