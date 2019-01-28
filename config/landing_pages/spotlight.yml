@@ -22,6 +22,9 @@ rows:
         html:
           content: '<img src="/assets/images/developer_spotlight.png" />'
   - columns:
+    - entries:
+        - type: hr
+  - columns:
     - width: 2
       entries:
       - type: section_header
