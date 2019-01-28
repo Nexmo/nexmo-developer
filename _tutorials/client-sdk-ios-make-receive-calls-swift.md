@@ -28,35 +28,33 @@ Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-InApp-Vo
 
 Using the Github project you cloned, in the Starter app, with XCode:
     
-##### 1. Open `Constants.swift` file and replace the user IDs and tokens:
+1. Open `Constants.swift` file and replace the user IDs and tokens:
 
-```swift
-    var userId: String {
-        switch self {
-        case .jane:
-            return "" //TODO: swap with Jane's userId
-        case .joe:
-            return "" //TODO: swap with Joe's userId
+    ```swift
+        var userId: String {
+            switch self {
+            case .jane:
+                return "" //TODO: swap with Jane's userId
+            case .joe:
+                return "" //TODO: swap with Joe's userId
+            }
         }
-    }
-    
-    var token: String {
-        switch self {
-        case .jane:
-            return "" //TODO: swap with a token for Jane
-        case .joe:
-            return "" //TODO: swap with a token for Joe
+        
+        var token: String {
+            switch self {
+            case .jane:
+                return "" //TODO: swap with a token for Jane
+            case .joe:
+                return "" //TODO: swap with a token for Joe
+            }
         }
-    }
-```
+    ```
 
-##### 2. Open `MainViewController.swift` file and make sure the following lines exist:
+2. Open `MainViewController.swift` file and make sure the following lines exist:
 
-    * `import NexmoClient` - imports the sdk
-
-    * `var client: NXMClient?` - property for the client instance
-
-    * `var call: NXMCall?` - property for the call instance
+* `import NexmoClient` - imports the sdk
+* `var client: NXMClient?` - property for the client instance
+* `var call: NXMCall?` - property for the call instance
 
 ## Login
 
@@ -165,7 +163,7 @@ private func startCall() {
 
 NB: You can have multiple users in a call (`client?.call` method takes an array as its first argument). However, this tutorial demonstrates a 1-on-1 call.
 
-#### Call Type
+### Call Type
   
 Note the second parameter in the `client?.call` method above - while `NXMCallType.inApp` is useful for simple calls, you can also start a call with customized logic [using an NCCO](/client-sdk/in-app-voice/concepts/ncco-guide) ), by choosing `NXMCallType.server` as the `callType`.
 
@@ -175,7 +173,7 @@ client?.call([calees], callType: .server, delegate: self) { [weak self] (error, 
 
 This also allows you to start a PSTN phone call, by adding a phone number to the `callees` array.
 
-#### Call Delegate
+### Call Delegate
 
 As with `NXMClient`, `NXMCall` also receives a delegate supplied as the third argument in the `call:callType:delegate:completion:` method.  
 
