@@ -46,7 +46,7 @@ rows:
           alt_text: "get out of a bad date with nexmo and fitbit"
       - type: linked_image
         linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2018/08/sms-fortune-cookie-1200x600.png>"
+          image: "https://www.nexmo.com/wp-content/uploads/2018/08/sms-fortune-cookie-1200x600.png"
           url: "https://www.nexmo.com/blog/2018/08/14/serverless-sms-nexmo-ibm-dr/"
           alt_text: "serverless sms fortune cookies with nexmo and ibm"
           content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
@@ -62,7 +62,7 @@ rows:
               type: large
             - content: "**Original.** Literally, we want original work (nothing that has been published elsewhere). And more figuratively, we want to see original thought and interesting points of view we can't find anywhere else."
               type: small
-            - content: "Well-written. Our standards are high, and we want everything published on our blog to meet those standards. That said, you don't have to be a professional writer to submit! If the post is original, helpful and interesting, our editorial team is happy to work with you to get it publication ready."
+            - content: "**Well-written.** Our standards are high, and we want everything published on our blog to meet those standards. That said, you don't have to be a professional writer to submit! If the post is original, helpful and interesting, our editorial team is happy to work with you to get it publication ready."
               type: small
       - type: structured_text
         structured_text:
@@ -104,7 +104,10 @@ rows:
           text:
           - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
             type: large
-          - content: "In your email to us: <br> * Tell us who you are and why you want to write for Nexmo * Briefly summarise your idea and state why it’s something our audience will benefit from hearing about * Include links to samples of your writing (such as blog posts or articles)"
+          - content: "In your email to us: <br> 
+          * Tell us who you are and why you want to write for Nexmo 
+          * Briefly summarise your idea and state why it’s something our audience will benefit from hearing about 
+          * Include links to samples of your writing (such as blog posts or articles)"
             type: small
 
 
