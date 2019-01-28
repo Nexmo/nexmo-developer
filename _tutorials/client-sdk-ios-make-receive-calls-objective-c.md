@@ -3,7 +3,7 @@ title: How to Make and Receive Voice calls with the Nexmo Client SDK on iOS usin
 products: client-sdk
 description: This tutorial shows you how to create a Nexmo Client SDK application that can make and receive voice calls on iOS using Objective-C.
 languages:
-    - Objective C
+    - Objective_C
 ---
 
 # How to Make and Receive Voice calls with the Nexmo Client SDK on iOS using Objective-C

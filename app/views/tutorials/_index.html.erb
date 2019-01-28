@@ -16,7 +16,7 @@
 
         <% if tutorial.languages.count > 0 %>
           <% tutorial.languages.each do |language| %>
-            <a href="<%= "#{@base_path}/#{language.downcase}" %>"><small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language %>"><span>●</span> <%= language %></small></a>
+            <a href="<%= "#{@base_path}/#{language.downcase}" %>"><small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language %>"><span>●</span><%= language == "Objective_C" ? "Objective-C" : language %></small></a>
             <% end %>
           <% end %>
 
