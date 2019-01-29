@@ -11,12 +11,11 @@ RSpec.describe PartialFilter do
       ```
     HEREDOC
 
-    expected_output = <<~HEREDOC
-      <div class=\"js-platform\" data-platform=\"true\" data-active=\"false\">\n  <p># Call Convenience methods for Stitch and JavaScript\nSome content here</p>\n\n</div>\n\n
-    HEREDOC
+    expected_output = "<div class=\"js-platform\" data-platform=\"true\" data-active=\"false\">\n  <p> # Call Convenience methods for Stitch and JavaScript\nSome content here</p>\n</div>\n\n"
+    
 
     # .chop trailing \n from output
-    expect(described_class.call(input)).to eql(expected_output.chop)
+    expect(described_class.call(input.chop)).to eql(expected_output.chop)
   end
 
   it 'renders input as markdown with config["platform"] not included' do

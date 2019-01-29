@@ -4,12 +4,7 @@ RSpec.describe IndentFilter do
   it 'turns four whitespaces followed by "->" into indented text' do
     input = '    -> a'
 
-    expected_output = <<~HEREDOC
-      <div class="indent">
-        <p>a</p>
-
-      </div>
-    HEREDOC
+    expected_output = "<div class=\"indent\">\n  <p>a</p>\n</div>\n"
 
     expect(described_class.call(input)).to eq(expected_output)
   end
