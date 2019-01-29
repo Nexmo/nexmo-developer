@@ -25,7 +25,6 @@ class MarkdownFilter < Banzai::Filter
 end
 
 class VoltaRender < HTML
-
   def initialize(options)
     @options = options
     super(options)
