@@ -107,7 +107,7 @@ rows:
           text:
           - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
             type: large
-          - content: "In your email to us: <br> 
+          - content: "In your email to us: <br />
           * Tell us who you are and why you want to write for Nexmo 
           * Briefly summarise your idea and state why it’s something our audience will benefit from hearing about 
           * Include links to samples of your writing (such as blog posts or articles)"

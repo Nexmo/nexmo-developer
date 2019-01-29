@@ -5,9 +5,9 @@
 <% local_assigns['text'].each do |text| %>
     <% if text['type'] == 'large' %>
         <p class="p-large">
-            <%= text['content'] %>
+            <%= text['content'].render_markdown %>
         </p>
-    <% elsif text['type'] == 'small' %>
+    <% else %>
         <p>
             <%= text['content'].render_markdown %> 
         </p>
