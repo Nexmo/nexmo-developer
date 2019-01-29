@@ -51,6 +51,7 @@ The following table shows possible values for the `status` field of an event obj
 | `recording`  | A `record` stage has completed. This event contains the recording URL |
 | `rejected`   | The call attempt was rejected by the Nexmo platform |
 | `timeout`    | The call timed out before it was answered|
+| `transfer`    | The call has been transferred to a new conversation
 | `unanswered` | The recipient handset was unreachable, or the recipient declined the call | 
 
 An example event object is shown here:

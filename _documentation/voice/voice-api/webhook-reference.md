@@ -73,6 +73,7 @@ The format of the data included depends on which event has occurred:
 * [`completed`](#completed)
 * [`record`](#record)
 * [`input`](#input)
+* [`transfer`](#transfer)
 
 ### Started
 
@@ -284,6 +285,19 @@ Field | Example | Description
 `timed_out` | `1` | Whether the input action timed out: `1` if it did, or an empty field if not
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
+`timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+
+[Back to event webhooks list](#event-webhook)
+
+### Transfer
+
+This webhook is sent by Nexmo when a leg has been transferred from one conversation to another. This can be done using an NCCO or the [`transfer` action](/api/voice#updateCall)
+
+Field | Example | Description
+ -- | -- | --
+`conversation_uuid_from` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The conversation ID that the leg was originally in
+`conversation_uuid_to` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The conversation ID that the leg was transferred to
+`uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
 
 [Back to event webhooks list](#event-webhook)
