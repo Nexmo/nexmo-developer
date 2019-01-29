@@ -1,31 +1,9 @@
 module BuildingBlockRenderer
   class Android
-    def self.dependencies(deps)
-      { 'code' => "In your app-level build.gradle file (usually app/build.gradle), add the dependency:
-
-dependencies {
-  implementation 'com.nexmo.android:client-sdk:0.7.26'
-}
-
-In your project level build.gradle file, add the Maven repository:
-
-buildscript {
-    repositories {
-        maven {
-            url \"https://artifactory.ess-dev.com/artifactory/gradle-dev-local\"
-        }
-    }
-    //...
-}
-
-allprojects {
-    repositories {
-        ...
-        maven {
-            url \"https://artifactory.ess-dev.com/artifactory/gradle-dev-local\"
-        }
-    }
-} #{deps.join(' ')}" }
+    def self.dependencies(_deps)
+      {
+        'text' => 'See <a href="https://developer.nexmo.com/tutorials/client-sdk-android-add-sdk-to-your-app">How to Add the Nexmo Client SDK to your Android App</a>',
+      }
     end
 
     def self.run_command(_command, _filename, _file_path)
@@ -36,8 +14,8 @@ allprojects {
       "Create a file named `#{filename}` and add the following code:"
     end
 
-    def self.add_instructions(filename)
-      "Add the following to `#{filename}`:"
+    def self.add_instructions(_filename)
+      "Add the following to your code:"
     end
   end
 end
