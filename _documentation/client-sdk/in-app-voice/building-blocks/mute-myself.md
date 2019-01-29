@@ -1,5 +1,6 @@
 ---
 title: Mute myself in a Call
+navigation_weight: 7
 ---
 
 # Mute myself in a Call

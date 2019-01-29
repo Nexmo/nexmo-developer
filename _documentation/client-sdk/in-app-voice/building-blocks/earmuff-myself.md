@@ -1,5 +1,6 @@
 ---
 title: Earmuff myself in a Call
+navigation_weight: 8
 ---
 
 # Earmuff a Call

@@ -1,5 +1,6 @@
 ---
 title: Register to receive incoming call events
+navigation_weight: 3
 ---
 
 # Register to receive incoming call events

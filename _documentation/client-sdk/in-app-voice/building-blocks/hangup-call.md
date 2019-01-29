@@ -1,5 +1,6 @@
 ---
 title: Hangup Call
+navigation_weight: 6
 ---
 
 # Hangup a Call
