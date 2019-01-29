@@ -7,11 +7,11 @@ RSpec.describe 'rendering _header landing page partial' do
     title = 'A title here'
     subtitle = 'A subtitle here'
 
-    render partial: '/layouts/partials/landing_pages/header.html.erb', locals: { 
+    render partial: '/layouts/partials/landing_pages/header.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
         'title' => title,
-        'subtitle' => subtitle 
+        'subtitle' => subtitle,
     }
 
     expect(rendered).to include('<svg class="Vlt-orange">')
