@@ -5,11 +5,9 @@
 <% local_assigns['text'].each do |text| %>
     <% if text['type'] == 'large' %>
         <p class="p-large">
-            <%= text['content'].render_markdown %>
+            <%= text['content'].render_markdown({skip_paragraph_surround: true}) %>
         </p>
     <% else %>
-        <p>
-            <%= text['content'].render_markdown %> 
-        </p>
+        <%= text['content'].render_markdown %>
     <% end %>
 <% end %>

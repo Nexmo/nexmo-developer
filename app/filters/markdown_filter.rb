@@ -6,7 +6,7 @@ class MarkdownFilter < Banzai::Filter
   private
 
   def renderer
-    @renderer ||= VoltaRender.new
+    @renderer ||= VoltaRender.new(options)
   end
 
   def markdown
@@ -25,6 +25,17 @@ class MarkdownFilter < Banzai::Filter
 end
 
 class VoltaRender < HTML
+
+  def initialize(options)
+    @options = options
+    super(options)
+  end
+
+  def paragraph(text)
+    return text if @options[:skip_paragraph_surround]
+    "<p>#{text}</p>"
+  end
+
   def table(header, body)
     '<div class="Vlt-table Vlt-table--data Vlt-table--bordered">' \
     '<table>' \

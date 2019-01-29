@@ -28,7 +28,7 @@ class MarkdownPipeline < Banzai::Pipeline
       ConceptListFilter,
       LanguageFilter,
       ColumnsFilter,
-      MarkdownFilter,
+      MarkdownFilter.new(options),
 
       # As HTML
       UserPersonalizationFilter.new(options),
