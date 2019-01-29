@@ -17,7 +17,7 @@ class TutorialsController < ApplicationController
 
     # We have to strip the last section off if it matches any code languages. Hacky, but it works
     DocumentationConstraint.code_language_list.map(&:downcase).each do |lang|
-      @base_path.gsub!("/#{lang}", '')
+      @base_path.gsub!(%r{/#{lang}$}, '')
     end
 
     render layout: 'page'
