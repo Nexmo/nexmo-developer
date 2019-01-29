@@ -1,8 +1,6 @@
 ---
 title: Objective C
 language: objective_c
-dependencies:
-    - Install Nexmo Client SDK and add to project
 code:
     source: .repos/nexmo/client-sdk-objective-c-building-blocks/in-app-voice/answer-call/AnswerCall.m
     from_line: 1
