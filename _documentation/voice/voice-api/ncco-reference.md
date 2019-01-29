@@ -161,13 +161,14 @@ Value | Description
 -- | --
 `uri` | the URI to the websocket you are streaming to.
 `content-type` | the internet media type for the audio you are streaming. Possible values are: `audio/l16;rate=16000`
-`headers` | a JSON object containing any metadata you want.
+`headers` | a JSON object containing any metadata you want. See [connecting to a websocket](/voice/voice-api/guides/websockets#connecting-to-a-websocket) for example headers
 
 #### sip - the sip endpoint to connect to
 
 Value | Description
 -- | --
-`uri` | the SIP URI to the endpoint you are connecting to in the format sip:rebekka@sip.example.com.
+`uri` | the SIP URI to the endpoint you are connecting to in the format `sip:rebekka@sip.example.com`.
+`headers` | `key` => `value` string pairs containing any metadata you need e.g. `{ "location": "New York City", "occupation": "developer" }`
 
 ## Talk
 

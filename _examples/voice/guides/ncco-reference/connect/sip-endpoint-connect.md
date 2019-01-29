@@ -18,7 +18,8 @@ menu_weight: 3
     "endpoint": [
       {
         "type": "sip",
-        "uri": "sip:rebekka@sip.mcrussell.com"
+        "uri": "sip:rebekka@sip.mcrussell.com",
+        "headers": { "location": "New York City", "occupation": "developer" }
       }
     ]
   }
