@@ -1,0 +1,5 @@
+<ul class="Vlt-list Vlt-list--<%= local_assigns['bullet_shape'] %>">
+    <% local_assigns['list'].each do |content| %>
+        <li> <%= content['item'] %> </li>
+    <% end %>
+</ul>
