@@ -18,6 +18,8 @@ Both inbound and outbound calls follow the same call flow once answered. This ca
 
 When a call is answered, Nexmo makes a call to the `answer_url` provided. For inbound calls the `answer_url` is fetched from the configuration of the application that the number is linked to. For outbound calls, an `answer_url` is provided in the API request made to create the call.
 
+You may choose to provide your NCCO as part of the request you send to create a call instead of providing an `answer_url`. This is done by providing an NCCO in the `ncco` key of [your request](/api/voice#createCall)
+
 ## Call states
 
 Each call goes through a sequence of states in its lifecycle:

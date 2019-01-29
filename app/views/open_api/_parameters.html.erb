@@ -64,7 +64,7 @@
                 <% if parameter.array? %>
                   <br>
                   <% if parameter.items && parameter.items['type'] %>
-                    of <%= (parameter.items['type']) %>'s
+                    of <%= (parameter.items['type']) %>s
                   <% end %>
                 <% end %>
               </i>
@@ -113,8 +113,9 @@
           <% unless model %>
             <% if parameter.collection? or parameter.oneOf? %>
               <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
-                <!-- Just for spacing -->
-                <td></td>
+                <td>
+                  <%= (parameter.example ? "<code><pre>#{parameter.example}</pre></code>" : '').html_safe %>
+                </td>
               <% end %>
             <% else %>
               <td>
