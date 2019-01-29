@@ -15,7 +15,7 @@ module BuildingBlockRenderer
     end
 
     def self.add_instructions(_filename)
-      "Add the following to your code:"
+      'Add the following to your code:''
     end
   end
 end
