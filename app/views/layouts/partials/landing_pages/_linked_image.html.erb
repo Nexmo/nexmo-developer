@@ -1,6 +1,10 @@
 <% if local_assigns['url'] %> 
     <a href="<%= local_assigns['url'] %>">
-        <% if local_assigns['image'] %> <img src="<%= local_assigns['image'] %>" /> <% end %>
+        <% if local_assigns['image'] %> 
+            <img src="<%= local_assigns['image'] %>" /> 
+        <% else %>
+            <% local_assigns['url'] %>
+        <% end %>
     </a>
 <% end %>
 <br /><br /><br />
