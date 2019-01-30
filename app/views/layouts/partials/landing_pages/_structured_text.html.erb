@@ -10,4 +10,4 @@
     <% else %>
         <%= text['content'].render_markdown %>
     <% end %>
-<% end %>
+<% end if local_assigns['text'] %>
