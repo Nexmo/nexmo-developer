@@ -37,8 +37,8 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
   it 'renders an empty list if no data is provided' do
     render partial: '/layouts/partials/landing_pages/unordered_list.html.erb'
 
-    expected_output = '<ul class="Vlt-list Vlt-list--"></ul>'
+    expected_output = '<ul class="Vlt-list Vlt-list--"> </ul>'
 
-    # expect(rendered).to eql(expected_output) # need to strip \n from output
+    expect(rendered.tr("\n", ' ')).to eql(expected_output.tr("\n", ' '))
   end
 end
