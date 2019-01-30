@@ -8,12 +8,6 @@ In this building block you will see how to decline a Call.
 
 ## Example
 
-Ensure the following variables are set to your required values using any convenient method:
-
-Key | Description
--- | --
-`listener` | a listener for the success or failure of declining a call
-
 ```building_blocks
 source: '_examples/client-sdk/in-app-voice/decline-call'
 application:

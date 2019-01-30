@@ -8,13 +8,6 @@ In this building block you will see how to earmuff yourself in a Call.
 
 ## Example
 
-Ensure the following variables are set to your required values using any convenient method:
-
-Key | Description
--- | --
-`actionStatus` | ActionStatus.ON for earmuff or ActionStatus.OFF to un-earmuff
-`listener` | listener for the success or failure changing the earmuff status
-
 ```building_blocks
 source: '_examples/client-sdk/in-app-voice/earmuff-myself'
 application:
