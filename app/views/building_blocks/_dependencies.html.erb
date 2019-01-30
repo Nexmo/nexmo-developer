@@ -3,7 +3,9 @@
 
 	<div id="acc<%= id %>" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
 		    <p><%=deps['text']%></p>
+        <% if deps['code'] %>
 		    <pre class="highlight bash"><code><%=deps['code']%></code></pre>
+        <% end %>
 	</div>
 </div>
 
