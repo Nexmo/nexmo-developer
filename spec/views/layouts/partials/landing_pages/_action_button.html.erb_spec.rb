@@ -29,7 +29,7 @@ RSpec.describe 'rendering _action_button landing page partial' do
   it 'ignores local variables provided to it in the rendering if not used' do
     url_input = '#a-sample-url'
     text_input = 'Click here!'
-    another_variable = 'Ignore me'
+    another_variable = 'Ignore me' # rubocop:disable Lint/UselessAssignment
 
     render partial: '/layouts/partials/landing_pages/action_button.html.erb', locals: { 'url' => url_input, 'text' => text_input }
 
