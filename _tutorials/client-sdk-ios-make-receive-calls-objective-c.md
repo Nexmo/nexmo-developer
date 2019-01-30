@@ -28,7 +28,7 @@ Using the Github project you cloned, in the Starter app, with XCode:
 
     ```objective-c
         #define kInAppVoiceJaneUserId @"JANE_USER_ID" //TODO: replace with a userId for Jane
-        #define kInAppVoiceJaneToken @"JANE_TOKEN" //TODO: replace with a token for Joe
+        #define kInAppVoiceJaneToken @"JANE_TOKEN" //TODO: replace with a token for Jane
         #define kInAppVoiceJoeUserId @"JOE_USER_ID" //TODO: replace with a userId for Joe
         #define kInAppVoiceJoeToken @"JOE_TOKEN" //TODO: replace with a token for Joe
     ```
