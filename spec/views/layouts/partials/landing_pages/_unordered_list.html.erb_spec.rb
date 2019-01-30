@@ -22,10 +22,10 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
 
   it 'renders ul without a bullet shape classname if bullet shape is not provided' do
     list = [
-        { 'item' => 'Item 1' },
-        { 'item' => 'Item 2' },
-        { 'item' => 'Item 3' },
-      ]
+      { 'item' => 'Item 1' },
+      { 'item' => 'Item 2' },
+      { 'item' => 'Item 3' },
+    ]
 
     render partial: '/layouts/partials/landing_pages/unordered_list.html.erb', locals: {
         'list' => list,
@@ -39,6 +39,6 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
 
     expected_output = '<ul class="Vlt-list Vlt-list--"></ul>'
 
-    #expect(rendered).to eql(expected_output) # need to strip \n from output
+    # expect(rendered).to eql(expected_output) # need to strip \n from output
   end
 end
