@@ -1,12 +1,12 @@
 ---
-title: How to Make and Receive Voice calls with the Nexmo Client SDK on iOS using Objective-C
+title: How to Make and Receive Voice Calls with the Nexmo Client SDK on iOS using Objective-C
 products: client-sdk
 description: This tutorial shows you how to create a Nexmo Client SDK application that can make and receive voice calls on iOS using Objective-C.
 languages:
     - Objective_C
 ---
 
-# How to Make and Receive Voice calls with the Nexmo Client SDK on iOS using Objective-C
+# How to Make and Receive Voice Calls with the Nexmo Client SDK on iOS using Objective-C
 
 In this tutorial you learn how to use Nexmo Client SDK for iOS, in order to perform an in-app (IP to IP) voice call.
 
@@ -17,33 +17,27 @@ The app will have two buttons, which log in different users: Jane or Joe. After 
 ## Prerequisites
 
 - [Create a Nexmo Application](/tutorials/client-sdk-generate-test-credentials).
-
-- Make sure you have at least [two users for your Nexmo Application, with valid JWTs](/tutorials/client-sdk-generate-test-credentials).
-
-- [Add Nexmo SDK to your project](/tutorials/client-sdk-ios-add-sdk-to-your-app).
+- Have at least [two users for your Nexmo Application, with valid JWTs](/tutorials/client-sdk-generate-test-credentials).
+- Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-InApp-Voice-ObjectiveC)
 
 ## Create the project
-
-Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-InApp-Voice-ObjectiveC).
 
 Using the Github project you cloned, in the Starter app, with XCode:
     
 1. Open `IAVAppDefine.h` file and replace the user IDs and tokens:
 
-```objective-c
-    #define kInAppVoiceJaneUserId @"JANE_USER_ID" //TODO: replace with a userId for Jane
-    #define kInAppVoiceJaneToken @"JANE_TOKEN" //TODO: replace with a token for Joe
-    #define kInAppVoiceJoeUserId @"JOE_USER_ID" //TODO: replace with a userId for Joe
-    #define kInAppVoiceJoeToken @"JOE_TOKEN" //TODO: replace with a token for Joe
-```
+    ```objective-c
+        #define kInAppVoiceJaneUserId @"JANE_USER_ID" //TODO: replace with a userId for Jane
+        #define kInAppVoiceJaneToken @"JANE_TOKEN" //TODO: replace with a token for Jane
+        #define kInAppVoiceJoeUserId @"JOE_USER_ID" //TODO: replace with a userId for Joe
+        #define kInAppVoiceJoeToken @"JOE_TOKEN" //TODO: replace with a token for Joe
+    ```
 
 2. Open `MainViewController.m` file and make sure the following lines exist:
 
-    * `#import <NexmoClient/NexmoClient.h>` - imports the sdk
-
-    * `@property NXMClient *nexmoClient;` - property for the client instance
-
-    * `@property NXMCall *ongoingCall;` - property for the call instance
+ * `#import <NexmoClient/NexmoClient.h>` - imports the sdk
+ * `@property NXMClient *nexmoClient;` - property for the client instance
+ * `@property NXMCall *ongoingCall;` - property for the call instance
 
 ## Login
 
@@ -226,7 +220,9 @@ Under the `#pragma mark IncomingCall`, implement this method to decline the inco
 Once Jane or Joe presses the red button, it is time to hangup the call. Implement `didEndButtonPress:` method and call hangup for `myCallMember`.
 
 ```objective-c
+- (IBAction)didEndButtonPress:(UIButton *)sender {
     [self.ongoingCall.myCallMember hangup];
+}
 ```
 
 Updates for `callMember` statuses are received in `statusChanged` as part of the `NXMCallDelegate` as you have seen before.  

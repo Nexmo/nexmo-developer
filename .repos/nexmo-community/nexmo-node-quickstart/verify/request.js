@@ -13,8 +13,6 @@ const nexmo = new Nexmo({
   apiSecret: NEXMO_API_SECRET
 });
 
-let verifyRequestId = null; // use in the check process
-
 nexmo.verify.request({
   number: RECIPIENT_NUMBER,
   brand: NEXMO_BRAND_NAME
@@ -22,7 +20,7 @@ nexmo.verify.request({
   if (err) {
     console.error(err);
   } else {
-    verifyRequestId = result.request_id;
+    const verifyRequestId = result.request_id;
     console.log('request_id', verifyRequestId);
   }
 });
