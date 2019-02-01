@@ -66,7 +66,7 @@ Option | Description | Required
 `timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to `event_url`. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
 `beepStart` | Set to `true` to play a beep when a recording starts | No
 `eventUrl` | The URL to the webhook endpoint that is called asynchronously when a recording is finished. If the message recording is hosted by Nexmo, this webhook contains the [URL you need to download the recording and other meta data](#recording_return_parameters). | No
-`eventMethod` | The HTTP method used to make the request to `eventUrl`. The default value is `POST`. | No
+`eventUrlMethod` | The HTTP method used to make the request to `eventUrl`. The default value is `POST`. | No
 
 <a name="recording_return_parameters"></a>
 The following example shows the return parameters sent to `eventUrl`:
@@ -275,7 +275,7 @@ Option | Description | Required
 `maxDigits` | The number of digits the user can press. The maximum value is `20`, the default is `4` digits. | No
 `submitOnHash` | Set to `true` so the callee's activity is sent to your webhook endpoint at `eventUrl` after he or she presses *#*. If *#* is not pressed the result is submitted after `timeOut` seconds. The default value is `false`. That is, the result is sent to your webhook endpoint after `timeOut` seconds. | No
 `eventUrl` | Nexmo sends the digits pressed by the callee to this URL after `timeOut` pause in activity or when *#* is pressed.  | No
-`eventMethod` | The HTTP method used to send event information to `event_url` The default value is POST.| No
+`eventUrlMethod` | The HTTP method used to send event information to `event_url` The default value is POST.| No
 
 The following example shows the parameters sent to `eventUrl`:
 
