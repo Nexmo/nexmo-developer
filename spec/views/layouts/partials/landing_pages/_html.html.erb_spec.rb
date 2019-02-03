@@ -9,9 +9,7 @@ RSpec.describe 'rendering _html landing page partial' do
     expect(rendered).to include('<a href="#a-tag">A link</a>')
   end
 
-  it 'renders nothing when input is not provided' do
-    render partial: '/layouts/partials/landing_pages/html.html.erb'
-
-    expect(rendered).to eql('')
+  it 'raises error if there is no content' do
+    expect { render partial: '/layouts/partials/landing_pages/html.html.erb' }.to raise_error('Could not find HTML content')
   end
 end

@@ -1,5 +1,3 @@
-<% if local_assigns['content'] == '' %>
-    <p>Oops! We couldn't find any content here.</p>
-<% else %>
-    <%= local_assigns['content'].html_safe %>
-<% end %>
+<% raise 'Could not find HTML content' if local_assigns['content'].nil? %>
+
+<%= local_assigns['content'].html_safe %>
