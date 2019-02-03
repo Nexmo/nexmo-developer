@@ -1,10 +1,7 @@
-<% if local_assigns['url'] %> 
-    <a href="<%= local_assigns['url'] %>">
-        <% if local_assigns['image'] %> 
-            <img src="<%= local_assigns['image'] %>" /> 
-        <% else %>
-            <% local_assigns['url'] %>
-        <% end %>
-    </a>
-<% end %>
+<% raise 'Could not find linked image content' if (local_assigns['url'] && local_assigns['image']).nil? %>
+
+<a href="<%= local_assigns['url'] %>">
+    <img src="<%= local_assigns['image'] %>" /> 
+</a>
+
 <br /><br /><br />

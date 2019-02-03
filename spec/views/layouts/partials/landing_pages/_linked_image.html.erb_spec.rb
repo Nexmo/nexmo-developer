@@ -11,21 +11,25 @@ RSpec.describe 'rendering _linked_image landing page partial' do
     expect(rendered).to include('<img src="/path/to/image" />')
   end
 
-  it 'does not render href or img tag content when url is not provided' do
-    image = '/path/to/image'
-
-    render partial: '/layouts/partials/landing_pages/linked_image.html.erb', locals: { 'image' => image }
-
-    expect(rendered).to_not include('<a href=')
-    expect(rendered).to_not include('<img src=')
-  end
-
-  it 'does not render an img tag when image is not provided' do
+  it 'raises an error if image path is not provided' do
     url = '#link-me'
 
-    render partial: '/layouts/partials/landing_pages/linked_image.html.erb', locals: { 'url' => url }
+    expect do
+      render partial: '/layouts/partials/landing_pages/linked_image.html.erb', locals: { 'url' => url }
+    end.to raise_error('Could not find linked image content')
+  end
 
-    expect(rendered).to include('<a href="#link-me">')
-    expect(rendered).to_not include('<img src=')
+  it 'raises an error if href link is not provided' do
+    image = '/path/to/image'
+
+    expect do
+      render partial: '/layouts/partials/landing_pages/linked_image.html.erb', locals: { 'image' => image }
+    end.to raise_error('Could not find linked image content')
+  end
+
+  it 'raises an error if no content is provided' do
+    expect do
+      render partial: '/layouts/partials/landing_pages/linked_image.html.erb'
+    end.to raise_error('Could not find linked image content')
   end
 end
