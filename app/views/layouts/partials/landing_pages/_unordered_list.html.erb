@@ -1,7 +1,11 @@
-<ul class="Vlt-list Vlt-list--<%= local_assigns['bullet_shape'] %>">
-    <% if local_assigns['list'] %>
-        <% local_assigns['list'].each do |content| %>
-            <li> <%= content['item'].render_markdown %> </li>
-        <% end %>
-    <% end%>
+<% raise 'Could not find list content' if local_assigns['list'].nil? %>
+
+<% if local_assigns['bullet_shape'] %>
+    <ul class="Vlt-list Vlt-list--<%= local_assigns['bullet_shape'] %>">
+<% else %>
+    <ul class="Vlt-list">
+<% end %>
+<% local_assigns['list'].each do |content| %>
+    <li> <%= content['item'].render_markdown %> </li>
+<% end %>
 </ul>

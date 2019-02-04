@@ -31,14 +31,10 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
         'list' => list,
     }
 
-    expect(rendered).to include('<ul class="Vlt-list Vlt-list--">')
+    expect(rendered).to include('<ul class="Vlt-list">')
   end
 
-  it 'renders an empty list if no data is provided' do
-    render partial: '/layouts/partials/landing_pages/unordered_list.html.erb'
-
-    expected_output = '<ul class="Vlt-list Vlt-list--"> </ul>'
-
-    expect(rendered.tr("\n", ' ')).to eql(expected_output.tr("\n", ' '))
+  it 'raises an error if no list data is provided' do
+    expect { render partial: '/layouts/partials/landing_pages/unordered_list.html.erb' }.to raise_error('Could not find list content')
   end
 end
