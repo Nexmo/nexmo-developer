@@ -17,30 +17,28 @@ RSpec.describe 'rendering _section_header landing page partial' do
     expect(rendered).to include('Here is a title')
   end
 
-  it 'renders an icon svg tag without a color if no icon color provided' do
+  it 'raises an error if icon_color is not provided' do
     icon = 'an-icon'
     title = 'Here is a title'
 
-    render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
+    expect do
+      render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
         'icon' => icon,
         'title' => title,
     }
-
-    expect(rendered).to include('<svg class="Vlt-">')
-    expect(rendered).to_not include('<svg class=Vlt-blue">')
+    end .to raise_error("Missing 'icon_color' key in section_header landing page block")
   end
 
-  it 'renders without an icon if no icon provided' do
+  it 'raises an error if icon is not provided' do
     icon_color = 'blue'
     title = 'Here is a title'
 
-    render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
+    expect do
+      render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
         'icon_color' => icon_color,
         'title' => title,
     }
-
-    expect(rendered).to include('<use xlink:href="/symbol/volta-icons.svg#Vlt-">')
-    expect(rendered).to_not include('<use xlink:href="/symbol/volta-icons.svg#Vlt-an-icon">')
+    end .to raise_error("Missing 'icon' key in section_header landing page block")
   end
 
   it 'raises an error if a title is not provided' do
