@@ -8,8 +8,8 @@
           <div class="Vlt-col Nxd-landing-col">
         <% end %>
         <% info["entries"].each do |data| %>
-          <% if lookup_context.exists?(data['type'], "layouts/partials/landing_pages", true) %>
-            <%= render partial: "layouts/partials/landing_pages/#{data['type']}", locals: data["#{data['type']}"] %>
+          <% if lookup_context.exists?(data['type'], "static/default_landing/partials", true) %>
+            <%= render partial: "static/default_landing/partials/#{data['type']}", locals: data["#{data['type']}"] %>
           <% else %>
             <%= raise "Could not find the #{data['type']} partial file." %>
           <% end %>

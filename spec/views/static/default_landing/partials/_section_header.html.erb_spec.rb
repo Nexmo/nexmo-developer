@@ -6,7 +6,7 @@ RSpec.describe 'rendering _section_header landing page partial' do
     icon = 'an-icon'
     title = 'Here is a title'
 
-    render partial: '/layouts/partials/landing_pages/section_header.html.erb', locals: {
+    render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
         'title' => title,
@@ -21,7 +21,7 @@ RSpec.describe 'rendering _section_header landing page partial' do
     icon = 'an-icon'
     title = 'Here is a title'
 
-    render partial: '/layouts/partials/landing_pages/section_header.html.erb', locals: {
+    render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
         'icon' => icon,
         'title' => title,
     }
@@ -34,7 +34,7 @@ RSpec.describe 'rendering _section_header landing page partial' do
     icon_color = 'blue'
     title = 'Here is a title'
 
-    render partial: '/layouts/partials/landing_pages/section_header.html.erb', locals: {
+    render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
         'icon_color' => icon_color,
         'title' => title,
     }
@@ -48,7 +48,7 @@ RSpec.describe 'rendering _section_header landing page partial' do
     icon = 'an-icon'
 
     expect do
-      render partial: '/layouts/partials/landing_pages/section_header.html.erb', locals: {
+      render partial: '/static/default_landing/partials/section_header.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
     }

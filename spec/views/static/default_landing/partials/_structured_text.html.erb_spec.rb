@@ -10,7 +10,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
       { 'type' => 'large', 'content' => 'Large things here' },
     ]
 
-    render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+    render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
         'header' => header,
@@ -34,7 +34,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     ]
 
     expect do
-      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+      render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon' => icon,
         'header' => header,
         'text' => text,
@@ -51,7 +51,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     ]
 
     expect do
-      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+      render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon_color' => icon_color,
         'header' => header,
         'text' => text,
@@ -68,7 +68,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     ]
 
     expect do
-      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+      render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
         'text' => text,
@@ -82,7 +82,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     header = 'My header'
 
     expect do
-      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+      render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
         'header' => header,
@@ -91,6 +91,6 @@ RSpec.describe 'rendering _structured_text landing page partial' do
   end
 
   it 'raises an error if no data is provided' do
-    expect { render partial: '/layouts/partials/landing_pages/structured_text.html.erb' }.to raise_error('Could not find structured text content')
+    expect { render partial: '/static/default_landing/partials/structured_text.html.erb' }.to raise_error('Could not find structured text content')
   end
 end

@@ -4,12 +4,12 @@ RSpec.describe 'rendering _html landing page partial' do
   it 'renders correctly with local variable' do
     content = '<a href="#a-tag">A link</a>'
 
-    render partial: '/layouts/partials/landing_pages/html.html.erb', locals: { 'content' => content }
+    render partial: '/static/default_landing/partials/html.html.erb', locals: { 'content' => content }
 
     expect(rendered).to include('<a href="#a-tag">A link</a>')
   end
 
   it 'raises error if there is no content' do
-    expect { render partial: '/layouts/partials/landing_pages/html.html.erb' }.to raise_error('Could not find HTML content')
+    expect { render partial: '/static/default_landing/partials/html.html.erb' }.to raise_error('Could not find HTML content')
   end
 end

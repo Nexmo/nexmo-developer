@@ -9,7 +9,7 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
       { 'item' => 'Item 3' },
     ]
 
-    render partial: '/layouts/partials/landing_pages/unordered_list.html.erb', locals: {
+    render partial: '/static/default_landing/partials/unordered_list.html.erb', locals: {
         'bullet_shape' => bullet_shape,
         'list' => list,
     }
@@ -27,7 +27,7 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
       { 'item' => 'Item 3' },
     ]
 
-    render partial: '/layouts/partials/landing_pages/unordered_list.html.erb', locals: {
+    render partial: '/static/default_landing/partials/unordered_list.html.erb', locals: {
         'list' => list,
     }
 
@@ -35,6 +35,6 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
   end
 
   it 'raises an error if no list data is provided' do
-    expect { render partial: '/layouts/partials/landing_pages/unordered_list.html.erb' }.to raise_error('Could not find list content')
+    expect { render partial: '/static/default_landing/partials/unordered_list.html.erb' }.to raise_error('Could not find list content')
   end
 end

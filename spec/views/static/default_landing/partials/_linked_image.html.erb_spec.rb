@@ -5,7 +5,7 @@ RSpec.describe 'rendering _linked_image landing page partial' do
     url = '#link-me'
     image = '/path/to/image'
 
-    render partial: '/layouts/partials/landing_pages/linked_image.html.erb', locals: { 'url' => url, 'image' => image }
+    render partial: '/static/default_landing/partials/linked_image.html.erb', locals: { 'url' => url, 'image' => image }
 
     expect(rendered).to include('<a href="#link-me">')
     expect(rendered).to include('<img src="/path/to/image" />')
@@ -15,7 +15,7 @@ RSpec.describe 'rendering _linked_image landing page partial' do
     url = '#link-me'
 
     expect do
-      render partial: '/layouts/partials/landing_pages/linked_image.html.erb', locals: { 'url' => url }
+      render partial: '/static/default_landing/partials/linked_image.html.erb', locals: { 'url' => url }
     end.to raise_error('Could not find linked image content')
   end
 
@@ -23,13 +23,13 @@ RSpec.describe 'rendering _linked_image landing page partial' do
     image = '/path/to/image'
 
     expect do
-      render partial: '/layouts/partials/landing_pages/linked_image.html.erb', locals: { 'image' => image }
+      render partial: '/static/default_landing/partials/linked_image.html.erb', locals: { 'image' => image }
     end.to raise_error('Could not find linked image content')
   end
 
   it 'raises an error if no content is provided' do
     expect do
-      render partial: '/layouts/partials/landing_pages/linked_image.html.erb'
+      render partial: '/static/default_landing/partials/linked_image.html.erb'
     end.to raise_error('Could not find linked image content')
   end
 end
