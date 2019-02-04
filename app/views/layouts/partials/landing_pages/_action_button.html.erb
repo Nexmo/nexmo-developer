@@ -1,3 +1,5 @@
+<% raise 'Could not find action button content' if (local_assigns['url'] && local_assigns['text']).nil? %>
+
 <a class="Vlt-btn Vlt-btn--primary" href="<%= local_assigns['url'] %>">
     <%= local_assigns['text'] %>
 </a>
