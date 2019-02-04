@@ -2,6 +2,7 @@
     <svg class="Vlt-<%= local_assigns['icon_color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon'] %>"></use></svg>
     <%= local_assigns['header'] %>
 </h2>
+<% local_assigns['text'] ||= [] %>
 <% local_assigns['text'].each do |text| %>
     <% if text['type'] == 'large' %>
         <p class="p-large">
@@ -10,4 +11,4 @@
     <% else %>
         <%= text['content'].render_markdown %>
     <% end %>
-<% end if local_assigns['text'] %>
+<% end %>
