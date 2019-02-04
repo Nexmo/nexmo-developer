@@ -9,6 +9,6 @@
 </h1>
 <% if local_assigns['subtitle'] %>
     <p>
-        <%= local_assigns['subtitle'] %>
+        <%= local_assigns['subtitle'].render_markdown %>
     </p>
 <% end %>
