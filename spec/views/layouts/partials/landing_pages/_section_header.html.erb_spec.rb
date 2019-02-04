@@ -43,15 +43,15 @@ RSpec.describe 'rendering _section_header landing page partial' do
     expect(rendered).to_not include('<use xlink:href="/symbol/volta-icons.svg#Vlt-an-icon">')
   end
 
-  it 'does not render a title if no title provided' do
+  it 'raises an error if a title is not provided' do
     icon_color = 'blue'
     icon = 'an-icon'
 
-    render partial: '/layouts/partials/landing_pages/section_header.html.erb', locals: {
+    expect do
+      render partial: '/layouts/partials/landing_pages/section_header.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
     }
-
-    expect(rendered).to_not include('Here is a title')
+    end .to raise_error('Could not find Section Header title')
   end
 end
