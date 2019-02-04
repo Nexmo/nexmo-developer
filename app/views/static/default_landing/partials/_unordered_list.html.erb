@@ -1,4 +1,4 @@
-<% raise 'Could not find list content' if local_assigns['list'].nil? %>
+<% raise "Missing 'list' key in unordered_list landing page block" unless local_assigns['list'] %>
 
 <% if local_assigns['bullet_shape'] %>
     <ul class="Vlt-list Vlt-list--<%= local_assigns['bullet_shape'] %>">

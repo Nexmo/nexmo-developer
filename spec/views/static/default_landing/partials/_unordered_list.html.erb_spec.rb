@@ -34,7 +34,7 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
     expect(rendered).to include('<ul class="Vlt-list">')
   end
 
-  it 'raises an error if no list data is provided' do
-    expect { render partial: '/static/default_landing/partials/unordered_list.html.erb' }.to raise_error('Could not find list content')
+  it 'raises an error list data not provided' do
+    expect { render partial: '/static/default_landing/partials/unordered_list.html.erb' }.to raise_error("Missing 'list' key in unordered_list landing page block")
   end
 end
