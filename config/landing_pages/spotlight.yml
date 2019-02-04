@@ -75,7 +75,7 @@ rows:
             - content: "We pay $400 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
               type: large
             - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Nexmo marketing and social media teams behind you getting the word out about your work. Your success is our success."
-              type: large
+              type: small
       - type: structured_text
         structured_text:
           header: "The Process"
