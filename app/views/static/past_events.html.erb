@@ -11,9 +11,7 @@
 </div>
 
 <div class="Vlt-grid">
-  <% @past_events.each_with_position do |event, first, last| %>
-    <%= render 'event', event: event, first: first, last: last %>
-  <% end %>
+  <%= render partial: 'event', collection: @past_events %>
 </div>
 
 <p class="center">

@@ -20,9 +20,7 @@
 </div>
 
 <div id="community-events" class="Vlt-grid">
-  <% @upcoming_events.each_with_position do |event, first, last| %>
-    <%= render 'event', event: event, first: first, last: last %>
-  <% end %>
+  <%= render partial: 'event', collection: @upcoming_events %>
 </div>
 
 <hr>
@@ -31,7 +29,7 @@
   
   <div class="Vlt-card">
     <div class="Vlt-grid">
-      <% @sessions.each_with_position do |session, first, last| %>
+      <% @sessions.each do |session| %>
         <div class="Vlt-col Vlt-col--1of3">
           <h4><%= session.title %></h4>
           <%= session.video_content.html_safe %>
