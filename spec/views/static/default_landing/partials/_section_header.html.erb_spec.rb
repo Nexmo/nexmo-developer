@@ -52,6 +52,6 @@ RSpec.describe 'rendering _section_header landing page partial' do
         'icon_color' => icon_color,
         'icon' => icon,
     }
-    end .to raise_error('Could not find Section Header title')
+    end .to raise_error("Missing 'title' key in section_header landing page block")
   end
 end
