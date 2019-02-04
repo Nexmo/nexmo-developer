@@ -10,11 +10,4 @@ class Event < ApplicationRecord
   validates :starts_at, presence: true
   validates :ends_at, presence: true
   validates :url, presence: true
-
-  def date_range
-    starts = starts_at.strftime('%-d %B %Y')
-    ends = ends_at.strftime('%-d %B %Y')
-    return starts if starts_at == ends_at
-    "#{starts} - #{ends}"
-  end
 end
