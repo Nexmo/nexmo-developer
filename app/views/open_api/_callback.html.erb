@@ -1,10 +1,5 @@
-<%
-  webhook = false if local_assigns[:webhook].nil?
-%>
-
-
 <% callback.paths.each do |path| %>
   <% path.endpoints.each do |endpoint| %>
-    <%= render 'callback_endpoint', endpoint: endpoint, webhook: webhook %>
+    <%= render 'callback_endpoint', endpoint: endpoint, webhook: local_assigns[:webhook] %>
   <% end %>
 <% end %>

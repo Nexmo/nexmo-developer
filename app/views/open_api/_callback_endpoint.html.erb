@@ -1,15 +1,17 @@
-<%
-  webhook = false if local_assigns[:webhook].nil?
-%>
-
 <div class="Vlt-grid">
   <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
     <div>
       <h3 id="<%= endpoint.operationId %>" class="Vlt-title--icon">
         <%= endpoint.summary %>
-        <span class="Vlt-badge Vlt-badge--<%= webhook ? 'orange' : 'green' %>">
-          <i class="icon icon-<%= webhook ? 'webhook' : 'callback' %>"></i> <%= webhook ? 'Webhook' : 'Callback' %>
-        </span>
+        <% if local_assigns[:webhook] %>
+          <span class="Vlt-badge Vlt-badge--orange">
+            <i class="icon icon-webhook"></i> Webhook
+          </span>
+        <% else %>
+          <span class="Vlt-badge Vlt-badge--green">
+            <i class="icon icon-callback"></i> Callback
+          </span>
+        <% end %>
       </h3>
       <% if endpoint.description %>
         <p><%= endpoint.description.render_markdown %></p>
