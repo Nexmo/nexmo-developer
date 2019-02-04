@@ -25,7 +25,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     expect(rendered).to include('Things here')
   end
 
-  it 'does not render an svg tag with a color if no color is provided' do
+  it 'raises an error if icon color is not provided' do
     icon = 'nexmo-circle'
     header = 'My header'
     text = [
@@ -33,17 +33,16 @@ RSpec.describe 'rendering _structured_text landing page partial' do
       { 'type' => 'large', 'content' => 'Large things here' },
     ]
 
-    render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+    expect do
+      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
         'icon' => icon,
         'header' => header,
         'text' => text,
     }
-
-    expect(rendered).to include('<svg class="Vlt-">')
-    expect(rendered).to_not include('<svg class="Vlt-blue">')
+    end .to raise_error('Could not find structured text content')
   end
 
-  it 'does not render an use tag with an icon if no icon is specified' do
+  it 'raises an error if an icon is not provided' do
     icon_color = 'blue'
     header = 'My header'
     text = [
@@ -51,17 +50,16 @@ RSpec.describe 'rendering _structured_text landing page partial' do
       { 'type' => 'large', 'content' => 'Large things here' },
     ]
 
-    render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+    expect do
+      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
         'icon_color' => icon_color,
         'header' => header,
         'text' => text,
     }
-
-    expect(rendered).to include('<use xlink:href="/symbol/volta-icons.svg#Vlt-">')
-    expect(rendered).to_not include('<use xlink:href="/symbol/volta-icons.svg#Vlt-nexmo-circle">')
+    end .to raise_error('Could not find structured text content')
   end
 
-  it 'does not render a header if no header is provided' do
+  it 'raises an error if a header is not provided' do
     icon_color = 'blue'
     icon = 'nexmo-circle'
     text = [
@@ -69,27 +67,30 @@ RSpec.describe 'rendering _structured_text landing page partial' do
       { 'type' => 'large', 'content' => 'Large things here' },
     ]
 
-    render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+    expect do
+      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
         'text' => text,
     }
-
-    expect(rendered).to_not include('My header')
+    end .to raise_error('Could not find structured text content')
   end
 
-  it 'does not render text content type if no text is provided' do
+  it 'raises an error if text is not provided' do
     icon_color = 'blue'
     icon = 'nexmo-circle'
     header = 'My header'
 
-    render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
+    expect do
+      render partial: '/layouts/partials/landing_pages/structured_text.html.erb', locals: {
         'icon_color' => icon_color,
         'icon' => icon,
         'header' => header,
     }
+    end    .to raise_error('Could not find structured text content')
+  end
 
-    expect(rendered).to_not include('<p class="p-large">')
-    expect(rendered).to_not include('<p>')
+  it 'raises an error if no data is provided' do
+    expect { render partial: '/layouts/partials/landing_pages/structured_text.html.erb' }.to raise_error('Could not find structured text content')
   end
 end
