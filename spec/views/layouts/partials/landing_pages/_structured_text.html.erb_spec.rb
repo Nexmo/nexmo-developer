@@ -20,7 +20,8 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     expect(rendered).to include('<svg class="Vlt-blue">')
     expect(rendered).to include('<use xlink:href="/symbol/volta-icons.svg#Vlt-nexmo-circle">')
     expect(rendered).to include('My header')
-    expect(rendered).to include('<p class="p-large">')
+    # remove all new line breaks and whitespace from following test:
+    expect(rendered.tr("\n", ' ').gsub(/\s+/, '')).to include('<p class="p-large">Large things here'.tr("\n", ' ').gsub(/\s+/, ''))
     expect(rendered).to include('Things here')
   end
 
