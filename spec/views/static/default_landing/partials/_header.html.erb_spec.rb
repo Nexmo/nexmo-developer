@@ -31,7 +31,7 @@ RSpec.describe 'rendering _header landing page partial' do
         'title' => title,
         'subtitle' => subtitle,
     }
-    end .to raise_error('Could not find header content')
+    end .to raise_error("Missing 'icon_color' key in header landing page block")
   end
 
   it 'raises an error when an icon is not provided' do
@@ -45,7 +45,7 @@ RSpec.describe 'rendering _header landing page partial' do
         'title' => title,
         'subtitle' => subtitle,
     }
-    end .to raise_error('Could not find header content')
+    end .to raise_error("Missing 'icon' key in header landing page block")
   end
 
   it 'raises an error when a title is not provided' do
@@ -59,7 +59,7 @@ RSpec.describe 'rendering _header landing page partial' do
         'icon' => icon,
         'subtitle' => subtitle,
     }
-    end .to raise_error('Could not find header content')
+    end .to raise_error("Missing 'title' key in header landing page block")
   end
 
   it 'renders without a subtitle when no subtitle is provided' do
