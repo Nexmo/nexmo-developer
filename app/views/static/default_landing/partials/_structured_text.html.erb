@@ -1,5 +1,9 @@
-<% raise 'Could not find structured text content' if 
-(local_assigns['icon_color'] && local_assigns['icon'] && local_assigns['header'] && local_assigns['text']).nil? %>
+<%
+    raise "Missing 'icon_color' key in structured_text landing page block" unless local_assigns['icon_color']
+    raise "Missing 'icon' key in structured_text landing page block" unless local_assigns['icon']
+    raise "Missing 'header' key in structured_text landing page block" unless local_assigns['header']
+    raise "Missing 'text' key in structured_text landing page block" unless local_assigns['text'] 
+%>
 
 <h2 class="Vlt-title--icon">
     <svg class="Vlt-<%= local_assigns['icon_color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon'] %>"></use></svg>

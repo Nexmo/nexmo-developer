@@ -39,7 +39,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'header' => header,
         'text' => text,
     }
-    end .to raise_error('Could not find structured text content')
+    end .to raise_error("Missing 'icon_color' key in structured_text landing page block")
   end
 
   it 'raises an error if an icon is not provided' do
@@ -56,7 +56,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'header' => header,
         'text' => text,
     }
-    end .to raise_error('Could not find structured text content')
+    end .to raise_error("Missing 'icon' key in structured_text landing page block")
   end
 
   it 'raises an error if a header is not provided' do
@@ -73,7 +73,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'icon' => icon,
         'text' => text,
     }
-    end .to raise_error('Could not find structured text content')
+    end .to raise_error("Missing 'header' key in structured_text landing page block")
   end
 
   it 'raises an error if text is not provided' do
@@ -87,10 +87,6 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'icon' => icon,
         'header' => header,
     }
-    end    .to raise_error('Could not find structured text content')
-  end
-
-  it 'raises an error if no data is provided' do
-    expect { render partial: '/static/default_landing/partials/structured_text.html.erb' }.to raise_error('Could not find structured text content')
+    end .to raise_error("Missing 'text' key in structured_text landing page block")
   end
 end
