@@ -1,4 +1,7 @@
-<% raise 'Could not find linked image content' if (local_assigns['url'] && local_assigns['image']).nil? %>
+<%
+    raise "Missing 'url' key in linked_image landing page block" unless local_assigns['url']
+    raise "Missing 'image' key in linked_image landing page block" unless local_assigns['image']
+%>
 
 <a href="<%= local_assigns['url'] %>">
     <img src="<%= local_assigns['image'] %>" /> 

@@ -16,7 +16,7 @@ RSpec.describe 'rendering _linked_image landing page partial' do
 
     expect do
       render partial: '/static/default_landing/partials/linked_image.html.erb', locals: { 'url' => url }
-    end.to raise_error('Could not find linked image content')
+    end.to raise_error("Missing 'image' key in linked_image landing page block")
   end
 
   it 'raises an error if href link is not provided' do
@@ -24,12 +24,6 @@ RSpec.describe 'rendering _linked_image landing page partial' do
 
     expect do
       render partial: '/static/default_landing/partials/linked_image.html.erb', locals: { 'image' => image }
-    end.to raise_error('Could not find linked image content')
-  end
-
-  it 'raises an error if no content is provided' do
-    expect do
-      render partial: '/static/default_landing/partials/linked_image.html.erb'
-    end.to raise_error('Could not find linked image content')
+    end.to raise_error("Missing 'url' key in linked_image landing page block")
   end
 end
