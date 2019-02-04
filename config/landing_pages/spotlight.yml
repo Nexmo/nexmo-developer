@@ -34,25 +34,24 @@ rows:
           icon_color: yellow
       - type: linked_image
         linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2019/01/New-spreadsheet-who-dis-768x384.png"
+          url: "https://www.nexmo.com/blog/2019/01/23/how-to-send-sms-from-a-spreadsheet-dr/"
+          alt_text: "send an sms from a spreadsheet"
+      - type: linked_image
+        linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2018/11/PyCascades-CoC-Hotline-768x384.png"
+          url: "https://www.nexmo.com/blog/2018/11/15/pycascades-code-of-conduct-hotline-nexmo-voice-api-dr/"
+          alt_text: "pycascades code of conduct hotline with nexmo voice api"
+      - type: linked_image
+        linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2018/11/Queue-wait-time-notifications-768x384.png"
+          url: "https://www.nexmo.com/blog/2018/11/13/queue-notifications-nexmo-laravel-horizon-dr/"
+          alt_text: "queue notifications with laravel and nexmo"
+      - type: linked_image
+        linked_image:
           image: "https://www.nexmo.com/wp-content/uploads/2018/03/babel-fish-tutorial-1200x600.png"
           url: "https://www.nexmo.com/blog/2018/03/14/speech-voice-translation-microsoft-dr/"
-          alt_text: "speech voice teanslation with babel fish"
-      - type: linked_image
-        linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2017/08/tts-superhero.png"
-          url: "https://www.nexmo.com/blog/2017/08/14/text-to-speech-phone-call-with-django-dr/"
-          alt_text: "text-to-speech with django and nexmo voice api"
-      - type: linked_image
-        linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2018/03/escape-1200x600.png"
-          url: "https://www.nexmo.com/blog/2018/03/02/getting-bad-date-fitbit-nexmo-dr/"
-          alt_text: "get out of a bad date with nexmo and fitbit"
-      - type: linked_image
-        linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2018/08/sms-fortune-cookie-1200x600.png"
-          url: "https://www.nexmo.com/blog/2018/08/14/serverless-sms-nexmo-ibm-dr/"
-          alt_text: "serverless sms fortune cookies with nexmo and ibm"
-          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
+          alt_text: "speech voice translation tutorial"
     - width: 2
       entries:
       - type: structured_text
