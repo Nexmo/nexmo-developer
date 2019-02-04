@@ -10,6 +10,6 @@ RSpec.describe 'rendering _html landing page partial' do
   end
 
   it 'raises error if there is no content' do
-    expect { render partial: '/static/default_landing/partials/html.html.erb' }.to raise_error('Could not find HTML content')
+    expect { render partial: '/static/default_landing/partials/html.html.erb' }.to raise_error("Missing 'content' key in HTML landing page block")
   end
 end
