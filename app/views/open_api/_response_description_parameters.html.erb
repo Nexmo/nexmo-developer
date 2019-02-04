@@ -23,7 +23,7 @@
     <%= value['description'] ? value['description'].render_markdown : '' %>
       <% if value['enum']%>
        <small class="Vlt-grey-dark">
-          One of: <%= value['enum'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: ' or ', two_words_connector: ' or ').html_safe %>
+          One of: <%= parameter_values(value['enum']) %>
         </small>
       <% end %>
 
