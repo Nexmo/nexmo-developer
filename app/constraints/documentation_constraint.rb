@@ -58,8 +58,4 @@ class DocumentationConstraint
   def self.product_with_parent
     { product: Regexp.new(product_with_parent_list.compact.join('|')) }
   end
-
-  def self.language_configuration
-    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
-  end
 end
