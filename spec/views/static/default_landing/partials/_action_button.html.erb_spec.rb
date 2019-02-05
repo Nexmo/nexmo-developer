@@ -4,7 +4,7 @@ RSpec.describe 'rendering _action_button landing page partial' do
   it 'renders correctly with local variables' do
     url_input = '#a-sample-url'
     text_input = 'Click here!',
-    large = 'false'
+                 large = 'false'
     type = 'primary'
 
     render partial: '/static/default_landing/partials/action_button.html.erb', locals: { 'url' => url_input, 'text' => text_input, 'large' => large, 'type' => type }
