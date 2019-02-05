@@ -65,22 +65,12 @@ rows:
       entries:
       - type: tutorial
         tutorial:
-          title: "Add two factor authentication to a Microsoft bot with Nexmo’s Verify API"
-          subtitle: "2FA (Two Factor Authentication) is increasingly used to increase security within applications. As bots become increasingly popular, developers will need ..."
-          image: "https://www.nexmo.com/wp-content/uploads/2018/07/2FA-MS-BOT-600x300.png"
-          alt_text: ""
-          other_sizes: "600x300,1200x600"
-          url: "https://www.nexmo.com/blog/2018/07/11/add-two-factor-authentication-to-a-microsoft-bot-with-nexmos-verify-api-dr/"
+          name: two-factor-authentication-dotnet-verify-api
     - width: 2
       entries:
       - type: tutorial
         tutorial:
-          title: "Getting Started with Nexmo Number Insight APIs and ASP.NET"
-          subtitle: "Nexmo's Number Insight API is perfect for real-time validation of user input that could potentially protect your apps from ..."
-          image: "https://www.nexmo.com/wp-content/uploads/2018/05/Number-Insight-Nexmo-01-600x300.png"
-          alt_text: ""
-          other_sizes: "600x300,1200x600"
-          url: "https://www.nexmo.com/blog/2018/05/22/getting-started-with-nexmo-number-insight-apis-and-asp-net-dr/"
+          name: number-insight-api-aspnet
   - columns: 
     - entries:
       - type: sdk

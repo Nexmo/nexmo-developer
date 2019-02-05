@@ -1,24 +1,21 @@
 <% 
-    raise "Missing 'url' key in tutorial landing page block" unless local_assigns['url']
-    raise "Missing 'image' key in tutorial landing page block" unless local_assigns['image']
-    raise "Missing 'title' key in tutorial landing page block" unless local_assigns['title']
+    raise "Missing 'name' key in tutorial landing page block" unless local_assigns['name']
 %>
 
-<% local_assigns['other_sizes'] ||= '' %>
-<% other_img_widths = local_assigns['other_sizes'].split(',').join('x').split('x').each_slice(2).map(&:first) if local_assigns['other_sizes'] %>
-<% other_img_sizes = local_assigns['other_sizes'].split(',') if local_assigns['other_sizes'] %>
+<% file = File.read("_tutorials/#{local_assigns['name']}.md") %>
+<% tutorial = YAML.safe_load(file) %>
 
-<a class="Vlt-card" href="<%= local_assigns['url'] %>">
+<a class="Vlt-card" href="<%= tutorial['external_link'] %>">
     <img 
-        src="<%= local_assigns['image'] %>" 
+        src="<%= tutorial['image_url'] %>" 
         class="img-full wp-post-image"
-        alt srcset="<% if local_assigns['other_sizes'] != '' %><% other_img_sizes.each do |size| %><% other_img_widths.each do |width| %><%= local_assigns['image'] %>-<%= size %> <%= width %>w<% end %><% end %><% end %>"
+        alt srcset=""
         sizes="(max-width: 100%) 100vw, 100%"
     >    
-    <h4 class="Vlt-margin--top2"><%= local_assigns['title'] %></h4>
-    <% if local_assigns['subtitle'] %>
+    <h4 class="Vlt-margin--top2"><%= tutorial['title'] %></h4>
+    <% if tutorial['description'] %>
         <p>
-            <%= local_assigns['subtitle'].render_markdown %>
+            <%= tutorial['description'].render_markdown %>
         </p>
     <% end %>    
 </a>
