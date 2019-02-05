@@ -5,9 +5,9 @@ RSpec.describe 'rendering _header landing page partial' do
     icon_color = 'orange'
     icon = 'icon-here'
     title = 'A title here'
-    center_title = 'false'
+    center_title = false
     subtitle = 'A subtitle here'
-    center_subtitle = 'false'
+    center_subtitle = false
 
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon_color' => icon_color,
@@ -27,9 +27,9 @@ RSpec.describe 'rendering _header landing page partial' do
   it 'raises an error when an icon color is not provided' do
     icon = 'icon-here'
     title = 'A title here'
-    center_title = 'false'
+    center_title = false
     subtitle = 'A subtitle here'
-    center_subtitle = 'false'
+    center_subtitle = false
 
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
@@ -45,9 +45,9 @@ RSpec.describe 'rendering _header landing page partial' do
   it 'raises an error when an icon is not provided' do
     icon_color = 'orange'
     title = 'A title here'
-    center_title = 'false'
+    center_title = false
     subtitle = 'A subtitle here'
-    center_subtitle = 'false'
+    center_subtitle = false
 
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
@@ -63,9 +63,9 @@ RSpec.describe 'rendering _header landing page partial' do
   it 'raises an error when a title is not provided' do
     icon_color = 'orange'
     icon = 'icon-here'
-    center_title = 'false'
+    center_title = false
     subtitle = 'A subtitle here'
-    center_subtitle = 'false'
+    center_subtitle = false
 
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
@@ -83,7 +83,7 @@ RSpec.describe 'rendering _header landing page partial' do
     icon = 'icon-here'
     title = 'A title here'
     subtitle = 'A subtitle here'
-    center_subtitle = 'false'
+    center_subtitle = false
 
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
@@ -100,7 +100,7 @@ RSpec.describe 'rendering _header landing page partial' do
     icon_color = 'orange'
     icon = 'icon-here'
     title = 'A title here'
-    center_title = 'false'
+    center_title = false
 
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon_color' => icon_color,
