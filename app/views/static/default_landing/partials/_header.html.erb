@@ -5,7 +5,7 @@
     raise "Missing 'center_title' key in header landing page block" if local_assigns['center_title'].nil?
     raise "Missing 'center_subtitle' key in header landing page block" if (local_assigns['subtitle'] && local_assigns['center_subtitle'].nil?)
 %>
-    <h1 class="Vlt-title--icon <%= local_assigns['center_title'] ? 'Vlt-title--center' : '' %>">
+    <h1 class="Vlt-title--icon <%= 'Vlt-title--center' if local_assigns['center_title'] %>">
     <svg class="Vlt-<%= local_assigns['icon_color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon']%>"></use></svg>
     <%= local_assigns['title'] %>
 </h1>
