@@ -85,4 +85,5 @@ rows:
     - entries:
       - type: sdk
         sdk:
-          name: dotnet
+          highlight: "true"
+          library_name: "dotnet"
