@@ -3,18 +3,18 @@
     raise "missing 'text' key in action_button landing page block" unless local_assigns['text']
     raise "missing 'large' key in action_button landing page block" unless local_assigns['large']
 %>
-<% if local_assigns['center_button'] == 'true' %>
+<% if local_assigns['center_button'] == true %>
     <div class="Vlt-center">
 <% end %>
-<% if local_assigns['large'] == 'false' %>
+<% if local_assigns['large'] == false %>
     <a class="Vlt-btn Vlt-btn--<%= local_assigns['type'] %>" href="<%= local_assigns['url'] %>">
-<% elsif local_assigns['large'] == 'true' %>
+<% elsif local_assigns['large'] == true %>
     <a class="Vlt-btn Vlt-btn--<%= local_assigns['type'] %> Vlt-btn--large" href="<%= local_assigns['url'] %>">
 <% else %>
     <% raise "Unknown value for 'large' key: #{local_assigns['large']}" %>
 <% end %>
 <%= local_assigns['text'] %>
 </a>
-<% if local_assigns['center_button'] == 'true' %>
+<% if local_assigns['center_button'] == true %>
     </div>
 <% end %>

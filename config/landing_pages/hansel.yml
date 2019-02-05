@@ -20,8 +20,8 @@ rows:
           text: "Try it Free"
           url: "sign-up?#ref=hansel-dr"
           type: "secondary"
-          large: 'true'
-          center_button: 'true'
+          large: true
+          center_button: true
   - columns:
     - entries:
         - type: line_divider
@@ -87,3 +87,12 @@ rows:
         sdk:
           highlight: "true"
           library_name: "dotnet"
+  - columns:
+    - entries:
+      - type: line_divider
+  - columns:
+    - entries:
+      - type: products
+  - columns:
+    - entries: 
+      - type: line_divider

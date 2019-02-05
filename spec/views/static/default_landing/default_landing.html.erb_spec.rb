@@ -24,7 +24,7 @@ RSpec.describe 'static/default_landing' do
                         'action_button' => {
                             'text' => 'Test Action Button',
                             'url' => '#test-url',
-                            'large' => 'false',
+                            'large' => false,
                         },
                     },
                 ],
