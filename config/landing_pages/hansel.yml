@@ -9,9 +9,22 @@ rows:
       - type: header
         header:
           title: "Thanks, Scott. We'll take it from here!"
+          center_title: true
           subtitle: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
+          center_subtitle: true
+          subtitle_type: "large"
           icon: "icon-star"
           icon_color: "yellow"
+      - type: action_button
+        action_button:
+          text: "Try it Free"
+          url: "sign-up?#ref=hansel-dr"
+          type: "secondary"
+          large: true
+          center_button: true
+  - columns:
+    - entries:
+        - type: line_divider
   - columns:
     - width: 2
       entries:
@@ -20,24 +33,30 @@ rows:
           title: "SDKs & Tools"
           subtitle: "The Nexmo libraries allow you to get up and running with Nexmo APIs quickly in your language of choice."
           icon: "icon-design-tools"
-          icon_color: "dark-blue"
+          icon_color: "blue-dark"
     - width: 2
       entries:
       - type: call_to_action
         call_to_action:
           title: "Community"
           subtitle: "Find out about our talks, community hacks, and what events we'll be at."
-          icon: "icon-community"
-          icon_color: "dark-blue"
+          icon: "icon-group"
+          icon_color: "blue-dark"
+  - columns:
+    - entries:
+        - type: line_divider
   - columns:
     - entries:
       - type: join_slack
   - columns:
     - entries:
+        - type: line_divider
+  - columns:
+    - entries:
       - type: call_to_action
         call_to_action:
           title: "Nexmo & .Net in action"
-          subtitle: "The Nexmo libraries allow you to get up and running with Nexmo APIs quickly in your language of choice. Examples and inspiration in .NET form"
+          subtitle: "The Nexmo libraries allow you to get up and running with<br>Nexmo APIs quickly in your language of choice.<br>Examples and inspiration in .NET form"
           icon: "icon-blog"
           icon_color: "dark-blue"
   - columns:
@@ -45,12 +64,22 @@ rows:
       entries:
       - type: tutorial
         tutorial:
-          name: 2fa-verify-api
+          title: "Add two factor authentication to a Microsoft bot with Nexmo’s Verify API"
+          subtitle: "2FA (Two Factor Authentication) is increasingly used to increase security within applications. As bots become increasingly popular, developers will need ..."
+          image: "https://www.nexmo.com/wp-content/uploads/2018/07/2FA-MS-BOT-600x300.png"
+          alt_text: ""
+          other_sizes: "600x300,1200x600"
+          url: "https://www.nexmo.com/blog/2018/07/11/add-two-factor-authentication-to-a-microsoft-bot-with-nexmos-verify-api-dr/"
     - width: 2
       entries:
       - type: tutorial
         tutorial:
-          name: number-insight-dotnet
+          title: "Getting Started with Nexmo Number Insight APIs and ASP.NET"
+          subtitle: "Nexmo's Number Insight API is perfect for real-time validation of user input that could potentially protect your apps from ..."
+          image: "https://www.nexmo.com/wp-content/uploads/2018/05/Number-Insight-Nexmo-01-600x300.png"
+          alt_text: ""
+          other_sizes: "600x300,1200x600"
+          url: "https://www.nexmo.com/blog/2018/05/22/getting-started-with-nexmo-number-insight-apis-and-asp-net-dr/"
   - columns: 
     - entries:
       - type: sdk

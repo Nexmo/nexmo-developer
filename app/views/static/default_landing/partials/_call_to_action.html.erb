@@ -16,6 +16,6 @@
         </a>
     </h2>
 <% if local_assigns['subtitle'] %>
-    <p><%= local_assigns['subtitle'] %></p>
+    <p><%= local_assigns['subtitle'].render_markdown %></p>
 <% end %>
 </div>

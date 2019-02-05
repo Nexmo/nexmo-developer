@@ -9,13 +9,19 @@ rows:
       - type: header
         header:
           title: "Write for Nexmo"
+          center_title: false
           subtitle: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
+          center_subtitle: false
+          subtitle_type: "small"
           icon: icon-rocket
           icon_color: blue
       - type: action_button
         action_button:
           text: "Apply Now"
           url: "#submit-your-idea"
+          type: "primary"
+          large: false
+          center_button: false
     - width: 2
       entries:
       - type: html
