@@ -44,4 +44,20 @@ RSpec.describe 'rendering _action_button landing page partial' do
 
     expect { render partial: '/static/default_landing/partials/action_button.html.erb', locals: { 'url' => url, 'large' => large, 'type' => type } }.to raise_error("missing 'text' key in action_button landing page block")
   end
+
+  it 'raises an error if large key value is not true or false' do
+    text_input = 'Click here!'
+    url = '#a-sample-url'
+    large = 'hello'
+    type = 'primary'
+
+    expect do
+      render partial: '/static/default_landing/partials/action_button.html.erb', locals: {
+        'url' => url,
+        'text' => text_input,
+        'large' => large,
+        'type' => type,
+      }
+    end.to raise_error("Unknown value for 'large' key: #{large}")
+  end
 end
