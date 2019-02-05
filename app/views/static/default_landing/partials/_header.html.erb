@@ -2,10 +2,12 @@
     raise "Missing 'icon_color' key in header landing page block" unless local_assigns['icon_color']
     raise "Missing 'icon' key in header landing page block" unless local_assigns['icon']
     raise "Missing 'title' key in header landing page block" unless local_assigns['title']
+    raise "Missing 'center_title' key in header landing page block" unless local_assigns['center_title']
+    raise "Missing 'center_subtitle' key in header landing page block" if (local_assigns['subtitle'] && local_assigns['center_subtitle'] == '')
 %>
-<% if local_assigns['center_title'] == false %>
+<% if local_assigns['center_title'] == 'false' %>
     <h1 class="Vlt-title--icon">
-<% elsif local_assigns['center_title'] == true %>
+<% elsif local_assigns['center_title'] == 'true' %>
     <h1 class="Vlt-title--icon Vlt-title--center">
 <% else %>
     <% raise "Invalid value for key 'center_title': #{local_assigns['center_title']}" %>
@@ -14,14 +16,14 @@
     <%= local_assigns['title'] %>
 </h1>
 <% if local_assigns['subtitle'] %>
-    <% if local_assigns['center_subtitle'] == false %>
+    <% if local_assigns['center_subtitle'] == 'false' %>
         <% if local_assigns['subtitle_type'] == 'small' %> <p> <% else %> <p class="p-large"> <% end %>
-            <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: true}) %>
+            <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: 'true'}) %>
         </p>
-    <% elsif local_assigns['center_subtitle'] == true %>
+    <% elsif local_assigns['center_subtitle'] == 'true' %>
         <div class="Vlt-center">
             <% if local_assigns['subtitle_type'] == 'small' %> <p> <% else %> <p class="p-large"> <% end %>
-                <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: true}) %>
+                <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: 'true'}) %>
             </p>
         </div>
     <% else %>

@@ -9,9 +9,9 @@ rows:
       - type: header
         header:
           title: "Thanks, Scott. We'll take it from here!"
-          center_title: true
+          center_title: 'true'
           subtitle: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
-          center_subtitle: true
+          center_subtitle: 'true'
           subtitle_type: "large"
           icon: "icon-star"
           icon_color: "yellow"
@@ -20,8 +20,8 @@ rows:
           text: "Try it Free"
           url: "sign-up?#ref=hansel-dr"
           type: "secondary"
-          large: true
-          center_button: true
+          large: 'true'
+          center_button: 'true'
   - columns:
     - entries:
         - type: line_divider

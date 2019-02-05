@@ -12,7 +12,9 @@ RSpec.describe 'static/default_landing' do
                         'type' => 'header',
                         'header' => {
                             'title' => 'Test Title',
+                            'center_title' => 'false',
                             'subtitle' => 'Test Subtitle',
+                            'center_subtitle' => 'false',
                             'icon' => 'test-icon',
                             'icon_color' => 'blue',
                         },
@@ -22,6 +24,7 @@ RSpec.describe 'static/default_landing' do
                         'action_button' => {
                             'text' => 'Test Action Button',
                             'url' => '#test-url',
+                            'large' => 'false',
                         },
                     },
                 ],
