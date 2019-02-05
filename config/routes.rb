@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   get '/documentation', to: 'static#documentation'
 
-  get '/hansel', to: 'static#podcast'
+  get '/hansel', to: 'static#default_landing'
 
   get '/spotlight', to: 'static#default_landing'
 

@@ -1,14 +1,58 @@
-# Config for the Hanselminutes landing page
-headers:
-  leader: "Thanks, Scott. We'll take it from here!"
-  subheading: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
-images:
-  top_icon: "icon-star"
-button:
-  signup:
-    show: "true"
-sdk:
-  highlight: "true"
-  library_name: "dotnet"
-url:
-  reference: "hansel-dr"
+# Hanselminutes Landing Page Config
+
+title: "Thanks, Scott. We'll take it from here!"
+meta_title: "Hanselminutes listeners meta-title"
+
+rows:
+  - columns:
+    - entries: 
+      - type: header
+        header:
+          title: "Thanks, Scott. We'll take it from here!"
+          subtitle: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
+          icon: "icon-star"
+          icon_color: "yellow"
+  - columns:
+    - width: 2
+      entries:
+      - type: call_to_action
+        call_to_action:
+          title: "SDKs & Tools"
+          subtitle: "The Nexmo libraries allow you to get up and running with Nexmo APIs quickly in your language of choice."
+          icon: "icon-design-tools"
+          icon_color: "dark-blue"
+    - width: 2
+      entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Community"
+          subtitle: "Find out about our talks, community hacks, and what events we'll be at."
+          icon: "icon-community"
+          icon_color: "dark-blue"
+  - columns:
+    - entries:
+      - type: join_slack
+  - columns:
+    - entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Nexmo & .Net in action"
+          subtitle: "The Nexmo libraries allow you to get up and running with Nexmo APIs quickly in your language of choice. Examples and inspiration in .NET form"
+          icon: "icon-blog"
+          icon_color: "dark-blue"
+  - columns:
+    - width: 2
+      entries:
+      - type: tutorial
+        tutorial:
+          name: 2fa-verify-api
+    - width: 2
+      entries:
+      - type: tutorial
+        tutorial:
+          name: number-insight-dotnet
+  - columns: 
+    - entries:
+      - type: sdk
+        sdk:
+          name: dotnet

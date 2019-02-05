@@ -1,0 +1,14 @@
+# Config for the Hanselminutes landing page
+headers:
+  leader: "Thanks, Scott. We'll take it from here!"
+  subheading: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
+images:
+  top_icon: "icon-star"
+button:
+  signup:
+    show: "true"
+sdk:
+  highlight: "true"
+  library_name: "dotnet"
+url:
+  reference: "hansel-dr"
