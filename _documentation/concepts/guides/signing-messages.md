@@ -81,7 +81,7 @@ If the message isn't sent as expected, check the response for any [error codes](
 
 If the text being sent includes any special characters such as `&` (ampersand) or `=` (equals), then these need to be replaced in the text used to create the signature.
 
-A general approach would be:
+To do this, use the following instructions:
 
 - Detect that the text includes `&` or `=`.
 - Create a version of the text that uses `_` (underscore) in place of these special characters.
