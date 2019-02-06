@@ -4,7 +4,7 @@ language: objective_c
 code:
     source: .repos/nexmo/client-sdk-objective-c-building-blocks/in-app-voice/decline-call/DeclineCall.m
     from_line: 1
-    to_line: 14
+    to_line: 7
 run_command: Run using your IDE
 file_name: DeclineCall.m
 unindent: true

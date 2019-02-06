@@ -4,7 +4,7 @@ language: swift
 code:
     source: .repos/nexmo/client-sdk-swift-building-blocks/in-app-voice/hangup-call/HangupCall.swift
     from_line: 1
-    to_line: 3
+    to_line: 1
 run_command: Run using your IDE
 file_name: HangupCall.swift
 unindent: true

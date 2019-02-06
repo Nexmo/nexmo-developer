@@ -4,7 +4,7 @@ language: objective_c
 code:
     source: .repos/nexmo/client-sdk-objective-c-building-blocks/in-app-voice/register-to-incoming-events/RegisterToIncomingEvents.m
     from_line: 1
-    to_line: 30
+    to_line: 11
 run_command: Run using your IDE
 file_name: RegisterToIncomingEvents.m
 unindent: true
