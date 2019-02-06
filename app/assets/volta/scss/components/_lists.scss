@@ -15,17 +15,19 @@
 }
 
 .Vlt-list--simple {
-	li {
+	& > li {
 		&:before {
 			color: $blue-dark;
 		}
 
-		li {
+		& > ul > li,
+		& > ol > li {
 			&:before {
 				color: $blue;
 			}
 
-			li {
+			& > ul > li,
+			& > ol > li {
 				&:before {
 					color: $blue-darker;
 				}
@@ -36,7 +38,7 @@
 
 ul.Vlt-list--simple {
 
-	li {
+	& > li {
 		&:before {
 			content: '•';
 			left: -$unit2;
@@ -53,7 +55,7 @@ ol.Vlt-list--simple {
 		counter-reset: list;
 	}
 
-	> li {
+	& > li {
 		&:before {
 			content: counter(list) '.';
 			counter-increment: list;
@@ -66,7 +68,7 @@ ol.Vlt-list--simple {
 }
 
 .Vlt-list--square {
-	li {
+	& > li {
 		margin-bottom: 30px;
 		padding-left: 30px;
 		position: relative;
@@ -82,7 +84,7 @@ ol.Vlt-list--simple {
 			width: 10px;
 		}
 
-		li {
+		& > li {
 			&:before {
 				color: inherit;
 				content: inherit;
@@ -94,7 +96,7 @@ ol.Vlt-list--simple {
 .Vlt-list--icon {
 	padding-left: 0;
 
-	li {
+	& > li {
 		margin-bottom: $unit2;
 		padding-left: 30px;
 		position: relative;

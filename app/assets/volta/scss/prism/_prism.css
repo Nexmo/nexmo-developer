@@ -1,5 +1,5 @@
-/* PrismJS 1.9.0
-http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+bash+csharp+ruby+git+java+json+markdown+php+python&plugins=line-highlight+line-numbers+toolbar+command-line+keep-markup+copy-to-clipboard */
+/* PrismJS 1.15.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+csharp+bash+ruby+markup-templating+git+java+json+php+python&plugins=line-highlight+line-numbers+toolbar+command-line+keep-markup+copy-to-clipboard */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -106,7 +106,7 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-	color: #a67f59;
+	color: #9a6e3a;
 	background: hsla(0, 0%, 100%, .5);
 }
 
@@ -116,7 +116,8 @@ pre[class*="language-"] {
 	color: #07a;
 }
 
-.token.function {
+.token.function,
+.token.class-name {
 	color: #DD4A68;
 }
 
@@ -188,15 +189,15 @@ pre[data-line] {
 	content: none;
 }
 
-pre.line-numbers {
+pre[class*="language-"].line-numbers {
 	position: relative;
 	padding-left: 3.8em;
 	counter-reset: linenumber;
 }
 
-pre.line-numbers > code {
+pre[class*="language-"].line-numbers > code {
 	position: relative;
-    white-space: inherit;
+	white-space: inherit;
 }
 
 .line-numbers .line-numbers-rows {
@@ -229,11 +230,12 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
-pre.code-toolbar {
+
+div.code-toolbar {
 	position: relative;
 }
 
-pre.code-toolbar > .toolbar {
+div.code-toolbar > .toolbar {
 	position: absolute;
 	top: .3em;
 	right: .2em;
@@ -241,19 +243,19 @@ pre.code-toolbar > .toolbar {
 	opacity: 0;
 }
 
-pre.code-toolbar:hover > .toolbar {
+div.code-toolbar:hover > .toolbar {
 	opacity: 1;
 }
 
-pre.code-toolbar > .toolbar .toolbar-item {
+div.code-toolbar > .toolbar .toolbar-item {
 	display: inline-block;
 }
 
-pre.code-toolbar > .toolbar a {
+div.code-toolbar > .toolbar a {
 	cursor: pointer;
 }
 
-pre.code-toolbar > .toolbar button {
+div.code-toolbar > .toolbar button {
 	background: none;
 	border: 0;
 	color: inherit;
@@ -266,9 +268,9 @@ pre.code-toolbar > .toolbar button {
 	-ms-user-select: none;
 }
 
-pre.code-toolbar > .toolbar a,
-pre.code-toolbar > .toolbar button,
-pre.code-toolbar > .toolbar span {
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
 	color: #bbb;
 	font-size: .8em;
 	padding: 0 .5em;
@@ -278,12 +280,12 @@ pre.code-toolbar > .toolbar span {
 	border-radius: .5em;
 }
 
-pre.code-toolbar > .toolbar a:hover,
-pre.code-toolbar > .toolbar a:focus,
-pre.code-toolbar > .toolbar button:hover,
-pre.code-toolbar > .toolbar button:focus,
-pre.code-toolbar > .toolbar span:hover,
-pre.code-toolbar > .toolbar span:focus {
+div.code-toolbar > .toolbar a:hover,
+div.code-toolbar > .toolbar a:focus,
+div.code-toolbar > .toolbar button:hover,
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar span:focus {
 	color: inherit;
 	text-decoration: none;
 }

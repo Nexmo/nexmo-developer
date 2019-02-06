@@ -14,15 +14,16 @@ pre[class*='language-'] {
 	-webkit-font-smoothing: antialiased;
 	background: $grey-lighter;
 	border: 0;
-	color: $black;
 	font-size: 1.5rem;
-	margin: 0 0 16px;
+	margin: 0 0 $unit2;
 	text-shadow: none;
 	white-space: pre-wrap;
 
 	code {
+		color: $black;
 		display: block;
 		font-family: monospace, monospace;
+		margin-top: 18px;
 		text-shadow: none;
 
 		span {
@@ -42,113 +43,155 @@ pre[class*='language-'] {
 		}
 	}
 
-	// Toolbar (copy)
-
-	&.code-toolbar {
-		& > .toolbar {
-			right: 6px;
-			top: 0;
-
-			a {
-				@extend %Vlt-btn, .Vlt-btn--tertiary, .Vlt-btn--small;
-				font-family: 'lato', sans-serif;
-
-				&:before {
-					background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0D%0A%3Csvg%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0D%0A%20%20%20%20%3Cpath%20fill%3D%22%23637381%22%20d%3D%22M8.75350048%2C5.43010389%20L8.75350048%2C8.21344853%20C8.75350048%2C8.97057626%208.13972711%2C9.58434962%207.38259939%2C9.58434962%20L5.43010389%2C9.58434962%20L5.43010389%2C22.337884%20C5.43010389%2C22.4984866%205.56029844%2C22.6286812%205.72090109%2C22.6286812%20L19.8453366%2C22.6286812%20C20.005939%2C22.6286812%2020.1361338%2C22.4984865%2020.1361338%2C22.337884%20L20.1361338%2C14.0293926%20L21.2162377%2C14.0293926%20L21.2162377%2C22.337884%20C21.2162377%2C23.0950114%2020.6024639%2C23.7087851%2019.8453366%2C23.7087851%20L5.72090109%2C23.7087851%20C4.96377346%2C23.7087851%204.35%2C23.0950115%204.35%2C22.337884%20L4.35%2C19.7087851%20C3.64588027%2C19.7087851%202.76949949%2C19.7087851%201.72090109%2C19.7087851%20C0.963773458%2C19.7087851%200.35%2C19.0950115%200.35%2C18.337884%20L0.35%2C4.85475343%20L3.95387224%2C0.35%20L15.8453366%2C0.35%20C16.602464%2C0.35%2017.2162377%2C0.963773458%2017.2162377%2C1.72090109%20L17.2162377%2C4.35%20L19.8453366%2C4.35%20C20.602464%2C4.35%2021.2162377%2C4.96377346%2021.2162377%2C5.72090109%20L21.2162377%2C14.0293926%20L20.1361338%2C14.0293926%20L20.1361338%2C5.72090109%20C20.1361338%2C5.56029844%2020.0059392%2C5.43010389%2019.8453366%2C5.43010389%20L8.75350048%2C5.43010389%20Z%20M7.67339659%2C6.42957733%20L6.01362985%2C8.50424573%20L7.38259939%2C8.50424573%20C7.5432022%2C8.50424573%207.67339659%2C8.37405135%207.67339659%2C8.21344853%20L7.67339659%2C6.42957733%20Z%20M4.35%2C18.6286812%20L4.35%2C8.85475343%20L7.95387224%2C4.35%20L16.1361338%2C4.35%20L16.1361338%2C1.72090109%20C16.1361338%2C1.56029844%2016.0059392%2C1.43010389%2015.8453366%2C1.43010389%20L4.75350048%2C1.43010389%20L4.75350048%2C4.21344853%20C4.75350048%2C4.97057626%204.13972711%2C5.58434962%203.38259939%2C5.58434962%20L1.43010389%2C5.58434962%20L1.43010389%2C18.337884%20C1.43010389%2C18.4984866%201.56029844%2C18.6286812%201.72090109%2C18.6286812%20C2.76744498%2C18.6286812%203.6438254%2C18.6286812%204.35004237%2C18.6286812%20Z%20M3.67339659%2C2.42957733%20L2.01362985%2C4.50424573%20L3.38259939%2C4.50424573%20C3.5432022%2C4.50424573%203.67339659%2C4.37405135%203.67339659%2C4.21344853%20L3.67339659%2C2.42957733%20Z%22%20transform%3D%22translate%2810.783119%2C%2012.029393%29%20scale%28-1%2C%201%29%20translate%28-10.783119%2C%20-12.029393%29%20%22%3E%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E');
-					background-position: center center;
-					background-repeat: no-repeat;
-					background-size: contain;
-					content: '';
-					display: inline-block;
-					flex: 0 0 16px;
-					height: 16px;
-					line-height: 1;
-					margin-right: 7px;
-					vertical-align: middle;
-					width: 16px;
-				}
-			}
-		}
-	}
-
 	// Light color scheme
 
 	.token {
-		&.property,
-		&.tag,
-		&.boolean,
-		&.number,
-		&.constant,
-		&.symbol,
-		&.deleted,
-		&.punctuation,
-		&.operator,
-		&.entity,
-		&.url {
-			color: $black;
+		&.atrule,
+		&.keyword {
+		    color: $indigo-dark;
 		}
 
 		&.selector,
-		&.attr-name,
-		&.string,
-		&.char,
+		&.tag {
+		    color: $grey-darker;
+		}
+
+		&.attr-name {
+			color: $aqua;
+		}
+
+		&.comment {
+		    color: darken($grey, 10);
+		}
+
+		code.language-url,
+		&.function,
+		&.url {
+		    color: $aqua-dark;
+		}
+
+		&.boolean,
 		&.builtin,
-		&.inserted {
-			color: $red;
+		&.class-name,
+		&.constant,
+		&.namespace {
+		    color: $aqua;
 		}
 
-		&.atrule,
+		&.number {
+		    color: $red;
+		}
+
+		&.parameter,
+		&.symbol {
+		    color: $red;
+		}
+
 		&.attr-value,
-		&.keyword {
-			color: $blue-dark;
+		&.macro,
+		&.string,
+		&.stripe,
+		&.value {
+		    color: $green-dark;
 		}
 
-		&.function {
-			color: $green-dark;
-		}
-
-		&.regex,
-		&.important,
 		&.variable {
 			color: $orange;
 		}
 
-		&.comment,
-		&.prolog,
-		&.doctype,
-		&.cdata {
-			color: $grey-dark;
+		&.macro .keyword {
+		    color: $green-darker;
+		}
+
+		&.publishable-key,
+		&.secret-key,
+		&.token-tooltip {
+		    background: $grey-light;
+		    border-radius: 3px;
+		    margin: -2px;
+		    padding: 2px;
+		}
+
+		&.publishable-key.enabled,
+		&.secret-key.enabled,
+		&.token-tooltip.enabled {
+		    background: $grey-light;
 		}
 	}
 
-	&.language-css,
-	&.style {
-		.token {
-			&.string {
-				color: $black;
+	.language-bash .token.option,
+	.language-css .property {
+	    color: $red;
+	}
+
+	.language-html .token,
+	.language-markup .token {
+		&.punctuation {
+			color: $grey-dark;
+		}
+
+		&.attr-value {
+			color: $orange;
+
+			& > .punctuation:not(:first-child) {
+				color: $orange-dark;
 			}
 		}
+
+		&.namespace {
+		    color: $blue-dark;
+		}
 	}
+
+	.language-php .token.operator {
+	    color: $indigo-dark;
+	}
+
+	// Dark color scheme (based on Atom dark)
 
 	&.Vlt-prism--dark {
 		background: $black;
-		color: $grey-light;
-		font-weight: 600;
+		color: $grey;
+
+		code {
+			color: $grey;
+		}
 
 		.token {
+			&.comment,
+			&.prolog,
+			&.doctype,
+			&.cdata {
+				color: lighten($grey-darker, 10);
+			}
+
+			.namespace {
+				opacity: 0.7;
+			}
+
 			&.property,
-			&.tag,
+			&.keyword,
+			&.tag {
+			    color: $blue-light;
+			}
+
+			&.class-name {
+				color: $yellow-lighter;
+				text-decoration: underline;
+			}
+
 			&.boolean,
-			&.number,
-			&.constant,
+			&.constant {
+			    color: $green;
+			}
+
 			&.symbol,
-			&.deleted,
-			&.punctuation,
-			&.operator,
-			&.entity,
-			&.url {
-				background: none;
-				color: $blue-light;
+			&.deleted {
+				color: $red;
+			}
+
+			&.number {
+				color: $purple;
 			}
 
 			&.selector,
@@ -157,39 +200,79 @@ pre[class*='language-'] {
 			&.char,
 			&.builtin,
 			&.inserted {
-				color: $red-light;
-			}
-
-			&.atrule,
-			&.attr-value,
-			&.keyword {
-				color: $yellow;
-			}
-
-			&.function {
 				color: $green-light;
 			}
 
-			&.regex,
-			&.important,
 			&.variable {
+				color: $purple-light;
+			}
+
+			&.operator,
+			&.punctuation {
+			    background: none;
+			    color: $grey;
+			}
+
+			&.entity {
+			    color: $yellow-lighter;
+			}
+
+			&.url {
+			    color: $blue-light;
+			}
+
+			&.atrule,
+			&.attr-value {
+			    color: $yellow-lighter;
+			}
+
+			&.function {
 				color: $orange-light;
 			}
 
-			&.comment,
-			&.prolog,
-			&.doctype,
-			&.cdata {
-				color: $grey-dark;
+			&.regex {
+			    color: $yellow-dark;
+			}
+
+			&.important {
+				color: $orange;
 			}
 		}
 
-		&.language-css,
-		&.style {
-			.token {
-				&.string {
-					color: $grey;
-				}
+		.language-css .token.string,
+		.style .token.string {
+			color: $green;
+		}
+	}
+
+}
+
+div.code-toolbar {
+	& > .toolbar {
+		opacity: 1;
+		right: 0;
+		top: 0;
+
+		.toolbar-item a {
+			@extend %Vlt-btn, .Vlt-btn--tertiary, .Vlt-btn--small, .Vlt-btn--app;
+			font-family: 'lato', sans-serif;
+			margin: 4px;
+
+			&:before {
+				background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0D%0A%3Csvg%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0D%0A%20%20%20%20%3Cpath%20fill%3D%22%23637381%22%20d%3D%22M8.75350048%2C5.43010389%20L8.75350048%2C8.21344853%20C8.75350048%2C8.97057626%208.13972711%2C9.58434962%207.38259939%2C9.58434962%20L5.43010389%2C9.58434962%20L5.43010389%2C22.337884%20C5.43010389%2C22.4984866%205.56029844%2C22.6286812%205.72090109%2C22.6286812%20L19.8453366%2C22.6286812%20C20.005939%2C22.6286812%2020.1361338%2C22.4984865%2020.1361338%2C22.337884%20L20.1361338%2C14.0293926%20L21.2162377%2C14.0293926%20L21.2162377%2C22.337884%20C21.2162377%2C23.0950114%2020.6024639%2C23.7087851%2019.8453366%2C23.7087851%20L5.72090109%2C23.7087851%20C4.96377346%2C23.7087851%204.35%2C23.0950115%204.35%2C22.337884%20L4.35%2C19.7087851%20C3.64588027%2C19.7087851%202.76949949%2C19.7087851%201.72090109%2C19.7087851%20C0.963773458%2C19.7087851%200.35%2C19.0950115%200.35%2C18.337884%20L0.35%2C4.85475343%20L3.95387224%2C0.35%20L15.8453366%2C0.35%20C16.602464%2C0.35%2017.2162377%2C0.963773458%2017.2162377%2C1.72090109%20L17.2162377%2C4.35%20L19.8453366%2C4.35%20C20.602464%2C4.35%2021.2162377%2C4.96377346%2021.2162377%2C5.72090109%20L21.2162377%2C14.0293926%20L20.1361338%2C14.0293926%20L20.1361338%2C5.72090109%20C20.1361338%2C5.56029844%2020.0059392%2C5.43010389%2019.8453366%2C5.43010389%20L8.75350048%2C5.43010389%20Z%20M7.67339659%2C6.42957733%20L6.01362985%2C8.50424573%20L7.38259939%2C8.50424573%20C7.5432022%2C8.50424573%207.67339659%2C8.37405135%207.67339659%2C8.21344853%20L7.67339659%2C6.42957733%20Z%20M4.35%2C18.6286812%20L4.35%2C8.85475343%20L7.95387224%2C4.35%20L16.1361338%2C4.35%20L16.1361338%2C1.72090109%20C16.1361338%2C1.56029844%2016.0059392%2C1.43010389%2015.8453366%2C1.43010389%20L4.75350048%2C1.43010389%20L4.75350048%2C4.21344853%20C4.75350048%2C4.97057626%204.13972711%2C5.58434962%203.38259939%2C5.58434962%20L1.43010389%2C5.58434962%20L1.43010389%2C18.337884%20C1.43010389%2C18.4984866%201.56029844%2C18.6286812%201.72090109%2C18.6286812%20C2.76744498%2C18.6286812%203.6438254%2C18.6286812%204.35004237%2C18.6286812%20Z%20M3.67339659%2C2.42957733%20L2.01362985%2C4.50424573%20L3.38259939%2C4.50424573%20C3.5432022%2C4.50424573%203.67339659%2C4.37405135%203.67339659%2C4.21344853%20L3.67339659%2C2.42957733%20Z%22%20transform%3D%22translate%2810.783119%2C%2012.029393%29%20scale%28-1%2C%201%29%20translate%28-10.783119%2C%20-12.029393%29%20%22%3E%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E');
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				content: '';
+				display: inline-block;
+				flex: 0 0 14px;
+				float: left; // does some magic that makes it appear even with the text-indent
+				height: 14px;
+				line-height: 1;
+				margin-left: -7px;
+				margin-right: 4px;
+				text-indent: 0;
+				width: 16px;
 			}
 		}
 	}

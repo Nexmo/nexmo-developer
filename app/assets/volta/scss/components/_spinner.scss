@@ -35,6 +35,17 @@
     }
   }
 
+  &--smaller {
+    height: 20px;
+    width: 20px;
+
+    &:before,
+    &:after {
+      border-width: 2px;
+      margin: 2px;
+    }
+  }
+
   &--middle {
     vertical-align: middle;
   }
@@ -42,6 +53,37 @@
   &--center {
     display: block;
     margin: 0 auto;
+  }
+
+  &--white {
+    &:before,
+    &:after {
+      border-color: $white transparent transparent;
+    }
+  }
+
+  .Vlt-btn & {
+    height: 20px;
+    margin: -3px 6px 0 -5px;
+    vertical-align: middle;
+    width: 20px;
+
+    &:before,
+    &:after {
+      border-width: 2px;
+      margin: 2px;
+    }
+  }
+
+  .Vlt-btn--large & {
+    height: 24px;
+    width: 24px;
+  }
+
+  .Vlt-btn--small & {
+    height: 18px;
+    margin-top: -5px;
+    width: 18px;
   }
 }
 

@@ -22,6 +22,12 @@
 	}
 }
 
+.Vlt-container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;
+}
+
 hr {
 	border-bottom: 0;
 	border-top: 1px solid $grey-light;
@@ -86,13 +92,14 @@ $devices: (
 	);
 
 $directions: 'top', 'bottom';
-$units: ($unit1, $unit2, $unit3, $unit4);
+$units: (0, $unit1, $unit2, $unit3, $unit4);
 
 @each $direction in $directions {
 	@each $media, $devicePrefix in $devices {
-		@for $i from 1 through 4 {
+		@for $i from 1 through 5 {
+			$q: $i - 1;
 
-			.Vlt-margin--#{$devicePrefix}#{$direction}#{$i} {
+			.Vlt-margin--#{$devicePrefix}#{$direction}#{$q} {
 				@if $media != '' {
 					@media #{$media} {
 						margin-#{$direction}: nth($units, $i);

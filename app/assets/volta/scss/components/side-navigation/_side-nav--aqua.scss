@@ -30,6 +30,7 @@ $sidenav-titles-color: rgba($aqua-lighter, 0.8);
 		}
 
 		.Vlt-sidemenu {
+			background: linear-gradient(to bottom, lighten(#035879, 1) 10px, transparent 10px), linear-gradient(0deg, transparent calc(100% - 10px), #0085a8 calc(100% - 10px), #0085a8 100%);
 
 			&__link,
 			&__trigger {

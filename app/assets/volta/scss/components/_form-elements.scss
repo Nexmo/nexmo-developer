@@ -248,20 +248,19 @@
 	flex-flow: row wrap;
 
 	.Vlt-form__element {
-		margin-right: $unit1;
+		margin-right: $unit2;
 
-		& + .Vlt-form__element {
-			margin-left: $unit1;
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 
-	.Vlt-btn {
+	> .Vlt-btn {
 		margin-bottom: $unit1;
-		margin-left: $unit1;
 	}
 
-	.Vlt-form__element__error,
-	.Vlt-form__element__hint {
+	> .Vlt-form__element__error,
+	> .Vlt-form__element__hint {
 		flex: 0 0 100%;
 		margin-bottom: $unit0;
 	}
@@ -361,6 +360,12 @@
 			& + .Vlt-select {
 				margin-left: $unit2;
 			}
+		}
+
+		textarea,
+		.Vlt-textarea {
+			display: inline-block;
+			width: auto;
 		}
 	}
 
@@ -629,5 +634,10 @@
 			margin-top: -13px;
 			width: 26px;
 		}
+	}
+
+	.Vlt-custom-select__input {
+		@extend .Vlt-truncate;
+		text-align: left;
 	}
 }

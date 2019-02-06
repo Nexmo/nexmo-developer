@@ -85,4 +85,26 @@
 			}
 		}
 	}
+
+	&--larger {
+		.Vlt-accordion__trigger {
+			padding: $unit3 0;
+
+			&:after {
+				flex: 0 0 30px;
+				height: 30px;
+				width: 30px;
+			}
+
+			&_active {
+				padding-bottom: $unit1;
+			}
+		}
+
+		.Vlt-accordion__content {
+			&_open {
+				padding-bottom: $unit3;
+			}
+		}
+	}
 }
