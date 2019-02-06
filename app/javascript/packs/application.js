@@ -73,6 +73,13 @@ let refresh = () => {
       tag.scrollIntoView(true);
     }
   }
+
+  setTimeout(function() {
+    const sidebarActive = document.querySelector('.Vlt-sidemenu__link_active')
+    if(sidebarActive){
+      sidebarActive.scrollIntoView(true);
+    }
+  }, 100)
 }
 
 $(document).on('nexmo:load', function() {
