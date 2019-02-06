@@ -1,7 +1,7 @@
 class StaticController < ApplicationController
   def default_landing
     # Get URL and split the / to retrieve the landing page name
-    yaml_name = request.fullpath.split('/')[1]
+    yaml_name = request.fullpath.split('/').last
 
     @landing_config = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
 
