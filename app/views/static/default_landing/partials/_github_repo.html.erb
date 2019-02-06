@@ -1,7 +1,7 @@
 <div class="Vlt-grid Vlt-grid--center">
   <div class="Vlt-col Vlt-col--M-1of3 Vlt-col--1of3">
-    <a class="Vlt-card Nxd-github-card Vlt-left" href="<%= local_assigns['repo_url'] %>" data-github="Nexmo/<%= local_assigns['repo_name'] %>">
-      <h3 class="Vlt-blue-dark"><%= local_assigns['repo_name'] %></h3>
+    <a class="Vlt-card Nxd-github-card Vlt-left" href="<%= local_assigns['repo_url'] %>" data-github="Nexmo/<%= local_assigns['repo_url'].split('/').last %>">
+      <h3 class="Vlt-blue-dark"><%= local_assigns['repo_url'].split('/').last %></h3>
       <p><%= local_assigns['github_repo_title'] %></p>
       <img src="//badge.fury.io/nu/nexmo.svg" class="Nxd-github-card__badge" height="18">
       <p><small class="Nxd-github-card__meta">
