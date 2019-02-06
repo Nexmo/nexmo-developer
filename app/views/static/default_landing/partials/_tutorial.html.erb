@@ -5,13 +5,17 @@
 <% file = File.read("_tutorials/#{local_assigns['name']}.md") %>
 <% tutorial = YAML.safe_load(file) %>
 
-<a class="Vlt-card" href="<%= tutorial['external_link'] %>">
-    <img 
-        src="<%= tutorial['image_url'] %>" 
-        class="img-full wp-post-image"
-        alt srcset=""
-        sizes="(max-width: 100%) 100vw, 100%"
-    >    
+<a class="Vlt-card" href="<%= tutorial['external_link'] ? tutorial['external_link'] : '/tutorials/' + local_assigns['name'] %>">
+    <% if tutorial['image_url'] %>
+        <img 
+            src="<%= tutorial['image_url'] %>" 
+            class="img-full wp-post-image"
+            alt srcset=""
+            sizes="(max-width: 100%) 100vw, 100%"
+        >
+    <% else %>
+        <!-- default image for tutorial card? -->
+    <% end %>
     <h4 class="Vlt-margin--top2"><%= tutorial['title'] %></h4>
     <% if tutorial['description'] %>
         <p>
