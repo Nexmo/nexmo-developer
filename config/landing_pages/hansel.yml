@@ -55,7 +55,7 @@ rows:
     - entries:
       - type: call_to_action
         call_to_action:
-          title: "Nexmo & .Net in action"
+          title: "Nexmo & .NET in action"
           subtitle: "The Nexmo libraries allow you to get up and running with<br>Nexmo APIs quickly in your language of choice.<br><br>"
           large_text: "Examples and inspiration in .NET form"
           icon: "Brand-icon-dotnet"
