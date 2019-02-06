@@ -4,8 +4,8 @@ language: javascript
 dependencies:
     - nexmo-stitch
 code:
-    source: .repos/nexmo/client-sdk-javascript-building-blocks/in-app-voice/decline-call/DeclineCall.js
+    source: .repos/nexmo/client-sdk-javascript-building-blocks/in-app-voice/reject-call/RejectCall.js
     from_line: 1
     to_line: 2
 run_command: 'Load in your browser'
-file_name: DeclineCall.js
+file_name: RejectCall.js
