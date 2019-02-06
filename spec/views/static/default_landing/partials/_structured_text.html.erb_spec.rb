@@ -5,6 +5,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     icon_color = 'blue'
     icon = 'nexmo-circle'
     header = 'My header'
+    center_text = false
     text = [
       { 'type' => 'small', 'content' => 'Things here' },
       { 'type' => 'large', 'content' => 'Large things here' },
@@ -14,6 +15,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'icon_color' => icon_color,
         'icon' => icon,
         'header' => header,
+        'center_text' => center_text,
         'text' => text,
     }
 
@@ -25,9 +27,10 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     expect(rendered).to include('Things here')
   end
 
-  it 'raises an error if icon color is not provided' do
+  it 'raises an error if icon color is not provided and center_text is false' do
     icon = 'nexmo-circle'
     header = 'My header'
+    center_text = false
     text = [
       { 'type' => 'small', 'content' => 'Things here' },
       { 'type' => 'large', 'content' => 'Large things here' },
@@ -37,14 +40,16 @@ RSpec.describe 'rendering _structured_text landing page partial' do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon' => icon,
         'header' => header,
+        'center_text' => false,
         'text' => text,
     }
     end .to raise_error("Missing 'icon_color' key in structured_text landing page block")
   end
 
-  it 'raises an error if an icon is not provided' do
+  it 'raises an error if an icon is not provided and center_text is false' do
     icon_color = 'blue'
     header = 'My header'
+    center_text = false
     text = [
       { 'type' => 'small', 'content' => 'Things here' },
       { 'type' => 'large', 'content' => 'Large things here' },
@@ -55,6 +60,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'icon_color' => icon_color,
         'header' => header,
         'text' => text,
+        'center_text' => false,
     }
     end .to raise_error("Missing 'icon' key in structured_text landing page block")
   end

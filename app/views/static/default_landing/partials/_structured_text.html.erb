@@ -1,12 +1,16 @@
 <%
-    raise "Missing 'icon_color' key in structured_text landing page block" unless local_assigns['icon_color']
-    raise "Missing 'icon' key in structured_text landing page block" unless local_assigns['icon']
     raise "Missing 'header' key in structured_text landing page block" unless local_assigns['header']
-    raise "Missing 'text' key in structured_text landing page block" unless local_assigns['text'] 
+    raise "Missing 'text' key in structured_text landing page block" unless local_assigns['text']
+    raise "Missing 'icon' key in structured_text landing page block" if local_assigns['center_text'] == false && (local_assigns['icon'] == '' || local_assigns['icon'].nil?)
+    raise "Missing 'icon_color' key in structured_text landing page block" if local_assigns['center_text'] == false && (local_assigns['icon_color'] == '' || local_assigns['icon_color'].nil?)
 %>
-
-<h2 class="Vlt-title--icon">
-    <svg class="Vlt-<%= local_assigns['icon_color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon'] %>"></use></svg>
+<% if local_assigns['center_text'] %>
+    <div class='Vlt-center'>
+<% end %>
+<h2 class="<%= local_assigns['center_text'] ? '' : 'Vlt-title--icon' %>">
+   <% if local_assigns['icon'] %>
+        <svg class="Vlt-<%= local_assigns['icon_color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon'] %>"></use></svg>
+    <% end %>
     <%= local_assigns['header'] %>
 </h2>
 <% local_assigns['text'] ||= [] %>
@@ -20,4 +24,7 @@
     <% else 
         raise "Unknown text type: #{text['type']}"
     end %>
+<% end %>
+<% if local_assigns['center_text'] %>
+    </div>
 <% end %>

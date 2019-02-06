@@ -14,7 +14,7 @@ RSpec.describe 'static/default_landing' do
                             'title' => 'Test Title',
                             'center_title' => 'false',
                             'subtitle' => 'Test Subtitle',
-                            'center_subtitle' => 'false',
+                            'center_subtitle' => false,
                             'icon' => 'test-icon',
                             'icon_color' => 'blue',
                         },
