@@ -73,10 +73,12 @@ rows:
           name: number-insight-api-aspnet
   - columns: 
     - entries:
-      - type: sdk
-        sdk:
-          highlight: "true"
-          library_name: "dotnet"
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-dotnet
+          repo_name: "nexmo-dotnet"
+          github_repo_title: "Nexmo REST API client for .NET"
+          language: "C#"
   - columns:
     - entries:
       - type: line_divider
