@@ -40,7 +40,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon' => icon,
         'header' => header,
-        'center_text' => false,
+        'center_text' => center_text,
         'text' => text,
     }
     end .to raise_error("Missing 'icon_color' key in structured_text landing page block")
@@ -60,7 +60,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'icon_color' => icon_color,
         'header' => header,
         'text' => text,
-        'center_text' => false,
+        'center_text' => center_text,
     }
     end .to raise_error("Missing 'icon' key in structured_text landing page block")
   end
