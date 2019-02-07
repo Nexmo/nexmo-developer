@@ -47,7 +47,9 @@ Rails.application.routes.draw do
 
   get '/documentation', to: 'static#documentation'
 
-  get '/welcome/:name', to: 'static#default_landing'
+  get '/hansel', to: 'static#default_landing'
+
+  get '/spotlight', to: 'static#default_landing'
 
   get '/migrate/tropo', to: 'static#migrate'
   get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'
