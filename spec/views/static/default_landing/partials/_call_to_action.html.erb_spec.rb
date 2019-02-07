@@ -67,7 +67,21 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
       'title' => 'A title here',
       'url' => '/path/to/link',
     }
-
     expect(rendered).to_not include('A subtitle here')
+  end
+
+  it 'renders optional text values correctly' do
+    render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
+      'icon_color' => 'orange',
+      'icon' => 'icon-here',
+      'title' => 'A title here',
+      'url' => '/path/to/link',
+      'text' => [
+        { 'type' => 'small', 'content' => 'Things here' },
+        { 'type' => 'large', 'content' => 'Large things here' },
+      ],
+    }
+    expect(rendered.tr("\n", ' ').gsub(/\s+/, '')).to include('<p class="p-large">Large things here'.tr("\n", ' ').gsub(/\s+/, ''))
+    expect(rendered).to include('Things here')
   end
 end

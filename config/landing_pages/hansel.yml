@@ -59,7 +59,9 @@ rows:
         call_to_action:
           title: "Nexmo & .NET in action"
           subtitle: "The Nexmo libraries allow you to get up and running with<br>Nexmo APIs quickly in your language of choice.<br><br>"
-          large_text: "Examples and inspiration in .NET form"
+          text: 
+            - content: "Examples and inspiration in .NET form"
+              type: large
           icon: "Brand-icon-dotnet"
           icon_color: "blue-dark"
           url: "https://www.nexmo.com/blog/category/developer?ref=hansel-dr"

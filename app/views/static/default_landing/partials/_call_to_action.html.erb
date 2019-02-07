@@ -19,7 +19,18 @@
 <% if local_assigns['subtitle'] %>
     <p><%= local_assigns['subtitle'].render_markdown %></p>
 <% end %>
-<% if local_assigns['large_text'] %>
-    <p class="p-large"><%= local_assigns['large_text'].render_markdown({skip_paragraph_surround: true}) %>
-<% end %>
+<% if local_assigns['text'] %>
+    <% local_assigns['text'] ||= [] %>
+    <% local_assigns['text'].each do |text| %>
+        <% if text['type'] == 'large' %>
+            <p class="p-large">
+                <%= text['content'].render_markdown({skip_paragraph_surround: true}) %>
+            </p>
+        <% elsif text['type'] == 'small' %>
+            <%= text['content'].render_markdown %>
+        <% else 
+            raise "Unknown text type: #{text['type']}"
+        end %>
+    <% end %>
+<% end%>
 </div>
