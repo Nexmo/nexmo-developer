@@ -9,22 +9,7 @@ description: How to create JWTs and ACLs
 
 ### Overview
 
-The Nexmo Client SDKs use [JWTs](https://jwt.io/) for authentication when a user logs in. These JWTs are generated using the application ID and private key that is provided when a new application is created.
-
-One way to create a new application is from the Nexmo CLI:
-
-```sh
-nexmo app:create "My Nexmo App" https://example.com/answer https://example.com/event --type=rtc --keyfile=private.key
-```
-
-```
-Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
-No existing config found. Writing to a new file.
-Credentials written to /path/to/your/local/folder/.nexmo-app
-Private Key saved to: private.key
-```
-
-You can also create a new application within the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/create-application).
+The Nexmo Client SDKs use [JWTs](https://jwt.io/) for authentication when a user logs in. These JWTs are generated using the application ID and private key that is provided [when a new application is created.](/tutorials/client-sdk-generate-test-credentials#create-a-nexmo-application)
 
 ### Claims
 
