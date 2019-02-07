@@ -19,7 +19,6 @@ rows:
         action_button:
           text: "Apply Now"
           url: "#submit-your-idea"
-          large: false
     - width: 2
       entries:
       - type: html
