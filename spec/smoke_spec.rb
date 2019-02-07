@@ -102,13 +102,13 @@ RSpec.describe 'Smoke Tests', type: :request do
     expect(response.body).not_to include('li class="tabs-title is-active" data-language="node" data-language-type="languages"')
   end
 
-  it '/welcome/hansel contains the expected text' do
-    get '/welcome/hansel'
+  it '/hansel contains the expected text' do
+    get '/hansel'
     expect(response.body).to include('Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications.')
   end
 
-  it '/welcome/spotlight contains the expected text' do
-    get '/welcome/spotlight'
+  it '/spotlight contains the expected text' do
+    get '/spotlight'
     expect(response.body).to include('We\'re interested in both technical tutorials and general pieces on programming. Successful submissions will be')
   end
 
