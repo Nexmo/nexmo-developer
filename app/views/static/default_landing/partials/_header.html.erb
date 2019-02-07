@@ -9,17 +9,13 @@
     <%= local_assigns['title'] %>
 </h1>
 <% if local_assigns['subtitle'] %>
-    <% if local_assigns['center_subtitle'] == false %>
-        <% if local_assigns['subtitle_type'] == 'small' %> <p> <% else %> <p class="p-large"> <% end %>
-            <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: true}) %>
-        </p>
-    <% elsif local_assigns['center_subtitle'] == true %>
+    <% if local_assigns['center_subtitle'] %>
         <div class="Vlt-center">
-            <% if local_assigns['subtitle_type'] == 'small' %> <p> <% else %> <p class="p-large"> <% end %>
-                <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: true}) %>
-            </p>
-        </div>
-    <% else %>
-        <% raise "Invalid value for key 'center_subtitle': #{local_assigns['center_subtitle']}" %>
     <% end %>
+    <p class="<%= local_assigns['subtitle_type'] != 'small' ? 'p-large' : '' %>">
+        <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: true}) %>
+    </p>
+    <% if local_assigns['center_subtitle'] %>
+        </div>
+    <% end %>  
 <% end %>
