@@ -1,7 +1,6 @@
 <% 
     raise "missing 'url' key in action_button landing page block" unless local_assigns['url']
     raise "missing 'text' key in action_button landing page block" unless local_assigns['text']
-    raise "missing 'large' key in action_button landing page block" if local_assigns['large'].nil?
 %>
 <% if local_assigns['center_button'] == true %>
     <div class="Vlt-center">
