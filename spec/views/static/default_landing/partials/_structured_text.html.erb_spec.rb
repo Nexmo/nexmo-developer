@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe 'rendering _structured_text landing page partial' do
   it 'renders correctly with local variable' do
     render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
-        'icon' => [
-          { 'name' => 'nexmo-circle', 'color' => 'blue' },
-        ],
+        'icon' => { 'name' => 'nexmo-circle', 'color' => 'blue' },
         'header' => 'My header',
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
@@ -24,9 +22,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
   it 'raises an error if icon color is not provided' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
-        'icon' => [
-          { 'name' => 'nexmo-circle' },
-        ],
+        'icon' => { 'name' => 'nexmo-circle' },
         'header' => 'My header',
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
@@ -39,9 +35,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
   it 'raises an error if an icon name is not provided' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
-        'icon' => [
-          { 'color' => 'blue' },
-        ],
+        'icon' => { 'color' => 'blue' },
         'header' => 'My header',
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
@@ -54,9 +48,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
   it 'raises an error if a header is not provided' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
-        'icon' => [
-          { 'name' => 'nexmo-circle', 'color' => 'blue' },
-        ],
+        'icon' => { 'name' => 'nexmo-circle', 'color' => 'blue' },
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
           { 'type' => 'large', 'content' => 'Large things here' },
@@ -68,9 +60,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
   it 'raises an error if text is not provided' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
-        'icon' => [
-          { 'name' => 'nexmo-circle', 'color' => 'blue' },
-        ],
+        'icon' => { 'name' => 'nexmo-circle', 'color' => 'blue' },
         'header' => 'My header',
     }
     end .to raise_error("Missing 'text' key in structured_text landing page block")

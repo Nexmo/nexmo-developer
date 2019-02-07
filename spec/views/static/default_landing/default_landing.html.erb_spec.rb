@@ -79,9 +79,7 @@ RSpec.describe 'static/default_landing' do
                         'type' => 'structured_text',
                         'structured_text' => {
                             'header' => 'Sample Header',
-                            'icon' => [
-                              { 'name' => 'test-icon', 'color' => 'blue' },
-                            ],
+                            'icon' => { 'name' => 'test-icon', 'color' => 'blue' },
                             'text' => [
                               { 'content' => 'Sample Content', 'type' => 'large' },
                               { 'content' => 'Second Sample Content', 'type' => 'small' },

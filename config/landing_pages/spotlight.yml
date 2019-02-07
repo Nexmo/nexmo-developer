@@ -63,8 +63,8 @@ rows:
         structured_text:
           header: "What We're Looking For"
           icon: 
-            - name: "icon-search"
-              color: blue
+            name: "icon-search"
+            color: blue
           text:
             - content: "We're interested in both technical tutorials and general pieces on programming. Successful submissions will be:"
               type: large
@@ -76,8 +76,8 @@ rows:
         structured_text:
           header: "What's in it for You?"
           icon: 
-            - name: "icon-user"
-              color: blue
+            name: "icon-user"
+            color: blue
           text:
             - content: "We pay $400 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
               type: large
@@ -87,8 +87,8 @@ rows:
         structured_text:
           header: "The Process"
           icon: 
-            - name: "icon-gear"
-              color: blue
+            name: "icon-gear"
+            color: blue
           text:
           - content: "When we receive your submission, our editorial team will evaluate it to see if it's a good fit for the Nexmo blog."
             type: large
@@ -100,8 +100,8 @@ rows:
         structured_text:
           header: "Who Owns Your Work?"
           icon: 
-            - name: "icon-merge"
-              color: blue
+            name: "icon-merge"
+            color: blue
           text:
           - content: "You do! You grant Nexmo an unlimited license to publish and promote your post, but you retain full ownership."
             type: large
@@ -111,8 +111,8 @@ rows:
         structured_text:
           header: "Submit Your Idea"
           icon: 
-            - name: "icon-envelope"
-              color: blue
+            name: "icon-envelope"
+            color: blue
           text:
           - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
             type: large
