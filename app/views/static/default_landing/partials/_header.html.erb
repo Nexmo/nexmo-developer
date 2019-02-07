@@ -2,7 +2,6 @@
     raise "Missing 'icon_color' key in header landing page block" unless local_assigns['icon_color']
     raise "Missing 'icon' key in header landing page block" unless local_assigns['icon']
     raise "Missing 'title' key in header landing page block" unless local_assigns['title']
-    raise "Missing 'center_title' key in header landing page block" if local_assigns['center_title'].nil?
     raise "Missing 'center_subtitle' key in header landing page block" if (local_assigns['subtitle'] && local_assigns['center_subtitle'].nil?)
 %>
     <h1 class="Vlt-title--icon <%= 'Vlt-title--center' if local_assigns['center_title'] %>">

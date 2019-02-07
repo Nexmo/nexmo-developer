@@ -53,18 +53,6 @@ RSpec.describe 'rendering _header landing page partial' do
     end .to raise_error("Missing 'title' key in header landing page block")
   end
 
-  it 'raises an error when center_title key value is not provided' do
-    expect do
-      render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => 'orange',
-        'icon' => 'icon-here',
-        'title' => 'A title here',
-        'subtitle' => 'A subtitle here',
-        'center_subtitle' => false,
-    }
-    end .to raise_error("Missing 'center_title' key in header landing page block")
-  end
-
   it 'renders without a subtitle when no subtitle is provided' do
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
       'icon_color' => 'orange',

@@ -9,7 +9,6 @@ rows:
       - type: header
         header:
           title: "Write for Nexmo"
-          center_title: false
           subtitle: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
           center_subtitle: false
           subtitle_type: "small"
@@ -21,7 +20,6 @@ rows:
           url: "#submit-your-idea"
           type: "primary"
           large: false
-          center_button: false
     - width: 2
       entries:
       - type: html
@@ -65,7 +63,6 @@ rows:
           header: "What We're Looking For"
           icon: "icon-search"
           icon_color: blue
-          center_text: false
           text:
             - content: "We're interested in both technical tutorials and general pieces on programming. Successful submissions will be:"
               type: large
@@ -78,7 +75,6 @@ rows:
           header: "What's in it for You?"
           icon: "icon-user"
           icon_color: blue
-          center_text: false
           text:
             - content: "We pay $400 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
               type: large
@@ -89,7 +85,6 @@ rows:
           header: "The Process"
           icon: "icon-gear"
           icon_color: blue
-          center_text: false
           text:
           - content: "When we receive your submission, our editorial team will evaluate it to see if it's a good fit for the Nexmo blog."
             type: large
@@ -102,7 +97,6 @@ rows:
           header: "Who Owns Your Work?"
           icon: "icon-merge"
           icon_color: blue
-          center_text: false
           text:
           - content: "You do! You grant Nexmo an unlimited license to publish and promote your post, but you retain full ownership."
             type: large
@@ -113,7 +107,6 @@ rows:
           header: "Submit Your Idea"
           icon: "icon-envelope"
           icon_color: blue
-          center_text: false
           text:
           - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
             type: large
