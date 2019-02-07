@@ -30,6 +30,20 @@ RSpec.describe 'static/default_landing' do
                 ],
             },
           {
+              'entries' => [
+                {
+                      'type' => 'contact_support',
+                      'contact_support' => {
+                          'align' => 'center',
+                          'header' => 'Contact Support',
+                          'text' => [
+                            { 'content' => 'Text here', 'type' => 'small' },
+                          ],
+                      },
+                  },
+              ],
+          },
+          {
                 'width' => 2,
                 'entries' => [
                   {
@@ -51,6 +65,19 @@ RSpec.describe 'static/default_landing' do
                     },
                 ],
             },
+          {
+              'entries' => [
+                {
+                      'type' => 'call_to_action',
+                      'call_to_action' => {
+                          'icon' => { 'name' => 'cta-icon-here', 'color' => 'orange' },
+                          'title' => 'Call to Action Title',
+                          'subtitle' => 'Call to Action Subtitle',
+                          'url' => '/path/to/call/to/action/link',
+                      },
+                  },
+              ],
+          },
         ],
       },
       {
@@ -104,6 +131,14 @@ RSpec.describe 'static/default_landing' do
                             ],
                         },
                     },
+                  {
+                      'type' => 'github_repo',
+                      'github_repo' => {
+                          'repo_url' => 'https://www.github.com/Nexmo/repo',
+                          'github_repo_title' => 'Repo Title',
+                          'language' => 'Ruby',
+                      },
+                  },
                 ],
             },
         ],
@@ -119,11 +154,18 @@ RSpec.describe 'static/default_landing' do
     expect(actual).to include('Test Action Button')
     expect(actual).to include('Test HTML')
     expect(actual).to include('hr--tall')
+    expect(actual).to include("<div class='Vlt-center'>")
+    expect(actual).to include('Contact Support')
     expect(actual).to include('Sample Title')
+    expect(actual).to include('Ruby')
+    expect(actual).to include('<a class="Vlt-card Nxd-github-card Vlt-left" href="https://www.github.com/Nexmo/repo" data-github="Nexmo/repo">')
     expect(actual).to include('p-large')
     expect(actual).to include('Second Sample Content')
     expect(actual).to include('Vlt-list--square')
     expect(actual).to include('Item 1')
     expect(actual).to include('Item 2')
+    expect(actual).to include('Call to Action Subtitle')
+    expect(actual).to include('Call to Action Title')
+    expect(actual).to include('<use xlink:href="/symbol/volta-icons.svg#Vlt-cta-icon-here">')
   end
 end
