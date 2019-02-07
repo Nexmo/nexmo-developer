@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe 'rendering _header landing page partial' do
   it 'renders correctly with local variables' do
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => 'orange',
-        'icon' => 'icon-here',
+        'icon' => [
+          { 'name' => 'icon-here', 'color' => 'orange' },
+        ],
         'title' => [
           { 'text' => 'A title here', 'align' => 'center' },
         ],
@@ -22,7 +23,9 @@ RSpec.describe 'rendering _header landing page partial' do
   it 'raises an error when an icon color is not provided' do
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon' => 'icon-here',
+        'icon' => [
+          { 'name' => 'icon-here' },
+        ],
         'title' => [
           { 'text' => 'A title here', 'align' => 'center' },
         ],
@@ -30,13 +33,15 @@ RSpec.describe 'rendering _header landing page partial' do
           { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
         ],
     }
-    end .to raise_error("Missing 'icon_color' key in header landing page block")
+    end .to raise_error("Missing icon 'color' key in header landing page block")
   end
 
-  it 'raises an error when an icon is not provided' do
+  it 'raises an error when an icon name is not provided' do
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => 'orange',
+        'icon' => [
+          { 'color' => 'orange' },
+        ],
         'title' => [
           { 'text' => 'A title here', 'align' => 'center' },
         ],
@@ -44,14 +49,15 @@ RSpec.describe 'rendering _header landing page partial' do
           { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
         ],
     }
-    end .to raise_error("Missing 'icon' key in header landing page block")
+    end .to raise_error("Missing icon 'name' key in header landing page block")
   end
 
   it 'raises an error when a title is not provided' do
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => 'orange',
-        'icon' => 'icon-here',
+        'icon' => [
+          { 'name' => 'icon-here', 'color' => 'orange' },
+        ],
         'subtitle' => [
           { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
         ],
@@ -61,8 +67,9 @@ RSpec.describe 'rendering _header landing page partial' do
 
   it 'renders without a subtitle when no subtitle is provided' do
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
-      'icon_color' => 'orange',
-      'icon' => 'icon-here',
+      'icon' => [
+        { 'name' => 'icon-here', 'color' => 'orange' },
+      ],
       'title' => [
         { 'text' => 'A title here', 'align' => 'center' },
       ],

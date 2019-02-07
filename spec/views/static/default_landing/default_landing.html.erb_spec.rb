@@ -20,8 +20,9 @@ RSpec.describe 'static/default_landing' do
                               'align' => 'center',
                               'type' => 'large',
                             ],
-                            'icon' => 'test-icon',
-                            'icon_color' => 'blue',
+                            'icon' => [
+                              { 'name' => 'test-icon', 'color' => 'blue' },
+                            ],
                         },
                     },
                   {
@@ -66,8 +67,9 @@ RSpec.describe 'static/default_landing' do
                         'type' => 'section_header',
                         'section_header' => {
                             'title' => 'Sample Title',
-                            'icon' => 'test-icon',
-                            'icon_color' => 'blue',
+                            'icon' => [
+                              { 'name' => 'test-icon', 'color' => 'blue' },
+                            ],
                         },
                     },
                   {
@@ -82,8 +84,9 @@ RSpec.describe 'static/default_landing' do
                         'type' => 'structured_text',
                         'structured_text' => {
                             'header' => 'Sample Header',
-                            'icon' => 'test-icon',
-                            'icon_color' => 'blue',
+                            'icon' => [
+                              { 'name' => 'test-icon', 'color' => 'blue' },
+                            ],
                             'text' => [
                               { 'content' => 'Sample Content', 'type' => 'large' },
                               { 'content' => 'Second Sample Content', 'type' => 'small' },

@@ -15,8 +15,9 @@ rows:
             - text: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
               align: center
               type: large
-          icon: "icon-star"
-          icon_color: "yellow"
+          icon: 
+            - name: "icon-star"
+              color: "yellow"
       - type: action_button
         action_button:
           text: "Try it Free"
@@ -34,8 +35,9 @@ rows:
         call_to_action:
           title: "SDKs & Tools"
           subtitle: "The Nexmo libraries allow you to get up and running with Nexmo APIs quickly in your language of choice."
-          icon: "icon-design-tools"
-          icon_color: "blue-dark"
+          icon: 
+            - name: "icon-design-tools"
+              color: "blue-dark"
           url: "/tools"
     - width: 2
       entries:
@@ -43,8 +45,9 @@ rows:
         call_to_action:
           title: "Community"
           subtitle: "Find out about our talks, community hacks, and what events we'll be at."
-          icon: "icon-group"
-          icon_color: "blue-dark"
+          icon: 
+            - name: "icon-group"
+              color: "blue-dark"
           url: "/community"
   - columns:
     - entries:
@@ -64,8 +67,9 @@ rows:
           text: 
             - content: "Examples and inspiration in .NET form"
               type: large
-          icon: "Brand-icon-dotnet"
-          icon_color: "blue-dark"
+          icon: 
+            - name: "Brand-icon-dotnet"
+              color: "blue-dark"
           url: "https://www.nexmo.com/blog/category/developer?ref=hansel-dr"
   - columns:
     - width: 2
@@ -99,8 +103,9 @@ rows:
       - type: structured_text
         structured_text:
           header: "Do you have a question?"
-          icon: 
-          icon_color:
+          icon:
+            - name: 
+              color:
           center_text: true
           text:
             - content: "We're always here to help. Check out our [support FAQs](https://help.nexmo.com/), contact our super helpful [support team](https://help.nexmo.com/hc/en-us/requests/new) or get in touch on [Stack Overflow](http://stackoverflow.com/questions/tagged/nexmo)."
