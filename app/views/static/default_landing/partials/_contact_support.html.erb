@@ -1,0 +1,25 @@
+<%
+    raise "Missing 'header' key in contact_support landing page block" unless local_assigns['header']
+    raise "Missing 'text' key in contact_support landing page block" unless local_assigns['text']
+%>
+<% if local_assigns['align'] == 'center' %>
+    <div class='Vlt-center'>
+<% end %>
+<h2>
+    <%= local_assigns['header'] %>
+</h2>
+<% local_assigns['text'] ||= [] %>
+<% local_assigns['text'].each do |text| %>
+    <% if text['type'] == 'large' %>
+        <p class="p-large">
+            <%= text['content'].render_markdown({skip_paragraph_surround: true}) %>
+        </p>
+    <% elsif text['type'] == 'small' %>
+        <%= text['content'].render_markdown %>
+    <% else 
+        raise "Unknown text type: #{text['type']}"
+    end %>
+<% end %>
+<% if local_assigns['align'] == 'center' %>
+    </div>
+<% end %>
