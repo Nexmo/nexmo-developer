@@ -1,6 +1,6 @@
 <%
-    raise "Missing icon 'color' key in call_to_action landing page block" unless local_assigns['icon'][0]['color']
-    raise "Missing icon 'name' key in call_to_action landing page block" unless local_assigns['icon'][0]['name']
+    raise "Missing icon 'color' key in call_to_action landing page block" unless local_assigns['icon']['color']
+    raise "Missing icon 'name' key in call_to_action landing page block" unless local_assigns['icon']['name']
     raise "Missing 'title' key in call_to_action landing page block" unless local_assigns['title']
     raise "Missing 'url' key in call_to_action landing page block" unless local_assigns['url']
 %>
@@ -9,8 +9,8 @@
     <h2>
         <a href="<%= local_assigns['url'] %>">
             <div>
-                <svg class="Vlt-icon Vlt-icon--large Vlt-<%= local_assigns['icon'][0]['color'] %>">
-                <use xlink:href="<%= local_assigns['icon'][0]['name'].start_with?("Brand") ? "/symbol/volta-brand-icons.svg##{local_assigns['icon'][0]['name']}" : "/symbol/volta-icons.svg#Vlt-#{local_assigns['icon'][0]['name']}" %>"></use>
+                <svg class="Vlt-icon Vlt-icon--large Vlt-<%= local_assigns['icon']['color'] %>">
+                <use xlink:href="<%= local_assigns['icon']['name'].start_with?("Brand") ? "/symbol/volta-brand-icons.svg##{local_assigns['icon']['name']}" : "/symbol/volta-icons.svg#Vlt-#{local_assigns['icon']['name']}" %>"></use>
                 </svg>
             </div>
     <%= local_assigns['title'] %>

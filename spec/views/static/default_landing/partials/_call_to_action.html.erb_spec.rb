@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe 'rendering _call_to_action landing page partial' do
   it 'renders correctly with local variables' do
     render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
-      'icon' => [
-        { 'name' => 'icon-here', 'color' => 'orange' },
-      ],
+      'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
       'title' => 'A title here',
       'subtitle' => 'A subtitle here',
       'url' => '/path/to/link',
@@ -20,9 +18,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
   it 'raises an error when an icon color is not provided' do
     expect do
       render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
-        'icon' => [
-          { 'name' => 'icon-here' },
-        ],
+        'icon' => { 'name' => 'icon-here' },
         'title' => 'A title here',
         'subtitle' => 'A subtitle here',
         'url' => '/path/to/link',
@@ -33,9 +29,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
   it 'raises an error when an icon name is not provided' do
     expect do
       render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
-        'icon' => [
-          { 'color' => 'orange' },
-        ],
+        'icon' => { 'color' => 'orange' },
         'title' => 'A title here',
         'subtitle' => 'A subtitle here',
         'url' => '/path/to/link',
@@ -46,9 +40,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
   it 'raises an error when a title is not provided' do
     expect do
       render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
-        'icon' => [
-          { 'name' => 'icon-here', 'color' => 'orange' },
-        ],
+        'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
         'subtitle' => 'A subtitle here',
         'url' => '/path/to/link',
     }
@@ -58,9 +50,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
   it 'raises an error when a url is not provided' do
     expect do
       render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
-        'icon' => [
-          { 'name' => 'icon-here', 'color' => 'orange' },
-        ],
+        'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
         'title' => 'A title here',
         'subtitle' => 'A subtitle here',
     }
@@ -69,9 +59,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
 
   it 'renders without a subtitle when no subtitle is provided' do
     render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
-      'icon' => [
-        { 'name' => 'icon-here', 'color' => 'orange' },
-      ],
+      'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
       'title' => 'A title here',
       'url' => '/path/to/link',
     }
@@ -80,9 +68,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
 
   it 'renders optional text values correctly' do
     render partial: '/static/default_landing/partials/call_to_action.html.erb', locals: {
-      'icon' => [
-        { 'name' => 'icon-here', 'color' => 'orange' },
-      ],
+      'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
       'title' => 'A title here',
       'url' => '/path/to/link',
       'text' => [

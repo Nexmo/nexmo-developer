@@ -36,8 +36,8 @@ rows:
           title: "SDKs & Tools"
           subtitle: "The Nexmo libraries allow you to get up and running with Nexmo APIs quickly in your language of choice."
           icon: 
-            - name: "icon-design-tools"
-              color: "blue-dark"
+            name: "icon-design-tools"
+            color: "blue-dark"
           url: "/tools"
     - width: 2
       entries:
@@ -46,8 +46,8 @@ rows:
           title: "Community"
           subtitle: "Find out about our talks, community hacks, and what events we'll be at."
           icon: 
-            - name: "icon-group"
-              color: "blue-dark"
+            name: "icon-group"
+            color: "blue-dark"
           url: "/community"
   - columns:
     - entries:
@@ -68,8 +68,8 @@ rows:
             - content: "Examples and inspiration in .NET form"
               type: large
           icon: 
-            - name: "Brand-icon-dotnet"
-              color: "blue-dark"
+            name: "Brand-icon-dotnet"
+            color: "blue-dark"
           url: "https://www.nexmo.com/blog/category/developer?ref=hansel-dr"
   - columns:
     - width: 2
