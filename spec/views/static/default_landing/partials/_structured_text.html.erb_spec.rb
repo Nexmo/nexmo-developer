@@ -7,7 +7,6 @@ RSpec.describe 'rendering _structured_text landing page partial' do
           { 'name' => 'nexmo-circle', 'color' => 'blue' },
         ],
         'header' => 'My header',
-        'center_text' => false,
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
           { 'type' => 'large', 'content' => 'Large things here' },
@@ -22,14 +21,13 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     expect(rendered).to include('Things here')
   end
 
-  it 'raises an error if icon color is not provided and center_text is false' do
+  it 'raises an error if icon color is not provided' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon' => [
           { 'name' => 'nexmo-circle' },
         ],
         'header' => 'My header',
-        'center_text' => false,
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
           { 'type' => 'large', 'content' => 'Large things here' },
@@ -38,14 +36,13 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     end .to raise_error("Missing icon 'color' key in structured_text landing page block")
   end
 
-  it 'raises an error if an icon name is not provided and center_text is false' do
+  it 'raises an error if an icon name is not provided' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon' => [
           { 'color' => 'blue' },
         ],
         'header' => 'My header',
-        'center_text' => false,
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
           { 'type' => 'large', 'content' => 'Large things here' },
@@ -60,7 +57,6 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'icon' => [
           { 'name' => 'nexmo-circle', 'color' => 'blue' },
         ],
-        'center_text' => false,
         'text' => [
           { 'type' => 'small', 'content' => 'Things here' },
           { 'type' => 'large', 'content' => 'Large things here' },
@@ -76,7 +72,6 @@ RSpec.describe 'rendering _structured_text landing page partial' do
           { 'name' => 'nexmo-circle', 'color' => 'blue' },
         ],
         'header' => 'My header',
-        'center_text' => false,
     }
     end .to raise_error("Missing 'text' key in structured_text landing page block")
   end

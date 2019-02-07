@@ -100,15 +100,12 @@ rows:
       - type: line_divider
   - columns:
     - entries:
-      - type: structured_text
-        structured_text:
+      - type: contact_support
+        contact_support:
+          align: center
           header: "Do you have a question?"
-          icon:
-            - name: 
-              color:
-          center_text: true
           text:
             - content: "We're always here to help. Check out our [support FAQs](https://help.nexmo.com/), contact our super helpful [support team](https://help.nexmo.com/hc/en-us/requests/new) or get in touch on [Stack Overflow](http://stackoverflow.com/questions/tagged/nexmo)."
               type: large
-            - content: "Your data will be treated in accordance with our [Privacy Policy](https://www.nexmo.com/privacy-policy), which sets out the rights you have in respect of your data."
+            - content: Your data will be treated in accordance with our [Privacy Policy](https://www.nexmo.com/privacy-policy), which sets out the rights you have in respect of your data."
               type: large
