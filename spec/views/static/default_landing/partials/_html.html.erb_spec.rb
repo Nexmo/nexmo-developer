@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'rendering _html landing page partial' do
   it 'renders correctly with local variable' do
-    content = '<a href="#a-tag">A link</a>'
-
-    render partial: '/static/default_landing/partials/html.html.erb', locals: { 'content' => content }
+    render partial: '/static/default_landing/partials/html.html.erb', locals: { 'content' => '<a href="#a-tag">A link</a>' }
 
     expect(rendered).to include('<a href="#a-tag">A link</a>')
   end
