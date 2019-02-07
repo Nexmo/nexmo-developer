@@ -1,11 +1,11 @@
 <% 
-    raise "Missing icon 'color' key in header landing page block" unless local_assigns['icon'][0]['color']
-    raise "Missing icon 'name' key in header landing page block" unless local_assigns['icon'][0]['name']
+    raise "Missing icon 'color' key in header landing page block" unless local_assigns['icon']['color']
+    raise "Missing icon 'name' key in header landing page block" unless local_assigns['icon']['name']
     raise "Missing 'title' key in header landing page block" unless local_assigns['title']
 %>
-    <h1 class="Vlt-title--icon <%= 'Vlt-title--center' if local_assigns['title'][0]['align'] == 'center' %>">
-    <svg class="Vlt-<%= local_assigns['icon'][0]['color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon'][0]['name'] %>"></use></svg>
-    <%= local_assigns['title'] %>
+    <h1 class="Vlt-title--icon <%= 'Vlt-title--center' if local_assigns['title']['align'] == 'center' %>">
+    <svg class="Vlt-<%= local_assigns['icon']['color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon']['name'] %>"></use></svg>
+    <%= local_assigns['title']['text'] %>
 </h1>
 <% if local_assigns['subtitle'] %>
     <% local_assigns['subtitle'] ||= [] %>

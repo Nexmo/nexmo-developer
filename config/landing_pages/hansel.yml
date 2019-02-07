@@ -9,15 +9,15 @@ rows:
       - type: header
         header:
           title: 
-            - text: "Thanks, Scott. We'll take it from here!"
-              align: center
+            text: "Thanks, Scott. We'll take it from here!"
+            align: center
           subtitle:
             - text: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
               align: center
               type: large
           icon: 
-            - name: "icon-star"
-              color: "yellow"
+            name: "icon-star"
+            color: "yellow"
       - type: action_button
         action_button:
           text: "Try it Free"
