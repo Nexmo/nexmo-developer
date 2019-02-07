@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'rendering _tutorial landing page partial' do
   it 'renders correctly with valid data and an external_link defined' do
-    name = 'this-is-a-sample'
     tutorial = <<~HEREDOC
       ---
       title: This is a sample title
@@ -16,7 +15,7 @@ RSpec.describe 'rendering _tutorial landing page partial' do
     HEREDOC
     allow(File).to receive(:read).and_return(tutorial)
 
-    render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => name }
+    render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
 
     expect(rendered).to include('<a class="Vlt-card" href="https://sample.url/path/to/link/">')
     expect(rendered).to include('src="https://sample.url/path/to/image"')
@@ -25,7 +24,6 @@ RSpec.describe 'rendering _tutorial landing page partial' do
   end
 
   it 'renders correctly with valid data and no external_link defined' do
-    name = 'this-is-a-sample'
     tutorial = <<~HEREDOC
       ---
       title: This is a sample title
@@ -38,7 +36,7 @@ RSpec.describe 'rendering _tutorial landing page partial' do
     HEREDOC
     allow(File).to receive(:read).and_return(tutorial)
 
-    render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => name }
+    render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
 
     expect(rendered).to include('<a class="Vlt-card" href="/tutorials/this-is-a-sample">')
     expect(rendered).to include('src="https://sample.url/path/to/image"')
