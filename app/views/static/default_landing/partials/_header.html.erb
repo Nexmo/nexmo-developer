@@ -2,20 +2,22 @@
     raise "Missing 'icon_color' key in header landing page block" unless local_assigns['icon_color']
     raise "Missing 'icon' key in header landing page block" unless local_assigns['icon']
     raise "Missing 'title' key in header landing page block" unless local_assigns['title']
-    raise "Missing 'center_subtitle' key in header landing page block" if (local_assigns['subtitle'] && local_assigns['center_subtitle'].nil?)
 %>
-    <h1 class="Vlt-title--icon <%= 'Vlt-title--center' if local_assigns['center_title'] %>">
+    <h1 class="Vlt-title--icon <%= 'Vlt-title--center' if local_assigns['title'][0]['align'] == 'center' %>">
     <svg class="Vlt-<%= local_assigns['icon_color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon']%>"></use></svg>
     <%= local_assigns['title'] %>
 </h1>
 <% if local_assigns['subtitle'] %>
-    <% if local_assigns['center_subtitle'] %>
-        <div class="Vlt-center">
-    <% end %>
-    <p class="<%= local_assigns['subtitle_type'] != 'small' ? 'p-large' : '' %>">
-        <%= local_assigns['subtitle'].render_markdown({skip_paragraph_surround: true}) %>
-    </p>
-    <% if local_assigns['center_subtitle'] %>
-        </div>
+    <% local_assigns['subtitle'] ||= [] %>
+    <% local_assigns['subtitle'].each do |text| %>
+        <% if text['align'] == 'center' %>
+            <div class="Vlt-center">
+        <% end %>
+        <p class="<%= text['type'] != 'small' ? 'p-large' : '' %>">
+            <%= text['text'].render_markdown({skip_paragraph_surround: true}) %>
+        </p>
+        <% if text['align'] == 'center' %>
+            </div>
+        <% end %>
     <% end %>  
 <% end %>

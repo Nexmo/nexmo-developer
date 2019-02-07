@@ -5,10 +5,12 @@ RSpec.describe 'rendering _header landing page partial' do
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon_color' => 'orange',
         'icon' => 'icon-here',
-        'title' => 'A title here',
-        'center_title' => false,
-        'subtitle' => 'A subtitle here',
-        'center_subtitle' => false,
+        'title' => [
+          { 'text' => 'A title here', 'align' => 'center' },
+        ],
+        'subtitle' => [
+          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
+        ],
     }
 
     expect(rendered).to include('<svg class="Vlt-orange">')
@@ -21,10 +23,12 @@ RSpec.describe 'rendering _header landing page partial' do
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon' => 'icon-here',
-        'title' => 'A title here',
-        'center_title' => false,
-        'subtitle' => 'A subtitle here',
-        'center_subtitle' => false,
+        'title' => [
+          { 'text' => 'A title here', 'align' => 'center' },
+        ],
+        'subtitle' => [
+          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
+        ],
     }
     end .to raise_error("Missing 'icon_color' key in header landing page block")
   end
@@ -33,10 +37,12 @@ RSpec.describe 'rendering _header landing page partial' do
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon_color' => 'orange',
-        'title' => 'A title here',
-        'center_title' => false,
-        'subtitle' => 'A subtitle here',
-        'center_subtitle' => false,
+        'title' => [
+          { 'text' => 'A title here', 'align' => 'center' },
+        ],
+        'subtitle' => [
+          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
+        ],
     }
     end .to raise_error("Missing 'icon' key in header landing page block")
   end
@@ -46,9 +52,9 @@ RSpec.describe 'rendering _header landing page partial' do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon_color' => 'orange',
         'icon' => 'icon-here',
-        'center_title' => false,
-        'subtitle' => 'A subtitle here',
-        'center_subtitle' => false,
+        'subtitle' => [
+          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
+        ],
     }
     end .to raise_error("Missing 'title' key in header landing page block")
   end
@@ -57,9 +63,9 @@ RSpec.describe 'rendering _header landing page partial' do
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
       'icon_color' => 'orange',
       'icon' => 'icon-here',
-      'title' => 'A title here',
-      'center_title' => false,
-      'center_subtitle' => false,
+      'title' => [
+        { 'text' => 'A title here', 'align' => 'center' },
+      ],
     }
 
     expect(rendered).to_not include('A subtitle here')

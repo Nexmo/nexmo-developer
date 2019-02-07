@@ -8,11 +8,13 @@ rows:
     - entries: 
       - type: header
         header:
-          title: "Thanks, Scott. We'll take it from here!"
-          center_title: true
-          subtitle: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
-          center_subtitle: true
-          subtitle_type: "large"
+          title: 
+            - text: "Thanks, Scott. We'll take it from here!"
+              align: center
+          subtitle:
+            - text: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
+              align: center
+              type: large
           icon: "icon-star"
           icon_color: "yellow"
       - type: action_button

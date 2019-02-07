@@ -11,10 +11,15 @@ RSpec.describe 'static/default_landing' do
                   {
                         'type' => 'header',
                         'header' => {
-                            'title' => 'Test Title',
-                            'center_title' => 'false',
-                            'subtitle' => 'Test Subtitle',
-                            'center_subtitle' => false,
+                            'title' => [
+                              'text' => 'Test Title',
+                              'align' => 'center',
+                            ],
+                            'subtitle' => [
+                              'text' => 'Test Subtitle',
+                              'align' => 'center',
+                              'type' => 'large',
+                            ],
                             'icon' => 'test-icon',
                             'icon_color' => 'blue',
                         },
