@@ -2,16 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'rendering _unordered_list landing page partial' do
   it 'renders correctly with local variable' do
-    bullet_shape = 'square'
-    list = [
-      { 'item' => 'Item 1' },
-      { 'item' => 'Item 2' },
-      { 'item' => 'Item 3' },
-    ]
-
     render partial: '/static/default_landing/partials/unordered_list.html.erb', locals: {
-        'bullet_shape' => bullet_shape,
-        'list' => list,
+        'bullet_shape' => 'square',
+        'list' => [
+          { 'item' => 'Item 1' },
+          { 'item' => 'Item 2' },
+          { 'item' => 'Item 3' },
+        ],
     }
 
     expect(rendered).to include('<ul class="Vlt-list Vlt-list--square">')
@@ -21,14 +18,12 @@ RSpec.describe 'rendering _unordered_list landing page partial' do
   end
 
   it 'renders ul without a bullet shape classname if bullet shape is not provided' do
-    list = [
-      { 'item' => 'Item 1' },
-      { 'item' => 'Item 2' },
-      { 'item' => 'Item 3' },
-    ]
-
     render partial: '/static/default_landing/partials/unordered_list.html.erb', locals: {
-        'list' => list,
+      'list' => [
+        { 'item' => 'Item 1' },
+        { 'item' => 'Item 2' },
+        { 'item' => 'Item 3' },
+      ],
     }
 
     expect(rendered).to include('<ul class="Vlt-list">')
