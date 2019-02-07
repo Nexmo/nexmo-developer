@@ -2,11 +2,12 @@
     raise "Missing 'icon_color' key in call_to_action landing page block" unless local_assigns['icon_color']
     raise "Missing 'icon' key in call_to_action landing page block" unless local_assigns['icon']
     raise "Missing 'title' key in call_to_action landing page block" unless local_assigns['title']
+    raise "Missing 'url' key in call_to_action landing page block" unless local_assigns['url']
 %>
 
 <div class="center">
     <h2>
-        <a href="/tools">
+        <a href="<%= local_assigns['url'] %>">
             <div>
                 <svg class="Vlt-icon Vlt-icon--large Vlt-<%= local_assigns['icon_color'] %>">
                 <use xlink:href="<%= local_assigns['icon'].start_with?("Brand") ? "/symbol/volta-brand-icons.svg##{local_assigns['icon']}" : "/symbol/volta-icons.svg#Vlt-#{local_assigns['icon']}" %>"></use>
