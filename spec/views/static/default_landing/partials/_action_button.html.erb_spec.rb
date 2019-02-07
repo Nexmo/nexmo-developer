@@ -5,8 +5,6 @@ RSpec.describe 'rendering _action_button landing page partial' do
     render partial: '/static/default_landing/partials/action_button.html.erb', locals: {
       'url' => '#a-sample-url',
       'text' => 'Click here!',
-      'large' => false,
-      'type' => 'primary',
     }
 
     expect(rendered).to include('<a class="Vlt-btn Vlt-btn--primary " href="#a-sample-url">')
@@ -17,8 +15,6 @@ RSpec.describe 'rendering _action_button landing page partial' do
     render partial: '/static/default_landing/partials/action_button.html.erb', locals: {
       'url' => '#a-sample-url',
       'text' => 'Click here!',
-      'large' => false,
-      'type' => 'primary',
       'another_variable' => 'Ignore me',
     }
 
@@ -31,8 +27,6 @@ RSpec.describe 'rendering _action_button landing page partial' do
     expect do
       render partial: '/static/default_landing/partials/action_button.html.erb', locals: {
       'text' => 'Click here!',
-      'large' => false,
-      'type' => 'primary',
       }
     end    .to raise_error("missing 'url' key in action_button landing page block")
   end
@@ -41,8 +35,6 @@ RSpec.describe 'rendering _action_button landing page partial' do
     expect do
       render partial: '/static/default_landing/partials/action_button.html.erb', locals: {
       'url' => '#a-sample-url',
-      'large' => false,
-      'type' => 'primary',
       }
     end    .to raise_error("missing 'text' key in action_button landing page block")
   end
