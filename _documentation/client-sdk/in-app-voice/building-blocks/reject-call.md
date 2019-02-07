@@ -5,7 +5,8 @@ navigation_weight: 5
 
 # Reject a Call
 
-In this building block you will see how to reject a Call.
+In this building block you will see how to reject a Call, before it was answered.
+For implementation in Android, see the [Hangup building block](hangup-call)
 
 ## Example
 
