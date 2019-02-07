@@ -8,16 +8,13 @@
     <%= local_assigns['title']['text'] %>
 </h1>
 <% if local_assigns['subtitle'] %>
-    <% local_assigns['subtitle'] ||= [] %>
-    <% local_assigns['subtitle'].each do |text| %>
-        <% if text['align'] == 'center' %>
-            <div class="Vlt-center">
-        <% end %>
-        <p class="<%= text['type'] != 'small' ? 'p-large' : '' %>">
-            <%= text['text'].render_markdown({skip_paragraph_surround: true}) %>
-        </p>
-        <% if text['align'] == 'center' %>
-            </div>
-        <% end %>
-    <% end %>  
+    <% if local_assigns['subtitle']['align'] %>
+        <div class="Vlt-<%= local_assigns['subtitle']['align'] %>">
+    <% end %>
+    <p class="<%= local_assigns['subtitle']['type'] != 'small' ? 'p-large' : '' %>">
+        <%= local_assigns['subtitle']['text'].render_markdown({skip_paragraph_surround: true}) %>
+    </p>
+    <% if local_assigns['subtitle']['align'] %>
+        </div>
+    <% end %>
 <% end %>

@@ -12,9 +12,9 @@ rows:
             text: "Thanks, Scott. We'll take it from here!"
             align: center
           subtitle:
-            - text: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
-              align: center
-              type: large
+            text: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
+            align: center
+            type: large
           icon: 
             name: "icon-star"
             color: "yellow"

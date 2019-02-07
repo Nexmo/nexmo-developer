@@ -11,8 +11,8 @@ rows:
           title: 
             text: "Write for Nexmo"
           subtitle: 
-            - text: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
-              type: 'small'
+            text: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
+            type: 'small'
           icon: 
             name: "icon-rocket"
             color: blue

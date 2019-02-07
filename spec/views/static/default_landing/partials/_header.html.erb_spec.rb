@@ -5,9 +5,7 @@ RSpec.describe 'rendering _header landing page partial' do
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
         'title' => { 'text' => 'A title here', 'align' => 'center' },
-        'subtitle' => [
-          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
-        ],
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
 
     expect(rendered).to include('<svg class="Vlt-orange">')
@@ -21,9 +19,7 @@ RSpec.describe 'rendering _header landing page partial' do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon' => { 'name' => 'icon-here' },
         'title' => { 'text' => 'A title here', 'align' => 'center' },
-        'subtitle' => [
-          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
-        ],
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
     end .to raise_error("Missing icon 'color' key in header landing page block")
   end
@@ -33,9 +29,7 @@ RSpec.describe 'rendering _header landing page partial' do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon' => { 'color' => 'orange' },
         'title' => { 'text' => 'A title here', 'align' => 'center' },
-        'subtitle' => [
-          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
-        ],
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
     end .to raise_error("Missing icon 'name' key in header landing page block")
   end
@@ -44,9 +38,7 @@ RSpec.describe 'rendering _header landing page partial' do
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
         'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
-        'subtitle' => [
-          { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
-        ],
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
     end .to raise_error("Missing 'title' key in header landing page block")
   end
