@@ -20,7 +20,6 @@
     <p><%= local_assigns['subtitle'].render_markdown %></p>
 <% end %>
 <% if local_assigns['text'] %>
-    <% local_assigns['text'] ||= [] %>
     <% local_assigns['text'].each do |text| %>
         <% if text['type'] == 'large' %>
             <p class="p-large">
