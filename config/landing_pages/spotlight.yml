@@ -1,8 +1,9 @@
 # Developer Spotlight Landing Page Config
 
 title: "Write for Nexmo"
-meta_title: "meta title goes here"
-
+meta_title: "Developer Spotlight - Teach others, grow as a writer, and help us build the next go-to destination for developers"
+container_classes:
+  - Vlt-article
 rows:
   - columns:
     - entries:

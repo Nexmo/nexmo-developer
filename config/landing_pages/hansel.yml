@@ -34,7 +34,7 @@ rows:
       - type: call_to_action
         call_to_action:
           title: "SDKs & Tools"
-          subtitle: "The Nexmo libraries allow you to get up and running with Nexmo APIs quickly in your language of choice."
+          subtitle: "The Nexmo libraries allow you to get up and running with<br> Nexmo APIs quickly in your language of choice."
           icon: 
             name: "icon-design-tools"
             color: "blue-dark"
@@ -44,7 +44,7 @@ rows:
       - type: call_to_action
         call_to_action:
           title: "Community"
-          subtitle: "Find out about our talks, community hacks, and what events we'll be at."
+          subtitle: "Find out about our talks, community hacks,<br> and what events we'll be at."
           icon: 
             name: "icon-group"
             color: "blue-dark"
