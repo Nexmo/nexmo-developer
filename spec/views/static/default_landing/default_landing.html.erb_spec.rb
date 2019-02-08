@@ -89,9 +89,7 @@ RSpec.describe 'static/default_landing' do
                         'type' => 'section_header',
                         'section_header' => {
                             'title' => 'Sample Title',
-                            'icon' => [
-                              { 'name' => 'test-icon', 'color' => 'blue' },
-                            ],
+                            'icon' => { 'name' => 'test-icon', 'color' => 'blue' },
                         },
                     },
                   {

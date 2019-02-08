@@ -35,8 +35,8 @@ rows:
         section_header:
           title: "Examples"
           icon: 
-            - name: "icon-app"
-              color: yellow
+            name: "icon-app"
+            color: yellow
       - type: linked_image
         linked_image:
           image: "https://www.nexmo.com/wp-content/uploads/2019/01/New-spreadsheet-who-dis-768x384.png"
