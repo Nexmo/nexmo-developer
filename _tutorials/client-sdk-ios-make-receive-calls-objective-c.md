@@ -12,7 +12,7 @@ In this tutorial you learn how to use Nexmo Client SDK for iOS, in order to perf
 
 You will create a simple app to make a call and receive a call.
 
-The app will have two buttons, which log in different users: Jane or Joe. After logging in, Jane and Joe are able to place a call and perform actions such as answer, decline or hangup.
+The app will have two buttons, which log in different users: Jane or Joe. After logging in, Jane and Joe are able to place a call and perform actions such as answer, reject or hangup.
 
 ## Prerequisites
 
@@ -153,7 +153,7 @@ This also allows you to start a PSTN phone call, by adding a phone number to the
 
 ## Receive incoming call
 
-When Jane calls Joe, Joe should be notified, so that Joe may decide to answer or decline the call.
+When Jane calls Joe, Joe should be notified, so that Joe may decide to answer or reject the call.
 
 This is done by implementing the optional `incomingCall:` method which is declared in the `NXMClientDelegate`.
 
@@ -166,7 +166,7 @@ Go back to the `#pragma mark NXMClientDelegate` line and add the `incomingCall:'
 }
 ```
 
-This method takes as a parameter an `NXMCall` object with which you can answer or decline the call. An alert was implemented for you, to allow the user to choose whether to answer or decline the call.
+This method takes as a parameter an `NXMCall` object with which you can answer or reject the call. An alert was implemented for you, to allow the user to choose whether to answer or reject the call.
 
 ## Answer a call
 
@@ -192,16 +192,16 @@ Under the `#pragma mark IncomingCall`, implement this method to answer the incom
 
 `answer:completionHandler` accepts an object adopting the `NXMCallDelegate`, and a `completionHandler`, to indicate if an error occurred in the process. You already implemented `NXMCallDelegate` in a previous step.
 
-## Decline a call
+## Reject a call
 
-Under the `#pragma mark IncomingCall`, implement this method to decline the incoming call:
+Under the `#pragma mark IncomingCall`, implement this method to reject the incoming call:
 
 ```objective-c
-- (void)didPressDeclineIncomingCall {
+- (void)didPressRejectIncomingCall {
     __weak MainViewController *weakSelf = self;
-    [weakSelf.ongoingCall decline:^(NSError * _Nullable error) {
+    [weakSelf.ongoingCall reject:^(NSError * _Nullable error) {
         if(error) {
-            [weakSelf displayAlertWithTitle:@"Decline Call" andMessage:@"Error declining call"];
+            [weakSelf displayAlertWithTitle:@"Reject Call" andMessage:@"Error rejecting call"];
             return;
         }
 
@@ -213,7 +213,7 @@ Under the `#pragma mark IncomingCall`, implement this method to decline the inco
 }
 ```
 
-`decline:` accepts a single `completionHandler` parameter to indicate if an error occurred in the process.
+`reject:` accepts a single `completionHandler` parameter to indicate if an error occurred in the process.
 
 ## Hangup a call
 
@@ -259,6 +259,6 @@ To read more about the permissions required, [see the setup tutorial](/tutorials
 
 You have implemented your first In App Voice application with the Nexmo Client SDK for iOS.
 
-Run the app on two simulators and see that you can call, answer, decline and hangup.
+Run the app on two simulators and see that you can call, answer, reject and hangup.
 
 If possible, test on two phones using your developer signing and provisioning facility.
