@@ -1,25 +1,14 @@
-<%
-    raise "Missing 'header' key in contact_support landing page block" unless local_assigns['header']
-    raise "Missing 'text' key in contact_support landing page block" unless local_assigns['text']
-%>
-<% if local_assigns['align'] == 'center' %>
-    <div class='Vlt-center'>
-<% end %>
-<h2>
-    <%= local_assigns['header'] %>
-</h2>
-<% local_assigns['text'] ||= [] %>
-<% local_assigns['text'].each do |text| %>
-    <% if text['type'] == 'large' %>
-        <p class="p-large">
-            <%= text['content'].render_markdown({skip_paragraph_surround: true}) %>
-        </p>
-    <% elsif text['type'] == 'small' %>
-        <%= text['content'].render_markdown %>
-    <% else 
-        raise "Unknown text type: #{text['type']}"
-    end %>
-<% end %>
-<% if local_assigns['align'] == 'center' %>
-    </div>
-<% end %>
+<div class='Vlt-center'>
+    <h2>Do you have a question?</h2>
+
+    <p class="p-large">
+        We're always here to help. Check out our <a href="https://help.nexmo.com/">support FAQs</a>, contact our super helpful 
+        <a href="https://help.nexmo.com/hc/en-us/requests/new">support team</a> or get in touch on 
+        <a href="http://stackoverflow.com/questions/tagged/nexmo">Stack Overflow</a>.
+    </p>
+
+    <p class="p-large">
+        Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out
+        the rights you have in respect of your data.
+    </p>
+</div>
