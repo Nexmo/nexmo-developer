@@ -11,7 +11,7 @@
     <% if local_assigns['subtitle']['align'] %>
         <div class="Vlt-<%= local_assigns['subtitle']['align'] %>">
     <% end %>
-    <p class="<%= local_assigns['subtitle']['type'] != 'small' ? 'p-large' : '' %>">
+    <p class="<%= local_assigns['subtitle']['type'] == 'small' ? '' : 'p-large' %>">
         <%= local_assigns['subtitle']['text'].render_markdown({skip_paragraph_surround: true}) %>
     </p>
     <% if local_assigns['subtitle']['align'] %>
