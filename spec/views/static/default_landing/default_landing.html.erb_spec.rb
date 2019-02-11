@@ -32,7 +32,13 @@ RSpec.describe 'static/default_landing' do
           {
               'entries' => [
                 {
-                      'type' => 'contact_support',
+                    'type' => 'contact_support',
+                  },
+                  {
+                    'type' => 'text',
+                    'text' => {
+                      'content' => 'Sample Text Block'
+                    },
                   },
               ],
           },
@@ -148,6 +154,7 @@ RSpec.describe 'static/default_landing' do
     expect(actual).to include("<div class='Vlt-center'>")
     expect(actual).to include('Do you have a question?')
     expect(actual).to include('Sample Title')
+    expect(actual).to include('Sample Text Block')
     expect(actual).to include('Ruby')
     expect(actual).to include('<a class="Vlt-card Nxd-github-card Vlt-left" href="https://www.github.com/Nexmo/repo" data-github="Nexmo/repo">')
     expect(actual).to include('p-large')
