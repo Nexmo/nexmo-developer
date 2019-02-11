@@ -4,7 +4,7 @@
     raise "Missing icon 'name' key in section_header landing page block" unless local_assigns['icon']['name']
 %>
 
-<h2 class="Vlt-title--icon">
+<h2 class="Vlt-title--icon" id="<%= local_assigns['title'].parameterize %>">
     <svg class="Vlt-<%= local_assigns['icon']['color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon']['name'] %>"></use></svg>
     <%= local_assigns['title'] %>
 </h2>
