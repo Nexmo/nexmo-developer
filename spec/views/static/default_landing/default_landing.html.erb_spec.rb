@@ -34,12 +34,12 @@ RSpec.describe 'static/default_landing' do
                 {
                     'type' => 'contact_support',
                   },
-                  {
-                    'type' => 'text',
-                    'text' => {
-                      'content' => 'Sample Text Block'
-                    },
+                {
+                  'type' => 'text',
+                  'text' => {
+                    'content' => 'Sample Text Block',
                   },
+                },
               ],
           },
           {
