@@ -1,9 +1,9 @@
 ---
-title: How to create JWTs and ACLs
-description: JSON Web Tokens (JWTs) and Access Control Lists (ACLs) are a key concept to understand in order to authenticate your apps and users.
+title: How to generate JWTs
+description: This topic explains how to generate JWTs for use in your app. JSON Web Tokens (JWTs) and Access Control Lists (ACLs) are a key concept to understand in order to authenticate your apps and users.
 ---
 
-# How to create JWTs and ACLs
+# How to generate JWTs
 
 ## JWTs
 
