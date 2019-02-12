@@ -1,9 +1,9 @@
 ---
-title: JWT and ACL overview
-description: How to create JWTs and ACLs
+title: How to create JWTs and ACLs
+description: JSON Web Tokens (JWTs) and Access Control Lists (ACLs) are a key concept to understand in order to authenticate your apps and users.
 ---
 
-# JWT and ACL overview
+# How to create JWTs and ACLs
 
 ## JWTs
 

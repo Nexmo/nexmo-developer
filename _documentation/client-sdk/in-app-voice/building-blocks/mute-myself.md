@@ -1,5 +1,6 @@
 ---
 title: Mute myself in a Call
+description: Shows you how to mute yourself in a voice call.
 navigation_weight: 7
 ---
 

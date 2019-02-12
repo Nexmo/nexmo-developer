@@ -1,5 +1,6 @@
 ---
 title: Earmuff myself in a Call
+description: Shows how to earmuff yourself while you are in a voice call.
 navigation_weight: 8
 ---
 

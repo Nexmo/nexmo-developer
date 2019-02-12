@@ -1,5 +1,6 @@
 ---
 title: Reject a Call
+description: How to reject an incoming voice Call.
 navigation_weight: 5
 ---
 

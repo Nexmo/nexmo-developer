@@ -1,5 +1,6 @@
 ---
 title: Start a server managed Call
+description: Shows you how to start a server-managed voice call.
 navigation_weight: 2
 ---
 

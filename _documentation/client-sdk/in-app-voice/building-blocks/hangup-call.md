@@ -1,11 +1,12 @@
 ---
 title: Hangup Call
+description: Shows you how to hang up a voice call. 
 navigation_weight: 6
 ---
 
 # Hangup a Call
 
-In this building block you will see how to hangup a Call.
+In this building block you will see how to hang up a Call.
 
 ## Example
 
@@ -18,4 +19,4 @@ application:
 
 ## Try it out
 
-When you run the code you hangup the Call.
+When you run the code you hang up the Call.

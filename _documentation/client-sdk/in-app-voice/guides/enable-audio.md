@@ -1,5 +1,6 @@
 ---
 title: Enable Audio
+description: This topic shows how to add audio events to your app.
 navigation_weight: 1
 ---
 

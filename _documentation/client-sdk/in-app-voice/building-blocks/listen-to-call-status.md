@@ -1,5 +1,6 @@
 ---
 title: Listen to Call status
+description: Shows you how to listen to a voice Call's status.
 navigation_weight: 9
 ---
 
