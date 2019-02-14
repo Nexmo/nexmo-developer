@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   get '/robots.txt', to: 'static#robots'
+  get '/jwt', to: 'static#jwt'
 
   get '/*landing_page', to: 'static#default_landing', constraints: LandingPageConstraint.matches?
 

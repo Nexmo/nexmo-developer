@@ -26,6 +26,7 @@
     "gsap": "^1.20.2",
     "js-sequence-diagrams": "https://github.com/adambutler/js-sequence-diagrams.git#modularity",
     "js-yaml": "^3.9.0",
+    "jsrsasign": "^8.0.12",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.3",
     "path-complete-extname": "^0.1.0",
