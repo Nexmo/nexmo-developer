@@ -146,7 +146,4 @@ Thats's it! You can see a full example of what your project should look like in 
 
 ## Where next?
 
-<!---
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>
---->
 - Have a look at the documentation about [creating](https://developer.chrome.com/extensions/getstarted) and [publishing](https://developer.chrome.com/webstore/publish) Chrome extensions
