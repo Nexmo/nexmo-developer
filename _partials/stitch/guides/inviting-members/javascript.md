@@ -286,4 +286,6 @@ Return to the previously opened browser windows so you can see `alice` has a con
 ## Where next?
 
 - Try out [Quickstart 3](/client-sdk/in-app-messaging/guides/utilizing-events/javascript)
+<!---
 - Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>
+--->

@@ -193,4 +193,6 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 ## Where next?
 
 - Try out [Quickstart 4](/client-sdk/in-app-voice/guides/enable-audio/javascript)
+<!---
 - Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>
+--->

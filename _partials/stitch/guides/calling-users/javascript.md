@@ -186,6 +186,7 @@ After you've set up you're app to handle incoming calls, you can follow the [PST
 
 Because we've added logic in this quick start guide in order to differentiate between Users and PSTN phone calls, we don't need to change the quick start code, just set up an NCCO, as shown in the [PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/13/connect-phone-call-to-stitch-in-app-voice-dr/).
 
-## Where next?
+<!---## Where next?
 
 - Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>
+--->
