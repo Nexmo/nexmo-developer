@@ -1,0 +1,119 @@
+title: "Nexmo loves PHP! Use our SDKs or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
+
+rows:
+  - columns:
+    - entries:
+      - type: header
+        header:
+          title:
+            text: "Nexmo @ PHP UK 2019"
+            align: center
+          subtitle:
+            text: "Hello, PHPeople! We love catching up with you at events, and we've put together some resources that we hope you find useful."
+          icon: 
+            name: "icon-star"
+            color: "yellow"
+      - type: action_button
+        action_button:
+          text: "Sign Up For Free"
+          url: "sign-up?#ref=phpuk19-dr"
+          center_button: true
+  - columns:
+    - entries:
+        - type: line_divider
+
+
+  - columns:
+    - entries:
+        - type: text
+          text:
+            content: "At Nexmo, we love PHP - it's one of our most-used and most-loved languages by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo PHP library:"
+        - type: text
+          text:
+            content: "`composer require nexmo/client`"
+
+    - entries:
+        - type: github_repo
+          github_repo:
+            repo_url: https://github.com/nexmo/nexmo-php
+            github_repo_title: Nexmo-PHP library 
+            language: PHP
+
+  - columns:
+    - entries:
+        - type: line_divider
+  - columns:
+    - entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon: 
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          icon: 
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages"
+
+    - entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Verify"
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) reduces fraud and improves contactability for your application's users."
+          icon: 
+            name: "icon-lock"
+            color: "indigo"
+          url: "/verify"
+  - columns:
+    - entries:
+      - type: text
+        text: 
+          content: "**Pro-tip:** Download the OpenAPI spec from our API reference pages and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs."
+
+  - columns:
+    - entries:
+        - type: line_divider
+
+  - columns:
+    - entries:
+      - type: section_header
+        section_header:
+          title: "Handy PHP-related links and further reading"
+          icon:
+            name: "icon-pin2"
+            color: "blue-dark"
+
+  - columns:
+    - entries:
+      - type: unordered_list
+        unordered_list:
+            list:
+              - item: "[Voice Application: Before you begin](http://localhost:3000/voice/voice-api/building-blocks/before-you-begin)"
+              - item: "[Nexmo Call Control Objects (NCCOs)](http://localhost:3000/voice/voice-api/guides/ncco)"
+              - item: "[Receive an Incoming Call with PHP](https://www.nexmo.com/blog/2018/06/28/receive-an-inbound-voice-call-with-php-dr/) (Blog post)"
+              - item: "[Handle Keypad Input (DTMF) with PHP](https://www.nexmo.com/blog/2018/08/10/handle-user-input-with-php-dr/) (Blog post)"
+              - item: "[Interactive Voice Response](http://localhost:3000/tutorials/interactive-voice-response) (Tutorial)"
+    - entries:
+      - type: unordered_list
+        unordered_list:
+            list:
+              - item: "[Make an Outbound Call with an NCCO](http://localhost:3000/voice/voice-api/building-blocks/make-an-outbound-call-with-ncco)"
+              - item: "[Play Text-to-Speech into a Call](http://localhost:3000/voice/voice-api/building-blocks/play-text-to-speech-into-a-call)"
+              - item: "[Record a Call](http://localhost:3000/voice/voice-api/building-blocks/record-a-call)"
+              - item: "[Connect Callers into a Conference](http://localhost:3000/voice/voice-api/building-blocks/connect-callers-into-a-conference)"
+              - item: "[Transfer a Call](http://localhost:3000/voice/voice-api/building-blocks/transfer-a-call)"
+
+  - columns:
+    - entries:
+        - type: line_divider
+  - columns:
+    - entries:
+      - type: join_slack
