@@ -29,7 +29,7 @@ To add this URL, go to your [Nexmo dashboard](https://dashboard.nexmo.com), navi
 
 Set the application's `Answer URL` to: 
 
-``https://gist.githubusercontent.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7/raw/4a134363f8b3bbebae27f04095a57d0cebc5a1be/ncco.json ``
+``https://gist.githubusercontent.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7/raw/4a134363f8b3bbebae27f04095a57d0cebc5a1be/ncco.json``
 
 and click 'Save changes'.
 
@@ -167,9 +167,7 @@ private func reject(call: NXMCall) {
 
 ## Call Delegate
 
-As with `NXMClient`, `NXMCall` also receives a delegate supplied as the third argument in the `call:callType:delegate:completion:` method.  
-
-We'll now adopt the `NXMCallDelegate` as en extension on `MainViewController`:
+As with `NXMClient`, `NXMCall` also has a delegate. We'll now adopt the `NXMCallDelegate` as an extension on `MainViewController`:
 
 ```swift
 extension MainViewController: NXMCallDelegate {
@@ -218,12 +216,10 @@ func statusChanged(_ member: NXMCallMember!) {
 
 The `statusChanged:` method notifies on changes that happens to members on the call.  
 
-You can build the project now and make an outgoing call. Next you implement how to receive an incoming call.
-
 
 ## Hangup a call
 
-Once Jane or Joe presses the 'End Call' button, it is time to hangup the call. Implement the private `end:` method and call hangup for `myCallMember`.
+Once Jane presses the 'End Call' button, it is time to hangup the call. Implement the private `end:` method and call hangup for `myCallMember`.
 
 ```swift
 private func end(call: NXMCall) {
@@ -247,7 +243,7 @@ To read more about the permissions required, [see the setup tutorial](/tutorials
 
 ## Conclusion
 
-You have implemented your first Phone to App Voice application with the Nexmo Client SDK for iOS.
+You have implemented your first Phone to App Voice application with the Nexmo Client SDK for iOS using Swift.
 
 Run the app on a simulatos and see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.
 
