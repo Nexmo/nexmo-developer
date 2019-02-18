@@ -13,7 +13,7 @@ Replace the following variables in the example code:
 
 Key |	Description
 -- | --
-`YOUR_SECOND_NUMBER` |	The number you wish the inbound caller to be connected to.
+`NEXMO_TO_NUMBER` |	The number you wish the inbound caller to be connected to.
 
 ```building_blocks
 source: '_examples/voice/connect-an-inbound-call'
