@@ -1,13 +1,13 @@
 <div class="<%= @landing_config['container_classes'] ? @landing_config['container_classes'].join(' ') : '' %> container Nxd-landing-page">
-    <% @landing_config["rows"].each do |row| %>
+    <% @landing_config["page"].each do |row| %>
     <div class="Vlt-grid Nxd-landing-row">
-      <% row["columns"].each do |info| %>
+      <% row["row"].each do |info| %>
         <% if row['column_count']%>
           <div class="Vlt-col Vlt-col--<%= info["width"] %>of<%= row['column_count'] %> Nxd-landing-col">
         <% else %>
           <div class="Vlt-col Nxd-landing-col">
         <% end %>
-        <% info["entries"].each do |data| %>
+        <% info["column"].each do |data| %>
         <%
           unless lookup_context.exists?(data['type'], "static/default_landing/partials", true)
           raise "Could not find the #{data['type']} partial file."

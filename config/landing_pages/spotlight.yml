@@ -4,9 +4,9 @@ title: "Write for Nexmo"
 meta_title: "Developer Spotlight - Teach others, grow as a writer, and help us build the next go-to destination for developers"
 container_classes:
   - Vlt-article
-rows:
-  - columns:
-    - entries:
+page:
+  - row:
+    - column:
       - type: header
         header:
           title: 
@@ -22,16 +22,16 @@ rows:
           text: "Apply Now"
           url: "#submit-your-idea"
     - width: 2
-      entries:
+      column:
       - type: html
         html:
           content: '<img src="/assets/images/developer_spotlight.png" />'
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
-  - columns:
+  - row:
     - width: 2
-      entries:
+      column:
       - type: section_header
         section_header:
           title: "Examples"
@@ -59,7 +59,7 @@ rows:
           url: "https://www.nexmo.com/blog/2018/03/14/speech-voice-translation-microsoft-dr/"
           alt_text: "speech voice translation tutorial"
     - width: 2
-      entries:
+      column:
       - type: structured_text
         structured_text:
           header: "What We're Looking For"

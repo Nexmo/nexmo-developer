@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'static/default_landing' do
   it 'renders all partials' do
     @landing_config = {
-    'rows' => [
+    'page' => [
       {
-        'columns' => [
+        'row' => [
           {
-                'entries' => [
+                'column' => [
                   {
                         'type' => 'header',
                         'header' => {
@@ -30,7 +30,7 @@ RSpec.describe 'static/default_landing' do
                 ],
             },
           {
-              'entries' => [
+              'column' => [
                 {
                     'type' => 'contact_support',
                   },
@@ -44,7 +44,7 @@ RSpec.describe 'static/default_landing' do
           },
           {
                 'width' => 2,
-                'entries' => [
+                'column' => [
                   {
                         'type' => 'html',
                         'html' => {
@@ -56,16 +56,16 @@ RSpec.describe 'static/default_landing' do
         ],
       },
       {
-        'columns' => [
+        'row' => [
           {
-                'entries' => [
+                'column' => [
                   {
                         'type' => 'line_divider',
                     },
                 ],
             },
           {
-              'entries' => [
+              'column' => [
                 {
                       'type' => 'call_to_action',
                       'call_to_action' => {
@@ -80,10 +80,10 @@ RSpec.describe 'static/default_landing' do
         ],
       },
       {
-        'columns' => [
+        'row' => [
           {
                 'width' => 2,
-                'entries' => [
+                'column' => [
                   {
                         'type' => 'section_header',
                         'section_header' => {
@@ -115,9 +115,9 @@ RSpec.describe 'static/default_landing' do
         ],
       },
       {
-        'columns' => [
+        'row' => [
           {
-                'entries' => [
+                'column' => [
                   {
                         'type' => 'unordered_list',
                         'unordered_list' => {

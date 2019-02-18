@@ -4,14 +4,14 @@ class StaticController < ApplicationController
 
     @landing_config = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
 
-    @landing_config['rows'].each do |row|
-      some_columns_have_widths = row['columns'].select { |c| c['width'] }.count.positive?
+    @landing_config['page'].each do |row|
+      some_columns_have_widths = row['row'].select { |c| c['width'] }.count.positive?
       if some_columns_have_widths
-        row['columns'] = row['columns'].map do |c|
+        row['row'] = row['row'].map do |c|
           c['width'] ||= 1
           c
         end
-        row['column_count'] = row['columns'].map { |c| c['width'] }.sum
+        row['column_count'] = row['row'].map { |c| c['width'] }.sum
       end
     end
 

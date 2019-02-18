@@ -3,9 +3,9 @@
 title: "Nexmo APIs provide all you need to get up and running with your .NET applications"
 meta_title: ".NET Tutorials, SDK, code samples and more for a full suite of cloud communications APIs"
 
-rows:
-  - columns:
-    - entries: 
+page:
+  - row:
+    - column: 
       - type: header
         header:
           title: 
@@ -25,12 +25,12 @@ rows:
           type: "secondary"
           large: true
           center_button: true
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
-  - columns:
+  - row:
     - width: 2
-      entries:
+      column:
       - type: call_to_action
         call_to_action:
           title: "SDKs & Tools"
@@ -40,7 +40,7 @@ rows:
             color: "blue-dark"
           url: "/tools"
     - width: 2
-      entries:
+      column:
       - type: call_to_action
         call_to_action:
           title: "Community"
@@ -49,17 +49,17 @@ rows:
             name: "icon-group"
             color: "blue-dark"
           url: "/community"
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: join_slack
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Nexmo & .NET in action"
@@ -71,33 +71,33 @@ rows:
             name: "Brand-icon-dotnet"
             color: "blue-dark"
           url: "https://www.nexmo.com/blog/category/developer?ref=hansel-dr"
-  - columns:
+  - row:
     - width: 2
-      entries:
+      column:
       - type: tutorial
         tutorial:
           name: two-factor-authentication-dotnet-verify-api
     - width: 2
-      entries:
+      column:
       - type: tutorial
         tutorial:
           name: number-insight-api-aspnet
-  - columns: 
-    - entries:
+  - row: 
+    - column:
       - type: github_repo
         github_repo:
           repo_url: https://github.com/Nexmo/nexmo-dotnet
           github_repo_title: "Nexmo REST API client for .NET"
           language: "C#"
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: line_divider
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: products
-  - columns:
-    - entries: 
+  - row:
+    - column: 
       - type: line_divider
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: contact_support

@@ -19,9 +19,9 @@
 title: "Welcome to Nexmo, Residents of Jupiter"
 meta_title: "A longer title goes here."
 
-rows:
-  - columns:
-    - entries: 
+page:
+  - row:
+    - column: 
       - type: header
         header:
           title: "Thanks for joining us!"
@@ -32,9 +32,9 @@ rows:
           image:
           url:
           alt_text:  
-  - columns:
+  - row:
     - width: 2
-      entries:
+      column:
       - type: building_block
         building_block:
           name: messaging/sms
@@ -42,69 +42,69 @@ rows:
           pre_text:
           post_text:
     - width: 2
-      entries:
+      column:
       - type: building_block
         building_block:
           name: messaging/send-an-sms
           language: python
           pre_text:
           post_text:
-  - columns:
+  - row:
     - width: 1 
-      entries:
+      column:
       - type: call_to_action
         call_to_action:
           header: "Sign Up"
           icon: "sign-up"
           subheader: "Try it for free"
     - width: 1
-      entries: 
+      column: 
       - type: join_slack
     - width: 1
-      entries: 
+      column: 
       - type: github_org
         github_org:
           name: nexmo
     - width: 1
-      entries:
+      column:
       - type: github_repo
         github_repo:
           org: nexmo
           name: nexmo-php
-  - columns: 
+  - row: 
     - width: 1
-      entries:
+      column:
       - type: tutorial
         tutorial:
           name: call-tracking
     - width: 1
-      entries:
+      column:
       - type: tutorial
         tutorial:
           name: receive-sms-with-ruby
     - width: 2 
-      entries:
+      column:
       - type: sdk
         sdk:
           name: ruby
-  - columns: 
+  - row: 
     - width: 1
-      entries: 
+      column: 
       - type: text
         text:
           content: Your awesome content
     - width: 1
-      entries:
+      column:
       - type: text
         text:
           content: More awesome content
     - width: 1
-      entries:
+      column:
       - type: html
         html:
           content: <a href="/find/me/here">Amazing things</a>
     - width: 1
-      entries:
+      column:
       - type: structured_text
         structured_text:
           header: "This is the header text"

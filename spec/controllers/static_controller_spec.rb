@@ -13,11 +13,11 @@ RSpec.describe StaticController, type: :request do
   describe 'GET default_landing' do
     it 'renders single column with 100% width' do
       landing_config = {
-          'rows' => [
+          'page' => [
             {
-                'columns' => [
+                'row' => [
                   {
-                        'entries' => [
+                        'column' => [
                           {
                                 'type' => 'text',
                                 'text' => {
@@ -41,12 +41,12 @@ RSpec.describe StaticController, type: :request do
 
     it 'renders two columns with 50% width each' do
       landing_config = {
-        'rows' => [
+        'page' => [
           {
-                  'columns' => [
+                  'row' => [
                     {
                           'width' => 1,
-                          'entries' => [
+                          'column' => [
                             {
                                   'type' => 'text',
                                   'text' => {
@@ -57,7 +57,7 @@ RSpec.describe StaticController, type: :request do
                       },
                     {
                           'width' => 1,
-                          'entries' => [
+                          'column' => [
                             {
                                   'type' => 'text',
                                   'text' => {
@@ -81,11 +81,11 @@ RSpec.describe StaticController, type: :request do
 
     it 'renders three columns, no width specified' do
       landing_config = {
-          'rows' => [
+          'page' => [
             {
-                  'columns' => [
+                  'row' => [
                     {
-                          'entries' => [
+                          'column' => [
                             {
                                   'type' => 'text',
                                   'text' => {
@@ -95,7 +95,7 @@ RSpec.describe StaticController, type: :request do
                           ],
                       },
                     {
-                          'entries' => [
+                          'column' => [
                             {
                                   'type' => 'text',
                                   'text' => {
@@ -106,7 +106,7 @@ RSpec.describe StaticController, type: :request do
 
                     },
                     {
-                      'entries' => [
+                      'column' => [
                         {
                               'type' => 'text',
                               'text' => {
@@ -130,12 +130,12 @@ RSpec.describe StaticController, type: :request do
 
     it 'renders two columns in three-column grid (1:2 and 1:1)' do
       landing_config = {
-          'rows' => [
+          'page' => [
             {
-                  'columns' => [
+                  'row' => [
                     {
                           'width' => 2,
-                          'entries' => [
+                          'column' => [
                             {
                                   'type' => 'text',
                                   'text' => {
@@ -146,7 +146,7 @@ RSpec.describe StaticController, type: :request do
                       },
                     {
                       'width' => 1,
-                      'entries' => [
+                      'column' => [
                         {
                               'type' => 'text',
                               'text' => {
@@ -171,12 +171,12 @@ RSpec.describe StaticController, type: :request do
 
     it 'renders two columns in three-column grid (1:1 and 1:2)' do
       landing_config = {
-          'rows' => [
+          'page' => [
             {
-                  'columns' => [
+                  'row' => [
                     {
                           'width' => 1,
-                          'entries' => [
+                          'column' => [
                             {
                                   'type' => 'text',
                                   'text' => {
@@ -187,7 +187,7 @@ RSpec.describe StaticController, type: :request do
                       },
                     {
                       'width' => 2,
-                      'entries' => [
+                      'column' => [
                         {
                               'type' => 'text',
                               'text' => {
@@ -211,32 +211,32 @@ RSpec.describe StaticController, type: :request do
 
     it 'renders two rows, one with two columns (1:1) and one with three (1:1:1)' do
       landing_config = {
-          'rows' => [
+          'page' => [
             {
-              'columns' => [
+              'row' => [
                 {
                   'width' => 1,
-                  'entries' => [],
+                  'column' => [],
                 },
                 {
                   'width' => 1,
-                  'entries' => [],
+                  'column' => [],
                 },
               ],
             },
             {
-              'columns' => [
+              'row' => [
                 {
                   'width' => 1,
-                  'entries' => [],
+                  'column' => [],
                 },
                 {
                   'width' => 1,
-                  'entries' => [],
+                  'column' => [],
                 },
                 {
                   'width' => 1,
-                  'entries' => [],
+                  'column' => [],
                 },
               ],
             },
@@ -253,15 +253,15 @@ RSpec.describe StaticController, type: :request do
 
     it 'renders the correct grid size when the last item in the grid has no explicit width' do
       landing_config = {
-        'rows' => [
+        'page' => [
           {
-            'columns' => [
+            'row' => [
               {
                 'width' => 1,
-                'entries' => [],
+                'column' => [],
               },
               {
-                'entries' => [],
+                'column' => [],
               },
             ],
           },
@@ -277,15 +277,15 @@ RSpec.describe StaticController, type: :request do
 
     it 'renders the correct grid size when the first item in the grid has no explicit width' do
       landing_config = {
-        'rows' => [
+        'page' => [
           {
-            'columns' => [
+            'row' => [
               {
-                'entries' => [],
+                'column' => [],
               },
               {
                 'width' => 1,
-                'entries' => [],
+                'column' => [],
               },
             ],
           },
