@@ -5,13 +5,12 @@ meta_title: Understanding core Nexmo concepts
 
 # Concepts
 
-There are a number of shared concepts between the Nexmo APIs: the use of JSON Web Tokens (JWTs), signed requests, OAuth tokens, and webhooks. The guides below explain in detail how to use these elements.
+There are a number of shared concepts between the Nexmo APIs: the use of JSON Web Tokens (JWTs), signed requests, and webhooks. The guides below explain in detail how to use these elements.
 
 ## Guides
 
 * [Applications](/concepts/guides/applications) - Security and configuration information you need to connect to Nexmo endpoints.
-* [Authentication](/concepts/guides/authentication) – API keys, OAuth, and JSON Web Tokens (JWTs).
-* [OAuth](/concepts/guides/oauth) – how to use OAuth 1.0a with Nexmo's API.
+* [Authentication](/concepts/guides/authentication) – API keys and JSON Web Tokens (JWTs).
 * [Signing messages](/concepts/guides/signing-messages) – how to cryptographically sign messages and verify message signatures.
 * [Webhooks](/concepts/guides/webhooks) – Nexmo's API can send data back to your web server via a webhook.
 * [Glossary](/concepts/guides/glossary) – A glossary of common terms used throughout the Nexmo platform.

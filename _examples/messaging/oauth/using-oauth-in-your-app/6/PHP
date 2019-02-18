@@ -1,5 +1,0 @@
-<?php
-// nexmoOAuthDriver.php
-
-$this->params = array('from' => 'NexmoOauth' , 'text' => 'hello from Nexmo', 'to' => 'xxxxxxxxxxx' );
-$this->nexmo_requesturl = 'https://rest.nexmo.com/sms/json?';

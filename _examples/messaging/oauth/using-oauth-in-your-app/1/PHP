@@ -1,5 +1,0 @@
-<?php
-// nexmoOAuthDriver.php
-
-define('TOKEN', 'oauth_token');
-define('SECRET', 'oauth_token_secret');

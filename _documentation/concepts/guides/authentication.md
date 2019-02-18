@@ -7,18 +7,18 @@ navigation_weight: 2
 
 Nexmo API provides various means of Authentication depending on what product you are using.
 
-API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web Token (JWT) | OAuth
+API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web Token (JWT)
 -- | -- | -- | -- | --
-[SMS](/api/sms) | ✅ | ❌ | ❌ | ✅
-[Voice](/api/voice) | ❌ | ❌ | ✅ | ❌
-[Verify](/api/verify) | ✅ | ❌ | ❌ | ❌
-[Number Insight](/api/number-insight) | ✅ | ❌ | ❌| ❌
-[Conversion](/api/conversion) | ✅ | ❌ | ❌| ❌
-[Developer](/api/developer) | ✅ | ❌ | ❌ | ❌
-[Messages](/api/messages-olympus) | ❌ | ✅ | ✅ | ❌
-[Dispatch](/api/dispatch) | ❌ | ✅ | ✅ | ❌
-[Audit](/api/audit) | ❌ | ✅ | ❌ | ❌
-[Redact](/api/redact) | ❌ | ✅ | ❌ | ❌
+[SMS](/api/sms) | ✅ | ❌ | ❌
+[Voice](/api/voice) | ❌ | ❌ | ✅
+[Verify](/api/verify) | ✅ | ❌ | ❌ 
+[Number Insight](/api/number-insight) | ✅ | ❌ | ❌
+[Conversion](/api/conversion) | ✅ | ❌ | ❌
+[Developer](/api/developer) | ✅ | ❌ | ❌ 
+[Messages](/api/messages-olympus) | ❌ | ✅ | ✅ 
+[Dispatch](/api/dispatch) | ❌ | ✅ | ✅ 
+[Audit](/api/audit) | ❌ | ✅ | ❌ 
+[Redact](/api/redact) | ❌ | ✅ | ❌ 
 
 ## Contents
 
@@ -30,7 +30,6 @@ In this document you can learn about authentication via the following means:
     - [Header-based API Key and Secret Authentication](#header-based-api-key-and-secret-authentication)
     - [Secret Rotation](#secret-rotation)
   - [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
-  - [OAuth](#oauth)
   - [References](#references)
 
 ## API Key and Secret
@@ -120,10 +119,6 @@ Name | Description | Required
 `exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. A minimum value of 30 seconds from the time the JWT is generated. A maximum value of 24 hours from the time the JWT is generated. A default value of 15 minutes from the time the JWT is generated. | ❌
 
 If you are not using a Nexmo library you should refer to [RFC 7519](https://tools.ietf.org/html/rfc7519) to implement JWT.
-
-## OAuth
-
-Some Nexmo APIs support OAuth as an authentication option. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
 
 ## References
 
