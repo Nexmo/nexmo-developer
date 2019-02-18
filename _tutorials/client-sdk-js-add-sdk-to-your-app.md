@@ -40,7 +40,7 @@ If your app is using ES6 module syntax, you can import the client module near th
 import ConversationClient from 'nexmo-client';
 ```
 
-Alternately, if your application will run on a single page, you can load the module in your HTML using a script tag:
+If your application will run on a single page, you can load the module in your HTML using a script tag:
 
 ```
 <script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
@@ -61,7 +61,7 @@ let nexmo = new ConversationClient()
   .catch(err => console.log(err));
 ```
 
-To get your client-side app working before setting up your backend, you can [generate a test JWT from the command line](https://developer.nexmo.com/tutorials/client-sdk-generate-test-credentials) and hard-code it in your client-side JavaScript. For real world usage, you can deliver JWTs from the server using the [backend SDK](https://developer.nexmo.com/tools) of your choice, and set the `jwt` variable in your code by fetching that data:
+To get your client-side app working before setting up your backend, you can [generate a test JWT from the command line](/tutorials/client-sdk-generate-test-credentials) and hard-code it in your client-side JavaScript. For real world usage, you can deliver JWTs from the server using the [backend SDK](https://developer.nexmo.com/tools) of your choice, and set the `jwt` variable in your code by fetching that data:
 
 ```javascript
 fetch('/getJwt')
