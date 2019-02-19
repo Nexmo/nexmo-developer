@@ -80,4 +80,4 @@ let nexmo = new ConversationClient()
 
 ## Conclusion
 
-You added the Nexmo Client SDK to your client-side JavaScript app and logged in to a `ConversationClient` instance, which returned an `Application` object. You can now use `Application.getConversation()` to get a specific conversation, and then use additional functionality.
+You added the Nexmo Client SDK to your client-side JavaScript app and logged in to a `ConversationClient` instance, which returned an `Application` object. You can now use `Application.newConversation()` to create a conversation, and then access the functionality of a `Conversation`.
