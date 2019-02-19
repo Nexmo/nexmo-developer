@@ -61,7 +61,6 @@ Rails.application.routes.draw do
   post '/community/slack', to: 'slack#invite'
 
   get '/tools', to: 'static#tools'
-  #get '/community', to: 'static#community'
   get '/community/past-events', to: 'static#past_events'
 
   get '/feeds/events', to: 'feeds#events'
