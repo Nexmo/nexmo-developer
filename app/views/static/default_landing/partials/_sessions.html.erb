@@ -1,0 +1,20 @@
+<% @sessions = Session.visible_to(current_user) %>
+
+<% if @sessions.any? %>
+  
+  <div class="Vlt-card">
+    <div class="Vlt-grid">
+      <% @sessions.each do |session| %>
+        <div class="Vlt-col Vlt-col--1of3">
+          <h4><%= session.title %></h4>
+          <div class="video">
+            <iframe src="<%= video_embed_url(session.video_url) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          <p><%= session.description %></p>
+          <br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
