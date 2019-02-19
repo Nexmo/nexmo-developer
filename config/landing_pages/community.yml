@@ -1,0 +1,58 @@
+rows:
+  - columns:
+    - entries:
+      - type: header
+        header:
+          title: 
+            text: "Nexmo ❤️ Community"
+            align: center
+          icon:
+            name: icon-world-hand
+            color: blue
+  - columns:
+    - entries:
+      - type: line_divider
+  - columns:
+    - entries:
+      - type: section_header
+        section_header:
+          title: "You can find us at the upcoming events"
+          icon:
+            name: icon-group-7
+            color: blue
+  - columns:
+    - entries:
+      - type: html
+        html:
+          content: <div class="Vlt-center"><iframe src="https://www.google.com/maps/d/embed?mid=13N6vU417BHGwuVwNEg8bfNJMPAyt5TKA" width="640" height="480"></iframe><br /><br /></div>
+  - columns:
+    - entries:
+      - type: events
+  - columns:
+    - entries:
+      - type: line_divider
+  - columns:
+    - entries:
+      - type: join_slack
+  - columns:
+    - entries:
+      - type: line_divider
+  - columns:
+    - entries:
+      - type: section_header
+        section_header:
+          title: "Resources"
+          icon:
+            name: icon-menu
+            color: blue
+  - columns:
+    - entries:
+      - type: html
+        html:
+          content: <div class="Vlt-center"><iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx95zNTESjzYCgKfV7TkIUhm-41KUN6FX" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  - columns:
+    - entries:
+      - type: line_divider
+  - columns:
+    - entries:
+      - type: contact_support
