@@ -47,12 +47,20 @@ rows:
             color: blue
   - columns:
     - entries:
-      - type: html
-        html:
-          content: <div class="Vlt-center"><iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx95zNTESjzYCgKfV7TkIUhm-41KUN6FX" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      - type: sessions
   - columns:
     - entries:
       - type: line_divider
   - columns:
     - entries:
       - type: contact_support
+    - entries:
+      - type: section_header
+        section_header:
+          title: "@NexmoDev on Twitter"
+          icon:
+            name: Brand-icon-twitter
+            color: blue
+      - type: html
+        html:
+          content: <a class="twitter-timeline" data-width="400" data-height="200" data-dnt="true" href="https://twitter.com/NexmoDev?ref_src=twsrc%5Etfw">Tweets by NexmoDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
