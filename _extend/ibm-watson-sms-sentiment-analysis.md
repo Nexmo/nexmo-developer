@@ -18,4 +18,4 @@ This is an application that will return the sentiment of a incoming SMS using Wa
 - Follow the [Readme on our GitHub page](https://raw.githubusercontent.com/nexmo-community/sms-sentiment-watson/master/README.md).
 
 ## Support
-The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
+This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.

@@ -19,4 +19,4 @@ This is a demo of using a Nexmo Websocket to transcribe audio in real-time using
 - [Voicebase](https://www.voicebase.com)
 
 ## Support
-The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
+This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.

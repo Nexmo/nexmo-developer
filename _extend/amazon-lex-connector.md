@@ -18,6 +18,6 @@ The connector is supplied as an open source project written in python and also h
 * [Lex PostContent Endpoint](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html) For information
 
 ## Support
-The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the github repository.
+This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the github repository.
 
 The Hosted connector is in Developer Preview and is supplied without warranty, questions should be directed to [devrel@nexmo.com](mailto:devrel@nexmo.com).

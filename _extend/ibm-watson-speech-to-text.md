@@ -20,4 +20,4 @@ Currently this is open source example code which is designed for you to build ou
 * [API Docs](https://console.bluemix.net/docs/services/text-to-speech/websockets.html#usingWebSocket) For information
 
 ## Support
-The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
+This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
