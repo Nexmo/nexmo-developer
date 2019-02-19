@@ -1,0 +1,28 @@
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--3of4">
+    <%= @content.html_safe %>
+
+    <div class="Vlt-grid">
+      <div class="Vlt-col">
+        <% if @previous_task && @subtasks[@previous_task] %>
+          <h4>Previous</h4>
+          <a href="<%= "/task/#{@task}/#{@subtasks[@previous_task]['path'].gsub('/', '--')}" %>"> &laquo; <%= @subtasks[@previous_task]['title'] %></a>
+        <% end %>
+      </div>
+      <div class="Vlt-col Vlt-right">
+        <% if @next_task && @subtasks[@next_task] %>
+          <h4>Next</h4>
+          <a href="<%= "/task/#{@task}/#{@subtasks[@next_task]['path'].gsub('/', '--')}" %>"><%= @subtasks[@next_task]['title'] %> &raquo;</a>
+        <% end %>
+      </div>
+     </div>
+  </div>
+  <div class="Vlt-col Vlt-col--1of4">
+    <h4>In this section</h4>
+    <ul>
+    <% @subtasks.each_with_index do |t, i| %>
+      <li><a href="<%= "/task/#{@task}/#{t['path'].gsub('/', '--')}" %>"><%= i+1 %>. <%= t['title'] %></a></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

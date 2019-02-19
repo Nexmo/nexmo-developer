@@ -85,6 +85,8 @@ Rails.application.routes.draw do
   get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
+  get '/task/(:task_name)(/:task_step)(/:code_language)', to: 'task#index'
+
   get '/*product/api-reference', to: 'markdown#api'
 
   scope '(:namespace)', namespace: /contribute/, defaults: { namespace: '' } do

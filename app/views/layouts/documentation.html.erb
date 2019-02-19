@@ -7,7 +7,11 @@
     <div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light">
       <div class="Vlt-sidenav__scroll">
         <nav class="sidenav" data-turbolinks-permanent tabindex="0" >
+          <% if (@sidebar_nav) %>
+          <%= @sidebar_nav %>
+          <% else %>
           <%= sidenav(@sidenav_root, @active_path) %>
+          <% end %>
         </nav>
       </div>
     </div>
