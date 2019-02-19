@@ -16,7 +16,7 @@ rows:
     - entries:
       - type: section_header
         section_header:
-          title: "You can find us at the upcoming events"
+          title: "You can find us at these upcoming events"
           icon:
             name: icon-group-7
             color: blue
