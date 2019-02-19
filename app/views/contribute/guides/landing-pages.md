@@ -35,34 +35,36 @@ Let's explore the building of a config file and then we will detail each content
 
 ## Defining the Layout of the Config File
 
-Each config file represents the visual layout of a landing page, including the number of rows and the amount of columns in each row, along with the actual information in the landing page. A config file begins with `rows:` that designate the `key` name of `rows` and the colon is the division between the `key` name and the `value`. Within a YAML file, to specify an array of data one uses the `-` before the `key` name. This is an important element of the config file, as the data of `rows` and `columns` are held in arrays. Thus, the following will produce a single row with two columns:
+<img src="/assets/images/contributing/landing_page_screenshots/landing_page_layout.png" width=400>
+
+Each config file represents the visual layout of a landing page, including the number of rows and the amount of columns in each row, along with the actual information in the landing page. A config file begins with `page:` that designate the `key` name of `page` and the colon is the division between the `key` name and the `value`. Within a YAML file, to specify an array of data one uses the `-` before the `key` name. This is an important element of the config file, as the data of `page` and `row` are held in arrays. Thus, the following will produce a single row with two columns:
 
 ```yaml
 
-rows:
-  - columns:
+page:
+  - row:
     - width: 2
-      entries:
-    - entries:
+      column:
+    - column:
 
 ```
 
-A column can either begin with the keyword of `entries` or the `key: value` pair of `width: integer`. The `width` value specifies how much of the row you would like that column to fill. Width is designated as a number between 1-4. If you do not specify a `width` the layout will default to a dynamically rendered arrangement of each column taking up an equal amount of space. The `entries` keyword, unlike the `width` keyword is mandatory, so even if you specify a `width` value, you still must begin the next line with `entries`.
+A column can either begin with the keyword of `column` or the `key: value` pair of `width: integer`. The `width` value specifies how much of the row you would like that column to fill. Width is designated as a number between 1-4. If you do not specify a `width` the layout will default to a dynamically rendered arrangement of each column taking up an equal amount of space. The `column` keyword, unlike the `width` keyword is mandatory, so even if you specify a `width` value, you still must begin the next line with `column`.
 
 What about other layout possibilities? This is how you would define a layout of 2 rows with 3 columns in the first and 1 column in the second:
 
 ```yaml
 
-rows:
-  - columns:
+page:
+  - row:
     - width: 1
-      entries:
+      column:
     - width: 2
-      entries:
+      column:
     - width: 1
-      entries:
-  - columns:
-    - entries:
+      column:
+  - row:
+    - column:
 
 ```
 
