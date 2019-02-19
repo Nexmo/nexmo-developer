@@ -18,13 +18,13 @@ For this solution, we built a machine learning algorithm that is able to detect 
 
 After you deploy the application to Heroku, make a call to the purchased number for the application.
 
-The application will ask to enter a phone number. 
+The application will ask to enter a phone number.
 Enter any phone number you like, as long as it is picked up by voicemail. The call will go to voicemail and the answering machine model will start listenting on the call.
 
 When a beep is detected, the application performs a Text-To-Speech, with the phrase, `Answering Machine Detected`, and the call will hangup.
 
 ## To install
-Clone the [github repo](https://github.com/nexmo-community/AnsweringMachineDetection) and run: 
+Clone the [github repo](https://github.com/nexmo-community/AnsweringMachineDetection) and run:
 
 `pip install -r requirements.txt`
 
@@ -41,3 +41,6 @@ You will need to create a [Nexmo Application](https://developer.nexmo.com/concep
 * [GitHub Repository](https://github.com/nexmo-community/AnsweringMachineDetection)
 * [Demo Video](https://www.youtube.com/watch?v=ZREXmLOtScA)
 * Blog post (coming soon)
+
+## Support
+The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
