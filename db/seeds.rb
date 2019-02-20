@@ -48,4 +48,5 @@ Session.create!({
   author: 'Phil Leggetter',
   event: devrel_con,
   video_url: 'https://www.youtube.com/watch?v=i7EZDYYfFmc',
+  published: true,
 })
