@@ -3,8 +3,8 @@ title: Kotlin
 navigation_weight: 0
 ---
 
-```Kotlin
-var callListener = object : NexmoRequestListener<NexmoCall> {
+```java
+var callListener = object: NexmoRequestListener<NexmoCall> {
     override fun onError(nexmoApiError: NexmoApiError) {
         notifyError(nexmoApiError)
     }

@@ -3,7 +3,7 @@ title: Kotlin
 navigation_weight: 0
 ---
 
-```Kotlin
+```java
 var callEventListener = FinishOnCallEnd(this)
 
 override fun onCreate(savedInstanceState: Bundle?) {

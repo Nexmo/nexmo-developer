@@ -3,7 +3,7 @@ title: Kotlin
 navigation_weight: 0
 ---
 
-```Kotlin
+```java
 fun loginToSdk(token: String) {
         NexmoClient.get().login(token, object : NexmoRequestListener<NexmoUser> {
 

@@ -3,7 +3,7 @@ title: Kotlin
 navigation_weight: 0
 ---
 
-``` kotlin
+```java
 currentCall?.hangup(object : NexmoRequestListener<NexmoCall> {
             override fun onError(nexmoApiError: NexmoApiError) {}
 

@@ -3,6 +3,6 @@ title: Kotlin
 navigation_weight: 0
 ---
 
-```Kotlin
+```java
 NexmoCient.get()call(callees, NexmoCallHandler.SERVER, listener)
 ```

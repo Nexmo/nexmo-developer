@@ -3,7 +3,7 @@ title: Kotlin
 navigation_weight: 0
 ---
 
-```Kotlin
+``````java
 fun onInAppCallClick(view: View) {
         val callee = listOf(otherUserName)
         NexmoClient.get().call(callee, NexmoCallHandler.IN_APP, callListener)
