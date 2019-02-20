@@ -16,6 +16,8 @@ Event.create!({
   ends_at: Time.zone.parse('2020-03-05'),
   url: 'http://www.smallbizhack.com/',
   description: 'Hack to create new innovations that help small businesses save time so they can get back to their passions',
+  city: 'Mountain View',
+  country: 'US',
 })
 
 Event.create!({
@@ -24,6 +26,8 @@ Event.create!({
   ends_at: Time.zone.parse('2020-03-01'),
   url: 'https://forwardjs.com/',
   description: 'Illuminating lectures, & enlightening workshops',
+  city: 'Ottawa',
+  country: 'CA',
 })
 
 Event.create!({
@@ -32,6 +36,8 @@ Event.create!({
   ends_at: Time.zone.parse('2020-03-31'),
   url: 'http://2020.render-conf.com/',
   description: 'A 2-day conference for front-end developers',
+  city: 'Oxford',
+  country: 'GB',
 })
 
 devrel_con = Event.create!({
@@ -40,6 +46,8 @@ devrel_con = Event.create!({
   ends_at: Time.zone.parse('2016-12-07'),
   url: 'https://london-2016.devrel.net/',
   description: 'A one day conference about developer relations, developer experience and developer marketing. December 7th 2016, London.',
+  city: 'London',
+  country: 'GB',
 })
 
 Session.create!({
