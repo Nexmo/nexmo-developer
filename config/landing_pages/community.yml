@@ -22,11 +22,6 @@ rows:
             color: blue
   - columns:
     - entries:
-      - type: html
-        html:
-          content: <div class="Vlt-center"><iframe src="https://www.google.com/maps/d/embed?mid=13N6vU417BHGwuVwNEg8bfNJMPAyt5TKA" width="640" height="480"></iframe><br /><br /></div>
-  - columns:
-    - entries:
       - type: events
   - columns:
     - entries:

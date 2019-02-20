@@ -1,7 +1,23 @@
 <% 
 	@upcoming_events = Event.upcoming
 	@past_events_count = Event.past.count
+	@coordinates = []
+	markers = ''
+	
+	@upcoming_events.each do |event|
+		next unless event.country 
+		location = Geocoder.search("#{event.city}, #{event.country}")
+		@coordinates << location.first.coordinates
+	end
+
+	@coordinates.each do |coordinate|
+		markers << "&markers=size:small%7Ccolor:red%7C#{coordinate.join(',')}" 
+	end
 %>
+
+<div class="Vlt-center">
+	<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=1&size=600x300#{markers}&key=#{ENV['google_maps_api_key']}" %>
+</div>
 
 <div class="Vlt-col Vlt-col--1of3 Vlt-col--left">
     <p>
