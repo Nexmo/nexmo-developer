@@ -70,6 +70,7 @@
 "/messages/api-reference": "/api/messages-olympus"
 "/messages/building-blocks": "/messages/building-blocks/before-you-begin"
 "/messages/concepts": "/messages/concepts/facebook"
+"/messages/building-blocks/send-mms-basic-auth": "/messages/building-blocks/send-mms"
 "/number-insight": "/number-insight/overview"
 "/number-insight/guides": "/number-insight/guides/cnam"
 "/number-insight/building-blocks": "/number-insight/building-blocks/number-insight-basic"

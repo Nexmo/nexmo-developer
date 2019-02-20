@@ -30,3 +30,7 @@
 .copy-wrapper pre {
   margin-top: 10px;
 }
+
+.bash.dependencies::before, .bash.run-command::before {
+    content: "$ ";
+}

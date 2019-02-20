@@ -94,3 +94,6 @@ navigation_overrides:
     svg: 'message'
     svgColor: 'teal'
     label: 'Developer Preview'
+  contribute:
+    administration:
+      navigation_weight: 9999

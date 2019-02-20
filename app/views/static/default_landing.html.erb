@@ -1,4 +1,4 @@
-<div class="Vlt-article container Nxd-landing-page">
+<div class="<%= @landing_config['container_classes'] ? @landing_config['container_classes'].join(' ') : '' %> container Nxd-landing-page">
     <% @landing_config["rows"].each do |row| %>
     <div class="Vlt-grid Nxd-landing-row">
       <% row["columns"].each do |info| %>

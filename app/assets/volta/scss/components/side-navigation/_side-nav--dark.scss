@@ -25,6 +25,7 @@
 		}
 
 		.Vlt-sidemenu {
+			background: linear-gradient(0deg, $blue-darker 10px, transparent 10px), linear-gradient(0deg, transparent calc(100% - 10px), darken($blue-dark, 6) calc(100% - 10px)) 100% 0;
 
 			&__link,
 			&__trigger {

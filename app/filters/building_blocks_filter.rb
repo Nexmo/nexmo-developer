@@ -12,8 +12,9 @@ class BuildingBlocksFilter < Banzai::Filter
 
   def create_tabs(content)
     tab = Nokogiri::XML::Element.new 'li', @document
-    tab['class'] = 'tabs-title'
-    tab['class'] += ' is-active' if content[:active]
+    tab['class'] = 'Vlt-tabs__link'
+    tab['class'] += ' Vlt-tabs__link_active' if content[:active]
+    tab['aria-selected'] = 'true' if content[:active]
 
     if content['language']
       tab['data-language'] = content['language']
@@ -23,7 +24,7 @@ class BuildingBlocksFilter < Banzai::Filter
 
     tab_link = Nokogiri::XML::Element.new 'a', @document
     tab_link.inner_html = "<svg><use xlink:href=\"/assets/images/brands/#{content['icon']}.svg##{content['icon']}\" /></svg><span>" + content['title'] + '</span>'
-    tab_link['href'] = "##{content['id']}"
+    tab_link['class'] = 'tab-link'
 
     tab.add_child(tab_link)
     @tabs.add_child(tab)
@@ -32,26 +33,24 @@ class BuildingBlocksFilter < Banzai::Filter
   def create_content(content)
     element = Nokogiri::XML::Element.new 'div', @document
     element['id'] = content['id']
-    element['class'] = 'tabs-panel'
-    element['class'] += ' is-active' if content[:active]
+    element['class'] = 'Vlt-tabs__panel'
+    element['class'] += ' Vlt-tabs__panel_active' if content[:active]
     element.inner_html = content[:body]
 
     @tabs_content.add_child(element)
   end
 
   def html
-    id = SecureRandom.hex
-
     html = <<~HEREDOC
-      <div>
-        <ul class="tabs" data-tabs id="#{id}"></ul>
-        <div class="tabs-content" data-tabs-content="#{id}"></div>
+      <div class="Vlt-tabs">
+        <div class="Vlt-tabs__header--bordered"></div>
+        <div class="Vlt-tabs__content"></div>
       </div>
     HEREDOC
 
     @document = Nokogiri::HTML::DocumentFragment.parse(html)
-    @tabs = @document.at_css('.tabs')
-    @tabs_content = @document.at_css('.tabs-content')
+    @tabs = @document.at_css('.Vlt-tabs__header--bordered')
+    @tabs_content = @document.at_css('.Vlt-tabs__content')
 
     contents.each do |content|
       create_tabs(content)

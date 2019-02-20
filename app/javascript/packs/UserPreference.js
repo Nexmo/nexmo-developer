@@ -1,7 +1,8 @@
 import intersection from 'lodash/intersection'
 
 export default class UserPreference {
-  constructor() {
+  constructor(useSingleStore) {
+    this.useSingleStore = useSingleStore;
     this.platformPreference = this.platforms()
     this.terminalProgramsPreference = this.terminalPrograms()
     this.frameworkPreference = this.frameworks()
@@ -25,13 +26,16 @@ export default class UserPreference {
 
   all() {
     return this.platforms().concat(
-      this.languages(),
       this.terminalPrograms(),
+      this.languages(),
       this.frameworks()
     )
   }
 
   getKeyFromType(type) {
+    if (this.useSingleStore) {
+        return 'preferences.all';
+    }
     switch (type) {
       case 'languages': return 'preferences.languages'
       case 'platforms': return 'preferences.platforms'

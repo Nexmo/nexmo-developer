@@ -1,30 +1,15 @@
 ---
-title: JWT and ACL overview
-description: How to create JWTs and ACLs
+title: How to generate JWTs
+description: This topic explains how to generate JWTs for use in your app. JSON Web Tokens (JWTs) and Access Control Lists (ACLs) are a key concept to understand in order to authenticate your apps and users.
 ---
 
-# JWT and ACL overview
+# How to generate JWTs
 
 ## JWTs
 
 ### Overview
 
-The Nexmo Client SDKs use [JWTs](https://jwt.io/) for authentication when a user logs in. These JWTs are generated using the application ID and private key that is provided when a new application is created.
-
-One way to create a new application is from the Nexmo CLI:
-
-```sh
-nexmo app:create "My Nexmo App" https://example.com/answer https://example.com/event --type=rtc --keyfile=private.key
-```
-
-```
-Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
-No existing config found. Writing to a new file.
-Credentials written to /path/to/your/local/folder/.nexmo-app
-Private Key saved to: private.key
-```
-
-You can also create a new application within the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/create-application).
+The Nexmo Client SDKs use [JWTs](https://jwt.io/) for authentication when a user logs in. These JWTs are generated using the application ID and private key that is provided [when a new application is created.](/tutorials/client-sdk-generate-test-credentials#create-a-nexmo-application)
 
 ### Claims
 
@@ -144,4 +129,4 @@ Nexmo::generateJwt([
 
 ### Other languages
 
-Creating a JWT with the appropriate claims for authenticating a Nexmo user is not currently provided in any of the other Nexmo Client Libraries. Instead, we encourage you to use your JWT library of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload). [JWT.io](https://jwt.io/#libraries-io) has a selection of libraries for generating JWTs in multiple languages.
+Creating a JWT with the appropriate claims for authenticating a Nexmo user is not currently provided in any of the other Nexmo Client Libraries. Instead, you are encourage you to use your JWT library of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload). [JWT.io](https://jwt.io/#libraries-io) has a selection of libraries for generating JWTs in multiple languages.

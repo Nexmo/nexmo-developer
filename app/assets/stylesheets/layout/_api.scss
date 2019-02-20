@@ -60,7 +60,7 @@
 	&__code {
 		background: $grey-light;
 		border-bottom: 1px solid $grey-lighter;
-		padding-top: $unit3;
+		padding: $unit2;
 
 		h4,
 		h5 {
@@ -168,3 +168,18 @@
 	}
 }
 
+
+.Nxd-version {
+  p {
+    text-transform: uppercase;
+    font-size: 1.3rem !important;
+  }
+
+  a {
+    font-size: 1.3rem !important;
+    color: #005282 !important;
+    &.active {
+      font-weight: bold;
+    }
+  }
+}

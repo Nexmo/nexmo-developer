@@ -17,3 +17,6 @@ This is a demo of using a Nexmo Websocket to transcribe audio in real-time using
 - [Live Demo Video (@ Enterprise Connect)](https://www.youtube.com/watch?v=sOhbwJ_ZCoQ)
 - [Prerecorded Demo Video](https://youtu.be/p5wc6e0AKTQ?t=223)
 - [Voicebase](https://www.voicebase.com)
+
+## Support
+This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.

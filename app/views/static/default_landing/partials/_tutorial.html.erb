@@ -1,0 +1,23 @@
+<% 
+    raise "Missing 'name' key in tutorial landing page block" unless local_assigns['name']
+%>
+
+<% file = File.read("_tutorials/#{local_assigns['name']}.md") %>
+<% tutorial = YAML.safe_load(file) %>
+
+<a class="Vlt-card" href="<%= tutorial['external_link'] ? tutorial['external_link'] : '/tutorials/' + local_assigns['name'] %>">
+    <% if tutorial['image_url'] %>
+        <img 
+            src="<%= tutorial['image_url'] %>" 
+            class="img-full"
+            alt srcset=""
+            sizes="(max-width: 100%) 100vw, 100%"
+        >
+    <% end %>
+    <h4 class="Vlt-margin--top2"><%= tutorial['title'] %></h4>
+    <% if tutorial['description'] %>
+        <p>
+            <%= tutorial['description'].render_markdown %>
+        </p>
+    <% end %>    
+</a>

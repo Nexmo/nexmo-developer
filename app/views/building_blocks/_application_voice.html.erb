@@ -9,7 +9,7 @@
         <% else %>
             <p>A Nexmo application contains the required configuration for your project. You can create an application using the <a href="https://github.com/Nexmo/nexmo-cli">Nexmo CLI</a> (see below) or <a href="https://dashboard.nexmo.com/voice/create-application">via the dashboard</a>. To learn more about applications <a href="/concepts/guides/applications">see our Nexmo concepts guide</a>.</p>
             <h4>Install the CLI</h4>
-            <pre class="highlight shell"><code>$ npm install -g nexmo-cli</code></pre>
+            <pre class="highlight bash dependencies"><code>npm install -g nexmo-cli</code></pre>
 
             <h4>Create an application</h4>
             <p>Once you have the CLI installed you can use it to create a Nexmo application. Run the following command and make a note of the application ID that it returns. This is the value to use in <code>NEXMO_APPLICATION_ID</code> in the example below. It will also create <code>private.key</code> in the current directory which you will need in the <em>Initialize your dependencies</em> step</p>
@@ -18,7 +18,7 @@
                 <p>Nexmo needs to connect to your local machine to access your <code>answer_url</code>. We recommend using <a href="https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/">ngrok</a> to do this. Make sure to change <code>demo.ngrok.io</code> in the examples below to your own ngrok URL.</p>
             <% end %>
 
-            <pre class="highlight shell"><code>$ nexmo app:create "<%=app['name'] %>" <%=app['answer_url'] %> <%=app['event_url'] %> --keyfile private.key</code></pre>
+            <pre class="highlight bash dependencies"><code>nexmo app:create "<%=app['name'] %>" <%=app['answer_url'] %> <%=app['event_url'] %> --keyfile private.key</code></pre>
         <% end %>
     </div>
 </div>

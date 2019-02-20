@@ -68,10 +68,10 @@
 %tabs-link-bordered {
 	border-top-left-radius: $unit0;
 	border-top-right-radius: $unit0;
-	box-shadow: inset 0 -1px 0 $grey-light;
 	margin: 0;
 	padding-left: $unit2;
 	padding-right: $unit2;
+	transition: background 0.2s;
 
 	&:after {
 		background: $grey-light;
@@ -117,6 +117,16 @@
 	&:after {
 		display: none;
 	}
+
+	&:before {
+		background: $white;
+		bottom: 0;
+		content: '';
+		height: 1px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
 }
 
 %tabs-header {
@@ -129,6 +139,7 @@
 
 %tabs-header-bordered {
 	border-bottom: 0;
+	box-shadow: inset 0 -1px 0 $grey-light;
 	margin-top: $unit1;
 
 	.Vlt-tabs__link {

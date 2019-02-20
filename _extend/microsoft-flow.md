@@ -25,3 +25,7 @@ The Nexmo connector for Microsoft Flow allows for multiple actions for you to ch
 
 - [Connector Examples](https://flow.microsoft.com/en-us/connectors/shared_nexmo/nexmo/)
 - [Documentation](https://docs.microsoft.com/en-us/connectors/nexmo/)
+
+## Support
+
+[Microsoft Flow Support](https://flow.microsoft.com/en-us/support/)

@@ -2,16 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'rendering _header landing page partial' do
   it 'renders correctly with local variables' do
-    icon_color = 'orange'
-    icon = 'icon-here'
-    title = 'A title here'
-    subtitle = 'A subtitle here'
-
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => icon_color,
-        'icon' => icon,
-        'title' => title,
-        'subtitle' => subtitle,
+        'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
+        'title' => { 'text' => 'A title here', 'align' => 'center' },
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
 
     expect(rendered).to include('<svg class="Vlt-orange">')
@@ -21,56 +15,38 @@ RSpec.describe 'rendering _header landing page partial' do
   end
 
   it 'raises an error when an icon color is not provided' do
-    icon = 'icon-here'
-    title = 'A title here'
-    subtitle = 'A subtitle here'
-
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon' => icon,
-        'title' => title,
-        'subtitle' => subtitle,
+        'icon' => { 'name' => 'icon-here' },
+        'title' => { 'text' => 'A title here', 'align' => 'center' },
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
-    end .to raise_error("Missing 'icon_color' key in header landing page block")
+    end .to raise_error("Missing icon 'color' key in header landing page block")
   end
 
-  it 'raises an error when an icon is not provided' do
-    icon_color = 'orange'
-    title = 'A title here'
-    subtitle = 'A subtitle here'
-
+  it 'raises an error when an icon name is not provided' do
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => icon_color,
-        'title' => title,
-        'subtitle' => subtitle,
+        'icon' => { 'color' => 'orange' },
+        'title' => { 'text' => 'A title here', 'align' => 'center' },
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
-    end .to raise_error("Missing 'icon' key in header landing page block")
+    end .to raise_error("Missing icon 'name' key in header landing page block")
   end
 
   it 'raises an error when a title is not provided' do
-    icon_color = 'orange'
-    icon = 'icon-here'
-    subtitle = 'A subtitle here'
-
     expect do
       render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => icon_color,
-        'icon' => icon,
-        'subtitle' => subtitle,
+        'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
+        'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
     end .to raise_error("Missing 'title' key in header landing page block")
   end
 
   it 'renders without a subtitle when no subtitle is provided' do
-    icon_color = 'orange'
-    icon = 'icon-here'
-    title = 'A title here'
-
     render partial: '/static/default_landing/partials/header.html.erb', locals: {
-        'icon_color' => icon_color,
-        'icon' => icon,
-        'title' => title,
+      'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
+      'title' => { 'text' => 'A title here', 'align' => 'center' },
     }
 
     expect(rendered).to_not include('A subtitle here')

@@ -1,0 +1,167 @@
+.Vlt-popup {
+	display: inline-block;
+	position: relative;
+
+	&__panel {
+		max-height: 0;
+		overflow: hidden;
+		position: absolute;
+		width: 250px;
+		z-index: 99999999;
+
+		&--width2 {
+			min-width: 200px;
+		}
+
+		&--width3 {
+			min-width: 300px;
+		}
+
+		&__content {
+			background: $white;
+			border-radius: $unit1;
+			box-shadow: 0 1px 20px rgba($black, 0.2);
+		}
+
+		&_open {
+			max-height: 100vh;
+			overflow: visible;
+
+			.Vlt-popup__scroll {
+				max-height: 400px;
+				overflow-y: auto;
+			}
+		}
+	}
+
+	&__header {
+		background: $blue;
+		border-top-left-radius: $unit1;
+		border-top-right-radius: $unit1;
+		color: $white;
+		font-size: 1.5rem;
+		font-weight: 900;
+		padding: $unit1 $unit3;
+		text-align: left;
+	}
+
+	&__link {
+		color: $black;
+		cursor: pointer;
+		display: flex;
+		overflow: hidden;
+		padding: 12px 20px 0;
+		position: relative;
+		text-align: left;
+
+		&--noborder {
+			// Fixes the spacing without changing the proportion of the element
+			margin-top: -4px;
+
+			&:before {
+				display: none;
+			}
+		}
+
+		&--disabled,
+		&--selected {
+			color: $grey-dark;
+			cursor: default;
+			pointer-events: none;
+
+			& .Vlt-popup__link__icon {
+				fill: $grey-dark;
+			}
+		}
+
+		&--highlighted {
+			color: $blue;
+		}
+
+		&__icon {
+			fill: $blue;
+			flex: 0 0 20px;
+			height: 20px;
+			margin-right: 10px;
+			vertical-align: middle;
+			width: 20px;
+		}
+
+		&__content {
+			flex: 1;
+			padding-bottom: $unit2;
+			position: relative;
+
+			&:after {
+				background: $grey-light;
+				bottom: 0;
+				content: '';
+				display: block;
+				height: 1px;
+				left: 0;
+				position: absolute;
+				width: 100%;
+			}
+
+			h6 {
+				font-weight: 600;
+				margin-bottom: 0 !important;
+			}
+
+			p {
+				margin-top: $unit1;
+			}
+		}
+
+		&:hover {
+			background: rgba($black, 0.05);
+		}
+
+		&:active {
+			background: rgba($black, 0.1);
+		}
+
+		&--nohover {
+			&:hover {
+				background: transparent;
+			}
+		}
+
+		&:last-child {
+			border-bottom-left-radius: $unit1;
+			border-bottom-right-radius: $unit1;
+
+			.Vlt-popup__link__content:after {
+				display: none;
+			}
+		}
+	}
+
+	&--top-left {
+		.Vlt-popup__panel {
+			bottom: 100%;
+			right: 0;
+		}
+	}
+
+	&--top-right {
+		.Vlt-popup__panel {
+			bottom: 100%;
+			left: 0;
+		}
+	}
+
+	&--bottom-left {
+		.Vlt-popup__panel {
+			right: 0;
+			top: 100%;
+		}
+	}
+
+	&--bottom-right {
+		.Vlt-popup__panel {
+			left: 0;
+			top: 100%;
+		}
+	}
+}

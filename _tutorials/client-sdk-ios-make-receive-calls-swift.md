@@ -12,7 +12,7 @@ In this tutorial you learn how to use Nexmo Client SDK for iOS, in order to perf
 
 You will create a simple app to make a call and receive a call.
 
-The app will have two buttons, which log in different users: Jane or Joe. After logging in, Jane and Joe are able to place a call and perform actions such as answer, decline or hangup.
+The app will have two buttons, which log in different users: Jane or Joe. After logging in, Jane and Joe are able to place a call and perform actions such as answer, reject or hangup.
 
 ## Prerequisites
 
@@ -231,7 +231,7 @@ You can build the project now and make an outgoing call. Next you implement how 
 
 ## Receive incoming call
 
-When Jane calls Joe, Joe should be notified, so that Joe may decide to answer or decline the call.
+When Jane calls Joe, Joe should be notified, so that Joe may decide to answer or reject the call.
 
 This is done by implementing the optional `incomingCall:` method which is declared in the `NXMClientDelegate`.
 
@@ -241,9 +241,9 @@ Go back to the `#pragma mark NXMClientDelegate` line and add the `incomingCall:'
 func incomingCall(_ call: NXMCall) {
     print("📲 📲 📲 Incoming Call: \(call)")
     DispatchQueue.main.async {
-        let names: [String] = call.otherCallMembers?.compactMap({ participant -> String? in
+        let names: [String] = call.otherCallMembers.compactMap({ participant -> String? in
             return (participant as? NXMCallMember)?.user.name
-        }) ?? []
+        })
         let alert = UIAlertController(title: "Incoming call from", message: names.joined(separator: ", "), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Answer", style: .default, handler: { _ in
             self.answer(call: call)
@@ -257,7 +257,7 @@ func incomingCall(_ call: NXMCall) {
 }
 ```
 
-This method takes as a parameter an `NXMCall` object with which you can answer or decline the call. An alert was implemented to allow the user to choose whether to answer or decline the call.
+This method takes as a parameter an `NXMCall` object with which you can answer or reject the call. An alert was implemented to allow the user to choose whether to answer or reject the call.
 
 ## Answer a call
 
@@ -277,22 +277,22 @@ private func answer(call: NXMCall) {
 
 The `answer:completionHandler` method accepts an object adopting the `NXMCallDelegate`, and a `completionHandler`, to indicate if an error occurred in the process. You already implemented `NXMCallDelegate` in a previous step.
 
-## Decline a call
+## Reject a call
 
-Under the `//MARK: Incoming call - Reject`, implement this method to decline the incoming call:
+Under the `//MARK: Incoming call - Reject`, implement this method to reject the incoming call:
 
 ```swift
 private func reject(call: NXMCall) {
-    call.decline { [weak self] error in
+    call.reject { [weak self] error in
         if let error = error {
-            print("error declining call: \(error.localizedDescription)")
+            print("error rejecting call: \(error.localizedDescription)")
         }
         self?.updateInterface()
     }
 }
 ```
 
-`decline:` accepts a single `completionHandler` parameter to indicate if an error occurred in the process.
+`reject:` accepts a single `completionHandler` parameter to indicate if an error occurred in the process.
 
 ## Hangup a call
 
@@ -321,6 +321,6 @@ To read more about the permissions required, [see the setup tutorial](/tutorials
 
 You have implemented your first In App Voice application with the Nexmo Client SDK for iOS.
 
-Run the app on two simulators and see that you can call, answer, decline and hangup.
+Run the app on two simulators and see that you can call, answer, reject and hangup.
 
 If possible, test on two phones using your developer signing and provisioning facility.

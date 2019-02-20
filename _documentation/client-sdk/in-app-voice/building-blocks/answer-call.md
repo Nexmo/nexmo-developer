@@ -1,5 +1,6 @@
 ---
 title: Answer a Call
+description: Shows how to answer a voice call from your app.
 navigation_weight: 4
 ---
 

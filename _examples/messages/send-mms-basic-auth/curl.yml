@@ -1,9 +1,0 @@
----
-title: cURL
-language: curl
-code:
-    source: .repos/nexmo/curl-building-blocks/messages/send-mms-basic-auth.sh
-    from_line: 6
-    to_line: 27
-file_name: send-mms-basic-auth.sh
-run_command: bash send-mms-basic-auth.sh

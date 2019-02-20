@@ -1,7 +1,6 @@
 class StaticController < ApplicationController
   def default_landing
-    # Get URL and split the / to retrieve the landing page name
-    yaml_name = request.fullpath.split('/')[1]
+    yaml_name = request[:landing_page]
 
     @landing_config = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
 
@@ -56,8 +55,7 @@ class StaticController < ApplicationController
     @document_title = 'Community'
     @upcoming_events = Event.upcoming
     @past_events_count = Event.past.count
-    @sessions = Session.published
-    @sessions = Session.all if current_user&.admin?
+    @sessions = Session.visible_to(current_user)
     render layout: 'page'
   end
 
@@ -201,11 +199,7 @@ class StaticController < ApplicationController
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
 
-    if current_user&.admin?
-      @careers = Career.all
-    else
-      @careers = Career.published
-    end
+    @careers = Career.visible_to(current_user)
 
     render layout: 'page'
   end

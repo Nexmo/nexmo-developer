@@ -1,10 +1,5 @@
 ---
-title: Android
-language: android
 code:
     source: .repos/nexmo/client-sdk-android-java-building-blocks/in-app-voice/listen-to-call-status/ListenToCallStatus.java
     from_line: 1
     to_line: 8
-run_command: Run using your IDE
-file_name: ListenToCallStatus.java
-unindent: true

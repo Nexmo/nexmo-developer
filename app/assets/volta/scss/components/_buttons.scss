@@ -23,7 +23,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	outline: none;
 	padding: $unit1 $unit2; // both paddings added for IE alignment
 	text-align: center;
-	transition: transform 0.2s, background 0.2s;
+	transition: transform 0.1s, background 0.1s;
 	vertical-align: middle;
 	white-space: nowrap;
 
@@ -48,7 +48,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 		height: 20px;
 		margin-left: -5px;
 		margin-right: 6px;
-		margin-top: -2px;
+		margin-top: -3px;
 		vertical-align: middle;
 		width: 20px;
 	}
@@ -170,9 +170,9 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 		color: $white;
 	}
 
-	&:active
+	&:active,
 	&.Vlt-btn_active {
-		background: darken($orange, 5);
+		background: darken($orange, 7);
 		box-shadow: $shadow-active, 0 0 0 rgba($black, 0);
 		color: $white;
 	}
@@ -195,7 +195,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 
 	&:active,
 	&.Vlt-btn_active {
-		background: darken($blue, 5);
+		background: darken($blue, 7);
 		box-shadow: $shadow-active;
 		color: $white;
 	}
@@ -218,7 +218,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 
 	&:hover,
 	&:not(.Vlt-btn--no-focus):focus {
-		background: $grey-light;
+		background: darken($grey-lighter, 3);
 		color: $black;
 	}
 
@@ -247,7 +247,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 
 	&:active,
 	&.Vlt-btn_active {
-		background: darken($red, 5);
+		background: darken($red, 20);
 		box-shadow: $shadow-active;
 		color: $white;
 	}
@@ -270,7 +270,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 
 	&:active,
 	&.Vlt-btn_active {
-		background: darken($green, 5);
+		background: darken($green, 7);
 		box-shadow: $shadow-active;
 		color: $white;
 	}
@@ -302,28 +302,34 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 			border-top-right-radius: 0;
 		}
 
-		&--primary {
+		&--primary,
+		&--secondary,
+		&--quaternary,
+		&--destructive {
 			&:not(:first-child) {
-				border-left: 1px solid $orange-light;
+				box-shadow: $shadow-standard, inset 1px 0 0 0 rgba($white, 0.3);
 			}
-		}
 
-		&--secondary {
-			&:not(:first-child) {
-				border-left: 1px solid $blue-light;
+			&.Vlt-btn_active {
+				&:not(:first-child):not(:last-child) {
+					box-shadow: $shadow-active, $shadow-standard, inset 1px 0 0 0 rgba($white, 0.5);
+				}
 			}
 		}
 
 		&--tertiary {
-			&:not(:first-child):not(:last-child) {
-				// Override the shadow to only keep top and bottom in any button that isn't the first or the last
+			&:not(:first-child):not(:last-child):not(:nth-child(2)) {
+				box-shadow: $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey, inset 1px 0 0 0 $grey;
+			}
+
+			&:nth-child(2) {
 				box-shadow: $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey;
 			}
-		}
 
-		&--destructive {
-			&:not(:first-child) {
-				border-left: 1px solid $red-light;
+			&.Vlt-btn_active {
+				&:not(:first-child):not(:last-child) {
+					box-shadow: $shadow-active, $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey;
+				}
 			}
 		}
 
@@ -401,6 +407,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	}
 
 	&--hover {
+		// This is for hover buttons, not for button groups on hover
 		border: 0 !important;
 		margin-top: -$unit1;
 		opacity: 0;

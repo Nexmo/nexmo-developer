@@ -146,7 +146,8 @@
 	position: relative;
 
 	@media #{$M-less} {
-		&:not([class*='Vlt-col--A']):not([class*='Vlt-col--M']):not([class*='Vlt-col--S']) {
+		&:not([class*='Vlt-col--A']):not([class*='Vlt-col--M']),
+		&:not([class*='Vlt-col--A']):not([class*='Vlt-col--S']) {
 			flex: 0 0 100%;
 			max-width: 100%;
 		}

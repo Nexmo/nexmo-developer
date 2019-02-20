@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe StaticController, type: :controller do
+RSpec.describe StaticController, type: :request do
   before do
     Rails.application.routes.draw do
-      get '/default_landing' => 'static#default_landing'
+      get '/:landing_page' => 'static#default_landing'
     end
   end
   after do
@@ -11,8 +11,6 @@ RSpec.describe StaticController, type: :controller do
   end
 
   describe 'GET default_landing' do
-    render_views
-
     it 'renders single column with 100% width' do
       landing_config = {
           'rows' => [
@@ -307,7 +305,7 @@ def assert_rows_and_columns(config, matches)
   expect(YAML).to receive(:load_file).with("#{Rails.root}/config/landing_pages/default_landing.yml") .and_return(config)
   allow(YAML).to receive(:load_file)
 
-  get :default_landing
+  get '/default_landing'
 
   assert_select '.Nxd-landing-page' do |elements|
     assert_select elements[0], '.Nxd-landing-row', matches.count do |rows|

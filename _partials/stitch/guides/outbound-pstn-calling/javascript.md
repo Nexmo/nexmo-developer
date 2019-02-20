@@ -66,6 +66,3 @@ Now run `index.html` in the browser, making sure to login with the user name `ja
 
 Thats's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/calling-phones/index.html).
 
-## Where next?
-
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>

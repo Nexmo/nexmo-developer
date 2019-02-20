@@ -1,14 +1,14 @@
 module BuildingBlockRenderer
   class Php
     def self.dependencies(deps)
-      { 'code' => "$ composer require #{deps.join(' ')}" }
+      { 'code' => "composer require #{deps.join(' ')}" }
     end
 
     def self.run_command(command, _filename, _file_path)
       <<~HEREDOC
         ## Run your code
          Save this file to your machine and run it:
-         <pre class="highlight bash"><code>$ #{command}</code></pre>
+         <pre class="highlight bash run-command"><code>#{command}</code></pre>
 
       HEREDOC
     end

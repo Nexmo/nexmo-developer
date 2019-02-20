@@ -389,4 +389,4 @@ To test your application:
 ## Where next?
 
 * Try out [Quickstart 2](/client-sdk/in-app-messaging/guides/inviting-members/javascript)
-* Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>
+

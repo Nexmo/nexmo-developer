@@ -4,7 +4,7 @@
 	flex-flow: column;
 	font-weight: 600;
 	height: 100vh;
-	padding-bottom: 10px; // space to allow for the browser url notice
+	padding-bottom: 10px;
 	width: 270px;
 
 	@media #{$S-only} {
@@ -106,9 +106,14 @@
 	}
 
 	&__scroll {
+		background-image: linear-gradient(to bottom, rgba($black, 0.1) 0%, transparent 5px, transparent calc(100% - 5px), rgba($black, 0.1) calc(100% - 1px)), linear-gradient(to bottom, transparent calc(100% - 1px), rgba($white, 0.1) calc(100% - 1px), rgba($white, 0.1)  100%);
+		background-position: 20px 0;
+		background-repeat: no-repeat;
+		background-size: calc(100% - 40px) 100%, calc(100% - 40px) 100%, 14px 100%, 14px 100%;
 		flex: auto; // not flex: 1 because IE11 needs flex-basis: auto
+		height: 100%; // needed for shadowing, won't be 100% it will adjust to flex
 		overflow-y: auto;
-		padding-bottom: 10px;
+		position: relative;
 
 		@media #{$S-only} {
 			-webkit-overflow-scrolling: touch;
@@ -119,7 +124,8 @@
 	.Vlt-sidemenu {
 		list-style: none;
 		margin: 0;
-		padding: 0;
+		min-height: 100%; // not height, for shadowing
+		padding: 0 0 10px; // space to allow for the browser url notice
 
 		ul {
 			list-style: none;
@@ -288,8 +294,8 @@
 			    opacity: 0;
 			    padding: 0;
 			    transition: opacity 0.1s,
-			    	padding 0.2s 0.2s,
-			    	margin 0.2s 0.2s;
+			    	padding 0.2s,
+			    	margin  0.2s;
 
 	            & * {
 	            	border: 0;
@@ -316,7 +322,7 @@
 					margin-bottom: $unit1;
 					transition: font-size 0.2s,
 		                margin 0.2s,
-		                opacity 0.2s 0.2s,
+		                opacity 0.2s,
 		                padding 0.2s;
 
 		            & > * {

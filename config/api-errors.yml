@@ -29,9 +29,36 @@ generic_errors:
     description: The crendentials provided do not have access to the requested product
     resolution: Check your API key is correct and has been whitelisted
 
+  account-suspended:
+    description: This account has been suspended
+    resolution: Contact support@nexmo.com for more information
+
+  jwt-expired:
+    description: The JWT provided has expired
+    resolution: Generate a new JWT with an `exp` in the future
+
+  jwt-revoked:
+    description: The JWT provided has been revoked
+    resolution: Generate a new JWT using your private key
+
   invalid-api-key:
     description: The API key provided does not exist in our system, or you do not have access
     resolution: Modify your request to provide a valid API key
+
+  invalid-signature:
+    description: The signature provided did not validate.
+    resolution: Check your signature secret is correct and you're following the correct signing process
+    link:
+      text: See signing docs
+      url: https://developer.nexmo.com/concepts/guides/signing-messages
+
+  invalid-ip:
+    description: The source IP address of the request is not in our allow list
+    resolution: Make a request from an allowed IP address, or add your current IP to the list of authorized addresses
+
+  multiple-auth-methods:
+    description: Multiple authentication methods were detected in your request
+    resolution: Provide exactly one authentication method
 
   invalid-id:
     description: The ID provided does not exist in our system

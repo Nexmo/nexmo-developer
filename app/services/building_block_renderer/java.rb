@@ -4,6 +4,7 @@ module BuildingBlockRenderer
       {
           'text' => 'Add the following to <code>build.gradle</code>:',
           'code' => deps.map { |d| "compile '#{d.gsub('@latest', '4.0.1')}'" }.join('<br />'),
+          'type' => 'groovy',
       }
     end
 
@@ -20,11 +21,9 @@ module BuildingBlockRenderer
         mainClassName = project.hasProperty('main') ? project.getProperty('main') : ''
         ```
 
-         Run the following `gradle` command to execute your application, replacing `#{package.chomp('.')}` with the package containing `#{filename.gsub('.java', '')}`:
+        Run the following `gradle` command to execute your application, replacing `#{package.chomp('.')}` with the package containing `#{filename.gsub('.java', '')}`:
 
-         ```sh
-        gradle run -Pmain=#{package}#{filename.gsub('.java', '')}
-        ```
+        <pre class="highlight bash run-command"><code>gradle run -Pmain=#{package}#{filename.gsub('.java', '')}</code></pre>
 
       HEREDOC
     end

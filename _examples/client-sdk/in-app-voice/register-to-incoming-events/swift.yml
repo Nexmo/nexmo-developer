@@ -4,7 +4,7 @@ language: swift
 code:
     source: .repos/nexmo/client-sdk-swift-building-blocks/in-app-voice/register-to-incoming-events/RegisterToIncomingEvents.swift
     from_line: 1
-    to_line: 29
+    to_line: 10
 run_command: Run using your IDE
 file_name: RegisterToIncomingEvents.swift
 unindent: true

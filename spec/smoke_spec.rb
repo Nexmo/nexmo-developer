@@ -93,13 +93,13 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it 'markdown page has default code_language' do
     get '/voice/voice-api/building-blocks/connect-an-inbound-call'
-    expect(response.body).to include('li class="tabs-title is-active" data-language="node" data-language-type="languages"')
+    expect(response.body).to include('li class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true" data-language="node" data-language-type="languages" data-language-linkable="true"')
   end
 
   it 'markdown page respects code_language' do
     get '/voice/voice-api/building-blocks/connect-an-inbound-call/php'
-    expect(response.body).to include('li class="tabs-title is-active" data-language="php" data-language-type="languages"')
-    expect(response.body).not_to include('li class="tabs-title is-active" data-language="node" data-language-type="languages"')
+    expect(response.body).to include('li class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true" data-language="php" data-language-type="languages" data-language-linkable="true"')
+    expect(response.body).not_to include('li class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true" data-language="node" data-language-type="languages" data-language-linkable="true"')
   end
 
   it '/hansel contains the expected text' do

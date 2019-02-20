@@ -18,7 +18,6 @@
 
 		@media #{$S-only} {
 			flex: 1;
-			flex-flow: column;
 			position: relative;
 			text-align: center;
 		}
@@ -44,11 +43,6 @@
 			justify-content: center;
 			margin-right: $unit2;
 			width: 40px;
-
-			@media #{$S-only} {
-				margin-bottom: $unit0;
-				margin-right: 0;
-			}
   		}
 
   		&:after {
@@ -60,12 +54,6 @@
 			display: block;
 			height: 24px;
 			width: 24px;
-
-			@media #{$S-only} {
-				position: absolute;
-				right: -15px;
-				top: 7px;
-			}
 		}
 
 		&:last-child {

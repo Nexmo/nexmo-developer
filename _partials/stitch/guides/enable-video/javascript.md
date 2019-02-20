@@ -210,7 +210,3 @@ setupConversationEvents(conversation) {
 Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Enable video on both and start talking. You'll also see events being logged in the browser console.
 
 Thats's it! You can see a full example of what your project should look like in [the source code for this quickstart on GitHub](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-video/index.html).
-
-## Where next?
-
-Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript API Reference</a>.

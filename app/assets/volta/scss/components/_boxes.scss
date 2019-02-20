@@ -81,6 +81,10 @@
 		}
 	}
 
+	&--shadow {
+		box-shadow: 0 1px 20px rgba($black, 0.2);
+	}
+
 	&--left {
 		text-align: left;
 	}
@@ -93,7 +97,7 @@
 a.Vlt-box,
 .Vlt-box--clickable {
 	cursor: pointer;
-	transition: transform 0.2s;
+	transition: transform 0.1s;
 
 	&:hover {
       transform: scale(1.03);

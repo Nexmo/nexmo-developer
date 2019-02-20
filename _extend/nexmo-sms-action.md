@@ -39,5 +39,4 @@ will send New pull on `$GITHUB_REPOSITORY` from `$GITHUB_ACTOR` to 15551234567.
 
 ## Support
 
-The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the github repository.
-
+This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the github repository.

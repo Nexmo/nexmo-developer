@@ -35,7 +35,6 @@ INSIGHT_NUMBER="447700900000"
 WEBHOOK_URL=""
 
 # MMS
-US_SHORT_CODE=""
 IMG_URL=""
 
 # If we have a local config, override using that

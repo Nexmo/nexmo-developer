@@ -1,7 +1,7 @@
 .Vlt-card {
 	background: $white;
 	border-radius: $unit1;
-	box-shadow: 0 1px 20px rgba($black, 0.1);
+	box-shadow: 0 1px 20px rgba($black, 0.2);
 	display: block;
 	margin-bottom: $unit3;
 	padding: $unit3;
@@ -248,7 +248,7 @@
 a.Vlt-card,
 .Vlt-card--clickable {
 	cursor: pointer;
-	transition: transform 0.2s;
+	transition: transform 0.1s;
 
 	&:hover {
       transform: scale(1.03);

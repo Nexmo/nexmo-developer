@@ -1,5 +1,6 @@
 ---
 title: Start a Call
+description: Shows you how to start a new voice Call.
 navigation_weight: 1
 ---
 

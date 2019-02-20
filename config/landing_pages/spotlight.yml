@@ -1,17 +1,22 @@
 # Developer Spotlight Landing Page Config
 
 title: "Write for Nexmo"
-meta_title: "meta title goes here"
-
+meta_title: "Developer Spotlight - Teach others, grow as a writer, and help us build the next go-to destination for developers"
+container_classes:
+  - Vlt-article
 rows:
   - columns:
     - entries:
       - type: header
         header:
-          title: "Write for Nexmo"
-          subtitle: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
-          icon: icon-rocket
-          icon_color: blue
+          title: 
+            text: "Write for Nexmo"
+          subtitle: 
+            text: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
+            type: 'small'
+          icon: 
+            name: "icon-rocket"
+            color: blue
       - type: action_button
         action_button:
           text: "Apply Now"
@@ -30,8 +35,9 @@ rows:
       - type: section_header
         section_header:
           title: "Examples"
-          icon: icon-app
-          icon_color: yellow
+          icon: 
+            name: "icon-app"
+            color: yellow
       - type: linked_image
         linked_image:
           image: "https://www.nexmo.com/wp-content/uploads/2019/01/New-spreadsheet-who-dis-768x384.png"
@@ -57,8 +63,9 @@ rows:
       - type: structured_text
         structured_text:
           header: "What We're Looking For"
-          icon: "icon-search"
-          icon_color: blue
+          icon: 
+            name: "icon-search"
+            color: blue
           text:
             - content: "We're interested in both technical tutorials and general pieces on programming. Successful submissions will be:"
               type: large
@@ -69,8 +76,9 @@ rows:
       - type: structured_text
         structured_text:
           header: "What's in it for You?"
-          icon: "icon-user"
-          icon_color: blue
+          icon: 
+            name: "icon-user"
+            color: blue
           text:
             - content: "We pay $400 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
               type: large
@@ -79,8 +87,9 @@ rows:
       - type: structured_text
         structured_text:
           header: "The Process"
-          icon: "icon-gear"
-          icon_color: blue
+          icon: 
+            name: "icon-gear"
+            color: blue
           text:
           - content: "When we receive your submission, our editorial team will evaluate it to see if it's a good fit for the Nexmo blog."
             type: large
@@ -91,8 +100,9 @@ rows:
       - type: structured_text
         structured_text:
           header: "Who Owns Your Work?"
-          icon: "icon-merge"
-          icon_color: blue
+          icon: 
+            name: "icon-merge"
+            color: blue
           text:
           - content: "You do! You grant Nexmo an unlimited license to publish and promote your post, but you retain full ownership."
             type: large
@@ -101,8 +111,9 @@ rows:
       - type: structured_text
         structured_text:
           header: "Submit Your Idea"
-          icon: "icon-envelope"
-          icon_color: blue
+          icon: 
+            name: "icon-envelope"
+            color: blue
           text:
           - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
             type: large

@@ -89,6 +89,13 @@ module Feedback
         }
       end
 
+      if code_language
+        options[:attachments][0][:fields] << {
+          title: ':computer: Code Language',
+          value: code_language,
+        }
+      end
+
       notifier.post options
     end
   end

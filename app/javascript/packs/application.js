@@ -14,6 +14,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import GithubCards from './GithubCards'
 import TabbedExamples from './TabbedExamples'
+import VoltaTabbedExamples from './VoltaTabbedExamples'
 import Format from './Format'
 import JsSequenceDiagrams from './JsSequenceDiagrams'
 import Navigation from './Navigation'
@@ -41,6 +42,7 @@ let refresh = () => {
   GithubCards()
   JsSequenceDiagrams()
   new TabbedExamples
+  new VoltaTabbedExamples
   new Format
   Modals()
   APIStatus()
@@ -73,6 +75,13 @@ let refresh = () => {
       tag.scrollIntoView(true);
     }
   }
+
+  setTimeout(function() {
+    const sidebarActive = document.querySelector('.Vlt-sidemenu__link_active')
+    if(sidebarActive){
+      sidebarActive.scrollIntoView(true);
+    }
+  }, 100)
 }
 
 $(document).on('nexmo:load', function() {

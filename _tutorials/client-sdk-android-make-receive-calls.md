@@ -12,7 +12,7 @@ In this tutorial you learn how to use the Nexmo Client SDK for Android, in order
 
 You create a simple app that can make a call and receive a call.
 
-The app has two buttons, to login as two different users: Jane and Joe. After logging in, the user can call the other user, or to call a Public Switched Telephone Network (PSTN) phone number.
+The app will have two buttons, which log in different users: Jane or Joe. After logging in, Jane and Joe are able to place a call and perform actions such as answer, reject or hangup.
 
 ## Prerequisites
 

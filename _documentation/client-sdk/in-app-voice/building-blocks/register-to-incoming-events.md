@@ -1,11 +1,12 @@
 ---
-title: Register to receive incoming call events
+title: Register to receive incoming Call events
+description: Shows you how to register your app to receive incoming Call events.
 navigation_weight: 3
 ---
 
-# Register to receive incoming call events
+# Register to receive incoming Call events
 
-In this building block you will see how to register for incoming call events.
+In this building block you will see how to register for incoming Call events.
 
 ## Example
 
@@ -18,4 +19,4 @@ application:
 
 ## Try it out
 
-When you run the code you register to receive an incoming call's Events.
+When you run the code you register to receive an incoming Call's Events.

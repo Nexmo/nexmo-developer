@@ -1,0 +1,31 @@
+<%
+    raise "Missing 'repo_url' key in github_repo landing page block" unless local_assigns['repo_url']
+    raise "Missing 'github_repo_title' key in github_repo landing page block" unless local_assigns['github_repo_title']
+    raise "Missing 'language' key in github_repo landing page block" unless local_assigns['language']
+%>
+
+<div class="Vlt-grid Vlt-grid--center">
+  <div class="Vlt-col Vlt-col--M-1of3 Vlt-col--1of3">
+    <a class="Vlt-card Nxd-github-card Vlt-left" href="<%= local_assigns['repo_url'] %>" data-github="Nexmo/<%= local_assigns['repo_url'].split('/').last %>">
+      <h3 class="Vlt-blue-dark"><%= local_assigns['repo_url'].split('/').last %></h3>
+      <p><%= local_assigns['github_repo_title'] %></p>
+      <p><small class="Nxd-github-card__meta">
+        <span>
+          <span class="Vlt-blue-dark">●</span> <%= local_assigns['language'] %>
+        </span>
+        <span>
+          <svg class="Vlt-icon Vlt-icon--smaller Vlt-icon--text-bottom Vlt-grey-darker" aria-hidden="true"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-star-full"></use></svg>
+          <span data-stars>
+            <svg class="Vlt-icon Vlt-icon--smaller Vlt-icon--text-bottom Vlt-grey-darker" aria-hidden="true"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-more"></use></svg>
+          </span>
+        </span>
+        <span>
+          <svg class="Vlt-icon Vlt-icon--smaller Vlt-icon--text-bottom Vlt-grey-darker" aria-hidden="true"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-fork"/></svg>
+          <span data-forks>
+            <svg class="Vlt-icon Vlt-icon--smaller Vlt-icon--text-bottom Vlt-grey-darker" aria-hidden="true"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-more"/></svg>
+          </span>
+        </span>
+      </small></p>
+    </a>
+  </div>
+</div>

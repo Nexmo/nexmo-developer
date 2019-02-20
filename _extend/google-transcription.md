@@ -19,4 +19,4 @@ Currently this is open source example code which is designed for you to build ou
 * [Google API Docs](https://cloud.google.com/speech-to-text/docs/) For information
 
 ## Support
-The open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
+This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.

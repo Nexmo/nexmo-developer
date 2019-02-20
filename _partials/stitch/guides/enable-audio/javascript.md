@@ -135,4 +135,4 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 
 ## Where next?
 - The [next guide](/client-sdk/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
-- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Client SDK for JavaScript Reference</a>
+

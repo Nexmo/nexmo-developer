@@ -2,10 +2,6 @@
 	display: inline-block;
 	position: relative;
 
-	&--full {
-		width: 100%;
-	}
-
 	&__link,
 	&__block {
 		color: $black;
@@ -157,6 +153,14 @@
 
 		&::-ms-expand {
 		    display: none;
+		}
+
+		&:hover {
+			transform: none;
+		}
+
+		&:active {
+			transform: none;
 		}
 	}
 
