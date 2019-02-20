@@ -12,7 +12,7 @@ The Nexmo Voice API offers the ability to record call audio in several ways. You
 
 1. Record a call between two people in a passive 'monitor' manner.
 2. Record audio from a single caller when they are prompted. For example, in a voicemail system.
-3. Enable recording for a named conversation ([using the conference action](/voice/voice-api/ncco-reference#conversation)).
+3. Enable recording for a named conversation ([using the conversation action](/voice/voice-api/ncco-reference#conversation)).
 
 By default all recordings are in a mono format, with all legs of the conversation in a single channel.
 
