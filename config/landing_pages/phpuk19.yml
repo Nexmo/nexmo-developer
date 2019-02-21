@@ -14,11 +14,51 @@ rows:
           icon:
             name: "icon-star"
             color: "yellow"
+  - columns:
+    - entries:
       - type: action_button
         action_button:
           text: "Sign Up For Free"
           url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=phpuk19&utm_campaign=landing"
           center_button: true
+
+  - columns:
+    - entries:
+        - type: line_divider
+
+  - columns:
+    - entries:
+      - type: header
+        header:
+          title:
+            text: "The Challenge"
+            align: center
+          subtitle:
+            text: |
+              If you're looking to win one of our excellent hackathon prizes (an Oculus Go, perhaps?)<br /> then you'll
+              need to work with the PHPUK schedule data which is available from joind.in<br /><br />
+
+              <strong>Build something that uses a Nexmo API and the schedule data to be in with a shot!</strong>
+            align: center
+          icon:
+            name: "icon-megaphone"
+            color: "red"
+  - columns:
+    - entries:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: true
+          type: primary
+    - entries:
+      - type: action_button
+        action_button:
+          text: "View joind.in API docs"
+          url: "http://docs.joind.in/joindin-api/"
+          center_button: true
+          type: secondary
+
   - columns:
     - entries:
         - type: line_divider
