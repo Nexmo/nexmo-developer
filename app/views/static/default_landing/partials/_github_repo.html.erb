@@ -4,8 +4,6 @@
     raise "Missing 'language' key in github_repo landing page block" unless local_assigns['language']
 %>
 
-<div class="Vlt-grid Vlt-grid--center">
-  <div class="Vlt-col Vlt-col--M-1of3 Vlt-col--1of3">
     <a class="Vlt-card Nxd-github-card Vlt-left" href="<%= local_assigns['repo_url'] %>" data-github="Nexmo/<%= local_assigns['repo_url'].split('/').last %>">
       <h3 class="Vlt-blue-dark"><%= local_assigns['repo_url'].split('/').last %></h3>
       <p><%= local_assigns['github_repo_title'] %></p>
@@ -27,5 +25,3 @@
         </span>
       </small></p>
     </a>
-  </div>
-</div>

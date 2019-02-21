@@ -10,13 +10,14 @@ rows:
             align: center
           subtitle:
             text: "Hello, PHPeople! We love catching up with you at events, and we've put together some resources that we hope you find useful."
-          icon: 
+            align: center
+          icon:
             name: "icon-star"
             color: "yellow"
       - type: action_button
         action_button:
           text: "Sign Up For Free"
-          url: "sign-up?#ref=phpuk19-dr"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=phpuk19&utm_campaign=landing"
           center_button: true
   - columns:
     - entries:
@@ -25,23 +26,76 @@ rows:
 
   - columns:
     - entries:
+        - type: header
+          header:
+            title:
+              text: "Nexmo ❤️ PHP"
+              align: center
+            icon:
+              name: "icon-code"
+              color: "blue-dark"
         - type: text
           text:
             content: "At Nexmo, we love PHP - it's one of our most-used and most-loved languages by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo PHP library:"
         - type: text
           text:
-            content: "`composer require nexmo/client`"
+            content: |
+              ```
+              composer require nexmo/client
+              ```
+        - type: text
+          text:
+            content: "Or if Laravel's your thing, we have a prebuilt package that wraps the Nexmo client, reads your config from `.env` and makes it available through the `Nexmo` facade"
+        - type: text
+          text:
+            content: |
+              ```
+              composer require nexmo/laravel
+              ```
 
     - entries:
-        - type: github_repo
-          github_repo:
-            repo_url: https://github.com/nexmo/nexmo-php
-            github_repo_title: Nexmo-PHP library 
-            language: PHP
+        - type: header
+          header:
+            title:
+              text: "Get started by making a call"
+              align: center
+            icon:
+              name: "icon-call"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: |
+              ```php
+              $call = $client->calls()->create([
+                  'to' => [[
+                      'type' => 'phone',
+                      'number' => TO_NUMBER
+                  ]],
+                  'from' => [
+                      'type' => 'phone',
+                      'number' => NEXMO_NUMBER
+                  ],
+                  'answer_url' => ['https://developer.nexmo.com/ncco/tts.json'],
+              ]);
+              ```
 
   - columns:
     - entries:
         - type: line_divider
+
+  - columns:
+    - entries:
+      - type: text
+        text:
+          content: |
+            <span></span>
+            <div class="Vlt-callout Vlt-callout--shoutout">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
+            	</div>
+            </div>
+            <br />
   - columns:
     - entries:
       - type: call_to_action
@@ -61,22 +115,18 @@ rows:
           icon: 
             name: "icon-chat"
             color: "purple"
-          url: "/messages"
+          url: "/messages/overview"
 
     - entries:
       - type: call_to_action
         call_to_action:
           title: "Verify"
-          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) reduces fraud and improves contactability for your application's users."
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
           icon: 
             name: "icon-lock"
             color: "indigo"
           url: "/verify"
-  - columns:
-    - entries:
-      - type: text
-        text: 
-          content: "**Pro-tip:** Download the OpenAPI spec from our API reference pages and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs."
+
 
   - columns:
     - entries:
@@ -88,32 +138,49 @@ rows:
         section_header:
           title: "Handy PHP-related links and further reading"
           icon:
-            name: "icon-pin2"
+            name: "icon-pin-2"
             color: "blue-dark"
 
+
+  - columns:
+    - entries:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+            	</div>
+            </div>
   - columns:
     - entries:
       - type: unordered_list
         unordered_list:
+            bullet_shape: simple
             list:
-              - item: "[Voice Application: Before you begin](http://localhost:3000/voice/voice-api/building-blocks/before-you-begin)"
-              - item: "[Nexmo Call Control Objects (NCCOs)](http://localhost:3000/voice/voice-api/guides/ncco)"
-              - item: "[Receive an Incoming Call with PHP](https://www.nexmo.com/blog/2018/06/28/receive-an-inbound-voice-call-with-php-dr/) (Blog post)"
-              - item: "[Handle Keypad Input (DTMF) with PHP](https://www.nexmo.com/blog/2018/08/10/handle-user-input-with-php-dr/) (Blog post)"
-              - item: "[Interactive Voice Response](http://localhost:3000/tutorials/interactive-voice-response) (Tutorial)"
+              - item: "[Voice Applications: Before you begin](/voice/voice-api/building-blocks/before-you-begin)"
+              - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+              - item: "[Receive an Incoming Call with PHP](https://www.nexmo.com/blog/2018/06/28/receive-an-inbound-voice-call-with-php-dr/)"
+              - item: "[Handle Keypad Input (DTMF) with PHP](https://www.nexmo.com/blog/2018/08/10/handle-user-input-with-php-dr/)"
+              - item: "[Interactive Voice Response](/tutorials/interactive-voice-response)"
     - entries:
       - type: unordered_list
         unordered_list:
+            bullet_shape: simple
             list:
-              - item: "[Make an Outbound Call with an NCCO](http://localhost:3000/voice/voice-api/building-blocks/make-an-outbound-call-with-ncco)"
-              - item: "[Play Text-to-Speech into a Call](http://localhost:3000/voice/voice-api/building-blocks/play-text-to-speech-into-a-call)"
-              - item: "[Record a Call](http://localhost:3000/voice/voice-api/building-blocks/record-a-call)"
-              - item: "[Connect Callers into a Conference](http://localhost:3000/voice/voice-api/building-blocks/connect-callers-into-a-conference)"
-              - item: "[Transfer a Call](http://localhost:3000/voice/voice-api/building-blocks/transfer-a-call)"
-
+              - item: "[Make an Outbound Call with an NCCO](/voice/voice-api/building-blocks/make-an-outbound-call-with-ncco/php)"
+              - item: "[Play Text-to-Speech into a Call](/voice/voice-api/building-blocks/play-text-to-speech-into-a-call/php)"
+              - item: "[Record a Call](/voice/voice-api/building-blocks/record-a-call/php)"
+              - item: "[Connect Callers into a Conference](/voice/voice-api/building-blocks/connect-callers-into-a-conference/php)"
+              - item: "[Transfer a Call](/voice/voice-api/building-blocks/transfer-a-call/php)"
   - columns:
     - entries:
         - type: line_divider
   - columns:
     - entries:
       - type: join_slack
+  - columns:
+    - entries:
+        - type: line_divider
