@@ -26,23 +26,79 @@ rows:
     - entries:
         - type: line_divider
 
+
   - columns:
     - entries:
-      - type: header
-        header:
-          title:
-            text: "The Challenge"
-            align: center
-          subtitle:
-            text: |
-              If you're looking to win one of our excellent hackathon prizes (an Oculus Go, perhaps?)<br /> then you'll
-              need to work with the PHPUK schedule data which is available from joind.in<br /><br />
-
-              <strong>Build something that uses a Nexmo API and the schedule data to be in with a shot!</strong>
-            align: center
+      - type: text
+        text:
+          content: "# The Nexmo Hackathon"
+  - columns:
+    - entries:
+      - type: structured_text
+        structured_text:
+          header: "The Challenge"
           icon:
-            name: "icon-megaphone"
-            color: "red"
+            name: "icon-laptop"
+            color: blue
+          text:
+          - content: The main challenge is to build a project around the PHP UK 2019 Conference schedule data by using at least one of <a href="/api">Nexmo’s APIs</a>. You're especially encouraged to use Nexmo's Voice, Verify or Messages APIs.
+            type: large
+          - content: Otherwise, you’re welcome to hang out in the Nexmo Hackathon Lounge, build anything you want using our APIs and still present your project.
+            type: large
+
+    - entries:
+      - type: structured_text
+        structured_text:
+          header: "Prizes & Judging"
+          icon:
+            name: "icon-thumbs-up"
+            color: blue
+          text:
+          - content: To be eligible for the main prize, an Oculus Go, you’ll need to build something around the schedule challenge. Need not worry, we’ll also be giving out prizes for other projects.
+            type: large
+          - content: Each team will be judged based on their **idea**, **presentation**, **technical execution** and **use of Nexmo**.
+            type: large
+
+    - entries:
+      - type: structured_text
+        structured_text:
+          header: "The Rules"
+          icon:
+            name: "icon-books"
+            color: blue
+          text:
+          - content: You can form teams of up to three people. You’ll need to incorporate at least one of <a href="/api">Nexmo’s APIs</a> and the conference <a href="http://api.joind.in/v2.1/events/7001/talks">schedule data</a> to be eligible for the main prize, an Oculus Go for each member of the winning team.
+            type: large
+          - content: You’ll need to <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZ6lfH15AX5HkANMf-Wot4u8IuSB5Leov6Sfr_O595NeNmeg/viewform">submit your project</a> the latest by 12:30pm on Friday and be ready to present in the Nexmo Hackathon Lounge.
+            type: large
+
+    - entries:
+      - type: structured_text
+        structured_text:
+          header: "The Timeline"
+          icon:
+            name: "icon-clock"
+            color: blue
+          text:
+          - type: large
+            content: |
+              **Thursday**<br />
+
+              * 10:15am - Start hacking!<br />
+              * 12:30pm - Lunch and pizza served in the Hackathon Lounge<br />
+              * 2:30pm - Pitch us your idea on Twitter @NexmoDev<br />
+          - type: large
+            content: |
+              **Friday**<br />
+
+              * 12:30pm - Hacking stops! Submit google form<br />
+              * 12:40pm - Presentations start in the Hackathon Lounge<br />
+              * 4:45pm - Winners announced and prizes awarded in the main track/Porter Tun room
+
+  - columns:
+    - entries:
+        - type: line_divider
+
   - columns:
     - entries:
       - type: action_button
@@ -51,18 +107,77 @@ rows:
           url: "/"
           center_button: true
           type: primary
+          large: true
     - entries:
       - type: action_button
         action_button:
-          text: "View joind.in API docs"
-          url: "http://docs.joind.in/joindin-api/"
+          text: "Get the schedule data"
+          url: "http://api.joind.in/v2.1/events/7001/talks"
           center_button: true
-          type: secondary
+          type: primary
+          large: true
+    - entries:
+      - type: action_button
+        action_button:
+          text: "Submit your hack"
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSfZ6lfH15AX5HkANMf-Wot4u8IuSB5Leov6Sfr_O595NeNmeg/viewform "
+          center_button: true
+          type: primary
+          large: true
+
 
   - columns:
     - entries:
         - type: line_divider
 
+
+  - columns:
+    - entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon: 
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          icon: 
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages/overview"
+
+    - entries:
+      - type: call_to_action
+        call_to_action:
+          title: "Verify"
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
+          icon: 
+            name: "icon-lock"
+            color: "indigo"
+          url: "/verify"
+
+  - columns:
+    - entries:
+      - type: text
+        text:
+          content: |
+            <br />
+            <div class="Vlt-callout Vlt-callout--shoutout">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
+            	</div>
+            </div>
+
+  - columns:
+    - entries:
+        - type: line_divider
 
   - columns:
     - entries:
@@ -121,55 +236,6 @@ rows:
               <div class="Vlt-right">
               <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/building-blocks/make-an-outbound-call">View the complete code &raquo;</a>
               </div>
-
-  - columns:
-    - entries:
-        - type: line_divider
-
-  - columns:
-    - entries:
-      - type: text
-        text:
-          content: |
-            <span></span>
-            <div class="Vlt-callout Vlt-callout--shoutout">
-            	<i></i>
-            	<div class="Vlt-callout__content">
-                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
-            	</div>
-            </div>
-            <br />
-  - columns:
-    - entries:
-      - type: call_to_action
-        call_to_action:
-          title: "Voice"
-          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
-          icon: 
-            name: "icon-phone"
-            color: "green"
-          url: "/voice"
-
-    - entries:
-      - type: call_to_action
-        call_to_action:
-          title: "Messages"
-          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
-          icon: 
-            name: "icon-chat"
-            color: "purple"
-          url: "/messages/overview"
-
-    - entries:
-      - type: call_to_action
-        call_to_action:
-          title: "Verify"
-          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
-          icon: 
-            name: "icon-lock"
-            color: "indigo"
-          url: "/verify"
-
 
   - columns:
     - entries:
