@@ -12,6 +12,7 @@ title: Landing Pages
     - [Action Button](#action-button)
     - [Call to Action](#call-to-action)
     - [Contact Support](#contact-support)
+    - [Events](#events)
     - [GitHub Repo](#github-repo)
     - [Header](#header)
     - [HTML](#html)
@@ -20,6 +21,7 @@ title: Landing Pages
     - [Linked Image](#linked-image)
     - [Products](#products)
     - [Section Header](#section-header)
+    - [Sessions](#sessions)
     - [Structured Text](#structured-text)
     - [Text](#text)
     - [Tutorial](#tutorial)
@@ -132,6 +134,18 @@ The `contact_support` content block is a pre-defined set of information that tak
 ```yaml
 
 - type: contact_support
+
+```
+
+### Events
+
+<img src="/assets/images/contributing/landing_page_screenshots/contact_support.png" width=400>
+
+The `events` content block is a pre-defined set of information that takes no parameters. Once you add it to your config file, it will populate with information on upcoming DevRel Community events, with a generated Google Maps with markers for each event. To add it to your config file, just reference it:
+
+```yaml
+
+- type: events
 
 ```
 
