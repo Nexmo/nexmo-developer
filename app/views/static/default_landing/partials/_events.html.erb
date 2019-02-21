@@ -20,6 +20,14 @@
 </div>
 
 <div class="Vlt-col Vlt-col--1of3 Vlt-col--left">
+	<%= form_tag '/event_search', :html => { :onsubmit => "eventSearch()" } do %>
+		<div id="SearchComponent" key="SearchComponent">
+			<input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+		</div>
+	<% end %>
+</div>
+
+<div class="Vlt-col Vlt-col--1of3 Vlt-col--left">
     <p>
       <%= link_to 'Subscribe to feed', feeds_events_url(protocol: :webcal, format: :ics), class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
       <% if @past_events_count > 0 %>
