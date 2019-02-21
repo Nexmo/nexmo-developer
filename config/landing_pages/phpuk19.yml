@@ -78,6 +78,9 @@ rows:
                   'answer_url' => ['https://developer.nexmo.com/ncco/tts.json'],
               ]);
               ```
+              <div class="Vlt-right">
+              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/building-blocks/make-an-outbound-call">View the complete code &raquo;</a>
+              </div>
 
   - columns:
     - entries:
