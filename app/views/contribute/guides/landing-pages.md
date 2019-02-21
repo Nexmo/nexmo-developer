@@ -139,7 +139,7 @@ The `contact_support` content block is a pre-defined set of information that tak
 
 ### Events
 
-<img src="/assets/images/contributing/landing_page_screenshots/contact_support.png" width=400>
+<img src="/assets/images/contributing/landing_page_screenshots/events.png" width=400>
 
 The `events` content block is a pre-defined set of information that takes no parameters. Once you add it to your config file, it will populate with information on upcoming DevRel Community events, with a generated Google Maps with markers for each event. To add it to your config file, just reference it:
 
@@ -279,6 +279,18 @@ The `section_header` content block is used to create a header for a new section 
     icon:
       name: # Name of icon (i.e. "icon-app")
       color: # Color of icon (i.e. "yellow")
+
+```
+
+### Sessions
+
+<img src="/assets/images/contributing/landing_page_screenshots/sessions.png" width=400>
+
+The `sessions` content block is a pre-defined set of information that takes no parameters. Once you add it to your config file, it will populate with links to past DevRel presentations. To add it to your config file, just reference it:
+
+```yaml
+
+- type: sessions
 
 ```
 
