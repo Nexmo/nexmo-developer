@@ -44,8 +44,8 @@ For iOS:
 
 1. [Set up push notifications](/tutorials/client-sdk-ios-set-up-push-notifications).
 2. [Add SDK to your App](/tutorials/client-sdk-ios-add-sdk-to-your-app).
-3. [Make and receive calls](/tutorials/client-sdk-ios-in-app-calling) in [Objective-C](/tutorials/client-sdk-ios-make-receive-calls-objective-c) or [Swift](/tutorials/client-sdk-ios-make-receive-calls-swift).
-4. Phone to App calls in [Objective-C](/tutorials/client-sdk-ios-inbound-pstn-objective-c) or [Swift](/tutorials/client-sdk-ios-inbound-pstn-swift)
+3. [App to App calls](/tutorials/client-sdk-ios-in-app-calling).
+4. [Phone to App calls](/tutorials/client-sdk-ios-inbound-pstn).
 
 For JavaScript:
 
