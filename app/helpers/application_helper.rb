@@ -132,6 +132,11 @@ module ApplicationHelper
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
         has_active_class = (active_path == url) || active_path.start_with?("#{url}/")
 
+        # Handle tutorials
+        if @navigation == :tutorials
+          has_active_class = url == "/#{@product}/tutorials"
+        end
+
         if !child[:is_file?]
           if context.first[:children]
             ss << "<a class='Vlt-sidemenu__trigger'>"

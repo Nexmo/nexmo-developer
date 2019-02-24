@@ -11,7 +11,6 @@ HEADING_TAG_DEPTHS = {
 module NavigationHelper
   def navigation_from_content(content:, title: nil)
     content = "<h0 class='injected'>#{title}</h0>\n" + content if title
-
     document = build_document(content)
 
     nodes = ['<ul class="Vlt-sidemenu Vlt-sidemenu--rounded Vlt-sidemenu--flat navigation js-navigation">']

@@ -1,1 +1,8 @@
-<%= @content.html_safe %>
+<div class="Vlt-grid ">
+  <div class="Vlt-col Vlt-col--3of4 Nxd-tutorial">
+    <%= @content.html_safe %>
+  </div>
+  <div class="Vlt-col Vlt-col--1of4 Vlt-sidenav Nxd-tutorial-sidenav">
+    <%= navigation_from_content(content: @content) %>
+  </div>
+</div>

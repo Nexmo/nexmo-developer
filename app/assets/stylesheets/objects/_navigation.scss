@@ -85,3 +85,22 @@
     display: none;
   }
 }
+
+.Nxd-tutorial {
+  border-right: 1px solid silver;
+}
+.Nxd-tutorial-sidenav {
+  a {
+    color: black;
+  }
+  padding: 0px;
+
+  li li {
+    margin-left: 10px !important;
+  }
+}
+
+
+.Vlt-sidemenu__link_active {
+  color: white !important;
+}

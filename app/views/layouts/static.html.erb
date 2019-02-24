@@ -4,6 +4,20 @@
 
   <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
+    <div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light">
+      <div class="Vlt-sidenav__scroll">
+        <nav class="sidenav" data-turbolinks-permanent tabindex="0" >
+          <% if (@sidebar_nav) %>
+            <%= @sidebar_nav %>
+          <% elsif @custom_navigation %>
+            <%= custom_navigation(@custom_navigation) %>
+          <% else %>
+            <%= sidenav(@sidenav_root, @active_path) %>
+          <% end %>
+        </nav>
+      </div>
+    </div>
+
     <nav class="Vlt-sidenav Vlt-sidenav--light" id="Vlt-sidenav" data-turbolinks-permanent>
       <% if @return_link %>
         <%= link_to @return_link[:path], class: 'sidenav-back', data: { turbolinks: false } do %>
@@ -11,7 +25,6 @@
         <% end %>
         <hr>
       <% end %>
-      <%= navigation_from_content(content: @content, title: @document_title) %>
     </nav>
     <div class="Vlt-main Vlt-main--light Nxd-main" id="primary-content" data-turbolinks="false" tabindex="2">
       <%= render partial: 'layouts/partials/notices' %>

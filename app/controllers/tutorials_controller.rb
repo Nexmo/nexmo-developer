@@ -24,18 +24,23 @@ class TutorialsController < ApplicationController
   end
 
   def show
-    @document_path = "_tutorials/#{@document}.md"
-
     # Read document
+    @document_path = "_tutorials/#{@document}.md"
     document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
+
     @document_title = @frontmatter['title']
+    @product = @frontmatter['products']
 
     @content = MarkdownPipeline.new({ code_language: @code_language, disable_label_filter: true }).call(document)
 
-    render layout: 'static'
+    @namespace_path = "_documentation/#{@product}"
+    @namespace_root = '_documentation'
+    @sidenav_root = "#{Rails.root}/_documentation"
+
+    render layout: 'documentation'
   end
 
   private
@@ -46,8 +51,5 @@ class TutorialsController < ApplicationController
 
   def set_navigation
     @navigation = :tutorials
-    @side_navigation_extra_links = {
-      'Tutorials' => '/tutorials',
-    }
   end
 end
