@@ -203,13 +203,13 @@ The UI contains:
 Install the Nexmo Client SDK for JavaScript:
 
 ```bash
-$ npm install nexmo-stitch
+$ npm install nexmo-client
 ```
 
 Include the Nexmo Client SDK for JavaScript in the `<head>`:
 
 ```html
-<script src="./node_modules/nexmo-stitch/dist/conversationClient.js"></script>
+<script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
 ```
 
 > **Note:** Depending on where your Node modules are installed you may need to modify the path given here.
