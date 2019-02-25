@@ -13,5 +13,4 @@ override fun onStop() {
     NexmoClient.get().removeIncomingCallListeners()
     super.onStop()
 }
-
 ```

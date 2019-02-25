@@ -3,7 +3,7 @@ title: Java
 navigation_weight: 1
 ---
 
-``` Java
+```java
 void loginToSdk(String token) {
     NexmoClient.get().login(token, new NexmoRequestListener<NexmoUser>() {
 

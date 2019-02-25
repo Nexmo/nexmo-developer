@@ -7,14 +7,12 @@ navigation_weight: 0
 var callEventListener = FinishOnCallEnd(this)
 
 override fun onCreate(savedInstanceState: Bundle?) {
-    //...
     currentCall?.addCallEventListener(callEventListener)
 }
 
 
- override fun onDestroy() {
+override fun onDestroy() {
     currentCall?.removeCallEventListener(callEventListener)
     super.onDestroy()
 }
-
 ```
