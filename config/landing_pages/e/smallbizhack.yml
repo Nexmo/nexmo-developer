@@ -1,8 +1,8 @@
 title: "Use our APIs & SDK or or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
 
-rows:
-  - columns:
-    - entries:
+page:
+  - row:
+    - column:
       - type: header
         header:
           title:
@@ -14,26 +14,26 @@ rows:
           icon:
             name: "icon-star"
             color: "yellow"
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: action_button
         action_button:
           text: "Sign Up For Free"
           url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=smallbizhack&utm_campaign=landing"
           center_button: true
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: text
         text:
           content: "# Hack with Nexmo"
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: structured_text
         structured_text:
           header: "The Challenge"
@@ -45,7 +45,7 @@ rows:
             type: large
 
 
-    - entries:
+    - column:
       - type: structured_text
         structured_text:
           header: "Prizes"
@@ -58,12 +58,12 @@ rows:
           - content: Each team will be judged based on their **idea**, **presentation**, **technical execution** and **use of Nexmo**.
             type: large
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: action_button
         action_button:
           text: "View Nexmo docs"
@@ -73,13 +73,13 @@ rows:
           large: true
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Voice"
@@ -89,7 +89,7 @@ rows:
             color: "green"
           url: "/voice"
 
-    - entries:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Messages"
@@ -99,7 +99,7 @@ rows:
             color: "purple"
           url: "/messages/overview"
 
-    - entries:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Conversation"
@@ -109,8 +109,8 @@ rows:
             color: "indigo"
           url: "/conversation"
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: text
         text:
           content: |
@@ -122,12 +122,12 @@ rows:
             	</div>
             </div>
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: header
           header:
             title:
@@ -155,7 +155,7 @@ rows:
               npm install nexmo-client --save
               ```
 
-    - entries:
+    - column:
         - type: header
           header:
             title:
@@ -178,12 +178,12 @@ rows:
               <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/building-blocks/make-an-outbound-call">View the complete code &raquo;</a>
               </div>
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: section_header
         section_header:
           title: "Handy links and further reading"
@@ -192,8 +192,8 @@ rows:
             color: "blue-dark"
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: text
         text:
           content: >
@@ -204,8 +204,8 @@ rows:
                 Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
             	</div>
             </div>
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: unordered_list
         unordered_list:
             bullet_shape: simple
@@ -215,7 +215,7 @@ rows:
               - item: "[How to Make and Receive Voice calls with the Nexmo Client SDK on Android](/tutorials/client-sdk-android-make-receive-calls)"
               - item: "[How to Add the Nexmo Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
               - item: "[How to Make and Receive Voice Calls with the Nexmo Client SDK on iOS using Objective-C](/tutorials/client-sdk-ios-make-receive-calls-objective-c)"
-    - entries:
+    - column:
       - type: unordered_list
         unordered_list:
             bullet_shape: simple
@@ -225,12 +225,12 @@ rows:
               - item: "[Record a Call](/voice/voice-api/building-blocks/record-a-call/node)"
               - item: "[Connect Callers into a Conference](/voice/voice-api/building-blocks/connect-callers-into-a-conference/node)"
               - item: "[Transfer a Call](/voice/voice-api/building-blocks/transfer-a-call/node)"
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: join_slack
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider

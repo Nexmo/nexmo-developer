@@ -1,8 +1,8 @@
 title: "Nexmo loves PHP! Use our SDKs or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
 
-rows:
-  - columns:
-    - entries:
+page:
+  - row:
+    - column:
       - type: header
         header:
           title:
@@ -14,26 +14,26 @@ rows:
           icon:
             name: "icon-star"
             color: "yellow"
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: action_button
         action_button:
           text: "Sign Up For Free"
           url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=phpuk19&utm_campaign=landing"
           center_button: true
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: text
         text:
           content: "# The Nexmo Hackathon"
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: structured_text
         structured_text:
           header: "The Challenge"
@@ -46,7 +46,7 @@ rows:
           - content: Otherwise, you’re welcome to hang out in the Nexmo Hackathon Lounge, build anything you want using our APIs and still present your project.
             type: large
 
-    - entries:
+    - column:
       - type: structured_text
         structured_text:
           header: "Prizes & Judging"
@@ -59,7 +59,7 @@ rows:
           - content: Each team will be judged based on their **idea**, **presentation**, **technical execution** and **use of Nexmo**.
             type: large
 
-    - entries:
+    - column:
       - type: structured_text
         structured_text:
           header: "The Rules"
@@ -72,7 +72,7 @@ rows:
           - content: You’ll need to <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZ6lfH15AX5HkANMf-Wot4u8IuSB5Leov6Sfr_O595NeNmeg/viewform">submit your project</a> the latest by 12:30pm on Friday and be ready to present in the Nexmo Hackathon Lounge.
             type: large
 
-    - entries:
+    - column:
       - type: structured_text
         structured_text:
           header: "The Timeline"
@@ -95,12 +95,12 @@ rows:
               * 12:40pm - Presentations start in the Hackathon Lounge<br />
               * 4:45pm - Winners announced and prizes awarded in the main track/Porter Tun room
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: action_button
         action_button:
           text: "View Nexmo docs"
@@ -108,7 +108,7 @@ rows:
           center_button: true
           type: primary
           large: true
-    - entries:
+    - column:
       - type: action_button
         action_button:
           text: "Get the schedule data"
@@ -116,7 +116,7 @@ rows:
           center_button: true
           type: primary
           large: true
-    - entries:
+    - column:
       - type: action_button
         action_button:
           text: "Submit your hack"
@@ -126,13 +126,13 @@ rows:
           large: true
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Voice"
@@ -142,7 +142,7 @@ rows:
             color: "green"
           url: "/voice"
 
-    - entries:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Messages"
@@ -152,7 +152,7 @@ rows:
             color: "purple"
           url: "/messages/overview"
 
-    - entries:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Verify"
@@ -162,8 +162,8 @@ rows:
             color: "indigo"
           url: "/verify"
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: text
         text:
           content: |
@@ -175,12 +175,12 @@ rows:
             	</div>
             </div>
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: header
           header:
             title:
@@ -208,7 +208,7 @@ rows:
               composer require nexmo/laravel
               ```
 
-    - entries:
+    - column:
         - type: header
           header:
             title:
@@ -237,12 +237,12 @@ rows:
               <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/building-blocks/make-an-outbound-call">View the complete code &raquo;</a>
               </div>
 
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: section_header
         section_header:
           title: "Handy PHP-related links and further reading"
@@ -251,8 +251,8 @@ rows:
             color: "blue-dark"
 
 
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: text
         text:
           content: >
@@ -263,8 +263,8 @@ rows:
                 Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
             	</div>
             </div>
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: unordered_list
         unordered_list:
             bullet_shape: simple
@@ -274,7 +274,7 @@ rows:
               - item: "[Receive an Incoming Call with PHP](https://www.nexmo.com/blog/2018/06/28/receive-an-inbound-voice-call-with-php-dr/)"
               - item: "[Handle Keypad Input (DTMF) with PHP](https://www.nexmo.com/blog/2018/08/10/handle-user-input-with-php-dr/)"
               - item: "[Interactive Voice Response](/tutorials/interactive-voice-response)"
-    - entries:
+    - column:
       - type: unordered_list
         unordered_list:
             bullet_shape: simple
@@ -284,12 +284,12 @@ rows:
               - item: "[Record a Call](/voice/voice-api/building-blocks/record-a-call/php)"
               - item: "[Connect Callers into a Conference](/voice/voice-api/building-blocks/connect-callers-into-a-conference/php)"
               - item: "[Transfer a Call](/voice/voice-api/building-blocks/transfer-a-call/php)"
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
-  - columns:
-    - entries:
+  - row:
+    - column:
       - type: join_slack
-  - columns:
-    - entries:
+  - row:
+    - column:
         - type: line_divider
