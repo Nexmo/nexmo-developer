@@ -42,6 +42,9 @@ rows:
             color: blue
   - columns:
     - entries:
+      - type: featured_session
+  - columns:
+    - entries:
       - type: sessions
   - columns:
     - entries:
