@@ -28,12 +28,6 @@ rows:
       - type: line_divider
   - columns:
     - entries:
-      - type: join_slack
-  - columns:
-    - entries:
-      - type: line_divider
-  - columns:
-    - entries:
       - type: section_header
         section_header:
           title: "Resources"
@@ -52,6 +46,8 @@ rows:
   - columns:
     - entries:
       - type: contact_support
+      - type: line_divider
+      - type: join_slack
     - entries:
       - type: section_header
         section_header:
@@ -61,4 +57,4 @@ rows:
             color: blue
       - type: html
         html:
-          content: <a class="twitter-timeline" data-width="400" data-height="200" data-dnt="true" href="https://twitter.com/NexmoDev?ref_src=twsrc%5Etfw">Tweets by NexmoDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          content: <a class="twitter-timeline" data-width="400" data-height="300" data-dnt="true" href="https://twitter.com/NexmoDev?ref_src=twsrc%5Etfw">Tweets by NexmoDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
