@@ -22,6 +22,7 @@ module NavigationHelper
       # If it's a header within tabbed content (including building blocks) we don't want to treat
       # the header as a navigation item in the sidebar
       next unless heading.ancestors('.tabs-content').empty?
+      next unless heading.ancestors('.Vlt-tabs').empty?
 
       # Same with callouts
       next unless heading.ancestors('.Vlt-callout').empty?
