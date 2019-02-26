@@ -8,7 +8,7 @@ In this example you will send an MMS that can fail over to sending an SMS.
 
 In the Workflow object, message objects can be placed in any order to suit your use case. Each message object must contain a failover object, except for the last message, as there are no more message objects to failover to.
 
-> **NOTE:** MMS only supports US Short Code and US LVNs.
+> **NOTE:** MMS only supports US Short Codes.
 
 ## Example
 
@@ -17,8 +17,8 @@ Ensure the following variables are set to your required values using any conveni
 Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` | The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the MMS from. (US Short Code and US LVN)
-`TO_NUMBER` | The phone number you are sending the MMS to (Recipients on T-Mobile and Verizon networks are currently only supported when sending from US Short codes).
+`FROM_NUMBER` | The phone number you are sending the MMS from (US Short Code only).
+`TO_NUMBER` | The phone number you are sending the MMS to.
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
