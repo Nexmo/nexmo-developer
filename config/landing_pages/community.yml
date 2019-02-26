@@ -1,6 +1,6 @@
-page:
-  - row:
-    - column:
+rows:
+  - columns:
+    - entries:
       - type: header
         header:
           title: 
@@ -9,46 +9,47 @@ page:
           icon:
             name: icon-world-hand
             color: blue
-  - row:
-    - column:
+  - columns:
+    - entries:
       - type: line_divider
-  - row:
-    - column:
+  - columns:
+    - entries:
       - type: section_header
         section_header:
           title: "You can find us at these upcoming events"
           icon:
             name: icon-group-7
             color: blue
-  - row:
-    - column:
+  - columns:
+    - entries:
       - type: events
-  - row:
-    - column:
+  - columns:
+    - entries:
       - type: line_divider
-  - row:
-    - column:
+  - columns:
+    - entries:
       - type: section_header
         section_header:
           title: "Video Resources"
           icon:
             name: icon-menu
             color: blue
-  - row:
-    - column:
+  - columns:
+    - width: 1
+      entries:
       - type: featured_session
-  - row:
-    - column:
+    - width: 3
+      entries:
       - type: sessions
-  - row:
-    - column:
+  - columns:
+    - entries:
       - type: line_divider
-  - row:
-    - column:
+  - columns:
+    - entries:
       - type: contact_community
       - type: line_divider
       - type: join_slack
-    - column:
+    - entries:
       - type: section_header
         section_header:
           title: "@NexmoDev on Twitter"

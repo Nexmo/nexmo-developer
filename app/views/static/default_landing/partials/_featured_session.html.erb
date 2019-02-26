@@ -2,32 +2,28 @@
 
 <% if @sessions.any? %>
   
-  <div class="Vlt-card" style="width: 600px; margin: auto;">
+  <div class="Vlt-card">
     <div class="Vlt-card__image" style="background: #33aaee;">
         <div class="Vlt-card__image__icon">
             <svg class="Vlt-blue"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-video"></use></svg>
         </div>
     </div>
     <div class="Vlt-card__header Vlt-center">
-      <h2 class="Vlt-title--icon Vlt-title--center">
+      <h3 class="Vlt-title--icon Vlt-title--center">
         <svg class="Vlt-orange Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-star-full"></use></svg>
         &nbsp;Featured Video&nbsp;
         <svg class="Vlt-orange Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-star-full"></use></svg>
       </h2>
     </div>
     <div class="Vlt-grid Vlt-grid--middle">
-      <% @sessions.shuffle.each do |session| %>
-        <div class="Vlt-col">
-          <div class="video">
-            <iframe src="<%= video_embed_url(session.video_url) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-          </div>
-          <h4><%= session.title %></h4>
-          <p><%= session.description %></p>
-          <br>
+      <% session = @sessions.shuffle.first %>
+      <div class="Vlt-col Vlt-margin--bottom4">
+        <div class="video">
+          <iframe src="<%= video_embed_url(session.video_url) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-      <% end %>
+        <h4><%= session.title %></h4>
+        <br><br>
+      </div>
     </div>
   </div>
-  <br><br>
-
 <% end %>
