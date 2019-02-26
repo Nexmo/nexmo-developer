@@ -45,7 +45,7 @@ rows:
       - type: line_divider
   - columns:
     - entries:
-      - type: contact_support
+      - type: contact_community
       - type: line_divider
       - type: join_slack
     - entries:
