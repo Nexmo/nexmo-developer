@@ -30,7 +30,7 @@ rows:
     - entries:
       - type: section_header
         section_header:
-          title: "Resources"
+          title: "Video Resources"
           icon:
             name: icon-menu
             color: blue
