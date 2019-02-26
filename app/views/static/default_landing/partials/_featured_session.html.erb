@@ -2,27 +2,32 @@
 
 <% if @sessions.any? %>
   
-  <div class="Vlt-card">
-    <div class="Vlt-card__image Vlt-gradient--blue">
+  <div class="Vlt-card" style="width: 600px; margin: auto;">
+    <div class="Vlt-card__image" style="background: #33aaee;">
         <div class="Vlt-card__image__icon">
-            <svg class="Vlt-blue"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-video-conference"></use></svg>
+            <svg class="Vlt-blue"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-video"></use></svg>
         </div>
     </div>
     <div class="Vlt-card__header Vlt-center">
-        <h2>Featured Video</h2>
+      <h2 class="Vlt-title--icon Vlt-title--center">
+        <svg class="Vlt-orange Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-star-full"></use></svg>
+        &nbsp;Featured Video&nbsp;
+        <svg class="Vlt-orange Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-star-full"></use></svg>
+      </h2>
     </div>
     <div class="Vlt-grid Vlt-grid--middle">
       <% @sessions.shuffle.each do |session| %>
         <div class="Vlt-col">
-          <h4><%= session.title %></h4>
           <div class="video">
             <iframe src="<%= video_embed_url(session.video_url) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
+          <h4><%= session.title %></h4>
           <p><%= session.description %></p>
           <br>
         </div>
       <% end %>
     </div>
   </div>
+  <br><br>
 
 <% end %>
