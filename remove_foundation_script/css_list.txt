@@ -46,3 +46,45 @@ Line 89 in ../app/views/static/migrate.html.erb:     <div class="columns small-o
 Line 2 in ../app/views/static/legacy.html.erb:   <div class="colums small-12 large-9 large-centered">
 Line 2 in ../app/views/static/legacy.html.erb:   <div class="colums small-12 large-9 large-centered">
 Line 2 in ../app/views/static/legacy.html.erb:   <div class="colums small-12 large-9 large-centered">
+Line 17 in ../app/views/api_errors/index.html.erb:   <div class="columns small-12 large-6">
+Line 22 in ../app/views/api_errors/index.html.erb:   <div class="columns small-12 large-6">
+Line 17 in ../app/views/api_errors/index.html.erb:   <div class="columns small-12 large-6">
+Line 22 in ../app/views/api_errors/index.html.erb:   <div class="columns small-12 large-6">
+Line 6 in ../app/views/api_errors/_error_table.html.erb:     <th class="small-2">Actions</th>
+Line 10 in ../app/views/search/results.html.erb:       <div class="columns small-12 medium-6">
+Line 10 in ../app/views/search/results.html.erb:       <div class="columns small-12 medium-6">
+Line 7 in ../app/views/static/landing.html.erb:     <div class="columns small-12">
+Line 4 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-2 small-8 center spacious">
+Line 19 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-2 small-8">
+Line 52 in ../app/views/static/migrate.html.erb:         <div class="columns small-12 medium-6 content-block">
+Line 63 in ../app/views/static/migrate.html.erb:         <div class="columns small-12 medium-6 content-block">
+Line 89 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-1">
+Line 52 in ../app/views/static/migrate.html.erb:         <div class="columns small-12 medium-6 content-block">
+Line 63 in ../app/views/static/migrate.html.erb:         <div class="columns small-12 medium-6 content-block">
+Line 4 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-2 small-8 center spacious">
+Line 19 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-2 small-8">
+Line 89 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-1">
+Line 4 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-2 small-8 center spacious">
+Line 19 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-2 small-8">
+Line 89 in ../app/views/static/migrate.html.erb:     <div class="columns small-offset-1">
+Line 2 in ../app/views/static/legacy.html.erb:   <div class="colums small-12 large-9 large-centered">
+Line 2 in ../app/views/static/legacy.html.erb:   <div class="colums small-12 large-9 large-centered">
+Line 2 in ../app/views/static/legacy.html.erb:   <div class="colums small-12 large-9 large-centered">
+Line 29 in ../app/views/layouts/partials/_header.html.erb:       <a href="/documentation" class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>">Documentation</a>
+Line 30 in ../app/views/layouts/partials/_header.html.erb:       <a href="/tutorials" class="Vlt-tabs__link <%= @navigation == :tutorials ? 'Vlt-tabs__link_active' : '' %>">Tutorials</a>
+Line 31 in ../app/views/layouts/partials/_header.html.erb:       <a href="/api" class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>">API Reference</a>
+Line 32 in ../app/views/layouts/partials/_header.html.erb:       <a href="/tools" class="Vlt-tabs__link <%= @navigation == :tools ? 'Vlt-tabs__link_active' : '' %>">SDKs &amp; Tools</a>
+Line 33 in ../app/views/layouts/partials/_header.html.erb:       <a href="/community" class="Vlt-tabs__link <%= @navigation == :community ? 'Vlt-tabs__link_active' : '' %>">Community</a>
+Line 34 in ../app/views/layouts/partials/_header.html.erb:       <a href="/extend" class="Vlt-tabs__link <%= @navigation == :extend ? 'Vlt-tabs__link_active' : '' %>">Extend</a>
+Line 99 in ../app/views/open_api/_endpoint.html.erb:           <div class="tabs-content" data-tabs-content="<%= id %>">
+Line 99 in ../app/views/open_api/_endpoint.html.erb:           <div class="tabs-content" data-tabs-content="<%= id %>">
+Line 110 in ../app/views/open_api/_endpoint.html.erb:                     <div class="Vlt-tabs">
+Line 111 in ../app/views/open_api/_endpoint.html.erb:                       <div class="Vlt-tabs__header">
+Line 113 in ../app/views/open_api/_endpoint.html.erb:                           <div tabindex="0" <%= schema_tab_ids[index] %>" <% if index.zero? %>class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true"<% else %>class="Vlt-tabs__link"<% end %>><%= schema['description'] || "Response #{index + 1}" %></div>
+Line 116 in ../app/views/open_api/_endpoint.html.erb:                       <div class="Vlt-tabs__content">
+Line 118 in ../app/views/open_api/_endpoint.html.erb:                          <div class="Vlt-tabs__panel <% if index.zero? %>Vlt-tabs__panel_active<% end %>">
+Line 46 in ../app/views/open_api/show.html.erb:               <% if @definition_initialization_config['tabs'] %>
+Line 47 in ../app/views/open_api/show.html.erb:               <ul class="tabs tabs--code" data-tabs>
+Line 48 in ../app/views/open_api/show.html.erb:                 <% if @definition_initialization_config['tabs'] %>
+Line 49 in ../app/views/open_api/show.html.erb:                   <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
+Line 51 in ../app/views/open_api/show.html.erb:                       class="tabs-title <%= index.zero? ? 'is-active' : '' %>"

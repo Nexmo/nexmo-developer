@@ -25,6 +25,12 @@ require 'find'
     'close-reveal-modal',
     'reveal-modal-bg',
 ]
+@tab_css = [
+    'tab-title',
+    'tabs-content',
+    'tablist',
+    'tabs',
+]
 
 def find_css(css_array)
     Dir.glob("#{@dir_path}/**/*.html.erb") do |erb_file|
@@ -42,4 +48,5 @@ end
 
 find_css(@grid_css)
 find_css(@reveal_css)
+find_css(@tab_css)
 @output_file.close
