@@ -25,15 +25,9 @@ RSpec.describe TechioFilter do
       ```
     HEREDOC
 
-    expected_output = <<~HEREDOC
-      <div class="techio-container">
-        <iframe width="100%" frameborder="0" scrolling="no" allowtransparency="true" style="visibility: hidden" src="https://tech.io/playground-widget/here/is/a/path/this is a title"></iframe>
-        <script>if(typeof window.techioScriptInjected==="undefined"){window.techioScriptInjected=true;var d=document,s=d.createElement("script");s.src="https://files.codingame.com/codingame/iframe-v-1-4.js";(d.head||d.body).appendChild(s);}</script>
-      </div>
-    HEREDOC
+    expected_output = "FREEZESTARTPGRpdiBjbGFzcz0idGVjaGlvLWNvbnRhaW5lciI-CiAgPGlmcmFtZSB3aWR0aD0iMTAwJSIgZnJhbWVib3JkZXI9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93dHJhbnNwYXJlbmN5PSJ0cnVlIiBzdHlsZT0idmlzaWJpbGl0eTogaGlkZGVuIiBzcmM9Imh0dHBzOi8vdGVjaC5pby9wbGF5Z3JvdW5kLXdpZGdldC9oZXJlL2lzL2EvcGF0aC90aGlzIGlzIGEgdGl0bGUiPjwvaWZyYW1lPgogIDxzY3JpcHQ-aWYodHlwZW9mIHdpbmRvdy50ZWNoaW9TY3JpcHRJbmplY3RlZD09PSJ1bmRlZmluZWQiKXt3aW5kb3cudGVjaGlvU2NyaXB0SW5qZWN0ZWQ9dHJ1ZTt2YXIgZD1kb2N1bWVudCxzPWQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7cy5zcmM9Imh0dHBzOi8vZmlsZXMuY29kaW5nYW1lLmNvbS9jb2RpbmdhbWUvaWZyYW1lLXYtMS00LmpzIjsoZC5oZWFkfHxkLmJvZHkpLmFwcGVuZENoaWxkKHMpO308L3NjcmlwdD4KPC9kaXY-Cg==FREEZEEND\n"
 
-    # .chop off trailing \n from input
-    expect(described_class.call(input.chop)).to eql(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
 
   it 'returns NoMethodError if input is formatted correctly but empty' do
@@ -53,15 +47,9 @@ RSpec.describe TechioFilter do
       ```
     HEREDOC
 
-    expected_output = <<~HEREDOC
-      <div class="techio-container">
-        <iframe width="100%" frameborder="0" scrolling="no" allowtransparency="true" style="visibility: hidden" src="https://tech.io/playground-widget/here/is/a/path/"></iframe>
-        <script>if(typeof window.techioScriptInjected==="undefined"){window.techioScriptInjected=true;var d=document,s=d.createElement("script");s.src="https://files.codingame.com/codingame/iframe-v-1-4.js";(d.head||d.body).appendChild(s);}</script>
-      </div>
-    HEREDOC
+    expected_output = "FREEZESTARTPGRpdiBjbGFzcz0idGVjaGlvLWNvbnRhaW5lciI-CiAgPGlmcmFtZSB3aWR0aD0iMTAwJSIgZnJhbWVib3JkZXI9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93dHJhbnNwYXJlbmN5PSJ0cnVlIiBzdHlsZT0idmlzaWJpbGl0eTogaGlkZGVuIiBzcmM9Imh0dHBzOi8vdGVjaC5pby9wbGF5Z3JvdW5kLXdpZGdldC9oZXJlL2lzL2EvcGF0aC8iPjwvaWZyYW1lPgogIDxzY3JpcHQ-aWYodHlwZW9mIHdpbmRvdy50ZWNoaW9TY3JpcHRJbmplY3RlZD09PSJ1bmRlZmluZWQiKXt3aW5kb3cudGVjaGlvU2NyaXB0SW5qZWN0ZWQ9dHJ1ZTt2YXIgZD1kb2N1bWVudCxzPWQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7cy5zcmM9Imh0dHBzOi8vZmlsZXMuY29kaW5nYW1lLmNvbS9jb2RpbmdhbWUvaWZyYW1lLXYtMS00LmpzIjsoZC5oZWFkfHxkLmJvZHkpLmFwcGVuZENoaWxkKHMpO308L3NjcmlwdD4KPC9kaXY-Cg==FREEZEEND\n"
 
-    # .chop off trailing \n from input
-    expect(described_class.call(input.chop)).to eql(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
 
   it 'returns HTML and JS script tags with no path in the iframe src if path is missing' do
@@ -72,15 +60,9 @@ RSpec.describe TechioFilter do
       ```
     HEREDOC
 
-    expected_output = <<~HEREDOC
-      <div class="techio-container">
-        <iframe width="100%" frameborder="0" scrolling="no" allowtransparency="true" style="visibility: hidden" src="https://tech.io/playground-widget/this is a title"></iframe>
-        <script>if(typeof window.techioScriptInjected==="undefined"){window.techioScriptInjected=true;var d=document,s=d.createElement("script");s.src="https://files.codingame.com/codingame/iframe-v-1-4.js";(d.head||d.body).appendChild(s);}</script>
-      </div>
-    HEREDOC
+    expected_output = "FREEZESTARTPGRpdiBjbGFzcz0idGVjaGlvLWNvbnRhaW5lciI-CiAgPGlmcmFtZSB3aWR0aD0iMTAwJSIgZnJhbWVib3JkZXI9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93dHJhbnNwYXJlbmN5PSJ0cnVlIiBzdHlsZT0idmlzaWJpbGl0eTogaGlkZGVuIiBzcmM9Imh0dHBzOi8vdGVjaC5pby9wbGF5Z3JvdW5kLXdpZGdldC90aGlzIGlzIGEgdGl0bGUiPjwvaWZyYW1lPgogIDxzY3JpcHQ-aWYodHlwZW9mIHdpbmRvdy50ZWNoaW9TY3JpcHRJbmplY3RlZD09PSJ1bmRlZmluZWQiKXt3aW5kb3cudGVjaGlvU2NyaXB0SW5qZWN0ZWQ9dHJ1ZTt2YXIgZD1kb2N1bWVudCxzPWQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7cy5zcmM9Imh0dHBzOi8vZmlsZXMuY29kaW5nYW1lLmNvbS9jb2RpbmdhbWUvaWZyYW1lLXYtMS00LmpzIjsoZC5oZWFkfHxkLmJvZHkpLmFwcGVuZENoaWxkKHMpO308L3NjcmlwdD4KPC9kaXY-Cg==FREEZEEND\n"
 
-    # .chop off trailing \n from input
-    expect(described_class.call(input.chop)).to eql(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
 
   it 'returns HTML and JS script tags with no title in the iframe src path if title is completely missing' do
@@ -90,32 +72,8 @@ RSpec.describe TechioFilter do
       ```
     HEREDOC
 
-    expected_output = <<~HEREDOC
-      <div class="techio-container">
-        <iframe width="100%" frameborder="0" scrolling="no" allowtransparency="true" style="visibility: hidden" src="https://tech.io/playground-widget/here/is/a/path/"></iframe>
-        <script>if(typeof window.techioScriptInjected==="undefined"){window.techioScriptInjected=true;var d=document,s=d.createElement("script");s.src="https://files.codingame.com/codingame/iframe-v-1-4.js";(d.head||d.body).appendChild(s);}</script>
-      </div>
-    HEREDOC
+    expected_output = "FREEZESTARTPGRpdiBjbGFzcz0idGVjaGlvLWNvbnRhaW5lciI-CiAgPGlmcmFtZSB3aWR0aD0iMTAwJSIgZnJhbWVib3JkZXI9IjAiIHNjcm9sbGluZz0ibm8iIGFsbG93dHJhbnNwYXJlbmN5PSJ0cnVlIiBzdHlsZT0idmlzaWJpbGl0eTogaGlkZGVuIiBzcmM9Imh0dHBzOi8vdGVjaC5pby9wbGF5Z3JvdW5kLXdpZGdldC9oZXJlL2lzL2EvcGF0aC8iPjwvaWZyYW1lPgogIDxzY3JpcHQ-aWYodHlwZW9mIHdpbmRvdy50ZWNoaW9TY3JpcHRJbmplY3RlZD09PSJ1bmRlZmluZWQiKXt3aW5kb3cudGVjaGlvU2NyaXB0SW5qZWN0ZWQ9dHJ1ZTt2YXIgZD1kb2N1bWVudCxzPWQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7cy5zcmM9Imh0dHBzOi8vZmlsZXMuY29kaW5nYW1lLmNvbS9jb2RpbmdhbWUvaWZyYW1lLXYtMS00LmpzIjsoZC5oZWFkfHxkLmJvZHkpLmFwcGVuZENoaWxkKHMpO308L3NjcmlwdD4KPC9kaXY-Cg==FREEZEEND\n"
 
-    # .chop off trailing \n from input
-    expect(described_class.call(input.chop)).to eql(expected_output)
-  end
-
-  it 'returns HTML and JS script tags with no path in the iframe src if path is completely missing' do
-    input = <<~HEREDOC
-      ```techio
-      title: this is a title
-      ```
-    HEREDOC
-
-    expected_output = <<~HEREDOC
-      <div class="techio-container">
-        <iframe width="100%" frameborder="0" scrolling="no" allowtransparency="true" style="visibility: hidden" src="https://tech.io/playground-widget/this is a title"></iframe>
-        <script>if(typeof window.techioScriptInjected==="undefined"){window.techioScriptInjected=true;var d=document,s=d.createElement("script");s.src="https://files.codingame.com/codingame/iframe-v-1-4.js";(d.head||d.body).appendChild(s);}</script>
-      </div>
-    HEREDOC
-
-    # .chop off trailing \n from input
-    expect(described_class.call(input.chop)).to eql(expected_output)
+    expect(described_class.call(input)).to eq(expected_output)
   end
 end
