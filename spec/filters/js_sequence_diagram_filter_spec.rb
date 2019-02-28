@@ -8,7 +8,7 @@ RSpec.describe JsSequenceDiagramFilter do
       ```
     HEREDOC
 
-    expected_output = "<div class=\"js-diagram\">\n  \nsome text here\n\n</div>\n\n"
+    expected_output = "FREEZESTARTPGRpdiBjbGFzcz0ianMtZGlhZ3JhbSI-CiAgCnNvbWUgdGV4dCBoZXJlCgo8L2Rpdj4KFREEZEEND\n"
 
     expect(described_class.call(input)).to eq(expected_output)
   end
