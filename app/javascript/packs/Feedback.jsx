@@ -151,7 +151,7 @@ class Feedback extends React.Component {
     return (
       <div>
         <hr/>
-        <p>Great! <a onClick={ () => this.setState({ showExtendedFields: true }) }>Give us some feedback</a></p>
+        <p>Great! Thanks for letting us know.</p>
       </div>
     )
   }
