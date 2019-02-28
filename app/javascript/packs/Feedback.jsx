@@ -151,7 +151,7 @@ class Feedback extends React.Component {
     return (
       <div>
         <hr/>
-        <p>Great! Thanks for letting us know.</p>
+        <p>Great! Thanks for the feedback.</p>
       </div>
     )
   }
