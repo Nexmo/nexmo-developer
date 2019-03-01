@@ -15,11 +15,13 @@ class ModalFilter < Banzai::Filter
       document = File.read(filename)
       output = MarkdownPipeline.new.call(document)
 
-      <<~HEREDOC
+      modal = <<~HEREDOC
         <div class="reveal" id="#{modal[:uuid]}" data-reveal>
           #{output}
         </div>
       HEREDOC
+
+      "FREEZESTART#{Base64.urlsafe_encode64(modal)}FREEZEEND"
     end
 
     input + modals.join("\n")
