@@ -1,0 +1,133 @@
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Migrate from Tropo to Nexmo"
+            align: center
+          subtitle:
+            text: "In case you have not seen it, please review our [migration program post](https://www.nexmo.com/blog/2018/10/15/nexmo-welcomes-tropo-customers/), which includes 10% off your monthly usage fee for the first three months"
+            align: center
+          icon:
+            name: icon-user-sync
+            color: blue
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "As of October 2018, Tropo have started a phased shutdown of their services. This means that you're looking for another communications provider the SMS and Voice functionality within your applications. This guide will help you with that migration."
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Get Started"
+            align: center
+          subtitle:
+            text: "Get started with the Nexmo platform in four steps:"
+            align: center
+          icon:
+            name: icon-rocket
+            color: blue
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "1. Register for a Nexmo account"
+          icon:
+            name: icon-gear
+            color: blue
+          text:
+            - content: "Sign up for a Nexmo account. Once you've signed up you'll receive €2 free credit which is enough to get started. We're offering a migration package to Tropo customers, including 10% off your monthly usage fee for the first three months and free migration support from our renowned customer support team. See our [migration blog post](https://www.nexmo.com/blog/2018/10/15/nexmo-welcomes-tropo-customers/) for more information"
+              type: "small"
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign up"
+          url: "https://dashboard.nexmo.com/sign-up?ref=tropo-migrate"
+          center_button: true
+          large: true
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "2. Purchase a phone number"
+          icon:
+            name: icon-gear
+            color: blue
+          text:
+            - content: "Head over to the [Nexmo dashboard](https://dashboard.nexmo.com/buy-numbers) and purchase a virtual number to use for your application. You may not need it if you're in a country that supports alpha senders - search for your destination country on the knowledge base for more information."
+              type: "small" 
+            - content: "If you've already got a US or Canadian number and would like to keep it, you can port the number to Nexmo using the [Nexmo dashboard](https://dashboard.nexmo.com/keep-your-number). To check the feasibility of porting numbers outside of US and Canada, please contact [support@nexmo.com](mailto:support@nexmo.com)"
+              type: "small"
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "3. Install the Nexmo Client Library"
+          icon:
+            name: icon-gear
+            color: blue
+          text:
+            - content: "Nexmo provides client libraries in six different languages! Whether you write Javascript, PHP, Python, Java, .NET or Ruby, we've got you covered. Head over to the [tools page](https://developer.nexmo.com/tools) to learn more about what's available."
+              type: "small"
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "4. Develop your application"
+          icon:
+            name: icon-gear
+            color: blue
+          text:
+            - content: "Finally, it's time to build your application! We've put together some examples for common tasks involving SMS and voice calls based on the Tropo documentation."
+              type: "small"
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Migrate from Tropo SMS"
+          icon:
+            name: icon-message
+            color: black
+          url: "https://developer.nexmo.com/migrate/tropo/sms"
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Migrate from Tropo Voice"
+          icon:
+            name: icon-microphone
+            color: black
+          url: "https://developer.nexmo.com/migrate/tropo/voice"
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title: 
+            text: "FAQ"
+            align: center
+          icon:
+            name: icon-pin-2
+            color: blue
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Nexmo vs Tropo - Main differences"
+          icon:
+            name: icon-checkbox
+            color: blue
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: contact_support

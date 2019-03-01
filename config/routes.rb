@@ -51,7 +51,6 @@ Rails.application.routes.draw do
 
   get '/documentation', to: 'static#documentation'
 
-  get '/migrate/tropo', to: 'static#migrate'
   get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'
 
   get '/legacy', to: 'static#legacy'
