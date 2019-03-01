@@ -43,8 +43,7 @@ To instruct Nexmo to connect to a WebSocket your application server must return 
                         "city": "New York City"
                     },
                     "system_roles": [183493, 1038492, 22],
-                    "enable_auditing": false,
-                    "manager_id": null"
+                    "enable_auditing": false
                 }
            }
        ]
