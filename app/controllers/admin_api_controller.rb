@@ -2,7 +2,7 @@ class AdminApiController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def authenticated?
-    false unless bearer_token
+    return false unless bearer_token
     User.where(admin: true, nexmo_developer_api_secret: bearer_token).exists?
   end
 
