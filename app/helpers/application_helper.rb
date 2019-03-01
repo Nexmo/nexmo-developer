@@ -7,9 +7,7 @@ COLLAPSIBLE = ['Messages API', 'Dispatch API', 'Messaging', 'SMS', 'Conversion A
 
 module ApplicationHelper
   def search_enabled?
-    return false unless defined? ALGOLIA_CONFIG
-    return false unless ENV['ALGOLIA_SEARCH_KEY']
-    true
+    defined?(ALGOLIA_CONFIG) && ENV['ALGOLIA_SEARCH_KEY']
   end
 
   def theme
