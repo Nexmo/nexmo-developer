@@ -44,11 +44,11 @@ RSpec.describe ScreenshotFilter do
   end
 
   it 'provides instructions if image cannot be found on disk' do
-    expect(File).not_to receive(:file?)
+    expect(File).to receive(:file?).and_return(false)
 
     input = <<~HEREDOC
       ```screenshot
-      image:
+      image: '/a/path/to/an/image.png'
       ```
     HEREDOC
 
