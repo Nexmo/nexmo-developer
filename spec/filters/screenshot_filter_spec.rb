@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ScreenshotFilter do
   it 'renders image markdown if image location is present in input' do
+    expect(File).to receive(:file?).and_return(true)
     input = <<~HEREDOC
       ```screenshot
-      image: /a/path/to/an/image.png
+      image: '/a/path/to/an/image.png'
       ```
     HEREDOC
 
@@ -25,6 +26,26 @@ RSpec.describe ScreenshotFilter do
   end
 
   it 'provides instructions if image location is missing' do
+    input = <<~HEREDOC
+      ```screenshot
+      image:
+      ```
+    HEREDOC
+
+    expected_output = <<~HEREDOC
+      ## Missing image
+      To fix this run:
+      ```
+      $ rake screenshots:update
+      ```
+    HEREDOC
+    # .chop to remove trailing \n from input
+    expect(described_class.call(input.chop)).to eql(expected_output)
+  end
+
+  it 'provides instructions if image cannot be found on disk' do
+    expect(File).not_to receive(:file?)
+
     input = <<~HEREDOC
       ```screenshot
       image:
