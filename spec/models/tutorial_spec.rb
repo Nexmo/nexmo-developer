@@ -4,16 +4,16 @@ RSpec.describe Tutorial, type: :model do
   describe '.all' do
     it 'returns an array of Tutorials' do
       tutorials = Tutorial.all
-      expect(tutorials.class).to eq(Array)
-      expect(tutorials[0].class).to eq(Tutorial)
+      expect(tutorials).to be_an(Array)
+      expect(tutorials[0]).to be_a(Tutorial)
     end
   end
 
   describe '.by_product' do
     it 'returns only tutorials for the specified product type' do
       tutorials = Tutorial.by_product('messaging/sms')
-      expect(tutorials.class).to eq(Array)
-      expect(tutorials[0].class).to eq(Tutorial)
+      expect(tutorials).to be_an(Array)
+      expect(tutorials[0]).to be_a(Tutorial)
 
       tutorials.each do |tutorial|
         expect(tutorial.products).to include('messaging/sms')
@@ -40,7 +40,7 @@ RSpec.describe Tutorial, type: :model do
 
   describe '#body' do
     it 'returns a string' do
-      expect(Tutorial.all[0].body.class).to eq(String)
+      expect(Tutorial.all[0].body).to be_a(String)
     end
   end
 
