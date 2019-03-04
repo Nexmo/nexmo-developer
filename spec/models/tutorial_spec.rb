@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tutorial, type: :model do
-  describe '#all' do
+  describe '.all' do
     it 'returns an array of Tutorials' do
       tutorials = Tutorial.all
       expect(tutorials.class).to eq(Array)
@@ -9,7 +9,7 @@ RSpec.describe Tutorial, type: :model do
     end
   end
 
-  describe '#by_product' do
+  describe '.by_product' do
     it 'returns only tutorials for the specified product type' do
       tutorials = Tutorial.by_product('messaging/sms')
       expect(tutorials.class).to eq(Array)
