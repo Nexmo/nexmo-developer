@@ -8,7 +8,8 @@ class CodeLanguage
   end
 
   def linkable?
-    @linkable || true
+    return true if @linkable.nil?
+    @linkable
   end
 
   def lexer

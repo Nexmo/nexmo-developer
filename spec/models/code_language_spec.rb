@@ -17,8 +17,8 @@ RSpec.describe CodeLanguage, type: :model do
     context 'with the linkable attribute set to false' do
       let(:language) { CodeLanguage.new(linkable: false) }
 
-      it 'returns true' do
-        expect(language.linkable?).to eq(true)
+      it 'returns false' do
+        expect(language.linkable?).to eq(false)
       end
     end
   end
