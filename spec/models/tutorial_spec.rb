@@ -26,6 +26,18 @@ RSpec.describe Tutorial, type: :model do
     end
   end
 
+  describe '.by_language' do
+    it 'returns only tutorials for the specified language' do
+      tutorials = Tutorial.by_language('Ruby')
+      expect(tutorials).to be_a(Array)
+      expect(tutorials).not_to be_empty
+
+      tutorials.each do |tutorial|
+        expect(tutorial.languages).to include('Ruby')
+      end
+    end
+  end
+
   describe '#body' do
     it 'returns a string' do
       expect(Tutorial.all[0].body.class).to eq(String)
