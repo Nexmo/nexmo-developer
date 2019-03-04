@@ -90,7 +90,7 @@
 "/tutorials/smart-local-numbers": "/tutorials/local-numbers"
 "/verify": "/verify/overview"
 "/verify/api-reference": "/api/verify"
-"/verify/guides": "/verify/guides/verify-a-user"
+"/verify/guides": "/verify/guides/verification-events"
 "/verify/tutorial": "/verify/tutorials/passwordless-authentication"
 "/verify/building-blocks": "/verify/building-blocks/send-verify-request"
 "/voice": "/voice/overview"
