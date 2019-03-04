@@ -1,0 +1,2 @@
+/app/views/static/migrate.html.erb -> migrate/tropo
+/app/views/search/results.html erb -> /search

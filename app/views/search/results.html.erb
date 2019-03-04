@@ -5,9 +5,9 @@
 
   <br>
 
-  <div class="row">
+  <div class="Vlt-grid">
     <% @results.each do |index| %>
-      <div class="columns small-12 medium-6">
+      <div class="Vlt-col--2of4">
         <% if index.index.include? 'nexmo_developer' %>
           <h2>Nexmo Developer</h2>
         <% elsif index.index == 'zendesk_nexmo_articles' %>
