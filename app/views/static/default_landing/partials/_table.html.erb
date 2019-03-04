@@ -1,0 +1,25 @@
+<%
+    raise "Missing 'head' key in table landing page block" unless local_assigns['head']
+    raise "Missing 'body' key in table landing page block" unless local_assigns['body']
+%>
+
+<div class="Vlt-table">
+    <table>
+        <thead>
+            <tr>
+                <% local_assigns['head'].each do |row| %>
+                    <th><%= row['content'] %></th>
+                <% end %>
+            </tr>
+        </thead>
+        <tbody>
+            <% local_assigns['body'].each do |row| %>
+                <tr>
+                    <% row['row'].each do |data| %>
+                        <td><%= data['column'].render_markdown %></td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

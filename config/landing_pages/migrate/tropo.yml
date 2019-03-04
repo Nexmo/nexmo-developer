@@ -38,9 +38,6 @@ page:
       - type: structured_text
         structured_text:
           header: "1. Register for a Nexmo account"
-          icon:
-            name: icon-gear
-            color: blue
           text:
             - content: "Sign up for a Nexmo account. Once you've signed up you'll receive €2 free credit which is enough to get started. We're offering a migration package to Tropo customers, including 10% off your monthly usage fee for the first three months and free migration support from our renowned customer support team. See our [migration blog post](https://www.nexmo.com/blog/2018/10/15/nexmo-welcomes-tropo-customers/) for more information"
               type: "small"
@@ -57,9 +54,6 @@ page:
       - type: structured_text
         structured_text:
           header: "2. Purchase a phone number"
-          icon:
-            name: icon-gear
-            color: blue
           text:
             - content: "Head over to the [Nexmo dashboard](https://dashboard.nexmo.com/buy-numbers) and purchase a virtual number to use for your application. You may not need it if you're in a country that supports alpha senders - search for your destination country on the knowledge base for more information."
               type: "small" 
@@ -70,9 +64,6 @@ page:
       - type: structured_text
         structured_text:
           header: "3. Install the Nexmo Client Library"
-          icon:
-            name: icon-gear
-            color: blue
           text:
             - content: "Nexmo provides client libraries in six different languages! Whether you write Javascript, PHP, Python, Java, .NET or Ruby, we've got you covered. Head over to the [tools page](https://developer.nexmo.com/tools) to learn more about what's available."
               type: "small"
@@ -81,9 +72,6 @@ page:
       - type: structured_text
         structured_text:
           header: "4. Develop your application"
-          icon:
-            name: icon-gear
-            color: blue
           text:
             - content: "Finally, it's time to build your application! We've put together some examples for common tasks involving SMS and voice calls based on the Tropo documentation."
               type: "small"
@@ -125,6 +113,20 @@ page:
           icon:
             name: icon-checkbox
             color: blue
+  - row:
+    - column:
+      - type: table
+        table:
+          head:
+            - content: "Tropo"
+            - content: "Nexmo"
+          body:
+            - row:
+                - column: "The Tropo scripting API allows you to store code inside a Tropo application and trigger that code via a web request"
+                - column: "Code runs on your own server, talking directly to the Nexmo platform"
+            - row:
+                - column: "Any metadata available is stored in the session metadata"
+                - column: "Nexmo sends metadata as GET parameters to your webhook endpoint. Common parameters include `to`, `msisdn` and `text`"
   - row:
     - column:
       - type: line_divider
