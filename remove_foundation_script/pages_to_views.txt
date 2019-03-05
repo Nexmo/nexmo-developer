@@ -1,2 +1,4 @@
 /app/views/static/migrate.html.erb -> migrate/tropo
-/app/views/search/results.html erb -> /search
+/app/views/search/results.html.erb -> /search
+tab_filter.rb => api reference tabs 
+/app/views/api_errors/index.html.erb -> /api-errors
