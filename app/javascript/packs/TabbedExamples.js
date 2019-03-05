@@ -1,4 +1,3 @@
-import { Tabs } from 'foundation-sites/js/foundation.tabs'
 import UserPreference from './UserPreference'
 
 export default class TabbedExamples {
@@ -7,7 +6,7 @@ export default class TabbedExamples {
 
     if ($('[data-tabs]')[0]) {
       $('[data-tabs]').each(function(index, element) {
-        new Tabs($(element))
+        Volta.tab.init($(element))
       })
 
       this.restoreTabs = this.restoreTabs.bind(this)
@@ -61,7 +60,7 @@ export default class TabbedExamples {
   }
 
   setupEvents() {
-    $('.tabs li').click(this.onTabClick)
+    $('.Vlt-tabs a').click(this.onTabClick)
     $(window).on('popstate', this.onPopState)
   }
 
@@ -97,21 +96,21 @@ export default class TabbedExamples {
     }
   }
 
-  setLanguage(language, context = '.tabs') {
+  setLanguage(language, context = '.Vlt-tabs') {
     $(context).find(`[data-language='${language}'] a`).each(function() {
-      let tabs = $(this).parents('.tabs')
+      let tabs = $(this).parents('.Vlt-tabs')
       let tab = $(this).parent()
 
       new Tabs(tabs)._handleTabChange(tab, true)
     })
   }
 
-  setPlatform(platform, context = '.tabs') {
+  setPlatform(platform, context = '.Vlt-tabs') {
     $(context).find(`[data-platform='${platform}'] a`).each(function() {
-      let tabs = $(this).parents('.tabs')
+      let tabs = $(this).parents('.Vlt-tabs')
       let tab = $(this).parent()
 
-      new Tabs(tabs)._handleTabChange(tab, true)
+      Volta.tab.init(tabs)._handleTabChange(tab, true)
     })
   }
 }

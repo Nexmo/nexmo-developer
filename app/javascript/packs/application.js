@@ -13,7 +13,6 @@ import { TweenLite, CSSPlugin } from 'gsap'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import GithubCards from './GithubCards'
-import TabbedExamples from './TabbedExamples'
 import VoltaTabbedExamples from './VoltaTabbedExamples'
 import Format from './Format'
 import JsSequenceDiagrams from './JsSequenceDiagrams'
@@ -42,7 +41,6 @@ let refresh = () => {
   Notices()
   GithubCards()
   JsSequenceDiagrams()
-  new TabbedExamples
   new VoltaTabbedExamples
   new Format
   Modals()
