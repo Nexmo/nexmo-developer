@@ -57,7 +57,6 @@ class TabFilter < Banzai::Filter
     tabs_panel['class'] += ' Vlt-tabs__panel_active' if content[:active]
 
     element = Nokogiri::XML::Element.new 'p', @document
-    element['id'] = content[:id]
     element['aria-labelledby'] = "\"#{content[:id]}\""
     element['aria-hidden'] = true
     element.inner_html = content[:body]
