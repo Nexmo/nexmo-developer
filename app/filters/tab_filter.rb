@@ -52,13 +52,18 @@ class TabFilter < Banzai::Filter
   end
 
   def create_content(content)
-    element = Nokogiri::XML::Element.new 'div', @document
+    tabs_panel = Nokogiri::XML::Element.new 'div', @document
+    tabs_panel['class'] = 'Vlt-tabs__panel'
+    tabs_panel['class'] += ' Vlt-tabs__panel_active' if content[:active]
+
+    element = Nokogiri::XML::Element.new 'p', @document
     element['id'] = content[:id]
-    element['class'] = 'Vlt-tabs__panel'
-    element['class'] += ' Vlt-tabs__link_active' if content[:active]
+    element['aria-labelledby'] = "\"#{content[:id]}\""
+    element['aria-hidden'] = true
     element.inner_html = content[:body]
 
-    @tabs_content.add_child(element)
+    tabs_panel.add_child(element)
+    @tabs_content.add_child(tabs_panel)
   end
 
   def tabbed_code_examples?
@@ -73,22 +78,19 @@ class TabFilter < Banzai::Filter
     id = SecureRandom.hex
 
     html = <<~HEREDOC
-      <div class="Vlt-tabs">
-        <div class="Vlt-tabs__header Vlt-tabs__header--bordered">
-          <div class="Vlt-tabs__link" data-tabs id="#{id}"></div>
-        </div>
-          <div class="Vlt-tabs__content">
-            <div class="Vlt-tabs__panel data-tabs-content=#{id}"></div>  
+      <div class="Vlt-tabs" data-tabs id="#{id}">
+        <div class="Vlt-tabs__header Vlt-tabs__header--bordered"></div>
+          <div class="Vlt-tabs__content data-tabs-content=\"#{id}\"">
           </div>
       </div>
     HEREDOC
 
     @document = Nokogiri::HTML::DocumentFragment.parse(html)
-    @tabs = @document.at_css('.Vlt-tabs')
-    @tabs_content = @document.at_css('.Vlt-tabs__panel')
+    @tabs = @document.at_css('.Vlt-tabs__header')
+    @tabs_content = @document.at_css('.Vlt-tabs__content')
 
     if tabbed_code_examples?
-      @tabs['class'] += ' tabs--code'
+      @tabs_content['class'] += ' tabs--code'
       @tabs_content['class'] += ' tabs-content--code'
     end
 
