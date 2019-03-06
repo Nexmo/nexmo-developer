@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-  include ActiveModel::Model
 
   default_scope -> { order(:starts_at) }
   scope :upcoming, -> { where('ends_at > ?', Time.zone.today) }
