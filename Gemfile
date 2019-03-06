@@ -40,6 +40,9 @@ gem 'jbuilder', '~> 2.7.0'
 # Add Geocoder to get latitude and longitude for geographic places
 gem 'geocoder'
 
+# Add gmap4rails to integrate the Google Maps API
+gem 'gmaps4rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
