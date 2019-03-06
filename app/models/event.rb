@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-
   default_scope -> { order(:starts_at) }
   scope :upcoming, -> { where('ends_at > ?', Time.zone.today) }
   scope :past, -> { where('starts_at < ?', Time.zone.today).reverse_order }
@@ -18,6 +17,6 @@ class Event < ApplicationRecord
   private
 
   def address
-    [self.city, self.country].compact.join(', ')
+    [city, country].compact.join(', ')
   end
 end
