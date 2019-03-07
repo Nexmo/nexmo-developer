@@ -18,6 +18,14 @@ class StaticController < ApplicationController
     render layout: 'landing'
   end
 
+  def event_search_results
+    @events = Event.search(params[:query]) if params[:query]
+
+    respond_to do |format|
+      format.js { render partial: 'static/default_landing/partials/event_search_results.js.erb' }
+    end
+  end
+
   def jwt
     render layout: 'landing'
   end

@@ -14,6 +14,17 @@ class Event < ApplicationRecord
   validates :ends_at, presence: true
   validates :url, presence: true
 
+  def self.search(search)
+    key = "%#{search}%"
+    columns = %w[title description city country]
+    @events = Event.where(
+      columns
+        .map { |c| "#{c} ilike :search" }
+        .join(' OR '),
+    search: key
+  )
+  end
+
   private
 
   def address
