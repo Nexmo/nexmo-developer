@@ -19,7 +19,6 @@ module VideoHelper
     if videos.empty?
       videos = Session.where('created_at >= :month', { month: 1.month.ago })
     end
-    sorted = videos.order(:created_at)
-    sorted
+    videos
   end
 end

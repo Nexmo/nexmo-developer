@@ -18,4 +18,20 @@ RSpec.describe VideoHelper, type: :helper do
       end
     end
   end
+
+  describe '#featured_video' do
+    context 'with recent videos' do
+      it 'returns two videos' do
+        videos = Session.create(
+          [
+            { title: 'Session 1', description: 'Session Description', video_url: 'https://a/video/path', author: 'An Author', published: true, created_at: Time.zone.today },
+            { title: 'Session 2', description: 'Session Description', video_url: 'https://a/video/path', author: 'An Author', published: true, created_at: Time.zone.today },
+          ]
+        )
+        allow(Session).to receive(:where).and_return(videos)
+
+        expect(helper.featured_video.count).to eq(2)
+      end
+    end
+  end
 end
