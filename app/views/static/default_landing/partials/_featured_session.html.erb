@@ -14,12 +14,11 @@
       </h2>
     </div>
     <div class="Vlt-grid Vlt-grid--middle">
-      <% session = local_assigns['featured'] %>
       <div class="Vlt-col">
         <div class="video">
-          <iframe src="<%= video_embed_url(session.video_url) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="<%= video_embed_url(local_assigns['featured']['video_url']) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-        <h4><%= session.title %></h4>
+        <h4><%= local_assigns['featured']['title'] %></h4>
       </div>
     </div>
   </div>
