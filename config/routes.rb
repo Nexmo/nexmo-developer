@@ -68,7 +68,7 @@ Rails.application.routes.draw do
   get '/extend', to: 'extend#index'
   get '/extend/:title', to: 'extend#show'
 
-  get '/event_search', to: 'static#event_search_results'
+  get '/event_search', to: 'static#event_search'
   match '/search', to: 'search#results', via: %i[get post]
 
   get '/api-errors', to: 'api_errors#index'

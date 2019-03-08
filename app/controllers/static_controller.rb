@@ -18,7 +18,7 @@ class StaticController < ApplicationController
     render layout: 'landing'
   end
 
-  def event_search_results
+  def event_search
     @events = Event.search(params[:query]) if params[:query]
 
     respond_to do |format|
