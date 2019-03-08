@@ -1,3 +1,6 @@
 $("#community-events").hide();
+$("#map-all-wrapper").hide();
+$("#map-search-wrapper").html("<%= escape_javascript(render :partial => 'static/default_landing/partials/event_search_results_map_content') %>");
 $("#event-search-results").html("<%= escape_javascript(render :partial => 'static/default_landing/partials/event_search_results_content') %>");
 $("#event-search-results").show()
+$("#map-search-wrapper").show()

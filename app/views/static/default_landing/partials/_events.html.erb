@@ -7,7 +7,7 @@
 	
 	@hash = Gmaps4rails.build_markers(@upcoming_events) do |event, marker|
 		event.geocode
-  	marker.lat event.latitude
+  		marker.lat event.latitude
 		marker.lng event.longitude
 		marker.infowindow event.title
 	end
@@ -15,8 +15,11 @@
 
 <div class="Vlt-grid Vlt-grid--narrow" style="margin-bottom: 20px;">
 	<div class="Vlt-col Vlt-col--3of4">
-		<div style='width: 800px;'>
-  		<div id="map" style='width: 800px; height: 400px;'></div>
+		<div id="map-all-wrapper" style='width: 800px;'>
+  			<div id="map" style='width: 800px; height: 400px;'></div>
+		</div>
+		<div id="map-search-wrapper" style='width: 800px;'>
+			<div id="map-search" style="width: 800px; height: 400px;"></div>
 		</div>
 	</div>
 
