@@ -58,3 +58,13 @@ Session.create!({
   video_url: 'https://www.youtube.com/watch?v=i7EZDYYfFmc',
   published: true,
 })
+
+Session.create!({
+  title: 'How to Proxy Voice Calls on Phones and In-app with the Nexmo Voice API, Kotlin, and WebRTC',
+  description: 'In this coding session, Aaron Bassett creates a traditional PSTN proxy in Kotlin, which he uses to connect two telephone endpoints while keeping both sides of the call anonymous.',
+  author: 'Aaron Bassett',
+  event: devrel_con,
+  video_url: 'https://www.youtube.com/watch?v=pHf9Df3Ns2U',
+  published: true,
+})
+
