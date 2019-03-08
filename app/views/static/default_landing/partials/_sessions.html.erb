@@ -1,9 +1,15 @@
-<% @sessions = Session.where(published: true) %>
+<%
+  @featured = featured_video().shuffle.first
+  @sessions = Session.where(published: true).where("title <> ?", @featured.title)
+%>
 
 <% if @sessions.any? %>
   
   <div class="Vlt-card">
     <div class="Vlt-grid">
+      <div class="Vlt-col Vlt-col--1of3">
+        <%= render partial: 'static/default_landing/partials/featured_session', :locals => { 'featured' => @featured } %>
+      </div>
       <% @sessions.each do |session| %>
         <div class="Vlt-col Vlt-col--1of3">
           <h4><%= session.title %></h4>

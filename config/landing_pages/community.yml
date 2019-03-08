@@ -35,11 +35,7 @@ page:
             name: icon-menu
             color: blue
   - row:
-    - width: 1
-      column:
-      - type: featured_session
-    - width: 3
-      column:
+    - column:
       - type: sessions
   - row:
     - column:

@@ -1,8 +1,6 @@
-<% @sessions = featured_video() %>
-
-<% if @sessions.any? %>
+<% if local_assigns['featured'] %>
   
-  <div class="Vlt-card">
+  <div class="Vlt-card Vlt-card--clickable Vlt-card--border">
     <div class="Vlt-card__image" style="background: #33aaee;">
         <div class="Vlt-card__image__icon">
             <svg class="Vlt-blue"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-video"></use></svg>
@@ -16,13 +14,12 @@
       </h2>
     </div>
     <div class="Vlt-grid Vlt-grid--middle">
-      <% session = @sessions.shuffle.first %>
-      <div class="Vlt-col Vlt-margin--bottom4">
+      <% session = local_assigns['featured'] %>
+      <div class="Vlt-col">
         <div class="video">
           <iframe src="<%= video_embed_url(session.video_url) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
         <h4><%= session.title %></h4>
-        <br><br>
       </div>
     </div>
   </div>
