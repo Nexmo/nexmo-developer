@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
     # If there's a language in the URL, match on that too
     if request['code_language']
-      language = DocumentationConstraint.code_language_list.map(&:downcase)
+      language = CodeLanguage.linkable.map(&:key).map(&:downcase)
       includes_language = language.include?(request['code_language'])
     end
 

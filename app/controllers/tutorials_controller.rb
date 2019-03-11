@@ -16,7 +16,7 @@ class TutorialsController < ApplicationController
     @base_path = request.original_fullpath.chomp('/')
 
     # We have to strip the last section off if it matches any code languages. Hacky, but it works
-    DocumentationConstraint.code_language_list.map(&:downcase).each do |lang|
+    CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
       @base_path.gsub!(%r{/#{lang}$}, '')
     end
 

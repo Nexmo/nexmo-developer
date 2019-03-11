@@ -3,10 +3,6 @@ class DocumentationConstraint
     CodeLanguage.route_constraint.merge(product)
   end
 
-  def self.code_language_list
-    CodeLanguage.linkable.map(&:key)
-  end
-
   def self.product_list
     [
       'audit',
