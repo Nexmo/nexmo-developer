@@ -27,7 +27,7 @@ class OpenApiConstraint
   end
 
   def self.products_with_code_language
-    products.merge(DocumentationConstraint.code_language)
+    products.merge(CodeLanguage.route_constraint)
   end
 
   def self.find_all_versions(name)

@@ -1,14 +1,10 @@
 class DocumentationConstraint
   def self.documentation
-    code_language.merge(product)
+    CodeLanguage.route_constraint.merge(product)
   end
 
   def self.code_language_list
     CodeLanguage.linkable.map(&:key)
-  end
-
-  def self.code_language
-    { code_language: Regexp.new(code_language_list.compact.join('|')) }
   end
 
   def self.product_list

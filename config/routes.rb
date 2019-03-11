@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   get '/stats', to: 'dashboard#stats'
   get '/stats/summary', to: 'dashboard#stats_summary'
 
-  get '/tutorials/(:code_language)', to: 'tutorials#index', constraints: DocumentationConstraint.code_language
-  get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
+  get '/tutorials/(:code_language)', to: 'tutorials#index', constraints: CodeLanguage.route_constraint
+  get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: CodeLanguage.route_constraint
   get '/*product/tutorials(/:code_language)', to: 'tutorials#index', constraints: lambda { |request|
     products = DocumentationConstraint.product_with_parent_list
 
@@ -84,7 +84,7 @@ Rails.application.routes.draw do
   }
 
   get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products_with_code_language
-  get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
+  get '/api/*document(/:code_language)', to: 'api#show', constraints: CodeLanguage.route_constraint
 
   get '/(:product)/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: DocumentationConstraint.documentation
   get '/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: CodeLanguage.route_constraint
