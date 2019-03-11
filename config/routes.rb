@@ -87,7 +87,7 @@ Rails.application.routes.draw do
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
   get '/(:product)/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: DocumentationConstraint.documentation
-  get '/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: CodeLanguageResolver.route_constraint
+  get '/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: CodeLanguage.route_constraint
 
   get '/*product/api-reference', to: 'markdown#api'
 

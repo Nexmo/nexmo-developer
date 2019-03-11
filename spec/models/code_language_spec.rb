@@ -43,4 +43,91 @@ RSpec.describe CodeLanguage, type: :model do
       expect(languages[1].key).to eq('objective_c')
     end
   end
+
+  describe '.languages' do
+    let(:languages) { CodeLanguage.languages }
+
+    it 'returns an array of code languages' do
+      expect(languages).to be_kind_of(Array)
+      expect(languages[0]).to be_kind_of(CodeLanguage)
+      expect(languages[0].type).to eq('languages')
+    end
+  end
+
+  describe '.frameworks' do
+    let(:languages) { CodeLanguage.frameworks }
+
+    it 'returns an array of code languages' do
+      expect(languages).to be_kind_of(Array)
+      expect(languages[0]).to be_kind_of(CodeLanguage)
+      expect(languages[0].type).to eq('platforms')
+    end
+  end
+
+  describe '.terminal_programs' do
+    let(:languages) { CodeLanguage.terminal_programs }
+
+    it 'returns an array of code languages' do
+      expect(languages).to be_kind_of(Array)
+      expect(languages[0]).to be_kind_of(CodeLanguage)
+      expect(languages[0].type).to eq('terminal_programs')
+    end
+  end
+
+  describe '.data' do
+    let(:languages) { CodeLanguage.data }
+
+    it 'returns an array of code languages' do
+      expect(languages).to be_kind_of(Array)
+      expect(languages[0]).to be_kind_of(CodeLanguage)
+      expect(languages[0].type).to eq('data')
+    end
+  end
+
+  describe '.all' do
+    let(:languages) { CodeLanguage.all }
+
+    it 'returns an array of code languages' do
+      expect(languages).to be_kind_of(Array)
+      expect(languages[0]).to be_kind_of(CodeLanguage)
+    end
+  end
+
+  describe '.find' do
+    it 'returns the code language for the given key' do
+      expect(CodeLanguage.find('ruby')).to be_kind_of(CodeLanguage)
+      expect(CodeLanguage.find('ios')).to be_kind_of(CodeLanguage)
+      expect(CodeLanguage.find('curl')).to be_kind_of(CodeLanguage)
+    end
+
+    context 'when given an invalid key' do
+      it 'raises an exception' do
+        expect { CodeLanguage.find('foobar') }.to raise_exception('Language foobar does not exist.')
+      end
+    end
+  end
+
+  describe '.linkable' do
+    let(:languages) { CodeLanguage.linkable }
+
+    it 'returns an array of code languages' do
+      expect(languages).to be_kind_of(Array)
+      expect(languages[0]).to be_kind_of(CodeLanguage)
+    end
+
+    it 'excludes code languages that are not linkable' do
+      expect(languages.map(&:key)).not_to include('cli')
+      expect(languages.map(&:key)).not_to include('json')
+      expect(languages.all?(&:linkable?)).to eq(true)
+    end
+  end
+
+  describe '.route_constraint' do
+    let(:route_constraint) { CodeLanguage.route_constraint }
+
+    it 'returns a route constraint hash' do
+      expect(route_constraint).to be_a(Hash)
+      expect(route_constraint[:code_language]).to be_a(Regexp)
+    end
+  end
 end

@@ -7,7 +7,7 @@ class CodeSnippetFilter < Banzai::Filter
 
       @renderer = get_renderer(config['language'])
 
-      lexer = CodeLanguageResolver.find(config['language']).lexer
+      lexer = CodeLanguage.find(config['language']).lexer
       lang = config['title'].delete('.')
 
       application_html = generate_application_block(config['application'])
@@ -69,7 +69,7 @@ class CodeSnippetFilter < Banzai::Filter
     raise "CodeSnippetFilter - Could not load #{filename} for language #{language}" unless File.exist?(filename)
 
     code = File.read(filename)
-    lexer = CodeLanguageResolver.find(language).lexer
+    lexer = CodeLanguage.find(language).lexer
 
     total_lines = code.lines.count
 

@@ -4,7 +4,7 @@ class DocumentationConstraint
   end
 
   def self.code_language_list
-    CodeLanguageResolver.linkable.map(&:key)
+    CodeLanguage.linkable.map(&:key)
   end
 
   def self.code_language

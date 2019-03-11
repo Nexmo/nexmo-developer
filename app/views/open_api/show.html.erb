@@ -51,8 +51,8 @@
                       class="tabs-title <%= index.zero? ? 'is-active' : '' %>"
                       language-linkable="false"
                       data-language="<%= tab %>"
-                      data-language-type="<%= CodeLanguageResolver.find(tab).type %>"
-                    ><a href="#<%= tab %>"><%= CodeLanguageResolver.find(tab).label %></a></li>
+                      data-language-type="<%= CodeLanguage.find(tab).type %>"
+                    ><a href="#<%= tab %>"><%= CodeLanguage.find(tab).label %></a></li>
                   <% end %>
                 <% end %>
               </ul>

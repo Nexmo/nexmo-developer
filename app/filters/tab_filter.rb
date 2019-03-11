@@ -179,11 +179,11 @@ class TabFilter < Banzai::Filter
   def resolve_language(contents)
     contents.map do |content|
       if content[:language_key]
-        content[:language] = CodeLanguageResolver.find(content[:language_key])
+        content[:language] = CodeLanguage.find(content[:language_key])
       end
 
       if content[:platform_key]
-        content[:platform] = CodeLanguageResolver.find(content[:platform_key])
+        content[:platform] = CodeLanguage.find(content[:platform_key])
       end
 
       content

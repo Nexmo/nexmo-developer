@@ -90,7 +90,7 @@ class CodeSnippetsFilter < Banzai::Filter
 
       # Load the defaults for this language
       filename = File.basename(content_path, '.yml')
-      defaults = CodeLanguageResolver.find(filename)
+      defaults = CodeLanguage.find(filename)
 
       content = YAML.safe_load(source)
       content['source'] = source

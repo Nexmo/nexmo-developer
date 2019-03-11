@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def set_code_language
     return unless request.params[:code_language]
-    @code_language = CodeLanguageResolver.find(request.params[:code_language])
+    @code_language = CodeLanguage.find(request.params[:code_language])
   end
 
   def ssl_configured?
