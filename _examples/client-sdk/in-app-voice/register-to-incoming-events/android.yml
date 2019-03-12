@@ -1,5 +1,5 @@
 ---
 code:
-    source: .repos/nexmo/client-sdk-android-java-building-blocks/in-app-voice/register-to-incoming-events/RegisterToIncomingEvents.java
+    source: .repos/nexmo/client-sdk-android-java-code-snippets/in-app-voice/register-to-incoming-events/RegisterToIncomingEvents.java
     from_line: 1
     to_line: 9
