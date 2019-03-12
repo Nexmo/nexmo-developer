@@ -2,7 +2,7 @@
 title: Swift
 language: swift
 code:
-    source: .repos/nexmo/client-sdk-swift-building-blocks/in-app-voice/earmuff-myself/EarmuffMyself.swift
+    source: .repos/nexmo/client-sdk-swift-code-snippets/in-app-voice/earmuff-myself/EarmuffMyself.swift
     from_line: 1
     to_line: 1
 run_command: Run using your IDE

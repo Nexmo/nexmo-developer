@@ -2,7 +2,7 @@
 title: Swift
 language: swift
 code:
-    source: .repos/nexmo/client-sdk-swift-building-blocks/in-app-voice/start-server-managed-call/StartServerManagedCall.swift
+    source: .repos/nexmo/client-sdk-swift-code-snippets/in-app-voice/start-server-managed-call/StartServerManagedCall.swift
     from_line: 1
     to_line: 9
 run_command: Run using your IDE
