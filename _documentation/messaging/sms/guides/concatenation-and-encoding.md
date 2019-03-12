@@ -24,6 +24,8 @@ If you send a message that contains more than the maximum number of characters p
 
 This segmentation information tells the handset the number of message parts that make up the concatenated SMS and the position of each message part within it. When the handset has received all of the message parts, it presents them to the recipient as a single text.
 
+For more information, the Nexmo Knowledgebase has detailed information about [Multipart SMS](https://help.nexmo.com/hc/en-us/articles/204014833-How-is-a-Multipart-SMS-Constructed-).
+
 ## Encoding
 
 There are two main types of encoding that the Nexmo SMS API supports: `text` and `unicode`.
