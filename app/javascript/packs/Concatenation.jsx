@@ -52,7 +52,7 @@ class Concatenation extends React.Component {
     const shouldEncodeAs16Bit = this.shouldEncodeAs16Bit()
 
     const capacity = shouldEncodeAs16Bit ? 70 : 160
-    const capacityWithMeta = shouldEncodeAs16Bit ? 66 : 153
+    const capacityWithMeta = shouldEncodeAs16Bit ? 67 : 153
 
     var a = [stringArray.slice(0, capacity).join('')]
 
