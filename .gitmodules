@@ -1,9 +1,9 @@
 [submodule "_open_api/api_specs"]
 	path = _open_api/api_specs
 	url = https://github.com/Nexmo/api-specification.git
-[submodule ".repos/nexmo/client-sdk-javascript-building-blocks"]
-	path = .repos/nexmo/client-sdk-javascript-building-blocks
-	url = https://github.com/Nexmo/client-sdk-javascript-building-blocks.git
+[submodule ".repos/nexmo/client-sdk-javascript-code-snippets"]
+	path = .repos/nexmo/client-sdk-javascript-code-snippets
+	url = https://github.com/Nexmo/client-sdk-javascript-code-snippets.git
 [submodule ".repos/nexmo/client-sdk-android-kotlin-building-blocks"]
 	path = .repos/nexmo/client-sdk-android-kotlin-building-blocks
 	url = https://github.com/Nexmo/client-sdk-android-kotlin-building-blocks.git
