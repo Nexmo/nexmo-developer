@@ -10,9 +10,9 @@
 [submodule ".repos/nexmo/client-sdk-android-java-building-blocks"]
 	path = .repos/nexmo/client-sdk-android-java-building-blocks
 	url = https://github.com/Nexmo/client-sdk-android-java-building-blocks.git
-[submodule ".repos/nexmo/client-sdk-objective-c-building-blocks"]
-	path = .repos/nexmo/client-sdk-objective-c-building-blocks
-	url = https://github.com/Nexmo/client-sdk-objective-c-building-blocks.git
+[submodule ".repos/nexmo/client-sdk-objective-c-code-snippets"]
+	path = .repos/nexmo/client-sdk-objective-c-code-snippets
+	url = https://github.com/Nexmo/client-sdk-objective-c-code-snippets.git
 [submodule ".repos/nexmo/client-sdk-swift-code-snippets"]
 	path = .repos/nexmo/client-sdk-swift-code-snippets
 	url = https://github.com/Nexmo/client-sdk-swift-code-snippets.git
