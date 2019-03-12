@@ -4,9 +4,9 @@
 [submodule ".repos/nexmo/client-sdk-javascript-code-snippets"]
 	path = .repos/nexmo/client-sdk-javascript-code-snippets
 	url = https://github.com/Nexmo/client-sdk-javascript-code-snippets.git
-[submodule ".repos/nexmo/client-sdk-android-kotlin-building-blocks"]
-	path = .repos/nexmo/client-sdk-android-kotlin-building-blocks
-	url = https://github.com/Nexmo/client-sdk-android-kotlin-building-blocks.git
+[submodule ".repos/nexmo/client-sdk-android-kotlin-code-snippets"]
+	path = .repos/nexmo/client-sdk-android-kotlin-code-snippets
+	url = https://github.com/Nexmo/client-sdk-android-kotlin-code-snippets.git
 [submodule ".repos/nexmo/client-sdk-android-java-code-snippets"]
 	path = .repos/nexmo/client-sdk-android-java-code-snippets
 	url = https://github.com/Nexmo/client-sdk-android-java-code-snippets.git

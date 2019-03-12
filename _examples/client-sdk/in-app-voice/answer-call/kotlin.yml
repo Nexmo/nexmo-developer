@@ -2,7 +2,7 @@
 title: Kotlin
 language: kotlin
 code:
-    source: .repos/nexmo/client-sdk-android-kotlin-building-blocks/in-app-voice/answer-call/AnswerCall.kt
+    source: .repos/nexmo/client-sdk-android-kotlin-code-snippets/in-app-voice/answer-call/AnswerCall.kt
     from_line: 1
     to_line: 12
 run_command: Run using your IDE
