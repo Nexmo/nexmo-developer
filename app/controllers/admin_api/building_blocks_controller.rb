@@ -24,7 +24,42 @@ module AdminApi
         @events = UsageBuildingBlockEvent.where('block = ?', params[:block]).group(:block, :language, :section, :action).count(:action)
       end
 
-      render 'index'
+      @events = organize_data(@events)
+      render :index
+    end
+
+    private
+
+    def organize_data(events)
+      events_new = []
+      block = ''
+      language = ''
+      section = ''
+      actions = []
+      first_time = true
+      events.each do |event|
+        if event[0][0] != block || event[0][1] != language || event[0][2] != section
+          if first_time == false
+            events_new << [[{:block => block, :language => language, :section => section}], [{:actions => []}]]
+            events_new.each do |e|
+              e[1][0][:actions].push(actions)
+            end
+          end
+          block = event[0][0]
+          language = event[0][1]
+          section = event[0][2]
+          actions = []
+        end
+        actions.push(["#{event[0][3]}: #{event[1][0]}"])
+        events_new
+        first_time = false
+      end
+      events_new << [{:block => block, :language => language, :section => section}, :actions => []]
+      events_new.each do |e|
+        next if e[1][0].nil? || e[1][0][:actions].length >= 1
+        e[1][:actions].push(actions)
+      end
+      events_new
     end
   end
 end
