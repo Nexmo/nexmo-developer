@@ -9,7 +9,7 @@ This example shows you how to retrieve all the locations associated with an acco
 
 Replace the following placeholders in the example with your own details:
 
-* `VBC_TOKEN` - a valid token (see [authentication](http://localhost:3000/vonage-business-cloud/vbc-apis/getting-started/authentication))
+* `VBC_TOKEN` - a valid token (see [authentication](/vonage-business-cloud/vbc-apis/getting-started/authentication))
 * `VBC_ACCOUNT_ID` - the account number for the locations you are interested in
 
 ```building_blocks

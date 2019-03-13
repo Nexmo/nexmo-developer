@@ -9,7 +9,7 @@ This example shows you how to use the User API to retrieve details about a speci
 
 Replace the following placeholders in the example with your own details:
 
-* `VBC_TOKEN` - a valid token (see [authentication](http://localhost:3000/vonage-business-cloud/vbc-apis/getting-started/authentication))
+* `VBC_TOKEN` - a valid token (see [authentication](/vonage-business-cloud/vbc-apis/getting-started/authentication))
 * `VBC_ACCOUNT_ID` - the account number the extension is associated with
 * `VBC_USER_ID` - the ID of the user you want to retrieve details for
 
