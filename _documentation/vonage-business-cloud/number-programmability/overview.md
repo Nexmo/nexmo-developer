@@ -31,9 +31,8 @@ To use the Number Programmability service, you need:
 You must then:
 
 1. [Register for the Number Programmability service](/vonage-business-cloud/number-programmability/guides/register) - to add the capability to your VBC account
-2. [Provision VBC numbers](https://nexmo-developer-vbc.herokuapp.com/vonage-business-cloud/number-programmability/guides/provision-vbc-numbers) - configure one or more VBC numbers to use with the service
-3. [Create a Nexmo Voice API Application](/vonage-business-cloud/number-programmability/guides/create-voice-application) - to store security and configuration information
-4. [Link your VBC number(s)](/vonage-business-cloud/number-programmability/guides/link-vbc-numbers) - to the Nexmo Voice API Application
+2. [Create a Nexmo Voice API Application](/vonage-business-cloud/number-programmability/guides/create-voice-application) - to store security and configuration information
+3. [Provision VBC numbers](https://nexmo-developer-vbc.herokuapp.com/vonage-business-cloud/number-programmability/guides/provision-vbc-numbers) - configure one or more VBC numbers to use with the service
 
 ## Using the Number Programmability service
 

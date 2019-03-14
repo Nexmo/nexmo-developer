@@ -1,10 +1,10 @@
 ---
 title: Create a Voice API application
 description: The application stores security and configuration information for your interaction with the API.
-navigation_weight: 3
+navigation_weight: 2
 ---
 
-# Create a Voice API Application
+# Create a Nexmo Voice API Application
 
 Every number programmability service application that you build must be associated with a Nexmo Voice Application.
 
@@ -45,4 +45,4 @@ In this example, we'll create a Voice Application using the Nexmo CLI:
 
     Make a note of the `application_id` that this command creates. You can also find this in your [Nexmo Developer Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-> The next step is to [link your VBC programmable numbers](/vonage-business-cloud/number-programmability/guides/link-vbc-numbers) to this application.
+> The next step is to [link your VBC programmable numbers](/vonage-business-cloud/number-programmability/guides/provision-vbc-numbers) to this application.
