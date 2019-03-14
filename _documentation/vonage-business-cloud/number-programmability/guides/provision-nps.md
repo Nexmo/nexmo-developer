@@ -20,7 +20,7 @@ Once you have [activated the Number Programmability service](/vonage-business-cl
   1. Enter a name for the service
   2. Select at least one direct dial number that you will call to access the Nexmo Voice API application
   3. Paste in your Nexmo Voice API `application_id`
-  4. Toggle the Number Programmability Service Status to "Active"
+  4. Toggle the "Number Programmability Service Status" switch to "Active"
   5. Click the "Save" button
 
   ![Configuring the Number Programmability service instance](/assets/images/vbc/vbc-desktopconnect-edit.png)

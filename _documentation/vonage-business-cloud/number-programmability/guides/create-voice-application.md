@@ -6,7 +6,7 @@ navigation_weight: 2
 
 # Create a Nexmo Voice API Application
 
-Every number programmability service application that you build must be associated with a Nexmo Voice Application.
+Every Number Programmability service application that you build must be associated with a Nexmo Voice Application.
 
 > **Note**: To avoid confusion, `Application` here refers to the Nexmo Voice Application. The application you are building will be referred to as "application".
 
@@ -45,4 +45,4 @@ In this example, we'll create a Voice Application using the Nexmo CLI:
 
     Make a note of the `application_id` that this command creates. You can also find this in your [Nexmo Developer Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-> The next step is to [provision the Number Programmability Service](/vonage-business-cloud/number-programmability/guides/provision-nps) using the Nexmo Voice API `application_id`.
+> The next step is to [provision the Number Programmability service](/vonage-business-cloud/number-programmability/guides/provision-nps) using the Nexmo Voice API `application_id`.

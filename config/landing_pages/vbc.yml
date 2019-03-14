@@ -41,7 +41,7 @@ page:
         structured_text:
           header: "What is Number Programmability?"
           text:
-            - content: "The Number Programmability Service adds Nexmo Voice API capabilities to your Vonage Business Cloud numbers, enabling you to create unique call experiences for customers interacting with your business."
+            - content: "The Number Programmability service adds Nexmo Voice API capabilities to your Vonage Business Cloud numbers, enabling you to create unique call experiences for customers interacting with your business."
               type: "small"            
       - type: action_button
         action_button:
@@ -92,7 +92,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Get started"
-          subtitle: "Learn how to add the Number Programmability Service capability to your Vonage Business Cloud account and build your first application."
+          subtitle: "Learn how to add the Number Programmability service capability to your Vonage Business Cloud account and build your first application."
           icon: 
             name: "icon-telephone"
             color: "blue-dark"
