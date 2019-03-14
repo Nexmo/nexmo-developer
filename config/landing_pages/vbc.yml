@@ -1,0 +1,118 @@
+# Hanselminutes Landing Page Config
+
+title: "Nexmo APIs provide all you need to get up and running with your .NET applications"
+meta_title: ".NET Tutorials, SDK, code samples and more for a full suite of cloud communications APIs"
+
+page:
+  - row:
+    - column: 
+      - type: header
+        header:
+          title: 
+            text: "Vonage Business Cloud Number Programmability Service"
+            align: center        
+          subtitle:
+            text: "Bringing the power and flexibility of the Nexmo Voice API to the Vonage Business Cloud"
+            align: center
+            type: large
+          icon: 
+            name: "icon-cloud"
+            color: "blue-dark"
+  - row:
+    - column:
+        - type: line_divider            
+  - row:
+    - column:    
+      - type: structured_text
+        structured_text:
+          header: "What is Vonage Business Cloud?"
+          text:
+            - content: "Vonage Business Cloud is our unified communications platform that lets you seamlessly connect using voice, chat, messaging or video ... wherever you happen to be. Work smarter, collaborate easier and take care of business on the go.  "
+              type: "small"
+      - type: action_button
+        action_button:
+          text: "Find out more"
+          url: "https://www.vonage.com/business/business-cloud/"
+          type: "primary"
+          large: true
+          center_button: true 
+    - column:                              
+      - type: structured_text
+        structured_text:
+          header: "What is Number Programmability?"
+          text:
+            - content: "The Number Programmability Service adds Nexmo Voice API capabilities to your Vonage Business Cloud numbers, enabling you to create unique call experiences for customers interacting with your business."
+              type: "small"            
+      - type: action_button
+        action_button:
+          text: "Register for the service"
+          url: "/vonage-business-cloud/number-programmability/guides/register"
+          type: "primary"
+          large: true
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row: 
+    - width: 1
+      column:
+      - type: linked_image
+        linked_image:
+          image: "/assets/images/vbc/vonage-business-logo.png"
+          url: "https://www.vonage.com"
+          alt_text: "Vonage Business Cloud logo"          
+    - width: 2
+      column:        
+      - type: structured_text
+        structured_text:
+          header: "Customize your customers' call experience"
+          text:
+            - content: >-
+                Whatever you can envisage, you can create, including ...
+
+                  * Interactive voice response (IVR) systems with menu options driven by your CRM
+                  * Voicebots that use natural language processing and/or AI to answer customer questions
+                  * Voice broadcasts to alert customers to important news or events
+                  * Integrations with calendar systems to check the free/busy status of call recipients and react accordingly
+
+                ... and much more!
+              type: "small"            
+    - width: 1
+      column:
+      - type: linked_image
+        linked_image:
+          image: "/assets/images/vbc/nexmo-vonage-api-logo.png"
+          url: "https://www.nexmo.com"
+          alt_text: "Nexmo, the Vonage API logo"                      
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Get started"
+          subtitle: "Learn how to add the Number Programmability Service capability to your Vonage Business Cloud account and build your first application."
+          icon: 
+            name: "icon-telephone"
+            color: "blue-dark"
+          url: "/vonage-business-cloud/number-programmability/overview#getting-started"
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "VBC APIs"
+          subtitle: "Learn how to use the VBC APIs to dynamically retrieve information about accounts, extensions and users."
+          icon: 
+            name: "icon-design-tools"
+            color: "blue-dark"
+          url: "/vonage-business-cloud/vbc-apis/overview"     
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice API"
+          subtitle: "Learn how to use the Voice API to create sophisticated call workflows."
+          icon: 
+            name: "icon-phone"
+            color: "blue-dark"
+          url: "/voice/voice-api/overview"               
+          
