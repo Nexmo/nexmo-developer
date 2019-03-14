@@ -45,4 +45,4 @@ In this example, we'll create a Voice Application using the Nexmo CLI:
 
     Make a note of the `application_id` that this command creates. You can also find this in your [Nexmo Developer Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-> The next step is to [link your VBC programmable numbers](/vonage-business-cloud/number-programmability/guides/provision-vbc-numbers) to this application.
+> The next step is to [provision the Number Programmability Service](/vonage-business-cloud/number-programmability/guides/provision-nps) using the Nexmo Voice API `application_id`.
