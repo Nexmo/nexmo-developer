@@ -25,9 +25,4 @@ Once you have [activated the Number Programmability service](/vonage-business-cl
 
   ![Configuring the Number Programmability service instance](/assets/images/vbc/vbc-desktopconnect-edit.png)
 
-> You have now provisioned the Number Programmability service and are ready to begin developing your application. See the building blocks below to get started. When you are ready to take things further you will find more in-depth information in the [Nexmo Voice API documentation](/voice/voice-api/overview).
-
-## Number Programmability building blocks
-```building_block_list
-product: vonage-business-cloud/number-programmability
-```
+> You have now provisioned the Number Programmability service and are ready to begin developing your application. See this [list of resources](/vonage-business-cloud/number-programmability/guides/vbc-resources) to get started. 

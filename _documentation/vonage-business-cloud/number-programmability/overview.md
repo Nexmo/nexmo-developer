@@ -44,41 +44,4 @@ You provide these instructions in the form of a [Nexmo Call Control Object (NCCO
 
 You can use the [VBC APIs](/vonage-business-cloud/vbc-apis/overview) in your application to retrieve information about your VBC accounts, extensions and users. 
 
-## Guides
-
-```concept_list
-product: vonage-business-cloud/number-programmability
-```
-
-## Number Programmability Building Blocks
-
-The following building blocks get you up and running with the basics:
-
-```building_block_list
-product: vonage-business-cloud/number-programmability
-```
-
-## Voice API Building Blocks
-
-These building blocks show more advanced use cases:
-
-```building_block_list
-product: voice/voice-api
-```
-
-## Voice API tutorials
-
-The following tutorials will walk you through creating a variety of practical applications that use the Voice API:
-
-```tutorials
-product: voice/voice-api
-```
-
-
-## Reference
-
-* [Voice API Documentation](/voice)
-* [Voice API Reference](/api/voice)
-* [VBC APIs](/vonage-business-cloud/vbc-apis/overview)
-* [NCCO Reference](/voice/voice-api/ncco-reference)
-* [Webhook Reference](/voice/voice-api/webhook-reference)
+> **Getting help**: For a comprehensive list of resources to help you build your application, see [here](/vonage-business-cloud/number-programmability/guides/vbc-resources). 
