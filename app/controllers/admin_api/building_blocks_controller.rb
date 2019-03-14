@@ -25,37 +25,45 @@ module AdminApi
       end
       @events = organize_data(@events)
       byebug
+
       render 'index'
     end
 
     private
 
     def organize_data(events)
-      events_new = []
+      events_new = {}
       block = ''
       language = ''
       section = ''
-      actions = []
+      actions = {}
       first_time = true
       events.each do |event|
         if event[0][0] != block || event[0][1] != language || event[0][2] != section
           if first_time == false
-            events_new << [block, language, section]
-            events_new[0].push(actions)
+            events_new[block] = {
+              language => {
+                section => {}
+              }
+            } 
+            events_new.deep_merge!(actions)
+            events_new
           end
           block = event[0][0]
           language = event[0][1]
           section = event[0][2]
-          actions = []
+          actions = {}
         end
-        actions.push(["#{event[0][3]}: #{event[1][0]}"])
+        actions[event[0][3]] = event[1][0]
         events_new
         first_time = false
       end
-      events_new << [block, language, section]
-      if !events_new[3].kind_of?(Array)
-        events_new.push(actions)
-      end
+      events_new[block] = {
+        language => {
+          section => {}
+        }
+      } 
+      events_new.deep_merge!(actions)
       events_new
     end
   end
