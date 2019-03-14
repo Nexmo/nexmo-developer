@@ -36,13 +36,13 @@ You must then:
 
 ## Using the Number Programmability service
 
-You will use the [Nexmo Voice API](/voice/voice-api/api-reference) to build interactive and customised call experiences for your users.
+You will use the [Nexmo Voice API](/voice/voice-api/api-reference) to build interactive and customised call experiences for your users. We provide [client libraries](https://github.com/Nexmo/) in various languages that take make it easier to work with the Voice API.
 
 To forward an inbound call on one of your linked VBC numbers to your Nexmo Voice API Application, you create a [webhook](/concepts/guides/webhooks) endpoint in your code and configure the URL in your Nexmo account. This is so that Nexmo's APIs can alert your application when a call is received and ask for instructions on how to process the call.
 
 You provide these instructions in the form of a [Nexmo Call Control Object (NCCO)](/voice/voice-api/guides/ncco) that defines the list of actions that the call must perform, such as reading a message to your caller using text-to-speech, or collecting input as part of an interactive voice response (IVR) system. Another type of action (`connect`) in the NCCO can route the call to a VBC extension.
 
-We provide [client libraries](https://github.com/Nexmo/) in various languages that take make it easier to work with the Voice API. We also provide VBC-specific APIs that help you retrieve information about your VBC accounts, extensions and users. Visit the Guides and Building Blocks in the [VBC APIs ](/vonage-business-cloud/vbc-apis/overview) section to get started.
+You can use the [VBC APIs](/vonage-business-cloud/vbc-apis/overview) in your application to retrieve information about your VBC accounts, extensions and users. 
 
 ## Guides
 
