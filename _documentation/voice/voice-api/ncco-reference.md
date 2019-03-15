@@ -19,7 +19,7 @@ Action | Description | Synchronous
 -- | -- | --
 [record](#record) | All or part of a Call | No
 [conversation](#conversation) | A standard or hosted conference. | Yes
-[connect](#connect) | To a connectable endpoint such as a phone number. | Yes
+[connect](#connect) | To a connectable endpoint such as a phone number or VBC extension. | Yes
 [talk](#talk) | Send synthesized speech to a Conversation. | Yes, unless *bargeIn=true*
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
 [input](#input) | Collect digits from the person you are calling. | Yes
@@ -123,11 +123,11 @@ Option | Description | Required
 
 ## Connect
 
-You can use the `connect` action to connect a call to endpoints such as phone numbers.
+You can use the `connect` action to connect a call to endpoints such as phone numbers or a VBC extension.
 
 This action is synchronous, after a *connect* the next action in the NCCO stack is processed. A connect action ends when the endpoint you are calling is busy or unavailable. You ring endpoints sequentially by nesting connect actions.
 
-The following NCCO examples show how to configure different types of connections. 
+The following NCCO examples show how to configure different types of connections.
 
 ```tabbed_content
 source: '/_examples/voice/guides/ncco-reference/connect'
@@ -170,6 +170,12 @@ Value | Description
 -- | --
 `uri` | the SIP URI to the endpoint you are connecting to in the format `sip:rebekka@sip.example.com`.
 `headers` | `key` => `value` string pairs containing any metadata you need e.g. `{ "location": "New York City", "occupation": "developer" }`
+
+#### vbc - the Vonage Business Cloud (VBC) extension to connect to
+
+Value | Description
+-- | --
+`extension` | the VBC extension to connect the call to.
 
 ## Talk
 

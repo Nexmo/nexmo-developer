@@ -59,7 +59,7 @@ The actions you can use in an NCCO are:
 
 * [`record`](/voice/voice-api/ncco-reference#record) - all or part of a call
 * [`conversation`](/voice/voice-api/ncco-reference#conversation) - create a standard or hosted conversation
-* [`connect`](/voice/voice-api/ncco-reference#connect) - connect to a connectable endpoint such as a phone number
+* [`connect`](/voice/voice-api/ncco-reference#connect) - connect to a connectable endpoint such as a phone number or Vonage Business Cloud extension
 * [`talk`](/voice/voice-api/ncco-reference#talk) - send synthesized speech to a conversation
 * [`stream`](/voice/voice-api/ncco-reference#stream) - send audio files to a conversation
 * [`input`](/voice/voice-api/ncco-reference#input) - collect digits from the person you are calling, then process them
@@ -80,4 +80,3 @@ You can use these parameters to customize the NCCO you return to Nexmo. The foll
 ```tabbed_examples
 source: '_examples/voice/ncco/creating-a-custom-call-or-conversation-for-each-user'
 ```
-

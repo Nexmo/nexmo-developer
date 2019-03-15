@@ -39,3 +39,7 @@ An optional `headers` parameter can be passed containing a JSON object of key va
 ## CallerID
 
 For both `phone` and `sip` endpoint types, the `from` field *must* be a Nexmo Number associated with your account in e.164 format. This will then be used as the caller ID on the receiving phone. For SIP endpoints it will take the format `number@sip.nexmo.com`.
+
+## Vonage Business Cloud
+
+The `vbc` endpoint enables you to connect an inbound call on a Vonage Business Cloud (VBC) programmable number to the VBC extension you specify in the `extension` property of the endpoint.
