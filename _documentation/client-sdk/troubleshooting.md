@@ -9,9 +9,9 @@ navigation_weight: 1
 
 ### Nexmo Application setup
 
-Since you can create multiple Nexmo applications, the commands you run reffer to the application that was set up. For example, when you create a user, you must make sure to create it on the application you intended.
+Since you can create multiple Nexmo applications, the commands you run refer to the application that was set up. For example, when you create a user, you must make sure to create it on the application you intended.
 
-    * Check the app your CLI reffers to by running:
+    * Check the app your CLI refers to by running:
 
     ```sh
      cat .nexmo-app
@@ -32,7 +32,7 @@ Since you can create multiple Nexmo applications, the commands you run reffer to
 ### No response to commands
 
 It you run a command and don't get a response
-    * Try making sure that all the json objects in you command are colsed objects, and not missing any `}` or `'` for example.
+    * Try making sure that all the JSON objects in you command are colsed objects, and not missing any `}` or `'` for example.
 
 ## JWTs
 
@@ -42,11 +42,11 @@ It you run a command and don't get a response
 
 * [Decode your JWT](https://jwt.io/)
 
-* Make sure the `"application_id"` is correct
+* Make sure the `"application_id"` claim is correct.
 
 * Make sure the `“sub”` is correct. Meaning, a user with this user name exists in your Nexmo Application.
 
-* Make sure the JWT isn't expired.
+* Make sure the JWT hasn't expired.
 
     * You can find the expiration date on `“exp”`, in Unix time, which is seconds since Jan 01 1970(UTC).
     
@@ -56,11 +56,11 @@ It you run a command and don't get a response
 
 ### Connection error or Connection Timeout 
 
-Getting Connection error or Connection Timeout while trying to login to the SDK
+Getting Connection error or Connection Timeout while trying to login to the SDK:
 
-* Check the internext connection on your device
+* Check the internet connection on your device
 
-* Then `JWT` might be valid on JWT standards, however to have some claims might be incorrect per Nexmo requirements. Try generating a new `JWT`, while ensuring the correctness of your the Nexmo specific claims. 
+* Then `JWT` might be valid on JWT standards, however to have some claims might be incorrect per Nexmo requirements. Try generating a new `JWT`, while ensuring the correctness of your the Nexmo specific claims.
 
 
 ### Errors while generating to JWT
