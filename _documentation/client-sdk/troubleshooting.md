@@ -52,7 +52,7 @@ It you run a command and don't get a response
     
     * You can [convert it to human time](https://www.epochconverter.com/).
     
-    * Make sure the expiration time is the future, meaning the jwt hasnt expired yet.
+    * Make sure the expiration time is the future, meaning the JWT hasn't expired yet.
 
 ### Connection error or Connection Timeout 
 
@@ -61,7 +61,6 @@ Getting Connection error or Connection Timeout while trying to login to the SDK:
 * Check the internet connection on your device
 
 * Then `JWT` might be valid on JWT standards, however to have some claims might be incorrect per Nexmo requirements. Try generating a new `JWT`, while ensuring the correctness of your the Nexmo specific claims.
-
 
 ### Errors while generating to JWT
 
