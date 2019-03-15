@@ -35,7 +35,7 @@ curl -v -X PUT \
    -H "Authorization: Bearer $jwt_dev" \
    -H "Content-Type: application/json" \
    -d "{\"token\":\"$hextoken\"}" \
-   http://qa1.internal:3150/v1/applications/$appid/push_tokens/ios
+   https://api.nexmo.com/v1/applications/$app_id/push_tokens/ios
 ```
 
 ## Integrate push notifications in your app
