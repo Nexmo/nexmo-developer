@@ -4,11 +4,11 @@ language: node
 dependencies:
     - express
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/vbc/connect-to-extension.js
+    source: .repos/nexmo/nexmo-node-code-snippets/vbc/connect-to-extension.js
     from_line: 6
     to_line: 20
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/vbc/connect-to-extension.js
+    source: .repos/nexmo/nexmo-node-code-snippets/vbc/connect-to-extension.js
     from_line: 4
     to_line: 4
 file_name: app.js
