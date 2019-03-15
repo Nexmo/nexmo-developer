@@ -29,7 +29,7 @@ nexmo.dispatch.create("failover", [
     },
     "failover":{
       "expiry_time": 600,
-      "condition_status": "read"
+      "condition_status": "delivered"
     }
   },
   {
