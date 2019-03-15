@@ -21,7 +21,7 @@ curl -X POST https://api.nexmo.com/v0.1/dispatch \
         },
         "failover":{
           "expiry_time": 600,
-          "condition_status": "read"
+          "condition_status": "delivered"
         }
       },
       {
