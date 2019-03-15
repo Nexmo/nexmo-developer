@@ -32,7 +32,7 @@ Since you can create multiple Nexmo applications, the commands you run refer to 
 ### No response to commands
 
 It you run a command and don't get a response
-    * Try making sure that all the JSON objects in you command are colsed objects, and not missing any `}` or `'` for example.
+    * Try making sure that all the JSON objects in you command are closed objects, and not missing any `}` or `'` for example.
 
 ## JWTs
 
