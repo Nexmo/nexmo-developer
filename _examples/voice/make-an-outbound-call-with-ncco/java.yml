@@ -1,0 +1,16 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:4.0.0'
+code:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeechWithNcco.java
+    from_line: 26
+    to_line: 28
+client:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeechWithNcco.java
+    from_line: 18
+    to_line: 21
+run_command: java-ide
+file_name: OutboundTextToSpeechWithNcco.java
+unindent: true
