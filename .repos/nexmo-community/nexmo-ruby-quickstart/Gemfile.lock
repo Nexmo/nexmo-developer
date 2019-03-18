@@ -28,7 +28,7 @@ GEM
     parser (2.5.1.2)
       ast (~> 2.4.0)
     powerpack (0.1.2)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-protection (2.0.3)
       rack
     rainbow (3.0.0)
@@ -80,4 +80,4 @@ DEPENDENCIES
   thin (= 1.7.0)
 
 BUNDLED WITH
-   1.16.1
+   1.17.2
