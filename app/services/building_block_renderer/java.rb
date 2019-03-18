@@ -9,7 +9,7 @@ module BuildingBlockRenderer
     end
 
     def self.run_command(_command, filename, file_path)
-      package = file_path.gsub('.repos/nexmo-community/nexmo-java-quickstart/src/main/java/', '').tr('/', '.').gsub(filename, '')
+      package = file_path.gsub('.repos/nexmo/nexmo-java-code-snippets/src/main/java/', '').tr('/', '.').gsub(filename, '')
 
       <<~HEREDOC
         ## Run your code
