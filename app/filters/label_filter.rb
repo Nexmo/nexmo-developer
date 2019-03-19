@@ -1,7 +1,7 @@
 class LabelFilter < Banzai::Filter
   def call(input)
     return input if options[:disable_label_filter]
-    input.gsub(/\[([a-zA-Z0-9\s:\-\.]+)\]/) do |_s|
+    input.gsub(/\s\[([a-zA-Z0-9\s:\-\.]+)\]/) do |_s|
       "<span class='Vlt-badge #{class_name($1)}'>#{$1}</span> "
     end
   end
