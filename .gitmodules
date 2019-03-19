@@ -34,3 +34,6 @@
 [submodule ".repos/nexmo/nexmo-java-code-snippets"]
 	path = .repos/nexmo/nexmo-java-code-snippets
 	url = https://github.com/Nexmo/nexmo-java-code-snippets.git
+[submodule ".repos/nexmo/nexmo-curl-code-snippets"]
+	path = .repos/nexmo/nexmo-curl-code-snippets
+	url = https://github.com/Nexmo/nexmo-curl-code-snippets.git
