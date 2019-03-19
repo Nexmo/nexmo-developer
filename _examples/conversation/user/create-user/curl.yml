@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/conversation/user/create-user.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/conversation/user/create-user.sh
     from_line: 6
     to_line: 12
 file_name: create-user.sh

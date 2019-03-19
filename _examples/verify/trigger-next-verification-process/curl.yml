@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/verify/trigger-next-verification-process.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/verify/trigger-next-verification-process.sh
     from_line: 4
     to_line: 4
 file_name: trigger-next-verification-process.sh

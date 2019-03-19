@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/conversation/user/delete-user.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/conversation/user/delete-user.sh
     from_line: 6
     to_line: 8
 file_name: delete-user.sh

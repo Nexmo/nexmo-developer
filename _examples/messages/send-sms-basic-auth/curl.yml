@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/messages/send-sms-basic-auth.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/messages/send-sms-basic-auth.sh
     from_line: 6
     to_line: 19
 file_name: send-sms-basic-auth.sh

@@ -2,7 +2,7 @@
 title: Curl
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/number-insight/ni-standard.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/number-insight/ni-standard.sh
     from_line: 5
     to_line: 8
 file_name: ni-standard.sh

@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/messaging/sms/send-an-sms-with-unicode.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/messaging/sms/send-an-sms-with-unicode.sh
     from_line: 4
     to_line: 10
 file_name: send-an-sms-with-unicode.sh

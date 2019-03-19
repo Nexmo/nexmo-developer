@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/dispatch/send-message-with-failover-basic-auth.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/dispatch/send-message-with-failover-basic-auth.sh
     from_line: 6
     to_line: 38
 file_name: send-message-with-failover-basic-auth.sh

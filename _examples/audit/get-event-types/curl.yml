@@ -2,11 +2,11 @@
 title: Curl
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/audit/get-event-types.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/audit/get-event-types.sh
     from_line: 5
     to_line: 6
 client:
-    source: .repos/nexmo/curl-building-blocks/audit/get-event-types.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/audit/get-event-types.sh
     from_line: 3
     to_line: 3
 file_name: get-event-types.sh
