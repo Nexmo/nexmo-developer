@@ -157,7 +157,7 @@ class CodeSnippetFilter < Banzai::Filter
     # Insert "blob/master" and strip ".repos" - except dotnet that needs "blob/ASPNET" instead
     repo_path = '\\0blob/master/'
     repo_path = '\\0blob/ASPNET/' if code['source'].include?('dotnet')
-    file_section = code['source'].sub('.repos', '').sub(%r{(-quickstart|-code-snippets|-code-snippets)/}, repo_path)
+    file_section = code['source'].sub('.repos', '').sub(%r{(-quickstart|-building-blocks|-code-snippets)/}, repo_path)
 
     # Line highlighting
     line_section = ''
