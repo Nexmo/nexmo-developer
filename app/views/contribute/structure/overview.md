@@ -12,7 +12,7 @@ Nexmo Developer content should be designed to be clear, concise and consistent i
 
 Exceptions can be made to break consistency where it makes sense, particularly in scenarios where the content would be unnecessarily verbose or the structures outlined in this guide are unsuited to the material.
 
-![Building Blocks](/assets/images/contributing/structure.png)
+![Code Snippets](/assets/images/contributing/structure.png)
 
 ## Structure
 
@@ -24,7 +24,7 @@ This section hosts the bulk of the written content for the NDP. The content is s
 
   * **[Overviews](/contribute/structure/guides/overviews)** - The first pages you reach when you select a product.
   * **[Guides](/contribute/structure/guides/guides)** - Provide key concepts in more depth than the overview.
-  * **[Building Blocks](/contribute/structure/guides/building-blocks)** - Used as a quick reference of how to so something specific.
+  * **[Code Snippets](/contribute/structure/guides/code-snippets)** - Used as a quick reference of how to so something specific.
   * **[Tutorials](/contribute/structure/guides/tutorials)** - A complete example of how to build something practical.
 
 ### API Reference

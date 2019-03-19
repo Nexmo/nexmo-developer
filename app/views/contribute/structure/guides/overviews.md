@@ -31,4 +31,4 @@ Now that the user has an understanding of what the product does, it's important 
 
 ## Further reading
 
-Further reading isn't a section itself but rather contains links off to the product Building Blocks, Guides, API References and Tutorials.
+Further reading isn't a section itself but rather contains links off to the product Code Snippets, Guides, API References and Tutorials.

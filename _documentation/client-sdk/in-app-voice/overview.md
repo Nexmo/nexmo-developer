@@ -83,11 +83,11 @@ In-app Voice concepts:
 product: client-sdk/in-app-voice
 ```
 
-## Building Blocks
+## Code Snippets
 
-In-app Voice building blocks:
+In-app Voice Code Snippets:
 
-```building_block_list
+```code_snippet_list
 product: client-sdk/in-app-voice
 ```
 

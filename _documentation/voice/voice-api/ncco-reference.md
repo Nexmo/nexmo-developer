@@ -25,7 +25,7 @@ Action | Description | Synchronous
 [input](#input) | Collect digits from the person you are calling. | Yes
 [notify](#notify) | Send a request to your application to track progress through an NCCO | Yes
 
-> **Note**: [Connect an inbound call](/voice/voice-api/building-blocks/connect-an-inbound-call) provides an example of how to serve your NCCOs to Nexmo after a Call or Conference is initiated
+> **Note**: [Connect an inbound call](/voice/voice-api/code-snippets/connect-an-inbound-call) provides an example of how to serve your NCCOs to Nexmo after a Call or Conference is initiated
 
 ## Record
 

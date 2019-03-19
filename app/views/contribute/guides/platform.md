@@ -31,7 +31,7 @@ We use a mixture of custom icons and ones made available by the packs, a backup 
 
 ## Navigation Text
 
-The navigation is generated from the file structure of the `/_documentation` folder. The documents get their titles from the front-matter within the Markdown files themselves for example the file at `/_documentation/messaging/sms/building-blocks/send-an-sms.md` has the following front-matter:
+The navigation is generated from the file structure of the `/_documentation` folder. The documents get their titles from the front-matter within the Markdown files themselves for example the file at `/_documentation/messaging/sms/code-snippets/send-an-sms.md` has the following front-matter:
 
 ```
 ---

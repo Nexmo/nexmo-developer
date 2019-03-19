@@ -22,6 +22,6 @@ You can also find definitions of commonly used terms in the [Glossary](/concepts
 Documentation within Nexmo Developer is organised by product. Within each product section you'll find the following types of documentation:
 
 - **Guides** - Key concepts highlighting core functionality and features
-- **Building Blocks** - Quick access code samples to help you construct your programmable communications apps
+- **Code Snippets** - Quick access code samples to help you construct your programmable communications apps
 - **Tutorials** - Step-by-step tutorials to help you build solutions to common communications use cases
 - **API Reference** - The resources, parameters and payload examples

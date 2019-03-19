@@ -32,7 +32,7 @@ In this document you can learn about:
 * [Audit Event Object](#audit-event-object)
 * [**How to Get Started with the Audit API**](#getting-started)
 * [Concepts](#concepts)
-* [Building Blocks](#building-blocks)
+* [Code Snippets](#code-snippets)
 * [Tutorials](#tutorials)
 * [Reference](#reference)
 
@@ -93,7 +93,7 @@ Key | Description
 
 > In the following example the _Create an application_ and _Initialize your dependencies_ procedures are optional.
 
-```building_blocks
+```code_snippets
 source: '_examples/audit/get-events'
 application:
   name: 'Get Audit Events'
@@ -105,9 +105,9 @@ application:
 product: audit
 ```
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: audit
 ```
 

@@ -25,7 +25,7 @@ import Notices from './Notices'
 import Feedback from './Feedback'
 import Concatenation from './Concatenation'
 import APIStatus from './APIStatus'
-import BuildingBlockEvents from './BuildingBlockEvents'
+import CodeSnippetEvents from './CodeSnippetEvents'
 import JWTGenerator from './JWTGenerator'
 
 import {
@@ -49,7 +49,7 @@ let refresh = () => {
   APIStatus()
   Scroll()
   Navigation()
-  BuildingBlockEvents()
+  CodeSnippetEvents()
 
   if (document.getElementById('jwtGenerator')) {
     ReactDOM.render(<JWTGenerator/>, document.getElementById('jwtGenerator'))

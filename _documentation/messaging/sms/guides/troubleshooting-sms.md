@@ -6,7 +6,7 @@ navigation_weight: 6
 
 # Troubleshooting SMS
 
-When you [send an SMS](/messaging/sms/building-blocks/send-an-sms), the SMS API returns a JSON response that contains an array of `message` objects, one for each message:
+When you [send an SMS](/messaging/sms/code-snippets/send-an-sms), the SMS API returns a JSON response that contains an array of `message` objects, one for each message:
 
 ```json
 {

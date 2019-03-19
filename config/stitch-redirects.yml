@@ -42,15 +42,15 @@
 # Client SDK 
 
 "/client-sdk/in-app-messaging/concepts": "/conversation/concepts"
-"/client-sdk/in-app-messaging/building-blocks": "/client-sdk/in-app-messaging/overview"
+"/client-sdk/in-app-messaging/code-snippets": "/client-sdk/in-app-messaging/overview"
 "/client-sdk/in-app-messaging/tutorials": "/client-sdk/tutorials"
 
 "/client-sdk/in-app-voice/concepts": "/conversation/concepts"
-"/client-sdk/in-app-voice/building-blocks": "/client-sdk/in-app-voice/building-blocks/answer-call"
+"/client-sdk/in-app-voice/code-snippets": "/client-sdk/in-app-voice/code-snippets/answer-call"
 "/client-sdk/in-app-voice/tutorials": "/client-sdk/tutorials"
 
 "/client-sdk/in-app-video/concepts": "/conversation/concepts"
-"/client-sdk/in-app-video/building-blocks": "/client-sdk/in-app-video/overview"
+"/client-sdk/in-app-video/code-snippets": "/client-sdk/in-app-video/overview"
 "/client-sdk/in-app-video/tutorials": "/client-sdk/tutorials"
 
 "/stitch/overview": "/client-sdk/overview"
@@ -70,7 +70,7 @@
 
 "/conversation": "/conversation/overview"
 "/conversation/concepts": "/conversation/concepts/conversation"
-"/conversation/building-blocks": "/conversation/building-blocks/conversation/create-conversation"
+"/conversation/code-snippets": "/conversation/code-snippets/conversation/create-conversation"
 "/conversation/api-reference": "/api/conversation"
 
 "/api/stitch": "/api/conversation"

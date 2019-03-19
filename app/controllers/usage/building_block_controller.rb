@@ -1,11 +1,11 @@
 module Usage
-  class BuildingBlockController < ApplicationController
+  class CodeSnippetController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def create
-      event = ::Usage::BuildingBlockEvent.new(
+      event = ::Usage::CodeSnippetEvent.new(
         language: params['language'],
-        block: params['block'],
+        snippet: params['snippet'],
         action: params['event'],
         section: params['section'],
         ip: request.remote_ip

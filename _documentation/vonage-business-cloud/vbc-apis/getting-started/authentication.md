@@ -34,7 +34,7 @@ Once you have [created your application](/vonage-business-cloud/vbc-apis/getting
 
 ## Authenticating with the password grant type
 
-All the building blocks in the VBC API documentation use the [password grant type](https://oauth.net/2/grant-types/password) instead of the recommended `authorization_code` to make them easy to run. This grant type does not require you to implement a callback URL. Instead, you provide your VBC user name and password to request a token.
+All the Code Snippets in the VBC API documentation use the [password grant type](https://oauth.net/2/grant-types/password) instead of the recommended `authorization_code` to make them easy to run. This grant type does not require you to implement a callback URL. Instead, you provide your VBC user name and password to request a token.
 
 Replace the following placeholders in the example with your own values:
 
@@ -43,7 +43,7 @@ Replace the following placeholders in the example with your own values:
 * `VBC_CLIENT_ID` - The Consumer Key that you generated in step 5 above
 * `VBC_CLIENT_SECRET` - The Consumer Secret that you generated in step 5 above
 
-```building_blocks
+```code_snippets
 source: '_examples/vonage-business-cloud/vbc-apis/general/authenticate-password'
 ```
 

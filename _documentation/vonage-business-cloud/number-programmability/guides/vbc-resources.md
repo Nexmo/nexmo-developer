@@ -6,19 +6,19 @@ navigation_weight: 6
 
 # Resources
 
-## Number Programmability Building Blocks
+## Number Programmability Code Snippets
 
-The following building blocks get you up and running with the basics:
+The following Code Snippets get you up and running with the basics:
 
-```building_block_list
+```code_snippet_list
 product: vonage-business-cloud/number-programmability
 ```
 
-## Voice API Building Blocks
+## Voice API Code Snippets
 
-These building blocks show more advanced use cases:
+These Code Snippets show more advanced use cases:
 
-```building_block_list
+```code_snippet_list
 product: voice/voice-api
 ```
 

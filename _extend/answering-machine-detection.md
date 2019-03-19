@@ -35,7 +35,7 @@ APP_ID={YOUR_NEXMO_APPLICATION_ID}
 PRIVATE_KEY={PATH_TO_APPLICATION_PRIVATE_KEY}
 ```
 
-You will need to create a [Nexmo Application](https://developer.nexmo.com/concepts/guides/applications) and [Purchase a phone number](https://developer.nexmo.com/numbers/building-blocks/buy-a-number)
+You will need to create a [Nexmo Application](https://developer.nexmo.com/concepts/guides/applications) and [Purchase a phone number](https://developer.nexmo.com/numbers/code-snippets/buy-a-number)
 
 ## Resources
 * [GitHub Repository](https://github.com/nexmo-community/AnsweringMachineDetection)

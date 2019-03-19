@@ -99,7 +99,7 @@ Examples:
 
 Try to be consistent with capitalization of headings. You can follow these guidelines:
 
-* Use title case (also sometimes known as word case as significant words are capitalized) for top-level topics and sections. For example, 'Building Blocks', 'Guides', 'Markdown Guide', 'Writing Style Guide', 'Installation Guide', 'Messages and Dispatch API'.
+* Use title case (also sometimes known as word case as significant words are capitalized) for top-level topics and sections. For example, 'Code Snippets', 'Guides', 'Markdown Guide', 'Writing Style Guide', 'Installation Guide', 'Messages and Dispatch API'.
 * Use sentence case for topic titles below a top-level section. For example, 'This is the topic title'. The exception to this is if the heading references a top-level section. For example, 'How to use the Getting Started Guide', as Getting Started Guide is a top-level section in this example.
 * Use sentence case for sub-section headings. For example, 'This is a sub-section heading'.
 
@@ -135,7 +135,7 @@ Installation Guide
 Another example demonstrates correct heading case:
 
 ```
-Building Blocks  (main section)
+Code Snippets  (main section)
   Before you begin
   Connect an inbound call
   Download a recording

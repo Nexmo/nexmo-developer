@@ -4,7 +4,7 @@
 
 Once you have created a Nexmo Application you can use the Nexmo Application ID and the private key file, `private.key`, to generate a JWT.
 
-> **TIP:** If you are using the [client library](/messages/building-blocks/client-library) for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
+> **TIP:** If you are using the [client library](/messages/code-snippets/client-library) for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
 
 If you're using the Nexmo CLI, the command to create the JWT is:
 

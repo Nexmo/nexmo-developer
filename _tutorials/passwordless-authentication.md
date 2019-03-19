@@ -205,7 +205,7 @@ block content
             input.ghost-button(type='submit', value='Get Verification Code')
 ```
 
-> Note: The application expects the phone number your users provide to be in [E.164](/voice/voice-api/guides/numbers) format that includes the country prefix. In a production application you would probably want to format local numbers for them. You can do this using the [Number Insight API](/number-insight/building-blocks/number-insight-basic).
+> Note: The application expects the phone number your users provide to be in [E.164](/voice/voice-api/guides/numbers) format that includes the country prefix. In a production application you would probably want to format local numbers for them. You can do this using the [Number Insight API](/number-insight/code-snippets/number-insight-basic).
 
 When the user has submitted this form, your application redirects to the `/verify` route where you will send a verification request using the Nexmo Verify API.
 

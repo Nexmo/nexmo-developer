@@ -42,7 +42,7 @@ The following table lists currently supported Audit Event types:
 | IP_WHITELIST_CREATE | Whitelist IP added |
 | IP_WHITELIST_CREATE | Whitelist IP deleted |
 
-> **NOTE:** The list of supported event types does change from time to time. For this reason the `OPTIONS` method is provided to return event types. You can see how to return the definitive list of event types from the [Get event types Building Block](/audit/building-blocks/get-event-types)
+> **NOTE:** The list of supported event types does change from time to time. For this reason the `OPTIONS` method is provided to return event types. You can see how to return the definitive list of event types from the [Get event types Code Snippet](/audit/code-snippets/get-event-types)
 
 ## Audit event objects
 

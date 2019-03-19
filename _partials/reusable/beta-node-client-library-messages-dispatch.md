@@ -28,4 +28,4 @@ These variables can then be replaced with actual values in the client library ex
 
 ## Examples
 
-See the Building Blocks section for further examples on how to use the client library.
+See the Code Snippets section for further examples on how to use the client library.

@@ -257,7 +257,7 @@ The `linked_image` content block provides you with a format for an image that is
 
 <img src="/assets/images/contributing/landing_page_screenshots/products.png" width=200>
 
-The `products` content block is a pre-defined listing of all of Nexmo's API products. It displays each one with links to tutorials, guides, building blocks and API reference. It takes no parameters.
+The `products` content block is a pre-defined listing of all of Nexmo's API products. It displays each one with links to tutorials, guides, Code Snippets and API reference. It takes no parameters.
 
 ```yaml
 

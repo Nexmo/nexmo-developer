@@ -184,13 +184,13 @@ class StaticController < ApplicationController
 
     @building_blocks = @blocks.map do |block|
       block['nexmo'] = "<h2>Nexmo</h2>
-        ```building_blocks
+        ```code_snippets
           code_only: true
           source: #{block['nexmo']}
         ```"
 
       block['tropo'] = "<h2>Tropo</h2>
-        ```building_blocks
+        ```code_snippets
           code_only: true
           source: #{block['tropo']}
         ```"

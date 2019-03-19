@@ -26,7 +26,7 @@ Consider the following example. A User calls a Nexmo Number associated with a Ne
 
 ## Conversation details
 
-The Call consists of two legs: inbound and outbound, and two Members, all contained in a Conversation object. If you used the Conversation API call [Get Conversation](/conversation/building-blocks/conversation/get-conversation) to obtain details of this Conversation you would obtain a response similar to the following:
+The Call consists of two legs: inbound and outbound, and two Members, all contained in a Conversation object. If you used the Conversation API call [Get Conversation](/conversation/code-snippets/conversation/get-conversation) to obtain details of this Conversation you would obtain a response similar to the following:
 
 ``` json
 {
@@ -142,7 +142,7 @@ To summarize, in this example there is one call and one Conversation consisting 
 
 ## Events
 
-If, while the call is in session, you get Events for the Conversation using the [List Events](/conversation/building-blocks/event/list-events) API call you would see Events that have taken place so far during the call:
+If, while the call is in session, you get Events for the Conversation using the [List Events](/conversation/code-snippets/event/list-events) API call you would see Events that have taken place so far during the call:
 
 ``` json
 [

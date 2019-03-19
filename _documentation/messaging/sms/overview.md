@@ -28,7 +28,7 @@ Key | Description
 `NEXMO_API_KEY` | Your Nexmo API key.
 `NEXMO_API_SECRET` | Your Nexmo API secret.
 
-```building_blocks
+```code_snippets
 source: '_examples/messaging/sms/send-an-sms'
 ```
 
@@ -38,7 +38,7 @@ The rest of this document contains the following information:
 
 * [Nexmo SMS API Concepts](#concepts) - what you need to know
 * [Guides](#guides) - learn how to use the SMS API
-* [Building Blocks](#building-blocks) - code snippets to help with specific tasks
+* [Code Snippets](#code-snippets) - code snippets to help with specific tasks
 * [Tutorials](#tutorials) - detailed tutorials for some common use cases
 * [Reference](#reference) - complete API documentation
 
@@ -59,9 +59,9 @@ Before using the Nexmo SMS API, familiarise yourself with the following:
 product: messaging/sms
 ```
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: messaging/sms
 ```
 

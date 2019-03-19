@@ -6,15 +6,15 @@ navigation_weight: 1
 
 # Verification Events
 
-To verify a user's phone number using the Verify API, you first make a [verify request](/verify/building-blocks/send-verify-request) and receive the `request_id`. 
+To verify a user's phone number using the Verify API, you first make a [verify request](/verify/code-snippets/send-verify-request) and receive the `request_id`. 
 
-The Verify API then sends a verification code to the user by SMS. When they enter the code into your application, you [check the verification code](/verify/building-blocks/check-verify-request) by making a request to the Verify API using the `request_id` and the code the user provides.
+The Verify API then sends a verification code to the user by SMS. When they enter the code into your application, you [check the verification code](/verify/code-snippets/check-verify-request) by making a request to the Verify API using the `request_id` and the code the user provides.
 
 If the user does not enter the code within the allowed time, the Verify API makes two further attempts to verify the user by making  Text-to-speech (TTS) voice calls.
 
 ## Timing of each event 
 
-The following table shows the three events that are triggered and the amount of time the Verify API waits by default before triggering the next event. You can also [trigger the next verification attempt](/verify/building-blocks/trigger-next-verification-process) programmatically.
+The following table shows the three events that are triggered and the amount of time the Verify API waits by default before triggering the next event. You can also [trigger the next verification attempt](/verify/code-snippets/trigger-next-verification-process) programmatically.
 
 | Step | Verification event  | Wait time before next event |
 |---|---|---|

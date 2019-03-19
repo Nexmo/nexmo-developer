@@ -27,7 +27,7 @@ Reflect on:
 Point to resources:
 
 * Guides - Guides covering the concepts used in the tutorial.
-* Building Blocks - cover specific bits of code to do single function operations.
+* Code Snippets - cover specific bits of code to do single function operations.
 * API Reference - Given that the tutorial is opinionated, provide this as a resource to allow the user to see what other options are available to them.
 * Tutorials - Other relevant tutorials.
 
