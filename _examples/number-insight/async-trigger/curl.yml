@@ -2,7 +2,7 @@
 title: Curl
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/number-insight/ni-advanced-async.sh
+    source: .repos/nexmo/curl-building-blocks/number-insight/ni-advanced-async.sh
     from_line: 5
     to_line: 9
 file_name: ni-advanced-async.sh

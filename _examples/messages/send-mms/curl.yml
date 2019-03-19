@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/messages/send-mms.sh
+    source: .repos/nexmo/curl-building-blocks/messages/send-mms.sh
     from_line: 5
     to_line: 26
 file_name: send-mms.sh

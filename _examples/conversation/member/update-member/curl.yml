@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/conversation/member/update-member.sh
+    source: .repos/nexmo/curl-building-blocks/conversation/member/update-member.sh
     from_line: 6
     to_line: 15
 file_name: update-member.sh

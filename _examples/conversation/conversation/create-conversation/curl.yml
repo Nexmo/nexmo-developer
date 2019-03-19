@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/conversation/conversation/create-conversation.sh
+    source: .repos/nexmo/curl-building-blocks/conversation/conversation/create-conversation.sh
     from_line: 6
     to_line: 12
 file_name: create-conversation.sh

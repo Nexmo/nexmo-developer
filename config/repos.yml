@@ -25,5 +25,5 @@
 
 nexmo/conversation-docs:
   repo: nexmo/conversation-docs
-nexmo/curl-code-snippets:
-  repo: nexmo/curl-code-snippets
+nexmo/curl-building-blocks:
+  repo: nexmo/curl-building-blocks

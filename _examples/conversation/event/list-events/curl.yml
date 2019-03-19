@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/conversation/event/list-events.sh
+    source: .repos/nexmo/curl-building-blocks/conversation/event/list-events.sh
     from_line: 6
     to_line: 8
 file_name: list-events.sh

@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/verify/cancel-verification-code.sh
+    source: .repos/nexmo/curl-building-blocks/verify/cancel-verification-code.sh
     from_line: 4
     to_line: 4
 file_name: cancel-verification-code.sh

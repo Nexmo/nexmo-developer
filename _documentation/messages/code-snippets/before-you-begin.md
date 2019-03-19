@@ -8,7 +8,7 @@ navigation_weight: 0
 ## What are Code Snippets?
 
 Code Snippets are short pieces of code you can reuse in your own applications.
-The Code Snippets utilise code from the [Nexmo Node code snippets](https://github.com/nexmo/nexmo-node-code-snippets) and [Curl Code Snippet](https://github.com/Nexmo/curl-code-snippets) repositories.
+The Code Snippets utilise code from the [Nexmo Node code snippets](https://github.com/nexmo/nexmo-node-code-snippets) and [Curl Code Snippet](https://github.com/Nexmo/curl-building-blocks) repositories.
 
 Please read this information carefully, so you can best use the Code Snippets.
 

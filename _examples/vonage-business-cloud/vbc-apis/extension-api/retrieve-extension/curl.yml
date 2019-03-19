@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/vbc/extension/get-extension.sh
+    source: .repos/nexmo/curl-building-blocks/vbc/extension/get-extension.sh
     from_line: 5
     to_line: 6
 file_name: get-extension.sh

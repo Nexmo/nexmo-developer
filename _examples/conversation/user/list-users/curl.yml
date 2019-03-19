@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/conversation/user/list-users.sh
+    source: .repos/nexmo/curl-building-blocks/conversation/user/list-users.sh
     from_line: 6
     to_line: 8
 file_name: list-users.sh

@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/voice/voice-api/transfer-a-call.sh
+    source: .repos/nexmo/curl-building-blocks/voice/voice-api/transfer-a-call.sh
     from_line: 5
     to_line: 9
 file_name: transfer-a-call.sh

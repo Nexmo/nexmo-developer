@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/conversation/leg/delete-leg.sh
+    source: .repos/nexmo/curl-building-blocks/conversation/leg/delete-leg.sh
     from_line: 7
     to_line: 9
 file_name: delete-leg.sh

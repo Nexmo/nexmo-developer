@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/voice/voice-api/retrieve-info-for-a-call.sh
+    source: .repos/nexmo/curl-building-blocks/voice/voice-api/retrieve-info-for-a-call.sh
     from_line: 5
     to_line: 6
 file_name: retrieve-info-for-a-call.sh

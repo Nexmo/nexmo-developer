@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-code-snippets/voice/voice-api/earmuff-a-call.sh
+    source: .repos/nexmo/curl-building-blocks/voice/voice-api/earmuff-a-call.sh
     from_line: 5
     to_line: 15
 file_name: earmuff-a-call.sh
