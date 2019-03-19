@@ -43,13 +43,13 @@ Key | Description
 
 ## Example
 
-```building_blocks
+```code_snippets
 source: '_examples/messages/send-sms'
 ```
 
 This will send an SMS message to the destination number you specified.
 
-> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/building-blocks/before-you-begin#generate-a-jwt).
+> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/code-snippets/before-you-begin#generate-a-jwt).
 
 ## Further reading
 

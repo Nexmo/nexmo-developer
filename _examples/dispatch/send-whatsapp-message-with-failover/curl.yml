@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/dispatch/send-whatsapp-message-with-failover.sh
+    source: .repos/nexmo/curl-code-snippets/dispatch/send-whatsapp-message-with-failover.sh
     from_line: 6
     to_line: 38
 file_name: send-whatsapp-message-with-failover.sh

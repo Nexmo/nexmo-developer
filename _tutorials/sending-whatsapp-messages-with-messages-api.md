@@ -35,7 +35,7 @@ Please note that free form text messages can only be sent when a customer sends 
 
 If you have not received a message from the customer you will need to send a WhatsApp Template (MTM) before sending a message. You can learn more about this in [Understanding WhatsApp Messaging](/messages/concepts/whatsapp).
 
-If you want to see the code for sending a WhatsApp Template you can view the [Sending a WhatsApp Template](/messages/building-blocks/send-whatsapp-template) building block.
+If you want to see the code for sending a WhatsApp Template you can view the [Sending a WhatsApp Template](/messages/code-snippets/send-whatsapp-template) Code Snippet.
 
 Key | Description
 -- | --
@@ -47,11 +47,11 @@ Key | Description
 
 ## Example
 
-```building_blocks
+```code_snippets
 source: '_examples/messages/send-whatsapp-message'
 ```
 
-> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/building-blocks/before-you-begin#generate-a-jwt).
+> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/code-snippets/before-you-begin#generate-a-jwt).
 
 ## Further reading
 

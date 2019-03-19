@@ -15,11 +15,11 @@ You can manage your API secrets via the [secret rotation API](/api/account/secre
 
 In addition to managing your own API secrets, primary accounts can manage API secrets for any secondary account that it owns. To do this, authenticate with the Nexmo API using your primary account's API key and secret and specify the secondary account's API key as the `account_id` to manage in your [API call](/api/account/secret-management).
 
-## Building Blocks
+## Code Snippets
 
-Building blocks are code snippets showing how to use the API to perform various tasks.
+Code Snippets are code snippets showing how to use the API to perform various tasks.
 
-```building_block_list
+```code_snippet_list
 product: account/secret-management
 ```
 

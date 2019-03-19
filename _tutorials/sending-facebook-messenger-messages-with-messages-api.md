@@ -38,7 +38,7 @@ source: _partials/reusable/create-a-nexmo-application.md
 
 ## Receive a Facebook message
 
-First make sure your webhook server is running. It should correctly handle **both** [inbound message callbacks](/messages/building-blocks/inbound-message) and [message status callbacks](/messages/building-blocks/message-status)  returning at least a 200 to acknowledge each callback. You will need to have this in place so you can obtain the PSID of the Facebook User sending the inbound message. Once you have this you will be able to reply.
+First make sure your webhook server is running. It should correctly handle **both** [inbound message callbacks](/messages/code-snippets/inbound-message) and [message status callbacks](/messages/code-snippets/message-status)  returning at least a 200 to acknowledge each callback. You will need to have this in place so you can obtain the PSID of the Facebook User sending the inbound message. Once you have this you will be able to reply.
 
 When a Facebook message is sent by a Facebook User to your Facebook Page a callback will be sent to your Inbound Message Webhook URL. An example callback is shown here:
 
@@ -78,11 +78,11 @@ Key | Description
 
 ## Example
 
-```building_blocks
+```code_snippets
 source: '_examples/messages/send-facebook-message'
 ```
 
-> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/building-blocks/before-you-begin#generate-a-jwt).
+> **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/code-snippets/before-you-begin#generate-a-jwt).
 
 ## Further reading
 

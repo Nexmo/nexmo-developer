@@ -146,7 +146,7 @@ You can retrieve details of the Conversation object for the current call by runn
 
 Obtain the Conversation details for the voice call with the following:
 
-```building_blocks
+```code_snippets
 source: '_examples/conversation/conversation/get-conversation'
 ```
 

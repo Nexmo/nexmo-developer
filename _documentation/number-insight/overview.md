@@ -14,7 +14,7 @@ This document contains the following information:
 - [Basic, Standard and Advanced API levels](#basic-standard-and-advanced-apis) - understand their different capabilities
 - **[Getting Started with the Number Insight API](#getting-started)** - try it out
 - [Guides](#guides) - learn how to use the Number Insight API
-- [Building Blocks](#building-blocks) - code snippets to help with specific tasks
+- [Code Snippets](#code-snippets) - code snippets to help with specific tasks
 - [Tutorials](#tutorials) - detailed tutorials for some common use cases
 - [Reference](#reference) - complete API documentation
 
@@ -54,7 +54,7 @@ Roaming carrier and country| ❌ | ❌ | ✅
 
 This example shows you how to use the [Nexmo CLI](/tools) to access the Number Insight Basic API and display information about a number.
 
-> For examples of how to use Basic, Standard and Advanced Number Insight with `curl` and the developer SDKs see the [Building Blocks](#building-blocks).
+> For examples of how to use Basic, Standard and Advanced Number Insight with `curl` and the developer SDKs see the [Code Snippets](#code-snippets).
 
 ### Before you begin:
 
@@ -132,9 +132,9 @@ United Kingdom
 product: number-insight
 ```
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: number-insight
 ```
 

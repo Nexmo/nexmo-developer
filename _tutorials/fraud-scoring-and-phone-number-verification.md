@@ -414,8 +414,8 @@ Here are a few resources that might help you build this type of application:
 
 * The [source code](https://github.com/Nexmo/node-verify-fraud-detection) for this tutorial on GitHub
 * Code samples, showing you how to:
-  * [Request](/number-insight/building-blocks/number-insight-advanced-async) and [receive](/number-insight/building-blocks/number-insight-advanced-async-callback) Number Insight Advanced API data asynchronously
-  * [Send](/verify/building-blocks/send-verify-request) and [check](/verify/building-blocks/check-verify-request) verification codes using the Verify API
+  * [Request](/number-insight/code-snippets/number-insight-advanced-async) and [receive](/number-insight/code-snippets/number-insight-advanced-async-callback) Number Insight Advanced API data asynchronously
+  * [Send](/verify/code-snippets/send-verify-request) and [check](/verify/code-snippets/check-verify-request) verification codes using the Verify API
 * Blog posts:
   * [Number Insight API](https://www.nexmo.com/?s=number+insight)
   * [Verify API](https://www.nexmo.com/?s=verify)

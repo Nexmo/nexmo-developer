@@ -1,5 +1,5 @@
 ---
 code:
-    source: .repos/nexmo/curl-building-blocks/number-insight/ni-basic.sh
+    source: .repos/nexmo/curl-code-snippets/number-insight/ni-basic.sh
     from_line: 5
     to_line: 8

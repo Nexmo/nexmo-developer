@@ -19,7 +19,7 @@ These can be set up in the Numbers section of the [Dashboard](https://dashboard.
 
 ### On creating an outbound call
 
-When [making a new outbound call](/voice/voice-api/building-blocks/make-an-outbound-call), you need to set the `answer_url` in the call to a URL containing an NCCO. Nexmo's servers will retrieve the NCCO from this endpoint and follow its instructions in handling the outbound call.
+When [making a new outbound call](/voice/voice-api/code-snippets/make-an-outbound-call), you need to set the `answer_url` in the call to a URL containing an NCCO. Nexmo's servers will retrieve the NCCO from this endpoint and follow its instructions in handling the outbound call.
 
 ### Answer URL payload
 

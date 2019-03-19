@@ -1,10 +1,10 @@
-ActiveAdmin.register Usage::BuildingBlockEvent do
-  permit_params :block, :language, :section, :action
+ActiveAdmin.register Usage::CodeSnippetEvent do
+  permit_params :snippet, :language, :section, :action
 
   index do
     selectable_column
     id_column
-    column :block
+    column :snippet
     column :language
     column :section
     column :action
@@ -12,7 +12,7 @@ ActiveAdmin.register Usage::BuildingBlockEvent do
     actions
   end
 
-  filter :block
+  filter :snippet
   filter :language
   filter :section
   filter :action
@@ -20,7 +20,7 @@ ActiveAdmin.register Usage::BuildingBlockEvent do
 
   form do |f|
     f.inputs do
-      f.input :block
+      f.input :snippet
       f.input :language
       f.input :section
       f.input :action

@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/voice/voice-api/make-an-outbound-call.sh
+    source: .repos/nexmo/curl-code-snippets/voice/voice-api/make-an-outbound-call.sh
     from_line: 5
     to_line: 10
 file_name: make-an-outbound-call.sh

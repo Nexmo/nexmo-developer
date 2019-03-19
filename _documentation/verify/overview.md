@@ -30,9 +30,9 @@ The Verify API makes three attempts to contact the user before failing the verif
 
 ## Getting Started
 
-The following sample shows you how to start the verification process by sending a verification code to a user. To learn how to validate the code the user supplies and perform other operations, see the [building blocks](/verify/overview#building-blocks).
+The following sample shows you how to start the verification process by sending a verification code to a user. To learn how to validate the code the user supplies and perform other operations, see the [Code Snippets](/verify/overview#code-snippets).
 
-```building_blocks
+```code_snippets
 source: '_examples/verify/send-verification-request'
 ```
 
@@ -48,9 +48,9 @@ If the user does not respond to one of two SMS [within a specified time period](
 product: verify
 ```
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: verify
 ```
 

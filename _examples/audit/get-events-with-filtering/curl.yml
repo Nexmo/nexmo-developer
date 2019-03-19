@@ -2,11 +2,11 @@
 title: Curl
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/audit/get-events-with-filtering.sh
+    source: .repos/nexmo/curl-code-snippets/audit/get-events-with-filtering.sh
     from_line: 5
     to_line: 6
 client:
-    source: .repos/nexmo/curl-building-blocks/audit/get-events-with-filtering.sh
+    source: .repos/nexmo/curl-code-snippets/audit/get-events-with-filtering.sh
     from_line: 3
     to_line: 3
 file_name: get-events-with-filtering.sh

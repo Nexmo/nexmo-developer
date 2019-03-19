@@ -194,7 +194,7 @@ page:
         unordered_list:
             bullet_shape: simple
             list:
-              - item: "[Voice Applications: Before You Begin](/voice/voice-api/building-blocks/before-you-begin)"
+              - item: "[Voice Applications: Before You Begin](/voice/voice-api/code-snippets/before-you-begin)"
               - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
               - item: "[Interactive Voice Response](/tutorials/interactive-voice-response)"
               - item: "[Connecting Voice Calls to Amazon Lex Bots](/voice/voice-api/guides/lex-connector)"

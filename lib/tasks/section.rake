@@ -17,13 +17,13 @@ namespace :section do
 
     # Create our folders
     FileUtils.mkdir_p base_url
-    FileUtils.mkdir_p "#{base_url}/building-blocks"
+    FileUtils.mkdir_p "#{base_url}/code-snippets"
     FileUtils.mkdir_p "#{base_url}/guides"
 
     # Create some placeholder content
     File.write("#{base_url}/overview.md", overview_content(section_name, slug))
     File.write("#{base_url}/api-reference.md", api_reference_content)
-    File.write("#{base_url}/building-blocks/block-title.md", building_block_content(section_name, slug))
+    File.write("#{base_url}/code-snippets/block-title.md", code_snippet_content(section_name, slug))
     File.write("#{base_url}/guides/guide-title.md", guide_content(section_name, slug))
 
     # Create the initial translation for the sidebar
@@ -60,7 +60,7 @@ def overview_content(section_name, slug)
 
     * [Nexmo #{section_name} Concepts](#concepts)
     * [How to Get Started with the #{section_name} API](#getting-started)
-    * [Building Blocks](#building-blocks)
+    * [Code Snippets](#code-snippets)
     * [Guides](#guides)
     * [Tutorials](#tutorials)
     * [Reference](#reference)
@@ -73,7 +73,7 @@ def overview_content(section_name, slug)
 
     * [Title](/url/goes/here)
 
-    ## Building Blocks
+    ## Code Snippets
 
     * [Title](/url/goes/here)
 
@@ -92,10 +92,10 @@ def overview_content(section_name, slug)
   HEREDOC
 end
 
-def building_block_content(section_name, slug)
+def code_snippet_content(section_name, slug)
   <<~HEREDOC
     ---
-    title: Block Title
+    title: Snippet Title
     description: How do to this cool thing with the Nexmo #{section_name} API
     navigation_weight: 1
     ---
@@ -114,7 +114,7 @@ def building_block_content(section_name, slug)
     `NEXMO_API_SECRET` | You can find this in your account overview
 
     ```tabbed_content
-    source: '_examples/#{slug}/building-block-name-here'
+    source: '_examples/#{slug}/code-snippet-name-here'
     ```
   HEREDOC
 end

@@ -265,7 +265,7 @@ You now have a simple, but working, voice-alert system where you can broadcast o
 
 * [Using Ngrok for local development](https://developer.nexmo.com/concepts/guides/webhooks#using-ngrok-for-local-development) section from our Webhooks documentation
 * [Making an Outbound Call](/voice/voice-api/guides/outbound-calls) - code snippets for making calls in different programming languages
-* [Handling user input with DTMF](/voice/voice-api/building-blocks/handle-user-input-with-dtmf) - examples using code of various technology stacks to capture the user's button presses.
+* [Handling user input with DTMF](/voice/voice-api/code-snippets/handle-user-input-with-dtmf) - examples using code of various technology stacks to capture the user's button presses.
 * [NCCO Reference](/voice/voice-api/ncco-reference) - the reference documentation for call control objects
 * [Voice API Reference](/api/voice) - API reference documentation
 

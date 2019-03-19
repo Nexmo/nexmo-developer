@@ -20,7 +20,7 @@ Phone, SIP and Websocket Channels are enabled through the [Voice API](/voice/voi
 * [Supported features](#supported-features)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
-* [Building Blocks](#building-blocks)
+* [Code Snippets](#code-snippets)
 * [Tutorials](#tutorials)
 * [Reference](#reference)
 
@@ -69,7 +69,7 @@ You can verify your JWT at [jwt.io](https://jwt.io).
 
 To make an example Conversation API call:
 
-```building_blocks
+```code_snippets
 source: '_examples/conversation/conversation/list-conversations'
 ```
 
@@ -79,11 +79,11 @@ source: '_examples/conversation/conversation/list-conversations'
 product: conversation
 ```
 
-## Building Blocks
+## Code Snippets
 
-Building Blocks provide ready to use samples of code so you can build out your application quickly.
+Code Snippets provide ready to use samples of code so you can build out your application quickly.
 
-You could start by [Creating a Conversation](/conversation/building-blocks/conversation/create-conversation).
+You could start by [Creating a Conversation](/conversation/code-snippets/conversation/create-conversation).
 
 ## Tutorials
 

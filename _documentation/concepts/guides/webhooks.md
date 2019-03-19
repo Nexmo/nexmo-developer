@@ -64,11 +64,11 @@ Information about your request is then sent to your webhook endpoint.
 
 **Look at examples** - Nexmo provides examples implemented with several technology stacks in an attempt to support as many developers as possible. For example code using webhooks see the following:
 
-* [Receive an SMS](/messaging/sms/building-blocks/receiving-an-sms)
+* [Receive an SMS](/messaging/sms/code-snippets/receiving-an-sms)
 * [Handle delivery receipts](/messaging/sms/guides/delivery-receipts)
-* [Receive an incoming call](/voice/voice-api/building-blocks/receive-an-inbound-call)
+* [Receive an incoming call](/voice/voice-api/code-snippets/receive-an-inbound-call)
 
-You can also check the Building Blocks section of the documentation for the API you are using.
+You can also check the Code Snippets section of the documentation for the API you are using.
 
 ## Using Ngrok for local development
 

@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/messages/send-whatsapp-message.sh
+    source: .repos/nexmo/curl-code-snippets/messages/send-whatsapp-message.sh
     from_line: 6
     to_line: 19
 file_name: send-whatsapp-message.sh

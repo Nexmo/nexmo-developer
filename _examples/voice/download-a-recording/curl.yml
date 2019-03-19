@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/voice/voice-api/download-a-recording.sh
+    source: .repos/nexmo/curl-code-snippets/voice/voice-api/download-a-recording.sh
     from_line: 5
     to_line: 7
 file_name: download-a-recording.sh

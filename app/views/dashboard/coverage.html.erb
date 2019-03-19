@@ -17,7 +17,7 @@
 </style>
 
 <center>
-    <h1>Building Block Stats</h1>
+    <h1>Code Snippet Stats</h1>
 
     <br>
     <div class="box">
@@ -42,7 +42,7 @@
     <%= submit_tag 'Update', class: 'button' %>
     <p>
     <hr />
-        <strong>Note: This is only partially working due to the location of some building blocks</strong>
+        <strong>Note: This is only partially working due to the location of some Code Snippets</strong>
     </p>
 <% end %>
     </div>
@@ -74,15 +74,15 @@
 <hr style="clear:both;" />
 
 <div class="box">
-    <h3>Building Block Rating Scale</h3>
+    <h3>Code Snippet Rating Scale</h3>
 <div style="text-align: center; padding: 5px; background: red; width: 33%; float: left; color: white;">Missing block (worst)</div>
 <div style="text-align: center; padding: 5px; background: orange; width: 33%; float: left;">File based block</div>
 <div style="text-align: center; padding: 5px; background: green; width: 33%; color: white; float:left; margin-bottom: 8px;">Yaml based block (best)</div>
 
 <ul>
-    <li>YAML building blocks in <code>_examples</code> is our preferred way to handle blocks in Nexmo Developer. It's a good balance of consistency and flexibility.</li>
+    <li>YAML Code Snippets in <code>_examples</code> is our preferred way to handle blocks in Nexmo Developer. It's a good balance of consistency and flexibility.</li>
     <li>Before defining blocks as individual config files, they were all defined together in <code>config/code_examples.yml</code> and each quick start would be a markdown file that referenced <code>config: product.block_name.language</code>. This is the same as the current system, but with one additional layer of redirection</li>
-    <li>Prior to keeping building blocks in the code snippet repos, we committed the files directly to NDP in <code>_examples</code>. This has been deprecated for a long time and should be cleaned up as it prevents code reuse</li>
+    <li>Prior to keeping Code Snippets in the code snippet repos, we committed the files directly to NDP in <code>_examples</code>. This has been deprecated for a long time and should be cleaned up as it prevents code reuse</li>
 </ul>
 </div>
 

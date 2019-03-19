@@ -1,6 +1,6 @@
 class CodeFilter < Banzai::Filter
   def call(input)
-    input.gsub(/```code(.+?)```/m) do |_s|
+    input.gsub(/(?!.*snippet)```code(.+?)```/m) do |_s|
       config = YAML.safe_load($1)
 
       if config['config']

@@ -1,5 +1,5 @@
 ---
 code:
-    source: .repos/nexmo/curl-building-blocks/voice/voice-api/make-an-outbound-call-with-ncco.sh
+    source: .repos/nexmo/curl-code-snippets/voice/voice-api/make-an-outbound-call-with-ncco.sh
     from_line: 5
     to_line: 100

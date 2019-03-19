@@ -33,11 +33,11 @@ Conversation API concepts:
 product: conversation
 ```
 
-## Building Blocks
+## Code Snippets
 
-In-app Messaging building blocks:
+In-app Messaging Code Snippets:
 
-```building_block_list
+```code_snippet_list
 product: client-sdk/in-app-messaging
 ```
 

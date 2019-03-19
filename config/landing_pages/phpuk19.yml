@@ -234,7 +234,7 @@ page:
               ]);
               ```
               <div class="Vlt-right">
-              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/building-blocks/make-an-outbound-call">View the complete code &raquo;</a>
+              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/code-snippets/make-an-outbound-call">View the complete code &raquo;</a>
               </div>
 
   - row:
@@ -269,7 +269,7 @@ page:
         unordered_list:
             bullet_shape: simple
             list:
-              - item: "[Voice Applications: Before you begin](/voice/voice-api/building-blocks/before-you-begin)"
+              - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
               - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
               - item: "[Receive an Incoming Call with PHP](https://www.nexmo.com/blog/2018/06/28/receive-an-inbound-voice-call-with-php-dr/)"
               - item: "[Handle Keypad Input (DTMF) with PHP](https://www.nexmo.com/blog/2018/08/10/handle-user-input-with-php-dr/)"
@@ -279,11 +279,11 @@ page:
         unordered_list:
             bullet_shape: simple
             list:
-              - item: "[Make an Outbound Call with an NCCO](/voice/voice-api/building-blocks/make-an-outbound-call-with-ncco/php)"
-              - item: "[Play Text-to-Speech into a Call](/voice/voice-api/building-blocks/play-text-to-speech-into-a-call/php)"
-              - item: "[Record a Call](/voice/voice-api/building-blocks/record-a-call/php)"
-              - item: "[Connect Callers into a Conference](/voice/voice-api/building-blocks/connect-callers-into-a-conference/php)"
-              - item: "[Transfer a Call](/voice/voice-api/building-blocks/transfer-a-call/php)"
+              - item: "[Make an Outbound Call with an NCCO](/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/php)"
+              - item: "[Play Text-to-Speech into a Call](/voice/voice-api/code-snippets/play-text-to-speech-into-a-call/php)"
+              - item: "[Record a Call](/voice/voice-api/code-snippets/record-a-call/php)"
+              - item: "[Connect Callers into a Conference](/voice/voice-api/code-snippets/connect-callers-into-a-conference/php)"
+              - item: "[Transfer a Call](/voice/voice-api/code-snippets/transfer-a-call/php)"
   - row:
     - column:
         - type: line_divider

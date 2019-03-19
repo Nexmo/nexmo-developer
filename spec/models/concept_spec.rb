@@ -13,7 +13,7 @@ RSpec.describe Concept, type: :model do
     end
   end
   describe '#all' do
-    it 'returns all building blocks' do
+    it 'returns all Code Snippets' do
       stub_available_concepts
       expect(Concept.all).to have(4).items
     end

@@ -22,7 +22,7 @@ In this document you can learn about:
 * [Nexmo Voice API Concepts](#concepts) to introduce terminology
 * [**How to Get Started with the Voice API**](#getting-started) including examples in your language
 * [Guides](#guides) learn about working with the Voice API
-* [Building Blocks](#building-blocks) code snippets to help with specific tasks
+* [Code Snippets](#code-snippets) code snippets to help with specific tasks
 * [Tutorials](#tutorials) detailed tutorials for some common use cases
 * [Reference](#reference) API documentation and other supporting content
 
@@ -52,11 +52,11 @@ The primary way that you'll interact with the Nexmo voice platform is via the [p
 
 To make this easier, we provide client libraries in various languages that take care of authentication and creating the correct request body for you. Choose your language below to get started.
 
-```building_blocks
+```code_snippets
 source: '_examples/voice/make-an-outbound-call'
 application:
   type: voice
-  name: 'Outbound Call Building Block'
+  name: 'Outbound Call Code Snippet'
   answer_url: https://developer.nexmo.com/ncco/tts.json
 ```
 
@@ -67,9 +67,9 @@ product: voice/voice-api
 ```
 
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: voice/voice-api
 ```
 

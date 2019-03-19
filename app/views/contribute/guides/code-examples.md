@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Contributing Code Examples
 
-Nexmo Developer hosts many code examples, and endeavours to make them as consistent as possible. You should follow this guide when contributing code examples to the building blocks repositories or directly to Nexmo Developer.
+Nexmo Developer hosts many code examples, and endeavours to make them as consistent as possible. You should follow this guide when contributing code examples to the Code Snippets repositories or directly to Nexmo Developer.
 
 ## Use the library
 
@@ -160,7 +160,7 @@ print_hi('Adam')
 
 ### Tabbed examples
 
-Tabbed examples via the use of the `tabbed_examples` construct should no longer be used. Instead use [building blocks](/contribute/building-blocks/sample-building-block).
+Tabbed examples via the use of the `tabbed_examples` construct should no longer be used. Instead use [code snippets](/contribute/code-snippets/sample-code-snippet).
 
 > Note: There are two formats of the `tabbed_examples` construct in current use, both of which are now deprecated.
 

@@ -22,7 +22,7 @@ The following diagram illustrates the relationship between the Dispatch API and 
 * [External Accounts API](#external-accounts-api)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
-* [Building Blocks](#building-blocks)
+* [Code Snippets](#code-snippets)
 * [Tutorials](#tutorials)
 * [Reference](#reference)
 
@@ -64,7 +64,7 @@ Key | Description
 
 The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
-```building_blocks
+```code_snippets
 source: '_examples/dispatch/send-message-with-failover-basic-auth'
 ```
 
@@ -74,9 +74,9 @@ source: '_examples/dispatch/send-message-with-failover-basic-auth'
 product: dispatch
 ```
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: dispatch
 ```
 

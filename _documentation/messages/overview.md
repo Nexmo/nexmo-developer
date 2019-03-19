@@ -26,7 +26,7 @@ The following diagram illustrates the relationship between the Messages API and 
 * [External Accounts API](#external-accounts-api)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
-* [Building Blocks](#building-blocks)
+* [Code Snippets](#code-snippets)
 * [Tutorials](#tutorials)
 * [Reference](#reference)
 
@@ -79,7 +79,7 @@ Key | Description
 
 The following code shows how to send an SMS message using the Messages API:
 
-```building_blocks
+```code_snippets
 source: '_examples/messages/send-sms-basic-auth'
 ```
 
@@ -89,9 +89,9 @@ source: '_examples/messages/send-sms-basic-auth'
 product: messages
 ```
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: messages
 ```
 

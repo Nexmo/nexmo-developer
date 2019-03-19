@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :usage do
-    resources :building_block
+    resources :code_snippet
   end
 
   namespace :admin_api, defaults: { format: 'json' } do

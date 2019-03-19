@@ -22,9 +22,9 @@ To use the User API you must:
 Once you have created an Application and subscribed to the User API, refer to the other resources on this page to learn how to use it.
 
 
-## Building Blocks
+## Code Snippets
 
-```building_block_list
+```code_snippet_list
 product: vonage-business-cloud/vbc-apis/user-api
 ```
 

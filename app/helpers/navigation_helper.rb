@@ -19,7 +19,7 @@ module NavigationHelper
     document.css('.reveal').remove
 
     document.css('h0,h2,h3,h4,h5,h6').each do |heading|
-      # If it's a header within tabbed content (including building blocks) we don't want to treat
+      # If it's a header within tabbed content (including Code Snippets) we don't want to treat
       # the header as a navigation item in the sidebar
       next unless heading.ancestors('.tabs-content').empty?
       next unless heading.ancestors('.Vlt-tabs').empty?

@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/account/secret-management/get-api-secret.sh
+    source: .repos/nexmo/curl-code-snippets/account/secret-management/get-api-secret.sh
     from_line: 4
     to_line: 5
 file_name: get-secret.sh
