@@ -5,9 +5,7 @@ class DashboardController < ApplicationController
   def stats
     @feedbacks = Feedback::Feedback.created_between(created_after, created_before)
 
-    if product
-      @feedbacks = @feedbacks.joins(:resource).where(feedback_resources: { product: product })
-    end
+    @feedbacks = @feedbacks.joins(:resource).where(feedback_resources: { product: product }) if product
   end
 
   def stats_summary
