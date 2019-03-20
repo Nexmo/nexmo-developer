@@ -25,5 +25,3 @@
 
 nexmo/conversation-docs:
   repo: nexmo/conversation-docs
-nexmo/curl-building-blocks:
-  repo: nexmo/curl-building-blocks

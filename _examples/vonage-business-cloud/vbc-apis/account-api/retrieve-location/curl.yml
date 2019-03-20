@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/curl-building-blocks/vbc/account/get-location.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/vbc/account/get-location.sh
     from_line: 5
     to_line: 6
 file_name: get-location.sh
