@@ -3,32 +3,16 @@ class DashboardController < ApplicationController
   before_action :set_additional_scripts
 
   def stats
-    @feedbacks = Feedback::Feedback
+    @feedbacks = Feedback::Feedback.created_between(created_after, created_before)
 
     if product
       @feedbacks = @feedbacks.joins(:resource).where(feedback_resources: { product: product })
-    end
-
-    if created_after && created_before
-      @feedbacks = @feedbacks.created_between(created_after, created_before)
-    elsif created_after
-      @feedbacks = @feedbacks.created_after(created_after)
-    elsif created_before
-      @feedbacks = @feedbacks.created_before(created_before)
     end
   end
 
   def stats_summary
     return unless created_after || created_before
-    @feedbacks = Feedback::Feedback.joins(:resource)
-
-    if created_after && created_before
-      @feedbacks = @feedbacks.created_between(created_after, created_before)
-    elsif created_after
-      @feedbacks = @feedbacks.created_after(created_after)
-    elsif created_before
-      @feedbacks = @feedbacks.created_before(created_before)
-    end
+    @feedbacks = Feedback::Feedback.created_between(created_after, created_before).joins(:resource)
 
     grouped_results = @feedbacks.group(["DATE_TRUNC('month', feedback_feedbacks.created_at)", 'feedback_resources.product', 'feedback_feedbacks.sentiment']).count(:id)
 

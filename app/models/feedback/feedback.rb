@@ -1,8 +1,8 @@
 module Feedback
   class Feedback < ApplicationRecord
-    scope :created_after, ->(date) { where('feedback_feedbacks.created_at >= ?', date) }
-    scope :created_before, ->(date) { where('feedback_feedbacks.created_at <= ?', date) }
-    scope :created_between, ->(start_date, end_date) { where('feedback_feedbacks.created_at >= ? AND feedback_feedbacks.created_at <= ?', start_date, end_date) }
+    scope :created_after, ->(date) { where('feedback_feedbacks.created_at >= ?', date) if date.present? }
+    scope :created_before, ->(date) { where('feedback_feedbacks.created_at <= ?', date) if date.present? }
+    scope :created_between, ->(start_date, end_date) { created_after(start_date).created_before(end_date) }
 
     belongs_to :resource, class_name: '::Feedback::Resource'
     belongs_to :owner, polymorphic: true
