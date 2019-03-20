@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   force_ssl if: :ssl_configured?
   before_action :set_show_feedback
-  before_action :notices
+  before_action :set_notices
   before_action :set_code_language
   before_action :set_feedback_author
 
@@ -48,8 +48,8 @@ class ApplicationController < ActionController::Base
     true
   end
 
-  def notices
-    @notices ||= YAML.load_file("#{Rails.root}/config/notices.yml")
+  def set_notices
+    @notices = YAML.load_file("#{Rails.root}/config/notices.yml")
   end
 
   def set_feedback_author
