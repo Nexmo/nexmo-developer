@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   rescue_from Errno::ENOENT, with: :no_document
-  rescue_from Errno::ENOENT, with: :no_document
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
 
