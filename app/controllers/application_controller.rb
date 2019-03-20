@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  rescue_from Errno::ENOENT, with: :no_document
+  rescue_from Errno::ENOENT, with: :not_found
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
 
@@ -30,10 +30,6 @@ class ApplicationController < ActionController::Base
 
   def requires_authentication?
     ENV['USERNAME'] && ENV['PASSWORD']
-  end
-
-  def no_document
-    not_found
   end
 
   def set_show_feedback
