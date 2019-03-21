@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Get audit events
 
-In this Code Snippet you see how to get a list of audit events.
+In this code snippet you see how to get a list of audit events.
 
 ## Example
 

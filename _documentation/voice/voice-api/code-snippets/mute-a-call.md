@@ -5,7 +5,7 @@ navigation_weight: 8
 
 # Mute a call
 
-This Code Snippet mutes / unmutes a call.
+This code snippet mutes / unmutes a call.
 
 ## Example
 

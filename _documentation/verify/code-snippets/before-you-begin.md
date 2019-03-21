@@ -7,10 +7,10 @@ navigation_weight: 1
 
 ## What are Code Snippets?
 
-Code Snippets are short pieces of code you can reuse in your own applications.
-The Code Snippets use code from the [Nexmo Quickstart](https://github.com/nexmo-community) repositories.
+Code snippets are short pieces of code you can reuse in your own applications.
+The code snippets use code from [example repositories](https://github.com/topics/nexmo-quickstart).
 
-Please read this information carefully before attempting to use the Code Snippets.  
+Please read this information carefully before attempting to use the code snippets.  
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Please read this information carefully before attempting to use the Code Snippet
 
 ## Replaceable variables
 
-The Code Snippets use placeholders for variable values that you must replace with your own details.
+The code snippets use placeholders for variable values that you must replace with your own details.
 
 ### Account
 

@@ -7,10 +7,10 @@ navigation_weight: 0
 
 ## What are Code Snippets?
 
-Code Snippets are short pieces of code you can reuse in your own applications.
-The Code Snippets utilise code from the [Nexmo Node Code Snippets](https://github.com/Nexmo/nexmo-node-code-snippets) and [Nexmo Curl Code Snippets](https://github.com/Nexmo/nexmo-curl-code-snippets) repositories.
+Code snippets are short pieces of code you can reuse in your own applications.
+The code snippets utilise code from the [Nexmo Node Code Snippets](https://github.com/Nexmo/nexmo-node-code-snippets) and [Nexmo Curl Code Snippets](https://github.com/Nexmo/nexmo-curl-code-snippets) repositories.
 
-Please read this information carefully, so you can best use the Code Snippets.
+Please read this information carefully, so you can best use the code snippets.
 
 ```partial
 source: _partials/reusable/prereqs.md
@@ -42,7 +42,7 @@ Key | Description
 
 ### Specific replaceable/variables
 
-Some Code Snippets have more specialised variables, such as Facebook Page IDs, that will need to be replaced by actual values. Where required, these are specified on a per-Code Snippet basis.
+Some code snippets have more specialised variables, such as Facebook Page IDs, that will need to be replaced by actual values. Where required, these are specified on a per-code snippet basis.
 
 ## Webhooks
 

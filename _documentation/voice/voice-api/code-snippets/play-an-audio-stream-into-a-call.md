@@ -5,7 +5,7 @@ navigation_weight: 9
 
 # Play an audio stream into a call
 
-This Code Snippet plays an audio stream into the specified call.
+This code snippet plays an audio stream into the specified call.
 
 ## Example
 

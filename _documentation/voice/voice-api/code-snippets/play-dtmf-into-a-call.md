@@ -5,7 +5,7 @@ navigation_weight: 10
 
 # Play DTMF into a call
 
-This Code Snippet plays DTMF tones into the specified call.
+This code snippet plays DTMF tones into the specified call.
 
 ## Example
 

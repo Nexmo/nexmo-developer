@@ -6,7 +6,7 @@ navigation_weight: 6
 
 # Hangup a Call
 
-In this Code Snippet you will see how to hang up a Call.
+In this code snippet you will see how to hang up a Call.
 
 ## Example
 

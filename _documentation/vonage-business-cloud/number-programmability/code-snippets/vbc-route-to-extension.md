@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Route to a VBC Extension
 
-This Code Snippet shows you how to connect an inbound call on a Vonage Business Cloud programmable number to an extension.
+This code snippet shows you how to connect an inbound call on a Vonage Business Cloud programmable number to an extension.
 
 ## Example
 

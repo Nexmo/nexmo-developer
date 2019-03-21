@@ -38,7 +38,7 @@ About the CSS, you can choose between a compiled and minified version, and you c
 
 
 ### SASS
-We also provide you with the original Code Snippets in SASS. This could be of interest to you if:
+We also provide you with the original code snippets in SASS. This could be of interest to you if:
 - You only need to use a few components and you want to pick and choose what you import
 - You wish to use our variables and utility classes in the custom CSS you might have to write
 

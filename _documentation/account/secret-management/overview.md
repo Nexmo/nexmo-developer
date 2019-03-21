@@ -17,7 +17,7 @@ In addition to managing your own API secrets, primary accounts can manage API se
 
 ## Code Snippets
 
-Code Snippets are code snippets showing how to use the API to perform various tasks.
+Code snippets are examples showing how to use the API to perform various tasks.
 
 ```code_snippet_list
 product: account/secret-management

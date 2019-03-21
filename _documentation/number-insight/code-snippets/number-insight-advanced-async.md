@@ -9,7 +9,7 @@ You can optionally use the [Number Insight Advanced API](number-insight-advanced
 
 > Note that the Basic and Standard API levels do no offer this feature.
 
-This Code Snippet shows you how to trigger an asynchronous call to the Number Insight API. 
+This code snippet shows you how to trigger an asynchronous call to the Number Insight API. 
 
 Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](before-you-begin#replaceable-variables).
 
@@ -29,4 +29,4 @@ The API acknowledges the request by returning the following information to the c
 }
 ```
 
-When it becomes available, the Advanced Number Insight API data is sent to the specified webhook via a `POST` request. See the [Number Insight Advanced Async Callback](/number-insight/code-snippets/number-insight-advanced-async-callback) Code Snippet to learn how to code the webhook handler.
+When it becomes available, the Advanced Number Insight API data is sent to the specified webhook via a `POST` request. See the [Number Insight Advanced Async Callback](/number-insight/code-snippets/number-insight-advanced-async-callback) code snippet to learn how to code the webhook handler.

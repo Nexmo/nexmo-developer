@@ -5,7 +5,7 @@ navigation_weight: 18
 
 # Retrieve information for all calls
 
-A Code Snippet that shows how to retrieve information for all calls.
+A code snippet that shows how to retrieve information for all calls.
 
 ## Example
 

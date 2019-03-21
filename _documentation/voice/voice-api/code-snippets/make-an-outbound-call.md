@@ -5,7 +5,7 @@ navigation_weight: 7
 
 # Make an outbound call
 
-This Code Snippet makes an outbound call and plays a
+This code snippet makes an outbound call and plays a
 text-to-speech message when the call is answered.
 
 ## Example
@@ -21,7 +21,7 @@ Key |	Description
 source: '_examples/voice/make-an-outbound-call'
 application:
   type: voice
-  name: 'Outbound Call Code Snippet'
+  name: 'Outbound Call code snippet'
   answer_url: https://developer.nexmo.com/ncco/tts.json
   disable_ngrok: true
 ```

@@ -4,7 +4,7 @@ title: Create a Member
 
 # Create a Member
 
-In this Code Snippet you will see how to create a Member. A Member can be thought of as a User who has been invited to, joined, or left a Conversation.
+In this code snippet you will see how to create a Member. A Member can be thought of as a User who has been invited to, joined, or left a Conversation.
 
 ## Example
 
@@ -19,7 +19,7 @@ Key | Description
 source: '_examples/conversation/member/create-member'
 application:
   use_existing: |
-    You will need to use an existing Application that contains a Conversation in order to be able to create a Member. See the Create Conversation Code Snippet for information on how to create an Application and some sample Conversations.
+    You will need to use an existing Application that contains a Conversation in order to be able to create a Member. See the Create Conversation code snippet for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

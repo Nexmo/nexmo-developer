@@ -6,7 +6,7 @@ navigation_weight: 9
 
 # Listen to Call status
 
-In this Code Snippet you will see how to listen to a Call's status.
+In this code snippet you will see how to listen to a Call's status.
 
 ## Example
 

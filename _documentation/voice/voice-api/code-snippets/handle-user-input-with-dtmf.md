@@ -5,7 +5,7 @@ navigation_weight: 5
 
 # Handle user input with DTMF
 
-A Code Snippet that shows how to handle a user input with DTMF. The
+A code snippet that shows how to handle a user input with DTMF. The
 user enters an option on the keypad and the selected option is acknowledged
 via a text-to-speech message.
 

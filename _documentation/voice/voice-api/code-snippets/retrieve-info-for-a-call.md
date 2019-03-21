@@ -5,7 +5,7 @@ navigation_weight: 17
 
 # Retrieve information for a call
 
-A Code Snippet that shows how to retrieve information for a call. The call
+A code snippet that shows how to retrieve information for a call. The call
 to retrieve information for is identified via a UUID.
 
 ## Example
@@ -29,5 +29,5 @@ application:
 
 You will need to:
 
-1. Set up a call and obtain the call UUID. You could use the 'connect an inbound call' Code Snippet to do this.
-2. Retrieve information for the call (this Code Snippet).
+1. Set up a call and obtain the call UUID. You could use the 'connect an inbound call' code snippet to do this.
+2. Retrieve information for the call (this code snippet).

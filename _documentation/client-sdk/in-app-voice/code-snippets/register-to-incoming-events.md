@@ -6,7 +6,7 @@ navigation_weight: 3
 
 # Register to receive incoming Call events
 
-In this Code Snippet you will see how to register for incoming Call events.
+In this code snippet you will see how to register for incoming Call events.
 
 ## Example
 

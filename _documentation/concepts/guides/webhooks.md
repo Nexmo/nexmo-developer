@@ -68,7 +68,7 @@ Information about your request is then sent to your webhook endpoint.
 * [Handle delivery receipts](/messaging/sms/guides/delivery-receipts)
 * [Receive an incoming call](/voice/voice-api/code-snippets/receive-an-inbound-call)
 
-You can also check the Code Snippets section of the documentation for the API you are using.
+You can also check the code snippets section of the documentation for the API you are using.
 
 ## Using Ngrok for local development
 

@@ -4,7 +4,7 @@ title: Update a User
 
 # Update a User
 
-In this Code Snippet you will see how to update a User's details.
+In this code snippet you will see how to update a User's details.
 
 ## Example
 
@@ -19,7 +19,7 @@ Key | Description
 source: '_examples/conversation/user/update-user'
 application:
   use_existing: |
-    You will need to use an existing Application and have a User in order to be able to update a User. See the Create Conversation Code Snippet for information on how to create an Application. See also the Create User Code Snippet on how to create a User.
+    You will need to use an existing Application and have a User in order to be able to update a User. See the Create Conversation code snippet for information on how to create an Application. See also the Create User code snippet on how to create a User.
 ```
 
 ## Try it out

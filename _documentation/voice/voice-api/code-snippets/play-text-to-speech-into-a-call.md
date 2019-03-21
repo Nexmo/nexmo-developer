@@ -5,7 +5,7 @@ navigation_weight: 11
 
 # Play text-to-speech into a call
 
-This Code Snippet plays a text-to-speech message into the specified call.
+This code snippet plays a text-to-speech message into the specified call.
 
 ## Example
 

@@ -4,7 +4,7 @@ title: Send an MMS
 
 # Send an MMS
 
-In this Code Snippet you will see how to send an MMS using the Messages API.
+In this code snippet you will see how to send an MMS using the Messages API.
 
 > **IMPORTANT:** Only US Short codes are currently supported for sending MMS.
 

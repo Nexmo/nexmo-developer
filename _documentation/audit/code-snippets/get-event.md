@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Get audit event
 
-In this Code Snippet you see how to get a single audit event, referenced by its UUID.
+In this code snippet you see how to get a single audit event, referenced by its UUID.
 
 ## Example
 

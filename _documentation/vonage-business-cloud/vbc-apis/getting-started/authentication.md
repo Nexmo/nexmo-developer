@@ -34,7 +34,7 @@ Once you have [created your application](/vonage-business-cloud/vbc-apis/getting
 
 ## Authenticating with the password grant type
 
-All the Code Snippets in the VBC API documentation use the [password grant type](https://oauth.net/2/grant-types/password) instead of the recommended `authorization_code` to make them easy to run. This grant type does not require you to implement a callback URL. Instead, you provide your VBC user name and password to request a token.
+All the code snippets in the VBC API documentation use the [password grant type](https://oauth.net/2/grant-types/password) instead of the recommended `authorization_code` to make them easy to run. This grant type does not require you to implement a callback URL. Instead, you provide your VBC user name and password to request a token.
 
 Replace the following placeholders in the example with your own values:
 

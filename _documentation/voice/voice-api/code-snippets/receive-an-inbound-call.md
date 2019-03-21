@@ -5,7 +5,7 @@ navigation_weight: 12
 
 # Receive an inbound call
 
-In this Code Snippet you see how to receive an inbound call.
+In this code snippet you see how to receive an inbound call.
 
 ## Example
 

@@ -5,7 +5,7 @@ navigation_weight: 6
 
 # Message status
 
-In this Code Snippet you will see how to receive message status updates.
+In this code snippet you will see how to receive message status updates.
 
 > **NOTE:** Messages API does not support inbound SMS message and SMS delivery receipt callbacks via the application-specific webhooks. In order to receive callbacks for SMS message and SMS delivery receipts you need to set the [account-level webhooks for SMS](https://dashboard.nexmo.com/settings).
 

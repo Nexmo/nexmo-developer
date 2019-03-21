@@ -4,7 +4,7 @@ title: Update Conversation
 
 # Update Conversation
 
-In this Code Snippet you will see how to update a Conversation.
+In this code snippet you will see how to update a Conversation.
 
 ## Example
 
@@ -20,7 +20,7 @@ Key | Description
 source: '_examples/conversation/conversation/update-conversation'
 application:
   use_existing: |
-    You will need to use an existing Application that contains Conversations in order to be able to update one. See the Create Conversation Code Snippet for information on how to create an Application and some sample Conversations.
+    You will need to use an existing Application that contains Conversations in order to be able to update one. See the Create Conversation code snippet for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

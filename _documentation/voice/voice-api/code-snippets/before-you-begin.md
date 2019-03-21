@@ -7,10 +7,10 @@ navigation_weight: 1
 
 ## What are Code Snippets?
 
-Code Snippets are short pieces of code you can reuse in your own applications.
-The Code Snippets utilise code from the [Nexmo Quickstart](https://github.com/nexmo-community) repositories.
+Code snippets are short pieces of code you can reuse in your own applications.
+The code snippets use code from [example repositories](https://github.com/topics/nexmo-quickstart).
 
-Please read this information carefully, so you can best use the Code Snippets.  
+Please read this information carefully, so you can best use the code snippets.  
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Key |	Description
 
 ### UUIDs
 
-UUIDs are typically used in the Code Snippets to identify a specific call.
+UUIDs are typically used in the code snippets to identify a specific call.
 
 Key |	Description
 -- | --
@@ -59,8 +59,8 @@ Key |	Description
 
 ### Specific replaceable/variables
 
-Some Code Snippets have more specialised variables that will need to be
-replaced by actual values. These may be specified on a per-Code Snippet basis.
+Some code snippets have more specialised variables that will need to be
+replaced by actual values. These may be specified on a per-code snippet basis.
 
 ## Webhooks
 

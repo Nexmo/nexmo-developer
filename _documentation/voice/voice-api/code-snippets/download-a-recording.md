@@ -5,7 +5,7 @@ navigation_weight: 3
 
 # Download a recording
 
-In this Code Snippet you see how to download a recording.
+In this code snippet you see how to download a recording.
 
 ## Example
 

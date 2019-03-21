@@ -6,7 +6,7 @@ navigation_weight: 2
 
 # Start a server managed Call
 
-In this Code Snippet you will see how to start a new Call.
+In this code snippet you will see how to start a new Call.
 
 ## Example
 

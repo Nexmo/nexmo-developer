@@ -81,7 +81,7 @@ product: conversation
 
 ## Code Snippets
 
-Code Snippets provide ready to use samples of code so you can build out your application quickly.
+Code snippets provide ready to use samples of code so you can build out your application quickly.
 
 You could start by [Creating a Conversation](/conversation/code-snippets/conversation/create-conversation).
 

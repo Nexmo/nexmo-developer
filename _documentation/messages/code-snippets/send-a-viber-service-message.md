@@ -4,9 +4,9 @@ title: Send a Viber Service Message
 
 # Send a Viber Service Message
 
-In this Code Snippet you will see how to send a Viber message using the Messages API.
+In this code snippet you will see how to send a Viber message using the Messages API.
 
-> **NOTE:** It is important that you read [this information about Viber accounts and messaging](/messages/concepts/viber) before trying this Code Snippet.
+> **NOTE:** It is important that you read [this information about Viber accounts and messaging](/messages/concepts/viber) before trying this code snippet.
 
 For a step-by-step guide to this topic, you can read our tutorial [Sending Viber Service messages with the Messages API](/tutorials/sending-viber-service-messages-with-messages-api).
 

@@ -6,7 +6,7 @@ navigation_weight: 1
 
 # Start a Call
 
-In this Code Snippet you will see how to start a new Call.
+In this code snippet you will see how to start a new Call.
 
 ## Example
 

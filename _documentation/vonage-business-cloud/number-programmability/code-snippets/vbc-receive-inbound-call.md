@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Receive an inbound call
 
-This Code Snippet shows you how to receive an inbound call on your Vonage Business Cloud programmable number.
+This code snippet shows you how to receive an inbound call on your Vonage Business Cloud programmable number.
 
 ## Example
 

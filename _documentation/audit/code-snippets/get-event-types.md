@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Get audit event types
 
-In this Code Snippet you see how to get a list of all supported event types.
+In this code snippet you see how to get a list of all supported event types.
 
 ## Example
 

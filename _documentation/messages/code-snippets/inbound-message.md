@@ -5,7 +5,7 @@ navigation_weight: 5
 
 # Inbound message
 
-In this Code Snippet you will see how to handle an inbound message.
+In this code snippet you will see how to handle an inbound message.
 
 > **NOTE:** Messages API does not support inbound SMS message and SMS delivery receipt callbacks via the application-specific webhooks. In order to receive callbacks for SMS message and SMS delivery receipts you need to set the [account-level webhooks for SMS](https://dashboard.nexmo.com/settings).
 

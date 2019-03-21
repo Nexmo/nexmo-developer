@@ -5,7 +5,7 @@ navigation_weight: 21
 
 # Track NCCO progress
 
-In this Code Snippet you see how to track how far through an NCCO a caller gets
+In this code snippet you see how to track how far through an NCCO a caller gets
 using the `notify` action
 
 ## Example

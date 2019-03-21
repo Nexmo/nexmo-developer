@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Contributing Code Examples
 
-Nexmo Developer hosts many code examples, and endeavours to make them as consistent as possible. You should follow this guide when contributing code examples to the Code Snippets repositories or directly to Nexmo Developer.
+Nexmo Developer hosts many code examples, and endeavours to make them as consistent as possible. You should follow this guide when contributing code examples to the code snippets repositories or directly to Nexmo Developer.
 
 ## Use the library
 

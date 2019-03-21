@@ -4,7 +4,7 @@ title: List Members
 
 # List Members
 
-In this Code Snippet you will see how to list the Members of a specified Conversation.
+In this code snippet you will see how to list the Members of a specified Conversation.
 
 ## Example
 
@@ -18,7 +18,7 @@ Key | Description
 source: '_examples/conversation/member/list-members'
 application:
   use_existing: |
-    You will need to use an existing Application that contains a Conversation and at least one Member in order to be able to list Members. See the Create Conversation Code Snippet for information on how to create an Application and some sample Conversations.
+    You will need to use an existing Application that contains a Conversation and at least one Member in order to be able to list Members. See the Create Conversation code snippet for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

@@ -65,7 +65,7 @@ app.post('/event', (req, res) => {
 });
 ```
 
-We also need an endpoint for `/answer`, responding to HTTP GET requests, that is going to deliver the NCCO when the Nexmo Application retrieves the `answer_url`. We'll use a `talk` Code Snippet so the call generates text-to-speech letting the user know they're calling `Jamie`, followed by a `connect` block. Notice that the connect action is using type `app`. This means that the second leg of the call is completed using the In-App channel (via WebRTC) in order to then connect the call with an existing app user. You can add your own phone number in the `from` field.
+We also need an endpoint for `/answer`, responding to HTTP GET requests, that is going to deliver the NCCO when the Nexmo Application retrieves the `answer_url`. We'll use a `talk` code snippet so the call generates text-to-speech letting the user know they're calling `Jamie`, followed by a `connect` block. Notice that the connect action is using type `app`. This means that the second leg of the call is completed using the In-App channel (via WebRTC) in order to then connect the call with an existing app user. You can add your own phone number in the `from` field.
 
 ```javascript
 app.get('/answer', (req, res) => {

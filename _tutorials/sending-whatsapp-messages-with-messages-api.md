@@ -35,7 +35,7 @@ Please note that free form text messages can only be sent when a customer sends 
 
 If you have not received a message from the customer you will need to send a WhatsApp Template (MTM) before sending a message. You can learn more about this in [Understanding WhatsApp Messaging](/messages/concepts/whatsapp).
 
-If you want to see the code for sending a WhatsApp Template you can view the [Sending a WhatsApp Template](/messages/code-snippets/send-whatsapp-template) Code Snippet.
+If you want to see the code for sending a WhatsApp Template you can view the [Sending a WhatsApp Template](/messages/code-snippets/send-whatsapp-template) code snippet.
 
 Key | Description
 -- | --

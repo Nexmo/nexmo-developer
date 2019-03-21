@@ -5,7 +5,7 @@ navigation_weight: 4
 
 # Earmuff a call
 
-This Code Snippet earmuffs and unearmuffs a call. When a call is earmuffed, the user cannot hear other participants, but other participants can hear the user.
+This code snippet earmuffs and unearmuffs a call. When a call is earmuffed, the user cannot hear other participants, but other participants can hear the user.
 
 ## Example
 

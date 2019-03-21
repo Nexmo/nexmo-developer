@@ -4,7 +4,7 @@ title: Delete a Member
 
 # Delete a Member
 
-In this Code Snippet you will see how to delete a Member.
+In this code snippet you will see how to delete a Member.
 
 ## Example
 
@@ -19,7 +19,7 @@ Key | Description
 source: '_examples/conversation/member/delete-member'
 application:
   use_existing: |
-    You will need to use an existing Application that contains a Conversation and at least one Member in order to be able to delete a Member. See the Create Conversation Code Snippet for information on how to create an Application and some sample Conversations.
+    You will need to use an existing Application that contains a Conversation and at least one Member in order to be able to delete a Member. See the Create Conversation code snippet for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

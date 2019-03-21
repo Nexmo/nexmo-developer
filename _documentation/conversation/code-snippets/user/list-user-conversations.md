@@ -4,7 +4,7 @@ title: List a User's Conversations
 
 # List a User's Conversations
 
-In this Code Snippet you will see how to get a list of Conversations a User is associated with.
+In this code snippet you will see how to get a list of Conversations a User is associated with.
 
 ## Example
 
@@ -18,7 +18,7 @@ Key | Description
 source: '_examples/conversation/user/list-user-conversations'
 application:
   use_existing: |
-    You will need to use an existing Application containing at least one Conversation and one User in order to see a list of a User's Conversations. See the Create Conversation Code Snippet for information on how to create an Application and a Conversation. See also the Create User Code Snippet on how to create a User.
+    You will need to use an existing Application containing at least one Conversation and one User in order to see a list of a User's Conversations. See the Create Conversation code snippet for information on how to create an Application and a Conversation. See also the Create User code snippet on how to create a User.
 ```
 
 ## Try it out

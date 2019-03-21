@@ -4,7 +4,7 @@ title: Delete a Leg
 
 # Delete a Leg
 
-In this Code Snippet you will see how to delete a Leg.
+In this code snippet you will see how to delete a Leg.
 
 ## Example
 
@@ -18,7 +18,7 @@ Key | Description
 source: '_examples/conversation/leg/delete-leg'
 application:
   use_existing: |
-    You will need to use an existing Application that contains a Conversation and Legs in order to be able to delete a Leg. See the Create Conversation Code Snippet for information on how to create an Application and some sample Conversations. You can create Legs within that Conversation by making a Call as outlined in the Conversation topic and our tutorial `Retrieve Conversation details for an in-progress Call.`
+    You will need to use an existing Application that contains a Conversation and Legs in order to be able to delete a Leg. See the Create Conversation code snippet for information on how to create an Application and some sample Conversations. You can create Legs within that Conversation by making a Call as outlined in the Conversation topic and our tutorial `Retrieve Conversation details for an in-progress Call.`
 ```
 
 ## Try it out

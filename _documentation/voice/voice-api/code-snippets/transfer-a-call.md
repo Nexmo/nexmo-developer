@@ -5,7 +5,7 @@ navigation_weight: 19
 
 # Transfer a call
 
-A Code Snippet that shows how to transfer control of the current call
+A code snippet that shows how to transfer control of the current call
 to control by a new NCCO.
 
 ## Example
@@ -31,6 +31,6 @@ application:
 
 You will need to:
 
-1. Set up a call and obtain the call UUID. You could use the 'connect an inbound call' Code Snippet to do this.
+1. Set up a call and obtain the call UUID. You could use the 'connect an inbound call' code snippet to do this.
 2. Run the example code to transfer the call.
 3. Control will be transferred to a new NCCO, and you will hear a text-to-speech message to confirm this.

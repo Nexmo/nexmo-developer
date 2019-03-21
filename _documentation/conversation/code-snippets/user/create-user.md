@@ -4,7 +4,7 @@ title: Create a User
 
 # Create a User
 
-In this Code Snippet you will see how to create a User.
+In this code snippet you will see how to create a User.
 
 ## Example
 
@@ -19,7 +19,7 @@ Key | Description
 source: '_examples/conversation/user/create-user'
 application:
   use_existing: |
-    You will need to use an existing Application in order to be able to create a User. See the Create Conversation Code Snippet for information on how to create an Application.
+    You will need to use an existing Application in order to be able to create a User. See the Create Conversation code snippet for information on how to create an Application.
 ```
 
 ## Try it out

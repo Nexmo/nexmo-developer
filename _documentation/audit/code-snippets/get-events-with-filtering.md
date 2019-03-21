@@ -5,7 +5,7 @@ navigation_weight: 3
 
 # Get audit events with filtering
 
-In this Code Snippet you see how to get a list of audit events with filtering.
+In this code snippet you see how to get a list of audit events with filtering.
 
 ## Parameters
 

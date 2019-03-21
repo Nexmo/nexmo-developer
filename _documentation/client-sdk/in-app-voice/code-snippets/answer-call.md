@@ -6,7 +6,7 @@ navigation_weight: 4
 
 # Answer a Call
 
-In this Code Snippet you will see how to answer a Call.
+In this code snippet you will see how to answer a Call.
 
 ## Example
 

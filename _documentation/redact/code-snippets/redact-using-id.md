@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Redact using an ID
 
-In this Code Snippet you see how to redact a message using an ID
+In this code snippet you see how to redact a message using an ID
 
 ## Example
 

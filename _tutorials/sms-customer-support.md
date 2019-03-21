@@ -180,7 +180,7 @@ end
 
 ## Conclusion
 
-In this tutorial you've learned how to receive an SMS from a customer's phone and send an SMS reply to them. With these Code Snippets you now have an SMS customer support solution using the Nexmo SMS API.
+In this tutorial you've learned how to receive an SMS from a customer's phone and send an SMS reply to them. With these code snippets you now have an SMS customer support solution using the Nexmo SMS API.
 
 ## Get the Code
 

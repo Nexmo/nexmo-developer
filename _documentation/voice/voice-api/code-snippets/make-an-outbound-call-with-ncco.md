@@ -5,9 +5,9 @@ navigation_weight: 1
 
 # Make an outbound call with an NCCO
 
-This Code Snippet makes an outbound call and plays a
+This code snippet makes an outbound call and plays a
 text-to-speech message when the call is answered. You don't need to run a
-server hosting an `answer_url` to run this Code Snippet, as you provide your
+server hosting an `answer_url` to run this code snippet, as you provide your
 NCCO as part of the request
 
 ## Example
@@ -23,7 +23,7 @@ Key |	Description
 source: '_examples/voice/make-an-outbound-call-with-ncco'
 application:
   type: voice
-  name: 'Outbound Call with NCCO Code Snippet'
+  name: 'Outbound Call with NCCO code snippet'
   disable_ngrok: true
 ```
 

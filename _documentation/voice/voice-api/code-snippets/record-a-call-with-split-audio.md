@@ -5,7 +5,7 @@ navigation_weight: 13
 
 # Record a call with split audio
 
-A Code Snippet that shows how to answer an incoming call and set it up to
+A code snippet that shows how to answer an incoming call and set it up to
 record the conversation legs separately, then connect the call. When the call
 is completed, the `eventUrl` you specify in the `record` action of the NCCO
 will receive a webhook including the URL of the recording for download.
@@ -30,5 +30,5 @@ application:
 
 You will need to:
 
-1. Answer and record the call with split audio (this Code Snippet).
-2. Download the recording. See the [Download a recording](/voice/voice-api/code-snippets/download-a-recording) Code Snippet for how to do this.
+1. Answer and record the call with split audio (this code snippet).
+2. Download the recording. See the [Download a recording](/voice/voice-api/code-snippets/download-a-recording) code snippet for how to do this.

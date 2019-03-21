@@ -6,7 +6,7 @@ navigation_weight: 7
 
 # Mute myself in a Call
 
-In this Code Snippet you will see how to mute a Call.
+In this code snippet you will see how to mute a Call.
 
 ## Example
 

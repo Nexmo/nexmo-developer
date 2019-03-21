@@ -5,7 +5,7 @@ navigation_weight: 7
 
 # Send an SMS with the Messages API
 
-In this Code Snippet you will see how to send an SMS using the Messages API.
+In this code snippet you will see how to send an SMS using the Messages API.
 
 For a step-by-step guide to this topic, you can read our tutorial [Sending SMS messages with the Messages API](/tutorials/sending-sms-messages-with-messages-api).
 

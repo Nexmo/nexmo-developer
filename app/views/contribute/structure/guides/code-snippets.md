@@ -5,7 +5,7 @@ navigation_weight: 3
 
 # Code Snippets
 
-Code Snippets provide a quick reference to how to achieve a specific single concern task. They are designed to be easily readable and light on content to allow the user to context switch between the documentation and their codebase without too much distraction. Below you'll find a typical structure of how a code snippet should be structured.
+Code snippets provide a quick reference to how to achieve a specific single concern task. They are designed to be easily readable and light on content to allow the user to context switch between the documentation and their codebase without too much distraction. Below you'll find a typical structure of how a code snippet should be structured.
 
 **✅ Examples of when a code snippet is appropriate**
 
@@ -15,13 +15,13 @@ Code Snippets provide a quick reference to how to achieve a specific single conc
 - Get details about a phone number
 - Buy a number
 
-You can see examples of Code Snippets in the [Voice API docs](/voice/voice-api/code-snippets/before-you-begin).
+You can see examples of code snippets in the [Voice API docs](/voice/voice-api/code-snippets/before-you-begin).
 
 **❎ Examples of when a code snippet is not appropriate**
 
 - Two factor authentication
 
-    *Although the components of this should be Code Snippets the subject in itself is too involved for a code snippet.*
+    *Although the components of this should be code snippets the subject in itself is too involved for a code snippet.*
 
 ## Anatomy of a code snippet
 
@@ -39,7 +39,7 @@ The **placeholder** are also in the [markdown file](#code-snippet-markdown-file)
 
 ### Tabbed content
 
-The code snippets of the Code Snippets are available in a variety of programming languages to support developers from different communities. The **tabbed content** contains a tab for each [per-language config file](#language-config-files) available at the path configured in the [markdown file for each code snippet](#code-snippet-markdown-file). If the file exists, then there will be a tab for it.
+The code snippets of the code snippets are available in a variety of programming languages to support developers from different communities. The **tabbed content** contains a tab for each [per-language config file](#language-config-files) available at the path configured in the [markdown file for each code snippet](#code-snippet-markdown-file). If the file exists, then there will be a tab for it.
 
 ### Setup steps
 
@@ -94,7 +94,7 @@ The only other sections coming from this file are the ["Try it out"](#run-the-co
 
 For each of the tabs in the [tabbed content](#tabbed-content) block, the content is controlled entirely by a language-specific yaml file. This yaml file will be in the location specified by the `source` field in the `code_snippets` code sample, and will be named for the language it covers, such as `ruby.yml` or `python.yml`.
 
-The options available in these config files combine to a very consistent output format across the Code Snippets. Here's an example from one of our voice applications.
+The options available in these config files combine to a very consistent output format across the code snippets. Here's an example from one of our voice applications.
 
 ```
 ---

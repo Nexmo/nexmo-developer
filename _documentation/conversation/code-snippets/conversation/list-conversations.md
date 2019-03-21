@@ -4,7 +4,7 @@ title: List Conversations
 
 # List Conversations
 
-In this Code Snippet you will see how to list all Conversations.
+In this code snippet you will see how to list all Conversations.
 
 ## Example
 
@@ -12,7 +12,7 @@ In this Code Snippet you will see how to list all Conversations.
 source: '_examples/conversation/conversation/list-conversations'
 application:
   use_existing: |
-    You will need to use an existing Application that contains Conversations in order to receive some results here. See the Create Conversation Code Snippet for information on how to create an Application and some sample Conversations.
+    You will need to use an existing Application that contains Conversations in order to receive some results here. See the Create Conversation code snippet for information on how to create an Application and some sample Conversations.
 ```
 
 ## Try it out

@@ -5,7 +5,7 @@ navigation_weight: 6
 
 # Connect callers to a conference
 
-This Code Snippet shows how to join multiple calls into a conversation.
+This code snippet shows how to join multiple calls into a conversation.
 
 Multiple inbound calls can be joined into a conversation (conference
 call) by simply connecting the call into the same named

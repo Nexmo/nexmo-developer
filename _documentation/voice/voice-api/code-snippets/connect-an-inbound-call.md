@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Connect an inbound call
 
-In this Code Snippet you see how to connect an inbound call to a second number.
+In this code snippet you see how to connect an inbound call to a second number.
 
 ## Example
 

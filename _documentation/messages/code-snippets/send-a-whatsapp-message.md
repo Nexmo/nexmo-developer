@@ -4,7 +4,7 @@ title: Send a WhatsApp Message
 
 # Send a WhatsApp Message
 
-In this Code Snippet you will see how to send a WhatsApp message using the Messages API.
+In this code snippet you will see how to send a WhatsApp message using the Messages API.
 
 For a step-by-step guide to this topic, you can read our tutorial [Sending WhatsApp messages with the Messages API](/tutorials/sending-whatsapp-messages-with-messages-api).
 
