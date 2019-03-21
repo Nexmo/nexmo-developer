@@ -97,6 +97,7 @@ Rails.application.routes.draw do
 
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
+  get '/:product/building-blocks(/:code_language)', to: redirect('/:product/code-snippets(/:code_language)'), constraints: DocumentationConstraint.documentation
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'

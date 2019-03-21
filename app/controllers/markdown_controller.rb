@@ -5,6 +5,9 @@ class MarkdownController < ApplicationController
   before_action :set_namespace
 
   def show
+    if params['document'].include?('building-blocks')
+      params['document'].sub! 'building-blocks', 'code-snippets'
+    end
     redirect = Redirector.find(request)
     return redirect_to redirect if redirect
 
