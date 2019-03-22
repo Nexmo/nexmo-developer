@@ -156,6 +156,12 @@ Value | Description
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
 `onAnswer` | An object containing a `url` key. The URL serves an NCCO to execute in the connected number before the call is joined to your existing conversation
 
+#### App - the application user to connect to
+Value | Description
+-- | --
+`user` | the application(SDK) user to connect to over WebRTC
+`???` | more params go here
+
 #### Websocket - the websocket to connect to
 
 Value | Description
