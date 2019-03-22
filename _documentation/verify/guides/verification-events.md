@@ -8,6 +8,8 @@ navigation_weight: 1
 
 To verify a user's phone number using the Verify API, you first make a [verify request](/verify/code-snippets/send-verify-request) and receive the `request_id`. 
 
+> **Note** You are limited to a maximum of one verify request per second.
+
 The Verify API then sends a verification code to the user by SMS. When they enter the code into your application, you [check the verification code](/verify/code-snippets/check-verify-request) by making a request to the Verify API using the `request_id` and the code the user provides.
 
 If the user does not enter the code within the allowed time, the Verify API makes two further attempts to verify the user by making  Text-to-speech (TTS) voice calls.
