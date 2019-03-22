@@ -18,7 +18,7 @@ The NCCO actions and the options and types for each action are:
 Action | Description | Synchronous
 -- | -- | --
 [record](#record) | All or part of a Call | No
-[conversation](#conversation) | Create or join an exsiting [Conversation](/conversation/concepts/conversation) | Yes
+[conversation](#conversation) | Create or join an existing [Conversation](/conversation/concepts/conversation) | Yes
 [connect](#connect) | To a connectable endpoint such as a phone number or VBC extension. | Yes
 [talk](#talk) | Send synthesized speech to a Conversation. | Yes, unless *bargeIn=true*
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
