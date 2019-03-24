@@ -1,9 +1,9 @@
 ---
-title: Account Management
+title: Nexmo Account Dashboard
 description: How to use the Nexmo dashboard
 ---
 
-# Account management
+# Using the Nexmo Dashboard for Account management
 
 Dashboard is a web application that makes it easy to:
 
@@ -90,28 +90,3 @@ To reset your Nexmo password:
 
 If you are still having issues, please contact <support@nexmo.com>.
 
-## Supported browsers
-
-The following browsers are supported by Dashboard:
-
-* Chrome Stable
-* Firefox Stable
-* OS X Safari 8
-* OS X Safari 9
-* iOS 9 Safari
-* iOS Chrome Stable
-* Internet Explorer 10
-* Internet Explorer 11
-* Android Chrome Tablet*
-* Android Other Mobile*
-* Android Firefox Stable*
-* iOS Safari Tablet View*
-
-The following dimensions are supported:
-
-* 1366x768
-* 1920x1080
-* 1280x1024
-* 1024x768*
-
-> **Note**: you must have JavaScript enabled to view Dashboard correctly.

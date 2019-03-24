@@ -19,6 +19,9 @@ WORKDIR /app
 ADD package.json yarn.lock /app/
 RUN yarn install
 
+# Update Bundler to Version 2 as ruby:2.5.5 defaults to an older version
+RUN gem update --system && gem install bundler
+
 # Install Ruby Dependencies
 ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock

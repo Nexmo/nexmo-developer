@@ -1,15 +1,24 @@
 ---
-title: Overview
-meta_title: Rotate your Nexmo API keys
+title: Secret Management
+description: Rotate your Nexmo API keys
 ---
 
-# Secret Management Overview
+# Secret Management
 
-Nexmo's Secret Management API allows you to manage your API secret(s) programmatically.
+Nexmo's Account API allows you to manage your API secret(s) programmatically.
 
 Each Nexmo account can have up to two API secrets at any time. This allows you to create a second API secret, test your application and deploy the new configuration to production without interrupting your customer's service. Once that's done, you can revoke the existing API secret until you need to rotate your credentials again.
 
-You can manage your API secrets via the [secret rotation API](/api/account/secret-management) or the `settings` section in the [Nexmo Dashboard](https://dashboard.nexmo.com/settings).
+```js_sequence_diagram
+Note left of SecretA: API secret in use
+SecretA->SecretB: Create new secret
+Note right of SecretB: Update all apps\nto use new secret
+SecretB->SecretA: Delete old secret
+Note right of SecretB: API secret in use
+
+```
+
+You can manage your API secrets via the [account API](/api/account) or the `settings` section in the [Nexmo Dashboard](https://dashboard.nexmo.com/settings).
 
 ## Secondary Account Secret Management
 
@@ -20,6 +29,5 @@ In addition to managing your own API secrets, primary accounts can manage API se
 Code snippets are examples showing how to use the API to perform various tasks.
 
 ```code_snippet_list
-product: account/secret-management
-```
+product: account
 

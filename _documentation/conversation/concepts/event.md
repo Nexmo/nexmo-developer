@@ -7,58 +7,57 @@ navigation_weight: 4
 # Event
 
 Conversations and other Nexmo objects such as Members and Applications generate Events. When key activities occur an event is generated, which can be handled by the application. For example when a User joins a Conversation a `member:joined` event is fired. Other events include `app:knocking`, and `conversation:created`.
+Nexmo Application with `rtc` among its capabilities, will receive the dispatched event on the `rtc` `event_url` webhook.
 
-Event type | Posted to Event webhook | Description
-----|----|----
-`app:knocking:cancel` | No |
-`app:knocking` | No |
-`audio:dtmf` | Yes | DTMF tone is received into the Leg.
-`audio:earmuff:off` | Yes | Leg is unearmuffed.
-`audio:earmuff:on` | Yes | Leg is earmuffed.
-`audio:mute:off` | Yes | Leg is unmuted.
-`audio:mute:on` | Yes | Leg is muted.
-`audio:play:stop` | Yes | Audio streamed into a Leg is stopped.
-`audio:play:done` | Yes | Audio streamed into a Leg stops playing, that is the audio data finishes.
-`audio:play` | Yes | Audio is streamed into a Leg.
-`audio:record:stop` | Yes |
-`audio:record:done` | Yes |
-`audio:record` | Yes | Call is being recorded.
-`audio:ringing:start` | Yes |
-`audio:say:stop` | Yes |
-`audio:say:done` | Yes |
-`audio:say` | Yes |
-`audio:speaking:on` | No |
-`audio:speaking:off` | No |
-`conversation:created` | No | new Conversation is created.
-`conversation:deleted` | No | Conversation object is deleted.
-`conversation:updated` | No | Conversation object is updated.
-`member:invited` | No | Member is invited into a Conversation.
-`member:joined` | No | Member joins a Conversation.
-`member:left` | No | Member leaves a Conversation.
-`member:media` | No |
-`event:delete` | Yes | Event object is deleted.
-`image:delivered` | Yes | Image is delivered.
-`image:seen` | Yes | Image is viewed by the recipient.
-`image` | Yes |
-`rtc:offer` | No |
-`rtc:status` | No |
-`rtc:transfer` | No |
-`rtc:hangup` | No |
-`rtc:answer` | No |
-`rtc:terminate` | No |
-`sip:status` | No |
-`sip:answered` | No | SIP call is answered.
-`sip:machine` | No | When the entity answering the SIP call is a machine.
-`sip:hangup` | No | User on a Call hangs up.
-`sip:ringing` | No | SIP call starts ringing, such as when Nexmo makes an Outbound Call.
-`text:seen` | Yes | Text message is seen by the recipient.
-`text:delivered` | Yes | Text message is delivered to the recipient.
-`text` | Yes |
-`text:update` | No |
-`text:typing:on` | Yes |
-`text:typing:off` | Yes |
-`video:mute:off` | Yes |
-`video:mute:on` | Yes |
+Event type | Description
+----|----
+`app:knocking:cancel` | 
+`app:knocking` | 
+`audio:dtmf` | DTMF tone is received into the Leg.
+`audio:earmuff:off` | Leg is unearmuffed.
+`audio:earmuff:on` | Leg is earmuffed.
+`audio:mute:off` | Leg is unmuted.
+`audio:mute:on` | Leg is muted.
+`audio:play:stop` | Audio streamed into a Leg is stopped.
+`audio:play:done` | Audio streamed into a Leg stops playing, that is the audio data finishes.
+`audio:play` | Audio is streamed into a Leg.
+`audio:record:stop` | 
+`audio:record:done` | 
+`audio:record` | Call is being recorded.
+`audio:ringing:start` | 
+`audio:say:stop` | 
+`audio:say:done` | 
+`audio:say` | 
+`audio:speaking:on` | 
+`audio:speaking:off` |  
+`conversation:created` | new Conversation is created.
+`conversation:deleted` | Conversation object is deleted.
+`conversation:updated` | Conversation object is updated.
+`member:invited` | Member is invited into a Conversation.
+`member:joined` | Member joins a Conversation.
+`member:left` | Member leaves a Conversation.
+`member:media` | 
+`event:delete` | Event object is deleted.
+`image:delivered` | Image is delivered.
+`image:seen` | Image is viewed by the recipient.
+`image` | Image is uploaded.
+`rtc:status` | 
+`rtc:transfer` | 
+`rtc:hangup` | 
+`rtc:terminate` | 
+`sip:status` | 
+`sip:answered` | SIP call is answered.
+`sip:machine` | When the entity answering the SIP call is a machine.
+`sip:hangup` | User on a SIP Call hangs up.
+`sip:ringing` | SIP call starts ringing, such as when Nexmo makes an Outbound Call.
+`text:seen` | Text message is seen by the recipient.
+`text:delivered` | Text message is delivered to the recipient.
+`text` | new In App Text  message was created.
+`text:update` | Text message was updated.
+`text:typing:on` | Member is typing.
+`text:typing:off` |  Member stops typing.
+`video:mute:off` | Member video is unmuted.
+`video:mute:on` | Member video is muted
 
 ## Handling Events
 

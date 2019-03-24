@@ -76,4 +76,5 @@
 "/api/stitch": "/api/conversation"
 
 # Temporary landing page for onboarding
-"/client-sdk/in-app-voice/onboarding": "/voice-onboarding"
+"/client-sdk/in-app-voice/onboarding": "/in-app-voice"
+"/voice-onboarding": "/in-app-voice"

@@ -1,0 +1,15 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/account/account-balance.php
+    from_line: 8
+    to_line: 9
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/account/account-balance.php
+    from_line: 5
+    to_line: 6
+file_name: account-balance.php
+run_command: php account-balance.php

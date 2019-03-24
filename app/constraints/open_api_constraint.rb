@@ -8,7 +8,7 @@ OPEN_API_PRODUCTS = %w[
   redact
   audit
   voice
-  account/secret-management
+  account
   external-accounts
   verify
   vonage-business-cloud/account

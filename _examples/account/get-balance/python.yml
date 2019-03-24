@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - nexmo
+code:
+    source: .repos/nexmo/nexmo-python-code-snippets/account/get-balance.py
+    from_line: 16
+    to_line: 17
+client:
+    source: .repos/nexmo/nexmo-python-code-snippets/account/get-balance.py
+    from_line: 14
+    to_line: 14
+file_name: get-balance.py
+run_command: python get-balance.py

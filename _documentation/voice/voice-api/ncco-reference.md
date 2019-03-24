@@ -18,7 +18,7 @@ The NCCO actions and the options and types for each action are:
 Action | Description | Synchronous
 -- | -- | --
 [record](#record) | All or part of a Call | No
-[conversation](#conversation) | A standard or hosted conference. | Yes
+[conversation](#conversation) | Create or join an existing [Conversation](/conversation/concepts/conversation) | Yes
 [connect](#connect) | To a connectable endpoint such as a phone number or VBC extension. | Yes
 [talk](#talk) | Send synthesized speech to a Conversation. | Yes, unless *bargeIn=true*
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
@@ -97,7 +97,7 @@ Possible return parameters are:
 
 ## Conversation
 
-You can use the `conversation` action to create standard or moderated conferences. The first person to call the virtual number assigned to the conversation creates it. This action is synchronous, the conversation lasts until the number of participants is 0.
+You can use the `conversation` action to create standard or moderated conferences, while preserving the communication context. Using `conversation` with the same `name` reuses the same persisted [Conversation](/conversation/concepts/conversation). The first person to call the virtual number assigned to the conversation creates it. This action is synchronous.
 
 > **Note**: you can invite up to 50 people to your Conversation.
 

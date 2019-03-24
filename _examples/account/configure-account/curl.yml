@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/account/configure-account.sh
+    from_line: 4
+    to_line: 5
+file_name: configure-account.sh
+run_command: bash configure-account.sh
