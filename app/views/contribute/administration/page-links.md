@@ -133,8 +133,6 @@ $ bundle exec rake links:no_links_outbound
 /account/secret-management/code-snippets/revoke-a-secret
 /account/secret-management/code-snippets/create-a-secret
 /account/secret-management/code-snippets/fetch-a-secret
-/messaging/sns/code-snippets/subscribe-a-user
-/messaging/sns/code-snippets/sending-a-message
 /messaging/sms/tutorials
 /messaging/sms/guides/SMPP-access
 /messaging/sms/api-reference

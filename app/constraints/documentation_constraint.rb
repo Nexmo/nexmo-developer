@@ -40,7 +40,6 @@ class DocumentationConstraint
       'voice/voice-api',
       'messaging/sms',
       'messaging/conversion-api',
-      'messaging/sns',
       'messaging/us-short-codes',
       'verify',
       'number-insight',

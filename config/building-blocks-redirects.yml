@@ -69,8 +69,6 @@
 "/messaging/sms/building-blocks/receiving-an-sms/php": "/messaging/sms/code-snippets/receiving-an-sms/php"
 "/messaging/sms/building-blocks/receiving-an-sms/python": "/messaging/sms/code-snippets/receiving-an-sms/python"
 "/messaging/sms/building-blocks/receiving-an-sms/ruby": "/messaging/sms/code-snippets/receiving-an-sms/ruby"
-"/messaging/sns/building-blocks/subscribe-a-user": "/messaging/sns/code-snippets/subscribe-a-user"
-"/messaging/sns/building-blocks/sending-a-message": "/messaging/sns/code-snippets/sending-a-message"
 
 # messages-and-workflows-apis
 "/messages-and-workflows-apis/messages/building-blocks": "/messages/code-snippets/send-an-sms-with-messages-api"

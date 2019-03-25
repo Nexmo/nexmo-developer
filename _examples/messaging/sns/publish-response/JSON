@@ -1,6 +1,0 @@
-{
-  "command":${command},
-  "resultCode":${resultCode},
-  "resultMessage":${resultMessage},
-  "transactionId":${transactionId}
-}

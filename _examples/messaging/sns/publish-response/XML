@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<nexmo-sns>
-  <command>${command}</command>
-  <resultCode>${resultCode}</resultCode>
-  <resultMessage>${resultMessage}</resultMessage>
-  <transactionId>${transactionId}</transactionId>
-</nexmo-sns>

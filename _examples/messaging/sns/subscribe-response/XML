@@ -1,6 +1,0 @@
-<nexmo-sns>
-  <command>${command}</command>
-  <resultCode>${resultCode}</resultCode>
-  <resultMessage>${resultMessage}</resultMessage>
-  <subscriberArn>${subscriberArn}</subscriberArn>
-</nexmo-sns>
