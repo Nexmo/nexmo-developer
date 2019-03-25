@@ -23,8 +23,8 @@ module AdminApi
       elsif params[:block]
         @events = UsageBuildingBlockEvent.where('block = ?', params[:block]).group(:block, :language, :section, :action).count(:action)
       end
-      @events = organize_data(@events)
       byebug
+      @events = organize_data(@events)
 
       render 'index'
     end
@@ -46,7 +46,7 @@ module AdminApi
                 section => {}
               }
             } 
-            events_new.deep_merge!(actions)
+            # events_new.deep_merge!(actions)
             events_new
           end
           block = event[0][0]
@@ -63,7 +63,7 @@ module AdminApi
           section => {}
         }
       } 
-      events_new.deep_merge!(actions)
+      # events_new.deep_merge!(actions)
       events_new
     end
   end
