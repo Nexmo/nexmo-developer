@@ -4,8 +4,8 @@ products:
     hide_rfc7807_header: true
   redact:
     title: Redact API
-  account/secret-management:
-    title: Secret Rotation API
+  account:
+    title: Account API
   messages-olympus:
     title: Messages API
     hide_rfc7807_header: true

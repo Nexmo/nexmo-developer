@@ -121,4 +121,9 @@ RSpec.describe 'Smoke Tests', type: :request do
     get '/migrate/tropo/sms'
     expect(response.body).to include('Convert your SMS code from Tropo to Nexmo')
   end
+
+  it '/api-errors contains the expected text' do
+    get '/api-errors'
+    expect(response.body).to include('When a Nexmo API returns an error, for instance, if your account has no credit')
+  end
 end
