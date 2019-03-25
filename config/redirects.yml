@@ -21,7 +21,7 @@
 "/account/api-reference": "/api/account"
 "/voice/voice-api": "/voice/voice-api/overview"
 "/api/voice/ncco": "/voice/voice-api/ncco-reference"
-"/api/account/secret-management": "/api/account"
+"/api/account/secret-management": "/api/account#secret-management"
 "/api/developer": "/api/developer/numbers"
 "/api/developer/account": "/api/account"
 "/api/messages": "/api/developer/messages"

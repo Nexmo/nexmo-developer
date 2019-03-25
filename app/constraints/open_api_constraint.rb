@@ -26,6 +26,10 @@ class OpenApiConstraint
     { definition: Regexp.new(OPEN_API_PRODUCTS.join('|')) }
   end
 
+  def self.products_with_code_language
+    products.merge(DocumentationConstraint.code_language)
+  end
+
   def self.find_all_versions(name)
     # Remove the .v2 etc if needed
     name = name.gsub(/(\.v\d+)/, '')
