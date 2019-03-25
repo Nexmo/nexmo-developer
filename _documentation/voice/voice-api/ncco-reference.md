@@ -138,7 +138,7 @@ You can use the following options to control a `connect` action:
 Option | Description | Required
 -- | -- | --
 `endpoint` | Connect to a single endpoint. [Available endpoint types](#endpoint-types-and-values) | Yes
-`from` | One of:<br /><br /> <ul class="Vlt-list Vlt-list--simple"><li>PSTN call: A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller. This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown.</li><li>IP call: The username of the caller</li></ul> | No
+`from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. If the caller is an app user, this option should be omitted.| No
 `eventType` | Set to `synchronous` to: <ul class="Vlt-list Vlt-list--simple"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states.</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
@@ -160,7 +160,7 @@ Value | Description
 
 Value | Description
 -- | --
-`user` | the username of the participant to connect. This username must have been [added as a user](/api/conversation#createUser)
+`user` | the username of the member to connect. This username must have been [added as a user](/api/conversation#createUser)
 
 #### Websocket - the websocket to connect to
 
