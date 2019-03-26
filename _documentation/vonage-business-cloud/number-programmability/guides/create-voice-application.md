@@ -10,13 +10,17 @@ Every Number Programmability service application that you build must be associat
 
 > **Note**: To avoid confusion, `Application` here refers to the Nexmo Application. The application you are building will be referred to as "application".
 
-A Nexmo Application stores configuration information such as details of the programmable numbers and webhook callback URLs that your application uses. To make your VBC programmability service calls zero-rated in Nexmo, you must create an Application with the `vbc` capability.
+A Nexmo Application stores configuration information such as details of the programmable numbers and webhook callback URLs that your application uses. To make your VBC programmability service calls zero-rated in Nexmo, you must create an Application with the `vbc` and `voice` capabilities, using the [Nexmo Application API](https://developer.nexmo.com/api/application.v2).
 
-## Creating a Nexmo Voice Application with the Application API
+## Using the Application API
 
-> **Note**: The `vbc` capability is only available in [version 2 of the Nexmo Application API](https://developer.nexmo.com/api/application.v2). The [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) utility and [Developer Dashboard](https://dashboard.nexmo.com/voice/create-application) use version 1, therefore you cannot use them for this purpose.
+To create a Nexmo Application for working with the Number Programmability service, issue the `curl` command shown below, replacing `NEXMO_API_KEY` and `NEXMO_API_SECRET` with your Nexmo API key and secret respectively. You can find this information in the [Nexmo Developer dashboard](https://dashboard.nexmo.com/getting-started-guide).
 
-To create a Nexmo Application with the `vbc` capability, issue the following `curl` command, replacing `NEXMO_API_KEY` and `NEXMO_API_SECRET` with your Nexmo API key and secret respectively. You can find this information in the [Nexmo Developer dashboard](https://dashboard.nexmo.com/getting-started-guide).
+The two URLs you provide refer to the webhook endpoints that your application will expose to Nexmo's servers:
+
+* The first is the webhook that Nexmo's APIs will make a request to when a call is received on your VBC programmable number.
+* The second is where Nexmo's APIs will post details about events that your application might be interested in - such as a call being answered or terminated.
+
 
 ```
 curl -X POST \
@@ -25,7 +29,21 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "My Nexmo VBC Application",
-    "capabilities": {"vbc": {} }
+    "capabilities": {
+      "vbc": {},
+      "voice": {
+        "webhooks": {
+          "answer_url": {
+            "address": "https://example.com/webhooks/answer",
+            "http_method": "POST"
+          },
+          "event_url": {
+            "address": "https://example.com/webhooks/event",
+            "http_method": "POST"
+          }
+        }
+      } 
+	  }
   }'
 ```
 
@@ -33,22 +51,34 @@ The response is a JSON object containing the Nexmo Application `id` that you wil
 
 ```
 {
-    "id": "27aa0583-7246-4822-aabb-17b03c25d52e",
-    "name": "My Nexmo VBC Application",
-    "keys": {
-        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkq...
-        -----END PRIVATE KEY-----\n",
-        "public_key": "-----BEGIN PUBLIC_KEY-----\nMIIBIjANBgkqh...
-        -----END PUBLIC KEY-----\n"
-    },
-    "capabilities": {
-        "vbc": {}
-    },
-    "_links": {
-        "self": {
-            "href": "/v2/applications/27aa0583-7246-4822-aabb-17b03c25d52e"
+  "id": "27aa0583-7246-4822-aabb-17b03c25d52e",
+  "name": "My Nexmo VBC Application",
+  "keys": {
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkq...
+    -----END PRIVATE KEY-----\n",
+    "public_key": "-----BEGIN PUBLIC_KEY-----\nMIIBIjANBgkqh...
+    -----END PUBLIC KEY-----\n"
+  },
+  "capabilities": {
+    "voice": {
+      "webhooks": {
+        "event_url": {
+            "address": "https://example.com/webhooks/event",
+            "http_method": "POST"
+        },
+        "answer_url": {
+            "address": "https://example.com/webhooks/answer",
+            "http_method": "POST"
         }
+      }
+    },
+    "vbc": {}
+  },
+  "_links": {
+    "self": {
+      "href": "/v2/applications/27aa0583-7246-4822-aabb-17b03c25d52e"
     }
+  }
 }
 ```
 
