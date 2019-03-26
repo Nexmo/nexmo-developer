@@ -111,7 +111,7 @@ You can use the following options to control a *conversation* action:
 
 Option | Description | Required
 -- | -- | --
-`name` | The name of the Conversation room. Names have to be unique per account. | Yes
+`name` | The name of the Conversation room. Names are namespaced to the application level. | Yes
 `musicOnHoldUrl` | A URL to the *mp3* file to stream to participants until the conversation starts. By default the conversation starts when the first person calls the virtual number associated with your Voice app. To stream this mp3 before the moderator joins the conversation, set *startOnEnter* to *false* for all users other than the moderator. | No
 `startOnEnter` | The default value of *true* ensures that the conversation starts when this caller joins conversation `name`. Set to *false* for attendees in a moderated conversation. | No
 `endOnExit` | For moderated conversations, set to *true* in the moderator NCCO so the conversation is ended when the moderator hangs up. The default value of *false* means the conversation is not terminated when a caller hangs up; the conversation ends when the last caller hangs up. | No
