@@ -1,5 +1,6 @@
 ---
 title: Using Number Insight via the Nexmo CLI
+description: Use the Nexmo CLI to get information about a phone number.
 ---
 
 # Using Number Insight via the Nexmo CLI
