@@ -3,12 +3,12 @@ module AdminApi
     respond_to :json
 
     def index
-      return unless authenticate
+      # return unless authenticate
       @events = UsageBuildingBlockEvent.all.group(:block, :language, :section, :action).count(:action)
 
       if params[:created_after] || params[:created_before]
         if params[:block] && params[:language]
-          @events = UsageBuildingBlockEvent.created_between(params[:created_after], params[:created_before]).where('block = ? and language = ?', params[:block], params[:language]).group(:block, :language, :section, :action).count(:action)
+          @events = UsageBuildingBlockEvent.created_between(params[:created_after], params[:created_before]).where('block = ? and language = ?', params[:block], params[:language])
         elsif params[:block]
           @events = UsageBuildingBlockEvent.created_between(params[:created_after], params[:created_before]).where('block = ?', params[:block]).group(:block, :language, :section, :action).count(:action)
         elsif params[:language]
@@ -23,7 +23,7 @@ module AdminApi
       elsif params[:block]
         @events = UsageBuildingBlockEvent.where('block = ?', params[:block]).group(:block, :language, :section, :action).count(:action)
       end
-      byebug
+
       @events = organize_data(@events)
 
       render 'index'
@@ -32,39 +32,16 @@ module AdminApi
     private
 
     def organize_data(events)
-      events_new = {}
-      block = ''
-      language = ''
-      section = ''
-      actions = {}
-      first_time = true
-      events.each do |event|
-        if event[0][0] != block || event[0][1] != language || event[0][2] != section
-          if first_time == false
-            events_new[block] = {
-              language => {
-                section => {}
-              }
-            } 
-            # events_new.deep_merge!(actions)
-            events_new
-          end
-          block = event[0][0]
-          language = event[0][1]
-          section = event[0][2]
-          actions = {}
+      output = {}
+      events.each do |path, count|
+        pointer = output
+        path.each do |k|
+          leafValue = (k == path.last) ? count : {}
+          pointer[k] = pointer[k] || leafValue
+          pointer = pointer[k]
         end
-        actions[event[0][3]] = event[1][0]
-        events_new
-        first_time = false
       end
-      events_new[block] = {
-        language => {
-          section => {}
-        }
-      } 
-      # events_new.deep_merge!(actions)
-      events_new
+      output
     end
   end
 end
