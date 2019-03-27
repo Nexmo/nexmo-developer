@@ -156,11 +156,11 @@ Value | Description
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
 `onAnswer` | An object containing a `url` key. The URL serves an NCCO to execute in the connected number before the call is joined to your existing conversation
 
-#### app - Connect the call to an IP leg
+#### app - Connect the call to an app
 
 Value | Description
 -- | --
-`user` | the username of the member to connect. This username must have been [added as a user](/api/conversation#createUser)
+`user` | the username of the user to connect to. This username must have been [added as a user](/api/conversation#createUser)
 
 #### Websocket - the websocket to connect to
 
