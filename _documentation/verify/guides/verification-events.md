@@ -12,6 +12,8 @@ The Verify API then sends a verification code to the user by SMS. When they ente
 
 If the user does not enter the code within the allowed time, the Verify API makes two further attempts to verify the user by making  Text-to-speech (TTS) voice calls.
 
+> **Note**: You are limited to a maximum of one verify request per second.
+
 ## Timing of each event 
 
 The following table shows the three events that are triggered and the amount of time the Verify API waits by default before triggering the next event. You can also [trigger the next verification attempt](/verify/code-snippets/trigger-next-verification-process) programmatically.
