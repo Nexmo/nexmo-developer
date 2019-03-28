@@ -1,5 +1,5 @@
 module AdminApi
-  class BuildingBlocksController < AdminApiController
+  class CodeSnippetsController < AdminApiController
     respond_to :json
 
     def index
