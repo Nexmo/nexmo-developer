@@ -1,51 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe AdminApi::CodeSnippetsController, :type => :request do
+RSpec.describe AdminApi::CodeSnippetsController, type: :request do
   before do
-    Rails.application.routes.draw do
-      namespace :admin_api, defaults: { format: 'json' } do
-        resources :code_snippets, only: [:index]
-      end
-    end
+    allow_any_instance_of(AdminApiController).to receive(:authenticate).and_return(true)
   end
-  after do
-    Rails.application.reload_routes!
-  end
-
   describe 'GET #index' do
     it 'retrieves all records when supplied with no params' do
-      @events = allow(UsageBuildingBlockEvent).to receive(:all).and_return([first_event, second_event, third_event])
-      puts response
+      @events = events_data
+      allow(UsageBuildingBlockEvent).to receive_message_chain(:all, :group, :count).and_return(@events)
+
+      get '/admin_api/code_snippets'
+      expect(@events.count).to eq(3)
     end
   end
 end
 
-def first_event
+def events_data
   {
-    'language' => 'Ruby',
-    'block' => 'voice/make-an-outbound-call',
-    'section' => 'code',
-    'action' => 'source',
-    'created_at' => '2019-01-01 12:00:00'
-  }
-end
-
-def second_event
-  {
-    'language' => 'PHP',
-    'block' => 'voice/receive-an-inbound-call',
-    'section' => 'code',
-    'action' => 'copy',
-    'created_at' => '2019-02-01 12:00:00'
-  }
-end
-
-def third_event
-  {
-    'language' => 'Ruby',
-    'block' => 'voice/make-an-outbound-call',
-    'section' => 'code',
-    'action' => 'copy',
-    'created_at' => '2018-12-01 12:00:00'
+    ['voice/make-an-outbound-call', 'cURL', 'code', 'source'] => 1,
+    ['voice/make-an-outbound-call', 'PHP', 'code', 'source'] => 1,
+    ['voice/make-an-outbound-call', 'PHP', 'code', 'copy'] => 2,
   }
 end
