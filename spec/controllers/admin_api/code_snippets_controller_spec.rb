@@ -10,14 +10,28 @@ RSpec.describe AdminApi::CodeSnippetsController, type: :request do
       allow(UsageBuildingBlockEvent).to receive_message_chain(:all, :group, :count).and_return(@events)
 
       get '/admin_api/code_snippets'
-      expect(@events.count).to eq(3)
+      expect(@events.count).to eq(4)
     end
 
     it 'retrieves only records matching the language parameter provided' do
-      @events = only_php
+      @events = by_language_param
       get '/admin_api/code_snippets?language=PHP'
       allow(UsageBuildingBlockEvent).to receive_message_chain(:where, :group, :count).and_return(@events)
       expect(@events.count).to eq(2)
+    end
+
+    it 'retrieves only records matching the block parameter provided' do
+      @events = by_block_param
+      get '/admin_api/code_snippets?block=voice/make-an-outbound-call'
+      allow(UsageBuildingBlockEvent).to receive_message_chain(:where, :group, :count).and_return(@events)
+      expect(@events.count).to eq(3)
+    end
+
+    it 'retrieves only records matching both block and language parameters provided' do
+      @events = by_language_and_block_params
+      get '/admin_api/code_snippets?block=voice/make-an-outbound-call&language=Ruby'
+      allow(UsageBuildingBlockEvent).to receive_message_chain(:where, :group, :count).and_return(@events)
+      expect(@events.count).to eq(1)
     end
   end
 end
@@ -27,12 +41,27 @@ def events_data
     ['voice/make-an-outbound-call', 'cURL', 'code', 'source'] => 1,
     ['voice/make-an-outbound-call', 'PHP', 'code', 'source'] => 1,
     ['voice/make-an-outbound-call', 'PHP', 'code', 'copy'] => 2,
+    ['voice/receive-an-inbound-call', 'Ruby', 'code', 'copy'] => 1,
   }
 end
 
-def only_php
+def by_language_param
   {
     ['voice/make-an-outbound-call', 'PHP', 'code', 'source'] => 1,
     ['voice/make-an-outbound-call', 'PHP', 'code', 'copy'] => 2,
+  }
+end
+
+def by_block_param
+  {
+    ['voice/make-an-outbound-call', 'cURL', 'code', 'source'] => 1,
+    ['voice/make-an-outbound-call', 'PHP', 'code', 'source'] => 1,
+    ['voice/make-an-outbound-call', 'PHP', 'code', 'copy'] => 2,
+  }
+end
+
+def by_language_and_block_params
+  {
+    ['voice/make-an-outbound-call', 'Ruby', 'code', 'copy'] => 1,
   }
 end
