@@ -282,7 +282,7 @@ This webhook is sent by Nexmo when an NCCO with an action of "input" has finishe
 Field | Example | Description
  -- | -- | --
 `dtmf` | `42` | The buttons pressed by the user
-`timed_out` | `1` | Whether the input action timed out: `1` if it did, or an empty field if not
+`timed_out` | `true` | Whether the input action timed out: `true` if it did, `false` if not
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
