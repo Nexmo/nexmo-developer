@@ -7,10 +7,10 @@ module AdminApi
 
       params.permit!
 
+      @events = UsageBuildingBlockEvent
+
       if params[:created_after] || params[:created_before]
-        @events = UsageBuildingBlockEvent.created_between(params[:created_after], params[:created_before])
-      else
-        @events = UsageBuildingBlockEvent.all
+        @events = @events.created_between(params[:created_after], params[:created_before])
       end
 
       query = []
