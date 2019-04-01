@@ -9,12 +9,10 @@ RSpec.describe LabelFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'returns an HTML span tag when provided with random text inside brackets' do
+  it 'does not alter random text inside brackets' do
     input = '[some text]'
 
-    expected_output = "<span class='Vlt-badge '>some text</span> "
-
-    expect(described_class.call(input)).to eq(expected_output)
+    expect(described_class.call(input)).to eq(input)
   end
 
   it 'does not transform a matching string if it is not inside brackets' do
@@ -53,6 +51,14 @@ RSpec.describe LabelFilter do
     input = '[PUT]'
 
     expected_output = "<span class='Vlt-badge Vlt-badge--yellow'>PUT</span> "
+
+    expect(described_class.call(input)).to eq(expected_output)
+  end
+
+  it 'converts [OPTIONS] to a grey label' do
+    input = '[OPTIONS]'
+
+    expected_output = "<span class='Vlt-badge Vlt-badge--grey'>OPTIONS</span> "
 
     expect(described_class.call(input)).to eq(expected_output)
   end

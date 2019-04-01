@@ -17,7 +17,6 @@ class MarkdownController < ApplicationController
     @content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
-      disable_label_filter: params[:namespace].present? # Disable if we're in the contribute section
     }).call(document)
 
     if !Rails.env.development? && @frontmatter['wip']

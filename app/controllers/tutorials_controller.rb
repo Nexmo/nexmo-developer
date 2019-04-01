@@ -34,7 +34,7 @@ class TutorialsController < ApplicationController
     @document_title = @frontmatter['title']
     @product = @frontmatter['products']
 
-    @content = MarkdownPipeline.new({ code_language: @code_language, disable_label_filter: true }).call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
 
     @namespace_path = "_documentation/#{@product}"
     @namespace_root = '_documentation'
