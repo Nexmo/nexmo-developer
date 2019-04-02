@@ -100,3 +100,8 @@
 
 # Moved Generate JWT concept
 "/client-sdk/concepts/jwt-acl": "/conversation/concepts/jwt-acl"
+
+# Moved concepts to Guides
+"/client-sdk/in-app-voice/concepts/ncco-guide": "/client-sdk/in-app-voice/guides/ncco-guide"
+"/client-sdk/in-app-voice/concepts/call-statuses": "/client-sdk/in-app-voice/guides/call-statuses"
+
