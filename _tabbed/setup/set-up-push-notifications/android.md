@@ -1,9 +1,6 @@
 ---
-title: How to Set Up Nexmo Push Notifications on Android
-products: client-sdk
-description: This tutorial shows you how to set up push notifications using Firebase.
-languages:
-    - Java
+title: Android
+language: android
 ---
 
 # How to Set Up Nexmo Push Notifications on Android

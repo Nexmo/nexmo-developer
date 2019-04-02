@@ -1,10 +1,6 @@
 ---
-title: How to Set Up Nexmo Push Notifications on iOS
-products: client-sdk
-description: This tutorial shows you how to set up push notifications using Firebase.
-languages:
-    - Objective_C
-    - Swift
+title: iOS
+language: ios
 ---
 
 # How to Set Up Nexmo Push Notifications on iOS
