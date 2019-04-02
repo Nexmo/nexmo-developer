@@ -1,10 +1,6 @@
 ---
-title: How to Receive Phone Calls with the Nexmo Client SDK on Android
-products: client-sdk
-description: This tutorial shows you how to create a Nexmo Client SDK application that can receive phone calls on Android.
-languages:
-    - Kotlin
-    - Java
+title: Android
+language: android
 ---
 
 # How to Receive Phone Calls with the Nexmo Client SDK on Android

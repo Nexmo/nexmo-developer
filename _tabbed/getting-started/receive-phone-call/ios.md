@@ -1,10 +1,6 @@
 ---
-title: How to Receive Phone Calls with the Nexmo Client SDK on iOS
-products: client-sdk
-description: This tutorial shows you how to create a Nexmo Client SDK application that can receive phone calls on iOS.
-languages:
-    - Objective_c
-    - Swift
+title: iOS
+language: ios
 ---
 
 # How to Receive Phone Calls with the Nexmo Client SDK on iOS

@@ -1,9 +1,6 @@
 ---
-title: How to Receive Phone Calls with the Nexmo Client SDK in JavaScript
-products: client-sdk
-description: This tutorial shows you how to use the Nexmo Client SDK in your JavaScript application in order to receive phone calls.
-languages:
-    - JavaScript
+title: JavaScript
+language: javascript
 ---
 
 # How to Receive Phone Calls with the Nexmo Client SDK in JavaScript
