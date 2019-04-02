@@ -1,7 +1,6 @@
 ---
 title: Send and Receive DTMF
 description: This topic shows you how to send and receive DTMF in your app.
-navigation_weight: 3
 ---
 
 # Send and Receive DTMF
