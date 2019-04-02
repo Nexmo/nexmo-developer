@@ -78,3 +78,25 @@
 # Temporary landing page for onboarding
 "/client-sdk/in-app-voice/onboarding": "/in-app-voice"
 "/voice-onboarding": "/in-app-voice"
+
+# Moved tutorials
+
+# Setup
+"/tutorials/client-sdk-js-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app"
+"/tutorials/client-sdk-android-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app"
+"/tutorials/client-sdk-js-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app"
+
+# Getting Started
+"/tutorials/client-sdk-ios-outbound-call": "/client-sdk/in-app-voice/getting-started/make-phone-call"
+"/tutorials/client-sdk-ios-inbound-call": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+"/tutorials/client-sdk-ios-in-app-calling": "/client-sdk/in-app-voice/getting-started/app-to-app-call"
+
+"/tutorials/client-sdk-android-outbound-call": "/client-sdk/in-app-voice/getting-started/make-phone-call"
+"/tutorials/client-sdk-android-inbound-call": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+"/tutorials/client-sdk-android-in-app-calling": "/client-sdk/in-app-voice/getting-started/app-to-app-call"
+
+"/tutorials/client-sdk-js-outbound-call": "/client-sdk/in-app-voice/getting-started/make-phone-call"
+"/tutorials/client-sdk-js-inbound-call": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+
+# Moved Generate JWT concept
+"/client-sdk/concepts/jwt-acl": "/conversation/concepts/jwt-acl"
