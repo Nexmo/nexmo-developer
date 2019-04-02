@@ -1,10 +1,6 @@
 ---
-title: How to Make Phone Calls with the Nexmo Client SDK on iOS
-products: client-sdk
-description: This tutorial shows you how to create a Nexmo Client SDK application that can place phone calls on iOS.
-languages:
-    - Swift
-    - Objective_c
+title: iOS
+language: ios
 ---
 
 # How to Make Phone Calls with the Nexmo Client SDK on iOS

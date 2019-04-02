@@ -1,10 +1,6 @@
 ---
-title: How to Make Phone Calls with the Nexmo Client SDK on Android
-products: client-sdk
-description: This tutorial shows you how to create a Nexmo Client SDK application that can place phone calls on Android.
-languages:
-    - Kotlin
-    - Java
+title: Android
+language: android
 ---
 
 # How to Make Phone Calls with the Nexmo Client SDK on Android
