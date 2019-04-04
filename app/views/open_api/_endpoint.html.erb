@@ -112,40 +112,35 @@
         </button>
 
         <div class="Vlt-accordion__content <%= expand_response ? 'Vlt-accordion__content_open' : '' %>">
-          <div class="tabs-content" data-tabs-content="<%= id %>">
-            <% response.formats.each_with_index do |format, index| %>
+          <% response.formats.each_with_index do |format, index| %>
+              <div class="js-format" data-format="<%= format %>">
+                <% if response.exhibits_one_of_multiple_schemas?(format) %>
+                  <%
+                    schema_tab_ids = []
+                    id = SecureRandom.hex
+                    response.split_schemas(format).each { schema_tab_ids << SecureRandom.hex }
+                  %>
 
-                <div class="js-format" data-format="<%= format %>">
-                  <% if response.exhibits_one_of_multiple_schemas?(format) %>
-                    <%
-                      schema_tab_ids = []
-                      id = SecureRandom.hex
-                      response.split_schemas(format).each { schema_tab_ids << SecureRandom.hex }
-                    %>
-
-                    <div class="Vlt-tabs">
-                      <div class="Vlt-tabs__header">
-                        <% response.split_schemas(format).each_with_index do |schema, index| %>
-                          <div tabindex="0" <%= schema_tab_ids[index] %>" <% if index.zero? %>class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true"<% else %>class="Vlt-tabs__link"<% end %>><%= schema['description'] || "Response #{index + 1}" %></div>
-                        <% end %>
-                      </div>
-                      <div class="Vlt-tabs__content">
+                  <div class="Vlt-tabs">
+                    <div class="Vlt-tabs__header">
                       <% response.split_schemas(format).each_with_index do |schema, index| %>
-                         <div class="Vlt-tabs__panel <% if index.zero? %>Vlt-tabs__panel_active<% end %>">
-                           <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
-                        </div>
-                        <% end %>
-                      </div>
+                        <div tabindex="0" <%= schema_tab_ids[index] %>" <% if index.zero? %>class="Vlt-tabs__link Vlt-tabs__link_active" aria-selected="true"<% else %>class="Vlt-tabs__link"<% end %>><%= schema['description'] || "Response #{index + 1}" %></div>
+                      <% end %>
                     </div>
-                  <% else %>
-                    <% schema = response.schema(format) %>
-                    <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
-                  <% end %>
-                </div>
-
-
-            <% end %>
-          </div>
+                    <div class="Vlt-tabs__content">
+                    <% response.split_schemas(format).each_with_index do |schema, index| %>
+                       <div class="Vlt-tabs__panel <% if index.zero? %>Vlt-tabs__panel_active<% end %>">
+                         <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
+                      </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% else %>
+                  <% schema = response.schema(format) %>
+                  <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
+                <% end %>
+              </div>
+          <% end %>
         </div>
 
           <% if response.code == '204' || response.formats.empty? %>

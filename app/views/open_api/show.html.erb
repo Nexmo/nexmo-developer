@@ -43,36 +43,18 @@
           <% if @definition_initialization_config && @definition_initialization_content %>
 
             <div class="Nxd-api__code__header">
-              <% if @definition_initialization_config['tabs'] %>
-              <ul class="tabs tabs--code" data-tabs>
-                <% if @definition_initialization_config['tabs'] %>
-                  <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
-                    <li
-                      class="tabs-title <%= index.zero? ? 'is-active' : '' %>"
-                      language-linkable="false"
-                      data-language="<%= tab %>"
-                      data-language-type="<%= CodeLanguage.find(tab).type %>"
-                    ><a href="#<%= tab %>"><%= CodeLanguage.find(tab).label %></a></li>
+            <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
+              <div class="Vlt-native-dropdown">
+                <select class="js-format-selector">
+                  <% @definition_initialization_config['formats'].each do |value, name| %>
+                    <option value="<%= value %>"><%= name %></option>
                   <% end %>
-                <% end %>
-              </ul>
-                <% end %>
-
-              <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
-                <div class="Vlt-native-dropdown">
-                  <select class="js-format-selector">
-                    <% @definition_initialization_config['formats'].each do |value, name| %>
-                      <option value="<%= value %>"><%= name %></option>
-                    <% end %>
-                  </select>
-                </div>
+                </select>
               </div>
             <% end %>
-
-
+            </div>
 
           <%= @definition_initialization_content.html_safe %>
-
         <% end %>
 
 

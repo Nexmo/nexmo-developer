@@ -29,7 +29,7 @@ class TabFilter < Banzai::Filter
       tab['data-platform-linkable'] = content[:platform].linkable?
     end
 
-    tab_link = Nokogiri::XML::Element.new 'a', @document
+    tab_link = Nokogiri::XML::Element.new 'span', @document
     if content[:language]
       # We don't currently have icons for JSON/XML
       if ['json', 'xml'].include? content[:language].key.downcase
@@ -44,8 +44,6 @@ class TabFilter < Banzai::Filter
     else
       tab_link.content = content[:tab_title]
     end
-
-    tab_link['href'] = "##{content[:id]}"
 
     tab.add_child(tab_link)
     @tabs.add_child(tab)
@@ -74,12 +72,10 @@ class TabFilter < Banzai::Filter
   end
 
   def html
-    id = SecureRandom.hex
-
     html = <<~HEREDOC
-      <div class="Vlt-tabs" data-tabs id="#{id}">
+      <div class="Vlt-tabs">
         <div class="Vlt-tabs__header Vlt-tabs__header--bordered"></div>
-          <div class="Vlt-tabs__content data-tabs-content=\"#{id}\"">
+          <div class="Vlt-tabs__content">
           </div>
       </div>
     HEREDOC
@@ -87,16 +83,6 @@ class TabFilter < Banzai::Filter
     @document = Nokogiri::HTML::DocumentFragment.parse(html)
     @tabs = @document.at_css('.Vlt-tabs__header')
     @tabs_content = @document.at_css('.Vlt-tabs__content')
-
-    if tabbed_code_examples?
-      @tabs_content['class'] += ' tabs--code'
-      @tabs_content['class'] += ' tabs-content--code'
-    end
-
-    if @config['frameless']
-      @tabs['class'] += ' tabs--frameless'
-      @tabs_content['class'] += ' tabs-content--frameless'
-    end
 
     contents.each do |content|
       create_tabs(content)

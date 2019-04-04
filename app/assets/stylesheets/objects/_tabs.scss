@@ -1,101 +1,3 @@
-ul.tabs {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0 !important;
-
-  li {
-    margin: 0 !important;
-    display: inline-block;
-  }
-}
-
-.tabs {
-  @extend %tabs-header;
-  @extend %tabs-header-bordered;
-  box-shadow: inset 0 -1px 0 $grey-light;
-
-  .tabs-title {
-      @extend %tabs-link;
-      @extend %tabs-link-bordered;
-
-      a {
-        color: $black;
-
-        &:hover {
-          color: $black;
-        }
-
-        &:focus {
-          outline: none;
-        }
-      }
-  
-
-    &.is-active {
-        @extend %tabs-link-active;
-        @extend %tabs-link-active-bordered;
-        background: $grey-lighter;
-
-         &:before {
-          background: $grey-lighter;
-          content: "";
-          height: 2px;
-          left: 0;
-          position: absolute;
-          width: 100%;
-        }
-
-        &:hover {
-          background: $grey-lighter;
-        }
-
-        & + .Vlt-tabs__link {
-          &:after {
-            display: none;
-          }
-        }
-    
-    }
-  }
-
-  &--frameless {
-    .tabs-title.is-active > a {
-      background: white;
-    }
-  }
-}
-
-.tabs-panel {
-  @extend %tabs-panel;
-  background: $grey-lighter;
-
-  &.is-active {
-    @extend %tabs-panel-active;
-  }
-}
-
-.tabs-content {
-  background: $grey-lighter;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-bottom: 1px solid $grey-light;
-  border-left: 1px solid $grey-light;
-  border-right: 1px solid $grey-light;
-  margin-bottom: 32px;
-  padding: 24px;
-
-  &--frameless {
-    border: none;
-    background: none;
-    box-shadow: none;
-
-    > .tabs-panel {
-      padding: 1rem 0;
-      background: none;
-    }
-  }
-}
-
 .Vlt-tabs__link_active {
   background: #f8fafc;
 }
@@ -112,7 +14,11 @@ ul.tabs {
   margin-top: 0px;
 }
 
-
+.Vlt-tabs__header {
+  a {
+    color: $gray-dark;
+  }
+}
 .Vlt-tabs__header--bordered {
   .Vlt-tabs__link:first-child {
     margin-left: 0;
