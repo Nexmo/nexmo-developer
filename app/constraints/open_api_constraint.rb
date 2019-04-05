@@ -10,6 +10,7 @@ OPEN_API_PRODUCTS = %w[
   voice
   account
   external-accounts
+  numbers
   verify
   vonage-business-cloud/account
   vonage-business-cloud/extension
