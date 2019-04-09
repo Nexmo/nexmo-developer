@@ -173,5 +173,32 @@ Note that it is useful to record both the Facebook ID of your page (which you mi
 
 ## The use case revisited
 
-xxx
+It's time to look into this use case in more detail so you can more effectiveluy build out your application.
 
+Imagine a user messages your Facebook Page via Messenger with a message such as "Hi". However due to time zones you are not available to respond to the message - this may leave the user feeling dejected. On the other hand it would be great if you could automatically respond with useful information. For example to a message such as "Hi" you might respond with "Welcome to Tony's Cat Supplies. Here are our main product categories: toys, food, meds, bling. Find out more info by sending us a message in the format `info: product`, for example `info: bling`". After the user sends in a message with their info request, you can respond with the appropriate information, rather than flooding them with information overload. You will see how to implement this use case.
+
+## Minimal client for sending Facebook Messenger messages using Python
+
+Currently Nexmo does not officially support Messages and Dispatch API in the Python client library, but our REST API is fully supported and the [Python code is provided](https://github.com/nexmo-community/fbm-product-info/blob/master/FBMClient/FBMClient.py) in the project for you in a reusable class. As the code is provided we will not cover it further in this tutorial.
+
+## A simple messages dictionary
+
+One of the useful data structures in implementing this use case is the Python dictionary. You can see an example here:
+
+``` python
+messages_dict = {
+    'none': "Welcome to T's Cat Supplies! Send us a message `info: product` where product is one of toys, food, meds, bling",
+    'toys': "Info on cat toys here https://bit.ly/abc",
+    'food': "Info on cat food here https://bit.ly/def",
+    'meds': "Info on cat meds here https://bit.ly/ghi",
+    'bling': "Info on cat bling here https://bit.ly/jkl"
+}
+```
+
+The software can be a little bit flexible though. Using a Python construct such as `if keyword in msg` you can detect keywords and send material based on that. For example if a user sends in a message like "Hi my tanks need sorting" you might detect the word `tank` and send information on your tank cleaning services. Or if you receive a message such as "Hi, I think I need a crane to lift our pipeline sections." You could send information on your crane hire services. Where keywords are not detected it is a simple matter to send a generic message back to the user to help orientate them.
+
+To put this into perspective review the following code:
+
+``` python
+
+```
