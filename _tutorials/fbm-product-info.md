@@ -18,9 +18,14 @@ In this use case the user greets the company via the company's Facebook Page. A 
 
 The source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/fbm-product-info).
 
-```partial
-source: _partials/reusable/prereqs.md
-```
+## Prerequisites
+
+1. [Create a Nexmo Account](https://dashboard.nexmo.com/sign-in)
+2. [Install Node JS](https://nodejs.org/en/download/) - required for using the Nexmo Command Line Interface (CLI).
+3. [Install the Beta version of the Nexmo CLI](/messages/code-snippets/install-cli)
+4. [Know how to test your webhook server locally](/messages/code-snippets/configure-webhooks#testing-locally-via-ngrok)
+5. [Python 3 installed](https://www.python.org/)
+6. [Flask installed](http://flask.pocoo.org/)
 
 ## The steps
 
@@ -29,9 +34,10 @@ After the prerequisites have been met, the steps are as follows:
 1. Create a Nexmo Application
 2. Generate a JWT
 3. Link your Facebook Page to Nexmo
-. [](#)
+4. Link your Nexmo application to your Facebook page
+5. Build out your application to implement the use case
 
-There are various ways you can achieve the same result with Nexmo. This tutorial shows only one specific way to do things, for example we use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
+There are various ways you can achieve the same result with Nexmo. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
 
 ## Create your Nexmo Application
 
@@ -40,7 +46,7 @@ If you have not yet done so, create a new directory for your project, such as `f
 Use the CLI to create your Nexmo application:
 
 ``` shell
-nexmo app:create "FBM Product Info" https://abcd1234.ngrok.io/inbound https://abcd1234.ngrok.io/status --keyfile=private.key --type=messages
+nexmo app:create "FBM App" https://abcd1234.ngrok.io/inbound https://abcd1234.ngrok.io/status --keyfile=private.key --type=messages
 ```
 
 Make a note of the generated Application ID. You can also check this in the Dashboard.
@@ -78,6 +84,12 @@ To link your Facebook Page to your Nexmo account navigate to the following page:
 Select the Facebook Page you want to link to your account from the dropdown list.
 
 Paste the JWT you copied to your clipbnoard earlier into the JWT Token field and click Subscribe. You will receive a message confirming the page is now linked to your account.
+
+## Link your application to your Facebook Page
+
+Go into the Nexmo Dashboard and check your Nexmo application [is listed](https://dashboard.nexmo.com/messages/applications).
+
+Click on your app and then click the External Accounts tab. Facebook Pages that you've linked to your Nexmo account are listed. Click the `Link` button to link your application to the desired Facebook Page.
 
 > At this point you have the preparatory work completed. You now have a Nexmo app and your Facebook Page connected to your Nexmo account. In subsequent sections you will write the code for your application.
 
@@ -123,7 +135,7 @@ if __name__ == '__main__':
     app.run(host="localhost", port=9000)
 ```
 
-Add this code to a file called `app.py` and save it.
+Add this code to a file called `app1.py` and save it.
 
 Run it locally with:
 
@@ -138,9 +150,28 @@ Your base application is now up and running and ready to log events.
 Now that your base app is up and running, you can send a message to your Facebook Page and then check that the message is logged. So, if you send a basic message to your Facebook Page using Messenger you will see logging such as the following:
 
 ```
-
+{'direction': 'inbound',
+ 'from': {'id': '1234567890123456', 'type': 'messenger'},
+ 'message': {'content': {'text': 'Hello Mr. Cat', 'type': 'text'}},
+ 'message_uuid': 'da13a7b0-307c-4029-bbcd-ec2a391873de',
+ 'timestamp': '2019-04-09T12:26:47.242Z',
+ 'to': {'id': '543210987654321', 'type': 'messenger'}}
+127.0.0.1 - - [09/Apr/2019 13:26:58] "POST /inbound HTTP/1.1" 200 -
 ```
 
 There is some important information here which you can use to build out your application to make it more useful.
 
+Field | Description
+--- | ---
+`from` | The Facebook ID of the person sending a message to your page.
+`to` | The Facebook ID of your page (the page the person is sending a message to).
+`message` | The message being sent.
+
+You can see that the message is a JSON object. You can extract the message text from this object.
+
+Note that it is useful to record both the Facebook ID of your page (which you might not have known), and the Facebook ID of the user sending you a message. Note the Facebook ID is especially useful if your application is handling multiple Facebook Pages.
+
+## The use case revisited
+
+xxx
 
