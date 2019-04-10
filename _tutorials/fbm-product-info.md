@@ -1,16 +1,16 @@
 ---
-title: Receive product information interactively via Facebook Messenger
+title: Receive product information automatically via Facebook Messenger
 products: messages
-description: This tutorial looks at a use case where the user receives relevant product information interactively via Facebook Messenger, without the need for support personnel.
+description: This tutorial looks at a use case where the user receives relevant product information automatically via Facebook Messenger, without the need for support personnel.
 languages:
     - Python
 ---
 
-# Receive product information interactively via Facebook Messenger
+# Receive product information automatically via Facebook Messenger
 
-This tutorial shows you how to provide a user with relevant product information via Facebook Messenger.
+This tutorial shows you how to provide a user with relevant product information automatically via Facebook Messenger.
 
-In this use case the user greets the company via the company's Facebook Page. A message is automatically sent back to the user. Using a simple command the user can obtained tailored information based on their product choice.
+In this use case the user greets the company via the company's Facebook Page. A message is automatically sent back to the user. Using keyword matching the user can receive tailored product and service information.
 
 > **NOTE:** This tutorial assumes you have already created a Facebook Profile and a Facebook Page.
 
@@ -49,7 +49,7 @@ Use the CLI to create your Nexmo application:
 nexmo app:create "FBM App" https://abcd1234.ngrok.io/inbound https://abcd1234.ngrok.io/status --keyfile=private.key --type=messages
 ```
 
-Make a note of the generated Application ID. You can also check this in the Dashboard.
+Make a note of the generated Application ID. You can also check this in the [Nexmo Dashboard](https://dashboard.nexmo.com/messages/applications).
 
 This command will also have created a private key, `private.key` in your current directory.
 
@@ -171,34 +171,85 @@ You can see that the message is a JSON object. You can extract the message text 
 
 Note that it is useful to record both the Facebook ID of your page (which you might not have known), and the Facebook ID of the user sending you a message. Note the Facebook ID is especially useful if your application is handling multiple Facebook Pages.
 
-## The use case revisited
-
-It's time to look into this use case in more detail so you can more effectiveluy build out your application.
-
-Imagine a user messages your Facebook Page via Messenger with a message such as "Hi". However due to time zones you are not available to respond to the message - this may leave the user feeling dejected. On the other hand it would be great if you could automatically respond with useful information. For example to a message such as "Hi" you might respond with "Welcome to Tony's Cat Supplies. Here are our main product categories: toys, food, meds, bling. Find out more info by sending us a message in the format `info: product`, for example `info: bling`". After the user sends in a message with their info request, you can respond with the appropriate information, rather than flooding them with information overload. You will see how to implement this use case.
-
 ## Minimal client for sending Facebook Messenger messages using Python
 
 Currently Nexmo does not officially support Messages and Dispatch API in the Python client library, but our REST API is fully supported and the [Python code is provided](https://github.com/nexmo-community/fbm-product-info/blob/master/FBMClient/FBMClient.py) in the project for you in a reusable class. As the code is provided we will not cover it further in this tutorial.
+
+## The use case revisited
+
+It's time to look into this use case in more detail so you can more effectively build out your application.
+
+Imagine a user messages your Facebook Page via Messenger with a message such as "Hi". However due to time zones you are not available to respond to the message - this may leave the user feeling dejected. On the other hand it would be great if you could automatically respond with useful information. For example, to a message such as "Hi" you might respond with "Welcome to T's Cat Supplies. Here are our main product categories: toys, food, meds, bling."
+
+Using a Python construct such as `if keyword in msg` you can detect keywords and send material based on that. For example if a user sends in a message like "Hi my tanks need sorting" you might detect the word `tank` and send information on your tank cleaning services. Or if you receive a message such as "Hi, I think I need a crane to lift our pipeline sections." You could send information on your crane hire services. Where keywords are not detected it is a simple matter to send a generic message back to the user to help orientate them.
+
+This auto-response feature is useful as some companies have hundreds of products and services.
+
+Another feature that is useful is the ability to switch auto-response off, perhaps to deal directly with a human. You could build in commands such as `auto: off` and `auto: on` to control how your customer interacts with your Facebook Page.
+
+In the following sections you will see how to implement this use case.
 
 ## A simple messages dictionary
 
 One of the useful data structures in implementing this use case is the Python dictionary. You can see an example here:
 
 ``` python
-messages_dict = {
-    'none': "Welcome to T's Cat Supplies! Send us a message `info: product` where product is one of toys, food, meds, bling",
-    'toys': "Info on cat toys here https://bit.ly/abc",
-    'food': "Info on cat food here https://bit.ly/def",
-    'meds': "Info on cat meds here https://bit.ly/ghi",
-    'bling': "Info on cat bling here https://bit.ly/jkl"
+cats_dict = {
+    'other': 'Our products: toys, food, meds, and bling',
+    'toys': 'More info on cat toys here https://bit.ly/abc',
+    'food': 'More info on cat food here https://bit.ly/def',
+    'meds': 'More info on cat meds here https://bit.ly/ghi',
+    'bling': 'More info on cat bling here https://bit.ly/jkl'
 }
 ```
-
-The software can be a little bit flexible though. Using a Python construct such as `if keyword in msg` you can detect keywords and send material based on that. For example if a user sends in a message like "Hi my tanks need sorting" you might detect the word `tank` and send information on your tank cleaning services. Or if you receive a message such as "Hi, I think I need a crane to lift our pipeline sections." You could send information on your crane hire services. Where keywords are not detected it is a simple matter to send a generic message back to the user to help orientate them.
 
 To put this into perspective review the following code:
 
 ``` python
+class ProductMatcher:
 
+    auto_mode = True
+
+    cats_dict = {
+        'other': 'Our products: toys, food, meds, and bling',
+        'toys': 'More info on cat toys here https://bit.ly/abc',
+        'food': 'More info on cat food here https://bit.ly/def',
+        'meds': 'More info on cat meds here https://bit.ly/ghi',
+        'bling': 'More info on cat bling here https://bit.ly/jkl'
+    }
+
+...
+
+    def product_matcher(self, fb_sender, user, msg):
+        product = 'other'
+        msg = msg.lower().strip()
+        if self.auto_mode:
+            if "auto: off" in msg:
+                self.auto_mode = False
+                self.fbm.send_message(fb_sender, user, "Auto mode is off")
+                return
+            for k in self.cats_dict.keys():
+                if k in msg:
+                    product = k
+                    break
+            self.fbm.send_message(fb_sender, user, self.cats_dict[product])
+        if "auto: on" in msg:
+                self.auto_mode = True
+                self.fbm.send_message(fb_sender, user, "Auto mode is on")
+        return product
 ```
+
+If the user sends a message via Messenger and there's no human to respond a simple menu is sent back to the user. In the user's message the product is extracted and the appropriate message sent. Of course this code takes a naive approach, but hopefully it indicates the potential.
+
+You might be wondering would this get annoying for the user if they want to talk to a real person? However, the auto-respond could be disabled once you are online and able to take messages. The code allows the user to use the commands `auto: off` and `auto: on` to control interaction. This could also be controlled by the channel manager.
+
+In the above code the product the user is interested in is also returned. This could be used if, for example, you wanted to log the user and thier product choice to a database. You could also look up a user in the database to find out if they are a new customer or they have had dealings with the company before.
+
+## Summary
+
+In this tutorial you have seen a use case where the user can receive product information automatically via Facebook Messenger. This was based around simple keyword matching. The user also had the ability to toggle auto-response mode as required.
+
+## Further resources
+
+* The complete [source code](https://github.com/nexmo-community/fbm-product-info).
+* Messages API [documentation](/messages/overview)
