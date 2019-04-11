@@ -31,11 +31,16 @@ The source code for this project is available in the Nexmo Community [GitHub rep
 
 After the prerequisites have been met, the steps are as follows:
 
-1. Create a Nexmo Application
-2. Generate a JWT
-3. Link your Facebook Page to Nexmo
-4. Link your Nexmo application to your Facebook page
-5. Build out your application to implement the use case
+1. [Create a Nexmo Application](#create-your-nexmo-application)
+2. [Generate a JWT](#generate-a-jwt)
+3. [Link your Facebook Page to Nexmo](#link-your-facebook-page-to-your-nexmo-account)
+4. [Link your Nexmo application to your Facebook page](#link-your-application-to-your-facebook-page)
+5. [Get Ngrok up and running](#get-ngrok-up-and-running)
+6. [Write your basic application](#write-your-basic-application)
+7. [Interact with your Facebook Page](#interact-with-your-facebook-page)
+8. [Minimal client for sending Facebook Messenger messages using Python](#minimal-client-for-sending-facebook-messenger-messages-using-python)
+9. [The use case revisited](#the-use-case-revisited)
+10. [A simple implementation](#a-simple-implementation)
 
 There are various ways you can achieve the same result with Nexmo. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
 
@@ -51,15 +56,15 @@ nexmo app:create "FBM App" https://abcd1234.ngrok.io/inbound https://abcd1234.ng
 
 Make a note of the generated Application ID. You can also check this in the [Nexmo Dashboard](https://dashboard.nexmo.com/messages/applications).
 
-This command will also have created a private key, `private.key` in your current directory.
+This command will also create a private key, `private.key` in your current directory.
 
-This command has also set the two webhooks that need to be set. All interaction between your App and Nexmo takes place through these webhooks.
+This command also sets the two webhooks that need to be set. All interaction between your App and Nexmo takes place through these webhooks. You must at least acknowledge each of these webhooks in your app.
 
 ## Generate a JWT
 
 You will need to generate a JWT to validate the linking of your Facebook Page to your Nexmo account. You can skip this step if you have already linked your Facebook Page to your Nexmo account.
 
-In the following command make sure you paste in the Application ID of the Nexmo application you just created.
+In the following command make sure you paste in the Application ID of the Nexmo application you just created:
 
 ``` shell
 JWT="$(nexmo jwt:generate ./private.key application_id=YOUR_APP_ID)"
@@ -83,7 +88,7 @@ To link your Facebook Page to your Nexmo account navigate to the following page:
 
 Select the Facebook Page you want to link to your account from the dropdown list.
 
-Paste the JWT you copied to your clipbnoard earlier into the JWT Token field and click Subscribe. You will receive a message confirming the page is now linked to your account.
+Paste the JWT you copied to your clipboard earlier into the JWT Token field and click Subscribe. You receive a message confirming the page is now linked to your account.
 
 ## Link your application to your Facebook Page
 
@@ -91,7 +96,7 @@ Go into the Nexmo Dashboard and check your Nexmo application [is listed](https:/
 
 Click on your app and then click the External Accounts tab. Facebook Pages that you've linked to your Nexmo account are listed. Click the `Link` button to link your application to the desired Facebook Page.
 
-> At this point you have the preparatory work completed. You now have a Nexmo app and your Facebook Page connected to your Nexmo account. In subsequent sections you will write the code for your application.
+> At this point you have the preparatory work completed. You now have a Nexmo app and your Facebook Page connected to your Nexmo account, and your app linked to your Facebook Page. In subsequent sections you will write the code for your application.
 
 ## Get Ngrok up and running
 
@@ -107,7 +112,7 @@ To generate a temporary Ngrok URL. If you are a paid subscriber you could type:
 ngrok http 9000 -subdomain=your_domain
 ```
 
-> Note in this case Ngrok will divert hte Nexmo webhooks you specified when you created your Nexmo application to `localhost:9000`.
+> Note in this case Ngrok will divert the Nexmo webhooks you specified when you created your Nexmo application to `localhost:9000`.
 
 ## Write your basic application
 
@@ -179,9 +184,9 @@ Currently Nexmo does not officially support Messages and Dispatch API in the Pyt
 
 It's time to look into this use case in more detail so you can more effectively build out your application.
 
-Imagine a user messages your Facebook Page via Messenger with a message such as "Hi". However due to time zones you are not available to respond to the message - this may leave the user feeling dejected. On the other hand it would be great if you could automatically respond with useful information. For example, to a message such as "Hi" you might respond with "Welcome to T's Cat Supplies. Here are our main product categories: toys, food, meds, bling."
+Imagine a user messages your Facebook Page via Messenger with a message such as "Hi". However, due to time zones you are not available to respond to the message - this may leave the user feeling dejected. On the other hand it would be great if you could automatically respond with useful information. For example, to a message such as "Hi" you might respond with "Welcome to T's Cat Supplies. Here are our main product categories: toys, food, meds, bling."
 
-Using a Python construct such as `if keyword in msg` you can detect keywords and send material based on that. For example if a user sends in a message like "Hi my tanks need sorting" you might detect the word `tank` and send information on your tank cleaning services. Or if you receive a message such as "Hi, I think I need a crane to lift our pipeline sections." You could send information on your crane hire services. Where keywords are not detected it is a simple matter to send a generic message back to the user to help orientate them.
+Using a Python construct such as `if keyword in msg` you can detect keywords and send material based on that. For example, if a user sends in a message like "Hi my tanks need sorting" you might detect the word `tank` and send information on your tank cleaning services. Or if you receive a message such as "Hi, I think I need a crane to lift our pipeline sections." You could send information on your crane hire services. Where keywords are not detected it is a simple matter to send a generic message back to the user to help orientate them.
 
 This auto-response feature is useful as some companies have hundreds of products and services.
 
@@ -189,7 +194,7 @@ Another feature that is useful is the ability to switch auto-response off, perha
 
 In the following sections you will see how to implement this use case.
 
-## A simple messages dictionary
+## A simple implementation
 
 One of the useful data structures in implementing this use case is the Python dictionary. You can see an example here:
 
@@ -239,11 +244,11 @@ class ProductMatcher:
         return product
 ```
 
-If the user sends a message via Messenger and there's no human to respond a simple menu is sent back to the user. In the user's message the product is extracted and the appropriate message sent. Of course this code takes a naive approach, but hopefully it indicates the potential.
+If the user sends a message via Messenger, and there's no human to respond, a simple menu is sent back to the user. In the user's message the product is extracted and the appropriate message sent. Of course this code takes a naive approach, but hopefully it indicates the potential.
 
 You might be wondering would this get annoying for the user if they want to talk to a real person? However, the auto-respond could be disabled once you are online and able to take messages. The code allows the user to use the commands `auto: off` and `auto: on` to control interaction. This could also be controlled by the channel manager.
 
-In the above code the product the user is interested in is also returned. This could be used if, for example, you wanted to log the user and thier product choice to a database. You could also look up a user in the database to find out if they are a new customer or they have had dealings with the company before.
+In the above code the product the user is interested in is also returned. This could be used if, for example, you wanted to log the user and their product choice to a database. You could also look up a user in the database to find out if they are a new customer or they have had dealings with the company before.
 
 ## Summary
 
