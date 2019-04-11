@@ -85,7 +85,8 @@ navigation_overrides:
     label: 'Developer Preview'
     sdk-documentation:
       link: false
-      prevent_navigation_item_class: true
+    in-app-voice:
+      collapsible: true
   numbers:
     svg: 'phone-number'
     svgColor: 'red'

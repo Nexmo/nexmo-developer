@@ -2,7 +2,7 @@ IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
 NAVIGATION = YAML.load_file("#{Rails.root}/config/navigation.yml")
 NAVIGATION_WEIGHT = NAVIGATION['navigation_weight']
 NAVIGATION_OVERRIDES = NAVIGATION['navigation_overrides']
-COLLAPSIBLE = ['Messages API', 'Dispatch API', 'Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global', 'SIP', 'Voice API'].freeze
+COLLAPSIBLE = ['Messages API', 'Dispatch API', 'Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global', 'SIP', 'Voice API', 'Setup', 'In-App Voice', 'In-App Messaging'].freeze
 
 # What tasks do we have available?
 TASKS = {} # rubocop:disable Style/MutableConstant
@@ -117,7 +117,7 @@ module ApplicationHelper
     end
   end
 
-  def sidenav(path, active_path = nil)
+  def sidenav(path)
     context = directory_hash(path)[:children]
 
     if params[:namespace].present?
@@ -128,91 +128,134 @@ module ApplicationHelper
       }]
     end
 
-    directory(context, true, false, active_path)
+    directory(context)
   end
 
-  def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, active_path = nil)
-    active_path ||= request.path
-
+  def directory(context)
     s = []
+
     namespace = params[:namespace].presence || 'documentation'
-    s << (root ? "<ul class='Vlt-sidemenu Vlt-sidemenu--rounded navigation js-navigation navigation--#{namespace}'>" : '<ul class="Vlt-sidemenu__list--compressed">')
+    s << "<ul class='Vlt-sidemenu Vlt-sidemenu--rounded navigation js-navigation navigation--#{namespace}'>"
 
-    s << context.map do |child|
-      class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''
-      configuration_identifier = url_to_configuration_identifier(path_to_url(child[:path]))
+    # Our top level folders
+    s << context.map do |folder|
+      configuration_identifier = url_to_configuration_identifier(path_to_url(folder[:path]))
       options = configuration_identifier.split('.').inject(NAVIGATION_OVERRIDES) { |h, k| h[k] || {} }
-      # Rails.logger.debug(options)
-
-      unless options['prevent_navigation_item_class']
-        class_name = "#{class_name} navigation-item--#{normalised_title(child).parameterize}"
-      end
 
       ss = []
-      ss << "<li class='#{class_name} navigation-item'>"
+      ss << "<li class='navigation-item--#{folder[:title]} navigation-item'>"
+      ss << "<a class='Vlt-sidemenu__trigger'>"
 
-      url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
-      has_active_class = (active_path == url) || active_path.start_with?("#{url}/")
-
-      # Handle tutorials
-      if @navigation == :tutorials
-        has_active_class = url == "/#{@product}/tutorials"
+      # If we have an icon
+      if options['svg'] && options['svgColor']
+        ss << '<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg>'
       end
 
-      if !child[:is_file?]
-        if context.first[:children]
-          ss << "<a class='Vlt-sidemenu__trigger'>"
+      # Add a title
+      ss << "<span class='Vlt-sidemenu__label'>#{normalised_title(folder)}"
 
-          if options['svg'] && options['svgColor']
-            ss << '<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg>'
-          end
-
-          if options['label']
-            additional_classes = ' '
-            additional_classes += 'Vlt-bg-green' if options['label'].casecmp('beta').zero? # rubocop:disable Metrics/BlockNesting
-            ss << '<span class="Vlt-sidemenu__label">'.html_safe + (normalised_title(child) + content_tag(:span, options['label'], class: 'Vlt-badge Vlt-badge--margin-left' + additional_classes)).html_safe + '</span>'.html_safe
-          else
-            ss << "<span class='Vlt-sidemenu__label'>#{normalised_title(child)}</span>"
-          end
-          ss << '</a>'
-        else
-          ss << "<h5 class='Vlt-sidemenu__title Vlt-sidemenu__title--border'>#{normalised_title(child)}</h5>"
-        end
-      elsif options['link'] == false
-        ss << "<span>#{normalised_title(child)}</span>"
-      else
-        link = link_to url, class: "#{has_active_class ? 'Vlt-sidemenu__link Vlt-sidemenu__link_active' : 'Vlt-sidemenu__link'}" do
-          if options['label']
-            additional_classes = ' '
-            additional_classes += 'Vlt-bg-green' if options['label'].casecmp('beta').zero?
-            '<span class="Vlt-sidemenu__label">'.html_safe + (normalised_title(child) + content_tag(:span, options['label'], class: 'Vlt-badge Vlt-badge--margin-left' + additional_classes)).html_safe + '</span>'.html_safe
-          elsif options['svg']
-            ('<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg><span class="Vlt-sidemenu__label">').html_safe + normalised_title(child) + '</span>'.html_safe
-          else
-            normalised_title(child)
-          end
-        end
-
-        ss << link
+      # And a label if there's one provided for this entry
+      if options['label']
+        additional_classes = generate_label_classes(options['label'])
+        ss << content_tag(:span, options['label'], class: 'Vlt-badge Vlt-badge--margin-left' + additional_classes).html_safe
       end
+      ss << '</span>'
 
-      ss << directory(child[:children], false, active_path) if child[:children]
+      ss << '</a>'
+
+      # Are there any subitems that need adding here?
+      ss << output_children(folder[:children]) if folder[:children].length
+
       ss << '</li>'
-      ss.join("\n")
+      ss.join('')
     end
 
-    if root && @side_navigation_extra_links
-      s << '<hr>'
-      @side_navigation_extra_links.each do |title, path|
-        s << <<~HEREDOC
-          <a href="#{path}" class="#{path == active_path ? 'Vlt-sidemenu__link_active' : ''}">#{options['svg'] && options['svgColor'] ? '<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg>' : ''} <span class='Vlt-sidemenu__label'>#{title}</span></a>
-        HEREDOC
-      end
+    s.join("\n").html_safe
+  end
+
+  def output_children(children)
+    s = []
+    s << '<ul class="Vlt-sidemenu__list--compressed">'
+
+    s << children.map do |child|
+      configuration_identifier = url_to_configuration_identifier(path_to_url(child[:path]))
+      options = configuration_identifier.split('.').inject(NAVIGATION_OVERRIDES) { |h, k| h[k] || {} }
+
+      ss = []
+      title = normalised_title(child)
+
+      ss << "<li class=\"navigation-item--#{title.parameterize} navigation-item\">"
+
+      # If it's a file, add a link
+      output = output_link(child, title, options) if child[:is_file?]
+
+      # If it's a top level folder, add another dropdown
+      output = output_nested_dropdown(child, title) if COLLAPSIBLE.include? title
+
+      # Otherwise we output a header and children
+      output ||= output_header_with_children(child, title)
+
+      ss << output
+
+      ss << '</li>'
     end
 
     s << '</ul>'
+    s.join('')
+  end
 
-    s.join("\n").html_safe
+  def output_link(item, title, options)
+    # Setup
+    active_path = request.path
+    url = path_to_url(item[:path])
+    has_active_class = (url == active_path)
+
+    # Handle tutorials
+    if @navigation == :tutorials
+      has_active_class = (url == "/#{@product}/tutorials")
+    end
+
+    # Output
+    s = []
+    s << "<a class=\"Vlt-sidemenu__link #{has_active_class ? 'Vlt-sidemenu__link_active' : ''}\" href=\"#{url}\">"
+
+    if options['label']
+      additional_classes = generate_label_classes(options['label'])
+      label_content = content_tag(:span, options['label'], class: 'Vlt-badge Vlt-badge--margin-left' + additional_classes).html_safe
+      s << '<span class="Vlt-sidemenu__label">'
+      s << title
+      s << label_content
+      s << '</span>'
+    else
+      s << title
+    end
+
+    s << '</a>'
+
+    s.join('')
+  end
+
+  def output_nested_dropdown(item, title)
+    ss = []
+    ss << "<li class=\"js--collapsible navigation-item--#{title.parameterize} navigation-item\">"
+    ss << "<a class=\"Vlt-sidemenu__trigger\" href=\"/concepts\"><span class=\"Vlt-sidemenu__label\">#{title}</span></a>"
+    ss << output_children(item[:children]) if item[:children]
+    ss.join('')
+  end
+
+  def output_header_with_children(item, title)
+    ss = []
+    ss << '<h5 class="Vlt-sidemenu__title Vlt-sidemenu__title--border">' + title + '</h5>'
+    ss << output_children(item[:children]) if item[:children]
+
+    ss.join('')
+  end
+
+  def generate_label_classes(label)
+    classes = ' '
+    classes += 'Vlt-bg-green' if label.casecmp('beta').zero?
+
+    classes
   end
 
   def document_meta(path)
