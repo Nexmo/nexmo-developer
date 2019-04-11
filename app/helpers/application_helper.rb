@@ -2,7 +2,6 @@ IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
 NAVIGATION = YAML.load_file("#{Rails.root}/config/navigation.yml")
 NAVIGATION_WEIGHT = NAVIGATION['navigation_weight']
 NAVIGATION_OVERRIDES = NAVIGATION['navigation_overrides']
-COLLAPSIBLE = ['Messages API', 'Dispatch API', 'Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global', 'SIP', 'Voice API', 'Setup', 'In-App Voice', 'In-App Messaging'].freeze
 
 # What tasks do we have available?
 TASKS = {} # rubocop:disable Style/MutableConstant
@@ -190,7 +189,7 @@ module ApplicationHelper
       output = output_link(child, title, options) if child[:is_file?]
 
       # If it's a top level folder, add another dropdown
-      output = output_nested_dropdown(child, title) if COLLAPSIBLE.include? title
+      output = output_nested_dropdown(child, title) if options['collapsible']
 
       # Otherwise we output a header and children
       output ||= output_header_with_children(child, title)
