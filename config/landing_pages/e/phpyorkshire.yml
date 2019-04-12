@@ -85,7 +85,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Messages"
-          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
           icon: 
             name: "icon-chat"
             color: "purple"
