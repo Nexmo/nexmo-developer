@@ -1,6 +1,7 @@
 <% endpoint.responses.each do |response| %>
     <% next unless response.success? %>
     <% next if response.code.to_i == 204 %>
+    <% next unless response.content %>
     <% id = SecureRandom.hex %>
     <p class="collapsible">
     <a class="Vlt-js-accordion__trigger Nxd-accordion-button" data-accordion="acc<%= id %>">

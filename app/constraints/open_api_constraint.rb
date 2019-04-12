@@ -7,6 +7,7 @@ OPEN_API_PRODUCTS = %w[
   dispatch
   redact
   audit
+  voice.v2
   voice
   account
   external-accounts
