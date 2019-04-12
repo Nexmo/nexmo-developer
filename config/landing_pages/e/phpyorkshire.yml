@@ -169,11 +169,16 @@ page:
                       'type' => 'phone',
                       'number' => NEXMO_NUMBER
                   ],
-                  'answer_url' => ['https://developer.nexmo.com/ncco/tts.json'],
+                  'ncco' => [
+                      [
+                          'action' => 'talk',
+                          'text' => 'This is a text to speech call from Nexmo'
+                      ]
+                  ]
               ]);
               ```
               <div class="Vlt-right">
-              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/code-snippets/make-an-outbound-call">View the complete code &raquo;</a>
+              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/php">View the complete code &raquo;</a>
               </div>
 
   - row:

@@ -1,0 +1,9 @@
+---
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/make-outbound-call-ncco/index.php
+    from_line: 5
+    to_line: 9
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/make-outbound-call-ncco/index.php
+    from_line: 11
+    to_line: 26
