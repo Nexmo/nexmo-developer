@@ -6,6 +6,12 @@
   end
 %>
 
+<%
+  # If it's an array, look at the items for the response schema as all items within
+  # the array are expected to be identical
+  schema = schema['items'] if schema['type'] == 'array'
+%>
+
 <% if schema['properties'] %>
 <% schema['properties'].each do |key, value| %>
   <% next if key == '_links' %>
