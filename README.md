@@ -57,7 +57,7 @@ createdb nexmo_developer_development
 createuser nexmo_developer
 
 git config --global user.name "NAME"
-git config --global email "user.name@vonage.com"
+git config --global user.email "user.name@vonage.com"
 ```
 
 Generate an SSH key for authentication
