@@ -40,24 +40,70 @@ Before you start, you need to make sure that you have:
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
 
-To set up the project, clone this project and configure your settings:
+#### System Setup (OSX)
+
+Install Homebrew
 
 ```
-$ git clone git@github.com:Nexmo/nexmo-developer.git
-$ cd nexmo-developer
-$ cp .env.example .env
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Install required packages, create database and configure `git`
+
+```
+brew install postgres rbenv git yarn nvm
+brew services start postgresql
+createdb nexmo_developer_development
+createuser nexmo_developer
+
+git config --global user.name "NAME"
+git config --global email "user.name@vonage.com"
+```
+
+Generate an SSH key for authentication
+
+```
+ssh-keygen -t rsa 
+cat .ssh/id_rsa.pub # Add to Github
+```
+
+Clone NDP to your local machine
+
+```
+git clone git@github.com:Nexmo/nexmo-developer.git
+cd nexmo-developer
+cp .env.example .env
+```
+
+Add to `~/.bash_profile` (or equivalent file on your system):
+
+```
+eval "$(rbenv init -)"
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+```
+
+Install the correct versions of ruby and node
+```
+rbenv install 2.5.5
+rbenv global 2.5.5
+gem install bundle
+bundle install
+nvm install 9
+nvm use 9
+yarn install
 ```
 
 Edit the `.env` file as appropriate for your platform.  Then, run the following:
 
-```
-$ bundle install
-$ bin/rails db:create db:migrate db:seed
-$ bin/yarn install
-$ rails s
-```
+Install project dependencies, run database migrations and start the server
 
-**NB:** If a node incompatibility error is received, please use [nvm](https://github.com/creationix/nvm) for managing local node versions. Once installed, run `nvm use 9` before running `bin/yarn install`.
+```
+bundle install
+bin/rails db:create db:migrate db:seed
+bin/yarn install
+bin/rails s
+```
 
 You should now be able to see the site on http://localhost:3000/
 
