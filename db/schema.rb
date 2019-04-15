@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181006144242) do
+ActiveRecord::Schema.define(version: 2019_04_15_162421) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-  enable_extension "pgcrypto"
 
   create_table "active_admin_comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "namespace"
@@ -127,18 +127,18 @@ ActiveRecord::Schema.define(version: 20181006144242) do
     t.index ["published"], name: "index_sessions_on_published"
   end
 
-  create_table "usage_building_block_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "usage_code_snippet_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "language", null: false
-    t.string "block", null: false
+    t.string "snippet", null: false
     t.string "section", null: false
     t.string "action", null: false
     t.string "ip", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["action"], name: "index_usage_building_block_events_on_action"
-    t.index ["block"], name: "index_usage_building_block_events_on_block"
-    t.index ["ip"], name: "index_usage_building_block_events_on_ip"
-    t.index ["language"], name: "index_usage_building_block_events_on_language"
+    t.index ["action"], name: "index_usage_code_snippet_events_on_action"
+    t.index ["ip"], name: "index_usage_code_snippet_events_on_ip"
+    t.index ["language"], name: "index_usage_code_snippet_events_on_language"
+    t.index ["snippet"], name: "index_usage_code_snippet_events_on_snippet"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
