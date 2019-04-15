@@ -79,6 +79,10 @@ current:
     email: 'luke.oliff@vonage.com'
     twitter: 'mroliff'
     role: 'Developer Advocate'
+  - name: 'Fabian Rodriguez'
+    email: 'fabian.rodriguez@vonage.com'
+    twitter: 'fabianrbz'
+    role: 'Nexmo Developer Tech Lead'
 alumni:
   - name: 'Adam Butler'
     email: 'adam.butler@vonage.com'
