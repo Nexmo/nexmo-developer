@@ -69,6 +69,8 @@
     <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
   <% end %>
 
+  <%= javascript_pack_tag 'manifest', defer: true %>
+  <%= javascript_pack_tag 'commons', defer: true %>
   <%= javascript_pack_tag 'application', defer: true %>
   <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
 
