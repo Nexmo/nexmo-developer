@@ -14,12 +14,12 @@ export default () => {
 
         let params = {
             "language": trigger.attr("data-lang"),
-            "block": trigger.attr("data-block"),
+            "snippet": trigger.attr("data-block"),
             "section": trigger.attr("data-section"),
             "event": "copy"
         };
 
-        let key = params['language'] + params['section'] + params['block'];
+        let key = params['language'] + params['section'] + params['snippet'];
 
         // We only want to track each copy once per page load
         if (hasTriggeredCopyStat[key]) { return true; }
@@ -57,7 +57,7 @@ export default () => {
 
         let params = {
             "language": trigger.attr("data-lang"),
-            "block": trigger.attr("data-block"),
+            "snippet": trigger.attr("data-block"),
             "section": section,
             "event": "source"
         };
@@ -78,7 +78,7 @@ export default () => {
 };
 
 function createRequest(params) {
-    return new Request('/usage/building_block', {
+    return new Request('/usage/code_snippet', {
         method: 'POST',
         credentials: 'same-origin',
         body: JSON.stringify(params),

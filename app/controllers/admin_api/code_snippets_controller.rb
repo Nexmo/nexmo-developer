@@ -7,21 +7,21 @@ module AdminApi
 
       params.permit!
 
-      @events = UsageBuildingBlockEvent
+      @events = Usage::CodeSnippetEvent
 
       if params[:created_after] || params[:created_before]
         @events = @events.created_between(params[:created_after], params[:created_before])
       end
 
       query = []
-      query.push('block = :block') if params[:block]
+      query.push('snippet = :snippet') if params[:snippet]
       query.push('language = :language') if params[:language]
 
       unless query.empty?
         @events = @events.where([query.join(' and '), params.to_h])
       end
 
-      @events = @events.group(:block, :language, :section, :action).count(:action)
+      @events = @events.group(:snippet, :language, :section, :action).count(:action)
       @events = organize_data(@events)
 
       render 'index'
