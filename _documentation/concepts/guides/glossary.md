@@ -118,9 +118,9 @@ A measure of the impact of inbound phone calls in digital marketing efforts. For
 
 ## E.164 format
 
-Phone number format for all Nexmo APIs.
+The Nexmo APIs expect numbers to be in [E.164 format](https://en.wikipedia.org/wiki/E.164), except that the leading `+` is omitted.
 
-This means that numbers:
+Numbers must therefore:
 
 * Omit both a leading `+` and the international access code such as `00` or `001`.
 * Contain no special characters, such as a space, `(`, `)`, or `-`.
