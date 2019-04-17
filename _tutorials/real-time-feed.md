@@ -10,6 +10,8 @@ languages:
 
 This tutorial shows you how to feed data into multiple channels in real-time. This tutorial demonstrates sending data into all channels supported by the Messages API. While all channels are supported, you will only test SMS in this tutorial. If you are interested in testing using FaceBook Messenger, it is recommended you work through [this tutorial](/tutorials/fbm-product-info) first, as that tutorial contains lots of FaceBook specific information.
 
+> Please note that only simulated stock prices are used in this tutorial.
+
 ## Example scenario
 
 In this tutorial you will look sending real-time stock quotes to a user on their channel of choice. A user can register to receive data on any supported channel of their choice. For example, they could receive the stock quotes via their mobile phone using SMS, or through Facebook Messenger. WhatsApp and Viber are also supported. For FaceBook Messenger, WhatsApp, and SMS users can register their interest in a particualr stock. However, Viber does not support inbound messages to a business, so users would have to register to receive the messages via a website in order to receive data. Also, with WhatsApp there is an additional complication which is that WhatsApp requires a business to send the user [an MTM](/messages/code-snippets/send-whatsapp-template) before the user can agree to receive messages.
@@ -29,6 +31,12 @@ The source code for this project is available in the Nexmo Community [GitHub rep
 5. [Python 3 installed](https://www.python.org/)
 6. [Flask installed](http://flask.pocoo.org/)
 7. Have accounts for the channels you wish to support such as FaceBook, Viber and WhatsApp.
+
+You may also find it useful to review the following overview topics:
+
+* [Facebook Messenger](/messages/concepts/facebook)
+* [Viber](/messages/concepts/viber)
+* [WhatsApp](/messages/concepts/whatsapp)
 
 ## The steps
 
@@ -203,11 +211,33 @@ The core code to implement this is located in the function `proc_inbound_msg` in
 
 For WhatsApp you would have an additional step where you need to send an [MTM message](/messages/code-snippets/send-whatsapp-template) to the user before the user can sign up to receive data.
 
+## Testing the app
+
+You can run the app with:
+
+``` shell
+python3 app.py
+```
+
+### SMS
+
+To test with SMS simply send in an SMS as you did before. You will receive a help message. Send a message back with the stock symbol of either `MSFT` or `GOOGL`. You will periodically receive a (simulated) price update. You currently have to stop the app to stop receiving these, but it would be a simple matter to add in the ability to swtich these messages off, as was done in [this tutorial](/tutorials/fbm-product-info).
+
+### Viber
+
+As Viber does not support an inbound message into a business account you have an additional requirement to test Viber. You would have part of your web app that would request the user supplies their phone number and the symbol they are interested in. They could then be sent an initial message which they would have the ability to receive or decline. You would need a valid Viber business account to test this out.
+
+### WhatsApp
+
+WhatsApp requires an additional step to test fully. You would need to send the user a WhatsApp MTM (template) before they can receive any messages. The code to do this has not been included in this tutorial but is available [here](/messages/code-snippets/send-whatsapp-template). You can use then use the generic client provided in this tutorial to send subsequent WhatsApp messages.
+
 ## Summary
 
 In this tutorial you have seen a use case where the user can receive real-time data on any channel supported by the Messages API.
 
 ## Further resources
 
-* The complete [source code](https://github.com/nexmo-community/messages-api-real-time-feed).
-* Messages API [documentation](/messages/overview)
+* [The complete source code](https://github.com/nexmo-community/messages-api-real-time-feed).
+* [Messages API documentation](/messages/overview)
+* [Send a WhatsApp MTM](/messages/code-snippets/send-whatsapp-template)
+
