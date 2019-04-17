@@ -229,7 +229,7 @@ To test with Facebook Messenger there are a few additional steps required. These
 
 ### Viber
 
-As Viber does not support an inbound message into a business account you have an additional requirement to test Viber. You would have part of your web app that would request the user supplies their phone number and the symbol they are interested in. They could then be sent an initial message which they would have the ability to receive or decline. You would need a valid Viber business account to test this out.
+As Viber does not support an inbound message into a business account you have an additional requirement to test Viber. You would have part of your web app that would request the user supplies their phone number and the symbol they are interested in. They could then be sent an initial message which they would have the ability to receive or decline. You would need a valid Viber business account to test this out. A [small test program](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/test-viber.py) is provided to demonstrate testing the generic client with Viber.
 
 ### WhatsApp
 
