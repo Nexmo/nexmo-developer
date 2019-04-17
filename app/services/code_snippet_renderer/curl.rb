@@ -6,7 +6,7 @@ module CodeSnippetRenderer
       {
         'text' => 'Run the following <code>curl</code> command to create the <a href="/concepts/guides/authentication#json-web-tokens-jwt">JWT</a> for authentication:',
         'code' => 'export JWT=\'$(nexmo jwt:generate $PATH_TO_PRIVATE_KEY application_id=$NEXMO_APPLICATION_ID)\'',
-      } if dependencies.include?('JWT')    
+      }    
     end
 
     def self.run_command(command, _filename, _file_path)
