@@ -115,7 +115,14 @@ class CodeSnippetFilter < Banzai::Filter
     end
   end
 
-  def generate_dependencies(language, dependencies)
+  def generate_dependencies(language, _dependencies)
+    # The only valid dependency for curl examples is `JWT`
+    dependencies = _dependencies.map(&:upcase)
+    if dependencies.include?('JWT') then
+      title = 'Generate your JWT'
+    else
+      title = 'Install dependencies'
+    end
     deps = @renderer.dependencies(dependencies)
     id = SecureRandom.hex
     erb = File.read("#{Rails.root}/app/views/code_snippets/_dependencies.html.erb")
