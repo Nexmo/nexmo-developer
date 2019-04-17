@@ -4,7 +4,7 @@ module CodeSnippetRenderer
       dependencies = deps.map(&:upcase)
       raise 'The only permitted curl dependency is `jwt`' unless dependencies.include?('JWT')
       {
-        'text' => 'Run the following <code>curl</code> command to create the <a href="/concepts/guides/authentication#json-web-tokens-jwt">JWT</a> for authentication:',
+        'text' => 'Execute the following command at your terminal prompt to create the <a href="/concepts/guides/authentication#json-web-tokens-jwt">JWT</a> for authentication:',
         'code' => 'export JWT=\'$(nexmo jwt:generate $PATH_TO_PRIVATE_KEY application_id=$NEXMO_APPLICATION_ID)\'',
       }    
     end
