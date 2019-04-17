@@ -22,9 +22,11 @@ The `nexmo numbers:list` command lists all the numbers owned by the  account.
 
 Optional flags are:
 
-* `--size`: The number of results to return
-* `--page`: The number of results per page
-* `--pattern`: The pattern you want to search for. Use the `*` wildcard to match the start or end of the number. For example, `*123*` matches all numbers that contain the pattern `123`.
+| Flag | Description |
+|---|---|
+| `--size`  | The number of results to return  |
+| `--page` | The number of results per page  |
+| `--pattern` | The pattern you want to search for. Use the `*` wildcard to match the start or end of the number. For example, `*123*` matches all numbers that contain the pattern `123`.  |
 
 Aliases: `nexmo nl`, `nexmo numbers` and `nexmo number:list`.
 
@@ -50,11 +52,13 @@ Use the `nexmo number:search` command to list numbers available for purchase.
 
 Optional flags are:
 
-* `--pattern`: The pattern you want to search for. Use the `*` wildcard to match the start or end of the number. For example, `*123*` matches all numbers that contain the pattern `123`.
-* `--voice`: To search for voice-enabled numbers
-* `--sms`: To search for SMS-enabled numbers
-* `--size` The number of results to return
-* `--page` The number of results per page
+| Flag | Description |
+|---|---|
+| `--pattern` | The pattern you want to search for. Use the `*` wildcard to match the start or end of the number. For example, `*123*` matches all numbers that contain the pattern `123`.  |
+| `--voice` | To search for voice-enabled numbers |
+| `--sms` | To search for SMS-enabled numbers |
+| `--size` | The number of results to return |
+| `--page` | The number of results per page |
 
 Aliases: `nexmo ns` and `nexmo numbers:search`.
 
@@ -77,7 +81,10 @@ msisdn      | country | cost | type       | features
 
 Use the `nexmo number:buy` command to rent an available number. You will be prompted to confirm the purchase.
 
-You must specify either the `number` flag, or both `country_code` and `pattern` to automatically select any matching available number.
+You must specify **either**:
+
+* The `number` you want to rent
+* The `country_code` and `pattern` to automatically select any matching available number
 
 Aliases: `nexmo nb` and `nexmo numbers:buy`.
 
