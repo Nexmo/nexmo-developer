@@ -115,9 +115,9 @@ class CodeSnippetFilter < Banzai::Filter
     end
   end
 
-  def generate_dependencies(language, _dependencies)
+  def generate_dependencies(language, dependencies)
     # The only valid dependency for curl examples is `JWT`
-    dependencies = _dependencies.map(&:upcase)
+    dependencies = dependencies.map(&:upcase)
     if dependencies.include?('JWT')
       title = 'Generate your JWT'
     else
