@@ -233,7 +233,7 @@ As Viber does not support an inbound message into a business account you have an
 
 ### WhatsApp
 
-WhatsApp requires an additional step to test fully. You would need to send the user a WhatsApp MTM (template) before they can receive any messages. The code to do this has not been included in this tutorial but is available [here](/messages/code-snippets/send-whatsapp-template). You can use then use the generic client provided in this tutorial to send subsequent WhatsApp messages.
+WhatsApp requires an additional step to test fully. You would need to send the user a WhatsApp MTM (template) before they can receive any messages. The code to do this has not been described in this tutorial but sample code is available [here](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/send_whatsapp_mtm.py). You can use then use the generic client provided in this tutorial to send subsequent WhatsApp messages.
 
 ## Summary
 
@@ -244,4 +244,3 @@ In this tutorial you have seen a use case where the user can receive real-time d
 * [The complete source code](https://github.com/nexmo-community/messages-api-real-time-feed).
 * [Messages API documentation](/messages/overview)
 * [Send a WhatsApp MTM](/messages/code-snippets/send-whatsapp-template)
-
