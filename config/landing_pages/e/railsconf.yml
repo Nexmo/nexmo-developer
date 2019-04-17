@@ -36,12 +36,17 @@ page:
               color: "blue-dark"
         - type: text
           text:
-            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Rails gem:"
+            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Rails gem. This will install the `nexmo` client library gem and automatically confgiure it from your `.env` file:"
         - type: text
           text:
             content: |
               ```
+              # Gemfile
               gem 'nexmo-rails'
+
+              # Command Line
+              $ bundle install 
+              $ rails generate nexmo_initializr
               ```
     - column:
         - type: header
@@ -57,9 +62,9 @@ page:
             content: |
               ```ruby
               response = Nexmo.calls.create({
-                to: [{type: 'phone', number: '14843331234'}],
-                from: {type: 'phone', number: '14843335555'},
-                answer_url: ['https://example.com/answer']
+                to: [{type: 'phone', number: '14155550100'}],
+                from: {type: 'phone', number: '14155550102'},
+                answer_url: ['https://developer.nexmo.com/ncco/tts.json']
               })
               ```
               <div class="Vlt-right">
@@ -125,9 +130,9 @@ page:
             name: "icon-thumbs-up"
             color: blue
           text:
-          - content: "To win the main prize, a Nintento Switch, you'll need to take a creative and fun picture <a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our _highly professional_ team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based design making process."
+          - content: "To win the main prize, a Nintendo Switch, you'll need to take a creative and fun picture <a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our _highly professional_ team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based design making process."
             type: large
-          - content: "To win the equally awesome prize of a LEGO City Passenger Train Building Kit, you just need stop by our booth and register for the giveaway. We will be picking a random entry on day two."
+          - content: "To win the equally awesome prize of a LEGO City Passenger Train Building Kit, you just need stop by our booth and have your badge scanned for the giveaway. We will be picking a random entry on day two."
             type: large
 
     - column:
@@ -147,7 +152,7 @@ page:
             - item: Have fun.
             - item: Be creative.
             - item: Enjoy yourself.
-            - item: Visit the Nexmo booth and register.
+            - item: Visit the Nexmo booth and have your badge scanned.
             - item: "<a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>Take a picture and tag @NexmoDev with #RailsConf on Twitter</a>."
 
   - row:
@@ -168,7 +173,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Messages"
-          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
           icon: 
             name: "icon-chat"
             color: "purple"
