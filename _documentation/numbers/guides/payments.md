@@ -12,7 +12,7 @@ You can top up your Nexmo account using PayPal, Visa, MasterCard, WeChat Pay (Au
 
 One-click payments are quick and easy transactions made with a credit card stored for your account. You don't need to re-enter your credit card details as these are stored with our Payment Service Provider (PSP), [Braintree](https://www.braintreepayments.com/). Braintree (owned by PayPal) is [PCI level 1 compliant](https://www.braintreepayments.com/gb/features/data-security).
 
-> We do not store, manage or transmit any complete credit card information as part of our PCI Compliance certification. Nexmo has submitted and passed PCI DSS Self-Assessment Questionnaire Merchant Compliance. We can produce evidence of this upon request.
+> Nexmo does not store, manage or transmit any complete credit card information in accordance with its PCI Compliance certification. Nexmo has submitted and passed PCI DSS Self-Assessment Questionnaire Merchant Compliance and can produce evidence of this upon request.
 
 If we receive any credit card information from any of our customers in an email or helpdesk ticket, we will immediately delete it and notify you that the information has been removed.
 
@@ -34,9 +34,9 @@ To add a payment method to your Nexmo account:
 1. Sign in to the [developer dashboard](https://dashboard.nexmo.com).
 2. In the left-hand navigation menu, click the arrow next to your user name, then click **Billing & payments**.
 3. If you see an "Upgrade your account" message, click **Upgrade account**.
-3. Select a payment method, payment amount and complete your billing address details and then click **Next**. Note that you must use the address associated with the card or Paypal account for the payment to be successful.
-4. Complete the details for your chosen payment method, then click **Make payment**
-5. The payment method you chose is saved for future one-click payments. You can also set up [auto reload](#auto-reload-your-account-balance). If you do not see auto reload as an option in the Paypal payments page, email [support@nexmo.com](mailto://support@nexmo.com) to add the capability.
+4. Select a payment method, payment amount and complete your billing address details and then click **Next**. Note that you must use the address associated with the card or Paypal account for the payment to be successful.
+5. Complete the details for your chosen payment method, then click **Make payment**
+6. The payment method you chose is saved for future one-click payments. You can also set up [auto reload](#auto-reload-your-account-balance). If you do not see auto reload as an option in the Paypal payments page, email [support@nexmo.com](mailto://support@nexmo.com) to add the capability.
 
 Payments will appear as **Nexmo** on your bank/card statements.
 
