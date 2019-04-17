@@ -223,6 +223,10 @@ python3 app.py
 
 To test with SMS simply send in an SMS as you did before. You will receive a help message. Send a message back with the stock symbol of either `MSFT` or `GOOGL`. You will periodically receive a (simulated) price update. You currently have to stop the app to stop receiving these, but it would be a simple matter to add in the ability to swtich these messages off, as was done in [this tutorial](/tutorials/fbm-product-info).
 
+### Facebook Messenger
+
+To test with Facebook Messenger there are a few additional steps required. These have been discussed in detail in [this tutorial](/tutorials/fbm-product-info), so that information has not been replicated here.
+
 ### Viber
 
 As Viber does not support an inbound message into a business account you have an additional requirement to test Viber. You would have part of your web app that would request the user supplies their phone number and the symbol they are interested in. They could then be sent an initial message which they would have the ability to receive or decline. You would need a valid Viber business account to test this out.
