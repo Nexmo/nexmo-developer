@@ -52,7 +52,7 @@ WhatsApp | ✅ | ✅ | ✅ | ❌ | ✅ | ✅
 Channel | Inbound Text | Inbound Image | Inbound Audio | Inbound Video | Inbound File | Inbound Location
 -- | -- | -- | -- | -- | -- | --
 Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
-WhatsApp | ✅ | ✅ | ✅ | ✅ | ❌ | ✅
+WhatsApp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 
 **Key:**
 
