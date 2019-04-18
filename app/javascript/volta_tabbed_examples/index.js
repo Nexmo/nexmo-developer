@@ -1,4 +1,4 @@
-import UserPreference from './UserPreference'
+import UserPreference from './user_preference'
 
 export default class VoltaTabbedExamples {
   constructor() {

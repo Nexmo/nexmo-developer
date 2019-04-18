@@ -7,29 +7,28 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import 'babel-polyfill'
+import '@babel/polyfill'
 
-import { TweenLite, CSSPlugin } from 'gsap'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import GithubCards from './GithubCards'
-import VoltaTabbedExamples from './VoltaTabbedExamples'
-import Format from './Format'
-import JsSequenceDiagrams from './JsSequenceDiagrams'
-import Navigation from './Navigation'
-import Scroll from './Scroll'
-import Search from './Search'
-import Notices from './Notices'
-import Feedback from './Feedback'
-import Concatenation from './Concatenation'
-import APIStatus from './APIStatus'
-import CodeSnippetEvents from './CodeSnippetEvents'
-import JWTGenerator from './JWTGenerator'
+import GithubCards from '../github_cards'
+import VoltaTabbedExamples from '../volta_tabbed_examples'
+import Format from '../format'
+import JsSequenceDiagrams from '../js_sequence_diagrams'
+import Navigation from '../navigation'
+import Scroll from '../scroll'
+import Search from '../search'
+import Notices from '../notices'
+import Feedback from '../feedback'
+import Concatenation from '../concatenation'
+import APIStatus from '../api_status'
+import CodeSnippetEvents from '../code_snippet_events'
+import JWTGenerator from '../jwt_generator'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
   animate as turbolinksAnimate
-} from './Turbolinks'
+} from '../turbolinks'
 
 Navigation()
 Scroll()

@@ -138,7 +138,7 @@ class Search extends React.Component {
                 <p
                   className="Nxd-search__result__highlight"
                   dangerouslySetInnerHTML={{ __html: `...${hit._snippetResult.body_safe.value}...` }}
-                ></p>             
+                ></p>
                 <span className="Vlt-badge Vlt-badge--grey Nxd-search__badge">{ hit.section.full_path }</span>
               </div>
             </a>
@@ -148,7 +148,7 @@ class Search extends React.Component {
         return (
           <div className="Nxd-search__result" key={ index.index + hit.objectID }>
             <a className="Nxd-search__result__link" href={ `${hit.path}#${hit.anchor}` }>
-              <div>              
+              <div>
                 <h6 className="Vlt-blue-dark">
                   { hit.title }
                   { this.renderHeading(hit) }
@@ -231,7 +231,7 @@ class Search extends React.Component {
                 name="query"
                 autoComplete="off"
                 onChange={ this.handleChange.bind(this) }
-                onKeyDown={ this.handleKeyDown.bind(this) }              
+                onKeyDown={ this.handleKeyDown.bind(this) }
                 ref="input"
               />
             </div>
