@@ -1,26 +1,24 @@
 ---
 title: Real-time data feed into multiple channels using Messages API
 products: messages
-description: This tutorial looks at a use case where the user receives real-time data into their channel. Channels supported are FaceBook Messenger, WhatsApp, Viber and SMS.
+description: This tutorial describes a use case where the user receives real-time data into their channel. Channels supported are FaceBook Messenger, WhatsApp, Viber and SMS.
 languages:
     - Python
 ---
 
 # Real-time data feed into multiple channels using Messages API
 
-This tutorial shows you how to feed data into multiple channels in real-time. This tutorial demonstrates sending data into all channels supported by the Messages API. While all channels are supported, you will only test SMS in this tutorial. If you are interested in testing using FaceBook Messenger, it is recommended you work through [this tutorial](/tutorials/fbm-product-info) first, as that tutorial contains lots of FaceBook specific information.
-
-> Please note that only simulated stock prices are used in this tutorial.
+This tutorial shows you how to feed data into multiple channels in real-time using the Messages API. This tutorial demonstrates sending data into all supported channels. Informaton on testing all channels is provided. If you are interested in testing using FaceBook Messenger, it is recommended you work through [this tutorial](/tutorials/fbm-product-info) first, as that tutorial contains lots of FaceBook specific information. To test WhatsApp and Viber you will need business accounts with those providers.
 
 ## Example scenario
 
 In this tutorial you will look sending real-time stock quotes to a user on their channel of choice. A user can register to receive data on any supported channel of their choice. For example, they could receive the stock quotes via their mobile phone using SMS, or through Facebook Messenger. WhatsApp and Viber are also supported. For FaceBook Messenger, WhatsApp, and SMS users can register their interest in a particualr stock. However, Viber does not support inbound messages to a business, so users would have to register to receive the messages via a website in order to receive data. Also, with WhatsApp there is an additional complication which is that WhatsApp requires a business to send the user [an MTM](/messages/code-snippets/send-whatsapp-template) before the user can agree to receive messages.
 
-> **NOTE:** This tutorial assumes you have already created a Facebook Profile and a Facebook Page, as well as valid WhatsApp and Viber accounts (if you want to test those channels). A mobile phone can be used to test the SMS data feed.
+> Please note that only simulated stock prices are used in this tutorial.
 
 ## Source code
 
-The source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/messages-api-real-time-feed).
+The Python source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/messages-api-real-time-feed). Of particular interest is a generic client that provides a convenient way to send a message to any supported channel with a single method call. You will also see Python code to handle inbound mesages on WhatsApp, SMS and Messenger.
 
 ## Prerequisites
 
@@ -38,6 +36,8 @@ You may also find it useful to review the following overview topics:
 * [Viber](/messages/concepts/viber)
 * [WhatsApp](/messages/concepts/whatsapp)
 
+If you plan to test this use case with Facebook Messenger it is recommended that you work through [this tutorial](/tutorials/fbm-product-info) first.
+
 ## The steps
 
 After the prerequisites have been met, the steps are as follows:
@@ -49,6 +49,7 @@ After the prerequisites have been met, the steps are as follows:
 5. [Send in an SMS](#send-in-an-sms)
 6. [Review the generic client code](#generic-client)
 7. [The use case revisited](#the-use-case-revisited)
+8. [Testing the app](#testing-the-app)
 
 There are various ways you can achieve the same result with Nexmo. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
 
@@ -95,9 +96,11 @@ Inbound SMS | https://abcd1234.ngrok.io/webhooks/inbound-sms
 
 Note you will need to replace "abcd1234" in the webhook URLs by your own information. If you have a paid Ngrok account that can be your custom domain.
 
+> **NOTE:** You need to do this step as Messages and Dispatch applications currently only support outbound SMS, not inbound SMS. For this reason you will use the account-level SMS webhooks to support inbound SMS, but you will use the Messages API for sending outbound SMS.
+
 ## Write your basic application
 
-So in the simplest case your application would look like the following:
+In the simplest case your application would log out inbound message information, as well as delivery receipt and message status data. This would look like the following:
 
 ``` python
 from flask import Flask, request, jsonify
@@ -147,9 +150,9 @@ python3 app1.py
 
 ## Send in an SMS
 
-Your base application is now up and running and ready to log events. You can test this basic application by sending an SMS into any Nexmo Number linked to a Voice app, where the number has voice and SMS capbilities. If you are not sure how to create a voice app you can review [this information](/concepts/guides/applications/curl#getting-started-with-applications). The reason you need to go through this additional step is that Messages and Dispatch API does not currently support inbound SMS, only outbound SMS, so you have to use the account level webhook to receive inbound SMS notification. We support this in this tutorial to allow the user to sign up to receive real-time data.
+Your base application is now up and running and ready to log events. You can test this basic application by sending an SMS into any Nexmo Number linked to any Voice app, where the Nexmo Number has voice and SMS capbilities. If you don't have a voice application, and are not sure how to create one, you can review [this information](/concepts/guides/applications/curl#getting-started-with-applications). The reason you need to go through this additional step is that Messages and Dispatch API does not currently support inbound SMS, only outbound SMS, so you have to use the account-level webhook to receive inbound SMS notifications.
 
-When you examine the tracing information produced when you send in an SMS you will see something similar to the following:
+When you examine the tracing information produced when you send in an SMS you see something similar to the following:
 
 ```
 ** inbound_sms **
@@ -164,7 +167,7 @@ When you examine the tracing information produced when you send in an SMS you wi
 
 ## Generic client
 
-Currently Nexmo does not officially support Messages and Dispatch API in the Python client library, but our REST API is supported and the [Python code is provided](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/Client/Client.py) in the project for you in a reusable class. This class allows sending of a message using the Messages API to any of its supported channels. The code is worth taking a quick look at some of the code:
+Currently Nexmo does not officially support Messages and Dispatch API in the Python client library, but our REST API is supported (Beta) and the [Python code is provided](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/Client/Client.py) in the project for you in a reusable class. This class allows sending of a message using the Messages API to any of its supported channels. The code is worth taking a quick look at:
 
 ``` python
     def send_message (self, channel_type, sender, recipient, msg):
@@ -197,31 +200,35 @@ Currently Nexmo does not officially support Messages and Dispatch API in the Pyt
 ...
 ```
 
-What happens is the body is built for you based on the channel type, as the details are slightly different between the channels - for example Facebook uses IDs, whereas WhatsApp and SMS only used numbers. Viber uses an ID and a number. The code then goes on to use the Messages API to send the message for you. This is the basis of the use case, with a few extra bits to allow for user sign up.
+What happens is the body is built for you based on the channel type. This is because the details are slightly different between the channels - for example, Facebook uses IDs, whereas WhatsApp and SMS only used numbers. Viber uses an ID and a number. The code then goes on to use the Messages API to send the message for you. This is the basis of the use case, with a few extra bits to allow for user sign up.
 
 ## The use case revisited
 
-It's time to look into this use case in more detail so you can more effectively build out your application. For channels that support inbound messages (Messenger, WhatsApp and SMS) we can allow the user to send in a message to sign up. For Viber this will have to be done via another part of the web app.
+It's time to look into this use case in more detail so you can more effectively build out your application.
 
-If a user sends in a message such as "Hi", the app will respond with a help message. In our simple case this is "Send us a message with MSFT or GOOGL in it for real-time data". This sign up will then be acknowledged by another message confirming which feed you have subscribed to.
+For channels that support inbound messages (Messenger, WhatsApp and SMS) you can allow the user to send in a message to sign up. For Viber this will have to be done via another part of the web app. Typically you would provide a form where the user can sign up to the real-time feed.
 
-After this you will then receive a real-time price on your selected stock symbol. If you want to additionally sign up on another channel you are free to do so. Also if you want to change your stock symbol simply type the new symbol, it will be acknowledged, and the data stream will change.
+If a user sends in an inbound message such as "Hi", the app will respond with a help message. In our simple case this is "Send us a message with MSFT or GOOGL in it for real-time data". This sign up will then be acknowledged by another message confirming which feed you have subscribed to.
+
+After this you will then receive a real-time price on your selected stock symbol. If you want to additionally sign up on another channel you are free to do so. Also, if you want to change your stock symbol simply send in a message with the new symbol, it will be acknowledged, and the data stream will change accordingly.
 
 The core code to implement this is located in the function `proc_inbound_msg` in `app_funcs.py`.
 
-For WhatsApp you would have an additional step where you need to send an [MTM message](/messages/code-snippets/send-whatsapp-template) to the user before the user can sign up to receive data.
+For WhatsApp you would have an additional step where you need to send an [MTM message](/messages/code-snippets/send-whatsapp-template) to the user before the user can sign up to receive data. For simplicity this is provided as a [separate piece of code](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/send_whatsapp_mtm.py).
 
 ## Testing the app
 
 You can run the app with:
 
 ``` shell
-python3 app.py
+python3 app.py APP_ID
 ```
+
+Where `APP_ID` is the Nexmo Application ID of your Messages application.
 
 ### SMS
 
-To test with SMS simply send in an SMS as you did before. You will receive a help message. Send a message back with the stock symbol of either `MSFT` or `GOOGL`. You will periodically receive a (simulated) price update. You currently have to stop the app to stop receiving these, but it would be a simple matter to add in the ability to swtich these messages off, as was done in [this tutorial](/tutorials/fbm-product-info).
+To test with SMS simply send in an SMS as you did before. You will receive a help message. Send a message back with the stock symbol of either `MSFT` or `GOOGL`. You will then periodically receive a (simulated) price update. You currently have to exit the app to stop receiving these, but it would be a simple matter to add in the ability to switch these messages off, as was done in [this tutorial](/tutorials/fbm-product-info).
 
 ### Facebook Messenger
 
@@ -229,7 +236,7 @@ To test with Facebook Messenger there are a few additional steps required. These
 
 ### Viber
 
-As Viber does not support an inbound message into a business account you have an additional requirement to test Viber. You would have part of your web app that would request the user supplies their phone number and the symbol they are interested in. They could then be sent an initial message which they would have the ability to receive or decline. You would need a valid Viber business account to test this out. A [small test program](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/test-viber.py) is provided to demonstrate testing the generic client with Viber.
+As Viber does not support an inbound message into a business account you have an additional requirement to test Viber. You would have part of your web app that would request the user [supplies their phone number and the symbol](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/app_funcs.py#L21-L29) they are interested in. The user could then be sent an initial message which they would have the ability to receive or decline. You would need a valid Viber business account to test this out. A [small test program](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/test-viber.py) is provided to demonstrate testing the generic client with Viber.
 
 ### WhatsApp
 
