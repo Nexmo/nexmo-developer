@@ -152,9 +152,9 @@ Option | Description | Required
 
 Value | Description
 -- | --
-`number` | the phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+`number` | The phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
-`onAnswer` | An object containing a `url` key. The URL serves an NCCO to execute in the connected number before the call is joined to your existing conversation. Optionally `ringback` can be specified with a URL to music to be played back to the caller, for example `{"ringback":"http://mymusic.com/music.wav", “url”:"https://example.com/events"}`.
+`onAnswer` | A JSON object containing a `url` key. The URL serves an NCCO to execute in the connected number before the call is joined to your existing conversation. Optionally the `ringback` key can be specified with a URL value that points to a ringtone to be played back to the caller, for example `{"ringback":"http://mymusic.com/music.wav", “url”:"https://example.com/events"}`. The ringtone will automatically stop being played when the call fully connects.
 
 #### app - Connect the call to an app
 
