@@ -9,6 +9,7 @@
 
 import '@babel/polyfill'
 
+import { TweenLite, CSSPlugin } from 'gsap'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import GithubCards from '../github_cards'
