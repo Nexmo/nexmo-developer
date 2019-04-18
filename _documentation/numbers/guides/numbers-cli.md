@@ -28,8 +28,6 @@ Optional flags are:
 | `--page` | The number of results per page  |
 | `--pattern` | The pattern you want to search for. Use the `*` wildcard to match the start or end of the number. For example, `*123*` matches all numbers that contain the pattern `123`.  |
 
-Aliases: `nexmo nl`, `nexmo numbers` and `nexmo number:list`.
-
 ```
 > nexmo numbers:list
 31555555555
@@ -60,8 +58,6 @@ Optional flags are:
 | `--size` | The number of results to return |
 | `--page` | The number of results per page |
 
-Aliases: `nexmo ns` and `nexmo numbers:search`.
-
 ```
 > nexmo number:search US
 12057200555
@@ -86,8 +82,6 @@ You must specify **either**:
 * The `number` you want to rent
 * The `country_code` and `pattern` to automatically select any matching available number
 
-Aliases: `nexmo nb` and `nexmo numbers:buy`.
-
 ```
 > nexmo number:buy 12069396555
 Buying 12069396555\. This operation will charge your account.
@@ -111,8 +105,6 @@ Number purchased: 12069396555
 
 Use the `nexmo number:update` command to update the voice properties of the specified number. 
 
-Aliases: `nexmo nu` and `nexmo numbers:update`.
-
 > **Note**: To change the application ID, linked phone number, SIP URI or webhooks you can use the `nexmo link` command instead, as [described here](https://github.com/Nexmo/nexmo-cli#linking).
 
 ```
@@ -124,8 +116,6 @@ Number updated
 ## Cancel a number
 
 Use the `nexmo number:cancel` command to cancel an existing number on your account. You must specify the number you wish to cancel and you will be prompted to confirm cancellation before the number is removed from your account.
-
-Aliases: `nexmo nc` and `nexmo numbers:cancel`.
 
 ```
 > nexmo number:cancel 12069396555
