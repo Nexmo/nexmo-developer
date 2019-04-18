@@ -1,3 +1,5 @@
+require './lib/common_errors.rb'
+
 namespace :ci do
   desc 'Verify all pages to make sure that no exceptions are thrown'
   task 'verify_pages': :environment do
@@ -24,6 +26,10 @@ namespace :ci do
   task 'verify_navigation': :environment do
     session = ActionDispatch::Integration::Session.new(Rails.application)
     res = session.get '/documentation'
+
+    # Check for migration pending error
+    CommonErrors.check_for_migration_error(session)
+
     raise 'Error rendering documentation index page' if res == 500
   end
 
@@ -32,6 +38,10 @@ namespace :ci do
     session = ActionDispatch::Integration::Session.new(Rails.application)
     OpenApiConstraint.list.each do |name|
       res = session.get "/api/#{name}"
+
+      # Check for migration pending error
+      CommonErrors.check_for_migration_error(session)
+
       raise "Error rendering /api/#{name} OAS page" if res == 500
     end
   end
@@ -79,6 +89,9 @@ namespace :ci do
 
                 # Get the page
                 session.get path
+
+                # Check for migration pending error
+                CommonErrors.check_for_migration_error(session)
 
                 # Make sure it includes the correct ID
                 errors.push({ 'document' => name, 'path' => path }) unless session.response.body.include?("<tr id=\"#{error}\">")
