@@ -4,7 +4,7 @@ description: Send your users alerts for important events or reminders
 navigation_weight: 3
 ---
 
-# Setup event alerts
+# Setup Event Alerts
 
 You can use a short code to send event alerts or reminders to your users - for example, to remind them of an appointment. The [Event-based alerts API](/api/sms/us-short-codes/alerts/sending) provides this capability. 
 

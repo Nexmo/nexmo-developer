@@ -4,7 +4,7 @@ description: Use a short code to verify that your user owns the phone number the
 navigation_weight: 2
 ---
 
-# Enable two-factor authentication
+# Enable Two-Factor Authentication
 
 [Two-factor authentication](/concepts/guides/glossary#2fa) (2FA) gives you confidence that the number your customer provides you with belongs to them. If you are sending SMS to customers in the US, you can use a [short code](/concepts/guides/glossary#short-code) for this. A customer verifies their number by responding directly to the short code or via your web application. Nexmo's [Two-Factor Authentication API](/api/sms/us-short-codes/2fa) provides this capability. 
 
