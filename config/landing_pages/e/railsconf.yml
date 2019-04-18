@@ -36,7 +36,7 @@ page:
               color: "blue-dark"
         - type: text
           text:
-            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Rails gem. This will install the `nexmo` client library gem and automatically confgiure it from your `.env` file:"
+            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Rails gem. This will install the `nexmo` client library gem and automatically configure it from your `.env` file:"
         - type: text
           text:
             content: |
@@ -62,17 +62,15 @@ page:
               color: "blue-dark"
         - type: text
           text:
+            content: "Once you've added `nexmo-rails` to your project, making a call is as easy as adding four lines of code to your application! Just tell us who the call is to, who it's from and how you'd like us to handle it and we'll take care of the rest."
+        - type: text
+          text:
             content: |
               ```ruby
               response = Nexmo.calls.create({
                 to: [{type: 'phone', number: '14155550100'}],
                 from: {type: 'phone', number: '14155550102'},
-                ncco: [
-                  { 
-                    "action": "talk", 
-                    "text": "This is a text to speech call from Nexmo"
-                  }
-                ]
+                ncco: [{"action": "talk", "text": "Hello world!"}]
               })
               ```
               <div class="Vlt-right">
@@ -138,7 +136,7 @@ page:
             name: "icon-thumbs-up"
             color: blue
           text:
-          - content: "To win the awesome prize of a LEGO City Passenger Train Building Kit, you'll need to take a creative and fun picture <a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our _highly professional_ team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based design making process."
+          - content: "To win the awesome prize of a LEGO City Passenger Train Building Kit, you'll need to take a creative and fun picture <a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our **highly professional** team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based decision making process."
             type: large
           - content: "To win the equally awesome prize of a Nintendo Switch, you just need stop by our booth and have your badge scanned for the giveaway. We will be picking a random entry on day two."
             type: large
