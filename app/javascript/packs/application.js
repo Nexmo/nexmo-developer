@@ -18,13 +18,13 @@ import Format from '../format'
 import JsSequenceDiagrams from '../js_sequence_diagrams'
 import Navigation from '../navigation'
 import Scroll from '../scroll'
-import Search from '../search'
+import Search from '../components/search'
 import Notices from '../notices'
-import Feedback from '../feedback'
-import Concatenation from '../concatenation'
+import Feedback from '../components/feedback'
+import Concatenation from '../components/concatenation'
 import APIStatus from '../api_status'
 import CodeSnippetEvents from '../code_snippet_events'
-import JWTGenerator from '../jwt_generator'
+import JWTGenerator from '../components/jwt_generator'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
