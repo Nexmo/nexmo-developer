@@ -19,6 +19,8 @@ To configure a shared US short code for 2FA:
 5. Configure your message and company name.
 6. Click **Update**. Nexmo will process your application. Approval can take up to five business days.
 
+## Mandatory requirements for short codes
+
 When you use a pre-approved US short code from Nexmo, you **MUST** display the following information on your site's opt-in page:
 
   * Frequency: How often users of your service can expect to receive messages from you
