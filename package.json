@@ -70,6 +70,6 @@
     "yarn": ">=0.25.2"
   },
   "scripts": {
-    "bundle:size": "rm -f stats.json report.html 2>/dev/null && RAILS_ENV=production bin/webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json public/packs --mode static --display-chunks --display-modules"
+    "bundle:size": "rm -f stats.json report.html 2>/dev/null && RAILS_ENV=production NODE_ENV=production bin/webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json public/packs --mode static --display-chunks --display-modules"
   }
 }
