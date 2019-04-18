@@ -40,11 +40,14 @@ page:
         - type: text
           text:
             content: |
-              ```
+              ```ruby
               # Gemfile
               gem 'nexmo-rails'
-
-              # Command Line
+              ```
+        - type: text
+          text:
+            content: |
+              ```bash
               $ bundle install 
               $ rails generate nexmo_initializr
               ```
@@ -130,9 +133,9 @@ page:
             name: "icon-thumbs-up"
             color: blue
           text:
-          - content: "To win the main prize, a Nintendo Switch, you'll need to take a creative and fun picture <a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our _highly professional_ team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based design making process."
+          - content: "To win the awesome prize of a LEGO City Passenger Train Building Kit, you'll need to take a creative and fun picture <a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our _highly professional_ team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based design making process."
             type: large
-          - content: "To win the equally awesome prize of a LEGO City Passenger Train Building Kit, you just need stop by our booth and have your badge scanned for the giveaway. We will be picking a random entry on day two."
+          - content: "To win the equally awesome prize of a Nintendo Switch, you just need stop by our booth and have your badge scanned for the giveaway. We will be picking a random entry on day two."
             type: large
 
     - column:
