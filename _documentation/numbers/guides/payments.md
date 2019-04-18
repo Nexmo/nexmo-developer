@@ -1,7 +1,7 @@
 ---
 title: Payments
 description: Manage payments, enable account auto reload, and get balance notifications
-navigation_weight: 3
+navigation_weight: 43
 ---
 
 # Payments

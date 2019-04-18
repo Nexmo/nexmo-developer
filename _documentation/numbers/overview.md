@@ -23,11 +23,3 @@ If you are a software developer, you can manage your number inventory programmat
 ```code_snippet_list
 product: numbers
 ```
-
-## Reference
-
-* [Numbers API reference]()
-* Short codes:
-  * [What are short codes?](https://help.nexmo.com/hc/en-us/articles/115013144287-Short-codes-Features-Overview)
-  * [Two-factor authentication API](/api/sms/us-short-codes/2fa)
-  * [The Event-based alerts API](/api/sms/us-short-codes/alerts/sending)
