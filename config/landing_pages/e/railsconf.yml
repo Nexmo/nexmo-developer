@@ -67,7 +67,12 @@ page:
               response = Nexmo.calls.create({
                 to: [{type: 'phone', number: '14155550100'}],
                 from: {type: 'phone', number: '14155550102'},
-                answer_url: ['https://developer.nexmo.com/ncco/tts.json']
+                ncco: [
+                  { 
+                    "action": "talk", 
+                    "text": "This is a text to speech call from Nexmo"
+                  }
+                ]
               })
               ```
               <div class="Vlt-right">
