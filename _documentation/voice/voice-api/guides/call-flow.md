@@ -24,10 +24,10 @@ You may choose to provide your NCCO as part of the request you send to create a 
 
 Each call goes through a sequence of states in its lifecycle:
 
-1. Created
-2. Ringing
-3. Answered
-4. Completed
+1. `started`
+2. `ringing`
+3. `answered`
+4. `completed`
 
 ## Event objects
 
