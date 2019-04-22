@@ -12,7 +12,7 @@ page:
             text: "Hello, Rubyists! We love catching up with you at events, and we've put together some resources that we hope you find useful."
             align: center
           icon:
-            name: "icon-star"
+            name: "Brand-icon-ruby-color"
             color: "yellow"
   - row:
     - column:
