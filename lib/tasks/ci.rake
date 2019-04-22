@@ -28,7 +28,7 @@ namespace :ci do
     res = session.get '/documentation'
 
     # Check for migration pending error
-    CommonErrors.check_for_migration_error(session)
+    CommonErrors.check_for_migration_error(session.body)
 
     raise 'Error rendering documentation index page' if res == 500
   end
@@ -40,7 +40,7 @@ namespace :ci do
       res = session.get "/api/#{name}"
 
       # Check for migration pending error
-      CommonErrors.check_for_migration_error(session)
+      CommonErrors.check_for_migration_error(session.body)
 
       raise "Error rendering /api/#{name} OAS page" if res == 500
     end
@@ -91,7 +91,7 @@ namespace :ci do
                 session.get path
 
                 # Check for migration pending error
-                CommonErrors.check_for_migration_error(session)
+                CommonErrors.check_for_migration_error(session.body)
 
                 # Make sure it includes the correct ID
                 errors.push({ 'document' => name, 'path' => path }) unless session.response.body.include?("<tr id=\"#{error}\">")
