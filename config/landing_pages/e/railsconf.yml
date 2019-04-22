@@ -100,7 +100,7 @@ page:
       - type: action_button
         action_button:
           text: "Submit your tweet"
-          url: "https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf"
+          url: "https://nexmo.dev/tweetrailsconf"
           center_button: true
           type: primary
           large: true
@@ -136,7 +136,7 @@ page:
             name: "icon-thumbs-up"
             color: blue
           text:
-          - content: "To win the awesome prize of a LEGO City Passenger Train Building Kit, you'll need to take a creative and fun picture <a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our **highly professional** team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based decision making process."
+          - content: "To win the awesome prize of a LEGO City Passenger Train Building Kit, you'll need to take a creative and fun picture <a href='https://nexmo.dev/tweetrailsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our **highly professional** team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based decision making process."
             type: large
           - content: "To win the equally awesome prize of a Nintendo Switch, you just need stop by our booth and have your badge scanned for the giveaway. We will be picking a random entry on day two."
             type: large
@@ -159,7 +159,7 @@ page:
             - item: Be creative.
             - item: Enjoy yourself.
             - item: Visit the Nexmo booth and have your badge scanned.
-            - item: "<a href='https://twitter.com/intent/tweet?screen_name=nexmodev&button_hashtag=railsconf'>Take a picture and tag @NexmoDev with #RailsConf on Twitter</a>."
+            - item: "<a href='https://nexmo.dev/tweetrailsconf'>Take a picture and tag @NexmoDev with #RailsConf on Twitter</a>."
 
   - row:
     - column:
