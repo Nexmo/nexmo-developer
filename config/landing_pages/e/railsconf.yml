@@ -49,7 +49,7 @@ page:
             content: |
               ```bash
               $ bundle install 
-              $ rails generate nexmo_initializr
+              $ rails generate nexmo_initializer
               ```
     - column:
         - type: header
