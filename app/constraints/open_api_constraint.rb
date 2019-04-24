@@ -7,6 +7,7 @@ OPEN_API_PRODUCTS = %w[
   dispatch
   redact
   audit
+  voice.v2
   voice
   account
   external-accounts
@@ -25,6 +26,11 @@ class OpenApiConstraint
 
   def self.products
     { definition: Regexp.new(OPEN_API_PRODUCTS.join('|')) }
+  end
+
+  def self.errors_available
+    all = OPEN_API_PRODUCTS.dup.concat(['application'])
+    { definition: Regexp.new(all.join('|')) }
   end
 
   def self.products_with_code_language

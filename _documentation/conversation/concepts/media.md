@@ -1,7 +1,7 @@
 ---
 title: Media
 description: Media refers to type of communication. It is currently one of text, voice, or video.
-navigation_weight: 5
+navigation_weight: 8
 ---
 
 # Media

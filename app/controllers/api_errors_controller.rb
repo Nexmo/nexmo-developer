@@ -37,8 +37,18 @@ class ApiErrorsController < ApplicationController
   end
 
   def scoped_errors(definition)
-    definition = OpenApiDefinitionResolver.find(definition)
-    errors = definition.raw['x-errors']
+    # Find all versions of an API and show the details
+    definitions = OpenApiConstraint.list.select do |name|
+      name == definition || /#{definition}\.v(\d+)/.match(name)
+    end
+
+    # Load the errors from all versions
+    errors = {}
+    definitions.each do |d|
+      definition = OpenApiDefinitionResolver.find(d)
+      errors = errors.deep_merge(definition.raw['x-errors']) if definition.raw['x-errors']
+    end
+
     ApiError.parse_config(errors)
   end
 

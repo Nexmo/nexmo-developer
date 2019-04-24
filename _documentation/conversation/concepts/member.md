@@ -1,7 +1,7 @@
 ---
 title: Member
 description: A Member is created when a User joins a Conversation.
-navigation_weight: 7
+navigation_weight: 4
 ---
 
 # Member

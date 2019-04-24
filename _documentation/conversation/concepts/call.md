@@ -1,7 +1,7 @@
 ---
 title: Call
 description: A Call consists of one or more Legs.
-navigation_weight: 9
+navigation_weight: 5
 ---
 
 # Call

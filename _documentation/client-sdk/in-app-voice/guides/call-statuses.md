@@ -1,6 +1,7 @@
 ---
 title: Call Statuses
 description: Information about call statuses such as `ringing`, `answered` and so on.
+navigation_weight: 5
 ---
 
 # Call Statuses

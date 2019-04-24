@@ -7,30 +7,29 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import 'babel-polyfill'
+import '@babel/polyfill'
 
 import { TweenLite, CSSPlugin } from 'gsap'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import GithubCards from './GithubCards'
-import VoltaTabbedExamples from './VoltaTabbedExamples'
-import Format from './Format'
-import JsSequenceDiagrams from './JsSequenceDiagrams'
-import Navigation from './Navigation'
-import Scroll from './Scroll'
-import Search from './Search'
-import Modals from './Modals'
-import Notices from './Notices'
-import Feedback from './Feedback'
-import Concatenation from './Concatenation'
-import APIStatus from './APIStatus'
-import CodeSnippetEvents from './CodeSnippetEvents'
-import JWTGenerator from './JWTGenerator'
+import GithubCards from '../github_cards'
+import VoltaTabbedExamples from '../volta_tabbed_examples'
+import Format from '../format'
+import JsSequenceDiagrams from '../js_sequence_diagrams'
+import Navigation from '../navigation'
+import Scroll from '../scroll'
+import Search from '../components/search'
+import Notices from '../notices'
+import Feedback from '../components/feedback'
+import Concatenation from '../components/concatenation'
+import APIStatus from '../api_status'
+import CodeSnippetEvents from '../code_snippet_events'
+import JWTGenerator from '../components/jwt_generator'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
   animate as turbolinksAnimate
-} from './Turbolinks'
+} from '../turbolinks'
 
 Navigation()
 Scroll()
@@ -43,7 +42,6 @@ let refresh = () => {
   JsSequenceDiagrams()
   new VoltaTabbedExamples
   new Format
-  Modals()
   APIStatus()
   Scroll()
   Navigation()
@@ -69,7 +67,7 @@ let refresh = () => {
   let rightPane = document.querySelector(".Vlt-main");
   if (rightPane) { rightPane.click(); }
 
-  Volta.init(['accordion', 'tooltip', 'tab'])
+  Volta.init(['accordion', 'tooltip', 'tab', 'modal'])
 
   // Fix for Turbolinks scrolling to in-page anchor when navigating to a new page
   if(window.location.hash){

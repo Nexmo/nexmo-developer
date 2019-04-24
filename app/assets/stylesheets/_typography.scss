@@ -77,23 +77,6 @@ pre {
   color: $blue-dark;
 }
 
-.reveal-overlay {
-  background: rgba($mint, 0.4);
-}
-
-.reveal {
-  border-radius: 3px;
-  outline: none;
-  border: $border;
-  box-shadow: $shadow;
-  font-size: 0.85em;
-
-  table td {
-    padding: $spacing / 2;
-  }
-}
-
-
 .Nxd-article {
 
   li ul, li ol {

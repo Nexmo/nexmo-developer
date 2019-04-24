@@ -145,7 +145,7 @@ Add this code to a file called `app1.py` and save it.
 Run it locally with:
 
 ``` shell
-python3 app.py
+python3 app1.py
 ```
 
 Your base application is now up and running and ready to log events.

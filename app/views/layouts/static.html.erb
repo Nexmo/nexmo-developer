@@ -26,12 +26,12 @@
         <hr>
       <% end %>
     </nav>
-    <div class="Vlt-main Vlt-main--light Nxd-main" id="primary-content" data-turbolinks="false" tabindex="2">
+    <main class="Vlt-main Vlt-main--light Nxd-main" id="primary-content" data-turbolinks="false" tabindex="2">
       <%= render partial: 'layouts/partials/notices' %>
       <div class="Vlt-card">
         <%= yield %>
         <%= render partial: 'layouts/partials/feedback' %>
       </div>
-    </div>
+    </main>
   </body>
 </html>

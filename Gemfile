@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
-gem 'webpacker', '~>3.6.0'
+gem 'webpacker'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -87,7 +87,7 @@ gem 'icalendar', require: false
 # gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'definition-path-methods'
 #
 # Otherwise use a published gem:
-gem 'oas_parser', '0.13.1'
+gem 'oas_parser', '0.18.1'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'

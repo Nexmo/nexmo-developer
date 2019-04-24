@@ -6,6 +6,8 @@ products:
     title: Redact API
   account:
     title: Account API
+  application:
+    title: Application API
   messages-olympus:
     title: Messages API
     hide_rfc7807_header: true
@@ -24,6 +26,10 @@ generic_errors:
     link:
       text: Find out more
       url: /concepts/guides/authentication
+
+  not-found:
+    description: The requested resource does not exist, or you do not have access to it
+    resolution: Check both the URI that you're requesting and your authentication credentials
 
   unprovisioned:
     description: The crendentials provided do not have access to the requested product
@@ -67,3 +73,24 @@ generic_errors:
   invalid-json:
     description: The request body did not contain valid JSON
     resolution: Send a JSON request body, including a Content-Type header of application/json
+
+  wrong-verb:
+    description: This endpoint does not support the HTTP verb that you requested
+    resolution: Read the API documentation to see which verbs your desired endpoint supports
+    link:
+      text: API documentation
+      url: /api
+
+  accept-header:
+    description: Invalid Accept header provided
+    resolution: Most Nexmo APIs only send back application/json. Check the API documentation for the API that you're working with for a complete list of supported data types
+    link:
+      text: API documentation
+      url: /api
+
+  content-type-header:
+    description: Invalid Content-Type header provided
+    resolution: Most Nexmo APIs only accept application/json. Check the API documentation for the API that you're working with for a complete list of supported data types
+    link:
+      text: API documentation
+      url: /api

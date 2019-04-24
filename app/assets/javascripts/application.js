@@ -20,5 +20,6 @@
 //= require volta/popper.min.js
 //= require volta/tooltip.min.js
 //= require volta/components/volta.tooltip.js
+//= require volta/components/volta.modal.js
 //= require clipboard
 

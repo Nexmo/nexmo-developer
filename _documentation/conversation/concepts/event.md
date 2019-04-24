@@ -1,7 +1,7 @@
 ---
 title: Event
 description: Conversations are event-driven. Event objects are generated when key activities occur.
-navigation_weight: 4
+navigation_weight: 9
 ---
 
 # Event

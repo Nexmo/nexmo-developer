@@ -3,9 +3,9 @@ class ModalFilter < Banzai::Filter
     modals = []
 
     input.gsub!(/@\[(.+?)\]\((.+?)\)/) do |_s|
-      uuid = SecureRandom.uuid
-      modals << { document: $2, uuid: uuid }
-      "<a data-open='#{uuid}'>#{$1}</a>"
+      id = 'M' + SecureRandom.hex(12)
+      modals << { document: $2, id: id }
+      "<a data-modal='#{id}' class='Vlt-modal-trigger'>#{$1}</a>"
     end
 
     modals = modals.map do |modal|
@@ -16,8 +16,12 @@ class ModalFilter < Banzai::Filter
       output = MarkdownPipeline.new.call(document)
 
       modal = <<~HEREDOC
-        <div class="reveal" id="#{modal[:uuid]}" data-reveal>
+        <div class="Vlt-modal" id="#{modal[:id]}">
+          <div class="Vlt-modal__panel">
+            <div class="Vlt-modal__content">
           #{output}
+            </div>
+          </div>
         </div>
       HEREDOC
 

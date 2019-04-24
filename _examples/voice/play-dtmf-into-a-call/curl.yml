@@ -1,6 +1,8 @@
 ---
 title: cURL
 language: curl
+dependencies:
+  - JWT
 code:
     source: .repos/nexmo/nexmo-curl-code-snippets/voice/voice-api/play-dtmf-into-a-call.sh
     from_line: 5

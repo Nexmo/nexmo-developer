@@ -2,16 +2,24 @@
 title: Overview
 meta_title: Virtual Numbers
 ---
+# Numbers
 
-# Numbers Overview
+A **Nexmo virtual number** is a telephone number that is not directly associated with a specific phone. It is programmable, enabling you to create custom call and messaging experiences for your users.
 
-You use a Nexmo virtual number to receive inbound communication from your users.
+Nexmo offers virtual numbers worldwide so that you can use phone numbers that are in the same locale as your customers or prospects. This maximises the chances that your calls are answered and your messages are read and responded to. 
 
-You rent each virtual number by the month. The renewal date is relative to the original subscription date. The rental price is automatically deducted from your Nexmo account on the same day every month. However, if you rented a virtual number on the last day of the month, the renewal date is last day of the next month. For example: 28/02/2015, 31/03/2015, 30/04/2015.
+## Getting Started
 
-## Guides
-
+You can rent new numbers and manage your existing numbers using the Nexmo [developer dashboard](https://dashboard.nexmo.com) or Nexmo CLI. The following guides show you how:
 
 ```concept_list
+product: numbers
+```
+
+## The Numbers API
+
+If you are a software developer, you can manage your number inventory programmatically. See the [API reference](/api/numbers) and the following code snippets to learn how to use it:
+
+```code_snippet_list
 product: numbers
 ```
