@@ -35,6 +35,7 @@
     <tbody>
     <% parameters.each do |parameter| %>    
       <tr class="<% if parameter.collection? %> Vlt-table__row--noline <% end %>">
+
           <td class="Vlt-table__cell--nowrap">
             <b><%= parameter.name %></b><br>
             <small>
@@ -70,6 +71,24 @@
               </i>
             </small>
           </td>
+
+
+
+        <%
+          # If it's a oneOf we show a list rather than description/example/default
+          if parameter.oneOf?
+        %>
+          <td colspan="3">
+            <h4>Any one of the following:</h4>
+            <% parameter.properties.each do |property| %>
+              <h5><%= property['description'] %></h5>
+              <%= render 'parameters', parameters: property['properties'], model: model, format: format, callback: callback %>
+            <% end %>
+          </td>
+        <%
+          # Otherwise we show the remaining 3 columns
+          else
+        %>
 
           <td>
             <% if parameter.collection? or parameter.oneOf? %>
@@ -135,17 +154,6 @@
             <% end %>
             </td>
           <% end %>
-        
-
-        <% if parameter.oneOf? %>
-        <div style="margin-left: 20px;">
-          <h4>Any one of the following:</h4>
-          <% parameter.properties.each do |property| %>
-            <h5><%= property['description'] %></h5>
-            <%= render 'parameters', parameters: property['properties'], model: model, format: format, callback: callback %>
-          <% end %>
-        </div>
-          <% end %>
 
         <% if parameter.collection? %>
         <tr class="Vlt-table__row--nohighlight">
@@ -166,7 +174,8 @@
             <% end %>
           </td>
         </tr>
-      <% end %>     
+          <% end %>
+      <% end %>
     </tr>
     <% end %>
     </tbody>
