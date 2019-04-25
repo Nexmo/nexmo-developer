@@ -14,7 +14,7 @@ You use Event Based Alerts to communicate with people using Event Based Alerts. 
 
 ## Sending Alerts
 
-You use Event Based Alerts to send custom messages to your users. Before you use this API you have to [Setup a Pre-approved Short Code for Event Based Alerts](/account/guides/numbers#setting-up-event-based-alerts)
+You use Event Based Alerts to send custom messages to your users. Before you use this API you have to [Setup a Pre-approved Short Code for Event Based Alerts](/numbers/guides/event-alerts)
 
 The workflow for sending Event Based Alerts is:
 

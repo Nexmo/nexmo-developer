@@ -14,8 +14,8 @@ Please read this information carefully before attempting to use the code snippet
 
 ## Prerequisites
 
-1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account) - so that you can access your API key and secret to authenticate requests.
-2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers) - if you want to receive inbound SMS.
+1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account) - so that you can access your API key and secret to authenticate requests.
+2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number) - if you want to receive inbound SMS.
 3. [Install a REST Client library](/tools) - for your chosen programming language.
 
 ## Webhooks

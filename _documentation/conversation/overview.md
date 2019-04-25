@@ -43,9 +43,9 @@ Conversations would, as a result, become the container for the history of all yo
 
 You should be familiar with the following before you use the Conversation API:
 
-1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
-2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers)
-3. [Install the **Beta version** of the Nexmo Command Line tools](/conversation/cli-reference#install-the-beta-version-of-the-cli)
+1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
+2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number)
+3. [Install the **Beta version** of the Nexmo Command Line tools](https://github.com/nexmo/nexmo-cli/tree/beta)
 4. [Create a Nexmo Application using the command line tools or Dashboard](/concepts/guides/applications#getting-started-with-applications)
 5. [Set up Ngrok](https://ngrok.com)
 

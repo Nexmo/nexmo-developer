@@ -1,4 +1,4 @@
-A Nexmo virtual number [Nexmo phone number](/numbers/guides/numbers) is a phone number that you can link to your Nexmo Application. When a user calls that phone number, the `answer_url` that is defined on your Nexmo Application is executed. In this tutorial case, you set up an `answer_url` in the above step, that upon calling connects the call to your app user `Jane`.
+A Nexmo virtual number [Nexmo phone number](/numbers/guides/number-management) is a phone number that you can link to your Nexmo Application. When a user calls that phone number, the `answer_url` that is defined on your Nexmo Application is executed. In this tutorial case, you set up an `answer_url` in the above step, that upon calling connects the call to your app user `Jane`.
 
 To link a Nexmo number to your app:
 

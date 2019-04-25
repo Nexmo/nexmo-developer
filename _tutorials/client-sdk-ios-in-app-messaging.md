@@ -13,7 +13,7 @@ This tutorial provides an overview of the basic functionality of Nexmo Client In
 
 ## Prerequisites
 
-Make sure to add Nexmo Client SDK to your app. Find the details on how to do it in the [tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app).
+Make sure to add Nexmo Client SDK to your app. Find the details on how to do it in this [guide](/client-sdk/setup/add-sdk-to-your-app/ios).
 
 ## Conversation
 

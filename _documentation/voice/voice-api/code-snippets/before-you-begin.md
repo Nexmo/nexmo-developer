@@ -14,8 +14,8 @@ Please read this information carefully, so you can best use the code snippets.
 
 ## Prerequisites
 
-1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
-2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers)
+1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
+2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number)
 3. [Install the Nexmo Command Line tools](/tools)
 4. [Create a Nexmo Application using the command line tools or Dashboard](/concepts/guides/applications#getting-started-with-applications)
 5. [Install the Nexmo Library for your programming language](/tools)

@@ -7,7 +7,7 @@ navigation_weight: 5
 
 To receive an SMS, you need to:
 
-* [Rent a virtual number](/account/guides/numbers#rent-virtual-numbers) to receive messages
+* [Rent a virtual number](/numbers/guides/number-management#rent-a-virtual-number) to receive messages
 * [Create a webhook endpoint](before-you-begin#webhooks) using one of the code examples shown below
 * [Configure the webhook in your Nexmo Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
 

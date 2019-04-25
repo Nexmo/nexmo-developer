@@ -14,8 +14,8 @@ Please read this information carefully before attempting to use the code snippet
 
 ## Prerequisites
 
-1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
-2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers)
+1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
+2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number)
 3. [Install the Nexmo Library for your programming language](/tools)
 4. [Set up Ngrok](https://ngrok.com)
 

@@ -2,7 +2,7 @@ module CodeSnippetRenderer
   class Swift
     def self.dependencies(_deps)
       {
-        'text' => 'See <a href="https://developer.nexmo.com/tutorials/client-sdk-ios-add-sdk-to-your-app">How to Add the Nexmo Client SDK to your iOS App</a>',
+        'text' => 'See <a href="/client-sdk/setup/add-sdk-to-your-app/ios">How to Add the Nexmo Client SDK to your iOS App</a>',
       }
     end
 

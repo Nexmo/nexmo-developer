@@ -173,7 +173,7 @@ Language | Resource | Configuration
 Node | [Standard JS](https://standardjs.com/) | Non configurable
 Java | - | -
 .NET | - | -
-PHP | [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer#installation) | [PSR-2](https://github.com/Nexmo/nexmo-php/blob/develop/phpcs.xml)
+PHP | [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer#installation) | [PSR-2](https://github.com/Nexmo/nexmo-php/blob/master/phpcs.xml)
 Python | [YAPF](https://github.com/google/yapf) | Default
 Ruby| [Rubocop](https://github.com/bbatsov/rubocop) | Default
 
