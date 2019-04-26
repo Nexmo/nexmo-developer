@@ -250,7 +250,7 @@ The main functionality for this use case is in the `build_user_workflow` functio
 
 The function makes sure correct real values as read from the configuration file are embedded into the workflow.
 
-You probably noticed that the `expiry_time` and `condition_status` are hardcoded into the workflow as built in `build_user_workflow`. This was done to keep the code as simple as possible, but you could add this to the configuration file on a per user basis. So some users might have a 300 second expiry on some channels, and you could specify the failover condition of `read` or `delivered` on a per-channel and per-user basis. This has been implemented for you in `case-3` but is not described further in this tutorial as all code is given.
+You probably noticed that the `expiry_time` and `condition_status` are hardcoded into the workflow as built in `build_user_workflow`. This was done to keep the code as simple as possible, but you could add this to the configuration file on a per user basis. So some users might have a 300 second expiry on some channels, and you could specify the failover condition of `read` or `delivered` on a per-channel and per-user basis. This has been implemented for you in [case-3](https://github.com/nexmo-community/dispatch-user-fallback/tree/master/case-3) but is not described further in this tutorial as all code is given.
 
 Once the workflow has been built, you use the Dispatch API to send the message:
 
