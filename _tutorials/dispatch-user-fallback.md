@@ -8,13 +8,17 @@ languages:
 
 # Multi-user, multi-channel failover using Dispatch API
 
-This tutorial shows you how to send a message to a user with failover. The idea is that you have a list of users and each user has two or more designated channels, the last one of which is the final fallback channel. An attempt is made to send the message to the first user in the priority list of users on their designated channels. Each channel is processed in turn, with a suitable failover condition. The last designated channel is the final fallback channel for that user. If all attempts to have the message read by that user fail, then attempts are made to send the message to the next user in the priority list, on their designated channels, again with failover on failure to read, with a final fallback channel.
+This tutorial shows you how to send a message to a list of users with automatic failover.
 
-By way of example, imagine your main server has mulfunctioned, you wish to notify a list of system administrators who are on call. The list of users would be processed until at least one of the administrators had read the important message.
+The idea is that you have a list of users and each user has two or more designated channels, the last one of which is the final fallback channel. An attempt is made to send the message to the first user in the priority list of users on their designated channels. Each channel is processed in turn, with a suitable failover condition.
+
+If all attempts to have the message read by a user fail, then processing moves to the next user in the priority list.
+
+By way of example, imagine your main server has mulfunctioned, you wish to notify a list of system administrators who are on call. Each administrator may have several channels they can be contacted on. The list of users would be processed until at least one of the administrators had read the important message.
 
 ## Example scenario
 
-Perhaps the best way to under this use case is to look at the use case sample configuration file, `sample.json`:
+Perhaps the best way to understand this use case is to look at the sample configuration file, `sample.json`:
 
 ``` json
 {
@@ -70,17 +74,18 @@ The most important part of this configuration files is the `USERS` section. Here
 Note that the following conditions apply:
 
 * User must have at least two channels.
-* User can mix any number of channels and types as long as there is at least two channels. For example, a user could have 3 SMS numbers plus a Messenger ID.
-* The last channel specified for a user will be taken to be the final fallback channel. If this fails the next user in the list will be processed.
-* Final failover channel does not have to be SMS although it typically will be.
+* User can mix any number of channels and types as long as there are at least two channels. For example, a user could have 3 SMS numbers plus a Messenger ID.
+* The last channel specified for a user will be taken to be the final fallback channel. It is handled slightly differently as it does not have a failover condition associated with it in the workflow model. If this fails the next user in the list will be processed.
+* Final fallback channel does not have to be SMS although it typically will be.
 * A workflow is created on a per-user basis, but you can specify a unique workflow for each user.
 * An attempt is made to apply a workflow to each user in the order in which the users are listed in the configuration file.
+* Failover from one channel to the next is automatic and handled transparently by the Dispatch API.
 
 ## Source code
 
 The Python source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/dispatch-user-fallback). Three use cases are actually included in the codebase, but this tutorial only describes `case-2`. The code for `case-2` specifically can be found [here](https://github.com/nexmo-community/dispatch-user-fallback/tree/master/case-2). There are just two files - the sample configuration file, `sample.json` and the application, `app.py`.
 
-> **IMPORTANT:** You should also run the [webhook server](https://github.com/nexmo-community/dispatch-user-fallback/blob/master/case-1/server.py) from `case-1` to ensure that webhooks are acknowledged - this prevents clogging the callback queue with unacknowledged webhook retries.
+> **IMPORTANT:** You should also run a webhook server to ensure that webhooks are acknowledged - this prevents clogging the callback queue with unacknowledged webhook retries. The code for this is given later in this tutorial.
 
 ## Prerequisites
 
@@ -261,7 +266,7 @@ The main functionality for this use case is in the `build_user_workflow` functio
 
 The function `build_user_workflow` also makes sure values read from the configuration file are embedded into the workflow.
 
-You probably noticed that the `expiry_time` and `condition_status` are hardcoded into the workflow as built in `build_user_workflow`. This was done to keep the code as simple as possible, but you could add these parameters to the configuration file on a per-user basis. In this case some users might have a 300 second expiry on some channels, and you could specify the failover condition of `read` or `delivered` on a per-channel basis. This has been implemented for you in [case-3](https://github.com/nexmo-community/dispatch-user-fallback/tree/master/case-3) but is not described further in this tutorial as all the code is given, along with the modified sample configuration file.
+You probably noticed that the `expiry_time` and `condition_status` are hardcoded into the workflow as built in `build_user_workflow`. This was done to keep the code as simple as possible, but you could add these parameters to the configuration file on a per-channel basis. In this case some users might have a 300 second expiry on some channels, and you could also specify the failover condition of `read` or `delivered` on a per-channel basis. This has been implemented for you in [case-3](https://github.com/nexmo-community/dispatch-user-fallback/tree/master/case-3) but is not described further in this tutorial as all the code is given, along with the modified sample configuration file.
 
 Once the workflow has been built, you use the [Dispatch API](/dispatch/overview) to send the message:
 
@@ -269,7 +274,7 @@ Once the workflow has been built, you use the [Dispatch API](/dispatch/overview)
 r = requests.post('https://api.nexmo.com/v0.1/dispatch', headers=headers, data=workflow)
 ```
 
-A JWT is generated in order to authenticate the API call. This is why you needed to note the `app_id` and `private_key` values when you created your Nexmo application. This need to be added to your configuration file.
+A JWT is generated in order to authenticate the API call. This is why you needed to note the `app_id` and `private_key` values when you created your Nexmo application. These need to be added to your configuration file.
 
 ## Test the app
 
