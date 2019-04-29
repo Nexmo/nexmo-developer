@@ -14,6 +14,14 @@ You use a signature to:
 * Ensure that the message has not been tampered with en-route
 * Defend against interception and later replay
 
+## Contents
+
+This document covers how to use signatures with messages.
+
+  - [Send messages with signatures](#use-signatures-when-sending-messages)
+  - [Verify signatures on incoming messages](#validate-the-signature-on-incoming-messages) to ensure authenticity of the incoming webhook
+  - [Manually generate a signature](#manually-generate-a-signature) if you cannot use the existing libraries, the manual process for signature generation is included here
+
 ## Use signatures when sending messages
 
 To send a message with a signature, you will need to use the `SIGNATURE_SECRET` instead of your `API_SECRET` when sending the message. You can find the signature secret and choose which signing algorithm to use by visiting the [dashboard](https://dashboard.nexmo.com). The default algorithm is'[MD5 hash](https://en.wikipedia.org/wiki/MD5)' and we also support `MD5 HMAC`, `SHA1 HMAC`, `SHA-256 HMAC` and `SHA-512 HMAC`.
@@ -31,11 +39,23 @@ If you did not generate the signature correctly the [status](/messaging/sms/guid
 
 > It is possible to *require* that all outgoing SMS use message signing. Contact support@nexmo.com to enable or disable this setting on your account.
 
+The code example below shows how to send a signed message with the SMS API.
+
+```code_snippets
+source: '_examples/concepts/guides/send-signed-sms'
+```
+
 ## Validate the signature on incoming messages
 
 In order to verify the origin of incoming webhooks to your SMS endpoint, you can enable message signing for incoming messages - contact support@nexmo.com to request incoming messages be accompanied by a signature. With this setting enabled, the webhooks for both incoming SMS and delivery receipts will include a `sig` parameter. Use the other parameters in the request with your signature secret to generate the signature and compare it to the signature that was sent. If the two match, the request is valid.
 
 > Contact support to enable message signing on your account: support@nexmo.com
+
+The code example below shows how to verify a signature for an incoming SMS message.
+
+```code_snippets
+source: '_examples/concepts/guides/verify-signed-sms'
+```
 
 ## Manually generate a signature
 
