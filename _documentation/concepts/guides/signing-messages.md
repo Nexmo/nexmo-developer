@@ -16,11 +16,11 @@ You use a signature to:
 
 ## Contents
 
-This document covers how to use signatures with messages.
+This document covers how to use signatures with messages, both signing the messages you send and verifying that incoming messages have a correct signature.
 
-  - [Send messages with signatures](#use-signatures-when-sending-messages)
-  - [Verify signatures on incoming messages](#validate-the-signature-on-incoming-messages) to ensure authenticity of the incoming webhook
-  - [Manually generate a signature](#manually-generate-a-signature) if you cannot use the existing libraries, the manual process for signature generation is included here
+  - [Send messages with signatures](#use-signatures-when-sending-messages). Use the [client libraries](/tools) to generate and send the signed message.
+  - [Verify signatures on incoming messages](#validate-the-signature-on-incoming-messages) to ensure authenticity of the message in the incoming webhook.
+  - [Manually generate a signature](#manually-generate-a-signature) if you cannot use the existing libraries, the manual process for signature generation is included here.
 
 ## Use signatures when sending messages
 
@@ -37,7 +37,7 @@ The process for sending a signed message is as follows:
 
 If you did not generate the signature correctly the [status](/messaging/sms/guides/troubleshooting-sms#sms-api-error-codes) is `14, invalid signature`. You can find more information in the [troubleshooting](#troubleshooting-signatures) section of this guide.
 
-> It is possible to *require* that all outgoing SMS use message signing. Contact support@nexmo.com to enable or disable this setting on your account.
+> By default, message signatures are optional when sending messages and are not included with incoming webhooks. To enable either signed webhooks or enforce all sent messages to be signed, please contact support@nexmo.com.
 
 The code example below shows how to send a signed message with the SMS API.
 
