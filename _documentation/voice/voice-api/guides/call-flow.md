@@ -72,8 +72,6 @@ An example event object is shown here:
 
 In addition, certain errors are sent to the `event_url` such as when your `answer_url` returns an invalid NCCO. You can find more detail in the [Webhooks Reference](/voice/voice-api/webhook-reference#event-webhook).
 
-> **Note**: Events usually arrive at your `event_url` in the order they were generated but this is not guaranteed. Your application should use the `timestamp` field in the response to present the events in the correct order.
-
 ## Answer URL payload
 
 When a call is answered a payload is delivered to your `answer_url` [webhook](/concepts/guides/webhooks).
