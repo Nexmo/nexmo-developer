@@ -1,5 +1,5 @@
 ---
-title: Send with Facebook Messenger
+title: Send text message
 ---
 
 # Send with Facebook Messenger

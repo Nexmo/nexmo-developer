@@ -1,10 +1,12 @@
 ---
-title: Send a WhatsApp Audio Message
+title: Send a Text Message
 ---
 
-# Send a WhatsApp Audio Message
+# Send a WhatsApp Text Message
 
-In this code snippet you will see how to send a WhatsApp audio message using the Messages API.
+In this code snippet you will see how to send a WhatsApp message using the Messages API.
+
+For a step-by-step guide to this topic, you can read our tutorial [Sending WhatsApp messages with the Messages API](/tutorials/sending-whatsapp-messages-with-messages-api).
 
 > **IMPORTANT:** If a customer has not messaged you first, then the first time you send a message to a user, WhatsApp requires that the message contains a template. This is explained in more detail in the [Understanding WhatsApp topic](/messages/concepts/whatsapp).
 
@@ -17,17 +19,16 @@ Key | Description
 `NEXMO_APPLICATION_ID` | The ID of the application that you created.
 `WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Nexmo.
 `TO_NUMBER` | The phone number you are sending the message to.
-`AUDIO_URL` | The URL of the image to send.
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
 ```code_snippets
-source: '_examples/messages/send-whatsapp-audio'
+source: '_examples/messages/send-whatsapp-message'
 application:
   type: messages
-  name: 'Send a WhatsApp audio'
+  name: 'Send a WhatsApp message'
 ```
 
 ## Try it out
 
-When you run the code a WhatsApp audio message is sent to the destination number.
+When you run the code a WhatsApp message is sent to the destination number.

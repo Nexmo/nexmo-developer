@@ -1,5 +1,6 @@
 ---
-title: Send a WhatsApp Template (MTM)
+title: Send an MTM
+navigation_weight: 1
 ---
 
 # Send a WhatsApp Template (MTM)

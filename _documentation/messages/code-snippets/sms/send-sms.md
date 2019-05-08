@@ -1,5 +1,5 @@
 ---
-title: Send an SMS with the Messages API
+title: Send an SMS
 navigation_weight: 7
 ---
 

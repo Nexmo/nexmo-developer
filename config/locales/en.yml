@@ -52,6 +52,7 @@ en:
     dispatch: Dispatch API
     us-short-codes: US Short Codes
     sms: SMS
+    mms: MMS
     guides: Guides
     quickstarts: Quickstarts
     tutorials: Tutorials
@@ -84,3 +85,6 @@ en:
     administration: Administration
     tasks: Tasks
     product-lifecycle: Product Lifecycle
+    whatsapp: WhatsApp
+    messenger: Facebook Messenger
+    viber: Viber Service Messages

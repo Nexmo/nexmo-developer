@@ -113,6 +113,18 @@ navigation_overrides:
     svg: 'chat'
     svgColor: 'purple'
     label: 'Beta'
+    code-snippets:
+      collapsible: false
+      sms:
+        collapsible: true
+      messenger:
+        collapsible: true
+      viber:
+        collapsible: true
+      whatsapp:
+        collapsible: true
+      mms:
+        collapsible: true
   dispatch:
     svg: 'flow'
     svgColor: 'purple'
