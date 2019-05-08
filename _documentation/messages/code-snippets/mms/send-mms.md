@@ -21,7 +21,7 @@ Ensure the following variables are set to your required values using any conveni
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 14155550105.
 
 ```code_snippets
-source: '_examples/messages/send-mms'
+source: '_examples/messages/mms/send-mms'
 application:
   type: messages
   name: 'Send an MMS'

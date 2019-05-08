@@ -23,7 +23,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
 ```code_snippets
-source: '_examples/messages/send-whatsapp-file'
+source: '_examples/messages/whatsapp/send-file'
 application:
   type: messages
   name: 'Send a WhatsApp file'
