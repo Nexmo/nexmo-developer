@@ -44,7 +44,7 @@ Key | Description
 ## Example
 
 ```code_snippets
-source: '_examples/messages/send-sms'
+source: '_examples/messages/sms/send-sms'
 ```
 
 This will send an SMS message to the destination number you specified.

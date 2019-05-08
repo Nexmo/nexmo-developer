@@ -41,7 +41,7 @@ Key | Description
 ## Example
 
 ```code_snippets
-source: '_examples/messages/send-viber-message'
+source: '_examples/messages/viber/send-text'
 ```
 
 > **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/code-snippets/before-you-begin#generate-a-jwt).
