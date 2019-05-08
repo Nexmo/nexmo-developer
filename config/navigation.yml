@@ -117,13 +117,13 @@ navigation_overrides:
       collapsible: false
       sms:
         collapsible: true
+      mms:
+        collapsible: true
       messenger:
         collapsible: true
       viber:
         collapsible: true
       whatsapp:
-        collapsible: true
-      mms:
         collapsible: true
   dispatch:
     svg: 'flow'
