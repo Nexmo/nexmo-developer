@@ -12,11 +12,11 @@ In this code snippet you will see how to send an MMS using the Messages API.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-| Key           | Description                                                                                                 |
-| ------------- | ----------------------------------------------------------------------------------------------------------- |
-| `FROM_NUMBER` | The phone number you are sending the MMS from. (US Short Code only)                              |
+| Key           | Description  |
+| ---- | ---- |
+| `FROM_NUMBER` | The phone number you are sending the MMS from. (US Short Code only) |
 | `TO_NUMBER`   | The phone number you are sending the message to. |
-| `IMG_URL`     | The URL of the media you want to send                                                                       |
+| `IMG_URL`     | The URL of the media you want to send.  |
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 14155550105.
 
