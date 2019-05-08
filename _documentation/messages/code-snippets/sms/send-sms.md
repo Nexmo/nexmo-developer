@@ -1,9 +1,8 @@
 ---
 title: Send an SMS
-navigation_weight: 7
 ---
 
-# Send an SMS with the Messages API
+# Send an SMS
 
 In this code snippet you will see how to send an SMS using the Messages API.
 
