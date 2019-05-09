@@ -12,10 +12,17 @@ class TaskController < ApplicationController
       return redirect_to "/task/#{@task.name}/#{@task.first_step}"
     end
 
-    @content = MarkdownPipeline.new({
-                                      code_language: @code_language,
-                                      current_user: current_user,
-                                    }).call(@task.content_for(@task_step))
+    if @task_step == 'prerequisites'
+      @content = render_to_string(partial: 'prerequisites', layout: false)
+
+    else
+      @content = MarkdownPipeline.new({
+                                        code_language: @code_language,
+                                        current_user: current_user,
+                                      }).call(@task.content_for(@task_step))
+    end
+
+    @hide_card_wrapper = true
     render layout: 'documentation'
   end
 

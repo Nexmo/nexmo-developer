@@ -1,6 +1,6 @@
 class Task
   include ActiveModel::Model
-  attr_accessor :raw, :name, :current_step, :title, :description, :product, :subtasks
+  attr_accessor :raw, :name, :current_step, :title, :description, :product, :subtasks, :prerequisites
 
   def content_for(step_name)
     if ['introduction', 'conclusion'].include? step_name
@@ -9,19 +9,22 @@ class Task
     end
 
     path = "#{self.class.task_content_path}/#{step_name}.md"
-    raise "Invalid step: #{step_name}" unless File.exist? path
-    content = File.read(path)
 
-    # Strip off leading YAML
-    content.gsub(/\A(---.+?---)/mo, '').strip
+    raise "Invalid step: #{step_name}" unless File.exist? path
+    File.read(path)
   end
 
   def first_step
     subtasks.first['path']
   end
 
+  def prerequisite?
+    prerequisites.pluck('path').include?(@current_step)
+  end
+
   def next_step
     current_task_index = subtasks.pluck('path').index(@current_step)
+    return nil unless current_task_index
     subtasks[current_task_index + 1]
   end
 
@@ -43,11 +46,30 @@ class Task
       title: config['title'],
       description: config['description'],
       product: config['product'],
-      subtasks: load_subtasks(config['introduction'], config['tasks'], config['conclusion']),
+      prerequisites: load_prerequisites(config['prerequisites'], current_step),
+      subtasks: load_subtasks(config['introduction'], config['prerequisites'], config['tasks'], config['conclusion'], current_step),
     })
   end
 
-  def self.load_subtasks(introduction, tasks, conclusion)
+  def self.load_prerequisites(prerequisites, current_step)
+    return [] unless prerequisites
+
+    prerequisites.map do |t|
+      t_path = "#{task_content_path}/#{t}.md"
+      raise "Prerequisite not found: #{t}" unless File.exist? t_path
+      content = File.read(t_path)
+      prereq = YAML.safe_load(content)
+      {
+        'path' => t,
+        'title' => prereq['title'],
+        'description' => prereq['description'],
+        'is_active' => t == current_step,
+        'content' => content,
+      }
+    end
+  end
+
+  def self.load_subtasks(introduction, prerequisites, tasks, conclusion, current_step)
     tasks ||= []
 
     tasks = tasks.map do |t|
@@ -58,7 +80,17 @@ class Task
         'path' => t,
         'title' => subtask_config['title'],
         'description' => subtask_config['description'],
+        'is_active' => t == current_step,
       }
+    end
+
+    if prerequisites
+      tasks.unshift({
+        'path' => 'prerequisites',
+        'title' => 'Prerequisites',
+        'description' => 'Everything you need to complete this task',
+        'is_active' => current_step == 'prerequisites',
+      })
     end
 
     if introduction
@@ -66,6 +98,7 @@ class Task
         'path' => 'introduction',
         'title' => introduction['title'],
         'description' => introduction['description'],
+        'is_active' => current_step == 'introduction',
       })
     end
 
@@ -74,6 +107,7 @@ class Task
         'path' => 'conclusion',
         'title' => conclusion['title'],
         'description' => conclusion['description'],
+        'is_active' => current_step == 'conclusion',
       })
     end
 

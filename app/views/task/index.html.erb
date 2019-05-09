@@ -1,38 +1,47 @@
 <div class="Vlt-grid">
   <div class="Vlt-col Vlt-col--3of4">
+    <div class="Vlt-card">
     <%= @content.html_safe %>
 
     <br />
     <div class="Vlt-grid">
       <div class="Vlt-col">
         <% if @task.previous_step %>
-          <h4>Previous</h4>
-          <a href="<%= "/task/#{@task.name}/#{@task.previous_step['path']}" %>"> &laquo; <%= @task.previous_step['title'] %></a>
-          <div>
-            <small><%= @task.previous_step['description'] %></small>
-          </div>
+          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/task/#{@task.name}/#{@task.previous_step['path']}" %>"> &laquo; Previous</a>
         <% end %>
       </div>
       <div class="Vlt-col Vlt-right">
         <% if @task.next_step %>
-          <h4>Next</h4>
-          <a href="<%= "/task/#{@task.name}/#{@task.next_step['path']}" %>"><%= @task.next_step['title'] %> &raquo;</a>
-          <div>
-            <small><%= @task.next_step['description'] %></small>
-          </div>
+          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/task/#{@task.name}/#{@task.next_step['path']}" %>">Next &raquo;</a>
         <% end %>
       </div>
      </div>
+    </div>
   </div>
-  <div class="Vlt-col Vlt-col--1of4">
-    <h4><%= @task.title %></h4>
-    <small><%= @task.description %></small>
-    <hr />
-    <h4>In This Section</h4>    
-    <ul>
-    <% @task.subtasks.each_with_index do |t, i| %>
-      <li><a title="<%= t['description'] %>" href="<%= "/task/#{@task.name}/#{t['path']}" %>"><%= i+1 %>. <%= t['title'] %></a></li>
-      <% end %>
-    </ul>
+  <div class="Vlt-col Vlt-col--1of4 Nxd-task-step-list">
+      <div class="Vlt-card">
+        <div class="Vlt-card__corner Vlt-bg-blue">
+          <svg class="Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-list"/></svg>
+        </div>
+        <div class="Vlt-card__content">
+          <h4><%= @task.title %></h4>
+          <small><%= @task.description %></small>
+          <br /><br />
+          <span style="font-weight: bold;">Steps</span>
+          <br />
+          <br />
+            <% @task.subtasks.each_with_index do |t, i| %>
+            <div class="Vlt-grid">
+              <div class="Vlt-col Vlt-col--1of4">
+              <span class="Vlt-number <%= t['is_active'] ? 'Vlt-bg-blue': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
+                </div>
+              <div class="Vlt-col Vlt-col--3of4 Nxd-step">
+              <a title="<%= t['description'] %>" href="<%= "/task/#{@task.name}/#{t['path']}" %>"><%= t['title'] %></a>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+
   </div>
 </div>

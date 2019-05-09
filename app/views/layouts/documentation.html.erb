@@ -13,7 +13,7 @@
     </div>
     <main class="Vlt-main Vlt-main--light Nxd-main" tabindex="0">
       <%= render partial: 'layouts/partials/notices' %>
-      <div class="Vlt-card Vlt-article" data-turbolinks-permanent id="primary-content">
+      <div class="<%= !@hide_card_wrapper ? 'Vlt-card ' : '' %>Vlt-article" data-turbolinks-permanent id="primary-content">
         <%= yield %>
         <%= render partial: 'layouts/partials/feedback' unless @skip_feedback %>
       </div>
