@@ -2,7 +2,7 @@
 title: Send a File Message
 ---
 
-# Send a WhatsApp File Message
+# Send a File Message
 
 In this code snippet you will see how to send a WhatsApp file message using the Messages API.
 

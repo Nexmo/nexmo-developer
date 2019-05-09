@@ -2,7 +2,7 @@
 title: Send a Text Message
 ---
 
-# Send a WhatsApp Text Message
+# Send a Text Message
 
 In this code snippet you will see how to send a WhatsApp message using the Messages API.
 

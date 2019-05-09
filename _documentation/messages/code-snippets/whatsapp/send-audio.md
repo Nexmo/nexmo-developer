@@ -2,7 +2,7 @@
 title: Send an Audio Message
 ---
 
-# Send a WhatsApp Audio Message
+# Send an Audio Message
 
 In this code snippet you will see how to send a WhatsApp audio message using the Messages API.
 

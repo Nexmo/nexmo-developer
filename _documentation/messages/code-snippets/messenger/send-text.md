@@ -1,8 +1,8 @@
 ---
-title: Send text message
+title: Send a Text Message
 ---
 
-# Send with Facebook Messenger
+# Send a Text Message
 
 In this code snippet you will see how to send a FaceBook message using the Messages API.
 

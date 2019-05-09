@@ -2,7 +2,7 @@
 title: Send an Image Message
 ---
 
-# Send a WhatsApp Image Message
+# Send an Image Message
 
 In this code snippet you will see how to send a WhatsApp image message using the Messages API.
 
