@@ -5,8 +5,8 @@
     <% id = SecureRandom.hex %>
     <p class="collapsible">
     <a class="Vlt-js-accordion__trigger Nxd-accordion-button" data-accordion="acc<%= id %>">
-        <span class="Vlt-btn Vlt-btn--tertiary Vlt-btn--block">
-            View response field descriptions
+        <span class="response-description-toggle Vlt-btn Vlt-btn--tertiary Vlt-btn--block">
+            <%= auto_expand_responses ? 'Hide' : 'View' %> response field descriptions
         </span>
     </a>
     </p>
