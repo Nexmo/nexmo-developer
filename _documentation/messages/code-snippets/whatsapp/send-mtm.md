@@ -1,5 +1,6 @@
 ---
 title: Send an MTM
+meta_title: Send a WhatsApp Template using the Messages API
 navigation_weight: 1
 ---
 

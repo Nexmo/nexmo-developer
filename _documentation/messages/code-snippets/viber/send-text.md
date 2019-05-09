@@ -1,5 +1,6 @@
 ---
 title: Send a Text Message
+meta_title: Send a Text message on Viber using the Messages API
 ---
 
 # Send a Text Message

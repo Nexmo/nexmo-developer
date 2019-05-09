@@ -1,5 +1,6 @@
 ---
 title: Send a File Message
+meta_title: Send a file message on WhatsApp using the Messages API
 ---
 
 # Send a File Message

@@ -1,5 +1,6 @@
 ---
 title: Send an SMS
+meta_title: Send an SMS using the Messages API
 ---
 
 # Send an SMS

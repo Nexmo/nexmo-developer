@@ -1,5 +1,6 @@
 ---
 title: Send a Text Message
+meta_title: Send an text message on WhatsApp using the Messages API
 ---
 
 # Send a Text Message

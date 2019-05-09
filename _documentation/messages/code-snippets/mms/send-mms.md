@@ -1,5 +1,6 @@
 ---
 title: Send an MMS
+meta_title: Send an MMS using the Messages API
 ---
 
 # Send an MMS

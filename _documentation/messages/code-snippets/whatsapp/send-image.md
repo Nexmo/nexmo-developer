@@ -1,5 +1,6 @@
 ---
 title: Send an Image Message
+meta_title: Send an image message on WhatsApp using the Messages API
 ---
 
 # Send an Image Message
