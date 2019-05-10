@@ -2,8 +2,8 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/messages/send-viber-message.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/messages/viber/send-text.sh
     from_line: 6
     to_line: 19
-file_name: send-viber-message.sh
-run_command: bash send-viber-message.sh
+file_name: send-text.sh
+run_command: bash send-text.sh

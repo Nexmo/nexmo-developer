@@ -2,8 +2,8 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/messages/send-facebook-message.sh
+    source: .repos/nexmo/nexmo-curl-code-snippets/messages/messenger/send-text.sh
     from_line: 6
     to_line: 19
-file_name: send-facebook-message.sh
-run_command: bash send-facebook-message.sh
+file_name: send-text.sh
+run_command: bash send-text.sh
