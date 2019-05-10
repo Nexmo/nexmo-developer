@@ -3,7 +3,7 @@ title: Send a File Message
 meta_title: Send a File message with Facebook Messenger
 ---
 
-# Send an File Message
+# Send a File Message
 
 In this code snippet you will see how to send a file message through Facebook Messenger using the Messages API.
 
