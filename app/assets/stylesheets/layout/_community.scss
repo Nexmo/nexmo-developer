@@ -31,3 +31,35 @@
 		margin-bottom: $unit1;
 	}
 }
+
+.Nxd-map-buttons {
+  .Nxd-map-search, .Vlt-btn--app {
+    margin: 8px 0;
+    width: 260px;
+  }
+
+  .Vlt-form__element {
+    padding: 0;
+    margin: 8px 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .Nxd-map-buttons {
+    margin-top: -350px;
+    padding-bottom: 150px;
+    padding-right: 10px;
+
+    #SearchComponent {
+      float: right;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Nxd-map-buttons {
+    .Vlt-btn--app {
+      width: 100%;
+    }
+  }
+}
