@@ -3,22 +3,16 @@ page:
     - column:
       - type: header
         header:
-          title: 
-            text: "Nexmo ❤️ Community"
+          title:
+            text: Nexmo ❤️ Community
             align: center
-          icon:
-            name: icon-world-hand
-            color: blue
-  - row:
-    - column:
-      - type: line_divider
   - row:
     - column:
       - type: section_header
         section_header:
           title: "You can find us at these upcoming events"
           icon:
-            name: icon-group-7
+            name: icon-world-hand
             color: blue
   - row:
     - column:
