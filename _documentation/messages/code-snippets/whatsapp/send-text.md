@@ -1,8 +1,9 @@
 ---
-title: Send a WhatsApp Message
+title: Send a Text Message
+meta_title: Send an text message on WhatsApp using the Messages API
 ---
 
-# Send a WhatsApp Message
+# Send a Text Message
 
 In this code snippet you will see how to send a WhatsApp message using the Messages API.
 
@@ -23,7 +24,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
 ```code_snippets
-source: '_examples/messages/send-whatsapp-message'
+source: '_examples/messages/whatsapp/send-text'
 application:
   type: messages
   name: 'Send a WhatsApp message'

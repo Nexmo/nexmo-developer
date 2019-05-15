@@ -79,7 +79,7 @@ Key | Description
 ## Example
 
 ```code_snippets
-source: '_examples/messages/send-facebook-message'
+source: '_examples/messages/messenger/send-text'
 ```
 
 > **TIP:** If testing using Curl you will need a JWT. You can see how to create one in the documentation on [creating a JWT](/messages/code-snippets/before-you-begin#generate-a-jwt).

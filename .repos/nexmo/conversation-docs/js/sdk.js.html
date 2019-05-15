@@ -32,17 +32,18 @@
  *
  * Copyright (c) Nexmo Inc. 2017
  */
-
 const WildEmitter = require('wildemitter');
 const socket_io = require('socket.io-client');
 const logger = require('loglevel');
 const prefix = require('loglevel-plugin-prefix');
+const bugsnag = require('@bugsnag/js');
 
 const Utils = require('./utils');
 const RTC_Cache = require('./modules/rtc_cache');
 const Application = require('./application');
 const ErrorsEmitter = require('./modules/errors_emitter');
 const User = require('./user')
+
 
 prefix.reg(logger);
 
@@ -71,10 +72,10 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @class ConversationClient
  * @param {object} [params]
  * @param {Boolean} params.debug=false set mode to debug
- * @param {string} params.url=nexmo_ws_url Nexmo Conversation Websocket url
- * @param {string} params.path=/rtc Nexmo Conversation Websocket url path suffix
+ * @param {string} params.url='nexmo_ws_url' Nexmo Conversation Websocket url
+ * @param {string} params.path='/rtc' Nexmo Conversation Websocket url path suffix
  * @param {object} params.rtcstats set reporting for stream statistics (Websocket or internal event emit)
- * @param {string} params.rtcstats.ws_url='' endpoint (weboscket) to send rtc stats.
+ * @param {string} params.rtcstats.ws_url endpoint (websocket) to send rtc stats.
  * @param {Boolean} params.rtcstats.emit_events=false receive rtcstats:report event
 
  * @param {object} params.socket_io configure socket.io
@@ -82,31 +83,47 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @param {Boolean} params.socket_io.autoConnect=true socket.io autoConnect attribute
  * @param {Boolean} params.socket_io.reconnection=true socket.io reconnection attribute
  * @param {number} params.socket_io.reconnectionAttempts=5 socket.io reconnectionAttempts attribute
- * @param {string[]} params.socket_io.transports=['websocket] socket.io transports protocols
-
- * @param {string} params.ips_url=ips_url Nexmo IPS url for image upload
+ * @param {string[]} params.socket_io.transports='websocket' socket.io transports protocols
+ * @param {string[]} params.sync='lite' {'lite' || 'full' || 'none'} after a successful login, synchronise conversations , include events or nothing
+ * @param {string} params.ips_url='ips_url' Nexmo IPS url for image upload
  * @param {string} params.environment='production' development / production environment
  * @param {object} params.iceServers=[{'stun:stun.l.google.com:19302'}] iceServers for RTCPeerConnection
  * @param {object} param.callstats configure callstats.io integration
  * @param {Boolean} param.callstats.enabled=false
  * @param {string} param.callstats.AppID your callstats AppID
  * @param {string} param.callstats.AppSecret your callstats AppSecret
+ * @param {object} param.log_reporter configure log reports for bugsnag tool
+ * @param {Boolean} param.log_reporter.enabled=true
+ * @param {string} param.log_reporter.bugsnag_key your bugsnag api key / defaults to Nexmo api key
  *
+ * @emits ConversationClient#connecting
+ * @emits ConversationClient#disconnect
+ * @emits ConversationClient#error
  * @emits ConversationClient#ready
- * @emits ConversationClient#rtcstats:report
+ * @emits ConversationClient#reconnect
+ * @emits ConversationClient#reconnecting
  */
 
 class ConversationClient {
 	constructor(params) {
 		//save an array of instances
-		const options = params || {};
+		const inputParams = params || {};
 		const config = this.config = {
 			cache: true,
 			debug: false,
-			callstats: { enabled: false, AppID: '', AppSecret: '' },
+			callstats: {
+				enabled: false,
+				AppID: '',
+				AppSecret: ''
+			},
+			log_reporter: {
+				enabled: false,
+				bugsnag_key: null,
+			},
 			environment: '@@environment',
 			ips_url: '@@ips_url',
 			path: '/rtc',
+			repository: '@@repository',
 			socket_io: {
 				reconnection: true,
 				reconnectionAttempts: 5,
@@ -114,9 +131,9 @@ class ConversationClient {
 				autoConnect: true,
 				transports: ['websocket']
 			},
-			repository: '@@repository',
 			screenShareExtensionId: '',
 			SDK_version: '@@SDK_version',
+			sync: 'lite',
 			url: '@@ws_url',
 			iceServers: [{
 				urls: 'stun:stun.l.google.com:19302'
@@ -127,56 +144,57 @@ class ConversationClient {
 			}
 		};
 
-		let connection;
 		this.sessionReady = false;
 		this.requests = {};
 		this.application = null;
-		// set our config from options
-		Object.assign(this.config, options);
 
-		if (config.debug === true) {
+
+		if (inputParams.debug === true) {
 			logger.setLevel("debug");
 		} else {
 			logger.setLevel("silent");
 		}
 		this.log = logger.noConflict();
 
+		// set our config from the inputParams
+		Object.assign(this.config, this._sanitizeConfig(inputParams));
+
 		// inject callstats library
 		if (this.config.callstats.enabled) {
-			function j(u, c) {
-				let h = document.getElementsByTagName('head')[0],
-					s = document.createElement('script');
-				s.async = true;
-				s.src = u;
-				s.onload = s.onreadystatechange = function() {
-					if (!s.readyState || /loaded|complete/.test(s.readyState)) {
-						s.onload = s.onreadystatechange = null;
-						s = undefined;
-						if (c) {
-							c();
-						}
-					}
-				};
-				h.insertBefore(s, h.firstChild);
-			}
-
-
-			if (typeof document !== "undefined") {
-				j("//api.callstats.io/static/callstats.min.js", () => {
-					if (typeof callstats !== "undefined") {
-						this.callstats = new callstats();
-					}
-				});
-			}
+			Utils.injectScript("//api.callstats.io/static/callstats.min.js", () => {
+				if (typeof callstats !== "undefined") {
+					this.callstats = new callstats();
+				}
+			});
 		}
 
+		// inject bug reporting tool
+		if (this.config.log_reporter.enabled) {
+			global.bugsnagClient = bugsnag(this.config.log_reporter.bugsnag_key || Utils._getBugsnagKey());
+		}
+
+		this._createAndSetConnection();
+
+		WildEmitter.mixin(ConversationClient);
+	}
+
+	/**
+	 * Creates and sets the socket_io connection
+	 *
+	 * @private
+	 */
+	_createAndSetConnection() {
+		let connection;
+
 		// Create the socket.io connection and allow multiple instances
-		let socket_io_config = Object.assign({ path: config.path }, config.socket_io);
-		connection = socket_io.connect(config.url, socket_io_config);
+		let socket_io_config = Object.assign({
+			path: this.config.path
+		}, this.config.socket_io);
+		connection = socket_io.connect(this.config.url, socket_io_config);
 
 		this.connection = connection;
 
-		if (config.cache) {
+		if (this.config.cache) {
 			this.cache = new RTC_Cache(this);
 			this.cache.init(this);
 		}
@@ -296,9 +314,26 @@ class ConversationClient {
 					this.application._handleEvent(response);
 			}
 		});
-		WildEmitter.mixin(ConversationClient);
-	}
 
+		return connection;
+	}
+	/**
+	 * Revert any invalid params to our default
+	 *
+	 * @param {object} config the object to sanitize
+	 * @private
+	 */
+	_sanitizeConfig(incomingConfig) {
+		//make sure we allow specific values for the params
+
+		// Sync
+		let sanitizedConfig = incomingConfig;
+		if (incomingConfig.sync &amp;&amp; ['lite', 'full', 'none'].indexOf(incomingConfig.sync) === -1) {
+			this.log.warn(`invalid param '${incomingConfig.sync}' for sync, reverting to ${this.config.sync}`);
+			sanitizedConfig.sync = this.config.sync;
+		}
+		return sanitizedConfig;
+	}
 	/**
 	 * Conversation listening for text events.
 	 *
@@ -463,7 +498,7 @@ class ConversationClient {
 	 * @property {Event} event - information about media presence state
 	 * @property {boolean} event.body.audio  - is audio enabled
 	 * @example &lt;caption>get every member's media change events &lt;/caption>
-	 * conversation.on("member:media", (from, media) => {
+	 * conversation.on("member:media", (from, event) => {
 	 *      console.log(from.media.audio); //true
 	 * 		console.log(event.body.media); //{"audio":true}
 	 * });
@@ -507,6 +542,11 @@ class ConversationClient {
 	 * @returns  {Promise&lt;Application>} - the application we logged in
 	 */
 	login(token) {
+		//Create connection if needed
+		if (typeof this.connection === 'undefined') {
+			this._createAndSetConnection();
+		}
+
 		// return a promise for the application
 		return new Promise((resolve, reject) => {
 			this.log.info(`Client-SDK Version: ${this.config.SDK_version}`);
@@ -566,14 +606,24 @@ class ConversationClient {
 
 						this.callstats.initialize(this.config.callstats.AppID, this.config.callstats.AppSecret, this.application.me.id, csStatsInit, csStatsCallback, configParams);
 					}
-					// Retrieve the existing conversation data for this user
-					return this.application.getConversations()
-						.then(() => {
-							// Complete the login process
-							resolve(this.application);
-						}, (reason) => {
-							reject(new NexmoApiError(reason));
-						});
+
+					//Set Bugsnag user to application.me.id
+					if (this.config.log_reporter.enabled) {
+						global.bugsnagClient.user = { id: this.application.me.id }
+					}
+
+					if (this.config.sync !== 'none') {
+						// Retrieve the existing conversation data for this user
+						return this.application.getConversations()
+							.then((conversations) => {
+								this.application.syncConversations(conversations);
+								resolve(this.application);
+							}, (reason) => {
+								reject(new NexmoApiError(reason));
+							});
+					} else {
+						resolve(this.application);
+					}
 				} else {
 					reject(new NexmoApiError(response));
 					//TODO move this in cache module
@@ -600,6 +650,7 @@ class ConversationClient {
 						delete this.errorsEmitter;
 						delete this.application;
 						delete this.cache;
+						delete this.connection;
 						this.callbacks = {};
 						this.requests = {};
 						this.sessionReady = false;
@@ -617,7 +668,9 @@ class ConversationClient {
 					disablePromises.push(this.application.conversations[conversation_id].media.disable());
 				}
 				return Promise.all(disablePromises)
-					.catch((err) => { this.log.info(err); }).then(() => {
+					.catch((err) => {
+						this.log.info(err);
+					}).then(() => {
 						return logoutRequest();
 					});
 			} else {
@@ -667,13 +720,13 @@ module.exports = ConversationClient;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 01 2019 11:02:45 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 17 2019 16:32:41 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

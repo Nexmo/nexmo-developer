@@ -1,9 +1,9 @@
 ---
-title: Send an SMS with the Messages API
-navigation_weight: 7
+title: Send an SMS
+meta_title: Send an SMS using the Messages API
 ---
 
-# Send an SMS with the Messages API
+# Send an SMS
 
 In this code snippet you will see how to send an SMS using the Messages API.
 
@@ -22,7 +22,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ```code_snippets
-source: '_examples/messages/send-sms'
+source: '_examples/messages/sms/send-sms'
 application:
   type: messages
   name: 'Send an SMS'

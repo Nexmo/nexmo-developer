@@ -80,7 +80,7 @@ Key | Description
 The following code shows how to send an SMS message using the Messages API:
 
 ```code_snippets
-source: '_examples/messages/send-sms-basic-auth'
+source: '_examples/messages/sms/send-sms-basic-auth'
 ```
 
 ## Concepts

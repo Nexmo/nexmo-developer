@@ -1,8 +1,9 @@
 ---
-title: Send with Facebook Messenger
+title: Send a Text Message
+meta_title: Send a Text message with Facebook Messenger
 ---
 
-# Send with Facebook Messenger
+# Send a Text Message
 
 In this code snippet you will see how to send a FaceBook message using the Messages API.
 
@@ -19,7 +20,7 @@ Key | Description
 `FB_RECIPIENT_ID` | The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 
 ```code_snippets
-source: '_examples/messages/send-facebook-message'
+source: '_examples/messages/messenger/send-text'
 application:
   type: messages
   name: 'Send a Facebook message'

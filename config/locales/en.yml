@@ -52,6 +52,7 @@ en:
     dispatch: Dispatch API
     us-short-codes: US Short Codes
     sms: SMS
+    mms: MMS
     guides: Guides
     quickstarts: Quickstarts
     tutorials: Tutorials
@@ -74,6 +75,7 @@ en:
     external-accounts: External Accounts API
     vonage-business-cloud: Vonage Business Cloud
     number-programmability: Number Programmability
+    integration-suite: Vonage Integration Suite
     vbc-apis: VBC APIs
     account-api: Account API
     extension-api: Extension API
@@ -85,3 +87,6 @@ en:
     tasks: Tasks
     application: Application
     product-lifecycle: Product Lifecycle
+    whatsapp: WhatsApp
+    messenger: Facebook Messenger
+    viber: Viber Service Messages

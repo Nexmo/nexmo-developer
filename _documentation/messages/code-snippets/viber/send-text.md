@@ -1,8 +1,9 @@
 ---
-title: Send a Viber Service Message
+title: Send a Text Message
+meta_title: Send a Text message on Viber using the Messages API
 ---
 
-# Send a Viber Service Message
+# Send a Text Message
 
 In this code snippet you will see how to send a Viber message using the Messages API.
 
@@ -23,7 +24,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
 ```code_snippets
-source: '_examples/messages/send-viber-message'
+source: '_examples/messages/viber/send-text'
 application:
   type: messages
   name: 'Send a Viber message'

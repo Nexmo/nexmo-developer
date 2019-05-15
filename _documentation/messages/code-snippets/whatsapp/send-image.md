@@ -1,8 +1,9 @@
 ---
-title: Send a WhatsApp Image Message
+title: Send an Image Message
+meta_title: Send an image message on WhatsApp using the Messages API
 ---
 
-# Send a WhatsApp Image Message
+# Send an Image Message
 
 In this code snippet you will see how to send a WhatsApp image message using the Messages API.
 
@@ -23,7 +24,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
 ```code_snippets
-source: '_examples/messages/send-whatsapp-image'
+source: '_examples/messages/whatsapp/send-image'
 application:
   type: messages
   name: 'Send a WhatsApp image'

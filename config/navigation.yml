@@ -12,11 +12,12 @@ navigation_weight:
   Vonage Business Cloud: 7
 
   Number Programmability: 1
-  Setup: 1
-  Getting Started: 2
-  Account API: 3
-  Extension API: 4
-  User API: 5
+  VBC APIs: 2
+  Getting Started: 1
+  Account API: 2
+  Extension API: 3
+  User API: 4
+  Vonage Integration Suite: 3
 
   Onboarding: 0
   Overview: 1
@@ -117,6 +118,18 @@ navigation_overrides:
     svg: 'chat'
     svgColor: 'purple'
     label: 'Beta'
+    code-snippets:
+      collapsible: false
+      sms:
+        collapsible: true
+      mms:
+        collapsible: true
+      messenger:
+        collapsible: true
+      viber:
+        collapsible: true
+      whatsapp:
+        collapsible: true
   dispatch:
     svg: 'flow'
     svgColor: 'purple'
@@ -128,7 +141,6 @@ navigation_overrides:
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'
-    label: 'Dev Preview'
   contribute:
     administration:
       navigation_weight: 9999

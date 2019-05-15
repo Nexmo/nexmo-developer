@@ -1,8 +1,9 @@
 ---
-title: Send a WhatsApp Audio Message
+title: Send an Audio Message
+meta_title: Send an audio message on WhatsApp using the Messages API
 ---
 
-# Send a WhatsApp Audio Message
+# Send an Audio Message
 
 In this code snippet you will see how to send a WhatsApp audio message using the Messages API.
 
@@ -22,7 +23,7 @@ Key | Description
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
 ```code_snippets
-source: '_examples/messages/send-whatsapp-audio'
+source: '_examples/messages/whatsapp/send-audio'
 application:
   type: messages
   name: 'Send a WhatsApp audio'
