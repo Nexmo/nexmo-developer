@@ -43,8 +43,6 @@ page:
   - row:
     - column:
       - type: contact_community
-      - type: line_divider
-      - type: join_slack
     - column:
       - type: section_header
         section_header:
@@ -54,4 +52,10 @@ page:
             color: blue
       - type: html
         html:
-          content: <a class="twitter-timeline" data-width="400" data-height="300" data-dnt="true" href="https://twitter.com/NexmoDev?ref_src=twsrc%5Etfw">Tweets by NexmoDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          content: <a class="twitter-timeline" data-width="100%" data-height="300" data-dnt="true" href="https://twitter.com/NexmoDev?ref_src=twsrc%5Etfw">Tweets by NexmoDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  - row:
+    - column:
+      - type: line_divider
+      - type: join_slack
+      - type: line_divider
+
