@@ -1,6 +1,9 @@
 <%
-  @featured = featured_video().shuffle.first
-  @sessions = Session.where(published: true).where("title <> ?", @featured.title)
+  @featured = featured_video()
+  @sessions = Session.where(published: true)
+  if @featured
+    @sessions = @sessions.where("id <> ?", @featured.id)
+  end
 %>
 
 <% if @sessions.any? %>
