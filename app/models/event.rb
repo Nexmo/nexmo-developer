@@ -22,7 +22,7 @@ class Event < ApplicationRecord
         .map { |c| "#{c} ilike :search" }
         .join(' OR '),
     search: key
-  )
+  ).upcoming
   end
 
   private
