@@ -1,22 +1,9 @@
-<div class="Vlt-grid">
-    <% @events.each do |event| %>
-        <div class="Vlt-col Vlt-col--1of3">
-            <div class="Vlt-card">
-                <h3><%= link_to event.title, event.url, target: '_blank' %></h3>
-                <p class="community-event__date Vlt-grey-darker"><svg class="Vlt-icon Vlt-icon--small Vlt-icon--text-bottom Vlt-grey-dark" aria-hidden="true"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-calendar"/></svg><%= date_range event.starts_at, event.ends_at %></p>
-                <p><%= event.description %></p>
-            </div>
-        </div>
-    <% end %>
-</div>
-
-<script type="text/javascript">
-$('#all-events-btn').on('click', function(event) {
-    $("#map-search-wrapper").css('width: 0px; height: 0px;');
-    $("#map-all-wrapper").css('width: 800px; height: 400px;');
-    $("#event-search-results").hide();
-    $("#map-search-wrapper").hide();
-    $("#community-events").show();
-    $("#map-all-wrapper").show();
-})
-</script>
+<% @events.each do |event| %>
+  <div class="Vlt-col Vlt-col--1of3">
+    <div class="Vlt-card">
+      <h3><%= link_to event.title, event.url, target: '_blank' %></h3>
+      <p class="community-event__date Vlt-grey-darker"><svg class="Vlt-icon Vlt-icon--small Vlt-icon--text-bottom Vlt-grey-dark" aria-hidden="true"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-calendar"/></svg><%= date_range event.starts_at, event.ends_at %></p>
+      <p><%= event.description %></p>
+    </div>
+  </div>
+<% end %>
