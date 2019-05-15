@@ -11,17 +11,14 @@
 <div class="Vlt-grid Vlt-grid--narrow Vlt-right Nxd-map-buttons" style="margin-bottom: 20px;">
   <div class="Vlt-col">
     <%= form_with url: '/event_search', :method => :get, local: false do %>
-
-      <div id="SearchComponent" key="SearchComponent">
-        <div class="Vlt-form__element Vlt-form__element--big">
-          <div class="Vlt-composite">
-            <div class="Vlt-input">
-              <input type="text" name="query" autocomplete="off" value="<%= @search_term %>" id="searchbox">
-              <label for="searchbox">Location / Event</label>
-            </div>
-            <div class="Vlt-composite__append">
-              <%= submit_tag "Search", :class => "Vlt-btn" %>
-            </div>
+      <div id="MapSearch" class="Vlt-form__element Vlt-form__element--big">
+        <div class="Vlt-composite">
+          <div class="Vlt-input">
+            <input type="text" name="query" autocomplete="off" value="<%= @search_term %>" id="searchbox-map">
+            <label for="searchbox-map">Location / Event</label>
+          </div>
+          <div class="Vlt-composite__append">
+            <%= submit_tag "Search", :class => "Vlt-btn" %>
           </div>
         </div>
       </div>
