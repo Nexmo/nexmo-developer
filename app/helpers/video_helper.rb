@@ -14,11 +14,11 @@ module VideoHelper
   end
 
   def featured_video
-    videos = Session.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    # Get the latest month with an active video. This could be this month, last month or 6 months ago
+    # Our requirement is to cycle through all videos in the latest month
+    latest_video = Session.order(created_at: 'desc').limit(1).first
 
-    if videos.empty?
-      videos = Session.where('created_at >= :month', { month: 1.month.ago })
-    end
-    videos
+    # Select everything in that month
+    Session.where(created_at: latest_video.created_at.beginning_of_month..latest_video.created_at.end_of_month)
   end
 end
