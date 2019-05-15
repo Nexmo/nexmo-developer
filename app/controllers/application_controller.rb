@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
 
-  force_ssl if: :ssl_configured?
   before_action :set_show_feedback
   before_action :set_notices
   before_action :set_code_language
@@ -39,13 +38,6 @@ class ApplicationController < ActionController::Base
   def set_code_language
     return unless request.params[:code_language]
     @code_language = CodeLanguage.find(request.params[:code_language])
-  end
-
-  def ssl_configured?
-    return false if ENV['DISABLE_SSL']
-    return false if Rails.env.development?
-    return false if Rails.env.test?
-    true
   end
 
   def set_notices

@@ -1,4 +1,5 @@
 navigation_weight:
+  Application: 0
   Messaging: 1
   SMS: 1
   Voice: 2
@@ -51,6 +52,9 @@ navigation_weight:
   Secret Management: 30
 
 navigation_overrides:
+  application:
+    svg: 'flow'
+    svgColor: 'indigo'
   concepts:
     navigation_weight: 0
     svg: 'mind-map'
