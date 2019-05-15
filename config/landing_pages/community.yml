@@ -32,7 +32,7 @@ page:
         section_header:
           title: "Video Resources"
           icon:
-            name: icon-menu
+            name: icon-video
             color: blue
   - row:
     - column:
