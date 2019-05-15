@@ -151,6 +151,9 @@ gem 'terminal-table'
 # Single line logging for production
 gem 'lograge'
 
+# Country picker for ActiveAdmin
+gem 'country_select', '~> 4.0'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
