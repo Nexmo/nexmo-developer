@@ -74,8 +74,6 @@ navigation_overrides:
     voice-api:
       collapsible: true
       guides:
-        lex-connector:
-          label: 'Dev Preview'
         websockets:
           label: 'Beta'
     sip:
