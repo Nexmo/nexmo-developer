@@ -21,16 +21,9 @@ RSpec.describe VideoHelper, type: :helper do
 
   describe '#featured_video' do
     context 'with recent videos' do
-      it 'returns a published video' do
-        videos = Session.create(
-          [
-            { title: 'Session 1', description: 'Session Description', video_url: 'https://a/video/path', author: 'An Author', published: true, created_at: Time.zone.today },
-            { title: 'Session 2', description: 'Session Description', video_url: 'https://a/video/path', author: 'An Author', published: true, created_at: Time.zone.today },
-          ]
-        )
-        allow(Session).to receive(:where).and_return(videos)
-
-        expect(videos).to include(helper.featured_video)
+      it 'restricts featured videos to published and chooses a random one' do
+        expect(Session).to receive_message_chain(:where, :order, :limit, :sample)
+        helper.featured_video
       end
     end
   end

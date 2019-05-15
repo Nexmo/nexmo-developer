@@ -15,6 +15,6 @@ module VideoHelper
 
   def featured_video
     # Any of the latest 3 videos can be "featured"
-    Session.order(created_at: 'desc').limit(3).sample
+    Session.where(published: true).order(created_at: 'desc').limit(3).sample
   end
 end
