@@ -67,7 +67,7 @@ let refresh = () => {
   let rightPane = document.querySelector(".Vlt-main");
   if (rightPane) { rightPane.click(); }
 
-  Volta.init(['accordion', 'tooltip', 'tab', 'modal'])
+  Volta.init(['accordion', 'tooltip', 'tab', 'modal', 'dropdown'])
 
   // Fix for Turbolinks scrolling to in-page anchor when navigating to a new page
   if(window.location.hash){
