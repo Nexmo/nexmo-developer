@@ -174,3 +174,18 @@
     padding: 10px;
   }
 }
+
+
+.Vlt-card {
+  &__image {
+    &--aqua {
+      background: linear-gradient(to right, lighten($aqua, 5), darken($aqua, 10));
+
+      .Vlt-card__image__icon svg {
+        fill: $aqua;
+      }
+    }
+  }
+
+
+}

@@ -47,16 +47,15 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(3)') do
-        expect(page).to have_css('small', text: 'Programmable Conversations')
-        expect(page).to have_link('Conversation API', href: '/conversation/overview')
+        expect(page).to have_css('small', text: 'Programmable')
+        expect(page).to have_link('Video', href: 'https://tokbox.com/developer/guides/basics/')
 
         within('nav') do
-          expect(page).to have_link('Overview', href: '/conversation/overview')
-          expect(page).to have_link('Concepts', href: '/conversation/concepts/conversation')
-          expect(page).to have_link('Guides', href: '/conversation/guides/application-setup')
-          expect(page).to have_link('Code Snippets', href: '/conversation/code-snippets/conversation/list-conversations')
-          expect(page).to have_link('Tutorials', href: '/conversation/tutorials')
-          expect(page).to have_link('API Reference', href: '/api/conversation')
+          expect(page).to have_link('Overview', href: 'https://tokbox.com/developer/guides/basics/')
+          expect(page).to have_link('Guides', href: 'https://tokbox.com/developer/guides/')
+          expect(page).to have_link('Code Snippets', href: 'https://tokbox.com/developer/samples/')
+          expect(page).to have_link('Tutorials', href: 'https://tokbox.com/developer/tutorials/')
+          expect(page).to have_link('API Reference', href: 'https://tokbox.com/developer/sdks/js/')
         end
       end
 
@@ -87,6 +86,31 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(6)') do
+        expect(page).to have_css('small', text: 'Programmable Conversations')
+        expect(page).to have_link('Conversation API', href: '/conversation/overview')
+
+        within('nav') do
+          expect(page).to have_link('Overview', href: '/conversation/overview')
+          expect(page).to have_link('Concepts', href: '/conversation/concepts/conversation')
+          expect(page).to have_link('Code Snippets', href: '/conversation/code-snippets/conversation/list-conversations')
+          expect(page).to have_link('Tutorials', href: '/conversation/use-cases')
+          expect(page).to have_link('API Reference', href: '/api/conversation')
+        end
+      end
+
+      within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(7)') do
+        expect(page).to have_css('small', text: 'Configure')
+        expect(page).to have_link('Applications', href: '/application/overview')
+
+        within('nav') do
+          expect(page).to have_link('Overview', href: '/application/overview')
+          expect(page).to have_link('Concepts', href: '/application/overview')
+          expect(page).to have_link('Code Snippets', href: '/application/code-snippets')
+          expect(page).to have_link('API Reference', href: '/api/application.v2')
+        end
+      end
+
+      within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(8)') do
         expect(page).to have_css('small', text: 'Management')
         expect(page).to have_link('Account', href: '/account/overview')
 
@@ -98,7 +122,7 @@ RSpec.feature 'Landing page' do
         end
       end
 
-      within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(7)') do
+      within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(9)') do
         within('nav:nth-of-type(1)') do
           expect(page).to have_css('h3', text: 'Developer API')
           expect(page).to have_link('Messages', href: '/api/developer/messages')
@@ -108,7 +132,6 @@ RSpec.feature 'Landing page' do
 
         within('nav:nth-of-type(2)') do
           expect(page).to have_css('h3', text: 'Global APIs')
-          expect(page).to have_link('Application', href: '/api/application')
           expect(page).to have_link('Conversion', href: '/api/conversion')
           expect(page).to have_link('Media', href: '/api/media')
           expect(page).to have_link('Redact', href: '/api/redact')

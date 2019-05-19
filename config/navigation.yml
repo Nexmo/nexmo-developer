@@ -56,7 +56,7 @@ navigation_weight:
 navigation_overrides:
   application:
     svg: 'flow'
-    svgColor: 'indigo'
+    svgColor: 'blue'
   concepts:
     navigation_weight: 0
     svg: 'mind-map'
