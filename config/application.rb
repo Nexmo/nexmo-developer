@@ -22,7 +22,6 @@ module NexmoDeveloper
     config.autoload_paths << "#{Rails.root}/lib"
     config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'open_api', '*.rb')].each { |l| require l }
     config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'core_ext', '*.rb')].each { |l| require l }
-    config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'decorators', '*.rb')].each { |l| require l }
     config.autoload_paths += Dir[File.join(Rails.root, 'app', 'extensions', '**', '*.rb')].each { |l| require l }
     config.autoload_paths += Dir[File.join(Rails.root, 'app', 'middleware', '**', '*.rb')].each { |l| require l }
 

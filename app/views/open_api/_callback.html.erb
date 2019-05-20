@@ -1,5 +1,0 @@
-<% callback.paths.each do |path| %>
-  <% path.endpoints.each do |endpoint| %>
-    <%= render 'callback_endpoint', endpoint: endpoint, webhook: local_assigns[:webhook] %>
-  <% end %>
-<% end %>
