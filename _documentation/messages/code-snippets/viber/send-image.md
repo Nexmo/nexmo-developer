@@ -1,12 +1,12 @@
 ---
-title: Send a Text Message
-meta_title: Send a Text message on Viber using the Messages API
-navigation_weight: 1
+title: Send an Image Message
+meta_title: Send an image message on Viber using the Messages API
+navigation_weight: 2
 ---
 
-# Send a Text Message
+# Send an image Message
 
-In this code snippet you will see how to send a Viber message using the Messages API.
+In this code snippet you will see how to send a Viber image message using the Messages API.
 
 > **NOTE:** It is important that you read [this information about Viber accounts and messaging](/messages/concepts/viber) before trying this code snippet.
 
@@ -20,17 +20,18 @@ Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` | The ID of the application that you created.
 `VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
-`TO_NUMBER` | The phone number you are sending the message to. 
+`TO_NUMBER` | The phone number you are sending the message to.
+`IMAGE_URL` | The URL of the image you want to send.
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
 ```code_snippets
-source: '_examples/messages/viber/send-text'
+source: '_examples/messages/viber/send-image'
 application:
   type: messages
-  name: 'Send a Viber message'
+  name: 'Send a Viber image message'
 ```
 
 ## Try it out
 
-When you run the code a Viber message is sent to the destination number.
+When you run the code a Viber image message is sent to the destination number.
