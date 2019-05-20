@@ -77,7 +77,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Messages"
-          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by SMS, WhatsApp, Facebook Messenger ... whatever works for them. Message not received? No problem, automatically detect that and try another platform."
           icon: 
             name: "icon-chat"
             color: "purple"
@@ -196,7 +196,7 @@ page:
             	<i></i>
             	<div class="Vlt-callout__content">
                 <h4>Can't find what you're looking for?</h4>
-                Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+                Come and say hello at the Nexmo booth! We'd love to hear what you're building, and if anything trips you then we'd love to help you out (and improve the docs at the same time!)
             	</div>
             </div>
   - row:
@@ -207,19 +207,19 @@ page:
             list:
               - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
               - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+              - item: "[Make a Call with an NCCO](/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/php)"
               - item: "[Receive an Incoming Call with PHP](https://www.nexmo.com/blog/2018/06/28/receive-an-inbound-voice-call-with-php-dr/)"
               - item: "[Handle Keypad Input (DTMF) with PHP](https://www.nexmo.com/blog/2018/08/10/handle-user-input-with-php-dr/)"
-              - item: "[Interactive Voice Response](/tutorials/interactive-voice-response)"
     - column:
       - type: unordered_list
         unordered_list:
             bullet_shape: simple
             list:
-              - item: "[Make an Outbound Call with an NCCO](/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/php)"
-              - item: "[Play Text-to-Speech into a Call](/voice/voice-api/code-snippets/play-text-to-speech-into-a-call/php)"
-              - item: "[Record a Call](/voice/voice-api/code-snippets/record-a-call/php)"
-              - item: "[Connect Callers into a Conference](/voice/voice-api/code-snippets/connect-callers-into-a-conference/php)"
-              - item: "[Transfer a Call](/voice/voice-api/code-snippets/transfer-a-call/php)"
+              - item: "[Work with Signed Messages](/concepts/guides/signing-messages)"
+              - item: "[Send](/messaging/sms/code-snippets/send-an-sms) and [Receive](/messaging/sms/code-snippets/receiving-an-sms) an SMS with PHP"
+              - item: "[Receive SMS Delivery Receipts with PHP](https://www.nexmo.com/blog/2018/06/25/receiving-sms-delivery-receipts-with-php-dr/)"
+              - item: "[Look Up Information About a Phone Number](/number-insight/code-snippets/number-insight-basic/php)"
+              - item: "[Verify a User's Phone Number](/verify/code-snippets/send-verify-request)"
   - row:
     - column:
         - type: line_divider
