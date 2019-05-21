@@ -78,11 +78,6 @@ Rails.application.routes.draw do
 
   get '/api', to: 'api#index'
 
-  # Show the old /verify/templates page
-  get '/api/*definition/*code_language', to: 'api#show', constraints: lambda { |request|
-    request['definition'] == 'verify' && request['code_language'] == 'templates'
-  }
-
   mount ::NexmoOASRenderer::API, at: '/api'
 
   get '/(:product)/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: DocumentationConstraint.documentation
