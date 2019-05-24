@@ -9,6 +9,7 @@ PATH
   remote: ../nexmo-oas-renderer-sinatra
   specs:
     nexmo-oas-renderer (0.1.0)
+      activemodel (~> 5.2)
       activesupport (~> 5.2)
       banzai (~> 0.1.2)
       neatjson (~> 0.8)
