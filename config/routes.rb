@@ -78,7 +78,7 @@ Rails.application.routes.draw do
 
   get '/api', to: 'api#index'
 
-  mount ::NexmoOASRenderer::API, at: '/api'
+  mount ::Nexmo::OAS::Renderer::API, at: '/api'
 
   get '/(:product)/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: DocumentationConstraint.documentation
   get '/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: CodeLanguage.route_constraint
