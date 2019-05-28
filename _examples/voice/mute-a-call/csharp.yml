@@ -9,8 +9,8 @@ client:
     to_line: 19
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotNetQuickStarts/Controllers/VoiceController.cs
-    from_line: 98
-    to_line: 101
+    from_line: 138
+    to_line: 141
 run_command: 'Run using your IDE'
 file_name: VoiceController.cs
 unindent: true
