@@ -1,6 +1,6 @@
 ---
 title: Before you begin
-navigation_weight: 1
+navigation_weight: 0
 ---
 
 # Before you begin
