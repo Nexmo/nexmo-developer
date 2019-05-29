@@ -69,7 +69,7 @@ Capability | Webhook | Example | Description
 
 There are four main ways to create an application:
 
-1. In the Nexmo Dashboard (this is currently restricted to v1 Applications with a single fixed capability).
+1. In the Nexmo Dashboard. This is currently restricted to applications with a single capability, you can however add capabilities and update application details using the V2 API. If an application has multiple capabilities it will appear in all relevant sections of the Dashboard - for example, an application with both Voice and Messages capabilities will appear in both the Voice and Messages sections of the Dashboard.
 2. Using the Nexmo CLI (this is currently restricted to v1 Applications with a single fixed capability).
 3. Using the [Applications API](https://developer.nexmo.com/api/application.v2).
 4. Using one of the Nexmo client libraries (this is currently restricted to v1 Applications with a single fixed capability).
