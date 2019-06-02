@@ -1,0 +1,162 @@
+title: "Nexmo loves iOS! Use our SDKs or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
+
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Nexmo @ AltConf 2019"
+            align: center
+          subtitle:
+            text: "Hello, iOS community! We love catching up with you at events, and we've put together some resources that we hope you find useful."
+            align: center
+          icon:
+            name: "Brand-icon-apple-color"
+            color: "grey"
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=railsconf&utm_campaign=landing"
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "# The Nexmo Booth Prizes!"
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "The Details"
+          icon:
+            name: "icon-laptop"
+            color: blue
+          text:
+          - content: "In addition to all of our normal swag, we are giving away a special prize during AltConf, a Sphero BOLT App-Enabled Robot"
+            type: large
+      - type: unordered_list
+        unordered_list:
+          list:
+            - item: "<img src='https://cdn.shopify.com/s/files/1/1938/8211/products/bolt1.png?v=1542216480' alt='Sphero Bolt' />"
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "How To Win"
+          icon:
+            name: "icon-thumbs-up"
+            color: blue
+          text:
+          - content: "To win the Sphero BOLT, you just need stop by the Nexmo booth and have your badge scanned for the giveaway. We will be picking a random entry on the last day of the event, Thursday June 6."
+
+            type: large
+
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "The Rules"
+          icon:
+            name: "icon-books"
+            color: blue
+          text:
+          - content: "One entry per person. The winner will be emailed by lunch time on Thursday and can pick up the prize from our booth anytime during the rest of the day."
+            type: large
+
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon: 
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          icon: 
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages/overview"
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Verify"
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
+          icon: 
+            name: "icon-lock"
+            color: "indigo"
+          url: "/verify"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <div class="Vlt-callout Vlt-callout--shoutout">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
+            	</div>
+            </div>
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Handy iOS related links and further reading"
+          icon:
+            name: "icon-pin-2"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+            	</div>
+            </div>
+  - row:
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Call a landline from your iOS app](/client-sdk/in-app-voice/getting-started/make-phone-call/ios)"
+              - item: "[Receive a phone call in your app](/client-sdk/in-app-voice/getting-started/receive-phone-call/ios)"
+              - item: "[Understanding Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Learn more about our iOS SDK](/client-sdk/overview)"
+              - item: "[Add in-app messaging to your iOS app](/tutorials/client-sdk-ios-in-app-messaging)"
+              - item: "[Building a voice based stock ticker with Swift and Vapor](https://github.com/nexmo-community/vapi-stocks-swift/blob/master/Sources/App/routes.swift)"
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider
