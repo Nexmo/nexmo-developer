@@ -19,7 +19,7 @@ page:
       - type: action_button
         action_button:
           text: "Sign Up For Free"
-          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=railsconf&utm_campaign=landing"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=altconf&utm_campaign=landing"
           center_button: true
   - row:
     - column:
