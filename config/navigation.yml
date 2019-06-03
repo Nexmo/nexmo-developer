@@ -137,6 +137,18 @@ navigation_overrides:
     svg: 'message'
     svgColor: 'teal'
     label: 'Dev Preview'
+    code-snippets:
+      collapsible: false
+      conversation: 
+        collapsible: true
+      member: 
+        collapsible: true
+      user: 
+        collapsible: true
+      leg: 
+        collapsible: true
+      event: 
+        collapsible: true
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'
