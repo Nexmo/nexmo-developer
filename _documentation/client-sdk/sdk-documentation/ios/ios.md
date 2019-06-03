@@ -1,5 +1,5 @@
 ---
-title: iOS
+title: SDK Reference
 redirect: true
 ---
 

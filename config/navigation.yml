@@ -99,6 +99,12 @@ navigation_overrides:
     label: 'Dev Preview'
     sdk-documentation:
       link: false
+      android:
+        collapsible: true
+      ios:
+        collapsible: true
+      javascript:
+        collapsible: true
     setup:
       collapsible: true
     in-app-voice:

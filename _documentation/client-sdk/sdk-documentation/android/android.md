@@ -1,5 +1,5 @@
 ---
-title: Android
+title: SDK Reference
 redirect: true
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: JavaScript
+title: SDK Reference
 redirect: true
 ---
 
