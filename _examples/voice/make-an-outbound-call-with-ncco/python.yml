@@ -1,6 +1,4 @@
 ---
-title: Python
-language: python
 code:
     source: .repos/nexmo/nexmo-python-code-snippets/voice/make-outbound-call-ncco.py
     from_line: 10
@@ -9,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-python-code-snippets/voice/make-outbound-call-ncco.py
     from_line: 2
     to_line: 8
-file_name: make-outbound-call-ncco.py
-run_command: 'python3 make-outbound-call-ncco.py'
