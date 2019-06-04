@@ -14,7 +14,7 @@ The Verify API allows you to select the best workflow for your use case. This mi
 
 > **Note**: You are limited to a maximum of one verify request per second.
 
-You can further customise the experience by [setting the timings](/verify/guides/changing-default-timings) when creating a Verify request, and to [trigger the next verification attempt](/verify/code-snippets/trigger-next-verification-process) programmatically if you wish.
+You can further customise the experience by [setting the timings](/verify/guides/changing-default-timings) when creating a Verify request, and can [trigger the next verification attempt](/verify/code-snippets/trigger-next-verification-process) programmatically if you wish.
 
 ## Workflow 1 (Default Workflow): SMS -> TTS -> TTS
 
