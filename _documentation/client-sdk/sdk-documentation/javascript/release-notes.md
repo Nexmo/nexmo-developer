@@ -1,6 +1,6 @@
 ---
-title: # Release Notes
-description: # Release notes. A list of most important fixes and new features for Client SDK.
+title: Release Notes
+description: Release notes. A list of most important fixes and new features for Client SDK.
 navigation_weight: 0
 ---
 
