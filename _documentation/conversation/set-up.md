@@ -1,5 +1,6 @@
 ---
 title: Set Up
+navigation_weight: 2
 ---
 
 # Set Up

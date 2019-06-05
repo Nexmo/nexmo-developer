@@ -1,5 +1,6 @@
 ---
 title: Set Up Authentication
+navigation_weight: 3
 ---
 
 # Set Up Authentication
