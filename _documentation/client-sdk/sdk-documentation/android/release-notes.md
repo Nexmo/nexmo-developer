@@ -32,15 +32,15 @@ This version contains many small bug fixes and stability improvements. The major
 
 ### Added
 
-    * Support for parsing the MemberId who initiated a call.
+* Support for parsing the MemberId who initiated a call.
 
 ### Fixed
 
-    * Improvements for cross platform in app calls
+* Improvements for cross platform in app calls
 
-    * Crash on processing push notifications without SDK initialization
+* Crash on processing push notifications without SDK initialization
 
-    * Crash on sending `markAsDelivered` event
+* Crash on sending `markAsDelivered` event
 
 -----
 
