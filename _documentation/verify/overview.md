@@ -6,7 +6,7 @@ description: The Verify API overview.
 
 # Verify API
 
-The Verify API enables you to use [2FA](/concepts/guides/glossary#2fa) (two-factor authentication) to check that you can contact a user at a specific number.
+The Verify API enables you to confirm that you can contact a user at a specific number.
 
 * Protect against spam, by preventing spammers from creating multiple accounts
 * Monitor suspicious activity, by forcing an account user to verify ownership of a number
@@ -15,18 +15,19 @@ The Verify API enables you to use [2FA](/concepts/guides/glossary#2fa) (two-fact
 The general workflow is shown in the following sequence diagram:
 
 ```js_sequence_diagram
-Participant Your server
 Participant Nexmo
-Participant User's phone
-Your server-> Nexmo: 1. You request verification of a number
-Nexmo-->Your server: You receive the `request_id`
-Nexmo->User's phone: 2. Nexmo sends a verification code to \nthe user's phone number via SMS \nor text-to-speech
-User's phone->Your server: 3. User enters verification code into your app
-Your server->Nexmo: 4. You submit the `request_id` and code
-Nexmo-->Your server: Nexmo sends the verification result
+Participant Your server
+Participant User
+User -> Your server: User supplies phone number
+Your server -> Nexmo: Request to Verify this number
+Nexmo --> Your server: Supply `request_id`
+Note right of Nexmo: Nexmo sends PIN code to user (multiple attempts as needed)
+Nexmo -> User: 
+Nexmo --> User: 
+User -> Your server: Enter PIN code
+Your server -> Nexmo: Check PIN is valid for `request_id`
+Nexmo --> Your server: OK
 ```
-
-The Verify API makes three attempts to contact the user before failing the verification process. See [verification events](/verify/guides/verification-events).
 
 ## Getting Started
 
@@ -38,9 +39,11 @@ source: '_examples/verify/send-verification-request'
 
 ## Features
 
-Nexmo handles code generation, verification and delivery via the fastest route available. You pay only for successful verifications, regardless of where your user resides.
+Nexmo Verify API offers powerful default behaviour for easy integration. By default we will handle the code generation and verification, and deliver the message via the fastest route available. You can also control the user experience by defining which [workflow](/verify/guides/workflows-and-events) should be used for each request; by default Nexmo will use SMS followed by TTS and another TTS in most cases.
 
-If the user does not respond to one of two SMS [within a specified time period](/verify/guides/verification-events#timing-of-each-event), the Verify API sends it as a voice call using [TTS](/concepts/guides/glossary#tts-api) (Text to Speech) based on the user's locale. For example, the TTS for a `61*` phone number is sent in English with an Australian accent (`en-au`). You can specify the language, accent and gender in the request.
+> It is possible to supply your own PIN code in some circumstances, please contact your account manager.
+
+Delivery of the PIN code to the user uses a combination of SMS messages and [TTS](/concepts/guides/glossary#tts-api) (Text to Speech) calls based on the user's locale. For example, the TTS for a `61*` phone number is sent in English with an Australian accent (`en-au`). You can specify the language, accent and gender in the Verify request.
 
 ## Concepts
 

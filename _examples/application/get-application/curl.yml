@@ -1,0 +1,9 @@
+---
+title: Curl
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/application/get-application.sh
+    from_line: 5
+    to_line: 7
+file_name: get-application.sh
+run_command: './get-application.sh'

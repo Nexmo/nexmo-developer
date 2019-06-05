@@ -25,7 +25,7 @@ This document contains the following information:
 ## Basic, Standard and Advanced APIs
 Each API level builds upon the capabilities of the previous one. For example, the Standard API includes all of the locale and formatting information from the Basic API and returns extra data about the type of number, whether it is ported and the identity of the caller (US only). The Advanced API provides the most comprehensive data. It includes everything that is available in the Basic and Standard APIs and adds roaming and reachability information.
 
-> Unlike the Basic and Standard APIs, you can optionally use the Advanced API asynchronously. 
+> Unlike the Basic and Standard APIs which are synchronous APIs, the Advanced API is intended to be used asynchronously. 
 
 ### Typical use cases
 

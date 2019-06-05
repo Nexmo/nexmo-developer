@@ -21,5 +21,7 @@
 //= require volta/tooltip.min.js
 //= require volta/components/volta.tooltip.js
 //= require volta/components/volta.modal.js
+//= require volta/components/volta.dropdown.js
 //= require clipboard
-
+//= require underscore
+//= require gmaps/google

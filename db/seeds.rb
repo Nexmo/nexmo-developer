@@ -16,6 +16,8 @@ Event.create!({
   ends_at: Time.zone.parse('2020-03-05'),
   url: 'http://www.smallbizhack.com/',
   description: 'Hack to create new innovations that help small businesses save time so they can get back to their passions',
+  city: 'Mountain View',
+  country: 'US',
 })
 
 Event.create!({
@@ -24,6 +26,8 @@ Event.create!({
   ends_at: Time.zone.parse('2020-03-01'),
   url: 'https://forwardjs.com/',
   description: 'Illuminating lectures, & enlightening workshops',
+  city: 'Ottawa',
+  country: 'CA',
 })
 
 Event.create!({
@@ -32,6 +36,8 @@ Event.create!({
   ends_at: Time.zone.parse('2020-03-31'),
   url: 'http://2020.render-conf.com/',
   description: 'A 2-day conference for front-end developers',
+  city: 'Oxford',
+  country: 'GB',
 })
 
 devrel_con = Event.create!({
@@ -40,6 +46,8 @@ devrel_con = Event.create!({
   ends_at: Time.zone.parse('2016-12-07'),
   url: 'https://london-2016.devrel.net/',
   description: 'A one day conference about developer relations, developer experience and developer marketing. December 7th 2016, London.',
+  city: 'London',
+  country: 'GB',
 })
 
 Session.create!({
@@ -48,4 +56,15 @@ Session.create!({
   author: 'Phil Leggetter',
   event: devrel_con,
   video_url: 'https://www.youtube.com/watch?v=i7EZDYYfFmc',
+  published: true,
 })
+
+Session.create!({
+  title: 'How to Proxy Voice Calls on Phones and In-app with the Nexmo Voice API, Kotlin, and WebRTC',
+  description: 'In this coding session, Aaron Bassett creates a traditional PSTN proxy in Kotlin, which he uses to connect two telephone endpoints while keeping both sides of the call anonymous.',
+  author: 'Aaron Bassett',
+  event: devrel_con,
+  video_url: 'https://www.youtube.com/watch?v=pHf9Df3Ns2U',
+  published: true,
+})
+

@@ -40,63 +40,64 @@ const Recording = require('../events/recording');
  * @private
   */
 class ConversationEventHandler {
-    constructor(application, conversation) {
-        this.log = logger.getLogger(this.constructor.name);
-        this.application = application;
-        this.conversation = conversation;
-        this.constructed_event = null;
-        this._handleEventMap = {
-            'audio:record': this._processAudioRecord,
-            'audio:record:done': this._processAudioRecordDone,
-            'event:delete': this._processDelete,
+  constructor(application, conversation) {
+    this.log = logger.getLogger(this.constructor.name);
+    this.application = application;
+    this.conversation = conversation;
+    this.constructed_event = null;
+    this._handleEventMap = {
+      'audio:record': this._processAudioRecord,
+      'audio:record:done': this._processAudioRecordDone,
+      'event:delete': this._processDelete,
 
-            'image': this._processImage,
-            'image:delivered': this._processDelivered,
-            'image:seen': this._processSeen,
+      'image': this._processImage,
+      'image:delivered': this._processDelivered,
+      'image:seen': this._processSeen,
 
-            'member:invited': this._processMember,
-            'member:joined': this._processMember,
-            'member:left': this._processMember,
+      'member:invited': this._processMember,
+      'member:joined': this._processMember,
+      'member:left': this._processMember,
 
-            'member:media': this._processMedia,
+      'leg:status:update': this._processLegStatus,
 
-            'text': this._processText,
-            'text:delivered': this._processDelivered,
-            'text:seen': this._processSeen,
+      'member:media': this._processMedia,
 
-            'audio:mute:on': this._processMuteForMedia,
-            'audio:mute:off': this._processMuteForMedia,
-            'video:mute:on': this._processMuteForMedia,
-            'video:mute:off': this._processMuteForMedia
-        };
+      'text': this._processText,
+      'text:delivered': this._processDelivered,
+      'text:seen': this._processSeen,
 
+      'audio:mute:on': this._processMuteForMedia,
+      'audio:mute:off': this._processMuteForMedia,
+      'video:mute:on': this._processMuteForMedia,
+      'video:mute:off': this._processMuteForMedia
+    };
+  }
+
+    /**
+     * Handle and event.
+     *
+     * Identify the type of the event,
+     * create the corresponding Class instance
+     * emit to the corresponding Objects
+     * @param {object} event
+     * @private
+     */
+  handleEvent(event) {
+    if (this._handleEventMap.hasOwnProperty(event.type)) {
+      return this._handleEventMap[event.type].call(this, event) || new Event(this.conversation, event);
     }
-
-	/**
-	 * Handle and event.
-	 *
-	 * Identify the type of the event,
-	 * create the corresponding Class instance
-	 * emit to the corresponding Objects
-	 * @param {object} event
-	 * @private
-	 */
-    handleEvent(event) {
-        if (this._handleEventMap.hasOwnProperty(event.type)) {
-            return this._handleEventMap[event.type].call(this, event) || new Event(this.conversation, event);
-        }
-        return new Event(this.conversation, event);
-    }
+    return new Event(this.conversation, event);
+  }
 
     /**
      * return a simple Event object for the audio recording event
-	 * @param {object} event
+     * @param {object} event
      * @returns {Event}
      * @private
      */
-    _processAudioRecord(event) {
-        return new Event(this.conversation, event);
-    }
+  _processAudioRecord(event) {
+    return new Event(this.conversation, event);
+  }
 
     /**
      * return a Recording object for the audio recording event
@@ -104,9 +105,9 @@ class ConversationEventHandler {
      * @returns {Recording}
      * @private
      */
-    _processAudioRecordDone(event) {
-        return new Recording(this.conversation, event);
-    }
+  _processAudioRecordDone(event) {
+    return new Recording(this.conversation, event);
+  }
 
     /**
      * Mark the requested event as delivered
@@ -115,59 +116,58 @@ class ConversationEventHandler {
      * @returns the Event that is marked as delivered
      * @private
      */
-    _processDelivered(event) {
-        const delivered_id = event.body.event_id;
-        if (this.conversation.events.has(delivered_id)) {
-            let event_to_mark = this.conversation.events.get(delivered_id);
-            event_to_mark.state = event_to_mark.state || {};
-            event_to_mark.state.delivered_to = event_to_mark.state.delivered_to || {};
-            event_to_mark.state.delivered_to[event.from] = event.timestamp;
-            return event_to_mark;
-        } else {
-            this.log.warn('Event not found');
-            return null;
-        }
+  _processDelivered(event) {
+    let event_to_mark = this.conversation.events.get(event.body.event_id);
+    if (event_to_mark) {
+      event_to_mark.state = event_to_mark.state || {};
+      event_to_mark.state.delivered_to = event_to_mark.state.delivered_to || {};
+      event_to_mark.state.delivered_to[event.from] = event.timestamp;
+      return event_to_mark;
+    } else {
+      this.log.warn('Event not found');
+      return null;
     }
+  }
 
     /**
      * Delete the requested event
      * empty the payload of the event (text or image)
      * use that event as constructed to update the local events' map
-	 * @param {object} event
+     * @param {object} event
      * @returns the deleted events
      * @private
      */
-    _processDelete(event) {
-        const event_to_delete = this.conversation.events.get(event.body.event_id);
-        if (this.conversation.events.has(event_to_delete.id)) {
-            if (event_to_delete.body.text) event_to_delete.body.text = "";
-            if (event_to_delete.body.representations) event_to_delete.body.representations = "";
-            event_to_delete.body.timestamp = {
-                deleted: event.timestamp
-            };
-            return event_to_delete;
-        } else {
-            this.log.warn('Event not found');
-            return null;
-        }
+  _processDelete(event) {
+    let event_to_delete = this.conversation.events.get(event.body.event_id);
+    if (event_to_delete) {
+      if (event_to_delete.body.text) event_to_delete.body.text = '';
+      if (event_to_delete.body.representations) event_to_delete.body.representations = '';
+      event_to_delete.body.timestamp = {
+        deleted: event.timestamp
+      };
+      return event_to_delete;
+    } else {
+      this.log.warn('Event not found');
+      return null;
     }
+  }
 
     /**
      * Return an ImageEvent with the corresponding image data
-	 * @param {object} event
+     * @param {object} event
      * @returns {ImageEvent}
      */
-    _processImage(event) {
-        const imageEvent = new ImageEvent(this.conversation, event);
+  _processImage(event) {
+    const imageEvent = new ImageEvent(this.conversation, event);
         // Automatically send a delivery
         // avoid sending delivered to our own events
-        if (this.conversation.me.id !== imageEvent.from) {
-            imageEvent.delivered().catch((error) => {
-                this.log.debug(error);
-            });
-        }
-        return imageEvent;
+    if (this.conversation.me.id !== imageEvent.from) {
+      imageEvent.delivered().catch((error) => {
+        this.log.debug(error);
+      });
     }
+    return imageEvent;
+  }
 
     /**
      * Handle events for member state changes (joined, invited, left)
@@ -178,15 +178,27 @@ class ConversationEventHandler {
      * @returns {Event}
      * @private
      */
-    _processMember(event) {
+  _processMember(event) {
         // needs to first process the call state and then alter the member
-        if (this.application.calls.has(this.conversation.id)) {
-            let call = this.application.calls.get(this.conversation.id);
-            call._handleStatusChange(event);
-        }
-        this.conversation.members.get(event.from)._handleEvent(event);
-        return new Event(this.conversation, event);
+    if (this.application.calls.has(this.conversation.id)) {
+      let call = this.application.calls.get(this.conversation.id);
+      call._handleStatusChange(event);
     }
+    this.conversation.members.get(event.from)._handleEvent(event);
+    return new Event(this.conversation, event);
+  }
+
+  /**
+   * Handle events for leg status updates in conversation level.
+   * Other member's legs are going through here too.
+   * @param {object} event
+   * @returns {Event}
+   * @private
+  */
+  _processLegStatus(event) {
+    this.conversation.members.get(event.from)._handleEvent(event);
+    return new Event(this.conversation, event);
+  }
 
     /**
      * Handle member:media events
@@ -194,65 +206,65 @@ class ConversationEventHandler {
 	 * @param {object} event
      * @private
      */
-    _processMedia(event) {
-        this.conversation.members.get(event.from)._handleEvent(event);
-        return null;
-    }
+  _processMedia(event) {
+    this.conversation.members.get(event.from)._handleEvent(event);
+    return null;
+  }
 
     /**
      * Handle *:mute:* events
 	 * @param {object} event
      * @private
      */
-    _processMuteForMedia(event) {
-        if (this.conversation.media.rtcObjects[event.body.rtc_id]) {
-            event.streamIndex = this.conversation.media.rtcObjects[event.body.rtc_id].streamIndex;
-        } else if (this.conversation.remoteMembers) {
-            const remote = this.conversation.remoteMembers
-                .find((remoteMember) =>
-                    remoteMember.remote_leg_id === event.body.rtc_id);
-            if (remote) {
-                event.streamIndex = remote.streamIndex;
-            }
-        }
-        return null;
+  _processMuteForMedia(event) {
+    if (this.conversation.media.rtcObjects[event.body.rtc_id]) {
+      event.streamIndex = this.conversation.media.rtcObjects[event.body.rtc_id].streamIndex;
+    } else if (this.conversation.remoteMembers) {
+      const remote = this.conversation.remoteMembers
+          .find((remoteMember) =>
+            remoteMember.remote_leg_id === event.body.rtc_id);
+      if (remote) {
+        event.streamIndex = remote.streamIndex;
+      }
     }
+    return null;
+  }
+
     /**
      * Mark the requested event as seen
      * use that event as constructed to update the local Events' map
 	 * @param {object} event
      * @private
      */
-    _processSeen(event) {
-        const seen_id = event.body.event_id;
-        if (this.conversation.events.has(seen_id)) {
-            let event_to_mark = this.conversation.events.get(seen_id);
-            event_to_mark.state = event_to_mark.state || {};
-            event_to_mark.state.seen_by = event_to_mark.state.seen_by || {};
-            event_to_mark.state.seen_by[event.from] = event.timestamp;
-            return event_to_mark;
-        } else {
-            this.log.warn('Event not found');
-            return null;
-        }
+  _processSeen(event) {
+    let event_to_mark = this.conversation.events.get(event.body.event_id);
+    if (event_to_mark) {
+      event_to_mark.state = event_to_mark.state || {};
+      event_to_mark.state.seen_by = event_to_mark.state.seen_by || {};
+      event_to_mark.state.seen_by[event.from] = event.timestamp;
+      return event_to_mark;
+    } else {
+      this.log.warn('Event not found');
+      return null;
     }
+  }
 
     /**
      * Create the TextEvent object and trigger .delivered()
 	 * @param {object} event
      * @private
      */
-    _processText(event) {
-        const textEvent = new TextEvent(this.conversation, event);
+  _processText(event) {
+    const textEvent = new TextEvent(this.conversation, event);
         // Automatically send a delivery
         // avoid sending delivered to our own events
-        if (this.conversation.me.id !== textEvent.from) {
-            textEvent.delivered().catch((error) => {
-                this.log.debug(error);
-            });
-        }
-        return textEvent;
+    if (this.conversation.me.id !== textEvent.from) {
+      textEvent.delivered().catch((error) => {
+        this.log.debug(error);
+      });
     }
+    return textEvent;
+  }
 }
 
 module.exports = ConversationEventHandler;
@@ -266,13 +278,13 @@ module.exports = ConversationEventHandler;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 01 2019 11:02:45 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

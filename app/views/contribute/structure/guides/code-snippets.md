@@ -101,7 +101,7 @@ The options available in these config files combine to a very consistent output 
 title: Java
 language: java
 dependencies:
-    - 'com.nexmo:client:4.1.0'
+    - 'com.nexmo:client:4.3.0'
 code:
     source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
     from_line: 42

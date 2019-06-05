@@ -30,33 +30,34 @@
  * Nexmo Client SDK
  *  Main wrapper
  *
- * Copyright (c) Nexmo Inc. 2017
+ * Copyright (c) Nexmo Inc.
  */
-
 const WildEmitter = require('wildemitter');
 const socket_io = require('socket.io-client');
 const logger = require('loglevel');
 const prefix = require('loglevel-plugin-prefix');
+const bugsnag = require('@bugsnag/js');
 
 const Utils = require('./utils');
 const RTC_Cache = require('./modules/rtc_cache');
 const Application = require('./application');
 const ErrorsEmitter = require('./modules/errors_emitter');
-const User = require('./user')
+const User = require('./user');
+
 
 prefix.reg(logger);
 
 prefix.apply(logger, {
-	template: '[%t] %l (NXM-%n):',
-	timestampFormatter: (date) => {
-		return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
-	},
-	levelFormatter: (level) => {
-		return level.toUpperCase();
-	},
-	nameFormatter: (name) => {
-		return name || 'SDK';
-	}
+  template: '[%t] %l (NXM-%n):',
+  timestampFormatter: (date) => {
+    return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
+  },
+  levelFormatter: (level) => {
+    return level.toUpperCase();
+  },
+  nameFormatter: (name) => {
+    return name || 'SDK';
+  }
 });
 
 // Conversation Client Error
@@ -69,12 +70,12 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * The parent ConversationClient class.
  *
  * @class ConversationClient
- * @param {object} [params]
+ * @param {object} params the settings to initialise the SDK
  * @param {Boolean} params.debug=false set mode to debug
- * @param {string} params.url=nexmo_ws_url Nexmo Conversation Websocket url
- * @param {string} params.path=/rtc Nexmo Conversation Websocket url path suffix
+ * @param {string} params.url='nexmo_ws_url' Nexmo Conversation Websocket url
+ * @param {string} params.path='/rtc' Nexmo Conversation Websocket url path suffix
  * @param {object} params.rtcstats set reporting for stream statistics (Websocket or internal event emit)
- * @param {string} params.rtcstats.ws_url='' endpoint (weboscket) to send rtc stats.
+ * @param {string} params.rtcstats.ws_url endpoint (websocket) to send rtc stats.
  * @param {Boolean} params.rtcstats.emit_events=false receive rtcstats:report event
 
  * @param {object} params.socket_io configure socket.io
@@ -82,104 +83,121 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @param {Boolean} params.socket_io.autoConnect=true socket.io autoConnect attribute
  * @param {Boolean} params.socket_io.reconnection=true socket.io reconnection attribute
  * @param {number} params.socket_io.reconnectionAttempts=5 socket.io reconnectionAttempts attribute
- * @param {string[]} params.socket_io.transports=['websocket] socket.io transports protocols
-
- * @param {string} params.ips_url=ips_url Nexmo IPS url for image upload
+ * @param {string[]} params.socket_io.transports='websocket' socket.io transports protocols
+ * @param {string[]} params.sync='lite' {'lite' || 'full' || 'none'} after a successful login, synchronise conversations , include events or nothing
+ * @param {string} params.ips_url='ips_url' Nexmo IPS url for image upload
  * @param {string} params.environment='production' development / production environment
  * @param {object} params.iceServers=[{'stun:stun.l.google.com:19302'}] iceServers for RTCPeerConnection
- * @param {object} param.callstats configure callstats.io integration
- * @param {Boolean} param.callstats.enabled=false
- * @param {string} param.callstats.AppID your callstats AppID
- * @param {string} param.callstats.AppSecret your callstats AppSecret
+ * @param {object} params.callstats configure callstats.io integration
+ * @param {Boolean} params.callstats.enabled=false
+ * @param {string} params.callstats.AppID your callstats AppID
+ * @param {string} params.callstats.AppSecret your callstats AppSecret
+ * @param {object} params.log_reporter configure log reports for bugsnag tool
+ * @param {Boolean} params.log_reporter.enabled=true
+ * @param {string} params.log_reporter.bugsnag_key your bugsnag api key / defaults to Nexmo api key
  *
+ * @emits ConversationClient#connecting
+ * @emits ConversationClient#disconnect
+ * @emits ConversationClient#error
  * @emits ConversationClient#ready
- * @emits ConversationClient#rtcstats:report
+ * @emits ConversationClient#reconnect
+ * @emits ConversationClient#reconnecting
  */
 
 class ConversationClient {
-	constructor(params) {
-		//save an array of instances
-		const options = params || {};
-		const config = this.config = {
-			cache: true,
-			debug: false,
-			callstats: { enabled: false, AppID: '', AppSecret: '' },
-			environment: '@@environment',
-			ips_url: '@@ips_url',
-			path: '/rtc',
-			socket_io: {
-				reconnection: true,
-				reconnectionAttempts: 5,
-				forceNew: true,
-				autoConnect: true,
-				transports: ['websocket']
-			},
-			repository: '@@repository',
-			screenShareExtensionId: '',
-			SDK_version: '@@SDK_version',
-			url: '@@ws_url',
-			iceServers: [{
-				urls: 'stun:stun.l.google.com:19302'
-			}],
-			rtcstats: {
-				ws_url: '',
-				emit_events: false
-			}
-		};
+  constructor(params) {
+    // save an array of instances
+    const inputParams = params || {};
+    this.config = {
+      cache: true,
+      debug: false,
+      callstats: {
+        enabled: false,
+        AppID: '',
+        AppSecret: ''
+      },
+      log_reporter: {
+        enabled: false,
+        bugsnag_key: null
+      },
+      environment: '@@environment',
+      ips_url: '@@ips_url',
+      path: '/rtc',
+      repository: '@@repository',
+      socket_io: {
+        reconnection: true,
+        reconnectionAttempts: 5,
+        forceNew: true,
+        autoConnect: true,
+        transports: ['websocket']
+      },
+      screenShareExtensionId: '',
+      SDK_version: '@@SDK_version',
+      sync: 'lite',
+      url: '@@ws_url',
+      iceServers: [{
+        urls: 'stun:stun.l.google.com:19302'
+      }],
+      rtcstats: {
+        ws_url: '',
+        emit_events: false
+      }
+    };
 
-		let connection;
-		this.sessionReady = false;
-		this.requests = {};
-		this.application = null;
-		// set our config from options
-		Object.assign(this.config, options);
-
-		if (config.debug === true) {
-			logger.setLevel("debug");
-		} else {
-			logger.setLevel("silent");
-		}
-		this.log = logger.noConflict();
-
-		// inject callstats library
-		if (this.config.callstats.enabled) {
-			function j(u, c) {
-				let h = document.getElementsByTagName('head')[0],
-					s = document.createElement('script');
-				s.async = true;
-				s.src = u;
-				s.onload = s.onreadystatechange = function() {
-					if (!s.readyState || /loaded|complete/.test(s.readyState)) {
-						s.onload = s.onreadystatechange = null;
-						s = undefined;
-						if (c) {
-							c();
-						}
-					}
-				};
-				h.insertBefore(s, h.firstChild);
-			}
+    this.sessionReady = false;
+    this.requests = {};
+    this.application = null;
 
 
-			if (typeof document !== "undefined") {
-				j("//api.callstats.io/static/callstats.min.js", () => {
-					if (typeof callstats !== "undefined") {
-						this.callstats = new callstats();
-					}
-				});
-			}
-		}
+    if (inputParams.debug === true) {
+      logger.setLevel('debug');
+    } else {
+      logger.setLevel('silent');
+    }
+    this.log = logger.noConflict();
 
-		// Create the socket.io connection and allow multiple instances
-		let socket_io_config = Object.assign({ path: config.path }, config.socket_io);
-		connection = socket_io.connect(config.url, socket_io_config);
+    // set our config from the inputParams
+    Object.assign(this.config, this._sanitizeConfig(inputParams));
 
-		this.connection = connection;
+    // inject callstats library
+    if (this.config.callstats.enabled) {
+      Utils.injectScript('//api.callstats.io/static/callstats.min.js', () => {
+        if (typeof callstats !== 'undefined') {
+          this.callstats = new callstats();
+        }
+      });
+    }
 
-		if (config.cache) {
-			this.cache = new RTC_Cache(this);
-			this.cache.init(this);
-		}
+    // inject bug reporting tool
+    if (this.config.log_reporter.enabled) {
+      global.bugsnagClient = bugsnag(this.config.log_reporter.bugsnag_key || Utils._getBugsnagKey());
+    }
+
+    this._createAndSetConnection();
+
+    WildEmitter.mixin(ConversationClient);
+  }
+
+	/**
+	 * Creates and sets the socket_io connection
+	 *
+	 * @private
+	 */
+  _createAndSetConnection() {
+    let connection;
+
+    // Create the socket.io connection and allow multiple instances
+    let socket_io_config = Object.assign({
+      path: this.config.path
+    }, this.config.socket_io);
+    connection = socket_io.connect(this.config.url, socket_io_config);
+
+    this.connection = connection;
+
+    if (this.config.cache) {
+      this.cache = new RTC_Cache(this);
+      this.cache.init(this);
+    }
 
 		/**
 		 * Ready event.
@@ -190,13 +208,13 @@ class ConversationClient {
 		 *      console.log("connection ready");
 		 *     });
 		 */
-		connection.on('connect', () => {
-			this.emit('ready');
-			this.sessionReady = true;
-			this.log.info('websocket ready');
-		});
+    connection.on('connect', () => {
+      this.emit('ready');
+      this.sessionReady = true;
+      this.log.info('websocket ready');
+    });
 
-		// Listen to socket.io events
+    // Listen to socket.io events
 		/**
 		 * Connecting event.
 		 *
@@ -206,10 +224,10 @@ class ConversationClient {
 		 *      console.log("connecting");
 		 *     });
 		 */
-		connection.on('connecting', () => {
-			this.emit('connecting');
-			this.log.info('websocket connecting');
-		});
+    connection.on('connecting', () => {
+      this.emit('connecting');
+      this.log.info('websocket connecting');
+    });
 		/**
 		 * Disconnect event.
 		 *
@@ -219,10 +237,10 @@ class ConversationClient {
 		 *      console.log("disconnect");
 		 *     });
 		 */
-		connection.on('disconnect', () => {
-			this.emit('disconnect');
-			this.log.info('websocket disconnected');
-		});
+    connection.on('disconnect', () => {
+      this.emit('disconnect');
+      this.log.info('websocket disconnected');
+    });
 		/**
 		 * Reconnect event.
 		 *
@@ -232,21 +250,21 @@ class ConversationClient {
 		 *      console.log("reconnect", retry_number);
 		 *     });
 		 */
-		connection.on('reconnect', (retry_number) => {
-			this.emit('reconnect', retry_number);
-			Utils.getToken()
-				.then((token) => {
-					this.login(token)
-						.then(() => {
-							this.log.info('automatically logged in');
-						}).catch((error) => {
-							this.log.error(error);
-						});
-				}).catch((error) => {
-					this.log.error(error);
-				});
-			this.log.info('websocket reconnect');
-		});
+    connection.on('reconnect', (retry_number) => {
+      this.emit('reconnect', retry_number);
+      Utils.getToken()
+          .then((token) => {
+            this.login(token)
+                .then(() => {
+                  this.log.info('automatically logged in');
+                }).catch((error) => {
+                  this.log.error(error);
+                });
+          }).catch((error) => {
+            this.log.error(error);
+          });
+      this.log.info('websocket reconnect');
+    });
 		/**
 		 * Reconnecting event.
 		 *
@@ -256,10 +274,10 @@ class ConversationClient {
 		 *      console.log("reconnecting", retry_number);
 		 *     });
 		 */
-		connection.on('reconnecting', (retry_number) => {
-			this.emit('reconnecting', retry_number);
-			this.log.info('websocket reconnecting');
-		});
+    connection.on('reconnecting', (retry_number) => {
+      this.emit('reconnecting', retry_number);
+      this.log.info('websocket reconnecting');
+    });
 		/**
 		 * Error event.
 		 *
@@ -269,36 +287,54 @@ class ConversationClient {
 		 *      console.log("error", error);
 		 *     });
 		 */
-		connection.on('error', (error) => {
-			this.emit('error', new NexmoClientError(error))
-			this.log.error("Socket.io reported a generic error", error);
-		});
+    connection.on('error', (error) => {
+      this.emit('error', new NexmoClientError(error));
+      this.log.error('Socket.io reported a generic error', error);
+    });
 
-		connection.io.on('packet', (packet) => {
-			if (packet.type !== 2) return;
-			if (packet.data[0] === 'echo') return; //ignore echo events
-			const response = packet.data[1];
-			// Set the type of the response
-			response.type = packet.data[0];
-			this.log.debug('&lt;--', response.type, response);
-			if (response.rid in this.requests) {
-				const callback = this.requests[response.rid].callback;
-				delete this.requests[response.rid];
-				delete response.delay;
-				if (this.errorsEmitter) {
-					this.errorsEmitter.emitResponseIfError(response);
-				}
-				callback(response);
-			} else {
-				// This is an unsolicited event
-				// we emit it in application level.
-				if (this.application)
-					this.application._handleEvent(response);
-			}
-		});
-		WildEmitter.mixin(ConversationClient);
-	}
+    connection.io.on('packet', (packet) => {
+      if (packet.type !== 2) return;
+      if (packet.data[0] === 'echo') return; // ignore echo events
+      const response = packet.data[1];
+      // Set the type of the response
+      response.type = packet.data[0];
+      this.log.debug('&lt;--', response.type, response);
+      if (response.rid in this.requests) {
+        const callback = this.requests[response.rid].callback;
+        delete this.requests[response.rid];
+        delete response.delay;
+        if (this.errorsEmitter) {
+          this.errorsEmitter.emitResponseIfError(response);
+        }
+        callback(response);
+      } else {
+        // This is an unsolicited event
+        // we emit it in application level.
+        if (this.application) {
+          this.application._handleEvent(response);
+        }
+      }
+    });
 
+    return connection;
+  }
+	/**
+	 * Revert any invalid params to our default
+	 *
+	 * @param {object} config the object to sanitize
+	 * @private
+	 */
+  _sanitizeConfig(incomingConfig) {
+    // make sure we allow specific values for the params
+
+    // Sync
+    let sanitizedConfig = incomingConfig;
+    if (incomingConfig.sync &amp;&amp; ['lite', 'full', 'none'].indexOf(incomingConfig.sync) === -1) {
+      this.log.warn(`invalid param '${incomingConfig.sync}' for sync, reverting to ${this.config.sync}`);
+      sanitizedConfig.sync = this.config.sync;
+    }
+    return sanitizedConfig;
+  }
 	/**
 	 * Conversation listening for text events.
 	 *
@@ -463,9 +499,9 @@ class ConversationClient {
 	 * @property {Event} event - information about media presence state
 	 * @property {boolean} event.body.audio  - is audio enabled
 	 * @example &lt;caption>get every member's media change events &lt;/caption>
-	 * conversation.on("member:media", (from, media) => {
-	 *      console.log(from.media.audio); //true
-	 * 		console.log(event.body.media); //{"audio":true}
+	 * conversation.on("member:media", (from, event) => {
+	 *      console.log(from.media.audio_settings.enabled); //true
+	 * 		console.log(event.body.media); //{"audio_settings": {"enabled": true, "muted": false, "earmuffed": false}}
 	 * });
 	 */
 	/**
@@ -486,162 +522,182 @@ class ConversationClient {
 	 * @property {Member} member - the member object linked to this event
 	 * @property {Event} event - information about the mute event
 	 */
-	sendRequest(request, callback) {
-		// Add a message ID to the request and set up a listener for the reply (or error)
-		request.tid = Utils.allocateUUID();
-		const type = request.type;
-		delete request.type;
-		this.log.debug('-->', type, request);
-		this.log.info('-->', type, request.tid);
-		this.connection.emit(type, request);
-		this.requests[request.tid] = {
-			type: type,
-			request: request,
-			callback: callback
-		};
-	}
+  sendRequest(request, callback) {
+    // Add a message ID to the request and set up a listener for the reply (or error)
+    request.tid = Utils.allocateUUID();
+    const type = request.type;
+    delete request.type;
+    this.log.debug('-->', type, request);
+    this.log.info('-->', type, request.tid);
+    this.connection.emit(type, request);
+    this.requests[request.tid] = {
+      type: type,
+      request: request,
+      callback: callback
+    };
+  }
 
 	/**
 	 * Login to the cloud.
-	 * @param {string} params.token - the login token
+	 * @param {string} token - the login token
 	 * @returns  {Promise&lt;Application>} - the application we logged in
 	 */
-	login(token) {
-		// return a promise for the application
-		return new Promise((resolve, reject) => {
-			this.log.info(`Client-SDK Version: ${this.config.SDK_version}`);
-			Utils.cleanupToken();
-			this.sendRequest({
-				type: 'session:login',
-				body: {
-					token: token,
-					SDK_version: this.config.SDK_version,
-					OS_family: 'js',
-					OS_revision: (typeof navigator !== "undefined") ? navigator.userAgent : (typeof window !== "undefined") ? window.navigator.userAgent : "Generic JS navigator"
-				}
-			}, (response) => {
-				if (response.type === "session:success") {
-					if (!this.application || (this.application.me &amp;&amp; this.application.me.id !== response.body.user_id)) {
-						this.application = new Application(this);
-					}
-					if (!this.application.me) {
-						this.application.me = new User(
-							this.application, {
-								id: response.body.user_id,
-								name: response.body.name
-							});
-					}
-					if (!this.errorsEmitter) {
-						this.errorsEmitter = new ErrorsEmitter(this.application);
-					}
-					this._updateTokenInStorage(token, response.body.name);
-					if (typeof (this.callstats) !== "undefined") {
-						const csStatsInit = (csError, csErrMsg) => {
-							this.log.info(`Status: errCode= ${csError} errMsg= ${csErrMsg}`);
-						}
-						const reportType = {
-							inbound: 'inbound',
-							outbound: 'outbound'
-						};
+  login(token) {
+    // Create connection if needed
+    if (typeof this.connection === 'undefined') {
+      this._createAndSetConnection();
+    }
 
-						// callback function to receive the stats
-						const csStatsCallback = (stats) => {
-							var ssrc;
-							for (ssrc in stats.streams) {
-								this.log.info("SSRC is: ", ssrc);
-								var dataSsrc = stats.streams[ssrc];
-								this.log.info("SSRC Type ", dataSsrc.reportType);
-								if (dataSsrc.reportType === reportType.outbound) {
-									this.log.info("RTT is: ", dataSsrc.rtt);
-								} else if (dataSsrc.reportType === reportType.inbound) {
-									this.log.info("Inbound loss rate is: ", dataSsrc.fractionLoss);
-								}
-							}
-						}
-						const configParams = {
-							disableBeforeUnloadHandler: true, // disables callstats.js's window.onbeforeunload parameter.
-							applicationVersion: "app_version", // Application version specified by the developer.
-							disablePrecalltest: true // disables the pre-call test, it is enabled by default
-						};
+    // return a promise for the application
+    return new Promise((resolve, reject) => {
+      this.log.info(`Client-SDK Version: ${this.config.SDK_version}`);
+      Utils.cleanupToken();
+      this.sendRequest({
+        type: 'session:login',
+        body: {
+          token: token,
+          SDK_version: this.config.SDK_version,
+          OS_family: 'js',
+          OS_revision: (typeof navigator !== 'undefined') ? navigator.userAgent : (typeof window !== 'undefined') ? window.navigator.userAgent : 'Generic JS navigator'
+        }
+      }, (response) => {
+        if (response.type === 'session:success') {
+          if (!this.application || (this.application.me &amp;&amp; this.application.me.id !== response.body.user_id)) {
+            this.application = new Application(this);
+          }
+          if (!this.application.me) {
+            this.application.me = new User(
+                this.application, {
+                  id: response.body.user_id,
+                  name: response.body.name
+                });
+          }
+          if (!this.errorsEmitter) {
+            this.errorsEmitter = new ErrorsEmitter(this.application);
+          }
+          this._updateTokenInStorage(token, response.body.name);
+          if (typeof (this.callstats) !== 'undefined') {
+            const csStatsInit = (csError, csErrMsg) => {
+              this.log.info(`Status: errCode= ${csError} errMsg= ${csErrMsg}`);
+            };
+            const reportType = {
+              inbound: 'inbound',
+              outbound: 'outbound'
+            };
 
-						this.callstats.initialize(this.config.callstats.AppID, this.config.callstats.AppSecret, this.application.me.id, csStatsInit, csStatsCallback, configParams);
-					}
-					// Retrieve the existing conversation data for this user
-					return this.application.getConversations()
-						.then(() => {
-							// Complete the login process
-							resolve(this.application);
-						}, (reason) => {
-							reject(new NexmoApiError(reason));
-						});
-				} else {
-					reject(new NexmoApiError(response));
-					//TODO move this in cache module
-					if (this.cache &amp;&amp; this.cache.worker) {
-						this.cache.worker.terminate();
-					}
-				}
-			});
-		});
-	}
+            // callback function to receive the stats
+            const csStatsCallback = (stats) => {
+              let ssrc;
+              for (ssrc in stats.streams) {
+                this.log.info('SSRC is: ', ssrc);
+                let dataSsrc = stats.streams[ssrc];
+                this.log.info('SSRC Type ', dataSsrc.reportType);
+                if (dataSsrc.reportType === reportType.outbound) {
+                  this.log.info('RTT is: ', dataSsrc.rtt);
+                } else if (dataSsrc.reportType === reportType.inbound) {
+                  this.log.info('Inbound loss rate is: ', dataSsrc.fractionLoss);
+                }
+              }
+            };
+            const configParams = {
+              disableBeforeUnloadHandler: true, // disables callstats.js's window.onbeforeunload parameter.
+              applicationVersion: 'app_version', // Application version specified by the developer.
+              disablePrecalltest: true // disables the pre-call test, it is enabled by default
+            };
+
+            this.callstats.initialize(this.config.callstats.AppID, this.config.callstats.AppSecret, this.application.me.id, csStatsInit, csStatsCallback, configParams);
+          }
+
+          // Set Bugsnag user to application.me.id
+          if (this.config.log_reporter.enabled) {
+            global.bugsnagClient.user = {id: this.application.me.id};
+          }
+
+          if (this.config.sync !== 'none') {
+            // Retrieve the existing conversation data for this user
+            return this.application.getConversations()
+                .then((conversations) => {
+                  this.application.syncConversations(conversations);
+                  resolve(this.application);
+                }, (reason) => {
+                  reject(new NexmoApiError(reason));
+                });
+          } else {
+            resolve(this.application);
+          }
+        } else {
+          reject(new NexmoApiError(response));
+          // TODO move this in cache module
+          if (this.cache &amp;&amp; this.cache.worker) {
+            this.cache.worker.terminate();
+          }
+        }
+      });
+    });
+  }
 
 	/**
 	 * logout from the cloud.
 	 */
-	logout() {
-		return new Promise((resolve, reject) => {
-			const logoutRequest = () => {
-				return this.sendRequest({
-					type: 'session:logout',
-					body: {}
-				}, (response) => {
-					if (response.type === "session:logged-out" || response.type === "session:terminated") {
-						this.disconnect();
-						delete this.errorsEmitter;
-						delete this.application;
-						delete this.cache;
-						this.callbacks = {};
-						this.requests = {};
-						this.sessionReady = false;
-						resolve(response);
-					} else {
-						reject(response);
-					}
-				});
-			}
+  logout() {
+    return new Promise((resolve, reject) => {
+      const logoutRequest = () => {
+        return this.sendRequest({
+          type: 'session:logout',
+          body: {}
+        }, (response) => {
+          if (response.type === 'session:logged-out' || response.type === 'session:terminated') {
+            this.disconnect();
+            delete this.errorsEmitter;
+            delete this.application;
+            delete this.cache;
+            delete this.connection;
+            this.callbacks = {};
+            this.requests = {};
+            this.sessionReady = false;
+            resolve(response);
+          } else {
+            reject(response);
+          }
+        });
+      };
 
-			// prepare for logout
-			if (this.application) {
-				let disablePromises = [];
-				for (let conversation_id in this.application.conversations) {
-					disablePromises.push(this.application.conversations[conversation_id].media.disable());
-				}
-				return Promise.all(disablePromises)
-					.catch((err) => { this.log.info(err); }).then(() => {
-						return logoutRequest();
-					});
-			} else {
-				return logoutRequest();
+      // prepare for logout
+      if (this.application) {
+        let disablePromises = [];
 
-			}
-		});
-	}
+        if (this.application.conversations.size) {
+          for (let conversation of this.application.conversations.values()) {
+            disablePromises.push(conversation.media.disable());
+          }
+        }
+        return Promise.all(disablePromises)
+            .catch((err) => {
+              this.log.info(err);
+            }).then(() => {
+              return logoutRequest();
+            });
+      } else {
+        return logoutRequest();
+      }
+    });
+  }
 
 	/**
 	 * Disconnect from the cloud.
 	 *
 	 */
-	disconnect() {
-		return this.connection.disconnect();
-	}
+  disconnect() {
+    return this.connection.disconnect();
+  }
 
 	/**
 	 * Connect from the cloud.
 	 *
 	 */
-	connect() {
-		return this.connection.connect();
-	}
+  connect() {
+    return this.connection.connect();
+  }
 
 	/**
 	 * Update or Set the stored token
@@ -649,12 +705,12 @@ class ConversationClient {
 	 * @param {string} token the token to set
 	 * @param {string} username the username to whom the token belongs to
 	 */
-	_updateTokenInStorage(token, username) {
-		return Utils.updateToken({
-			token: token,
-			username: username
-		});
-	}
+  _updateTokenInStorage(token, username) {
+    return Utils.updateToken({
+      token: token,
+      username: username
+    });
+  }
 }
 module.exports = ConversationClient;
 </code></pre>
@@ -667,13 +723,13 @@ module.exports = ConversationClient;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 01 2019 11:02:45 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

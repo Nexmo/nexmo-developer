@@ -1,0 +1,55 @@
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: Nexmo ❤️ Community
+            align: center
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "You can find us at these upcoming events"
+          icon:
+            name: icon-world-hand
+            color: blue
+  - row:
+    - column:
+      - type: events
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Video Resources"
+          icon:
+            name: icon-video
+            color: blue
+  - row:
+    - column:
+      - type: sessions
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: contact_community
+    - column:
+      - type: section_header
+        section_header:
+          title: "@NexmoDev on Twitter"
+          icon:
+            name: Brand-icon-twitter
+            color: blue
+      - type: html
+        html:
+          content: <a class="twitter-timeline" data-width="100%" data-height="300" data-dnt="true" href="https://twitter.com/NexmoDev?ref_src=twsrc%5Etfw">Tweets by NexmoDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  - row:
+    - column:
+      - type: line_divider
+      - type: join_slack
+      - type: line_divider
+

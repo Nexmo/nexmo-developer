@@ -1,10 +1,10 @@
 ---
-title: Changing the default event timings
-description: How to change the default timings for each verification event.
+title: Change the event timings
+description: How to change the timings for each verification event.
 navigation_weight: 2
 ---
 
-# Changing the Default Event Timings
+# Change the Event Timings
 
 You can change the [default timings](/verify/guides/verification-events#timing-of-each-event) by supplying custom values for `pin_expiry` and/or `next_event_wait` in the initial request:
 
@@ -19,6 +19,8 @@ You can change the [default timings](/verify/guides/verification-events#timing-o
 If you specify values for both `pin_expiry` and `next_event_wait`, the value of `pin_expiry` must be an exact multiple of `next_event_wait`.
 
 ## Examples
+
+The table below shows some example values and the effects when used with the default workflow (SMS -> TTS -> TTS):
 
 |`pin_expiry`|`next_event_wait`|Effect
 |--|--|--|

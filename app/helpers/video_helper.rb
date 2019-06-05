@@ -12,4 +12,9 @@ module VideoHelper
 
     video_url
   end
+
+  def featured_video
+    # Any of the latest 3 videos can be "featured"
+    Session.where(published: true).order(created_at: 'desc').limit(3).sample
+  end
 end

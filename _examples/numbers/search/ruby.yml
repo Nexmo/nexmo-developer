@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/search.rb
+    from_line: 20
+    to_line: 37
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/search.rb
+    from_line: 13
+    to_line: 18

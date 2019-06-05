@@ -8,11 +8,11 @@ navigation_weight: 1
 
 ## Overview
 
-The Nexmo Voice API handles two types of phone call: inbound and outbound.
+The Nexmo Voice API handles two types of phone call: **inbound** and **outbound**.
 
-Inbound calls are calls made to a Nexmo number from another regular phone anywhere in the world.
+**Inbound** calls are calls made to a Nexmo number from another regular phone anywhere in the world.
 
-Outbound calls are calls made from the Nexmo platform to a regular phone number. Outbound calls are usually initiated in response to a request made via the REST API to create a new call. Outbound calls may also be made from within the call flow of an existing call (either inbound or outbound) using the `connect` action within the NCCO (Nexmo Call Control Object). This scenario is generally used for forwarding calls.
+**Outbound** calls are calls made from the Nexmo platform to a regular phone number. Outbound calls are usually initiated in response to a request made via the REST API to create a new call. Outbound calls may also be made from within the call flow of an existing call (either inbound or outbound) using the `connect` action within the NCCO (Nexmo Call Control Object). This scenario is generally used for forwarding calls.
 
 Both inbound and outbound calls follow the same call flow once answered. This call flow is controlled by an NCCO. An NCCO is a script of actions to be run within the context of the call. Actions are executed in the order they appear in the script, with the next action starting when the previous action has finished executing. For more information about NCCOs, see the [NCCO reference](/voice/voice-api/ncco-reference).
 
@@ -24,10 +24,10 @@ You may choose to provide your NCCO as part of the request you send to create a 
 
 Each call goes through a sequence of states in its lifecycle:
 
-1. Created
-2. Ringing
-3. Answered
-4. Complete
+1. `started`
+2. `ringing`
+3. `answered`
+4. `completed`
 
 ## Event objects
 
@@ -43,7 +43,7 @@ The following table shows possible values for the `status` field of an event obj
 | `started`    | The call is created on the Nexmo platform |
 | `ringing`    | The destination has confirmed that the call is ringing |
 | `answered`   | The destination has answered the call |
-| `completed`    | When a call has been completed successfully |
+| `completed`    | The call flow has been terminated. This event is always received at the end of a call unless the call was `rejected`. |
 | `machine`    | When machine detection has been requested and the call is answered by a machine|
 | `human`      | When machine detection has been requested and the call is answered by a human|
 | `input`  | User input has been collected via an `input` action |
@@ -95,7 +95,9 @@ In general, useful information such as the calling number and destination number
 
 ## Synchronous vs Asynchronous Actions
 
-Each *action* within an NCCO has certain conditions on which it will be considered "complete" and the call will progress to the next action. For some actions this complete state can depend on how they are configured.
+Each *action* within an NCCO has certain conditions on which it will be considered "complete" and the call progresses to the next action. For some actions this `completed` state depends on how they are configured.
+
+> Ultimately, all calls end up as `completed` unless the call was `rejected`.
 
 ### Record
 

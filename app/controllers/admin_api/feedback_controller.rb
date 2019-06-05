@@ -6,8 +6,6 @@ module AdminApi
       return unless authenticate
 
       @feedbacks = Feedback::Feedback.created_between(params[:created_after], params[:created_before])
-
-      render :index
     end
   end
 end

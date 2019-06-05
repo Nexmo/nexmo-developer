@@ -29,12 +29,18 @@ Field | Example | Description
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | A unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | A unique identifier for this conversation
 
+#### Transmitting additional data with SIP headers
+
+In addition to the above fields, you can specify any additional headers you need when using SIP Connect. Any headers provided must start with `X-` and will be sent to your `answer_url` with a prefix of `SipHeader_`. For example, if you add a header of `X-UserId` with a value of `1938ND9`, Nexmo will add `SipHeader_X-UserId=1938ND9` to the request made to your `answer_url`.
+
+> **Warning:** Headers that start with `X-Nexmo` will not be sent to your `answer_url`
+
 ### Answer webhook data field examples
 
 For a `GET` request, the variables will be in the URL, like this:
 
 ```
-/answer.php?to=442079460000&from=447700900000&conversation_uuid=CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab&uuid=aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+/answer.php?to=442079460000&from=447700900000&conversation_uuid=CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab&uuid=aaaaaaaa-bbbb-cccc-dddd-0123456789ab&SipHeader_X-UserId=1938ND9
 ```
 
 If you set the `answer_method` to `POST` then you will receive the request with JSON-format data in the body:
@@ -44,7 +50,8 @@ If you set the `answer_method` to `POST` then you will receive the request with 
   "from": "442079460000",
   "to": "447700900000",
   "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
-  "conversation_uuid": "CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+  "conversation_uuid": "CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "SipHeader_X-UserId": "1938ND9"
 }
 ```
 

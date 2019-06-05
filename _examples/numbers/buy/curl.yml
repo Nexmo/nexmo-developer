@@ -1,0 +1,6 @@
+---
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/numbers/buy-number.sh
+    from_line: 5
+    to_line: 8
+

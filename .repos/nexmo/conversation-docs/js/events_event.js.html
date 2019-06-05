@@ -30,7 +30,7 @@
  * Nexmo Client SDK
  *  Event Object Model
  *
- * Copyright (c) Nexmo Inc. 2017
+ * Copyright (c) Nexmo Inc.
  */
 
 const WildEmitter = require('wildemitter');
@@ -46,143 +46,151 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @class Event
  */
 class Event {
-    constructor(conversation, params) {
-        this.conversation = conversation;
-        if (params) {
-            for (const key in params) {
-                switch (key) {
-                    case "type":
-                        this.type = params.type;
-                        break;
-                    case "cid":
-                        this.cid = params.cid;
-                        break;
-                    case "from":
-                        this.from = params.from;
-                        break;
-                    case "timestamp":
-                        this.timestamp = params.timestamp;
-                        break;
-                    case "id":
-                        this.id = params.id;
-                        break;
-                    case "state":
-                        this.state = params.state;
-                        break;
-                    case "index":
-                        this.index = params.index;
-                        break;
-                    case "streamIndex":
-                        this.streamIndex = params.streamIndex;
-                        break;
-                    case "body":
-                        this.body = params.body;
-                        if (this.body.user &amp;&amp; this.body.user.user_id) {
-                            this.body.user.id = this.body.user.user_id;
-                            delete this.body.user.user_id;
-                        }
-                        break;
-                }
+  constructor(conversation, params) {
+    this.conversation = conversation;
+    if (params) {
+      for (const key in params) {
+        switch (key) {
+          case 'type':
+            this.type = params.type;
+            break;
+          case 'cid':
+            this.cid = params.cid;
+            break;
+          case 'from':
+            this.from = params.from;
+            break;
+          case 'timestamp':
+            this.timestamp = params.timestamp;
+            break;
+          case 'id':
+            this.id = params.id;
+            break;
+          case 'state':
+            this.state = params.state;
+            break;
+          case 'index':
+            this.index = params.index;
+            break;
+          case 'streamIndex':
+            this.streamIndex = params.streamIndex;
+            break;
+          case 'body':
+            this.body = params.body;
+            if (this.body.user &amp;&amp; this.body.user.user_id) {
+              this.body.user.id = this.body.user.user_id;
+              delete this.body.user.user_id;
             }
-        }
-        WildEmitter.mixin(Event);
-    }
-
-    /**
-     * Delete the event
-     * @param {number} [event_id=this.event_id] if the event id param is not present, "this" event will be default
-     * @returns {Promise}
-     * @private
-     */
-    del(event_id = this.id) {
-        return new Promise((resolve, reject) => {
-            this.conversation.application.session.sendRequest({
-                type: 'event:delete',
-                cid: this.conversation.id,
-                from: this.conversation.me.id,
-                body: {
-                    event_id: event_id
-                }
-            }, (response) => {
-                if (response.type === 'event:delete:success') {
-                    resolve();
-                } else {
-                    reject(new NexmoApiError(response));
-                }
-            });
-        });
-    }
-
-    /**
-     * Mark as Delivered the event
-     * @param {number} [event_id=this.event_id] if the event id is not provided, the this event will be used
-     * @returns {Promise}
-     * @private
-     */
-    delivered(event_id = this.id) {
-        if (this.type !== "text" &amp;&amp; this.type !== "image") {
-            this.type = "event";
-        }
-        return new Promise((resolve, reject) => {
-            if (this.conversation.me.id === this.from) {
-                reject(new NexmoClientError("error:delivered:own-message"));
-            } else if (this.state &amp;&amp; this.state.delivered_to &amp;&amp; this.state.delivered_to[this.conversation.me.id]) {
-                reject(new NexmoClientError("error:already-delivered"));
-            } else {
-                const params = {
-                    event_id: event_id
-                };
-                this.conversation.application.session.sendRequest({
-                    type: this.type + ':delivered',
-                    from: this.conversation.me.id,
-                    cid: this.conversation.id,
-                    body: params
-                }, (response) => {
-                    if (response.type === this.type + ':delivered:success') {
-                        resolve();
-                    } else {
-                        reject(new NexmoApiError(response));
-                    }
-                });
-                resolve();
+            if (this.body.digits || this.body.digit) {
+              this.digit = this.body.digits || this.body.digit;
+              if (this.body.digits) {
+                delete this.body.digits;
+              } else {
+                delete this.body.digit;
+              }
             }
-        });
-    }
-
-    /**
-     * Mark as Seen the event
-     * @param {number} [event_id=this.event_id] if the event id is not provided, the this event will be used
-     * @returns {Promise}
-     * @private
-     */
-    seen(event_id = this.id) {
-        if (this.type !== "text" &amp;&amp; this.type !== "image") {
-            this.type = "event";
+            break;
         }
-        return new Promise((resolve, reject) => {
-            if (this.conversation.me.id === this.from) {
-                reject(new NexmoClientError("error:seen:own-message"));
-            } else if (this.state &amp;&amp; this.state.seen_by &amp;&amp; this.state.seen_by[this.conversation.me.id]) {
-                reject(new NexmoClientError("error:already-seen"));
-            } else {
-                const params = {
-                    event_id: event_id
-                };
-                this.conversation.application.session.sendRequest({
-                    type: this.type + ':seen',
-                    from: this.conversation.me.id,
-                    cid: this.conversation.id,
-                    body: params
-                }, (response) => {
-                    if (response.type === this.type + ':seen:success') {
-                        resolve();
-                    } else {
-                        reject(new NexmoApiError(response));
-                    }
-                });
-            }
-        });
+      }
     }
+    WildEmitter.mixin(Event);
+  }
+
+  /**
+   * Delete the event
+   * @param {number} [event_id=this.event_id] if the event id param is not present, "this" event will be default
+   * @returns {Promise}
+   * @private
+   */
+  del(event_id = this.id) {
+    return new Promise((resolve, reject) => {
+      this.conversation.application.session.sendRequest({
+        type: 'event:delete',
+        cid: this.conversation.id,
+        from: this.conversation.me.id,
+        body: {
+          event_id: event_id
+        }
+      }, (response) => {
+        if (response.type === 'event:delete:success') {
+          resolve();
+        } else {
+          reject(new NexmoApiError(response));
+        }
+      });
+    });
+  }
+
+  /**
+   * Mark as Delivered the event
+   * @param {number} [event_id=this.event_id] if the event id is not provided, the this event will be used
+   * @returns {Promise}
+   * @private
+   */
+  delivered(event_id = this.id) {
+    if (this.type !== 'text' &amp;&amp; this.type !== 'image') {
+      this.type = 'event';
+    }
+    return new Promise((resolve, reject) => {
+      if (this.conversation.me.id === this.from) {
+        reject(new NexmoClientError('error:delivered:own-message'));
+      } else if (this.state &amp;&amp; this.state.delivered_to &amp;&amp; this.state.delivered_to[this.conversation.me.id]) {
+        reject(new NexmoClientError('error:already-delivered'));
+      } else {
+        const params = {
+          event_id: event_id
+        };
+        this.conversation.application.session.sendRequest({
+          type: this.type + ':delivered',
+          from: this.conversation.me.id,
+          cid: this.conversation.id,
+          body: params
+        }, (response) => {
+          if (response.type === this.type + ':delivered:success') {
+            resolve();
+          } else {
+            reject(new NexmoApiError(response));
+          }
+        });
+        resolve();
+      }
+    });
+  }
+
+  /**
+   * Mark as Seen the event
+   * @param {number} [event_id=this.event_id] if the event id is not provided, the this event will be used
+   * @returns {Promise}
+   * @private
+   */
+  seen(event_id = this.id) {
+    if (this.type !== 'text' &amp;&amp; this.type !== 'image') {
+      this.type = 'event';
+    }
+    return new Promise((resolve, reject) => {
+      if (this.conversation.me.id === this.from) {
+        reject(new NexmoClientError('error:seen:own-message'));
+      } else if (this.state &amp;&amp; this.state.seen_by &amp;&amp; this.state.seen_by[this.conversation.me.id]) {
+        reject(new NexmoClientError('error:already-seen'));
+      } else {
+        const params = {
+          event_id: event_id
+        };
+        this.conversation.application.session.sendRequest({
+          type: this.type + ':seen',
+          from: this.conversation.me.id,
+          cid: this.conversation.id,
+          body: params
+        }, (response) => {
+          if (response.type === this.type + ':seen:success') {
+            resolve();
+          } else {
+            reject(new NexmoApiError(response));
+          }
+        });
+      }
+    });
+  }
 }
 module.exports = Event;
 </code></pre>
@@ -195,13 +203,13 @@ module.exports = Event;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 01 2019 11:02:45 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

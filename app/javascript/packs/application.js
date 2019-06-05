@@ -67,7 +67,7 @@ let refresh = () => {
   let rightPane = document.querySelector(".Vlt-main");
   if (rightPane) { rightPane.click(); }
 
-  Volta.init(['accordion', 'tooltip', 'tab', 'modal'])
+  Volta.init(['accordion', 'tooltip', 'tab', 'modal', 'dropdown'])
 
   // Fix for Turbolinks scrolling to in-page anchor when navigating to a new page
   if(window.location.hash){
@@ -89,6 +89,18 @@ let refresh = () => {
   $(".Vlt-sidemenu__trigger a").click(function(){
     window.location = $(this).attr("href");
     return false;
+  });
+
+  // Toggle text on accordion button for response fields
+  $(".response-description-toggle").click(function(){
+    let text = $(this).text();
+    let newText;
+    if (text.indexOf('View') != -1) {
+      newText = text.replace("View", "Hide");
+    } else {
+      newText = text.replace("Hide", "View");
+    }
+    $(this).text(newText);
   });
 }
 

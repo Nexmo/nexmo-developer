@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/numbers/cancel.php
+    from_line: 8
+    to_line: 15
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/numbers/cancel.php 
+    from_line: 5
+    to_line: 6

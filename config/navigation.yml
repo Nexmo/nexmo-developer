@@ -1,4 +1,5 @@
 navigation_weight:
+  Application: 0
   Messaging: 1
   SMS: 1
   Voice: 2
@@ -11,11 +12,12 @@ navigation_weight:
   Vonage Business Cloud: 7
 
   Number Programmability: 1
-  Setup: 1
-  Getting Started: 2
-  Account API: 3
-  Extension API: 4
-  User API: 5
+  VBC APIs: 2
+  Getting Started: 1
+  Account API: 2
+  Extension API: 3
+  User API: 4
+  Vonage Integration Suite: 3
 
   Onboarding: 0
   Overview: 1
@@ -39,10 +41,11 @@ navigation_weight:
   API Reference: 50
 
   Overview: 1
-  Concepts: 2
+  Setup: 2
+  Concepts: 3
   In-App Messaging: 4
-  In-App Voice: 3
-  In-App Video: 5
+  In-App Voice: 5
+  In-App Video: 6
 
   Messages API: 1
   Dispatch API: 2
@@ -50,6 +53,9 @@ navigation_weight:
   Secret Management: 30
 
 navigation_overrides:
+  application:
+    svg: 'flow'
+    svgColor: 'indigo'
   concepts:
     navigation_weight: 0
     svg: 'mind-map'
@@ -69,8 +75,6 @@ navigation_overrides:
     voice-api:
       collapsible: true
       guides:
-        lex-connector:
-          label: 'Dev Preview'
         websockets:
           label: 'Beta'
     sip:
@@ -96,6 +100,12 @@ navigation_overrides:
     label: 'Dev Preview'
     sdk-documentation:
       link: false
+      android:
+        collapsible: true
+      ios:
+        collapsible: true
+      javascript:
+        collapsible: true
     setup:
       collapsible: true
     in-app-voice:
@@ -113,6 +123,18 @@ navigation_overrides:
     svg: 'chat'
     svgColor: 'purple'
     label: 'Beta'
+    code-snippets:
+      collapsible: false
+      sms:
+        collapsible: true
+      mms:
+        collapsible: true
+      messenger:
+        collapsible: true
+      viber:
+        collapsible: true
+      whatsapp:
+        collapsible: true
   dispatch:
     svg: 'flow'
     svgColor: 'purple'
@@ -121,10 +143,21 @@ navigation_overrides:
     svg: 'message'
     svgColor: 'teal'
     label: 'Dev Preview'
+    code-snippets:
+      collapsible: false
+      conversation: 
+        collapsible: true
+      member: 
+        collapsible: true
+      user: 
+        collapsible: true
+      leg: 
+        collapsible: true
+      event: 
+        collapsible: true
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'
-    label: 'Dev Preview'
   contribute:
     administration:
       navigation_weight: 9999

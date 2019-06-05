@@ -100,7 +100,7 @@ Install project dependencies, run database migrations and start the server
 
 ```
 bundle install
-bin/rails db:create db:migrate db:seed
+bin/rails db:setup
 bin/yarn install
 bin/rails s
 ```

@@ -16,6 +16,7 @@ OPEN_API_PRODUCTS = %w[
   vonage-business-cloud/account
   vonage-business-cloud/extension
   vonage-business-cloud/user
+  vonage-business-cloud/vgis
   application.v2
 ].freeze
 

@@ -1,0 +1,11 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/sms/verify-signed-sms.php
+    from_line: 5
+    to_line: 24
+file_name: verify-signed-sms.php
+run_command: 'php verify-signed-sms.php'

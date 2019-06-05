@@ -1,12 +1,14 @@
 <% 
-    raise "Missing icon 'color' key in header landing page block" unless local_assigns['icon']['color']
-    raise "Missing icon 'name' key in header landing page block" unless local_assigns['icon']['name']
+    raise "Missing icon 'color' key in header landing page block" if local_assigns['icon'] && !local_assigns['icon']['color']
+    raise "Missing icon 'name' key in header landing page block" if local_assigns['icon'] && !local_assigns['icon']['name']
     raise "Missing 'title' key in header landing page block" unless local_assigns['title']
 %>
     <h1 class="Vlt-title--icon <%= "Vlt-title--#{local_assigns['title']['align']}" if local_assigns['title']['align'] %>" id="<%= local_assigns['title']['text'].parameterize %>">
-    <svg class="Vlt-<%= local_assigns['icon']['color'] %>">
+    <% if local_assigns['icon'] %>
+        <svg class="Vlt-<%= local_assigns['icon']['color'] %>">
         <use xlink:href="<%= local_assigns['icon']['name'].start_with?("Brand") ? "/symbol/volta-brand-icons.svg##{local_assigns['icon']['name']}" : "/symbol/volta-icons.svg#Vlt-#{local_assigns['icon']['name']}" %>"></use>
-    </svg>
+        </svg>
+    <% end %>
     <%= local_assigns['title']['text'] %>
 </h1>
 <% if local_assigns['subtitle'] %>

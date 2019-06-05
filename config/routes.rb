@@ -61,7 +61,6 @@ Rails.application.routes.draw do
   post '/community/slack', to: 'slack#invite'
 
   get '/tools', to: 'static#tools'
-  get '/community', to: 'static#community'
   get '/community/past-events', to: 'static#past_events'
 
   get '/feeds/events', to: 'feeds#events'
@@ -69,6 +68,7 @@ Rails.application.routes.draw do
   get '/extend', to: 'extend#index'
   get '/extend/:title', to: 'extend#show'
 
+  get '/event_search', to: 'static#event_search'
   match '/search', to: 'search#results', via: %i[get post]
 
   get '/api-errors', to: 'api_errors#index'

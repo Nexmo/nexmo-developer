@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/number/buy.js
+    from_line: 20
+    to_line: 27
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/number/buy.js
+    from_line: 8
+    to_line: 18

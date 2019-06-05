@@ -37,6 +37,11 @@ gem 'jbuilder', '~> 2.7.0'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Add Geocoder to get latitude and longitude for geographic places
+gem 'geocoder'
+
+# Add gmap4rails to integrate the Google Maps API
+gem 'gmaps4rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -142,6 +147,12 @@ gem 'titleize'
 
 # Used in our reporting rake tasks
 gem 'terminal-table'
+
+# Single line logging for production
+gem 'lograge'
+
+# Country picker for ActiveAdmin
+gem 'country_select', '~> 4.0'
 
 group :development, :test do
   gem 'awesome_print'

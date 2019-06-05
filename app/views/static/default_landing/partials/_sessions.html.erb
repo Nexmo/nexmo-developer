@@ -1,0 +1,29 @@
+<%
+  @featured = featured_video()
+  @sessions = Session.where(published: true)
+  if @featured
+    @sessions = @sessions.where("id <> ?", @featured.id)
+  end
+%>
+
+<% if @sessions.any? %>
+  
+  <div class="Vlt-card">
+    <div class="Vlt-grid">
+      <%= render partial: 'static/default_landing/partials/featured_session', :locals => { 'featured' => @featured } %>
+      <% @sessions.each do |session| %>
+        <div class="Vlt-col Vlt-col--1of3">
+          <div class="Vlt-card Vlt-card--border">
+          <h4><%= session.title %></h4>
+          <div class="video">
+            <iframe src="<%= video_embed_url(session.video_url) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          <p><%= session.description %></p>
+          <br>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,8 +1,6 @@
 ---
 title: Java
 language: java
-dependencies:
-    - 'com.nexmo:client:4.1.0'
 code:
     source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/sms/SendUnicodeMessage.java
     from_line: 43

@@ -18,4 +18,13 @@ RSpec.describe VideoHelper, type: :helper do
       end
     end
   end
+
+  describe '#featured_video' do
+    context 'with recent videos' do
+      it 'restricts featured videos to published and chooses a random one' do
+        expect(Session).to receive_message_chain(:where, :order, :limit, :sample)
+        helper.featured_video
+      end
+    end
+  end
 end
