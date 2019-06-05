@@ -29,7 +29,7 @@ You can use the following variables in any Verify templates:
 
 The `${pin}` is generated randomly by the Verify API. The values for `${brand}` and `${pin_expiry}` are the parameters you set in your call to [Verify request](/api/verify#verify-request).
 
-The `<break time="1s" />` is a [Speech Synthesis Markup Language (SSML)](/voice/voice-api/guides/text-to-speech#ssml) tag. It adds a one second delay before the text-to-speech message is played.
+The `<break time="1s" />` is a [Speech Synthesis Markup Language (SSML)](/voice/voice-api/guides/customizing-tts) tag. It adds a one second delay before the text-to-speech message is played.
 
 ### Creating a custom template
 

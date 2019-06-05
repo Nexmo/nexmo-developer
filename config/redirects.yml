@@ -146,7 +146,7 @@
 "/voice/voice-api/guides/interactive-voice-response": "/voice/voice-api/code-snippets/handle-user-input-with-dtmf"
 "/voice/voice-api/guides/inbound-calls": "/voice/voice-api/code-snippets/connect-an-inbound-call"
 "/voice/voice-api/guides/voice-app-components": "/voice/voice-api/guides/legs-conversations"
-"/voice/voice-api/guides/ssml": "/voice/voice-api/guides/text-to-speech#ssml"
+"/voice/voice-api/guides/ssml": "/voice/voice-api/guides/customizing-tts"
 "/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/guides/lex-connector"
 "/vonage-business-cloud/vbc-apis/account-api/api-reference": "/api/vonage-business-cloud/account"
 "/vonage-business-cloud/vbc-apis/extension-api/api-reference": "/api/vonage-business-cloud/extension"
