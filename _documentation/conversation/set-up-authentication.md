@@ -4,13 +4,15 @@ title: Set Up Authentication
 
 # Set Up Authentication
 
-![Programmable Conversation Authentication Set Up](/assets/images/conversation-api/conv-diagram-auth.gif)
-
 In order to use the Client SDKs, a User must be:
 
 1. Created by the Conversation API
 
 2. Logged in to the SDK, using a JWT, that your backend provides to your client app.
+
+![Programmable Conversation Authentication Set Up](/assets/images/conversation-api/conv-diagram-auth.gif)
+
+
 
 High-level authentication flow should look as such:
 
