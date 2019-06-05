@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/messages/messenger/send-video.sh
+    from_line: 6
+    to_line: 26
+file_name: send-video.sh
+run_command: bash send-video.sh

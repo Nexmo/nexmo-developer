@@ -12,7 +12,7 @@
           <%
               servers = endpoint.path.servers ? endpoint.path.servers : endpoint.definition.servers
           %>
-          <span><%= servers[0]['url'] %></span><%= endpoint.path.path.gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
+        <span><%= servers[0]['url'] %></span><%= endpoint.path.path.gsub(/\{(.+?)\}/, '<span class="api-path-parameter">{\1}</span>').html_safe %>
         </code>
       </div>
 

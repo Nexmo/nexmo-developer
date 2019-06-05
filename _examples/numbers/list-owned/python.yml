@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-python-code-snippets/numbers/list.py
+    from_line: 17
+    to_line: 26
+client:
+    source: .repos/nexmo/nexmo-python-code-snippets/numbers/list.py
+    from_line: 13
+    to_line: 15

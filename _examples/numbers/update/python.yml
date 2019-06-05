@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-python-code-snippets/numbers/update.py
+    from_line: 22
+    to_line: 37
+client:
+    source: .repos/nexmo/nexmo-python-code-snippets/numbers/update.py
+    from_line: 18
+    to_line: 20

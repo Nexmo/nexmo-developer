@@ -28,7 +28,7 @@
     "foundation-sites": "^6.5.3",
     "glob": "^7.1.2",
     "gsap": "^1.20.2",
-    "jquery": "3.0.0",
+    "jquery": "3.4.0",
     "js-sequence-diagrams": "https://github.com/adambutler/js-sequence-diagrams.git#modularity",
     "js-yaml": "^3.9.0",
     "jsrsasign": "^8.0.12",

@@ -1,0 +1,11 @@
+---
+title: PHP
+language: php
+dependencies:
+    - nexmo/client
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/sms/send-signed-sms.php
+    from_line: 5
+    to_line: 19
+file_name: send-signed-sms.php
+run_command: 'php send-signed-sms.php'

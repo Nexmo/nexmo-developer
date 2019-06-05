@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/number/update.js
+    from_line: 25
+    to_line: 44
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/number/update.js
+    from_line: 13
+    to_line: 23

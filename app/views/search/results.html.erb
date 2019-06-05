@@ -1,13 +1,10 @@
 <% if @results && @results_total > 0 %>
   <h1>We found <%= @results_total %> <%= 'results'.pluralize(@results_total) %> for '<%= params['query'] %>'</h1>
 
-  <hr>
-
-  <br>
-
   <div class="Vlt-grid">
     <% @results.each do |index| %>
-      <div class="Vlt-col--2of4">
+      <div class="Vlt-col">
+        <div class="Vlt-card">
         <% if index.index.include? 'nexmo_developer' %>
           <h2>Nexmo Developer</h2>
         <% elsif index.index == 'zendesk_nexmo_articles' %>
@@ -19,6 +16,7 @@
         <% index.hits.each do |hit| %>
           <%= render 'result', hit: hit, index_name: index.index %>
         <% end %>
+      </div>
       </div>
     <% end %>
   </div>

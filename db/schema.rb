@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 2019_04_15_162421) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "country", limit: 2
+    t.float "latitude"
+    t.float "longitude"
     t.index ["ends_at"], name: "index_events_on_ends_at"
     t.index ["starts_at"], name: "index_events_on_starts_at"
   end

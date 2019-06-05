@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/buy.rb
+    from_line: 16
+    to_line: 24
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/buy.rb
+    from_line: 9
+    to_line: 14

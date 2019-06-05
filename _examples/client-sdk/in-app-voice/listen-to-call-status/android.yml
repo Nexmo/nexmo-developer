@@ -1,5 +1,0 @@
----
-code:
-    source: .repos/nexmo/client-sdk-android-java-code-snippets/in-app-voice/listen-to-call-status/ListenToCallStatus.java
-    from_line: 1
-    to_line: 8

@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/update.rb
+    from_line: 22
+    to_line: 36
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/update.rb
+    from_line: 15
+    to_line: 20

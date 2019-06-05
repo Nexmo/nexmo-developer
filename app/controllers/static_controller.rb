@@ -15,7 +15,34 @@ class StaticController < ApplicationController
       end
     end
 
+    if request.path.delete('/') == 'community'
+      @upcoming_events = Event.upcoming
+      @past_events_count = Event.past.count
+
+      @hash = Gmaps4rails.build_markers(@upcoming_events) do |event, marker|
+        event.geocode
+        marker.lat event.latitude
+        marker.lng event.longitude
+        marker.infowindow event.title
+      end
+    end
+
     render layout: 'landing'
+  end
+
+  def event_search
+    @events = Event.search(params[:query]) if params[:query]
+
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      event.geocode
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.infowindow event.title
+    end
+
+    respond_to do |format|
+      format.js { render partial: 'static/default_landing/partials/event_search_results.js.erb' }
+    end
   end
 
   def jwt

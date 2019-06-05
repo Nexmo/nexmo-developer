@@ -1,17 +1,17 @@
 ---
-title: Number Insight Advanced API Async
+title: Number Insight Advanced API
 products: number-insight
-description: Learn how to access comprehensive information about the validity and reachability of a number asynchronously.
+description: Learn how to access comprehensive information about the validity and reachability of a number.
 languages:
     - Node
 ---
 
 
-# Number Insight Advanced API Async
+# Number Insight Advanced API 
 
 The Number Insight API gives you real-time information about phone numbers worldwide. There are three levels available: Basic, Standard and Advanced.
 
-The Advanced level provides you with the most comprehensive data to help protect your organization from fraud and spam. Unlike the Basic and Standard levels, you can also access the Advanced API asynchronously via a [webhook](/concepts/guides/webhooks).
+The Advanced level provides you with the most comprehensive data to help protect your organization from fraud and spam. Unlike the Basic and Standard levels, you typically access the Advanced API asynchronously, via a [webhook](/concepts/guides/webhooks).
 
 ## In this tutorial
 
@@ -247,6 +247,6 @@ The following resources will help you use Number Insight in your applications:
 * [Number Insight API product page](https://www.nexmo.com/products/number-insight)
 * [Comparing the Basic, Standard and Advanced Insight APIs](/number-insight/overview#basic-standard-and-advanced-apis)
 * [Webhooks guide](/concepts/guides/webhooks)
-* [Number Insight Advanced Async API reference](/api/number-insight#getNumberInsightAsync)
+* [Number Insight Advanced API reference](/api/number-insight#getNumberInsightAsync)
 * [Connect your local development server to the Nexmo API using an ngrok tunnel](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/)
 * [More tutorials](/number-insight/tutorials)

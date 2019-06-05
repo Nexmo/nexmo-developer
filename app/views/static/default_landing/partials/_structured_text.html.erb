@@ -6,7 +6,7 @@
 %>
 <h2 class="Vlt-title--icon" id="<%= local_assigns['header'].parameterize %>">
     <% if local_assigns['icon'] %>
-        <svg class="Vlt-<%= local_assigns['icon']['color'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%= local_assigns['icon']['name'] %>"></use></svg>
+        <svg class="Vlt-<%= local_assigns['icon']['color'] %>"><use xlink:href="<%= local_assigns['icon']['name'].start_with?("Brand") ? "/symbol/volta-brand-icons.svg##{local_assigns['icon']['name']}" : "/symbol/volta-icons.svg#Vlt-#{local_assigns['icon']['name']}" %>"></use></svg>
     <% end %>
     <%= local_assigns['header'] %>
 </h2>

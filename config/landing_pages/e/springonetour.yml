@@ -1,0 +1,246 @@
+title: "Nexmo loves Java! Use our SDKs or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
+
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Nexmo @ Spring One Tour"
+            align: center
+          subtitle:
+            text: "Hello, Spring enthusiasts! We're so excited to be spending some time with you, so we put together some information that you might find useful. Not currently using Nexmo? It's free to sign up!"
+            align: center
+          icon:
+            name: "Brand-icon-java-color"
+            color: "orange"
+  - row: 
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=springonetour&utm_campaign=landing"
+          center_button: true
+  - row:
+    - column:
+        - type: header
+          header:
+            title:
+              text: "We need your help!"
+              align: center
+            subtitle:
+              text: "Without developers like you, we wouldn't be where we are today. Could you help us out by answering a few survey questions? One lucky survey participant will get a **$100 Amazon Gift Card** as a thank you!"
+              align: center
+            icon:
+              name: "icon-shout"
+              color: "blue-dark"
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Take Me to the Survey!"
+          url: "https://nexmodevrel.typeform.com/to/piQhLx"
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+        - type: header
+          header:
+            title:
+              text: "Nexmo ❤️ Spring Boot"
+              align: center
+            icon:
+              name: "icon-code"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: "At Nexmo, we're huge fans of Spring Boot! We're happy to introduce our new Spring Boot Starter."
+        - type: text
+          text:
+            content: "#### Maven users can add the following to their `pom.xml`:"            
+        - type: text
+          text:
+            content: |
+              ```xml
+              <dependency>
+                <groupId>com.nexmo</groupId>
+                <artifactId>nexmo-spring-boot-starter</artifactId>
+                <version>1.0.1</version>
+              </dependency>
+              ```
+        - type: text
+          text:
+            content: "#### Gradle users can add the following to their `build.gradle`:"    
+        - type: text
+          text:
+            content: |
+              ```groovy
+              implementation 'com.nexmo:nexmo-spring-boot-starter:1.0.1'
+              ```
+        - type: text
+          text:
+            content: "Now, add the following to your `application.properties`:"
+        - type: text
+          text:
+            content: |
+              ```plain
+              nexmo.creds.api-key=your-api-key
+              nexmo.creds.secret=your-api-secret
+              ```
+        - type: text
+          text:
+            content: "For more information about our Spring Boot Starter, and what you can do with it. Check out the repository on GitHub: [nexmo/nexmo-spring-boot-starter](https://github.com/Nexmo/nexmo-spring-boot-starter)."
+    - column:
+        - type: header
+          header:
+            title:
+              text: Send a Text Message
+              align: center
+            icon:
+              name: "icon-call"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: "Once you've added and configured the starter, the `NexmoClient` and all of the sub-clients will automatically be registered for injection."
+        - type: text
+          text:
+            content: |
+              ```java
+              package com.nexmo.demo;
+
+              import com.nexmo.client.sms.SmsClient;
+              import com.nexmo.client.sms.messages.TextMessage;
+              import org.springframework.stereotype.Component;
+
+              @Component
+              public class TextMessageService {
+                  private final SmsClient smsClient;
+
+                  public TextMessageService(SmsClient smsClient) {
+                      this.smsClient = smsClient;
+                  }
+
+                  public void sendHelloWorld() throws Exception {
+                      smsClient.submitMessage(
+                              new TextMessage("FROM", "TO", "Hello World!")
+                      );
+                  }
+              }
+              ```
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: true
+          type: primary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "Get the conference schedule"
+          url: "https://springonetour.io/2019/san-francisco"
+          center_button: true
+          type: primary
+          large: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon: 
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          icon: 
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages/overview"
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Verify"
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
+          icon: 
+            name: "icon-lock"
+            color: "indigo"
+          url: "/verify"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <div class="Vlt-callout Vlt-callout--shoutout">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
+            	</div>
+            </div>
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Handy Java related links and further reading"
+          icon:
+            name: "icon-pin-2"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+            	</div>
+            </div>
+  - row:
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "**[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)** Check out some of our code snippets to help you learn how to use our Voice API."
+              - item: "**[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)** Learn how to control calls and call flow using Nexmo Call Control Objects."
+              - item: "**[Make a Text to Speech Phone Call](https://www.nexmo.com/blog/2019/03/21/make-text-to-speech-phone-call-java-dr/)** See how to make a Text to Speech phone call using our Voice API."
+
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "**[Record a Phone Message](https://www.nexmo.com/blog/2019/02/19/record-a-phone-message-with-java-dr/)** No time to answer the phone? Learn how to have users leave a message."
+              - item: "**[Guide to WebSocket and Nexmo](https://developer.nexmo.com/voice/voice-api/guides/websockets#writing-audio-to-the-websocket)** The Nexmo Voice API allows you to connect to a call via a WebSocket. This means that you will have a real-time two-way stream of the raw audio in the call delivered to you over the WebSocket protocol."
+              - item: "**[Create a WebSocket Server with Spring Boot](https://www.nexmo.com/blog/2018/10/08/create-websocket-server-spring-boot-dr/)** Need help figuring out how to create a WebSocket server in Spring Boot?"
+              - item: "**[Forward a Phone Call with Voice Proxy](https://www.nexmo.com/blog/2019/04/10/forward-phone-call-voice-proxy-java-dr/)** Protect both the caller and callee identity by setting up a voice proxy."
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider

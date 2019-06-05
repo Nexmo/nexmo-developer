@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/number/search.js
+    from_line: 23
+    to_line: 42
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/number/search.js
+    from_line: 13
+    to_line: 21

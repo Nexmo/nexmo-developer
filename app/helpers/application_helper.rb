@@ -143,7 +143,7 @@ module ApplicationHelper
 
       ss = []
       ss << "<li class='navigation-item--#{folder[:title]} navigation-item'>"
-      ss << "<span class='Vlt-sidemenu__trigger'>"
+      ss << "<span class='Vlt-sidemenu__trigger' tabindex='0'>"
 
       # If we have an icon
       if options['svg'] && options['svgColor']

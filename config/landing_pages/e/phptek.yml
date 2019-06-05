@@ -1,0 +1,231 @@
+title: "Nexmo loves PHP! Use our SDKs or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
+
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Nexmo @ php|tek"
+            align: center
+          subtitle:
+            text: "Hello, PHPeople! We love catching up with you at events, and we've put together some resources that we hope you find useful."
+            align: center
+          icon:
+            name: "icon-star"
+            color: "yellow"
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up and get €10 free credit from the Nexmo booth"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=phpyorkshire19&utm_campaign=landing"
+          center_button: true
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+              <small><center>
+              That's 1450 free SMS messages, or 700 free voice minutes<br />
+              (Plus, it makes us feel all warm and fuzzy inside)
+              </center></small>
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+              <div class="Vlt-card"><h2>🐘 Looking for an ElePHPant?</h2><span style="font-size: 1.4em; line-height: 1.2em;">Come to the <a href="https://twitter.com/nexmodev">@NexmoDev</a> booth and help us perform some user testing on our documentation.<br /> It'll take around 15 minutes and you'll walk away with a Sonny elePHPant. We only brought 30, so get in whilst stocks last!</span></div>
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Let's build something great together!"
+            align: center
+          icon:
+            name: "icon-code"
+            color: "blue"
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon: 
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by SMS, WhatsApp, Facebook Messenger ... whatever works for them. Message not received? No problem, automatically detect that and try another platform."
+          icon: 
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages/overview"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Verify"
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
+          icon: 
+            name: "icon-lock"
+            color: "indigo"
+          url: "/verify"
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <div class="Vlt-callout Vlt-callout--shoutout">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
+            	</div>
+            </div>
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+        - type: header
+          header:
+            title:
+              text: "Nexmo ❤️ PHP"
+              align: center
+            icon:
+              name: "icon-code"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: "At Nexmo, we love PHP - it's one of our most-used and most-loved languages by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo PHP library:"
+        - type: text
+          text:
+            content: |
+              ```
+              composer require nexmo/client
+              ```
+        - type: text
+          text:
+            content: "Or if Laravel's your thing, we have a prebuilt package that wraps the Nexmo client, reads your config from `.env` and makes it available through the `Nexmo` facade"
+        - type: text
+          text:
+            content: |
+              ```
+              composer require nexmo/laravel
+              ```
+
+    - column:
+        - type: header
+          header:
+            title:
+              text: "Get started by making a call"
+              align: center
+            icon:
+              name: "icon-call"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: |
+              ```php
+              $call = $client->calls()->create([
+                  'to' => [[
+                      'type' => 'phone',
+                      'number' => TO_NUMBER
+                  ]],
+                  'from' => [
+                      'type' => 'phone',
+                      'number' => NEXMO_NUMBER
+                  ],
+                  'ncco' => [
+                      [
+                          'action' => 'talk',
+                          'text' => 'This is a text to speech call from Nexmo'
+                      ]
+                  ]
+              ]);
+              ```
+              <div class="Vlt-right">
+              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/php">View the complete code &raquo;</a>
+              </div>
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Handy PHP-related links and further reading"
+          icon:
+            name: "icon-pin-2"
+            color: "blue-dark"
+
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Come and say hello at the Nexmo booth! We'd love to hear what you're building with our APIs. If you're struggling with something then we'll help you out (and improve our docs at the same time!)
+            	</div>
+            </div>
+  - row:
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
+              - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+              - item: "[Make a Call with an NCCO](/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/php)"
+              - item: "[Receive an Incoming Call with PHP](https://www.nexmo.com/blog/2018/06/28/receive-an-inbound-voice-call-with-php-dr/)"
+              - item: "[Handle Keypad Input (DTMF) with PHP](https://www.nexmo.com/blog/2018/08/10/handle-user-input-with-php-dr/)"
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Work with Signed Messages](/concepts/guides/signing-messages)"
+              - item: "[Send](/messaging/sms/code-snippets/send-an-sms) and [Receive](/messaging/sms/code-snippets/receiving-an-sms) an SMS with PHP"
+              - item: "[Receive SMS Delivery Receipts with PHP](https://www.nexmo.com/blog/2018/06/25/receiving-sms-delivery-receipts-with-php-dr/)"
+              - item: "[Look Up Information About a Phone Number](/number-insight/code-snippets/number-insight-basic/php)"
+              - item: "[Verify a User's Phone Number](/verify/code-snippets/send-verify-request)"
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider

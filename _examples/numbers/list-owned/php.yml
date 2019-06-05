@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/numbers/list-owned.php
+    from_line: 8
+    to_line: 19
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/numbers/list-owned.php 
+    from_line: 5
+    to_line: 6

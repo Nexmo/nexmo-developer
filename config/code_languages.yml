@@ -105,7 +105,7 @@ languages:
   objective_c:
     weight: 11
     label: Objective-C
-    lexer: objective_c
+    lexer: ObjectiveC
     icon: ios
     dependencies: []
 
