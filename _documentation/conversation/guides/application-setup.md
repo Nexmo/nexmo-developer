@@ -1,6 +1,6 @@
 ---
 title: How to set up your application
-navigation_weight: 3
+navigation_weight: 1
 ---
 
 # How to set up a Conversation API application
@@ -24,17 +24,35 @@ This process is illustrated in the following diagram:
 
     a. Set an `answer_url` [webhook](/application/overview#webhooks) to define the behavior when a new call is taking place.
 
-    b. Set event webhooks `event_url` for your Nexmo application. Voice events are dispatched to the voice event [webhook](/voice/voice-api/webhook-reference#event-webhook). RTC events are dispatched by the Conversation Service to the [RTC webhook](/application/overview#webhook-types). This step is optional but recommended.
+    b. Set `event_url` [webhook](/voice/voice-api/webhook-reference#event-webhook) for your Nexmo application's voice capability to receive the voice events that are dispatched by Voice API. This step is optional but recommended.
 
-    c. Create [Users](/conversation/concepts/user) using the Conversation API.
+    c. Set `event_url` [webhook](/application/overview#webhook-types) for your Nexmo application's RTC capability to receive the RTC events that are dispatched by Conversation API. This step is optional but recommended.
+    
+    d. Create [Users](/conversation/concepts/user) using the Conversation API.
 
-    d. Generate JWTs that are used to authorize your Users when logging in and connecting to the [Client SDKs](/client-sdk/setup/add-sdk-to-your-app).
+    e. Generate JWTs that are used to authorize your Users when performing Conversation API calls, or when logging in to the [Client SDKs](/client-sdk/setup/add-sdk-to-your-app).
 
-    e. Use [Conversation API](/conversation/api-reference) or other Nexmo API capabilities as required. For example, to create conversations, and send events. You can also analyze your user's communication behavior and reach interesting conclusions on how to better engage with them. This step is optional but recommended.
+    f. Use [Conversation API](/conversation/api-reference) or other Nexmo API capabilities as required. For example, to create conversations, and send events. You can also analyze your user's communication behavior and reach interesting conclusions on how to better engage with them. This step is optional but recommended.
 
-4. Create a client-side application and [integrate the Nexmo Client SDK](/client-sdk/setup/add-sdk-to-your-app/). Using the Client SDK your client app will be able to:
+4. Now you can create a client-side application and [integrate the Nexmo Client SDK](/client-sdk/setup/add-sdk-to-your-app/). Using the Client SDK your client app will be able to:
 
 * Log in a User
 * Create and join Conversations
 * Start and answer phone and in-app calls
 * Send in-app messages
+
+## Reference
+
+For further information see the following documentation:
+
+### Guides
+
+* [User authentication](/conversation/guides/user-authentication)
+* [Event flow](/conversation/guides/event-flow)
+
+### API Refrences
+
+* [Conversation API](/api/conversation)
+* [Client SDK](/client-sdk/overview)
+* [Voice API](/voice/voice-api/overview)
+

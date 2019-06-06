@@ -5,19 +5,19 @@ navigation_weight: 2
 
 # User Authentication
 
-In order to use the Client SDKs, a User must be:
+In order to use the Conversation API, either directly or via [Client SDKs](/client-sdk/overview), a User must be:
 
 1. Created by the Conversation API
-2. Logged in to the Nexmo Client SDK, using a JWT, that your backend provides to your client app.
+2. Have a valid [JWT](https://jwt.io/), provided by your backend. If you are using Client SDK, you User will need to log in to the SDK with the JWT.
 
 ## Authentication flow
 
 The steps in authentication flow are:
 
-1. A User requests to log in to the SDK
+1. A User requests to log in to your client-side application
 2. Your backend generates a JWT user token
 3. Your backend sends the JWT to your client-side application
-4. Your client-side application logs in to the Nexmo Client SDK, with the provided JWT
+4. Your client-side application can make authenticated requests to the the Conversation API, with the provided JWT
 
 This authentication flow is illustrated in the following diagram:
 
@@ -39,6 +39,22 @@ These steps are described in more detail below.
 
 3. Your backend **sends the JWT** to your client-side application.
 
-4. Your client-side application **logs in** to the Nexmo Client SDK, with the provided JWT.
+4. Your client-side application can make authenticated requests to the Conversation API, with the provided JWT. If you use the Nexmo Client SDK, your User should log in to the SDK with the JWT. As long as you are logged in, the authentication will be handled for you by the SDK.
 
 You are now ready to start creating a rich communication experience for your users.
+
+## Reference
+
+For further information see the following documentation:
+
+### Guides
+
+* [Application setup](/conversation/guides/application-setup)
+* [Event flow](/conversation/guides/event-flow)
+* [Generating JWTs](/conversation/guides/jwt-acl)
+
+### API Refrences
+
+* [Conversation API](/api/conversation)
+* [Client SDK](/client-sdk/overview)
+* [Voice API](/voice/voice-api/overview)
