@@ -80,6 +80,14 @@ source: '_examples/conversation/conversation/list-conversations'
 product: conversation
 ```
 
+## Guides
+
+How-tos for:
+
+* [Generating JWTs](/conversation/guides/jwt-acl)
+* [User authentication](/conversation/guides/user-authentication)
+* [Application setup](/conversation/guides/application-setup)
+
 ## Code Snippets
 
 Code snippets provide ready to use samples of code so you can build out your application quickly.
