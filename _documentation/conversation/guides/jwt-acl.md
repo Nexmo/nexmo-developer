@@ -1,7 +1,7 @@
 ---
 title: How to generate JWTs
 description: This topic explains how to generate JWTs for use in your app. JSON Web Tokens (JWTs) and Access Control Lists (ACLs) are a key concept to understand in order to authenticate your apps and users.
-navigation_weight: 4
+navigation_weight: 1
 ---
 
 # How to generate JWTs
