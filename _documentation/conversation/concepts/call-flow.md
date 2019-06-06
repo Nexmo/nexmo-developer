@@ -1,5 +1,5 @@
 ---
-title: Call flow overview
+title: Call flow
 description: This topic provides an overview of a voice call flow through the system encompassing the Nexmo Voice and Conversation services.
 navigation_weight: 5
 ---
