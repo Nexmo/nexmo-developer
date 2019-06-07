@@ -37,6 +37,8 @@ Nexmo sends and retrieves the following information using webhooks:
 | Voice API | Retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another. View the [Webhook Reference](/voice/voice-api/webhook-reference) for more detail. |
 | Number Insight Advanced Async API | Receives complete information about a phone number |
 | US Short Codes API | Sends the delivery status of your message and receives inbound SMS |
+| Client SDK/Conversation API| Real-time Communication (RTC) events are sent to the RTC event webhook |
+| Message and Dispatch APIs | Supports both inbound message and message status webhooks |
 
 ## Setting webhook endpoints
 
