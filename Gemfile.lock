@@ -1,12 +1,6 @@
 GIT
-  remote: https://github.com/oscardelben/rawler.git
-  revision: f2909b135fce7d35167f98026ac481926c94423e
-  specs:
-    rawler (0.1.8)
-      nokogiri (~> 1.5)
-
-PATH
-  remote: ../nexmo-oas-renderer-sinatra
+  remote: https://github.com/nexmo/nexmo-oas-renderer.git
+  revision: 35035ffce2fa91c7f946ebe5a105db3033409801
   specs:
     nexmo-oas-renderer (0.1.0)
       activemodel (~> 5.2)
@@ -20,6 +14,13 @@ PATH
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
+
+GIT
+  remote: https://github.com/oscardelben/rawler.git
+  revision: f2909b135fce7d35167f98026ac481926c94423e
+  specs:
+    rawler (0.1.8)
+      nokogiri (~> 1.5)
 
 GEM
   remote: https://rubygems.org/
