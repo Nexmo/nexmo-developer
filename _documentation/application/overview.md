@@ -56,14 +56,14 @@ Capability | API used | Webooks available
 
 The following table describes webhooks available per capability:
 
-Capability | Webhook | Example | Description
---- | --- | --- | ---
-`voice` | `answer_url` | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
-`voice` | `event_url` | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
-`messages` | `inbound_url` | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
-`messages` | `status_url` | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.
-`rtc` | `event_url` | https://example.com/webhooks/rtcevent | Nexmo will send RTC events to this URL.
-`vbc` | None | None | Not used
+Capability | Webhook | API | Example | Description
+--- | --- | --- | --- | --- |
+`voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
+`voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
+`messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
+`messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.
+`rtc` | `event_url` | [Client SDK](/client-sdk/overview), [Conversation](/conversation/overview) | https://example.com/webhooks/rtcevent | Nexmo will send RTC events to this URL.
+`vbc` | None | [Voice endpoint](/voice/voice-api/ncco-reference#connect) | None | Not used
 
 ## Creating applications
 
