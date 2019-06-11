@@ -38,7 +38,6 @@ class DashboardController < ApplicationController
     @supported_languages = %w[
       curl
       csharp
-      dotnet
       java
       node
       php
@@ -149,7 +148,6 @@ class DashboardController < ApplicationController
       end
 
       language = source.gsub('.yml', '').downcase
-      language = 'dotnet' if language == 'csharp'
       x[language] = {
           'source' =>  '_examples/' + relative_path,
           'source_path' => source_path,
@@ -168,8 +166,6 @@ class DashboardController < ApplicationController
       source_path = e.clone
       parts = relative_path.split('/')
       language = parts.pop
-
-      language = 'dotnet' if language == 'csharp'
 
       parts.insert(1, 'top-level') if parts.count < 3
 
