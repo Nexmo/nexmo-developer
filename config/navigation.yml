@@ -63,22 +63,13 @@ navigation_overrides:
   messaging:
     svg: 'message'
     svgColor: 'purple'
-    sms:
-      collapsible: true
-    conversion-api:
-      collapsible: true
-    us-short-codes:
-      collapsible: true
   voice:
     svg: 'phone'
     svgColor: 'green'
     voice-api:
-      collapsible: true
       guides:
         websockets:
           label: 'Beta'
-    sip:
-      collapsible: true
   verify:
     svg: 'lock'
     svgColor: 'indigo'
@@ -88,8 +79,6 @@ navigation_overrides:
   account:
     svg: 'user'
     svgColor: 'blue'
-    secret-management:
-      collapsible: true
   redact:
     label: 'Dev Preview'
     svg: 'lock'
@@ -100,18 +89,7 @@ navigation_overrides:
     label: 'Dev Preview'
     sdk-documentation:
       link: false
-      android:
-        collapsible: true
-      ios:
-        collapsible: true
-      javascript:
-        collapsible: true
-    setup:
-      collapsible: true
-    in-app-voice:
-      collapsible: true
-    in-app-messaging:
-      collapsible: true
+      collapsible: false
   numbers:
     svg: 'phone-number'
     svgColor: 'red'
@@ -125,16 +103,6 @@ navigation_overrides:
     label: 'Beta'
     code-snippets:
       collapsible: false
-      sms:
-        collapsible: true
-      mms:
-        collapsible: true
-      messenger:
-        collapsible: true
-      viber:
-        collapsible: true
-      whatsapp:
-        collapsible: true
   dispatch:
     svg: 'flow'
     svgColor: 'purple'
@@ -145,16 +113,6 @@ navigation_overrides:
     label: 'Dev Preview'
     code-snippets:
       collapsible: false
-      conversation: 
-        collapsible: true
-      member: 
-        collapsible: true
-      user: 
-        collapsible: true
-      leg: 
-        collapsible: true
-      event: 
-        collapsible: true
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'

@@ -191,11 +191,11 @@ module ApplicationHelper
       # If it's a file, add a link
       output = output_link(child, title, options) if child[:is_file?]
 
-      # If it's a top level folder, add another dropdown
-      output = output_nested_dropdown(child, title) if options['collapsible']
+      # If we've explicitly said not to collapse this section, add a header
+      output = output_header_with_children(child, title) if !child[:is_file?] && !options['collapsible'].nil? && !options['collapsible']
 
-      # Otherwise we output a header and children
-      output ||= output_header_with_children(child, title)
+      # Otherwise render it inside a dropdown
+      output ||= output_nested_dropdown(child, title)
 
       ss << output
 
