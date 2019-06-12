@@ -87,7 +87,7 @@ GEM
     bugsnag (5.3.3)
     builder (3.2.3)
     byebug (11.0.0)
-    chartkick (2.2.5)
+    chartkick (3.2.0)
     clipboard-rails (1.7.1)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -441,7 +441,7 @@ DEPENDENCIES
   bootsnap
   bugsnag
   byebug
-  chartkick (= 2.2.5)
+  chartkick (= 3.2.0)
   clipboard-rails
   coffee-rails (~> 4.2)
   colorize
