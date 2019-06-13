@@ -33,7 +33,8 @@ The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`id` | The ID of the message you want to retrieve. | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 #### Response
 
@@ -98,6 +99,8 @@ The following shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `ids` | The list of up to 10 message IDs to search for. For example: `ids=00A0B0C0&ids=00A0B0C1&ids=00A0B0C2` | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 *or* **Search by recipient and date**
 
@@ -105,6 +108,8 @@ Parameter | Description | Required
 -- | -- | --
 `date` | The date the request to SMS API was submitted in the following format: `YYYY-MM-DD` | Yes
 `to` | The phone number the message was sent to. | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 #### Response
 
@@ -160,6 +165,8 @@ Parameter | Description | Required
 -- | -- | --
 `date` | The date the request to SMS API was submitted in the following format: `YYYY-MM-DD` | Yes
 `to` | The phone number the message was sent to. | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 #### Response
 
