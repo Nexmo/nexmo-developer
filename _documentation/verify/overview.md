@@ -39,7 +39,7 @@ source: '_examples/verify/send-verification-request'
 
 ## Features
 
-Nexmo Verify API offers powerful default behaviour for easy integration. By default we will handle the code generation and verification, and deliver the message via the fastest route available. You can also control the user experience by defining which [workflow](/verify/guides/workflows-and-events) should be used for each request; by default Nexmo will use SMS followed by TTS and another TTS in most cases.
+Nexmo Verify API offers powerful default behavior for easy integration. By default we will handle the code generation and verification, and deliver the message via the fastest route available. You can also control the user experience by defining which [workflow](/verify/guides/workflows-and-events) should be used for each request; by default Nexmo will use SMS followed by TTS and another TTS in most cases.
 
 > It is possible to supply your own PIN code in some circumstances, please contact your account manager.
 

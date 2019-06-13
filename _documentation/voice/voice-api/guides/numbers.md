@@ -28,7 +28,7 @@ When making an outbound call from Nexmo the CallerID, `from` value needs to be a
 
 ### Incoming CallerID
 
-Nexmo endeavours to present to you the caller ID of the party calling your Nexmo application in international format. However, this can occasionally be incorrectly formatted by the originating network. Nexmo passes through the number received from the number supplier. You can learn more about inbound caller ID on our [voice features overview](https://help.nexmo.com/hc/en-us/articles/115011761808) page in the Nexmo knowledge base.
+Nexmo attempts to present to you the caller ID of the party calling your Nexmo application in international format. However, this can occasionally be incorrectly formatted by the originating network. Nexmo passes through the number received from the number supplier. You can learn more about inbound caller ID on our [voice features overview](https://help.nexmo.com/hc/en-us/articles/115011761808) page in the Nexmo knowledge base.
 
 
 ### Incoming Call Numbers 

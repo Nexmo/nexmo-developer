@@ -142,7 +142,7 @@ setupUserEvents() {
 
 Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Enable video on both and then enable screen sharing and start talking. You'll also see events being logged in the browser console.
 
-Thats's it! You can see a full example of what your project should look like in [the source code for this quickstart on GitHub](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-screen-share/index.html).
+That's it! You can see a full example of what your project should look like in [the source code for this quickstart on GitHub](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-screen-share/index.html).
 
 ## Where next?
 

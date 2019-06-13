@@ -53,7 +53,7 @@ For further information see the following documentation:
 * [Event flow](/conversation/guides/event-flow)
 * [Generating JWTs](/conversation/guides/jwt-acl)
 
-### API Refrences
+### API References
 
 * [Conversation API](/api/conversation)
 * [Client SDK](/client-sdk/overview)

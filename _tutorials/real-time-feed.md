@@ -1,24 +1,24 @@
 ---
 title: Real-time data feed into multiple channels using Messages API
 products: messages
-description: This tutorial describes a use case where the user receives real-time data into their channel. Channels supported are FaceBook Messenger, WhatsApp, Viber and SMS.
+description: This tutorial describes a use case where the user receives real-time data into their channel. Channels supported are Facebook Messenger, WhatsApp, Viber and SMS.
 languages:
     - Python
 ---
 
 # Real-time data feed into multiple channels using Messages API
 
-This tutorial shows you how to feed data into multiple channels in real-time using the Messages API. This tutorial demonstrates sending data into all supported channels. Informaton on testing all channels is provided. If you are interested in testing using FaceBook Messenger, it is recommended you work through [this tutorial](/tutorials/fbm-product-info) first, as that tutorial contains lots of FaceBook specific information. To test WhatsApp and Viber you will need business accounts with those providers.
+This tutorial shows you how to feed data into multiple channels in real-time using the Messages API. This tutorial demonstrates sending data into all supported channels. Information on testing all channels is provided. If you are interested in testing using Facebook Messenger, it is recommended you work through [this tutorial](/tutorials/fbm-product-info) first, as that tutorial contains lots of Facebook specific information. To test WhatsApp and Viber you will need business accounts with those providers.
 
 ## Example scenario
 
-In this tutorial you will look sending real-time stock quotes to a user on their channel of choice. A user can register to receive data on any supported channel of their choice. For example, they could receive the stock quotes via their mobile phone using SMS, or through Facebook Messenger. WhatsApp and Viber are also supported. For FaceBook Messenger, WhatsApp, and SMS users can register their interest in a particualr stock. However, Viber does not support inbound messages to a business, so users would have to register to receive the messages via a website in order to receive data. Also, with WhatsApp there is an additional complication which is that WhatsApp requires a business to send the user [an MTM](/messages/code-snippets/send-whatsapp-template) before the user can agree to receive messages.
+In this tutorial you will look sending real-time stock quotes to a user on their channel of choice. A user can register to receive data on any supported channel of their choice. For example, they could receive the stock quotes via their mobile phone using SMS, or through Facebook Messenger. WhatsApp and Viber are also supported. For Facebook Messenger, WhatsApp, and SMS users can register their interest in a particular stock. However, Viber does not support inbound messages to a business, so users would have to register to receive the messages via a website in order to receive data. Also, with WhatsApp there is an additional complication which is that WhatsApp requires a business to send the user [an MTM](/messages/code-snippets/send-whatsapp-template) before the user can agree to receive messages.
 
 > Please note that only simulated stock prices are used in this tutorial.
 
 ## Source code
 
-The Python source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/messages-api-real-time-feed). Of particular interest is a generic client that provides a convenient way to send a message to any supported channel with a single method call. You will also see Python code to handle inbound mesages on WhatsApp, SMS and Messenger.
+The Python source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/messages-api-real-time-feed). Of particular interest is a generic client that provides a convenient way to send a message to any supported channel with a single method call. You will also see Python code to handle inbound messages on WhatsApp, SMS and Messenger.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ The Python source code for this project is available in the Nexmo Community [Git
 4. [Know how to test your webhook server locally](/messages/code-snippets/configure-webhooks#testing-locally-via-ngrok)
 5. [Python 3 installed](https://www.python.org/)
 6. [Flask installed](http://flask.pocoo.org/)
-7. Have accounts for the channels you wish to support such as FaceBook, Viber and WhatsApp.
+7. Have accounts for the channels you wish to support such as Facebook, Viber and WhatsApp.
 
 You may also find it useful to review the following overview topics:
 
@@ -150,7 +150,7 @@ python3 app1.py
 
 ## Send in an SMS
 
-Your base application is now up and running and ready to log events. You can test this basic application by sending an SMS into any Nexmo Number linked to any Voice app, where the Nexmo Number has voice and SMS capbilities. If you don't have a voice application, and are not sure how to create one, you can review [this information](/concepts/guides/applications/curl#getting-started-with-applications). The reason you need to go through this additional step is that Messages and Dispatch API does not currently support inbound SMS, only outbound SMS, so you have to use the account-level webhook to receive inbound SMS notifications.
+Your base application is now up and running and ready to log events. You can test this basic application by sending an SMS into any Nexmo Number linked to any Voice app, where the Nexmo Number has voice and SMS capabilities. If you don't have a voice application, and are not sure how to create one, you can review [this information](/concepts/guides/applications/curl#getting-started-with-applications). The reason you need to go through this additional step is that Messages and Dispatch API does not currently support inbound SMS, only outbound SMS, so you have to use the account-level webhook to receive inbound SMS notifications.
 
 When you examine the tracing information produced when you send in an SMS you see something similar to the following:
 

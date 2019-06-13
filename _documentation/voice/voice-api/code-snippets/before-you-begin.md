@@ -59,7 +59,7 @@ Key |	Description
 
 ### Specific replaceable/variables
 
-Some code snippets have more specialised variables that will need to be
+Some code snippets have more specialized variables that will need to be
 replaced by actual values. These may be specified on a per-code snippet basis.
 
 ## Webhooks

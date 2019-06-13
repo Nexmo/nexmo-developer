@@ -184,7 +184,7 @@ Currently Nexmo does not officially support Messages and Dispatch API in the Pyt
 
 It's time to look into this use case in more detail so you can more effectively build out your application.
 
-Imagine a user messages your Facebook Page via Messenger with a message such as "Hi". However, due to time zones you are not available to respond to the message - this may leave the user feeling dejected. On the other hand it would be great if you could automatically respond with useful information. For example, to a message such as "Hi" you might respond with "Welcome to T's Cat Supplies. Here are our main product categories: toys, food, meds, bling."
+Imagine a user messages your Facebook Page via Messenger with a message such as "Hi". However, due to time zones you are not available to respond to the message - this may leave the user feeling dejected. On the other hand it would be great if you could automatically respond with useful information. For example, to a message such as "Hi" you might respond with "Welcome to T's Cat Supplies. Here are our main product categories: toys, food, medicine, bling."
 
 Using a Python construct such as `if keyword in msg` you can detect keywords and send material based on that. For example, if a user sends in a message like "Hi my tanks need sorting" you might detect the word `tank` and send information on your tank cleaning services. Or if you receive a message such as "Hi, I think I need a crane to lift our pipeline sections." You could send information on your crane hire services. Where keywords are not detected it is a simple matter to send a generic message back to the user to help orientate them.
 

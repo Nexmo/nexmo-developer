@@ -43,7 +43,7 @@ For a `GET` request, the variables will be in the URL, like this:
 /answer.php?to=442079460000&from=447700900000&conversation_uuid=CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab&uuid=aaaaaaaa-bbbb-cccc-dddd-0123456789ab&SipHeader_X-UserId=1938ND9
 ```
 
-If you set the `answer_method` to `POST` then you will receive the request with JSON-format data in the body:
+If you set the `answer_method` to `POST` then you will receive the request with JSON format data in the body:
 
 ```
 {
@@ -268,7 +268,7 @@ Field | Example | Description
 
 ### Record
 
-This webhook arrives when an NCCO with a "record" action has finished. When creating a record action, you can set a different `eventURL` for this event to be sent to. This can be useful if you want to use separate code to handle this event type.
+This webhook arrives when an NCCO with a "record" action has finished. When creating a record action, you can set a different `eventUrl` for this event to be sent to. This can be useful if you want to use separate code to handle this event type.
 
 Field | Example | Description
  -- | -- | --

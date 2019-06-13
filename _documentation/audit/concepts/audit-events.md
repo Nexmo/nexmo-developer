@@ -23,9 +23,9 @@ The following table lists currently supported Audit Event types:
 | APP_DISABLE | App disabled |
 | APP_ENABLE | App enabled |
 | APP_UPDATE | App updated |
-| AUTORELOAD_DISABLE | Autoreload disabled |
-| AUTORELOAD_ENABLE | Autoreload enabled |
-| AUTORELOAD_UPDATE | Autoreload settings updated |
+| AUTORELOAD_DISABLE | Automatic reload disabled |
+| AUTORELOAD_ENABLE | Automatic reload enabled |
+| AUTORELOAD_UPDATE | Automatic reload settings updated |
 | NUMBER_ASSIGN | Number assigned |
 | NUMBER_USER_CANCELED | Number was canceled by the user |
 | NUMBER_UPDATED | Number updated |

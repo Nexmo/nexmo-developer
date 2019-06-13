@@ -8,7 +8,7 @@ navigation_weight: 2
 
 [Two-factor authentication](/concepts/guides/glossary#2fa) (2FA) gives you confidence that the number your customer provides you with belongs to them. If you are sending SMS to customers in the US, you can use a [short code](/concepts/guides/glossary#short-code) for this. A customer verifies their number by responding directly to the short code or via your web application. Nexmo's [Two-Factor Authentication API](/api/sms/us-short-codes/2fa) provides this capability. 
 
-> These instructions assume that you are using a shared short code. Nexmo also offers dedicated short codes specific to your organisation. Find out more about short codes [here](https://help.nexmo.com/hc/en-us/articles/115013144287-Short-codes-Features-Overview).
+> These instructions assume that you are using a shared short code. Nexmo also offers dedicated short codes specific to your organization. Find out more about short codes [here](https://help.nexmo.com/hc/en-us/articles/115013144287-Short-codes-Features-Overview).
 
 To configure a shared US short code for 2FA:
 
@@ -21,7 +21,7 @@ To configure a shared US short code for 2FA:
 
 ## Mandatory requirements for short codes
 
-When you use a pre-approved US short code from Nexmo, you **MUST** display the following information on your site's opt-in page:
+When you use a preapproved US short code from Nexmo, you **MUST** display the following information on your site's opt-in page:
 
   * Frequency: How often users of your service can expect to receive messages from you
   * How to opt out: Send a `STOP` SMS to your short code.

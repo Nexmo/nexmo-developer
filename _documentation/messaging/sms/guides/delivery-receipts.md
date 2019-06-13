@@ -93,7 +93,7 @@ The `err-code` field in the DLR provides more detailed information and can help 
 | 12 | Destination Unreachable | A route to the number cannot be found - confirm the recipient's number  |
 | 13 | Subscriber Age Restriction | The target cannot receive your message due to their age  |
 | 14 | Number Blocked by Carrier | The recipient should ask their carrier to enable SMS on their plan |
-| 15 | Pre-paid Insufficient Funds | The recipient is on a pre-paid plan and does not have enough credit to receive your message |
+| 15 | Prepaid Insufficient Funds | The recipient is on a prepaid plan and does not have enough credit to receive your message |
 | 99 | General Error | Typically refers to an error in the route - contact <mailto:support@nexmo.com> |
 
 > The other fields in the DLR are explained in the [API Reference](/api/sms#delivery-receipt).

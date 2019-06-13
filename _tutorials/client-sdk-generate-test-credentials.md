@@ -23,7 +23,7 @@ If you wish to get started and experience using the SDK without any implementati
 
 Make sure you have the following:
 
-* A Nexmo account - [signup](https://dashboard.nexmo.com)
+* A Nexmo account - [sign up](https://dashboard.nexmo.com)
 * [Node.JS](https://nodejs.org/en/download/) and NPM installed
 * Install the Nexmo CLI.
 
@@ -90,7 +90,7 @@ Generate a JWT for the user. Remember to replace `MY_APP_ID` and `MY_USER_NAME` 
 nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{},"/v1/knocking/**":{}}}' application_id=MY_APP_ID
 ```
 
-The above command sets the expiry of the JWT to one day from now, which is the maximum amount of time. You may change the expiration to a shortened amount of time, or re-grenerate a JWT for the user after the current JWT has expired.
+The above command sets the expiry of the JWT to one day from now, which is the maximum amount of time. You may change the expiration to a shortened amount of time, or regenerate a JWT for the user after the current JWT has expired.
 
 > **NOTE**: In production apps, it is expected that your backend will expose an endpoint that generates JWT per your client request.
 

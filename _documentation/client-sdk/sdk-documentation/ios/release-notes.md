@@ -45,12 +45,12 @@ NXMCallMember
 - Change log file.
 
 ### Changed
-- Memory managment improvments.
+- Memory management improvements.
 - Fetch missing and new events on network changes.
 - Returning User objects instead of Ids.
 - Bug fixes.
-- Add nonnull or nullable to properties
-- Rename call.decline to call.reject.
+- Add non-null or nullable to properties
+- Rename call.decline to call.reject
 
 
 ## Version 0.1.52 - January 01, 2019

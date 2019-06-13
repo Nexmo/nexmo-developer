@@ -31,4 +31,4 @@ application:
 
 ## Try it out
 
-When you run the code it will attempt to send a message via FaceBook Messenger. This will fail and then a message will be sent via SMS to the destination number.
+When you run the code it will attempt to send a message via Facebook Messenger. This will fail and then a message will be sent via SMS to the destination number.

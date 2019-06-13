@@ -19,7 +19,7 @@ This tutorial is based on the [Two-factor authentication](https://www.nexmo.com/
 In this tutorial you see how easy it is to build an app that adds two-factor authentication using Nexmo Verify:
 
 1. [Create a basic Web app](#create-a-basic-web-app) - create a Web app with a protected page.
-2. [Enforce phone number verification](#enforce-phone-number-verification) - verify a user's phone number on registration and signup.
+2. [Enforce phone number verification](#enforce-phone-number-verification) - verify a user's phone number on registration and sign up.
 3. [Send a verification request](#send-a-verification-request) - use Verify to send a PIN to the user’s phone number.
 4. [Collect the PIN](#send-a-verification-request) - add a form to collect the PIN received by your user.
 5. [Verify the PIN](#verify-pin) - verify the PIN the user provided is valid and log them in.

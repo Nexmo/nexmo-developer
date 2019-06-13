@@ -58,7 +58,7 @@ $ nexmo insight:basic --verbose 447700900000
 
 The full response from the Basic API contains the following information:
 
-````
+```
 [status]
 0
 
@@ -85,7 +85,7 @@ United Kingdom
 
 [country_prefix]
 44
-````
+```
 
 This human-readable output mirrors the field names and data available in the JSON response: it returns data about your request (`status`, `status_message`, `request_id`), details of the country that the number belongs to (`country_name`, `country_prefix` etc.) and how to format the number appropriately for that country (`national_format_number`).
 
@@ -99,7 +99,7 @@ The Standard and Advanced Number Insight APIs provide even more information abou
 
 ### Using the Number Insight Standard API
 
-To use the Number Insight Standard API, use `nexmo insight:standard` (or `nexmo is`). 
+To use the Number Insight Standard API, use the `nexmo insight:standard` command
 
 ```bash
 $ nexmo insight:standard --verbose 447700900000
@@ -107,7 +107,7 @@ $ nexmo insight:standard --verbose 447700900000
 
 A typical response from the Standard API looks like this:
 
-````
+```
 [status]
 0
 
@@ -167,7 +167,7 @@ mobile
 
 [ported]
 assumed_ported
-````
+```
 
 ### Using the Number Insight Advanced API
 

@@ -174,7 +174,7 @@ app.get('/webhooks/inbound-sms', (req, res) => {
 });
 ```
 
-We return a `204` status (`No content`) to represent successful receipt of the message. This is an important step, because if we don't acknowedge receipt Nexmo's servers will make repeated attempts to deliver it.
+We return a `204` status (`No content`) to represent successful receipt of the message. This is an important step, because if we don't acknowledge receipt Nexmo's servers will make repeated attempts to deliver it.
 
 ### Determine how to route the SMS
 

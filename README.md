@@ -28,6 +28,16 @@ COVERAGE=1 bundle exec rspec
 
 This will create a folder named `coverage`. Open `index.html` in this folder to view coverage statistics.
 
+### Spell Checking
+
+We write the docs in US English and enforce this at build time with a CI check. You can run the check locally using the following command:
+
+```
+./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
+```
+
+If there is a word that isn't in the dictionary but is correct to use, add it to the `.spelling` file (there's a lot of exceptions in there, including `Nexmo`!)
+
 ## Running locally
 
 The project can be run on your laptop, either directly or using Docker. These instructions have been tested for Mac.

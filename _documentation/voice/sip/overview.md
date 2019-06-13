@@ -47,7 +47,7 @@ The following codecs are supported:
 - PCMA (G711a)
 - PCMU (G711u)
 - iLBC
-- g729 (without annexb)
+- g729 (without annexdb)
 - g722
 - Speex16
 

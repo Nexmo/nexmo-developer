@@ -12,7 +12,7 @@ The Nexmo Voice API offers a highly available service. However, due to the natur
 
 ## Timeouts
 
-When Nexmo sends a webhook to your Answer URL it expects the server to respond in a certain timeframe:
+When Nexmo sends a webhook to your Answer URL it expects the server to respond in a certain time frame:
 
 1. The TCP connection should be established within 3 seconds.
 2. The HTTP response (NCCO) should be returned within 5 seconds.
@@ -21,7 +21,7 @@ If Nexmo does not get a response within these time frames it will retry the requ
 
 ## Regions
 
-The Nexmo Voice API resides in two geographic datacentres. Phone numbers are associated with the closest datacentre, either US East Coast or Singapore. API requests are routed to the closest data centre to the requesting client. However, a call currently only exists in a single region, this means that if you are receiving a call on a number connected to Singapore but making an API request from a server hosted in the US it will return a 404.
+The Nexmo Voice API resides in two geographic data centers. Phone numbers are associated with the closest data center, either US East Coast or Singapore. API requests are routed to the closest data center to the requesting client. However, a call currently only exists in a single region, this means that if you are receiving a call on a number connected to Singapore but making an API request from a server hosted in the US it will return a 404.
 
 You can work around this issue by sending your API request to the correct region, either:
 

@@ -108,7 +108,7 @@ This returns the phone number in international format as well as the name, code 
 
 #### How it works
 
-First, the code creates the `nexmo` client object with the api key and secret that you configured in the `.env` file:
+First, the code creates the `nexmo` client object with the API key and secret that you configured in the `.env` file:
 
 ```ruby
 require 'nexmo'

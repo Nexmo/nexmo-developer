@@ -6,7 +6,7 @@ meta_title: Virtual Numbers
 
 A **Nexmo virtual number** is a telephone number that is not directly associated with a specific phone. It is programmable, enabling you to create custom call and messaging experiences for your users.
 
-Nexmo offers virtual numbers worldwide so that you can use phone numbers that are in the same locale as your customers or prospects. This maximises the chances that your calls are answered and your messages are read and responded to. 
+Nexmo offers virtual numbers worldwide so that you can use phone numbers that are in the same locale as your customers or prospects. This maximizes the chances that your calls are answered and your messages are read and responded to. 
 
 ## Getting Started
 

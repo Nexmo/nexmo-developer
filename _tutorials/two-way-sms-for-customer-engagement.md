@@ -151,7 +151,7 @@ nexmo = Nexmo::Client.new(
 
 > **Note**: do not store your API credentials in your code, use environment variables.
 
-To receive replies to your notification SMS, you set your virtual number as the senderID for outbound messages when you make a request to [SMS API](/api/sms):
+To receive replies to your notification SMS, you set your virtual number as the SenderID for outbound messages when you make a request to [SMS API](/api/sms):
 
 **app.rb**
 

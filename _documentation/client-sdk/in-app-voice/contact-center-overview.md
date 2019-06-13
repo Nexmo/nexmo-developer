@@ -111,7 +111,7 @@ The `mobile_api_key` can be found in the `SDK Integration` page, as a rudimentar
 
 ### 2.1. Choose Your Client App
 
-Nexmo Client SDK supports web (Javascript), iOS and Android.
+Nexmo Client SDK supports web (JavaScript), iOS and Android.
 
 You may [integrate the SDK](/client-sdk/setup/add-sdk-to-your-app) to your own client-side application and [add in-app voice functionality](/client-sdk/in-app-voice/guides/start-and-receive-calls).
 
@@ -119,7 +119,7 @@ However, to get started you may clone and run one of the demo client-side applic
 
 * [iOS-Swift](https://github.com/nexmo-community/contact-center-swift)
 * [Android-Kotlin](https://github.com/nexmo-community/contact-center-client-android-kt)
-* [Javascript](https://github.com/nexmo-community/contact-center-react)
+* [JavaScript](https://github.com/nexmo-community/contact-center-react)
 
 > **Important:**  After cloning, make sure you check the `README` file and update the required client-side app configurations.
 
@@ -223,7 +223,7 @@ To implement that, click the `IVR` button to result in an NCCO as such:
 ]
 ```
 
-In the NCCO, the `input` action collects the digit that the user pressed, and sends it to the indicated `eventUrl`. That `eventUrl` is another NCCO that is executed to continue to handle the call, according to the user input. In this case, `DTMF_URL` is an enpoint that is implemented and exposed on your behalf by the backend demo application, to connect the call to the respective agent.
+In the NCCO, the `input` action collects the digit that the user pressed, and sends it to the indicated `eventUrl`. That `eventUrl` is another NCCO that is executed to continue to handle the call, according to the user input. In this case, `DTMF_URL` is an endpoint that is implemented and exposed on your behalf by the backend demo application, to connect the call to the respective agent.
 
 For this example the NCCO merely connects the caller to the respected agent. The `DTMF_URL` is very similar to the one you have seen previously:
 
@@ -271,7 +271,7 @@ You have:
 
 ## What's Next?
 
-* [Learn more about event flow between the different Nexmo componenets](/conversation/guides/event-flow).
+* [Learn more about event flow between the different Nexmo components](/conversation/guides/event-flow).
 * [Learn more about the required components when setting up your Conversation API and Client SDK application](/conversation/guides/application-setup).
 * [Add push notification to your mobile app](/client-sdk/setup/set-up-push-notifications).
 

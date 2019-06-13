@@ -159,7 +159,7 @@ app.get('/', (req, res) => {
 });
 ```
 
-This populates the `index.html` page using the variable interpolation and conditional processing provided by the `pug` tempating library.
+This populates the `index.html` page using the variable interpolation and conditional processing provided by the `pug` templating library.
 
 In the HTML you display the user's phone number and:
 

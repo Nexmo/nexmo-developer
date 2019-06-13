@@ -84,7 +84,7 @@ If you added another `connect` action to this NCCO, the first two participants w
 ## File formats
 
 * Nexmo supports recording in MP3, OGG or WAV format, the default is MP3 (or WAV for recording more than 2 channels).
-* MP3 files are recorded with a 16-bit depth and a 16kHz sample rate. They are encoded with a constant bit rate of 32Kbps.
+* MP3 files are recorded with a 16-bit depth and a 16kHz sample rate. They are encoded with a constant bit rate of 32 Kbps.
 * WAV files are recorded with a 16-bit depth and a 16kHz sample rate.
 
 All formats are mono by default. If split recording is enabled, a stereo file with each channel using the previously mentioned bit-depth and sampling rates is created.

@@ -8,7 +8,7 @@ navigation_weight: 7
 
 > This concept document describes using SMPP instead of REST to access Nexmo's APIs. Implementing SMPP access requires a deep understanding of this complex telecommunications protocol and a lot of low-level development work. Most developers can safely ignore this information.
 
-By default, your account is configured to use Nexmo's REST APIs over HTTPS. Unless your organisation is an aggregator with an existing SMPP implementation, the information in this guide will probably be irrelevant to you.
+By default, your account is configured to use Nexmo's REST APIs over HTTPS. Unless your organization is an aggregator with an existing SMPP implementation, the information in this guide will probably be irrelevant to you.
 
 ## Contents
 This document covers the following:
@@ -50,7 +50,7 @@ You can configure SMPP access to the Nexmo platform by using one of the followin
 
 ### Standard configuration
 
-1. Read the [SMPP FAQ](https://help.nexmo.com/hc/en-us/sections/200621223), which contains details about character encodings, DLR formats, concatenated messages, throttle management and other important information.
+1. Read the [SMPP FAQ](https://help.nexmo.com/hc/en-us/sections/200621223), which contains details about character encoding, DLR formats, concatenated messages, throttle management and other important information.
 2. [Email us](mailto:smpp@nexmo.com) your monthly volume forecast. We will configure our system to enable SMPP access for you and send you a confirmation email with links to further resources.
 
 ### Using Kannel

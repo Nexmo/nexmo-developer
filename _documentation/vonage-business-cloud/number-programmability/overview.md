@@ -15,7 +15,7 @@ The Vonage Business Cloud (VBC) Number Programmability service enables you to:
 ## What can you do with it?
 You can use all the power and flexibility of the Nexmo Voice API together with the supporting VBC [Account](/vonage-business-cloud/vbc-apis/account-api/overview), [Extension](/vonage-business-cloud/vbc-apis/extension-api/overview) and [User](/vonage-business-cloud/vbc-apis/user-api/overview) APIs to create fully customized call experiences for your customers, including:
 
-* Interactive voice response (IVR) systems that link to your CRM system to personalise the menu options to your customers' needs
+* Interactive voice response (IVR) systems that link to your CRM system to personalize the menu options to your customers' needs
 * Voicebots that use natural language processing and/or AI to answer simple questions spoken by your customers
 * Automatic proxying of local numbers based on the area code dialled
 * Voice broadcasts to alert customers to important news or events
@@ -36,7 +36,7 @@ You must then:
 
 ## Using the Number Programmability service
 
-You will use the [Nexmo Voice API](/voice/voice-api/api-reference) to build interactive and customised call experiences for your users. We provide [client libraries](https://github.com/Nexmo/) in various languages that take make it easier to work with the Voice API.
+You will use the [Nexmo Voice API](/voice/voice-api/api-reference) to build interactive and customized call experiences for your users. We provide [client libraries](https://github.com/Nexmo/) in various languages that take make it easier to work with the Voice API.
 
 To forward an inbound call on one of your linked VBC numbers to your Nexmo Voice API Application, you create a [webhook](/concepts/guides/webhooks) endpoint in your code and configure the URL in your Nexmo account. This is so that Nexmo's APIs can alert your application when a call is received and ask for instructions on how to process the call.
 

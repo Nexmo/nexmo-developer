@@ -6,7 +6,7 @@ navigation_weight: 1
 
 # Sender Identity
 
-Your messages will appear to be sent from any allowed value you enter in the `from` parameter of the request. You might want to use this capability to better represent your brand and maximise readership and response rates.
+Your messages will appear to be sent from any allowed value you enter in the `from` parameter of the request. You might want to use this capability to better represent your brand and maximize readership and response rates.
 
 However, there are limitations on what this parameter can contain. You should also be aware that a message recipient can only respond if the `from` parameter contains a valid mobile number which is able to accept inbound SMS.
 
