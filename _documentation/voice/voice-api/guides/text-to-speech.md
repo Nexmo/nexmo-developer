@@ -60,6 +60,7 @@ Name | Language | Gender | [SSML](/voice/voice-api/guides/customizing-tts) suppo
 `Geraint` | `cy-GB` | `WLS male` | ✅
 `Raveena` | `en-IN` | `female` | ✅
 `Ivy` | `en-US` | `female` | ✅
+`Matthew` | `en-US` | `male` | ✅
 `Justin` | `en-US` | `male` | ✅
 `Kendra` | `en-US` | `female` | ✅
 `Kimberly` | `en-US` | `female` | ✅
