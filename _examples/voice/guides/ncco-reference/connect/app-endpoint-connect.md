@@ -1,6 +1,6 @@
 ---
-title: SIP endpoint
-menu_weight: 4
+title: App Endpoint
+menu_weight: 3
 ---
 
 ```json
@@ -17,9 +17,8 @@ menu_weight: 4
     "from": "447700900000",
     "endpoint": [
       {
-        "type": "sip",
-        "uri": "sip:rebekka@sip.mcrussell.com",
-        "headers": { "location": "New York City", "occupation": "developer" }
+        "type": "app",
+        "user": "jamie"
       }
     ]
   }

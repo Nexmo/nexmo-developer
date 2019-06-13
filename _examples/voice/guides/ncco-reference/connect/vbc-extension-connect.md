@@ -1,6 +1,6 @@
 ---
 title: VBC Extension
-menu_weight: 6
+menu_weight: 7
 ---
 
 ```json
