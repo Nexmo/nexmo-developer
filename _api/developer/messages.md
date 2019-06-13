@@ -14,6 +14,8 @@ api: Developer API
 
 The Messages API lets you retrieve messages you have sent via the SMS API by ID, as well as retrieve details of messages that were rejected.
 
+The default response is JSON, but you can specify XML by providing an `Accept` HTTP header with a value of `application/xml`.
+
 
 ### Search
 
