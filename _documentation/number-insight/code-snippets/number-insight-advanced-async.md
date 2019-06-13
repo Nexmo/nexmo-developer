@@ -9,7 +9,7 @@ The Number Insight Advanced API provides all the data from the [Number Insight S
 
 * If the number is likely to be valid
 * If the number is ported
-* If the number is reachable
+* If the number is reachable (not available in the US)
 * If the number is roaming and, if so, the carrier and country
 
 Use this information to determine the risk associated with a number.
