@@ -6,6 +6,60 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 5.2.1 - June 12, 2019
+
+### New
+
+- Add the new nexmoGetRequest utility method to make a GET network request directly to CS
+
+/**
+ * Perform a GET network request directly to CS
+ *
+ * @param {string} url the request url to CS
+ * @param {string} data_type the type of data expected back from the request (events, conversations, users)
+ * @param {object} [params] network request params
+ * @param {string} [params.cursor] cursor parameter to access the next or previous page of a data set
+ * @param {number} [params.page_size] the number of resources returned in a single request list
+ * @param {string} [params.order] 'asc' or 'desc' ordering of resources (usually based on creation time)
+ * @param {string} [params.event_type] the type of event used to filter event requests ('member:joined', 'audio:dtmf', etc)
+ *
+ * @returns {Promise<XMLHttpRequest.response>} the XMLHttpRequest.response
+ * @static
+ * @example <caption>Sending a nexmo GET request</caption>
+ */
+  nexmoGetRequest(url, data_type, params).then((response) => {
+    response.body: {},
+    response.cursor: {
+        prev: '',
+        next: '',
+        self: ''
+    },
+    response.page_size: 10
+ });
+
+- Support `reason` for member:delete `conversation.leave`, `member.kick`, `call.hangup` and `call.reject`
+- Listen for the `member:left` event with `reason`
+
+//listening for member:left with reason
+conversation.on('member:left', (member, event) => {
+  console.log(event.body.reason);
+});
+
+/**
+* Reason object format
+*
+* @param {object} [reason] the reason for kicking out a member
+* @param {string} [reason.code] the code of the reason
+* @param {string} [reason.text] the description of the reason
+*/
+
+- Add `callStatus` field in the `Member` object, defining the status of a call
+- Emit `member:call:status` event each time the `member.callStatus` changes
+
+conversation.on("member:call:status", (member) => {
+   console.log(member.callStatus);
+});
+
 ## Version 5.2.0 - May 30, 2019
 
 ### New
