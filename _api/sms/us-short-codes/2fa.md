@@ -108,7 +108,7 @@ Each response comes:
 You set the response type using the [Base URL](#base-url). The following table shows example responses in JSON or XML:
 
 ```tabbed_examples
-source: '/_examples/api/us-short-codes/alerts/response-format'
+source: '_examples/api/us-short-codes/alerts/response-format'
 ```
 
 ### Keys and Values

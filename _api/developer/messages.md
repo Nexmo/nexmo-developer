@@ -44,13 +44,13 @@ The following shows example responses in JSON and XML:
 **Outbound Message (MT)**
 
 ```tabbed_examples
-source: /_examples/api/developer/message/search/outbound
+source: _examples/api/developer/message/search/outbound
 ```
 
 **Inbound Message (MO)**
 
 ```tabbed_examples
-source: /_examples/api/developer/message/search/inbound
+source: _examples/api/developer/message/search/inbound
 ```
 
 ##### Keys and Values
@@ -76,10 +76,10 @@ Key | Value
 `date-closed` | The date and time at UTC+0 when Platform received the delivery receipt from the carrier who delivered the MT message. This parameter is in the following format YYYY-MM-DD HH:MM:SS
 `latency` | The overall latency between `date-received` and `date-closed` in milliseconds.
 `client-ref` | The [internal reference](/api/sms#send-an-sms) you set in the request.
-`final-status` | The status of `message-id` at `date-closed`. @[Possible values](/_modals/api/developer/message/search/response/final-status.md).
+`final-status` | The status of `message-id` at `date-closed`. @[Possible values](_modals/api/developer/message/search/response/final-status.md).
 `error-code-label` | A text label to explain `error-code`
-`status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](/_modals/api/developer/message/search/response/status.md).
-`error-code` | If the `status` is not `accepted` this key will have one of these @[possible values](/_modals/api/developer/message/search/response/error-code.md).
+`status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](_modals/api/developer/message/search/response/status.md).
+`error-code` | If the `status` is not `accepted` this key will have one of these @[possible values](_modals/api/developer/message/search/response/error-code.md).
 
 ### Retrieve multiple messages
 
@@ -143,10 +143,10 @@ Key | Value
 `date-closed` | The date and time at UTC+0 when Platform received the delivery receipt from the carrier who delivered the MT message. This parameter is in the following format YYYY-MM-DD HH:MM:SS
 `latency` | The overall latency between `date-received` and `date-closed` in milliseconds.
 `client-ref` | The [internal reference](/api/sms#send-an-sms) you set in the request.
-`final-status` | The status of `message-id` at `date-closed`. @[Possible values](/_modals/api/developer/message/search/response/final-status.md).
+`final-status` | The status of `message-id` at `date-closed`. @[Possible values](_modals/api/developer/message/search/response/final-status.md).
 `error-code-label` | A text label to explain `error-code`
-`status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](/_modals/api/developer/message/search/response/status.md).
-`error-code` | If the `status` is not `accepted` this key will have one of these @[possible values](/_modals/api/developer/message/search/response/error-code.md).
+`status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](_modals/api/developer/message/search/response/status.md).
+`error-code` | If the `status` is not `accepted` this key will have one of these @[possible values](_modals/api/developer/message/search/response/error-code.md).
 
 ### Retrieve rejected messages
 
