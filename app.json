@@ -23,5 +23,6 @@
     "GIT_SSH_KEY": { "required": true },
     "RACK_ENV": { "required": true },
     "RAILS_ENV": { "required": true }
-  }
+  },
+  "stack": "heroku-18"
 }

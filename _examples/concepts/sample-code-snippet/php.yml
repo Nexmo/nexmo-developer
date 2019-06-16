@@ -2,10 +2,14 @@
 title: PHP
 language: php
 dependencies:
-    - 'slim/slim:^3.8'
+    - nexmo/client
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/sms/send-sms.php
+    from_line: 5
+    to_line: 6    
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/user-input-dtmf-slim/index.php
-    from_line: 7
-    to_line: 40
-file_name: index.php
-run_command: 'php -t . -S localhost:3000'
+    source: .repos/nexmo/nexmo-php-code-snippets/sms/send-sms.php
+    from_line: 8
+    to_line: 23
+file_name: send-sms.php
+run_command: 'php send-sms.php'

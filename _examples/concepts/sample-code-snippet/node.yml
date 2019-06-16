@@ -2,15 +2,14 @@
 title: Node
 language: node
 dependencies:
-    - express
-    - body-parser
+    - nexmo
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/dtmf.js
-    from_line: 32 
-    to_line: 36
+    source: .repos/nexmo/nexmo-node-code-snippets/sms/send.js
+    from_line: 15
+    to_line: 29
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/dtmf.js
-    from_line: 1
-    to_line: 5
-file_name: interesting.js
-run_command: 'node interesing.js'
+    source: .repos/nexmo/nexmo-node-code-snippets/sms/send.js
+    from_line: 8
+    to_line: 13
+file_name: send.js
+run_command: 'node send.js'

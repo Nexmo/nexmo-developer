@@ -1,10 +1,15 @@
 ---
 title: Ruby
 language: ruby
-dependencies: null
+dependencies:
+    - nexmo
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send.rb
+    from_line: 8
+    to_line: 13
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/dtmf.rb
-    from_line: 5
-    to_line: 35
-file_name: dtmf.rb
-run_command: 'ruby dtmf.rb'
+    source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send.rb
+    from_line: 15
+    to_line: 19
+file_name: send.rb
+run_command: 'ruby send.rb'

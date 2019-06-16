@@ -236,9 +236,9 @@
         <th>Type</th>
 
         
-
+        <th>Attributes</th>
         
-        <th>Default</th>
+
         
 
         <th class="last">Description</th>
@@ -263,11 +263,13 @@
             </td>
 
             
+                <td class="attributes">
+                
 
-            
-                <td class="default">
                 
                 </td>
+            
+
             
 
             <td class="description last">the rtc_id</td>
@@ -290,11 +292,13 @@
             </td>
 
             
+                <td class="attributes">
+                
 
-            
-                <td class="default">
                 
                 </td>
+            
+
             
 
             <td class="description last">the current PeerConnection object</td>
@@ -304,7 +308,7 @@
 
         <tr>
             
-                <td class="name"><code>localStream</code></td>
+                <td class="name"><code>stream</code></td>
             
 
             <td class="type">
@@ -317,11 +321,13 @@
             </td>
 
             
+                <td class="attributes">
+                
 
-            
-                <td class="default">
                 
                 </td>
+            
+
             
 
             <td class="description last">the stream of the specific rtc_id</td>
@@ -344,16 +350,18 @@
             </td>
 
             
-
-            
-                <td class="default">
+                <td class="attributes">
                 
-                    video|screenshare
+                    &lt;optional><br>
+                
+
                 
                 </td>
             
 
-            <td class="description last">the type of the stream</td>
+            
+
+            <td class="description last">audio|video|screenshare the type of the stream</td>
         </tr>
 
     
@@ -373,11 +381,13 @@
             </td>
 
             
+                <td class="attributes">
+                
 
-            
-                <td class="default">
                 
                 </td>
+            
+
             
 
             <td class="description last">the index number of the stream (e.g. use to mute)</td>
@@ -426,7 +436,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line18">line 18</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -480,6 +490,92 @@
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="_cleanMediaProperties"><span class="type-signature"></span>_cleanMediaProperties<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Cleans up the user's media before leaving the conversation
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line984">line 984</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
@@ -541,7 +637,7 @@ ConversationClient#rtcstats:report
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1265">line 1265</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1326">line 1326</a>
     </li></ul></dd>
     
 
@@ -761,7 +857,46 @@ ConversationClient#rtcstats:report
                 </td>
             
 
-            <td class="description last">audio enablement mode. possible values "both", "send_only", "receive_only", "none", true or false
+            <td class="description last">audio enablement mode. possible values "both", "send_only", "receive_only", "none", true or false</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoPlayAudio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">attach the audio stream automatically to start playing after enable media (default false)
 * <!-- the following line should be added when deploying video to prod.</td>
         </tr>
 
@@ -967,7 +1102,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1211">line 1211</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1260">line 1260</a>
     </li></ul></dd>
     
 
@@ -1019,25 +1154,22 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     <pre class="prettyprint"><code>function enable() {
   conversation.media.enable()
      .then((stream) => {
-                  const media = document.createElement("audio");
-                  const source = document.createElement("source");
-                  const media_div = document.createElement("div");
-
-                  media.appendChild(source);
-                  media_div.appendChild(media);
-                  document.insertBefore(media_div);
-
-                  // Older browsers may not have srcObject
-                  if ("srcObject" in media) {
-                      media.srcObject = stream;
-                  } else {
-                      // Avoid using this in new browsers, as it is going away.
-                      media.src = window.URL.createObjectURL(stream);
-                  }
-
-                  media.onloadedmetadata = (e) => {
-                      media.play();
-                  };
+                const media = document.createElement("audio");
+                const source = document.createElement("source");
+                const media_div = document.createElement("div");
+                media.appendChild(source);
+                media_div.appendChild(media);
+                document.insertBefore(media_div);
+                // Older browsers may not have srcObject
+                if ("srcObject" in media) {
+                    media.srcObject = stream;
+                } else {
+                    // Avoid using this in new browsers, as it is going away.
+                    media.src = window.URL.createObjectURL(stream);
+                }
+                media.onloadedmetadata = (e) => {
+                    media.play();
+                };
 
 		 }).catch((error) => {
           console.log(error);
@@ -1153,7 +1285,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1358">line 1358</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1464">line 1464</a>
     </li></ul></dd>
     
 
@@ -1441,7 +1573,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1101">line 1101</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1152">line 1152</a>
     </li></ul></dd>
     
 
@@ -1542,7 +1674,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1385">line 1385</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1491">line 1491</a>
     </li></ul></dd>
     
 
@@ -1859,7 +1991,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1327">line 1327</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1433">line 1433</a>
     </li></ul></dd>
     
 
@@ -2158,7 +2290,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1288">line 1288</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1349">line 1349</a>
     </li></ul></dd>
     
 
@@ -2206,6 +2338,164 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>conversation.media.say({text:'hi'})</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sendDTMF"><span class="type-signature"></span>sendDTMF<span class="signature">(digits)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Event.html">Event</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Send DTMF in a conversation
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>digits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the DTMF digit(s) to send</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1382">line 1382</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Event.html">Event</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>conversation.media.sendDTMF('digits')</code></pre>
 
 
 
@@ -2267,7 +2557,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1420">line 1420</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1526">line 1526</a>
     </li></ul></dd>
     
 
@@ -2387,7 +2677,7 @@ console.log("ringing");
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1455">line 1455</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1561">line 1561</a>
     </li></ul></dd>
     
 
@@ -2446,6 +2736,242 @@ function stopRinging() {
 conversation.on('audio:ringing:stop', function(data)){
 console.log("ringing stopped");
 }</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateAudioConstraints"><span class="type-signature"></span>updateAudioConstraints<span class="signature">(constraints, type)</span><span class="type-signature"> &rarr; {Promise.&lt;MediaStream>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Replaces the stream's audio tracks currently being used as the sender's sources with a new one
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>constraints</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">audio constraints</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">rtc object type</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>constraints.audio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">set audio constraints - { deviceId: { exact: microphoneId } }</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1116">line 1116</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - Returns the new stream.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;MediaStream></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>&lt;caption>Update the stream currently being used with a new one&lt;/caption></code></pre>
 
 
 
@@ -2683,7 +3209,7 @@ console.log("ringing stopped");
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1064">line 1064</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1085">line 1085</a>
     </li></ul></dd>
     
 
@@ -2760,7 +3286,7 @@ console.log("ringing stopped");
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 17 2019 16:32:41 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

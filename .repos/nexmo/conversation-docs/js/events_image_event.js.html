@@ -30,7 +30,7 @@
  * Nexmo Client SDK
  *  ImageEvent Object Model
  *
- * Copyright (c) Nexmo Inc. 2017-2018
+ * Copyright (c) Nexmo Inc.
  */
 const logger = require('loglevel');
 
@@ -49,84 +49,94 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  */
 
 class ImageEvent extends Event {
-    constructor(conversation, params) {
-        super(conversation, params);
-        this.log = logger.getLogger(this.constructor.name);
-        this.type = "image";
-        this.conversation = conversation;
-        this.state = {
-            seen_by: {},
-            delivered_to: {}
-        };
-        if (params &amp;&amp; params.body) {
-            if (params.body.timestamp)
-                this.timestamp = params.body.timestamp;
-        }
-        Object.assign(this, params);
+  constructor(conversation, params) {
+    super(conversation, params);
+    this.log = logger.getLogger(this.constructor.name);
+    this.type = 'image';
+    this.conversation = conversation;
+    this.state = {
+      seen_by: {},
+      delivered_to: {}
+    };
+    if (params &amp;&amp; params.body) {
+      if (params.body.timestamp) {
+        this.timestamp = params.body.timestamp;
+      }
     }
+    Object.assign(this, params);
+  }
 
-    /**
-     * Set the message status to 'seen'
-     */
-    seen() {
-        return super.seen();
-    }
+  /**
+   * Set the message status to 'seen'
+   */
+  seen() {
+    return super.seen();
+  }
 
-    /**
-     * Set the message status to 'delivered'
-     */
-    delivered() {
-        return super.delivered();
-    }
+  /**
+   * Set the message status to 'delivered'
+   */
+  delivered() {
+    return super.delivered();
+  }
 
-    /**
-     * Delete the image event
-     * @returns {Promise}
-     */
-    del() {
-        return super.del();
-    }
-    /**
-     * Download an Image from Media service //3 representations
-     * @param {string} [type="thumbnail"] original, medium, thumbnail,
-     * @param {string} [representations=this.body.representations]  the ImageEvent.body for the image to download
-     * @returns {string} the dataUrl "data:image/jpeg;base64..."
-     * @example &lt;caption>Downloading an image from the imageEvent&lt;/caption>
-     *                 imageEvent.fetchImage().then((imagedata) => {
-     *                      var img = new Image();
-     *                      img.onload = function () {
-     *                      };
-     *                      img.src = imagedata;
-     *
-     *                      // to cancel the request:
-     *                      // conversation.abortSendImage(imageRequest);
-     *                  });
-     */
-    fetchImage(type = "thumbnail", imageDataObject = this.body.representations) {
-        const url = imageDataObject[type].url;
-        return Utils.networkFetch(url)
-            .then((response) => {
-                const responseArray = new Uint8Array(response);
-                // Convert the int array to a binary String
-                // We have to use apply() as we are converting an *array*
-                // and String.fromCharCode() takes one or more single values, not
-                // an array.
-                //support large image files (Chunking)
-                let res = "";
-                const chunk = 8 * 1024;
-                let i;
-                for (i = 0; i &lt; responseArray.length / chunk; i++) {
-                    res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk, (i + 1) * chunk));
-                }
-                res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk));
-                const b64 = btoa(res);
-                const dataUrl = "data:image/jpeg;base64," + b64;
-                return Promise.resolve(dataUrl);
-            }).catch((error) => {
-                this.log.warn(error);
-                return Promise.reject(new NexmoClientError("error:fetch-image"));
-            });
-    }
+  /**
+   * Delete the image event, all 3 representations of it
+   * passing only the one of the three URLs
+   * @param {object} [imageRepresentations=this.body.representations] the ImageEvent.body for the image to delete
+   * @returns {Promise}
+   */
+  del(imageRepresentations = this.body.representations) {
+    return Utils.networkRequest({
+      type: 'DELETE',
+      url: imageRepresentations.original.url
+    })
+        .then(() => {
+          return super.del();
+        });
+  }
+
+  /**
+   * Download an Image from Media service //3 representations
+   * @param {string} [type="thumbnail"] original, medium, thumbnail,
+   * @param {string} [representations=this.body.representations]  the ImageEvent.body for the image to download
+   * @returns {string} the dataUrl "data:image/jpeg;base64..."
+   * @example &lt;caption>Downloading an image from the imageEvent&lt;/caption>
+   *                 imageEvent.fetchImage().then((imagedata) => {
+   *                      var img = new Image();
+   *                      img.onload = function () {
+   *                      };
+   *                      img.src = imagedata;
+   *
+   *                      // to cancel the request:
+   *                      // conversation.abortSendImage(imageRequest);
+   *                  });
+   */
+  fetchImage(type = 'thumbnail', imageRepresentations = this.body.representations) {
+    return Utils.networkRequest({
+      type: 'GET',
+      url: imageRepresentations[type].url,
+      responseType: 'arraybuffer'
+    })
+        .then((xhr) => {
+          const responseArray = new Uint8Array(xhr.response);
+        // Convert the int array to a binary String
+        // We have to use apply() as we are converting an *array*
+        // and String.fromCharCode() takes one or more single values, not
+        // an array.
+        // support large image files (Chunking)
+          let res = '';
+          const chunk = 8 * 1024;
+          let i;
+          for (i = 0; i &lt; responseArray.length / chunk; i++) {
+            res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk, (i + 1) * chunk));
+          }
+          res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk));
+          const b64 = btoa(res);
+          const dataUrl = 'data:image/jpeg;base64,' + b64;
+          return Promise.resolve(dataUrl);
+        });
+  }
 }
 module.exports = ImageEvent;
 </code></pre>
@@ -145,7 +155,7 @@ module.exports = ImageEvent;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 17 2019 16:32:41 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

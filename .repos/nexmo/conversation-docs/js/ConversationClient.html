@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ConversationClient<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ConversationClient<span class="signature">(params)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="ConversationClient"><span class="type-signature"></span>new ConversationClient<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ConversationClient"><span class="type-signature"></span>new ConversationClient<span class="signature">(params)</span><span class="type-signature"></span></h4>
     
 
     
@@ -73,8 +73,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -100,20 +98,10 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">
+            <td class="description last">the settings to initialise the SDK
                 <h6>Properties</h6>
                 
 
@@ -652,17 +640,10 @@
         </tr>
 
     
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
 
         <tr>
             
-                <td class="name"><code>param.callstats</code></td>
+                <td class="name"><code>callstats</code></td>
             
 
             <td class="type">
@@ -675,15 +656,11 @@
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
+            
+                <td class="default">
                 
                 </td>
-            
-
             
 
             <td class="description last">configure callstats.io integration
@@ -804,7 +781,7 @@
 
         <tr>
             
-                <td class="name"><code>param.log_reporter</code></td>
+                <td class="name"><code>log_reporter</code></td>
             
 
             <td class="type">
@@ -817,15 +794,11 @@
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
+            
+                <td class="default">
                 
                 </td>
-            
-
             
 
             <td class="description last">configure log reports for bugsnag tool
@@ -906,6 +879,13 @@
             
 
             <td class="description last">your bugsnag api key / defaults to Nexmo api key</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -1146,7 +1126,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line677">line 677</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line680">line 680</a>
     </li></ul></dd>
     
 
@@ -1232,7 +1212,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line667">line 667</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line670">line 670</a>
     </li></ul></dd>
     
 
@@ -1318,7 +1298,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line659">line 659</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line662">line 662</a>
     </li></ul></dd>
     
 
@@ -1352,7 +1332,7 @@
     
 
     
-    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Application.html">Application</a>>}</span></h4>
+    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">(token)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Application.html">Application</a>>}</span></h4>
     
 
     
@@ -1396,7 +1376,7 @@
 
         <tr>
             
-                <td class="name"><code>params.token</code></td>
+                <td class="name"><code>token</code></td>
             
 
             <td class="type">
@@ -1453,7 +1433,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line516">line 516</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line517">line 517</a>
     </li></ul></dd>
     
 
@@ -1561,7 +1541,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line613">line 613</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line614">line 614</a>
     </li></ul></dd>
     
 
@@ -2185,7 +2165,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 17 2019 16:32:41 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

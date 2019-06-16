@@ -1,3 +1,11 @@
+<% unless @tutorials.count.positive? %>
+  <div class="Vlt-callout Vlt-callout--warning">
+    <i></i>
+    <div class="Vlt-callout__content">
+      No tutorials available in this language
+    </div>
+  </div>
+  <% else %>
 <div class="masonry" data-turbolinks="false">
   <% @tutorials.each_with_index do |tutorial, index| %>
     <div class="item">
@@ -30,3 +38,4 @@
     </div>
   <% end %>
 </div>
+<% end %>

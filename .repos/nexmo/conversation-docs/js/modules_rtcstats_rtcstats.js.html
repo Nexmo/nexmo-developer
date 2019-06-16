@@ -45,97 +45,96 @@
  */
 
 class RTCStats {
-    constructor(trace, isCallback, getStatsInterval, prefixesToWrap) {
-        this.mos_report = { min: 5, max: 0 };
-        this._reportsCount = 0;
-        this._mosSum = 0;
-        var self = this;
-        if (isCallback) {
-            var origPeerConnection = window['RTCPeerConnection'];
-            var peerconnection = function(config, constraints) {
-                var pc = new origPeerConnection(config, constraints);
-                if (!self.stats_interval) {
-                    self.stats_interval = window.setInterval(() => {
-                        if (pc.signalingState === 'closed') {
-                            window.clearInterval(self.stats_interval);
-                            let mos_report = self.getMOSReport();
-                            trace('mos_report', mos_report.last, null, mos_report);
-                            return;
-                        }
-                        pc.getStats(null).then((res) => {
-                            let mos = self.getMos(res);
-                            trace('mos', mos, res);
-                        });
-                    }, getStatsInterval);
-                }
-                return pc;
-            };
-            window['RTCPeerConnection'] = peerconnection;
-            window['RTCPeerConnection'].prototype = origPeerConnection.prototype;
-        } else {
-            RTCStatsReporter(trace, isCallback, getStatsInterval, prefixesToWrap);
-        }
-    }
-    disable() {
-        if (!this.stats_interval) {
-            throw new Error('rtc stats not enabled');
-        } else {
-            window.clearInterval(this.stats_interval);
-            delete this.stats_interval;
-        }
-    }
-
-    getMos(report) {
-        let jitter_time = 0;
-        let recv_pkts = 0;
-        let lost_pkts = 0;
-        let average = 100.0
-        let packet_loss = 0.0
-        let effective_latency = 0.0
-        let r_value = 0.0;
-        let mos = 0;
-
-        for (let now of report.values()) {
-            if (now.type === "inbound-rtp") {
-                jitter_time = now.jitter;
-                lost_pkts = now.packetsLost;
-                recv_pkts = now.packetsReceived;
+  constructor(trace, isCallback, getStatsInterval, prefixesToWrap) {
+    this.mos_report = {min: 5, max: 0};
+    this._reportsCount = 0;
+    this._mosSum = 0;
+    let self = this;
+    if (isCallback) {
+      let origPeerConnection = window['RTCPeerConnection'];
+      let peerconnection = function(config, constraints) {
+        let pc = new origPeerConnection(config, constraints);
+        if (!self.stats_interval) {
+          self.stats_interval = window.setInterval(() => {
+            if (pc.signalingState === 'closed') {
+              window.clearInterval(self.stats_interval);
+              let mos_report = self.getMOSReport();
+              trace('mos_report', mos_report.last, null, mos_report);
+              return;
             }
+            pc.getStats(null).then((res) => {
+              let mos = self.getMos(res);
+              trace('mos', mos, res);
+            });
+          }, getStatsInterval);
         }
-
-        if (recv_pkts + lost_pkts > 0) {
-            packet_loss = 100.0 * (lost_pkts / (recv_pkts + lost_pkts));
-        }
-        effective_latency = (average + jitter_time * 2 + 10);
-        if (effective_latency &lt; 160) {
-            r_value = 93.2 - (effective_latency / 40);
-        }
-        else {
-            r_value = 93.2 - (effective_latency - 120) / 10;
-        }
-        r_value = r_value - (packet_loss * 2.5);
-
-        if (r_value &lt; 1) {
-            r_value = 1;
-        }
-        mos = 1 + (0.035) * r_value + (0.000007) * r_value * (r_value - 60) * (100 - r_value);
-        this.updateMOSReport(mos);
-        return RTCStats.normaliseFloat(mos);
+        return pc;
+      };
+      window['RTCPeerConnection'] = peerconnection;
+      window['RTCPeerConnection'].prototype = origPeerConnection.prototype;
+    } else {
+      RTCStatsReporter(trace, isCallback, getStatsInterval, prefixesToWrap);
     }
+  }
+  disable() {
+    if (!this.stats_interval) {
+      throw new Error('rtc stats not enabled');
+    } else {
+      window.clearInterval(this.stats_interval);
+      delete this.stats_interval;
+    }
+  }
+
+  getMos(report) {
+    let jitter_time = 0;
+    let recv_pkts = 0;
+    let lost_pkts = 0;
+    let average = 100.0;
+    let packet_loss = 0.0;
+    let effective_latency = 0.0;
+    let r_value = 0.0;
+    let mos = 0;
+
+    for (let now of report.values()) {
+      if (now.type === 'inbound-rtp') {
+        jitter_time = now.jitter;
+        lost_pkts = now.packetsLost;
+        recv_pkts = now.packetsReceived;
+      }
+    }
+
+    if (recv_pkts + lost_pkts > 0) {
+      packet_loss = 100.0 * (lost_pkts / (recv_pkts + lost_pkts));
+    }
+    effective_latency = (average + jitter_time * 2 + 10);
+    if (effective_latency &lt; 160) {
+      r_value = 93.2 - (effective_latency / 40);
+    } else {
+      r_value = 93.2 - (effective_latency - 120) / 10;
+    }
+    r_value = r_value - (packet_loss * 2.5);
+
+    if (r_value &lt; 1) {
+      r_value = 1;
+    }
+    mos = 1 + (0.035) * r_value + (0.000007) * r_value * (r_value - 60) * (100 - r_value);
+    this.updateMOSReport(mos);
+    return RTCStats.normaliseFloat(mos);
+  }
     /**
      * Update the mos_report object
      * @param {number} mos the MOS score
      * @returns {object} the report object
      */
-    updateMOSReport(mos) {
-        this._reportsCount++;
-        this._mosSum += mos;
-        this.mos_report.last = mos;
-        this.mos_report.min = (mos &lt; this.mos_report.min) ? mos : this.mos_report.min;
-        this.mos_report.max = (mos > this.mos_report.max) ? mos : this.mos_report.max;
-        this.mos_report.average = this._mosSum / this._reportsCount;
-        return this.mos_report;
-    }
+  updateMOSReport(mos) {
+    this._reportsCount++;
+    this._mosSum += mos;
+    this.mos_report.last = mos;
+    this.mos_report.min = (mos &lt; this.mos_report.min) ? mos : this.mos_report.min;
+    this.mos_report.max = (mos > this.mos_report.max) ? mos : this.mos_report.max;
+    this.mos_report.average = this._mosSum / this._reportsCount;
+    return this.mos_report;
+  }
     /**
      * Update the MOS report object
      * mos_report.min - the minimum MOS value during the stream
@@ -145,17 +144,16 @@ class RTCStats {
      * @returns {Object} mos_report - a report for the MOS values
      *
      */
-    getMOSReport() {
-        this.mos_report.min = RTCStats.normaliseFloat(this.mos_report.min);
-        this.mos_report.max = RTCStats.normaliseFloat(this.mos_report.max);
-        this.mos_report.last = RTCStats.normaliseFloat(this.mos_report.last);
-        this.mos_report.average = RTCStats.normaliseFloat(this.mos_report.average);
-        return this.mos_report;
-    }
-    static normaliseFloat(value) {
-        return parseFloat(value).toFixed(6);
-    }
-
+  getMOSReport() {
+    this.mos_report.min = RTCStats.normaliseFloat(this.mos_report.min);
+    this.mos_report.max = RTCStats.normaliseFloat(this.mos_report.max);
+    this.mos_report.last = RTCStats.normaliseFloat(this.mos_report.last);
+    this.mos_report.average = RTCStats.normaliseFloat(this.mos_report.average);
+    return this.mos_report;
+  }
+  static normaliseFloat(value) {
+    return parseFloat(value).toFixed(6);
+  }
 }
 module.exports = RTCStats;
 </code></pre>
@@ -174,7 +172,7 @@ module.exports = RTCStats;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 17 2019 16:32:41 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

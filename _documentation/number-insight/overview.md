@@ -42,7 +42,7 @@ Carrier and country| ❌ | ✅ | ✅
 Ported| ❌ | ❌ | ✅
 IP match| ❌ | ❌ | ✅
 Validity| ❌ | ❌ | ✅
-Reachability| ❌ | ❌ | ✅
+Reachability (not available in the US)| ❌ | ❌ | ✅
 Roaming status| ❌ | ❌ | ✅
 Roaming carrier and country| ❌ | ❌ | ✅
 **US number** caller name and type| ❌ | ✅ | ✅

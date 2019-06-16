@@ -14,6 +14,11 @@
 .file {
     background: orange;
 }
+
+.unsupported {
+  background: grey;
+  color: white;
+}
 </style>
 
 <center>
@@ -28,7 +33,7 @@
                     options_for_select([['All', nil]].concat(DocumentationConstraint.product_list), params[:product]),
                     onchange: "this.form.submit();" %>
                 Show Only: <%= select_tag :only,
-                    options_for_select([['All', nil], 'yaml', 'config', 'file'], params[:only]),
+                    options_for_select([['All', nil], 'yaml', 'file'], params[:only]),
                     onchange: "this.form.submit();" %>
             </div>
         <br>
@@ -40,10 +45,6 @@
         <br>
     <%= link_to 'Reset', '/coverage' %> &nbsp;
     <%= submit_tag 'Update', class: 'button' %>
-    <p>
-    <hr />
-        <strong>Note: This is only partially working due to the location of some Code Snippets</strong>
-    </p>
 <% end %>
     </div>
 </center>
@@ -128,7 +129,6 @@
                 <tr>
                 <td>Block</td>
                 <% @supported_languages.each do |lang| %>
-                    <% next if lang == 'csharp' %>
                     <td><%= lang %></td>
                 <% end %>
                 </tr>
@@ -143,8 +143,7 @@
                     <tr class="Vlt-table__row--nohighlight">
                         <td style="width: 200px;"><strong><%= name %></strong></td>
                         <% @supported_languages.each do |lang| %>
-                            <% next if lang == 'csharp' %>
-                            <% 
+                            <%
                                 coverage[lang] = 0 unless coverage[lang]
                                 coverage[lang] += 1 if languages[lang]
 
@@ -159,7 +158,6 @@
                 <tr class="Vlt-table__row--nohighlight">
                     <td><strong>Coverage</strong></td>
                     <% @supported_languages.each do |lang| %>
-                        <% next if lang == 'csharp' %>
                         <td><%= coverage[lang]%>/<%= count %> (<%= (coverage[lang]/count.to_f*100).round(2) %>%)</td>
                     <% end %>
                 </tr>

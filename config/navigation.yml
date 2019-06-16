@@ -41,10 +41,11 @@ navigation_weight:
   API Reference: 50
 
   Overview: 1
-  Concepts: 2
+  Setup: 2
+  Concepts: 3
   In-App Messaging: 4
-  In-App Voice: 3
-  In-App Video: 5
+  In-App Voice: 5
+  In-App Video: 6
 
   Messages API: 1
   Dispatch API: 2
@@ -62,22 +63,13 @@ navigation_overrides:
   messaging:
     svg: 'message'
     svgColor: 'purple'
-    sms:
-      collapsible: true
-    conversion-api:
-      collapsible: true
-    us-short-codes:
-      collapsible: true
   voice:
     svg: 'phone'
     svgColor: 'green'
     voice-api:
-      collapsible: true
       guides:
         websockets:
           label: 'Beta'
-    sip:
-      collapsible: true
   verify:
     svg: 'lock'
     svgColor: 'indigo'
@@ -87,8 +79,6 @@ navigation_overrides:
   account:
     svg: 'user'
     svgColor: 'blue'
-    secret-management:
-      collapsible: true
   redact:
     label: 'Dev Preview'
     svg: 'lock'
@@ -99,12 +89,7 @@ navigation_overrides:
     label: 'Dev Preview'
     sdk-documentation:
       link: false
-    setup:
-      collapsible: true
-    in-app-voice:
-      collapsible: true
-    in-app-messaging:
-      collapsible: true
+      collapsible: false
   numbers:
     svg: 'phone-number'
     svgColor: 'red'
@@ -118,16 +103,6 @@ navigation_overrides:
     label: 'Beta'
     code-snippets:
       collapsible: false
-      sms:
-        collapsible: true
-      mms:
-        collapsible: true
-      messenger:
-        collapsible: true
-      viber:
-        collapsible: true
-      whatsapp:
-        collapsible: true
   dispatch:
     svg: 'flow'
     svgColor: 'purple'
@@ -136,6 +111,8 @@ navigation_overrides:
     svg: 'message'
     svgColor: 'teal'
     label: 'Dev Preview'
+    code-snippets:
+      collapsible: false
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'

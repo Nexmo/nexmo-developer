@@ -1,21 +1,6 @@
 [submodule "_open_api/api_specs"]
 	path = _open_api/api_specs
 	url = https://github.com/Nexmo/api-specification.git
-[submodule ".repos/nexmo/client-sdk-javascript-code-snippets"]
-	path = .repos/nexmo/client-sdk-javascript-code-snippets
-	url = https://github.com/Nexmo/client-sdk-javascript-code-snippets.git
-[submodule ".repos/nexmo/client-sdk-android-kotlin-code-snippets"]
-	path = .repos/nexmo/client-sdk-android-kotlin-code-snippets
-	url = https://github.com/Nexmo/client-sdk-android-kotlin-code-snippets.git
-[submodule ".repos/nexmo/client-sdk-android-java-code-snippets"]
-	path = .repos/nexmo/client-sdk-android-java-code-snippets
-	url = https://github.com/Nexmo/client-sdk-android-java-code-snippets.git
-[submodule ".repos/nexmo/client-sdk-objective-c-code-snippets"]
-	path = .repos/nexmo/client-sdk-objective-c-code-snippets
-	url = https://github.com/Nexmo/client-sdk-objective-c-code-snippets.git
-[submodule ".repos/nexmo/client-sdk-swift-code-snippets"]
-	path = .repos/nexmo/client-sdk-swift-code-snippets
-	url = https://github.com/Nexmo/client-sdk-swift-code-snippets.git
 [submodule ".repos/nexmo/nexmo-ruby-code-snippets"]
 	path = .repos/nexmo/nexmo-ruby-code-snippets
 	url = https://github.com/Nexmo/nexmo-ruby-code-snippets.git

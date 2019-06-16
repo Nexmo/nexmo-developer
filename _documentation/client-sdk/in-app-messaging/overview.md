@@ -33,14 +33,6 @@ Conversation API concepts:
 product: conversation
 ```
 
-## Code Snippets
-
-In-app Messaging Code Snippets:
-
-```code_snippet_list
-product: client-sdk/in-app-messaging
-```
-
 ## Tutorials
 
 Nexmo Client SDK tutorials:

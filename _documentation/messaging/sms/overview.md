@@ -9,7 +9,7 @@ Nexmo's SMS API enables you to send and receive text messages to and from users 
 
 * Programmatically send and receive high volumes of SMS globally.
 * Send SMS with low latency and high delivery rates.
-* Receive SMS for free using local numbers.
+* Receive SMS using local numbers.
 * Scale your applications with familiar web technologies.
 * Pay only for what you use, nothing more.
 

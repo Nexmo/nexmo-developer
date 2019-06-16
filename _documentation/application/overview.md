@@ -56,20 +56,20 @@ Capability | API used | Webooks available
 
 The following table describes webhooks available per capability:
 
-Capability | Webhook | Example | Description
---- | --- | --- | ---
-`voice` | `answer_url` | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
-`voice` | `event_url` | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
-`messages` | `inbound_url` | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
-`messages` | `status_url` | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.
-`rtc` | `event_url` | https://example.com/webhooks/rtcevent | Nexmo will send RTC events to this URL.
-`vbc` | None | None | Not used
+Capability | Webhook | API | Example | Description
+--- | --- | --- | --- | --- |
+`voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
+`voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
+`messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
+`messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.
+`rtc` | `event_url` | [Client SDK](/client-sdk/overview), [Conversation](/conversation/overview) | https://example.com/webhooks/rtcevent | Nexmo will send RTC events to this URL.
+`vbc` | None | [Voice endpoint](/voice/voice-api/ncco-reference#connect) | None | Not used
 
 ## Creating applications
 
 There are four main ways to create an application:
 
-1. In the Nexmo Dashboard (this is currently restricted to v1 Applications with a single fixed capability).
+1. In the Nexmo Dashboard you can create an application with a single capability. You can then add capabilities and update the details of an application created in the Dashboard using the v2 API. If an application has multiple capabilities it will appear in all relevant sections of the Dashboard. For example, an application with both Voice and Messages capabilities will appear in both the Voice and Messages sections of the Dashboard.
 2. Using the Nexmo CLI (this is currently restricted to v1 Applications with a single fixed capability).
 3. Using the [Applications API](https://developer.nexmo.com/api/application.v2).
 4. Using one of the Nexmo client libraries (this is currently restricted to v1 Applications with a single fixed capability).

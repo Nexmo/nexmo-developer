@@ -12,7 +12,9 @@ api: Developer API
 
 ## Messages
 
-The Messages API lets you retrieve messages you have sent via the SMS API by ID, as well as retrieve details of messages that were rejected.
+Use the Messages API to retrieve details about messages you have sent via the SMS API, including those that were rejected. To request information about a message, you need to know the `message-id`. This is included in the response when you [send an SMS](https://developer.nexmo.com/api/sms#send-an-sms).
+
+The default response is JSON, but you can specify XML by providing an `Accept` HTTP header with a value of `application/xml`.
 
 
 ### Search
@@ -31,11 +33,13 @@ The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`id` | The ID of the message you want to retrieve. | Yes
+`id` | The `message-id` of the message you want to retrieve. | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 #### Response
 
-The following shows example Responses in JSON or XML:
+The following shows example responses in JSON and XML:
 
 **Outbound Message (MT)**
 
@@ -56,7 +60,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `type` | The message type. `MT` (mobile terminated or outbound) or `MO` (mobile originated or inbound)
-`message-id` | The id of the message you sent.
+`message-id` | The ID of the message you sent.
 `account-id` | Your API Key.
 `network` | The [MCCMNC](https://en.wikipedia.org/wiki/Mobile_Network_Code) for the carrier who delivered the message.
 `from` | The sender ID the message was sent from. Could be a phone number or name.
@@ -96,6 +100,8 @@ The following shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `ids` | The list of up to 10 message IDs to search for. For example: `ids=00A0B0C0&ids=00A0B0C1&ids=00A0B0C2` | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 *or* **Search by recipient and date**
 
@@ -103,10 +109,12 @@ Parameter | Description | Required
 -- | -- | --
 `date` | The date the request to SMS API was submitted in the following format: `YYYY-MM-DD` | Yes
 `to` | The phone number the message was sent to. | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 #### Response
 
-The following shows example Responses in JSON or XML:
+The following shows example responses in JSON and XML:
 
 ```tabbed_examples
 source: _examples/api/developer/message/retrieve-multiple-messages
@@ -119,7 +127,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `type` | The message type. `MT` (mobile terminated or outbound) or `MO` (mobile originated or inbound)
-`message-id` | The id of the message you sent.
+`message-id` | The ID of the message you sent.
 `account-id` | Your API Key.
 `network` | The [MCCMNC](https://en.wikipedia.org/wiki/Mobile_Network_Code) for the carrier who delivered the message.
 `from` | The sender ID the message was sent from. Could be a phone number or name.
@@ -158,10 +166,12 @@ Parameter | Description | Required
 -- | -- | --
 `date` | The date the request to SMS API was submitted in the following format: `YYYY-MM-DD` | Yes
 `to` | The phone number the message was sent to. | Yes
+`api_key` | You can find your API key in the [developer dashboard](https://dashboard.nexmo.com)| Yes
+`api_secret` | You can find your API secret in the [developer dashboard](https://dashboard.nexmo.com)| Yes
 
 #### Response
 
-The following shows example Responses in JSON or XML:
+The following shows example responses in JSON and XML:
 
 ```tabbed_examples
 source: _examples/api/developer/message/retrieve-rejected-messages

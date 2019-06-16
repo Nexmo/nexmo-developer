@@ -38,7 +38,6 @@ class DashboardController < ApplicationController
     @supported_languages = %w[
       curl
       csharp
-      dotnet
       java
       node
       php
@@ -53,6 +52,7 @@ class DashboardController < ApplicationController
 
     coverage_from_yaml if ['all', 'yaml'].include?(only)
     coverage_from_files if ['all', 'file'].include?(only)
+    coverage_from_unsupported
 
     ignore_languages.each do |lang|
       @supported_languages.delete(lang)
@@ -79,7 +79,7 @@ class DashboardController < ApplicationController
 
     # Remove non-GA features
     if params[:show_ga_only]
-      params[:ignore_products] = 'conversation,messages,dispatch,audit'
+      params[:ignore_products] = 'conversation,messages,dispatch,audit,vonage-business-cloud'
     end
     params[:ignore_products]&.split(',')&.each do |key|
       @complete_coverage.delete(key)
@@ -132,6 +132,29 @@ class DashboardController < ApplicationController
     params[:hide_response].presence
   end
 
+  def coverage_from_unsupported
+    Dir.glob("#{Rails.root}/_examples/**/.unsupported.yml").each do |e|
+      relative_path = e.gsub("#{Rails.root}/_examples/", '')
+      parts = relative_path.split('/')
+      parts.insert(1, 'top-level') if parts.count < 4
+      parts = parts[0..-2]
+      next if parts[0] == 'migrate'
+
+      excluded_content = YAML.load_file(e)
+
+      x = @complete_coverage
+      parts.each do |key, _value|
+        x[key] = {} unless x[key]
+        x = x[key]
+      end
+      excluded_content.each do |language|
+        x[language] = {
+          'type' => 'unsupported',
+        }
+      end
+    end
+  end
+
   def coverage_from_yaml
     Dir.glob("#{Rails.root}/_examples/**/*.yml").each do |e|
       relative_path = e.gsub("#{Rails.root}/_examples/", '')
@@ -149,7 +172,6 @@ class DashboardController < ApplicationController
       end
 
       language = source.gsub('.yml', '').downcase
-      language = 'dotnet' if language == 'csharp'
       x[language] = {
           'source' =>  '_examples/' + relative_path,
           'source_path' => source_path,
@@ -168,8 +190,6 @@ class DashboardController < ApplicationController
       source_path = e.clone
       parts = relative_path.split('/')
       language = parts.pop
-
-      language = 'dotnet' if language == 'csharp'
 
       parts.insert(1, 'top-level') if parts.count < 3
 

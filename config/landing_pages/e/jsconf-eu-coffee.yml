@@ -1,0 +1,291 @@
+title: "Use our APIs & SDK or or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
+
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Nexmo ❤️ JSConf EU 💙 Coffee"
+            align: center
+          subtitle:
+            text: "Hello JavaScripters! We hate queueing for coffee and we wanted to make it as easy as possible for people to get caffeinated during the conference. There are a few ways you can order your coffee and get notified when it's ready for you to pick it up."
+            align: center
+          icon:
+            name: "icon-phone"
+            color: "blue"
+
+  - row:
+    - column:
+        - type: line_divider
+
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "# Order Your Coffee"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <p><b>Coffee options</b></p>
+            <ul>
+              <li>1. Cappucino</li>
+              <li>2. Flat White</li>
+              <li>3. Latte</li>
+              <li>4. Espresso</li>
+              <li>5. Filter Coffee</li>
+            </ul>
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <p><b>Milk options</b></p>
+            <ul>
+              <li>1. Full-fat milk</li>
+              <li>2. Oat milk</li>
+            </ul>
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "&nbsp;"
+
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "Make a phone call"
+          icon:
+            name: "icon-call"
+            color: blue
+          text:
+          - content: We've built an interactive voice response to help you order your coffee. Call one of the phone numbers below, and navigate the menu to order your coffee.
+            type: large
+          - content: 🇩🇪 +494082210836
+            type: small
+          - content: 🇺🇸 +12019570995
+            type: small
+          - content: 🇬🇧 +447418397995
+            type: small
+          - content: 🇸🇪 +46769436099
+            type: small
+          - content: 🇳🇱 +3197010240995
+            type: small
+          - content: 🇩🇰 +4592453399
+            type: small
+
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "Send an SMS"
+          icon:
+            name: "icon-message"
+            color: blue
+          text:
+          - content: We understand a voice interface is not the best for all situations, so if you want to order your coffee via text, just send an SMS to one of the numbers below with your coffee order, for example "Oat Latte".
+            type: large
+          - content: 🇩🇪 +4915735995997
+            type: small
+          - content: 🇳🇴 +4759444599
+            type: small
+          - content: 🇺🇸 +12019570995
+            type: small
+          - content: 🇬🇧 +447418397995
+            type: small
+          - content: 🇸🇪 +46769436099
+            type: small
+          - content: 🇳🇱 +3197010240995
+            type: small
+          - content: 🇩🇰 +4592453399
+            type: small
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>You can't use any of the phone numbers?</h4>
+                Reach out to <a href="https://twitter.com/lakatos88">Alex</a> on Twitter and ask him to provision a Nexmo phone number for your country.
+            	</div>
+            </div>
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "# Find out about Nexmo"
+
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon:
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          icon:
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages/overview"
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: true
+          type: primary
+          large: true
+
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <div class="Vlt-callout Vlt-callout--shoutout">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
+            	</div>
+            </div>
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+        - type: header
+          header:
+            title:
+              text: "Nexmo ❤️ JavaScript"
+              align: center
+            icon:
+              name: "icon-code"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: "At Nexmo, we love JavaScript - it's one of our most-used and most-loved languages by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Node library:"
+        - type: text
+          text:
+            content: |
+              ```
+              npm install nexmo@beta --save
+              ```
+        - type: text
+          text:
+            content: "If you're building text, voice or video into communications into your client side applications, you'll also need to install the Nexmo Client SDK:"
+        - type: text
+          text:
+            content: |
+              ```
+              npm install nexmo-client --save
+              ```
+
+    - column:
+        - type: header
+          header:
+            title:
+              text: "Get started by making a call"
+              align: center
+            icon:
+              name: "icon-call"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: |
+              ```javascript
+              nexmo.calls.create({
+                to: [{ type: 'phone', number: TO_NUMBER }],
+                from: { type: 'phone', number: NEXMO_NUMBER },
+                answer_url: ['https://developer.nexmo.com/ncco/tts.json']
+              })
+              ```
+              <div class="Vlt-right">
+              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/code-snippets/make-an-outbound-call">View the complete code &raquo;</a>
+              </div>
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Handy links and further reading"
+          icon:
+            name: "icon-pin-2"
+            color: "blue-dark"
+
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Find one of our Developer Advocates around the conference. <a href="https://twitter.com/hj_chen">Hui Jing</a>, <a href="https://twitter.com/garannm">Garann</a> and <a href="https://twitter.com/lakatos88">Alex</a> are around all weekend! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+            	</div>
+            </div>
+  - row:
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
+              - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+              - item: "[How to Make and Receive Voice calls with the Nexmo Client SDK on Android](/tutorials/client-sdk-android-make-receive-calls)"
+              - item: "[How to Add the Nexmo Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
+              - item: "[How to Make and Receive Voice Calls with the Nexmo Client SDK on iOS using Objective-C](/tutorials/client-sdk-ios-make-receive-calls-objective-c)"
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Make an Outbound Call with an NCCO](/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/)"
+              - item: "[Play Text-to-Speech into a Call](/voice/voice-api/code-snippets/play-text-to-speech-into-a-call/node)"
+              - item: "[Record a Call](/voice/voice-api/code-snippets/record-a-call/node)"
+              - item: "[Connect Callers into a Conference](/voice/voice-api/code-snippets/connect-callers-into-a-conference/node)"
+              - item: "[Transfer a Call](/voice/voice-api/code-snippets/transfer-a-call/node)"
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=jsconfeu&utm_campaign=landing"
+          center_button: true

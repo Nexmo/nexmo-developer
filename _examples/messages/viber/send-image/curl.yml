@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/messages/viber/send-image.sh
+    from_line: 6
+    to_line: 21
+file_name: send-image.sh
+run_command: bash send-image.sh

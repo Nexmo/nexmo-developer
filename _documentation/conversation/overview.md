@@ -1,5 +1,6 @@
 ---
 title: Overview
+navigation_weight: 0
 ---
 
 # Conversation API
@@ -39,45 +40,20 @@ Conversations would, as a result, become the container for the history of all yo
 
 > **IMPORTANT:** If you are in APAC region there are some limitations. Please contact [ea-support@nexmo.com](mailto:ea-support@nexmo.com) for information on how to obtain APAC LVN support via our Singapore servers.
 
-## Getting started
-
-You should be familiar with the following before you use the Conversation API:
-
-1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
-2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number)
-3. [Install the **Beta version** of the Nexmo Command Line tools](https://github.com/nexmo/nexmo-cli/tree/beta)
-4. [Create a Nexmo Application using the command line tools or Dashboard](/concepts/guides/applications#getting-started-with-applications)
-5. [Set up Ngrok](https://ngrok.com)
-
-> **NOTE:** Ngrok is typically used to test a [webhook](/concepts/guides/webhooks) server (web application) locally. Alternatively you can host your application on the web using your preferred hosting provider.
-
-The Conversation API is authenticated using JWTs. You can generate a JWT with the following command:
-
-``` shell
-JWT="$(nexmo jwt:generate private.key exp=$(($(date +%s)+86400)) application_id=NEXMO_APPLICATION_ID)"
-```
-
-You can then view the JWT with:
-
-```
-echo $JWT
-```
-
-You need to replace `NEXMO_APPLICATION_ID` with the ID for your application. Also, `private.key` is the key associated with this same application.
-
-You can verify your JWT at [jwt.io](https://jwt.io).
-
-To make an example Conversation API call:
-
-```code_snippets
-source: '_examples/conversation/conversation/list-conversations'
-```
-
 ## Concepts
 
 ```concept_list
 product: conversation
 ```
+
+## Getting started
+
+Get started with these guides:
+
+* [Application setup](/conversation/guides/application-setup)
+* [User authentication](/conversation/guides/user-authentication)
+* [Generating JWTs](/conversation/guides/jwt-acl)
+* [Event flow](/conversation/guides/event-flow)
 
 ## Code Snippets
 

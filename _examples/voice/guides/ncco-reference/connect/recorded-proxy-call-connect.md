@@ -1,6 +1,6 @@
 ---
 title: Recorded proxy call
-menu_weight: 5
+menu_weight: 6
 ---
 
 ```json

@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - '''flask>=1.0'''
-code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/handle-user-input.py
-    from_line: 8
-    to_line: 38
+    - nexmo
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/handle-user-input.py
-    from_line: 2
-    to_line: 5
-file_name: handle-user-input.py
-run_command: 'python3 handle-user-input.py'
+    source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms.py
+    from_line: 12
+    to_line: 14    
+code:
+    source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms.py
+    from_line: 16
+    to_line: 27
+file_name: send-an-sms.py
+run_command: 'python send-an-sms.py'
