@@ -5,7 +5,7 @@ products:
     - conversation
     - voice/voice-api
 description: How to build your own contact center application.
-navigation_weight: 4
+navigation_weight: 6
 ---
 
 # Build Your Own Contact Center
@@ -244,9 +244,6 @@ For this example the NCCO merely connects the caller to the respected agent. The
 
 The NCCO that will be executed to connect to `Joe` is very similar, except for the user name.
 
-
-Try it out by calling the number associated with the app.
-
 #### Save the new NCCO, and try it out!
 
 1. Run two different instances of your client side app, on two emulators, devices or browser tabs.
@@ -254,7 +251,6 @@ Try it out by calling the number associated with the app.
 3. On another phone device, call the Nexmo number assigned to your Nexmo application.
 4. On the phone call, press the digit of the agent you want to connect to.
 5. Recieve the call on the client app, of the agent you asked to be connected to.
-
 
 ## Wrap Up
 
