@@ -170,6 +170,7 @@ Edit the NCCO as such:
 To allow a logged in user, for example the agent `Jane`, to call from the app to a phone number, edit the NCCO as such:
 
 ```json
+
 [
     {
         "action": "talk",
@@ -178,23 +179,23 @@ To allow a logged in user, for example the agent `Jane`, to call from the app to
     {
         "action": "connect",
         "timeout": 20,
+        "from": "YOUR_NEXMO_NUMBER",
         "endpoint": [
             {
                 "type": "phone",
-                "number": "CALLEE_PHONE_NUMBER"
+                "number": "PARAMS_TO"
             }
         ]
     }
 ]
+
 ```
 
->**Note:** Make sure to update `CALLEE_PHONE_NUMBER` with the phone number you want to call to.
+>**Note:** `PARAMS_TO` is the phone number the app user dials in. The app passes this number to the SDK which passes this number as a parameter in the `answer_url` request parameters. The demo backend application takes that parameter and replaces it with the `PARAMS_TO` in this NCCO, on your behalf. To read more about passing parameters through `answer_url` [in this topic](/voice/voice-api/webhook-reference#answer-webhook-data-field-examples).
 
 #### Save the NCCO, and try it out!
 
 If you are already logged in, tap the "Call" button in the client app. A call will be placed from the app to the phone number you stated in the NCCO.
-
-//TODO: add using a phone number dynamically?
 
 ### Create an Interactive Voice Response (IVR)
 
@@ -214,15 +215,35 @@ To implement that, edit the NCCO as such:
     },
     {
         "action": "input",
-        "eventUrl": ["YOUR_SERVER_URL/webhooks/dtmf"]
+        "eventUrl": ["DTMF_URL"]
     }
 ]
 ```
 
->**Note:** Make sure you updated `YOUR_SERVER_URL` your server base URL.
-> If you deployed the demo backend application to Heroku with the button above, look at the URL of the backend application UI. Your server URL is similar to `YOUR_SERVER_URL.herokuapp.com`
+In the NCCO, the `input` action collects the digit that the user pressed, and sends it to the indicated `eventUrl`. That `eventUrl` is another `NCCO` that is executed to continue to handle the call, according to the user input. In this case, `DTMF_URL` is an enpoint that is implemented and exposed on your behalf by the backend demo application, to connect the call to the respective agent.
 
-In the NCCO, the `input` action collects the digit that the user pressed, and sends it to the indicated `eventUrl`. That `eventUrl` is another `NCCO` that is executed to continue to handle the call, according to the user input. In this case that `eventUrl` is implemented on your behalf by the backend demo application, to connect the call to the respective agent.
+For this example the NCCO merely connects the caller to the respected agent. The `DTMF_URL` is very similar to the one you have seen above and looks as such, to connect to `Jane`:
+
+```
+[
+    {
+        "action": "talk",
+        "text": "Please wait while we connect you to Jane"
+    },
+    {
+        "action": "connect",
+        "endpoint": [
+            {
+                "type": "app",
+                "user": "Jane"
+            }
+        ]
+    }
+]
+```
+
+The NCCO that will be executed to connect to `Joe` is very similar, except for the user name.
+
 
 Try it out by calling the number associated with the app.
 
@@ -233,24 +254,6 @@ Try it out by calling the number associated with the app.
 3. On another phone device, call the Nexmo number assigned to your Nexmo application.
 4. On the phone call, press the digit of the agent you want to connect to.
 5. Recieve the call on the client app, of the agent you asked to be connected to.
-
-### Call Queue
-
-User call an agent → stream music → connect to agent (according to backend trigger)
-
-try it out.
-
-### Call Whisper
-
-Jane whispers to Joe
-
-try it out.
-
-### Hot Transfer
-
-agent presses a button to transfer the call.
-
-try it out.
 
 
 ## Wrap Up
