@@ -210,7 +210,7 @@ page:
     - column:
       - type: section_header
         section_header:
-          title: "Handy Rails related links and further reading"
+          title: "Handy Ruby related links and further reading"
           icon:
             name: "icon-pin-2"
             color: "blue-dark"
