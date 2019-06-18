@@ -14,11 +14,11 @@ Your contact center application has 2 agents: `Jane` and `Joe`, that are users o
 
 To achieve this, this guide consist of three parts your should implement:
 
-1. **A server-side application**, for fundamental server-side functionalities, such as managing users and authorization. This is implemented with[Conversation API.](/conversation/overview).
+1. [**A server-side application**](#1-set-up-your-backend), for fundamental server-side functionalities, such as managing users and authorization. This is implemented with[Conversation API.](/conversation/overview).
 
-2. **A client side application**, for your contact center users to log in, make and receive calls. This can be a web, iOS or Android application, which integrates [Nexmo Client SDK](/client-sdk/in-app-voice/overview).
+2. [**A client side application**](#2-set-up-your-client-side-application), for your contact center users to log in, make and receive calls. This can be a web, iOS or Android application, which integrates [Nexmo Client SDK](/client-sdk/in-app-voice/overview).
 
-3. Adding advanced voice capabilities, utilizing Nexmo [Voice API](/voice/voice-api/overview) on your backend side application.
+3. [Adding advanced voice capabilities](#3-add-voice-functionality), utilizing Nexmo [Voice API](/voice/voice-api/overview) on your backend side application.
 
 > **NOTE:** Under the hood, Nexmo Voice API and Client SDK both use Conversation API. That means that all communication is done over a [Conversation](/conversation/concepts/conversation). That allows you to maintain the communication context of your users, for any communication channel. All of the Conversations and the [Events](/conversation/concepts/event) are accessible for you to utilize, through [Conversation API](/conversation/overview).
 
@@ -26,11 +26,11 @@ To achieve this, this guide consist of three parts your should implement:
 
 Make sure you have a Nexmo account, or [sign up](https://dashboard.nexmo.com/) to get started for free!
 
-## Set Up Your Backend
+## 1. Set Up Your Backend
 
 To use the Client SDK you must have a backend application that uses [Conversation API.](/conversation/overview). Some functionality, like managing users can only be done through the backend. Other capabilities, such as creating Conversations, can be done by both client and server side.
 
-### 1. Deploy Your Server Side Application
+### 1.1. Deploy Your Server Side Application
 
 You may implement any backend that you'd like to use for [the required Conversation API functionality](/conversation/guides/application-setup).
 
@@ -40,7 +40,7 @@ However, to help you get started with this guide, you can use our demo sample ba
 
 You are welcome to explore and edit the project, which is open sourced on [GitHub](https://github.com/nexmo-community/contact-center-rails)
 
-### 2. Create Nexmo Application
+### 1.2. Create Nexmo Application
 
 Once you have created a Nexmo Account you will be able to create multiple [Nexmo Applications](/conversation/concepts/application). A Nexmo Application can contain a unique set of [Users](/conversation/concepts/user) and [Conversations](/conversation/concepts/conversation).
 
@@ -54,7 +54,7 @@ After deploying the demo backend application on the previous step, you will need
 
 > That uses [Nexmo Applications API](/concepts/guides/applications/curl#getting-started-with-applications)
 
-### 3. Connect a Nexmo Number
+### 1.3. Connect a Nexmo Number
 
 In order to make and receive calls, you should rent a [Nexmo Number](/numbers/overview) and connect it to your Nexmo Application.
 
@@ -68,7 +68,7 @@ After you rented the number, assign it to the Nexmo Application you've created.
 
 > For more features and number management, read more on [Numbers API](/numbers/overview) or visit the [dashboard](https://dashboard.nexmo.com/buy-numbers).
 
-### 4. Create Users
+### 1.4. Create Users
 
 A [user](/conversation/concepts/user) can log in to your application in order create a conversation, join a conversation, make and receive calls and more.
 
@@ -80,7 +80,7 @@ One the demo backend application, on the top menu select **Users** and then **Ne
 
 For the purpose of this guide, create two users one with the name `Jane` and another user with the name `Joe`. Each ewpresents an agent that can log in to your contact center application.
 
-### 5. Authenticate Users
+### 1.5. Authenticate Users
 
 The Nexmo Client SDK uses [JWTs](https://jwt.io/) to authenticate a user when logging in to the SDK and the API. These JWTs are generated using the application ID and private key that is provided when a new Nexmo application is created.
 
@@ -97,9 +97,9 @@ GET YOUR_BACKEND/api/jwt
 >More information on implementing the authentication system for a real life use case, [read in this topic](/conversation/guides/user-authentication). 
 >Read more about JWT and ACL [in this topic](/conversation/concepts/jwt-acl).
 
-## Set Up Your Client Side Application
+## 2. Set Up Your Client Side Application
 
-### 1. Choose Your Client App
+### 2.1. Choose Your Client App
 
 Nexmo Client SDK supports web (Javascript), iOS and Android.
 
@@ -107,14 +107,14 @@ You may [integrate the SDK](/client-sdk/setup/add-sdk-to-your-app) to your own c
 
 However, to easily get started you may clone and run one of the demo client side applications:
 
-* Javascript //TODO: add links
-* iOS: [Swift](https://github.com/nexmo-community/contact-center-swift) or [Objective-C](https://github.com/nexmo-community/contact-center-objective-c)
-* Android: Kotlin //TODO: add links
+* [iOS-Swift](https://github.com/nexmo-community/contact-center-swift)
+* [Android-Kotlin](https://github.com/nexmo-community/contact-center-client-android-kt)
+* Javascript
 
 > **Important!**  After cloning, make sure to update the client side apps with your server base URL and the mobile key as required.
 > Your server base URL is the URL your backend demo application uses. If you deployed to Heroku with the above button, the URL is similar to `YOUR_SERVER_URL.herokuapp.com`
 
-### 2. Run Your Client App
+### 2.2. Run Your Client App
 
 At this point you have a client side application and a backend application to support it.
 
@@ -122,7 +122,7 @@ You can run the client app on two different devices, and log in as the user `Jan
 
 You are now ready to make and receive calls, and add other advanced voice functionality with Nexmo Voice API.
 
-## Add Voice Functionality
+## 3. Add Voice Functionality
 
 Upon Nexmo application creation, you define an `answer_url` [webhook](/concepts/guides/webhooks) to it. The `answer_url` contains the actions that will execute as soon as a call is places to the Nexmo number assigned to your Nexmo application. Those actions are defined in a JSON the the `answer_url` returns, which follows the structure of a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference).
 
@@ -130,7 +130,7 @@ Updating the NCCO that returns from your `answer_url` changes the call functiona
 
 The backend demo application already set the `answer_url` endpoint for you. To update the NCCO content and functionality it enables, navigate to  **App Settings** on the top menu, and click **Edit NCCO**.
 
-### Receive a Phone Call
+### 3.1. Receive a Phone Call
 
 For the primary use case, when a caller calls your contact center application, connect the call to the agent `Jane`, which will receive the call in-app.
 
@@ -161,7 +161,7 @@ Edit the NCCO as such:
 3. On another phone device, call the Nexmo number assigned to your Nexmo application.
 4. Receive the call on the client side app.
 
-### Make a Phone Call
+### 3.2. Make a Phone Call
 
 To allow a logged in user, for example the agent `Jane`, to call from the app to a phone number, edit the NCCO as such:
 
@@ -193,7 +193,7 @@ To allow a logged in user, for example the agent `Jane`, to call from the app to
 
 If you are already logged in, tap the "Call" button in the client app. A call will be placed from the app to the phone number you stated in the NCCO.
 
-### Create an Interactive Voice Response (IVR)
+### 3.3. Create an Interactive Voice Response (IVR)
 
 IVR allows you to direct the call according to user's input. For instance, if the caller presses the `1` digit, call is directed to the agent `Jane`. Otherwise, if the caller presses `2` the call is directed to the agent `Joe`.
 
