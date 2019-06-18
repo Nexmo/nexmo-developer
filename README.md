@@ -30,7 +30,7 @@ This will create a folder named `coverage`. Open `index.html` in this folder to 
 
 ## Running locally
 
-The project can be run on your laptop, either directly or using Docker. These instructions have been tested for mac.
+The project can be run on your laptop, either directly or using Docker. These instructions have been tested for Mac.
 
 ### Setup for running directly on your laptop
 
