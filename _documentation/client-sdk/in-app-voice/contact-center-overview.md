@@ -1,7 +1,7 @@
 ---
 title: Contact Center Use Case
 description: How to build your own contact center application.
-navigation_weight: 6
+navigation_weight: 4
 ---
 
 # Build Your Own Contact Center
@@ -10,9 +10,9 @@ navigation_weight: 6
 
 In these guide, you’ll learn how to build an application with contact center features.
 
-Your contact center application has 2 agents: `Jane` and `Joe`, that are users of your client side application. Your agents makes and receives in-app calls, whereas the caller can use a regular phone.
+Your contact center application has 2 agents: `Jane` and `Joe`, that are users of your client side application. Your agents make and receive in-app calls, whereas the caller can use a regular phone.
 
-To achieve this, this guide consist of three parts your should implement:
+To achieve that, this guide consists of three parts:
 
 1. [**A server-side application**](#1-set-up-your-backend), for fundamental server-side functionalities, such as managing users and authorization. This is implemented with[Conversation API.](/conversation/overview).
 
@@ -38,7 +38,7 @@ However, to help you get started with this guide, you can use our demo sample ba
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-community/contact-center-rails)
 
-You are welcome to explore and edit the project, which is open sourced on [GitHub](https://github.com/nexmo-community/contact-center-rails)
+You are welcome to explore, fork or contribute to this project, which is open sourced on [GitHub](https://github.com/nexmo-community/contact-center-rails)
 
 ### 1.2. Create Nexmo Application
 
@@ -52,7 +52,7 @@ After deploying the demo backend application on the previous step, you will need
 2. Create a new Nexmo Application by typing an application name and clicking *Create*
 ![Setup](/assets/images/client-sdk/contact-center/setup.png)
 
-> That uses [Nexmo Applications API](/concepts/guides/applications/curl#getting-started-with-applications)
+> That uses [Nexmo Applications API](/concepts/guides/applications/curl#getting-started-with-applications). The demo application sets the required webhooks and exposes them for your ease of use. More on that will be mentioned below. 
 
 ### 1.3. Connect a Nexmo Number
 
@@ -72,13 +72,8 @@ After you rented the number, assign it to the Nexmo Application you've created.
 
 A [user](/conversation/concepts/user) can log in to your application in order create a conversation, join a conversation, make and receive calls and more.
 
-One the demo backend application, on the top menu select **Users** and then **New User**.
+For the purpose of this guide, you will use two users one with the name `Jane` and another user with the name `Joe`. Each represents an agent that can log in to your contact center application. For simplicity, the demo application will create users on the fly, as they attempt to log in. Behind the scenes it uses [Conversation API](https://developer.nexmo.com/api/conversation#createUser).
 
-![New User](/assets/images/client-sdk/contact-center/users-new.png)
-
-> That uses [Conversation API](https://developer.nexmo.com/api/conversation#createUser).
-
-For the purpose of this guide, create two users one with the name `Jane` and another user with the name `Joe`. Each ewpresents an agent that can log in to your contact center application.
 
 ### 1.5. Authenticate Users
 
@@ -88,11 +83,18 @@ For security reasons, your client should not hold your private key. Therefore, t
 
 Your backend should expose an endpoint that would allow the client side app to request a valid JWT per user. In a real life scenario, you would probably add additional authentication system, inorder to ensure the identity of the user who is attempts to log in to your app.
 
-For the purpose of this guide, the backend demo application exposes a simple endpoint that only uses the username:
+For the purpose of this guide, the backend demo application exposes a simple endpoint that uses the username, together with an api key provided by the demo application:
 
 ```
-GET YOUR_BACKEND/api/jwt
+POST YOUR_BACKEND/api/jwt
 ```
+
+The payload in the body of this request is as such:
+
+```
+Payload: {"mobile_api_key":"xxxxxxx","user_name":"Jane"}
+```
+The mobile_api_key can be found in the `SDK Integration` page, as a rudimentary security mechanism.
 
 >More information on implementing the authentication system for a real life use case, [read in this topic](/conversation/guides/user-authentication). 
 >Read more about JWT and ACL [in this topic](/conversation/concepts/jwt-acl).
@@ -111,8 +113,7 @@ However, to easily get started you may clone and run one of the demo client side
 * [Android-Kotlin](https://github.com/nexmo-community/contact-center-client-android-kt)
 * Javascript
 
-> **Important!**  After cloning, make sure to update the client side apps with your server base URL and the mobile key as required.
-> Your server base URL is the URL your backend demo application uses. If you deployed to Heroku with the above button, the URL is similar to `YOUR_SERVER_URL.herokuapp.com`
+> **Important!**  After cloning, make sure to check the `README` file and update the client side app the required configurations.
 
 ### 2.2. Run Your Client App
 
@@ -128,13 +129,13 @@ Upon Nexmo application creation, you define an `answer_url` [webhook](/concepts/
 
 Updating the NCCO that returns from your `answer_url` changes the call functionality and allows you to add rich capabilities to your contact center application.
 
-The backend demo application already set the `answer_url` endpoint for you. To update the NCCO content and functionality it enables, navigate to  **App Settings** on the top menu, and click **Edit NCCO**.
+The backend demo application already set the `answer_url` endpoint for you. To update the NCCO content and functionality it enables, navigate to  **App Settings** on the top menu. You will find buttons that have sample NCCOs, as well as a button to provide a custom one.
 
 ### 3.1. Receive a Phone Call
 
 For the primary use case, when a caller calls your contact center application, connect the call to the agent `Jane`, which will receive the call in-app.
 
-Edit the NCCO as such:
+Clicking the `Inbound Call` button will result an NCCO as such:
 
 ```json
 [
@@ -163,7 +164,7 @@ Edit the NCCO as such:
 
 ### 3.2. Make a Phone Call
 
-To allow a logged in user, for example the agent `Jane`, to call from the app to a phone number, edit the NCCO as such:
+To allow a logged in user, for example the agent `Jane`, to call from the app to a phone number, click the `Outbound Call` button. That results in an NCCO as such:
 
 ```json
 
@@ -187,7 +188,7 @@ To allow a logged in user, for example the agent `Jane`, to call from the app to
 
 ```
 
->**Note:** `PARAMS_TO` is the phone number the app user dials in. The app passes this number to the SDK which passes this number as a parameter in the `answer_url` request parameters. The demo backend application takes that parameter and replaces it with the `PARAMS_TO` in this NCCO, on your behalf. To read more about passing parameters through `answer_url` [in this topic](/voice/voice-api/webhook-reference#answer-webhook-data-field-examples).
+>**Note:** `PARAMS_TO` will be replaced at runtime, with the phone number the app user dials in. The app passes this number to the SDK which passes this number as a parameter in the `answer_url` request parameters. The demo backend application takes that parameter and replaces it with the `PARAMS_TO` in this NCCO, on your behalf. To read more about passing parameters through `answer_url` [in this topic](/voice/voice-api/webhook-reference#answer-webhook-data-field-examples).
 
 #### Save the NCCO, and try it out!
 
@@ -197,7 +198,7 @@ If you are already logged in, tap the "Call" button in the client app. A call wi
 
 IVR allows you to direct the call according to user's input. For instance, if the caller presses the `1` digit, call is directed to the agent `Jane`. Otherwise, if the caller presses `2` the call is directed to the agent `Joe`.
 
-To implement that, edit the NCCO as such:
+To implement that, click the `IVR` button to result in an NCCO as such:
 
 ```json
 [
@@ -248,9 +249,14 @@ The NCCO that will be executed to connect to `Joe` is very similar, except for t
 4. On the phone call, press the digit of the agent you want to connect to.
 5. Recieve the call on the client app, of the agent you asked to be connected to.
 
+### 3.4. Custom NCCO
+
+You are encouraged to explore more [NCCO capabilities](/voice/voice-api/ncco-reference), and update the sample NCCOs used above, by clicking on the `Custom` button.
+
+
 ## Wrap Up
 
-Congratulations! you have created your first contact center application!
+Congratulations! You now have a running contact center application!
 
 You have:
 
