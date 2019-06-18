@@ -4,10 +4,6 @@ description: Reference guide for Event Based Alerts.
 api: Alerts API - Sending
 ---
 
-```partial
-source: _partials/discontinued-alert-shortcode.md
-```
-
 # Alerts - Sending API Reference
 
 This defines Event Based Alerts API:
