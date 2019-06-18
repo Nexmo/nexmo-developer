@@ -15,7 +15,7 @@
 	url = https://github.com/Nexmo/nexmo-node-code-snippets.git
 [submodule ".repos/nexmo/nexmo-dotnet-code-snippets"]
 	path = .repos/nexmo/nexmo-dotnet-code-snippets
-	url = https://github.com/Nexmo/nexmo-dotnet-code-snippets.git
+	url = https://github.com/Nexmo/nexmo-dotnet-code-snippets
 [submodule ".repos/nexmo/nexmo-java-code-snippets"]
 	path = .repos/nexmo/nexmo-java-code-snippets
 	url = https://github.com/Nexmo/nexmo-java-code-snippets.git
