@@ -111,9 +111,9 @@ You may [integrate the SDK](client-sdk/setup/add-sdk-to-your-app) to your own cl
 
 However, to easily get started you may clone and run one of the demo client side applications:
 
-* Javascript //TODO: add links
 * iOS: [Swift](https://github.com/nexmo-community/contact-center-swift) or [Objective-C](https://github.com/nexmo-community/contact-center-objective-c)
-* Android: Kotlin //TODO: add links
+* Android: [Kotlin](https://github.com/nexmo-community/contact-center-client-android-kt)
+* Javascript //TODO: add links
 
 > **Important!**  After cloning, make sure to update the client side apps with your server base URL and the mobile key as required.
 > Your server base URL is the URL your backend demo application uses. If you deployed to Heroku with the above button, the URL is similar to `YOUR_SERVER_URL.herokuapp.com`
