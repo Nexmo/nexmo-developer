@@ -4,10 +4,6 @@ description: Reference guide for the Campaign Subscription Management.
 api: Alerts API - Subscribing
 ---
 
-```partial
-source: _partials/discontinued-alert-shortcode.md
-```
-
 # Alerts - Subscribing API Reference
 
 This defines the API for Campaign Subscription Management:

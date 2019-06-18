@@ -2,10 +2,6 @@
 title: Alerts
 ---
 
-```partial
-source: _partials/discontinued-alert-shortcode.md
-```
-
 # Alerts
 
 You use Event Based Alerts to communicate with people using Event Based Alerts. Provision a US Short Code with a standard or custom template that specifies the custom parameters for Alert messages.
