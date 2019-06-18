@@ -155,8 +155,8 @@ gem 'lograge'
 gem 'country_select', '~> 4.0'
 
 # gem 'nexmo-oas-renderer', path: '../nexmo-oas-renderer-sinatra', require: false
-# gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer'
-gem 'nexmo-oas-renderer'
+# gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer', require: false
+gem 'nexmo-oas-renderer', require: false
 
 group :development, :test do
   gem 'awesome_print'
