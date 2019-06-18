@@ -8,6 +8,8 @@ before_install:
   - gem update --system
   - gem update bundler
 install: bundle install --deployment --path vendor/bundle && yarn install
+env:
+  - OAS_PATH="_open_api/api_specs"
 before_script:
   - |
     if [ -z "$SSH_KEY_REQUIRED" ]; then
