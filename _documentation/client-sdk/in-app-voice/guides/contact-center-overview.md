@@ -1,9 +1,5 @@
 ---
 title: Contact Center Use Case
-products: 
-    - client-sdk
-    - conversation
-    - voice/voice-api
 description: How to build your own contact center application.
 navigation_weight: 6
 ---
@@ -46,7 +42,7 @@ You are welcome to explore and edit the project, which is open sourced on [GitHu
 
 ### 2. Create Nexmo Application
 
-Once you have created a Nexmo Account you will be able to create multiple [Nexmo Applications](conversation/concepts/application). A Nexmo Application can contain a unique set of [Users](conversation/concepts/user) and [Conversations](conversation/concepts/conversation).
+Once you have created a Nexmo Account you will be able to create multiple [Nexmo Applications](/conversation/concepts/application). A Nexmo Application can contain a unique set of [Users](/conversation/concepts/user) and [Conversations](/conversation/concepts/conversation).
 
 After deploying the demo backend application on the previous step, you will need to:
 
@@ -107,7 +103,7 @@ GET YOUR_BACKEND/api/jwt
 
 Nexmo Client SDK supports web (Javascript), iOS and Android.
 
-You may [integrate the SDK](client-sdk/setup/add-sdk-to-your-app) to your own client side application and [add in-app voice functionality](/client-sdk/in-app-voice/guides/start-and-receive-calls)
+You may [integrate the SDK](/client-sdk/setup/add-sdk-to-your-app) to your own client side application and [add in-app voice functionality](/client-sdk/in-app-voice/guides/start-and-receive-calls)
 
 However, to easily get started you may clone and run one of the demo client side applications:
 
@@ -163,7 +159,7 @@ Edit the NCCO as such:
 1. Run your client side app.
 2. Log in as `Jane`
 3. On another phone device, call the Nexmo number assigned to your Nexmo application.
-4. Recieve the call on the client side app.
+4. Receive the call on the client side app.
 
 ### Make a Phone Call
 
