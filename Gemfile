@@ -154,8 +154,9 @@ gem 'lograge'
 # Country picker for ActiveAdmin
 gem 'country_select', '~> 4.0'
 
-#gem 'nexmo-oas-renderer', path: '../nexmo-oas-renderer-sinatra', require: false
-gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer'
+# gem 'nexmo-oas-renderer', path: '../nexmo-oas-renderer-sinatra', require: false
+# gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer'
+gem 'nexmo-oas-renderer'
 
 group :development, :test do
   gem 'awesome_print'
