@@ -52,7 +52,7 @@ After deploying the demo backend application on the previous step, you will need
 2. Create a new Nexmo Application by typing an application name and clicking *Create*
 ![Setup](/assets/images/client-sdk/contact-center/setup.png)
 
-> That uses [Nexmo Applications API](/concepts/guides/applications/curl#getting-started-with-applications). The demo application sets the required webhooks and exposes them for your ease of use. More on that will be mentioned below. 
+> That uses [Nexmo Applications API](/concepts/guides/applications/curl#getting-started-with-applications). The demo application sets the required webhooks and exposes them for your ease of use. More on that will be mentioned below.
 
 ### 1.3. Connect a Nexmo Number
 
@@ -72,8 +72,15 @@ After you rented the number, assign it to the Nexmo Application you've created.
 
 A [user](/conversation/concepts/user) can log in to your application in order create a conversation, join a conversation, make and receive calls and more.
 
-For the purpose of this guide, you will use two users one with the name `Jane` and another user with the name `Joe`. Each represents an agent that can log in to your contact center application. For simplicity, the demo application will create users on the fly, as they attempt to log in. Behind the scenes it uses [Conversation API](https://developer.nexmo.com/api/conversation#createUser).
+For the purpose of this guide, you will use two users one with the name `Jane` and another user with the name `Joe`. Each represents an agent that can log in to your contact center application.
 
+To create users, on the demo backend application interface, on the top menu select **Users** and then **New User**.
+
+![New User](/assets/images/client-sdk/contact-center/users-new.png)
+
+Behind the scenes it uses [Conversation API](https://developer.nexmo.com/api/conversation#createUser).
+
+For simplicity of use, the demo application will also create users on the fly, as they attempt to log in.
 
 ### 1.5. Authenticate Users
 
