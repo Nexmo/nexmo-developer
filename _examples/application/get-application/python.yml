@@ -1,0 +1,13 @@
+---
+title: Python
+language: python
+code:
+    source: .repos/nexmo/nexmo-python-code-snippets/application/get-application.py
+    from_line: 10
+    to_line: 12
+client:
+    source: .repos/nexmo/nexmo-python-code-snippets/application/get-application.py
+    from_line: 5
+    to_line: 8
+file_name: get-application.py
+run_command: 'python3 get-application.py'

@@ -16,6 +16,7 @@ Key | Description
 -- | --
 `NEXMO_API_KEY` | Your Nexmo API key.
 `NEXMO_API_SECRET` | Your Nexmo API secret.
+`NEXMO_APPLICATION_ID` | The application ID for the Nexmo application you want to get.
 
 ```code_snippets
 source: '_examples/application/get-application'
