@@ -78,7 +78,7 @@ Check everything is working as expected by visiting <http://localhost:5000>. You
 
 When Nexmo receives an inbound call to your Nexmo number it makes a request to the webhook endpoint you set when you [created a Voice application](#get-started).
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant Caller

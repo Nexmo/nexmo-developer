@@ -77,7 +77,7 @@ Virtual numbers are used to hide real phone numbers from your application users.
 
 The workflow diagram below shows the process for provisioning and configuring a virtual number.
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant UserA
@@ -115,7 +115,7 @@ You now have the virtual numbers you need to mask communication between your use
 
 The workflow to create a Call is:
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant UserA
@@ -182,7 +182,7 @@ In this tutorial each user has received the virtual number in an SMS. In other s
 
 When Nexmo receives an inbound call to your virtual number it makes a request to the webhook endpoint you set when you [created a Voice application](#create-a-voice-application).
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant UserA
@@ -206,7 +206,7 @@ app.get('/proxy-call', function(req, res) {
 
 ## Reverse map real phone numbers to virtual numbers
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant UserA
@@ -236,7 +236,7 @@ With the number looking performed all that's left to do is proxy the call.
 
 Proxy the call to the phone number the virtual number is associated with. The `from` number is always the virtual number, the `to` is a real phone number.
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant UserA

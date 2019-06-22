@@ -26,7 +26,7 @@ You will see how to build add a Call Whisper to an inbound call:
 
 ## How it works
 
-```js_sequence_diagram
+```sequence_diagram
 User->Nexmo number: User calls either of\nthe numbers linked\n to this Application
 Nexmo number-->Application: /answer
 Application->Operative: Connects to operative's number

@@ -15,7 +15,6 @@ import ReactDOM from 'react-dom'
 import GithubCards from '../github_cards'
 import VoltaTabbedExamples from '../volta_tabbed_examples'
 import Format from '../format'
-import JsSequenceDiagrams from '../js_sequence_diagrams'
 import Scroll from '../scroll'
 import Spotlight from '../spotlight'
 import Search from '../components/search'
@@ -31,7 +30,6 @@ $(document).ready(function() {
   Scroll()
   Notices()
   GithubCards()
-  JsSequenceDiagrams()
   new VoltaTabbedExamples
   new Format
   APIStatus()
@@ -90,7 +88,17 @@ $(document).ready(function() {
     fetch(r).then((response) => {
         if (response.ok) { return response.json() }
         return Promise.reject({ message: 'Bad response from server', response })
-    })
- });
+    });
+  });
+
+  // Mermaid diagrams
+  mermaid.initialize({
+      startOnLoad:true,
+      sequence: {
+          useMaxWidth: false,
+      },
+      theme: 'dark',
+      htmlLabels: true
+  });
 });
 

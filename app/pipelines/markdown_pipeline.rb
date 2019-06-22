@@ -19,6 +19,7 @@ class MarkdownPipeline < Banzai::Pipeline
       IndentFilter,
       ModalFilter,
       JsSequenceDiagramFilter,
+      MermaidFilter,
       PartialFilter.new(options),
       TechioFilter,
       UseCaseListFilter,

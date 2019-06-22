@@ -16,7 +16,7 @@ You see how easy it is to build two-way communication into your app; you send a 
 
 The workflow for your app is:
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant Phone number

@@ -192,7 +192,7 @@ You can also send a direct link to the correct stores in the SMS. To do this you
 
 You send an SMS using a single call to SMS API, Nexmo takes care of all the routing and delivery. The following diagram shows the workflow followed in this tutorial to send an SMS:
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant Phone number

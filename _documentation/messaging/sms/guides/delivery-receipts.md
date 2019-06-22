@@ -14,7 +14,7 @@ Nexmo's [adaptive routing](https://help.nexmo.com/hc/en-us/articles/218435987-Wh
 
 ## How delivery receipts work
 
-```js_sequence_diagram
+```sequence_diagram
 participant Your Application
 participant Nexmo
 participant Carrier

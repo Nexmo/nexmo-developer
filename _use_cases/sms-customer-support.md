@@ -36,7 +36,7 @@ In order for this tutorial to work you will need:
 
 For this tutorial start off with a simple web application with one page. The user will be able to click on a link to open their SMS app and request support. Your app will collect the inbound SMS and open a new ticket. Finally, the app will reply with a new SMS to the user confirming their ticket number.
 
-```js_sequence_diagram
+```sequence_diagram
 Participant Phone
 Participant Nexmo
 Participant App

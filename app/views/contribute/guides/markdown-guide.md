@@ -137,12 +137,28 @@ Each file becomes a tab, as you can see:
 source: '/_examples/styleguide/tabbed-content'
 ```
 
-## JS Sequence Diagram (custom plugin)
+## Mermaid (custom plugin)
+
+You can use any [Mermaid](https://mermaidjs.github.io/) diagram using the `mermaid` filter. 
+
+````
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+````
+
+Some common diagrams e.g. sequence diagrams may have specific extensions, so keep reading!
+
+## Sequence Diagram (custom plugin, using Mermaid)
 
 Our sequence diagrams are simple markup that is rendered to a graphical representation by a custom plugin. Starting with code like this:
 
 ````
-```js_sequence_diagram
+```sequence_diagram
 Andrew->China: Says Hello
 Note right of China: China thinks\nabout it
 China-->Andrew: How are you?
@@ -152,7 +168,7 @@ Andrew->>China: I am good thanks!
 
 Creates the following diagram:
 
-```js_sequence_diagram
+```sequence_diagram
 Andrew->China: Says Hello
 Note right of China: China thinks\nabout it
 China-->Andrew: How are you?

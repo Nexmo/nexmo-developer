@@ -185,7 +185,7 @@ If the user's current IP address is different from that reported by Number Insig
 
 Your application therefore must trigger the following sequence of events:
 
-```js_sequence_diagram
+```sequence_diagram
 Participant Browser
 Participant App
 Participant Nexmo
@@ -195,7 +195,7 @@ App->Nexmo: Number Insight request
 Nexmo-->App: Number Insight response
 Note over App,Nexmo: If Number Insight shows that the \nuser and their phone are in different \ncountries, start the verification process
 App->Nexmo: Send verification code to user's phone
-Nexmo-->App: Receive acknowledgement that \nverification code was sent
+Nexmo-->App: Receive acknowledgement that\nverification code was sent
 App->Browser: Request the code from the user
 Browser->App: User submits the code they received
 App->Nexmo: Check verification code

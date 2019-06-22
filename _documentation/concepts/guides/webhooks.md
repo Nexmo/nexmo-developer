@@ -16,7 +16,7 @@ With webhooks, it's important that the URL to send the webhooks to is configured
 
 The process looks something like this:
 
-```js_sequence_diagram
+```sequence_diagram
 Your App->Nexmo: Configure URL for webhook
 Note over Your App, Nexmo: Some time later ...
 Nexmo->Your App: Have some interesting data

@@ -194,7 +194,7 @@ At this point you can start the app and log in and out with the user you created
 
 Using Verify you send and validate a one time PIN using 2 API calls. In the first call you send the user's phone number, Nexmo generates the PIN and delivers it to the user's phone.
 
-```js_sequence_diagram
+```sequence_diagram
 Participant App
 Participant Nexmo
 Participant User

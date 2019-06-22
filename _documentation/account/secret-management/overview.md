@@ -9,7 +9,7 @@ Nexmo's Account API allows you to manage your API secret(s) programmatically.
 
 Each Nexmo account can have up to two API secrets at any time. This allows you to create a second API secret, test your application and deploy the new configuration to production without interrupting your customer's service. Once that's done, you can revoke the existing API secret until you need to rotate your credentials again.
 
-```js_sequence_diagram
+```sequence_diagram
 Note left of SecretA: API secret in use
 SecretA->SecretB: Create new secret
 Note right of SecretB: Update all apps\nto use new secret

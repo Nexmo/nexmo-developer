@@ -14,14 +14,14 @@ The Verify API enables you to confirm that you can contact a user at a specific 
 
 The general workflow is shown in the following sequence diagram:
 
-```js_sequence_diagram
-Participant Nexmo
-Participant Your server
+```sequence_diagram
 Participant User
+Participant Your server
+Participant Nexmo
 User -> Your server: User supplies phone number
 Your server -> Nexmo: Request to Verify this number
 Nexmo --> Your server: Supply `request_id`
-Note right of Nexmo: Nexmo sends PIN code to user (multiple attempts as needed)
+Note left of Nexmo: Nexmo sends PIN\n code to user\n (multiple attempts\n as needed)
 Nexmo -> User: 
 Nexmo --> User: 
 User -> Your server: Enter PIN code
