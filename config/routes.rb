@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :usage do
     resources :code_snippet
+    resources :ab_result, only: [:create]
   end
 
   namespace :admin_api, defaults: { format: 'json' } do
@@ -79,6 +80,9 @@ Rails.application.routes.draw do
   get '/api', to: 'api#index'
 
   mount ::Nexmo::OAS::Renderer::API, at: '/api'
+  authenticated(:user) do
+    mount Split::Dashboard, at: 'split' if ENV['REDIS_URL']
+  end
 
   get '/(:product)/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: DocumentationConstraint.documentation
   get '/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: CodeLanguage.route_constraint

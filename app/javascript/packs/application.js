@@ -102,6 +102,22 @@ let refresh = () => {
     }
     $(this).text(newText);
   });
+
+  $("[data-ab]").click(function(e) {
+      let r =  new Request('/usage/ab_result', {
+          method: 'POST',
+          credentials: 'same-origin',
+          body: JSON.stringify({'t': $(this).data('ab')}),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      fetch(r).then((response) => {
+          if (response.ok) { return response.json() }
+          return Promise.reject({ message: 'Bad response from server', response })
+      })
+  });
 }
 
 $(document).on('nexmo:load', function() {
