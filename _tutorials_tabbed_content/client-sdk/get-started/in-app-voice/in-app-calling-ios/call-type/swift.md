@@ -6,7 +6,7 @@ menu_weight: 1
 
 
 ```swift
-client?.call([calees], callType: .server, delegate: self) { [weak self] (error, call) in
+client?.call([calees], callHandler: .server, delegate: self) { [weak self] (error, call) in
 	...
 }
 ```
