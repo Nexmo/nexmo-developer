@@ -4,11 +4,11 @@ language: node
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/application/get-application.js
+    source: .repos/nexmo/nexmo-node-code-snippets/applications/get-application.js
     from_line: 9
     to_line: 23
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/application/get-application.js
+    source: .repos/nexmo/nexmo-node-code-snippets/applications/get-application.js
     from_line: 7
     to_line: 7
 file_name: app.js
