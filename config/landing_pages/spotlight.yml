@@ -108,24 +108,9 @@ page:
             type: large
           - content: "This means you are free to re-publish elsewhere (on your own Medium page, for example). All we require is that you add a `rel=canonical` tag to your post wherever possible, naming the original post at Nexmo the canonical URL."
             type: small
-      - type: structured_text
-        structured_text:
+      - type: submit_your_idea_form
+        submit_your_idea_form:
           header: "Submit Your Idea"
-          icon: 
+          icon:
             name: "icon-envelope"
             color: blue
-          text:
-          - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
-            type: large
-          - content: "In your email to us:"
-            type: small
-      - type: unordered_list
-        unordered_list:
-          bullet_shape: square
-          list:
-          - item: "Tell us who you are and why you want to write for Nexmo"
-          - item: "Briefly summarise your idea and state why it’s something our audience will benefit from hearing about" 
-          - item: "Include links to samples of your writing (such as blog posts or articles)"
-
-
-
