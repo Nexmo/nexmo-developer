@@ -6,6 +6,23 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 5.3.3 - June 29, 2019
+
+### Fixes
+
+- Change digits to digit in the sendDTMF() request method payload
+- Stream is not being terminated on a call transfer
+- `member:call` is not being emitted if `media.audio_settings.enabled` is false or doesn't exist
+
+### New
+
+- Set member.callStatus `started` when initialising an IP - IP call
+- Set member.callStatus `ringing` when enabling the ringing with `media.startRinging()`
+
+### Internal changes
+
+- Move stream clean up from `member:left` to `rtc:hangup` in Media module
+
 ## Version 5.2.1 - June 12, 2019
 
 ### New
