@@ -90,3 +90,6 @@ Style/Next:
 
 Style/ConditionalAssignment:
   Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
