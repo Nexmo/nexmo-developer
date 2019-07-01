@@ -5,7 +5,7 @@ menu_weight: 2
 ---
 
 ```objective-c
-[self.nexmoClient call:@[calees] callType:NXMCallTypeInApp delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
+[self.nexmoClient call:@[calees] callHandler:NXMCallHandlerInApp delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
 	...
 }];
 ```

@@ -61,11 +61,11 @@ You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called. 
 
 > **Note:** Whilst the default HTTP method for the `Answer URL` is `GET`, `POST` can also be used.
 
-### Call Type
+### Call Handler
 
-Note the use of `NXMCallTypeServer` as the `callType` in the `client`'s `call:` method above; this specifies that the logic of the call is defined by the server - a requirement for outbound PSTN calls.
+Note the use of `NXMCallHandlerServer` as the `callHandler` in the `client`'s `call:` method above; this specifies that the logic of the call is defined by the server - a requirement for outbound PSTN calls.
 
- The other `callType` is `NXMCallTypeInApp`, useful for making simple calls as shown in [this tutorial](/tutorials/client-sdk-ios-in-app-calling).
+ The other `callHandler` is `NXMCallHandlerInApp`, useful for making simple calls as shown in [this tutorial](/tutorials/client-sdk-ios-in-app-calling).
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/call-type'
