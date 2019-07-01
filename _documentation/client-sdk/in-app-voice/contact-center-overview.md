@@ -119,7 +119,7 @@ However, to get started you may clone and run one of the demo client-side applic
 
 * [iOS-Swift](https://github.com/nexmo-community/contact-center-swift)
 * [Android-Kotlin](https://github.com/nexmo-community/contact-center-client-android-kt)
-* Javascript
+* [Javascript](https://github.com/nexmo-community/contact-center-react)
 
 > **Important:**  After cloning, make sure you check the `README` file and update the required client-side app configurations.
 
