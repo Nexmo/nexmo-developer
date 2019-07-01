@@ -2,7 +2,7 @@
 title: Node
 language: node
 dependencies:
-    - nexmo
+    - nexmo@beta
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/applications/delete-application.js
     from_line: 9
