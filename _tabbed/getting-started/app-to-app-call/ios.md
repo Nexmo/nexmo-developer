@@ -64,7 +64,7 @@ This also allows you to start a PSTN phone call, by adding a phone number to the
 
 ### Call Delegate
 
-As with `NXMClient`, `NXMCall` also receives a delegate supplied as the third argument in the `call:callType:delegate:completion:` method.  
+As with `NXMClient`, `NXMCall` also receives a delegate supplied as the third argument in the `call:callHandler:delegate:completion:` method.  
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/in-app-calling-ios/call-delegate'

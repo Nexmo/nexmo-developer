@@ -4,7 +4,7 @@ language: objective_c
 menu_weight: 2
 ---
 
-As with `NXMClient`, `NXMCall` also receives a delegate which you supplied in the `call:callType:delegate:completion:` method.  
+As with `NXMClient`, `NXMCall` also receives a delegate which you supplied in the `call:callHandler:delegate:completion:` method.  
 
 You will now adopt the `NXMCallDelegate` for `ViewController`:
 

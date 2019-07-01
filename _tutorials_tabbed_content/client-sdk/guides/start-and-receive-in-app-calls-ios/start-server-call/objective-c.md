@@ -6,7 +6,7 @@ menu_weight: 2
 
 ```objective_c
 // delegate must conform to NXMCallDelegate
-[client call:@[@"userId"] callType:NXMCallTypeServer delegate:delegate 
+[client call:@[@"userId"] callHandler:NXMCallHandlerServer delegate:delegate 
   completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
     if (!call) {
         // Handle create call failure

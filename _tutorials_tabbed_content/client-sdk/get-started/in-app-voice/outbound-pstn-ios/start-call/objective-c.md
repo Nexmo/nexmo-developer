@@ -30,7 +30,7 @@ Implement the `startCall` method to start a call. It will start the call, and al
     self.statusLabel.text = @"Calling...";
     [self.loadingIndicator startAnimating];
     self.callButton.alpha = 0;
-    [self.nexmoClient call:@[@"CALLEE_NUMBER"] callType:NXMCallTypeServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
+    [self.nexmoClient call:@[@"CALLEE_NUMBER"] callHandler:NXMCallHandlerServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
         if(error) {
             NSLog(@"❌❌❌ call not created: %@", error);
             self.ongoingCall = nil;
