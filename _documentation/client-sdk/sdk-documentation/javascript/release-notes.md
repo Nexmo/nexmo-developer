@@ -10,25 +10,26 @@ navigation_weight: 0
 
 ### Fixes
 
-- Change digits to digit in the sendDTMF() request method payload
-- Stream is not being terminated on a call transfer
-- `member:call` is not being emitted if `media.audio_settings.enabled` is false or doesn't exist
+- Change digits to digit in the `sendDTMF()` request method payload.
+- Stream is not being terminated on a call transfer.
+- `member:call` is not being emitted if `media.audio_settings.enabled` is false or doesn't exist.
 
 ### New
 
-- Set member.callStatus `started` when initialising an IP - IP call
-- Set member.callStatus `ringing` when enabling the ringing with `media.startRinging()`
+- Set `member.callStatus` to `started` when initialising an IP - IP call.
+- Set `member.callStatus` to `ringing` when enabling the ringing with `media.startRinging()`.
 
 ### Internal changes
 
-- Move stream clean up from `member:left` to `rtc:hangup` in Media module
+- Move stream cleanup from `member:left` to `rtc:hangup` in Media module.
 
 ## Version 5.2.1 - June 12, 2019
 
 ### New
 
-- Add the new nexmoGetRequest utility method to make a GET network request directly to CS
+- Add the new `nexmoGetRequest` utility method to make a GET network request directly to CS:
 
+``` javascript
 /**
  * Perform a GET network request directly to CS
  *
@@ -53,10 +54,12 @@ navigation_weight: 0
     },
     response.page_size: 10
  });
+```
 
-- Support `reason` for member:delete `conversation.leave`, `member.kick`, `call.hangup` and `call.reject`
-- Listen for the `member:left` event with `reason`
+- Support `reason` for `member:delete`, `conversation.leave`, `member.kick`, `call.hangup` and `call.reject`.
+- Listen for the `member:left` event with `reason`:
 
+``` javascript
 //listening for member:left with reason
 conversation.on('member:left', (member, event) => {
   console.log(event.body.reason);
@@ -69,13 +72,16 @@ conversation.on('member:left', (member, event) => {
 * @param {string} [reason.code] the code of the reason
 * @param {string} [reason.text] the description of the reason
 */
+```
 
-- Add `callStatus` field in the `Member` object, defining the status of a call
-- Emit `member:call:status` event each time the `member.callStatus` changes
+- Add `callStatus` field in the `Member` object, defining the status of a call.
+- Emit `member:call:status` event each time the `member.callStatus` changes:
 
+``` javascript
 conversation.on("member:call:status", (member) => {
    console.log(member.callStatus);
 });
+```
 
 ## Version 5.2.0 - May 30, 2019
 
