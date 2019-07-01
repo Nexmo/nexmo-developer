@@ -118,11 +118,11 @@ A measure of the impact of inbound phone calls in digital marketing efforts. For
 
 ## E.164 format
 
-The Nexmo APIs expect numbers to be in [E.164 format](https://en.wikipedia.org/wiki/E.164), except that the leading `+` is omitted.
+The Nexmo APIs expect numbers to be in [E.164 format](https://en.wikipedia.org/wiki/E.164), ensuring that the dialling code `+` is omitted.
 
 Numbers must therefore:
 
-* Omit both a leading `+` and the international access code such as `00` or `001`.
+* Omit both the international access code such as `+`, `00` or `001`.
 * Contain no special characters, such as a space, `(`, `)`, or `-`.
 
 For example, a US number would have the format `14155550101`. A UK number would have the format `447700900123`.
