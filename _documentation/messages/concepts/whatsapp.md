@@ -81,4 +81,4 @@ curl -X POST \
 
 If your customer initiates messaging with you, you will not be charged for any messages (including MTMs) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which you will be charged.
 
-> **IMPORTANT**: The WhatsApp Business Solution may not be used to send any messages to or receive messages from the following countries: Crimea, Cuba, Iran, North Korea, and Syria.
+> **IMPORTANT**: The WhatsApp Business Solution may not be used to send any messages to or receive messages from the following countries or regions: Crimea, Cuba, Iran, North Korea, and Syria.
