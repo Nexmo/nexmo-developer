@@ -17,7 +17,6 @@ export default () => {
     $(document).on('click', '.notice a[data-close]', function(event) {
       const notice = $(this).parents('.notice')
       localStorage.setItem(noticeKey(notice), true)
-      Turbolinks.clearCache()
 
       TweenLite.to(notice, 0.6, {
         scale: 0,

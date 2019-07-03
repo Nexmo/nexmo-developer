@@ -6,7 +6,7 @@
     <%= render partial: 'layouts/partials/header' %>
     <div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light">
       <div class="Vlt-sidenav__scroll">
-        <nav class="sidenav" data-turbolinks-permanent tabindex="0" >
+        <nav class="sidenav" tabindex="0" >
           <% if (@sidebar_nav) %>
             <%= @sidebar_nav %>
           <% elsif @custom_navigation %>
@@ -18,15 +18,15 @@
       </div>
     </div>
 
-    <nav class="Vlt-sidenav Vlt-sidenav--light" id="Vlt-sidenav" data-turbolinks-permanent>
+    <nav class="Vlt-sidenav Vlt-sidenav--light" id="Vlt-sidenav">
       <% if @return_link %>
-        <%= link_to @return_link[:path], class: 'sidenav-back', data: { turbolinks: false } do %>
+        <%= link_to @return_link[:path], class: 'sidenav-back' do %>
           <i class="icon icon-angle-left"></i> Back to <%= @return_link[:title] %>
         <% end %>
         <hr>
       <% end %>
     </nav>
-    <main class="Vlt-main Vlt-main--light Nxd-main" id="primary-content" data-turbolinks="false" tabindex="2">
+    <main class="Vlt-main Vlt-main--light Nxd-main" id="primary-content" tabindex="2">
       <%= render partial: 'layouts/partials/notices' %>
       <div class="Vlt-card">
         <%= yield %>
