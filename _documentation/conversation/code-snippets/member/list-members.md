@@ -23,4 +23,4 @@ application:
 
 ## Try it out
 
-When you run the code you will retrieve a lits of all Members of the specified Conversation.
+When you run the code you will retrieve a list of all Members of the specified Conversation.

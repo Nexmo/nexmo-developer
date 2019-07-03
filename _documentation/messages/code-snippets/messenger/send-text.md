@@ -5,7 +5,7 @@ meta_title: Send a Text message with Facebook Messenger
 
 # Send a Text Message
 
-In this code snippet you will see how to send a FaceBook message using the Messages API.
+In this code snippet you will see how to send a Facebook message using the Messages API.
 
 For a step-by-step guide to this topic, you can read our tutorial [Sending Facebook Messenger messages with the Messages API](/tutorials/sending-facebook-messenger-messages-with-messages-api).
 
@@ -28,4 +28,4 @@ application:
 
 ## Try it out
 
-When you run the code a FaceBook message is sent to the recipient.
+When you run the code a Facebook message is sent to the recipient.

@@ -16,7 +16,7 @@ navigation_weight: 0
 
 ### New
 
-- Set `member.callStatus` to `started` when initialising an IP - IP call.
+- Set `member.callStatus` to `started` when initializing an IP - IP call.
 - Set `member.callStatus` to `ringing` when enabling the ringing with `media.startRinging()`.
 
 ### Internal changes
@@ -203,7 +203,7 @@ conversation.on("audio:dtmf",(from, event)=>{
 
 ### Changes
 
-- Change default behaviour of `autoPlayAudio` in `media.enable()` from false to true
+- Change default behavior of `autoPlayAudio` in `media.enable()` from false to true
 - Pass an `autoPlayAudio` parameter to `call.createCall()` and `call.answer()` functions (default is true)
 
 ---
@@ -261,7 +261,7 @@ media.enable({
 ### New
 
 - Internal lib dependencies update
-- Added suport for Bugsnag error monitoring and reporting tool
+- Added support for Bugsnag error monitoring and reporting tool
 
 ```text
  * @class ConversationClient

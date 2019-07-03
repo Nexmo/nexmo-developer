@@ -8,7 +8,7 @@ navigation_weight: 4
 
 ## Overview
 
-You can control how the Nexmo Voice API plays machine-generated text to your users by using a subset of the tags defined in the [Speech Synthesis Markup Language (SSML) specification](https://www.w3.org/TR/speech-synthesis11/). This XML-based markup enables you to mix multiple languages, provide pronunciation hints for specific words and numbers and control the speed, volume and pitch of synthesised text.
+You can control how the Nexmo Voice API plays machine-generated text to your users by using a subset of the tags defined in the [Speech Synthesis Markup Language (SSML) specification](https://www.w3.org/TR/speech-synthesis11/). This XML-based markup enables you to mix multiple languages, provide pronunciation hints for specific words and numbers and control the speed, volume and pitch of synthesized text.
 
 In an [NCCO](/voice/voice-api/ncco-reference) `talk` action, you can send [SSML tags](#ssml-tags) as
 part of the text string. But first, you must surround the entire string in `<speak></speak>` tags to tell Nexmo that the string includes SSML. You may use either single quotes or escaped double quotes for tag attribute values.
@@ -34,7 +34,7 @@ Here is an example of SSML in the `text` property of a NCCO `talk` action:
 * [Phonemes](#phonemes): Spell out the text using the [phonetic alphabet](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)
 * [Prosody](#prosody): Set the pitch, speed and volume of the spoken text
 * [Say as](#say-as): Provide pronunciation hints for words, numbers and dates
-* [Sentences and paragraphs](#sentences-and-paragraphs): Force the API to recognise sentences and paragraphs when speaking your text
+* [Sentences and paragraphs](#sentences-and-paragraphs): Force the API to recognize sentences and paragraphs when speaking your text
 * [Substitution](#substitution): Replace specific text with a pronunciation of your choice
 
 

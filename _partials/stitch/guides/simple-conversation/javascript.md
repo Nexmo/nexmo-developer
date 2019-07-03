@@ -22,7 +22,7 @@ This guide will introduce you to the following concepts:
 There are certain prerequisites you need to have in place before you begin this tutorial:
 
 * Ensure you have [Node.JS](https://nodejs.org/) installed.
-* Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
+* Create a free Nexmo account - [sign up](https://dashboard.nexmo.com)
 * Install the Nexmo CLI:
 
 ```bash

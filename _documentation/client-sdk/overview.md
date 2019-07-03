@@ -41,7 +41,7 @@ Some features include:
 * Notifications  – Users can be notified when they receive a call or when participants are muted.
 * Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
-## Participating in the Early Access programme
+## Participating in the Early Access program
 
 This Early Access will focus on the In-App Voice capabilities. During this program, there will be frequent releases with new features and bug fixes based on your feedback. During the Early Access, it is possible that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
 

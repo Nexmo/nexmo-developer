@@ -28,17 +28,17 @@ For more information on the IP addresses used for SIP traffic originating from N
 
 ## Websockets
 
-Nexmo offers the ablity to connect a call to a WebSocket endpoint where the audio of the call is sent and received in real-time over a long-lived HTTP connection.
+Nexmo offers the ability to connect a call to a WebSocket endpoint where the audio of the call is sent and received in real-time over a long-lived HTTP connection.
 
 With websockets Nexmo acts as the HTTP client and makes an HTTP request to your web server which should then upgrade that connection to a websocket.
 
-The endpoint is addressed via a `uri` parameter which should be a standard websocket URL, starting with either `ws://` for plain HTTP or `wss://` for TLS enabled servers. The `Content-Type` parameter can be set to `audio/l16;rate=16000` or `audio/l16;rate=8000`, depending on if you need the data at 16kHz or 8kHz. Most realtime transcription services work best with audio at 8kHz.
+The endpoint is addressed via a `uri` parameter which should be a standard websocket URL, starting with either `ws://` for plain HTTP or `wss://` for TLS enabled servers. The `Content-Type` parameter can be set to `audio/l16;rate=16000` or `audio/l16;rate=8000`, depending on if you need the data at 16kHz or 8kHz. Most real-time transcription services work best with audio at 8kHz.
 
 An optional `headers` parameter can be passed containing a JSON object of key value pairs that you want to send.  The maximum size of this headers parameter is 512 bytes.
 
 ## CallerID
 
-For both `phone` and `sip` endpoint types, the `from` field *must* be a Nexmo Number associated with your account in e.164 format. This will then be used as the caller ID on the receiving phone. For SIP endpoints it will take the format `number@sip.nexmo.com`.
+For both `phone` and `sip` endpoint types, the `from` field *must* be a Nexmo Number associated with your account in E.164 format. This will then be used as the caller ID on the receiving phone. For SIP endpoints it will take the format `number@sip.nexmo.com`.
 
 ## Vonage Business Cloud
 

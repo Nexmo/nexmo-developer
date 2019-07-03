@@ -105,6 +105,6 @@ To do this, use the following instructions:
 
 - Detect that the text includes `&` or `=`.
 - Create a version of the text that uses `_` (underscore) in place of these special characters.
-- Use the sanitised version of the text to create the signature.
+- Use the sanitized version of the text to create the signature.
 
 The original text can be still be sent/received, the character replacements are only needed to generate the signature.

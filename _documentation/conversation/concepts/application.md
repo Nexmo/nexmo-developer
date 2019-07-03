@@ -10,7 +10,7 @@ Once you have created a Nexmo Account you will be able to create multiple Nexmo 
 
 A Nexmo Application can contain a unique set of [Users](/conversation/concepts/user) and [Conversations](/conversation/concepts/conversation).
 
-This container hierachy is illustrated in the following diagram:
+This container hierarchy is illustrated in the following diagram:
 
 ![Nexmo Application](/assets/images/conversation-api/conversation-application.png)
 

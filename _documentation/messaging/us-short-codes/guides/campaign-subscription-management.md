@@ -5,7 +5,7 @@ description: Create an opt-in and opt-out process for recipients of your campaig
 
 # Campaign Subscription Management
 
-Messaging activities fall under the regulatory guidelines of several groups, depending on the nation in which you send the messages. For more information see [Pre approved US Short Codes compliance requirements](https://help.nexmo.com/hc/en-us/articles/204015403-Pre-approved-US-Short-Codes-compliance-requirements)
+Messaging activities fall under the regulatory guidelines of several groups, depending on the nation in which you send the messages. For more information see [Preapproved US Short Codes compliance requirements](https://help.nexmo.com/hc/en-us/articles/204015403-Preapproved-US-Short-Codes-compliance-requirements)
 
 You use the *opt-in* API to:
 

@@ -37,7 +37,7 @@ Optional flags are:
 > nexmo numbers:list --verbose
 Item 1-3 of 3
 
-msisdn      | country | type       | features  | voiceCallbackType | voiceCallbackValue | moHttpUrl | voiceStatusCallbackUrl
+msisdn      | country | type       | features  | voiceCallbackType | voiceCallbackValue | moHttpURL | voiceStatusCallbackUrl
 ----------------------------------------------------------------------------------------------------------------------------
 31555555555 | NL      | mobile-lvn | VOICE,SMS | app               | b6d9f957           | undefined | https://example.com
 44655555555 | GB      | mobile-lvn | VOICE,SMS | app               | b6d9f957           | undefined | https://example.com
@@ -54,7 +54,7 @@ Optional flags are:
 |---|---|
 | `--pattern` | The pattern you want to search for. Use the `*` wildcard to match the start or end of the number. For example, `*123*` matches all numbers that contain the pattern `123`.  |
 | `--voice` | To search for voice-enabled numbers |
-| `--sms` | To search for SMS-enabled numbers |
+| `--sms` | To search for SMS enabled numbers |
 | `--size` | The number of results to return |
 | `--page` | The number of results per page |
 

@@ -14,7 +14,7 @@ One-click payments are quick and easy transactions made with a credit card store
 
 > Nexmo does not store, manage or transmit any complete credit card information in accordance with its PCI Compliance certification. Nexmo has submitted and passed PCI DSS Self-Assessment Questionnaire Merchant Compliance and can produce evidence of this upon request.
 
-If we receive any credit card information from any of our customers in an email or helpdesk ticket, we will immediately delete it and notify you that the information has been removed.
+If we receive any credit card information from any of our customers in an email or help desk ticket, we will immediately delete it and notify you that the information has been removed.
 
 ## Managing payments
 

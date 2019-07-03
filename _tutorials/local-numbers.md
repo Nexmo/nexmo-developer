@@ -164,7 +164,7 @@ post '/city' do
 end
 ```
 
-> *Tip*: Any selection made in a phone menu could be tracked to measure valuable data about user behaviour and demand in your application
+> *Tip*: Any selection made in a phone menu could be tracked to measure valuable data about user behavior and demand in your application
 
 The button pressed will arrive in the `dtmf` field of the incoming webhook to that `/city` URL. Check out the more detailed [webhook documentation](/voice/voice-api/webhook-reference#input) for more information about webhook payloads.
 

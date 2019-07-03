@@ -191,7 +191,7 @@ There are a few other things you might choose to do with your application such a
 
 ### Using a Recording Instead of Text-To-Speech
 
-To use a pre-recorded message instead of (or as well as!) using Nexmo's text-to-speech functionality, use an NCCO with action `stream`. `stream` allows you to play back an audio file to the caller. The "streamUrl" will point to your audio file.
+To use a prerecorded message instead of (or as well as!) using Nexmo's text-to-speech functionality, use an NCCO with action `stream`. `stream` allows you to play back an audio file to the caller. The "streamUrl" will point to your audio file.
 
 ```php
 [
@@ -258,7 +258,7 @@ In this example we just log what happened, but in your own applications you coul
 ⚓ Conclusion
 ## Your Broadcast Call Application
 
-You now have a simple, but working, voice-alert system where you can broadcast out a text-to-speech or pre-recorded message, log which calls are answered versus sent to voicemail, and receive confirmation of receipt from users who receive the message.
+You now have a simple, but working, voice-alert system where you can broadcast out a text-to-speech or prerecorded message, log which calls are answered versus sent to voicemail, and receive confirmation of receipt from users who receive the message.
 
 ⚓ References
 ## Next Steps and Further Reading

@@ -52,7 +52,7 @@ For further information see the following documentation:
 * [Application setup](/conversation/guides/application-setup)
 * [User authentication](/conversation/guides/user-authentication)
 
-### API Refrences
+### API References
 
 * [Conversation API](/api/conversation)
 * [Client SDK](/client-sdk/overview)

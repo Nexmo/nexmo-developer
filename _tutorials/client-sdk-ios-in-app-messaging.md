@@ -128,9 +128,9 @@ You can use the conversation object to send attachments. The following example s
 
 ## Events Controller
 
-`EventsController` allows you to monitor the events of a conversation. The controller syncs the data from the server to make sure events are handled in realtime, in order, and with no gaps. It also filters incoming events to hold only the events you need.
+`EventsController` allows you to monitor the events of a conversation. The controller syncs the data from the server to make sure events are handled in real-time, in order, and with no gaps. It also filters incoming events to hold only the events you need.
 
-`EventsController` starts syncing events from the latest `event_id` the conversation is familiar with and onwards. The controller invokes delegate methods when the controllers content is changed. If a conversation object knows that the latest event to happen was event #5, and a new event #8 was received, the events controller will make sure to query for events #6,#7, but not for events #1,#2,#3,#4.
+`EventsController` starts syncing events from the latest `event_id` the conversation is familiar with onward. The controller invokes delegate methods when the controllers content is changed. If a conversation object knows that the latest event to happen was event #5, and a new event #8 was received, the events controller will make sure to query for events #6,#7, but not for events #1,#2,#3,#4.
 
 ### Get conversation events  
 
@@ -161,7 +161,7 @@ Invoked when the controller is about to update events array. A number of changes
 - (void)nxmConversationEventsControllerDidChangeContent:(NXMConversationEventsController *_Nonnull)controller;
 ```
 
-Invoked when the controller is finished updating events array. A number of changes might have occured before the invocation of that method.
+Invoked when the controller is finished updating events array. A number of changes might have occurred before the invocation of that method.
 
 ```objective-c
 - (void)nxmConversationEventsController:(NXMConversationEventsController *_Nonnull)controller didChangeEvent:(NXMEvent*_Nonnull)anEvent atIndex:(NSUInteger)index forChangeType:(NXMConversationEventsControllerChangeType)type newIndex:(NSUInteger)newIndex;

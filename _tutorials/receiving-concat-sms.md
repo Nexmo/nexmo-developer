@@ -134,7 +134,7 @@ If everything is configured correctly you should receive a `Inbound SMS received
 
 Now, let's write some code to parse the incoming SMS to see what the message contains.
 
-1. Press [Ctrl+C] to terminate the running `server.js` application.
+1. Press [CTRL+C] to terminate the running `server.js` application.
 
 2. Create a new function in `server.js` called `displaySms()`:
 

@@ -125,15 +125,15 @@ Run the command in a shell. The call will retrieve a list of supported audit eve
     },
     {
       "type": "AUTORELOAD_ENABLE",
-      "description": "Autoreload enabled"
+      "description": "Automatic reload enabled"
     },
     {
       "type": "AUTORELOAD_UPDATE",
-      "description": "Autoreload settings updated"
+      "description": "Automatic reload settings updated"
     },
     {
       "type": "AUTORELOAD_DISABLE",
-      "description": "Autoreload disabled"
+      "description": "Automatic reload disabled"
     }
   ]
 }

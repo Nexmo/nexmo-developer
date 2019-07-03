@@ -239,7 +239,7 @@ You use your Dashboard to:
 
 * Manage your account:
     * Secondary users
-    * TopUps
+    * Top-ups
     * Notifications
     * Profile
 
@@ -247,7 +247,7 @@ You use your Dashboard to:
     * Virtual numbers
     * US Short Codes
 
-* Analyse the success rates for your communication using the Nexmo APIs:
+* Analyze the success rates for your communication using the Nexmo APIs:
     * Measure conversion
     * Track and troubleshoot message delivery
     * Make data-driven decisions
@@ -447,7 +447,7 @@ More information can be found in the [SMS API documentation](/messaging/sms/over
 
 Cloud numbers enabled to receive [SMS](#sms).
 
-## SMS-Enabled Virtual Number
+## SMS Enabled Virtual Number
 
 See [SMS Cloud Numbers](#sms-cloud-numbers).
 

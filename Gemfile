@@ -156,6 +156,9 @@ gem 'country_select', '~> 4.0'
 # gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer', require: false
 gem 'nexmo-oas-renderer', '~> 0.2.1', require: false
 
+# A/B Testing
+gem 'split', '~> 3.3.2', require: 'split/dashboard'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

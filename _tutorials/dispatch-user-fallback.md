@@ -14,7 +14,7 @@ The idea is that you have a list of users and each user has two or more designat
 
 If all attempts to have the message read by a user fail, then processing moves to the next user in the priority list.
 
-By way of example, imagine your main server has mulfunctioned, you wish to notify a list of system administrators who are on call. Each administrator may have several channels they can be contacted on. The list of users would be processed until at least one of the administrators had read the important message.
+By way of example, imagine your main server has malfunctioned, you wish to notify a list of system administrators who are on call. Each administrator may have several channels they can be contacted on. The list of users would be processed until at least one of the administrators had read the important message.
 
 ## Example scenario
 
@@ -95,7 +95,7 @@ The Python source code for this project is available in the Nexmo Community [Git
 4. [Know how to test your webhook server locally](/messages/code-snippets/configure-webhooks#testing-locally-via-ngrok)
 5. [Python 3 installed](https://www.python.org/)
 6. [Flask installed](http://flask.pocoo.org/)
-7. Have accounts for the channels you wish to support such as FaceBook, Viber and WhatsApp.
+7. Have accounts for the channels you wish to support such as Facebook, Viber and WhatsApp.
 
 You may also find it useful to review the following overview topics:
 

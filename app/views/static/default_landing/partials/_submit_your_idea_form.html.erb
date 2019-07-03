@@ -1,0 +1,45 @@
+<h2 class="Vlt-title--icon" id="<%= local_assigns['header'].parameterize %>">
+    <svg class="Vlt-<%= local_assigns['icon']['color'] %>"><use xlink:href="<%= "/symbol/volta-icons.svg#Vlt-#{local_assigns['icon']['name']}" %>"></use></svg>
+    <%= local_assigns['header'].render_markdown(skip_paragraph_surround: true) %>
+</h2>
+
+<%= form_tag('https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/', authenticity_token: false) do %>
+  <div class="Vlt-form__element">
+    <%= label_tag 'name', 'Your Name', class: 'Vlt-label' %>
+    <div class="Vlt-input">
+      <%= text_field_tag 'name', nil, required: true %>
+    </div>
+  </div>
+
+  <div class="Vlt-form__element">
+    <%= label_tag 'email_address', 'Your Email Address', class: 'Vlt-label' %>
+    <div class="Vlt-input">
+      <%= email_field_tag 'email_address', nil, required: true %>
+    </div>
+  </div>
+
+  <div class="Vlt-form__element">
+    <%= label_tag 'background', 'Please write a little about your background and why you want to write for Nexmo', class: 'Vlt-label' %>
+    <div class="Vlt-textarea">
+      <%= text_area_tag 'background', nil, required: true, rows: 4, cols: 50 %>
+    </div>
+  </div>
+
+  <div class="Vlt-form__element">
+    <%= label_tag 'outline', 'The outline of your blog post idea', class: 'Vlt-label' %>
+    <div class="Vlt-textarea">
+      <%= text_area_tag 'outline', nil, required: true, rows: 4, cols: 50 %>
+    </div>
+  </div>
+
+  <div class="Vlt-form__element">
+    <%= label_tag 'previous_content', 'Please provide link to something you have written previously', class: 'Vlt-label' %>
+    <div class="Vlt-input">
+      <%= url_field_tag 'previous_content', nil %>
+    </div>
+  </div>
+  <small class="Vlt-form__element__hint">
+    By submitting your ideas to Nexmo Developer Spotlight you accept our <a href='https://www.nexmo.com/privacy-policy'>privacy policy</a>, which sets out how we use your data and the rights you have in respect of your data.
+  </small>
+  <%= submit_tag 'Submit', class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+<% end %>

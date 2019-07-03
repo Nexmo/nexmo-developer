@@ -50,7 +50,7 @@ For further information see the following documentation:
 * [User authentication](/conversation/guides/user-authentication)
 * [Event flow](/conversation/guides/event-flow)
 
-### API Refrences
+### API References
 
 * [Conversation API](/api/conversation)
 * [Client SDK](/client-sdk/overview)

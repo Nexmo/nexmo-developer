@@ -44,7 +44,7 @@ The rest of this document contains the following information:
 
 ## Concepts
 
-Before using the Nexmo SMS API, familiarise yourself with the following:
+Before using the Nexmo SMS API, familiarize yourself with the following:
 
 * **[Number format](/voice/voice-api/guides/numbers)** - The SMS API requires phone numbers in E.164 format.
 

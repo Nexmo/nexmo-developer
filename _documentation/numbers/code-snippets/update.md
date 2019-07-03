@@ -16,7 +16,7 @@ Name | Description
 `NEXMO_API_KEY` | Your Nexmo [API key](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
 `NEXMO_API_SECRET` | Your Nexmo [API secret](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
 `COUNTRY_CODE` | The two digit country code for the number you want to cancel. For example: `GB` for the United Kingdom.
-`NEXMO_NUMBER` | TThe Nexmo virtual number you want to update. Omit the leading zero but include the international dialing code. For example: `447700900000`.
+`NEXMO_NUMBER` | The Nexmo virtual number you want to update. Omit the leading zero but include the international dialing code. For example: `447700900000`.
 `SMS_CALLBACK_URL` | An URL-encoded URI to the webhook endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request. Nexmo makes a GET request to the endpoint and checks that it returns a 200 OK response. Set this parameter's value to an empty string to remove the webhook.
 `MESSAGES_APPLICATION_ID` | The ID associated with your Messages API application
 `VOICE_CALLBACK_TYPE` | The Voice API webhook type: `sip`, `tel` or `app`

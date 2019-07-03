@@ -53,7 +53,7 @@ To instruct Nexmo to connect to a WebSocket your application server must return 
 
 The `uri` identifies the endpoint of your WebSocket server that Nexmo will connect to.
 
-To choose the sampling rate set the `content-type` property to `audio/l16;rate=16000` or `audio/l16;rate=8000` depending on if you need the data at 16kHz or 8kHz. Most realtime transcription services work best with audio at 8kHz.
+To choose the sampling rate set the `content-type` property to `audio/l16;rate=16000` or `audio/l16;rate=8000` depending on if you need the data at 16kHz or 8kHz. Most real-time transcription services work best with audio at 8kHz.
 
 You can send additional optional properties to your WebSocket server by adding key/value pairs to a `headers` property. The maximum length of the `headers` data is 512 bytes.
 
@@ -109,7 +109,7 @@ After the initial text message subsequent messages on the WebSocket can be text 
 
 Messages that are binary represent the audio of the call. The audio codec presently supported on the WebSocket interface is Linear PCM 16-bit, with either a 8kHz or a 16kHz sample rate, and a 20ms frame size.
 
-To choose the sampling rate set the `Content-Type` property to `audio/l16;rate=16000` or `audio/l16;rate=8000` depending on if you need the data at 16kHz or 8kHz. Most realtime transcription services work best with audio at 8kHz.
+To choose the sampling rate set the `Content-Type` property to `audio/l16;rate=16000` or `audio/l16;rate=8000` depending on if you need the data at 16kHz or 8kHz. Most real-time transcription services work best with audio at 8kHz.
 
 Each message will be a 20ms sample of the audio from the call. If you choose the 8kHz rate each message will be 320 bytes. Choosing the 16kHz rate will result in each message being 640 bytes. This is summarized in the following table:
 
@@ -140,6 +140,6 @@ You will receive one event for each keypress and each event will contain only on
 
 You can send audio back into the call by writing binary messages to the WebSocket. The audio must be in the same format as described in the previous section. It is important that each message is 320 or 640 bytes (depending on sample rate) and contains 20ms of audio.
 
-You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed. Nexmo will only buffer 1024 messages which should be enough for around 20sec of audio, if your file is longer than this you should implement a delay of 18-19ms between each message, or consider using the [REST API to play an audio file](/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call/).
+You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed. Nexmo will only buffer 1024 messages which should be enough for around 20 seconds of audio, if your file is longer than this you should implement a delay of 18-19ms between each message, or consider using the [REST API to play an audio file](/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call/).
 
 

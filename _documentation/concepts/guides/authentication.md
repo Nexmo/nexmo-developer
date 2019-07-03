@@ -58,7 +58,7 @@ The request may also need other query parameters and these can be added in any o
 
 ### Header-based API Key and Secret Authentication
 
-A number of newer Nexmo APIs require authentication to be done using an API key and secret sent Base64-encoded in the `Authorization` header.
+A number of newer Nexmo APIs require authentication to be done using an API key and secret sent Base64 encoded in the `Authorization` header.
 
 For these APIs, you send your API key and secret in the following way:
 
@@ -78,12 +78,12 @@ A website for generating Base64 encoded strings can be found here:
 
 Details on how to encode Base64 strings in a variety of programming languages can be found at the following websites:
 
-* C#/.NET: [How do I encode and decode a base64 string?](https://stackoverflow.com/questions/11743160/how-do-i-encode-and-decode-a-base64-string) from StackOverflow
+* C#/.NET: [How do I encode and decode a Base64 string?](https://stackoverflow.com/questions/11743160/how-do-i-encode-and-decode-a-base64-string) from StackOverflow
 * Go: [Base64 Encoding](https://gobyexample.com/base64-encoding) from Go By Example
 * Java: [Base64](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html)
 * JavaScript: [Base64 encoding and decoding](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding) from MDN web docs
 * PHP: [base64_encode](https://secure.php.net/manual/en/function.base64-encode.php)
-* Python: [base64](https://docs.python.org/2/library/base64.html)
+* Python: [Base64](https://docs.python.org/2/library/base64.html)
 * Ruby: [Base64](https://ruby-doc.org/stdlib-2.5.0/libdoc/base64/rdoc/Base64.html)
 * Swift: [Base64 Encode and Decode in Swift](http://iosdevelopertips.com/swift-code/base64-encode-decode-swift.html) from iOS Developer Tips
 

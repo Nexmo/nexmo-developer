@@ -83,7 +83,7 @@ host=sip.nexmo.com
 
 For PJSIP configuration use the following information:
 
-| Config item | Value |
+| Configuration item | Value |
 |----|----|
 | Authentication | Outbound |
 | Registration | None |

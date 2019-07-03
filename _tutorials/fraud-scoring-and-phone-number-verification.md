@@ -1,14 +1,14 @@
 ---
 title: Fraud Scoring and Phone Number Verification
 products: number-insight
-description: You can use the Number Insight Advanced and Verify APIs together to build your own fraud detection system. With this approach, you can protect your organisation against fraudulent transactions while making the process frictionless for most customers.
+description: You can use the Number Insight Advanced and Verify APIs together to build your own fraud detection system. With this approach, you can protect your organization against fraudulent transactions while making the process frictionless for most customers.
 languages:
     - Node
 ---
 
 # Fraud Scoring and Phone Number Verification
 
-You can use the [Number Insight Advanced](/number-insight) and [Verify API](/verify/api-reference/)s together to build your own fraud detection system. With this approach, you can protect your organisation against fraudulent transactions while making the process frictionless for most customers.
+You can use the [Number Insight Advanced](/number-insight) and [Verify API](/verify/api-reference/)s together to build your own fraud detection system. With this approach, you can protect your organization against fraudulent transactions while making the process frictionless for most customers.
 
 ## In this tutorial
 
@@ -73,7 +73,7 @@ You will build the application so that the server and fraud detection business l
 
 ### Define the initial route
 
-Create the `lib/routes.js` file to define the routes for the application. Code a handler that displays the form for the user to enter their number when your homepage (`/`) recieves a [GET] request: 
+Create the `lib/routes.js` file to define the routes for the application. Code a handler that displays the form for the user to enter their number when your homepage (`/`) receives a [GET] request: 
 
 ```javascript
 module.exports = function(app, detector) {
@@ -263,7 +263,7 @@ When the user submits their phone number, pass it to your fraud detection code t
 
 In the `FraudDetection` class, extract the user's IP from the request and use the MaxMind country database to determine the country in which the user is accessing your application.
 
-Then, make an aysnchronous request to the Number Insight Advanded API to see if the number that the user registered is currently roaming and thereby determine the correct country for comparison.
+Then, make an asynchronous request to the Number Insight Advanced API to see if the number that the user registered is currently roaming and thereby determine the correct country for comparison.
 
 By combining all this data you can build a simple risk model, and if the countries do not match trigger a next step.
 

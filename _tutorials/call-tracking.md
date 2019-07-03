@@ -10,7 +10,7 @@ languages:
 
 Gain insight into the effectiveness of your customer communications by keeping track of the calls received by your Nexmo numbers. By registering a different number for each of your marketing campaigns, you can see which one performs the best and use that information to improve your future marketing efforts.
 
-Today's example uses NodeJS and all the code is [available on GitHub](https://github.com/Nexmo/node-call-tracker), however the same approach could be used for any other technology stack just as effectively.
+Today's example uses node.js and all the code is [available on GitHub](https://github.com/Nexmo/node-call-tracker), however the same approach could be used for any other technology stack just as effectively.
 
 ## Prerequisites
 
@@ -138,13 +138,13 @@ The NCCO uses the `connect` action to connect the incoming caller with another c
 
 ## Conclusion
 
-With this approach you have been able to link some Nexmo numbers to your NodeJS application, make a record of incoming calls to those numbers and connect the callers to an outbound number. By recording the timestamp as well as the from and to numbers, you can go ahead and perform any analysis that you need to on this data to get the best results for your business.
+With this approach you have been able to link some Nexmo numbers to your node.js application, make a record of incoming calls to those numbers and connect the callers to an outbound number. By recording the timestamp as well as the from and to numbers, you can go ahead and perform any analysis that you need to on this data to get the best results for your business.
 
 ## Where Next?
 
 Here are a few more suggestions of resources that you might enjoy as a next step after this tutorial:
 
-* [Add a call whisper to an inbound call](https://developer.nexmo.com/tutorials/add-a-call-whisper-to-an-inbound-call) to announce some details about the incoming call to the outgoing call before conecting the two.
+* [Add a call whisper to an inbound call](https://developer.nexmo.com/tutorials/add-a-call-whisper-to-an-inbound-call) to announce some details about the incoming call to the outgoing call before connecting the two.
 * Blog post covering how to [Connect your local development server to the Nexmo API using an ngrok tunnel](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
 * The [Webhooks Reference for Voice](https://developer.nexmo.com/voice/voice-api/webhook-reference) shows the details of incoming webhooks for both `answer_url` and `event_url` endpoints.
 * Refer to the [NCCO Documentation](https://developer.nexmo.com/voice/voice-api/ncco-reference) to get details on other actions that you can use to control the flow of your Nexmo calls.

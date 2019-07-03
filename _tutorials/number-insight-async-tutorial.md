@@ -23,7 +23,7 @@ To achieve this, you perform the following steps:
 2. [Install the `nexmo` package](#install-the-nexmo-package) - add Nexmo capabilities to your project.
 3. [Expose your application to the Internet](#expose-your-application-to-the-internet) - use `ngrok` to enable Nexmo to access your application via a webhook.
 4. [Create the basic application](#create-the-basic-application) - build the basic functionality.
-5. [Create the aysnchronous request](#create-the-asynchronous-request) - call the Number Insight Advanced API.
+5. [Create the asynchronous request](#create-the-asynchronous-request) - call the Number Insight Advanced API.
 6. [Create the webhook](#create-the-webhook) - write the code that processes the incoming insight data.
 7. [Test the application](#test-the-application) - see it in action!
 

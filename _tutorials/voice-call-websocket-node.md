@@ -8,7 +8,7 @@ languages:
 
 # Call a Websocket
 
-You can use the Nexmo Voice API to connect a call to a [WebSocket](/voice/voice-api/guides/websockets), giving you a two-way stream of the call audio delivered over the WebSocket protocol in realtime. This enables you to process the call audio to perform tasks such as sentiment analysis, real-time transcription and decision-making using artifical intelligence.
+You can use the Nexmo Voice API to connect a call to a [WebSocket](/voice/voice-api/guides/websockets), giving you a two-way stream of the call audio delivered over the WebSocket protocol in real-time. This enables you to process the call audio to perform tasks such as sentiment analysis, real-time transcription and decision-making using artificial intelligence.
 
 In this tutorial, you will connect an inbound call to a WebSocket endpoint. The WebSocket server will listen to the call audio and echo it back to you. You will implement this using the [express](https://expressjs.com) web application framework and [express-ws](https://www.npmjs.com/package/express-ws), which lets you define WebSocket endpoints like any other `express` route. 
 
@@ -192,7 +192,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`))
 
 In this tutorial, you created an application that uses the Voice API to connect to a WebSocket endpoint.
 
-The WebSocket you created was extremely simple, but it was able to listen to the call audio and respond to it. This is extremely powerful and can empower some very sophisticated use cases, such as artifical intelligence, analysis and transcription of call audio.
+The WebSocket you created was extremely simple, but it was able to listen to the call audio and respond to it. This is extremely powerful and can empower some very sophisticated use cases, such as artificial intelligence, analysis and transcription of call audio.
 
 ## Further reading
 

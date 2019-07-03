@@ -9,7 +9,7 @@ Below we provide example configurations for using Nexmo's SIP service with [Free
 
 ## Inbound configuration
 
-Modify `autoload_configs/acl.conf.xml` and allow traffic from Nexmo's IPs:
+Modify `autoload_configs/acl.conf.xml` and allow traffic from Nexmo's IP addresses:
 
 ```xml
 <list name="nexmo" default="deny">

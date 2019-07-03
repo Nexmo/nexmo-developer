@@ -10,7 +10,7 @@ You use Event Based Alerts to communicate with people using Event Based Alerts. 
 
 ## Sending Alerts
 
-You use Event Based Alerts to send custom messages to your users. Before you use this API you have to [Setup a Pre-approved Short Code for Event Based Alerts](/numbers/guides/event-alerts)
+You use Event Based Alerts to send custom messages to your users. Before you use this API you have to [Setup a preapproved Short Code for Event Based Alerts](/numbers/guides/event-alerts)
 
 The workflow for sending Event Based Alerts is:
 
@@ -55,4 +55,4 @@ source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes
 source: '_examples/messaging/us-short-codes-api/generic/delivery-receipt'
 ```
 
-> Note: remember to send return *200 ok* when you receive the delivery receipt.
+> Note: remember to send return *200 OK* when you receive the delivery receipt.

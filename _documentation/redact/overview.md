@@ -67,7 +67,7 @@ Note that when a Conversation resource is deleted, it will no longer be availabl
 
 ## Subject Access Requests
 
-Under GDPR, your customers can come to you and ask for the information that you hold on them. While each organisation will need to determine the appropriate way to implement their request process, Nexmo can help by providing data about what information is held in the platform, if necessary.
+Under GDPR, your customers can come to you and ask for the information that you hold on them. While each organization will need to determine the appropriate way to implement their request process, Nexmo can help by providing data about what information is held in the platform, if necessary.
 
 Data held on an individual by Nexmo can be obtained using the following methods:
 

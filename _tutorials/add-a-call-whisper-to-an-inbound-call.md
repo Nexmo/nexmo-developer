@@ -12,7 +12,7 @@ Phone numbers are everywhere in advertising: on billboards, in TV ads, on websit
 
 Using call whispers, the context of the incoming call is announced to the call center operator before being connected to the caller. This tutorial will show an application that implements this approach. A user will call one of two numbers. The application answers the call and the caller hears a holding message. Meanwhile, the application also makes a call to the call center operative, plays a different call whisper depending on which number was dialled, and then connects the operative to the conference with the incoming caller.
 
-The examples are written in NodeJS with express, and you can find the code [on GitHub](https://github.com/Nexmo/node-call-whisper).
+The examples are written in node.js with express, and you can find the code [on GitHub](https://github.com/Nexmo/node-call-whisper).
 
 ## In this tutorial
 
@@ -79,7 +79,7 @@ nexmo link:app [NEXMO_NUMBER] [APP_ID]
 
 ## Getting started with code
 
-The code for this project is on GitHub at <https://github.com/Nexmo/node-call-whisper>. This consists of a NodeJS project using Express and is intended to give you a working example that you can then adapt for your own needs.
+The code for this project is on GitHub at <https://github.com/Nexmo/node-call-whisper>. This consists of a node.js project using Express and is intended to give you a working example that you can then adapt for your own needs.
 
 ### Clone the repository
 
@@ -189,7 +189,7 @@ When the call is connected, play a call whisper to the agent using the `talk` NC
 
 ```
 
-There are so many possibilities here that can help you to customise the whispers. You could pass the incoming caller's number with the `url` in `onAnswer` and look them up, allowing you to greet them by name or provide some other information. The possibilities are endless but hopefully this tutorial gives you a working example you can build on and customize.
+There are so many possibilities here that can help you to customize the whispers. You could pass the incoming caller's number with the `url` in `onAnswer` and look them up, allowing you to greet them by name or provide some other information. The possibilities are endless but hopefully this tutorial gives you a working example you can build on and customize.
 
 ## Further reading
 

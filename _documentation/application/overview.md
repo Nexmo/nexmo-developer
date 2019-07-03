@@ -45,7 +45,7 @@ Capability | Description
 
 The webhook URLs you provide when creating an application depend on the application capabilities required. The following table summarizes the webhooks:
 
-Capability | API used | Webooks available
+Capability | API used | Webhooks available
 --- | --- | ---
 `voice` | Voice | `answer_url`, `event_url`
 `messages` | Messages and Dispatch | `inbound_url`, `status_url`

@@ -40,7 +40,7 @@ If the SMS API returns a non-zero `status` value then use the following table to
 | 3 | Invalid Parameters | The value of one or more parameters is invalid.
 | 4 | Invalid Credentials | Your API key and/or secret are incorrect, invalid or disabled.
 | 5 | Internal Error | An error has occurred in the platform whilst processing this message.
-| 6 | Invalid Message | The platform was unable to process this message, for example, an un-recognized number prefix.
+| 6 | Invalid Message | The platform was unable to process this message, for example, an unrecognized number prefix.
 | 7 | Number Barred | The number you are trying to send messages to is blacklisted and may not receive them.
 | 8 | Partner Account Barred  | Your Nexmo account has been suspended. Contact <support@nexmo.com>. |
 | 9 | Partner Quota Violation  | You do not have sufficient credit to send the message. Top-up and retry.  |
@@ -50,7 +50,7 @@ If the SMS API returns a non-zero `status` value then use the following table to
 | 14 | Invalid Signature | The signature supplied could not be verified.
 | 15 | Invalid Sender Address | You are using a non-authorized sender ID in the `from` field. This is most commonly in North America, where a Nexmo long virtual number or short code is required.  |
 | 22 | Invalid Network Code | The network code supplied was either not recognized, or does not match the country of the destination address.
-| 23 | Invalid Callback Url | The callback URL supplied was either too long or contained illegal characters.
+| 23 | Invalid Callback URL | The callback URL supplied was either too long or contained illegal characters.
 | 29 | Non-Whitelisted Destination | Your Nexmo account is still in demo mode. While in demo mode you must add target numbers to your whitelisted destination list. Top-up your account to remove this limitation. |
 | 32 | Signature And API Secret Disallowed | A signed request may not also present an `api_secret`.
 | 33 | Number De-activated | The number you are trying to send messages to is de-activated and may not receive them.
