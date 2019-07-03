@@ -24,6 +24,7 @@ import Concatenation from '../components/concatenation'
 import APIStatus from '../api_status'
 import CodeSnippetEvents from '../code_snippet_events'
 import JWTGenerator from '../components/jwt_generator'
+import Navigation from '../navigation'
 
 $(document).ready(function() {
   Scroll()
@@ -35,6 +36,7 @@ $(document).ready(function() {
   APIStatus()
   Scroll()
   CodeSnippetEvents()
+  Navigation()
 
   if (document.getElementById('jwtGenerator')) {
     ReactDOM.render(<JWTGenerator/>, document.getElementById('jwtGenerator'))
@@ -56,7 +58,7 @@ $(document).ready(function() {
   let rightPane = document.querySelector(".Vlt-main");
   if (rightPane) { rightPane.click(); }
 
-  Volta.init(['accordion', 'tooltip', 'tab', 'modal', 'dropdown', 'menu'])
+  Volta.init(['accordion', 'tooltip', 'tab', 'modal', 'dropdown'])
 
   setTimeout(function() {
     const sidebarActive = document.querySelector('.Vlt-sidemenu__link_active')

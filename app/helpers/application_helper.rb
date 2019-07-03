@@ -240,8 +240,9 @@ module ApplicationHelper
   def output_nested_dropdown(item, title)
     ss = []
     ss << "<li class=\"js--collapsible navigation-item--#{title.parameterize} navigation-item\">"
-    ss << "<a class=\"Vlt-sidemenu__trigger\" href=\"/concepts\"><span class=\"Vlt-sidemenu__label\">#{title}</span></a>"
+    ss << "<a class=\"Vlt-sidemenu__trigger\" href=\"#{path_to_url(item[:path])}\"><span class=\"Vlt-sidemenu__label\">#{title}</span></a>"
     ss << output_children(item[:children]) if item[:children]
+    ss << '</li>'
     ss.join('')
   end
 
