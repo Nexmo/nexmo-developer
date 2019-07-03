@@ -5,11 +5,11 @@ dependencies:
     - nexmo@beta
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/applications/get-application.js
-    from_line: 9
+    from_line: 16
     to_line: 23
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/applications/get-application.js
     from_line: 7
-    to_line: 7
+    to_line: 14
 file_name: app.js
 run_command: 'node app.js'
