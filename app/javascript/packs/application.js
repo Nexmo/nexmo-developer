@@ -17,6 +17,7 @@ import VoltaTabbedExamples from '../volta_tabbed_examples'
 import Format from '../format'
 import JsSequenceDiagrams from '../js_sequence_diagrams'
 import Scroll from '../scroll'
+import Spotlight from '../spotlight'
 import Search from '../components/search'
 import Notices from '../notices'
 import Feedback from '../components/feedback'
@@ -37,6 +38,7 @@ $(document).ready(function() {
   Scroll()
   CodeSnippetEvents()
   Navigation()
+  Spotlight()
 
   if (document.getElementById('jwtGenerator')) {
     ReactDOM.render(<JWTGenerator/>, document.getElementById('jwtGenerator'))

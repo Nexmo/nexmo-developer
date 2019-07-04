@@ -19,6 +19,7 @@
 //= require volta/components/volta.tooltip.js
 //= require volta/components/volta.modal.js
 //= require volta/components/volta.dropdown.js
+//= require volta/components/volta.flash.js
 //= require clipboard
 //= require underscore
 //= require gmaps/google

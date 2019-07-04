@@ -3,7 +3,7 @@
     <%= local_assigns['header'].render_markdown(skip_paragraph_surround: true) %>
 </h2>
 
-<%= form_tag('https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/', authenticity_token: false) do %>
+<%= form_tag('https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/', authenticity_token: false, remote: true, id: 'spotlight-form') do %>
   <div class="Vlt-form__element">
     <%= label_tag 'name', 'Your Name', class: 'Vlt-label' %>
     <div class="Vlt-input">
@@ -43,3 +43,15 @@
   </small>
   <%= submit_tag 'Submit', class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
 <% end %>
+<div id='success' class="Vlt-callout Vlt-callout--good Vlt-flash Vlt-flash--small ">
+  <i></i>
+  <div class="Vlt-callout__content">
+    <p>Thanks for your submission, we will review it and get in contact with you shortly</p>
+  </div>
+</div>
+<div id='error' class="Vlt-callout Vlt-callout--critical Vlt-flash Vlt-flash--small ">
+  <i></i>
+  <div class="Vlt-callout__content">
+    <p>Something went wrong with your submission. Please try again. If the error persists then please email your submission to devrel@nexmo.com</p>
+  </div>
+</div>
