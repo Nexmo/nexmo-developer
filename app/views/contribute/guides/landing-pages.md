@@ -23,6 +23,7 @@ title: Landing Pages
     - [Section Header](#section-header)
     - [Sessions](#sessions)
     - [Structured Text](#structured-text)
+    - [Submit your Idea Form](#submit-your-idea-form)
     - [Table](#table)
     - [Text](#text)
     - [Tutorial](#tutorial)
@@ -323,6 +324,22 @@ icon:
   color: # Icon color (i.e. "blue")
 
 ```
+
+### Submit your Idea Form
+<img src="/assets/images/contributing/landing_page_screenshots/submit_your_idea_form.png" width=400>
+
+The `submit_your_idea_form` content block creates a form that submits to a zapier's hook.
+It requires the following parameters:
+
+```yaml
+- type: submit_your_idea_form
+  submit_your_idea_form:
+    header: "Submit Your Idea"
+    icon:
+      name: "icon-envelope"
+      color: blue
+```
+
 ### Table
 
 <img src="/assets/images/contributing/landing_page_screenshots/table_partial.png" width=400>
