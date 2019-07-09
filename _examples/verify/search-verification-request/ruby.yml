@@ -1,0 +1,15 @@
+---
+title: Ruby
+language: ruby
+dependencies:
+    - nexmo
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/search.rb
+    from_line: 13
+    to_line: 18
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/search.rb
+    from_line: 20
+    to_line: 28
+file_name: search.rb
+run_command: 'ruby search.rb'
