@@ -1,5 +1,0 @@
----
-language: curl
----
-
-<!-- Intentionally blank -->
