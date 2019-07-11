@@ -32,7 +32,7 @@
     "js-sequence-diagrams": "https://github.com/adambutler/js-sequence-diagrams.git#modularity",
     "js-yaml": "3.13.1",
     "jsrsasign": "^8.0.12",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "node-sass": "^4.11.0",
     "path-complete-extname": "^0.1.0",
     "postcss-cssnext": "^3.0.2",
