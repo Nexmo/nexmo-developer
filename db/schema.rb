@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_15_162421) do
+ActiveRecord::Schema.define(version: 2019_07_11_141227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -27,24 +27,6 @@ ActiveRecord::Schema.define(version: 2019_04_15_162421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-  end
-
-  create_table "careers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "title"
-    t.boolean "published"
-    t.string "location"
-    t.text "description"
-    t.string "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "summary"
-    t.string "icon"
-    t.string "slug"
-    t.text "description_short"
-    t.string "role_group"
-    t.index ["published"], name: "index_careers_on_published"
-    t.index ["role_group"], name: "index_careers_on_role_group"
-    t.index ["slug"], name: "index_careers_on_slug"
   end
 
   create_table "events", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
