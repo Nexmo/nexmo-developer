@@ -113,9 +113,6 @@ gem 'groupdate', '3.2.0'
 # A configurable and documented Rails view helper for adding gravatars into your Rails application.
 gem 'gravatar_image_tag', '1.2.0'
 
-# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
-gem 'friendly_id', '5.2.3'
-
 # Boot large ruby/rails apps faster
 gem 'bootsnap', require: false
 
