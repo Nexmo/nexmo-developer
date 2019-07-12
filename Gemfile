@@ -143,6 +143,8 @@ gem 'nexmo-oas-renderer', '~> 0.5.4', require: false
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
 
+gem 'greenhouse_io'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -157,6 +157,8 @@ GEM
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
     gravatar_image_tag (1.2.0)
+    greenhouse_io (2.5.0)
+      httmultiparty (~> 0.3.16)
     groupdate (3.2.0)
       activesupport (>= 3)
     guard (2.15.0)
@@ -183,9 +185,16 @@ GEM
       actionpack (>= 4.1)
       activesupport (>= 4.1)
     hash-deep-merge (0.1.1)
+    httmultiparty (0.3.16)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
+    httparty (0.17.1)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     httpclient (2.8.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -244,6 +253,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.12.1)
+    multi_xml (0.6.0)
     multipart-post (2.0.0)
     mustermann (1.0.3)
     mustermann-contrib (1.0.3)
@@ -499,6 +509,7 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   gravatar_image_tag (= 1.2.0)
+  greenhouse_io
   groupdate (= 3.2.0)
   guard-livereload (~> 2.5)
   guard-rspec
