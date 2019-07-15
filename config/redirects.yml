@@ -147,3 +147,4 @@
 "/vonage-business-cloud/vbc-apis/user-api/api-reference": "/api/vonage-business-cloud/user"
 "/vonage-business-cloud/integration-suite/api-reference": "/api/vonage-business-cloud/vgis"
 "/tutorials/client-sdk-ios-make-receive-calls-swift": "https://developer.nexmo.com/client-sdk/in-app-voice/guides/start-and-receive-calls/ios"
+"/tutorials/client-sdk-android-make-receive-calls": "/client-sdk/in-app-voice/guides/start-and-receive-calls/android"
