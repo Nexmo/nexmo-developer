@@ -9,7 +9,11 @@ class TaskController < ApplicationController
 
     # If we don't have a current task step, redirect to the first available page
     unless @task_step
-      return redirect_to "/task/#{@task.name}/#{@task.first_step}"
+      prefix = ''
+      if params[:product]
+        prefix = "/#{params[:product]}"
+      end
+      return redirect_to "#{prefix}/task/#{@task.name}/#{@task.first_step}"
     end
 
     if @task_step == 'prerequisites'
@@ -32,6 +36,7 @@ class TaskController < ApplicationController
     # Configure our sidebar navigation
     @namespace_root = '_documentation'
     @sidenav_root = "#{Rails.root}/_documentation"
+    @navigation = :tasks
   end
 
   def set_task

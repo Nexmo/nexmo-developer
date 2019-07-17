@@ -4,21 +4,6 @@ NAVIGATION_WEIGHT = NAVIGATION['navigation_weight']
 NAVIGATION_OVERRIDES = NAVIGATION['navigation_overrides']
 
 # What tasks do we have available?
-TASKS = {} # rubocop:disable Style/MutableConstant
-TASK_TITLES = {} # rubocop:disable Style/MutableConstant
-Dir.glob("#{Rails.root}/config/tasks/*.yml") do |filename|
-  t = YAML.load_file(filename)
-  TASKS[t['product']] = [] unless TASKS[t['product']]
-  p = filename.gsub('.yml', '').gsub("#{Rails.root}/config/tasks/", "/#{t['product']}/task/")
-  TASKS[t['product']].push({
-    path: p,
-    title: t['title'],
-    is_file?: true,
-    is_task?: true,
-  })
-
-  TASK_TITLES[p] = t['title']
-end
 
 module ApplicationHelper
   def search_enabled?
@@ -58,8 +43,18 @@ module ApplicationHelper
     # Do we have tasks for this product?
     product = path.gsub(%r{.*#{@namespace_root}/}, '')
     if DocumentationConstraint.product_with_parent_list.include? product
-      if TASKS[product]
-        data[:children] << { title: 'tasks', path: ".#{product}/tasks", children: TASKS[product] }
+
+      tasks = TutorialList.by_product(product)
+      children = []
+
+      # If we have use cases and tutorials, nest them
+      if tasks['tutorials']&.size&.positive?
+        data[:children] << { title: 'tutorials', path: "/#{product}/tasks", children: tasks['tutorials'] }
+      end
+
+      if tasks['use_cases']&.size&.positive?
+        # Otherwise show tutorials as the top level
+        data[:children] << { title: 'use-cases', path: "/#{product}/tutorials", children: tasks['use_cases'] }
       end
     end
 
@@ -90,6 +85,8 @@ module ApplicationHelper
   end
 
   def path_to_url(path)
+    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/_tutorials/", "/tutorials/")
+    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/config/tasks/", "/task/")
     path.gsub(/.*#{@namespace_root}/, '').gsub('.md', '')
   end
 
@@ -210,11 +207,12 @@ module ApplicationHelper
     # Setup
     active_path = request.path.chomp("/#{params[:code_language]}")
     url = path_to_url(item[:path])
+    url = '/' + item[:product] + url if item[:is_task?]
     has_active_class = (url == active_path)
 
-    # Handle tutorials
-    if @navigation == :tutorials
-      has_active_class = (url == "/#{@product}/tutorials")
+    # Handle tasks
+    if @navigation == :tasks
+      has_active_class = active_path.starts_with?(url)
     end
 
     # Output
@@ -263,9 +261,6 @@ module ApplicationHelper
   end
 
   def document_meta(path)
-    if path.include? '/task/'
-      return { 'title' => TASK_TITLES[path.gsub('/task/', '')] }
-    end
     YAML.load_file(path)
   end
 
