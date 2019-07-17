@@ -152,7 +152,9 @@ gem 'lograge'
 # Country picker for ActiveAdmin
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo-oas-renderer', '~> 0.3.3', require: false
+# gem 'nexmo-oas-renderer', path: '../nexmo-oas-renderer-sinatra', require: false
+# gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer', require: false
+gem 'nexmo-oas-renderer', '~> 0.3.4', require: false
 
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
