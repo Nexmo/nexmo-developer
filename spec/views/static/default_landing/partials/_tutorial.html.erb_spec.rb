@@ -38,7 +38,7 @@ RSpec.describe 'rendering _tutorial landing page partial' do
 
     render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
 
-    expect(rendered).to include('<a class="Vlt-card" href="/tutorials/this-is-a-sample">')
+    expect(rendered).to include('<a class="Vlt-card" href="/use-cases/this-is-a-sample">')
     expect(rendered).to include('src="https://sample.url/path/to/image"')
     expect(rendered).to include('<h4 class="Vlt-margin--top2">This is a sample title</h4>')
     expect(rendered).to include('<p>This is a sample description</p>')

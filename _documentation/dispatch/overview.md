@@ -23,7 +23,7 @@ The following diagram illustrates the relationship between the Dispatch API and 
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Code Snippets](#code-snippets)
-* [Tutorials](#tutorials)
+* [Use Cases](#use-cases)
 * [Reference](#reference)
 
 ## Beta
@@ -80,9 +80,9 @@ product: dispatch
 product: dispatch
 ```
 
-## Tutorials
+## Use Cases
 
-```tutorials
+```use_cases
 product: dispatch
 ```
 

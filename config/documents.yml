@@ -9,4 +9,4 @@ api:
 tutorials:
   documents: '_tutorials/**/*.md'
   origin: '_tutorials'
-  base_url_path: '/tutorials'
+  base_url_path: '/use-cases'

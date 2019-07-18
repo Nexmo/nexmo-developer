@@ -2,7 +2,7 @@ module CodeSnippetRenderer
   class Android
     def self.dependencies(_deps)
       {
-        'text' => 'See <a href="https://developer.nexmo.com/tutorials/client-sdk-android-add-sdk-to-your-app">How to Add the Nexmo Client SDK to your Android App</a>',
+        'text' => 'See <a href="https://developer.nexmo.com/use-cases/client-sdk-android-add-sdk-to-your-app">How to Add the Nexmo Client SDK to your Android App</a>',
       }
     end
 

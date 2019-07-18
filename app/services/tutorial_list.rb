@@ -1,18 +1,17 @@
 class TutorialList
-
   def self.by_product(product)
     {
       'tutorials' => tasks_for_product(product),
 
-      'use_cases' => Tutorial.by_product(product).map do |t|
-       {
-         path: t.document_path,
-         title: t.title,
-         product: product,
-         is_file?: true,
-         is_tutorial?: true,
-       }
-       end
+      'use_cases' => UseCase.by_product(product).map do |t|
+                       {
+                         path: t.document_path,
+                         title: t.title,
+                         product: product,
+                         is_file?: true,
+                         is_tutorial?: true,
+                       }
+                     end,
     }
   end
 
@@ -32,5 +31,4 @@ class TutorialList
 
     tasks[product]
   end
-
 end

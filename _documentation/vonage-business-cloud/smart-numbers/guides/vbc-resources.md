@@ -22,11 +22,11 @@ These Code Snippets show more advanced use cases:
 product: voice/voice-api
 ```
 
-## Voice API tutorials
+## Voice API Use Cases
 
-The following tutorials will walk you through creating a variety of practical applications that use the Voice API:
+The following use cases will walk you through creating a variety of practical applications that use the Voice API:
 
-```tutorials
+```use_cases
 product: voice/voice-api
 ```
 

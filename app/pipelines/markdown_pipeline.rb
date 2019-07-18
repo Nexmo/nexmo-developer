@@ -21,7 +21,7 @@ class MarkdownPipeline < Banzai::Pipeline
       JsSequenceDiagramFilter,
       PartialFilter.new(options),
       TechioFilter,
-      TutorialsFilter,
+      UseCaseListFilter,
       CodeSnippetListFilter,
       ConceptListFilter,
       LanguageFilter,

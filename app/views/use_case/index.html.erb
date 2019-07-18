@@ -1,4 +1,4 @@
-<h1>Tutorials</h1>
+<h1>Use Cases</h1>
 
 
 <style>
@@ -34,7 +34,7 @@
     <div class="Vlt-dropdown__panel__content">
       <ul>
         <% @products.each do |product| %>
-          <li><a class="Vlt-dropdown__link" href="/<%= product['path'] %>/tutorials/<%= @language %>"><svg style="height: 20px; width: 20px;" class="Vlt-<%= product['icon_colour'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span></a></li>
+          <li><a class="Vlt-dropdown__link" href="/<%= product['path'] %>/use-cases/<%= @language %>"><svg style="height: 20px; width: 20px;" class="Vlt-<%= product['icon_colour'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span></a></li>
         <% end %>
       </ul>
     </div>

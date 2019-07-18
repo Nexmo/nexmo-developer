@@ -10,9 +10,7 @@ class TaskController < ApplicationController
     # If we don't have a current task step, redirect to the first available page
     unless @task_step
       prefix = ''
-      if params[:product]
-        prefix = "/#{params[:product]}"
-      end
+      prefix = "/#{params[:product]}" if params[:product]
       return redirect_to "#{prefix}/task/#{@task.name}/#{@task.first_step}"
     end
 

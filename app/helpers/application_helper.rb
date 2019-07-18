@@ -45,16 +45,15 @@ module ApplicationHelper
     if DocumentationConstraint.product_with_parent_list.include? product
 
       tasks = TutorialList.by_product(product)
-      children = []
 
-      # If we have use cases and tutorials, nest them
+      # If we have use cases and tutorials, output them
       if tasks['tutorials']&.size&.positive?
         data[:children] << { title: 'tutorials', path: "/#{product}/tasks", children: tasks['tutorials'] }
       end
 
       if tasks['use_cases']&.size&.positive?
-        # Otherwise show tutorials as the top level
-        data[:children] << { title: 'use-cases', path: "/#{product}/tutorials", children: tasks['use_cases'] }
+        # Otherwise show use_case as the top level
+        data[:children] << { title: 'use-cases', path: "/#{product}/use-cases", children: tasks['use_cases'] }
       end
     end
 
@@ -85,8 +84,8 @@ module ApplicationHelper
   end
 
   def path_to_url(path)
-    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/_tutorials/", "/tutorials/")
-    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/config/tasks/", "/task/")
+    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/_tutorials/", '/use-cases/')
+    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/config/tasks/", '/task/')
     path.gsub(/.*#{@namespace_root}/, '').gsub('.md', '')
   end
 
@@ -211,9 +210,7 @@ module ApplicationHelper
     has_active_class = (url == active_path)
 
     # Handle tasks
-    if @navigation == :tasks
-      has_active_class = active_path.starts_with?(url)
-    end
+    has_active_class = active_path.starts_with?(url) if @navigation == :tasks
 
     # Output
     s = []

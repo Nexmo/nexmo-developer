@@ -14,7 +14,7 @@ class SearchTerms
       tutorials: {
         documents: Dir.glob("#{Rails.root}/_tutorials/**/*.md"),
         origin: Pathname.new("#{Rails.root}/_tutorials"),
-        base_url_path: '/tutorials',
+        base_url_path: '/use-cases',
       },
     }
 

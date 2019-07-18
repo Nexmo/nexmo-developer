@@ -27,7 +27,7 @@ The following diagram illustrates the relationship between the Messages API and 
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Code Snippets](#code-snippets)
-* [Tutorials](#tutorials)
+* [Use Cases](#use-cases)
 * [Reference](#reference)
 
 ## Beta
@@ -95,9 +95,9 @@ product: messages
 product: messages
 ```
 
-## Tutorials
+## Use Cases
 
-```tutorials
+```use_cases
 product: messages
 ```
 

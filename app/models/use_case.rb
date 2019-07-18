@@ -1,4 +1,4 @@
-class Tutorial
+class UseCase
   include ActiveModel::Model
   attr_accessor :title, :description, :external_link, :products, :document_path, :languages
 
@@ -8,7 +8,7 @@ class Tutorial
 
   def path
     return external_link if external_link
-    "/tutorials/#{document_path.relative_path_from(Tutorial.origin)}".gsub('.md', '')
+    "/use-cases/#{document_path.relative_path_from(UseCase.origin)}".gsub('.md', '')
   end
 
   def subtitle
@@ -56,7 +56,7 @@ class Tutorial
       document = File.read(document_path)
       frontmatter = YAML.safe_load(document)
 
-      Tutorial.new({
+      UseCase.new({
         title: frontmatter['title'],
         description: frontmatter['description'],
         external_link: frontmatter['external_link'],

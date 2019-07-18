@@ -1,4 +1,4 @@
-class TutorialsController < ApplicationController
+class UseCaseController < ApplicationController
   before_action :set_document
   before_action :set_navigation
 
@@ -6,12 +6,12 @@ class TutorialsController < ApplicationController
     @product = params['product']
     @language = params['code_language']
 
-    @tutorials = Tutorial.all
+    @tutorials = UseCase.all
 
-    @tutorials = Tutorial.by_product(@product, @tutorials) if @product
-    @tutorials = Tutorial.by_language(@language, @tutorials) if @language
+    @tutorials = UseCase.by_product(@product, @tutorials) if @product
+    @tutorials = UseCase.by_language(@language, @tutorials) if @language
 
-    @document_title = 'Tutorials'
+    @document_title = 'Use Cases'
 
     @base_path = request.original_fullpath.chomp('/')
 
@@ -65,6 +65,6 @@ class TutorialsController < ApplicationController
   end
 
   def set_navigation
-    @navigation = :tutorials
+    @navigation = :use_case
   end
 end

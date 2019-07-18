@@ -5,7 +5,7 @@
 <% file = File.read("_tutorials/#{local_assigns['name']}.md") %>
 <% tutorial = YAML.safe_load(file) %>
 
-<a class="Vlt-card" href="<%= tutorial['external_link'] ? tutorial['external_link'] : '/tutorials/' + local_assigns['name'] %>">
+<a class="Vlt-card" href="<%= tutorial['external_link'] ? tutorial['external_link'] : '/use-cases/' + local_assigns['name'] %>">
     <% if tutorial['image_url'] %>
         <img 
             src="<%= tutorial['image_url'] %>" 

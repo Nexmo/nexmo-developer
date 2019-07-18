@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe TutorialsFilter do
+RSpec.describe UseCaseListFilter do
   it 'returns an instance of Tutorial with matching input' do
-    allow(Tutorial).to receive(:all).and_return([mock_tutorial])
+    allow(UseCase).to receive(:all).and_return([mock_tutorial])
 
     input = <<~HEREDOC
-      ```tutorials
+      ```use_cases
       product: messaging/sms
       ```
     HEREDOC
@@ -19,7 +19,7 @@ RSpec.describe TutorialsFilter do
 
   it 'raises error if layout specified but cannot be found' do
     input = <<~HEREDOC
-      ```tutorials
+      ```use_cases
       product: messaging/sms
       layout: list/json
       ```
@@ -30,7 +30,7 @@ RSpec.describe TutorialsFilter do
 
   it 'raises a NoMethodError if no content is provided' do
     input = <<~HEREDOC
-      ```tutorials
+      ```use_cases
       ```
     HEREDOC
 
@@ -38,10 +38,10 @@ RSpec.describe TutorialsFilter do
   end
 
   it 'returns encoded string even if product cannot be found' do
-    allow(Tutorial).to receive(:all).and_return([mock_tutorial])
+    allow(UseCase).to receive(:all).and_return([mock_tutorial])
 
     input = <<~HEREDOC
-      ```tutorials
+      ```use_cases
       product: not real
       ```
     HEREDOC
@@ -54,7 +54,7 @@ RSpec.describe TutorialsFilter do
     private
 
   def mock_tutorial
-    Tutorial.new(
+    UseCase.new(
       title: 'Test Tutorial',
       products: 'messaging/sms',
       description: 'This is a demo tutorial',

@@ -53,11 +53,11 @@ In-app Voice concepts:
 product: client-sdk/in-app-voice
 ```
 
-## Tutorials
+## Use Cases
 
-All of Nexmo Client SDK tutorials:
+All of Nexmo Client SDK use cases:
 
-```tutorials
+```use_cases
 product: client-sdk
 ```
 
