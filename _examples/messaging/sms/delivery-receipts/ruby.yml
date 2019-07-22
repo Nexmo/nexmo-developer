@@ -1,6 +1,4 @@
 ---
-title: Ruby
-language: ruby
 dependencies:
     - sinatra
 code:
@@ -11,5 +9,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/sms/delivery_receipt.rb
     from_line: 1
     to_line: 13    
-file_name: delivery-receipt.rb
-run_command: 'ruby delivery-receipt.rb'

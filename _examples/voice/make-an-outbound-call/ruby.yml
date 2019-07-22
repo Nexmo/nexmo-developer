@@ -1,8 +1,4 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/outbound_tts_call.rb
     from_line: 21
@@ -11,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/outbound_tts_call.rb
     from_line: 12
     to_line: 19
-file_name: outbound_tts_call.rb
-run_command: 'ruby outbound_tts_call.rb'

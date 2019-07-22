@@ -1,8 +1,4 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/cancel.rb
     from_line: 13
@@ -11,5 +7,3 @@ code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/cancel.rb
     from_line: 20
     to_line: 26
-file_name: cancel.rb
-run_command: 'ruby cancel.rb'
