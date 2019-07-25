@@ -18,6 +18,8 @@ class DocumentationConstraint
       'messages',
       'dispatch',
       'vonage-business-cloud',
+      'account',
+      'subaccounts',
     ]
   end
 
@@ -49,6 +51,7 @@ class DocumentationConstraint
       'vonage-business-cloud/vbc-apis/account-api',
       'vonage-business-cloud/vbc-apis/extension-api',
       'vonage-business-cloud/vbc-apis/user-api',
+      'account/subaccounts',
     ]
   end
 
