@@ -1,6 +1,6 @@
 ---
 title: Using the Subaccounts API
-products: subaccounts
+products: account/subaccounts
 description: This tutorial shows you how to get started with the Subaccounts API.
 languages:
     - Curl

@@ -18,8 +18,6 @@ class DocumentationConstraint
       'messages',
       'dispatch',
       'vonage-business-cloud',
-      'account',
-      'subaccounts',
     ]
   end
 
