@@ -11,7 +11,7 @@ The Subaccounts API allows to programmatically create and manage subaccounts for
 
 The figure below illustrates the relationship between the primary account and the subaccounts created by the Subaccounts API:
 
-![Subaccounts Overview](/assets/images/subaccounts/structure.svg)
+![Subaccounts Overview](/assets/images/subaccounts/structure.png)
 
 ## Beta
 
