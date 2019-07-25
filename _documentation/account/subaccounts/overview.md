@@ -25,6 +25,14 @@ During Beta Nexmo will expand the capabilities of the API.
 
 In this release the following features are supported:
 
+* Create a new subaccount
+* Assign individual or shared balance to the subaccount
+* Transfer credit (provided by Nexmo) from the primary account to the subaccount and vice versa
+* Transfer balance from the primary account to the subaccount and vice versa
+* List all subaccount balances and credits
+* Show total credit and total balance across all subaccounts
+* Suspend/re-activate the subaccount
+
 ## Reference
 
 * [API Reference](/api/subaccounts)
