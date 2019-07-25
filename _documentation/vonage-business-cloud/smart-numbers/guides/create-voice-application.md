@@ -25,7 +25,7 @@ The two URLs you provide refer to the webhook endpoints that your application wi
 ```
 curl -X POST \
   https://api.nexmo.com/v2/applications \
-  -H 'Authorization: Basic Base64($NEXMO_API_KEY:$NEXMO_API_SECRET' \
+  -H 'Authorization: Basic Base64($NEXMO_API_KEY:$NEXMO_API_SECRET)' \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "My Nexmo VBC Application",
