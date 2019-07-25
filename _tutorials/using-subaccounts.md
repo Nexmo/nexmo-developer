@@ -59,7 +59,7 @@ It means that the primary account can transfer funds to the secondary account, a
 
 ## Credit allocation
 
-A primary account is considered postpaid if it has a credit provided by Nexmo. The postpaid primary account can allocate a part of its credit to one of its subaccounts. Thus, it is possible to have a subaccount with a zero balance but non-zero credit. This subaccount will be able to make API calls untill the allocated credit runs out. In general, any account that has a positive balance has `|account_balance| + |credit_limit|` funds available for spending.
+A primary account is considered postpaid if it has a credit provided by Nexmo. The postpaid primary account can allocate a part of its credit to one of its subaccounts. Thus, it is possible to have a subaccount with a zero balance but non-zero credit. This subaccount will be able to make API calls until the allocated credit runs out. In general, any account that has a positive balance has `|account_balance| + |credit_limit|` funds available for spending.
 
 > RULE: Credit_available_for_allocation =  |credit_limit| - |account_balance|, if account_balance < 0 AND |credit_limit|, if account_balance > 0
 

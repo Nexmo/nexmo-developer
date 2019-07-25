@@ -274,3 +274,9 @@ postpaid
 programmatically
 |credit_limit|
 |account_balance|
+Balance_available_for_transfer
+balance_available_for_transfer
+Credit_available_for_allocation
+credit_available_for_allocation
+credit_limit
+account_balance
