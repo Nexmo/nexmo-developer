@@ -11,13 +11,13 @@ languages:
 
 All Nexmo accounts have an associated account balance. It shows the amount of funds available for spending. The account balance is deducted each time a chargeable API call is made. When account balance reaches zero, chargeable API calls cannot be executed unless the account has a credit line provided by Nexmo. If an account has a credit, then its account balance can go below zero. A postpaid account is an account that has credit, a prepaid account is an account without credit.
 
-The amount of credit available to the customer is called a `credit_limit`. Thus, any postpaid account that has a positive balance has `|account_balance| + |credit_limit|` funds available for spending. A prepaid account has only `|account_balance|` available for spending.
+The amount of credit available to the customer is called a `credit_limit`. Thus, any postpaid account that has a positive balance has `account_balance + |credit_limit|` funds available for spending. A prepaid account has only `account_balance` available for spending.
 
 ![Account balance](/assets/images/subaccounts/account_balance.png)
 
 ## Subaccount creation
 
-By default, a newly created subaccount shares its balance with the primary account, that is, any charges resulting from the subaccount's activity is applied directly to the primary account's balance.
+By default, a newly created subaccount shares its balance with the primary account, that is, any charges resulting from the subaccount's activity are applied directly to the primary account's balance.
 
 To create a subaccount with its own balance (all charges resulting from the subaccount's activity are applied directly to the subaccount's balance), you need to set parameter `use_primary_account_balance` to `FALSE`. This change is irreversible. The subaccount with its own balance cannot be at a later stage converted back to the subaccount with a shared balance.
 
@@ -51,7 +51,7 @@ Individual credit | ✅ | 0 | n/a
 
 A newly created subaccount with a shared balance can perform API calls directly, assuming the corresponding primary account's balance or credit (provided by Nexmo) is non-zero. A newly created subaccount with individual balance initially has a zero balance and therefore cannot make API calls. One needs to transfer some amount from the primary account to the the subaccount.
 
-> RULE: Balance_available_for_transfer = |account_balance| + |credit_limit|
+> RULE: Balance_available_for_transfer = |account_balance - credit_limit|
 
 It means that the primary account can transfer funds to the secondary account, and these funds can come either from its balance (assuming it is positive) or from the credit provided by Nexmo. It is also possible to transfer balance from the subaccount back to the primary account, but direct transfer of balance between subaccounts is not supported.
 
@@ -59,13 +59,13 @@ It means that the primary account can transfer funds to the secondary account, a
 
 ## Credit allocation
 
-A primary account is considered postpaid if it has a credit provided by Nexmo. The postpaid primary account can allocate a part of its credit to one of its subaccounts. Thus, it is possible to have a subaccount with a zero balance but non-zero credit. This subaccount will be able to make API calls until the allocated credit runs out. In general, any account that has a positive balance has `|account_balance| + |credit_limit|` funds available for spending.
+A primary account is considered postpaid if it has a credit provided by Nexmo. The postpaid primary account can allocate a part of its credit to one of its subaccounts. Thus, it is possible to have a subaccount with a zero balance but non-zero credit. This subaccount will be able to make API calls until the allocated credit runs out. In general, any account that has a positive balance has `account_balance + |credit_limit|` funds available for spending.
 
 > RULE: Credit_available_for_allocation =  |credit_limit| - |account_balance|, if account_balance < 0 AND |credit_limit|, if account_balance > 0
 
 It means that the primary account can allocate credit that has not been already spent or allocated to the secondary account, and vice versa (credit that was not used by the subaccount can be returned to the primary account).
 
-Example: A postpaid primary account with zero balance was given €100 in credit by Nexmo. Before spending any of its credit, the primary account allocated €20 euro of its credit to one of its subaccounts. The primary account's remaining credit became €80: credit_limit = 100 - 20 = 80. Then the primary account made API calls worth €15. Thus the primary account still had `|80| - |-15| = €65` that it could allocate.
+Example: A postpaid primary account with zero balance was given €100 in credit by Nexmo. Before spending any of its credit, the primary account allocated €20 euro of its credit to one of its subaccounts. The primary account's remaining credit became €80: `|credit_limit| = |-100| - 20 = 80`. Then the primary account made API calls worth €15. Thus the primary account still had `|-80| - |-15| = €65` that it could allocate.
 
 ![Credit allocation](/assets/images/subaccounts/credit_allocation.png)
 
