@@ -6,7 +6,7 @@ navigation_weight: 3
 
 # Provisioning the Number Programmability Service
 
-Once you have [activated the Number Programmability service](/vonage-business-cloud/number-programmability/guides/register) on your VBC account and [created a Nexmo Voice API Application](/vonage-business-cloud/number-programmability/guides/create-voice-application), you are ready to provision the service. This involves selecting which numbers to use and associating them with your Nexmo Voice API Application.
+Once you have [activated the Number Programmability service](/vonage-business-cloud/smart-numbers/guides/register) on your VBC account and [created a Nexmo Voice API Application](/vonage-business-cloud/smart-numbers/guides/create-voice-application), you are ready to provision the service. This involves selecting which numbers to use and associating them with your Nexmo Voice API Application.
 
 1. Sign into [https://desktopconnect.vonagebusiness.com](https://desktopconnect.vonagebusiness.com)
 
@@ -25,4 +25,4 @@ Once you have [activated the Number Programmability service](/vonage-business-cl
 
   ![Configuring the Number Programmability service instance](/assets/images/vbc/vbc-desktopconnect-edit.png)
 
-> You have now provisioned the Number Programmability service and are ready to begin developing your application. See this [list of resources](/vonage-business-cloud/number-programmability/guides/vbc-resources) to get started. 
+> You have now provisioned the Number Programmability service and are ready to begin developing your application. See this [list of resources](/vonage-business-cloud/smart-numbers/guides/vbc-resources) to get started. 

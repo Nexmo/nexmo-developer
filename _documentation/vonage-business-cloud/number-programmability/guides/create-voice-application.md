@@ -82,4 +82,4 @@ The response is a JSON object containing the Nexmo Application `id` that you wil
 }
 ```
 
-> The next step is to [provision the Number Programmability service](/vonage-business-cloud/number-programmability/guides/provision-nps) using the Nexmo Application `id`.
+> The next step is to [provision the Number Programmability service](/vonage-business-cloud/smart-numbers/guides/provision-nps) using the Nexmo Application `id`.

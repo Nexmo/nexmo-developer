@@ -10,4 +10,4 @@ To add the Number Programmability service to your Vonage Business Cloud account 
 
 Vonage will contact you when the service capability has been activated.
 
-> When the Number Programmability service is active, the next step is to [create a Nexmo Voice Application](/vonage-business-cloud/number-programmability/guides/create-voice-application).
+> When the Number Programmability service is active, the next step is to [create a Nexmo Voice Application](/vonage-business-cloud/smart-numbers/guides/create-voice-application).

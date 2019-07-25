@@ -11,7 +11,7 @@ navigation_weight: 6
 The following Code Snippets get you up and running with the basics:
 
 ```code_snippet_list
-product: vonage-business-cloud/number-programmability
+product: vonage-business-cloud/smart-numbers
 ```
 
 ## Voice API Code Snippets

@@ -30,9 +30,9 @@ To use the Number Programmability service, you need:
 
 You must then:
 
-1. [Register for the Number Programmability service](/vonage-business-cloud/number-programmability/guides/register) - to add the capability to your VBC account
-2. [Create a Nexmo Voice API Application](/vonage-business-cloud/number-programmability/guides/create-voice-application) - to store security and configuration information
-3. [Provision the Number Programmability service](/vonage-business-cloud/number-programmability/guides/provision-nps) - configure one or more VBC numbers and link the service to your Nexmo Voice API Application
+1. [Register for the Number Programmability service](/vonage-business-cloud/smart-numbers/guides/register) - to add the capability to your VBC account
+2. [Create a Nexmo Voice API Application](/vonage-business-cloud/smart-numbers/guides/create-voice-application) - to store security and configuration information
+3. [Provision the Number Programmability service](/vonage-business-cloud/smart-numbers/guides/provision-nps) - configure one or more VBC numbers and link the service to your Nexmo Voice API Application
 
 ## Using the Number Programmability service
 
@@ -44,4 +44,4 @@ You provide these instructions in the form of a [Nexmo Call Control Object (NCCO
 
 You can use the [VBC APIs](/vonage-business-cloud/vbc-apis/overview) in your application to retrieve information about your VBC accounts, extensions and users. 
 
-> **Getting help**: For a comprehensive list of resources to help you build your application, see [here](/vonage-business-cloud/number-programmability/guides/vbc-resources). 
+> **Getting help**: For a comprehensive list of resources to help you build your application, see [here](/vonage-business-cloud/smart-numbers/guides/vbc-resources). 
