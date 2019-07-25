@@ -11,14 +11,15 @@ languages:
 
 All Nexmo accounts have an associated account balance. It shows the amount of funds available for spending. The account balance is deducted each time a chargeable API call is made. When account balance reaches zero, chargeable API calls cannot be executed unless the account has a credit line provided by Nexmo. If an account has a credit, then its account balance can go below zero. A postpaid account is an account that has credit, a prepaid account is an account without credit.
 
-The amount of credit available to the customer is called a credit_limit. Thus, any postpaid account that has a positive balance has |account_balance| + |credit_limit| funds available for spending. A prepaid account has only |account_balance| available for spending.
+The amount of credit available to the customer is called a `credit_limit`. Thus, any postpaid account that has a positive balance has `account_balance` + `credit_limit` funds available for spending. A prepaid account has only `account_balance` available for spending.
 
 ![Account balance](/assets/images/subaccounts/account_balance.png)
 
 ## Subaccount creation
 
-By default, a newly created subaccount will share its balance with the primary account, i.e. any charges resulting from the subaccount's activity will be applied directly to the primary account's balance.
-To create a subaccount with its own balance (all charges resulting from the subaccount's activity are applied directly to the subaccount's balance), one would need to set parameter "use_primary_account_balance" to FALSE. This change is irreversible. The subaccount with its own balance cannot be at a later stage converted back to the subaccount with a shared balance.
+By default, a newly created subaccount shares its balance with the primary account, that is, any charges resulting from the subaccount's activity is applied directly to the primary account's balance.
+
+To create a subaccount with its own balance (all charges resulting from the subaccount's activity are applied directly to the subaccount's balance), you need to set parameter `use_primary_account_balance` to `FALSE`. This change is irreversible. The subaccount with its own balance cannot be at a later stage converted back to the subaccount with a shared balance.
 
 ## Postpaid and prepaid subaccounts
 
