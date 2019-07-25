@@ -149,3 +149,4 @@
 "/tutorials/client-sdk-ios-make-receive-calls-swift": "https://developer.nexmo.com/client-sdk/in-app-voice/guides/start-and-receive-calls/ios"
 "/tutorials/client-sdk-android-make-receive-calls": "/client-sdk/in-app-voice/guides/start-and-receive-calls/android"
 "/sub-accounts/api-reference": "/api/sub-accounts"
+"/account/subaccounts/tutorials": "/tutorials/using-subaccounts"
