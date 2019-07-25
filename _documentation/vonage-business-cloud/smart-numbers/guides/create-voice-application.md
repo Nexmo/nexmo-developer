@@ -6,19 +6,19 @@ navigation_weight: 2
 
 # Create a Nexmo Application
 
-Every Number Programmability service application that you build must be associated with a Nexmo Voice Application.
+Every Smart Numbers application that you build must be associated with a Nexmo Voice Application.
 
 > **Note**: To avoid confusion, `Application` here refers to the Nexmo Application. The application you are building will be referred to as "application".
 
-A Nexmo Application stores configuration information such as details of the programmable numbers and webhook callback URLs that your application uses. To make your VBC programmability service calls zero-rated in Nexmo, you must create an Application with the `vbc` and `voice` capabilities, using the [Nexmo Application API](https://developer.nexmo.com/api/application.v2).
+A Nexmo Application stores configuration information such as details of the programmable numbers and webhook callback URLs that your application uses. To make your VBC Smart Numbers service calls zero-rated in Nexmo, you must create an Application with the `vbc` and `voice` capabilities, using the [Nexmo Application API](https://developer.nexmo.com/api/application.v2).
 
 ## Using the Application API
 
-To create a Nexmo Application for working with the Number Programmability service, issue the `curl` command shown below, replacing `NEXMO_API_KEY` and `NEXMO_API_SECRET` with your Nexmo API key and secret respectively. You can find this information in the [Nexmo Developer dashboard](https://dashboard.nexmo.com/getting-started-guide).
+To create a Nexmo Application for working with the Smart Numbers service, issue the `curl` command shown below, replacing `NEXMO_API_KEY` and `NEXMO_API_SECRET` with your Nexmo API key and secret respectively. You can find this information in the [Nexmo Developer dashboard](https://dashboard.nexmo.com/getting-started-guide).
 
 The two URLs you provide refer to the webhook endpoints that your application will expose to Nexmo's servers:
 
-* The first is the webhook that Nexmo's APIs will make a request to when a call is received on your VBC programmable number.
+* The first is the webhook that Nexmo's APIs will make a request to when a call is received on your VBC Smart Number.
 * The second is where Nexmo's APIs will post details about events that your application might be interested in - such as a call being answered or terminated.
 
 
@@ -82,4 +82,4 @@ The response is a JSON object containing the Nexmo Application `id` that you wil
 }
 ```
 
-> The next step is to [provision the Number Programmability service](/vonage-business-cloud/smart-numbers/guides/provision-nps) using the Nexmo Application `id`.
+> The next step is to [provision the Smart Numbers service](/vonage-business-cloud/smart-numbers/guides/provision-smart-numbers) using the Nexmo Application `id`.

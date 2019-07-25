@@ -1,13 +1,13 @@
 ---
 title: Overview
-meta_title: Number programmability service
+meta_title: Smart Numbers
 ---
 
 # Overview
 
-> **Note** The Number Programmability service is for [Vonage Business Cloud Customers](https://www.vonage.com/business/) only.
+> **Note** The Smart Numbers service is for [Vonage Business Cloud Customers](https://www.vonage.com/business/) only.
 
-The Vonage Business Cloud (VBC) Number Programmability service enables you to:
+The Vonage Business Cloud (VBC) Smart Numbers service enables you to:
 
 * Forward a VBC call to a Nexmo [Voice API](/voice/voice-api/api-reference) application
 * Connect calls to a VBC extension from a Voice API [NCCO](/voice/voice-api/guides/ncco)
@@ -23,18 +23,18 @@ You can use all the power and flexibility of the Nexmo Voice API together with t
 * Calendar integration to check the free/busy status of a call recipient and react accordingly
 
 ## Getting Started
-To use the Number Programmability service, you need:
+To use the Smart Numbers service, you need:
 
 * A Vonage Business Cloud account
 * A Nexmo account
 
 You must then:
 
-1. [Register for the Number Programmability service](/vonage-business-cloud/smart-numbers/guides/register) - to add the capability to your VBC account
+1. [Register for the Smart Numbers service](/vonage-business-cloud/smart-numbers/guides/register) - to add the capability to your VBC account
 2. [Create a Nexmo Voice API Application](/vonage-business-cloud/smart-numbers/guides/create-voice-application) - to store security and configuration information
-3. [Provision the Number Programmability service](/vonage-business-cloud/smart-numbers/guides/provision-nps) - configure one or more VBC numbers and link the service to your Nexmo Voice API Application
+3. [Provision the Smart Numbers service](/vonage-business-cloud/smart-numbers/guides/provision-smart-numbers) - configure one or more VBC numbers and link the service to your Nexmo Voice API Application
 
-## Using the Number Programmability service
+## Using the Smart Numbers service
 
 You will use the [Nexmo Voice API](/voice/voice-api/api-reference) to build interactive and customized call experiences for your users. We provide [client libraries](https://github.com/Nexmo/) in various languages that take make it easier to work with the Voice API.
 
