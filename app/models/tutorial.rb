@@ -26,6 +26,7 @@ class Tutorial
     return 'Messages' if product == 'messages'
     return 'Dispatch' if product == 'dispatch'
     return 'Client SDK' if product == 'client-sdk'
+    return 'Subaccounts' if product == 'subaccounts'
     product.camelcase
   end
 
