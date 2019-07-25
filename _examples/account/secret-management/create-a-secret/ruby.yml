@@ -1,0 +1,13 @@
+---
+title: Ruby
+language: ruby
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/create-a-secret.rb
+    from_line: 17
+    to_line: 22
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/create-a-secret.rb
+    from_line: 12
+    to_line: 15
+file_name: create-a-secret.rb
+run_command: ruby create-a-secret.rb

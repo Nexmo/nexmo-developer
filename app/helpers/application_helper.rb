@@ -208,7 +208,7 @@ module ApplicationHelper
 
   def output_link(item, title, options)
     # Setup
-    active_path = request.path
+    active_path = request.path.chomp("/#{params[:code_language]}")
     url = path_to_url(item[:path])
     has_active_class = (url == active_path)
 

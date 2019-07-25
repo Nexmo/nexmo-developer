@@ -20,6 +20,7 @@
 "/account/numbers/code-snippets/buy-a-number": "/numbers/code-snippets/buy-a-number"
 "/account/secret-management/api-reference": "/api/account"
 "/account/api-reference": "/api/account"
+"/application/api-reference": "/api/application.v2"
 "/voice/voice-api": "/voice/voice-api/overview"
 "/audit/api-reference": "/api/audit"
 "/concepts": "/concepts/overview"

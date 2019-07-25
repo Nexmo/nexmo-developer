@@ -51,11 +51,12 @@ In order to verify the origin of incoming webhooks to your SMS endpoint, you can
 
 > Contact support to enable message signing on your account: support@nexmo.com
 
-The code example below shows how to verify a signature for an incoming SMS message.
+The code example below shows how to verify a signature for an incoming SMS message, using the `sig` parameter in the query string. 
 
 ```code_snippets
 source: '_examples/concepts/guides/verify-signed-sms'
 ```
+> **Note**: A `POST` request can potentially include query string data too. Sending both `POST` and query string data is unsupported in the SMS API and the results might be unexpected.
 
 ## Manually generate a signature
 
