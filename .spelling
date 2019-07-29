@@ -283,3 +283,9 @@ account_balance
 pre-allocated
 |account_balance - credit_limit|
 use_primary_account_balance
+AWS
+CloudWatch
+CloudFormation
+Lambda
+endpoint
+middleware
