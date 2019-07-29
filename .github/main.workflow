@@ -31,3 +31,12 @@ action "append-heroku-logs" {
   uses = "mheap/github-action-heroku-logs@master"
   secrets = ["GITHUB_TOKEN", "HEROKU_AUTH_TOKEN"]
 }
+
+workflow "Debug" {
+  on = "pull_request"
+  resolves = ["debug"]
+}
+
+action "debug" {
+  uses = "actions/bin/debug@master"
+}
