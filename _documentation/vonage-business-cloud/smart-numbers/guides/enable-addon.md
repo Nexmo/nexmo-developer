@@ -11,7 +11,7 @@ To use Smart Numbers, you need to enable the Smart Number add-on in your account
 1. Visit [the VBC Admin Portal](https://admin.vonage.com) and log in.
 2. In the left-hand navigation menu, go to Store > Add-Ons.
 3. Search for "smart" to filter the list of add-ons:
-![Enable the Smart Numbers add-on](/assets/images/vbc/vbc-smart-numbers-register.png)
+![Enable the Smart Numbers add-on](/assets/images/vbc/enable-smart-numbers.png)
 4. Click "Add" to add Smart Number to your shopping basket.
 5. Note the recurring monthly fee and click Checkout.
 6. In the Order Preview page, verify your Account payment method and click "Submit Order".
