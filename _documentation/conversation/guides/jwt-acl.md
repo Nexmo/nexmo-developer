@@ -39,15 +39,15 @@ Once all the claims have been provided, the resulting claims should appear like 
   "exp": "1532179987",
   "acl": {
     "paths": {
-      "/v1/users/**": {},
-      "/v1/conversations/**": {},
-      "/v1/sessions/**": {},
-      "/v1/devices/**": {},
-      "/v1/image/**": {},
-      "/v3/media/**": {},
-      "/v1/applications/**": {},
-      "/v1/push/**": {},
-      "/v1/knocking/**": {}
+      "/*/users/**": {},
+      "/*/conversations/**": {},
+      "/*/sessions/**": {},
+      "/*/devices/**": {},
+      "/*/image/**": {},
+      "/*/media/**": {},
+      "/*/applications/**": {},
+      "/*/push/**": {},
+      "/*/knocking/**": {}
     }
   },
   "application_id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
@@ -64,17 +64,17 @@ In the previous section, you can see that the `acl` claim has `paths` object con
 
 |Endpoint | Description |
 | --------- | ----------- |
-| `/v1/sessions/**`| Log in as a User.|
-| `/v1/users/**`| Create and manage Users.|
-| `/v1/conversations/**`| Create and manage Conversations & send/receive messages.|
-| `/v1/image/**`| Send and receive images.|
-| `/v3/media/**`| Send and receive audio.|
-| `/v1/knocking/**`| Start Calls.|
-| `/v1/push/**`| Receive push notifications|
-| `/v1/devices/**`| Send push notifications.|
-| `/v1/applications/**`| Upload push notification certificate.|
+| `/*/sessions/**`| Log in as a User.|
+| `/*/users/**`| Create and manage Users.|
+| `/*/conversations/**`| Create and manage Conversations & send/receive messages.|
+| `/*/image/**`| Send and receive images.|
+| `/*/media/**`| Send and receive audio.|
+| `/*/knocking/**`| Start phone calls.|
+| `/*/push/**`| Receive push notifications|
+| `/*/devices/**`| Send push notifications.|
+| `/*/applications/**`| Upload push notification certificate.|
 
-It is not necessary to provide users with the permissions to access all of these paths. For instance, if a user was not going to upload or receive push notifications, you could create a JWT without including the `/v1/applications/**`or `/v1/push/**` paths.
+It is not necessary to provide users with the permissions to access all of these paths. For instance, if a user was not going to upload or receive push notifications, you could create a JWT without including the `/*/applications/**`or `/*/push/**` paths.
 
 ## Nexmo Client Libraries
 
@@ -83,7 +83,7 @@ It is not necessary to provide users with the permissions to access all of these
 Currently, you can use the beta version of the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli/tree/beta) to create a JWT [including the appropriate claims](https://github.com/Nexmo/nexmo-cli/tree/beta#jwt)
 
 ```sh
-nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{},"/v1/knocking/**":{}}}' application_id=YOUR_APP_ID
+nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=YOUR_APP_ID
 > JWT: [...JWT String...]
 ```
 
@@ -94,15 +94,15 @@ The beta version of the [Nexmo Node](https://github.com/Nexmo/nexmo-node/tree/be
 ```js
 const aclPaths = {
   "paths": {
-    "/v1/users/**": {},
-    "/v1/conversations/**": {},
-    "/v1/sessions/**": {},
-    "/v1/devices/**": {},
-    "/v1/image/**": {},
-    "/v3/media/**": {},
-    "/v1/applications/**": {},
-    "/v1/push/**": {},
-    "/v1/knocking/**": {}
+    "/*/users/**": {},
+    "/*/conversations/**": {},
+    "/*/sessions/**": {},
+    "/*/devices/**": {},
+    "/*/image/**": {},
+    "/*/media/**": {},
+    "/*/applications/**": {},
+    "/*/push/**": {},
+    "/*/knocking/**": {}
   }
 }
 
@@ -124,7 +124,7 @@ Nexmo::generateJwt([
         'application_id': "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
         'exp' => time() + 86400,
         'sub' => "jamie",
-        'acl' => ["paths" => ["/v1/sessions/**" => (object)[], "/v1/users/**" => (object)[], "/v1/conversations/**" => (object)[], "/v1/devices/**" => (object)[], "/v1/image/**" => (object)[], "/v3/media/**" => (object)[], "/v1/applications/**" => (object)[], "/v1/push/**" => (object)[], "/v1/knocking/**" => (object)[]]],
+        'acl' => ["paths" => ["/*/sessions/**" => (object)[], "/*/users/**" => (object)[], "/*/conversations/**" => (object)[], "/*/devices/**" => (object)[], "/*/image/**" => (object)[], "/*/media/**" => (object)[], "/*/applications/**" => (object)[], "/*/push/**" => (object)[], "/*/knocking/**" => (object)[]]],
     ])
 ```
 
