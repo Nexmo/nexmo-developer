@@ -1,6 +1,6 @@
 ---
 title: Resources
-description: A comprehensive list of resources to help you create Smart Numbers service applications
+description: A comprehensive list of resources to help you create Smart Numbers applications
 navigation_weight: 6
 ---
 

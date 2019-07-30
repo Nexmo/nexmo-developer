@@ -5,9 +5,9 @@ meta_title: Smart Numbers
 
 # Overview
 
-> **Note** The Smart Numbers service is for [Vonage Business Cloud Customers](https://www.vonage.com/business/) only.
+> **Note** Smart Numbers is for [Vonage Business Cloud Customers](https://www.vonage.com/business/) only.
 
-The Vonage Business Cloud (VBC) Smart Numbers service enables you to:
+Vonage Business Cloud (VBC) Smart Numbers enable you to:
 
 * Forward a VBC call to a Nexmo [Voice API](/voice/voice-api/api-reference) application
 * Connect calls to a VBC extension from a Voice API [NCCO](/voice/voice-api/guides/ncco)
@@ -23,18 +23,18 @@ You can use all the power and flexibility of the Nexmo Voice API together with t
 * Calendar integration to check the free/busy status of a call recipient and react accordingly
 
 ## Getting Started
-To use the Smart Numbers service, you need:
+To use Smart Numbers, you need:
 
 * A Vonage Business Cloud account
 * A Nexmo account
 
 You must then:
 
-1. [Register for the Smart Numbers service](/vonage-business-cloud/smart-numbers/guides/register) - to add the capability to your VBC account
+1. [Register for Smart Numbers](/vonage-business-cloud/smart-numbers/guides/register) - to add the capability to your VBC account
 2. [Create a Nexmo Voice API Application](/vonage-business-cloud/smart-numbers/guides/create-voice-application) - to store security and configuration information
-3. [Provision the Smart Numbers service](/vonage-business-cloud/smart-numbers/guides/provision-smart-numbers) - configure one or more VBC numbers and link the service to your Nexmo Voice API Application
+3. [Provision Smart Numbers](/vonage-business-cloud/smart-numbers/guides/provision-smart-numbers) - configure one or more VBC numbers as Smart Numbers and link those numbers to your Nexmo Voice API Application
 
-## Using the Smart Numbers service
+## Using Smart Numbers
 
 You will use the [Nexmo Voice API](/voice/voice-api/api-reference) to build interactive and customized call experiences for your users. We provide [client libraries](https://github.com/Nexmo/) in various languages that take make it easier to work with the Voice API.
 
@@ -42,6 +42,6 @@ To forward an inbound call on one of your linked VBC numbers to your Nexmo Voice
 
 You provide these instructions in the form of a [Nexmo Call Control Object (NCCO)](/voice/voice-api/guides/ncco) that defines the list of actions that the call must perform, such as reading a message to your caller using text-to-speech, or collecting input as part of an interactive voice response (IVR) system. Another type of action (`connect`) in the NCCO can route the call to a VBC extension.
 
-You can use the [VBC APIs](/vonage-business-cloud/vbc-apis/overview) in your application to retrieve information about your VBC accounts, extensions and users. 
+You can use the [VBC APIs](/vonage-business-cloud/vbc-apis/overview) in your application to retrieve information about your VBC accounts, extensions and users.
 
-> **Getting help**: For a comprehensive list of resources to help you build your application, see [here](/vonage-business-cloud/smart-numbers/guides/vbc-resources). 
+> **Getting help**: For a comprehensive list of resources to help you build your application, see [here](/vonage-business-cloud/smart-numbers/guides/vbc-resources).

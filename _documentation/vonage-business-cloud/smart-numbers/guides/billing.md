@@ -1,12 +1,12 @@
 ---
 title: Billing
-description: Understand how you are billed for the Smart Numbers service.
+description: Understand how you are billed for Smart Numbers
 navigation_weight: 5
 ---
 
 # Billing
 
-Depending on how you use the Smart Numbers service, you might receive bills from both Vonage and Nexmo.
+Depending on how you use Smart Numbers, you might receive bills from both Vonage and Nexmo.
 
 * All charges for voice usage in the Smart Numbers applications you create are included in your Vonage Business Cloud bill.
 
