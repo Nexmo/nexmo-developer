@@ -153,5 +153,7 @@
 "/vonage-business-cloud/number-programmability/guides/provision-nps": "/vonage-business-cloud/smart-numbers/guides/provision-smart-numbers"
 "/vonage-business-cloud/number-programmability/guides/create-voice-application": "/vonage-business-cloud/smart-numbers/guides/create-voice-application"
 "/vonage-business-cloud/number-programmability/guides/vbc-resources": "/vonage-business-cloud/smart-numbers/guides/vbc-resources"
+"/vonage-business-cloud/number-programmability/code-snippets/vbc-receive-inbound-call": "/vonage-business-cloud/smart-numbers/code-snippets/vbc-receive-inbound-call"
+"/vonage-business-cloud/number-programmability/code-snippets/vbc-route-to-extension": "/vonage-business-cloud/smart-numbers/code-snippets/vbc-route-to-extension"
 "/tutorials/client-sdk-ios-make-receive-calls-swift": "https://developer.nexmo.com/client-sdk/in-app-voice/guides/start-and-receive-calls/ios"
 "/tutorials/client-sdk-android-make-receive-calls": "/client-sdk/in-app-voice/guides/start-and-receive-calls/android"
