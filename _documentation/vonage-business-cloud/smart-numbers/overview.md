@@ -30,7 +30,7 @@ To use Smart Numbers, you need:
 
 You must then:
 
-1. [Register for Smart Numbers](/vonage-business-cloud/smart-numbers/guides/register) - to add the capability to your VBC account
+1. [Enable the Smart Number add-on](/vonage-business-cloud/smart-numbers/guides/enable-addon) - to add the capability to your VBC account
 2. [Create a Nexmo Voice API Application](/vonage-business-cloud/smart-numbers/guides/create-voice-application) - to store security and configuration information
 3. [Provision Smart Numbers](/vonage-business-cloud/smart-numbers/guides/provision-smart-numbers) - configure one or more VBC numbers as Smart Numbers and link those numbers to your Nexmo Voice API Application
 
