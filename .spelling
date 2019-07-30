@@ -268,3 +268,9 @@ gevent
 NexmoClient
 add-on
 add-ons
+AWS
+CloudWatch
+CloudFormation
+Lambda
+endpoint
+middleware
