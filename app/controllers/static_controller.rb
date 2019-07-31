@@ -230,7 +230,7 @@ class StaticController < ApplicationController
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
 
-    @careers = []
+    @careers = Greenhouse.careers
 
     render layout: 'page'
   end

@@ -145,6 +145,9 @@ gem 'split', '~> 3.3.2', require: 'split/dashboard'
 
 gem 'greenhouse_io'
 
+# For truncating HTML strings
+gem 'truncato'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,93 +1,87 @@
 <div class="container">
-<div class="center">
-  <h1 class="Vlt-title--icon Vlt-title--center">
-      <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-group"/></svg>
-      Nexmo Developer Relations Team
-  </h1>
+  <div class="center">
+    <h1 class="Vlt-title--icon Vlt-title--center">
+        <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-group"/></svg>
+        Nexmo Developer Relations Team
+    </h1>
 
-  <br>
+    <br>
 
-  <p class="p-large">
-    Our mission is to build a world-class open source documentation platform to help developers build connected products.
-  </p>
-  <p class="p-large">
-    Here are some of the people behind Nexmo Developer. Oh, and we're hiring for <a href="#join">the developer relations team</a> and <a href="https://www.vonage.com/corporate/careers/">other teams at Nexmo</a>.
-  </p>
+    <p class="p-large">
+      Our mission is to build a world-class open source documentation platform to help developers build connected products.
+    </p>
+    <p class="p-large">
+      Here are some of the people behind Nexmo Developer. Oh, and we're hiring for <a href="#join">the developer relations team</a> and <a href="https://www.vonage.com/corporate/careers/">other teams at Nexmo</a>.
+    </p>
 
-  <br>
-
-
-  <div class="Vlt-grid">
-    <% @team['current'].shuffle.each do |member| %>
-      <%= render partial: 'profile', locals: member.symbolize_keys %>
-    <% end %>
-  </div>
-
-  <hr>
-
-  <h2><b>Alumni</b></h2>
-
-  <div class="Vlt-grid">
-    <% @team['alumni'].shuffle.each do |member| %>
-      <%= render partial: 'profile', locals: member.symbolize_keys %>
-    <% end %>
-  </div>  
-
-  <hr />
-
-  <h2><b>Contributors</b></h2>
-
-  <p>Many of the improvements made to Nexmo Developer have come from our wonderful community.</p>
-  <p>Check out our <a href="https://github.com/Nexmo/nexmo-developer/graphs/contributors">Contributors</a> page on GitHub.</p>
-
-  <hr>
+    <br>
 
 
-  <div class="Vlt-grid">
-    <div class="Vlt-col" style="text-align: right">
-      <a href="/spotlight"><img src="/assets/images/developer_spotlight_logo.png" /></a>
+    <div class="Vlt-grid">
+      <% @team['current'].shuffle.each do |member| %>
+        <%= render partial: 'profile', locals: member.symbolize_keys %>
+      <% end %>
     </div>
-    <div class="Vlt-col Vlt-col--3of4">
-      <br />
-      <br />
-      <br />
-      <h2 id="write-for-nexmo"><b>Write for Nexmo</b></h2>
-  You don't have to be part of the team to write for Nexmo. <br /> Thanks to our <a href="/spotlight">Developer Spotlight</a> program, you can get paid $400 to write for us.
+
+    <hr>
+
+    <h2><b>Alumni</b></h2>
+
+    <div class="Vlt-grid">
+      <% @team['alumni'].shuffle.each do |member| %>
+        <%= render partial: 'profile', locals: member.symbolize_keys %>
+      <% end %>
+    </div>
+
+    <hr />
+
+    <h2><b>Contributors</b></h2>
+
+    <p>Many of the improvements made to Nexmo Developer have come from our wonderful community.</p>
+    <p>Check out our <a href="https://github.com/Nexmo/nexmo-developer/graphs/contributors">Contributors</a> page on GitHub.</p>
+
+    <hr>
+
+
+    <div class="Vlt-grid">
+      <div class="Vlt-col" style="text-align: right">
+        <a href="/spotlight"><img src="/assets/images/developer_spotlight_logo.png" /></a>
+      </div>
+      <div class="Vlt-col Vlt-col--3of4">
+        <br />
+        <br />
+        <br />
+        <h2 id="write-for-nexmo"><b>Write for Nexmo</b></h2>
+        You don't have to be part of the team to write for Nexmo. <br /> Thanks to our <a href="/spotlight">Developer Spotlight</a> program, you can get paid $400 to write for us.
       </div>
     </div>
 
-  <hr />
+    <hr />
 
-  <h2 id="join"><b>Join the team</b></h2>
+    <h2 id="join"><b>Join the team</b></h2>
 
-  <p>If what we are building sounds interesting to you please see our open positions and get in touch with us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>.</p>
+    <p>If what we are building sounds interesting to you please see our open positions and get in touch with us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>.</p>
 
-  <br>
+    <br>
 
-  <% @careers.group_by(&:role_group).each do |group_name, careers| %>
-    <h3><%= group_name %></h3>
     <div class="Vlt-grid Vlt-grid--margin-top1">
-      <% careers.each do |career| %>
+      <% @careers.each do |career| %>
         <div class="Vlt-col Vlt-col--1of2">
           <div class="Vlt-card Vlt-card--center Nxd-career">
-            <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= career.icon == 'account' ? 'user' : career.icon == 'book' ? 'books' : career.icon %>"/></svg>
-              <hr>
-              <h1>
-                <%= career.title %>
-                <% unless career.published %>
-                    [Hidden]
-                <% end %>
-                <small class="Nxd-career__subtitle"><%= career.location %></small>
-              </h1>
+            <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-code"/></svg>
+            <hr>
+            <h2>
+              <%= career.title %>
+              <small class="Nxd-career__subtitle"><%= career.location %></small>
+            </h2>
 
-            <div class="Nxd-career__content">
-              <%= career.description_short.render_markdown %>
+            <div class='Nxd-career__content'>
+              <%= raw Truncato.truncate(career.description, max_length: 450) %>
             </div>
-            <%= link_to "Find out more", career, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+            <%= link_to "Find out more", career.url, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
           </div>
         </div>
       <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
 </div>
