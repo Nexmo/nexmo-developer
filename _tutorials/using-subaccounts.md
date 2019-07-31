@@ -10,7 +10,7 @@ languages:
 
 ## Overview
 
-This tutorial looks at a use case here a partner uses the Subaccounts API to successfully manage end customers. Before working through this tutorial you main want to first review the [main concepts](/account/subaccounts/concepts/overview).
+This tutorial looks at a use case here a partner uses the Subaccounts API to successfully manage end customers. Before working through this tutorial you main want to first review the [main concepts](/account/subaccounts/overview).
 
 ## Creating a subaccount
 
@@ -88,6 +88,6 @@ In this tutorial you have seen how to use the Subaccounts API to manage end cust
 
 ## Further resources
 
-* [Concepts](/account/subaccounts/concepts/overview)
+* [Concepts](/account/subaccounts/overview)
 * [Code Snippets](/account/subaccounts/code-snippets/create-subaccount)
 * [API Reference](/api/subaccounts)
