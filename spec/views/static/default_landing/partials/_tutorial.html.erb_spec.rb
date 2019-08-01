@@ -8,11 +8,13 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       external_link: https://sample.url/path/to/link/
       image_url: https://sample.url/path/to/image
       description: This is a sample description
-      products: sms/messaging
+      products:
+        - sms/messaging
       languages:
       - ruby
       ---
     HEREDOC
+    allow(File).to receive(:exist?).with('config/tasks/this-is-a-sample.yml').and_return(true)
     allow(File).to receive(:read).and_return(tutorial)
 
     render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
@@ -29,11 +31,13 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       title: This is a sample title
       image_url: https://sample.url/path/to/image
       description: This is a sample description
-      products: sms/messaging
+      products:
+        - sms/messaging
       languages:
       - ruby
       ---
     HEREDOC
+    allow(File).to receive(:exist?).with('config/tasks/this-is-a-sample.yml').and_return(true)
     allow(File).to receive(:read).and_return(tutorial)
 
     render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
@@ -50,7 +54,8 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       title: This is a sample title
       image_url: https://sample.url/path/to/image
       description: This is a sample description
-      products: sms/messaging
+      products:
+        - sms/messaging
       languages:
       - ruby
       ---
