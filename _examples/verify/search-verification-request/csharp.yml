@@ -9,8 +9,8 @@ client:
     to_line: 17
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/VerifyController.cs
-    from_line: 100
-    to_line: 104
+    from_line: 75
+    to_line: 78
 run_command: 'Run using your IDE'
 file_name: VerifyController.cs
 unindent: true

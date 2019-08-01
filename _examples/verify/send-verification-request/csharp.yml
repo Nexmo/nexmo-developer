@@ -4,13 +4,13 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotNetQuickStarts/Authentication/BasicAuth.cs
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
     from_line: 13
     to_line: 17
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotNetQuickStarts/Controllers/VerifyController.cs
-    from_line: 35
-    to_line: 41
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/VerifyController.cs
+    from_line: 33
+    to_line: 37
 run_command: 'Run using your IDE'
 file_name: VerifyController.cs
 unindent: true
