@@ -105,16 +105,16 @@ Nexmo charges for the actual Nexmo API usage, but the way it is captured and app
 
 ### Prepaid primary account
 
-After top up, prepaid accounts receive a positive balance that gets deducted later with API usage. When zero balance is reached, the prepaid account cannot make any more API calls (until another top up). A prepaid primary account that distributed its balance across its subaccounts would not be able to make API calls, but its subaccounts with non-zero balance would still be able to make API calls:
+After top up, prepaid accounts receive a positive balance that gets deducted later with API usage. When zero balance is reached, the prepaid account cannot make any more API calls (until another top up). A prepaid primary account that distributed its entire balance across its subaccounts would not be able to make API calls, but its subaccounts with positive balance would still be able to make API calls:
 
 * The `total_balance` field returned by the Subaccounts API represents the amount of balance left across all subaccounts and the primary account from the initial top up made by the primary account.
-* The `balance` field returned by the Subaccounts API shows the amount of balance left for each individual subaccount.
+* The `balance` field returned by the Subaccounts API shows the amount of balance left for each individual account including the primary account and subaccounts.
 
 ### Postpaid primary account
 
-A postpaid primary account is responsible for spending of all of its subaccounts and its own spending (from the primary API key). The value that captures the total amount owned to Nexmo is the negative `total_balance` (positive `total_balance` means that nothing is owned to Nexmo). At the end of the month, Nexmo invoices a postpaid primary account for the whole negative `total_balance` amount.
+A postpaid primary account is responsible for spending of all of its subaccounts and its own spending (from the primary API key). The value that captures the total amount owned to Nexmo is the negative `total_balance` (positive `total_balance` means that nothing is owned to Nexmo). At the end of the month, Nexmo invoices a postpaid primary account for all usage on all its API keys (accounts) in that month. In theory, the total invoice amount would equal the `total_balance` across all accounts (all usage plus payments made).
 
-Example: The total balance for the prepaid primary account and its subaccounts (described in the previous examples) is: `total_balance = -40 + 20 + 0 = -20`
+Example: In the previous example, subaccount1's balance was 20, subaccount2's balance was 0, and the primary account's balance was -40. The total balance for the prepaid primary account and its subaccounts is: `total_balance = -40 + 20 + 0 = -20`.
 
 ## Best practices
 
