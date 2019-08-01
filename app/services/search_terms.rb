@@ -11,9 +11,9 @@ class SearchTerms
         origin: Pathname.new("#{Rails.root}/_api"),
         base_url_path: '/api',
       },
-      tutorials: {
-        documents: Dir.glob("#{Rails.root}/_tutorials/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_tutorials"),
+      use_cases: {
+        documents: Dir.glob("#{Rails.root}/_use_cases/**/*.md"),
+        origin: Pathname.new("#{Rails.root}/_use_cases"),
         base_url_path: '/use-cases',
       },
     }

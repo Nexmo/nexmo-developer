@@ -84,7 +84,7 @@ module ApplicationHelper
   end
 
   def path_to_url(path)
-    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/_tutorials/", '/use-cases/')
+    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/_use_cases/", '/use-cases/')
     path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/config/tasks/", '/task/')
     path.gsub(/.*#{@namespace_root}/, '').gsub('.md', '')
   end

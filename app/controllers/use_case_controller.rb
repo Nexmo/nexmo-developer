@@ -40,7 +40,7 @@ class UseCaseController < ApplicationController
 
   def show
     # Read document
-    @document_path = "_tutorials/#{@document}.md"
+    @document_path = "_use_cases/#{@document}.md"
     document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
