@@ -1,0 +1,14 @@
+---
+title: .NET
+language: dotnet
+dependencies:
+    - Nexmo.Csharp.Client
+client:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
+    from_line: 17
+    to_line: 21
+code:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/NumbersController.cs
+    from_line: 60
+run_command: 'Run using your IDE'
+file_name: NumbersController.cs
