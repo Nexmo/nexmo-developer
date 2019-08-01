@@ -18,3 +18,24 @@ To test this functionality have your PBX forward calls to `sip.nexmo.com`. Here 
 exten => 69100,1,SIPAddHeader(X-UserId:ABC123)
 exten => 69100,2,Dial(SIP/nexmo/14155550100)
 ```
+
+## Domain-based routing
+
+If you are using `SIP Connect` and require your call to be handled by a specific Nexmo region, then you can specify that by using R-URI with such information in the domain part.
+
+e.g.:
+```
+sip:anLVN@sip-eu1.nexmo.com
+```
+will instruct us that you want this `SIP Connect` call to be handled in EU.
+
+Available domains are the same as the A records:
+
+- sip-us-2-1.nexmo.com: US
+- sip-us-2-2.nexmo.com: US
+- sip-eu1.nexmo.com: EU
+- sip-eu2.nexmo.com: EU
+- sip-ap1.nexmo.com: AP
+- sip-ap2.nexmo.com: AP
+
+
