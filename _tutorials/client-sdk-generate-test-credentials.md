@@ -96,4 +96,4 @@ The above command sets the expiry of the JWT to one day from now, which is the m
 
 ## Further information
 
-You can read more about the JWT and ACL [in this topic](/client-sdk/concepts/jwt-acl).
+You can read more about the JWT and ACL [in this topic](/client-sdk/conversation/guides/jwt-acl).
