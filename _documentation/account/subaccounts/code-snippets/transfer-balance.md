@@ -1,5 +1,6 @@
 ---
 title: Transfer Balance
+navigation_weight: 4
 ---
 
 # Transfer Balance

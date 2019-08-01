@@ -1,5 +1,6 @@
 ---
 title: Transfer Credit
+navigation_weight: 6
 ---
 
 # Transfer Credit

@@ -1,5 +1,6 @@
 ---
 title: Reactivate a Subaccount
+navigation_weight: 9
 ---
 
 # Reactivate a Subaccount

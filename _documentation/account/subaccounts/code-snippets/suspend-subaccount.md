@@ -1,5 +1,6 @@
 ---
 title: Suspend a Subaccount
+navigation_weight: 8
 ---
 
 # Suspend a Subaccount

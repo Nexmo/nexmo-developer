@@ -1,5 +1,6 @@
 ---
 title: Get Credit Transfers
+navigation_weight: 7
 ---
 
 # Get Credit Transfers

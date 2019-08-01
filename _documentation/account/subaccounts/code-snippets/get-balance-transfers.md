@@ -1,5 +1,6 @@
 ---
 title: Get Balance Transfers
+navigation_weight: 5
 ---
 
 # Get Balance Transfers

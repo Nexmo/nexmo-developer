@@ -1,11 +1,15 @@
 ---
 title: Overview
-meta_title: Subaccounts API
+meta_title: Subaccounts API (Beta)
 navigation_weight: 1
-description: The Subaccounts API overview.
+description: The Subaccounts API (Beta) overview.
 ---
 
-# Subaccounts API Overview
+# Overview of Subaccounts API (Beta)
+
+> **IMPORTANT:** Subaccounts API is released with **restricted availability**.
+
+## Introduction
 
 The Subaccounts API allows to programmatically create and manage subaccounts for separate business units, use cases, product stages, or separate customers. The API empowers developers to handle various aspects of subaccount logistics: manage credit, track usage, set usage limits, suspend subaccounts, and so on.
 
@@ -23,7 +27,7 @@ During Beta Nexmo will expand the capabilities of the API.
 
 ## Provisioning
 
-Subaccounts API is released with restricted availability. To get access to the Subaccounts API please contact your account manager. [Nexmo Partners](https://info.nexmo.com/PartnerProgram.html) get access automatically.
+Subaccounts API is released with **restricted availability**. To get access to the Subaccounts API please contact your account manager. [Nexmo Partners](https://info.nexmo.com/PartnerProgram.html) get access automatically.
 
 ## Supported features
 

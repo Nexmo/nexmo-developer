@@ -80,8 +80,6 @@ navigation_overrides:
     svg: 'user'
     svgColor: 'blue'
     subaccounts:
-      svg: 'user'
-      svgColor: 'blue'
       label: 'Beta'
   redact:
     label: 'Dev Preview'
