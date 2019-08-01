@@ -4,13 +4,12 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotNetQuickStarts/Controllers/NumberInsightController.cs
-    from_line: 12
-    to_line: 16
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
+    from_line: 17
+    to_line: 21
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotNetQuickStarts/Controllers/NumberInsightController.cs
-    from_line: 133
-    to_line: 136
-run_command: '(Run using your IDE)'
-file_name: NumberInsightController.cs
-unindent: true
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/NumberInsightsController.cs
+    from_line: 85
+    to_line: 88
+run_command: 'Run using your IDE'
+file_name: NumberInsightsController.cs
