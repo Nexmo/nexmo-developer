@@ -3,7 +3,7 @@
 %>
 
 <%
-  path = "_use_cases/#{local_assigns['name']}.md"
+  path = "config/tasks/#{local_assigns['name']}.yml"
   raise "Unable to read file: #{path}" unless File.exist? path
   file = File.read(path)
 %>

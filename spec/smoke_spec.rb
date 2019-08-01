@@ -122,6 +122,14 @@ RSpec.describe 'Smoke Tests', type: :request do
     expect(response.body).to include('Convert your SMS code from Tropo to Nexmo')
   end
 
+  # Make sure all landing pages render
+  LandingPageConstraint.list.each do |name|
+    name = "/#{name}"
+    it "#{name} loads" do
+      get name
+    end
+  end
+
   it '/api-errors contains the expected text' do
     get '/api-errors'
     expect(response.body).to include('When a Nexmo API returns an error, for instance, if your account has no credit')
