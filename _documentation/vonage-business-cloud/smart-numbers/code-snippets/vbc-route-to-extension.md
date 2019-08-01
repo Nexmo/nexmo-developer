@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Route to a VBC Extension
 
-This code snippet shows you how to connect an inbound call on a Vonage Business Cloud programmable number to an extension.
+This code snippet shows you how to connect an inbound call on a Smart Number to an extension.
 
 ## Example
 
@@ -22,4 +22,4 @@ application:
 
 ## Try it out
 
-When you call your Vonage Business Cloud programmable number it should immediately forward the call to the extension number you specified.
+When you call your Smart Number it should immediately forward the call to the extension number you specified.

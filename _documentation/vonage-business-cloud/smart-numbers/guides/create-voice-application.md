@@ -10,7 +10,7 @@ Every Smart Numbers application that you build must be associated with a Nexmo V
 
 > **Note**: To avoid confusion, `Application` here refers to the Nexmo Application. The application you are building will be referred to as "application".
 
-A Nexmo Application stores configuration information such as details of the programmable numbers and webhook callback URLs that your application uses. To make your VBC Smart Number calls zero-rated in Nexmo, you must create an Application with the `vbc` and `voice` capabilities, using the [Nexmo Application API](https://developer.nexmo.com/api/application.v2).
+A Nexmo Application stores configuration information such as details of the Smart Numbers and webhook callback URLs that your application uses. To make your VBC Smart Number calls zero-rated in Nexmo, you must create an Application with the `vbc` and `voice` capabilities, using the [Nexmo Application API](https://developer.nexmo.com/api/application.v2).
 
 ## Using the Application API
 
