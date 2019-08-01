@@ -6,6 +6,10 @@ dependencies:
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/AccountController.cs
     from_line: 30
+client:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
+    from_line: 17
+    to_line: 21
 run_command: 'Run using your IDE'
 file_name: AccountController.cs
 unindent: true
