@@ -531,6 +531,7 @@ DEPENDENCIES
   rawler!
   recaptcha
   redcarpet (~> 3.4.0)
+  redis
   rest-client
   rouge (~> 2.0.7)
   rspec-collection_matchers
