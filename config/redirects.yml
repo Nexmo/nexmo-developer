@@ -208,6 +208,7 @@
 "/tutorials/voice-call-websocket-python": "/use-cases/voice-call-websocket-python"
 "/messaging/sms/tutorials": "/messaging/sms/use-cases"
 
+"/audit/tutorials": "/audit/use-cases"
 "/voice/voice-api/tutorials": "/voice/voice-api/use-cases"
 "/verify/tutorials": "/verify/use-cases"
 "/messages/tutorials": "/messages/use-cases"
