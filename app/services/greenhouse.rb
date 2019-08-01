@@ -10,7 +10,9 @@ class Greenhouse
   end
 
   def jobs
-    @jobs ||= fetch_jobs.map { |j| Career.new(j) }
+    @jobs ||= Rails.cache.fetch('careers') do
+      fetch_jobs.map { |j| Career.new(j) }
+    end
   end
 
   def fetch_jobs
