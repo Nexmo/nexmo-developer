@@ -1,0 +1,11 @@
+---
+title: .NET
+language: dotnet
+dependencies:
+    - Nexmo.Csharp.Client
+code:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/AccountController.cs
+    from_line: 58
+run_command: 'Run using your IDE'
+file_name: AccountController.cs
+unindent: true
