@@ -6,5 +6,9 @@ dependencies:
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/ApplicationController.cs
     from_line: 43
+client:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
+    from_line: 17
+    to_line: 21
 file_name: ApplicationController.cs
 run_command: 'Run using your IDE'
