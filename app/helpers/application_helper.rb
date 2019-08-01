@@ -205,8 +205,12 @@ module ApplicationHelper
   def output_link(item, title, options)
     # Setup
     active_path = request.path.chomp("/#{params[:code_language]}")
-    url = path_to_url(item[:path])
-    url = '/' + item[:product] + url if item[:is_task?]
+    if item[:external_link]
+      url = item[:external_link]
+    else
+      url = path_to_url(item[:path])
+      url = '/' + item[:product] + url if item[:is_task?]
+    end
     has_active_class = (url == active_path)
 
     # Handle tasks

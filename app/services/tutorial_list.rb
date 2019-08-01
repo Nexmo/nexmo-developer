@@ -23,6 +23,7 @@ class TutorialList
         tasks[p] = [] unless tasks[p]
         tasks[p].push({
                                    path: filename,
+                                   external_link: t['external_link'],
                                    title: t['title'],
                                    product: p,
                                    is_file?: true,

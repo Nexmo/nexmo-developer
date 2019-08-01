@@ -1,7 +1,8 @@
 ---
 title: How to Receive SMS Messages with Ruby on Rails
 external_link: https://www.nexmo.com/blog/2017/10/23/receive-sms-messages-ruby-on-rails-dr/
-products: messaging/sms
+products:
+ - messaging/sms
 description: Handle incoming SMS from users in your Ruby on Rails application.
 languages:
   - Ruby

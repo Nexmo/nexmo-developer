@@ -2,7 +2,8 @@
 title: Anything-to-SMS with IFTTT and Nexmo
 external_link: https://www.nexmo.com/blog/2018/09/18/anything-to-sms-ifttt-nexmo-dr/
 description: Send an SMS in response to any trigger by creating a serverless action in PHP that sends an SMS. Use IFTTT to send a webhook to the serverless action when your chosen event occurs
-products: messaging/sms
+products:
+ - messaging/sms
 languages:
  - PHP
 ---
