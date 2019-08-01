@@ -19,14 +19,16 @@ class TutorialList
     tasks = {}
     Dir.glob("#{Rails.root}/config/tasks/*.yml") do |filename|
       t = YAML.load_file(filename)
-      tasks[t['product']] = [] unless tasks[t['product']]
-      tasks[t['product']].push({
-                                 path: filename,
-                                 title: t['title'],
-                                 product: product,
-                                 is_file?: true,
-                                 is_task?: true,
-                               })
+      t['products'].each do |p|
+        tasks[p] = [] unless tasks[p]
+        tasks[p].push({
+                                   path: filename,
+                                   title: t['title'],
+                                   product: p,
+                                   is_file?: true,
+                                   is_task?: true,
+                                 })
+      end
     end
 
     tasks[product]
