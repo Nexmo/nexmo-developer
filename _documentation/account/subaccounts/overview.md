@@ -21,6 +21,10 @@ Nexmo always welcomes your feedback. Your suggestions help us improve the produc
 
 During Beta Nexmo will expand the capabilities of the API.
 
+## Provisioning
+
+Subaccounts API is released with restricted availability. To get access to the Subaccounts API please contact your account manager. [Nexmo Partners](https://info.nexmo.com/PartnerProgram.html) get access automatically.
+
 ## Supported features
 
 In this release the following features are supported:
