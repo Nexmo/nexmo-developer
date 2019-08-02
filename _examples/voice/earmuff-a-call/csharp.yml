@@ -4,13 +4,13 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotNetQuickStarts/Authentication/FullAuth.cs
-    from_line: 13
-    to_line: 19
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/FullAuth.cs
+    from_line: 17
+    to_line: 23
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotNetQuickStarts/Controllers/VoiceController.cs
-    from_line: 162
-    to_line: 174
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/VoiceController.cs
+    from_line: 178
+    to_line: 188
 run_command: 'Run using your IDE'
 file_name: VoiceController.cs
 unindent: true

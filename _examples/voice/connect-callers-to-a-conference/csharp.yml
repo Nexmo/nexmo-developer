@@ -5,10 +5,9 @@ dependencies:
     - Nexmo.Csharp.Client
     - Nancy
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoVoiceASPNetCoreQuickStarts/Modules/ConferenceCallModule.cs
-    
-    from_line: 10
-    to_line: 35
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/ConferenceCallModule.cs
+    from_line: 8
+    to_line: 37
 run_command: 'Run using your IDE'
 file_name: ConferenceCallModule.cs
 unindent: true

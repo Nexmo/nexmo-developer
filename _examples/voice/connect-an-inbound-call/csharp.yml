@@ -5,10 +5,10 @@ dependencies:
     - Nexmo.Csharp.Client
     - Nancy
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoVoiceASPNetCoreQuickStarts/Modules/ConnectCallModule.cs
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/ConnectCallModule.cs
     
-    from_line: 10
-    to_line: 43
+    from_line: 12
+    to_line: 49
 run_command: 'Run using your IDE'
 file_name: ConnectCallModule.cs
 unindent: true

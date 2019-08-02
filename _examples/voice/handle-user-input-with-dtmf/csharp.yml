@@ -5,10 +5,9 @@ dependencies:
     - Nexmo.Csharp.Client
     - Nancy
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoVoiceASPNetCoreQuickStarts/Modules/DtmfModule.cs
-    
-    from_line: 10
-    to_line: 54
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/DtmfModule.cs
+    from_line: 12
+    to_line: 63
 run_command: 'Run using your IDE'
 file_name: DtmfModule.cs
 unindent: true
