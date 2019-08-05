@@ -1,8 +1,4 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send-unicode-sms.rb
     from_line: 15
@@ -11,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send-unicode-sms.rb
     from_line: 8
     to_line: 13
-file_name: send-unicode-sms.rb
-run_command: 'ruby send-unicode-sms.rb'

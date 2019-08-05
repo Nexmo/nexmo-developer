@@ -1,6 +1,4 @@
 ---
-title: Ruby
-language: ruby
 dependencies:
     - sinatra
 code:
@@ -10,5 +8,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/play-text-to-speech-into-a-call.rb
     from_line: 8
     to_line: 13
-file_name: play-text-to-speech-into-a-call.rb
-run_command: 'ruby play-text-to-speech-into-a-call.rb'

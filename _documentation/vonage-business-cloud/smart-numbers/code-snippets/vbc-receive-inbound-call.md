@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Receive an inbound call
 
-This code snippet shows you how to receive an inbound call on your Vonage Business Cloud programmable number.
+This code snippet shows you how to receive an inbound call on your Smart Number.
 
 ## Example
 
@@ -18,5 +18,5 @@ application:
 
 ## Try it out
 
-When you call your Vonage Business Cloud programmable number you will hear a text-to-speech message.
+When you call your Smart Number you will hear a text-to-speech message.
 

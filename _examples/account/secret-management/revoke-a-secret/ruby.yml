@@ -1,6 +1,4 @@
 ---
-title: Ruby
-language: ruby
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/revoke-a-secret.rb
     from_line: 19
@@ -9,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/revoke-a-secret.rb
     from_line: 14
     to_line: 17
-file_name: revoke-a-secret.rb
-run_command: ruby revoke-a-secret.rb

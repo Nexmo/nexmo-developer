@@ -44,7 +44,7 @@ class DocumentationConstraint
       'conversation',
       'messages',
       'dispatch',
-      'vonage-business-cloud/number-programmability',
+      'vonage-business-cloud/smart-numbers',
       'vonage-business-cloud/integration-suite',
       'vonage-business-cloud/vbc-apis/account-api',
       'vonage-business-cloud/vbc-apis/extension-api',

@@ -48,14 +48,15 @@ class CodeSnippetsFilter < Banzai::Filter
       </div>
     HEREDOC
 
+    generate_html_content(html)
+  end
+
+  def generate_html_content(html)
     @document = Nokogiri::HTML::DocumentFragment.parse(html)
     @tabs = @document.at_css('.Vlt-tabs__header--bordered')
     @tabs_content = @document.at_css('.Vlt-tabs__content')
 
-    contents.each do |content|
-      create_tabs(content)
-      create_content(content)
-    end
+    tab_maker
 
     source = @document.to_html
 
@@ -66,12 +67,17 @@ class CodeSnippetsFilter < Banzai::Filter
     list = content_from_source
     list ||= []
 
-    return list unless list.any?
-
     list = sort_contents(list)
     resolve_active_tab(list)
 
     list
+  end
+
+  def tab_maker
+    contents.each do |content|
+      create_tabs(content)
+      create_content(content)
+    end
   end
 
   def validate_config
@@ -85,6 +91,10 @@ class CodeSnippetsFilter < Banzai::Filter
     files = Dir[source_path]
     raise "No .yml files found for #{@config['source']} code snippets" if files.empty?
 
+    generate_content(files)
+  end
+
+  def generate_content(files)
     files.map do |content_path|
       source = File.read(content_path)
 
@@ -114,16 +124,20 @@ class CodeSnippetsFilter < Banzai::Filter
 
       parent_config = parent_config.to_yaml.lines[1..-1].join
 
-      source = <<~HEREDOC
-        ```single_code_snippet
-        #{content.to_yaml}\n#{parent_config}
-        ```
-      HEREDOC
+      source = render_single_snippet(content, parent_config)
 
       content[:body] = MarkdownPipeline.new(options).call(source)
 
       content
     end
+  end
+
+  def render_single_snippet(content, parent_config)
+    <<~HEREDOC
+      ```single_code_snippet
+      #{content.to_yaml}\n#{parent_config}
+      ```
+    HEREDOC
   end
 
   def sort_contents(contents)

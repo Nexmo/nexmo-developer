@@ -24,7 +24,7 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it '/tools contains the expected text' do
     get '/tools'
-    expect(response.body).to include('The Nexmo libraries allow you to get up an running with Nexmo API quickly in your language of choice.')
+    expect(response.body).to include('The Nexmo Server SDKs allow you to get up an running with Nexmo API quickly in your language of choice.')
   end
 
   it '/extend contains the expected text' do

@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'rspec/snapshot'
 if ENV['COVERAGE']
   SimpleCov.start 'rails' do
     add_filter '.vendor'
@@ -105,5 +106,9 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
+
 =end
+
+  # Store snapshots in the spec dir
+  config.snapshot_dir = 'spec/fixtures/snapshots'
 end

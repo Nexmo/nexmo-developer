@@ -366,6 +366,8 @@ GEM
       rspec-expectations (~> 3.8.0)
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
+    rspec-snapshot (0.1.2)
+      rspec (> 3.0.0)
     rspec-support (3.8.0)
     rubocop (0.58.2)
       jaro_winkler (~> 1.5.1)
@@ -507,6 +509,7 @@ DEPENDENCIES
   rouge (~> 2.0.7)
   rspec-collection_matchers
   rspec-rails (~> 3.7)
+  rspec-snapshot (~> 0.1.2)
   rubocop
   ruby-progressbar
   sass-rails (~> 5.0)
