@@ -1,6 +1,7 @@
 ---
 dependencies:
     - sinatra
+    - sinatra-contrib
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/join_a_conference_call.rb
     from_line: 9

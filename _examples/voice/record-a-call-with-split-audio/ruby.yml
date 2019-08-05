@@ -1,6 +1,7 @@
 ---
 dependencies:
     - sinatra
+    - sinatra-contrib
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record-a-call-with-split-audio.rb
     from_line: 22

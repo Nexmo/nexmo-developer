@@ -1,6 +1,7 @@
 ---
 dependencies:
     - sinatra
+    - sinatra-contrib
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/connect_an_inbound_call.rb
     from_line: 9
