@@ -5,6 +5,10 @@ class Greenhouse
     new.jobs
   end
 
+  def self.expire_cache
+    Rails.cache.delete('careers')
+  end
+
   def initialize
     @client = GreenhouseIo::JobBoard.new
   end
