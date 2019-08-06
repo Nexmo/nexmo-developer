@@ -1,8 +1,4 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/request.rb
     from_line: 8
@@ -11,5 +7,3 @@ code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/request.rb
     from_line: 15
     to_line: 25
-file_name: request.rb
-run_command: 'ruby request.rb'

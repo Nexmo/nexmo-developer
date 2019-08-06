@@ -1,17 +1,17 @@
 ---
 title: Resources
-description: A comprehensive list of resources to help you create Number Programmability service applications
+description: A comprehensive list of resources to help you create Smart Numbers applications
 navigation_weight: 6
 ---
 
 # Resources
 
-## Number Programmability Code Snippets
+## Smart Numbers Code Snippets
 
 The following Code Snippets get you up and running with the basics:
 
 ```code_snippet_list
-product: vonage-business-cloud/number-programmability
+product: vonage-business-cloud/smart-numbers
 ```
 
 ## Voice API Code Snippets

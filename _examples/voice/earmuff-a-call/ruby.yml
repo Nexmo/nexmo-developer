@@ -1,8 +1,4 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/earmuff-a-call.rb
     from_line: 15
@@ -11,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/earmuff-a-call.rb
     from_line: 8
     to_line: 13
-file_name: earmuff-a-call.rb
-run_command: 'ruby earmuff-a-call.rb'

@@ -1,6 +1,4 @@
 ---
-title: Ruby
-language: ruby
 dependencies:
     - sinatra
 code:
@@ -11,5 +9,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/join_a_conference_call.rb
     from_line: 1
     to_line: 7
-file_name: join_a_conference_call.rb
-run_command: 'ruby join_a_conference_call.rb'

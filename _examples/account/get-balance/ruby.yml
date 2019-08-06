@@ -1,8 +1,4 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/get-balance.rb
     from_line: 14
@@ -11,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/get-balance.rb
     from_line: 7
     to_line: 12
-file_name: get-balance.rb
-run_command: ruby get-balance.rb

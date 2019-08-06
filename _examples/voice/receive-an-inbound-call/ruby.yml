@@ -1,6 +1,4 @@
 ---
-title: Ruby
-language: ruby
 dependencies:
     - sinatra
 code:
@@ -11,5 +9,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/inbound_tts_call.rb
     from_line: 1
     to_line: 13
-file_name: inbound_tts_call.rb
-run_command: 'ruby inbound_tts_call.rb'

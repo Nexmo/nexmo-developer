@@ -1,6 +1,4 @@
 ---
-title: Ruby
-language: ruby
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/list-all-secrets.rb
     from_line: 17
@@ -9,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/list-all-secrets.rb
     from_line: 10
     to_line: 15
-file_name: list-all-secrets.rb
-run_command: ruby list-all-secrets.rb

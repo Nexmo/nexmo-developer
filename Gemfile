@@ -154,7 +154,7 @@ gem 'country_select', '~> 4.0'
 
 # gem 'nexmo-oas-renderer', path: '../nexmo-oas-renderer-sinatra', require: false
 # gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer', require: false
-gem 'nexmo-oas-renderer', '~> 0.3.4', require: false
+gem 'nexmo-oas-renderer', '~> 0.3.5', require: false
 
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
@@ -167,6 +167,7 @@ group :development, :test do
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
   gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-snapshot', '~> 0.1.2'
   gem 'simplecov', require: false
 end
 

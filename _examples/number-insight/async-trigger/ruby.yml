@@ -1,11 +1,5 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/number-insight/ni-advanced-async-client.rb
     from_line: 8
     to_line: 20
-file_name: ni-advanced-async-client.rb
-run_command: 'ruby ni-advanced-async-client.rb'

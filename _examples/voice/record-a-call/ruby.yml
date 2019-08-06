@@ -1,6 +1,4 @@
 ---
-title: Ruby
-language: ruby
 dependencies:
     - sinatra
 code:
@@ -11,5 +9,3 @@ client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record_a_call.rb
     from_line: 8
     to_line: 20
-file_name: record_a_call.rb
-run_command: 'ruby record_a_call.rb'

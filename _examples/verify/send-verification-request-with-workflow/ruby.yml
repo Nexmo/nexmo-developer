@@ -1,8 +1,4 @@
 ---
-title: Ruby
-language: ruby
-dependencies:
-    - nexmo
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/request_with_workflow.rb
     from_line: 16
@@ -11,5 +7,3 @@ code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/request_with_workflow.rb
     from_line: 23
     to_line: 34
-file_name: request_with_workflow.rb
-run_command: 'ruby request_with_workflow.rb'
