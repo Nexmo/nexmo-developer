@@ -24,4 +24,6 @@ source: '_examples/subaccounts/create-subaccount'
 
 ## Try it out
 
-When you run the code you will create a new subaccount of the parent account.
+When you run the code you create a new subaccount of the parent account.
+
+> **NOTE:** This code snippet will create a subaccount that has a credit and balance facility shared with the parent account. If you want to create a subaccount that does not have a credit and balance shared with the parent then you need to set `use_primary_account_balance` to `false` when you create the subaccount.
