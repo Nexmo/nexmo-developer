@@ -9,9 +9,9 @@ The Conversion API allows you to tell Nexmo about the reliability of your [2FA](
 
 > **Note**: If you are using the [Verify API](/verify/overview) for 2FA, you don't need to send us conversion data. The Verify API does this automatically.
 
-Nexmo uses this conversion data, together with [delivery receipts (DLRs)]() to facilitate Adaptive Routing™. The Adaptive Routing algorithm automatically determines the best carrier routes via which to deliver SMS and voice calls at any specific moment. In most instances, a DLR is confirmation that your message was delivered to the recipient. However, not all carriers' DLRs are reliable and some do not provide them at all. Therefore, conversion data is our best indicator of route quality.
+Nexmo uses this conversion data, together with [delivery receipts (DLRs)](/messaging/sms/guides/delivery-receipts) to facilitate Adaptive Routing™. The Adaptive Routing algorithm automatically determines the best carrier routes via which to deliver SMS and voice calls at any specific moment. In most instances, a DLR is confirmation that your message was delivered to the recipient. However, not all carriers' DLRs are reliable and some do not provide them at all. Therefore, conversion data is our best indicator of route quality.
 
-> **The conversion data you send us is confidential: Nexmo will never share it with third parties.**
+> **Note**: The conversion data you send us is confidential: Nexmo will never share it with third parties.
 
 ## Before you send conversion data
 
