@@ -15,8 +15,8 @@ Key | Description
 -- | --
 `NEXMO_API_KEY` | The API key of the parent account.
 `NEXMO_API_SECRET` | The API secret of the parent account.
-`NEW_SUB_NAME` | The name of the new subaccount.
-`NEW_SUB_SECRET` | The API secret of the new subaccount.
+`NEW_SUBACCOUNT_NAME` | The name of the new subaccount.
+`NEW_SUBACCOUNT_SECRET` | The API secret of the new subaccount.
 
 ```code_snippets
 source: '_examples/subaccounts/create-subaccount'
