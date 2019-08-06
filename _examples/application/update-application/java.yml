@@ -1,0 +1,14 @@
+---
+title: Java
+language: java
+code:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/application/UpdateApplication.java
+    from_line: 44
+    to_line: 80
+client:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/application/UpdateApplication.java
+    from_line: 39
+    to_line: 42
+run_command: java-ide
+file_name: UpdateApplication.java
+unindent: true

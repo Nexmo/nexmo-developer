@@ -1,0 +1,14 @@
+---
+title: Java
+language: java
+code:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/application/CreateApplication.java
+    from_line: 45
+    to_line: 62
+client:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/application/CreateApplication.java
+    from_line: 40
+    to_line: 43
+run_command: java-ide
+file_name: CreateApplication.java
+unindent: true
