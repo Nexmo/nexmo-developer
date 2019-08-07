@@ -5,7 +5,7 @@ navigation_weight: 6
 
 # Transfer Credit
 
-In this code snippet you will see how to transfer credit from a parent account to a subaccount.
+In this code snippet you will see how to transfer credit from a parent account's credit facility to a subaccount.
 
 ## Example
 
