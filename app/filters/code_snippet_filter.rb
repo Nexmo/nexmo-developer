@@ -160,9 +160,8 @@ class CodeSnippetFilter < Banzai::Filter
     # Direct link on GitHub is in form https://github.com/nexmo/nexmo-java-code-snippets/blob/master/ExampleClass.java
     start_section = 'https://github.com'
 
-    # Insert "blob/master" and strip ".repos" - except dotnet that needs "blob/ASPNET" instead
+    # Insert "blob/master" and strip ".repos"
     repo_path = '\\0blob/master/'
-    repo_path = '\\0blob/ASPNET/' if code['source'].include?('dotnet')
     file_section = code['source'].sub('.repos', '').sub(%r{(-quickstart|-code-snippets|-code-snippets)/}, repo_path)
 
     # Line highlighting
