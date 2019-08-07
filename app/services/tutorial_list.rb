@@ -16,11 +16,10 @@ class TutorialList
   end
 
   def self.tasks_for_product(product)
-    tasks = {}
+    tasks = Hash.new { |h, k| h[k] = [] }
     Dir.glob("#{Rails.root}/config/tasks/*.yml") do |filename|
       t = YAML.load_file(filename)
       t['products'].each do |p|
-        tasks[p] = [] unless tasks[p]
         tasks[p].push({
                                    path: filename,
                                    external_link: t['external_link'],

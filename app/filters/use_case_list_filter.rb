@@ -3,7 +3,7 @@ class UseCaseListFilter < Banzai::Filter
     input.gsub(/```use_cases(.+?)```/m) do |_s|
       config = YAML.safe_load($1)
       @product = config['product']
-      @tutorials = UseCase.by_product(@product)
+      @use_cases = UseCase.by_product(@product)
 
       # Default to plain layout, but allow people to override it
       config['layout'] = 'list/plain' unless config['layout']

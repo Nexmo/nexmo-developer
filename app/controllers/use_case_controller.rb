@@ -6,10 +6,10 @@ class UseCaseController < ApplicationController
     @product = params['product']
     @language = params['code_language']
 
-    @tutorials = UseCase.all
+    @use_cases = UseCase.all
 
-    @tutorials = UseCase.by_product(@product, @tutorials) if @product
-    @tutorials = UseCase.by_language(@language, @tutorials) if @language
+    @use_cases = UseCase.by_product(@product, @use_cases) if @product
+    @use_cases = UseCase.by_language(@language, @use_cases) if @language
 
     @document_title = 'Use Cases'
 

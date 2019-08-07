@@ -1,35 +1,35 @@
-<% unless @tutorials.count.positive? %>
+<% unless @use_cases.count.positive? %>
   <div class="Vlt-callout Vlt-callout--warning">
     <i></i>
     <div class="Vlt-callout__content">
-      No tutorials available in this language
+      No use cases available in this language
     </div>
   </div>
   <% else %>
 <div class="masonry">
-  <% @tutorials.each_with_index do |tutorial, index| %>
+  <% @use_cases.each_with_index do |use_case, index| %>
     <div class="item">
       <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
         <div class="Vlt-card__image Vlt-card__image--tech Vlt-card__image--blue">
-          <a href="/<%= tutorial.products.join("") %>/tutorials/<%= @language %>" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Nxd-tutorials__product--<%= tutorial.subtitle %>"><%= tutorial.subtitle %></a>
+          <a href="/<%= use_case.products.join("") %>/use-cases/<%= @language %>" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Nxd-tutorials__product--<%= use_case.subtitle %>"><%= use_case.subtitle %></a>
         </div>
 
-        <a href="<%= tutorial.path %>">
+        <a href="<%= use_case.path %>">
           <div class="Vlt-card__content">
             <h2>
-              <span><%= tutorial.title %></span>
+              <span><%= use_case.title %></span>
             </h2>
-            <p><%= tutorial.description %></p>
+            <p><%= use_case.description %></p>
         </a>
 
-        <% if tutorial.languages.count > 0 %>
-          <% tutorial.languages.each do |language| %>
+        <% if use_case.languages.count > 0 %>
+          <% use_case.languages.each do |language| %>
             <a href="<%= "#{@base_path}/#{language.downcase}" %>"><small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language %>"><span>●</span> <%= language == "Objective_C" ? "Objective-C" : language %></small></a>
             <% end %>
           <% end %>
 
           <div class="Vlt-card__cta">
-            <a href="<%= tutorial.path %>" class="Vlt-btn Vlt-btn--secondary">
+            <a href="<%= use_case.path %>" class="Vlt-btn Vlt-btn--secondary">
             Read more
             </a>
           </div>

@@ -30,19 +30,19 @@ class UseCase
     product.camelcase
   end
 
-  def self.by_product(product, tutorials = [])
-    tutorials = all if tutorials.empty?
-    tutorials.select do |tutorial|
-      tutorial.products.include? product
+  def self.by_product(product, use_cases = [])
+    use_cases = all if use_cases.empty?
+    use_cases.select do |use_case|
+      use_case.products.include? product
     end
   end
 
-  def self.by_language(language, tutorials = [])
+  def self.by_language(language, use_cases = [])
     language = language.downcase
-    tutorials = all if tutorials.empty?
+    use_cases = all if use_cases.empty?
 
-    tutorials.select do |tutorial|
-      tutorial.languages.map(&:downcase).include? language
+    use_cases.select do |use_case|
+      use_case.languages.map(&:downcase).include? language
     end
   end
 

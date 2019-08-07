@@ -47,11 +47,11 @@ module ApplicationHelper
       tasks = TutorialList.by_product(product)
 
       # If we have use cases and tutorials, output them
-      if tasks['tutorials']&.size&.positive?
+      if tasks['tutorials'].any?
         data[:children] << { title: 'tutorials', path: "/#{product}/tasks", children: tasks['tutorials'] }
       end
 
-      if tasks['use_cases']&.size&.positive?
+      if tasks['use_cases'].any?
         # Otherwise show use_case as the top level
         data[:children] << { title: 'use-cases', path: "/#{product}/use-cases", children: tasks['use_cases'] }
       end
