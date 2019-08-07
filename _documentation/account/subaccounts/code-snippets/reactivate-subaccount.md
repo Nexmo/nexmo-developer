@@ -15,7 +15,7 @@ Key | Description
 -- | --
 `NEXMO_API_KEY` | The API key of the parent account.
 `NEXMO_API_SECRET` | The API secret of the parent account.
-`SUBACCOUNT_KEY` | The API key of the subaccount to be suspended.
+`SUBACCOUNT_KEY` | The API key of the subaccount to be reactivated.
 
 ```code_snippets
 source: '_examples/subaccounts/reactivate-subaccount'

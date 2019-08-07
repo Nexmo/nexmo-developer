@@ -3,7 +3,7 @@ title: Get Subaccount
 navigation_weight: 2
 ---
 
-# Get Subaccounts
+# Get Subaccount
 
 In this code snippet you will see how to retrieve details of a subaccount.
 
