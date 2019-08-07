@@ -266,6 +266,28 @@ api
 express-ws
 gevent
 NexmoClient
+Subaccounts
+subaccounts
+subaccount
+prepaid
+postpaid
+programmatically
+|credit_limit|
+|account_balance|
+Balance_available_for_transfer
+balance_available_for_transfer
+Credit_available_for_allocation
+credit_available_for_allocation
+credit_limit
+account_balance
+pre-allocated
+|account_balance - credit_limit|
+use_primary_account_balance
+total_balance
+Subaccount1
+Subaccount2
+subaccount1
+subaccount2
 add-on
 add-ons
 AWS
@@ -274,3 +296,4 @@ CloudFormation
 Lambda
 endpoint
 middleware
+realtime

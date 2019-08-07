@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/subaccounts/reactivate-subaccount.sh
+    from_line: 5
+    to_line: 7
+file_name: reactivate-subaccount.sh
+run_command: bash reactivate-subaccount.sh

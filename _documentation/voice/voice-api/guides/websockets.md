@@ -6,7 +6,12 @@ navigation_weight: 7
 
 # Websockets [Beta]
 
-## Overview
+This guide introduces you to WebSockets and how and why you might want to use them in your Nexmo Voice API applications.
+
+> For sample applications and other resources see  [further reading](#further-reading).
+
+
+## What is a WebSocket?
 
 WebSockets is a computer communications [protocol](https://tools.ietf.org/html/rfc6455) that enables two-way communication over a single, persistent TCP connection without the overhead of the HTTP request/response model.
 
@@ -19,16 +24,17 @@ This enables some really innovative use cases, such as:
 * Using an "expert" bot that accepts inbound calls and provides tailored advice. For example, a doctor in a remote area can call a medical expert bot and get access to the same medical advice available to specialists in big cities.
 * Including artificial intelligence engines in conference calls to enable better decision making.
 
+
 ## Working with WebSockets
 
 The WebSocket is an endpoint in the same way that a phone or SIP address is. This means it is a participant in your call and not a passive monitor like a recording. If you connect a WebSocket to a conference call, or a third-party in a 1-1 call, the audio it receives is a mix of all the audio in the call. It is not possible to receive a single leg of the conversation via the WebSocket.
 
 The Nexmo Voice API acts as the client when establishing the WebSocket connection. As the application developer you need to make a compatible server available to:
 
-* return an NCCO instructing Nexmo to connect to your WebSocket endpoint
-* accept this WebSocket connection
-* handle JSON text-based protocol messages
-* handle mixed call audio binary messages
+* Return an NCCO instructing Nexmo to connect to your WebSocket endpoint
+* Accept this WebSocket connection
+* Handle JSON text-based protocol messages
+* Handle mixed call audio binary messages
 
 ## Connecting to a WebSocket
 
@@ -66,9 +72,9 @@ To choose the sampling rate set the `content-type` property to `audio/l16;rate=1
 
 You can send additional optional properties to your WebSocket server by adding key/value pairs to a `headers` property. The maximum length of the `headers` data is 512 bytes.
 
-## Handling Incoming WebSocket Messages
+## Handling incoming WebSocket messages
 
-### First Message
+### First message
 
 The initial message sent on an established WebSocket connection will be text-based and contain a JSON payload, it will have the `event` field set to `websocket:connected` and detail the audio format in `content-type`, along with any other metadata that you have put in the `headers` property of the WebSocket endpoint in your NCCO `connect`. The `headers` property is not present on the JSON payload so the properties are at the top-level of the JSON. For example:
 
@@ -114,7 +120,7 @@ This results in the following JSON in the first message on the WebSocket:
 ```
 After the initial text message subsequent messages on the WebSocket can be text or binary.
 
-### Binary Audio Messages
+### Binary audio messages
 
 Messages that are binary represent the audio of the call. The audio codec presently supported on the WebSocket interface is Linear PCM 16-bit, with either a 8kHz or a 16kHz sample rate, and a 20ms frame size.
 
@@ -127,13 +133,13 @@ Each message will be a 20ms sample of the audio from the call. If you choose the
 | 8000 | 160 | 160 x 2 = 320 |
 | 16000 | 320 | 320 x 2 = 640 |
 
-### JSON Messages
+### JSON messages
 
 Various JSON text-based messages may be sent at any point in the call, developers should handle these appropriately and examine the `event` field to determine the message type and if it is of interest.
 
-### DTMF Events
+### DTMF events
 
-If any party on the call connected to the websocket sends a DTMF tone this will trigger an event on the websocket, this event is a *text* message with a JSON payload, it will be interleaved between the audio frames and have the following format:
+If any party on the call connected to the websocket sends a [DTMF](/concepts/guides/glossary#dtmf) tone this will trigger an event on the websocket, this event is a *text* message with a JSON payload, it will be interleaved between the audio frames and have the following format:
 
 ```json
 {"event":"websocket:dtmf","digit":"5","duration":260}
@@ -150,5 +156,30 @@ You will receive one event for each keypress and each event will contain only on
 You can send audio back into the call by writing binary messages to the WebSocket. The audio must be in the same format as described in the previous section. It is important that each message is 320 or 640 bytes (depending on sample rate) and contains 20ms of audio.
 
 You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed. Nexmo will only buffer 1024 messages which should be enough for around 20 seconds of audio, if your file is longer than this you should implement a delay of 18-19ms between each message, or consider using the [REST API to play an audio file](/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call/).
+
+## Further reading
+
+Use the following resources to help you make the most of WebSockets in your Voice API applications:
+
+* Webinars:
+  * [Getting started with WebSockets](https://www.nexmo.com/blog/2017/02/15/webinar-getting-started-nexmo-voice-websockets-dr/)
+  * [Add sentiment analysis to your inbound call flow with IBM Watson and Nexmo webinar](https://attendee.gotowebinar.com/recording/7952180850491069704) and the accompanying [source code](https://github.com/nexmo-community/sentiment-analysis-websockets)
+* Tutorials:
+    * Create a WebSocket echo server:
+        * [Node](/tutorials/voice-call-websocket-node)
+        * [Python](/tutorials/voice-call-websocket-python)
+* Demo apps:
+  * [Browser audio demo](https://github.com/nexmo-community/audiosocket-demo): Send conference call audio to a web browser using WebSockets and the browser Web Audio API (Python)
+  * WebSocket recorder demo: Receive binary from a WebSocket, store it in a file and then convert it to WAV 
+  format.
+      * [Node](https://github.com/nexmo-community/node-websocket-recorder)
+      * [Python](https://github.com/nexmo-community/python-websocket-recorder)
+      * [.NET](https://github.com/nexmo-community/NET-Fleck-Websocket-recorder)
+
+  * [Audio socket framework](https://github.com/nexmo-community/audiosocket_framework): A useful starting point for interfacing between Nexmo and an AI bot platform
+  * [Realtime transcription using Microsoft Azure](https://github.com/nexmo-community/voice-microsoft-speechtotext)
+  * [Socket phone](https://github.com/nexmo-community/socketphone): Connect a Nexmo WebSocket call to your local machine
+* Documentation:
+  * [Voice API Reference](https://developer.nexmo.com/api/voice.v2)
 
 
