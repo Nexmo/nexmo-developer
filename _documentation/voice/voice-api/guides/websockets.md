@@ -151,4 +151,30 @@ You can send audio back into the call by writing binary messages to the WebSocke
 
 You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed. Nexmo will only buffer 1024 messages which should be enough for around 20 seconds of audio, if your file is longer than this you should implement a delay of 18-19ms between each message, or consider using the [REST API to play an audio file](/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call/).
 
+## Further reading
+
+Use the following resources to help you make the most of WebSockets in your Voice API applications:
+
+* Webinars:
+  * [Getting started with WebSockets](https://www.nexmo.com/blog/2017/02/15/webinar-getting-started-nexmo-voice-websockets-dr/)
+  * [Add sentiment analysis to your inbound call flow with IBM Watson and Nexmo webinar](https://attendee.gotowebinar.com/recording/7952180850491069704) and the accompanying [source code](https://github.com/nexmo-community/sentiment-analysis-websockets)
+* Tutorials:
+    * Create a WebSocket echo server:
+        * [Node](/tutorials/voice-call-websocket-node)
+        * [Python](/tutorials/voice-call-websocket-python)
+* Demo apps:
+  * [Browser audio demo](https://github.com/nexmo-community/audiosocket-demo): Send conference call audio to a web browser using WebSockets and the browser Web Audio API (Python)
+  * WebSocket recorder demo: Receive binary from a WebSocket, store it in a file and then convert it to WAV 
+  format.
+      * [Node](https://github.com/nexmo-community/node-websocket-recorder)
+      * [Python](https://github.com/nexmo-community/python-websocket-recorder)
+      * [.NET](https://github.com/nexmo-community/NET-Fleck-Websocket-recorder)
+
+  * [Audio socket framework](https://github.com/nexmo-community/audiosocket_framework): A useful starting point for interfacing between Nexmo and an AI bot platform
+  * [Realtime transcription using Microsoft Azure](https://github.com/nexmo-community/voice-microsoft-speechtotext)
+  * [Socket phone](https://github.com/nexmo-community/socketphone): Connect a Nexmo WebSocket call to your local machine
+
+* Documentation
+  * [Voice API Reference](https://developer.nexmo.com/api/voice.v2)
+
 
