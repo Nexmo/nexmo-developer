@@ -179,8 +179,7 @@ Use the following resources to help you make the most of WebSockets in your Voic
   * [Audio socket framework](https://github.com/nexmo-community/audiosocket_framework): A useful starting point for interfacing between Nexmo and an AI bot platform
   * [Realtime transcription using Microsoft Azure](https://github.com/nexmo-community/voice-microsoft-speechtotext)
   * [Socket phone](https://github.com/nexmo-community/socketphone): Connect a Nexmo WebSocket call to your local machine
-
-* Documentation
+* Documentation:
   * [Voice API Reference](https://developer.nexmo.com/api/voice.v2)
 
 
