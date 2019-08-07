@@ -1,0 +1,14 @@
+---
+title: Java
+language: java
+client:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/CancelNumber.java
+    from_line: 39
+    to_line: 42
+code:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/CancelNumber.java
+    from_line: 44
+    to_line: 46
+file_name: CancelNumber.java
+run_command: java-ide
+unindent: true

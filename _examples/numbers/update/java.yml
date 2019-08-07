@@ -1,0 +1,14 @@
+---
+title: Java
+language: java
+client:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/UpdateNumber.java
+    from_line: 46
+    to_line: 49
+code:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/UpdateNumber.java
+    from_line: 51
+    to_line: 65
+file_name: UpdateNumber.java
+run_command: java-ide
+unindent: true
