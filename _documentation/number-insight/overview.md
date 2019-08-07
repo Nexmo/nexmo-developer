@@ -37,7 +37,7 @@ Each API level builds upon the capabilities of the previous one. For example, th
 Feature | Basic | Standard | Advanced
 :--|:--:|:--:|:--:
 Number format and origin| ✅ | ✅ | ✅    
-Number type| ❌ | ✅ | ✅
+Network type| ❌ | ✅ | ✅
 Carrier and country| ❌ | ✅ | ✅
 Ported| ❌ | ❌ | ✅
 IP match| ❌ | ❌ | ✅
