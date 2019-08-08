@@ -1,6 +1,6 @@
 class DocumentationConstraint
   def self.documentation
-    CodeLanguage.route_constraint.merge(product)
+    CodeLanguage.route_constraint.merge(product_with_parent)
   end
 
   def self.product_list

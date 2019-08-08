@@ -85,6 +85,8 @@ Rails.application.routes.draw do
     mount Split::Dashboard, at: 'split' if ENV['REDIS_URL']
   end
 
+  get '/(:product)/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
+  get '/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
   get '/(:product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
   get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: CodeLanguage.route_constraint
 

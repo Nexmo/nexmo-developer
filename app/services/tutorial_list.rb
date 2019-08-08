@@ -17,20 +17,30 @@ class TutorialList
 
   def self.tasks_for_product(product)
     tasks = Hash.new { |h, k| h[k] = [] }
-    Dir.glob("#{Rails.root}/config/tutorials/*.yml") do |filename|
-      t = YAML.load_file(filename)
-      t['products'].each do |p|
-        tasks[p].push({
-                                   path: filename,
-                                   external_link: t['external_link'],
-                                   title: t['title'],
-                                   product: p,
-                                   is_file?: true,
-                                   is_task?: true,
-                                 })
+    all.each do |t|
+      t[:products].each do |p|
+        tasks[p].push(t.merge({ product: p }))
       end
     end
 
     tasks[product]
+  end
+
+  def self.all
+    tasks = []
+    Dir.glob("#{Rails.root}/config/tutorials/*.yml") do |filename|
+      t = YAML.load_file(filename)
+      tasks.push({
+                   path: filename,
+                   external_link: t['external_link'],
+                   title: t['title'],
+                   description: t['description'],
+                   products: t['products'],
+                   is_file?: true,
+                   is_task?: true,
+                 })
+    end
+
+    tasks
   end
 end

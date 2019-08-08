@@ -206,13 +206,3 @@
 "/tutorials/voice-alerts": "/use-cases/voice-alerts"
 "/tutorials/voice-call-websocket-node": "/use-cases/voice-call-websocket-node"
 "/tutorials/voice-call-websocket-python": "/use-cases/voice-call-websocket-python"
-"/messaging/sms/tutorials": "/messaging/sms/use-cases"
-
-"/audit/tutorials": "/audit/use-cases"
-"/voice/voice-api/tutorials": "/voice/voice-api/use-cases"
-"/verify/tutorials": "/verify/use-cases"
-"/messages/tutorials": "/messages/use-cases"
-"/dispatch/tutorials": "/dispatch/use-cases"
-"/number-insight/tutorials": "/number-insight/use-cases"
-"/conversation/tutorials": "/conversation/use-cases"
-"/client-sdk/tutorials": "/client-sdk/use-cases"
