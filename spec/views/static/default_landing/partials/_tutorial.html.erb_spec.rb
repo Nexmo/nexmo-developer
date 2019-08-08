@@ -14,7 +14,7 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       - ruby
       ---
     HEREDOC
-    allow(File).to receive(:exist?).with('config/tasks/this-is-a-sample.yml').and_return(true)
+    allow(File).to receive(:exist?).with('config/tutorials/this-is-a-sample.yml').and_return(true)
     allow(File).to receive(:read).and_return(tutorial)
 
     render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
@@ -37,7 +37,7 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       - ruby
       ---
     HEREDOC
-    allow(File).to receive(:exist?).with('config/tasks/this-is-a-sample.yml').and_return(true)
+    allow(File).to receive(:exist?).with('config/tutorials/this-is-a-sample.yml').and_return(true)
     allow(File).to receive(:read).and_return(tutorial)
 
     render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }

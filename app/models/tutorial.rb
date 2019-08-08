@@ -1,6 +1,6 @@
-class Task
+class Tutorial
   include ActiveModel::Model
-  attr_accessor :raw, :name, :current_step, :title, :description, :product, :subtasks, :prerequisites
+  attr_accessor :raw, :name, :current_step, :current_product, :title, :description, :products, :subtasks, :prerequisites
 
   def content_for(step_name)
     if ['introduction', 'conclusion'].include? step_name
@@ -35,17 +35,20 @@ class Task
     subtasks[current_task_index - 1]
   end
 
-  def self.load(name, current_step)
+  def self.load(name, current_step, current_product = nil)
     document_path = "#{task_config_path}/#{name}.yml"
     document = File.read(document_path)
     config = YAML.safe_load(document)
-    Task.new({
+    current_product ||= config['products'].first
+
+    Tutorial.new({
       raw: config,
       name: name,
       current_step: current_step,
+      current_product: current_product,
       title: config['title'],
       description: config['description'],
-      product: config['product'],
+      products: config['products'],
       prerequisites: load_prerequisites(config['prerequisites'], current_step),
       subtasks: load_subtasks(config['introduction'], config['prerequisites'], config['tasks'], config['conclusion'], current_step),
     })
@@ -115,10 +118,10 @@ class Task
   end
 
   def self.task_config_path
-    Pathname.new("#{Rails.root}/config/tasks")
+    Pathname.new("#{Rails.root}/config/tutorials")
   end
 
   def self.task_content_path
-    Pathname.new("#{Rails.root}/_tasks")
+    Pathname.new("#{Rails.root}/_tutorials")
   end
 end

@@ -17,7 +17,7 @@ class TutorialList
 
   def self.tasks_for_product(product)
     tasks = Hash.new { |h, k| h[k] = [] }
-    Dir.glob("#{Rails.root}/config/tasks/*.yml") do |filename|
+    Dir.glob("#{Rails.root}/config/tutorials/*.yml") do |filename|
       t = YAML.load_file(filename)
       t['products'].each do |p|
         tasks[p].push({

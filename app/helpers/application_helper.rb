@@ -48,7 +48,7 @@ module ApplicationHelper
 
       # If we have use cases and tutorials, output them
       if tasks['tutorials'].any?
-        data[:children] << { title: 'tutorials', path: "/#{product}/tasks", children: tasks['tutorials'] }
+        data[:children] << { title: 'tutorials', path: "/#{product}/tutorials", children: tasks['tutorials'] }
       end
 
       if tasks['use_cases'].any?
@@ -85,7 +85,7 @@ module ApplicationHelper
 
   def path_to_url(path)
     path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/_use_cases/", '/use-cases/')
-    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/config/tasks/", '/task/')
+    path = path.to_s.gsub('.yml', '').gsub("#{Rails.root}/config/tutorials/", '/tutorials/')
     path.gsub(/.*#{@namespace_root}/, '').gsub('.md', '')
   end
 
@@ -214,7 +214,7 @@ module ApplicationHelper
     has_active_class = (url == active_path)
 
     # Handle tasks
-    has_active_class = active_path.starts_with?(url) if @navigation == :tasks
+    has_active_class = active_path.starts_with?(url) if @navigation == :tutorials
 
     # Output
     s = []

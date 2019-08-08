@@ -6,13 +6,13 @@
     <br />
     <div class="Vlt-grid">
       <div class="Vlt-col">
-        <% if @task.previous_step %>
-          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/task/#{@task.name}/#{@task.previous_step['path']}" %>"> &laquo; Previous</a>
+        <% if @tutorial.previous_step %>
+          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.previous_step['path']}" %>"> &laquo; Previous</a>
         <% end %>
       </div>
       <div class="Vlt-col Vlt-right">
-        <% if @task.next_step %>
-          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/task/#{@task.name}/#{@task.next_step['path']}" %>">Next &raquo;</a>
+        <% if @tutorial.next_step %>
+          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.next_step['path']}" %>">Next &raquo;</a>
         <% end %>
       </div>
      </div>
@@ -24,19 +24,19 @@
           <svg class="Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-list"/></svg>
         </div>
         <div class="Vlt-card__content">
-          <h4><%= @task.title %></h4>
-          <small><%= @task.description %></small>
+          <h4><%= @tutorial.title %></h4>
+          <small><%= @tutorial.description %></small>
           <br /><br />
           <span style="font-weight: bold;">Steps</span>
           <br />
           <br />
-            <% @task.subtasks.each_with_index do |t, i| %>
+            <% @tutorial.subtasks.each_with_index do |t, i| %>
             <div class="Vlt-grid">
               <div class="Vlt-col Vlt-col--1of4">
               <span class="Vlt-number <%= t['is_active'] ? 'Vlt-bg-blue': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
                 </div>
               <div class="Vlt-col Vlt-col--3of4 Nxd-step">
-              <a title="<%= t['description'] %>" href="<%= "/task/#{@task.name}/#{t['path']}" %>"><%= t['title'] %></a>
+              <a title="<%= t['description'] %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{t['path']}" %>"><%= t['title'] %></a>
               </div>
             </div>
             <% end %>
