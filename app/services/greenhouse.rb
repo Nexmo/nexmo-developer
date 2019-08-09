@@ -1,5 +1,6 @@
 class Greenhouse
   DEPARTMENT_ID = 4019731002
+  TITLES = ['sdk', 'advocate', 'community manager'].freeze
 
   def self.careers
     new.jobs
@@ -21,7 +22,12 @@ class Greenhouse
 
   def fetch_jobs
     @client.jobs(content: 'true')[:jobs].select do |j|
-      j[:departments].any? { |d| d[:id] == DEPARTMENT_ID }
+      valid_job?(j)
     end
+  end
+
+  def valid_job?(job)
+    job[:departments].any? { |d| d[:id] == DEPARTMENT_ID } &&
+      job[:title].downcase.match?(Regexp.union(TITLES))
   end
 end

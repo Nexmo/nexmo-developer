@@ -29,6 +29,18 @@ RSpec.describe Greenhouse do
     end
   end
 
+  describe '#valid_job?' do
+    it 'returns true if the job is from our department and team' do
+      job = { title: 'OpenTok Advocate - Remote', departments: [{ id: described_class::DEPARTMENT_ID }] }
+      expect(described_class.new.valid_job?(job)).to be_truthy
+    end
+
+    it 'returns false otherwise' do
+      job = { title: 'OpenTok - Remote', departments: [{ id: described_class::DEPARTMENT_ID }] }
+      expect(described_class.new.valid_job?(job)).to be_falsey
+    end
+  end
+
   describe '.expire_cache' do
     it 'expires the careers from the cache' do
       expect(Rails.cache).to receive(:delete).with('careers')
