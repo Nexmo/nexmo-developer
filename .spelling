@@ -297,3 +297,10 @@ Lambda
 endpoint
 middleware
 realtime
+R-URI
+sip-eu1
+sip-eu2
+sip-ap1
+sip-ap2
+EU
+AP
