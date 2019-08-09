@@ -37,5 +37,3 @@ Available domains are the same as the A records:
 - sip-eu2.nexmo.com: EU
 - sip-ap1.nexmo.com: AP
 - sip-ap2.nexmo.com: AP
-
-
