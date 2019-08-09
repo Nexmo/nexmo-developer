@@ -33,7 +33,7 @@ In this document you can learn about:
 * [**How to Get Started with the Audit API**](#getting-started)
 * [Concepts](#concepts)
 * [Code Snippets](#code-snippets)
-* [Tutorials](#tutorials)
+* [Use Cases](#use-cases)
 * [Reference](#reference)
 
 ## Authentication
@@ -111,9 +111,9 @@ product: audit
 product: audit
 ```
 
-## Tutorials
+## Use Cases
 
-```tutorials
+```use_cases
 product: audit
 ```
 

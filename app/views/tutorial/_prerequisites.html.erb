@@ -1,0 +1,23 @@
+<h1>Configure your prerequisites</h1>
+
+<p>
+  There are a few prerequisites that you need to complete before you can work through this tutorial. If you've already completed any of them, feel free to skip that step
+</p>
+
+<hr />
+
+
+<% @tutorial.prerequisites.map do |p| %>
+  <div class="Vlt-accordion">
+    <button class="Vlt-accordion__trigger" style="padding-top: 10px;"><h4 style="margin-bottom:10px;"><%= p['title'] %></h4></button>
+
+  <div class="Vlt-accordion__content">
+  <%=
+    MarkdownPipeline.new({
+                             code_language: @code_language,
+                             current_user: current_user,
+                         }).call(p['content']).html_safe
+  %>
+  </div>
+  </div>
+<% end %>

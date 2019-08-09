@@ -57,9 +57,9 @@ product: verify
 product: verify
 ```
 
-## Tutorials
+## Use Cases
 
-```tutorials
+```use_cases
 product: verify
 ```
 

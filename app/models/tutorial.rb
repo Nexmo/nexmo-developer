@@ -1,74 +1,127 @@
 class Tutorial
   include ActiveModel::Model
-  attr_accessor :title, :description, :external_link, :products, :document_path, :languages
+  attr_accessor :raw, :name, :current_step, :current_product, :title, :description, :products, :subtasks, :prerequisites
 
-  def body
-    File.read(document_path)
-  end
-
-  def path
-    return external_link if external_link
-    "/tutorials/#{document_path.relative_path_from(Tutorial.origin)}".gsub('.md', '')
-  end
-
-  def subtitle
-    normalized_products = products.map do |product|
-      normalise_product_title(product)
+  def content_for(step_name)
+    if ['introduction', 'conclusion'].include? step_name
+      raise "Invalid step: #{step_name}" unless raw[step_name]
+      return raw[step_name]['content']
     end
 
-    normalized_products.sort.to_sentence
+    path = "#{self.class.task_content_path}/#{step_name}.md"
+
+    raise "Invalid step: #{step_name}" unless File.exist? path
+    File.read(path)
   end
 
-  def normalise_product_title(product)
-    return 'SMS' if product == 'messaging/sms'
-    return 'Voice' if product == 'voice/voice-api'
-    return 'Number Insight' if product == 'number-insight'
-    return 'Messages' if product == 'messages'
-    return 'Dispatch' if product == 'dispatch'
-    return 'Client SDK' if product == 'client-sdk'
-    product.camelcase
+  def first_step
+    subtasks.first['path']
   end
 
-  def self.by_product(product, tutorials = [])
-    tutorials = all if tutorials.empty?
-    tutorials.select do |tutorial|
-      tutorial.products.include? product
+  def prerequisite?
+    prerequisites.pluck('path').include?(@current_step)
+  end
+
+  def next_step
+    current_task_index = subtasks.pluck('path').index(@current_step)
+    return nil unless current_task_index
+    subtasks[current_task_index + 1]
+  end
+
+  def previous_step
+    current_task_index = subtasks.pluck('path').index(@current_step)
+    return nil unless current_task_index
+    return nil if current_task_index <= 0
+    subtasks[current_task_index - 1]
+  end
+
+  def self.load(name, current_step, current_product = nil)
+    document_path = "#{task_config_path}/#{name}.yml"
+    document = File.read(document_path)
+    config = YAML.safe_load(document)
+    current_product ||= config['products'].first
+
+    Tutorial.new({
+      raw: config,
+      name: name,
+      current_step: current_step,
+      current_product: current_product,
+      title: config['title'],
+      description: config['description'],
+      products: config['products'],
+      prerequisites: load_prerequisites(config['prerequisites'], current_step),
+      subtasks: load_subtasks(config['introduction'], config['prerequisites'], config['tasks'], config['conclusion'], current_step),
+    })
+  end
+
+  def self.load_prerequisites(prerequisites, current_step)
+    return [] unless prerequisites
+
+    prerequisites.map do |t|
+      t_path = "#{task_content_path}/#{t}.md"
+      raise "Prerequisite not found: #{t}" unless File.exist? t_path
+      content = File.read(t_path)
+      prereq = YAML.safe_load(content)
+      {
+        'path' => t,
+        'title' => prereq['title'],
+        'description' => prereq['description'],
+        'is_active' => t == current_step,
+        'content' => content,
+      }
     end
   end
 
-  def self.by_language(language, tutorials = [])
-    language = language.downcase
-    tutorials = all if tutorials.empty?
+  def self.load_subtasks(introduction, prerequisites, tasks, conclusion, current_step)
+    tasks ||= []
 
-    tutorials.select do |tutorial|
-      tutorial.languages.map(&:downcase).include? language
+    tasks = tasks.map do |t|
+      t_path = "#{task_content_path}/#{t}.md"
+      raise "Subtask not found: #{t}" unless File.exist? t_path
+      subtask_config = YAML.safe_load(File.read(t_path))
+      {
+        'path' => t,
+        'title' => subtask_config['title'],
+        'description' => subtask_config['description'],
+        'is_active' => t == current_step,
+      }
     end
-  end
 
-  def self.origin
-    Pathname.new("#{Rails.root}/_tutorials")
-  end
-
-  def self.all
-    files.map do |document_path|
-      document_path = Pathname.new(document_path)
-      document = File.read(document_path)
-      frontmatter = YAML.safe_load(document)
-
-      Tutorial.new({
-        title: frontmatter['title'],
-        description: frontmatter['description'],
-        external_link: frontmatter['external_link'],
-        products: frontmatter['products'].split(',').map(&:strip),
-        languages: frontmatter['languages'] || [],
-        document_path: document_path,
+    if prerequisites
+      tasks.unshift({
+        'path' => 'prerequisites',
+        'title' => 'Prerequisites',
+        'description' => 'Everything you need to complete this task',
+        'is_active' => current_step == 'prerequisites',
       })
     end
+
+    if introduction
+      tasks.unshift({
+        'path' => 'introduction',
+        'title' => introduction['title'],
+        'description' => introduction['description'],
+        'is_active' => current_step == 'introduction',
+      })
+    end
+
+    if conclusion
+      tasks.push({
+        'path' => 'conclusion',
+        'title' => conclusion['title'],
+        'description' => conclusion['description'],
+        'is_active' => current_step == 'conclusion',
+      })
+    end
+
+    tasks
   end
 
-  private
+  def self.task_config_path
+    Pathname.new("#{Rails.root}/config/tutorials")
+  end
 
-  private_class_method def self.files
-    Dir.glob("#{origin}/**/*.md")
+  def self.task_content_path
+    Pathname.new("#{Rails.root}/_tutorials")
   end
 end

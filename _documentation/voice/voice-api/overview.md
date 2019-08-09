@@ -23,7 +23,7 @@ In this document you can learn about:
 * [**How to Get Started with the Voice API**](#getting-started) including examples in your language
 * [Guides](#guides) learn about working with the Voice API
 * [Code Snippets](#code-snippets) code snippets to help with specific tasks
-* [Tutorials](#tutorials) detailed tutorials for some common use cases
+* [Use Cases](#use-cases) detailed use cases with code examples
 * [Reference](#reference) API documentation and other supporting content
 
 ## Concepts
@@ -73,9 +73,9 @@ product: voice/voice-api
 product: voice/voice-api
 ```
 
-## Tutorials
+## Use Cases
 
-```tutorials
+```use_cases
 product: voice/voice-api
 ```
 

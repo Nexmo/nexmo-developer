@@ -1,0 +1,14 @@
+---
+title: Java
+language: java
+client:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/SearchNumbers.java
+    from_line: 41
+    to_line: 44
+code:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/SearchNumbers.java
+    from_line: 46
+    to_line: 65
+file_name: SearchNumbers.java
+run_command: java-ide
+unindent: true

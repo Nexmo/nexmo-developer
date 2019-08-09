@@ -33,9 +33,10 @@ Rails.application.routes.draw do
   get '/stats', to: 'dashboard#stats'
   get '/stats/summary', to: 'dashboard#stats_summary'
 
-  get '/tutorials/(:code_language)', to: 'tutorials#index', constraints: CodeLanguage.route_constraint
-  get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: CodeLanguage.route_constraint
-  get '/*product/tutorials(/:code_language)', to: 'tutorials#index', constraints: lambda { |request|
+  get '/use-cases/(:code_language)', to: 'use_case#index', constraints: CodeLanguage.route_constraint
+  get '/use-cases/*document(/:code_language)', to: 'use_case#show', constraints: CodeLanguage.route_constraint
+
+  get '/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: lambda { |request|
     products = DocumentationConstraint.product_with_parent_list
 
     # If there's no language in the URL it's an implicit match
@@ -84,8 +85,10 @@ Rails.application.routes.draw do
     mount Split::Dashboard, at: 'split' if ENV['REDIS_URL']
   end
 
-  get '/(:product)/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: DocumentationConstraint.documentation
-  get '/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: CodeLanguage.route_constraint
+  get '/(:product)/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
+  get '/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
+  get '/(:product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
+  get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: CodeLanguage.route_constraint
 
   get '/*product/api-reference', to: 'markdown#api'
 

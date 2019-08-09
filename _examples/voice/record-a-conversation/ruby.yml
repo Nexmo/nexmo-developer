@@ -1,6 +1,7 @@
 ---
 dependencies:
     - sinatra
+    - sinatra-contrib
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record-a-conversation.rb
     from_line: 15

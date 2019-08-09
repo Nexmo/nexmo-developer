@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/application/delete-application.rb
+    from_line: 19
+    to_line: 24
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/application/delete-application.rb
+    from_line: 14
+    to_line: 17

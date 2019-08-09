@@ -39,7 +39,7 @@ The rest of this document contains the following information:
 * [Nexmo SMS API Concepts](#concepts) - what you need to know
 * [Guides](#guides) - learn how to use the SMS API
 * [Code Snippets](#code-snippets) - code snippets to help with specific tasks
-* [Tutorials](#tutorials) - detailed tutorials for some common use cases
+* [Use Cases](#use-cases) - detailed use cases with code examples
 * [Reference](#reference) - complete API documentation
 
 ## Concepts
@@ -65,9 +65,9 @@ product: messaging/sms
 product: messaging/sms
 ```
 
-## Tutorials
+## Use Cases
 
-```tutorials
+```use_cases
 product: messaging/sms
 ```
 

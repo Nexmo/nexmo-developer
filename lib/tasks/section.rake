@@ -62,7 +62,7 @@ def overview_content(section_name, slug)
     * [How to Get Started with the #{section_name} API](#getting-started)
     * [Code Snippets](#code-snippets)
     * [Guides](#guides)
-    * [Tutorials](#tutorials)
+    * [Use Cases](#use-cases)
     * [Reference](#reference)
 
     ## Concepts

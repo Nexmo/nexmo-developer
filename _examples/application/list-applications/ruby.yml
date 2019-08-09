@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/application/list-applications.rb
+    from_line: 17
+    to_line: 21
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/application/list-applications.rb
+    from_line: 12
+    to_line: 15

@@ -1,0 +1,73 @@
+<h1>Tutorials</h1>
+
+
+<style>
+  .tutorial-language-link svg {
+    height: 15px;
+    width: 15px;
+  }
+</style>
+
+<strong>Filter: &nbsp;&nbsp;</strong>
+
+<div class="Vlt-dropdown">
+  <button class="Vlt-dropdown__btn">
+    Choose a product
+  </button>
+  <div class="Vlt-dropdown__panel">
+    <div class="Vlt-dropdown__panel__content">
+      <ul>
+        <% @products.each do |product| %>
+          <li><a class="Vlt-dropdown__link" href="/<%= product['path'] %>/tutorials/<%= @language %>"><svg style="height: 20px; width: 20px;" class="Vlt-<%= product['icon_colour'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br /><br />
+
+<p>Get started with Nexmo with tutorials that will walk you through building a variety of practical applications</p>
+
+<% unless @tutorials.count.positive? %>
+  <div class="Vlt-callout Vlt-callout--warning">
+    <i></i>
+    <div class="Vlt-callout__content">
+      No tutorials available
+    </div>
+  </div>
+<% else %>
+  <div class="masonry">
+    <% @tutorials.each_with_index do |tutorial, index| %>
+      <%
+        if tutorial[:external_link]
+          url = tutorial[:external_link]
+        else
+          url = tutorial[:path].gsub("#{Rails.root}/config/", '').gsub('.yml', '')
+        end
+      %>
+
+      <div class="item">
+        <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
+          <div class="Vlt-card__image Vlt-card__image--tech Vlt-card__image--blue">
+        </div>
+
+          <a href="<%= url %>">
+            <div class="Vlt-card__content">
+              <h2>
+                <span><%= tutorial[:title] %></span>
+              </h2>
+              <p><%= tutorial[:description] %></p>
+          </a>
+
+          <div class="Vlt-card__cta">
+            <a href="<%= url %>" class="Vlt-btn Vlt-btn--secondary">
+              Read more
+            </a>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+    </div>
+<% end %>

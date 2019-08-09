@@ -12,8 +12,8 @@ RSpec.describe 'Smoke Tests', type: :request do
     expect(response.body).to include('Welcome to the Nexmo Developer Documentation')
   end
 
-  it '/tutorials contains the expected text' do
-    get '/tutorials'
+  it '/use-cases contains the expected text' do
+    get '/use-cases'
     expect(response.body).to include('Get started with Nexmo with tutorials that will walk you through building a variety of practical applications')
   end
 
@@ -120,6 +120,14 @@ RSpec.describe 'Smoke Tests', type: :request do
   it '/migrate/tropo contains the expected text' do
     get '/migrate/tropo/sms'
     expect(response.body).to include('Convert your SMS code from Tropo to Nexmo')
+  end
+
+  # Make sure all landing pages render
+  LandingPageConstraint.list.each do |name|
+    name = "/#{name}"
+    it "#{name} loads" do
+      get name
+    end
   end
 
   it '/api-errors contains the expected text' do

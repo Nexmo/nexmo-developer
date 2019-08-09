@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/subaccounts/get-subaccounts.sh
+    from_line: 5
+    to_line: 5
+file_name: get-subaccounts.sh
+run_command: bash get-subaccounts.sh

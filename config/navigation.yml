@@ -11,7 +11,7 @@ navigation_weight:
   Account: 99
   Vonage Business Cloud: 7
 
-  Number Programmability: 1
+  Smart Numbers: 1
   VBC APIs: 2
   Getting Started: 1
   Account API: 2
@@ -28,6 +28,7 @@ navigation_weight:
   Code Snippets: 5
 
   Tutorials: 6
+  Use Cases: 6
   Troubleshooting: 7
   API Reference: 7
   Conversation: 8
@@ -79,6 +80,8 @@ navigation_overrides:
   account:
     svg: 'user'
     svgColor: 'blue'
+    subaccounts:
+      label: 'Beta'
   redact:
     label: 'Dev Preview'
     svg: 'lock'

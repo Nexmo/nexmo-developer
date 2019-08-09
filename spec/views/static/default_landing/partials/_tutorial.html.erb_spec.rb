@@ -8,11 +8,13 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       external_link: https://sample.url/path/to/link/
       image_url: https://sample.url/path/to/image
       description: This is a sample description
-      products: sms/messaging
+      products:
+        - sms/messaging
       languages:
       - ruby
       ---
     HEREDOC
+    allow(File).to receive(:exist?).with('config/tutorials/this-is-a-sample.yml').and_return(true)
     allow(File).to receive(:read).and_return(tutorial)
 
     render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
@@ -29,16 +31,18 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       title: This is a sample title
       image_url: https://sample.url/path/to/image
       description: This is a sample description
-      products: sms/messaging
+      products:
+        - sms/messaging
       languages:
       - ruby
       ---
     HEREDOC
+    allow(File).to receive(:exist?).with('config/tutorials/this-is-a-sample.yml').and_return(true)
     allow(File).to receive(:read).and_return(tutorial)
 
     render partial: '/static/default_landing/partials/tutorial.html.erb', locals: { 'name' => 'this-is-a-sample' }
 
-    expect(rendered).to include('<a class="Vlt-card" href="/tutorials/this-is-a-sample">')
+    expect(rendered).to include('<a class="Vlt-card" href="/use-cases/this-is-a-sample">')
     expect(rendered).to include('src="https://sample.url/path/to/image"')
     expect(rendered).to include('<h4 class="Vlt-margin--top2">This is a sample title</h4>')
     expect(rendered).to include('<p>This is a sample description</p>')
@@ -50,7 +54,8 @@ RSpec.describe 'rendering _tutorial landing page partial' do
       title: This is a sample title
       image_url: https://sample.url/path/to/image
       description: This is a sample description
-      products: sms/messaging
+      products:
+        - sms/messaging
       languages:
       - ruby
       ---

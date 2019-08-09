@@ -1,0 +1,9 @@
+---
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/make-outbound-call-with-ncco.rb
+    from_line: 14
+    to_line: 17
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/make-outbound-call-with-ncco.rb
+    from_line: 19
+    to_line: 34

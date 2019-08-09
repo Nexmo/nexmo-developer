@@ -3,7 +3,7 @@ module CodeSnippetRenderer
     def self.dependencies(deps)
       {
           'text' => 'Add the following to <code>build.gradle</code>:',
-          'code' => deps.map { |d| "compile '#{d.gsub('@latest', '4.3.0')}'" }.join('<br />'),
+          'code' => deps.map { |d| "compile '#{d.gsub('@latest', '5.0.0')}'" }.join('<br />'),
           'type' => 'groovy',
       }
     end

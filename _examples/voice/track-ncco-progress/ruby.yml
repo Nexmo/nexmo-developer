@@ -1,0 +1,13 @@
+---
+dependencies:
+  - sinatra
+  - sinatra-contrib
+  - rack-contrib
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/track-ncco-progress.rb
+    from_line: 7
+    to_line: 11
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/track-ncco-progress.rb
+    from_line: 13
+    to_line: 47

@@ -15,7 +15,7 @@ This document contains the following information:
 - **[Getting Started with the Number Insight API](#getting-started)** - try it out
 - [Guides](#guides) - learn how to use the Number Insight API
 - [Code Snippets](#code-snippets) - code snippets to help with specific tasks
-- [Tutorials](#tutorials) - detailed tutorials for some common use cases
+- [Use Cases](#use-cases) - detailed use cases with code examples
 - [Reference](#reference) - complete API documentation
 
 ## Concepts
@@ -37,7 +37,7 @@ Each API level builds upon the capabilities of the previous one. For example, th
 Feature | Basic | Standard | Advanced
 :--|:--:|:--:|:--:
 Number format and origin| ✅ | ✅ | ✅    
-Number type| ❌ | ✅ | ✅
+Network type| ❌ | ✅ | ✅
 Carrier and country| ❌ | ✅ | ✅
 Ported| ❌ | ❌ | ✅
 IP match| ❌ | ❌ | ✅
@@ -138,9 +138,9 @@ product: number-insight
 product: number-insight
 ```
 
-## Tutorials
+## Use Cases
 
-```tutorials
+```use_cases
 product: number-insight
 ```
 

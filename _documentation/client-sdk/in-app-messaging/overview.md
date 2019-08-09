@@ -33,11 +33,11 @@ Conversation API concepts:
 product: conversation
 ```
 
-## Tutorials
+## Use Cases
 
-Nexmo Client SDK tutorials:
+Nexmo Client SDK use cases:
 
-```tutorials
+```use_cases
 product: client-sdk
 ```
 
