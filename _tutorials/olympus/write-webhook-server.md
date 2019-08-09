@@ -12,8 +12,5 @@ In this code snippet you will see how to handle an inbound message.
 Ensure that your inbound message [webhook is set](/tasks/olympus/configure-webhooks) in the Dashboard.  As a minimum your handler must return a 200 status code to avoid unnecessary callback queuing. Make sure your webhook server is running before testing your Messages application.
 
 ```code_snippets
-source: '_examples/messages/inbound-message'
-application:
-  type: messages
-  name: 'Inbound message'
+source: '_examples/messages/webhook-server'
 ```
