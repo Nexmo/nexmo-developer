@@ -23,11 +23,11 @@ exten => 69100,2,Dial(SIP/nexmo/14155550100)
 
 If you are using `SIP Connect` and require your call to be handled by a specific Nexmo region, then you can specify that by using R-URI with such information in the domain part.
 
-e.g.:
+The following code will indicate to Nexmo that you want this SIP Connect call to be handled in the EU:
+
 ```
 sip:anLVN@sip-eu1.nexmo.com
 ```
-will instruct us that you want this `SIP Connect` call to be handled in EU.
 
 Available domains are the same as the A records:
 
