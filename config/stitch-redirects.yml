@@ -54,6 +54,7 @@
 "/client-sdk/in-app-video/tutorials": "/client-sdk/tutorials"
 
 "/stitch/overview": "/client-sdk/overview"
+"/stitch/in-app-voice/overview": "/client-sdk/in-app-voice/overview"
 
 # Redirect to SDK docs for now
 
