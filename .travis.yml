@@ -1,5 +1,9 @@
 language: ruby
-cache: bundler
+cache:
+  bundler: true
+  yarn: true
+  directories:
+    - node_modules
 services:
   - postgresql
 addons:
@@ -34,3 +38,4 @@ script:
   - bundle exec rake ci:verify_error_urls_resolve
   - RAILS_ENV=test bundle exec rake webpacker:compile
   - ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
+  - yarn test
