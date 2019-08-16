@@ -95,8 +95,9 @@ class CharacterCounter {
   }
 
   getCharSize(character) {
+    if(!character) { return 0; }
     if (this.isUnicodeRequired() || GSM_EXTENDED_CHARS.includes(character)) {
-      return BYTE_SIZE * 2;
+      return character.length * BYTE_SIZE * 2;
     } else {
       return CHARACTER_SIZE;
     }

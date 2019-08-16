@@ -122,6 +122,17 @@ describe('#getMessages', function() {
         );
       });
     });
+
+    describe('using emojis, which are unicode with length = 2', function() {
+      test('splits the message in two', function() {
+        let text = 'a'.repeat(69) + '😃';
+        expect(new CharacterCounter(text).getMessages()).toEqual([
+          'a'.repeat(66),
+          'a'.repeat(3) + '😃',
+        ]);
+      });
+    });
+
   });
 
   describe('more than 2 SMS', function() {
