@@ -1,38 +1,5 @@
 import React from 'react'
-import chunk from 'lodash/chunk'
-import difference from 'lodash/difference'
-
-// GSM standard table
-const safeCharacters = [
-  '@', '0', '¡', 'P', '¿',
-  'p', '£', '_', '!', '1',
-  'A', 'Q', 'a', 'q', '$',
-  '"', '2', 'B', 'R', 'b',
-  'r', '¥', '?', '#', '3',
-  'C', 'S', 'c', 's', 'è',
-  '?', '4', 'D', 'T', 'd',
-  't', 'é', '?', '%', '5',
-  'E', 'U', 'e', 'u', 'ù',
-  '6', 'F', 'V', 'f', 'v',
-  'ì', '?', "'", '7', 'G',
-  'W', 'g', 'w', 'ò', '(',
-  '8', 'H', 'X', 'h', 'x',
-  'Ç', ')', '9', 'I', 'Y',
-  'i', 'y', '*', ':', 'J',
-  'Z', 'j', 'z', 'Ø', '+',
-  ';', 'K', 'Ä', 'k', 'ä',
-  'Æ', ',', '<', 'L', 'l',
-  'ö', 'æ', '-', '=', 'M',
-  'Ñ', 'm', 'ñ', 'Å', 'ß',
-  '.', '>', 'N', 'Ü', 'n',
-  'ü', 'å', 'É', '/', 'O',
-  '§', 'o', 'à', ' '
-]
-
-// These require two bytes per character: ESC followed by the character
-const extGSMChars = [
-  '|', '^', '€', '{', '}', '[', ']', '~', '\\'
-]
+import CharacterCounter from './character_counter'
 
 class Concatenation extends React.Component {
   constructor(props) {
@@ -42,37 +9,8 @@ class Concatenation extends React.Component {
     }
   }
 
-  splitStringByCodePoint() {
-    return [...this.state.body]
-  }
-
-  split() {
-    const stringArray = this.splitStringByCodePoint()
-
-    const shouldEncodeAs16Bit = this.shouldEncodeAs16Bit()
-
-    const capacity = shouldEncodeAs16Bit ? 70 : 160
-    const capacityWithMeta = shouldEncodeAs16Bit ? 67 : 153
-
-    var a = [stringArray.slice(0, capacity).join('')]
-
-    if (stringArray.length > capacity) {
-      a = [stringArray.slice(0, capacityWithMeta).join('')]
-      const remainder = stringArray.slice(capacityWithMeta)
-      const arrays = chunk(remainder, capacityWithMeta).map((a) => a.join(''))
-      a = a.concat(arrays)
-    }
-
-    return a
-  }
-
-  shouldEncodeAs16Bit() {
-    var remainder = difference(this.splitStringByCodePoint(), [...safeCharacters, ...extGSMChars])
-    return remainder.length !== 0
-  }
-
-  renderUdf(split) {
-    if (split.length > 1) {
+  renderUserDefinedHeader(messages) {
+    if (messages.length > 1) {
       return (
         <span>
           <span className="Vlt-badge Vlt-badge--blue">User Defined Header</span>
@@ -82,38 +20,22 @@ class Concatenation extends React.Component {
     }
   }
 
-  renderSplit(split) {
-    return split.map((group, index, arr) => {
-      if(index === arr.length - 1) {
-        return (
-          <div className="Vlt-grid">
-            <div className="Vlt-col Vlt-col--1of3"><b>Part {index + 1}</b></div>
-            <div className="Vlt-col Vlt-col--2of3">
-              <code
-                  style={{ whiteSpace: 'normal', wordBreak: 'break-all' }}
-                >
-                  { this.renderUdf(split) }
-                  {group}
-              </code>
-            </div>
+  renderMessages(messages) {
+    return messages.map((group, index, arr) => {
+      return (
+        <div className="Vlt-grid" key={index}>
+          <div className="Vlt-col Vlt-col--1of3"><b>Part {index + 1}</b></div>
+          <div className="Vlt-col Vlt-col--2of3">
+            <code
+                style={{ whiteSpace: 'normal', wordBreak: 'break-all' }}
+              >
+                { this.renderUserDefinedHeader(messages) }
+                {group}
+            </code>
           </div>
-        )
-      } else {
-        return (
-          <div className="Vlt-grid">
-            <div className="Vlt-col Vlt-col--1of3"><b>Part {index + 1}</b></div>
-            <div className="Vlt-col Vlt-col--2of3">
-              <code
-                  style={{ whiteSpace: 'normal', wordBreak: 'break-all' }}
-                >
-                  { this.renderUdf(split) }
-                  {group}
-              </code>
-            </div>
-            <hr className="hr--shorter" />
-          </div>
-        )
-      }
+          { index !== arr.length - 1 && <hr className="hr--shorter" /> }
+        </div>
+      )
     })
   }
 
@@ -135,8 +57,7 @@ class Concatenation extends React.Component {
   }
 
   render() {
-    const split = this.split()
-    const characterCount = this.splitStringByCodePoint(this.state.body).length
+    const smsInfo = new CharacterCounter(this.state.body).getInfo();
 
     return (
       <div>
@@ -160,21 +81,21 @@ class Concatenation extends React.Component {
               <b>Unicode is Required?</b>
             </div>
             <div className="Vlt-col Vlt-col--2of3">
-              { this.renderUtfIcon(this.shouldEncodeAs16Bit()) }
+              { this.renderUtfIcon(smsInfo.unicodeRequired) }
             </div>
             <hr className="hr--shorter"/>
             <div className="Vlt-col Vlt-col--1of3">
               <b>Length</b>
             </div>
             <div className="Vlt-col Vlt-col--2of3">
-              { characterCount } { this.pluralize('character', characterCount) } sent in {split.length} message { this.pluralize('part', split.length) }
+              { smsInfo.charactersCount } { this.pluralize('character', smsInfo.charactersCount) } sent in {smsInfo.messages.length} message { this.pluralize('part', smsInfo.messages.length) }
             </div>
           </div>
         </div>
 
         <h4>Parts</h4>
         <div className="Vlt-box Vlt-box--white Vlt-box--lesspadding">
-          { this.renderSplit(split) }
+          { this.renderMessages(smsInfo.messages) }
         </div>
       </div>
     )
