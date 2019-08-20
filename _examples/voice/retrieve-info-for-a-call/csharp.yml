@@ -10,6 +10,7 @@ client:
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/VoiceController.cs
     from_line: 128
+    to_line: 142
 run_command: 'Run using your IDE'
 file_name: VoiceController.cs
 unindent: true
