@@ -10,5 +10,6 @@ client:
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/NumbersController.cs
     from_line: 33
+    to_line: 33
 run_command: 'Run using your IDE'
 file_name: NumbersController.cs
