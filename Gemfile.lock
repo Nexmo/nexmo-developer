@@ -233,7 +233,7 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.3)
     mini_mime (1.0.2)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.12.1)
@@ -259,8 +259,8 @@ GEM
       shotgun (~> 0.9)
       sinatra (~> 2.0)
     nio4r (2.4.0)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -497,7 +497,7 @@ DEPENDENCIES
   lograge
   neatjson
   nexmo-oas-renderer (~> 0.3.5)
-  nokogiri (~> 1.8.5)
+  nokogiri (~> 1.10.4)
   oas_parser (= 0.18.1)
   octicons_helper
   octokit
