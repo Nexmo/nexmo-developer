@@ -6,6 +6,7 @@ dependencies:
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/AccountController.cs
     from_line: 105
+    to_line: 111
 client:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
     from_line: 17
