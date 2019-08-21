@@ -72,13 +72,13 @@
           <div class="Vlt-card Vlt-card--center Nxd-career">
             <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= career.icon == 'account' ? 'user' : career.icon == 'book' ? 'books' : career.icon %>"/></svg>
               <hr>
-              <h2>
+              <h1>
                 <%= career.title %>
                 <% unless career.published %>
                     [Hidden]
                 <% end %>
                 <small class="Nxd-career__subtitle"><%= career.location %></small>
-              </h2>
+              </h1>
 
             <div class="Nxd-career__content">
               <%= career.description_short.render_markdown %>
