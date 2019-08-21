@@ -35,8 +35,7 @@
 let uuid = require('uuid');
 
 const NexmoClientError = require('./conversationClientError').NexmoClientError;
-
-
+const NexmoApiError = require('./conversationClientError').NexmoApiError;
 /**
  * Utilities class for the SDK.
  *
@@ -83,7 +82,7 @@ class Utils {
    * @param {object} reqObject the object that has all the information for the request
    * @param {string} url the request url
    * @param {string} type=GET|POST|PUT|DELETE the types of the network request
-   * @param {object} [data] the data that are going to be sended
+   * @param {object} [data] the data that are going to be sent
    * @param {string} [responseType] the response type of the request
    * @returns {Promise&lt;XMLHttpRequest.response>} the XMLHttpRequest.response
    * @static
@@ -100,7 +99,7 @@ class Utils {
           if (xhr.status === 200 || xhr.status === 204) {
             resolve(xhr);
           } else {
-            reject(xhr.statusText);
+            reject(xhr);
           }
         };
         xhr.onloadstart = () => {
@@ -114,6 +113,98 @@ class Utils {
         xhr.send(data);
       });
     });
+  }
+
+  /**
+   * Perform a GET network request directly to CS
+   *
+   * @param {string} url the request url to CS
+   * @param {string} data_type the type of data expected back from the request (events, conversations, users)
+   * @param {object} [params] network request params
+   * @param {string} [params.cursor] cursor parameter to access the next or previous page of a data set
+   * @param {number} [params.page_size] the number of resources returned in a single request list
+   * @param {string} [params.order] 'asc' or 'desc' ordering of resources (usually based on creation time)
+   * @param {string} [params.event_type] the type of event used to filter event requests ('member:joined', 'audio:dtmf', etc)
+   *
+   * @returns {Promise&lt;XMLHttpRequest.response>} the XMLHttpRequest.response
+   * @static
+   * @example &lt;caption>Sending a nexmo GET request&lt;/caption>
+   *    nexmoGetRequest(url, data_type, params).then((response) => {
+   *      response.body: {},
+   *      response.cursor: {
+   *          prev: '',
+   *          next: '',
+   *          self: ''
+   *      },
+   *      response.page_size: 10
+   *   });
+   */
+
+  static nexmoGetRequest(url, data_type, params = {}) {
+    return Utils.networkRequest({
+      type: 'GET',
+      url: this.addUrlSearchParams(url, params)
+    }).then((xhr) => {
+      if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+        const parsedResponse = JSON.parse(xhr.responseText);
+        const {page_size, _embedded, _links} = parsedResponse;
+        const prev = _links.prev ? new URLSearchParams(_links.prev.href).get('cursor') : '';
+        const next = _links.next ? new URLSearchParams(_links.next.href).get('cursor'): '';
+        const self = _links.self ? new URLSearchParams(_links.self.href).get('cursor') : '';
+        const response = {
+          body: _embedded[data_type].data,
+          cursor: {
+            prev: prev,
+            next: next,
+            self: self
+          },
+          page_size: page_size
+        };
+        return Promise.resolve(response);
+      }
+    }).catch((error)=> {
+      const parsed_error = error.responseText ? JSON.parse(error.responseText) : {}
+      const api_error = {
+        type: error.responseText ? parsed_error.code : 'error:nexmoGetRequest:network-request-error',
+        description: parsed_error.validation || parsed_error.description
+      }
+      return Promise.reject(new NexmoApiError(api_error));
+    });
+  }
+
+
+  /**
+   * Update the Search Params of a url
+   * @returns {string} the appended url
+   * @static
+   */
+
+  static addUrlSearchParams(url, params) {
+    let appended_url = new URL(url);
+    Object.keys(params).forEach(key => {
+      appended_url.searchParams.set(key, params[key])
+    })
+    return appended_url
+  }
+
+   /**
+   * Deep merges two objects
+   * @returns {obj} the new merged object
+   * @static
+   */
+
+  static deepMergeObj(obj1, obj2) {
+    const mergedObj = JSON.parse(JSON.stringify(obj1))
+   	// Merge the object into the new mergedObject
+		for (var prop in obj2) {
+				// If the property is an object then merge properties
+				if (Object.prototype.toString.call(obj2[prop]) === '[object Object]') {
+					mergedObj[prop] = Utils.deepMergeObj(mergedObj[prop], obj2[prop]);
+				} else {
+					mergedObj[prop] = obj2[prop];
+				}
+    };
+    return mergedObj
   }
 
   /**
@@ -208,11 +299,11 @@ class Utils {
   }
 
   /**
-  * Validate dtmf digits
+  * Validate dtmf digit
   * @static
   */
-  static validateDTMF(digits) {
-    return (typeof (digits) === 'string' &amp;&amp; /^[\da-dA-D#*pP]{1,45}$$/.test(digits));
+  static validateDTMF(digit) {
+    return (typeof (digit) === 'string' &amp;&amp; /^[\da-dA-D#*pP]{1,45}$$/.test(digit));
   }
 
   /**
@@ -233,7 +324,7 @@ class Utils {
   static updateMemberLegs(legs, event) {
     if (legs) {
       // find the leg in the legs array if exists
-      const leg = legs.find(leg => leg.leg_id === event.body.leg_id);
+      const leg = legs.find((leg) => leg.leg_id === event.body.leg_id);
 
       if (!leg) {
         legs.push({
@@ -270,13 +361,13 @@ module.exports = Utils;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jul 31 2019 15:46:22 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -51,6 +51,7 @@ const NexmoApiError = ConversationClientError.NexmoApiError;
 class Member {
   constructor(conversation, params) {
     this.conversation = conversation;
+    this.callStatus = null;
     this._normalise(params);
     WildEmitter.mixin(Member);
   }
@@ -177,19 +178,27 @@ class Member {
 	/**
 	 * Kick this member from the conversation
 	 *
+   * @param {object} [reason] the reason for kicking out a member
+   * @param {string} [reason.code] the code of the reason
+   * @param {string} [reason.text] the description of the reason
 	 * @returns {Promise}
 	 */
-  kick() {
+  kick(reason) {
     return new Promise((resolve, reject) => {
-      this.conversation.application.session.sendRequest({
+      let deleteRequest = {
         type: 'conversation:member:delete',
         cid: this.conversation.id,
         from: this.conversation.me.id,
         to: this.id,
         body: {
-          'member_id': this.id
+          'member_id': this.id,
         }
-      }, (response) => {
+      };
+      if (reason) {
+        deleteRequest.body.reason = reason;
+      }
+
+      this.conversation.application.session.sendRequest(deleteRequest, (response) => {
         if (response.type === 'conversation:member:delete:success') {
           resolve(response.body);
         } else {
@@ -242,25 +251,57 @@ class Member {
         this._normalise(event.body); // take care of misaligned objects.
         this.state = 'INVITED';
         this.timestamp.invited = event.body.timestamp.invited;
+
+        if (!event.body.invited_by &amp;&amp; event.body.user.media &amp;&amp; event.body.user.media.audio_settings
+          &amp;&amp; event.body.user.media.audio_settings.enabled) {
+          this._setCallStatusAndEmit('started');
+        }
         break;
       case 'member:joined':
         this._normalise(event.body); // take care of misaligned objects.
         this.state = 'JOINED';
         this.timestamp.joined = event.body.timestamp.joined;
+
+        if (event.body.channel &amp;&amp; event.body.channel.knocking_id) {
+          this._setCallStatusAndEmit('started');
+        }
         break;
       case 'member:left':
         this._normalise(event.body); // take care of misaligned objects.
         this.state = 'LEFT';
         this.timestamp.left = event.body.timestamp.left;
+
+        if (event.body.reason &amp;&amp; event.body.reason.text) {
+          this._setCallStatusAndEmit(event.body.reason.text);
+        }
         break;
       case 'member:media':
         this.media = event.body.media;
         break;
       case 'leg:status:update':
         this.channel.legs = Utils.updateMemberLegs(this.channel.legs, event);
+        this._setCallStatusAndEmit(event.body.status);
+        break;
+      case 'audio:ringing:start':
+        if (!this.callStatus || this.callStatus === 'started') {
+          this._setCallStatusAndEmit('ringing');
+        }
         break;
       default:
         break;
+    }
+  }
+
+  /**
+	 * Set the member.callStatus and emit a member:call:status event
+	 *
+	 * @param {Member.callStatus} this.callStatus the call status to set
+	 * @private
+	*/
+  _setCallStatusAndEmit(callStatus) {
+    if (this.callStatus !== String(callStatus)) {
+      this.callStatus = callStatus;
+      this.conversation.emit('member:call:status', this);
     }
   }
 }
@@ -276,13 +317,13 @@ module.exports = Member;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 30 2019 16:32:42 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jul 31 2019 15:46:22 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
