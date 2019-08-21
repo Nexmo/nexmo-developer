@@ -20,8 +20,8 @@ describe('#getSizeInBytes', function() {
   });
 
   describe('only extended characters', function() {
-    test('every character counts as 2 bytes', function() {
-      expect(new CharacterCounter('|^€{}[]~').getSizeInBytes()).toEqual(16);
+    test('every character counts as 14 bits', function() {
+      expect(new CharacterCounter('|^€{}[]~').getSizeInBytes()).toEqual(14);
     });
   });
 
@@ -92,8 +92,8 @@ describe('#getMessages', function() {
 
     describe('just extended characters', function() {
       test('splits the message in two', function() {
-        let text = '|'.repeat(71);
-        expect(new CharacterCounter(text).getMessages()).toEqual(['|'.repeat(66), '|'.repeat(5)]);
+        let text = '|'.repeat(81);
+        expect(new CharacterCounter(text).getMessages()).toEqual(['|'.repeat(76), '|'.repeat(5)]);
       });
     });
 
@@ -106,8 +106,8 @@ describe('#getMessages', function() {
 
     describe('mix of standard and extended characters', function() {
       test('splits the message in two', function() {
-        let text = '|'.repeat(70) + 'a';
-        expect(new CharacterCounter(text).getMessages()).toEqual(['|'.repeat(66), '|'.repeat(4) + 'a']);
+        let text = '|'.repeat(80) + 'a';
+        expect(new CharacterCounter(text).getMessages()).toEqual(['|'.repeat(76), '|'.repeat(4) + 'a']);
       });
     });
 
@@ -137,11 +137,11 @@ describe('#getMessages', function() {
 
   describe('more than 2 SMS', function() {
     test('splits the message in three', function() {
-      let text = ']'.repeat(160);
+      let text = ']'.repeat(180);
       expect(new CharacterCounter(text).getMessages()).toEqual(
         [
-          ']'.repeat(66),
-          ']'.repeat(66),
+          ']'.repeat(76),
+          ']'.repeat(76),
           ']'.repeat(28)
         ]
       );
