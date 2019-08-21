@@ -50,7 +50,7 @@ More details are available in this blog post: [Meet Voice Playground, Your Testi
 
 The primary way that you'll interact with the Nexmo voice platform is via the [public API](/voice/voice-api/api-reference). To place an outbound call, you make a `POST` request to `https://api.nexmo.com/v1/calls`.
 
-To make this easier, we provide client libraries in various languages that take care of authentication and creating the correct request body for you.
+To make this easier, Nexmo provides Server SDKs in various languages that take care of authentication and creating the correct request body for you.
 
 To get started, choose your language below and replace the following variables in the example code:
 
