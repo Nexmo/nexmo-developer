@@ -5,6 +5,14 @@ navigation_weight: 0
 ---
 
 # Release Notes
+## Version 5.3.4 - August 22, 2019
+## 5.3.4
+
+### Fixes
+
+- Custom SDK config object does a deep merge with default config object
+
+---
 
 ## Version 5.3.3 - June 29, 2019
 
