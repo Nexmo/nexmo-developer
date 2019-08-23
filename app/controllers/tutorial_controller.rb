@@ -1,8 +1,8 @@
 class TutorialController < ApplicationController
   before_action :set_navigation
   before_action :set_tutorial_step
-  before_action :set_tutorial, except: [:list]
-  before_action :check_tutorial_step, except: [:list]
+  before_action :set_tutorial, except: %i[list single]
+  before_action :check_tutorial_step, except: %i[list single]
 
   def list
     @product = params['product']
@@ -52,7 +52,26 @@ class TutorialController < ApplicationController
                                       }).call(@tutorial.content_for(@tutorial_step))
     end
 
+    # If it's an intro/conclusion we can't link to a specific task, so make sure that
+    # we're linking to a non-product tutorial link as the canonical link
+    if ['introduction', 'conclusion'].include?(@tutorial_step)
+      @canonical_url = helpers.canonical_base + request.original_fullpath.gsub(%r{^/#{params[:product]}}, '')
+    else
+      # Otherwise it's a single step, which we can link to
+      @canonical_url = "#{helpers.canonical_base}/task/#{@tutorial_step}"
+    end
+
     @hide_card_wrapper = true
+    render layout: 'documentation'
+  end
+
+  def single
+    path = "#{Rails.root}/_tutorials/#{params[:tutorial_step]}.md"
+    @content = File.read(path)
+    @content = MarkdownPipeline.new({
+                                      code_language: @code_language,
+                                      current_user: current_user,
+                                    }).call(@content)
     render layout: 'documentation'
   end
 

@@ -265,19 +265,17 @@ module ApplicationHelper
     YAML.load_file(path)
   end
 
-  def show_canonical_meta?
-    return true if params[:code_language].present?
-    return true if Rails.env.production? && request.base_url != 'https://developer.nexmo.com'
-    false
-  end
-
   def canonical_path
     request.path.chomp("/#{params[:code_language]}")
   end
 
   def canonical_url
-    base_url = Rails.env.production? ? 'https://developer.nexmo.com' : request.base_url
-    canonical_path.prepend(base_url)
+    return @canonical_url if @canonical_url
+    canonical_path.prepend(canonical_base)
+  end
+
+  def canonical_base
+    Rails.env.production? ? 'https://developer.nexmo.com' : request.base_url
   end
 
   def normalize_summary_title(summary, operation_id)
