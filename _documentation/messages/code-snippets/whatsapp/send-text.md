@@ -18,7 +18,7 @@ Formatting | Example
 Italicize | Italicize `_this_` text.
 **Bold** | Bold `*this*` text.
 ~~Strikethrough~~ | Strikethrough `~this~` text.
-Monospace | Monospace \`\`\`this\`\`\` text.
+`Monospace` | Monospace \`\`\`this\`\`\` text.
 New line | Use `\n` to insert a new line.
 
 ## Example
