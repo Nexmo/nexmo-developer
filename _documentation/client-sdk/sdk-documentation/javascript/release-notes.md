@@ -6,7 +6,7 @@ navigation_weight: 0
 
 # Release Notes
 
-## Version 5.3.4 - August 22, 2019
+## Version 5.3.4 - July 18, 2019
 
 ### Fixes
 
