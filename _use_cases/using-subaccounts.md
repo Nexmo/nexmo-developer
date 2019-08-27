@@ -1,16 +1,16 @@
 ---
-title: Using the Subaccounts API - A case study
+title: Using the Subaccounts API
 products: account/subaccounts
-description: This tutorial presents a case study that shows you how to get started with the Subaccounts API.
+description: This topic presents a case study that shows you how to get started with the Subaccounts API.
 languages:
     - Curl
 ---
 
-# Using the Subaccounts API - A case study
+# Using the Subaccounts API
 
 ## Overview
 
-This tutorial describes a use case where a partner uses the Subaccounts API to successfully manage end customers.
+This topic describes a use case where a partner uses the Subaccounts API to successfully manage end customers.
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ source: '_examples/subaccounts/reactivate-subaccount'
 
 ## Summary
 
-In this tutorial you have seen how to use the Subaccounts API to manage end customers in typical scenarios.
+In this topic you have seen how to use the Subaccounts API to manage end customers in typical scenarios.
 
 ## Further resources
 
