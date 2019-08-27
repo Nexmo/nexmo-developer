@@ -1,6 +1,4 @@
 ---
-title: Java
-language: java
 dependencies:
     - 'com.nexmo:client:@latest'
     - 'com.sparkjava:spark-core:2.7.2'
@@ -8,6 +6,3 @@ code:
     source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/TrackNccoProgress.java
     from_line: 35
     to_line: 70
-file_name: TrackNccoProgress.java
-run_command: java-ide
-unindent: true

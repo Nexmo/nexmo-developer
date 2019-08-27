@@ -1,6 +1,4 @@
 ---
-title: Java
-language: java
 client:
     source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/account/GetSecret.java
     from_line: 36
@@ -9,6 +7,3 @@ code:
     source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/account/GetSecret.java
     from_line: 41
     to_line: 44
-file_name: GetSecret.java
-run_command: java-ide
-unindent: true
