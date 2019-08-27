@@ -11,7 +11,15 @@ For a step-by-step guide to this topic, you can read our tutorial [Sending Whats
 
 > **IMPORTANT:** If a customer has not messaged you first, then the first time you send a message to a user, WhatsApp requires that the message contains a template. This is explained in more detail in the [Understanding WhatsApp topic](/messages/concepts/whatsapp).
 
-The text can use basic [formatting characters](https://faq.whatsapp.com/en/android/26000002/) and `\n` can be used to insert new lines.
+It is possible to format selected text inside the message using [formatting characters](https://faq.whatsapp.com/en/android/26000002/). The `\n` character can also be used to insert new lines. The formatting options are summarized in the following table:
+
+Formatting | Example
+---|---
+Italicize | Italicize `_this_` text.
+**Bold** | Bold `*this*` text.
+~~Strikethrough~~ | Strikethrough `~this~` text.
+Monospace | Monospace \`\`\`this\`\`\` text.
+New line | Use `\n` to insert a new line.
 
 ## Example
 
