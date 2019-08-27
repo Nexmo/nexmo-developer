@@ -123,7 +123,7 @@ If you are not using a Nexmo library you should refer to [RFC 7519](https://tool
 
 ### Using the Nexmo CLI to generate JWTs
 
-The Nexmo CLI is one way of creating a JWT. The general syntax is:
+The Nexmo CLI provides a command for generating a JWT. The general syntax is:
 
 ``` shell
 nexmo jwt:generate [options] <private_key> [claim=value...]
