@@ -1,9 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
-    - dotenv
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/play-tts-into-call.js
     from_line: 19
@@ -12,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/play-tts-into-call.js
     from_line: 10
     to_line: 17
-file_name: app.js
-run_command: 'node app.js'

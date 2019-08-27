@@ -1,6 +1,4 @@
 ---
-title: Node
-language: node
 dependencies:
     - express
     - body-parser
@@ -11,6 +9,4 @@ code:
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/sms/receive-express.js
     from_line: 1
-    to_line: 5    
-file_name: receive-express.js
-run_command: 'node receive-express.js'
+    to_line: 5

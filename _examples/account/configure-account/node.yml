@@ -1,8 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/account/configure-account.js
     from_line: 14
@@ -11,6 +7,3 @@ client:
     source: .repos/nexmo/nexmo-node-code-snippets/account/configure-account.js
     from_line: 9
     to_line: 12
-file_name: configure-account.js
-run_command: 'node configure-account.js'
-

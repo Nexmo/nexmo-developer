@@ -1,6 +1,4 @@
 ---
-title: Node
-language: node
 dependencies:
     - nexmo
     - express
@@ -9,5 +7,3 @@ code:
     source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-advanced-async-client.js
     from_line: 9
     to_line: 27
-file_name: ni-advanced-async-client.js
-run_command: 'node ni-advanced-async-client.js'
