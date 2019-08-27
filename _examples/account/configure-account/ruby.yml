@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/configure-account.rb
-    from_line: 16
-    to_line: 22
+    from_line: 14
+    to_line: 20
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/configure-account.rb
     from_line: 9
-    to_line: 14
+    to_line: 12

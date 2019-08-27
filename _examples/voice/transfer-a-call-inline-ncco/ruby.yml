@@ -5,11 +5,11 @@ dependencies:
     - nexmo
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/transfer-a-call-ncco.rb
-    from_line: 19
-    to_line: 29
+    from_line: 16
+    to_line: 26
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/transfer-a-call-ncco.rb
-    from_line: 12
-    to_line: 17
+    from_line: 11
+    to_line: 14
 file_name: transfer-a-call-ncco.rb
 run_command: 'ruby transfer-a-call-ncco.rb'

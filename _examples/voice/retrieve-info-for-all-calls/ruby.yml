@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/retrieve-info-for-all-calls.rb
-    from_line: 16
-    to_line: 24
+    from_line: 13
+    to_line: 21
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/retrieve-info-for-all-calls.rb
     from_line: 8
-    to_line: 14
+    to_line: 11

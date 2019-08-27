@@ -1,5 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/number-insight/ni-advanced-async-client.rb
+    from_line: 13
+    to_line: 18
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/number-insight/ni-advanced-async-client.rb
     from_line: 8
-    to_line: 20
+    to_line: 11

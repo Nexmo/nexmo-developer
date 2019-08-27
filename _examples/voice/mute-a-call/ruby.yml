@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/mute-a-call.rb
-    from_line: 15
-    to_line: 19
+    from_line: 12
+    to_line: 16
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/mute-a-call.rb
-    from_line: 8
-    to_line: 13
+    from_line: 7
+    to_line: 10

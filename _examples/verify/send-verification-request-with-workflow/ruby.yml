@@ -2,8 +2,8 @@
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/request_with_workflow.rb
     from_line: 16
-    to_line: 21
+    to_line: 19
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/request_with_workflow.rb
-    from_line: 23
-    to_line: 34
+    from_line: 21
+    to_line: 32

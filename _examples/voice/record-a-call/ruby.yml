@@ -4,9 +4,9 @@ dependencies:
     - sinatra-contrib
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record_a_call.rb
-    from_line: 22
-    to_line: 48
+    from_line: 20
+    to_line: 46
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record_a_call.rb
-    from_line: 8
-    to_line: 20
+    from_line: 6
+    to_line: 18

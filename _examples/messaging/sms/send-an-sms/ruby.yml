@@ -2,8 +2,8 @@
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send.rb
     from_line: 8
-    to_line: 13
+    to_line: 11
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send.rb
-    from_line: 15
-    to_line: 19
+    from_line: 13
+    to_line: 17

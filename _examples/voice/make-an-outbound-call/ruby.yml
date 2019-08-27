@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/outbound_tts_call.rb
-    from_line: 21
-    to_line: 33
+    from_line: 18
+    to_line: 32
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/outbound_tts_call.rb
-    from_line: 12
-    to_line: 19
+    from_line: 11
+    to_line: 16

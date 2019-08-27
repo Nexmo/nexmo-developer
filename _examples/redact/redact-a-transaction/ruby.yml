@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/redact/redact.rb
-    from_line: 29
-    to_line: 32
+    from_line: 26
+    to_line: 29
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/redact/redact.rb
-    from_line: 22
-    to_line: 27
+    from_line: 21
+    to_line: 24

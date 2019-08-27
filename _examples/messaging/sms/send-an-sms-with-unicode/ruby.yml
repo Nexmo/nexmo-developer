@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send-unicode-sms.rb
-    from_line: 15
-    to_line: 20
+    from_line: 13
+    to_line: 18
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send-unicode-sms.rb
     from_line: 8
-    to_line: 13
+    to_line: 11

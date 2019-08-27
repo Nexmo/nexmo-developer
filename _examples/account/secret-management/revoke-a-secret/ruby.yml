@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/revoke-a-secret.rb
-    from_line: 19
-    to_line: 25
+    from_line: 16
+    to_line: 21
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/revoke-a-secret.rb
-    from_line: 14
-    to_line: 17
+    from_line: 11
+    to_line: 14

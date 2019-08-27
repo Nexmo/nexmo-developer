@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/get-balance.rb
-    from_line: 14
-    to_line: 14
+    from_line: 12
+    to_line: 12
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/get-balance.rb
     from_line: 7
-    to_line: 12
+    to_line: 10

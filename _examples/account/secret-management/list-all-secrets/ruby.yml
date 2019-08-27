@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/list-all-secrets.rb
-    from_line: 17
-    to_line: 21
+    from_line: 14
+    to_line: 18
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/list-all-secrets.rb
-    from_line: 10
-    to_line: 15
+    from_line: 9
+    to_line: 12

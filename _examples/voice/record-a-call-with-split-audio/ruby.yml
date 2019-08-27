@@ -4,9 +4,9 @@ dependencies:
     - sinatra-contrib
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record-a-call-with-split-audio.rb
-    from_line: 22
-    to_line: 50
+    from_line: 20
+    to_line: 48
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record-a-call-with-split-audio.rb
-    from_line: 12
-    to_line: 20
+    from_line: 10
+    to_line: 18

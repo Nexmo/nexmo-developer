@@ -4,8 +4,8 @@ dependencies:
     - sinatra-contrib
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/play-text-to-speech-into-a-call.rb
-    from_line: 15
+    from_line: 12
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/play-text-to-speech-into-a-call.rb
-    from_line: 8
-    to_line: 13
+    from_line: 7
+    to_line: 10

@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/application/update-application.rb
-    from_line: 19
-    to_line: 54
+    from_line: 16
+    to_line: 33
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/application/update-application.rb
-    from_line: 14
-    to_line: 17
+    from_line: 11
+    to_line: 14

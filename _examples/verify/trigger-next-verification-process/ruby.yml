@@ -2,8 +2,8 @@
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/trigger_next_event.rb
     from_line: 13
-    to_line: 18
+    to_line: 16
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/trigger_next_event.rb
-    from_line: 20
-    to_line: 26
+    from_line: 18
+    to_line: 24

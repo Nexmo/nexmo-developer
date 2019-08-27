@@ -1,5 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/number-insight/ni-standard.rb
+    from_line: 13
+    to_line: 17
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/number-insight/ni-standard.rb
     from_line: 8
-    to_line: 19
+    to_line: 11

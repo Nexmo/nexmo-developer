@@ -2,8 +2,8 @@
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/search.rb
     from_line: 13
-    to_line: 18
+    to_line: 16
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/verify/search.rb
-    from_line: 20
-    to_line: 28
+    from_line: 18
+    to_line: 26

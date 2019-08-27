@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/transfer-a-call.rb
-    from_line: 16
-    to_line: 20
+    from_line: 13
+    to_line: 17
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/voice/transfer-a-call.rb
-    from_line: 9
-    to_line: 14
+    from_line: 8
+    to_line: 11
