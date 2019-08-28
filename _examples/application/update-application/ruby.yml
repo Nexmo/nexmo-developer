@@ -2,7 +2,7 @@
 code:
     source: .repos/nexmo/nexmo-ruby-code-snippets/application/update-application.rb
     from_line: 16
-    to_line: 33
+    to_line: 51
 client:
     source: .repos/nexmo/nexmo-ruby-code-snippets/application/update-application.rb
     from_line: 11
