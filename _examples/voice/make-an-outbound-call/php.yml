@@ -1,9 +1,4 @@
 ---
-title: PHP
-language: php
-dependencies:
-    - nexmo/client
-    - 'slim/slim:^3.8'
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/voice/text-to-speech-outbound.php
     from_line: 12
