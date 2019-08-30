@@ -79,7 +79,7 @@ You can use the following protocols:
 
 [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) is a cryptographic protocol designed to provide communications security to your SIP connection. You can use self-signed certificates on your user agent, Nexmo does not validate the certificate on the client side.
 
-Connections using TLS 1.0 or more recent are accepted. Older protocols are disabled as they are considered insecure.
+Connections using TLS 1.2 are accepted. Older protocols are disabled as they are considered insecure.
 
 ## Inbound configuration
 
