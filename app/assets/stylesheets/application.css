@@ -11,8 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *
- * nexmo-oas-renderer styles
- *= require stylesheets/style
+ *= require stylesheets/nexmo-oas-renderer
  *
  *= require_self
  *= require nexmo
