@@ -1,5 +1,6 @@
 ---
 title: Create an Event
+navigation_weight: 1
 ---
 
 # Create an Event

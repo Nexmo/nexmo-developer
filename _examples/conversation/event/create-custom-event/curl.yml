@@ -1,0 +1,5 @@
+---
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/conversation/event/create-custom-event.sh
+    from_line: 6
+    to_line: 16
