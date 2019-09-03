@@ -15,10 +15,10 @@ It is possible to format selected text inside the message using [formatting char
 
 Formatting | Example
 ---|---
-Italicize | Italicize `_this_` text.
+*Italicize* | Italicize `_this_` text.
 **Bold** | Bold `*this*` text.
 ~~Strikethrough~~ | Strikethrough `~this~` text.
-`Monospace` | Monospace \`\`\`this\`\`\` text.
+`Monospace` | Monospace <code>\`\`\`this\`\`\`</code> text.
 New line | Use `\n` to insert a new line.
 
 ## Example
