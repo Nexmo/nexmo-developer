@@ -90,6 +90,12 @@ navigation_overrides:
     svg: 'queue'
     svgColor: 'teal'
     label: 'Dev Preview'
+    overview:
+      navigation_weight: 1
+    setup:
+      navigation_weight: 2
+    custom-events:
+      navigation_weight: 3
     sdk-documentation:
       link: false
       collapsible: false
