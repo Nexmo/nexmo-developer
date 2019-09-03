@@ -1,0 +1,9 @@
+---
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/verify/search.js
+    from_line: 9
+    to_line: 13
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/verify/search.js
+    from_line: 15
+    to_line: 21

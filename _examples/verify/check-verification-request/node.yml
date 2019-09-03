@@ -1,8 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/verify/check.js
     from_line: 20
@@ -11,5 +7,3 @@ code:
     source: .repos/nexmo/nexmo-node-code-snippets/verify/check.js
     from_line: 28
     to_line: 37
-file_name: check.js
-run_command: 'node check.js'

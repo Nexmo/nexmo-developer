@@ -1,0 +1,9 @@
+---
+dependencies:
+    - express
+    - body-parser
+    - dotenv
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/record-a-call-with-split-audio.js
+    from_line: 1
+    to_line: 42

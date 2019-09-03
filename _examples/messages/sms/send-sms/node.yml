@@ -1,9 +1,7 @@
 ---
-title: Node
-language: node
+dependencies:
+    - nexmo@beta
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/messages/send-sms.js
     from_line: 11
     to_line: 30
-file_name: app.js
-run_command: 'node app.js'

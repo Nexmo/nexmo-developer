@@ -1,8 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/account/account-balance.js
     from_line: 13
@@ -11,6 +7,3 @@ client:
     source: .repos/nexmo/nexmo-node-code-snippets/account/account-balance.js
     from_line: 8
     to_line: 11
-file_name: account-balance.js
-run_command: 'node account-balance.js'
-

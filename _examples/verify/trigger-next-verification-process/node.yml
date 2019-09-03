@@ -1,8 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/verify/next-event.js
     from_line: 14
@@ -11,5 +7,3 @@ code:
     source: .repos/nexmo/nexmo-node-code-snippets/verify/next-event.js
     from_line: 22
     to_line: 31
-file_name: next-event.js
-run_command: 'node next-event.js'

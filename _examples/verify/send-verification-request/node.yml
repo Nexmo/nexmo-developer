@@ -1,8 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/verify/request.js
     from_line: 10
@@ -11,5 +7,3 @@ code:
     source: .repos/nexmo/nexmo-node-code-snippets/verify/request.js
     from_line: 16
     to_line: 26
-file_name: request.js
-run_command: 'node request.js'

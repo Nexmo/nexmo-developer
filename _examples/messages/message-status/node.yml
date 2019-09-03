@@ -1,6 +1,7 @@
 ---
-title: Node
-language: node
+dependencies:
+    - express
+    - body-parser
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/messages/message-status.js
     from_line: 1

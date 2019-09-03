@@ -1,0 +1,9 @@
+---
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/account/create-secret.js
+    from_line: 6
+    to_line: 11
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/account/create-secret.js
+    from_line: 13
+    to_line: 22

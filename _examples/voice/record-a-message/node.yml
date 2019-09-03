@@ -1,6 +1,4 @@
 ---
-title: Node
-language: node
 dependencies:
     - express
     - body-parser
@@ -8,5 +6,3 @@ code:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/record-a-message.js
     from_line: 1
     to_line: 34
-file_name: app.js
-run_command: 'node app.js'

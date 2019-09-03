@@ -1,8 +1,4 @@
 ---
-title: Node
-language: node
-dependencies:
-    - nexmo
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/sms/send-unicode-sms.js
     from_line: 15
@@ -11,5 +7,3 @@ client:
     source: .repos/nexmo/nexmo-node-code-snippets/sms/send-unicode-sms.js
     from_line: 8
     to_line: 13
-file_name: send-unicode-sms.js
-run_command: 'node send-unicode-sms.js'

@@ -1,0 +1,9 @@
+---
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/account/fetch-a-secret.js
+    from_line: 7
+    to_line: 12
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/account/fetch-a-secret.js
+    from_line: 14
+    to_line: 18
