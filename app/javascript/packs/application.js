@@ -76,18 +76,6 @@ $(document).ready(function() {
     return false;
   });
 
-  // Toggle text on accordion button for response fields
-  $(".response-description-toggle").click(function(){
-    let text = $(this).text();
-    let newText;
-    if (text.indexOf('View') != -1) {
-      newText = text.replace("View", "Hide");
-    } else {
-      newText = text.replace("Hide", "View");
-    }
-    $(this).text(newText);
-  });
-  
   // Track A/B testing clicks
   $("[data-ab]").click(function(e) {
     let r =  new Request('/usage/ab_result', {
