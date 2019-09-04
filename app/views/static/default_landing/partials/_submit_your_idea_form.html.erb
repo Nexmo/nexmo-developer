@@ -38,6 +38,13 @@
       <%= url_field_tag 'previous_content', nil %>
     </div>
   </div>
+
+  <div class="Vlt-form__element">
+    <%= label_tag 'payment_selection', 'Would you like us to donate your $400 payment to charity?', class: 'Vlt-label' %>
+    <div class="Vlt-input">
+      <%= radio_button_tag 'Yes', 'No', nil %>
+    </div>
+  </div>
   <small class="Vlt-form__element__hint">
     By submitting your ideas to Nexmo Developer Spotlight you accept our <a href='https://www.nexmo.com/privacy-policy'>privacy policy</a>, which sets out how we use your data and the rights you have in respect of your data.
   </small>
