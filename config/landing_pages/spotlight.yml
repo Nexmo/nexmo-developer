@@ -58,17 +58,6 @@ page:
           image: "https://www.nexmo.com/wp-content/uploads/2019/02/Build-a-One-Time-Password-OTP-Service-by-Using-the-Dispatch-API-768x384.png"
           url: "https://www.nexmo.com/blog/2019/02/07/build-an-otp-service-dr/"
           alt_text: "Build a One Time Password Service Using the Nexmo Dispatch API"
-      - type: structured_text
-        structured_text:
-          header: "Spotlight for Donations"
-          icon:
-            name: "icon-refresh-dollar"
-            color: blue
-          text:
-            - content: "Authors can now choose to pay it forward and donate their $400 to a tech-focused charity."
-              type: large
-            - content: "When you help us build our API-driven community by contributing a tutorial, you can choose to donate your $400 payment to a charity making a difference in the technology industry."
-              type: small
     - width: 2
       column:
       - type: structured_text
@@ -95,6 +84,17 @@ page:
               type: large
             - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Nexmo marketing and social media teams behind you getting the word out about your work. Your success is our success."
               type: small
+      - type: structured_text
+        structured_text:
+          header: "Introducing: Spotlight for Donations"
+          icon:
+            name: "icon-refresh-dollar"
+            color: blue
+          text:
+            - content: "Authors can now choose to pay it forward and donate their $400 to a tech-focused charity."
+              type: large
+            - content: "When you help us build our API-driven community by contributing a tutorial, you can choose to donate your $400 payment to a charity making a difference in the technology industry."
+              type: small      
       - type: structured_text
         structured_text:
           header: "The Process"
