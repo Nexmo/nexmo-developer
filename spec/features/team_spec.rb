@@ -16,13 +16,13 @@ RSpec.feature 'Team' do
       end
 
       within('.Vlt-grid:nth-of-type(1)') do
-        expect(page).to have_css('.Nxd-profile', count: 26)
+        expect(page).to have_css('.Nxd-profile', count: 25)
       end
 
       expect(page).to have_css('h2', text: 'Alumni')
 
       within('.Vlt-grid:nth-of-type(2)') do
-        expect(page).to have_css('.Nxd-profile', count: 4)
+        expect(page).to have_css('.Nxd-profile', count: 6)
       end
 
       expect(page).to have_css('h2', text: 'Contributors')
