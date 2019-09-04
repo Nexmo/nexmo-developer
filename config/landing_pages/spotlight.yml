@@ -86,7 +86,7 @@ page:
               type: small
       - type: structured_text
         structured_text:
-          header: "Introducing: Spotlight for Donations"
+          header: "Introducing: [Spotlight for Donations]( https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr)"
           icon:
             name: "icon-refresh-dollar"
             color: blue
@@ -94,7 +94,7 @@ page:
             - content: "Authors can now choose to pay it forward and donate their $400 to a tech-focused charity."
               type: large
             - content: "When you help us build our API-driven community by contributing a tutorial, you can choose to donate your $400 payment to a charity making a difference in the technology industry."
-              type: small      
+              type: small
       - type: structured_text
         structured_text:
           header: "The Process"
