@@ -91,6 +91,10 @@ current:
     email: 'laura.czajkowski@vonage.com'
     twitter: 'Czajkowski'
     role: 'Developer Relations Manager'
+  - name: 'Bethany Loft'
+    email: 'bethany.loft@vonage.com'
+    twitter: 'bb_loft'
+    role: 'Junior Community Event Manager'
 alumni:
   - name: 'Manik Sachdeva'
     email: 'manik.sachdeva@vonage.com'
