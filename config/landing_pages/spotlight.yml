@@ -62,7 +62,7 @@ page:
         structured_text:
           header: "Spotlight for Donations"
           icon:
-            name: "icon-money"
+            name: "icon-refresh-dollar"
             color: blue
           text:
             - content: "Authors can now choose to pay it forward and donate their $400 to a tech-focused charity."
