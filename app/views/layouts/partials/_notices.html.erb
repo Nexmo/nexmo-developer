@@ -13,5 +13,57 @@
         </div>
       <% end %>
     <% end %>
-  </div>
 <% end %>
+
+<style>
+.vonage-campus {
+    background-image: url('/assets/campus/banner_background.png');
+    min-height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.vonage-campus .campus-content{
+    color: #fff;
+    font-family: averta,Helvetica,"sans-serif";
+    font-weight: 600;
+    letter-spacing: .86px;
+    line-height: 28px;
+    font-size: 20px;
+    max-width: 600px;
+    margin:auto;
+}
+  .campus-hide-small {
+    display: none !important;
+  }
+    .campus-logo {
+      padding-top: 10px;
+    }
+
+  @media only screen and (min-width: 576px) {
+    .campus-hide-small {
+      display: inline !important;
+    }
+    .campus-logo {
+      padding-top: 00px;
+    }
+  }
+
+</style>
+
+<div class="Vlt-grid Vlt-grid--middle vonage-campus Vlt-center">
+  <div class="Vlt-col Vlt-col--1of4 campus-logo">
+    <img src="/assets/campus/icon.svg" />
+  </div>
+  <div class="Vlt-col Vlt-col--M-2of4 campus-hide-small">
+    <div class="campus-content">
+    Join us in San Francisco on the 29/30th of October for
+    two days of developer workshops and technical talks
+    </div>
+  </div>
+  <div class="Vlt-col Vlt-col--1of4">
+    <a href="https://nexmo.dev/developer-campus" class="Vlt-btn Vlt-btn--primary" target="_blank">Learn More</a></div>
+</div>
+  </div>
+  </div>
+
