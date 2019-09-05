@@ -488,6 +488,7 @@ DEPENDENCIES
   clipboard-rails
   coffee-rails (~> 4.2)
   colorize
+  countries
   country_select (~> 4.0)
   devise (>= 4.6.0)
   diffy

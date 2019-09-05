@@ -28,6 +28,13 @@ class Event < ApplicationRecord
   private
 
   def address
+    # Provide the full country name to the geocoder,
+    # otherwise it thinks that IL is Illinois, not Israel
+    if country
+      country = ISO3166::Country[self.country.downcase]
+      country = country.name if country
+    end
+
     [city, country].compact.join(', ')
   end
 end

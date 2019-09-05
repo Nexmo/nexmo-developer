@@ -150,6 +150,7 @@ gem 'terminal-table'
 gem 'lograge'
 
 # Country picker for ActiveAdmin
+gem 'countries'
 gem 'country_select', '~> 4.0'
 
 gem 'nexmo-oas-renderer', '~> 0.4.1', require: false
