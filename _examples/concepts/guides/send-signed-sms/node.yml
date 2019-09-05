@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/sms/send-signed-sms.js
+    from_line: 18
+    to_line: 32
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/sms/send-signed-sms.js
+    from_line: 9
+    to_line: 16

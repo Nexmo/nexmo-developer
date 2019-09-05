@@ -1,0 +1,13 @@
+---
+dependencies:
+    - express
+    - body-parser
+    - nexmo
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/sms/verify-signed-sms-express.js
+    from_line: 15
+    to_line: 32
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/sms/verify-signed-sms-express.js
+    from_line: 5
+    to_line: 13
