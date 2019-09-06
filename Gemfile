@@ -80,18 +80,6 @@ gem 'recaptcha', require: 'recaptcha/rails'
 # Implements the iCalendar specification (RFC-5545) in Ruby.
 gem 'icalendar', require: false
 
-# A parser for Open API specifications
-#
-# If using development copy uncomment:
-# gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
-#
-# Development & staging environments may use a dependency from a repo:
-#
-# gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'definition-path-methods'
-#
-# Otherwise use a published gem:
-gem 'oas_parser', '0.18.1'
-
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
 
@@ -153,7 +141,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo-oas-renderer', '~> 0.4.1', require: false
+gem 'nexmo-oas-renderer', '~> 0.5.0', require: false
 
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'

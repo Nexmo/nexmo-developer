@@ -184,6 +184,7 @@ GEM
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
+    hash-deep-merge (0.1.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
@@ -253,13 +254,13 @@ GEM
     neatjson (0.9)
     nenv (0.3.0)
     netrc (0.11.0)
-    nexmo-oas-renderer (0.4.1)
+    nexmo-oas-renderer (0.5.0)
       activemodel (~> 5.2)
       activesupport (~> 5.2)
       banzai (~> 0.1.2)
       dotenv (~> 2.7)
       neatjson (~> 0.8)
-      oas_parser (= 0.18.1)
+      oas_parser (= 0.21.1)
       octicons_helper (~> 8.2)
       redcarpet (= 3.4.0)
       rouge (= 2.0.7)
@@ -272,11 +273,12 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oas_parser (0.18.1)
+    oas_parser (0.21.1)
       activesupport (>= 4.0.0)
       addressable (~> 2.3)
       builder (~> 3.2.3)
       deep_merge (~> 1.2.1)
+      hash-deep-merge
       mustermann-contrib (~> 1.0.3s)
       nokogiri
     octicons (8.5.0)
@@ -509,9 +511,8 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   lograge
   neatjson
-  nexmo-oas-renderer (~> 0.4.1)
+  nexmo-oas-renderer (~> 0.5.0)
   nokogiri (~> 1.10.4)
-  oas_parser (= 0.18.1)
   octicons_helper
   octokit
   pg (~> 0.18)
