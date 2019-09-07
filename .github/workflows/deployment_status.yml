@@ -1,0 +1,11 @@
+on: deployment_status
+name: append Heroku logs
+jobs:
+  append-heroku-logs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: append-heroku-logs
+      uses: mheap/github-action-heroku-logs@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
