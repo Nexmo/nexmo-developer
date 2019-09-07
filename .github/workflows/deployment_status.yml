@@ -1,5 +1,7 @@
-on: deployment_status
-name: append Heroku logs
+name: Append Heroku logs
+on:
+  deployment_status:
+    types: [failure]
 jobs:
   append-heroku-logs:
     runs-on: ubuntu-latest

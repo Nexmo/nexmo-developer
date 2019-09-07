@@ -1,11 +1,13 @@
-on: pull_request
 name: PR Edited
+on:
+  pull_request:
+    types: [opened, synchronize, labeled]
 jobs:
   create-review-app:
     runs-on: ubuntu-latest
     steps:
     - name: Create Review App
-      uses: docker://mheap/github-action-pr-heroku-review-app
+      uses: mheap/github-action-pr-heroku-review-app@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         HEROKU_APPLICATION_ID: ${{ secrets.HEROKU_APPLICATION_ID }}

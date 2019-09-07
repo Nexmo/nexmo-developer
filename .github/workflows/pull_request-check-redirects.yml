@@ -1,5 +1,7 @@
-on: pull_request
 name: Check Redirects
+on:
+  pull_request:
+    types: [opened, synchronize]
 jobs:
   check-redirects:
     runs-on: ubuntu-latest
