@@ -30,4 +30,4 @@ Code snippets are examples showing how to use the API to perform various tasks.
 
 ```code_snippet_list
 product: account
-
+```
