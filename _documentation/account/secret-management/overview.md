@@ -1,5 +1,5 @@
 ---
-title: Secret Management
+title: Overview
 description: Rotate your Nexmo API keys
 ---
 
