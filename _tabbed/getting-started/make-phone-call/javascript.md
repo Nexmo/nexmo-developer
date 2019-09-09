@@ -64,7 +64,7 @@ source: _partials/client-sdk/voice/javascript/login.md
 
 In order to make a call, you'll have to use the `callServer()` method on the application object. The application object is returned by the `login()` promise. The method requires a string as parameter that it passes along to your `answer_url`, but since ours is a static file, we'll leave the method parameter empty. 
 
-> If you're dailing a number, the string is the number you wish to call.
+> In this example, where you're intending to dial a number, the string is the number you wish to call. It must match the number in the static file you've created.
 
 ```javascript
 new ConversationClient()
