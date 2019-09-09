@@ -84,8 +84,8 @@ We'll also update the constructor method with a reference to the `conversations`
 
 ```javascript
 constructor() {
-    ...
-    this.conversationList = document.getElementById('conversations')
+  ...
+  this.conversationList = document.getElementById('conversations')
 }
 ```
 
@@ -118,11 +118,11 @@ Next, update the login form handler to show the conversation elements instead of
 
 ```javascript
 this.loginForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const userToken = this.authenticate(this.loginForm.children.username.value)
-    if (userToken) {
-        this.listConversations(userToken)
-    }
+  event.preventDefault()
+  const userToken = this.authenticate(this.loginForm.children.username.value)
+  if (userToken) {
+    this.listConversations(userToken)
+  }
 })
 ```
 
@@ -132,20 +132,18 @@ In the previous quick start guide we retrieved the conversation directly using a
 
 ```javascript
 listConversations(userToken) {
-  new ConversationClient({
-          debug: false
-      })
-      .login(userToken)
-      .then(app => {
-          console.log('*** Logged into app', app)
-          return app.getConversations()
-      })
-      .then((conversations) => {
-        console.log('*** Retrieved conversations', conversations);
+  new ConversationClient({ debug: false })
+    .login(userToken)
+    .then(app => {
+      console.log('*** Logged into app', app)
+      return app.getConversations({ page_size: 20 })
+    })
+    .then(conversations_page => {
+      console.log('*** Retrieved conversations', conversations_page.items);
 
-        this.updateConversationsList(conversations)
-      })
-      .catch(this.errorLogger)
+      this.updateConversationsList(conversations_page.items)
+    })
+    .catch(this.errorLogger)
 }
 ```
 
@@ -155,14 +153,14 @@ We're going to create the `updateConversationsList` method. It will create the H
 updateConversationsList(conversations) {
   let conversationsElement = document.createElement("ul");
   for (let id in conversations) {
-      let conversationElement = document.createElement("li");
-      conversationElement.textContent = conversations[id].display_name;
-      conversationElement.addEventListener("click", () => this.setupConversationEvents(conversations[id]));
-      conversationsElement.appendChild(conversationElement);
+    let conversationElement = document.createElement("li");
+    conversationElement.textContent = conversations[id].display_name;
+    conversationElement.addEventListener("click", () => this.setupConversationEvents(conversations[id]));
+    conversationsElement.appendChild(conversationElement);
   }
 
   if (!conversationsElement.childNodes.length) {
-      conversationsElement.textContent = "You are not a member of any conversations"
+    conversationsElement.textContent = "You are not a member of any conversations"
   }
 
   this.conversationList.appendChild(conversationsElement)
@@ -189,42 +187,42 @@ The next step is to add a listener on the `application` object for the `member:i
 
 ```javascript
 listConversations(userToken) {
+  new ConversationClient({ debug: false })
+    .login(userToken)
+    .then(app => {
+      console.log('*** Logged into app', app)
 
-    new ConversationClient({
-            debug: false
-        })
-        .login(userToken)
-        .then(app => {
-            console.log('*** Logged into app', app)
+      app.on("member:invited", (member, event) => {
+        //identify the sender and type of conversation.
+        if (event.body.cname.indexOf("CALL") != 0 && member.invited_by) {
+          console.log("*** Invitation received:", event);
 
-            app.on("member:invited", (member, event) => {
-              //identify the sender and type of conversation.
-              if (event.body.cname.indexOf("CALL") != 0 && member.invited_by) {
-                console.log("*** Invitation received:", event);
+          //accept an invitation.
+          app.getConversation(event.cid || event.body.cname)
+            .then((conversation) => {
+              this.conversation = conversation
+              conversation
+                .join()
+                .then(() => {
+                  var conversationDictionary = {}
+                  conversationDictionary[this.conversation.id] = this.conversation
+                  this.updateConversationsList(conversationDictionary)
+                })
+                .catch(this.errorLogger)
 
-                //accept an invitation.
-                app.getConversation(event.cid || event.body.cname)
-                  .then((conversation) => {
-                    this.conversation = conversation
-                    conversation.join().then(() => {
-                      var conversationDictionary = {}
-                      conversationDictionary[this.conversation.id] = this.conversation
-                      this.updateConversationsList(conversationDictionary)
-                    }).catch(this.errorLogger)
-
-                  })
-                  .catch(this.errorLogger)
-              }
             })
-            return app.getConversations()
-        })
-        .then((conversations) => {
-            console.log('*** Retrieved conversations', conversations);
+            .catch(this.errorLogger)
+        }
+      })
 
-            this.updateConversationsList(conversations)
+      return app.getConversations({ page_size: 20 })
+    })
+    .then(conversations_page => {
+      console.log('*** Retrieved conversations', conversations_page.items);
 
-        })
-        .catch(this.errorLogger)
+      this.updateConversationsList(conversations_page.items)
+    })
+    .catch(this.errorLogger)
 }
 ```
 

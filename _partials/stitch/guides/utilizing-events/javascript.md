@@ -29,39 +29,43 @@ The first thing we're going to do is add history to the existing conversation. W
 
 ```javascript
 showConversationHistory(conversation) {
-  conversation.getEvents().then((events) => {
-    var eventsHistory = ""
+  conversation
+    .getEvents({ page_size: 20 })
+    .then((events_page) => {
+      var eventsHistory = ""
 
-    events.forEach((value, key) => {
-      if (conversation.members.get(value.from)) {
-        const date = new Date(Date.parse(value.timestamp))
-        switch (value.type) {
-          case 'text:seen':
-            break;
-          case 'text:delivered':
-            break;
-          case 'text':
-            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>${value.body.text}</b><br>` + eventsHistory
-            break;
+      events_page.items.forEach((value, key) => {
+        if (conversation.members.get(value.from)) {
+          const date = new Date(Date.parse(value.timestamp))
+          
+          switch (value.type) {
+            case 'text:seen':
+              break;
+            case 'text:delivered':
+              break;
+            case 'text':
+              eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>${value.body.text}</b><br>` + eventsHistory
+              break;
 
-          case 'member:joined':
-            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>joined the conversation</b><br>` + eventsHistory
-            break;
-          case 'member:left':
-            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>left the conversation</b><br>` + eventsHistory
-            break;
-          case 'member:invited':
-            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>invited to the conversation</b><br>` + eventsHistory
-            break;
+            case 'member:joined':
+              eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>joined the conversation</b><br>` + eventsHistory
+              break;
+            case 'member:left':
+              eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>left the conversation</b><br>` + eventsHistory
+              break;
+            case 'member:invited':
+              eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>invited to the conversation</b><br>` + eventsHistory
+              break;
 
-          default:
-            eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>unknown event</b><br>` + eventsHistory
+            default:
+              eventsHistory = `${conversation.members.get(value.from).user.name} @ ${date}: <b>unknown event</b><br>` + eventsHistory
+          }
         }
-      }
-    })
+      })
 
-    this.messageFeed.innerHTML = eventsHistory + this.messageFeed.innerHTML
-  })
+      this.messageFeed.innerHTML = eventsHistory + this.messageFeed.innerHTML
+    })
+    .catch(this.errorLogger)
 }
 ```
 
@@ -90,7 +94,10 @@ setupConversationEvents(conversation) {
     this.messageFeed.innerHTML = text + this.messageFeed.innerHTML
 
     if (sender.user.name !== this.conversation.me.user.name) {
-        message.seen().then(this.eventLogger('text:seen')).catch(this.errorLogger)
+      message
+        .seen()
+        .then(this.eventLogger('text:seen'))
+        .catch(this.errorLogger)
     }
   })
 ...
@@ -124,10 +131,16 @@ Now we're going to fire those events when the user focuses or blurs the message 
 setupUserEvents() {
 ...
   this.messageTextarea.addEventListener('focus', () => {
-    this.conversation.startTyping().then(this.eventLogger('text:typing:on')).catch(this.errorLogger)
+    this.conversation
+      .startTyping()
+      .then(this.eventLogger('text:typing:on'))
+      .catch(this.errorLogger)
   });
   this.messageTextarea.addEventListener('blur', () => {
-    this.conversation.stopTyping().then(this.eventLogger('text:typing:off')).catch(this.errorLogger)
+    this.conversation
+      .stopTyping()
+      .then(this.eventLogger('text:typing:off'))
+      .catch(this.errorLogger)
   })
 }
 ```

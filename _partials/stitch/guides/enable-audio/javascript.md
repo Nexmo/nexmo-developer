@@ -60,21 +60,24 @@ We'll then update the `setupUserEvents` method to trigger `conversation.media.en
 setupUserEvents() {
 ...
   this.enableButton.addEventListener('click', () => {
-    this.conversation.media.enable().then(stream => {
-      // Older browsers may not have srcObject
-      if ("srcObject" in this.audio) {
-        this.audio.srcObject = stream;
-      } else {
-        // Avoid using this in new browsers, as it is going away.
-        this.audio.src = window.URL.createObjectURL(stream);
-      }
+    this.conversation.media
+      .enable()
+      .then(stream => {
+        // Older browsers may not have srcObject
+        if ("srcObject" in this.audio) {
+          this.audio.srcObject = stream;
+        } else {
+          // Avoid using this in new browsers, as it is going away.
+          this.audio.src = window.URL.createObjectURL(stream);
+        }
 
-      this.audio.onloadedmetadata = () => {
-        this.audio.play();
-      }
+        this.audio.onloadedmetadata = () => {
+          this.audio.play();
+        }
 
-      this.eventLogger('member:media')()
-    }).catch(this.errorLogger)
+        this.eventLogger('member:media')()
+      })
+      .catch(this.errorLogger)
   })
 }
 ```
@@ -89,7 +92,10 @@ Next, we'll add the ability for a user to disable the audio stream as well. In o
 setupUserEvents() {
 ...
   this.disableButton.addEventListener('click', () => {
-    this.conversation.media.disable().then(this.eventLogger('member:media')).catch(this.errorLogger)
+    this.conversation.media
+      .disable()
+      .then(this.eventLogger('member:media'))
+      .catch(this.errorLogger)
   })
 }
 ```

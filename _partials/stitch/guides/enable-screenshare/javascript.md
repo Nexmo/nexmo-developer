@@ -131,9 +131,10 @@ We'll then update the `setupUserEvents` method to trigger `conversation.media.en
 setupUserEvents() {
 ...
     this.enableScreenShareButton.addEventListener('click', () => {
-      this.conversation.media.enable({
-        screenshare: true
-      }).then(this.eventLogger('member:media')).catch(this.errorLogger)
+      this.conversation.media
+        .enable({ screenshare: true })
+        .then(this.eventLogger('member:media'))
+        .catch(this.errorLogger)
     })
 }
 ```

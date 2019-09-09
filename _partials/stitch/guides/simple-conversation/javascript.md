@@ -237,13 +237,13 @@ class ChatApp {
   }
 
   errorLogger(error) {
-      console.log(error)
+    console.log(error)
   }
 
   eventLogger(event) {
-      return () => {
-          console.log("'%s' event was sent", event)
-      }
+    return () => {
+      console.log("'%s' event was sent", event)
+    }
   }
 
   authenticate() {
