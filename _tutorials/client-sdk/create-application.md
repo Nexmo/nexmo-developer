@@ -10,8 +10,10 @@ If you have not yet done so, create a new directory for your project, such as `m
 Use the CLI to create your Nexmo application:
 
 ``` shell
-nexmo app:create "My Client SDK App" https://abcd1234.ngrok.io/answer https://abcd1234.ngrok.io/event --keyfile=private.key --type=rtc
+nexmo app:create "My Client SDK App" https://abcd1234.ngrok.io/webhooks/answer https://abcd1234.ngrok.io/webhooks/event --keyfile=private.key --type=rtc
 ```
+
+> **NOTE:** You need to change the webhook URLs to suit your local setup. For more information on using Ngrok for local testing please see [our documentation](/concepts/guides/webhooks#using-ngrok-for-local-development).
 
 Make a note of the generated Application ID. You can also check this in the [Nexmo Dashboard](https://dashboard.nexmo.com).
 
