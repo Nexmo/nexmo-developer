@@ -18,6 +18,7 @@ prerequisites:
 
 tasks:
 - client-sdk/create-application
+- client-sdk/create-user
 - client-sdk/generate-jwt
 
 conclusion:
