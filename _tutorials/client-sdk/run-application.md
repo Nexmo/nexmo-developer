@@ -5,21 +5,9 @@ description: In this step you see how to run your app to phone application.
 
 # Run your application
 
-You need to run a local web server to get your application working. 
+Run your web server locally in your project directory with (for example) `http-server`.
 
-First install a web server such as `http-server`:
-
-```
-npm install http-server
-```
-
-You can then run the server in your project directory with:
-
-```
-http-server
-```
-
-You application `index.html` is automatically loaded and a simple text field and button displayed. 
+Your application `index.html` is automatically loaded and a simple text field and button displayed. 
 
 Enter the number of your mobile phone into the text field in E.164 format (for example, `447700900000`) and then click the call button.
 
