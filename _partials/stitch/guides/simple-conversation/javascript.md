@@ -209,7 +209,7 @@ $ npm install nexmo-client
 Include the Nexmo Client SDK for JavaScript in the `<head>`:
 
 ```html
-<script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
+<script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
 ```
 
 > **Note:** Depending on where your Node modules are installed you may need to modify the path given here.
@@ -294,11 +294,11 @@ setupUserEvents() {
 
 ### 2.4 - Connect and Login to Nexmo
 
-Within the `joinConversation` function, create an instance of the `ConversationClient` and login the current user using the User JWT:
+Within the `joinConversation` function, create an instance of the `NexmoClient` and login the current user using the User JWT:
 
 ```js
 joinConversation(userToken) {
-  new ConversationClient({ debug: false })
+  new NexmoClient({ debug: false })
     .login(userToken)
     .then(app => console.log('*** Logged into app', app))
     .catch(this.errorLogger)
@@ -311,7 +311,7 @@ The next step is to have a user to retrieve the Conversation that was created. T
 
 ```js
 joinConversation(userToken) {
-  new ConversationClient({ debug: false })
+  new NexmoClient({ debug: false })
     .login(userToken)
     .then(app => {
         console.log('*** Logged into app', app)
@@ -341,7 +341,7 @@ setupConversationEvents(conversation) {
 }
 
 joinConversation(userToken) {
-  new ConversationClient({ debug: false })
+  new NexmoClient({ debug: false })
     .login(userToken)
     .then(app => {
         console.log('*** Logged into app', app)

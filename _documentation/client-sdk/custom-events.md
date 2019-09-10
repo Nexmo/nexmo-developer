@@ -17,8 +17,6 @@ In addition, the event body must not exceed 4096 bytes.
 
 Once you've installed the JavaScript Client SDK and [have a `conversation` object](/client-sdk/in-app-messaging/guides/simple-conversation/javascript), you can call `sendCustomEvent` to add a custom event to the conversation.
 
-> **Important**: You'll need to install the beta SDK with `npm install nexmo-client@beta` to use `sendCustomEvent`
-
 ```javascript
 conversation.sendCustomEvent({ type: 'my_custom_event', body: { your: 'data' }}).then((custom_event) => {
   console.log(custom_event);

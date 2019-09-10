@@ -34,16 +34,16 @@ npm install nexmo-client -s
 If your app is using ES6 module syntax, you can import the client module near the top of your application code:
 
 ```
-import ConversationClient from 'nexmo-client';
+import NexmoClient from 'nexmo-client';
 ```
 
 If your application will run on a single page, you can load the module in your HTML using a script tag:
 
 ```
-<script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
+<script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
 ```
 
-Be sure to check that the path to `conversationClient.js` is correct for your project structure.
+Be sure to check that the path to `nexmoClient.js` is correct for your project structure.
 
 ## Using the Nexmo Client SDK in your app
 
@@ -64,12 +64,12 @@ A JSON Web Token (JWT) is necessary to log in to your Nexmo Application. The Cli
     ```
 - Read more on generating JWTs [in this article](/client-sdk/concepts/jwt-acl)
 
-### Instantiate and log in the ConversationClient
+### Instantiate and log in the NexmoClient
 
-No arguments are necessary to instantiate a new `ConversationClient`, but you will need to pass your JWT as the argument to `login()`.
+No arguments are necessary to instantiate a new `NexmoClient`, but you will need to pass your JWT as the argument to `login()`.
 
 ```javascript
-let nexmo = new ConversationClient()
+let nexmo = new NexmoClient()
   .login(jwt)
   .then(app => console.log('Logged in to app', app))
   .catch(err => console.log(err));
@@ -77,4 +77,4 @@ let nexmo = new ConversationClient()
 
 ## Conclusion
 
-You added the Nexmo Client SDK to your client-side JavaScript app and logged in to a `ConversationClient` instance, which returned an `Application` object. You can now use `Application.newConversation()` to create a conversation, and then access the functionality of a `Conversation`.
+You added the Nexmo Client SDK to your client-side JavaScript app and logged in to a `NexmoClient` instance, which returned an `Application` object. You can now use `Application.newConversation()` to create a conversation, and then access the functionality of a `Conversation`.

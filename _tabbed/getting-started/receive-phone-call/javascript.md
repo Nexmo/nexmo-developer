@@ -41,7 +41,7 @@ We'll start with a blank HTML page with three buttons for answering, declining a
 <html>
   <head>
     <title>Receive Phone Calls</title>
-    <script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
+    <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
   </head>
   <body>
     <p id="notification"></p>
