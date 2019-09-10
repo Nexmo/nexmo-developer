@@ -20,6 +20,7 @@ tasks:
 - client-sdk/create-application
 - client-sdk/create-user
 - client-sdk/generate-jwt
+- client-sdk/create-webhook-server
 - client-sdk/app-to-phone-code
 
 conclusion:

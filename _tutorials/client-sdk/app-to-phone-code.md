@@ -7,12 +7,12 @@ description: In this step you see write the code for your app to phone applicati
 
 Create an HTML file in your project directory congtaining the following code:
 
-``` javascript
+``` html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <script src="../node_modules/nexmo-client/dist/nexmoClient.js"></script>
+  <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@ Create an HTML file in your project directory congtaining the following code:
       }
 
     createClient() {
-    console.log("DEBUG: creating client with JWT:  ", USER_JWT);
+        console.log("DEBUG: creating client with JWT:  ", USER_JWT);
         new NexmoClient({ debug: false })
           .login(USER_JWT)
           .then(app => {
@@ -63,7 +63,7 @@ Create an HTML file in your project directory congtaining the following code:
       }
 
       errorLogger(error) {
-        console.log(error);
+        console.log("ERROR: ", error);
       }
 
     }
