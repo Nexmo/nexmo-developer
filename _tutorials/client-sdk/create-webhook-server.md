@@ -7,7 +7,7 @@ description: In this step you see how to create a suitable webhook server.
 
 You will need to create a webhook server. When the inbound call comes into Nexmo you can capture the destination number and use a dynamic NCCO to forward the call to the PSTN phone.
 
-The code for the server:
+Add the code for the server to the file `server.js`:
 
 ``` javascript
 'use strict';
@@ -41,3 +41,8 @@ app.post('/webhooks/event', (req, res) => {
 app.listen(9000)
 ```
 
+You can run your webhook server with:
+
+```
+node server.js
+```

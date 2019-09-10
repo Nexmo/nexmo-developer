@@ -5,7 +5,7 @@ description: In this step you see write the code for your app to phone applicati
 
 # Create your app to phone code
 
-Create an HTML file in your project directory congtaining the following code:
+Create an HTML file called `index.html` in your project directory containing the following code:
 
 ``` html
 <!DOCTYPE html>

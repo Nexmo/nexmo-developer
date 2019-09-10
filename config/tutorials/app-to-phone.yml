@@ -22,6 +22,7 @@ tasks:
 - client-sdk/generate-jwt
 - client-sdk/create-webhook-server
 - client-sdk/app-to-phone-code
+- client-sdk/run-application
 
 conclusion:
   title: What's next?
