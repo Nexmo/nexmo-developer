@@ -5,7 +5,7 @@ menu_weight: 2
 ---
 
 ```java
-List<String> callee = ...;
+String callee = ...;
 NexmoRequestListener<NexmoCall> callListener = ...;
 
 NexmoClient.get().call(callee, NexmoCallHandler.SERVER, callListener);

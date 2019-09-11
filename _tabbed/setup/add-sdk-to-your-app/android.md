@@ -23,7 +23,7 @@ To add the Nexmo Client SDK to your project, add the following dependency in you
 
 ```groovy
 dependencies {
-    implementation 'com.nexmo.android:client-sdk:0.3.0'
+    implementation 'com.nexmo.android:client-sdk:1.0.0'
 }
 
 ```
@@ -67,22 +67,26 @@ To use the In-App Voice features, add audio permissions using the following proc
 
 ## Using NexmoClient in your App
 
-### Init NexmoClient
+### Building NexmoClient
 
-Before being able to use a `NexmoClient` instance, you need to initialize it:
+Make sure to build the NexmoClient instance before using it. The default build being:
 
 ```java
-loginListener = object : NexmoLoginListener {
-    override fun onLoginStateChange(eLoginState: NexmoLoginListener.ELoginState, eLoginStateReason: NexmoLoginListener.ELoginStateReason) {
-        //TODO
-    }
+NexmoClient.Builder().build(context)
+```
 
-    override fun onAvailabilityChange(eAvailability: NexmoLoginListener.EAvailability, nexmoConnectionState: NexmoConnectionState) {
-        //TODO
-    }
-}
+### Setting NexmoConnectionListener
 
-NexmoClient.init(context, loginListener)
+Set `NexmoConnectionListener` that will notify you on any changes on the connection to the SDK and the availability of its functionality:
+
+```java
+NexmoClient.get().setConnectionListener(new NexmoConnectionListener() {
+    @Override
+    public void onConnectionStatusChange(ConnectionStatus status, ConnectionStatusReason reason) {
+        //...
+        }
+    });
+
 ```
 
 ### Login NexmoClient
@@ -92,7 +96,7 @@ After initializing `NexmoClient`, you need log in to it, using a `jwt` user toke
 Replace the token so as to authenticate the relevant user:
 
 ```java
-    NexmoClient.get().login(token, loginListener)
+    NexmoClient.get().login(token, requestListener)
 ```
 
 After the login succeeds, the logged in user is available via `NexmoClient.get().getUser()`.

@@ -11,7 +11,7 @@ fun loginToSdk(token: String) {
                 notifyError(nexmoApiError)
             }
 
-            override fun onSuccess(user: NexmoUser) {
+            override fun onSuccess(user: NexmoUser?) {
                 currentUser = user
 
                 val intent = Intent(baseContext, MainActivity::class.java)

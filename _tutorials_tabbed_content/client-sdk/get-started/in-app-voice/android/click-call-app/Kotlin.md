@@ -5,8 +5,8 @@ navigation_weight: 0
 
 ```java
 fun onInAppCallClick(view: View) {
-        val callee = listOf(otherUserName)
-        NexmoClient.get().call(callee, NexmoCallHandler.IN_APP, callListener)
+        val callee = otherUserName
+        NexmoClient.get().call(otherUserName, NexmoCallHandler.IN_APP, callListener)
 }
 
 val otherUserName: String

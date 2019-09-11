@@ -5,9 +5,7 @@ navigation_weight: 1
 
 ```java
 public void onInAppCallClick(View view) {
-    List<String> callee = new ArrayList<>();
-    callee.add(getOtherUserId());
-
+    String callee = getOtherUserId();
     NexmoClient.get().call(callee, NexmoCallHandler.IN_APP, callListener);
 }
 
