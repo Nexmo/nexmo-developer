@@ -8,7 +8,17 @@ introduction:
   description: This task shows you how to use make a phone call from a web app using the JavaScript Client SDK.
   content: |
     # Introduction
-    You will create a Client SDK application and then write the code to make a phone call from your web app to a PSTN phone.
+    You will create a Client SDK application and then write the code to make a phone call from your web app to a 
+    PSTN phone.
+
+    There are several parts required for this solution. You need to create a webhook server that can process an 
+    inbound webhook. You need the web application itself that will make the voice call using the functionality 
+    of the Client SDK. You also need an NCCO to forward the inbound voice call to the destination phone.
+
+    The web application makes a call to the destination phone. The resultant webhook handler extracts the destination 
+    phone number from the answer webhook query parameters and then forwards the call to the destination phone 
+    via an NCCO action.
+
 
 prerequisites:
 - create-nexmo-account

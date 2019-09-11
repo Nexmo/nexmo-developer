@@ -20,3 +20,5 @@ User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
 The user ID is used to perform tasks by the Client SDK, such as login, starting a call and more.
+
+The user will be authenticated via a JWT.

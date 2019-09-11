@@ -73,3 +73,16 @@ Create an HTML file called `index.html` in your project directory containing the
 
 </html>
 ```
+
+This is your web application that will use the Client SDK to make a voice call to the destination phone via Nexmo.
+
+There are several key components to this code:
+
+1. A simple UI that allows you to enter a phone number and then click the `Call` button to make the voice call.
+2. Code that logs the user in (a JWT is used for authentication).
+3. Event handlers for `member:call` and `call:status:changed`.
+4. The function to make the call `callServer(number)`, where number is the destination phone number in E.164 format.
+
+Once you enter the phone number and click call you will hear a voice reporting on call status. Then when the call goes through you can answer and you will then hear the conversation via the app.
+
+In a later step you will see how to run this app via a local web server.

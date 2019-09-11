@@ -46,3 +46,10 @@ You can run your webhook server with:
 ```
 node server.js
 ```
+
+The important parts of this code are in the answer webhook handler:
+
+1. Extraction of the destination number from the answer webhook query parameters.
+2. The dynamically built NCCO that forwards the call to the destination phone.
+
+Note the destination number is extracted from the `to` query parameter. The NCCO is then built dynamically using this number and a `connect` action is used to forward the voice call to the destination phone.
