@@ -67,6 +67,8 @@ You could start by [Creating a Conversation](/conversation/code-snippets/convers
 product: conversation
 ```
 
+There is also a [Use Case](/client-sdk/in-app-voice/contact-center-overview) on how to build your own Contact Center.
+
 ## Reference
 
 * [Conversation API Reference](/api/conversation)
