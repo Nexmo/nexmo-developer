@@ -22,7 +22,6 @@ Implement the `callNumber:` method to start a call.
         startCall()
         return
     }
-	// if a call exists, end it
     end(call: call)
 }
 ```
@@ -34,22 +33,23 @@ Implement `startCall` - it will start the call, and also update the interface to
 ```swift
 private func startCall() {
     callStatus = .initiated
-    client?.call(["CALLEE_PHONE_NUMBER"], callHandler: .server, delegate: self) { [weak self] (error, call) in
+    client.call(User.calleePhoneNumber, callHandler: .server) { [weak self] (error, call) in
         guard let self = self else { return }
         // Handle create call failure
         guard let call = call else {
             if let error = error {
                 // Handle create call failure
-                print("❌❌❌ call not created: \(error.localizedDescription)")
+                print("✆  ‼️ call not created: \(error.localizedDescription)")
             } else {
                 // Handle unexpected create call failure
-                print("❌❌❌ call not created: unknown error")
+                print("✆  ‼️ call not created: unknown error")
             }
             self.callStatus = .error
             self.call = nil
             self.updateInterface()
             return
         }
+        
         // Handle call created successfully.
         // callDelegate's  statusChanged: will be invoked with needed updates.
         call.setDelegate(self)

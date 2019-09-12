@@ -4,7 +4,7 @@ language: swift
 menu_weight: 1
 ---
 
-Open `AppToAppCallViewController.swift`. Explore the setup methods that were written for you on `viewDidLoad`.
+Inside `AppToAppCallViewController`, explore the setup methods that were written for you on `viewDidLoad`.
 
 Now locate the following line `//MARK: Setup Nexmo Client` and complete the `setupNexmoClient` method implementation:
 

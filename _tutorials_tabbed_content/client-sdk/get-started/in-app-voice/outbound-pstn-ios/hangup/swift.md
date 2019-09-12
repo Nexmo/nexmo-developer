@@ -8,6 +8,6 @@ Implement the private `end:` method and call hangup for `myCallMember`.
 
 ```swift
 private func end(call: NXMCall) {
-    call.myCallMember.hangup()
+    call.hangup()
 }
 ```

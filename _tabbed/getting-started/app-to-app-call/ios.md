@@ -62,7 +62,7 @@ This also allows you to start a PSTN phone call, by adding a phone number as the
 
 ### Call Delegate
 
-Note that, when a call is placed successfully, we're setting `AppToAppCallViewController` as the delegate for it.  
+Note that, when a call is placed successfully, we're setting `self` as the delegate for it.  
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/in-app-calling-ios/call-delegate'

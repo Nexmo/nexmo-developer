@@ -5,7 +5,7 @@ menu_weight: 1
 ---
 
 
-We'll now adopt the `NXMCallDelegate` as an extension on `AppToAppCallViewController`:
+We'll now adopt the `NXMCallDelegate` as an extension on `AppToAppCallViewController`, under the `//MARK:- NXMCallDelegate` line:
 
 ```swift
 extension AppToAppCallViewController: NXMCallDelegate {
@@ -13,11 +13,10 @@ extension AppToAppCallViewController: NXMCallDelegate {
 }
 ```
 
-Copy the following implementation for the `call(_:didUpdate:with:)` method of the `NXMCallDelegate` along with the aid methods under the `//MARK:- NXMCallDelegate` line:
+Copy the following `NXMCallDelegate` methods inside the extension:
 
 ```swift
 func call(_ call: NXMCall, didUpdate callMember: NXMCallMember, with status: NXMCallMemberStatus) {
-    print("✆  🤙 Call Status update | member: \(callMember.user.displayName) | status: \(String(describing: callMember.status.description()))")
     
     // call error
     if call.otherCallMembers.contains(callMember), [NXMCallMemberStatus.failed, NXMCallMemberStatus.busy, NXMCallMemberStatus.timeout].contains(callMember.status) {
