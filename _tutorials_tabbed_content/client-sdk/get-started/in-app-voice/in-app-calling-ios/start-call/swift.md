@@ -6,21 +6,18 @@ menu_weight: 1
 
 
 
-`Call Jane/Joe` button press is already connected to the `MainViewController`.
+`Call Jane/Joe` button press is already connected to the `AppToAppCallViewController`.
 
 Implement the `call:` method to start a call. 
 
 ```swift
 @IBAction func call(_ sender: Any) {
-    // call initiated but not yet active
-    if callStatus == .initiated && call == nil {
-        return
-    }
-    // start a new call (check if a call already exists)
+    // start a new call (if one doesn't already exists)
     guard let call = call else {
         startCall()
         return
     }
+    // or end an existing call
     end(call: call)
 }
 
@@ -39,22 +36,23 @@ Let's implement `startCall` - it will start the call, and also update the visual
 ```swift
 private func startCall() {
     callStatus = .initiated
-    client?.call([user.callee.userId], callHandler: .inApp, delegate: self) { [weak self] (error, call) in
+    client.call(user.callee.rawValue, callHandler: .inApp) { [weak self] (error, call) in
         guard let self = self else { return }
         // Handle create call failure
         guard let call = call else {
             if let error = error {
                 // Handle create call failure
-                print("❌❌❌ call not created: \(error.localizedDescription)")
+                print("✆  ‼️ call not created: \(error.localizedDescription)")
             } else {
                 // Handle unexpected create call failure
-                print("❌❌❌ call not created: unknown error")
+                print("✆  ‼️ call not created: unknown error")
             }
             self.callStatus = .error
             self.call = nil
             self.updateInterface()
             return
         }
+        
         // Handle call created successfully.
         // callDelegate's  statusChanged: will be invoked with needed updates.
         call.setDelegate(self)
@@ -62,7 +60,5 @@ private func startCall() {
         self.updateInterface()
     }
     updateInterface()
-}
+    }
 ```
-
-NB: You can have multiple users in a call (`client?.call` method takes an array as its first argument). However, this tutorial demonstrates a 1-on-1 call.

@@ -4,14 +4,14 @@ language: swift
 menu_weight: 1
 ---
 
-Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-InApp-Voice-Swift).
+Clone this [Github project](https://github.com/Nexmo/ClientSDK-Get-Started-Voice-Swift).
 
-Using the Github project you cloned, in the Starter app, with XCode:
+Using the Github project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within XCode:
     
-1. Open `Constants.swift` file and replace the user IDs and tokens:
+1. Open `Constants.swift` file and replace the user uuids and jwts:
 
     ```swift
-        var userId: String {
+        var uuid: String {
             switch self {
             case .jane:
                 return "" //TODO: swap with Jane's userId
@@ -20,7 +20,7 @@ Using the Github project you cloned, in the Starter app, with XCode:
             }
         }
         
-        var token: String {
+        var jwt: String {
             switch self {
             case .jane:
                 return "" //TODO: swap with a token for Jane
@@ -30,8 +30,8 @@ Using the Github project you cloned, in the Starter app, with XCode:
         }
     ```
 
-2. Open `MainViewController.swift` file and make sure the following lines exist:
+2. From the `App-to-App` group, open `AppToAppCallViewController.swift` file and make sure the following lines exist:
 
 * `import NexmoClient` - imports the sdk
-* `var client: NXMClient?` - property for the client instance
+* `let client = NXMClient.shared` - the NexmoClient shrared instance
 * `var call: NXMCall?` - property for the call instance
