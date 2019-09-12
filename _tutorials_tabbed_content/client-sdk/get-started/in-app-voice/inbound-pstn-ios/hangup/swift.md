@@ -12,10 +12,10 @@ private func end(call: NXMCall) {
         updateInterface()
         return
     }
-    call.myCallMember.hangup()
+    call.hangup()
 }
 ```
 
-Updates for `callMember` statuses are received in `statusChanged` as part of the `NXMCallDelegate` as you have seen before.  
+Updates for `callMember` statuses are received in `call(_:didUpdate:with:)` as part of the `NXMCallDelegate` as you have seen before.  
 
-The existing implementation for `statusChanged:` is already handling call hangup.
+The existing implementation is already handling call hangup.

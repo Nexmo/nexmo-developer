@@ -89,10 +89,6 @@ Once the "End Call" button is pressed, it is time to hangup the call.
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/hangup'
 ```
 
-Updates for `callMember` statuses are received in `call(_:didUpdate:with:)` as part of the `NXMCallDelegate` as you have seen before.  
-
-The existing implementation is already handling call hangup.
-
 
 ## Handle permissions
 

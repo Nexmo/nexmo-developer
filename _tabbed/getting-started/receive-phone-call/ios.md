@@ -5,9 +5,8 @@ language: ios
 
 # How to Receive Phone Calls with the Nexmo Client SDK on iOS
 
-In this guide, you'll learn how to receive an incoming phone call in a iOS application.
+In this guide, you'll learn how to receive an incoming phone call in a Nexmo application by implementing a [webhook](/concepts/guides/webhooks) and linking that to a [Nexmo application](/concepts/guides/applications).
 
-You will create a simple iOS app, that will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, reject or hangup.
 
 ## Nexmo Concepts
 
@@ -33,7 +32,7 @@ source: _partials/client-sdk/voice/inbound-pstn-application-webhook.md
 source: _partials/client-sdk/voice/link-nexmo-number.md
 ```
 
-## The starter project
+## The Starter project
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/started-project'
@@ -58,7 +57,7 @@ At this point you should already be able to run the app and see that you can log
 
 When the phone number associated with your Nexmo app receives a call, the app should notify the user `Jane` so that she can decide whether to answer or reject it.
 
-This is done by implementing the optional `incomingCall:` method which is declared in the `NXMClientDelegate`.
+This is done by implementing the optional `client(_:didReceive:)` method which is declared in the `NXMClientDelegate`.
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/receive'
@@ -77,7 +76,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 ## Reject a call
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/answer'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/reject'
 ```
 
 `reject:` accepts a single `completionHandler` parameter to indicate if an error occurred in the process.
@@ -97,11 +96,13 @@ The `statusChanged:` method notifies on changes that happens to members on the c
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/hangup'
 ```
 
+
 ## Handle permissions
 
 For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.
 
 To read more about the permissions required, [see the setup tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions).
+
 
 ## Conclusion
 

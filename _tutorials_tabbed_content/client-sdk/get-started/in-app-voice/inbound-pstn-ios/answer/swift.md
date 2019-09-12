@@ -11,7 +11,7 @@ Under the `//MARK: Incoming call - Accept`, implement this method to answer the 
 private func answer(call: NXMCall) {
     self.call = call
     self.call?.setDelegate(self)
-    call.answer(self) { [weak self] error in
+    call.answer { [weak self] error in
         if let error = error {
             print("error answering call: \(error.localizedDescription)")
         }

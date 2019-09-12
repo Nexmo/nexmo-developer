@@ -4,49 +4,56 @@ language: swift
 menu_weight: 1
 ---
 
-As with `NXMClient`, `NXMCall` also has a delegate. You will now adopt the `NXMCallDelegate` as an extension on `MainViewController`:
+We'll now adopt the `NXMCallDelegate` as an extension on `ReceivePhoneCallViewController`, under the `//MARK:- NXMCallDelegate` line:
 
 ```swift
-extension MainViewController: NXMCallDelegate {
+extension ReceivePhoneCallViewController: NXMCallDelegate {
 
 }
 ```
 
-Copy the following implementation for the `statusChanged` method of the `NXMCallDelegate` along with the aid methods under the `//MARK:- Call Delegate` line:
+Copy the following `NXMCallDelegate` methods inside the extension:
 
 ```swift
-func statusChanged(_ member: NXMCallMember!) {
-    print("🤙🤙🤙 Call Status changed | member: \(String(describing: member.user.name))")
-    print("🤙🤙🤙 Call Status changed | member status: \(String(describing: member.status.description()))")
+func call(_ call: NXMCall, didUpdate callMember: NXMCallMember, with status: NXMCallMemberStatus) {
     
-    guard let call = call else {
-        // this should never happen
-        self.callStatus = .unknown
-        self.updateInterface()
-        return
+    // call ended
+    if call.myCallMember == callMember, status == .completed {
+        self.callStatus = .completed
+        self.call?.hangup()
+        self.call = nil
     }
     
-    // call ended before it could be answered
-    if member == call.myCallMember, member.status == .answered, let otherMember = call.otherCallMembers.firstObject as? NXMCallMember, [NXMCallMemberStatus.completed, NXMCallMemberStatus.cancelled].contains(otherMember.status)  {
-        self.callStatus = .completed
-        self.call?.myCallMember.hangup()
+    // call error
+    if call.otherCallMembers.contains(callMember), [NXMCallMemberStatus.failed, NXMCallMemberStatus.busy, NXMCallMemberStatus.timeout].contains(callMember.status) {
+        self.callStatus = .rejected
+        self.call?.hangup()
         self.call = nil
     }
     
     // call rejected
-    if call.otherCallMembers.contains(member), member.status == .cancelled {
+    if call.otherCallMembers.contains(callMember), callMember.status == .rejected {
         self.callStatus = .rejected
-        self.call?.myCallMember.hangup()
+        self.call?.hangup()
         self.call = nil
     }
     
     // call ended
-    if member.status == .completed {
+    if call.otherCallMembers.contains(callMember), callMember.status == .completed {
         self.callStatus = .completed
-        self.call?.myCallMember.hangup()
+        self.call?.hangup()
         self.call = nil
     }
     
+    updateInterface()
+    
+}
+
+func call(_ call: NXMCall, didUpdate callMember: NXMCallMember, isMuted muted: Bool) {
+    updateInterface()
+}
+
+func call(_ call: NXMCall, didReceive error: Error) {
     updateInterface()
 }
 ```
