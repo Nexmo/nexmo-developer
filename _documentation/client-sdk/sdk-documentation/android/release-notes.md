@@ -123,7 +123,7 @@ This version contains many small bug fixes and stability improvements. The major
 
 ### Added
 
-* Support for parsing the MemberId who initiated a call.
+* Support for parsing the `MemberId` who initiated a call.
 
 ### Fixed
 

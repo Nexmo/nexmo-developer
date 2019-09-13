@@ -15,7 +15,7 @@ navigation_weight: 0
 - `CallMember` supports failed, busy, timeout and canceled statuses.
 - Supports member invited.
 - `Conversation` has media methods.
-- `NexmoClient` is now singelton.
+- `NexmoClient` is now singleton.
 - Call method changed to string instead of array.
 - `NexmoClient` delegate methods renamed.
 
