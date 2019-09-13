@@ -17,7 +17,7 @@ Using the Github project you cloned, in the Start folder, open `GettingStarted.x
 #define kJaneJWT @"" //TODO: swap with a token for Jane
 ```
 
-2. From the `Make-phone-call` group, open `MakePhoneCallViewController.swift` file and make sure the following lines exist:
+2. From the `Make-phone-call` group, open `MakePhoneCallViewController.m` file and make sure the following lines exist:
 
  * `#import <NexmoClient/NexmoClient.h>` - imports the sdk
  * `@property User *user;` - sets the user that places the call

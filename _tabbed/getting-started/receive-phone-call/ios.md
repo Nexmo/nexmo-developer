@@ -87,7 +87,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/call-delegate'
 ```
 
-The `statusChanged:` method notifies on changes that happens to members on the call.
+The `call(_:didUpdate:with:)` method notifies on changes that happens to members on the call.
 
 
 ## Hangup a call
