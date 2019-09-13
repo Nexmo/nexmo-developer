@@ -4,21 +4,21 @@ language: objective_c
 menu_weight: 2
 ---
 
-Under the `#pragma mark IncomingCall`, implement this method to reject the incoming call:
+Under the `//MARK: Incoming call - Reject`, implement this method to reject the incoming call:
 
 ```objective-c
-- (void)didPressRejectIncomingCall {
-    __weak MainViewController *weakSelf = self;
-    [weakSelf.ongoingCall reject:^(NSError * _Nullable error) {
+- (void)didPressRejectIncomingCall:(NXMCall *)call {
+    self.call = nil;
+    
+    __weak AppToAppCallViewController *weakSelf = self;
+    [call reject:^(NSError * _Nullable error) {
         if(error) {
+            NSLog(@"✆  ‼️ error rejecting call: %@", error.localizedDescription);
             [weakSelf displayAlertWithTitle:@"Reject Call" andMessage:@"Error rejecting call"];
             return;
         }
-
-        weakSelf.ongoingCall = nil;
-        weakSelf.isInCall = NO;
-        [self updateCallStatusLabelWithText:@""];
-        [weakSelf setActiveViews];
+        NSLog(@"✆  🤙 call rejected");
+        [weakSelf updateInterface];
     }];
 }
 ```

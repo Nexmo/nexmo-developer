@@ -4,22 +4,27 @@ language: objective_c
 menu_weight: 2
 ---
 
-Under the `#pragma mark IncomingCall`, implement this method to answer the incoming call:
+Under the `//MARK: Incoming call - Accept`, implement this method to answer the incoming call:
 
 ```objective-c
-- (void)didPressAnswerIncomingCall {
-    __weak MainViewController *weakSelf = self;
-    [weakSelf.ongoingCall answer:self completionHandler:^(NSError * _Nullable error) {
+- (void)didPressAnswerIncomingCall:(NXMCall *)call {
+    self.call = nil;
+    self.callStatus = CallStatusInitiated;
+    [self updateInterface];
+    
+    __weak AppToAppCallViewController *weakSelf = self;
+    self.call = call;
+    [call answer:^(NSError * _Nullable error) {
         if(error) {
+            NSLog(@"✆  ‼️ error answering call: %@", error.localizedDescription);
             [weakSelf displayAlertWithTitle:@"Answer Call" andMessage:@"Error answering call"];
-            weakSelf.ongoingCall = nil;
-            weakSelf.isInCall = NO;
-            [self updateCallStatusLabelWithText:@""];
-            [weakSelf setActiveViews];
+            weakSelf.call = nil;
+            [weakSelf updateInterface];
             return;
         }
-        self.isInCall = YES;
-        [weakSelf setActiveViews];
+        [weakSelf.call setDelegate:self];
+        NSLog(@"✆  🤙 call answered");
+        [weakSelf updateInterface];
     }];
 }
 ```

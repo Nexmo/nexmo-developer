@@ -5,25 +5,45 @@ menu_weight: 2
 ---
 
 
-`Call Other` button press is already connected to the `MainViewController`.
+`Call Other` button press is already connected to the `AppToAppCallViewController`.
 
-Implement the `didCallOtherButtonPress:` method to start a call. It will start the call, and also update the UIViews so that Jane or Joe know the call is in progress:
+Implement the `call:` method to start a call. It will start the call, and also update the UIViews so that Jane or Joe know the call is in progress:
 
 ```objective-c
-- (IBAction)didCallOtherButtonPress:(UIButton *)sender {
-    self.isInCall = YES;
-    [self.nexmoClient call:@[self.otherUser.userId] callHandler:NXMCallHandlerInApp delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
-        if(error) {
-            self.isInCall = NO;
-            self.ongoingCall = nil;
-            [self updateCallStatusLabelWithText:@""];
-            return;
-        }
-        self.ongoingCall = call;
-        [self setActiveViews];
-    }];
+- (IBAction)call:(id)sender {
+    if (self.call != nil || self.callStatus == CallStatusInitiated) {
+        [self endCall];
+    } else {
+        [self startCall];
+    }
+}
+
+- (void)startCall {
+}
+
+- (void)endCall {
 }
 ```
 
-Ensure that `NSArray` is initialized with `otherUser.userId`. You can have multiple users in a call. However, this tutorial demonstrates a 1-on-1 call.
+If a call is already in progress, taping the button will end it. 
 
+Let's implement `startCall` - it will start the call, and also update the visual elements so that Jane or Joe know the call is in progress:
+
+```objective-c
+- (void)startCall {
+    self.callStatus = CallStatusInitiated;
+    __weak AppToAppCallViewController *weakSelf = self;
+    [self.client call:[self callee].name callHandler:NXMCallHandlerInApp completionHandler:^(NSError * _Nullable error, NXMCall * _Nullable call) {
+        if(error) {
+            NSLog(@"✆  ‼️ call not created: %@", error);
+            weakSelf.call = nil;
+            [weakSelf updateInterface];
+            return;
+        }
+        NSLog(@"✆  call: %@", call);
+        weakSelf.call = call;
+        [weakSelf.call setDelegate:self];
+        [weakSelf updateInterface];
+    }];
+}
+```

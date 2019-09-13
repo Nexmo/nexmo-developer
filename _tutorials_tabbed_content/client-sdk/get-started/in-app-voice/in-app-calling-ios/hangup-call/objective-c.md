@@ -4,34 +4,16 @@ language: objective_c
 menu_weight: 2
 ---
 
-Once Jane or Joe presses the red button, it is time to hangup the call. Implement `didEndButtonPress:` method and call hangup for `myCallMember`.
+Once Jane or Joe presses the `End Call` button, it is time to hangup the call. Implement `endCall` method and call hangup for `call`.
 
 ```objective-c
-- (IBAction)didEndButtonPress:(UIButton *)sender {
-    [self.ongoingCall.myCallMember hangup];
+- (void)endCall {
+    [self.call hangup];
+    [self updateInterface];
 }
 ```
 
-Updates for `callMember` statuses are received in `statusChanged` as part of the `NXMCallDelegate` as you have seen before.  
+Updates for `callMember` statuses are received in `call:didUpdate:withStatus:` as part of the `NXMCallDelegate` as you have seen before.  
 
-Update the implementation for `statusChangedForOtherMember` and `statusChangedForMyMember` to handle call hangup:
+The existing implementation is already handling call hangup.
 
-```objective-c
-- (void)statusChangedForMyMember:(NXMCallMember *)myMember {
-    [self updateCallStatusLabelWithStatus:myMember.status];
-    
-    //Handle Hangup
-    if(myMember.status == NXMCallMemberStatusCancelled || myMember.status == NXMCallMemberStatusCompleted) {
-        self.ongoingCall = nil;
-        self.isInCall = NO;
-        [self updateCallStatusLabelWithText:@""];
-        [self setActiveViews];
-    }
-}
-
-- (void)statusChangedForOtherMember:(NXMCallMember *)otherMember {
-    if(otherMember.status == NXMCallMemberStatusCancelled || otherMember.status == NXMCallMemberStatusCompleted) {
-        [self.ongoingCall.myCallMember hangup];
-    }
-}
-```
