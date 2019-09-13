@@ -89,7 +89,7 @@ navigation_overrides:
   client-sdk:
     svg: 'queue'
     svgColor: 'teal'
-    label: 'Dev Preview'
+    label: 'Beta'
     overview:
       navigation_weight: 1
     setup:
