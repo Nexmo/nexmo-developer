@@ -306,3 +306,5 @@ EU
 AP
 strikethrough
 monospace
+singleton
+getters

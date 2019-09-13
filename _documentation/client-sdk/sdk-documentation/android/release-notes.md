@@ -59,7 +59,7 @@ NexmoChannel channel = someCallMember.getChannel();
 
 ### New
 
-- Android minSDK is now 23
+- Android `minSDK` is now 23.
 - `CustomEvents` support in `NexmoConversation`:
 
 ```java
