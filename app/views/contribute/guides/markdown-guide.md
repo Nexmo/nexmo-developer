@@ -151,6 +151,17 @@ graph TD;
 ```
 ````
 
+Creates a diagram like this:
+
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 Some common diagrams e.g. sequence diagrams may have specific extensions, so keep reading!
 
 ## Sequence Diagram (custom plugin, using Mermaid)
