@@ -67,4 +67,4 @@ The important parts of this code are in the answer webhook handler:
 
 Note the destination number is extracted from the `to` query parameter. The NCCO is then built dynamically using this number and a `connect` action is used to forward the voice call to the destination phone.
 
-> **NOTE:** This is a good point to make sure you have Ngrok running.
+> **NOTE:** This is a good point to make sure [you have Ngrok running](/client-sdk/tutorials/app-to-phone/prerequisites#how-to-run-ngrok).

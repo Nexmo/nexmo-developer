@@ -5,7 +5,7 @@ description: In this step you see write the code for your app to phone applicati
 
 # Create your app to phone code
 
-Create an HTML file called `index.html` in your project directory. Add the following code, but make sure you paste in the JWT you generated for the user in the earlier step in this tutorial:
+Create an HTML file called `index.html` in your project directory. Add the following code, but make sure you paste in the JWT you generated for the user in the [earlier step](/client-sdk/tutorials/app-to-phone/client-sdk/generate-jwt) in this tutorial:
 
 ``` html
 <!DOCTYPE html>

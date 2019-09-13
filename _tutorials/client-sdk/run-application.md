@@ -5,7 +5,7 @@ description: In this step you see how to run your app to phone application.
 
 # Run your application
 
-> **NOTE:** If you have not already done so, make sure you have Ngrok running.
+> **NOTE:** If you have not already done so, make sure you have [Ngrok running](/client-sdk/tutorials/app-to-phone/prerequisites#how-to-run-ngrok).
 
 Run your web server locally in your project directory with `http-server`, or other command depending on which HTTP server you installed.
 
