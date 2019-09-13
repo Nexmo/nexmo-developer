@@ -5,14 +5,14 @@ menu_weight: 2
 ---
 
 
-Implement the `callNumber:` method to start a call. 
+Implement the `call:` method to start a call. 
 
-```swift
-- (IBAction)callNumber:(id)sender {
-    if(!self.ongoingCall) {
-        [self startCall];
-    } else {
+```objective-c
+- (IBAction)call:(id)sender {
+    if (self.call != nil || self.callStatus == CallStatusInitiated) {
         [self endCall];
+    } else {
+        [self startCall];
     }
 }
 ```
@@ -24,23 +24,19 @@ Implement the `startCall` method to start a call. It will start the call, and al
 
 ```objective-c
 - (void)startCall {
-    if(self.ongoingCall) {
-        return;
-    }
-    self.statusLabel.text = @"Calling...";
-    [self.loadingIndicator startAnimating];
-    self.callButton.alpha = 0;
-    [self.nexmoClient call:@[@"CALLEE_NUMBER"] callHandler:NXMCallHandlerServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
+    self.callStatus = CallStatusInitiated;
+    __weak MakePhoneCallViewController *weakSelf = self;
+    [self.client call:kCalleePhoneNumber callHandler:NXMCallHandlerServer completionHandler:^(NSError * _Nullable error, NXMCall * _Nullable call) {
         if(error) {
-            NSLog(@"❌❌❌ call not created: %@", error);
-            self.ongoingCall = nil;
-            [self updateInterface];
+            NSLog(@"✆  ‼️ call not created: %@", error);
+            weakSelf.call = nil;
+            [weakSelf updateInterface];
             return;
         }
-        NSLog(@"🤙🤙🤙 call: %@", call);
-        self.ongoingCall = call;
-        self.ongoingCall.delegate = self;
-        [self updateInterface];
+        NSLog(@"✆  call: %@", call);
+        weakSelf.call = call;
+        [weakSelf.call setDelegate:self];
+        [weakSelf updateInterface];
     }];
 }
 ```

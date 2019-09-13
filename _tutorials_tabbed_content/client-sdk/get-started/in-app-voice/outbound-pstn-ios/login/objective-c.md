@@ -4,33 +4,28 @@ language: objective_c
 menu_weight: 2
 ---
 
-Open `ViewController.m`. Explore the setup methods that were written for you on `viewDidLoad`.
+Inside `MakePhoneCallViewController`, explore the setup methods that were written for you on `viewDidLoad`.
 
-Now locate the following line `#pragma mark - Tutorial Methods` and complete the `setupNexmoClient` method implementation:
+Now locate the following line `//MARK:  Setup Nexmo Client` and complete the `setupNexmoClient` method implementation:
 
 ```objective-c
 - (void)setupNexmoClient {
-    self.nexmoClient = [[NXMClient alloc] initWithToken:kJaneToken];
-    [self.nexmoClient setDelegate:self];
-    [self.nexmoClient login];
+    self.client = [NXMClient shared];
+    [self.client setDelegate:self];
+    [self.client loginWithAuthToken:self.user.jwt];
 }
 ```
 
 Notice that `self` is set to be the delegate for `NXMClient`. Do not forget to adopt the `NXMClientDelegate` protocol and implement the required methods.
 
-Add the required protocol adoption declaration to the class extension located in the `ViewController.m` file:
+Add the required protocol methods, under the `//MARK:- NXMClientDelegate` line:
 
 ```objective-c
-@interface ViewController () <NXMClientDelegate>
-```
+- (void)client:(nonnull NXMClient *)client didChangeConnectionStatus:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason {
+    [self updateInterface];
+}
 
-The `NXMClientDelegate` indicates if the login was successful and you can start using the SDK.
-
-Add the following method under the `#pragma mark NXMClientDelegate` line.
-
-```objective-c
-- (void)connectionStatusChanged:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason {
-    self.connectionStatus = status;
+- (void)client:(nonnull NXMClient *)client didReceiveError:(nonnull NSError *)error {
     [self updateInterface];
 }
 ```
