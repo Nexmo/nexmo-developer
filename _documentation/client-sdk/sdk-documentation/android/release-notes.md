@@ -29,23 +29,23 @@ navigation_weight: 0
 
 - `NexmoClient` call function receives a single username or phone number:
   
-  ```java
-  //IN APP CALL:
-  NexmoClient.get().call(callee, NexmoCallHandler.IN_APP, new NexmoRequestListener<NexmoCall>() {
-   void onError(@NonNull NexmoApiError error){
-   }
-   void onSuccess(@Nullable NexmoCall result){
-   }
-  });
-  
-  //SEREVER CALL:
-  NexmoClient.call(callee, NexmoCallHandler.SERVER, new NexmoRequestListener<NexmoCall>() {
-   void onError(@NonNull NexmoApiError error){
-   }
-   void onSuccess(@Nullable NexmoCall result){
-   }
-  });
-  ```
+```java
+//IN APP CALL:
+NexmoClient.get().call(callee, NexmoCallHandler.IN_APP, new NexmoRequestListener<NexmoCall>() {
+    void onError(@NonNull NexmoApiError error){
+    }
+    void onSuccess(@Nullable NexmoCall result){
+    }
+});
+
+//SERVER CALL:
+NexmoClient.call(callee, NexmoCallHandler.SERVER, new NexmoRequestListener<NexmoCall>() {
+    void onError(@NonNull NexmoApiError error){
+    }
+    void onSuccess(@Nullable NexmoCall result){
+    }
+});
+```
 
 - Removed `NexmoCallMember.getMember()`, and added getters:
 
