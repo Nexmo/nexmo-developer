@@ -26,6 +26,7 @@ prerequisites:
 - install-nexmo-cli-beta
 - install-local-web-server
 - install-node-client-sdk-beta
+- run-ngrok
 
 tasks:
 - client-sdk/create-application
