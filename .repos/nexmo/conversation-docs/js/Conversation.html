@@ -247,7 +247,7 @@
             <td class="type">
             
                 
-<span class="param-type">Map.&lt;string, <a href="Event.html">Event</a>></span>
+<span class="param-type">Map.&lt;string, <a href="NXMEvent.html">NXMEvent</a>></span>
 
 
             
@@ -363,6 +363,8 @@
 
 
 
+
+
     
     </div>
 
@@ -439,7 +441,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line57">line 57</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -568,7 +570,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line452">line 452</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line512">line 512</a>
     </li></ul></dd>
     
 
@@ -578,6 +580,8 @@ otherwise the value will be `null`.
 
     
 </dl>
+
+
 
 
 
@@ -673,7 +677,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line206">line 206</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line211">line 211</a>
     </li></ul></dd>
     
 
@@ -683,6 +687,8 @@ otherwise the value will be `null`.
 
     
 </dl>
+
+
 
 
 
@@ -742,7 +748,7 @@ otherwise the value will be `null`.
 
 
 <div class="description">
-    Delete an Event (e.g. Text)
+    Delete an NXMEvent (e.g. Text)
 </div>
 
 
@@ -784,7 +790,7 @@ otherwise the value will be `null`.
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -835,7 +841,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line228">line 228</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line231">line 231</a>
     </li></ul></dd>
     
 
@@ -845,6 +851,8 @@ otherwise the value will be `null`.
 
     
 </dl>
+
+
 
 
 
@@ -887,7 +895,7 @@ otherwise the value will be `null`.
     
 
     
-    <h4 class="name" id="getEvents"><span class="type-signature"></span>getEvents<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Map.&lt;string, <a href="Event.html">Event</a>>>}</span></h4>
+    <h4 class="name" id="getEvents"><span class="type-signature"></span>getEvents<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="EventsPage.html">EventsPage</a>.&lt;Map.&lt;Events>>>}</span></h4>
     
 
     
@@ -919,8 +927,6 @@ otherwise the value will be `null`.
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -946,20 +952,10 @@ otherwise the value will be `null`.
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">leave empty to get all the events
+            <td class="description last">configure defaults for paginated events query
                 <h6>Properties</h6>
                 
 
@@ -973,6 +969,8 @@ otherwise the value will be `null`.
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -985,7 +983,7 @@ otherwise the value will be `null`.
 
         <tr>
             
-                <td class="name"><code>start_id</code></td>
+                <td class="name"><code>order</code></td>
             
 
             <td class="type">
@@ -998,17 +996,56 @@ otherwise the value will be `null`.
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last">the id of the event to begin the batch</td>
+            <td class="description last">'asc' or 'desc' ordering of resources based on creation time</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>end_id</code></td>
+                <td class="name"><code>page_size</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the number of resources returned in a single request list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cursor</code></td>
             
 
             <td class="type">
@@ -1021,10 +1058,53 @@ otherwise the value will be `null`.
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last">the id of the event to finish the batch</td>
+            <td class="description last">string to access the starting point of a dataset</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the type of event used to filter event requests. Supports wildcard options with :* eg. 'members:*'</td>
         </tr>
 
     
@@ -1072,7 +1152,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line506">line 506</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line579">line 579</a>
     </li></ul></dd>
     
 
@@ -1095,11 +1175,13 @@ otherwise the value will be `null`.
 
 
 
+
+
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
-    - A promise to the Events Map
+    - Populate Conversations.events.
 </div>
 
 
@@ -1110,7 +1192,7 @@ otherwise the value will be `null`.
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;Map.&lt;string, <a href="Event.html">Event</a>>></span>
+<span class="param-type">Promise.&lt;<a href="EventsPage.html">EventsPage</a>.&lt;Map.&lt;Events>>></span>
 
 
     </dd>
@@ -1119,6 +1201,17 @@ otherwise the value will be `null`.
     
 
 
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">Get Events</p>
+    
+    <pre class="prettyprint"><code>conversation.getEvents({ event_type: 'member:*' ).then((events_page) => {
+    events_page.items.forEach(event => {
+     render(event)
+  })
+});</code></pre>
 
 
 
@@ -1290,7 +1383,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line254">line 254</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -1300,6 +1393,8 @@ otherwise the value will be `null`.
 
     
 </dl>
+
+
 
 
 
@@ -1522,7 +1617,7 @@ otherwise the value will be `null`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line302">line 302</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line312">line 312</a>
     </li></ul></dd>
     
 
@@ -1532,6 +1627,8 @@ otherwise the value will be `null`.
 
     
 </dl>
+
+
 
 
 
@@ -1787,7 +1884,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line149">line 149</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line151">line 151</a>
     </li></ul></dd>
     
 
@@ -1797,6 +1894,8 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
     
 </dl>
+
+
 
 
 
@@ -1948,7 +2047,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
         <tr>
             
-                <td class="name"><code>code</code></td>
+                <td class="name"><code>reason_code</code></td>
             
 
             <td class="type">
@@ -1981,7 +2080,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
         <tr>
             
-                <td class="name"><code>text</code></td>
+                <td class="name"><code>reason_text</code></td>
             
 
             <td class="type">
@@ -2055,7 +2154,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line324">line 324</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line334">line 334</a>
     </li></ul></dd>
     
 
@@ -2065,6 +2164,8 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
     
 </dl>
+
+
 
 
 
@@ -2098,6 +2199,222 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
 
 
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sendCustomEvent"><span class="type-signature"></span>sendCustomEvent<span class="signature">(params, type, body)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Send a custom event to the conversation
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">params of the custom event</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">customizable key value pairs</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line398">line 398</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - the custom event that was sent
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption"> sending a custom event </p>
+    
+    <pre class="prettyprint"><code>   conversation.sendCustomEvent({ type: 'my-event', body: {}}).then(() => {
+			console.log('custom event was sent');
+		}).catch((error)=>{
+			console.log('error sending the custom event', error);
+	});</code></pre>
 
 
 
@@ -2342,7 +2659,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line392">line 392</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line451">line 451</a>
     </li></ul></dd>
     
 
@@ -2352,6 +2669,8 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 </dl>
+
+
 
 
 
@@ -2470,7 +2789,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
             
 
-            <td class="description last">text the text message to be sent</td>
+            <td class="description last">the text message to be sent</td>
         </tr>
 
     
@@ -2511,7 +2830,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line342">line 342</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line352">line 352</a>
     </li></ul></dd>
     
 
@@ -2521,6 +2840,8 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 </dl>
+
+
 
 
 
@@ -2630,7 +2951,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line485">line 485</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line549">line 549</a>
     </li></ul></dd>
     
 
@@ -2640,6 +2961,8 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 </dl>
+
+
 
 
 
@@ -2738,7 +3061,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line494">line 494</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line558">line 558</a>
     </li></ul></dd>
     
 
@@ -2748,6 +3071,8 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 </dl>
+
+
 
 
 
@@ -2881,7 +3206,7 @@ A member has unmuted their audio
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -2930,7 +3255,7 @@ A member has unmuted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line506">line 506</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line512">line 512</a>
     </li></ul></dd>
     
 
@@ -2940,6 +3265,8 @@ A member has unmuted their audio
 
     
 </dl>
+
+
 
 
 
@@ -3043,7 +3370,7 @@ A member has muted their audio
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -3092,7 +3419,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line497">line 497</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line503">line 503</a>
     </li></ul></dd>
     
 
@@ -3102,6 +3429,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -3204,7 +3533,7 @@ A member has muted their audio
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -3253,7 +3582,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line353">line 353</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line359">line 359</a>
     </li></ul></dd>
     
 
@@ -3263,6 +3592,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -3424,7 +3755,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line334">line 334</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line340">line 340</a>
     </li></ul></dd>
     
 
@@ -3434,6 +3765,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -3600,7 +3933,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line316">line 316</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line322">line 322</a>
     </li></ul></dd>
     
 
@@ -3610,6 +3943,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -3776,7 +4111,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line461">line 461</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line467">line 467</a>
     </li></ul></dd>
     
 
@@ -3786,6 +4121,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -3932,7 +4269,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line391">line 391</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line397">line 397</a>
     </li></ul></dd>
     
 
@@ -3942,6 +4279,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -4053,7 +4392,7 @@ A member has muted their audio
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -4102,7 +4441,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line379">line 379</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line385">line 385</a>
     </li></ul></dd>
     
 
@@ -4112,6 +4451,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -4223,7 +4564,7 @@ A member has muted their audio
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -4272,7 +4613,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line366">line 366</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line372">line 372</a>
     </li></ul></dd>
     
 
@@ -4282,6 +4623,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -4394,7 +4737,7 @@ A member has muted their audio
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -4443,7 +4786,7 @@ A member has muted their audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line402">line 402</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line408">line 408</a>
     </li></ul></dd>
     
 
@@ -4453,6 +4796,8 @@ A member has muted their audio
 
     
 </dl>
+
+
 
 
 
@@ -4567,7 +4912,7 @@ Change in media presence state. They are in the conversation with text, audio or
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -4664,7 +5009,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line481">line 481</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line487">line 487</a>
     </li></ul></dd>
     
 
@@ -4674,6 +5019,8 @@ Change in media presence state. They are in the conversation with text, audio or
 
     
 </dl>
+
+
 
 
 
@@ -4835,7 +5182,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line439">line 439</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line445">line 445</a>
     </li></ul></dd>
     
 
@@ -4845,6 +5192,8 @@ Change in media presence state. They are in the conversation with text, audio or
 
     
 </dl>
+
+
 
 
 
@@ -4966,7 +5315,7 @@ Change in media presence state. They are in the conversation with text, audio or
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -5015,7 +5364,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line427">line 427</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line433">line 433</a>
     </li></ul></dd>
     
 
@@ -5025,6 +5374,8 @@ Change in media presence state. They are in the conversation with text, audio or
 
     
 </dl>
+
+
 
 
 
@@ -5136,7 +5487,7 @@ Change in media presence state. They are in the conversation with text, audio or
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -5185,7 +5536,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line415">line 415</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line421">line 421</a>
     </li></ul></dd>
     
 
@@ -5195,6 +5546,8 @@ Change in media presence state. They are in the conversation with text, audio or
 
     
 </dl>
+
+
 
 
 
@@ -5234,13 +5587,13 @@ Change in media presence state. They are in the conversation with text, audio or
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 22 2019 11:41:28 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -37,17 +37,17 @@ const WildEmitter = require('wildemitter');
 const logger = require('loglevel');
 
 const Member = require('./member');
-const Event = require('./events/event');
+const NXMEvent = require('./events/nxmEvent');
 const TextEvent = require('./events/text_event');
 const ImageEvent = require('./events/image_event');
 const Media = require('./modules/media');
 
 const ConversationEventHandler = require('./handlers/conversation_events');
-const ConversationClientError = require('./conversationClientError');
+const NexmoClientError = require('./nexmoClientError').NexmoClientError;
+const NexmoApiError = require('./nexmoClientError').NexmoApiError;
 const Utils = require('./utils');
-
-const NexmoApiError = ConversationClientError.NexmoApiError;
-const NexmoClientError = ConversationClientError.NexmoClientError;
+const PageConfig = require('./pages/page_config')
+const EventsPage = require('./pages/events_page')
 
 /**
  * A single conversation Object.
@@ -57,7 +57,7 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @property {string} name - the name of the Conversation (unique)
  * @property {string} [display_name] - the display_name of the Conversation
  * @property {Map&lt;string, Member>} [members] - the members of the Conversation keyed by a member's id
- * @property {Map&lt;string, Event>} [events] - the events of the Conversation keyed by an event's id
+ * @property {Map&lt;string, NXMEvent>} [events] - the events of the Conversation keyed by an event's id
  * @property {number} [sequence_number] - the last event id
  */
 class Conversation {
@@ -72,6 +72,8 @@ class Conversation {
     this.events = new Map();
     this.sequence_number = 0;
     this.is_video_conversation = false;
+    this.pageConfig = new PageConfig(((this.application.session || {}).config || {}).events_page_config);
+    this.events_page_last = null;
 
     this.conversationEventHandler = new ConversationEventHandler(application, this);
 
@@ -195,30 +197,33 @@ class Conversation {
     };
 
     return new Promise((resolve, reject) => {
-      const request_body = _createDefaultValues(params);
-      this.application.session.sendRequest({
-        type: 'conversation:join',
-        cid: this.id,
-        body: request_body
-      }, (response) => {
-        if (response.type === 'conversation:join:success') {
-          const member = new Member(this, response.body);
-          if (response.body.user_id === this.application.me.id) {
-            this.me = member;
-          }
-          this.members.set(member.id, member);
-          // use case where between the time we got the conversation and the time we finished joining
-          // the conversation object changed.
-          return this.application.getConversation(this.id)
-              .then(() => resolve(member))
-              .catch(() => {
-                this.log.warn('Failed getting conversation after joining');
-                return resolve(member);
-              });
-        } else {
-          reject(new NexmoApiError(response));
+      let data = _createDefaultValues(params);
+      data.action = 'join';
+      data.channel = {
+        type: 'app'
+      };
+
+      return this.application.session.sendNetworkRequest({
+        type: 'POST',
+        path: `conversations/${this.id}/members`,
+        data
+      }).then(response => {
+        const member = new Member(this, response);
+        if (response.user_id === this.application.me.id) {
+          this.me = member;
         }
-      });
+        this.members.set(member.id, member);
+        // use case where between the time we got the conversation and the time we finished joining
+        // the conversation object changed.
+        return this.application.getConversation(this.id)
+          .then(() => resolve(member))
+          .catch(() => {
+            this.log.warn('Failed getting conversation after joining');
+            return resolve(member);
+          });
+      }).catch(error => {
+        reject(new NexmoApiError(error));
+      })
     });
   }
 
@@ -233,23 +238,21 @@ class Conversation {
    */
   del() {
     return new Promise((resolve, reject) => {
-      this.application.session.sendRequest({
-        type: 'conversation:delete',
-        cid: this.id
-      }, (response) => {
-        if (response.type === 'conversation:delete:success') {
-          this.application.conversations.delete(this.id);
-          resolve();
-        } else {
-          reject(new NexmoApiError(response));
-        }
-      });
+      return this.application.session.sendNetworkRequest({
+        type: 'DELETE',
+        path: `conversations/${this.id}`
+      }).then(response => {
+        this.application.conversations.delete(this.id);
+        resolve(response)
+      }).catch(error => {
+        reject(new NexmoApiError(error));
+      })
     });
   }
 
 	/**
-	 * Delete an Event (e.g. Text)
-	 * @param {Event} event
+	 * Delete an NXMEvent (e.g. Text)
+	 * @param {NXMEvent} event
 	 * @returns {Promise}
 	 *
 	 */
@@ -284,24 +287,31 @@ class Conversation {
       return Promise.reject(new NexmoClientError('error:invite:missing:params'));
     }
     return new Promise((resolve, reject) => {
-      this.application.session.sendRequest({
-        type: 'conversation:invite',
-        cid: this.id,
-        body: {
+      return this.application.session.sendNetworkRequest({
+        type: 'POST',
+        path: `conversations/${this.id}/members`,
+        data: {
+          action: 'invite',
           user_id: params.id,
           user_name: params.user_name,
           member_id_inviting: this.me.id,
-          media: params.media
+          media: params.media,
+          channel: {
+            from: { type: "app"},
+            leg_ids: [],
+            leg_settings: {},
+            legs: [],
+            to: { type: "app"},
+            type: "app"
+          }
         }
-      }, (response) => {
-        if (response.type === 'conversation:invite:success') {
-          const member = new Member(this, response.body);
+      }).then(response => {
+          const member = new Member(this, response);
           this.members.set(member.id, member);
           resolve(member);
-        } else {
-          reject(new NexmoApiError(response));
-        }
-      });
+      }).catch(error => {
+        reject(new NexmoApiError(error));
+      })
     });
   }
 
@@ -345,8 +355,8 @@ class Conversation {
 	/**
 	 * Leave from the conversation
    * @param {object} [reason] the reason for leaving the conversation
-   * @param {string} [reason.code] the code of the reason
-   * @param {string} [reason.text] the description of the reason
+   * @param {string} [reason.reason_code] the code of the reason
+   * @param {string} [reason.reason_text] the description of the reason
 	 * @returns {Promise}
 	 */
   leave(reason) {
@@ -355,7 +365,7 @@ class Conversation {
 
   /**
    * Send a text message to the conversation, which will be relayed to every other member of the conversation
-   * @param {string} - text the text message to be sent
+   * @param {string} text - the text message to be sent
    *
    * @returns {Promise&lt;TextEvent>} - the text message that was sent
    *
@@ -380,16 +390,65 @@ class Conversation {
             text: text
           }
         };
-        this.application.session.sendRequest(msg, (response) => {
-          if (response.type === 'text:success') {
-            msg.id = response.body.id;
-            msg.body.timestamp = response.body.timestamp;
-            const text_event = new TextEvent(this, msg);
-            resolve(text_event);
-          } else {
-            reject(new NexmoApiError(response));
-          }
-        });
+
+        return this.application.session.sendNetworkRequest({
+          type: 'POST',
+          path: `conversations/${this.id}/events`,
+          data: msg
+        }).then(response => {
+          msg.id = response.id;
+          msg.body.timestamp = response.timestamp;
+          const text_event = new TextEvent(this, msg);
+          resolve(text_event);
+        }).catch(error => {
+          reject(new NexmoApiError(error));
+        })
+      }
+    });
+  }
+
+  /**
+  * Send a custom event to the conversation
+  * @param {object} params - params of the custom event
+  * @param {string} type - the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.
+  * @param {object} body - customizable key value pairs
+  *
+  * @returns {Promise&lt;NXMEvent>} - the custom event that was sent
+  *
+  * @example &lt;caption> sending a custom event &lt;/caption>
+  *    conversation.sendCustomEvent({ type: 'my-event', body: {}}).then(() => {
+  *			console.log('custom event was sent');
+  *		}).catch((error)=>{
+  *			console.log('error sending the custom event', error);
+  *	});
+  *
+  */
+  sendCustomEvent({type, body}) {
+    return new Promise((resolve, reject) => {
+      if (this.me === null) {
+        reject(new NexmoClientError('error:self'));
+      } else if (!type || typeof type !== 'string' || type.length &lt; 1) {
+        reject(new NexmoClientError('error:custom-event:invalid'));
+      } else {
+        const data = {
+          type: `custom:${type}`,
+          cid: this.id,
+          from: this.me.id,
+          body
+        }
+
+        return this.application.session.sendNetworkRequest({
+          type: 'POST',
+          path: `conversations/${this.id}/events`,
+          data
+        }).then(response => {
+          data.id = response.id;
+          data.timestamp = response.timestamp;
+          const custom_event = new NXMEvent(this, data);
+          resolve(custom_event);
+        }).catch(error => {
+          reject(new NexmoApiError(error));
+        })
       }
     });
   }
@@ -441,20 +500,21 @@ class Conversation {
           }, false);
           imageRequest.onreadystatechange = () => {
             if (imageRequest.readyState === 4 &amp;&amp; imageRequest.status === 200) {
-              const msg = {
-                type: 'image',
-                cid: this.id,
-                from: this.me.id,
-                body: {
-                  representations: JSON.parse(imageRequest.responseText)
+              this.application.session.sendNetworkRequest({
+                type: 'POST',
+                path: `conversations/${this.id}/events`,
+                data: {
+                  type: 'image',
+                  from: this.me.id,
+                  body: {
+                    representations: JSON.parse(imageRequest.responseText)
+                  }
                 }
-              };
-              this.application.session.sendRequest(msg, (response) => {
-                if (response.type !== 'image:success') {
-                  this.log.debug(new NexmoApiError(response));
-                }
+              }).then(response => {
+                this.log.info(imageRequest);
+              }).catch(error => {
+                this.log.debug(new NexmoApiError(error));
               });
-              this.log.info(imageRequest);
             }
             if (imageRequest.status !== 200) {
               this.log.error(imageRequest);
@@ -486,23 +546,27 @@ class Conversation {
   }
 
   _typing(state) {
+    const params = {
+      activity: (state === 'on') ? 1 : 0
+    };
+    const data = {
+      type: 'text:typing:' + state,
+      cid: this.id,
+      from: this.me.id,
+      body: params
+    };
+
     return new Promise((resolve, reject) => {
-      const params = {
-        activity: (state === 'on') ? 1 : 0
-      };
-      this.application.session.sendRequest({
-        type: 'text:typing:' + state,
-        cid: this.id,
-        from: this.me.id,
-        body: params
-      }, (response) => {
-        if (response.type === 'text:typing:' + state + ':success') {
-          resolve(response.type);
-        } else {
-          reject(new NexmoApiError(response));
-        }
-      });
-    });
+      return this.application.session.sendNetworkRequest({
+        type: 'POST',
+        path: `conversations/${this.id}/events`,
+        data
+      }).then(response => {
+        resolve(`text:typing:${state}:success`);
+      }).catch(error => {
+        reject(new NexmoApiError(error));
+      })
+    })
   }
 
   /**
@@ -523,54 +587,39 @@ class Conversation {
     return this._typing('off');
   }
 
-	/**
+   /**
 	 * Query the service to get a list of events in this conversation.
 	 *
-	 * @param {object} [params] - leave empty to get all the events
-	 * @param {string} params.start_id - the id of the event to begin the batch
-	 * @param {string} params.end_id - the id of the event to finish the batch
-	 * @returns {Promise&lt;Map&lt;string, Event>>} - A promise to the Events Map
-	 */
-  getEvents(params) {
+   * @param {object} params configure defaults for paginated events query
+   * @param {string} params.order 'asc' or 'desc' ordering of resources based on creation time
+   * @param {number} params.page_size the number of resources returned in a single request list
+   * @param {string} [params.cursor] string to access the starting point of a dataset
+   * @param {string} [params.event_type] the type of event used to filter event requests. Supports wildcard options with :* eg. 'members:*'
+	 *
+	 * @returns {Promise&lt;EventsPage&lt;Map&lt;Events>>>} - Populate Conversations.events.
+   * @example &lt;caption>Get Events&lt;/caption>
+   * conversation.getEvents({ event_type: 'member:*' ).then((events_page) => {
+   *     events_page.items.forEach(event => {
+   *      render(event)
+   *   })
+   * });
+   */
+  getEvents(params = {}) {
+    const url = `${this.application.session.config.nexmo_api_url}/beta2/conversations/${this.id}/events`;
+
+    // Create pageConfig if given params otherwise use default
+    let pageConfig = Object.keys(params).length === 0 ? this.pageConfig : new PageConfig(params)
+
     return new Promise((resolve, reject) => {
-      this.application.session.sendRequest({
-        type: 'conversation:events',
-        cid: this.id,
-        body: params
-      }, (response) => {
-        if (response.type === 'conversation:events:success') {
-          // Iterate and create the events
-          const events_map = new Map();
-          for (let key in response.body) {
-            if (response.body.hasOwnProperty(key)) {
-              const event = response.body[key];
-              switch (event.type) {
-                // Event types with corresponding classes
-                case 'text':
-                  events_map.set(event.id, new TextEvent(this, event));
-                  break;
-                case 'image':
-                  events_map.set(event.id, new ImageEvent(this, event));
-                  break;
-                default:
-                  // Events we want to be persisted, CS is sending more.
-                  if (['member:joined', 'member:left', 'member:invited', 'member:media', 'audio:dtmf',
-                    'audio:record', 'audio:record:done', 'audio:ringing:stop', 'say:text',
-                    'audio:ringing:start', 'leg:status:update'].includes(event.type)) {
-                    events_map.set(event.id, new Event(this, event));
-                  }
-                  break;
-              }
-            }
-          }
-          // update the events Map
-          this.events = new Map([...this.events, ...events_map]);
-          resolve(this.events);
-        } else {
-          reject(new NexmoApiError(response));
-        }
-      });
-    });
+      return Utils.paginationRequest(url, pageConfig)
+          .then((response) => {
+            response.application = this.application;
+            response.conversation = this;
+            const events_page = new EventsPage(response)
+            this.events_page_last = events_page;
+            resolve(events_page);
+        }).catch(error => reject(new NexmoApiError(error)));
+    })
   }
 
 	/**
@@ -599,6 +648,12 @@ class Conversation {
     if (!['text:typing:on', 'text:typing:off'].includes(event.type)) {
       this.events.set(constructed_event.id, constructed_event);
     }
+    // For custom events remove the custom: prefix before emitting event
+    if (event.type.startsWith('custom:')) {
+      this.emit(constructed_event.type, from, constructed_event);
+      return
+    }
+
     this.emit(event.type, from, constructed_event);
   }
 }
@@ -613,13 +668,13 @@ module.exports = Conversation;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 22 2019 11:41:28 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

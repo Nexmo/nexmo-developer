@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: events/image_event.js</title>
+    <title>JSDoc: Source: pages/page.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: events/image_event.js</h1>
+    <h1 class="page-title">Source: pages/page.js</h1>
 
     
 
@@ -28,113 +28,83 @@
         <article>
             <pre class="prettyprint source linenums"><code>/*
  * Nexmo Client SDK
- *  ImageEvent Object Model
  *
  * Copyright (c) Nexmo Inc.
  */
-const logger = require('loglevel');
 
-const NXMEvent = require('./nxmEvent');
-const Utils = require('./../utils');
+const NexmoApiError = require('../nexmoClientError').NexmoApiError
 
-/**
- * An image event
+/** Page Class for Paginated Results
  *
- * @class ImageEvent
- * @extends NXMEvent
+ * @class Page
+ * @param {number} page_size the number of resources returned in a single request list
+ * @param {string} order 'asc' or 'desc' ordering of resources (usually based on creation time)
+ * @param {string} cursor cursor parameter to access the next or previous page of a data set
+ * @param {Application} application - the parent Application
+ * @param {string} [event_type] the type of event used to filter event requests
+ *
+ * @private
  */
 
-class ImageEvent extends NXMEvent {
-  constructor(conversation, params) {
-    super(conversation, params);
-    this.log = logger.getLogger(this.constructor.name);
-    this.type = 'image';
-    this.conversation = conversation;
-    this.state = {
-      seen_by: {},
-      delivered_to: {}
-    };
-    if (params &amp;&amp; params.body) {
-      if (params.body.timestamp) {
-        this.timestamp = params.body.timestamp;
-      }
+class Page {
+    constructor(params = {}) {
+        this.page_size = params.page_size;
+        this.order  = params.order;
+        this.cursor = params.cursor;
+        this.application = params.application;
+
+        if (params.event_type &amp;&amp; params.event_type.length > 0) {
+            this.event_type = params.event_type
+        }
     }
-    Object.assign(this, params);
-  }
 
-  /**
-   * Set the message status to 'seen'
-   */
-  seen() {
-    return super.seen();
-  }
+    /**
+     * Check if previous page exists
+     * @returns {Boolean}
+     */
+    hasPrev() {
+        return this.cursor.prev ? this.cursor.prev.length > 0 : false;
+    }
 
-  /**
-   * Set the message status to 'delivered'
-   */
-  delivered() {
-    return super.delivered();
-  }
+    /**
+     * Check if next page exists
+     * @returns {Boolean}
+     */
+    hasNext() {
+        return this.cursor.next ? this.cursor.next.length > 0 : false;
+    }
 
-  /**
-   * Delete the image event, all 3 representations of it
-   * passing only the one of the three URLs
-   * @param {object} [imageRepresentations=this.body.representations] the ImageEvent.body for the image to delete
-   * @returns {Promise}
-   */
-  del(imageRepresentations = this.body.representations) {
-    return Utils.networkRequest({
-      type: 'DELETE',
-      url: imageRepresentations.original.url
-    })
-        .then(() => {
-          return super.del();
-        });
-  }
+     /**
+     * Create config params for paginationRequest
+     * @param {string} cursor cursor parameter to access the next or previous page of a data set
+     * @returns {Object}
+     */
+    _getConfig(cursor) {
+        const config = {
+            page_size: this.page_size,
+            order: this.order,
+            cursor: cursor,
+        }
+        if (this.event_type) {
+            config.event_type = this.event_type
+        }
+        return config
+    }
 
-  /**
-   * Download an Image from Media service //3 representations
-   * @param {string} [type="thumbnail"] original, medium, thumbnail,
-   * @param {string} [representations=this.body.representations]  the ImageEvent.body for the image to download
-   * @returns {string} the dataUrl "data:image/jpeg;base64..."
-   * @example &lt;caption>Downloading an image from the imageEvent&lt;/caption>
-   *                 imageEvent.fetchImage().then((imagedata) => {
-   *                      var img = new Image();
-   *                      img.onload = function () {
-   *                      };
-   *                      img.src = imagedata;
-   *
-   *                      // to cancel the request:
-   *                      // conversation.abortSendImage(imageRequest);
-   *                  });
-   */
-  fetchImage(type = 'thumbnail', imageRepresentations = this.body.representations) {
-    return Utils.networkRequest({
-      type: 'GET',
-      url: imageRepresentations[type].url,
-      responseType: 'arraybuffer'
-    })
-        .then((xhr) => {
-          const responseArray = new Uint8Array(xhr.response);
-        // Convert the int array to a binary String
-        // We have to use apply() as we are converting an *array*
-        // and String.fromCharCode() takes one or more single values, not
-        // an array.
-        // support large image files (Chunking)
-          let res = '';
-          const chunk = 8 * 1024;
-          let i;
-          for (i = 0; i &lt; responseArray.length / chunk; i++) {
-            res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk, (i + 1) * chunk));
-          }
-          res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk));
-          const b64 = btoa(res);
-          const dataUrl = 'data:image/jpeg;base64,' + b64;
-          return Promise.resolve(dataUrl);
-        });
-  }
+    /**
+     * Create a nexmoClientError when page does not exist
+     */
+    _getError() {
+        return Promise.reject(
+            new NexmoApiError({
+                type: 'error:invalid-cursor',
+                description: 'page does not exist'
+            })
+        );
+    }
 }
-module.exports = ImageEvent;
+
+module.exports = Page;
 </code></pre>
         </article>
     </section>

@@ -94,7 +94,7 @@ user's invitations
             <td class="type">
             
                 
-<span class="param-type"><a href="ConversationClient.html">ConversationClient</a></span>
+<span class="param-type"><a href="NexmoClient.html">NexmoClient</a></span>
 
 
             
@@ -168,7 +168,7 @@ user's invitations
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line27">line 27</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -191,6 +191,8 @@ user's invitations
 
     <li><a href="Application.html#event:NXM-errors">Application#event:NXM-errors</a></li>
 </ul>
+
+
 
 
 
@@ -241,164 +243,7 @@ user's invitations
     
 
     
-    <h4 class="name" id="call"><span class="type-signature"></span>call<span class="signature">(usernames)</span><span class="type-signature"> &rarr; {<a href="Call.html">Call</a>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Creates a call to specified user/s.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>usernames</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;string></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the user names for those we want to call</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line200">line 200</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    a Call object with all the call properties
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Call.html">Call</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="callPhone"><span class="type-signature"></span>callPhone<span class="signature">(phoneNumber)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Call.html">Call</a>>}</span></h4>
+    <h4 class="name" id="callServer"><span class="type-signature"></span>callServer<span class="signature">(user, type<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMCall.html">NXMCall</a>>}</span></h4>
     
 
     
@@ -434,7 +279,11 @@ You don't need to start the stream, the SDK will play the audio for you
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -446,7 +295,7 @@ You don't need to start the stream, the SDK will play the audio for you
 
         <tr>
             
-                <td class="name"><code>phoneNumber</code></td>
+                <td class="name"><code>user</code></td>
             
 
             <td class="type">
@@ -459,10 +308,61 @@ You don't need to start the stream, the SDK will play the audio for you
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last">the number you want to call</td>
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">the phone number or the username you want to call</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    "phone"
+                
+                </td>
+            
+
+            <td class="description last">the type of the call you want to have. possible values "phone" or "app" (default is "phone")</td>
         </tr>
 
     
@@ -503,7 +403,7 @@ You don't need to start the stream, the SDK will play the audio for you
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line235">line 235</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line239">line 239</a>
     </li></ul></dd>
     
 
@@ -513,6 +413,8 @@ You don't need to start the stream, the SDK will play the audio for you
 
     
 </dl>
+
+
 
 
 
@@ -537,7 +439,7 @@ You don't need to start the stream, the SDK will play the audio for you
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;<a href="Call.html">Call</a>></span>
+<span class="param-type">Promise.&lt;<a href="NXMCall.html">NXMCall</a>></span>
 
 
     </dd>
@@ -552,11 +454,11 @@ You don't need to start the stream, the SDK will play the audio for you
     
         <p class="code-caption">Create a call to a phone</p>
     
-    <pre class="prettyprint"><code>       application.on("call:status:changed", (call) => {
-			if (call.status === call.CALL_STATUS.STARTED) {
+    <pre class="prettyprint"><code>       application.on("call:status:changed", (nxmCall) => {
+			if (nxmCall.status === nxmCall.CALL_STATUS.STARTED) {
 				console.log('the call has started');
 		}
-application.callPhone(phone_number).then(() => {
+application.callServer(phone_number).then(() => {
                 console.log('Calling phone ' + phone_number);
      });</code></pre>
 
@@ -694,6 +596,8 @@ Result added (or updated) in this.conversations
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -727,7 +631,7 @@ Result added (or updated) in this.conversations
     
 
     
-    <h4 class="name" id="getConversations"><span class="type-signature"></span>getConversations<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Object.&lt;<a href="Conversation.html">Conversation</a>>>}</span></h4>
+    <h4 class="name" id="getConversations"><span class="type-signature"></span>getConversations<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Page.html">Page</a>.&lt;Map.&lt;<a href="Conversation.html">Conversation</a>>>>}</span></h4>
     
 
     
@@ -745,6 +649,178 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">configure defaults for paginated conversations query
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>order</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">'asc' or 'desc' ordering of resources based on creation time</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page_size</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">the number of resources returned in a single request list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cursor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">string to access the starting point of a dataset</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -780,7 +856,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line361">line 361</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line372">line 372</a>
     </li></ul></dd>
     
 
@@ -790,6 +866,8 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
 
     
 </dl>
+
+
 
 
 
@@ -818,7 +896,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;Object.&lt;<a href="Conversation.html">Conversation</a>>></span>
+<span class="param-type">Promise.&lt;<a href="Page.html">Page</a>.&lt;Map.&lt;<a href="Conversation.html">Conversation</a>>>></span>
 
 
     </dd>
@@ -827,6 +905,17 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
 
 
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">Get Conversations</p>
+    
+    <pre class="prettyprint"><code>application.getConversations({ page_size: 20 ).then((conversations_page) => {
+    conversations_page.items.forEach(conversation => {
+     render(conversation)
+  })
+});</code></pre>
 
 
 
@@ -949,7 +1038,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line430">line 430</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line444">line 444</a>
     </li></ul></dd>
     
 
@@ -959,6 +1048,8 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
 
     
 </dl>
+
+
 
 
 
@@ -984,6 +1075,165 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     <dd>
         
 <span class="param-type">Promise.&lt;User></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="inAppCall"><span class="type-signature"></span>inAppCall<span class="signature">(usernames)</span><span class="type-signature"> &rarr; {<a href="NXMCall.html">NXMCall</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Creates a call to specified user/s.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>usernames</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the user names for those we want to call</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line203">line 203</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    a NXMCall object with all the call properties
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="NXMCall.html">NXMCall</a></span>
 
 
     </dd>
@@ -1187,7 +1437,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line273">line 273</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line274">line 274</a>
     </li></ul></dd>
     
 
@@ -1197,6 +1447,8 @@ The conversation name must be unique per application.
 
     
 </dl>
+
+
 
 
 
@@ -1471,6 +1723,8 @@ The conversation name must be unique per application.
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1511,6 +1765,94 @@ The conversation name must be unique per application.
     }).catch((error) => {
     console.log(error);
 });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="syncConversations"><span class="type-signature"></span>syncConversations<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Fetching all the conversations and sync progress events
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line406">line 406</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1621,7 +1963,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line163">line 163</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line166">line 166</a>
     </li></ul></dd>
     
 
@@ -1631,6 +1973,8 @@ The conversation name must be unique per application.
 
     
 </dl>
+
+
 
 
 
@@ -1689,7 +2033,7 @@ The conversation name must be unique per application.
 
 
 <div class="description">
-    Call listening for call status changed events.
+    NXMCall listening for nxmCall status changed events.
 </div>
 
 
@@ -1730,13 +2074,13 @@ The conversation name must be unique per application.
 
         <tr>
             
-                <td class="name"><code>call</code></td>
+                <td class="name"><code>nxmCall</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Call.html">Call</a></span>
+<span class="param-type"><a href="NXMCall.html">NXMCall</a></span>
 
 
             
@@ -1785,7 +2129,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line64">line 64</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -1812,12 +2156,14 @@ The conversation name must be unique per application.
 
 
 
+
+
     <h5>Example</h5>
     
-        <p class="code-caption">listen for call status events</p>
+        <p class="code-caption">listen for nxmCall status events</p>
     
-    <pre class="prettyprint"><code> application.on("call:status:changed",(call) => {
-             console.log("call: " + call.status);
+    <pre class="prettyprint"><code> application.on("call:status:changed",(nxmCall) => {
+             console.log("call: " + nxmCall.status);
       });
   });</code></pre>
 
@@ -1884,7 +2230,7 @@ The conversation name must be unique per application.
             <td class="type">
             
                 
-<span class="param-type">ConversationClientError</span>
+<span class="param-type"><a href="global.html#NexmoClientError">NexmoClientError</a></span>
 
 
             
@@ -1943,6 +2289,8 @@ The conversation name must be unique per application.
 
     
 </dl>
+
+
 
 
 
@@ -2048,20 +2396,20 @@ The conversation name must be unique per application.
 
             
 
-            <td class="description last">the member that initiated the call</td>
+            <td class="description last">the member that initiated the nxmCall</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>call</code></td>
+                <td class="name"><code>nxmCall</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Call.html">Call</a></span>
+<span class="param-type"><a href="NXMCall.html">NXMCall</a></span>
 
 
             
@@ -2071,7 +2419,7 @@ The conversation name must be unique per application.
 
             
 
-            <td class="description last">resolves the call object</td>
+            <td class="description last">resolves the nxmCall object</td>
         </tr>
 
     
@@ -2110,7 +2458,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line35">line 35</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -2137,12 +2485,14 @@ The conversation name must be unique per application.
 
 
 
+
+
     <h5>Example</h5>
     
         <p class="code-caption">listen for calls in Application level</p>
     
-    <pre class="prettyprint"><code> application.on("member:call", (member, call) => {
-             console.log("Call ", call);
+    <pre class="prettyprint"><code> application.on("member:call", (member, nxmCall) => {
+             console.log("NXMCall ", nxmCall);
              });
      });</code></pre>
 
@@ -2232,7 +2582,7 @@ The conversation name must be unique per application.
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -2281,7 +2631,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line86">line 86</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -2291,6 +2641,8 @@ The conversation name must be unique per application.
 
     
 </dl>
+
+
 
 
 
@@ -2410,7 +2762,7 @@ console.log("Invited by: " + member.invited_by);
             <td class="type">
             
                 
-<span class="param-type"><a href="Event.html">Event</a></span>
+<span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
             
@@ -2459,7 +2811,7 @@ console.log("Invited by: " + member.invited_by);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line107">line 107</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -2469,6 +2821,8 @@ console.log("Invited by: " + member.invited_by);
 
     
 </dl>
+
+
 
 
 
@@ -2793,7 +3147,7 @@ console.log("Invited by: " + member.invited_by);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line111">line 111</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -2803,6 +3157,8 @@ console.log("Invited by: " + member.invited_by);
 
     
 </dl>
+
+
 
 
 
@@ -2943,7 +3299,7 @@ console.log("Invited by: " + member.invited_by);
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line380">line 380</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line389">line 389</a>
     </li></ul></dd>
     
 
@@ -2953,6 +3309,8 @@ console.log("Invited by: " + member.invited_by);
 
     
 </dl>
+
+
 
 
 
@@ -2993,13 +3351,13 @@ console.log("Invited by: " + member.invited_by);
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 22 2019 11:41:28 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

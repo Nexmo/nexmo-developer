@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ImageEvent</title>
+    <title>JSDoc: Class: ConversationsPage</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ImageEvent</h1>
+    <h1 class="page-title">Class: ConversationsPage</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ImageEvent<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ConversationsPage<span class="signature">(items)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="ImageEvent"><span class="type-signature"></span>new ImageEvent<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ConversationsPage"><span class="type-signature"></span>new ConversationsPage<span class="signature">(items)</span><span class="type-signature"></span></h4>
     
 
     
@@ -49,7 +49,7 @@
 
 
 <div class="description">
-    An image event
+    A Conversations Page
 </div>
 
 
@@ -58,6 +58,55 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>items</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Map</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">map of conversations fetched in the paginated query</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -93,7 +142,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="events_image_event.js.html">events/image_event.js</a>, <a href="events_image_event.js.html#line12">line 12</a>
+        <a href="pages_conversations_page.js.html">pages/conversations_page.js</a>, <a href="pages_conversations_page.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -133,7 +182,7 @@
 
 
     <ul>
-        <li><a href="NXMEvent.html">NXMEvent</a></li>
+        <li><a href="Page.html">Page</a></li>
     </ul>
 
 
@@ -160,7 +209,7 @@
     
 
     
-    <h4 class="name" id="del"><span class="type-signature"></span>del<span class="signature">(imageRepresentations<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="_getConfig"><span class="type-signature"></span>_getConfig<span class="signature">(cursor)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
 
     
@@ -168,8 +217,7 @@
 
 
 <div class="description">
-    Delete the image event, all 3 representations of it
-passing only the one of the three URLs
+    Create config params for paginationRequest
 </div>
 
 
@@ -193,11 +241,7 @@ passing only the one of the three URLs
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -209,39 +253,23 @@ passing only the one of the three URLs
 
         <tr>
             
-                <td class="name"><code>imageRepresentations</code></td>
+                <td class="name"><code>cursor</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    this.body.representations
-                
-                </td>
-            
 
-            <td class="description last">the ImageEvent.body for the image to delete</td>
+            <td class="description last">cursor parameter to access the next or previous page of a data set</td>
         </tr>
 
     
@@ -260,12 +288,12 @@ passing only the one of the three URLs
     
 
     
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        NXMEvent#del
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Page.html#_getConfig">Page#_getConfig</a>
     </li></ul></dd>
+    
+
     
 
     
@@ -287,7 +315,7 @@ passing only the one of the three URLs
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="events_image_event.js.html">events/image_event.js</a>, <a href="events_image_event.js.html#line57">line 57</a>
+        <a href="pages_page.js.html">pages/page.js</a>, <a href="pages_page.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -323,7 +351,7 @@ passing only the one of the three URLs
     </dt>
     <dd>
         
-<span class="param-type">Promise</span>
+<span class="param-type">Object</span>
 
 
     </dd>
@@ -341,7 +369,7 @@ passing only the one of the three URLs
     
 
     
-    <h4 class="name" id="delivered"><span class="type-signature"></span>delivered<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_getError"><span class="type-signature"></span>_getError<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -349,7 +377,7 @@ passing only the one of the three URLs
 
 
 <div class="description">
-    Set the message status to 'delivered'
+    Create a nexmoClientError when page does not exist
 </div>
 
 
@@ -371,12 +399,12 @@ passing only the one of the three URLs
     
 
     
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        NXMEvent#delivered
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Page.html#_getError">Page#_getError</a>
     </li></ul></dd>
+    
+
     
 
     
@@ -398,7 +426,7 @@ passing only the one of the three URLs
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="events_image_event.js.html">events/image_event.js</a>, <a href="events_image_event.js.html#line47">line 47</a>
+        <a href="pages_page.js.html">pages/page.js</a>, <a href="pages_page.js.html#line69">line 69</a>
     </li></ul></dd>
     
 
@@ -434,7 +462,7 @@ passing only the one of the three URLs
     
 
     
-    <h4 class="name" id="fetchImage"><span class="type-signature"></span>fetchImage<span class="signature">(type<span class="signature-attributes">opt</span>, representations<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="getNext"><span class="type-signature"></span>getNext<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Page.html">Page</a>>}</span></h4>
     
 
     
@@ -442,7 +470,7 @@ passing only the one of the three URLs
 
 
 <div class="description">
-    Download an Image from Media service //3 representations
+    Fetch the next page if exists
 </div>
 
 
@@ -451,114 +479,6 @@ passing only the one of the three URLs
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    "thumbnail"
-                
-                </td>
-            
-
-            <td class="description last">original, medium, thumbnail,</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>representations</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    this.body.representations
-                
-                </td>
-            
-
-            <td class="description last">the ImageEvent.body for the image to download</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -594,7 +514,7 @@ passing only the one of the three URLs
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="events_image_event.js.html">events/image_event.js</a>, <a href="events_image_event.js.html#line83">line 83</a>
+        <a href="pages_conversations_page.js.html">pages/conversations_page.js</a>, <a href="pages_conversations_page.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -622,10 +542,6 @@ passing only the one of the three URLs
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    the dataUrl "data:image/jpeg;base64..."
-</div>
-
 
 
 <dl>
@@ -634,7 +550,7 @@ passing only the one of the three URLs
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">Promise.&lt;<a href="Page.html">Page</a>></span>
 
 
     </dd>
@@ -645,21 +561,6 @@ passing only the one of the three URLs
 
 
 
-    <h5>Example</h5>
-    
-        <p class="code-caption">Downloading an image from the imageEvent</p>
-    
-    <pre class="prettyprint"><code>                imageEvent.fetchImage().then((imagedata) => {
-                     var img = new Image();
-                     img.onload = function () {
-                     };
-                     img.src = imagedata;
-
-                     // to cancel the request:
-                     // conversation.abortSendImage(imageRequest);
-                 });</code></pre>
-
-
 
         
             
@@ -667,7 +568,7 @@ passing only the one of the three URLs
     
 
     
-    <h4 class="name" id="seen"><span class="type-signature"></span>seen<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getPrev"><span class="type-signature"></span>getPrev<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Page.html">Page</a>>}</span></h4>
     
 
     
@@ -675,7 +576,7 @@ passing only the one of the three URLs
 
 
 <div class="description">
-    Set the message status to 'seen'
+    Fetch the previous page if exists
 </div>
 
 
@@ -699,11 +600,6 @@ passing only the one of the three URLs
     
 
     
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        NXMEvent#seen
-    </li></ul></dd>
-    
 
     
 
@@ -724,7 +620,7 @@ passing only the one of the three URLs
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="events_image_event.js.html">events/image_event.js</a>, <a href="events_image_event.js.html#line40">line 40</a>
+        <a href="pages_conversations_page.js.html">pages/conversations_page.js</a>, <a href="pages_conversations_page.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -749,6 +645,246 @@ passing only the one of the three URLs
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Page.html">Page</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="hasNext"><span class="type-signature"></span>hasNext<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Check if next page exists
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Page.html#hasNext">Page#hasNext</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pages_page.js.html">pages/page.js</a>, <a href="pages_page.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="hasPrev"><span class="type-signature"></span>hasPrev<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Check if previous page exists
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Page.html#hasPrev">Page#hasPrev</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pages_page.js.html">pages/page.js</a>, <a href="pages_page.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 

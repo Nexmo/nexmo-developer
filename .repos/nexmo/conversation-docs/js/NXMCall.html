@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Call</title>
+    <title>JSDoc: Class: NXMCall</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Call</h1>
+    <h1 class="page-title">Class: NXMCall</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Call<span class="signature">(application, conversation, from)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>NXMCall<span class="signature">(application, conversation, from)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Call"><span class="type-signature"></span>new Call<span class="signature">(application, conversation, from)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="NXMCall"><span class="type-signature"></span>new NXMCall<span class="signature">(application, conversation, from)</span><span class="type-signature"></span></h4>
     
 
     
@@ -49,7 +49,7 @@
 
 
 <div class="description">
-    Conversation Call Object.
+    Conversation NXMCall Object.
 </div>
 
 
@@ -124,7 +124,7 @@
 
             
 
-            <td class="description last">The Conversation object that belongs to this call.</td>
+            <td class="description last">The Conversation object that belongs to this nxmCall.</td>
         </tr>
 
     
@@ -147,7 +147,7 @@
 
             
 
-            <td class="description last">The member that initiated the call.</td>
+            <td class="description last">The member that initiated the nxmCall.</td>
         </tr>
 
     
@@ -207,7 +207,7 @@
                 </td>
             
 
-            <td class="description last">The Application object that the call belongs to.</td>
+            <td class="description last">The Application object that the nxmCall belongs to.</td>
         </tr>
 
     
@@ -234,7 +234,7 @@
                 </td>
             
 
-            <td class="description last">The Conversation object that belongs to this call.</td>
+            <td class="description last">The Conversation object that belongs to this nxmCall.</td>
         </tr>
 
     
@@ -288,7 +288,7 @@
                 </td>
             
 
-            <td class="description last">The callees keyed by a member's id. The members that receive the call (not a reference to conversation.members)</td>
+            <td class="description last">The callees keyed by a member's id. The members that receive the nxmCall (not a reference to conversation.members)</td>
         </tr>
 
     
@@ -315,7 +315,7 @@
                 </td>
             
 
-            <td class="description last">The call id (our member's leg_id, comes from rtc:answer event, or member:media)</td>
+            <td class="description last">The nxmCall id (our member's leg_id, comes from rtc:answer event, or member:media)</td>
         </tr>
 
     
@@ -328,7 +328,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="Call.html#.CALL_STATUS">Call.CALL_STATUS</a></span>
+<span class="param-type"><a href="NXMCall.html#.CALL_STATUS">NXMCall.CALL_STATUS</a></span>
 
 
             
@@ -344,7 +344,7 @@
                 </td>
             
 
-            <td class="description last">the available call statuses</td>
+            <td class="description last">the available nxmCall statuses</td>
         </tr>
 
     
@@ -357,7 +357,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="Call.html#.CALL_DIRECTION">Call.CALL_DIRECTION</a></span>
+<span class="param-type"><a href="NXMCall.html#.CALL_DIRECTION">NXMCall.CALL_DIRECTION</a></span>
 
 
             
@@ -371,34 +371,7 @@
                 </td>
             
 
-            <td class="description last">the Direction of the call, Outbound, Inbound</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>MEMBER_CALL_STATES</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Call.html#.MEMBER_CALL_STATES">Call.MEMBER_CALL_STATES</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">the available member call states</td>
+            <td class="description last">the Direction of the nxmCall, Outbound, Inbound</td>
         </tr>
 
     
@@ -411,7 +384,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="Call.html#.STATUS_PERMITTED_FLOW">Call.STATUS_PERMITTED_FLOW</a></span>
+<span class="param-type"><a href="NXMCall.html#.STATUS_PERMITTED_FLOW">NXMCall.STATUS_PERMITTED_FLOW</a></span>
 
 
             
@@ -425,7 +398,7 @@
                 </td>
             
 
-            <td class="description last">the permitted call status transition map, describes the "from" and allowed "to" transitions</td>
+            <td class="description last">the permitted nxmCall status transition map, describes the "from" and allowed "to" transitions</td>
         </tr>
 
     
@@ -464,7 +437,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line15">line 15</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -484,9 +457,9 @@
     <li><a href="Application.html#event:member:call">Application#member:call</a></li>
 
     <li><a href="Application.html#event:call:status:changed">Application#call:status:changed</a></li>
-
-    <li><a href="Call.html#event:member:call:state">Call#member:call:state</a></li>
 </ul>
+
+
 
 
 
@@ -527,7 +500,7 @@
 
 
 <div class="description">
-    Enum for Call direction.
+    Enum for NXMCall direction.
 </div>
 
 
@@ -588,7 +561,7 @@
 
             
 
-            <td class="description last">The Call started from another end</td>
+            <td class="description last">The NXMCall started from another end</td>
         </tr>
 
     
@@ -611,7 +584,7 @@
 
             
 
-            <td class="description last">The Call started from this client</td>
+            <td class="description last">The NXMCall started from this client</td>
         </tr>
 
     
@@ -650,7 +623,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line115">line 115</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -674,7 +647,7 @@
 
 
 <div class="description">
-    Enum for Call status.
+    Enum for NXMCall status.
 </div>
 
 
@@ -735,7 +708,7 @@
 
             
 
-            <td class="description last">The Call is in started status</td>
+            <td class="description last">The NXMCall is in started status</td>
         </tr>
 
     
@@ -758,7 +731,7 @@
 
             
 
-            <td class="description last">The Call is in ringing status</td>
+            <td class="description last">The NXMCall is in ringing status</td>
         </tr>
 
     
@@ -781,7 +754,7 @@
 
             
 
-            <td class="description last">The Call is in answered status</td>
+            <td class="description last">The NXMCall is in answered status</td>
         </tr>
 
     
@@ -804,7 +777,7 @@
 
             
 
-            <td class="description last">The Call is in completed status</td>
+            <td class="description last">The NXMCall is in completed status</td>
         </tr>
 
     
@@ -827,7 +800,7 @@
 
             
 
-            <td class="description last">The Call is in busy status</td>
+            <td class="description last">The NXMCall is in busy status</td>
         </tr>
 
     
@@ -850,7 +823,7 @@
 
             
 
-            <td class="description last">The Call is in timeout status</td>
+            <td class="description last">The NXMCall is in timeout status</td>
         </tr>
 
     
@@ -873,7 +846,7 @@
 
             
 
-            <td class="description last">The Call is in unanswered status</td>
+            <td class="description last">The NXMCall is in unanswered status</td>
         </tr>
 
     
@@ -896,7 +869,7 @@
 
             
 
-            <td class="description last">The Call is in rejected status</td>
+            <td class="description last">The NXMCall is in rejected status</td>
         </tr>
 
     
@@ -919,7 +892,7 @@
 
             
 
-            <td class="description last">The Call is in failed status</td>
+            <td class="description last">The NXMCall is in failed status</td>
         </tr>
 
     
@@ -958,7 +931,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line88">line 88</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -976,200 +949,7 @@
 
         
             
-<h4 class="name" id=".MEMBER_CALL_STATES"><span class="type-signature">(static, readonly) </span>MEMBER_CALL_STATES<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    Enum for Call Member states.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>RINGING</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member is in ringing state</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>HUNGUP</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member hung up the call</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ANSWERED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member answered the call</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>REJECTED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member rejected the call</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line129">line 129</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".STATUS_PERMITTED_FLOW"><span class="type-signature">(static, readonly) </span>STATUS_PERMITTED_FLOW<span class="type-signature"> :Map.&lt;string, Set.&lt;<a href="Call.html#.CALL_STATUS">Call.CALL_STATUS</a>>></span></h4>
+<h4 class="name" id=".STATUS_PERMITTED_FLOW"><span class="type-signature">(static, readonly) </span>STATUS_PERMITTED_FLOW<span class="type-signature"> :Map.&lt;string, Set.&lt;<a href="NXMCall.html#.CALL_STATUS">NXMCall.CALL_STATUS</a>>></span></h4>
 
 
 
@@ -1184,7 +964,7 @@
     <ul>
         <li>
             
-<span class="param-type">Map.&lt;string, Set.&lt;<a href="Call.html#.CALL_STATUS">Call.CALL_STATUS</a>>></span>
+<span class="param-type">Map.&lt;string, Set.&lt;<a href="NXMCall.html#.CALL_STATUS">NXMCall.CALL_STATUS</a>>></span>
 
 
         </li>
@@ -1223,7 +1003,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line147">line 147</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line111">line 111</a>
     </li></ul></dd>
     
 
@@ -1259,7 +1039,7 @@
 
 
 <div class="description">
-    Answers an incoming call
+    Answers an incoming nxmCall
 Join the conversation that you are invited
 Create autoplay Audio object
 </div>
@@ -1374,7 +1154,7 @@ Create autoplay Audio object
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line414">line 414</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line350">line 350</a>
     </li></ul></dd>
     
 
@@ -1384,6 +1164,8 @@ Create autoplay Audio object
 
     
 </dl>
+
+
 
 
 
@@ -1434,7 +1216,7 @@ Create autoplay Audio object
 
 
 <div class="description">
-    Hangs up the call
+    Hangs up the nxmCall
 
 If there is a knocking active, do a knocking:delete
 otherwise
@@ -1503,7 +1285,7 @@ Disable the audio
 
             
 
-            <td class="description last">the reason for hanging up the call
+            <td class="description last">the reason for hanging up the nxmCall
                 <h6>Properties</h6>
                 
 
@@ -1531,7 +1313,7 @@ Disable the audio
 
         <tr>
             
-                <td class="name"><code>code</code></td>
+                <td class="name"><code>reason_code</code></td>
             
 
             <td class="type">
@@ -1564,7 +1346,7 @@ Disable the audio
 
         <tr>
             
-                <td class="name"><code>text</code></td>
+                <td class="name"><code>reason_text</code></td>
             
 
             <td class="type">
@@ -1638,7 +1420,7 @@ Disable the audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line547">line 547</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line488">line 488</a>
     </li></ul></dd>
     
 
@@ -1648,6 +1430,8 @@ Disable the audio
 
     
 </dl>
+
+
 
 
 
@@ -1699,7 +1483,7 @@ Disable the audio
 
 <div class="description">
     Go through the members of the conversation and if .me is the only one (JOINED or INVITED)
-call call.hangUp().
+nxmCall nxmCall.hangUp().
 </div>
 
 
@@ -1743,7 +1527,7 @@ call call.hangUp().
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line263">line 263</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line199">line 199</a>
     </li></ul></dd>
     
 
@@ -1766,11 +1550,13 @@ call call.hangUp().
 
 
 
+
+
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
-    - empty promise or the call.hangUp promise chain
+    - empty promise or the nxmCall.hangUp promise chain
 </div>
 
 
@@ -1807,7 +1593,7 @@ call call.hangUp().
 
 
 <div class="description">
-    Rejects an incoming call
+    Rejects an incoming nxmCall
 Leave from the conversation that you are invited
 </div>
 
@@ -1872,7 +1658,7 @@ Leave from the conversation that you are invited
 
             
 
-            <td class="description last">the reason for rejecting the call
+            <td class="description last">the reason for rejecting the nxmCall
                 <h6>Properties</h6>
                 
 
@@ -1900,7 +1686,7 @@ Leave from the conversation that you are invited
 
         <tr>
             
-                <td class="name"><code>code</code></td>
+                <td class="name"><code>reason_code</code></td>
             
 
             <td class="type">
@@ -1933,7 +1719,7 @@ Leave from the conversation that you are invited
 
         <tr>
             
-                <td class="name"><code>text</code></td>
+                <td class="name"><code>reason_text</code></td>
             
 
             <td class="type">
@@ -2007,7 +1793,7 @@ Leave from the conversation that you are invited
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line596">line 596</a>
+        <a href="modules_nxmCall.js.html">modules/nxmCall.js</a>, <a href="modules_nxmCall.js.html#line540">line 540</a>
     </li></ul></dd>
     
 
@@ -2017,6 +1803,8 @@ Leave from the conversation that you are invited
 
     
 </dl>
+
+
 
 
 
@@ -2059,204 +1847,6 @@ Leave from the conversation that you are invited
     
 
     
-        <h3 class="subsection-title">Events</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="event:member:call:state">member:call:state</h4>
-    
-
-    
-
-
-
-<div class="description">
-    Call listening for member state changed events.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>from</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Member.html">Member</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the member that is changed</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>state</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Call.html#.MEMBER_CALL_STATES">Call.MEMBER_CALL_STATES</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the new state</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Event.html">Event</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the actual event</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line50">line 50</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-        <p class="code-caption">listen for member state events</p>
-    
-    <pre class="prettyprint"><code> call.on("member:call:state",(from, state, event) => {
-             console.log("member: " + member.user.name + " has " + state);
-      });
-  });</code></pre>
-
-
-
-        
-    
 </article>
 
 </section>
@@ -2267,13 +1857,13 @@ Leave from the conversation that you are invited
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 22 2019 11:41:28 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

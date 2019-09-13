@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: modules/call.js</title>
+    <title>JSDoc: Source: modules/nxmCall.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: modules/call.js</h1>
+    <h1 class="page-title">Source: modules/nxmCall.js</h1>
 
     
 
@@ -28,36 +28,32 @@
         <article>
             <pre class="prettyprint source linenums"><code>/*
  * Nexmo Client SDK
- *  Call Object Model
+ *  NXMCall Object Model
  *
  * Copyright (c) Nexmo Inc.
  */
 
 const WildEmitter = require('wildemitter');
-const ConversationClientError = require('../conversationClientError');
+const NexmoClientError = require('../nexmoClientError').NexmoClientError;
+const NexmoApiError = require('../nexmoClientError').NexmoApiError;
 const logger = require('loglevel');
 
-const NexmoApiError = ConversationClientError.NexmoApiError;
-const NexmoClientError = ConversationClientError.NexmoClientError;
-
 /**
- * Conversation Call Object.
- * @class Call
+ * Conversation NXMCall Object.
+ * @class NXMCall
  * @param {Application} application - The Application object.
- * @param {Conversation} conversation - The Conversation object that belongs to this call.
- * @param {Member} from - The member that initiated the call.
- * @property {Application} application -  The Application object that the call belongs to.
- * @property {Conversation} conversation -  The Conversation object that belongs to this call.
+ * @param {Conversation} conversation - The Conversation object that belongs to this nxmCall.
+ * @param {Member} from - The member that initiated the nxmCall.
+ * @property {Application} application -  The Application object that the nxmCall belongs to.
+ * @property {Conversation} conversation -  The Conversation object that belongs to this nxmCall.
  * @property {Member} from - The caller. The member object of the caller (not a reference to the one in conversation.members)
- * @property {Map&lt;string, Member>} to - The callees keyed by a member's id. The members that receive the call (not a reference to conversation.members)
- * @property {String} id - The call id (our member's leg_id, comes from rtc:answer event, or member:media)
- * @property {Call.CALL_STATUS} CALL_STATUS="started" - the available call statuses
- * @property {Call.CALL_DIRECTION} direction - the Direction of the call, Outbound, Inbound
- * @property {Call.MEMBER_CALL_STATES} MEMBER_CALL_STATES - the available member call states
- * @property {Call.STATUS_PERMITTED_FLOW} STATUS_PERMITTED_FLOW - the permitted call status transition map, describes the "from" and allowed "to" transitions
+ * @property {Map&lt;string, Member>} to - The callees keyed by a member's id. The members that receive the nxmCall (not a reference to conversation.members)
+ * @property {String} id - The nxmCall id (our member's leg_id, comes from rtc:answer event, or member:media)
+ * @property {NXMCall.CALL_STATUS} CALL_STATUS="started" - the available nxmCall statuses
+ * @property {NXMCall.CALL_DIRECTION} direction - the Direction of the nxmCall, Outbound, Inbound
+ * @property {NXMCall.STATUS_PERMITTED_FLOW} STATUS_PERMITTED_FLOW - the permitted nxmCall status transition map, describes the "from" and allowed "to" transitions
  * @emits Application#member:call
  * @emits Application#call:status:changed
- * @emits Call#member:call:state
  */
 
 /**
@@ -65,42 +61,28 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  *
  * @event Application#member:call
  *
- * @property {Member} member - the member that initiated the call
- * @property {Call} call -  resolves the call object
+ * @property {Member} member - the member that initiated the nxmCall
+ * @property {NXMCall} nxmCall -  resolves the nxmCall object
  *
  * @example &lt;caption>listen for calls in Application level&lt;/caption>
- *  application.on("member:call", (member, call) => {
- *              console.log("Call ", call);
+ *  application.on("member:call", (member, nxmCall) => {
+ *              console.log("NXMCall ", nxmCall);
  *              });
  *      });
  */
 
 /**
- * Call listening for member state changed events.
- *
- * @event Call#member:call:state
- * @property {Member} from - the member that is changed
- * @property {Call.MEMBER_CALL_STATES} state - the new state
- * @property {Event} event -  the actual event
- * @example &lt;caption>listen for member state events&lt;/caption>
- *  call.on("member:call:state",(from, state, event) => {
- *              console.log("member: " + member.user.name + " has " + state);
- *       });
- *   });
- */
-
-/**
- * Call listening for call status changed events.
+ * NXMCall listening for nxmCall status changed events.
  *
  * @event Application#call:status:changed
- * @property {Call} call -  the actual event
- * @example &lt;caption>listen for call status events&lt;/caption>
- *  application.on("call:status:changed",(call) => {
- *              console.log("call: " + call.status);
+ * @property {NXMCall} nxmCall -  the actual event
+ * @example &lt;caption>listen for nxmCall status events&lt;/caption>
+ *  application.on("call:status:changed",(nxmCall) => {
+ *              console.log("call: " + nxmCall.status);
  *       });
  *   });
  */
-class Call {
+class NXMCall {
   constructor(application, conversation, from) {
     this.application = application;
     this.log = logger.getLogger(this.constructor.name);
@@ -108,69 +90,51 @@ class Call {
     this.conversation = null;
 
 		/**
-		 * Enum for Call status.
+		 * Enum for NXMCall status.
 		 * @readonly
 		 * @enum {string}
-		 * @alias Call.CALL_STATUS
+		 * @alias NXMCall.CALL_STATUS
 		 */
     this.CALL_STATUS = {
-      /** The Call is in started status */
+      /** The NXMCall is in started status */
       STARTED: 'started',
-      /** The Call is in ringing status */
+      /** The NXMCall is in ringing status */
       RINGING: 'ringing',
-      /** The Call is in answered status */
+      /** The NXMCall is in answered status */
       ANSWERED: 'answered',
-      /** The Call is in completed status */
+      /** The NXMCall is in completed status */
       COMPLETED: 'completed',
-      /** The Call is in busy status */
+      /** The NXMCall is in busy status */
       BUSY: 'busy',
-      /** The Call is in timeout status */
+      /** The NXMCall is in timeout status */
       TIMEOUT: 'timeout',
-      /** The Call is in unanswered status */
+      /** The NXMCall is in unanswered status */
       UNANSWERED: 'unanswered',
-      /** The Call is in rejected status */
+      /** The NXMCall is in rejected status */
       REJECTED: 'rejected',
-      /** The Call is in failed status */
+      /** The NXMCall is in failed status */
       FAILED: 'failed'
     };
 
 		/**
-		 * Enum for Call direction.
+		 * Enum for NXMCall direction.
 		 * @readonly
 		 * @enum {string}
-		 * @alias Call.CALL_DIRECTION
+		 * @alias NXMCall.CALL_DIRECTION
 		 */
     this.CALL_DIRECTION = {
-      /** The Call started from another end */
+      /** The NXMCall started from another end */
       INBOUND: 'inbound',
-      /** The Call started from this client */
+      /** The NXMCall started from this client */
       OUTBOUND: 'outbound'
     };
     Object.freeze(this.CALL_DIRECTION);
 
 		/**
-		 * Enum for Call Member states.
-		 * @readonly
-		 * @alias Call.MEMBER_CALL_STATES
-		 * @enum {string}
-		 */
-    this.MEMBER_CALL_STATES = {
-      /** A Member is in ringing state */
-      RINGING: 'ringing',
-      /** A Member hung up the call */
-      HUNGUP: 'hungup',
-      /** A Member answered the call */
-      ANSWERED: 'answered',
-      /** A Member rejected the call */
-      REJECTED: 'rejected'
-    };
-    Object.freeze(this.MEMBER_CALL_STATES);
-
-		/**
 		 * Enum for the permitted call status transition.
 		 * @readonly
-		 * @alias Call.STATUS_PERMITTED_FLOW
-		 * @enum {Map&lt;string, Set&lt;Call.CALL_STATUS>>}
+		 * @alias NXMCall.STATUS_PERMITTED_FLOW
+		 * @enum {Map&lt;string, Set&lt;NXMCall.CALL_STATUS>>}
 		 */
     this.STATUS_PERMITTED_FLOW = new Map([
       /** Permitted transition array from STARTED  */
@@ -203,10 +167,10 @@ class Call {
     this.status = null;
     this.direction = this.CALL_DIRECTION.INBOUND;
     this._setupConversationObject(conversation);
-    WildEmitter.mixin(Call);
+    WildEmitter.mixin(NXMCall);
   }
 	/**
-	 * Enable Call stats to be emitted in application.call.on('call:stats:report');
+	 * Enable NXMCall stats to be emitted in application.inAppCall.on('call:stats:report');
 	 * @private
 	 */
   _enableStatsEvents() {
@@ -217,39 +181,11 @@ class Call {
 
 	/**
 	 * Attach member event listeners from the conversation
-	 * map them to member:call:state events
-	 * provided states member: hungup, rejected and answered
 	 * @private
 	 */
   _attachCallListeners() {
     // Conversation level listeners
     this.conversation.releaseGroup('call_module');
-    this.conversation.on('member:left', 'call_module', (from, event) => {
-      if (from.transferred_to) {
-        return;
-      }
-      let state = null;
-      if (from.timestamp.joined) {
-        state = this.MEMBER_CALL_STATES.HUNGUP;
-      } else {
-        state = this.MEMBER_CALL_STATES.REJECTED;
-      }
-      this.log.warn(`The "member:call:state" event is going to be deprecated in v6.0.0.
-        Please use the "member:call:status" event`);
-      this.emit('member:call:state', from, state, event);
-    });
-    this.conversation.on('member:joined', 'call_module', (from, event) => {
-      const state = this.MEMBER_CALL_STATES.ANSWERED;
-      this.log.warn(`The "member:call:state" event is going to be deprecated in v6.0.0.
-        Please use the "member:call:status" event`);
-      this.emit('member:call:state', from, state, event);
-    });
-    this.conversation.on('member:invited', 'call_module', (from, event) => {
-      const state = this.MEMBER_CALL_STATES.RINGING;
-      this.log.warn(`The "member:call:state" event is going to be deprecated in v6.0.0.
-        Please use the "member:call:status" event`);
-      this.emit('member:call:state', from, state, event);
-    });
     this.conversation.on('member:media', 'call_module', (from, event) => {
       if (this.application.calls &amp;&amp; this.application.calls.has(this.conversation.id)) {
         this.application.calls.get(this.conversation.id)._handleStatusChange(event);
@@ -258,7 +194,7 @@ class Call {
   }
 
 	/**
-	 * Validate the current call status transition
+	 * Validate the current nxmCall status transition
 	 * If a transition is not defined, return false
 	 * @param {string} status the status to validate
 	 * @returns {boolean} false if the transition is not permitted
@@ -268,7 +204,7 @@ class Call {
     if (!status) {
       throw new NexmoClientError(`Provide the status to validate the transition from '${this.status}'`);
     }
-    // if the call object is just initialised allow any state
+    // if the nxmCall object is just initialised allow any state
     if (!this.status) {
       return true;
     }
@@ -285,8 +221,8 @@ class Call {
 
 	/**
 	 * Go through the members of the conversation and if .me is the only one (JOINED or INVITED)
-	 * call call.hangUp().
-	 * @returns {Promise} - empty promise or the call.hangUp promise chain
+	 * nxmCall nxmCall.hangUp().
+	 * @returns {Promise} - empty promise or the nxmCall.hangUp promise chain
 	 */
   hangUpIfAllLeft() {
     if (!this.conversation.me || this.conversation.me.state === 'LEFT' || this.conversation.members.size &lt;= 1) {
@@ -301,8 +237,8 @@ class Call {
   }
 
 	/**
-	 * Set the conversation object of the Call
-	 * update call.from, and call.to attributes based on the conversation members
+	 * Set the conversation object of the NXMCall
+	 * update nxmCall.from, and nxmCall.to attributes based on the conversation members
 	 * @private
 	 */
   _setupConversationObject(conversation) {
@@ -320,7 +256,7 @@ class Call {
   }
 
 	/**
-	 * Set the from object of the Call
+	 * Set the from object of the NXMCall
 	 * @private
 	 */
   _setFrom(from) {
@@ -328,11 +264,11 @@ class Call {
   }
 
 	/**
-	 * Process raw events to figure out the call status
+	 * Process raw events to figure out the nxmCall status
 	 * @private
 	 */
   _handleStatusChange(event) {
-    // for knocking case the conversation object is not yet set in the call. We know the action is initiated from us
+    // for knocking case the conversation object is not yet set in the nxmCall. We know the action is initiated from us
     const _isEventFromMe = (this.conversation) ? this.conversation.me.id === event.from : true;
     const _isOutbound = this.direction === this.CALL_DIRECTION.OUTBOUND;
 
@@ -415,9 +351,9 @@ class Call {
   }
 
 	/**
-	 * Set the call.status and emit a call:status:changed event
+	 * Set the nxmCall.status and emit a call:status:changed event
 	 *
-	 * @param {Call.CALL_STATUS} this.CALL_STATUS the call status to set
+	 * @param {NXMCall.CALL_STATUS} this.CALL_STATUS the canxmCallll status to set
 	 * @emits Application#call:status:changed
 	 * @private
 	 */
@@ -431,7 +367,7 @@ class Call {
   }
 
 	/**
-	 * Answers an incoming call
+	 * Answers an incoming nxmCall
 	 * Join the conversation that you are invited
 	 * Create autoplay Audio object
 	 *
@@ -458,7 +394,7 @@ class Call {
   }
 
 	/**
-	 * Trigger the call flow for the input users.
+	 * Trigger the nxmCall flow for the input users.
 	 * Create a conversation with prefix name "CALL_"
 	 * and invite all the users.
 	 * If at least one user is successfully invited, enable the audio.
@@ -527,98 +463,106 @@ class Call {
   }
 
 	/**
-	 * Trigger the call flow for the phone call.
+	 * Trigger the nxmCall flow for the phone call.
 	 * Create a knocking event
 	 *
-	 * @param {string} phoneNumber the phone number to call
+	 * @param {string} user the phone number or the username to call
+   * @param {string} type the type of the call you want to have. possible values "phone" or "app" (default is "phone")
 	 * @returns {Promise}
 	 * @private
 	 */
-  createPhoneCall(phoneNumber) {
+  createServerCall(user, type) {
+    const to = {
+      type
+    }
+    if (type === 'phone') {
+      to.number = user;
+    } else {
+      to.user = user;
+    }
     return new Promise((resolve, reject) => {
-      this.application.session.sendRequest({
-        type: 'knocking:new',
-        body: {
+      this.application.session.sendNetworkRequest({
+        type: 'POST',
+        path: 'knocking',
+        data: {
           channel: {
             type: 'app',
             from: {
               type: 'app'
             },
-            to: {
-              type: 'phone',
-              number: phoneNumber
-            }
+            to
           }
         }
-      }, (response) => {
-        if (response.type === 'knocking:new:success') {
-          resolve(response);
-        } else {
-          reject(new NexmoApiError(response));
-        }
+      }).then(response => {
+        resolve(response);
+      }).catch(error => {
+        reject(new NexmoApiError(error));
       });
     });
   }
 	/**
-	 * Hangs up the call
+	 * Hangs up the nxmCall
 	 *
 	 * If there is a knocking active, do a knocking:delete
 	 * otherwise
 	 * Leave from the conversation
 	 * Disable the audio
 	 *
-   * @param {object} [reason] the reason for hanging up the call
-   * @param {string} [reason.code] the code of the reason
-   * @param {string} [reason.text] the description of the reason
+   * @param {object} [reason] the reason for hanging up the nxmCall
+   * @param {string} [reason.reason_code] the code of the reason
+   * @param {string} [reason.reason_text] the description of the reason
 	 * @returns {Promise}
 	 */
   hangUp(reason) {
+    let disable_promise = [];
     if (this.conversation) {
-      this.conversation.media.disable();
+      disable_promise.push(this.conversation.media.disable());
     }
-    if (!this.knocking_id) {
-      return this.conversation.leave(reason);
-    } else {
-      return new Promise((resolve, reject) => {
-        let deleteRequest = {
-          type: 'knocking:delete',
-          body: {
-            knocking_id: this.knocking_id,
+    return Promise.all(disable_promise).finally(() => {
+      if (!this.knocking_id) {
+        return this.conversation.leave(reason);
+      } else {
+        return new Promise((resolve, reject) => {
+          let path = `knocking/${this.knocking_id}`;
+          if (reason) {
+            let params = new URLSearchParams();
+            Object.keys(reason).forEach(key => {
+              params.append(key, reason[key]);
+            });
+            path += `?${params.toString()}`;
           }
-        }
-        if (reason) {
-          deleteRequest.body.reason = reason;
-        }
 
-        this.application.session.sendRequest(deleteRequest, (response) => {
-          if (response.type === 'knocking:delete:success') {
-            const call = this.application._call_draft_list.get(this.knocking_id);
-            call._handleStatusChange(response);
+          this.application.session.sendNetworkRequest({
+            type: 'DELETE',
+            path
+          }).then(response => {
+            const nxmCall = this.application._call_draft_list.get(this.knocking_id);
+            nxmCall._handleStatusChange(response);
             this.application._call_draft_list.delete(this.knocking_id);
             resolve(response);
-          } else {
-            // Don't switch yet to fail state, it could be an expected race between knocking:delete and conversation.leave
+          }).catch(error => {
+            // Don't switch yet to fail status, it could be an expected race between knocking:delete and conversation.leave
             if (!this.conversation) {
               this.log.warn('Problem cancelling the call: Knocking cancel failed and Conversation.leave not available');
               resolve();
             } else {
               this.conversation.leave(reason)
-                  .then(resolve).catch(reject);
-              this.log.warn(new NexmoApiError(response));
+                .then(resolve).catch(reject);
+              this.log.warn(new NexmoApiError(error));
             }
-          }
+          });
         });
-      });
-    }
+      }
+    });
   }
 
 	/**
-	 * Rejects an incoming call
+	 * Rejects an incoming nxmCall
 	 * Leave from the conversation that you are invited
 	 *
-   * @param {object} [reason] the reason for rejecting the call
-   * @param {string} [reason.code] the code of the reason
-   * @param {string} [reason.text] the description of the reason
+   * @param {object} [reason] the reason for rejecting the nxmCall
+   * @param {string} [reason.reason_code] the code of the reason
+   * @param {string} [reason.reason_text] the description of the reason
 	 * @returns {Promise}
 	 */
   reject(reason) {
@@ -629,7 +573,7 @@ class Call {
     }
   }
 }
-module.exports = Call;
+module.exports = NXMCall;
 </code></pre>
         </article>
     </section>
@@ -640,13 +584,13 @@ module.exports = Call;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 22 2019 11:41:28 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: events/image_event.js</title>
+    <title>JSDoc: Source: nexmoClientError.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: events/image_event.js</h1>
+    <h1 class="page-title">Source: nexmoClientError.js</h1>
 
     
 
@@ -28,113 +28,80 @@
         <article>
             <pre class="prettyprint source linenums"><code>/*
  * Nexmo Client SDK
- *  ImageEvent Object Model
+ *  Conversation Client - API Error wrapper
  *
  * Copyright (c) Nexmo Inc.
  */
-const logger = require('loglevel');
 
-const NXMEvent = require('./nxmEvent');
-const Utils = require('./../utils');
+const NexmoClientErrorTypes = require('./nexmoClientErrorTypes');
+
+function decorateError(instance, error) {
+  if (error &amp;&amp; error.code) {
+    error.type = error.code;
+    delete error['code'];
+  }
+  Object.assign(instance, error);
+  instance.message = 'type: ' + instance.type + ', description: ' + (instance.description ? instance.description : '');
+  instance.stack = new Error().stack;
+}
 
 /**
- * An image event
- *
- * @class ImageEvent
- * @extends NXMEvent
+ * Error constructor of an NexmoClient-error
+ * @param {string} errorInput String client error
  */
+const NexmoClientError = function(errorInput) {
+  const error = NexmoClientErrorTypes[errorInput];
+  // for other errors (libs/browser APIs) re-use the Client error
+  // to forward it but don't throw it away
+  if (error) {
+    // if error type exists in our list keep consistency
+    decorateError(this, error);
+  } else {
+    // if the structure is not as expected, f/w as much as we can get
+    this.message = (errorInput &amp;&amp; errorInput.message) ? errorInput.message : errorInput;
+    this.stack = (errorInput &amp;&amp; errorInput.stack) ? errorInput.stack : new Error().stack;
+  }
 
-class ImageEvent extends NXMEvent {
-  constructor(conversation, params) {
-    super(conversation, params);
-    this.log = logger.getLogger(this.constructor.name);
-    this.type = 'image';
-    this.conversation = conversation;
-    this.state = {
-      seen_by: {},
-      delivered_to: {}
-    };
-    if (params &amp;&amp; params.body) {
-      if (params.body.timestamp) {
-        this.timestamp = params.body.timestamp;
+  // make sure the error.name matches the class name
+  this.name = 'NexmoClientError';
+  if (typeof global.NXMbugsnagClient !== 'undefined') {
+    global.NXMbugsnagClient.notify(this, {
+      severity: 'info'
+    });
+  }
+};
+
+NexmoClientError.prototype = Object.create(NexmoClientError.prototype);
+NexmoClientError.prototype.constructor = NexmoClientError;
+
+
+/**
+ * Error constructor of an API-error
+ * @param {object} error API error, always containing {type: &lt;string>}
+ */
+const NexmoApiError = function(error) {
+  decorateError(this, error);
+  // make sure the error.name matches the class name
+  this.name = 'NexmoApiError';
+  if (typeof global.NXMbugsnagClient !== 'undefined') {
+    global.NXMbugsnagClient.notify(this, {
+      severity: 'info',
+      metaData: {
+        'API trace': error.__metadata,
+        'rid': error.rid
       }
-    }
-    Object.assign(this, params);
+    });
   }
+};
 
-  /**
-   * Set the message status to 'seen'
-   */
-  seen() {
-    return super.seen();
-  }
+NexmoApiError.prototype = Object.create(NexmoApiError.prototype);
+NexmoApiError.prototype.constructor = NexmoApiError;
 
-  /**
-   * Set the message status to 'delivered'
-   */
-  delivered() {
-    return super.delivered();
-  }
 
-  /**
-   * Delete the image event, all 3 representations of it
-   * passing only the one of the three URLs
-   * @param {object} [imageRepresentations=this.body.representations] the ImageEvent.body for the image to delete
-   * @returns {Promise}
-   */
-  del(imageRepresentations = this.body.representations) {
-    return Utils.networkRequest({
-      type: 'DELETE',
-      url: imageRepresentations.original.url
-    })
-        .then(() => {
-          return super.del();
-        });
-  }
-
-  /**
-   * Download an Image from Media service //3 representations
-   * @param {string} [type="thumbnail"] original, medium, thumbnail,
-   * @param {string} [representations=this.body.representations]  the ImageEvent.body for the image to download
-   * @returns {string} the dataUrl "data:image/jpeg;base64..."
-   * @example &lt;caption>Downloading an image from the imageEvent&lt;/caption>
-   *                 imageEvent.fetchImage().then((imagedata) => {
-   *                      var img = new Image();
-   *                      img.onload = function () {
-   *                      };
-   *                      img.src = imagedata;
-   *
-   *                      // to cancel the request:
-   *                      // conversation.abortSendImage(imageRequest);
-   *                  });
-   */
-  fetchImage(type = 'thumbnail', imageRepresentations = this.body.representations) {
-    return Utils.networkRequest({
-      type: 'GET',
-      url: imageRepresentations[type].url,
-      responseType: 'arraybuffer'
-    })
-        .then((xhr) => {
-          const responseArray = new Uint8Array(xhr.response);
-        // Convert the int array to a binary String
-        // We have to use apply() as we are converting an *array*
-        // and String.fromCharCode() takes one or more single values, not
-        // an array.
-        // support large image files (Chunking)
-          let res = '';
-          const chunk = 8 * 1024;
-          let i;
-          for (i = 0; i &lt; responseArray.length / chunk; i++) {
-            res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk, (i + 1) * chunk));
-          }
-          res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk));
-          const b64 = btoa(res);
-          const dataUrl = 'data:image/jpeg;base64,' + b64;
-          return Promise.resolve(dataUrl);
-        });
-  }
-}
-module.exports = ImageEvent;
+module.exports = {
+  NexmoClientError: NexmoClientError,
+  NexmoApiError: NexmoApiError
+};
 </code></pre>
         </article>
     </section>

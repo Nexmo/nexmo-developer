@@ -43,21 +43,34 @@
 
 
     <section>
-        <article><h1>Nexmo Client SDK for JavaScript</h1><p><a href="https://twitter.com/Nexmo"><img src="https://img.shields.io/badge/twitter-@Nexmo-blue.svg?style=flat" alt="Twitter"></a></p>
+        <article><h1>Nexmo Client SDK for JavaScript</h1>
+<p><a href="https://twitter.com/Nexmo"><img src="https://img.shields.io/badge/twitter-@Nexmo-blue.svg?style=flat" alt="Twitter"></a></p>
 <p>The Client SDK is intended to provide a ready solution for developers who want to integrate chat, voice and video into their apps.</p>
-<h2>Installation</h2><h3><a href="http://npmjs.com">NPM</a></h3><p>A dependency manager for Node packages. You can install the Client SDK with the following command:</p>
-<pre class="prettyprint source lang-bash"><code>npm install nexmo-client</code></pre><h2>SDK Setup</h2><p>Include the <code>conversationClient.js</code> script in your web page</p>
-<pre class="prettyprint source lang-HTML"><code>&lt;script src=&quot;node_modules/nexmo-client/dist/conversationClient.js&quot;>&lt;/script></code></pre><p>Or the minified version</p>
-<pre class="prettyprint source lang-HTML"><code>&lt;script src=&quot;node_modules/nexmo-client/dist/conversationClient.min.js&quot;>&lt;/script></code></pre><h2>Testing</h2><p>We use third party tools for testing the framework:</p>
+<h2>Installation</h2>
+<h3><a href="http://npmjs.com">NPM</a></h3>
+<p>A dependency manager for Node packages. You can install the Client SDK with the following command:</p>
+<pre class="prettyprint source lang-bash"><code>npm install nexmo-client
+</code></pre>
+<h2>SDK Setup</h2>
+<p>Include the <code>nexmoClient.js</code> script in your web page</p>
+<pre class="prettyprint source lang-HTML"><code>&lt;script src=&quot;node_modules/nexmo-client/dist/nexmoClient.js&quot;>&lt;/script>
+</code></pre>
+<p>Or the minified version</p>
+<pre class="prettyprint source lang-HTML"><code>&lt;script src=&quot;node_modules/nexmo-client/dist/nexmoClient.min.js&quot;>&lt;/script>
+</code></pre>
+<h2>Testing</h2>
+<p>We use third party tools for testing the framework:</p>
 <ul>
 <li><a href="https://karma-runner.github.io/1.0/index.html">Karma</a>: Karma is our test runner</li>
 <li><a href="https://mochajs.org/">Mocha</a>: Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun.</li>
 <li><a href="http://chaijs.com/">Chai</a>: Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.</li>
 </ul>
-<h2>Code style &amp; Conventions</h2><ul>
+<h2>Code style &amp; Conventions</h2>
+<ul>
 <li>https://github.com/google/eslint-config-google</li>
 </ul>
-<h2>License</h2><p>Copyright (c) 2019 Nexmo, Inc. All rights reserved. Licensed only under the Nexmo Client SDK License Agreement (the &quot;License&quot;) located at <a href="https://github.com/nexmoinc/conversation-js-sdk/blob/master/LICENSE">LICENCE</a>.</p>
+<h2>License</h2>
+<p>Copyright (c) 2019 Nexmo, Inc. All rights reserved. Licensed only under the Nexmo Client SDK License Agreement (the &quot;License&quot;) located at <a href="https://github.com/nexmoinc/conversation-js-sdk/blob/master/LICENSE">LICENCE</a>.</p>
 <p>By downloading or otherwise using our software or services, you acknowledge that you have read, understand and agree to be bound by the Nexmo Client SDK License Agreement and Privacy Policy.</p>
 <p>You may not use, exercise any rights with respect to or exploit this SDK, or any modifications or derivative works thereof, except in accordance with the License.</p>
 <p><a href="https://www.nexmo.com"><img src="https://www.nexmo.com/wp-content/themes/nexmo/resources/img/nexmo_logo_157x43_fullcolor.png" alt="NEXMO"></a></p></article>
@@ -71,13 +84,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 22 2019 11:41:28 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

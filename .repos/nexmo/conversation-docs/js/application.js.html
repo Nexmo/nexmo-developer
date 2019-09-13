@@ -38,15 +38,16 @@ const logger = require('loglevel');
 
 const User = require('./user');
 const Conversation = require('./conversation');
-const Call = require('./modules/call');
+const NXMCall = require('./modules/nxmCall');
 const SipEventHandler = require('./handlers/sip_events');
 const RtcEventHandler = require('./handlers/rtc_events');
 const ApplicationEventsHandler = require('./handlers/application_events');
+const Utils = require('./utils');
+const PageConfig = require('./pages/page_config')
+const ConversationsPage = require('./pages/conversations_page')
 
-const ConversationClientError = require('./conversationClientError');
-
-const NexmoApiError = ConversationClientError.NexmoApiError;
-const NexmoClientError = ConversationClientError.NexmoClientError;
+const NexmoClientError = require('./nexmoClientError').NexmoClientError;
+const NexmoApiError = require('./nexmoClientError').NexmoApiError;
 
 let sipEventHandler = null;
 let rtcEventHandler = null;
@@ -58,7 +59,7 @@ let applicationEventsHandler = null;
  * Provides methods to create conversations and retrieve a list of the user's conversations, while it holds the listeners for
  * user's invitations
  * @class Application
- * @param {ConversationClient} SDK session Object
+ * @param {NexmoClient} SDK session Object
  * @param {object} params
  * @example &lt;caption>Accessing the list of conversations&lt;/caption>
  *   rtc.login(token).then((application) => {
@@ -77,10 +78,12 @@ class Application {
     this.synced_conversations_count = 0;
     this.start_sync_time = 0;
     this.stop_sync_time = 0;
-    /* conversation_id, call */
+    /* conversation_id, nxmCall */
     this.calls = new Map();
-    /* knocking_id, call */
+    /* knocking_id, nxmCall */
     this._call_draft_list = new Map();
+    this.pageConfig = new PageConfig((session.config || {}).conversations_page_config);
+    this.conversations_page_last = null;
 
     sipEventHandler = new SipEventHandler(this);
     rtcEventHandler = new RtcEventHandler(this);
@@ -117,7 +120,7 @@ class Application {
 	 * @event Application#member:invited
 	 *
 	 * @property {Member} member - The invited member
-	 * @property {Event} event - The invitation event
+	 * @property {NXMEvent} event - The invitation event
 	 *
 	 * @example &lt;caption>listen for your invites&lt;/caption>
 	 * application.on("member:invited",(member, event) => {
@@ -138,7 +141,7 @@ class Application {
 	 * @event Application#member:joined
 	 *
 	 * @property {Member} member - the member that joined the conversation
-	 * @property {Event} event - the join event
+	 * @property {NXMEvent} event - the join event
 	 *
 	 * @example &lt;caption>listen join events in Application level&lt;/caption>
 	 *  application.on("member:joined",(member, event) => {
@@ -223,18 +226,18 @@ class Application {
 	 * Creates a call to specified user/s.
 	 * @classdesc creates a call between the defined users
 	 * @param {string[]} usernames - the user names for those we want to call
-	 * @returns {Call} a Call object with all the call properties
+	 * @returns {NXMCall} a NXMCall object with all the call properties
 	 */
-  call(usernames) {
+  inAppCall(usernames) {
     return new Promise((resolve, reject) => {
       if (!usernames || !Array.isArray(usernames) || usernames.length === 0) {
         return reject(new NexmoClientError('error:application:call:params'));
       }
-      const call = new Call(this);
-      return call.createCall(usernames)
+      const nxmCall = new NXMCall(this);
+      return nxmCall.createCall(usernames)
           .then(() => {
-            call.direction = call.CALL_DIRECTION.OUTBOUND;
-            return resolve(call);
+            nxmCall.direction = nxmCall.CALL_DIRECTION.OUTBOUND;
+            return resolve(nxmCall);
           }).catch((err) => {
             reject(err);
           });
@@ -249,29 +252,27 @@ class Application {
 	 * You don't need to start the stream, the SDK will play the audio for you
 	 *
 	 * @classdesc creates a call to a phone number
-	 * @param {string} phoneNumber - the number you want to call
-	 * @returns {Promise&lt;Call>}
+   * @param {string} user the phone number or the username you want to call
+   * @param {string} [type="phone"] the type of the call you want to have. possible values "phone" or "app" (default is "phone")
+	 * @returns {Promise&lt;NXMCall>}
 	 * @example &lt;caption>Create a call to a phone&lt;/caption>
-	 *        application.on("call:status:changed", (call) => {
-			if (call.status === call.CALL_STATUS.STARTED) {
+	 *        application.on("call:status:changed", (nxmCall) => {
+			if (nxmCall.status === nxmCall.CALL_STATUS.STARTED) {
 				console.log('the call has started');
 	 *		}
-	 * application.callPhone(phone_number).then(() => {
+	 * application.callServer(phone_number).then(() => {
 	 *                 console.log('Calling phone ' + phone_number);
 	 *      });
 	 */
-  callPhone(phoneNumber) {
+  callServer(user, type = 'phone') {
     return new Promise((resolve, reject) => {
-      if (!phoneNumber || (typeof phoneNumber) !== 'string') {
-        return reject(new NexmoClientError('error:application:callPhone:params'));
-      }
-      const call = new Call(this);
-      call.direction = call.CALL_DIRECTION.OUTBOUND;
-      return call.createPhoneCall(phoneNumber)
+      const nxmCall = new NXMCall(this);
+      nxmCall.direction = nxmCall.CALL_DIRECTION.OUTBOUND;
+      return nxmCall.createServerCall(user, type)
           .then((response) => {
-            call.knocking_id = response.body.id;
-            this._call_draft_list.set(call.knocking_id, call);
-            return resolve(call);
+            nxmCall.knocking_id = response.id;
+            this._call_draft_list.set(nxmCall.knocking_id, nxmCall);
+            return resolve(nxmCall);
           });
     });
   }
@@ -298,24 +299,23 @@ class Application {
 	 *     console.log(error);
 	 * });
 	 */
-  newConversation(params) {
+  newConversation(data = {}) {
     return new Promise((resolve, reject) => {
-      this.session.sendRequest({
-        type: 'new:conversation',
-        body: params
-      }, (response) => {
-        if (response.type === 'new:conversation:success') {
-          const conv = new Conversation(this, response.body);
-          this.conversations.set(conv.id, conv);
-          // do a get conversation to get the whole model as shaped in the service,
-          this.getConversation(conv.id)
-              .then((conversation) => {
-                resolve(conversation);
-              });
-        } else {
-          reject(new NexmoApiError(response));
-        }
-      });
+      return this.session.sendNetworkRequest({
+        type: 'POST',
+        path: 'conversations',
+        data
+      }).then(response => {
+        const conv = new Conversation(this, response);
+        this.conversations.set(conv.id, conv);
+        // do a get conversation to get the whole model as shaped in the service,
+        this.getConversation(conv.id)
+          .then((conversation) => {
+            resolve(conversation);
+          });
+      }).catch(error => {
+        reject(new NexmoApiError(error));
+      })
     });
   }
 
@@ -356,52 +356,61 @@ class Application {
 	 */
   getConversation(id) {
     return new Promise((resolve, reject) => {
-      this.session.sendRequest({
-        type: 'conversation:get',
-        cid: id,
-        body: {}
-      }, (response) => {
-        if (response.type === 'conversation:get:success') {
-          const conversation_object = this.updateOrCreateConversation(response.body);
-          if (this.session.config.sync === 'full') {
-            // Populate the events
-            conversation_object.getEvents()
-                .then((events) => {
-                  conversation_object.events = events;
-                  resolve(conversation_object);
-                });
-          } else {
-            resolve(conversation_object);
-          }
+      return this.session.sendNetworkRequest({
+        type: 'GET',
+        path: `conversations/${id}`
+      }).then(response => {
+        response['id'] = response['uuid'];
+        delete response['uuid'];
+
+        const conversation_object = this.updateOrCreateConversation(response);
+        if (this.session.config.sync === 'full') {
+          // Populate the events
+          conversation_object.getEvents()
+            .then((events_page) => {
+              conversation_object.events = events_page.items;
+              resolve(conversation_object);
+            });
         } else {
-          reject(new NexmoApiError(response));
+          resolve(conversation_object);
         }
-      });
+      }).catch(error => {
+        reject(new NexmoApiError(error));
+      })
     });
   }
 
 	/**
 	 * Query the service to obtain a complete list of conversations of which the
 	 * logged-in user is a member with a state of `JOINED` or `INVITED`.
+   * @param {object} params configure defaults for paginated conversations query
+   * @param {string} params.order 'asc' or 'desc' ordering of resources based on creation time
+   * @param {number} params.page_size the number of resources returned in a single request list
+   * @param {string} [params.cursor] string to access the starting point of a dataset
 	 *
-	 * @returns {Promise&lt;Object&lt;Conversation>>} - Populate Application.conversations.
+	 * @returns {Promise&lt;Page&lt;Map&lt;Conversation>>>} - Populate Application.conversations.
+   * @example &lt;caption>Get Conversations&lt;/caption>
+   * application.getConversations({ page_size: 20 ).then((conversations_page) => {
+   *     conversations_page.items.forEach(conversation => {
+   *      render(conversation)
+   *   })
+   * });
+   *
 	 */
-  getConversations(params) {
+  getConversations(params = {}) {
+    const url = `${this.session.config.nexmo_api_url}/beta2/users/${this.me.id}/conversations`;
+
+    // Create pageConfig if some elements given otherwise use default
+    let pageConfig = Object.keys(params).length === 0 ? this.pageConfig : new PageConfig(params)
+
     return new Promise((resolve, reject) => {
-      this.session.sendRequest({
-        type: 'user:conversations',
-        body: params
-      }, (response) => {
-        if (response.type === 'user:conversations:success') {
-          // Iterate and create the conversations if not existent
-          response.body.forEach((c) => {
-            this.updateOrCreateConversation(c);
-          });
-          resolve(this.conversations);
-        } else {
-          reject(new NexmoApiError(response));
-        }
-      });
+      return Utils.paginationRequest(url, pageConfig)
+        .then((response) => {
+          response.application = this;
+          const conversations_page = new ConversationsPage(response)
+          this.conversations_page_last = conversations_page;
+          resolve(conversations_page);
+      }).catch(error => reject(new NexmoApiError(error)));
     });
   }
 
@@ -417,6 +426,11 @@ class Application {
 	 *       });
 	 *  });
 	 */
+
+
+  /**
+   * Fetching all the conversations and sync progress events
+   */
   syncConversations(conversations) {
     const conversation_array = Array.from(conversations.values());
     const conversations_length = conversation_array.length;
@@ -457,20 +471,14 @@ class Application {
 	 */
   getUser(user_id = this.me.id) {
     return new Promise((resolve, reject) => {
-      const params = {
-        user_id: user_id
-      };
-      this.session.sendRequest({
-        type: 'user:get',
-        from: this.me.id,
-        body: params
-      }, (response) => {
-        if (response.type === 'user:get:success') {
-          resolve(new User(this, response.body));
-        } else {
-          reject(new NexmoApiError(response));
-        }
-      });
+      return this.session.sendNetworkRequest({
+        type: 'GET',
+        path: `users/${user_id}`
+      }).then(response => {
+        resolve(new User(this, response));
+      }).catch(error => {
+        reject(new NexmoApiError(error));
+      })
     });
   }
 }
@@ -485,13 +493,13 @@ module.exports = Application;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 22 2019 11:41:28 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
