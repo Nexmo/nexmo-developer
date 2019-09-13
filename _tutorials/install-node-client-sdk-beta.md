@@ -7,7 +7,7 @@ description: Install the Nexmo Node Client SDK to get the latest functionality f
 
 If you are planning to use JavaScript to develop your application, you'll need to install (or update) the Beta version of the Nexmo Client SDK.
 
-Change into your project directory and run the following command:
+Create a new project directory and change into it. Then run the following command:
 
 ``` bash
 $ npm install nexmo-client@beta

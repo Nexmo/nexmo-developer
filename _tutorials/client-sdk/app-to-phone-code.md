@@ -5,7 +5,7 @@ description: In this step you see write the code for your app to phone applicati
 
 # Create your app to phone code
 
-Create an HTML file called `index.html` in your project directory containing the following code:
+Create an HTML file called `index.html` in your project directory. Add the following code, bit make sure you paste in the JWT you generated for the user in the earlier step in this tutorial:
 
 ``` html
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ Create an HTML file called `index.html` in your project directory containing the
 
   <script>
 
-    const USER_JWT = 'eyJh...qqSHNXd3A';
+    const USER_JWT = 'PASTE YOUR USER JWT HERE';
 
     class PhoneApp {
 

@@ -24,8 +24,8 @@ prerequisites:
 - create-nexmo-account
 - install-nodejs
 - install-nexmo-cli-beta
-- install-node-client-sdk-beta
 - install-local-web-server
+- install-node-client-sdk-beta
 
 tasks:
 - client-sdk/create-application

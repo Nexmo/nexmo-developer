@@ -5,10 +5,10 @@ description: In this step you see how to install a local web server for testing 
 
 # Install local web server
 
-Install a web server such as `http-server`:
+Install a web server, such as `http-server`, on your local machine for testing purposes, using a command such as the following:
 
 ```
-npm install http-server
+npm install http-server -g
 ```
 
 You can then run the server locally in your project directory with:

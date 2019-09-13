@@ -5,7 +5,7 @@ description: In this step you see how to create a Client SDK Application.
 
 # Create your Nexmo Client SDK Application
 
-If you have not yet done so, create a new directory for your project, such as `my-project`. Change into this directory.
+Make sure you have changed into your project directory, which is also where you installed the Nexmo Client SDK to.
 
 Use the CLI to create your Nexmo application:
 

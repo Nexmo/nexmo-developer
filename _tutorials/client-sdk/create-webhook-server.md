@@ -14,9 +14,10 @@ Add the code for the server to the file `server.js`:
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const port = 3000;
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/webhooks/answer', (req, res) => {
     console.log("Answer:");
@@ -38,10 +39,22 @@ app.post('/webhooks/event', (req, res) => {
     res.status(200).end();
 });
 
-app.listen(9000)
+app.listen(port, () => console.log(`Server listening on port ${port}!`));
 ```
 
-You can run your webhook server with:
+If you've not already done so initialize your project directory with:
+
+```
+npm init
+```
+
+Then, as this server uses `Express.js` you need to install it with:
+
+```
+npm install express
+```
+
+You can then run your webhook server with:
 
 ```
 node server.js
