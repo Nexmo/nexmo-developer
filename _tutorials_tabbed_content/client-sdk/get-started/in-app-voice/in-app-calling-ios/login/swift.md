@@ -27,7 +27,7 @@ extension AppToAppCallViewController: NXMClientDelegate {
 
 The `client(_:didChanged:reason:)` methods of the `NXMClientDelegate` protocol indicates if the login was successful and you can start using the SDK.
 
-Add the following methods under the `#MARK:- NXMClientDelegate` line.
+Add the following methods under the `//MARK:- NXMClientDelegate` line.
 
 ```swift
 func client(_ client: NXMClient, didChange status: NXMConnectionStatus, reason: NXMConnectionStatusReason) {
