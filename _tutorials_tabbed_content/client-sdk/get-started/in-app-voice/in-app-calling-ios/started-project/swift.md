@@ -8,7 +8,7 @@ Clone this [Github project](https://github.com/Nexmo/ClientSDK-Get-Started-Voice
 
 Using the Github project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within XCode:
     
-1. Open `Constants.swift` file and replace the user uuids and jwts:
+1. Open `Constants.swift` file and replace the user `uuid`s and `jwt`s:
 
     ```swift
         var uuid: String {
