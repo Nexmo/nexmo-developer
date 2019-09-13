@@ -13,18 +13,7 @@ navigation_weight: 0
 - Change return value of application.getConversations() to new `ConversationsPage` object
 
 ```javascript
-// iterate through conversations before
-application
-  .getConversations()
-  .then((conversations) => {
-    conversations.forEach(conversation => {
-      render(conversation);
-    })
-  });
-```
-
-```javascript
-// iterate through conversations after
+// iterate through conversations
 application
   .getConversations({ page_size: 20 })
   .then((conversations_page) => {
@@ -37,20 +26,9 @@ application
 - Change return value of conversation.getEvents() to new `EventsPage` object
 
 ```javascript
-// iterate through events before
+// iterate through events
 conversation
-  .getEvents()
-  .then((events) => {
-    events.forEach(conversation => {
-      render(conversation);
-    })
-  });
-```
-
-```javascript
-// iterate through events after
-conversation
-  .getEvents({ event_type: 'member:*' })
+  .getEvents({ event_type: `member:*` })
   .then((events_page) => {
     events_page.items.forEach(event => {
       render(event);
@@ -75,7 +53,7 @@ conversation
 ```javascript
 //sending a custom event type to a conversation
 conversation
-  .sendCustomEvent({type: 'my_custom_event', body: { enabled: true }})
+  .sendCustomEvent({type: `my_custom_event`, body: { enabled: true }})
   .then((custom_event) => {
     console.log(event.body);
   });
@@ -83,7 +61,7 @@ conversation
 
 ```javascript
 //listening for a custom event type
-conversation.on('my_custom_event', (from, event) => {
+conversation.on(`my_custom_event`, (from, event) => {
   console.log(event.body);
 });
 ```
@@ -102,14 +80,14 @@ new NexmoClient({
   },
   events_page_config: {
     page_size: 50,
-    event_type: 'member:*'
+    event_type: `member:*`
   }
 })
 ```
 
-- Add new `ConversationsPage` & `EventsPage` which extend `Page` class to wrap results of paginated requests for conversations and events
-- Add getNext() and getPrev() methods to `ConversationsPage` & `EventsPage` objects to fetch previous and next pages of conversations & events
-- Add 'conversations_page_last' param to application & 'events_page_last' param to conversation for reference to last page retrieved
+- Add new `ConversationsPage` and `EventsPage` which extend `Page` class to wrap results of paginated requests for conversations and events
+- Add getNext() and getPrev() methods to `ConversationsPage` and `EventsPage` objects to fetch previous and next pages of conversations and events
+- Add 'conversations_page_last' param to application and 'events_page_last' param to conversation for reference to last page retrieved
 
 ```javascript
 application.conversations_page_last
