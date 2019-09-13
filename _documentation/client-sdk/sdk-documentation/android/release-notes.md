@@ -10,75 +10,90 @@ navigation_weight: 0
 
 ### Changed
 
-- NexmoClient is a singleton and get only the Context as a mandatory paramerter
-    NexmoClient nexmoClientInstance = NexmoClientBuilder.Builder().build(context.getApplicationContext());
-- in order to set the NexmoConnectionListener call setConnectionListener
+- `NexmoClient` is a singleton and get only the Context as a mandatory paramerter. To initialize `NexmoClient`:
+
+```java
+    NexmoClient nexmoClientInstance = NexmoClientBuilder.Builder().build(context);
+```
+
+- In order to set `NexmoConnectionListener`:
+
+```java
     NexmoConnectionListener myConnectionListener = new NexmoConnectionListener{
     void onConnectionStatusChange(ConnectionStatus status, ConnectionStatusReason reason){
       Log.i("onConnectionStatusChange","status:" + status + " reason:" + reason);
     }
   }
   nexmoClientInstance.setConnectionListener(myConnectionListener);
-- NexmoClient call function receive single username/phonenumber
-  IN APP CALL
-  NexmoClient.call(username, NexmoCallHandler.IN_APP, new NexmoRequestListener<NexmoCall>() {
-   void onError(@NonNull NexmoApiError error){
-   }
-   void onSuccess(@Nullable NexmoCall result){
-   }
-  });
-  SEREVER CALL
-  NexmoClient.call([userName/phoneNumber], NexmoCallHandler.SERVER, new NexmoRequestListener<NexmoCall>() {
-   void onError(@NonNull NexmoApiError error){
-   }
-   void onSuccess(@Nullable NexmoCall result){
-   }
-  });
+```
 
-- Removed NexmoCallMember getMember getter.
-- NexmoCallMember add getter:
-'''java
+- `NexmoClient` call function receives a single username or phone number:
+  
+  ```java
+  //IN APP CALL:
+  NexmoClient.get().call(callee, NexmoCallHandler.IN_APP, new NexmoRequestListener<NexmoCall>() {
+   void onError(@NonNull NexmoApiError error){
+   }
+   void onSuccess(@Nullable NexmoCall result){
+   }
+  });
+  
+  //SEREVER CALL:
+  NexmoClient.call(callee, NexmoCallHandler.SERVER, new NexmoRequestListener<NexmoCall>() {
+   void onError(@NonNull NexmoApiError error){
+   }
+   void onSuccess(@Nullable NexmoCall result){
+   }
+  });
+  ```
+
+- Removed `NexmoCallMember.getMember()`, and added getters:
+
+```java
 NexmoCallMember someCallMember;
 NexmoUser user = someCallMember.getUser();
 String memberId = someCallMember.getMemberId();
 NexmoCallStatus statues = someCallMember.getStatus();
 NexmoChannel channel = someCallMember.getChannel();
-'''
+```
 
 ### New
 
-- Update Android minSDK to 26
-- NexmoCallMember status calculated by the current leg status.
-- Update default log level to NONE
-- Add guard to NexmoClient function to prevent calls while user is not connected
-- Add the member state initiator.
-- Fill the NexmoUser missing values on login.
-- getNemxoEventType in NexmoEvent is public
+- Android minSDK is now 23
+- `CustomEvents` support in `NexmoConversation`:
 
-### Added
-
-- NexmoConversation send and receive CustomEvents
-- NexmoCustomEvent:NexmoEvent:
+```java
+//NexmoCustomEvent:NexmoEvent:
     String                  getCustomType()
     HashMap<String, Object> getData()
+```
 
-- Added NexmoMedia Object.
-'''java
+- `NexmoMedia` added to `NexmoConversation`, for audio features support within a `NexmoConversation` context:
+
+```java
     NexmoMember someMember;
     NexmoMedia media = someMember.media;
     media.getEnabled();
     media.getMuted();
     media.getEarmuffed();
-'''  
-- Added NexmoChannel Object.
-'''java
+```
+
+- Added `NexmoChannel` Object to `NexmoMember`.
+
+```java
     NexmoMember someMember;
     NexmoChannel channel = someMember.channel;
-'''  
+```
+
+### Fixed
+
+- `NexmoCallMember.status` reflects the current leg status.
+- Added guard to `NexmoClient` function to prevent calls while user is not connected
+- Updated `NexmoUser` missing values after login.
 
 ### Removed
 
-- remove conversation.getUser()
+- Removed `conversation.getUser()`. The current user can be accessed with: `NexmoClient.getUser()`.
 
 ---
 
