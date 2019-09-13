@@ -1,0 +1,9 @@
+---
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/applications/list-applications.php
+    from_line: 6
+    to_line: 7
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/applications/list-applications.php
+    from_line: 9
+    to_line: 11
