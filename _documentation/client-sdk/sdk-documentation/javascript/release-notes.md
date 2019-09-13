@@ -6,6 +6,192 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.0 - September 13, 2019
+
+### Breaking Changes
+
+- Change return value of application.getConversations() to new `ConversationsPage` object
+
+```javascript
+// iterate through conversations before
+application
+  .getConversations()
+  .then((conversations) => {
+    conversations.forEach(conversation => {
+      render(conversation);
+    })
+  });
+```
+
+```javascript
+// iterate through conversations after
+application
+  .getConversations({ page_size: 20 })
+  .then((conversations_page) => {
+    conversations_page.items.forEach(conversation => {
+      render(conversation);
+    })
+  });
+```
+
+- Change return value of conversation.getEvents() to new `EventsPage` object
+
+```javascript
+// iterate through events before
+conversation
+  .getEvents()
+  .then((events) => {
+    events.forEach(conversation => {
+      render(conversation);
+    })
+  });
+```
+
+```javascript
+// iterate through events after
+conversation
+  .getEvents({ event_type: 'member:*' })
+  .then((events_page) => {
+    events_page.items.forEach(event => {
+      render(event);
+    })
+  });
+```
+
+- Rename method `application.callPhone` to `application.callServer`
+- Rename method `application.call` to `application.inAppCall`
+- Rename method `call.createPhoneCall` to `call.createServerCall`
+- Rename class `Call` to `NXMCall`
+- Rename class `ConversationClient` to `NexmoClient`
+- Rename class `ConversationClientError` to `NexmoClientError`
+- Rename files `conversationClient.js` and `conversationClient.min.js` to `nexmoClient.js` and `nexmoClient.min.js`
+- Deprecate `member:call:state` event (use instead `member:call:status`)
+- Remove automatic login in case of a websocket reconnection and emit the event
+
+### New
+
+- Send and listen for custom event types in a conversation.
+
+```javascript
+//sending a custom event type to a conversation
+conversation
+  .sendCustomEvent({type: 'my_custom_event', body: { enabled: true }})
+  .then((custom_event) => {
+    console.log(event.body);
+  });
+```
+
+```javascript
+//listening for a custom event type
+conversation.on('my_custom_event', (from, event) => {
+  console.log(event.body);
+});
+```
+
+- Add new `PageConfig` class for configuring settings for paginated requests
+- Add new `Page` class to wrap results of paginated requests
+- Add setup of default pagination configuration for conversations and events in ConversationClient initialization
+- Add wild card supported for filtering by event types using `:*` (eg. event_type: `member:*`)
+
+```javascript
+new NexmoClient({
+  conversations_page_config: {
+    page_size: 25,
+    order: 'asc'
+    cursor: 'abc'
+  },
+  events_page_config: {
+    page_size: 50,
+    event_type: 'member:*'
+  }
+})
+```
+
+- Add new `ConversationsPage` & `EventsPage` which extend `Page` class to wrap results of paginated requests for conversations and events
+- Add getNext() and getPrev() methods to `ConversationsPage` & `EventsPage` objects to fetch previous and next pages of conversations & events
+- Add 'conversations_page_last' param to application & 'events_page_last' param to conversation for reference to last page retrieved
+
+```javascript
+application.conversations_page_last
+  .getNext((conversations_page) => {
+    conversations_page.items.forEach(conversation => {
+      render(conversation)
+    })
+  })
+```
+
+```javascript
+conversation.events_page_last
+  .getPrev((events_page) => {
+    events_page.items.forEach(event => {
+      render(event)
+    })
+  })
+```
+
+- Add the ability to make an IP-IP call through `callServer` function
+
+```javascript
+// IP-IP call scenario
+application
+  .callServer('username', 'app')
+  .then((nxmCall) => {
+    // console.log(nxmCall);
+  });
+
+// IP-PSTN call scenario
+application
+  .callServer('07400000000')
+  .then((nxmCall) => {
+    // console.log(nxmCall);
+  });
+```
+
+### Changes
+
+- Update `reason` object to receive `reason.reason_text` and `reason.reason_code` fields
+
+### Internal changes
+
+- Rename `Event` class to `NXMEvent`
+- Update CAPI requests to REST calls for these events
+  - `event:delivered`
+  - `text:delivered`
+  - `image:delivered`
+  - `event:seen`
+  - `text:seen`
+  - `image:seen`
+  - `conversation:events`
+  - `audio:play`
+  - `conversation:delete`
+  - `conversation:invite`
+  - `text`
+  - `text:typing:on`
+  - `text:typing:off`
+  - `new:conversation`
+  - `conversation:get`
+  - `user:conversations`
+  - `user:get`
+  - `conversation:join`
+  - `audio:say`
+  - `audio:earmuff:on`
+  - `audio:earmuff:off`
+  - `audio:dtmf`
+  - `audio:record`
+  - `audio:play`
+  - `conversation:member:delete`
+  - `event:delete`
+  - `audio:ringing:start`
+  - `audio:ringing:stop`
+  - `audio:mute:on`
+  - `audio:mute:off`
+  - `image`
+  - `rtc:new`
+  - `rtc:answer`
+  - `rtc:terminate`
+  - `knocking:new`
+  - `knocking:delete`
+
 ## Version 5.3.4 - July 18, 2019
 
 ### Fixes
