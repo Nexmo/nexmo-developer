@@ -21,7 +21,7 @@ navigation_weight: 0
 
 ### Added
 
-- Added conversation media
+- Added conversation media:
 
 ```objective-c
 NXMConversation myConversation;
@@ -29,14 +29,15 @@ NXMConversation myConversation;
 [myConversation disableMedia];  // my media will be disabled
 ```
 ​
-Added invite member
+Added invite member:
+
 ```objective-c
 NXMConversation myConversation;
 [myConversation inviteMemberWithUsername:@"someUsername"
                       completion:myCompletionBlock];
 ```
 ​
-- Added the member state initiator.
+- Added the member state initiator:
 
 ```objective-c
 NXMMember *member = someMember;
@@ -49,14 +50,14 @@ leftStateInitiator.memberId;
 leftStateInitiator.time;
 ```
 ​
-Added `NXMConversationUpdateDelegate` to notify on member updates like media,leg,state.
-Added updatesDelegate property to `NXMConversation`.
+Added `NXMConversationUpdateDelegate` to notify on member updates like media,leg, and state.
+Added `updatesDelegate` property to `NXMConversation`:
 
 ```objective-c
 @property (nonatomic, weak, nullable) id <NXMConversationUpdateDelegate> updatesDelegate;
 ```
 
-Example
+Example:
 
 ```objective-c
 @interface MyClass() <NXMConversationUpdateDelegate>
@@ -80,11 +81,12 @@ Example
 ​
 ### Changed
 ​
-- NXMClient is now a singleton
+- `NXMClient` is now a singleton:
 
 ```objective-c
 NXMClient.shared // the shared instance of NXMClient
 ```
+
 Renamed:
 
 ```objective-c
@@ -104,7 +106,7 @@ Renamed:
 completionHandler:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullable call))completionHandler;
 ```
 ​
-- NXMClientDelegate renamed:
+- `NXMClientDelegate` renamed:
 
 ```objective-c
 @protocol NXMClientDelegate <NSObject>
@@ -120,7 +122,7 @@ completionHandler:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullab
 @end
 ```
 ​
-- NXMConversation otherMembers property renamed to allMembers.
+- `NXMConversation` `otherMembers` property renamed to `allMembers`:
 
 ```objective-c
 NXMConversation myConversation = someConversation;
@@ -129,7 +131,7 @@ NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all 
 - (void)joinMemberWithUsername:(nonnull NSString *)username // username instead of userId
 ```
 ​
-- NXMConversationDelegate renamed methods:
+- `NXMConversationDelegate` renamed methods:
 
 ```objective-c
 // was - (void)customEvent:(nonnull NXMCustomEvent *)customEvent;
@@ -157,8 +159,10 @@ NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all 
 - (void)conversation:(nonnull NXMConversation *)conversation didReceiveMediaEvent:(nonnull NXMMediaEvent *)event;
 ```
 ​
-Use username instead of userId
-`NXMCallDelegate` Renamed:
+Use `username` instead of `userId`.
+
+`NXMCallDelegate` renamed:
+
 ```objective-c
 // was - (void)statusChanged:(nonnull NXMCallMember *)callMember;
 - (void)didUpdate:(nonnull NXMCallMember *)callMember status:(NXMCallMemberStatus)status; 
@@ -168,23 +172,27 @@ Use username instead of userId
 - (void)didReceive:(nonnull NSString *)dtmf fromCallMember:(nonnull NXMCallMember *)callMember;
 ```
 ​
-`NXMEvent` and `NXMMemberEvent` add member object instead of memberId:
+`NXMEvent` and `NXMMemberEvent` add member object instead of `memberId`:
+
 ```objective-c
 @property (nonatomic, readonly, nonnull) NXMMember *member;
 ```
 ​
-`NXMImageInfo` renamed properties
+`NXMImageInfo` renamed properties:
+
 ```objective-c
 @property NSInteger sizeInBytes; // was size
 @property NXMImageSize size; // was type
 ```
 ​
-`NXMMessageStatusEvent` renamed property
+`NXMMessageStatusEvent` renamed property:
+
 ```objective-c
 @property NSInteger referenceEventId; // was refEventId
 ```
 ​
-`NexmoClient` logger exposed - NXMLogger object
+`NexmoClient` logger exposed - `NXMLogger` object:
+
 ```objective-c
 [NXMLogger setLogLevel:NXMLoggerLevelDebug];
 NSArray *logNames = [NXMLogger getLogFileNames];
@@ -207,7 +215,7 @@ NXMClient myClient
 
 ### Changed
 
-- `NXMCallMember` - added member channel with direction data
+- `NXMCallMember` - added member channel with direction data:
 
 ```objective-c
 @interface NXMCallMember : NSObject
@@ -238,23 +246,24 @@ NXMClient myClient
 
 ### Removed
 
-- `NXMCallMember`'s `phoneNumber` and `channelType` were removed
+- `NXMCallMember`'s `phoneNumber` and `channelType` were removed.
 
 ---
 
 ## Version 0.2.56 - January 24, 2019
 
 ### Added
+
 - Change log file.
 
 ### Changed
+
 - Memory management improvements.
 - Fetch missing and new events on network changes.
 - Returning User objects instead of Ids.
 - Bug fixes.
-- Add non-null or nullable to properties
-- Rename call.decline to call.reject
-
+- Add `non-null` or `nullable` to properties.
+- Rename `call.decline` to `call.reject`.
 
 ## Version 0.1.52 - January 01, 2019
 

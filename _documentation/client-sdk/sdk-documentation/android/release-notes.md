@@ -10,7 +10,7 @@ navigation_weight: 0
 
 ### Changed
 
-- `NexmoClient` is a singleton and get only the Context as a mandatory paramerter. To initialize `NexmoClient`:
+- `NexmoClient` is a singleton and get only the Context as a mandatory parameter. To initialize `NexmoClient`:
 
 ```java
     NexmoClient nexmoClientInstance = NexmoClientBuilder.Builder().build(context);
@@ -88,7 +88,7 @@ NexmoChannel channel = someCallMember.getChannel();
 ### Fixed
 
 - `NexmoCallMember.status` reflects the current leg status.
-- Added guard to `NexmoClient` function to prevent calls while user is not connected
+- Added guard to `NexmoClient` function to prevent calls while user is not connected.
 - Updated `NexmoUser` missing values after login.
 
 ### Removed
