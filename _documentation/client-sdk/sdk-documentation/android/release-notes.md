@@ -6,7 +6,7 @@ navigation_weight: 0
 
 # Release Notes
 
-## 1.0.0 - 2019-09-05
+## Version 1.0.0 - 2019-09-05
 
 ### Changed
 

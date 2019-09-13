@@ -6,59 +6,59 @@ navigation_weight: 0
 
 # Release Notes
 
-## 1.0.0 - 2019-09-05
+## Version 1.0.0 - 2019-09-05
 
 ### Fixed
 
-- NexmoClient when disconnected returns error callback for all function.
-- CallMember status calculated by the current leg status.
-- CallMember supports failed, busy, timeout and canceled statuses.
+- `NexmoClient` when disconnected returns error callback for all function.
+- `CallMember` status calculated by the current leg status.
+- `CallMember` supports failed, busy, timeout and canceled statuses.
 - Supports member invited.
-- Conversation has media methods.
-- NexmoClient is now singelton.
+- `Conversation` has media methods.
+- `NexmoClient` is now singelton.
 - Call method changed to string instead of array.
-- NexmoClient delegate methods renamed.
+- `NexmoClient` delegate methods renamed.
 
 ### Added
 
-Added conversation media
+- Added conversation media
 
-```swift
+```objective-c
 NXMConversation myConversation;
 [myConversation enableMedia];   // my media will be enabled
 [myConversation disableMedia];  // my media will be disabled
 ```
 ​
 Added invite member
-```swift
+```objective-c
 NXMConversation myConversation;
 [myConversation inviteMemberWithUsername:@"someUsername"
                       completion:myCompletionBlock];
 ```
 ​
-Added the member state initiator.
+- Added the member state initiator.
 
-```swift
+```objective-c
 NXMMember *member = someMember;
 NSDictionary<NSValue *, NXMInitiator *> *initiators = member.initiators; 
 ​
 NXMInitiator leftStateInitiator = initiators[NXMMemberStateLeft];
-leftStateInitiator.isSystem; 
-leftStateInitiator.userId; 
+leftStateInitiator.isSystem;
+leftStateInitiator.userId;
 leftStateInitiator.memberId;
 leftStateInitiator.time;
 ```
 ​
-Added NXMConversationUpdateDelegate to notify on member updates like media,leg,state.
-Added updatesDelegate property to NXMConversation.
+Added `NXMConversationUpdateDelegate` to notify on member updates like media,leg,state.
+Added updatesDelegate property to `NXMConversation`.
 
-```swift
+```objective-c
 @property (nonatomic, weak, nullable) id <NXMConversationUpdateDelegate> updatesDelegate;
 ```
 
 Example
-```swift
 
+```objective-c
 @interface MyClass() <NXMConversationUpdateDelegate>
 @implementation MyClass
 ​
@@ -76,19 +76,18 @@ Example
 	}
 }
 @end
-
 ```
 ​
 ### Changed
 ​
-NXMClient is now singleton
+- NXMClient is now a singleton
 
-```swift
+```objective-c
 NXMClient.shared // the shared instance of NXMClient
 ```
 Renamed:
 
-```swift
+```objective-c
 @property (nonatomic, readonly, nullable, getter=getToken) NSString *authToken; // was token
 ​
 // was - (void)login;
@@ -106,7 +105,8 @@ completionHandler:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullab
 ```
 ​
 - NXMClientDelegate renamed:
-```swift
+
+```objective-c
 @protocol NXMClientDelegate <NSObject>
 ​
 // was - (void)connectionStatusChanged:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason;
@@ -120,16 +120,18 @@ completionHandler:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullab
 @end
 ```
 ​
-NXMConversation otherMembers property renamed to allMembers.
-```swift
+- NXMConversation otherMembers property renamed to allMembers.
+
+```objective-c
 NXMConversation myConversation = someConversation;
 NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all conversation members
 ​
 - (void)joinMemberWithUsername:(nonnull NSString *)username // username instead of userId
 ```
 ​
-NXMConversationDelegate renamed methods:
-```swift
+- NXMConversationDelegate renamed methods:
+
+```objective-c
 // was - (void)customEvent:(nonnull NXMCustomEvent *)customEvent;
 - (void)conversation:(nonnull NXMConversation *)conversation didReceiveCustomEvent:(nonnull NXMCustomEvent *)event;
 ​
@@ -156,8 +158,8 @@ NXMConversationDelegate renamed methods:
 ```
 ​
 Use username instead of userId
-NXMCallDelegate Renamed:
-```swift
+`NXMCallDelegate` Renamed:
+```objective-c
 // was - (void)statusChanged:(nonnull NXMCallMember *)callMember;
 - (void)didUpdate:(nonnull NXMCallMember *)callMember status:(NXMCallMemberStatus)status; 
 - (void)didUpdate:(nonnull NXMCallMember *)callMember muted:(BOOL)muted;
@@ -166,29 +168,31 @@ NXMCallDelegate Renamed:
 - (void)didReceive:(nonnull NSString *)dtmf fromCallMember:(nonnull NXMCallMember *)callMember;
 ```
 ​
-NXMEvent and NXMMemberEvent add member object instead of memberId:
-```swift
+`NXMEvent` and `NXMMemberEvent` add member object instead of memberId:
+```objective-c
 @property (nonatomic, readonly, nonnull) NXMMember *member;
 ```
 ​
-NXMImageInfo renamed properties
-```swift
+`NXMImageInfo` renamed properties
+```objective-c
 @property NSInteger sizeInBytes; // was size
 @property NXMImageSize size; // was type
 ```
 ​
-NXMMessageStatusEvent renamed property
-```swift
+`NXMMessageStatusEvent` renamed property
+```objective-c
 @property NSInteger referenceEventId; // was refEventId
 ```
 ​
-NexmoClient logger exposed - NXMLogger object
-```swift
+`NexmoClient` logger exposed - NXMLogger object
+```objective-c
 [NXMLogger setLogLevel:NXMLoggerLevelDebug];
 NSArray *logNames = [NXMLogger getLogFileNames];
 ```
-Removed NXMLoggerDelegate
-```swift
+
+- Removed `NXMLoggerDelegate`:
+
+```objective-c
 NXMClient myClient
 [myClient setLoggerDelegate:LoggerDelegate];
 ```
@@ -205,7 +209,7 @@ NXMClient myClient
 
 - `NXMCallMember` - added member channel with direction data
 
-```swift
+```objective-c
 @interface NXMCallMember : NSObject
 ...
 @property (nonatomic, readonly, nullable) NXMChannel *channel;
@@ -213,7 +217,7 @@ NXMClient myClient
 @end
 ```
 
-```swift
+```objective-c
 @interface NXMChannel : NSObject
 
 @property (nonatomic, readonly, nonnull) NXMDirection *from;
@@ -223,7 +227,7 @@ NXMClient myClient
 
 ```
 
-```swift
+```objective-c
 @interface NXMDirection : NSObject
 
 @property (nonatomic, assign) NXMDirectionType type;
@@ -236,8 +240,7 @@ NXMClient myClient
 
 - `NXMCallMember`'s `phoneNumber` and `channelType` were removed
 
-
-
+---
 
 ## Version 0.2.56 - January 24, 2019
 
