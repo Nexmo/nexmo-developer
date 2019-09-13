@@ -69,7 +69,7 @@ conversation.on(`my_custom_event`, (from, event) => {
 - Add new `PageConfig` class for configuring settings for paginated requests
 - Add new `Page` class to wrap results of paginated requests
 - Add setup of default pagination configuration for conversations and events in ConversationClient initialization
-- Add wild card supported for filtering by event types using `:*` (eg. `event_type`: `member:*`)
+- Add wild card supported for filtering by event types using `:*` (for example `event_type`: `member:*`)
 
 ```javascript
 new NexmoClient({
@@ -87,7 +87,7 @@ new NexmoClient({
 
 - Add new `ConversationsPage` and `EventsPage` which extend `Page` class to wrap results of paginated requests for conversations and events
 - Add `getNext()` and `getPrev()` methods to `ConversationsPage` and `EventsPage` objects to fetch previous and next pages of conversations and events
-- Add `conversations_page_last` parameter to `application` object and `events_page_last` param to `conversation` object for reference to last page retrieved
+- Add `conversations_page_last` parameter to `application` object and `events_page_last` parameter to `conversation` object for reference to last page retrieved
 
 ```javascript
 application.conversations_page_last
