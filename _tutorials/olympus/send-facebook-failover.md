@@ -1,6 +1,6 @@
 ---
 title: Send a Facebook message with failover
-description: In this Task you see how to send a Facebook message with automatic failover to SMS using the Dispatch API. This Task demonstrates a simple workflow where if the `messenger` message is not read after 600 seconds, automatic failover occurs, and an SMS is then sent. 
+description: In this step you learn how to send a Facebook message with automatic failover to SMS using the Dispatch API. This step demonstrates a simple workflow where if the `messenger` message is not read after 600 seconds, automatic failover occurs, and an SMS is then sent. 
 ---
 
 # Send a Facebook message with failover

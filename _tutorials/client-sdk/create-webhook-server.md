@@ -1,6 +1,6 @@
 ---
 title: Create a webhook server
-description: In this step you see how to create a suitable webhook server.
+description: In this step you learn how to create a suitable webhook server.
 ---
 
 # Create a webhook server

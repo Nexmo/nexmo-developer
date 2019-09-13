@@ -1,6 +1,6 @@
 ---
 title: Generate a JWT
-description: In this step you see how to generate a valid JWT for your Client SDK Application.
+description: In this step you learn how to generate a valid JWT for your Client SDK Application.
 ---
 
 # Generate a JWT

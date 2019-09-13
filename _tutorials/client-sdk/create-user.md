@@ -1,6 +1,6 @@
 ---
 title: Create a User
-description: In this step you see how to create a Client SDK User.
+description: In this step you learn how to create a Client SDK User.
 ---
 
 # Create a User

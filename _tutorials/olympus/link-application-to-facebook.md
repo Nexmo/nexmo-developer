@@ -1,6 +1,6 @@
 ---
 title: Link your Nexmo application to your Facebook Page
-description: In this Task you see how to link your Nexmo application to a Facebook Page. A Nexmo Messages and Dispatch application can be linked to any number of external accounts, where an external account could be of type `messenger`, `viber_service_msg` or `whatsapp`. Linking of a Nexmo application can be achieved through the Dashboard or the External Accounts API. This Task uses the Dashboard to implement the link.
+description: In this step you learn how to link your Nexmo application to a Facebook Page. A Nexmo Messages and Dispatch application can be linked to any number of external accounts, where an external account could be of type `messenger`, `viber_service_msg` or `whatsapp`. Linking of a Nexmo application can be achieved through the Dashboard or the External Accounts API. This step uses the Dashboard to implement the link.
 ---
 
 # Link your application to your Facebook Page

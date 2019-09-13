@@ -1,6 +1,6 @@
 ---
 title: Install local web server
-description: In this step you see how to install a local web server for testing purposes.
+description: In this step you learn how to install a local web server for testing purposes.
 ---
 
 # Install local web server

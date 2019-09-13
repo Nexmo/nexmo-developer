@@ -8,7 +8,7 @@ introduction:
   description: This task shows you how to use make a phone call from a web app using the JavaScript Client SDK.
   content: |
     # Introduction
-    You will create a Client SDK application and then write the code to make a phone call from your web app to a 
+    You learn how to create a Client SDK application and then write the code to make a phone call from your web app to a 
     PSTN phone.
 
     There are several parts required for this solution. You need to create a webhook server that can process an 
