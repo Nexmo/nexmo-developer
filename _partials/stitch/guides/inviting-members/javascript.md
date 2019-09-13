@@ -132,7 +132,7 @@ In the previous quick start guide we retrieved the conversation directly using a
 
 ```javascript
 listConversations(userToken) {
-  new ConversationClient({ debug: false })
+  new NexmoClient({ debug: false })
     .login(userToken)
     .then(app => {
       console.log('*** Logged into app', app)
@@ -187,7 +187,7 @@ The next step is to add a listener on the `application` object for the `member:i
 
 ```javascript
 listConversations(userToken) {
-  new ConversationClient({ debug: false })
+  new NexmoClient({ debug: false })
     .login(userToken)
     .then(app => {
       console.log('*** Logged into app', app)
