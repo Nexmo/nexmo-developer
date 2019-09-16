@@ -42,18 +42,6 @@ app.post('/webhooks/event', (req, res) => {
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
 ```
 
-If you've not already done so initialize your project directory with:
-
-```
-npm init
-```
-
-Then, as this server uses `Express.js` you need to install it with:
-
-```
-npm install express
-```
-
 You can then run your webhook server with:
 
 ```
