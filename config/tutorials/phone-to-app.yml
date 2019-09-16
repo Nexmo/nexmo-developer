@@ -25,10 +25,11 @@ prerequisites:
 - install-local-web-server
 - install-node-client-sdk-beta
 - run-ngrok
+- buy-nexmo-number
 
 tasks:
 - client-sdk/create-application
-- nexmo-number
+- link-nexmo-number
 - client-sdk/create-user
 - client-sdk/generate-jwt
 - client-sdk/create-webhook-server-app-to-phone
