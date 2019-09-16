@@ -11,7 +11,8 @@ introduction:
     You learn how to create a Client SDK application and then write the code that allows your web app to handle an inbound PSTN call.
 
     There are several parts required for this solution. You need to create a webhook server that can process an 
-    inbound webhook. You need the web application itself that will notify the agent of an inbound call and offer the facility to answer it. You also need an NCCO to forward the inbound voice call to the destination phone.
+    inbound webhook. You need the web application itself that will notify the service agent of an inbound call and offer 
+    the facility to answer it.
 
     You also need an NCCO that will forward the inbound call from Nexmo to your web application.
 
@@ -27,6 +28,7 @@ prerequisites:
 
 tasks:
 - client-sdk/create-application
+- nexmo-number
 - client-sdk/create-user
 - client-sdk/generate-jwt
 - client-sdk/create-webhook-server-app-to-phone
