@@ -14,7 +14,11 @@ Create an HTML file called `index.html` in your project directory. Add the follo
   <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
 </head>
 <body>
+
   <h1>Inbound PSTN phone call</h1>
+  <p id="console">Lines are open for calls...</p>
+  <br/>
+  <button id="button">Answer</button>
 
   <script>
 
@@ -24,23 +28,30 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 
     const AGENT_JWT = "PASTE YOUR USER JWT HERE";
 
-    let textarea = document.createElement("TEXTAREA");
-    document.body.appendChild(textarea);
-    
-    new NexmoClient({ debug: true })
+    new NexmoClient({ debug: false })
     .login(AGENT_JWT)
     .then(app => {
+
+        let btn = document.getElementById('button');
+        let con = document.getElementById('console');
+    
         app.on("member:call", (member, call) => {
-            node = document.createTextNode("Inbound call...");
-            textarea.appendChild(node)
-            call.answer();
+            con.innerHTML = "Inbound call - click to answer..."
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
+                call.answer();
+            });
         });
+  
+        app.on("call:status:changed", (call) => {
+          console.log("DEBUG: CALL STATUS: ", call.status);
+          con.innerHTML = call.status;
+        });        
     })
     .catch(errorLogger);
   </script>
 </body>
 </html>
-
 ```
 
 This is your web application that uses the Client SDK to accept an inbound call.
