@@ -25,49 +25,24 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 
   <script>
 
-    const USER_JWT = 'PASTE YOUR USER JWT HERE';
+const USER_JWT = "PASTE YOUR JWT HERE";
 
-    class PhoneApp {
+callPhoneForm = document.getElementById("call-phone-form");
 
-      constructor() {
-        this.callPhoneForm = document.getElementById('call-phone-form');
-        this.setupUserEvents();
-        this.createClient();
-      }
+function errorLogger(error) {
+  console.log(error);
+}
 
-    createClient() {
-        console.log("DEBUG: creating client with JWT:  ", USER_JWT);
-        new NexmoClient({ debug: false })
-          .login(USER_JWT)
-          .then(app => {
-            console.log('DEBUG: Logged into app', app);
-            this.app = app;
-
-            app.on("member:call", (member, call) => {
-              this.call = call;
-              console.log("DEBUG: member:call - ", call);
-            })
-
-            app.on("call:status:changed", (call) => {
-              console.log("DEBUG: call:status:changed - ", call.status);
-            })
-          })
-          .catch(this.errorLogger)
-      }
-
-      setupUserEvents() {
-        this.callPhoneForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-          this.app.callServer(this.callPhoneForm.children.phonenumber.value);
-        })
-      }
-
-      errorLogger(error) {
-        console.log("ERROR: ", error);
-      }
-
-    }
-    new PhoneApp();
+new NexmoClient({ debug: true })
+  .login(USER_JWT)
+  .then(app => {
+    callPhoneForm.addEventListener("submit", event => {
+      event.preventDefault();
+      let number = callPhoneForm.children.phonenumber.value;
+      app.callServer(number);
+    });
+  })
+  .catch(errorLogger);
   </script>
 </body>
 
