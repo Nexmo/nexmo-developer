@@ -3,7 +3,7 @@ title: Overview
 meta_title: Realtime communication with In-App Messaging and Audio
 ---
 
-# Overview [Early Access]
+# Overview
 
 Nexmo Client SDK is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs.
 
@@ -40,15 +40,6 @@ Some features include:
 * User Control – Users can control whether their audio stream is muted or unmuted.
 * Notifications  – Users can be notified when they receive a call or when participants are muted.
 * Group Calls – Configure call settings so users can start a group call by adding participants in real time.
-
-## Participating in the Early Access program
-
-This Early Access will focus on the In-App Voice capabilities. During this program, there will be frequent releases with new features and bug fixes based on your feedback. During the Early Access, it is possible that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
-
-If you want to communicate with Nexmo during the Early Access you can:
-
-* Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and check out the [#nexmo-client-sdk](https://nexmo-community.slack.com/messages/C9H152ATW) channel.
-* Email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) directly.
 
 ## Next Steps
 
