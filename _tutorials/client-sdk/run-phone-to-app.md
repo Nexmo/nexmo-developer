@@ -9,11 +9,11 @@ description: In this step you learn how to run your phone to app application.
 
 Run your web server locally in your project directory with `http-server`, or other command depending on which HTTP server you installed.
 
-Your application `index.html` is automatically loaded when the web server starts.
+After your web server starts, point your browser at `localhost:8080` and `index.html` will automatically be loaded.
 
-You will see a simple status console and a button that is clicked to answer an inbound call displayed.
+A simple status console and a button that is clicked to answer an inbound call are displayed.
 
-> **NOTE:** It is worth activating the JavaScript console in your browser at this point if you have not already done so.
+> **NOTE:** It is good idea to start the JavaScript console in your browser at this point if you have not already done so.
 
 From your PSTN phone you can now call the Nexmo number associated with your Client SDK application.
 

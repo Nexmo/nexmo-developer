@@ -9,7 +9,9 @@ description: In this step you learn how to run your app to phone application.
 
 Run your web server locally in your project directory with `http-server`, or other command depending on which HTTP server you installed.
 
-Your application `index.html` is automatically loaded when the web server starts. A text field and button is displayed on the page.
+After your web server starts, point your browser at `localhost:8080` and `index.html` will automatically be loaded.
+
+A text field and button is displayed on the page.
 
 Enter the number of your mobile phone into the text field in [E.164](concepts/guides/glossary#e-164-format) format (for example, `447700900000`) and then click the `Call` button.
 
