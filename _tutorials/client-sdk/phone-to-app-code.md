@@ -44,9 +44,8 @@ Create an HTML file called `index.html` in your project directory. Add the follo
         });
   
         app.on("call:status:changed", (call) => {
-          console.log("DEBUG: CALL STATUS: ", call.status);
           con.innerHTML = call.status;
-        });        
+        });
     })
     .catch(errorLogger);
   </script>
@@ -55,5 +54,13 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 ```
 
 This is your web application that uses the Client SDK to accept an inbound call.
+
+The main features of this code are:
+
+1. A simple text paragraph that can be updated with the call status.
+2. A button used when the agent wants to answer an inbound call.
+3. The code logs the agent in using the user JWT generated in an [earlier step](/client-sdk/tutorials/phone-to-app/client-sdk/generate-jwt).
+4. The code sets up two main event handlers. The first is fired on the inbound call. This in turn sets up a click button event handler which answers the inbound call using the Client SDK method `call.answer()`.
+5. The call status changed (`call:status:changed`) event handler simple sets the text of the text paragraph to the inbound call status.
 
 In a later step you learn how to run this app via a local web server. You will then be able to dial the Nexmo number associated with this application and have your app handle receive the inbound call.

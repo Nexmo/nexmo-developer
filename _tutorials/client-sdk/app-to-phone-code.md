@@ -56,7 +56,7 @@ There are several key components to this code:
 1. A simple UI that allows you to enter a phone number and then click the `Call` button to make the voice call.
 2. Code that logs the user in (a JWT is used for authentication).
 3. Event handlers for `member:call` and `call:status:changed`.
-4. The function to make the call `callServer(number)`, where number is the destination phone number in [E.164](concepts/guides/glossary#e-164-format) format.
+4. The function to make the call `callServer(number)`, where `number` is the destination phone number in [E.164](concepts/guides/glossary#e-164-format) format.
 
 Once you enter the phone number and click the `Call` button you will hear a voice reporting on call status. Then when the call goes through you can answer and you will then hear the conversation via the app.
 
