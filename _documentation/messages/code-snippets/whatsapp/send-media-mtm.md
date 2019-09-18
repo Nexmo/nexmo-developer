@@ -1,7 +1,7 @@
 ---
 title: Send a Media Message MTM
 meta_title: Send a WhatsApp Media Message Template using the Messages API
-navigation_weight: 1
+navigation_weight: 2
 ---
 
 # Send a WhatsApp Media Message Template (MTM)
@@ -147,6 +147,7 @@ For example, if the original WhatsApp API request is:
 ```
 
 The following Messages API call will be:
+
 ```
 {
   "from": {
