@@ -9,7 +9,7 @@ This tutorial shows you how to add the  Nexmo Client SDK to your Android app.
 
 ## Prerequisites
 
-The Nexmo Client SDK requires a minumum Android API level of 26.
+The Nexmo Client SDK requires a minumum Android API level of 23.
 
 ## To add the Nexmo Client SDK to your project
 
