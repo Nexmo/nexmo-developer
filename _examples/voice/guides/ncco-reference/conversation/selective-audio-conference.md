@@ -15,7 +15,7 @@ menu_weight: 2
   }
 ]
 
-// The agent joins and can both speak to, and be heard by the customer
+// The agent joins and can both hear, and speak to the customer
 // The agent's leg ID is 533c0874-f43d-446c-a153-f35bf30783fa
 [
   {
