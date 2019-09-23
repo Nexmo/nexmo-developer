@@ -13,7 +13,7 @@ function eventLogger(event) {
 }
 ```
 
-Then,add a handler for the message box's Submit button in the `setupUserEvents` function:
+Then, add a handler for the message box's Submit button in the `setupUserEvents` function:
 
 ```javascript
 function setupUserEvents() {
