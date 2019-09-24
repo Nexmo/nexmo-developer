@@ -56,3 +56,56 @@ The web page loads three scripts once the page body has rendered:
 
 </html>
 ```
+
+Here is the contents of `style.css` that you can use to provide some basic styling of your web page. Create this file in the root of the application:
+
+```css
+body {
+  font: 13px Helvetica, Arial;
+}
+
+#login, #messages {
+  width: 80%;
+  height: 500px;
+}
+
+form input[type=text] {
+  font-size: 20px;
+  height: 35px;
+  padding: 0px;
+}
+
+button {
+  height: 35px;
+  background-color: blue;
+  color: white;
+  width: 75px;
+  position: relative;
+  font-size: 15px;
+}
+
+textarea {
+  width:85%;
+  font-size: 20px;
+}
+
+#messageFeed {
+  font-size: 18px;
+  padding-bottom: 20px;
+  line-height: 22pt;
+}
+
+#status {
+  height: 35px;
+  font-size: 12px;
+  color: blue;
+}
+
+#send {
+  width: 85%;
+}
+
+#messages {
+  display: none;
+}
+```
