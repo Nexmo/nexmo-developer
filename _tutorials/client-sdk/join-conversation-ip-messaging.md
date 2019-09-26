@@ -24,9 +24,10 @@ function setupUserEvents() {
       joinConversation(userToken)
     }
   })
+}
 
 function joinConversation(userToken) {
-  new ConversationClient({
+  new NexmoClient({
     debug: false
   })
     .login(userToken)
