@@ -11,24 +11,24 @@ Create a function called `setupUserEvents`. This function will initially respond
 
 ```javascript
 
-setupUserEvents()
-
 function setupUserEvents() {
 
   loginForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const userToken = authenticate(document.getElementById('username').value)
+    event.preventDefault();
+    const userToken = authenticate(document.getElementById('username').value);
     if (userToken) {
-      document.getElementById('messages').style.display = 'block'
-      document.getElementById('login').style.display = 'none'
-      joinConversation(userToken)
+      document.getElementById('messages').style.display = 'block';
+      document.getElementById('login').style.display = 'none';
+      joinConversation(userToken);
     }
   })
 }
 
+setupUserEvents();
+
 function joinConversation(userToken) {
   new NexmoClient({
-    debug: false
+    debug: true
   })
     .login(userToken)
     .then(app => {
