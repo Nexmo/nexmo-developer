@@ -14,5 +14,5 @@ npm init
 Then, install Express with:
 
 ```
-npm install express
+npm install express --save
 ```

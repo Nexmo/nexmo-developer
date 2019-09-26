@@ -1,21 +1,23 @@
 ---
-title: Create an app to phone webhook server
+title: Create a webhook server
 description: In this step you learn how to create a suitable webhook server that supports an inbound call from a PSTN phone to a web app.
 ---
 
-# Create an app to phone webhook server
+# Create a webhook server
 
-You need to create a webhook server capable of forwarding a call from Nexmo to a PSTN phone. When the inbound call comes into Nexmo you can capture the destination number and use a dynamic NCCO to forward the call to the PSTN phone. The forwarding to the PSTN phone is achieved using a `connect` action of type `phone`.
+Nexmo will make a request to your `answer_url` when an inbound call is received. You need to create a webhook server that is capable of receiving this request and returning an NCCO containing a `connect` action that will forward the call to the PSTN phone number. You do this by extracting the destination number from the `to` query parameter and returning it in your response.
 
-Add the code for the server to the file `server.js`:
+Add the code for the server to the file `server.js`, making sure to change the values in `allowed_numbers` to the phone numbers that you want to allow:
 
 ``` javascript
 'use strict';
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+app.use(express.static('node_modules/nexmo-client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -23,7 +25,20 @@ app.get('/webhooks/answer', (req, res) => {
     console.log("Answer:");
     console.log(req.query);
     var dest_number = req.query.to;
-    // make sure phone number is on your whitelist
+
+    // Make sure phone number is allowed to be called
+    var allowed_numbers = [
+      '14155550100',
+      '14155550103',
+    ];
+
+    if (allowed_numbers.indexOf(dest_number) === -1) {
+        return res.json([{
+            "action": "talk",
+            "text": "Sorry, that number is not permitted"
+        }]);
+    }
+
     const ncco = [{
         "action": "connect",
         "endpoint": [{
@@ -40,20 +55,15 @@ app.post('/webhooks/event', (req, res) => {
     res.status(200).end();
 });
 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
-```
-
-You can then run your webhook server with:
-
-```
-node server.js
 ```
 
 The important parts of this code are in the `answer` webhook handler:
 
 1. Extraction of the destination number from the answer webhook query parameters.
-2. The dynamically built NCCO that forwards the call to the destination phone using a `connect` action.
-
-Note the destination number is extracted from the `to` query parameter. The NCCO is then built dynamically using this number and a `connect` action is used to forward the voice call to the destination phone.
-
-> **NOTE:** This is a good point to make sure [you have Ngrok running](/client-sdk/tutorials/app-to-phone/prerequisites#how-to-run-ngrok).
+2. Check that the provided number is allowed to be dialled. This is important for preventing fraudulant use of your account
+3. The dynamically built NCCO that forwards the call to the destination phone using a `connect` action.

@@ -1,18 +1,18 @@
 ---
-title: Create your app to phone code
+title: Create a client side application
 description: In this step you learn how to write the code for your app to phone application.
 ---
 
-# Create your app to phone code
+# Create a client side application
 
-Create an HTML file called `index.html` in your project directory. Add the following code, but make sure you paste in the JWT you generated for the user in the [earlier step](/client-sdk/tutorials/app-to-phone/client-sdk/generate-jwt) in this tutorial:
+Create an HTML file called `index.html` in your project directory. Add the following code, but make sure you paste the JWT you generated for the user in the [earlier step](/client-sdk/tutorials/app-to-phone/client-sdk/generate-jwt) in this tutorial in to the `USER_JWT` constant:
 
 ``` html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
+  <script src="nexmoClient.js"></script>
 </head>
 
 <body>
@@ -27,11 +27,7 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 
 const USER_JWT = "PASTE YOUR JWT HERE";
 
-callPhoneForm = document.getElementById("call-phone-form");
-
-function errorLogger(error) {
-  console.log(error);
-}
+const callPhoneForm = document.getElementById("call-phone-form");
 
 new NexmoClient({ debug: true })
   .login(USER_JWT)
@@ -42,7 +38,7 @@ new NexmoClient({ debug: true })
       app.callServer(number);
     });
   })
-  .catch(errorLogger);
+  .catch(console.error);
   </script>
 </body>
 
@@ -55,9 +51,6 @@ There are several key components to this code:
 
 1. A simple UI that allows you to enter a phone number and then click the `Call` button to make the voice call.
 2. Code that logs the user in (a JWT is used for authentication).
-3. Event handlers for `member:call` and `call:status:changed`.
-4. The function to make the call `callServer(number)`, where `number` is the destination phone number in [E.164](concepts/guides/glossary#e-164-format) format.
+3. The function to make the call `callServer(number)`, where `number` is the destination phone number in [E.164](concepts/guides/glossary#e-164-format) format.
 
 Once you enter the phone number and click the `Call` button you will hear a voice reporting on call status. Then when the call goes through you can answer and you will then hear the conversation via the app.
-
-In a later step you learn how to run this app via a local web server.
