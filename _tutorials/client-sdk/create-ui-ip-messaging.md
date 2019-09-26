@@ -16,7 +16,7 @@ The following HTML defines a `<section>` that you will use to display:
 
 The web page loads three scripts once the page body has rendered:
 
-* The `conversationClient.js` file from the `nexmo-client@beta` Node module
+* The `nexmoClient.js` file from the `nexmo-client@beta` Node module
 * `moment.js` to help format the message received date and time. Install this module by running `npm install moment`
 * The `chat.js` file that will contain your application's code. Create this file in the project's root directory.
 
@@ -48,7 +48,7 @@ The web page loads three scripts once the page body has rendered:
 
   </section>
 
-  <script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
+  <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
   <script src="./node_modules/moment/moment.js"></script>
   <script src="./chat.js"></script>
 
