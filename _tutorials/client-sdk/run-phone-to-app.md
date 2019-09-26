@@ -7,9 +7,7 @@ description: In this step you learn how to run your phone to app application.
 
 > **NOTE:** If you have not already done so, make sure you have [Ngrok running](/client-sdk/tutorials/app-to-phone/prerequisites#how-to-run-ngrok).
 
-Run your web server locally in your project directory with `http-server`, or other command depending on which HTTP server you installed.
-
-After your web server starts, point your browser at `localhost:8080` and `index.html` will automatically be loaded.
+Run your application with `node server.js`, then visit [http://localhost:3000](http://localhost:3000)
 
 A simple status console and a button that is clicked to answer an inbound call are displayed.
 

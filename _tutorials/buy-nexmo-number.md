@@ -13,22 +13,10 @@ If you have no spare numbers you can [buy one](https://dashboard.nexmo.com/buy-n
 
 ## Using the Nexmo CLI
 
-First search for a suitable number:
+You can search for, and purchase a number using the Nexmo CLI. If needed, change the two letter country code to the country that you require a number in
 
 ```
-nexmo number:search GB
+nexmo number:buy -c US --confirm
 ```
 
-You can change the country code to suit your requirements. For example, if you are in the US you could use:
-
-```
-nexmo number:search US
-```
-
-Choose a suitable number and then buy it using a command similar to:
-
-```
-nexmo number:buy 442039051952
-```
-
-> **NOTE:** You will need to confirm your purchase.
+Make a note of the number returned, as you'll need it later
