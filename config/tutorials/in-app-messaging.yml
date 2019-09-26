@@ -14,7 +14,7 @@ introduction:
 
     Finally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when either party is currently typing.
 
-    The source code is available [on GitHub](https://github.com/Nexmo/ip-messaging-use-case).
+    The source code is available [on GitHub](https://github.com/nexmo-community/ip-messaging-tutorial).
 
 prerequisites:
   - create-nexmo-account
