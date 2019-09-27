@@ -89,12 +89,12 @@ Create a file named `index.html` in your project directory with the following co
 
   <section id="messages">
     <h1 id="sessionName"></h1>
-    <div id="status"></div>
     <div id="messageFeed"></div>
 
     <div>
       <textarea id="messageTextarea"></textarea>
       <button id="send">Send</button>
+      <div id="status"></div>
     </div>
 
   </section>
