@@ -9,7 +9,7 @@ Authentication in the Client SDK is controlled using JWTs, which contain the nam
 
 > **NOTE**: We'll be creating a one-time use JWT on this page for testing. In production apps, it is expected that your backend will expose an endpoint that generates a JWT for each client request.
 
-Remember to replace the `MY_APP_ID` and `MY_USER_NAME` variables with your own values in the sections below
+Remember to replace the `MY_APP_ID` and `MY_USER_NAME` variables with your own values in the sections below. If you're testing with multiple users, generate multiple JWTs (changing the `sub` value each time).
 
 ## Using the CLI
 

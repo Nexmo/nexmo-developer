@@ -19,3 +19,5 @@ This will return user IDs similar to the following:
 ```sh
 User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
+
+Make a note of these as you'll need them later.

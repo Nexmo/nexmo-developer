@@ -5,29 +5,46 @@ description: In this step you display any messages already sent as part of this 
 
 # Show the Message History
 
-You want your users to see the message history. You can achieve this by handling the Conversation's `text` event which alerts your application when a user sends a message.
+You want your users to see the message history. You can achieve this by using the `getEvents` method for historical messages and by handling the Conversation's `text` event which alerts your application when a user sends a message for new messages.
 
-The event provides details of the user that sent the message and the message contents. In this example you will use the identity of the user to color code messages sent by the user and those received from other users.
+To add the message to the page, there needs to be a method that appends the message to the list of messages. The event provides details of the user that sent the message and the message contents. In this example you will use the identity of the user to color code messages sent by the user and those received from other users.
+
+Add the following to the bottom of `chat.js`:
 
 ```javascript
-function setupShowMessages(conv) {
-  conversation = conv
-  document.getElementById('sessionName').innerHTML = conversation.me.user.name + "'s messages"
+function addMessage(sender, message, me) {
+  const rawDate = new Date(Date.parse(message.timestamp))
+  const formattedDate = moment(rawDate).calendar()
 
-  // Bind to events on the conversation
-  conversation.on('text', (sender, message) => {
-    const rawDate = new Date(Date.parse(message.timestamp))
+  let text = ''
+  if (message.from !== me.id) {
+    text = `<span style="color:red">${sender.user.name} <span style="color:red;">(${formattedDate}): <b>${message.body.text}</b></span>`
+  } else {
+    text = `me (${formattedDate}): <b>${message.body.text}</b>`
+  }
 
-    const formattedDate = moment(rawDate).calendar()
+  messageFeed.innerHTML = messageFeed.innerHTML + text + '<br />';
+}
+```
 
-    let text = ''
-    if (message.from !== conversation.me.id) {
-      text = `<span style="color:red">${sender.user.name} <span style="color:red">(${formattedDate}): <b>${message.body.text}</b></span><br>`
-    } else {
-      text = `me (${formattedDate}): <b>${message.body.text}</b><br>`
-    }
+Now that there's a way to show messages on the page, add the following to the bottom of your `run` function to load historical messages:
 
-    messageFeed.innerHTML = messageFeed.innerHTML + text
+```javascript
+// Update the UI to show which user we are
+document.getElementById('sessionName').innerHTML = conversation.me.user.name + "'s messages"
 
-  })
+// Load events that happened before the page loaded
+let events = await conversation.getEvents({event_type: "text", page_size: 100});
+events.items.forEach(event => {
+  addMessage(conversation.members.get(event.from), event, conversation.me);
+});
+```
+
+Finally, you need to set up an event listener for any new incoming messages. You can do this by listening to the `conversation.on('text')` event. Add the following to the bottom of the `run` function:
+
+```javascript
+// Any time there's a new text event, add it as a message
+conversation.on('text', (sender, event) => {
+  addMessage(sender, event, conversation.me); 
+});
 ```
