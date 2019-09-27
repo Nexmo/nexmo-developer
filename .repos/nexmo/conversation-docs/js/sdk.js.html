@@ -31,19 +31,19 @@
  *  Main wrapper
  *
  * Copyright (c) Nexmo Inc.
- */
+*/
+
 const WildEmitter = require('wildemitter');
 const socket_io = require('socket.io-client');
 const logger = require('loglevel');
 const prefix = require('loglevel-plugin-prefix');
 const bugsnag = require('@bugsnag/js');
-
 const Utils = require('./utils');
-const RTC_Cache = require('./modules/rtc_cache');
 const Application = require('./application');
 const ErrorsEmitter = require('./modules/errors_emitter');
 const User = require('./user');
-
+const NexmoClientError = require('./nexmoClientError').NexmoClientError;
+const NexmoApiError = require('./nexmoClientError').NexmoApiError;
 
 prefix.reg(logger);
 
@@ -59,10 +59,6 @@ prefix.apply(logger, {
     return name || 'SDK';
   }
 });
-
-// Conversation Client Error
-const NexmoClientError = require('./nexmoClientError').NexmoClientError;
-const NexmoApiError = require('./nexmoClientError').NexmoApiError;
 
 /**
  * The parent NexmoClient class.
@@ -109,14 +105,12 @@ const NexmoApiError = require('./nexmoClientError').NexmoApiError;
  * @emits NexmoClient#ready
  * @emits NexmoClient#reconnect
  * @emits NexmoClient#reconnecting
- */
-
+*/
 class NexmoClient {
   constructor(params) {
     // save an array of instances
     const inputParams = params || {};
     this.config = {
-      cache: true,
       debug: false,
       callstats: {
         enabled: false,
@@ -182,6 +176,7 @@ class NexmoClient {
     if (this.config.callstats.enabled) {
       Utils.injectScript('//api.callstats.io/static/callstats.min.js', () => {
         if (typeof callstats !== 'undefined') {
+          // eslint-disable-next-line new-cap
           this.callstats = new callstats();
         }
       });
@@ -205,7 +200,7 @@ class NexmoClient {
 	 * Creates and sets the socket_io connection
 	 *
 	 * @private
-	 */
+	*/
   _createAndSetConnection() {
     let connection;
 
@@ -217,11 +212,6 @@ class NexmoClient {
 
     this.connection = connection;
 
-    if (this.config.cache) {
-      this.cache = new RTC_Cache(this);
-      this.cache.init(this);
-    }
-
 		/**
 		 * Ready event.
 		 *
@@ -230,7 +220,7 @@ class NexmoClient {
 		 *     rtc.on("ready", () => {
 		 *      console.log("connection ready");
 		 *     });
-		 */
+		*/
     connection.on('connect', () => {
       this.emit('ready');
       this.sessionReady = true;
@@ -246,11 +236,12 @@ class NexmoClient {
 		 *     rtc.on("connecting", () => {
 		 *      console.log("connecting");
 		 *     });
-		 */
+		*/
     connection.on('connecting', () => {
       this.emit('connecting');
       this.log.info('websocket connecting');
     });
+
 		/**
 		 * Disconnect event.
 		 *
@@ -259,11 +250,12 @@ class NexmoClient {
 		 *     rtc.on("disconnect", () => {
 		 *      console.log("disconnect");
 		 *     });
-		 */
+		*/
     connection.on('disconnect', () => {
       this.emit('disconnect');
       this.log.info('websocket disconnected');
     });
+
 		/**
 		 * Reconnect event.
 		 *
@@ -272,11 +264,12 @@ class NexmoClient {
 		 *     rtc.on("reconnect", (retry_number) => {
 		 *      console.log("reconnect", retry_number);
 		 *     });
-		 */
+		*/
     connection.on('reconnect', (retry_number) => {
       this.emit('reconnect', retry_number);
       this.log.info('websocket reconnect');
     });
+
 		/**
 		 * Reconnecting event.
 		 *
@@ -285,11 +278,12 @@ class NexmoClient {
 		 *     rtc.on("reconnecting", (retry_number) => {
 		 *      console.log("reconnecting", retry_number);
 		 *     });
-		 */
+		*/
     connection.on('reconnecting', (retry_number) => {
       this.emit('reconnecting', retry_number);
       this.log.info('websocket reconnecting');
     });
+
 		/**
 		 * Error event.
 		 *
@@ -298,7 +292,7 @@ class NexmoClient {
 		 *     rtc.on("error", (error) => {
 		 *      console.log("error", error);
 		 *     });
-		 */
+		*/
     connection.on('error', (error) => {
       this.emit('error', new NexmoClientError(error));
       this.log.error('Socket.io reported a generic error', error);
@@ -330,12 +324,13 @@ class NexmoClient {
 
     return connection;
   }
+
 	/**
 	 * Revert any invalid params to our default
 	 *
 	 * @param {object} config the object to sanitize
 	 * @private
-	 */
+	*/
   _sanitizeConfig(incomingConfig) {
     // make sure we allow specific values for the params
 
@@ -347,6 +342,7 @@ class NexmoClient {
     }
     return sanitizedConfig;
   }
+
 	/**
 	 * Conversation listening for text events.
 	 *
@@ -365,6 +361,7 @@ class NexmoClient {
 	 *      if (message.cid === conversation.id)
 	 * });
 	 */
+
 	/**
 	 *
 	 *  Conversation listening for image events.
@@ -384,6 +381,7 @@ class NexmoClient {
 	 *      if (image.cid === conversation.id)
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for deleted events.
 	 *
@@ -397,6 +395,7 @@ class NexmoClient {
 	 *      console.log(event.body.timestamp.deleted);
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for new members.
 	 *
@@ -410,6 +409,7 @@ class NexmoClient {
 	 *      console.log(member.user.name+ " joined the conversation");
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for members being invited.
 	 *
@@ -422,6 +422,7 @@ class NexmoClient {
 	 *      console.log(member.user.name + " invited to the conversation");
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for members callStatus changes.
 	 *
@@ -433,6 +434,7 @@ class NexmoClient {
    *      console.log(member.callStatus);
 	 * });
 	 */
+
   /**
    * Conversation listening for members leaving (kicked or left).
    *
@@ -446,6 +448,7 @@ class NexmoClient {
    *      console.log(event.body.reason);
    * });
    */
+
 	/**
 	 * Conversation listening for members typing.
 	 *
@@ -458,6 +461,7 @@ class NexmoClient {
 	 *      console.log(data.name + " is typing...");
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for members stopped typing.
 	 *
@@ -470,6 +474,7 @@ class NexmoClient {
 	 *      console.log(data.name + " stopped typing...");
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for members' seen texts.
 	 *
@@ -492,6 +497,7 @@ class NexmoClient {
 	 *       }
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for members' seen images.
 	 * @event Conversation#image:seen
@@ -512,6 +518,7 @@ class NexmoClient {
 	 *       }
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for members media changes (audio, video,text)
 	 *
@@ -528,6 +535,7 @@ class NexmoClient {
 	 * 		console.log(event.body.media); //{"audio_settings": {"enabled": true, "muted": false, "earmuffed": false}}
 	 * });
 	 */
+
 	/**
 	 * Conversation listening for mute on events
 	 * A member has muted their audio
@@ -537,6 +545,7 @@ class NexmoClient {
 	 * @property {Member} member - the member object linked to this event
 	 * @property {NXMEvent} event - information about the mute event
 	 */
+
 	/**
 	 * Conversation listening for mute off events
 	 * A member has unmuted their audio
@@ -546,6 +555,7 @@ class NexmoClient {
 	 * @property {Member} member - the member object linked to this event
 	 * @property {NXMEvent} event - information about the mute event
 	 */
+
   sendRequest(request, callback) {
     // Add a message ID to the request and set up a listener for the reply (or error)
     request.tid = Utils.allocateUUID();
@@ -562,15 +572,15 @@ class NexmoClient {
   }
 
   sendNetworkRequest(params) {
-    const version = params.version || 'beta'
+    const version = params.version || 'beta';
     const url = `${this.config.nexmo_api_url}/${version}/${params.path}`;
-    if (!(params.type === 'GET' || params.type === 'DELETE')){
+    if (!(params.type === 'GET' || params.type === 'DELETE')) {
       if (params.data) {
         params.data.originating_session = this.session_id;
       } else {
         params.data = {
           originating_session: this.session_id
-        }
+        };
       }
     }
 
@@ -592,7 +602,7 @@ class NexmoClient {
 	 * Login to the cloud.
 	 * @param {string} token - the login token
 	 * @returns  {Promise&lt;Application>} - the application we logged in
-	 */
+	*/
   login(token) {
     // Create connection if needed
     if (typeof this.connection === 'undefined') {
@@ -607,7 +617,7 @@ class NexmoClient {
       this.sendRequest({
         type: 'session:login',
         body: {
-          token: token,
+          token,
           SDK_version: this.config.SDK_version,
           OS_family: 'js',
           OS_revision: (typeof navigator !== 'undefined') ? navigator.userAgent : (typeof window !== 'undefined') ? window.navigator.userAgent : 'Generic JS navigator'
@@ -622,10 +632,10 @@ class NexmoClient {
           }
           if (!this.application.me) {
             this.application.me = new User(
-              this.application, {
-                id: response.body.user_id,
-                name: response.body.name
-              });
+                this.application, {
+                  id: response.body.user_id,
+                  name: response.body.name
+                });
           }
           if (!this.errorsEmitter) {
             this.errorsEmitter = new ErrorsEmitter(this.application);
@@ -671,27 +681,20 @@ class NexmoClient {
               session_id: response.body.id
             };
           }
-          return this._updateTokenInStorage(token, response.body.name).then(token => {
+          return this._updateTokenInStorage(token, response.body.name).then((token) => {
             if (this.config.sync !== 'none') {
               // Retrieve the existing conversation data for this user
-              return this.application.getConversations()
-                .then((page) => {
-                  const conversations = page.items
-                  this.application.syncConversations(conversations);
-                  resolve(this.application);
-                }, (reason) => {
-                  reject(reason);
-                });
+              return this.application.getConversations().then(() => {
+                resolve(this.application);
+              }).catch((reason) => {
+                reject(reason);
+              });
             } else {
               resolve(this.application);
             }
-          })
+          });
         } else {
           reject(new NexmoApiError(response));
-          // TODO move this in cache module
-          if (this.cache &amp;&amp; this.cache.worker) {
-            this.cache.worker.terminate();
-          }
         }
       });
     });
@@ -699,7 +702,7 @@ class NexmoClient {
 
 	/**
 	 * logout from the cloud.
-	 */
+	*/
   logout() {
     return new Promise((resolve, reject) => {
       const logoutRequest = () => {
@@ -711,7 +714,6 @@ class NexmoClient {
             this.disconnect();
             delete this.errorsEmitter;
             delete this.application;
-            delete this.cache;
             delete this.connection;
             this.callbacks = {};
             this.requests = {};
@@ -732,13 +734,11 @@ class NexmoClient {
             disablePromises.push(conversation.media.disable());
           }
         }
-        return Promise.all(disablePromises)
-          .catch((err) => {
-            this.log.info(err);
-          })
-          .then(() => {
-            return logoutRequest();
-          });
+        return Promise.all(disablePromises).catch((err) => {
+          this.log.info(err);
+        }).then(() => {
+          return logoutRequest();
+        });
       } else {
         return logoutRequest();
       }
@@ -748,7 +748,7 @@ class NexmoClient {
 	/**
 	 * Disconnect from the cloud.
 	 *
-	 */
+	*/
   disconnect() {
     return this.connection.disconnect();
   }
@@ -756,7 +756,7 @@ class NexmoClient {
 	/**
 	 * Connect from the cloud.
 	 *
-	 */
+	*/
   connect() {
     return this.connection.connect();
   }
@@ -767,16 +767,17 @@ class NexmoClient {
 	 * @param {string} token the token to set
 	 * @param {string} username the username to whom the token belongs to
    * @private
-	 */
+	*/
   _updateTokenInStorage(token, username) {
     return Promise.resolve(
-      Utils.updateToken({
-        token: token,
-        username: username
-      })
+        Utils.updateToken({
+          token,
+          username
+        })
     );
   }
 }
+
 module.exports = NexmoClient;
 </code></pre>
         </article>
@@ -788,13 +789,13 @@ module.exports = NexmoClient;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

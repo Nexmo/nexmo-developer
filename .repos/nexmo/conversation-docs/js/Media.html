@@ -436,7 +436,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line18">line 18</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -551,7 +551,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line936">line 936</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line934">line 934</a>
     </li></ul></dd>
     
 
@@ -641,7 +641,7 @@ NexmoClient#rtcstats:report
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1269">line 1269</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1266">line 1266</a>
     </li></ul></dd>
     
 
@@ -1108,7 +1108,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1203">line 1203</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1200">line 1200</a>
     </li></ul></dd>
     
 
@@ -1162,182 +1162,27 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     <pre class="prettyprint"><code>function enable() {
   conversation.media.enable()
      .then((stream) => {
-                const media = document.createElement("audio");
-                const source = document.createElement("source");
-                const media_div = document.createElement("div");
-                media.appendChild(source);
-                media_div.appendChild(media);
-                document.insertBefore(media_div);
-                // Older browsers may not have srcObject
-                if ("srcObject" in media) {
-                    media.srcObject = stream;
-                } else {
-                    // Avoid using this in new browsers, as it is going away.
-                    media.src = window.URL.createObjectURL(stream);
-                }
-                media.onloadedmetadata = (e) => {
-                    media.play();
-                };
+              const media = document.createElement("audio");
+              const source = document.createElement("source");
+              const media_div = document.createElement("div");
+              media.appendChild(source);
+              media_div.appendChild(media);
+              document.insertBefore(media_div);
+              // Older browsers may not have srcObject
+              if ("srcObject" in media) {
+                media.srcObject = stream;
+              } else {
+                // Avoid using this in new browsers, as it is going away.
+                media.src = window.URL.createObjectURL(stream);
+              }
+              media.onloadedmetadata = (e) => {
+                media.play();
+              };
 
 		 }).catch((error) => {
           console.log(error);
       });
 }</code></pre>
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="fetchRecording"><span class="type-signature"></span>fetchRecording<span class="signature">(url)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Download the recoding file
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>url</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the recording url coming in the recording event</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1408">line 1408</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
 
 
 
@@ -1539,6 +1384,8 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
             
                 <td class="default">
                 
+                    null
+                
                 </td>
             
 
@@ -1583,7 +1430,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1094">line 1094</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1092">line 1092</a>
     </li></ul></dd>
     
 
@@ -1686,7 +1533,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1435">line 1435</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1364">line 1364</a>
     </li></ul></dd>
     
 
@@ -1731,330 +1578,6 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
 
 
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="record"><span class="type-signature"></span>record<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Recording.html">Recording</a>>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Record the audio stream in a conversation
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>format</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">= (mp3, wav, ogg)</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>streamed</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">-</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>validity_time</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">-</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>beep_start</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">-</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>beep_stop</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">~</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>detect_speech</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">-</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1377">line 1377</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;<a href="Recording.html">Recording</a>></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>conversation.media.record()</code></pre>
 
 
 
@@ -2306,7 +1829,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1292">line 1292</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1289">line 1289</a>
     </li></ul></dd>
     
 
@@ -2355,7 +1878,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>conversation.media.say({text:'hi'})</code></pre>
+    <pre class="prettyprint"><code>conversation.media.sayText({text:'hi'})</code></pre>
 
 
 
@@ -2466,7 +1989,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1326">line 1326</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1323">line 1323</a>
     </li></ul></dd>
     
 
@@ -2577,7 +2100,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1470">line 1470</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1398">line 1398</a>
     </li></ul></dd>
     
 
@@ -2699,7 +2222,7 @@ console.log("ringing");
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1505">line 1505</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1433">line 1433</a>
     </li></ul></dd>
     
 
@@ -2944,7 +2467,7 @@ conversation.on('audio:ringing:stop', (data) => {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1058">line 1058</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1056">line 1056</a>
     </li></ul></dd>
     
 
@@ -3235,7 +2758,7 @@ conversation.on('audio:ringing:stop', (data) => {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1027">line 1027</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1025">line 1025</a>
     </li></ul></dd>
     
 
@@ -3308,13 +2831,13 @@ conversation.on('audio:ringing:stop', (data) => {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

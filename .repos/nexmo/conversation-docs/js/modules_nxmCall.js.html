@@ -31,12 +31,12 @@
  *  NXMCall Object Model
  *
  * Copyright (c) Nexmo Inc.
- */
+*/
 
 const WildEmitter = require('wildemitter');
 const NexmoClientError = require('../nexmoClientError').NexmoClientError;
 const NexmoApiError = require('../nexmoClientError').NexmoApiError;
-const logger = require('loglevel');
+const getLogger = require('loglevel').getLogger;
 
 /**
  * Conversation NXMCall Object.
@@ -54,7 +54,7 @@ const logger = require('loglevel');
  * @property {NXMCall.STATUS_PERMITTED_FLOW} STATUS_PERMITTED_FLOW - the permitted nxmCall status transition map, describes the "from" and allowed "to" transitions
  * @emits Application#member:call
  * @emits Application#call:status:changed
- */
+*/
 
 /**
  * Application listening for calls.
@@ -69,7 +69,7 @@ const logger = require('loglevel');
  *              console.log("NXMCall ", nxmCall);
  *              });
  *      });
- */
+*/
 
 /**
  * NXMCall listening for nxmCall status changed events.
@@ -81,11 +81,11 @@ const logger = require('loglevel');
  *              console.log("call: " + nxmCall.status);
  *       });
  *   });
- */
+*/
 class NXMCall {
   constructor(application, conversation, from) {
     this.application = application;
-    this.log = logger.getLogger(this.constructor.name);
+    this.log = getLogger(this.constructor.name);
     this.from = from;
     this.conversation = null;
 
@@ -94,7 +94,7 @@ class NXMCall {
 		 * @readonly
 		 * @enum {string}
 		 * @alias NXMCall.CALL_STATUS
-		 */
+		*/
     this.CALL_STATUS = {
       /** The NXMCall is in started status */
       STARTED: 'started',
@@ -121,7 +121,7 @@ class NXMCall {
 		 * @readonly
 		 * @enum {string}
 		 * @alias NXMCall.CALL_DIRECTION
-		 */
+		*/
     this.CALL_DIRECTION = {
       /** The NXMCall started from another end */
       INBOUND: 'inbound',
@@ -135,7 +135,7 @@ class NXMCall {
 		 * @readonly
 		 * @alias NXMCall.STATUS_PERMITTED_FLOW
 		 * @enum {Map&lt;string, Set&lt;NXMCall.CALL_STATUS>>}
-		 */
+		*/
     this.STATUS_PERMITTED_FLOW = new Map([
       /** Permitted transition array from STARTED  */
       ['STARTED', new Set([
@@ -172,7 +172,7 @@ class NXMCall {
 	/**
 	 * Enable NXMCall stats to be emitted in application.inAppCall.on('call:stats:report');
 	 * @private
-	 */
+	*/
   _enableStatsEvents() {
     if (this.application.session.config &amp;&amp; this.application.session.config.rtcstats &amp;&amp; !this.application.session.config.rtcstats.emit_events) {
       return this.conversation.media._enableStatsEvents();
@@ -182,7 +182,7 @@ class NXMCall {
 	/**
 	 * Attach member event listeners from the conversation
 	 * @private
-	 */
+	*/
   _attachCallListeners() {
     // Conversation level listeners
     this.conversation.releaseGroup('call_module');
@@ -199,7 +199,7 @@ class NXMCall {
 	 * @param {string} status the status to validate
 	 * @returns {boolean} false if the transition is not permitted
 	 * @private
-	 */
+	*/
   _isValidStatusTransition(status) {
     if (!status) {
       throw new NexmoClientError(`Provide the status to validate the transition from '${this.status}'`);
@@ -223,7 +223,7 @@ class NXMCall {
 	 * Go through the members of the conversation and if .me is the only one (JOINED or INVITED)
 	 * nxmCall nxmCall.hangUp().
 	 * @returns {Promise} - empty promise or the nxmCall.hangUp promise chain
-	 */
+	*/
   hangUpIfAllLeft() {
     if (!this.conversation.me || this.conversation.me.state === 'LEFT' || this.conversation.members.size &lt;= 1) {
       return Promise.resolve();
@@ -240,7 +240,7 @@ class NXMCall {
 	 * Set the conversation object of the NXMCall
 	 * update nxmCall.from, and nxmCall.to attributes based on the conversation members
 	 * @private
-	 */
+	*/
   _setupConversationObject(conversation) {
     if (!conversation) return;
     this.conversation = conversation;
@@ -258,7 +258,7 @@ class NXMCall {
 	/**
 	 * Set the from object of the NXMCall
 	 * @private
-	 */
+	*/
   _setFrom(from) {
     this.from = from;
   }
@@ -266,7 +266,7 @@ class NXMCall {
 	/**
 	 * Process raw events to figure out the nxmCall status
 	 * @private
-	 */
+	*/
   _handleStatusChange(event) {
     // for knocking case the conversation object is not yet set in the nxmCall. We know the action is initiated from us
     const _isEventFromMe = (this.conversation) ? this.conversation.me.id === event.from : true;
@@ -276,14 +276,14 @@ class NXMCall {
       'member:joined': () => {
         if (event.body.channel &amp;&amp; event.body.channel.knocking_id) {
           return this.conversation.media.enable()
-            .then((stream) => {
-              this._setStatusAndEmit(this.CALL_STATUS.STARTED);
-              return Promise.resolve();
-            }).catch((error) => {
-              this._setStatusAndEmit(this.CALL_STATUS.FAILED);
-              this.log.error(error);
-              return Promise.reject(error);
-            });
+              .then((stream) => {
+                this._setStatusAndEmit(this.CALL_STATUS.STARTED);
+                return Promise.resolve();
+              }).catch((error) => {
+                this._setStatusAndEmit(this.CALL_STATUS.FAILED);
+                this.log.error(error);
+                return Promise.reject(error);
+              });
         }
         return Promise.resolve();
       },
@@ -356,7 +356,7 @@ class NXMCall {
 	 * @param {NXMCall.CALL_STATUS} this.CALL_STATUS the canxmCallll status to set
 	 * @emits Application#call:status:changed
 	 * @private
-	 */
+	*/
   _setStatusAndEmit(status) {
     if (!this._isValidStatusTransition(status)) {
       this.log.warn(`status attempt switch from ${this.status} to ${status}`);
@@ -373,8 +373,7 @@ class NXMCall {
 	 *
    * @param {boolean} [autoPlayAudio=true] attach the audio stream automatically to start playing (default true)
 	 * @returns {Promise&lt;Audio>}
-	 */
-
+	*/
   answer(autoPlayAudio = true) {
     if (this.conversation) {
       return this.conversation.join()
@@ -403,7 +402,7 @@ class NXMCall {
    * @param {boolean} [autoPlayAudio=true] attach the audio stream automatically to start playing (default true)
 	 * @returns {Promise[]} an array of the invite promises for the provided usernames
 	 * @private
-	 */
+	*/
   createCall(usernames, autoPlayAudio = true) {
     if (!usernames || !Array.isArray(usernames) || usernames.length === 0) {
       return Promise.reject(new NexmoClientError('error:application:call:params'));
@@ -415,9 +414,9 @@ class NXMCall {
           this.from = conversation.me;
           this.successful_invited_members = new Map();
           const invites = usernames.map((username) => {
-          // check all invites, if at least one is resolved enable audio
-          // we need to catch rejections to allow all the chain to go through (all invites)
-          // we then catch-reject a promise so that the errors are passing through the end of the chain
+            // check all invites, if at least one is resolved enable audio
+            // we need to catch rejections to allow all the chain to go through (all invites)
+            // we then catch-reject a promise so that the errors are passing through the end of the chain
             return conversation.inviteWithAudio({user_name: username})
                 .then((member) => {
                   this.successful_invited_members.set(member.id, member);
@@ -425,12 +424,12 @@ class NXMCall {
                 })
                 .catch((error) => {
                   this.log.warn(error);
-              // resolve the error to allow the promise.all to collect
-              // and return all the promises
+                  // resolve the error to allow the promise.all to collect
+                  // and return all the promises
                   return Promise.resolve(error);
                 });
           });
-        // helper function to process in Promise.all() the failed invites too
+          // helper function to process in Promise.all() the failed invites too
           const process_invites = () => {
             if (this.successful_invited_members.size > 0) {
               return conversation.media.enable({
@@ -439,22 +438,20 @@ class NXMCall {
                   earmuffed: false
                 },
                 autoPlayAudio
-              })
-                  .then((stream) => {
-                    this.application.calls.set(conversation.id, this);
-                    return Promise.resolve(invites);
-                  });
+              }).then((stream) => {
+                this.application.calls.set(conversation.id, this);
+                return Promise.resolve(invites);
+              });
             } else {
               return Promise.reject(invites);
             }
           };
-        // we need to continue the invites even if one fails,
-        // in process_invites we do the check if at least one was successful
-          return Promise.all(invites)
-              .then(() => {
-                this._setupConversationObject(conversation);
-                return process_invites();
-              });
+          // we need to continue the invites even if one fails,
+          // in process_invites we do the check if at least one was successful
+          return Promise.all(invites).then(() => {
+            this._setupConversationObject(conversation);
+            return process_invites();
+          });
         }).catch((error) => {
           this.log.warn(error);
           this._setStatusAndEmit(this.CALL_STATUS.FAILED);
@@ -470,11 +467,11 @@ class NXMCall {
    * @param {string} type the type of the call you want to have. possible values "phone" or "app" (default is "phone")
 	 * @returns {Promise}
 	 * @private
-	 */
+	*/
   createServerCall(user, type) {
     const to = {
       type
-    }
+    };
     if (type === 'phone') {
       to.number = user;
     } else {
@@ -493,9 +490,9 @@ class NXMCall {
             to
           }
         }
-      }).then(response => {
+      }).then((response) => {
         resolve(response);
-      }).catch(error => {
+      }).catch((error) => {
         reject(new NexmoApiError(error));
       });
     });
@@ -512,7 +509,7 @@ class NXMCall {
    * @param {string} [reason.reason_code] the code of the reason
    * @param {string} [reason.reason_text] the description of the reason
 	 * @returns {Promise}
-	 */
+	*/
   hangUp(reason) {
     let disable_promise = [];
     if (this.conversation) {
@@ -526,7 +523,7 @@ class NXMCall {
           let path = `knocking/${this.knocking_id}`;
           if (reason) {
             let params = new URLSearchParams();
-            Object.keys(reason).forEach(key => {
+            Object.keys(reason).forEach((key) => {
               params.append(key, reason[key]);
             });
             path += `?${params.toString()}`;
@@ -535,19 +532,18 @@ class NXMCall {
           this.application.session.sendNetworkRequest({
             type: 'DELETE',
             path
-          }).then(response => {
+          }).then((response) => {
             const nxmCall = this.application._call_draft_list.get(this.knocking_id);
             nxmCall._handleStatusChange(response);
             this.application._call_draft_list.delete(this.knocking_id);
             resolve(response);
-          }).catch(error => {
+          }).catch((error) => {
             // Don't switch yet to fail status, it could be an expected race between knocking:delete and conversation.leave
             if (!this.conversation) {
               this.log.warn('Problem cancelling the call: Knocking cancel failed and Conversation.leave not available');
               resolve();
             } else {
-              this.conversation.leave(reason)
-                .then(resolve).catch(reject);
+              this.conversation.leave(reason).then(resolve).catch(reject);
               this.log.warn(new NexmoApiError(error));
             }
           });
@@ -564,7 +560,7 @@ class NXMCall {
    * @param {string} [reason.reason_code] the code of the reason
    * @param {string} [reason.reason_text] the description of the reason
 	 * @returns {Promise}
-	 */
+	*/
   reject(reason) {
     if (this.conversation) {
       return this.conversation.leave(reason);
@@ -573,6 +569,7 @@ class NXMCall {
     }
   }
 }
+
 module.exports = NXMCall;
 </code></pre>
         </article>
@@ -584,13 +581,13 @@ module.exports = NXMCall;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
