@@ -185,6 +185,7 @@ GEM
       actionpack (>= 4.1)
       activesupport (>= 4.1)
     hash-deep-merge (0.1.1)
+    htmlentities (4.3.4)
     httmultiparty (0.3.16)
       httparty (>= 0.7.3)
       mimemagic
@@ -452,6 +453,9 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.9)
     titleize (1.4.1)
+    truncato (0.7.11)
+      htmlentities (~> 4.3.1)
+      nokogiri (>= 1.7.0, <= 2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
@@ -547,6 +551,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   terminal-table
   titleize
+  truncato
   tzinfo-data
   uglifier (>= 4.1.20)
   web-console (>= 3.3.0)
