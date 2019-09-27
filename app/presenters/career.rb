@@ -1,4 +1,6 @@
 class Career
+  HEADING_TAG_LIST = %w[h1 h2 h3 h4 h5 h6].freeze
+
   def initialize(career)
     @career = career
   end
@@ -12,7 +14,14 @@ class Career
   end
 
   def description
-    CGI.unescapeHTML(@career[:content])
+    content = CGI.unescapeHTML(@career[:content])
+
+    # If it starts with a header, strip it out
+    document = Nokogiri::HTML::DocumentFragment.parse(content)
+    first_child = document.children[0]
+    first_child.remove if HEADING_TAG_LIST.include?(first_child.name)
+
+    document.to_html
   end
 
   def url

@@ -25,10 +25,21 @@ RSpec.describe Career do
   end
 
   describe '#description' do
-    it 'parses the repsonse as html' do
+    it 'parses the response as html' do
       expect(subject.description).to eq(
         '<p><span style="font-weight: 400;">As a Developer Advocate at Nexmo...</span></p>'
       )
+    end
+
+    %w[h1 h2 h3 h4 h5 h6].each do |tag|
+      it "removes the first child element if it is a #{tag}" do
+        career = described_class.new({
+                                       content: "<#{tag}>Some Title</#{tag}><p>As a Developer Advocate at Nexmo...</p>",
+                                     })
+        expect(career.description).to eq(
+          '<p>As a Developer Advocate at Nexmo...</p>'
+        )
+      end
     end
   end
 
