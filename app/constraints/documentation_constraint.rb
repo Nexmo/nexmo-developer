@@ -48,7 +48,6 @@ class DocumentationConstraint
       'vonage-business-cloud/integration-suite',
       'vonage-business-cloud/vbc-apis/account-api',
       'vonage-business-cloud/vbc-apis/extension-api',
-      'vonage-business-cloud/vbc-apis/reports-api',
       'vonage-business-cloud/vbc-apis/user-api',
       'account/subaccounts',
     ]
