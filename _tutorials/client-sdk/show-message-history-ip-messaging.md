@@ -5,11 +5,11 @@ description: In this step you display any messages already sent as part of this 
 
 # Show the Message History
 
-You want your users to see the message history. You can achieve this by using the `getEvents` method for historical messages and by handling the Conversation's `text` event which alerts your application when a user sends a message for new messages.
+You want your users to see the message history. You can achieve this by handling the Conversation's `getEvents` method (to retrieve historical messages sent and received before the current session started) and its `text` event (which alerts your application when a user sends a message).
 
-To add the message to the page, there needs to be a method that appends the message to the list of messages. The event provides details of the user that sent the message and the message contents. In this example you will use the identity of the user to color code messages sent by the user and those received from other users.
+Your application must inspect the event data sent to each handler to determine the message sender and its contents and then append it to the list of messages.
 
-Add the following to the bottom of `chat.js`:
+In this example you will use the identity of the user to distinguish between messages sent by them and those received from other users by displaying them in a different color. Create an `addMessage` function for this, by adding the following code to the bottom of `chat.js`:
 
 ```javascript
 function addMessage(sender, message, me) {
@@ -27,7 +27,7 @@ function addMessage(sender, message, me) {
 }
 ```
 
-Now that there's a way to show messages on the page, add the following to the bottom of your `run` function to load historical messages:
+Now that you have implemented a way to show messages on the page, add the following to the bottom of your `run` function to load historical messages:
 
 ```javascript
 // Update the UI to show which user we are

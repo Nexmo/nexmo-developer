@@ -89,19 +89,12 @@ Create a file named `index.html` in your project directory with the following co
 
   <section id="messages">
     <h1 id="sessionName"></h1>
-<<<<<<< HEAD
-    <div id="status"></div>
-=======
->>>>>>> 0e55877f0b0d5d5af57dd6bd8bf863313430af35
     <div id="messageFeed"></div>
 
     <div>
       <textarea id="messageTextarea"></textarea>
       <button id="send">Send</button>
-<<<<<<< HEAD
-=======
       <div id="status"></div>
->>>>>>> 0e55877f0b0d5d5af57dd6bd8bf863313430af35
     </div>
 
   </section>
@@ -114,59 +107,3 @@ Create a file named `index.html` in your project directory with the following co
 
 </html>
 ```
-<<<<<<< HEAD
-
-Here is the contents of `style.css` that you can use to provide some basic styling of your web page. Create this file in the root of the application:
-
-```css
-body {
-  font: 13px Helvetica, Arial;
-}
-
-#login, #messages {
-  width: 80%;
-  height: 500px;
-}
-
-form input[type=text] {
-  font-size: 20px;
-  height: 35px;
-  padding: 0px;
-}
-
-button {
-  height: 35px;
-  background-color: blue;
-  color: white;
-  width: 75px;
-  position: relative;
-  font-size: 15px;
-}
-
-textarea {
-  width:85%;
-  font-size: 20px;
-}
-
-#messageFeed {
-  font-size: 18px;
-  padding-bottom: 20px;
-  line-height: 22pt;
-}
-
-#status {
-  height: 35px;
-  font-size: 12px;
-  color: blue;
-}
-
-#send {
-  width: 85%;
-}
-
-#messages {
-  display: none;
-}
-```
-=======
->>>>>>> 0e55877f0b0d5d5af57dd6bd8bf863313430af35
