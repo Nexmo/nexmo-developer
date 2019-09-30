@@ -1,6 +1,6 @@
 ---
 title: Link your Facebook Page to your Nexmo account
-description: In this Task you see how to link your Facebook Page to your Nexmo account. This process is validating using a JWT associated with an application in your Nexmo account.
+description: In this step you learn how to link your Facebook Page to your Nexmo account. This process is validating using a JWT associated with an application in your Nexmo account.
 ---
 
 # Link your Facebook Page to your Nexmo account

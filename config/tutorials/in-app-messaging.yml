@@ -20,14 +20,22 @@ prerequisites:
   - create-nexmo-account
   - install-nodejs
   - install-nexmo-cli-beta
+<<<<<<< HEAD
   - install-node-client-sdk-beta
+=======
+  - install-node-client-sdk
+>>>>>>> 0e55877f0b0d5d5af57dd6bd8bf863313430af35
 
 tasks:
   - client-sdk/create-application
   - client-sdk/create-conversation
   - client-sdk/create-users-ip-messaging
   - client-sdk/add-users-to-conversation-ip-messaging
+<<<<<<< HEAD
   - client-sdk/generate-jwts-ip-messaging
+=======
+  - client-sdk/generate-jwt
+>>>>>>> 0e55877f0b0d5d5af57dd6bd8bf863313430af35
   - client-sdk/create-ui-ip-messaging
   - client-sdk/authenticate-users-ip-messaging
   - client-sdk/join-conversation-ip-messaging

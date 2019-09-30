@@ -173,7 +173,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Nxd-products-banner:nth-of-type(2)') do
-        expect(page).to have_link('Nexmo Client SDK - Early Access', href: '/client-sdk/overview')
+        expect(page).to have_link('Nexmo Client SDK - Beta', href: '/client-sdk/overview')
         expect(page).to have_css('p', text: 'Build multi-platform applications with contextual communications using Nexmo Client SDK and Conversation API.')
       end
 

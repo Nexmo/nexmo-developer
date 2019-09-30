@@ -1,6 +1,6 @@
 ---
 title: Create a Messages and Dispatch Application
-description: In this Task you see how to create a Messages and Dispatch Application. A Messages and Dispatch application has a message status webhook and inbound message webhook, where the inbound message is of type `whatsapp`, `messenger` or `viber_service_msg`. Inbound SMS has to be handled through your account-level SMS webhook.
+description: In this step you learn how to create a Messages and Dispatch Application. A Messages and Dispatch application has a message status webhook and inbound message webhook, where the inbound message is of type `whatsapp`, `messenger` or `viber_service_msg`. Inbound SMS has to be handled through your account-level SMS webhook.
 ---
 
 # Create your Nexmo Messages and Dispatch Application

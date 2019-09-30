@@ -44,6 +44,10 @@ class CodeLanguage
     languages + frameworks + terminal_programs + data
   end
 
+  def self.exists?(key)
+    all.detect { |lang| lang.key == key }
+  end
+
   def self.find(key)
     raise 'Key is missing' unless key
     code_language = all.detect { |lang| lang.key == key }

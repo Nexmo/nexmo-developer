@@ -5,26 +5,14 @@ description: In this step you enable your user to send a message
 
 # Send a Message
 
-Write the code that enables a user to send a message to other participants in the Conversation. You'll want to log the details of the message to the console for debugging purposes, so first create a reusable function for this purpose:
+To send a message to other participants in the Conversation, you need to call the `conversation.sendText()` method.
+
+You can do this by adding a handler for the message box's Submit button at the end of the `run` function:
 
 ```javascript
-function eventLogger(event) {
-  return () => { console.log("'%s' event was sent", event) }
-}
-```
-
-Then, add a handler for the message box's Submit button in the `setupUserEvents` function:
-
-```javascript
-function setupUserEvents() {
-  sendButton.addEventListener('click', () => {
-    conversation.sendText(messageTextarea.value).then(() => {
-      eventLogger('text')()
-      messageTextarea.value = ''
-    }).catch((error) => {
-      console.log(error)
-    })
-  })
-  ...
-}
+// Listen for clicks on the submit button and send the existing text value
+sendButton.addEventListener('click', async () => {
+  await conversation.sendText(messageTextarea.value);
+  messageTextarea.value = '';
+});
 ```

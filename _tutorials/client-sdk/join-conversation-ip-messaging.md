@@ -1,40 +1,17 @@
 ---
-title: Join the conversation
+title: Fetch the conversation
 description: In this step you join your Users to your Conversation
 ---
 
-# Join the Conversation
+# Fetch the Conversation
 
-Having written the code to authenticate your users you can now add them to the Conversation as members.
-
-Create a function called `setupUserEvents`. This function will initially respond to the user clicking the login button by attempting to authenticate the user. You will extend it in a later step to add an event handler for when your user sends a message.
+Now that you have a valid user token, it's time to initialise a new `NexmoClient` instance and fetch the conversation to use for our chat app.
 
 ```javascript
-
-setupUserEvents()
-
-function setupUserEvents() {
-
-  loginForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const userToken = authenticate(document.getElementById('username').value)
-    if (userToken) {
-      document.getElementById('messages').style.display = 'block'
-      document.getElementById('login').style.display = 'none'
-      joinConversation(userToken)
-    }
-  })
-}
-
-function joinConversation(userToken) {
-  new NexmoClient({
-    debug: false
-  })
-    .login(userToken)
-    .then(app => {
-      return app.getConversation(CONVERSATION_ID)
-    })
-    .then(setupShowMessages.bind(this))
+async function run(userToken) {
+  let client = new NexmoClient({ debug: true });
+  let app = await client.login(userToken);
+  let conversation = await app.getConversation(CONVERSATION_ID);
 }
 ```
 
