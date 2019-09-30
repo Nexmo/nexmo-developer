@@ -79,6 +79,7 @@ en:
     vbc-apis: VBC APIs
     account-api: Account API
     extension-api: Extension API
+    reports-api: Reports API
     user-api: User API
     getting-started: Getting Started
     setup: Setup
