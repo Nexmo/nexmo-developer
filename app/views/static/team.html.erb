@@ -23,16 +23,6 @@
       <% end %>
     </div>
 
-    <hr>
-
-    <h2><b>Alumni</b></h2>
-
-    <div class="Vlt-grid">
-      <% @team['alumni'].shuffle.each do |member| %>
-        <%= render partial: 'profile', locals: member.symbolize_keys %>
-      <% end %>
-    </div>
-
     <hr />
 
     <h2><b>Contributors</b></h2>

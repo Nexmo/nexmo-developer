@@ -30,18 +30,12 @@ RSpec.feature 'Team' do
         expect(page).to have_css('.Nxd-profile', count: 25)
       end
 
-      expect(page).to have_css('h2', text: 'Alumni')
-
-      within('.Vlt-grid:nth-of-type(2)') do
-        expect(page).to have_css('.Nxd-profile', count: 6)
-      end
-
       expect(page).to have_css('h2', text: 'Contributors')
       expect(page).to have_css('p', text: 'Many of the improvements made to Nexmo Developer have come from our wonderful community.')
       expect(page).to have_css('p', text: 'Check out our Contributors page on GitHub.')
       expect(page).to have_link('Contributors', href: 'https://github.com/Nexmo/nexmo-developer/graphs/contributors')
 
-      within('.Vlt-grid:nth-of-type(3)') do
+      within('.Vlt-grid:nth-of-type(2)') do
         within('.Vlt-col:nth-of-type(1)') do
           expect(page).to have_link(href: '/spotlight')
         end
