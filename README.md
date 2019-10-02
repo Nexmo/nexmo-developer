@@ -46,7 +46,7 @@ The project can be run on your laptop, either directly or using Docker. These in
 
 Before you start, you need to make sure that you have:
 
-- [Ruby 2.5.5](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
+- [Ruby 2.5.7](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
 
