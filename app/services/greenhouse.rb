@@ -1,6 +1,6 @@
 class Greenhouse
   DEPARTMENT_ID = 4019731002
-  TITLES = ['sdk', 'advocate', 'community manager', 'education', 'dashboard'].freeze
+  TITLES = ['sdk', 'advocate', 'community manager', 'education', 'dashboard', 'documentation'].freeze
 
   def self.careers
     new.jobs
