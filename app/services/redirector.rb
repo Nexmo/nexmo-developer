@@ -5,7 +5,7 @@ AUTOMATED_REDIRECTS = YAML.load_file("#{Rails.root}/config/automatic-redirects.y
 REDIRECTS = CORE_REDIRECTS.merge(STITCH_REDIRECTS).merge(AUTOMATED_REDIRECTS)
 
 ENVIRONMENT_REDIRECTS = YAML.safe_load(ENV['ENVIRONMENT_REDIRECTS'] || '')
-require 'pry'
+
 class Redirector
   def self.find(request)
     url = find_by_config(request) || find_by_environment_redirect(request) || find_by_search(request) # rubocop:disable Rails/DynamicFindBy
