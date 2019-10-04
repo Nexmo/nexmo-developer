@@ -2,8 +2,9 @@
   <img src="/assets/images/lost.svg" alt="" width="120">
   <br><br>
   <h2>This page can't be found!</h2>
-  <% if @results && @results.length > 0 %> <p>Perhaps you were looking for one of these?</p> <% end %>
-  <div class="Vlt-grid">
+  <% if @results && @results.length > 0 %> 
+    <p>Perhaps you were looking for one of these?</p>
+    <div class="Vlt-grid">
     <% @results.each do |index| %>
       <div class="Vlt-col">
         <div class="Vlt-card">
@@ -21,4 +22,5 @@
         </div>
       </div>
     <% end %>
+  <% end %>
 </center>
