@@ -31,16 +31,17 @@
  *  Utility functions
  *
  * Copyright (c) Nexmo Inc.
- */
-let uuid = require('uuid');
+*/
 
+const uuid = require('uuid');
 const NexmoClientError = require('./nexmoClientError').NexmoClientError;
+
 /**
  * Utilities class for the SDK.
  *
  * @class Utils
  * @private
- */
+*/
 class Utils {
   /**
    * Get the Member from the username of a conversation
@@ -49,7 +50,7 @@ class Utils {
    * @param {Conversation} conversation the Conversation to search in
    * @returns {Member} the requested Member
    * @static
-   */
+  */
   static getMemberFromNameOrNull(conversation, username) {
     if (!conversation || !username) return null;
     for (let member of conversation.members.values()) {
@@ -66,7 +67,7 @@ class Utils {
    * @param {object} channel the event's channel field
    * @returns {string} the requested Member number or uri
    * @static
-   */
+  */
   static getMemberNumberFromEventOrNull(channel) {
     const from = channel &amp;&amp; channel.from;
     if (from &amp;&amp; (from.number || from.uri)) {
@@ -86,7 +87,7 @@ class Utils {
    * @param {string} [token] the user token
    * @returns {Promise&lt;XMLHttpRequest.response>} the XMLHttpRequest.response
    * @static
-   */
+  */
   static networkRequest(reqObject) {
     return Utils.getToken(reqObject.token).then((token) => {
       return new Promise((resolve, reject) => {
@@ -145,8 +146,7 @@ class Utils {
    *      response.page_size: 10,
    *      response.order: 'asc',
    *   });
-   */
-
+  */
   static paginationRequest(url, params) {
     return Utils.networkRequest({
       type: 'GET',
@@ -165,16 +165,16 @@ class Utils {
         order: params.order || 'asc'
       };
       if (params.event_type) {
-        response.event_type = params.event_type
+        response.event_type = params.event_type;
       }
       return Promise.resolve(response);
-    }).catch((error)=> {
-      const parsed_error = error.response
-        ? error.response
-        : { type:  'error:network:get-request', description: 'network error on nexmo get request' }
+    }).catch(({response})=> {
+      const parsed_error = response
+        ? response
+        : {type: 'error:network:get-request', description: 'network error on nexmo get request'};
 
-      if (parsed_error.validation){
-        parsed_error.description = parsed_error.validation[Object.keys(parsed_error.validation)[0]]
+      if (parsed_error.validation) {
+        parsed_error.description = parsed_error.validation[Object.keys(parsed_error.validation)[0]];
       }
       return Promise.reject(parsed_error);
     });
@@ -184,27 +184,26 @@ class Utils {
    * Update the Search Params of a url
    * @returns {string} the appended url
    * @static
-   */
-
+  */
   static addUrlSearchParams(url, params = {}) {
     let appended_url = new URL(url);
-    Object.keys(params).forEach(key => {
+    Object.keys(params).forEach((key) => {
       if (params[key] &amp;&amp; !(typeof params[key] === 'string' &amp;&amp; params[key].length &lt; 1) &amp;&amp; params[key] !== null) {
-        appended_url.searchParams.set(key, params[key])
+        appended_url.searchParams.set(key, params[key]);
       }
-    })
-    return appended_url.href
+    });
+    return appended_url.href;
   }
 
   /**
    * Deep merges two objects
    * @returns {obj} the new merged object
    * @static
-   */
+  */
   static deepMergeObj(obj1, obj2) {
-    const mergedObj = JSON.parse(JSON.stringify(obj1))
+    const mergedObj = JSON.parse(JSON.stringify(obj1));
     // Merge the object into the new mergedObject
-    for (var prop in obj2) {
+    for (let prop in obj2) {
       // If the property is an object then merge properties
       if (Object.prototype.toString.call(obj2[prop]) === '[object Object]') {
         mergedObj[prop] = Utils.deepMergeObj(mergedObj[prop], obj2[prop]);
@@ -212,14 +211,14 @@ class Utils {
         mergedObj[prop] = obj2[prop];
       }
     }
-    return mergedObj
+    return mergedObj;
   }
 
   /**
    * Get the stored token
    * @returns {string} the token
    * @static
-   */
+  */
   static getToken(token) {
     if (token) {
       return Promise.resolve(token);
@@ -236,7 +235,7 @@ class Utils {
    * Get the username the for the stored token
    * @returns {string} the username to whom the token belongs to, empty string if none is set
    * @static
-   */
+  */
   static getUsername() {
     if (!localStorage.getItem('NXMO_user_data')) {
       return Promise.resolve('');
@@ -253,27 +252,26 @@ class Utils {
    * @param {string} user_data.username the username the token belongs to
    * @param {string} user_data.token the token to persist
    * @static
-   */
+  */
   static updateToken(user_data) {
     if ((typeof (Storage) === 'undefined')) {
       return Promise.reject(new NexmoClientError('Storage not supported'));
     } else {
-      Utils.getUsername()
-          .then((username) => {
-            if (username === user_data.username || username === '') {
-              localStorage.setItem('NXMO_user_data', JSON.stringify(user_data));
-              return Promise.resolve();
-            } else {
-              return Promise.reject(new NexmoClientError('error:user:inconsistent-user'));
-            }
-          });
+      Utils.getUsername().then((username) => {
+        if (username === user_data.username || username === '') {
+          localStorage.setItem('NXMO_user_data', JSON.stringify(user_data));
+          return Promise.resolve();
+        } else {
+          return Promise.reject(new NexmoClientError('error:user:inconsistent-user'));
+        }
+      });
     }
   }
 
   /**
    * Clean up the token from LocalStorage
    * @static
-   */
+  */
   static cleanupToken() {
     if (typeof (Storage) !== 'undefined') {
       localStorage.removeItem('NXMO_user_data');
@@ -286,7 +284,7 @@ class Utils {
    * @param {string} s script being executed
    * @param {requestCallback} c the callback fired after script executed
    * @static
-   */
+  */
   static injectScript(u, c) {
     if (typeof document !== 'undefined') {
       let h = document.getElementsByTagName('head')[0];
@@ -311,16 +309,16 @@ class Utils {
   }
 
   /**
-  * Validate dtmf digit
-  * @static
+    * Validate dtmf digit
+    * @static
   */
   static validateDTMF(digit) {
     return (typeof (digit) === 'string' &amp;&amp; /^[\da-dA-D#*pP]{1,45}$$/.test(digit));
   }
 
   /**
-  * Get the nexmo bugsnag api key
-  * @private
+    * Get the nexmo bugsnag api key
+    * @private
   */
   static _getBugsnagKey() {
     return '76498fc1ca8d9b0a173a44e2b873d7ed';
@@ -332,7 +330,7 @@ class Utils {
    * @param {Array} legs the member legs array
    * @param {NXMEvent} event the member event holding the new legs array
    * @static
-   */
+  */
   static updateMemberLegs(legs, event) {
     if (legs) {
       // find the leg in the legs array if exists
@@ -373,13 +371,13 @@ module.exports = Utils;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -10,6 +10,7 @@ If you are planning to use JavaScript to develop your application, you'll need t
 Create a new project directory and change into it. Then run the following command:
 
 ``` bash
+$ npm init
 $ npm install nexmo-client --save
 ```
 

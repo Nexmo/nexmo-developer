@@ -9,16 +9,11 @@ class MarkdownController < ApplicationController
     redirect = Redirector.find(request)
     return redirect_to redirect if redirect
 
-    @frontmatter = YAML.safe_load(document)
-
-    raise Errno::ENOENT if @frontmatter['redirect']
-
-    @document_title = @frontmatter['meta_title'] || @frontmatter['title']
-
-    @content = MarkdownPipeline.new({
-      code_language: @code_language,
-      current_user: current_user,
-    }).call(document)
+    if path_is_folder?
+      @frontmatter, @content = content_from_folder
+    else
+      @frontmatter, @content = content_from_file
+    end
 
     if !Rails.env.development? && @frontmatter['wip']
       @show_feedback = false
@@ -71,13 +66,51 @@ class MarkdownController < ApplicationController
     @code_language = nil
   end
 
+  def path_is_folder?
+    File.directory? "#{@namespace_path}/#{@document}"
+  end
+
+  def content_from_folder
+    path = "#{@namespace_path}/#{@document}"
+    frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
+
+    @document_title = frontmatter['meta_title'] || frontmatter['title']
+
+    content = MarkdownPipeline.new({
+      code_language: @code_language,
+      current_user: current_user,
+    }).call(<<~HEREDOC
+      <h1>#{@document_title}</h1>
+
+      ```tabbed_folder
+      source: #{path}
+      ```
+    HEREDOC
+           )
+
+    [frontmatter, content]
+  end
+
+  def content_from_file
+    frontmatter = YAML.safe_load(document)
+
+    raise Errno::ENOENT if frontmatter['redirect']
+
+    content = MarkdownPipeline.new({
+      code_language: @code_language,
+      current_user: current_user,
+    }).call(document)
+
+    [frontmatter, content]
+  end
+
   def set_tracking_cookie
     helpers.dashboard_cookie(params[:product])
   end
 
   def document
     set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
-    @document_path ||= "#{@namespace_path}/#{@document}.md"
+    @document_path ||= "#{@namespace_path}/#{@document}.md" unless File.directory?("#{@namespace_path}/#{@document}")
     @document = File.read("#{Rails.root}/#{@document_path}")
   end
 end

@@ -34,20 +34,17 @@
  */
 
 const WildEmitter = require('wildemitter');
-const logger = require('loglevel');
-
+const getLogger = require('loglevel').getLogger;
 const Member = require('./member');
 const NXMEvent = require('./events/nxmEvent');
 const TextEvent = require('./events/text_event');
-const ImageEvent = require('./events/image_event');
 const Media = require('./modules/media');
-
 const ConversationEventHandler = require('./handlers/conversation_events');
 const NexmoClientError = require('./nexmoClientError').NexmoClientError;
 const NexmoApiError = require('./nexmoClientError').NexmoApiError;
 const Utils = require('./utils');
-const PageConfig = require('./pages/page_config')
-const EventsPage = require('./pages/events_page')
+const PageConfig = require('./pages/page_config');
+const EventsPage = require('./pages/events_page');
 
 /**
  * A single conversation Object.
@@ -59,10 +56,10 @@ const EventsPage = require('./pages/events_page')
  * @property {Map&lt;string, Member>} [members] - the members of the Conversation keyed by a member's id
  * @property {Map&lt;string, NXMEvent>} [events] - the events of the Conversation keyed by an event's id
  * @property {number} [sequence_number] - the last event id
- */
+*/
 class Conversation {
   constructor(application, params) {
-    this.log = logger.getLogger(this.constructor.name);
+    this.log = getLogger(this.constructor.name);
     this.application = application;
     this.id = null;
     this.name = null;
@@ -83,16 +80,18 @@ class Conversation {
      * Only set if the user is or has been a member of the Conversation,
      * otherwise the value will be `null`.
      * @type Member
-     */
+    */
     this.me = null; // We are not in the conversation ourselves by default
+
     // Map the params (which includes the id)
     this._updateObjectInstance(params);
     WildEmitter.mixin(Conversation);
   }
+
 	/** Update Conversation object params
 	 * @property {object} params the params to update
 	 * @private
-	 */
+	*/
   _updateObjectInstance(params) {
     for (let key in params) {
       switch (key) {
@@ -172,10 +171,10 @@ class Conversation {
    *
    * @example &lt;caption>join a user to a conversation&lt;/caption>
    *
-   *        conversation.join().then((member) => {
- * 				console.log("joined as member: ", member)
- * 		})
- */
+   *  conversation.join().then((member) => {
+   *    console.log("joined as member: ", member)
+   *  })
+  */
   join(params) {
     const request_body = {};
     const _createDefaultValues = (params) => {
@@ -207,7 +206,7 @@ class Conversation {
         type: 'POST',
         path: `conversations/${this.id}/members`,
         data
-      }).then(response => {
+      }).then((response) => {
         const member = new Member(this, response);
         if (response.user_id === this.application.me.id) {
           this.me = member;
@@ -216,14 +215,14 @@ class Conversation {
         // use case where between the time we got the conversation and the time we finished joining
         // the conversation object changed.
         return this.application.getConversation(this.id)
-          .then(() => resolve(member))
-          .catch(() => {
-            this.log.warn('Failed getting conversation after joining');
-            return resolve(member);
-          });
-      }).catch(error => {
+            .then(() => resolve(member))
+            .catch(() => {
+              this.log.warn('Failed getting conversation after joining');
+              return resolve(member);
+            });
+      }).catch((error) => {
         reject(new NexmoApiError(error));
-      })
+      });
     });
   }
 
@@ -232,21 +231,21 @@ class Conversation {
    * @returns {Promise}
    * @example &lt;caption>delete the conversation&lt;/caption>
    *
-   *        conversation.del().then(() => {
- * 				console.log("conversation deleted");
- * 		})
-   */
+   *    conversation.del().then(() => {
+   * 		  console.log("conversation deleted");
+   * 		})
+  */
   del() {
     return new Promise((resolve, reject) => {
       return this.application.session.sendNetworkRequest({
         type: 'DELETE',
         path: `conversations/${this.id}`
-      }).then(response => {
+      }).then((response) => {
         this.application.conversations.delete(this.id);
-        resolve(response)
-      }).catch(error => {
+        resolve(response);
+      }).catch((error) => {
         reject(new NexmoApiError(error));
-      })
+      });
     });
   }
 
@@ -255,33 +254,33 @@ class Conversation {
 	 * @param {NXMEvent} event
 	 * @returns {Promise}
 	 *
-	 */
+	*/
   deleteEvent(event) {
     return event.del();
   }
 
   /**
-   * Invite the given user (id or name) to this conversation
-   * @param {Member} params
-   * @param {string} [params.id or username] - the id or the username of the user to invite
-   *
-   * @returns {Promise&lt;Member>}
-   *
-   * @example &lt;caption>invite a user to a conversation&lt;/caption>
-   *  const user_id = 'user to invite';
-   *  const user_name = 'username to invite';
-   *
-   *  conversation.invite({
- *          id: user_id,
- *          user_name: user_name
- *      })
-   *        .then((member) => {
- *            displayMessage(member.state + " user: " + user_id + " " + user_name);
- *       }).catch((error) => {
- *          console.log(error);
- *  });
-   *
-   */
+    * Invite the given user (id or name) to this conversation
+    * @param {Member} params
+    * @param {string} [params.id or username] - the id or the username of the user to invite
+    *
+    * @returns {Promise&lt;Member>}
+    *
+    * @example &lt;caption>invite a user to a conversation&lt;/caption>
+    *  const user_id = 'user to invite';
+    *  const user_name = 'username to invite';
+    *
+    *  conversation.invite({
+    *          id: user_id,
+    *          user_name: user_name
+    *  })
+    *        .then((member) => {
+    *            displayMessage(member.state + " user: " + user_id + " " + user_name);
+    *       }).catch((error) => {
+    *          console.log(error);
+    *  });
+    *
+  */
   invite(params) {
     if (!params || (!params.id &amp;&amp; !params.user_name)) {
       return Promise.reject(new NexmoClientError('error:invite:missing:params'));
@@ -297,46 +296,46 @@ class Conversation {
           member_id_inviting: this.me.id,
           media: params.media,
           channel: {
-            from: { type: "app"},
+            from: {type: 'app'},
             leg_ids: [],
             leg_settings: {},
             legs: [],
-            to: { type: "app"},
-            type: "app"
+            to: {type: 'app'},
+            type: 'app'
           }
         }
-      }).then(response => {
-          const member = new Member(this, response);
-          this.members.set(member.id, member);
-          resolve(member);
-      }).catch(error => {
+      }).then((response) => {
+        const member = new Member(this, response);
+        this.members.set(member.id, member);
+        resolve(member);
+      }).catch((error) => {
         reject(new NexmoApiError(error));
-      })
+      });
     });
   }
 
   /**
-   * Invite the given user (id or name) to this conversation with media audio
-   * @param {Member} params
-   * @param {string} [params.id or username] - the id or the username of the user to invite
-   *
-   * @returns {Promise&lt;Member>}
-   *
-   * @example &lt;caption>invite a user to a conversation&lt;/caption>
-   *  const user_id = 'user to invite';
-   *  const user_name = 'username to invite';
-   *
-   *  conversation.inviteWithAudio({
- *          id: user_id,
- *          user_name: user_name
- *      })
-   *        .then((member) => {
- *            displayMessage(member.state + " user: " + user_id + " " + user_name);
- *       }).catch((error) => {
- *          console.log(error);
- *  });
- *
- */
+    * Invite the given user (id or name) to this conversation with media audio
+    * @param {Member} params
+    * @param {string} [params.id or username] - the id or the username of the user to invite
+    *
+    * @returns {Promise&lt;Member>}
+    *
+    * @example &lt;caption>invite a user to a conversation&lt;/caption>
+    *  const user_id = 'user to invite';
+    *  const user_name = 'username to invite';
+    *
+    *  conversation.inviteWithAudio({
+    *          id: user_id,
+    *          user_name: user_name
+    *      })
+    *        .then((member) => {
+    *            displayMessage(member.state + " user: " + user_id + " " + user_name);
+    *       }).catch((error) => {
+    *          console.log(error);
+    *  });
+    *
+  */
   inviteWithAudio(params) {
     if (!params || (!params.id &amp;&amp; !params.user_name)) {
       return Promise.reject(new NexmoClientError('error:invite:missing:params'));
@@ -358,25 +357,25 @@ class Conversation {
    * @param {string} [reason.reason_code] the code of the reason
    * @param {string} [reason.reason_text] the description of the reason
 	 * @returns {Promise}
-	 */
+	*/
   leave(reason) {
     return this.me.kick(reason);
   }
 
   /**
-   * Send a text message to the conversation, which will be relayed to every other member of the conversation
-   * @param {string} text - the text message to be sent
-   *
-   * @returns {Promise&lt;TextEvent>} - the text message that was sent
-   *
-   * @example &lt;caption> sending a text &lt;/caption>
-   *    conversation.sendText("Hi Nexmo").then(() => {
- *			console.log('message was sent');
- *		}).catch((error)=>{
- *			console.log('error sending the message', error);
- *	});
-   *
-   */
+    * Send a text message to the conversation, which will be relayed to every other member of the conversation
+    * @param {string} text - the text message to be sent
+    *
+    * @returns {Promise&lt;TextEvent>} - the text message that was sent
+    *
+    * @example &lt;caption> sending a text &lt;/caption>
+    *    conversation.sendText("Hi Nexmo").then(() => {
+    *			console.log('message was sent');
+    *		}).catch((error)=>{
+    *			console.log('error sending the message', error);
+    *	});
+    *
+  */
   sendText(text) {
     return new Promise((resolve, reject) => {
       if (this.me === null) {
@@ -387,7 +386,7 @@ class Conversation {
           cid: this.id,
           from: this.me.id,
           body: {
-            text: text
+            text
           }
         };
 
@@ -395,33 +394,33 @@ class Conversation {
           type: 'POST',
           path: `conversations/${this.id}/events`,
           data: msg
-        }).then(response => {
-          msg.id = response.id;
-          msg.body.timestamp = response.timestamp;
+        }).then(({id, timestamp}) => {
+          msg.id = id;
+          msg.body.timestamp = timestamp;
           const text_event = new TextEvent(this, msg);
           resolve(text_event);
-        }).catch(error => {
+        }).catch((error) => {
           reject(new NexmoApiError(error));
-        })
+        });
       }
     });
   }
 
   /**
-  * Send a custom event to the conversation
-  * @param {object} params - params of the custom event
-  * @param {string} type - the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.
-  * @param {object} body - customizable key value pairs
-  *
-  * @returns {Promise&lt;NXMEvent>} - the custom event that was sent
-  *
-  * @example &lt;caption> sending a custom event &lt;/caption>
-  *    conversation.sendCustomEvent({ type: 'my-event', body: {}}).then(() => {
-  *			console.log('custom event was sent');
-  *		}).catch((error)=>{
-  *			console.log('error sending the custom event', error);
-  *	});
-  *
+    * Send a custom event to the conversation
+    * @param {object} params - params of the custom event
+    * @param {string} type - the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.
+    * @param {object} body - customizable key value pairs
+    *
+    * @returns {Promise&lt;NXMEvent>} - the custom event that was sent
+    *
+    * @example &lt;caption> sending a custom event &lt;/caption>
+    *    conversation.sendCustomEvent({ type: 'my-event', body: {}}).then(() => {
+    *			console.log('custom event was sent');
+    *		}).catch((error)=>{
+    *			console.log('error sending the custom event', error);
+    *	});
+    *
   */
   sendCustomEvent({type, body}) {
     return new Promise((resolve, reject) => {
@@ -435,20 +434,20 @@ class Conversation {
           cid: this.id,
           from: this.me.id,
           body
-        }
+        };
 
         return this.application.session.sendNetworkRequest({
           type: 'POST',
           path: `conversations/${this.id}/events`,
           data
-        }).then(response => {
-          data.id = response.id;
-          data.timestamp = response.timestamp;
+        }).then(({id, timestamp}) => {
+          data.id = id;
+          data.timestamp = timestamp;
           const custom_event = new NXMEvent(this, data);
           resolve(custom_event);
-        }).catch(error => {
+        }).catch((error) => {
           reject(new NexmoApiError(error));
-        })
+        });
       }
     });
   }
@@ -466,16 +465,15 @@ class Conversation {
    *
    * @example &lt;caption>sending an image&lt;/caption>
    * conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
- *
- *         imageRequest.onabort = (e) => {
- *            console.log(e);
- *          console.log("Image:" + e.type);
- *      };
- *          imageRequest.onloadend = (e) => {
- *          console.log("Image:" + e.type);
- *      };
- * });
- */
+   *         imageRequest.onabort = (e) => {
+   *            console.log(e);
+   *          console.log("Image:" + e.type);
+   *      };
+   *          imageRequest.onloadend = (e) => {
+   *          console.log("Image:" + e.type);
+   *      };
+   * });
+  */
   sendImage(fileInput, params = {
     quality_ratio: 100,
     medium_size_ratio: 50,
@@ -491,38 +489,38 @@ class Conversation {
       type: 'POST',
       url: this.application.session.config.ips_url,
       data: formData
-    })
-        .then((imageRequest) => {
-          imageRequest.upload.addEventListener('progress', (evt) => {
-            if (evt.lengthComputable) {
-              this.log.debug('uploading image ' + evt.loaded + '/' + evt.total);
-            }
-          }, false);
-          imageRequest.onreadystatechange = () => {
-            if (imageRequest.readyState === 4 &amp;&amp; imageRequest.status === 200) {
-              this.application.session.sendNetworkRequest({
-                type: 'POST',
-                path: `conversations/${this.id}/events`,
-                data: {
-                  type: 'image',
-                  from: this.me.id,
-                  body: {
-                    representations: JSON.parse(imageRequest.responseText)
-                  }
-                }
-              }).then(response => {
-                this.log.info(imageRequest);
-              }).catch(error => {
-                this.log.debug(new NexmoApiError(error));
-              });
-            }
-            if (imageRequest.status !== 200) {
-              this.log.error(imageRequest);
-            }
-          };
+    }).then((imageRequest) => {
+      imageRequest.upload.addEventListener('progress', (evt) => {
+        if (evt.lengthComputable) {
+          this.log.debug('uploading image ' + evt.loaded + '/' + evt.total);
+        }
+      }, false);
 
-          return Promise.resolve(imageRequest);
-        });
+      imageRequest.onreadystatechange = () => {
+        if (imageRequest.readyState === 4 &amp;&amp; imageRequest.status === 200) {
+          this.application.session.sendNetworkRequest({
+            type: 'POST',
+            path: `conversations/${this.id}/events`,
+            data: {
+              type: 'image',
+              from: this.me.id,
+              body: {
+                representations: JSON.parse(imageRequest.responseText)
+              }
+            }
+          }).then((response) => {
+            this.log.info(imageRequest);
+          }).catch((error) => {
+            this.log.debug(new NexmoApiError(error));
+          });
+        }
+        if (imageRequest.status !== 200) {
+          this.log.error(imageRequest);
+        }
+      };
+
+      return Promise.resolve(imageRequest);
+    });
   }
 
 	/**
@@ -536,7 +534,7 @@ class Conversation {
 	 * conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
 	 *    conversation.abortSendImage(imageRequest);
 	 * });
-	 */
+	*/
   abortSendImage(imageRequest) {
     if (imageRequest instanceof XMLHttpRequest) {
       return imageRequest.abort();
@@ -561,19 +559,19 @@ class Conversation {
         type: 'POST',
         path: `conversations/${this.id}/events`,
         data
-      }).then(response => {
+      }).then((response) => {
         resolve(`text:typing:${state}:success`);
-      }).catch(error => {
+      }).catch((error) => {
         reject(new NexmoApiError(error));
-      })
-    })
+      });
+    });
   }
 
   /**
    * Send start typing indication
    *
    * @returns {Promise} - resolves the promise on successful sent
-   */
+  */
   startTyping() {
     return this._typing('on');
   }
@@ -582,44 +580,44 @@ class Conversation {
    * Send stop typing indication
    *
    * @returns {Promise} - resolves the promise on successful sent
-   */
+  */
   stopTyping() {
     return this._typing('off');
   }
 
-   /**
-	 * Query the service to get a list of events in this conversation.
-	 *
-   * @param {object} params configure defaults for paginated events query
-   * @param {string} params.order 'asc' or 'desc' ordering of resources based on creation time
-   * @param {number} params.page_size the number of resources returned in a single request list
-   * @param {string} [params.cursor] string to access the starting point of a dataset
-   * @param {string} [params.event_type] the type of event used to filter event requests. Supports wildcard options with :* eg. 'members:*'
-	 *
-	 * @returns {Promise&lt;EventsPage&lt;Map&lt;Events>>>} - Populate Conversations.events.
-   * @example &lt;caption>Get Events&lt;/caption>
-   * conversation.getEvents({ event_type: 'member:*' ).then((events_page) => {
-   *     events_page.items.forEach(event => {
-   *      render(event)
-   *   })
-   * });
-   */
+  /**
+    * Query the service to get a list of events in this conversation.
+    *
+    * @param {object} params configure defaults for paginated events query
+    * @param {string} params.order 'asc' or 'desc' ordering of resources based on creation time
+    * @param {number} params.page_size the number of resources returned in a single request list
+    * @param {string} [params.cursor] string to access the starting point of a dataset
+    * @param {string} [params.event_type] the type of event used to filter event requests. Supports wildcard options with :* eg. 'members:*'
+    *
+    * @returns {Promise&lt;EventsPage&lt;Map&lt;Events>>>} - Populate Conversations.events.
+    * @example &lt;caption>Get Events&lt;/caption>
+    * conversation.getEvents({ event_type: 'member:*' ).then((events_page) => {
+    *     events_page.items.forEach(event => {
+    *      render(event)
+    *   })
+    * });
+  */
   getEvents(params = {}) {
     const url = `${this.application.session.config.nexmo_api_url}/beta2/conversations/${this.id}/events`;
 
     // Create pageConfig if given params otherwise use default
-    let pageConfig = Object.keys(params).length === 0 ? this.pageConfig : new PageConfig(params)
+    let pageConfig = Object.keys(params).length === 0 ? this.pageConfig : new PageConfig(params);
 
     return new Promise((resolve, reject) => {
       return Utils.paginationRequest(url, pageConfig)
           .then((response) => {
             response.application = this.application;
             response.conversation = this;
-            const events_page = new EventsPage(response)
+            const events_page = new EventsPage(response);
             this.events_page_last = events_page;
             resolve(events_page);
-        }).catch(error => reject(new NexmoApiError(error)));
-    })
+          }).catch((error) => reject(new NexmoApiError(error)));
+    });
   }
 
 	/**
@@ -627,7 +625,7 @@ class Conversation {
 	 * using conversationEventHandler
 	 * @param {object} event
 	 * @private
-	 */
+	*/
   _handleEvent(event) {
     if (event.type.startsWith('rtc')) {
       // keep the rtc events going to the application layer, we use them in media module
@@ -651,12 +649,13 @@ class Conversation {
     // For custom events remove the custom: prefix before emitting event
     if (event.type.startsWith('custom:')) {
       this.emit(constructed_event.type, from, constructed_event);
-      return
+      return;
     }
 
     this.emit(event.type, from, constructed_event);
   }
 }
+
 module.exports = Conversation;
 </code></pre>
         </article>
@@ -668,13 +667,13 @@ module.exports = Conversation;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 13 2019 09:32:38 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

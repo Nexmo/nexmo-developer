@@ -1,10 +1,18 @@
 class TabFilter < Banzai::Filter
   def call(input)
-    input.gsub(/^(\s*)```tabbed_(examples|content)(.+?)```/m) do |_s|
+    input.gsub(/^(\s*)```tabbed_(examples|content|folder)(.+?)```/m) do |_s|
       @indentation = $1
       @mode = $2
       @config = YAML.safe_load($3)
-      validate_config
+
+      if tabbed_folder?
+        raise "#{@config['source']} is not a directory" unless File.directory? @config['source']
+        @tabbed_config = YAML.safe_load(File.read("#{@config['source']}/.config.yml"))
+        @path = @config['source']
+        validate_folder_config
+      else
+        validate_config
+      end
       html
     end
   end
@@ -71,6 +79,10 @@ class TabFilter < Banzai::Filter
     @mode == 'content'
   end
 
+  def tabbed_folder?
+    @mode == 'folder'
+  end
+
   def html
     html = <<~HEREDOC
       <div class="Vlt-tabs">
@@ -95,8 +107,9 @@ class TabFilter < Banzai::Filter
   end
 
   def contents
-    list = content_from_source if @config['source']
-    list = content_from_tabs if @config['tabs']
+    list = content_from_folder if tabbed_folder?
+    list ||= content_from_source if @config['source']
+    list ||= content_from_tabs if @config['tabs']
 
     list ||= []
 
@@ -121,36 +134,39 @@ class TabFilter < Banzai::Filter
     raise 'Source or tabs must be present in this tabbed_example config'
   end
 
+  def validate_folder_config
+    return if @tabbed_config && @tabbed_config['tabbed'] == true
+    raise 'Tabbed must be set to true in the folder config YAML file'
+  end
+
   def content_from_source
     source_path = "#{Rails.root}/#{@config['source']}"
     source_path += '/*' if tabbed_code_examples?
     source_path += '/*.md' if tabbed_content?
 
-    files = Dir[source_path]
+    files = Dir.glob(source_path)
     raise "Empty content_from_source file list in #{source_path}" if files.empty?
     files.map do |content_path|
       raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
       source = File.read(content_path)
 
-      content = {
-        id: SecureRandom.hex,
-        source: source,
-      }
+      next generate_tabbed_code_examples(source, content_path) if tabbed_code_examples?
 
-      if tabbed_code_examples?
-        language_key = File.basename(content_path, '.*').downcase
-        content[:language_key] = language_key
-      end
+      generate_tabbed_content(source) if tabbed_content?
+    end
+  end
 
-      if tabbed_content?
-        content[:frontmatter] = YAML.safe_load(source)
-        content[:language_key] = content[:frontmatter]['language']
-        content[:platform_key] = content[:frontmatter]['platform']
-        content[:tab_title] = content[:frontmatter]['title']
-        content[:body] = MarkdownPipeline.new(options).call(source)
-      end
+  def content_from_folder
+    source_path = @config['source']
+    source_path += '/*.md'
 
-      content
+    files = Dir.glob(source_path)
+    raise "Empty content_from_source file list in #{source_path}" if files.empty?
+    files.map do |content_path|
+      raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
+      source = File.read(content_path)
+
+      generate_tabbed_content(source)
     end
   end
 
@@ -165,6 +181,32 @@ class TabFilter < Banzai::Filter
         language_key: title.dup.downcase,
       })
     end
+  end
+
+  def generate_tabbed_content(source)
+    content = {
+      id: SecureRandom.hex,
+      source: source,
+    }
+
+    content[:frontmatter] = YAML.safe_load(source)
+    content[:language_key] = content[:frontmatter]['language']
+    content[:platform_key] = content[:frontmatter]['platform']
+    content[:tab_title] = content[:frontmatter]['title']
+    content[:body] = MarkdownPipeline.new(options).call(source)
+
+    content
+  end
+
+  def generate_tabbed_code_examples(source, content_path)
+    content = {
+      id: SecureRandom.hex,
+      source: source,
+    }
+    language_key = File.basename(content_path, '.*').downcase
+    content[:language_key] = language_key
+
+    content
   end
 
   def resolve_language(contents)

@@ -6,6 +6,14 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.1 - September 27, 2019
+
+### Changes
+
+- Removed `media.record()` function
+- Removed cache option from SDK, used for storing conversations and events
+- Removed automatic syncing of all individual `conversations` in login, when `sync` is `lite` or `full`
+
 ## Version 6.0.0 - September 13, 2019
 
 ### Breaking Changes
