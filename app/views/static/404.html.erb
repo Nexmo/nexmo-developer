@@ -2,5 +2,23 @@
   <img src="/assets/images/lost.svg" alt="" width="120">
   <br><br>
   <h2>This page can't be found!</h2>
-  <p>Click <a href="/">here</a> to go back to the start</p>
+  <% if @results && @results.length > 0 %> <p>Perhaps you were looking for one of these?</p> <% end %>
+  <div class="Vlt-grid">
+    <% @results.each do |index| %>
+      <div class="Vlt-col">
+        <div class="Vlt-card">
+          <% if index.index.include? 'nexmo_developer' %>
+            <h2>Nexmo Developer</h2>
+          <% elsif index.index == 'zendesk_nexmo_articles' %>
+            <h2>Knowlegebase</h2>
+          <% end %>
+
+        <hr>
+
+        <% index.hits.each do |hit| %>
+          <%= render 'search/result', hit: hit, index_name: index.index %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
 </center>

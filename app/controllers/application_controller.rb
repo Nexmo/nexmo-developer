@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
+
   rescue_from Errno::ENOENT, with: :not_found
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
@@ -16,6 +18,7 @@ class ApplicationController < ActionController::Base
       redirect_to redirect
     else
       NotFoundNotifier.notify(request)
+      not_found_search_results if search_enabled?
       render_not_found
     end
   end
@@ -47,6 +50,19 @@ class ApplicationController < ActionController::Base
   def set_feedback_author
     return unless cookies[:feedback_author_id]
     @feedback_author = Feedback::Author.select(:email).find_by(id: cookies[:feedback_author_id])
+  end
+
+  def not_found_search_results
+    parameters = ALGOLIA_CONFIG.keys.map do |index|
+      {
+        index_name: index,
+        query: request.path.split('/').last.titleize,
+        hitsPerPage: 5,
+      }
+    end
+
+    @results = Algolia.multiple_queries(parameters)
+    @results = JSON.parse(@results.to_json, object_class: OpenStruct).results
   end
 
   def render_not_found
