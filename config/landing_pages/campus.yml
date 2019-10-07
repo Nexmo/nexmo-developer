@@ -52,7 +52,7 @@ page:
           list:
             - item: Learn how to send and receive SMS, Whatsapp, Facebook and Viber messages with the Messages API
             - item: Make Text-To-Speech calls and handle user input with the Voice API in a hands-on workshop
-            - item: Low-code? No problem! Build powerful communication workflows using Node-RED
+            - item: Build powerful communication workflows using Node-RED in your browser, no code required
             - item: Build a voice enabled website, enabling your customers to call your agents in a single click
             - item: Add programmable voice and video to your app to make it interactive using OpenTok
             - item: Use AI to transcribe and analyse the sentiment of a phonecall in realtime with IBM Watson
@@ -79,7 +79,7 @@ page:
       - type: text
         text:
           content: |
-            <h1 style="margin:auto"><svg class="Vlt-yellow"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-home"></use> </svg>@ Bespoke, Westfield San Francisco, 845 Market St, San Francisco</h1><br />
+            <h1 style="margin:auto"><svg class="Vlt-yellow"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-home"></use> </svg><a target="_blank" href="https://www.google.com/maps/place/Bespoke/@37.7843465,-122.4058661,15z/data=!4m2!3m1!1s0x0:0x69bae848b3eb0bb3?sa=X&ved=2ahUKEwiSxf_p_InlAhW8Q0EAHSRrBzkQ_BIwCnoECA4QCA">@ Bespoke, Westfield San Francisco, 845 Market St, San Francisco</a></h1><br />
   - row:
     - column:
         - type: line_divider
@@ -98,7 +98,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="messages-dispatch" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/paul_ardeleanu.png" />
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/hui_jing.png" />
@@ -111,7 +111,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="intro-voice" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" />
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" />
@@ -122,7 +122,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="voice-website" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/alex_lakatos.png" />
             </div>
@@ -134,7 +134,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="nodered" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/sam_machin.png" />
             </div>
@@ -147,7 +147,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="websockets-ibm" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/aaron_bassett.png" />
             </div>
@@ -157,7 +157,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="opentok" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/manik_sachdeva.png" />
             </div>
@@ -191,7 +191,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="conversations" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/britt_barak.png" />
             </div>
@@ -203,7 +203,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="rtc-stack" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/vamis_xhagjika.png">
             </div>
@@ -215,7 +215,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="openapi" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" />
             </div>
@@ -225,7 +225,7 @@ page:
       - type: text
         text:
           content: |
-            <div class="Vlt-card">
+            <div id="github-actions" class="Vlt-card">
             <div class="presenters">
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/kevin-alwell.png" />
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" />
@@ -246,6 +246,138 @@ page:
       - type: action_button
         action_button:
           text: "I'm convinced, sign me up!"
+          url: "https://cvent.me/wB222"
+          type: "primary"
+          large: true
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title: 
+            text: "Meet the speakers"
+            align: center
+          icon: 
+            name: "icon-person"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="kevin" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/kevin-alwell.png" />
+            </div>
+            <h4>Kevin Alwell</h4>
+            <p>Kevin Alwell brings experience from working with enterprise customers to enhance collaboration and accelerate their software delivery at GitHub. He brings a wealth of engineering and strategic knowledge from delivering innovative technical solutions at scale for some of the largest technology companies in the world. Previously, Kevin delivered enterprise solutions for Nexmo customers as a software and solutions engineer.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="paul" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/paul_ardeleanu.png" />
+            </div>
+            <h4>Paul Ardeleanu</h4>
+            <p>Paul is Nexmo’s iOS Developer Advocate. A seasoned software engineer, trainer and public speaker, he specialised in data-driven solutions on Apple platforms with an emphasis on prototyping, best practices and balance with agility.</p>
+
+            <p>Twitter: <a href="https://twitter.com/pardel" target="_blank">@pardel</a></p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="britt" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/britt_barak.png" />
+            </div>
+            <h4>Britt Barak</h4>
+            <p>Britt Barak is a product manager at Nexmo. In the past, she led the mobile engineering teams of various startup companies in Israel, the Startup Nation.</p>
+
+            <p>Britt is a part of Google Developer Experts program, a worldwide public speaker, who is passionate about developers and startup communities, and diversity in tech.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="aaron" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/aaron_bassett.png" />
+            </div>
+            <h4>Aaron Bassett</h4>
+            <p>Aaron Bassett is a recovering senior software engineer turned <a href="https://www.nexmo.com/blog/2018/11/28/all-your-devrel-award-belong-to-us-dr/" target="_blank">Award-winning Developer Advocate</a> with <a href="https://www.nexmo.com/" target="_blank">Nexmo</a>. He is a developer, public speaker, writer, and mentor; he spends most of his time making cool stuff and helping other people make unbelievably cool stuff.</p>
+
+            <p>Twitter:&nbsp;<a href="https://twitter.com/aaronbassett" target="_blank">@aaronbassett</a></p>
+      - type: text
+        text:
+          content: |
+            <div id="michael" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" />
+            </div>
+            <h4>Michael Heap</h4>
+            <p>Michael's a developer relations manager at Nexmo, focusing on the experience developers have when integrating the product. That means ensuring that APIs behave predictably, producing outstanding documentation and providing SDKs in 8 languages to make it as easy to get started as possible.</p>
+
+            <p>Prior to Nexmo, Michael spent a decade as a software engineer working with distributed systems and infrastructure automation. This means that he can't go more than a few days without writing any code, which usually comes in the form of Github Actions</p>
+            </div>
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="huijing" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/hui_jing.png" />
+            </div>
+            <h4>Hui Jing Chen</h4>
+            <p>Hui Jing is a Developer Advocate at Nexmo. She has an inordinate love of CSS and typography, and is generally passionate about all things web.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="alex" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/alex_lakatos.png" />
+            </div>
+            <h4>Alex Lakatos</h4>
+            <p>Alex Lakatos is a JavaScript Developer Advocate for Nexmo. In his spare time he is a Mozilla Tech Speaker and has been a contributor to the Mozilla project for the past eight years, based in London. JavaScript developer building on the open web, he has been pushing its boundaries every day. You can check out his github profile or get in touch on twitter. When he’s not programming, he likes to travel the world, so it’s likely you’ll bump into him in an airport lounge.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="sam" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/sam_machin.png" />
+            </div>
+            <h4>Sam Machin</h4>
+            <p>Sam has over 20 years of experience in the communications industry, having started out as a GSM field engineer climbing towers he’s worked his way through most of the network and APIs to end up as Product Manager for Vonage’s Node-RED offering. In his spare time he is an Amazon Alexa Champion having created a number of novel Alexa projects and he has a strange obsession with phone number formats.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="lorna" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" />
+            </div>
+            <h4>Lorna Mitchell</h4>
+            <p>Lorna is based in Yorkshire, UK; she is a Developer Advocate with Nexmo as well as a published author and experienced conference speaker. Lorna is passionate about open source technologies and sharing knowledge, code and experiences with developers everywhere. In her spare time, Lorna blogs at <a target="_blank" href="http://lornajane.net">http://lornajane.net</a>.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="manik" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/manik_sachdeva.png" />
+            </div>
+            <h4>Manik Sachdeva</h4>
+            <p>Manik is a Senior Software Engineer at Nexmo where he focuses on building OpenTok Client SDKs for iOS, Android, Web, and Windows. He enjoys working with developers and crafting APIs. When he's not building APIs or SDKs, you can find him speaking at conferences and meetups.</p>
+            </div>
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Get your ticket and join us there"
           url: "https://cvent.me/wB222"
           type: "primary"
           large: true
