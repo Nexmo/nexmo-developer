@@ -100,8 +100,8 @@ page:
           content: |
             <div id="messages-dispatch" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/paul_ardeleanu.png" />
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/hui_jing.png" />
+            <a href="#paul"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/paul_ardeleanu.png" /></a>
+            <a href="#huijing"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/hui_jing.png" /></a>
             </div>
             <h4>Getting started with Messages & Dispatch</h4>
             <p>In this workshop, we’re going to learn how to communicate with customers over their preferred channels using Nexmo’s Messages and Dispatch APIs.</p>
@@ -113,8 +113,8 @@ page:
           content: |
             <div id="intro-voice" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" />
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" />
+            <a href="#lorna"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" /></a>
+            <a href="#michael"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" /></a>
             </div>
             <h4>Getting started with Voice API</h4>
             <p>When we speak to our customers, it's important to give a genuine and personal touch - but having some automation in your telephone communications can help both you and your customers to have better conversations. This hands-on workshop will introduce you to the Voice API, teaching you to build an application to answer a voice call, interact with your user, and direct them to the right human for that meaningful conversation. We'll talk about accepting input from users, recording calls to protect both you and them, and give advice on building applications for voice interaction.</p>
@@ -124,7 +124,7 @@ page:
           content: |
             <div id="voice-website" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/alex_lakatos.png" />
+            <a href="#alex"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/alex_lakatos.png" /></a>
             </div>
             <h4>Building a voice-enabled website using the Nexmo Client SDK</h4>
             <p>In this workshop, we’ll walk through how you can make a phone call from a web browser to a phone with Nexmo In-App Voice using the Nexmo Client SDK for JavaScript. The Nexmo Client SDK is in the Early Access stage, so we’d love your feedback on both the development experience that you have and on the functionality that’s provided.</p>
@@ -136,7 +136,7 @@ page:
           content: |
             <div id="nodered" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/sam_machin.png" />
+            <a href="#sam"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/sam_machin.png" /></a>
             </div>
             <h4>Building communications workflows with NodeRED</h4>
             <p>NodeRED is a visual flow based programming environment that allows anyone to create a workflow with just a web browser. There is no "code" to write you simply drag in and wire up a set of pre built blocks to create your workflow.</p>
@@ -149,7 +149,7 @@ page:
           content: |
             <div id="websockets-ibm" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/aaron_bassett.png" />
+            <a href="#aaron"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/aaron_bassett.png" /></a>
             </div>
             <h4>Using Nexmo Voice WebSockets with IBM Watson</h4>
             <p>Discover how you can use Artificial Intelligence to perform sentiment analysis of an audio stream, in real-time! In this workshop, we’re going to learn how to create a virtual rapporteur. A digital assistant who can join any conference call; record it, and then by using IBM Watson provide participants with a real-time transcript and insights into the overall tone of the call. All pushed to their browser via WebSockets.</p>
@@ -159,7 +159,7 @@ page:
           content: |
             <div id="opentok" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/manik_sachdeva.png" />
+            <a href="#manik"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/manik_sachdeva.png" /></a>
             </div>
             <h4>Adding programmable voice & video to a web app using the OpenTok API</h4>
             <p>In this workshop, you’ll learn how to add programmable voice and video to a web application using the OpenTok API. Using the OpenTok API, you will also be able to add screen sharing archiving (recording), and connecting to PSTN participants by integrating with Nexmo SIP Connect. Additionally, Manik will cover best practices on debugging the programmable voice & video using tools such as Playground and Session Inspector.</p>
@@ -193,7 +193,7 @@ page:
           content: |
             <div id="conversations" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/britt_barak.png" />
+            <a href="#britt"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/britt_barak.png" /></a>
             </div>
             <h4>Introducing Nexmo Conversations</h4>
             <p>Communication nowadays has many faces, many forms, and many channels. Your customers are everywhere, using SMS, phone calls, apps and social media - and you want to walk with them wherever they go, whilst maintaining a seamless meaningful relationship. Sounds like a challenge?</p>
@@ -205,7 +205,7 @@ page:
           content: |
             <div id="rtc-stack" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/vamis_xhagjika.png">
+            <a href="#vamis"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/vamis_xhagjika.png"></a>
             </div>
             <h4>Building a Recording Service for Real-Time Video Communications at Global Scale</h4>
             <p>Recording for Video Real-Time Communications is one of the cutting edge features that is provided to developers by the Vonage RTC video API. As simple as the API for recording may be, there are a lot of challenges beneath the scenes that we at Vonage Video Engineering face and solve in order to provide the service at Global Scale and at the Best Quality in Real-Time.</p>
@@ -217,7 +217,7 @@ page:
           content: |
             <div id="openapi" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" />
+            <a href="#lorna"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" /></a>
             </div>
             <h4>Open API Descriptions to Power Up Your API Workflow</h4>
             <p>Have you noticed how many of your favourite API providers are offering their specs in OpenAPI format now? This session will introduce you to OpenAPI and why API providers are increasingly offering it to their users to enable adoption and make integrations easier. Learn about the format, the tools, and how an OpenAPI description can help you to get on board with a new API - or of course help your customers adopt your own APIs. We'll be sharing why we chose OpenAPI, our workflows, and the tools we use.</p>
@@ -227,8 +227,8 @@ page:
           content: |
             <div id="github-actions" class="Vlt-card">
             <div class="presenters">
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/kevin-alwell.png" />
-            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" />
+            <a href="#kevin"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/kevin-alwell.png" /></a>
+            <a href="#michael"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" /></a>
             </div>
             <h4>Enabling modern workflow automation with GitHub Actions</h4>
             <p>Your development process is almost perfect. 90% perfect, even. Github provides most of what you need, and third party integrations cover the rest, but what about that last 10%? What about the things that are unique to you, your team, and your business?</p>
