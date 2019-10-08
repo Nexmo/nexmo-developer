@@ -58,7 +58,7 @@ product: client-sdk/in-app-voice
 All of Nexmo Client SDK use cases:
 
 ```use_cases
-product: client-sdk
+product: client-sdk/in-app-voice
 ```
 
 ## Reference
