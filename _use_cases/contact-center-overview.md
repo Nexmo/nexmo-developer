@@ -10,7 +10,7 @@ languages:
 
 In this use case, you’ll learn how to build an application with contact center features.
 
-Your contact center application has 2 agents: `Jane` and `Joe`, that are users of your client-side application. Your agents make and receive in-app calls, whereas the caller can use a regular phone.
+Your contact center application has two agents: `Jane` and `Joe`, that are users of your client-side application. Your agents make and receive in-app calls, whereas the caller can use a regular phone.
 
 To achieve that, this guide consists of three parts:
 
