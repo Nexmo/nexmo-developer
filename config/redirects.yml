@@ -24,6 +24,7 @@
 "/application/code-snippets": "/application/code-snippets/create-application"
 "/voice/voice-api": "/voice/voice-api/overview"
 "/audit/api-reference": "/api/audit"
+"/client-sdk/in-app-voice/contact-center-overview": "/use-cases/contact-center-client-sdk"
 "/concepts": "/concepts/overview"
 "/concepts/guides/applications": "/application/overview"
 "/contribute/guides/styleguide": "/contribute/guides/markdown-guide"
