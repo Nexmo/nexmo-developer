@@ -86,8 +86,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_143408) do
 
   create_table "redirects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "url"
-    t.integer "uses", default: 0
-    t.datetime "created_at", default: "2018-10-23 03:47:51"
+    t.integer "uses"
   end
 
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

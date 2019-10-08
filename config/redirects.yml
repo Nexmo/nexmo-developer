@@ -209,5 +209,3 @@
 "/tutorials/voice-call-websocket-python": "/use-cases/voice-call-websocket-python"
 "/account/subaccounts/tutorials": "/use-cases/using-subaccounts"
 "/account/guides/secret-management": "/account/secret-management/overview"
-"/use-cases/client-sdk-generate-test-credentials": "/client-sdk/setup/generate-test-credentials"
-"/use-cases/client-sdk-ios-in-app-messaging": "/client-sdk/in-app-messaging/guides/ios-in-app-messaging"

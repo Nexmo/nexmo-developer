@@ -1,6 +1,7 @@
 ---
-title: How to Generate Test Credentials
+title: Create your application
 description: This topic shows you how to create a Nexmo application, users and tokens.
+navigation_weight: 1
 ---
 
 # How to Generate Test Credentials
