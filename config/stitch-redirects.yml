@@ -113,5 +113,5 @@
 "/client-sdk/in-app-voice/guides/call-statuses": "/client-sdk/in-app-voice/concepts/call-statuses"
 "/client-sdk/setup/generate-test-credentials": "/client-sdk/setup/create-your-app"
 
-"/client-sdk/in-app-voice/setup/set-up-push-notifications": "/client-sdk/in-app-voice/setup/set-up-push-notifications/javascript"
-"/client-sdk/in-app-voice/setup/add-sdk-to-your-app": "/client-sdk/in-app-voice/setup/set-up-push-notifications/javascript"
+"/client-sdk/setup/set-up-push-notifications": "/client-sdk/setup/set-up-push-notifications/javascript"
+"/client-sdk/setup/add-sdk-to-your-app": "/client-sdk/setup/set-up-push-notifications/javascript"
