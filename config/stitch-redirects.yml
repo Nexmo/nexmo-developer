@@ -110,7 +110,7 @@
 "/use-cases/client-sdk-generate-test-credentials": "/client-sdk/setup/generate-test-credentials"
 "/use-cases/client-sdk-ios-in-app-messaging": "/client-sdk/in-app-messaging/guides/ios-in-app-messaging"
 "/client-sdk/in-app-voice/guides/call-statuses": "/client-sdk/in-app-voice/concepts/call-statuses"
-"/client-sdk/setup/generate-test-credentials": "/client-sdk/setup/create-your-app"
+"/client-sdk/setup/generate-test-credentials": "/client-sdk/setup/create-your-application"
 
 "/client-sdk/setup/set-up-push-notifications": "/client-sdk/setup/set-up-push-notifications/android"
 "/client-sdk/setup/add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app/javascript"
