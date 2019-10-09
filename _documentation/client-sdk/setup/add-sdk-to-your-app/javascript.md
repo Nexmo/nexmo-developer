@@ -3,9 +3,9 @@ title: JavaScript
 language: javascript
 ---
 
-# How to Add the Nexmo Client SDK to your JavaScript App
+# Overview
 
-This tutorial shows you how to add the Nexmo Client SDK to your client-side JavaScript app.
+In this guide you learn how to add the Nexmo Client SDK to your client-side JavaScript app.
 
 ## Prerequisites
 

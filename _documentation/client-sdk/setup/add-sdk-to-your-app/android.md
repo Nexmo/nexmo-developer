@@ -3,9 +3,9 @@ title: Android
 language: android
 ---
 
-# How to Add the Nexmo Client SDK to your Android App
+# Overview
 
-This tutorial shows you how to add the  Nexmo Client SDK to your Android app.
+In this guide you learn how to add the Nexmo Client SDK to your Android app.
 
 ## Prerequisites
 

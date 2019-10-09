@@ -3,9 +3,9 @@ title: iOS
 language: ios
 ---
 
-# How to Add the Nexmo Client SDK to your iOS App
+# Overview
 
-In this tutorial you learn how to add the Nexmo Client SDK to your iOS app.
+In this guide you learn how to add the Nexmo Client SDK to your iOS app.
 
 ## Prerequisites
 
@@ -181,4 +181,3 @@ NXMUser *user = client.user;
 ## Conclusion
 
 You added the Nexmo Client SDK to your iOS app, and logged in to a `NXMClient` instance. You can now use the `NXMClient` client in your app, and use the Nexmo Client SDK functionality.
-
