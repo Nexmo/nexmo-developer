@@ -26,7 +26,7 @@ Name | Description
 `capabilities` | Describes the types of functionality this application will support. The capabilities `voice`, `messages`, `rtc`, `vbc`. Any number of these capabilities can be supported in one application. You also set `webhooks` for each capability specified. Nexmo sends and retrieves information via the webhook endpoints.
 `keys` | Contains `private_key` and `public_key`. You use the private key to generate the JWTs used to authenticate your calls to the Nexmo APIs. The public key is used by Nexmo to authenticate the JWT in your requests to Nexmo API.
 
-## Application capabilities
+## Capabilities
 
 A Nexmo application can use various APIs, including Voice, Messages and Dispatch, Conversation, and Client SDK.
 
@@ -71,5 +71,19 @@ There are four main ways to create an application:
 
 1. In the Nexmo Dashboard you can create an application with a single capability. You can then add capabilities and update the details of an application created in the Dashboard using the v2 API. If an application has multiple capabilities it will appear in all relevant sections of the Dashboard. For example, an application with both Voice and Messages capabilities will appear in both the Voice and Messages sections of the Dashboard.
 2. Using the Nexmo CLI (this is currently restricted to v1 Applications with a single fixed capability).
-3. Using the [Applications API](https://developer.nexmo.com/api/application.v2).
+3. Using the [Application API](https://developer.nexmo.com/api/application.v2).
 4. Using one of the Nexmo client libraries (this is currently restricted to v1 Applications with a single fixed capability).
+
+## Managing applications using the CLI
+
+* [Managing application using the Nexmo CLI](/application/nexmo-cli)
+
+## Code Snippets
+
+```code_snippet_list
+product: application
+```
+
+## Reference
+
+* [Application API](https://developer.nexmo.com/api/application.v2)

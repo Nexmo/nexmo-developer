@@ -6,6 +6,10 @@
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper wrapper--tint">
       <%= render partial: 'layouts/partials/notices' %>
+
+      <div id='hello'>
+        <jwt-generator></jwt-generator>
+      </div>
       <%= yield %>
     </div>
     <%= render partial: 'layouts/partials/footer' %>

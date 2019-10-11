@@ -9,21 +9,21 @@
 
 import '@babel/polyfill'
 
+import Vue from 'vue/dist/vue.esm'
+
 import { TweenLite, CSSPlugin } from 'gsap'
-import React from 'react'
-import ReactDOM from 'react-dom'
 import GithubCards from '../github_cards'
 import VoltaTabbedExamples from '../volta_tabbed_examples'
 import Format from '../format'
 import Scroll from '../scroll'
 import Spotlight from '../spotlight'
-import Search from '../components/search'
 import Notices from '../notices'
-import Feedback from '../components/feedback'
-import Concatenation from '../components/concatenation'
+import Feedback from '../components/feedback/Feedback.vue'
+import JwtGenerator from '../components/jwt_generator/JwtGenerator.vue'
+import Search from '../components/search/Search.vue'
+import Concatenation from '../components/concatenation/Concatenation.vue'
 import APIStatus from '../api_status'
 import CodeSnippetEvents from '../code_snippet_events'
-import JWTGenerator from '../components/jwt_generator'
 import Navigation from '../navigation'
 
 $(document).ready(function() {
@@ -38,20 +38,50 @@ $(document).ready(function() {
   Navigation()
   Spotlight()
 
-  if (document.getElementById('jwtGenerator')) {
-    ReactDOM.render(<JWTGenerator/>, document.getElementById('jwtGenerator'))
+  if (document.getElementById('jwt-generator-app')) {
+    new Vue({
+      el: '#jwt-generator-app',
+      template: '<JwtGenerator/>',
+      components: { JwtGenerator }
+    })
   }
 
-  if (document.getElementById('SearchComponent')) {
-    ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
+  if (document.getElementById('search-app')) {
+    new Vue({
+      el: '#search-app',
+      template: '<Search/>',
+      components: { Search }
+    })
   }
 
-  if (document.getElementById('FeedbackComponent')) {
-    ReactDOM.render(<Feedback {...window.feedbackProps}/>, document.getElementById('FeedbackComponent'))
+  if (document.getElementById('feedback-app')) {
+    new Vue({
+      el: '#feedback-app',
+      template: '<Feedback/>',
+      render: createElement => {
+        let context = {
+          props: {
+            codeLanguage: window.feedbackProps.code_language || window.initialLanguage,
+            codeLanguageSelectedWhilstOnPage: window.feedbackProps.code_language_selected_whilst_on_page || false,
+            codeLanguageSetByUrl: window.feedbackProps.code_language_set_by_url,
+            currentUser: window.feedbackProps.current_user,
+            feedbackAuthor: window.feedbackProps.feedback_author,
+            githubUrl: window.feedbackProps.github_url,
+            recaptcha: window.feedbackProps.recaptcha,
+            source: window.feedbackProps.source
+          }
+        }
+        return createElement(Feedback, context)
+      }
+    })
   }
 
-  if (document.getElementById('ConcatenationComponent')) {
-    ReactDOM.render(<Concatenation/>, document.getElementById('ConcatenationComponent'))
+  if (document.getElementById('concatenation-app')) {
+    new Vue({
+      el: '#concatenation-app',
+      template: '<Concatenation/>',
+      components: { Concatenation }
+    })
   }
 
   // If we're on a two pane page, make sure that the main pane is focused

@@ -57,7 +57,6 @@ Rails.application.routes.draw do
 
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
-  resources :careers, only: [:show], path: 'team'
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'

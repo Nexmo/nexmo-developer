@@ -5,9 +5,9 @@ description: In this step you learn how to create a Client SDK User.
 
 # Create a User
 
-Users are a key concept when working with the Nexmo Client SDKs. When a user authenticates with the Client SDK, the credentials provided identify them as a specific user. Each user will typically correspond to a single user in your users database.
+[Users](/conversation/concepts/user) are a key concept when working with the Nexmo Client SDKs. When a user authenticates with the Client SDK, the credentials provided identify them as a specific user. Each user will typically correspond to a single record in your users database.
 
-To create a user, run the following command using the Nexmo CLI (which was installed in a previous step), replacing `MY_USER_NAME` with the name that you'd like to use.
+To create a user, run the following command using the Nexmo CLI (which you installed in a previous step), replacing `MY_USER_NAME` with the name that you'd like to use.
 
 ```bash
 nexmo user:create name="MY_USER_NAME"

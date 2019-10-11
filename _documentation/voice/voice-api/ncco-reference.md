@@ -142,7 +142,7 @@ Option | Description | Required
 `eventType` | Set to `synchronous` to: <ul class="Vlt-list Vlt-list--simple"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states.</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
-`machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul class="Vlt-list Vlt-list--simple"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
+`machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul class="Vlt-list Vlt-list--simple"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   | No
 `eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call States](/voice/voice-api/guides/call-flow#call-states). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
 

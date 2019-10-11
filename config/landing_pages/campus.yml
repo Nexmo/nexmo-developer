@@ -1,0 +1,384 @@
+# Hanselminutes Landing Page Config
+
+title: "Vonage Campus"
+meta_title: "Join us at Vonage Campus 2019!"
+
+page:
+  - row:
+    - column: 
+      - type: text
+        text:
+          content: |
+              <style>
+              .Vlt-card .presenters {
+                  text-align: center;
+              }
+              .Vlt-card .presenters img {
+                max-width: 150px;
+                margin-right: 20px;
+                margin-bottom: 10px;
+              }
+              </style>
+      - type: header
+        header:
+          title: 
+            text: "Two days of developer content, just for you"
+            align: center
+          subtitle:
+            text: "Join us on October 29/30th 2019 at Bespoke, San Francisco to learn about contextual communications,<br /> workflow automation with Github Actions, API design with Open API Specifications and more!"
+            align: center
+            type: large
+          icon: 
+            name: "icon-star"
+            color: "yellow"
+      - type: action_button
+        action_button:
+          text: "Get your FREE ticket now"
+          url: "https://cvent.me/wB222"
+          type: "primary"
+          large: true
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: text
+        text:
+          content: '<h2><svg class="Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-code"></use> </svg>Hands-on Workshops</h2><h4>11am -7:30pm 29th October 2019</h4><br />'
+      - type: unordered_list
+        unordered_list:
+          bullet_shape: simple
+          list:
+            - item: Learn how to send and receive SMS, Whatsapp, Facebook and Viber messages with the Messages API
+            - item: Make Text-To-Speech calls and handle user input with the Voice API in a hands-on workshop
+            - item: Build powerful communication workflows using Node-RED in your browser, no code required
+            - item: Build a voice enabled website, enabling your customers to call your agents in a single click
+            - item: Add programmable voice and video to your app to make it interactive using OpenTok
+            - item: Use AI to transcribe and analyse the sentiment of a phonecall in realtime with IBM Watson
+    - column:
+      - type: text
+        text:
+          content: |
+              <h2><svg class="Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-shout"></use> </svg>Technical Talks</h2><h4>8am-6pm 30th October 2019 </h4><br />
+      - type: unordered_list
+        unordered_list:
+          bullet_shape: simple
+          list:
+            - item: Power up your API workflow with Open API Descriptions
+            - item: A sneak peek at the Vonage tech stack
+            - item: Using Github Actions for workflow automation and CI
+            - item: Introducing Nexmo Conversations (with demo!)
+            - item: <a href="#day-2-technical-talks">And more...</a>
+
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <h1 style="margin:auto"><svg class="Vlt-yellow"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-home"></use> </svg><a target="_blank" href="https://www.google.com/maps/place/Bespoke/@37.7843465,-122.4058661,15z/data=!4m2!3m1!1s0x0:0x69bae848b3eb0bb3?sa=X&ved=2ahUKEwiSxf_p_InlAhW8Q0EAHSRrBzkQ_BIwCnoECA4QCA">@ Bespoke, Westfield San Francisco, 845 Market St, San Francisco</a></h1><br />
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title: 
+            text: "Day 1 - Workshops"
+            align: center
+          icon: 
+            name: "icon-code"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="messages-dispatch" class="Vlt-card">
+            <div class="presenters">
+            <a href="#paul"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/paul_ardeleanu.png" /></a>
+            <a href="#huijing"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/hui_jing.png" /></a>
+            </div>
+            <h4>Getting started with Messages & Dispatch</h4>
+            <p>In this workshop, we’re going to learn how to communicate with customers over their preferred channels using Nexmo’s Messages and Dispatch APIs.</p>
+            <p>We will start with an overview of Nexmo messaging concepts and learn how to use the SMS, MMS, Facebook Messenger, Viber and WhatsApp integrations, going into specifics for each platform and what purposes they are most suited for.</p>
+            <p>During the second part, we’re going to use the Dispatch API to create a multi channel strategy that incorporates failover to secondary channels.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="intro-voice" class="Vlt-card">
+            <div class="presenters">
+            <a href="#lorna"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" /></a>
+            <a href="#michael"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" /></a>
+            </div>
+            <h4>Getting started with Voice API</h4>
+            <p>When we speak to our customers, it's important to give a genuine and personal touch - but having some automation in your telephone communications can help both you and your customers to have better conversations. This hands-on workshop will introduce you to the Voice API, teaching you to build an application to answer a voice call, interact with your user, and direct them to the right human for that meaningful conversation. We'll talk about accepting input from users, recording calls to protect both you and them, and give advice on building applications for voice interaction.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="voice-website" class="Vlt-card">
+            <div class="presenters">
+            <a href="#alex"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/alex_lakatos.png" /></a>
+            </div>
+            <h4>Building a voice-enabled website using the Nexmo Client SDK</h4>
+            <p>In this workshop, we’ll walk through how you can make a phone call from a web browser to a phone with Nexmo In-App Voice using the Nexmo Client SDK for JavaScript. The Nexmo Client SDK is in the Early Access stage, so we’d love your feedback on both the development experience that you have and on the functionality that’s provided.</p>
+            <p>We'll go through everything you need to start building voice-enabled websites using Node, the Nexmo Server SDK for JavaScript and the Nexmo Client SDK.</p>
+            </div>
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="nodered" class="Vlt-card">
+            <div class="presenters">
+            <a href="#sam"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/sam_machin.png" /></a>
+            </div>
+            <h4>Building communications workflows with NodeRED</h4>
+            <p>NodeRED is a visual flow based programming environment that allows anyone to create a workflow with just a web browser. There is no "code" to write you simply drag in and wire up a set of pre built blocks to create your workflow.</p>
+            <p>We will show you how to create a basic IVR, forward calls, and capture recordings from callers as well as trigger outbound calls and notification messages.</p>
+            <p>Part of the power of NodeRED is it’s open source ecosystem so we will show you how to combine Vonage APIS with nodes from other 3rd party services to create your own custom integrations.</p>
+            <p>No previous knowledge of programming is needed although a basic understanding of the Nexmo product would help. The only tool needed is a web browser ideally on Mac, Windows, Linux or Chromebooks, iPads can be supported but the experience is sub optimal.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="websockets-ibm" class="Vlt-card">
+            <div class="presenters">
+            <a href="#aaron"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/aaron_bassett.png" /></a>
+            </div>
+            <h4>Using Nexmo Voice WebSockets with IBM Watson</h4>
+            <p>Discover how you can use Artificial Intelligence to perform sentiment analysis of an audio stream, in real-time! In this workshop, we’re going to learn how to create a virtual rapporteur. A digital assistant who can join any conference call; record it, and then by using IBM Watson provide participants with a real-time transcript and insights into the overall tone of the call. All pushed to their browser via WebSockets.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="opentok" class="Vlt-card">
+            <div class="presenters">
+            <a href="#manik"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/manik_sachdeva.png" /></a>
+            </div>
+            <h4>Adding programmable voice & video to a web app using the OpenTok API</h4>
+            <p>In this workshop, you’ll learn how to add programmable voice and video to a web application using the OpenTok API. Using the OpenTok API, you will also be able to add screen sharing archiving (recording), and connecting to PSTN participants by integrating with Nexmo SIP Connect. Additionally, Manik will cover best practices on debugging the programmable voice & video using tools such as Playground and Session Inspector.</p>
+            </div>
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Reserve your workshop ticket now"
+          url: "https://cvent.me/wB222"
+          type: "primary"
+          large: true
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title: 
+            text: "Day 2 - Technical Talks"
+            align: center
+          icon: 
+            name: "icon-shout"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="conversations" class="Vlt-card">
+            <div class="presenters">
+            <a href="#britt"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/britt_barak.png" /></a>
+            </div>
+            <h4>Introducing Nexmo Conversations</h4>
+            <p>Communication nowadays has many faces, many forms, and many channels. Your customers are everywhere, using SMS, phone calls, apps and social media - and you want to walk with them wherever they go, whilst maintaining a seamless meaningful relationship. Sounds like a challenge?</p>
+            <p>This session introduces Nexmo Conversations - an omnichannel API and suite of SDKs that gather all your customers' communication events into one coherent journey.</p>
+            <p>With a few lines of code, you can enable your mobile and web applications with additional channels and functionality that allow you to engage in meaningful conversations with your users. You’ll learn how to use Nexmo’s robust platform to integrate messages, realtime voice or other custom channels of your choice, all of which contribute to a superior customer experience!</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="rtc-stack" class="Vlt-card">
+            <div class="presenters">
+            <a href="#vamis"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/vamis_xhagjika.png"></a>
+            </div>
+            <h4>Building a Recording Service for Real-Time Video Communications at Global Scale</h4>
+            <p>Recording for Video Real-Time Communications is one of the cutting edge features that is provided to developers by the Vonage RTC video API. As simple as the API for recording may be, there are a lot of challenges beneath the scenes that we at Vonage Video Engineering face and solve in order to provide the service at Global Scale and at the Best Quality in Real-Time.</p>
+            <p>This talk will provide a glimpse inside the magical backend and the challenges of building and scaling a Multi-Datacenter, Real-Time Video Recording Service. Topics will vary from machine level optimizations to multi-datacenter recorder selection. On the machine level optimization topic we will cover video stream synchronization, real-time video transcoding and video processing challenges. Moving a level up in abstraction we will discuss multi-datacenter server selection for real-time recorder allocation based on Statistical Predictive Models.</p>
+            </div>
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="openapi" class="Vlt-card">
+            <div class="presenters">
+            <a href="#lorna"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" /></a>
+            </div>
+            <h4>Open API Descriptions to Power Up Your API Workflow</h4>
+            <p>Have you noticed how many of your favourite API providers are offering their specs in OpenAPI format now? This session will introduce you to OpenAPI and why API providers are increasingly offering it to their users to enable adoption and make integrations easier. Learn about the format, the tools, and how an OpenAPI description can help you to get on board with a new API - or of course help your customers adopt your own APIs. We'll be sharing why we chose OpenAPI, our workflows, and the tools we use.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="github-actions" class="Vlt-card">
+            <div class="presenters">
+            <a href="#kevin"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/kevin-alwell.png" /></a>
+            <a href="#michael"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" /></a>
+            </div>
+            <h4>Enabling modern workflow automation with GitHub Actions</h4>
+            <p>Your development process is almost perfect. 90% perfect, even. Github provides most of what you need, and third party integrations cover the rest, but what about that last 10%? What about the things that are unique to you, your team, and your business?</p>
+            <p>Github Actions let you bridge that gap, running code that's specific to you as part of your development and deployment workflow. Come and learn what Github Actions can do for you, and how Nexmo uses them to streamline their development processes.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div class="Vlt-card">
+                <h4>And more!</h4>
+                <span style="font-size: 1.2em">There are <a href="https://vonage.com/campus/#developers">even more</a> sessions that we couldn't fit on this page, so why not take a look at what you're missing out on and <a href="https://cvent.me/wB222">sign up for a <strong>free</strong> ticket</a> today</span>
+            </div>
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "I'm convinced, sign me up!"
+          url: "https://cvent.me/wB222"
+          type: "primary"
+          large: true
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title: 
+            text: "Meet the speakers"
+            align: center
+          icon: 
+            name: "icon-person"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="kevin" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/kevin-alwell.png" />
+            </div>
+            <h4>Kevin Alwell</h4>
+            <p>Kevin Alwell brings experience from working with enterprise customers to enhance collaboration and accelerate their software delivery at GitHub. He brings a wealth of engineering and strategic knowledge from delivering innovative technical solutions at scale for some of the largest technology companies in the world. Previously, Kevin delivered enterprise solutions for Nexmo customers as a software and solutions engineer.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="paul" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/paul_ardeleanu.png" />
+            </div>
+            <h4>Paul Ardeleanu</h4>
+            <p>Paul is Nexmo’s iOS Developer Advocate. A seasoned software engineer, trainer and public speaker, he specialised in data-driven solutions on Apple platforms with an emphasis on prototyping, best practices and balance with agility.</p>
+
+            <p>Twitter: <a href="https://twitter.com/pardel" target="_blank">@pardel</a></p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="britt" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/britt_barak.png" />
+            </div>
+            <h4>Britt Barak</h4>
+            <p>Britt Barak is a product manager at Nexmo. In the past, she led the mobile engineering teams of various startup companies in Israel, the Startup Nation.</p>
+
+            <p>Britt is a part of Google Developer Experts program, a worldwide public speaker, who is passionate about developers and startup communities, and diversity in tech.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="aaron" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/aaron_bassett.png" />
+            </div>
+            <h4>Aaron Bassett</h4>
+            <p>Aaron Bassett is a recovering senior software engineer turned <a href="https://www.nexmo.com/blog/2018/11/28/all-your-devrel-award-belong-to-us-dr/" target="_blank">Award-winning Developer Advocate</a> with <a href="https://www.nexmo.com/" target="_blank">Nexmo</a>. He is a developer, public speaker, writer, and mentor; he spends most of his time making cool stuff and helping other people make unbelievably cool stuff.</p>
+
+            <p>Twitter:&nbsp;<a href="https://twitter.com/aaronbassett" target="_blank">@aaronbassett</a></p>
+      - type: text
+        text:
+          content: |
+            <div id="michael" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/michael-heap.png" />
+            </div>
+            <h4>Michael Heap</h4>
+            <p>Michael's a developer relations manager at Nexmo, focusing on the experience developers have when integrating the product. That means ensuring that APIs behave predictably, producing outstanding documentation and providing SDKs in 8 languages to make it as easy to get started as possible.</p>
+
+            <p>Prior to Nexmo, Michael spent a decade as a software engineer working with distributed systems and infrastructure automation. This means that he can't go more than a few days without writing any code, which usually comes in the form of Github Actions</p>
+            </div>
+    - column:
+      - type: text
+        text:
+          content: |
+            <div id="huijing" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/hui_jing.png" />
+            </div>
+            <h4>Hui Jing Chen</h4>
+            <p>Hui Jing is a Developer Advocate at Nexmo. She has an inordinate love of CSS and typography, and is generally passionate about all things web.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="alex" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/alex_lakatos.png" />
+            </div>
+            <h4>Alex Lakatos</h4>
+            <p>Alex Lakatos is a JavaScript Developer Advocate for Nexmo. In his spare time he is a Mozilla Tech Speaker and has been a contributor to the Mozilla project for the past eight years, based in London. JavaScript developer building on the open web, he has been pushing its boundaries every day. You can check out his github profile or get in touch on twitter. When he’s not programming, he likes to travel the world, so it’s likely you’ll bump into him in an airport lounge.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="sam" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/sam_machin.png" />
+            </div>
+            <h4>Sam Machin</h4>
+            <p>Sam has over 20 years of experience in the communications industry, having started out as a GSM field engineer climbing towers he’s worked his way through most of the network and APIs to end up as Product Manager for Vonage’s Node-RED offering. In his spare time he is an Amazon Alexa Champion having created a number of novel Alexa projects and he has a strange obsession with phone number formats.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="lorna" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/lorna_mitchell.png" />
+            </div>
+            <h4>Lorna Mitchell</h4>
+            <p>Lorna is based in Yorkshire, UK; she is a Developer Advocate with Nexmo as well as a published author and experienced conference speaker. Lorna is passionate about open source technologies and sharing knowledge, code and experiences with developers everywhere. In her spare time, Lorna blogs at <a target="_blank" href="http://lornajane.net">http://lornajane.net</a>.</p>
+            </div>
+      - type: text
+        text:
+          content: |
+            <div id="manik" class="Vlt-card">
+            <div class="presenters">
+            <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/manik_sachdeva.png" />
+            </div>
+            <h4>Manik Sachdeva</h4>
+            <p>Manik is a Senior Software Engineer at Nexmo where he focuses on building OpenTok Client SDKs for iOS, Android, Web, and Windows. He enjoys working with developers and crafting APIs. When he's not building APIs or SDKs, you can find him speaking at conferences and meetups.</p>
+            </div>
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Get your ticket and join us there"
+          url: "https://cvent.me/wB222"
+          type: "primary"
+          large: true
+          center_button: true

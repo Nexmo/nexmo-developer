@@ -12,12 +12,10 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.2",
     "algoliasearch": "^3.24.9",
     "autoprefixer": "^7.1.2",
     "babel-loader": "^8.0.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-babili": "^0.1.4",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.7",
@@ -42,33 +40,40 @@
     "prop-types": "^15.7.2",
     "puppeteer": "^1.13.0",
     "rails-erb-loader": "^5.1.0",
-    "react": "^16.8.6",
-    "react-ace": "^5.9.0",
-    "react-dom": "^16.8.6",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
     "sha1-file": "^1.0.0",
     "style-loader": "^0.18.2",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.0.0",
     "webpack-merge": "^4.1.0",
     "webpacker": "^4",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.9.0",
     "eslint": "^4.9.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
+    "fetch-mock": "^7.3.9",
+    "flush-promises": "^1.0.2",
     "jest": "^24.8.0",
+    "node-fetch": "^2.6.0",
+    "vue-jest": "^3.0.5",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   },
   "version": "1.1.0",
   "engines": {
-    "node": "> 8.0.0 <= 10",
+    "node": ">= 12.0.0 < 13",
     "yarn": ">=0.25.2"
   },
   "scripts": {
@@ -81,8 +86,21 @@
     ],
     "moduleDirectories": [
       "node_modules",
-      "app/javascript"
+      "app/javascript",
+      "spec"
     ],
-    "verbose": true
+    "verbose": true,
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/"
+    ]
   }
 }

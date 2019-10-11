@@ -1,6 +1,4 @@
 ---
-dependencies:
-    - nexmo@beta
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/applications/get-application.js
     from_line: 16
