@@ -19,7 +19,7 @@ In case you have not done that already, more details can be found in the [offici
 
 Obtain a `jwt_dev`, which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
-Get your `server_api_key` from the Firebase console. Navigate to _Firebase console_, _Project settings_, _`CloudMessaging`_, _Server key_.
+Get your `server_api_key` from the Firebase console. Navigate to `Firebase console, Project settings, CloudMessaging, Server key`.
 
 Get your Nexmo Application ID, `app_id`. It can be obtained from [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
