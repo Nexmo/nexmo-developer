@@ -9,7 +9,7 @@ In this guide you learn how to add the Nexmo Client SDK to your Android app.
 
 ## Prerequisites
 
-The Nexmo Client SDK requires a minumum Android API level of 23.
+The Nexmo Client SDK requires a minimum Android API level of 23.
 
 ## To add the Nexmo Client SDK to your project
 
@@ -65,9 +65,9 @@ To use the In-App Voice features, add audio permissions using the following proc
 
     Read more about requesting runtime permissions on Android [here]("https://developer.android.com/training/permissions/requesting")
 
-## Using NexmoClient in your App
+## Using `NexmoClient` in your App
 
-### Building NexmoClient
+### Building `NexmoClient`
 
 Make sure to build the NexmoClient instance before using it. The default build being:
 
@@ -75,7 +75,7 @@ Make sure to build the NexmoClient instance before using it. The default build b
 NexmoClient.Builder().build(context)
 ```
 
-### Setting NexmoConnectionListener
+### Setting `NexmoConnectionListener`
 
 Set `NexmoConnectionListener` that will notify you on any changes on the connection to the SDK and the availability of its functionality:
 
@@ -89,7 +89,7 @@ NexmoClient.get().setConnectionListener(new NexmoConnectionListener() {
 
 ```
 
-### Login NexmoClient
+### Login `NexmoClient`
 
 After initializing `NexmoClient`, you need log in to it, using a `jwt` user token. This is described in the topic on [JWTs and ACLs](/client-sdk/concepts/jwt-acl).
 

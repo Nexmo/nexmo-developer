@@ -34,27 +34,27 @@ curl -v -X PUT \
    https://api.nexmo.com/v1/applications/$app_id/push_tokens/ios
 ```
 
-## Integrate push notifications in your app
+## Integrate push notifications in your application
 
 There are two types of push notifications that you can use:
 
-* *Voip push* - the better fit for apps which utilizes Nexmo In-App Voice funcionality
+* *VoIP push* - the better fit for applications that use Nexmo In-App Voice functionality.
 * *Regular push*
 
-### Integrate VOIP push
+### Integrate VoIP push
 
-VOIP push notifications are suitable for VOIP apps. Among other benefits, it allows you to receive notifications even when the app is terminated.
+VoIP push notifications are suitable for VoIP apps. Among other benefits, it allows you to receive notifications even when the app is terminated.
 
-To integrate VOIP push in your app, follow these steps:
+To integrate VoIP push in your app, follow these steps:
 
-##### 1. Enable VOIP push notifications for your app.
+#### 1. Enable VoIP push notifications for your app
    
-   In XCode under *your target*, open *Capabilities*:
+   In Xcode, under *your target*, open *Capabilities*:
 
    * Enable Push Notifications
    * Enable background modes with Voice over IP selected
 
-##### 2. Import PushKit, adopt `PKPushRegistryDelegate` and sign to VOIP notifications:
+#### 2. Import `PushKit`, adopt `PKPushRegistryDelegate`, and sign up to VoIP notifications
 
 **Swift**:
 
@@ -78,7 +78,7 @@ func registerForVoIPPushes() {
 }
 ```
 
-##### 3. Implement the following delegate method and add the the code to handle an incoming VOIP push notification:
+#### 3. Implement the following delegate method and add the the code to handle an incoming VoIP push notification
 
 **Swift**:
 
@@ -108,7 +108,7 @@ func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload
 
 For the SDK to process the push properly `NXMClient` should be logged in.
 
-##### 4. Enable Nexmo push notifications through a logged in `NXMClient`:
+#### 4. Enable Nexmo push notifications through a logged in `NXMClient`
 
 **Swift**:
 
@@ -126,24 +126,24 @@ client.enablePushNotifications(withDeviceToken: deviceToken, isPushKit: true, is
 }];
 ```
 
-* `'isSandbox'` is YES/true for an app using the Apple sandbox push servers and NO/false for an app using the Apple production push servers.  
+* `'isSandbox'` is `YES`/`true` for an app using the Apple sandbox push servers and NO/false for an app using the Apple production push servers.  
 
 * `'deviceToken'` is the token received in `application:didRegisterForRemoteNotificationsWithDeviceToken:`.
 
 ### Integrate Regular Push
 
-If your app is not a VOIP app, you should use regular push notifications. Nexmo push is sent silently to allow you control over what is presented to your user.  
+If your app is not a VoIP app, you should use regular push notifications. Nexmo push is sent silently to allow you control over what is presented to your user.  
 
 To receive silent push notifications in your app use the following steps.
 
-##### 1. Enable push notifications for your app.
+#### 1. Enable push notifications for your app
 
-In XCode under your target, open *Capabilities*:
+In Xcode under your target, open *Capabilities*:
 
-    * enable Push Notifications
-    * enable background modes with remote notifications selected
+    * Enable Push Notifications.
+    * Enable background modes with remote notifications selected.
 
-##### 2. Register for device token.
+#### 2. Register for device token
 
 In your app delegate implement the following delegate method to receive a device token:  
 
@@ -159,7 +159,7 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 -(void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
 ```
 
-##### 3. Handle an incoming push notification
+#### 3. Handle an incoming push notification
 
 In your app delegate adopt the `UNUserNotificationCenterDelegate`.
 
@@ -191,7 +191,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 For the SDK to process the push properly the `NXMClient` needs to be logged in.
 
-##### 4. Enable Nexmo push notifications through a logged in `NXMClient`:
+#### 4. Enable Nexmo push notifications through a logged in `NXMClient`:
 
 **Swift**:
 

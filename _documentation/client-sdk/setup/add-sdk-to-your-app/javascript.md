@@ -9,7 +9,7 @@ In this guide you learn how to add the Nexmo Client SDK to your client-side Java
 
 ## Prerequisites
 
-The Nexmo Client SDK requires [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com/).
+The Nexmo Client SDK requires [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/).
 
 ## To add the Nexmo Client SDK to your project
 
@@ -23,7 +23,7 @@ npm init -y
 
 ### Install the Client SDK package
 
-Install the Nexmo Client SDK from npm:
+Install the Nexmo Client SDK using `npm`:
 
 ```
 npm install nexmo-client -s
@@ -31,7 +31,7 @@ npm install nexmo-client -s
 
 ### Import the Client SDK into your code
 
-If your app is using ES6 module syntax, you can import the client module near the top of your application code:
+If your application is using ES6 module syntax, you can import the client module near the top of your application code:
 
 ```
 import NexmoClient from 'nexmo-client';

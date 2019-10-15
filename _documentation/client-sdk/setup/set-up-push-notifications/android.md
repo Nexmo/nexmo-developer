@@ -19,7 +19,7 @@ In case you have not done that already, more details can be found in the [offici
 
 Obtain a `jwt_dev`, which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
-Get your `server_api_key` from Firebase console. Navigate to Firebase console --> project settings --> CloudMessaging Tab --> `Server key`
+Get your `server_api_key` from the Firebase console. Navigate to _Firebase console_, _Project settings_, _`CloudMessaging`_, _Server key_.
 
 Get your Nexmo Application ID, `app_id`. It can be obtained from [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
@@ -59,7 +59,7 @@ If you do not have one already, create a service that extends `FirebaseMessaging
 
 ## Enable Nexmo server to send push notifications to your device
 
-In order for Nexmo to be able to send push notification to a device, the Nexmo server has to know the device token, also known as InstanceID.
+In order for Nexmo to be able to send push notifications to a device, the Nexmo server has to know the device token, also known as `InstanceID`.
 
 In your implementation of `FirebaseMessagingService`,  override `onNewToken()` and update the Nexmo servers with it:
 
