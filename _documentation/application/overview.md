@@ -96,7 +96,7 @@ There are four main ways to create an application:
 
 ## Managing applications using the CLI
 
-* [Managing application using the Nexmo CLI](/application/nexmo-cli)
+* [Managing applications using the Nexmo CLI](/application/nexmo-cli)
 
 ## Code Snippets
 
