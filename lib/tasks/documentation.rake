@@ -6,11 +6,13 @@ namespace :documentation do
 
     Dir.glob(documentation_path).each do |filename|
       document = YAML.safe_load(File.read(filename))
-
-      if !document.key?('meta_title') == false || !document.key?('description') == false
+      meta_title = document['meta_title']
+      description = document['description']
+      if meta_title.blank? || description.blank?
         documents.push(filename.split('/_documentation')[1])
       end
     end
-    puts "The following #{documents.count} documents are missing either a 'meta_title' or 'description' key:\n#{documents.join("\n")}"
+    count = documents.count
+    raise "The following #{count} documents are missing either a 'meta_title' or 'description' key:\n#{documents.join("\n")}" if count.positive?
   end
 end
