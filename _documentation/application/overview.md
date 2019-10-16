@@ -30,7 +30,7 @@ Example, an application that [forwards inbound calls](/voice/voice-api/code-snip
 4. You implement a web application that responds to callbacks on the webhook URLs.
 5. When an inbound call is made to the Nexmo number associated with the Nexmo application, an [NCCO](/voice/voice-api/ncco-reference) is returned on the `answer_url`.
 
-Other types of application, such as those with Messages and Dispatch capabilities, have a slightly different process which is described in the relevant sections of this [documentation](/documentation).
+Other types of application, such as those with Messages and Dispatch capabilities, have a slightly different process which is described in the relevant sections of this [documentation](/application/overview).
 
 The following sections explain Nexmo applications in more detail.
 
