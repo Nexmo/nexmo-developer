@@ -20,7 +20,7 @@ To illustrate the use of Nexmo applications, a brief summary for creating and us
 1. Create a Nexmo application using the CLI, the Dashboard or the Application API.
 2. Make sure you configure your webhook URLs. Nexmo will call back on these URLs with important information.
 3. Associate a Nexmo number with your Nexmo application.
-4. Write your web application. This responds on the webhook URLs and may use the Nexmo APIs as required.
+4. Write your web application. Implement the webhook endpoints you configured in step 2, using the Nexmo APIs as required.
 
 Example, an application that [forwards inbound calls](/voice/voice-api/code-snippets/connect-an-inbound-call) to a destination phone:
 
