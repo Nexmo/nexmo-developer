@@ -3,11 +3,11 @@ namespace :documentation do
   task 'check_keys': :environment do
     documentation_path = "#{Rails.root}/_documentation/**/*.md"
     documents = []
-    
+
     Dir.glob(documentation_path).each do |filename|
       document = YAML.safe_load(File.read(filename))
-      
-      if (!document.key?('meta_title') == false || !document.key?('description') == false)
+
+      if !document.key?('meta_title') == false || !document.key?('description') == false
         documents.push(filename.split('/_documentation')[1])
       end
     end
