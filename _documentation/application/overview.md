@@ -18,7 +18,7 @@ Each Nexmo application created can support multiple capabilities - for example y
 To illustrate the use of Nexmo applications, a brief summary for creating and using a Nexmo voice application is given here:
 
 1. Create a Nexmo application using the CLI, the Dashboard or the Application API.
-2. Make sure you configure your webhooks URLs. Nexmo will call back on these URLs with important information.
+2. Make sure you configure your webhook URLs. Nexmo will call back on these URLs with important information.
 3. Associate a Nexmo number with your Nexmo application.
 4. Write your web application. This responds on the webhook URLs and may use the Nexmo APIs as required.
 
@@ -31,6 +31,8 @@ Example, an application that [forwards inbound calls](/voice/voice-api/code-snip
 5. When an inbound call is made to the Nexmo number associated with the Nexmo application, an [NCCO](/voice/voice-api/ncco-reference) is returned on the `answer_url`.
 
 Other types of application, such as those with Messages and Dispatch capabilities, have a slightly different process which is described in the relevant sections of this [documentation](/documentation).
+
+The following sections explain Nexmo applications in more detail.
 
 ## Structure
 
