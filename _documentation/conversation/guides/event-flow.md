@@ -22,7 +22,6 @@ This flow is summarized here:
 
 This is illustrated in the following diagram:
 
-<!--![Programmable Conversation Architecture](/assets/images/conversation-api/conv-diagram-arch.gif)-->
 ```sequence_diagram
     participant Client
     participant Application
@@ -45,7 +44,7 @@ This is illustrated in the following diagram:
   
   
   
-  
+
 The sequence is as follows:
 
 1. A call is placed to a [Nexmo number](/numbers/overview), which was [assigned to a Nexmo Application](/numbers/guides/number-management).
