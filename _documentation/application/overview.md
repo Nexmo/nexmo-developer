@@ -47,7 +47,7 @@ The webhook URLs you provide when creating an application depend on the applicat
 
 Capability | API used | Webhooks available
 --- | --- | ---
-`voice` | Voice | `answer_url`, `event_url`
+`voice` | Voice | `answer_url`, `fallback_answer_url`, `event_url`
 `messages` | Messages and Dispatch | `inbound_url`, `status_url`
 `rtc` | Client SDK | `event_url`
 `vbc` | VBC | None
@@ -59,6 +59,7 @@ The following table describes webhooks available per capability:
 Capability | Webhook | API | Example | Description
 --- | --- | --- | --- | --- |
 `voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
+`voice` | `fallback_answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If your `answer_url` is offline or returns a HTTP error code, Nexmo will make a request to a `fallback_answer_url` if it is set. This URL must return an NCCO.
 `voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
 `messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
 `messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.
