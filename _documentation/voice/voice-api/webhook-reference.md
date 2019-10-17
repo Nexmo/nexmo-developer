@@ -309,7 +309,7 @@ Field | Example | Description
 
 [Back to event webhooks list](#event-webhook)
 
-## Error
+## Errors
 
 The event endpoint will also receive webhooks in the event of an error. This can be useful when debugging your application.
 
@@ -320,9 +320,9 @@ Field | Example | Description
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
 
-## Warn
+## Warns
 
-The event endpoint will also receive webhooks in the event of an error. This can be useful when debugging your application.
+The event endpoint will also receive webhooks in the event of an warning. This can be useful when debugging your application.
 
 Field | Example | Description
  -- | -- | --
