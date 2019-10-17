@@ -36,8 +36,7 @@ namespace :smartling do
     )
 
     puts 'Downloading the translation...'
-    _ = smartling.download_translated(filename: args[:file], locale: args[:locale], type: args[:type])
-    # TODO: store response in disk
+    smartling.download_translated(filename: args[:file], locale: args[:locale], type: args[:type])
     puts 'Done!'
   end
 
