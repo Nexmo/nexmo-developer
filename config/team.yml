@@ -89,4 +89,12 @@ current:
     email: 'bethany.loft@vonage.com'
     twitter: 'bb_loft'
     role: 'Junior Community Event Manager'
+  - name: 'Steve Lorello'
+    email: 'steve.lorello@vonage.com'
+    twitter: 'slorello'
+    role: '.NET Developer Advocate'
+  - name: 'Chris Tankersley'
+    email: 'chris.tankersley@vonage.com'
+    twitter: 'dragonmantank'
+    role: 'PHP Developer Advocate'
     
