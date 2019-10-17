@@ -9,7 +9,21 @@ class SmartlingAPI
 
   def upload(filename)
     file_uri = file_uri(filename)
-    wrap_in_rescue { @client.upload(filename, file_uri, 'markdown', 'smartling.placeholder_format_custom': '§§.+?§§') }
+    file = Tempfile.new
+    file.write I18n::FrontmatterFilter.new.call(File.read(filename))
+    file.rewind
+
+    wrap_in_rescue do
+      @client.upload(
+        file.path,
+        file_uri,
+        'markdown',
+        'smartling.markdown_code_notranslate': true
+      )
+    end
+  ensure
+    file.close
+    file.unlink
   end
 
   def last_modified(filename:, locale:)
@@ -31,7 +45,7 @@ class SmartlingAPI
   def wrap_in_rescue
     yield
   rescue StandardError => e
-    # TODO: handle exceptions
+    Bugsnag.notify(e)
     Rails.logger.error(e.message)
   end
 end

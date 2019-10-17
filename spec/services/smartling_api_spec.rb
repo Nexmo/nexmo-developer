@@ -20,7 +20,13 @@ RSpec.describe SmartlingAPI do
     it 'uploads a file to smartling' do
       smartling_api.upload(file)
 
-      expect(file_api).to have_received(:upload).with(file, file_uri, 'markdown', 'smartling.placeholder_format_custom': '§§.+?§§')
+      expect(file_api).to have_received(:upload)
+        .with(
+          kind_of(String),
+          file_uri,
+          'markdown',
+          'smartling.markdown_code_notranslate': true
+        )
     end
   end
 
