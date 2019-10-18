@@ -210,3 +210,11 @@
 "/tutorials/voice-call-websocket-python": "/use-cases/voice-call-websocket-python"
 "/account/subaccounts/tutorials": "/use-cases/using-subaccounts"
 "/account/guides/secret-management": "/account/secret-management/overview"
+
+"/api/voice/ncco": "/voice/voice-api/ncco-reference"
+"/api/account/secret-management": "/api/account#secret-management"
+"/api/developer": "/api/numbers"
+"/api/developer/numbers": "/api/numbers"
+"/api/developer/account": "/api/account"
+"/api/messages": "/api/developer/messages"
+"/api/stitch": "/api/conversation"
