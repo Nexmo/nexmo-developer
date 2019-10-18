@@ -82,7 +82,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/s
 frameless: false
 ```
 
-You need to register and unregister the listener in `onCreate()` and `onDestroy()`:
+You need to register and deregister the listener in `onCreate()` and `onDestroy()`:
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/register-incoming-events'
