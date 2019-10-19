@@ -19,9 +19,9 @@ introduction:
 prerequisites:
 - create-nexmo-account
 - install-nodejs
-- install-express
-- install-nexmo-cli-beta
 - install-node-client-sdk
+- install-nexmo-cli-beta
+- install-express
 - run-ngrok
 
 tasks:
