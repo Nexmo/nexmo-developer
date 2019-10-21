@@ -12,7 +12,7 @@ The advantage of WhatsApp is that the identifier of users on the platform is the
 
 > Apply for a WhatsApp Business number before the end of the year and Nexmo will waive the setup and monthly hosting fees through March 31st 2020.
 
-**NOTE:**Setup fees and monthly service waived through March 31, 2020 for WhatsApp Business Accounts created from Oct 1, 2019 through Dec 31, 2019. Taxes and usage fees not included. Limited promotion quantity available. One (1) message per second throughput for entry tier. Other restrictions may apply.
+**NOTE:** Setup fees and monthly service waived through March 31, 2020 for WhatsApp Business Accounts created from Oct 1, 2019 through Dec 31, 2019. Taxes and usage fees not included. Limited promotion quantity available. One (1) message per second throughput for entry tier. Other restrictions may apply.
 
 [Get Started](https://bit.ly/Vonage-WhatsApp-Form)
 
