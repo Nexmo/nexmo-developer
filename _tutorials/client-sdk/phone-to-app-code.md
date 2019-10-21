@@ -57,4 +57,4 @@ The main features of this code are:
 2. A button used when the agent wants to answer an inbound call.
 3. The code logs the agent in using the user JWT generated in an [earlier step](/client-sdk/tutorials/phone-to-app/client-sdk/generate-jwt).
 4. The code sets up two main event handlers. The first is fired on the inbound call. This in turn sets up a click button event handler which answers the inbound call using the Client SDK method `call.answer()`.
-5. The call status changed (`call:status:changed`) event handler sets the text of the notification box to the inbound call status.
+5. The second, the call status changed (`call:status:changed`) event handler sets the text of the notification box to the inbound call status.

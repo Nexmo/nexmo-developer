@@ -21,6 +21,6 @@ Then, visit `http://localhost:3000` in two browser tabs. You might want to posit
 
 > **Note**: If you receive a permissions error, either use two different browsers, or open one of your tabs as an incognito/private tab.
 
-First, log in to the application in both browser tabs, using `user1` and `user2` respectively.
+First, log in to the application in both browser tabs, using `USER1_NAME` and `USER2_NAME` respectively.
 
 Then, start sending messages from one user to the other. Messages received from the other user should appear in red, the messages you send should appear in black. Test that the typing indicators appear in one tab when you start typing in the other.

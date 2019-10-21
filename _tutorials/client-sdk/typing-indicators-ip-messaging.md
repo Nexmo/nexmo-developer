@@ -7,9 +7,9 @@ description: In this step you learn how to show when a user is typing
 
 In order to make the application a bit more polished, you will let your users know when the other parties in the Conversation are typing.
 
-Add the following code to the end of the `run` function. If your application detects the `keypress` on the message text area control, you call the `conversation.startTyping` function to alert your application that the user is currently typing. 
+Add the following code to the end of the `run` function. If your application detects the `keypress` event on the message text area, call the `conversation.startTyping` function to alert your application that the user is currently typing. 
 
-If you detect the `keyup` event on the text area control for longer that half a second, you can assume that the user has stopped typing and call `conversation.stopTyping` to alert your application.
+If you detect the `keyup` event on the text area for longer that half a second, you can assume that the user has stopped typing and call `conversation.stopTyping` to alert your application.
 
 ```javascript
 messageTextarea.addEventListener('keypress', (event) => {
@@ -18,7 +18,7 @@ messageTextarea.addEventListener('keypress', (event) => {
 
 var timeout = null;
 messageTextarea.addEventListener('keyup', (event) => {
-  clearTimeout(timeout)
+  clearTimeout(timeout);
   timeout = setTimeout(() => {
     conversation.stopTyping();
   }, 500);

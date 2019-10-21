@@ -7,7 +7,7 @@ description: In this step you learn how to link a Nexmo number to your applicati
 
 ## Using the Nexmo Dashboard
 
-1. [Find your application](https://dashboard.nexmo.com/voice/your-applications) in the Dashboard.
+1. Find your application in the [Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 2. Click on the application in the Your Applications list. Then click on the Numbers tab.
 3. Click the Link button to link a Nexmo number with that application.
 

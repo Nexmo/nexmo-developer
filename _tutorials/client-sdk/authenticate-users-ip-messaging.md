@@ -21,17 +21,17 @@ const loginForm = document.getElementById('login');
 const status = document.getElementById('status');
 
 function authenticate(username) {
-  if (username == "user1") {
+  if (username == "USER1_NAME") {
     return USER1_JWT;
   }
-  if (username == "user2") {
+  if (username == "USER2_NAME") {
     return USER2_JWT;
   }
   alert("User not recognized");
 }
 ```
 
-You'll also need to add an event listener to the `submit` button to fetch the user's JWT and pass it in to the `run` function. The `run` function doesn't do anything yet, but at this point you have a valid user JWT to start building your application.
+You'll also need to add an event listener to the `login` form to fetch the user's JWT and pass it in to the `run` function. The `run` function doesn't do anything yet, but at this point you have a valid user JWT to start building your application.
 
 ```javascript
 loginForm.addEventListener('submit', (event) => {
