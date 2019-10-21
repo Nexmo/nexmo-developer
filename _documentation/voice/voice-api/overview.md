@@ -30,7 +30,7 @@ In this document you can learn about:
 
 * **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs (JSON Web Tokens). The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information see [authenticating your applications](/concepts/guides/authentication).
 
-* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools) or the [Application API](/concepts/guides/applications).
+* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such as virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo Dashboard](https://dashboard.nexmo.com/sign-in), the [Nexmo CLI](/tools), or via the [Application API](/concepts/guides/applications).
 
 * **[NCCOs](/voice/voice-api/ncco-reference)** - Nexmo Call Control Objects are a set of actions that instruct Nexmo how to control the call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference).
 
@@ -54,10 +54,10 @@ To make this easier, Nexmo provides Server SDKs in various languages that take c
 
 To get started, choose your language below and replace the following variables in the example code:
 
-Key |	Description
+Key | Description
 -- | --
-`NEXMO_NUMBER` |	Your Nexmo number that the call will be made from. For example `447700900000`.
-`TO_NUMBER` |	The number you would like to call to in E.164 format. For example `447700900001`.
+`NEXMO_NUMBER` | Your Nexmo number that the call will be made from. For example `447700900000`.
+`TO_NUMBER` | The number you would like to call to in E.164 format. For example `447700900001`.
 
 ```code_snippets
 source: '_examples/voice/make-an-outbound-call'
@@ -72,7 +72,6 @@ application:
 ```concept_list
 product: voice/voice-api
 ```
-
 
 ## Code Snippets
 

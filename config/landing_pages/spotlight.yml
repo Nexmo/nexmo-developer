@@ -40,24 +40,24 @@ page:
             color: yellow
       - type: linked_image
         linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2019/10/E_2FA-WordPress_1200x600.jpg"
+          url: "https://www.nexmo.com/blog/2019/10/09/adding-2-factor-authentication-to-wordpress-with-nexmo-verify-api-dr"
+          alt_text: "Adding 2-Factor Authentication to WordPress with Nexmo Verify API"
+      - type: linked_image
+        linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2019/09/E_GitLab-CI-Pipeline_1200x600.jpg"
+          url: "https://www.nexmo.com/blog/2019/09/30/sending-gitlab-ci-pipeline-notifications-with-nexmo-messages-dr"
+          alt_text: "Sending GitLab CI Pipeline Notifications with Nexmo Messages"
+      - type: linked_image
+        linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2019/08/Incident-Reporting_1200x600.jpg"
+          url: "https://www.nexmo.com/blog/2019/08/21/incident-reporting-with-pagerduty-and-nexmo-dr"
+          alt_text: "Incident Reporting with PagerDuty and Nexmo"
+      - type: linked_image
+        linked_image:
           image: "https://www.nexmo.com/wp-content/uploads/2019/06/unnamed.jpg"
-          url: "https://www.nexmo.com/blog/2019/06/20/creating-a-complex-ivr-system-with-ease-with-xstate-dr/"
-          alt_text: "Create a Complex IVR System With Ease with XState"
-      - type: linked_image
-        linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2019/04/unnamed-1200x600.png"
-          url: "https://www.nexmo.com/blog/2019/04/11/stripe-sms-laravel-dotun/"
-          alt_text: "Stripe SMS Notifications with Laravel"
-      - type: linked_image
-        linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2019/03/sending-sms-with-python-google-cloud-functions-1200x600.png"
-          url: "https://www.nexmo.com/blog/2019/03/21/sending-sms-from-python-with-google-cloud-functions-dr/"
-          alt_text: "Sending SMS with Python and Google Cloud Functions"
-      - type: linked_image
-        linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2019/02/Build-a-One-Time-Password-OTP-Service-by-Using-the-Dispatch-API-768x384.png"
-          url: "https://www.nexmo.com/blog/2019/02/07/build-an-otp-service-dr/"
-          alt_text: "Build a One Time Password Service Using the Nexmo Dispatch API"
+          url: "https://www.nexmo.com/blog/2019/06/20/creating-a-complex-ivr-system-with-ease-with-xstate-dr"
+          alt_text: "Creating a Complex IVR System with Ease with XState"
     - width: 2
       column:
       - type: structured_text

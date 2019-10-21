@@ -7,13 +7,32 @@ navigation_weight: 1
 
 # Overview
 
+> **NOTE:** This section of the docs describes [Applications V2](/api/application.v2) functionality.
+
 A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and use the Nexmo APIs.
 
 Each Nexmo application created can support multiple capabilities - for example you can create an Application that supports using the Voice, Messages and RTC APIs.
 
 ![Application Overview](/assets/images/nexmo_application_v2.png "Application Overview")
 
-> **NOTE:** This section of the docs describes [Applications V2](/api/application.v2) functionality.
+To illustrate the use of Nexmo applications, a brief summary for creating and using a Nexmo voice application is given here:
+
+1. Create a Nexmo application using the CLI, the Dashboard or the Application API.
+2. Make sure you configure your webhook URLs. Nexmo will call back on these URLs with important information.
+3. Associate a Nexmo number with your Nexmo application.
+4. Write your web application. Implement the webhook endpoints you configured in step 2, using the Nexmo APIs as required.
+
+For instance, if you want to create an application that [forwards inbound calls](/voice/voice-api/code-snippets/connect-an-inbound-call) to a destination phone, you would perform the following steps:
+
+1. You create a Nexmo application that has voice capabilities.
+2. You configure the answer and event webhook URLs.
+3. You associate a Nexmo number with your Nexmo application.
+4. You implement a web application that responds to callbacks on the webhook URLs.
+5. When an inbound call is made to the Nexmo number associated with the Nexmo application, an [NCCO](/voice/voice-api/ncco-reference) is returned on the `answer_url`.
+
+Other types of application, such as those with Messages and Dispatch capabilities, have a slightly different process which is described in the relevant sections of this [documentation](/application/overview).
+
+The following sections explain Nexmo applications in more detail.
 
 ## Structure
 
@@ -47,7 +66,7 @@ The webhook URLs you provide when creating an application depend on the applicat
 
 Capability | API used | Webhooks available
 --- | --- | ---
-`voice` | Voice | `answer_url`, `event_url`
+`voice` | Voice | `answer_url`, `fallback_answer_url`, `event_url`
 `messages` | Messages and Dispatch | `inbound_url`, `status_url`
 `rtc` | Client SDK | `event_url`
 `vbc` | VBC | None
@@ -59,6 +78,7 @@ The following table describes webhooks available per capability:
 Capability | Webhook | API | Example | Description
 --- | --- | --- | --- | --- |
 `voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
+`voice` | `fallback_answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If your `answer_url` is offline or returns a HTTP error code, Nexmo will make a request to a `fallback_answer_url` if it is set. This URL must return an NCCO.
 `voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
 `messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
 `messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.
@@ -76,7 +96,7 @@ There are four main ways to create an application:
 
 ## Managing applications using the CLI
 
-* [Managing application using the Nexmo CLI](/application/nexmo-cli)
+* [Managing applications using the Nexmo CLI](/application/nexmo-cli)
 
 ## Code Snippets
 
