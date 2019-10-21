@@ -18,8 +18,8 @@
       <a class="Nxd-main-header__link Vlt-M-plus" href="https://nexmo.com">Nexmo.com</a>
       <a class="Nxd-main-header__link Vlt-M-plus" href="https://help.nexmo.com/hc/en-us">Support</a>
       <a class="Nxd-main-header__link Vlt-M-plus" href="https://dashboard.nexmo.com/sign-in">Sign In</a>
-      <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--secondary" data-ab="try_button"><b>
-        <% ab_test(:try_button, "Try it free", "Get started now") do |s| %>
+      <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--primary" data-ab="try_button"><b>
+        <% ab_test(:try_button, 'Try it free', '< Try it free />', 'Get an API key', 'Start building for free') do |s| %>
           <%= s %>
         <% end %>
       </b></a>
