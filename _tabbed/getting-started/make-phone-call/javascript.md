@@ -79,6 +79,11 @@ new NexmoClient()
     .catch(console.log);
 ```
 
+> **Note:**  Even though you are specifying the callee phone number, ultimately, the number that is actually called is the one supplied in the `answer_url` webhook. 
+> 
+> In a real-life scenario, you would create a server component to serve as the `answer_url`. When the app will place the call, the callee phone number will be sent, by the Nexmo servers, as part of the payload on the `answer_url` request, the backend would then validate it and supply it in the NCCO returned.
+
+
 ## Listen for call events
 
 When the application makes a call, you can start listening for `member:call` events on the application. That's going to return a `call` object, so you can start interacting with the call later on.
