@@ -5,7 +5,7 @@ FROM ruby:2.5.7
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev lsof
 
 # Install modern NodeJS
-run curl -sL https://deb.nodesource.com/setup_8.x | bash -
+run curl -sL https://deb.nodesource.com/setup_12.x | bash -
 run curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 run echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 run apt-get update && apt-get install -y nodejs yarn

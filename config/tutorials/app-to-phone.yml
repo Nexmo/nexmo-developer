@@ -22,9 +22,9 @@ introduction:
 prerequisites:
 - create-nexmo-account
 - install-nodejs
-- install-express
-- install-nexmo-cli-beta
 - install-node-client-sdk
+- install-nexmo-cli-beta
+- install-express
 - run-ngrok
 
 tasks:
@@ -43,6 +43,6 @@ conclusion:
     # What's next?
     You can do a lot more with the Client SDK.
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+    We want to hear what ideas you have in mind? Contact us at [devrel@nexmo.com](mailto:devrel@nexmo.com)
 
     See [Client SDK documentation](/client-sdk/overview).

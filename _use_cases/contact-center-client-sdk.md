@@ -1,6 +1,6 @@
 ---
 title: Contact Center Use Case
-products: client-sdk/in-app-voice
+products: client-sdk
 description: How to build your own contact center application.
 languages: 
     - Node

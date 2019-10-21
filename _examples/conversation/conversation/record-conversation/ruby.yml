@@ -1,0 +1,9 @@
+---
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/conversation/record_conversation.rb
+    from_line: 19
+    to_line: 25
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/conversation/record_conversation.rb
+    from_line: 12
+    to_line: 17
