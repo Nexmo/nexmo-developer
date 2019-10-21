@@ -1,0 +1,16 @@
+---
+title: .NET
+language: dotnet
+dependencies:
+    - Nexmo.Csharp.Client
+client:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/SMSSender.cs
+    from_line: 42
+    to_line: 47
+code:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/SMSSender.cs
+    from_line: 48
+    to_line: 53
+run_command: 'Run using your IDE'
+file_name: SMSSender.cs
+unindent: true

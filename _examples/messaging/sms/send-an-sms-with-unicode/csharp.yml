@@ -9,8 +9,8 @@ client:
     to_line: 21
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/SMSSender.cs
-    from_line: 27
-    to_line: 34
+    from_line: 28
+    to_line: 35
 run_command: 'Run using your IDE'
 file_name: SMSSender.cs
-unindent: true 
+unindent: true
