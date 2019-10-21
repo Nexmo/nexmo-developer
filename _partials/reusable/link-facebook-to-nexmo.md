@@ -1,4 +1,4 @@
-## Link your Facebook Page to your Nexmo account
+## Step 1: Link your Facebook Page to your Nexmo account
 
 Linking your Facebook page to your Nexmo account allows Nexmo to handle inbound messages and enables you to send messages from the Nexmo Messages API.
 
@@ -46,7 +46,26 @@ You will see your Facebook Pages listed.
 
 At this point your Nexmo Account and this Facebook Page are linked.
 
-> **NOTE:** If at some point in the future you want to further link a specific application to this Facebook Page you can now do this from the Dashboard on the External Accounts tab for the specific Messages and Dispatch application you want to link.
+
+## Step 2: Link your Facebook Page to your Nexmo application
+
+Once your Facebook page is linked to your Nexmo account, it becomes available for use by any of your applications. Here is how to link the page to a Nexmo application:
+
+**1.** Navigate to the [Messages and Dispatch applications page](https://dashboard.nexmo.com/messages/applications).
+
+**2.** From the list, select the application you want to link to.
+
+**3.** Then, select the "External Accounts" tab from the top navigation.
+
+**4.** Finally, click the "Link" button beside your Facebook Page (the `Provider` should be `messenger`).
+
+You're now ready to receive messages users send on your Facebook Page.
+
+
+> **NOTE:** If at some point in the future you want to link a different application to this Facebook Page, you can simply redo Step 2 for the new application.
+
+
+<hr />
 
 ## Re-linking your Facebook page to your Nexmo account
 
