@@ -7,11 +7,11 @@ dependencies:
 client:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/RoutingModule.cs
     from_line: 29
-    to_line: 35
+    to_line: 54
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/RoutingModule.cs
-    from_line: 149
-    to_line: 156
+    from_line: 204
+    to_line: 220
 run_command: 'Run using your IDE'
 file_name: RoutingModule.cs
 unindent: true
