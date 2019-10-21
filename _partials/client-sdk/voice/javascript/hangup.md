@@ -1,5 +1,5 @@
 ```javascript
-new ConversationClient()
+new NexmoClient()
     .login(USER_JWT)
     .then(application => {
         ...
