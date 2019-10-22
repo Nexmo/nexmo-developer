@@ -10,7 +10,7 @@ navigation_weight: 0
 
 ### New
 
-- Added TypeScript defintion files
+- Added TypeScript definition files
 
 ### Changes
 
@@ -22,8 +22,8 @@ new NexmoClient({
 })
 ```
 
-- Moved storage of jwt token from localStorage to nexmoClient config object
-- Removed unnecessary files from the npm release package
+- Moved storage of JWT token from localStorage to `NexmoClient` config object
+- Removed unnecessary files from the NPM release package
 
 ### Fixes
 
