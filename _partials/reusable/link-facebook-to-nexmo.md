@@ -62,7 +62,7 @@ Once your Facebook page is linked to your Nexmo account, it becomes available fo
 You're now ready to receive messages users send on your Facebook Page.
 
 
-> **NOTE:** If at some point in the future you want to link a different application to this Facebook Page, you can simply redo Step 2 for the new application.
+> **NOTE:** If at some point in the future you want to link a different application to this Facebook Page, you can simply redo Part 2 for the new application.
 
 
 
