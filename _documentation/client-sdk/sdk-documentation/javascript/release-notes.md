@@ -23,7 +23,7 @@ new NexmoClient({
 ```
 
 - Moved storage of jwt token from localStorage to nexmoClient config object
-- Removed unnecassary files from the npm release package
+- Removed unnecessary files from the npm release package
 
 ### Fixes
 
