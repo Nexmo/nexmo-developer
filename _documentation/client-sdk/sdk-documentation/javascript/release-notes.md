@@ -29,29 +29,6 @@ new NexmoClient({
 
 - Fixed call statuses order in case of a transfer
 
-## Version 6.0.2 - October 22, 2019
-
-### New
-
-- Added TypeScript definition files
-
-### Changes
-
-- Added options for customized logging levels in the console of `debug`, `info`, `warn`, or `error`.
-
-```javascript
-new NexmoClient({
-  debug: 'info'
-})
-```
-
-- Moved storage of JWT token from `localStorage` to `NexmoClient` configuration object
-- Removed unnecessary files from the NPM release package
-
-### Fixes
-
-- Fixed call statuses order in case of a transfer
-
 ## Version 6.0.1 - September 27, 2019
 
 ### Changes
