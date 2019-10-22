@@ -18,7 +18,7 @@ When your client app calls this method, the `answer_url` webhook that is configu
 On the client side, start the call as such:
 
 ```javascript
-new ConversationClient()
+new NexmoClient()
     .login(USER_JWT)
     .then(application => {
         ...

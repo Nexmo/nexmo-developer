@@ -27,7 +27,7 @@ RSpec.feature 'Team' do
       end
 
       within('.Vlt-grid:nth-of-type(1)') do
-        expect(page).to have_css('.Nxd-profile', count: 25)
+        expect(page).to have_css('.Nxd-profile', count: 29)
       end
 
       expect(page).to have_css('h2', text: 'Contributors')

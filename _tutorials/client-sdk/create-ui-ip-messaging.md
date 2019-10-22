@@ -17,7 +17,7 @@ The following HTML defines a `<section>` that you will use to display:
 The web page loads three scripts once the page body has rendered:
 
 * The `nexmoClient.js` file from the `nexmo-client` Node module
-* `moment.js` to help format the message received date and time. Install this module by running `npm install moment`
+* `moment.js` to help format the received message’s date and time. Install this module by running `npm install moment`
 * The `chat.js` file that will contain your application's code. Create this empty file in the project's root directory
 
 Create a file named `index.html` in your project directory with the following contents:
@@ -76,7 +76,7 @@ Create a file named `index.html` in your project directory with the following co
     #messages {
       display: none;
     }
-</style>
+  </style>
 </head>
 
 <body>

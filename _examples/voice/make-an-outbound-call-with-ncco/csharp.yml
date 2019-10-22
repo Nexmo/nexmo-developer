@@ -9,8 +9,8 @@ client:
     to_line: 23
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/VoiceSender.cs
-    from_line: 40
-    to_line: 69
+    from_line: 41
+    to_line: 60
 run_command: 'Run using your IDE'
 file_name: VoiceSender.cs
 unindent: true

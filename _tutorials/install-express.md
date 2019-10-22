@@ -11,6 +11,12 @@ If you've not already done so initialize your project directory with:
 npm init
 ```
 
+or, to initialize your project with default values, use:
+
+```
+npm init --y
+```
+
 Then, install Express with:
 
 ```

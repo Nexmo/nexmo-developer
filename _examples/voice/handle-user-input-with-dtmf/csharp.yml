@@ -4,10 +4,14 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
     - Nancy
+client:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/RoutingModule.cs
+    from_line: 29
+    to_line: 35
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/DtmfModule.cs
-    from_line: 12
-    to_line: 63
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Modules/RoutingModule.cs
+    from_line: 91
+    to_line: 107
 run_command: 'Run using your IDE'
-file_name: DtmfModule.cs
+file_name: RoutingModule.cs
 unindent: true

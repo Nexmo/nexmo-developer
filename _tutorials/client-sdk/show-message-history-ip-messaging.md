@@ -5,22 +5,22 @@ description: In this step you display any messages already sent as part of this 
 
 # Show the Message History
 
-You want your users to see the message history. You can achieve this by calling the Conversation's `getEvents` method (to retrieve historical messages sent and received before the current session started) and handling its `text` event (which alerts your application when a user sends a message).
+You want your users to see all the messages in the Conversation. You can achieve this by handling the Conversation’s `getEvents` method (to retrieve messages sent and received before the current session started) and its `text` event (which alerts your application when a user sends a message).
 
-Your application must inspect the event data sent to each handler to determine the message sender and its contents and then append it to the list of messages.
+Your application can retrieve the message detail from the event data sent to each handler and add it to the list of messages.
 
-In this example you will use the identity of the user to distinguish between messages sent by them and those received from other users by displaying them in a different color. Create an `addMessage` function for this, by adding the following code to the bottom of `chat.js`:
+In this example, you will use the identity of the user to distinguish between messages sent by them and those received from other users by displaying them in a different color. Create an `addMessage` function for this, by adding the following code to the bottom of `chat.js`:
 
 ```javascript
 function addMessage(sender, message, me) {
-  const rawDate = new Date(Date.parse(message.timestamp))
-  const formattedDate = moment(rawDate).calendar()
+  const rawDate = new Date(Date.parse(message.timestamp));
+  const formattedDate = moment(rawDate).calendar();
 
-  let text = ''
+  let text = '';
   if (message.from !== me.id) {
-    text = `<span style="color:red">${sender.user.name} <span style="color:red;">(${formattedDate}): <b>${message.body.text}</b></span>`
+    text = `<span style="color:red">${sender.user.name} <span style="color:red;">(${formattedDate}): <b>${message.body.text}</b></span>`;
   } else {
-    text = `me (${formattedDate}): <b>${message.body.text}</b>`
+    text = `me (${formattedDate}): <b>${message.body.text}</b>`;
   }
 
   messageFeed.innerHTML = messageFeed.innerHTML + text + '<br />';

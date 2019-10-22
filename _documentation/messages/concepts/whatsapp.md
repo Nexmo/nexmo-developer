@@ -6,15 +6,13 @@ description: WhatsApp messaging solution for businesses.
 
 # Understanding WhatsApp messaging
 
+> **IMPORTANT:** Apply for a WhatsApp Business number before the end of the year and Nexmo will waive the setup and monthly hosting fees until March 31st 2020. Setup fees and monthly service waived until March 31, 2020 for WhatsApp Business Accounts created from Oct 1, 2019 until Dec 31, 2019. Taxes and usage fees not included. Limited promotion quantity available. One (1) message per second throughput for entry tier. Other restrictions may apply. [Apply here for a Nexmo WhatsApp Business Account](https://bit.ly/Vonage-WhatsApp-Form).
+
 WhatsApp Business Solution messages can only be sent by businesses that have been approved by WhatsApp. This business profile will also have a green verified label to indicate that it is a legitimate business.
 
 The advantage of WhatsApp is that the identifier of users on the platform is their mobile phone number.
 
-In order to get started with WhatsApp you will need to email [sales@nexmo.com](mailto:sales@nexmo.com). Nexmo is an official partner and will handle the application and creation of your WhatsApp Business account for you. Currently WhatsApp is in Limited Availability and only a certain number of customers will be onboarded.
-
-> **NOTE:** Nexmo cannot guarantee you will receive a WhatsApp account.
-
-If successful, your account manager will provide you with a WhatsApp number.
+> **NOTE:** WhatsApp is in Limited Availability and Nexmo cannot guarantee you will receive a WhatsApp account.
 
 ## How WhatsApp works
 
@@ -71,6 +69,10 @@ curl -X POST \
                }
             ]
          }
+      },
+      "whatsapp": {
+        "policy": "deterministic",
+        "locale": "en-GB"
       }
    }
 }

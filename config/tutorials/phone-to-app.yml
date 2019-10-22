@@ -9,19 +9,19 @@ introduction:
   content: |
     # Introduction
     In this tutorial, you will learn how to create a Client SDK application and then write the code to receive an
-    inbound PSTN call.
+    inbound <abbr title="Public Switched Telephone Network">PSTN</abbr> call.
 
     To achieve this, you will need:
 
-    * A web application that will notify the service agent of an inbound call and offer the facility to answer it
-    * A webhook server that can process an inbound webhook and return an NCCO to forward the inbound call to your application
+    * A web application that will notify the service agent of an inbound call and offer the ability to answer it
+    * A webhook server that can process an inbound webhook and return an <abbr title="Nexmo Call Control Object">NCCO</abbr> to forward the inbound call to your application
 
 prerequisites:
 - create-nexmo-account
 - install-nodejs
-- install-express
-- install-nexmo-cli-beta
 - install-node-client-sdk
+- install-nexmo-cli-beta
+- install-express
 - run-ngrok
 
 tasks:
@@ -41,5 +41,7 @@ conclusion:
 
     # What's next?
     You can do a lot more with the Client SDK.
+
+    We want to hear what ideas you have in mind? Contact us at [devrel@nexmo.com](mailto:devrel@nexmo.com)
 
     See [Client SDK documentation](/client-sdk/overview).

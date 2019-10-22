@@ -8,9 +8,9 @@ introduction:
   description: This task shows you how to create a web chat application using the JavaScript Client SDK.
   content: |
     # Introduction
-    In this task you will learn how to create and configure a Client SDK Application and then code a web app that enables two users to send messages to each other.
+    In this task, you will learn how to create and configure a Client SDK Application and then code a web app that enables two users to send messages to each other.
 
-    To do this you will create a Conversation and two Users. You will authenticate these Users and then add them to the Conversation as Members.
+    First, you will create a Conversation and two Users. Then, you will authenticate these Users and add them to the Conversation as Members.
 
     Finally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when either party is currently typing.
 
@@ -21,6 +21,7 @@ prerequisites:
   - install-nodejs
   - install-nexmo-cli-beta
   - install-node-client-sdk
+  - run-ngrok
 
 tasks:
   - client-sdk/create-application
@@ -43,5 +44,7 @@ conclusion:
 
     # What's next?
     You can do a lot more with the Client SDK.
+
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
 
     See [Client SDK documentation](/client-sdk/overview).
