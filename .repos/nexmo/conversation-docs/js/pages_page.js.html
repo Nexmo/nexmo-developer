@@ -26,14 +26,14 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*
+            <pre class="prettyprint source linenums"><code>'use strict';
+Object.defineProperty(exports, "__esModule", { value: true });
+/*
  * Nexmo Client SDK
  *
  * Copyright (c) Nexmo Inc.
 */
-
-const NexmoApiError = require('../nexmoClientError').NexmoApiError;
-
+const nexmoClientError_1 = require("../nexmoClientError");
 /** Page Class for Paginated Results
  *
  * @class Page
@@ -46,63 +46,56 @@ const NexmoApiError = require('../nexmoClientError').NexmoApiError;
  * @private
 */
 class Page {
-  constructor(params = {}) {
-    this.page_size = params.page_size;
-    this.order = params.order;
-    this.cursor = params.cursor;
-    this.application = params.application;
-
-    if (params.event_type &amp;&amp; params.event_type.length > 0) {
-      this.event_type = params.event_type;
+    constructor(params = {}) {
+        this.page_size = params.page_size;
+        this.order = params.order;
+        this.cursor = params.cursor;
+        this.application = params.application;
+        if (params.event_type &amp;&amp; params.event_type.length > 0) {
+            this.event_type = params.event_type;
+        }
     }
-  }
-
-  /**
-    * Check if previous page exists
-    * @returns {Boolean}
-  */
-  hasPrev() {
-    return this.cursor.prev ? this.cursor.prev.length > 0 : false;
-  }
-
-  /**
-    * Check if next page exists
-    * @returns {Boolean}
-  */
-  hasNext() {
-    return this.cursor.next ? this.cursor.next.length > 0 : false;
-  }
-
-  /**
-    * Create config params for paginationRequest
-    * @param {string} cursor cursor parameter to access the next or previous page of a data set
-    * @returns {Object}
-  */
-  _getConfig(cursor) {
-    const config = {
-      page_size: this.page_size,
-      order: this.order,
-      cursor: cursor
-    };
-    if (this.event_type) {
-      config.event_type = this.event_type;
+    /**
+      * Check if previous page exists
+      * @returns {Boolean}
+    */
+    hasPrev() {
+        return this.cursor.prev ? this.cursor.prev.length > 0 : false;
     }
-    return config;
-  }
-
-  /**
-    * Create a nexmoClientError when page does not exist
-  */
-  _getError() {
-    return Promise.reject(
-        new NexmoApiError({
-          type: 'error:invalid-cursor',
-          description: 'page does not exist'
-        })
-    );
-  }
+    /**
+      * Check if next page exists
+      * @returns {Boolean}
+    */
+    hasNext() {
+        return this.cursor.next ? this.cursor.next.length > 0 : false;
+    }
+    /**
+      * Create config params for paginationRequest
+      * @param {string} cursor cursor parameter to access the next or previous page of a data set
+      * @returns {Object}
+    */
+    _getConfig(cursor) {
+        const config = {
+            page_size: this.page_size,
+            order: this.order,
+            cursor: cursor
+        };
+        if (this.event_type) {
+            config.event_type = this.event_type;
+        }
+        return config;
+    }
+    /**
+      * Create a nexmoClientError when page does not exist
+    */
+    _getError() {
+        return Promise.reject(new nexmoClientError_1.NexmoApiError({
+            type: 'error:invalid-cursor',
+            description: 'page does not exist'
+        }));
+    }
 }
-
+exports.default = Page;
 module.exports = Page;
 </code></pre>
         </article>
@@ -114,13 +107,13 @@ module.exports = Page;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Oct 22 2019 10:32:40 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

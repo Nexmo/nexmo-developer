@@ -26,18 +26,21 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*
+            <pre class="prettyprint source linenums"><code>'use strict';
+var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
+    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/*
  * Nexmo Client SDK
  *  Member Object Model
  *
  * Copyright (c) Nexmo Inc.
 */
-
 const WildEmitter = require('wildemitter');
-const NXMEvent = require('./events/nxmEvent');
-const Utils = require('./utils');
-const NexmoApiError = require('./nexmoClientError').NexmoApiError;
-
+const nexmoClientError_1 = require("./nexmoClientError");
+const nxmEvent_1 = __importDefault(require("./events/nxmEvent"));
+const utils_1 = __importDefault(require("./utils"));
 /**
  * An individual user (i.e. conversation member).
  * @class Member
@@ -45,269 +48,252 @@ const NexmoApiError = require('./nexmoClientError').NexmoApiError;
  * @param {object} params
 */
 class Member {
-  constructor(conversation, params) {
-    this.conversation = conversation;
-    this.callStatus = null;
-    this._normalise(params);
-    WildEmitter.mixin(Member);
-  }
-	/**
-	 * Update object instance and align attribute names
-	 *
-	 * Handle params input to keep consistent the member object
-	 * @param {object} params member attributes
-	 * @private
-	*/
-  _normalise(params) {
-    if (params) {
-      this.user = this.user || {};
-      this.channel = params.channel || {
-        type: 'app'
-      };
-
-      for (let key in params) {
-        switch (key) {
-          case 'member_id':
-            this.id = params.member_id;
-            break;
-          case 'timestamp':
-            this.timestamp = params.timestamp;
-            break;
-          case 'state':
-            this.state = params.state;
-            break;
-          case 'from':
-            this.id = params.from; // special case for member events
-            break;
-          case 'user_id':
-            this.user.id = params.user_id;
-            break;
-          case 'name':
-            this.user.name = params.name;
-            break;
-          case 'user':
-            this.user = {
-              name: params.user.name,
-              id: params.user.user_id || params.user.id
-            };
-            this.display_name = this.display_name || params.user.display_name;
-            break;
-          case 'invited_by':
-            this.invited_by = params.invited_by;
-            break;
-          case 'display_name':
-            this.display_name = this.display_name || params.display_name;
-            break;
-          case 'conversation':
-            break;
-          default:
-            if (!params.type) {
-              this[key] = params[key];
-            }
-        }
-      }
-
-      // join conversation returns our member with only id,
-      // compare it for now and use the username we have in the application object
-      if (this.conversation.application.me &amp;&amp; params.user_id === this.conversation.application.me.id) {
-        this.user.name = this.conversation.application.me.name;
-      }
-      // make sure we don't keep a member.user_id, name in any flow
-      delete this.user_id;
-      delete this.name;
-      delete this.user.user_id;
+    constructor(conversation, params) {
+        this.conversation = conversation;
+        this.callStatus = null;
+        this._normalise(params);
+        WildEmitter.mixin(Member);
     }
-  }
-
-	/**
-	 * Play the given stream only to this member within the conversation
-	 *
-	 * @param {string} [params]
-	 *
-	 * @returns {Promise&lt;NXMEvent>}
-	 * @private
-	*/
-  playStream(params) {
-    return new Promise((resolve, reject) => {
-      return this.conversation.application.session.sendNetworkRequest({
-        type: 'POST',
-        path: `conversations/${this.id}/events`,
-        data: {
-          type: 'audio:play',
-          to: this.id,
-          body: params
+    /**
+     * Update object instance and align attribute names
+     *
+     * Handle params input to keep consistent the member object
+     * @param {object} params member attributes
+     * @private
+    */
+    _normalise(params) {
+        if (params) {
+            this.user = this.user || {};
+            this.channel = params.channel || {
+                type: 'app'
+            };
+            let key;
+            for (key in params) {
+                switch (key) {
+                    case "member_id":
+                        this.id = params.member_id;
+                        break;
+                    case "timestamp":
+                        this.timestamp = params.timestamp;
+                        break;
+                    case "state":
+                        this.state = params.state;
+                        break;
+                    case "from":
+                        this.id = params.from; // special case for member events
+                        break;
+                    case "user_id":
+                        this.user.id = params.user_id;
+                        break;
+                    case "name":
+                        this.user.name = params.name;
+                        break;
+                    case "user":
+                        this.user = {
+                            name: params.user.name,
+                            id: params.user.user_id || params.user.id
+                        };
+                        this.display_name = this.display_name || params.user.display_name;
+                        break;
+                    case "invited_by":
+                        this.invited_by = params.invited_by;
+                        break;
+                    case "display_name":
+                        this.display_name = this.display_name || params.display_name;
+                        break;
+                    case "conversation":
+                        break;
+                    default:
+                        if (!params.type) {
+                            this[key] = params[key];
+                        }
+                }
+            }
+            // join conversation returns our member with only id,
+            // compare it for now and use the username we have in the application object
+            if (this.conversation.application.me &amp;&amp; params.user_id === this.conversation.application.me.id) {
+                this.user.name = this.conversation.application.me.name;
+            }
+            // make sure we don't keep a member.user_id, name in any flow
+            delete this.user_id;
+            delete this.name;
+            delete this.user.user_id;
         }
-      }).then((response) => {
-        resolve(new NXMEvent(this.conversation, response));
-      }).catch((error) => {
-        reject(new NexmoApiError(error));
-      });
-    });
-  }
-
-	/**
-	 * Speak the given text only to this member within the conversation
-	 *
-	 * @param {string} [params]
-	 *
-	 * @returns {Promise&lt;NXMEvent>}
-	 * @private
-	*/
-  sayText(params) {
-    return new Promise((resolve, reject) => {
-      return this.conversation.application.session.sendNetworkRequest({
-        type: 'POST',
-        path: `conversations/${this.id}/events`,
-        data: {
-          type: 'audio:say',
-          cid: this.id,
-          from: this.conversation.me.id,
-          to: this.id,
-          body: {
-            text: params.text,
-            voice_name: params.voice_name || 'Amy',
-            level: params.level || 1,
-            queue: params.queue || true,
-            loop: params.loop || 1,
-            ssml: params.ssml || false
-          }
+    }
+    /**
+     * Play the given stream only to this member within the conversation
+     *
+     * @param {string} [params]
+     *
+     * @returns {Promise&lt;NXMEvent>}
+     * @private
+    */
+    async playStream(params) {
+        try {
+            const response = await this.conversation.application.session.sendNetworkRequest({
+                type: 'POST',
+                path: `conversations/${this.id}/events`,
+                data: {
+                    type: 'audio:play',
+                    to: this.id,
+                    body: params
+                }
+            });
+            return new nxmEvent_1.default(this.conversation, response);
         }
-      }).then((response) => {
-        resolve(new NXMEvent(this.conversation, response));
-      }).catch((error) => {
-        reject(new NexmoApiError(error));
-      });
-    });
-  }
-
-	/**
-	 * Kick this member from the conversation
-	 *
+        catch (error) {
+            throw new nexmoClientError_1.NexmoApiError(error);
+        }
+    }
+    /**
+     * Speak the given text only to this member within the conversation
+     *
+     * @param {string} [params]
+     *
+     * @returns {Promise&lt;NXMEvent>}
+     * @private
+    */
+    async sayText(params) {
+        try {
+            const response = await this.conversation.application.session.sendNetworkRequest({
+                type: 'POST',
+                path: `conversations/${this.id}/events`,
+                data: {
+                    type: 'audio:say',
+                    cid: this.id,
+                    from: this.conversation.me.id,
+                    to: this.id,
+                    body: {
+                        text: params.text,
+                        voice_name: params.voice_name || 'Amy',
+                        level: params.level || 1,
+                        queue: params.queue || true,
+                        loop: params.loop || 1,
+                        ssml: params.ssml || false
+                    }
+                }
+            });
+            return new nxmEvent_1.default(this.conversation, response);
+        }
+        catch (error) {
+            throw new nexmoClientError_1.NexmoApiError(error);
+        }
+    }
+    /**
+     * Kick this member from the conversation
+     *
    * @param {object} [reason] the reason for kicking out a member
    * @param {string} [reason.reason_code] the code of the reason
    * @param {string} [reason.reason_text] the description of the reason
-	 * @returns {Promise}
-	*/
-  kick(reason) {
-    return new Promise((resolve, reject) => {
-      let path = `conversations/${this.conversation.id}/members/${this.id}`;
-      if (reason) {
-        let params = new URLSearchParams();
-        Object.keys(reason).forEach((key) => {
-          params.append(key, reason[key]);
-        });
-        path += `?${params.toString()}`;
-      }
-
-      return this.conversation.application.session.sendNetworkRequest({
-        type: 'DELETE',
-        path
-      }).then((response) => {
-        resolve(response);
-      }).catch((error) => {
-        reject(new NexmoApiError(error));
-      });
-    });
-  }
-
-  /**
-   * Mute a stream
-   *
-   * @param {boolean} [mute] true for mute, false for unmute
-   * @param {boolean} [audio=true] true for audio stream
-   * @param {boolean} [video=false] true for video stream
-   * @param {number} [streamIndex] stream index of the stream
-   * @example &lt;caption>Mute audio stream&lt;/caption>
-   * media.mute(true, true, false)
-   * @example &lt;caption>Mute audio and video streams&lt;/caption>
-   * media.mute(true, true, true)
-   * @example &lt;caption>Mute only video&lt;/caption>
-   * media.mute(true, false, true)
-  */
-  mute(mute) {
-    return this.conversation.media.mute(mute);
-  }
-
-	/**
-	 * Earmuff this member
-	 *
-	 * @param {boolean} [params]
-	 *
-	 * @returns {Promise}
-	 *
-	*/
-  earmuff(earmuff) {
-    return this.conversation.media.earmuff(earmuff);
-  }
-
-	/**
-	 * Handle member object events
-	 *
-	 * Handle events that are modifying this member instance
-	 * @param {NXMEvent} event invited, joined, left, media events
-	 * @private
-	*/
-  _handleEvent(event) {
-    switch (event.type) {
-      case 'member:invited':
-        this._normalise(event.body); // take care of misaligned objects.
-        this.state = 'INVITED';
-        this.timestamp.invited = event.body.timestamp.invited;
-
-        if (!event.body.invited_by &amp;&amp; event.body.user.media &amp;&amp; event.body.user.media.audio_settings
-          &amp;&amp; event.body.user.media.audio_settings.enabled) {
-          this._setCallStatusAndEmit('started');
+     * @returns {Promise}
+    */
+    async kick(reason) {
+        let path = `conversations/${this.conversation.id}/members/${this.id}`;
+        if (reason) {
+            let params = new URLSearchParams();
+            Object.keys(reason).forEach((key) => {
+                params.append(key, reason[key]);
+            });
+            path += `?${params.toString()}`;
         }
-        break;
-      case 'member:joined':
-        this._normalise(event.body); // take care of misaligned objects.
-        this.state = 'JOINED';
-        this.timestamp.joined = event.body.timestamp.joined;
-
-        if (event.body.channel &amp;&amp; event.body.channel.knocking_id) {
-          this._setCallStatusAndEmit('started');
+        try {
+            return await this.conversation.application.session.sendNetworkRequest({
+                type: 'DELETE',
+                path
+            });
         }
-        break;
-      case 'member:left':
-        this._normalise(event.body); // take care of misaligned objects.
-        this.state = 'LEFT';
-        this.timestamp.left = event.body.timestamp.left;
-
-        if (event.body.reason &amp;&amp; event.body.reason.text) {
-          this._setCallStatusAndEmit(event.body.reason.text);
+        catch (error) {
+            throw new nexmoClientError_1.NexmoApiError(error);
         }
-        break;
-      case 'member:media':
-        this.media = event.body.media;
-        break;
-      case 'leg:status:update':
-        this.channel.legs = Utils.updateMemberLegs(this.channel.legs, event);
-        this._setCallStatusAndEmit(event.body.status);
-        break;
-      case 'audio:ringing:start':
-        if (!this.callStatus || this.callStatus === 'started') {
-          this._setCallStatusAndEmit('ringing');
-        }
-        break;
-      default:
-        break;
     }
-  }
-
-  /**
-	 * Set the member.callStatus and emit a member:call:status event
-	 *
-	 * @param {Member.callStatus} this.callStatus the call status to set
-	 * @private
-	*/
-  _setCallStatusAndEmit(callStatus) {
-    if (this.callStatus !== String(callStatus)) {
-      this.callStatus = callStatus;
-      this.conversation.emit('member:call:status', this);
+    /**
+     * Mute a stream
+     *
+     * @param {boolean} [mute] true for mute, false for unmute
+     * @param {number} [streamIndex] stream index of the stream
+     * @example &lt;caption>Mute audio stream&lt;/caption>
+     * media.mute(true)
+     *
+     * @returns {Promise}
+    */
+    mute(mute, streamIndex = null) {
+        return this.conversation.media.mute(mute, streamIndex);
     }
-  }
+    /**
+     * Earmuff this member
+     *
+     * @param {boolean} earmuff true or false
+     *
+     * @returns {Promise}
+     *
+    */
+    earmuff(earmuff) {
+        return this.conversation.media.earmuff(earmuff);
+    }
+    /**
+     * Handle member object events
+     *
+     * Handle events that are modifying this member instance
+     * @param {NXMEvent} event invited, joined, left, media events
+     * @private
+    */
+    _handleEvent(event) {
+        switch (event.type) {
+            case 'member:invited':
+                this._normalise(event.body); // take care of misaligned objects.
+                this.state = 'INVITED';
+                this.timestamp.invited = event.body.timestamp.invited;
+                if (!event.body.invited_by &amp;&amp; event.body.user.media &amp;&amp; event.body.user.media.audio_settings
+                    &amp;&amp; event.body.user.media.audio_settings.enabled) {
+                    this._setCallStatusAndEmit('started');
+                }
+                break;
+            case 'member:joined':
+                this._normalise(event.body); // take care of misaligned objects.
+                this.state = 'JOINED';
+                this.timestamp.joined = event.body.timestamp.joined;
+                if (event.body.channel &amp;&amp; event.body.channel.knocking_id) {
+                    this._setCallStatusAndEmit('started');
+                }
+                break;
+            case 'member:left':
+                this._normalise(event.body); // take care of misaligned objects.
+                this.state = 'LEFT';
+                this.timestamp.left = event.body.timestamp.left;
+                if (event.body.reason &amp;&amp; event.body.reason.text) {
+                    this._setCallStatusAndEmit(event.body.reason.text);
+                }
+                break;
+            case 'member:media':
+                this.media = event.body.media;
+                break;
+            case 'leg:status:update':
+                this.channel.legs = utils_1.default.updateMemberLegs(this.channel.legs, event);
+                this._setCallStatusAndEmit(event.body.status);
+                break;
+            case 'audio:ringing:start':
+                if (!this.callStatus || this.callStatus === 'started') {
+                    this._setCallStatusAndEmit('ringing');
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    /**
+       * Set the member.callStatus and emit a member:call:status event
+       *
+       * @param {Member.callStatus} this.callStatus the call status to set
+       * @private
+      */
+    _setCallStatusAndEmit(callStatus) {
+        if (this.callStatus !== String(callStatus)) {
+            this.callStatus = callStatus;
+            this.conversation.emit('member:call:status', this);
+        }
+    }
 }
-
+exports.default = Member;
 module.exports = Member;
 </code></pre>
         </article>
@@ -319,13 +305,13 @@ module.exports = Member;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Oct 22 2019 10:32:40 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

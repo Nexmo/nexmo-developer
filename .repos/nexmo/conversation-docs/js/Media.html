@@ -154,29 +154,6 @@
 
         <tr>
             
-                <td class="name"><code>remoteMembers</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;<a href="Member.html">Member</a>></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The remote members</td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>streamIndex</code></td>
             
 
@@ -361,7 +338,7 @@
 
             
 
-            <td class="description last">audio|video|screenshare the type of the stream</td>
+            <td class="description last">audio the type of the stream</td>
         </tr>
 
     
@@ -436,7 +413,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line43">line 43</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -551,7 +528,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line934">line 934</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line337">line 337</a>
     </li></ul></dd>
     
 
@@ -641,7 +618,7 @@ NexmoClient#rtcstats:report
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1266">line 1266</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line581">line 581</a>
     </li></ul></dd>
     
 
@@ -706,7 +683,7 @@ NexmoClient#rtcstats:report
     
 
     
-    <h4 class="name" id="enable"><span class="type-signature"></span>enable<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;MediaStream>}</span></h4>
+    <h4 class="name" id="enable"><span class="type-signature">(async) </span>enable<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;MediaStream>}</span></h4>
     
 
     
@@ -902,165 +879,7 @@ NexmoClient#rtcstats:report
                 </td>
             
 
-            <td class="description last">attach the audio stream automatically to start playing after enable media (default false)
-* <!-- the following line should be added when deploying video to prod.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>video</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-
-            <td class="description last">video enablement mode. possible values "both", "send_only", "receive_only", "none", true or false</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>video</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {direction: 'some_direction', constraints: constraints_object}
-                
-                </td>
-            
-
-            <td class="description last">video enablement mode.
-possible values for direction "both", "send_only", "receive_only", "none", true or false</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>screenshare</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-
-            <td class="description last">screen sharing enablement mode. possible values "send_only", "none", true or false</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>screenshare</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {direction: 'some_direction'}
-                
-                </td>
-            
-
-            <td class="description last">screen sharing enablement mode. possible values for direction "send_only", "none", true or false  --></td>
+            <td class="description last">attach the audio stream automatically to start playing after enable media (default false)</td>
         </tr>
 
     
@@ -1108,7 +927,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1200">line 1200</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line541">line 541</a>
     </li></ul></dd>
     
 
@@ -1162,26 +981,26 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     <pre class="prettyprint"><code>function enable() {
   conversation.media.enable()
      .then((stream) => {
-              const media = document.createElement("audio");
-              const source = document.createElement("source");
-              const media_div = document.createElement("div");
-              media.appendChild(source);
-              media_div.appendChild(media);
-              document.insertBefore(media_div);
-              // Older browsers may not have srcObject
-              if ("srcObject" in media) {
-                media.srcObject = stream;
-              } else {
-                // Avoid using this in new browsers, as it is going away.
-                media.src = window.URL.createObjectURL(stream);
-              }
-              media.onloadedmetadata = (e) => {
-                media.play();
-              };
+         const media = document.createElement("audio");
+         const source = document.createElement("source");
+         const media_div = document.createElement("div");
+         media.appendChild(source);
+         media_div.appendChild(media);
+         document.insertBefore(media_div);
+         // Older browsers may not have srcObject
+         if ("srcObject" in media) {
+           media.srcObject = stream;
+         } else {
+           // Avoid using this in new browsers, as it is going away.
+           media.src = window.URL.createObjectURL(stream);
+         }
+         media.onloadedmetadata = (e) => {
+           media.play();
+         };
 
 		 }).catch((error) => {
           console.log(error);
-      });
+     });
 }</code></pre>
 
 
@@ -1192,7 +1011,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
 
     
-    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(mute<span class="signature-attributes">opt</span>, audio<span class="signature-attributes">opt</span>, video<span class="signature-attributes">opt</span>, streamIndex<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(mute<span class="signature-attributes">opt</span>, streamIndex<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1279,84 +1098,6 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
 
         <tr>
             
-                <td class="name"><code>audio</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-
-            <td class="description last">true for audio stream - relevant only in video conversation</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>video</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-
-            <td class="description last">true for video stream - relevant only in video conversation</td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>streamIndex</code></td>
             
 
@@ -1430,7 +1171,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1092">line 1092</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line451">line 451</a>
     </li></ul></dd>
     
 
@@ -1459,19 +1200,11 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
 
 
 
-    <h5>Examples</h5>
+    <h5>Example</h5>
     
-        <p class="code-caption">Mute audio stream in non video conversation</p>
+        <p class="code-caption">Mute audio stream in conversation</p>
     
     <pre class="prettyprint"><code>media.mute(true)</code></pre>
-
-        <p class="code-caption">Mute audio and video streams in video conversation</p>
-    
-    <pre class="prettyprint"><code>media.mute(true, true, true, 0)</code></pre>
-
-        <p class="code-caption">Mute only video in video conversation</p>
-    
-    <pre class="prettyprint"><code>media.mute(true, false, true, 0)</code></pre>
 
 
 
@@ -1481,7 +1214,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
 
     
-    <h4 class="name" id="playStream"><span class="type-signature"></span>playStream<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
+    <h4 class="name" id="playStream"><span class="type-signature">(async) </span>playStream<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
     
 
     
@@ -1533,7 +1266,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1364">line 1364</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line674">line 674</a>
     </li></ul></dd>
     
 
@@ -1587,7 +1320,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
 
     
-    <h4 class="name" id="sayText"><span class="type-signature"></span>sayText<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
+    <h4 class="name" id="sayText"><span class="type-signature">(async) </span>sayText<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
     
 
     
@@ -1829,7 +1562,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1289">line 1289</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line602">line 602</a>
     </li></ul></dd>
     
 
@@ -1878,7 +1611,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>conversation.media.sayText({text:'hi'})</code></pre>
+    <pre class="prettyprint"><code>conversation.media.sayText({text:'hi'});</code></pre>
 
 
 
@@ -1888,7 +1621,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
 
     
-    <h4 class="name" id="sendDTMF"><span class="type-signature"></span>sendDTMF<span class="signature">(digit)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
+    <h4 class="name" id="sendDTMF"><span class="type-signature">(async) </span>sendDTMF<span class="signature">(digit)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
     
 
     
@@ -1989,7 +1722,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1323">line 1323</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line635">line 635</a>
     </li></ul></dd>
     
 
@@ -2038,7 +1771,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>conversation.media.sendDTMF('digit')</code></pre>
+    <pre class="prettyprint"><code>conversation.media.sendDTMF('digit');</code></pre>
 
 
 
@@ -2048,7 +1781,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
 
     
-    <h4 class="name" id="startRinging"><span class="type-signature"></span>startRinging<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
+    <h4 class="name" id="startRinging"><span class="type-signature">(async) </span>startRinging<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
     
 
     
@@ -2100,7 +1833,7 @@ possible values for direction "both", "send_only", "receive_only", "none", true 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1398">line 1398</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line707">line 707</a>
     </li></ul></dd>
     
 
@@ -2170,7 +1903,7 @@ console.log("ringing");
     
 
     
-    <h4 class="name" id="stopRinging"><span class="type-signature"></span>stopRinging<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
+    <h4 class="name" id="stopRinging"><span class="type-signature">(async) </span>stopRinging<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
     
 
     
@@ -2222,7 +1955,7 @@ console.log("ringing");
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1433">line 1433</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line741">line 741</a>
     </li></ul></dd>
     
 
@@ -2274,10 +2007,10 @@ console.log("ringing");
     <pre class="prettyprint"><code>Send ringing event
 function stopRinging() {
   conversation.media.stopRinging()
-     .then((response) => {
-      }).catch((error) => {
-          console.log(error);
-      });
+   .then((response) => {
+   }).catch((error) => {
+     console.log(error);
+   });
 }
 
 conversation.on('audio:ringing:stop', (data) => {
@@ -2467,298 +2200,7 @@ conversation.on('audio:ringing:stop', (data) => {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1056">line 1056</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    - Returns the new stream.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;MediaStream></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>&lt;caption>Update the stream currently being used with a new one&lt;/caption></code></pre>
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="updateSource"><span class="type-signature"></span>updateSource<span class="signature">(constraints, type)</span><span class="type-signature"> &rarr; {Promise.&lt;MediaStream>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Replaces the stream's tracks currently being used as the sender's sources with a new one
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>constraints</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">video and audio constraints</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    video
-                
-                </td>
-            
-
-            <td class="description last">rtc object type</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>constraints.audio</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">set audio constraints - { deviceId: { exact: microphoneId } }</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>constraints.video</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">set video constraints - { deviceId: { exact: cameraId } }</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line1025">line 1025</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line421">line 421</a>
     </li></ul></dd>
     
 
@@ -2831,13 +2273,13 @@ conversation.on('audio:ringing:stop', (data) => {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Oct 22 2019 10:32:40 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

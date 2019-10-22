@@ -26,8 +26,8 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const rtcStatsReporter = require('./rtcstats-reporter');
-
+            <pre class="prettyprint source linenums"><code>'use strict';
+const rtcStatsReporter = require('./rtcstats-reporter');
 /**
  * Collect WebRTC Report data
  * Removes credential information from the STUN.TURN server configuration.
@@ -43,98 +43,96 @@
  * @property {number} _mosSum the summary of mos scores
  * @private
  */
-
 class RTCStats {
-  constructor(trace, isCallback, getStatsInterval, prefixesToWrap) {
-    this.mos_report = {min: 5, max: 0};
-    this._reportsCount = 0;
-    this._mosSum = 0;
-    let self = this;
-    if (isCallback) {
-      let OrigPeerConnection = window['RTCPeerConnection'];
-      let peerconnection = function(config, constraints) {
-        let pc = new OrigPeerConnection(config, constraints);
-        if (!self.stats_interval) {
-          self.stats_interval = window.setInterval(() => {
-            if (pc.signalingState === 'closed') {
-              window.clearInterval(self.stats_interval);
-              let mos_report = self.getMOSReport();
-              trace('mos_report', mos_report.last, null, mos_report);
-              return;
-            }
-            pc.getStats(null).then((res) => {
-              let mos = self.getMos(res);
-              trace('mos', mos, res);
-            });
-          }, getStatsInterval);
+    constructor(trace, isCallback, getStatsInterval, prefixesToWrap) {
+        this.mos_report = { min: 5, max: 0 };
+        this._reportsCount = 0;
+        this._mosSum = 0;
+        let self = this;
+        if (isCallback) {
+            let OrigPeerConnection = window['RTCPeerConnection'];
+            let peerconnection = function (config) {
+                let pc = new OrigPeerConnection(config);
+                if (!self.stats_interval) {
+                    self.stats_interval = window.setInterval(() => {
+                        if (pc.signalingState === 'closed') {
+                            window.clearInterval(self.stats_interval);
+                            let mos_report = self.getMOSReport();
+                            trace('mos_report', mos_report.last, null, mos_report);
+                            return;
+                        }
+                        pc.getStats(null).then((res) => {
+                            let mos = self.getMos(res);
+                            trace('mos', mos, res);
+                        });
+                    }, getStatsInterval);
+                }
+                return pc;
+            };
+            window['RTCPeerConnection'] = peerconnection;
+            window['RTCPeerConnection'].prototype = OrigPeerConnection.prototype;
         }
-        return pc;
-      };
-      window['RTCPeerConnection'] = peerconnection;
-      window['RTCPeerConnection'].prototype = OrigPeerConnection.prototype;
-    } else {
-      rtcStatsReporter(trace, isCallback, getStatsInterval, prefixesToWrap);
+        else {
+            rtcStatsReporter(trace, isCallback, getStatsInterval, prefixesToWrap);
+        }
     }
-  }
-  disable() {
-    if (!this.stats_interval) {
-      throw new Error('rtc stats not enabled');
-    } else {
-      window.clearInterval(this.stats_interval);
-      delete this.stats_interval;
+    disable() {
+        if (!this.stats_interval) {
+            throw new Error('rtc stats not enabled');
+        }
+        else {
+            window.clearInterval(this.stats_interval);
+            delete this.stats_interval;
+        }
     }
-  }
-
-  getMos(report) {
-    let jitter_time = 0;
-    let recv_pkts = 0;
-    let lost_pkts = 0;
-    let average = 100.0;
-    let packet_loss = 0.0;
-    let effective_latency = 0.0;
-    let r_value = 0.0;
-    let mos = 0;
-
-    for (let now of report.values()) {
-      if (now.type === 'inbound-rtp') {
-        jitter_time = now.jitter;
-        lost_pkts = now.packetsLost;
-        recv_pkts = now.packetsReceived;
-      }
+    getMos(report) {
+        let jitter_time = 0;
+        let recv_pkts = 0;
+        let lost_pkts = 0;
+        let average = 100.0;
+        let packet_loss = 0.0;
+        let effective_latency;
+        let r_value;
+        let mos = 0;
+        for (let now of report.values()) {
+            if (now.type === 'inbound-rtp') {
+                jitter_time = now.jitter;
+                lost_pkts = now.packetsLost;
+                recv_pkts = now.packetsReceived;
+            }
+        }
+        if (recv_pkts + lost_pkts > 0) {
+            packet_loss = 100.0 * (lost_pkts / (recv_pkts + lost_pkts));
+        }
+        effective_latency = (average + jitter_time * 2 + 10);
+        if (effective_latency &lt; 160) {
+            r_value = 93.2 - (effective_latency / 40);
+        }
+        else {
+            r_value = 93.2 - (effective_latency - 120) / 10;
+        }
+        r_value = r_value - (packet_loss * 2.5);
+        if (r_value &lt; 1) {
+            r_value = 1;
+        }
+        mos = 1 + (0.035) * r_value + (0.000007) * r_value * (r_value - 60) * (100 - r_value);
+        this.updateMOSReport(mos);
+        return RTCStats.normaliseFloat(mos);
     }
-
-    if (recv_pkts + lost_pkts > 0) {
-      packet_loss = 100.0 * (lost_pkts / (recv_pkts + lost_pkts));
-    }
-    effective_latency = (average + jitter_time * 2 + 10);
-    if (effective_latency &lt; 160) {
-      r_value = 93.2 - (effective_latency / 40);
-    } else {
-      r_value = 93.2 - (effective_latency - 120) / 10;
-    }
-    r_value = r_value - (packet_loss * 2.5);
-
-    if (r_value &lt; 1) {
-      r_value = 1;
-    }
-    mos = 1 + (0.035) * r_value + (0.000007) * r_value * (r_value - 60) * (100 - r_value);
-    this.updateMOSReport(mos);
-    return RTCStats.normaliseFloat(mos);
-  }
     /**
      * Update the mos_report object
      * @param {number} mos the MOS score
      * @returns {object} the report object
      */
-  updateMOSReport(mos) {
-    this._reportsCount++;
-    this._mosSum += mos;
-    this.mos_report.last = mos;
-    this.mos_report.min = (mos &lt; this.mos_report.min) ? mos : this.mos_report.min;
-    this.mos_report.max = (mos > this.mos_report.max) ? mos : this.mos_report.max;
-    this.mos_report.average = this._mosSum / this._reportsCount;
-    return this.mos_report;
-  }
+    updateMOSReport(mos) {
+        this._reportsCount++;
+        this._mosSum += mos;
+        this.mos_report.last = mos;
+        this.mos_report.min = (mos &lt; this.mos_report.min) ? mos : this.mos_report.min;
+        this.mos_report.max = (mos > this.mos_report.max) ? mos : this.mos_report.max;
+        this.mos_report.average = this._mosSum / this._reportsCount;
+        return this.mos_report;
+    }
     /**
      * Update the MOS report object
      * mos_report.min - the minimum MOS value during the stream
@@ -144,16 +142,16 @@ class RTCStats {
      * @returns {Object} mos_report - a report for the MOS values
      *
      */
-  getMOSReport() {
-    this.mos_report.min = RTCStats.normaliseFloat(this.mos_report.min);
-    this.mos_report.max = RTCStats.normaliseFloat(this.mos_report.max);
-    this.mos_report.last = RTCStats.normaliseFloat(this.mos_report.last);
-    this.mos_report.average = RTCStats.normaliseFloat(this.mos_report.average);
-    return this.mos_report;
-  }
-  static normaliseFloat(value) {
-    return parseFloat(value).toFixed(6);
-  }
+    getMOSReport() {
+        this.mos_report.min = RTCStats.normaliseFloat(this.mos_report.min);
+        this.mos_report.max = RTCStats.normaliseFloat(this.mos_report.max);
+        this.mos_report.last = RTCStats.normaliseFloat(this.mos_report.last);
+        this.mos_report.average = RTCStats.normaliseFloat(this.mos_report.average);
+        return this.mos_report;
+    }
+    static normaliseFloat(value) {
+        return parseFloat(value).toFixed(6);
+    }
 }
 module.exports = RTCStats;
 </code></pre>
@@ -166,13 +164,13 @@ module.exports = RTCStats;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Oct 22 2019 10:32:40 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
