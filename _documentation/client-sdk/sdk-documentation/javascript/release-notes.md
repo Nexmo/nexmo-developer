@@ -22,7 +22,7 @@ new NexmoClient({
 })
 ```
 
-- Moved storage of JWT token from localStorage to `NexmoClient` config object
+- Moved storage of JWT token from `localStorage` to `NexmoClient` configuration object
 - Removed unnecessary files from the NPM release package
 
 ### Fixes
