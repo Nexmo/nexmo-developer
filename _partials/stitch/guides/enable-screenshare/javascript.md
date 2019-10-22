@@ -81,16 +81,16 @@ We'll need to install the extension on Chrome. There are a few ways to do that, 
 
 Next we'll have to update the existing JavaScript application we created in the [previous guide](/client-sdk/in-app-video/guides/enable-video/javascript).
 
-### 2.1 -  Adding the extension’s id to ConversationClient
+### 2.1 -  Adding the extension’s id to NexmoClient
 
-We will need to update the `ConversationClient` instantiation with the extension id we installed in the previous section, so let's find that in the code and update it:
+We will need to update the `NexmoClient` instantiation with the extension id we installed in the previous section, so let's find that in the code and update it:
 
 ``` javascript
 const YOUR_EXTENSION_ID = 'aaaabbbbccccddddeeeeffffgggghhhh'
 
 listConversations(userToken) {
 
-  new ConversationClient({
+  new NexmoClient({
       debug: false,
       screenShareExtensionId: YOUR_EXTENSION_ID
     })
