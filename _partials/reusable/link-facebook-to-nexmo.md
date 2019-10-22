@@ -65,7 +65,6 @@ You're now ready to receive messages users send on your Facebook Page.
 > **NOTE:** If at some point in the future you want to link a different application to this Facebook Page, you can simply redo Step 2 for the new application.
 
 
-<hr />
 
 ## Re-linking your Facebook page to your Nexmo account
 
