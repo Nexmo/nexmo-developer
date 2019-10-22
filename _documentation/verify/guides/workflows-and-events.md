@@ -74,3 +74,21 @@ Send a PIN code by text message, follow up with a voice call if the code hasn't 
 4. Wait for `next_event_wait` seconds *(default wait: 300 seconds)*
 5. Request expires
 
+
+## Workflow 6: SMS
+
+Send a PIN code by text message only.
+
+1. Send **SMS** to user with PIN code
+2. Wait for `next_event_wait` seconds *(default wait: 300 seconds)*
+3. Request expires
+
+
+## Workflow 7: TTS
+
+Call the user and speak a PIN code only.
+
+1. Call user and give **TTS** PIN code
+2. Wait for `next_event_wait` seconds *(default wait: 300 seconds)*
+3. Request expires
+
