@@ -145,7 +145,7 @@ Option | Description | Required
 `machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul class="Vlt-list Vlt-list--simple"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   | No
 `eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call States](/voice/voice-api/guides/call-flow#call-states). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
-`ringbackTone` | A URL value that points to a `ringbackTone` to be played back on repeat to the caller, so they don't hear silence. The `ringbackTone` will automatically stop playing when the call is fully connected, It's not recommeneded to use this param when connecting to a phone endpoint as the carrier will supply their own `ringbackTone`. Example: `"ringbackTone":"http://example.com/ringbackTone.wav" }`.  | No
+`ringbackTone` | A URL value that points to a `ringbackTone` to be played back on repeat to the caller, so they don't hear silence. The `ringbackTone` will automatically stop playing when the call is fully connected, It's not recommended to use this parameter when connecting to a phone endpoint as the carrier will supply their own `ringbackTone`. Example: `"ringbackTone":"http://example.com/ringbackTone.wav" }`.  | No
 
 ### Endpoint Types and Values
 
