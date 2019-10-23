@@ -19,7 +19,7 @@ Ensure the following variables are set to your required values using any conveni
 Key | Description
 -- | --
 `CONVERSATION_ID` | The unique ID of the Conversation.
-`MEMBER_ID` | The unique ID of the Member.
+`MEMBER_ID` | The unique ID of the Member (optional).
 
 ```code_snippets
 source: '_examples/conversation/event/create-custom-event'
