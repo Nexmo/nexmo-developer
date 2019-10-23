@@ -248,10 +248,14 @@ Nexmo's APIs receive an inbound call on our virtual number and make a request to
 
 ### Terminating the call
 
-The only other thing to do is allow the user to end the call by clicking the "Hang Up" button. We make that button available when we receive an event that confirms that a call is in progress:
+The only other thing to do is allow either participant in the Conversation to end the call by clicking the "Hang Up" button. We make that button available when we receive an event that confirms that a call is in progress.
+
+The event receives a `call` object as a parameter which we can use to control the call: in this instance by invoking its `hangup` method to terminate it.
+
+We also need to retrieve the active Conversation from the `call`, so that we can monitor the `member:left` event to determine if either party terminates the call and change the button state in response:
 
 ```javascript
-  // Whenever a call is made, bind an event that ends the call to
+  // Whenever a call is made bind an event that ends the call to
   // the hangup button
   application.on("member:call", (member, call) => {
     let terminateCall = () => {
@@ -260,10 +264,15 @@ The only other thing to do is allow the user to end the call by clicking the "Ha
       btnHangup.removeEventListener('click', terminateCall)
     };
     btnHangup.addEventListener('click', terminateCall);
+
+    // Retrieve the Conversation so that we can determine if a 
+    // Member has left and refresh the button state
+    conversation = call.conversation;
+    conversation.on("member:left", (member, event) => {
+      toggleCallStatusButton('idle');
+    });
   });
 ```
-
-The event receives a `call` object as a parameter which we can use to control the call: in this instance by invoking its `hangup` method to terminate it.
 
 ## Summary
 
