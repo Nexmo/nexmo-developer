@@ -3,6 +3,7 @@ OPEN_API_PRODUCTS = %w[
   media
   number-insight
   conversation
+  conversation.v2
   messages-olympus
   dispatch
   redact
