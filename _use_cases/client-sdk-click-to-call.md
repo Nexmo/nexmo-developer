@@ -1,6 +1,6 @@
 ---
 title: Click to Call
-products: client-sdk/in-app-voice
+products: client-sdk
 description: Learn how to enable your customers to call you directly from your website.
 languages:
     - Node
@@ -33,13 +33,23 @@ There is some initial set up you need to do before you can start working with th
 Download the source code from GitHub:
 
 ```
-git clone git@github.com:nexmo-community/client-sdk-click-to-call.git
+git clone git@github.com:https://github.com/nexmo-community/client-sdk-click-to-call.git
+cd client-sdk-click-to-call
 ```
 
 ### Install the Nexmo CLI
 
-You can perform some of these initial steps by using the [Developer Dashboard](https://dashboard.nexmo.com). However, it's often easier to use the Nexmo CLI and as we'll need it for some later steps, [download, install and set up the Nexmo CLI](https://github.com/Nexmo/nexmo-cli#installation) before continuing.
+You can perform some of these initial steps by using the [Developer Dashboard](https://dashboard.nexmo.com). However, it's often easier to use the Nexmo CLI and as we'll need it for some later steps, install the Nexmo CLI beta before continuing:
 
+```sh
+npm install nexmo-cli@beta 
+```
+
+Then, configure the Nexmo CLI with your API key and secret:
+
+```sh
+nexmo setup API_KEY API_SECRET
+```
 ### Buy a Nexmo number
 
 You'll need a Nexmo virtual number for your customer to call. You can purchase an available number for your chosen country code using the following CLI command:
@@ -63,7 +73,7 @@ To create the Nexmo Application, use the Nexmo CLI to run the command below, rep
 nexmo app:create --keyfile private.key ClickToCall https://YOUR_SERVER_HOSTNAME/webhooks/answer https://YOUR_SERVER_NAME/webhooks/event
 ```
 
-This command returns a UUID (Universally Unique Identifier) that identifies your application. Copy it somewhere, you will need it later!
+This command returns a unique Application ID. Copy it somewhere, you will need it later!
 
 The parameters are:
 
@@ -103,16 +113,25 @@ The sample code uses a `.env` file to store the configuration details. Copy `exa
 ```
 PORT=3000
 JWT= /* The JWT for supportuser */
-NEXMO_NUMBER= /* The Nexmo Number that you linked to your application */
+SUPPORT_PHONE_NUMBER= /* The Nexmo Number that you linked to your application */
 DESTINATION_PHONE_NUMBER= /* A target number to receive calls on */
 ```
+The phone numbers you provide in `.env` should omit any leading zeroes and include the country code. 
+
+For example (using the GB mobile number `07700 900000`): `447700900000`.
 
 ## Try it Out!
 
 Run the following command to install the required dependencies:
 
-```
+```sh
 npm install
+```
+
+Ensure that your application is accessible to Nexmo's APIs from the public Internet. [You can use ngrok for this](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr):
+
+```sh
+ngrok http 3000
 ```
 
 Launch the application itself:
@@ -276,7 +295,7 @@ We also need to retrieve the active Conversation from the `call`, so that we can
 
 ## Summary
 
-In this tutorial you have seen a use case where you can can provide a quick and convenient way for your customer to call you by clicking a button on a web page. Along the way you learned how to create a Nexmo application, link your virtual number to it and create and authenticate users.
+In this use case you learned how to implement a quick and convenient way for your customer to call you by clicking a button on a web page. Along the way you learned how to create a Nexmo application, link your virtual number to it and create and authenticate users.
 
 ## Related resources
 
