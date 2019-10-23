@@ -9,6 +9,7 @@ namespace :ci do
         "#{Rails.root}/_api/**/*.md",
         "#{Rails.root}/_tutorials/**/*.md",
       ]
+
     document_paths.each do |path|
       Dir.glob(path).each do |filename|
         document = File.read(filename)
@@ -107,6 +108,37 @@ namespace :ci do
         "#{e['path']} (#{e['document']})"
       end.uniq
       raise "Missing Errors:\n\n#{errors.join("\n")}"
+    end
+  end
+
+  task 'check_word_blocklist': :environment do
+    markdown_files =
+      [
+        "#{Rails.root}/_documentation/**/*.md",
+        "#{Rails.root}/_api/**/*.md",
+        "#{Rails.root}/_tutorials/**/*.md",
+        "#{Rails.root}/_partials/*.md",
+        "#{Rails.root}/_partials/**/*.md",
+        "#{Rails.root}/_modals/**/*.md",
+      ]
+
+    block_list = File.read('.disallowed_words').split("\n")
+
+    errors = []
+    markdown_files.each do |path|
+      Dir.glob(path).each do |filename|
+        block_list.each do |word|
+          word = word.downcase
+          document = File.read(filename).downcase
+          if document.include? word
+            errors.push("#{word} found in #{filename.gsub("#{Rails.root}/", '')}")
+          end
+        end
+      end
+    end
+
+    if errors.length.positive?
+      raise "Blocked words found:\n\n#{errors.join("\n")}"
     end
   end
 end

@@ -37,6 +37,7 @@ script:
   - bundle exec rake ci:verify_navigation
   - bundle exec rake ci:verify_oas_reference
   - bundle exec rake ci:verify_error_urls_resolve
+  - bundle exec rake ci:check_word_blocklist
   - RAILS_ENV=test bundle exec rake webpacker:compile
   - ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
   - yarn test

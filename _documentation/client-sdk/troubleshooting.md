@@ -45,11 +45,11 @@ It you run a command and don't get a response:
 
 * Make sure the `"application_id"` claim is correct.
 
-* Make sure the `“sub”` is correct. Meaning, a user with this user name exists in your Nexmo Application.
+* Make sure the `"sub"` is correct. Meaning, a user with this user name exists in your Nexmo Application.
 
 * Make sure the JWT hasn't expired:
 
-    * You can find the expiration date on `“exp”`, in Unix time, which is seconds since Jan 01 1970(UTC).
+    * You can find the expiration date on `"exp"`, in Unix time, which is seconds since Jan 01 1970(UTC).
     
     * You can [convert it to human time](https://www.epochconverter.com/).
     
