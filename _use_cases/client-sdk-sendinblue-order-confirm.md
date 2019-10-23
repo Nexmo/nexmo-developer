@@ -68,7 +68,17 @@ This installs required modules based on the `package.json` file.
 nexmo app:create
 ```
 
-Specify your application name and also select RTC capabilities. A private key will be written out to `private.key`.
+a. Specify your application name. Press Enter to continue.
+
+b. Specify RTC capabilities with the arrow keys and press spacebar to select. Press Enter to continue.
+
+c. For "Use the default HTTP methods?" press Enter to select the default.
+
+d. For " RTC Event URL" enter `https://example.ngrok.io/webhooks/rtc` or other suitable URL (depends on how you are testing).
+
+e. For "Public Key path" press Enter to select the default.
+
+f. For "Private Key path" enter `private.key` and press Enter.
 
 The file `.nexmo-app` is created in the project directory containing the Application ID and the private key. Make a note of the Application ID as you will need this later.
 
@@ -93,7 +103,7 @@ SENDINBLUE_TEMPLATE_ID=
 
 This assumes you are using port 3000, but you can use any convenient free port.
 
-Add in your application ID from the installation section. You can obtain your API key and secret from the [Nexmo Dashboard](https://dashboard.nexmo.com).
+Add in your application ID from the [Installation](/use-cases/client-sdk-sendinblue-order-confirm#installation) section. You can obtain your API key and secret from the [Nexmo Dashboard](https://dashboard.nexmo.com).
 
 The private key file will typically be `private.key`, unless you specified something else.
 
@@ -101,11 +111,37 @@ The private key file will typically be `private.key`, unless you specified somet
 
 ### Sendinblue configuration
 
-You must have a [Sendinblue](https://www.sendinblue.com) API key.
+You must have a [Sendinblue API key](https://account.sendinblue.com/advanced/api).
 
 For testing this use case it is assumed you have Sendinblue "sender" information. This is the email address and name you are sending emails from. You will also want to specify a user name and email address that will receive the order confirmation emails. Usually this information would be available on a per-customer basis in the user database, but in this use case it is set in the environment file for testing convenience.
 
-You also need the ID of the email template you are using. The template is created in the Sendinblue UI. When you have created a template and activated it you can make a note of the ID as specified in the UI. This is the number that is used here.
+You also need the ID of the [email template](https://account.sendinblue.com/camp/lists/template) you are using. The template is created in the Sendinblue UI. When you have created a template and activated it you can make a note of the ID as specified in the UI. This is the number that is used here. A sample template is given here:
+
+```
+ORDER CONFIRMATION
+
+Dear {{params.name}},
+
+Thank you for your order!
+
+ORDER_ID
+
+{{params.order_id}}
+
+ORDER_TEXT
+
+{{params.order_text}}
+
+If you would like to discuss this order with an agent please click the link below:
+
+{{params.url}}
+
+Thanks again!
+```
+
+See [Sendinblue on creating templates](https://help.sendinblue.com/hc/en-us/articles/209465345-Where-do-I-create-and-edit-the-email-templates-used-in-SendinBlue-Automation-) for information on creating your own template.
+
+> **NOTE:** Make sure that once you have created your template you add the Template ID (an integer) to the `.env` file before you continue.
 
 ## Running the code
 
@@ -125,7 +161,14 @@ This starts up the server using `node.js`.
 curl -d "username=agent" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/user
 ```
 
-This creates the user 'agent'.
+Check the server console logging which will respond with something similar to:
+
+```
+Creating user agent
+User agent and Conversation CON-7f1ae6c9-9f52-455e-b8e4-c08e96e6abcd created.
+```
+
+This creates the user 'agent'. In the case of the 'agent' the conversation is not used in this demo.
 
 > **IMPORTANT:** It is necessary to create the support agent before any other user in this simple demo. In this use case the agent must have the username `agent`.
 
@@ -137,7 +180,12 @@ curl -d "username=user-123" -H "Content-Type: application/x-www-form-urlencoded"
 
 This creates the user 'user-123'. You can specify any username here. Make a note of the username you specified.
 
-You will notice from the _server_ console logging that a conversation is also created for the user.
+You will notice from the server console logging that a conversation is also created for the user:
+
+```
+Creating user user-123
+User user-123 and Conversation CON-7f1ae6c9-9f52-455e-b8e4-c08e96e6abcd created.
+```
 
 **4.** Create a customer order:
 
@@ -145,7 +193,14 @@ You will notice from the _server_ console logging that a conversation is also cr
 curl -d "username=user-123" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/order
 ```
 
-This creates an order for user 'user-123'. For simplicity, this is a simple pre-defined static order, rather than a full-fledged shopping cart.
+This creates an order for user 'user-123'. For simplicity, this is a simple pre-defined static order, rather than a full-fledged shopping cart. Check the server console logging, you will see something similar to:
+
+``` text
+Creating order...
+Order URL: http://localhost:9000/chat/user-1234/CON-7f1ae6c9-9f52-455e-b8e4-c08e96e6abcd/1234
+Sending order email user-1234, 1234, Dear user-1234, You purchased a widget for $4.99! Thanks for your order!, http://localhost:9000/chat/user-1234/CON-7f1ae6c9-9f52-455e-b8e4-c08e96e6abcd/1234
+API called successfully. Returned data: [object Object]
+```
 
 This step also generates a custom event of type `custom:order-confirm-event` containing the order details.
 
@@ -185,7 +240,7 @@ The **client** uses the Nexmo Client SDK. It performs the following main functio
 
 ## Summary
 
-In this use case you have learned how to build an order confirmation and support system. The user receives an oeder confirmation email via Sendinblue. The user can then engage in two-way messaging with the support agent to discuss the order if required.
+In this use case you have learned how to build an order confirmation and support system. The user receives an order confirmation email via Sendinblue. The user can then engage in two-way messaging with the support agent to discuss the order if required.
 
 ## What's next?
 
