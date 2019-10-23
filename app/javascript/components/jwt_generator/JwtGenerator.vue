@@ -206,8 +206,7 @@ export default {
       payload.iat = this.iat;
       payload.exp = this.exp;
       payload.jti = this.jti;
-      payload.nbf = this.nbf;
-      payload.applicationId = this.applicationId;
+      payload.application_id = this.applicationId;
       if (this.sub) { payload.sub = this.sub; }
       if (this.acl) { payload.acl = JSON.parse(this.acl); }
       return JSON.stringify(payload);
