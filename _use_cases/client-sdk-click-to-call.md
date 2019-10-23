@@ -33,7 +33,7 @@ There is some initial set up you need to do before you can start working with th
 Download the source code from GitHub:
 
 ```
-git clone git@github.com:https://github.com/nexmo-community/client-sdk-click-to-call.git
+git clone git@github.com:https://github.com/nexmo-community/client-sdk-click-to-call
 cd client-sdk-click-to-call
 ```
 
