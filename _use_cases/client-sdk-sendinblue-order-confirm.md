@@ -33,8 +33,10 @@ The following procedure assumes you have the `git` and `npm` commands available 
 **1.** Install the Nexmo CLI:
 
 ``` bash
-npm install nexmo-cli -g
+npm install nexmo-cli@beta -g
 ```
+
+> **NOTE:** The Beta version of the Nexmo CLI is required for this demo.
 
 **2.** Initialize your credentials for use with the Nexmo CLI:
 
@@ -80,14 +82,20 @@ e. For "Public Key path" press Enter to select the default.
 
 f. For "Private Key path" enter `private.key` and press Enter.
 
-The file `.nexmo-app` is created in the project directory containing the Application ID and the private key. Make a note of the Application ID as you will need this later.
+The application is then created.
+
+The file `.nexmo-app` is created in the project directory containing the Application ID and the private key.
+
+**8.** Open the `.env` file in your project directory with an editor.
+
+**9.** Add the Nexmo Application ID to your `.env` file (`NEXMO_APPLICATION_ID`).
 
 ## Configuration
 
-Open the `.env` file in your project directory with an editor. Set the following information:
+Set the following information:
 
-``` bash
-NEXMO_APPLICATION_ID=
+``` text
+NEXMO_APPLICATION_ID=App ID for the application you just created
 NEXMO_API_KEY=
 NEXMO_API_SECRET=
 NEXMO_APPLICATION_PRIVATE_KEY_PATH=private.key
@@ -101,21 +109,24 @@ SENDINBLUE_TO_EMAIL=
 SENDINBLUE_TEMPLATE_ID=
 ```
 
-This assumes you are using port 3000, but you can use any convenient free port.
-
-Add in your application ID from the [Installation](/use-cases/client-sdk-sendinblue-order-confirm#installation) section. You can obtain your API key and secret from the [Nexmo Dashboard](https://dashboard.nexmo.com).
-
-The private key file will typically be `private.key`, unless you specified something else.
+1. Set Nexmo API key and secret. You can obtain your Nexmo API key and Nexmo API secret from the [Nexmo Dashboard](https://dashboard.nexmo.com).
+2. Set the port number. The example shown assumes you are using port 3000, but you can use any convenient free port.
 
 > **NOTE:** The Conversation ID is only used for testing purposes. You do not need to configure it at this stage.
+
+You will now continue to Sendinblue configuration.
 
 ### Sendinblue configuration
 
 You must have a [Sendinblue API key](https://account.sendinblue.com/advanced/api).
 
-For testing this use case it is assumed you have Sendinblue "sender" information. This is the email address and name you are sending emails from. You will also want to specify a user name and email address that will receive the order confirmation emails. Usually this information would be available on a per-customer basis in the user database, but in this use case it is set in the environment file for testing convenience.
+For testing this use case it is assumed you have Sendinblue "sender" information. This is the email address and name you are sending emails **from**.
 
-You also need the ID of the [email template](https://account.sendinblue.com/camp/lists/template) you are using. The template is created in the Sendinblue UI. When you have created a template and activated it you can make a note of the ID as specified in the UI. This is the number that is used here. A sample template is given here:
+You should also specify a user name and email address that will receive the order confirmation emails. Usually this information would be available on a per-customer basis in the user database, but in this use case it is set in the environment file for testing convenience. This is the email address and name you are sending emails **to**.
+
+You also need the ID of the [email template](https://account.sendinblue.com/camp/lists/template) you are using. The template is created in the Sendinblue UI. When you have created a template and activated it you can make a note of the ID as specified in the UI. This is the number that is used here.
+
+A sample template that can be used with this demo is given here:
 
 ```
 ORDER CONFIRMATION
@@ -139,9 +150,11 @@ If you would like to discuss this order with an agent please click the link belo
 Thanks again!
 ```
 
+You can use this sample to create a template in Sendinblue.
+
 See [Sendinblue on creating templates](https://help.sendinblue.com/hc/en-us/articles/209465345-Where-do-I-create-and-edit-the-email-templates-used-in-SendinBlue-Automation-) for information on creating your own template.
 
-> **NOTE:** Make sure that once you have created your template you add the Template ID (an integer) to the `.env` file before you continue.
+> **IMPORTANT:** Make sure that once you have created your template you add the Template ID (an integer available from the Sendinblue UI) to the `.env` file before you continue.
 
 ## Running the code
 
