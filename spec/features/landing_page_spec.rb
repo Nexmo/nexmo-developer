@@ -48,14 +48,14 @@ RSpec.feature 'Landing page' do
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(3)') do
         expect(page).to have_css('small', text: 'Programmable')
-        expect(page).to have_link('Video', href: 'https://tokbox.com/developer/guides/basics/')
+        expect(page).to have_link('Video', href: 'https://tokbox.com/developer/')
 
         within('nav') do
           expect(page).to have_link('Overview', href: 'https://tokbox.com/developer/guides/basics/')
           expect(page).to have_link('Guides', href: 'https://tokbox.com/developer/guides/')
           expect(page).to have_link('Code Snippets', href: 'https://tokbox.com/developer/samples/')
           expect(page).to have_link('Tutorials', href: 'https://tokbox.com/developer/tutorials/')
-          expect(page).to have_link('API Reference', href: 'https://tokbox.com/developer/sdks/js/')
+          expect(page).to have_link('API Reference', href: 'https://tokbox.com/developer/sdks/client/')
         end
       end
 
