@@ -14,7 +14,7 @@ In order to set up your Conversation API application, you typically need to carr
 
 This process is illustrated in the following diagram:
 
-![Application setup](/assets/images/conversation-api/conv-diagram-setup.gif)
+![Application setup](/assets/images/conversation-api/conv-app-setup.png)
 
 1. [Create a Nexmo Application](/application/overview#creating-applications).
 
