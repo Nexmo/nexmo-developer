@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.0'
 gem 'webpacker'
 
 # Use postgresql as the database for Active Record
@@ -19,7 +19,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 4.1.20'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -30,7 +30,7 @@ gem 'clipboard-rails'
 # Icons!
 gem 'octicons_helper'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7.0'
+gem 'jbuilder', '~> 2.9.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -93,7 +93,7 @@ gem 'factory_bot_rails', '4.8.2', require: false
 gem 'slack-notifier', '2.3.1'
 
 # The administration framework for Ruby on Rails.
-gem 'activeadmin', '~> 1.0'
+gem 'activeadmin', '~> 2.4'
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '>= 4.6.0'
@@ -120,7 +120,7 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
-gem 'rubocop'
+gem 'rubocop', '~> 0.58.2', require: false
 
 # Volta needs a CSS autoprefixer
 gem 'autoprefixer-rails'
@@ -138,7 +138,9 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo-oas-renderer', '~> 0.5.5', require: false
+# gem 'nexmo-oas-renderer', path: '../nexmo-oas-renderer-sinatra', require: false
+# gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer', require: false
+gem 'nexmo-oas-renderer', '~> 0.6.2', require: false
 
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
@@ -164,7 +166,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'guard-livereload', '~> 2.5', require: false

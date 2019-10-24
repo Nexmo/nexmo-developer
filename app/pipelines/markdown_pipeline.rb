@@ -3,7 +3,7 @@ class MarkdownPipeline < Banzai::Pipeline
     super(
       # As Markdown
       FrontmatterFilter,
-      PHPInlinerFilter,
+      PhpInlinerFilter,
       InlineEscapeFilter,
       BlockEscapeFilter,
       ScreenshotFilter,

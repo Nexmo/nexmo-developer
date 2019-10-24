@@ -6,7 +6,7 @@ navigation_weight: 0
 
 # Release Notes
 
-## Version 6.0.2 - October 22, 2019
+## Version 6.0.3 - October 22, 2019
 
 ### New
 

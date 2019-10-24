@@ -14,7 +14,7 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
       expect(User.count).to eq(0)
       expect(Feedback::Author.count).to eq(1)
       expect(Feedback::Feedback.count).to eq(1)
-      expect(response.content_type).to eq('application/json')
+      expect(response.content_type).to eq('application/json; charset=utf-8')
       expect(response.cookies['feedback_author_id']).to eq(Feedback::Author.last.id)
     end
 

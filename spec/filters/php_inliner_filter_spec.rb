@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PHPInlinerFilter do
+RSpec.describe PhpInlinerFilter do
   it 'adds "?start_inline=1" to regex matching input' do
     input = <<~HEREDOC
       ```php
