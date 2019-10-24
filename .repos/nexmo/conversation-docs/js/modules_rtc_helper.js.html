@@ -26,245 +26,71 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*
+            <pre class="prettyprint source linenums"><code>'use strict';
+Object.defineProperty(exports, "__esModule", { value: true });
+/*
  * Nexmo Client SDK
  *
  * Copyright (c) Nexmo Inc.
  */
-
 require('webrtc-adapter');
-const browserDetect = require('detect-browser');
 const getLogger = require('loglevel').getLogger;
-const ChromeHelper = require('./chrome_helper');
-const NexmoClientError = require('../nexmoClientError').NexmoClientError;
-
+const browserDetect = require('detect-browser');
 /**
  * RTC helper object for accessing webRTC API.
  * @class RtcHelper
  * @private
 */
 class RtcHelper {
-  constructor() {
-    this.log = getLogger(this.constructor.name);
-  }
-
-  getUserAudio(audioConstraints = true) {
-    let constraintsToUse = {
-      video: false,
-      audio: audioConstraints
-    };
-    return navigator.mediaDevices.getUserMedia(constraintsToUse);
-  }
-
-  getUserVideo(videoConstraints = true, audioConstraints = true) {
-    let constraintsToUse = {
-      video: videoConstraints,
-      audio: audioConstraints
-    };
-    return navigator.mediaDevices.getUserMedia(constraintsToUse);
-  }
-
-  /**
-   * Gets the user's screen stream that is to be shared.
-   * @param {Object} options
-   * @param {Array} options.sources - Array specifying the sources. Possible values in sources
-   * are 'screen', 'window' and 'tab'.
-   * @param {string} options.sourceId - Specifies source Id of the stream that should be shared.
-  */
-  getUserScreen(options) {
-    return Promise.resolve().then(() => {
-      if (options &amp;&amp; options.sourceId) {
-        return Promise.resolve();
-      }
-      return this.checkChromeExtensionIsInstalled();
-    }).then(() => {
-      return this.getShareScreenStream(options);
-    });
-  }
-
-  createRTCPeerConnection(config, constraints, clientId) {
-    constraints.optional.push({clientId: clientId});
-    const pc = new RTCPeerConnection(config, constraints);
-    // attaching the .trace to make easier the stats reporting implementation
-    pc.trace = () => {
-      return;
-    };
-    return pc;
-  }
-
-  checkChromeExtensionIsInstalled() {
-    if (this._getBrowserName() === 'chrome') {
-      if (!this.chromeHelper) {
-        this._initChromeHelper();
-      }
-      return this.chromeHelper.checkScreenShareInstalled();
-    } else {
-      // Firefox or others, no need for the extension (but this doesn't mean it will work)
-      return Promise.resolve();
+    constructor() {
+        this.log = getLogger(this.constructor.name);
     }
-  }
-
-  getShareScreenStream(options) {
-    switch (this._getBrowserName()) {
-      case 'chrome':
-        return this.chromeGetShareScreenStream(options);
-      case 'firefox':
-        return this.fireFoxGetShareScreenStream();
-      default:
-        return Promise.reject(new NexmoClientError('error:media:unsupported-browser'));
+    getUserAudio(audioConstraints = true) {
+        let constraintsToUse = {
+            video: false,
+            audio: audioConstraints
+        };
+        return navigator.mediaDevices.getUserMedia(constraintsToUse);
     }
-  }
-
-  fireFoxGetShareScreenStream() {
-    let constraints = {
-      video: {
-        mozMediaSource: 'screen',
-        mediaSource: 'screen'
-      },
-      audio: false
-    };
-    return navigator.mediaDevices.getUserMedia(constraints);
-  }
-
-  /**
-   * Get the ScreenShare stream
-   * video settings:
-   * chromeMediaSource: 'desktop',
-   * maxWidth: window.screen.width,
-   * maxHeight: window.screen.height,
-   * maxFrameRate: 15
-   * @param {Object} options
-   * @param {Array} options.sources - Array specifying the sources. Possible values in sources
-   * are 'screen', 'window' and 'tab'.
-   * @param {string} options.sourceId - Specifies source Id of the stream that should be shared.
-   * @private
-  */
-  chromeGetShareScreenStream(options) {
-    if (!this.chromeHelper) {
-      this._initChromeHelper();
+    createRTCPeerConnection(config) {
+        const pc = new RTCPeerConnection(config);
+        // attaching the .trace to make easier the stats reporting implementation
+        pc.trace = () => {
+            return;
+        };
+        return pc;
     }
-    if (options &amp;&amp; options.sourceId) {
-      return this._getScreenShareStream(options.sourceId);
+    _playAudioStream(stream) {
+        const audio = new Audio();
+        audio.srcObject = stream;
+        audio.autoplay = true;
+        return audio;
     }
-    const sources = options ? options.sources : undefined;
-    return this.chromeHelper.getScreenShare(sources)
-        .then((sourceId) => this._getScreenShareStream(sourceId));
-  }
-
-  _getScreenShareStream(sourceId) {
-    const constraints = {
-      audio: false,
-      video: {
-        mandatory: {
-          chromeMediaSource: 'desktop',
-          maxWidth: window.screen.width,
-          maxHeight: window.screen.height,
-          maxFrameRate: 15,
-          chromeMediaSourceId: sourceId
-        },
-        optional: []
-      }
-    };
-    return navigator.mediaDevices.getUserMedia(constraints);
-  }
-
-  _playAudioStream(stream) {
-    const audio = new Audio();
-    audio.srcObject = stream;
-    audio.autoplay = true;
-    return audio;
-  }
-
-  _getWindowLocationProtocol() {
-    return window.location.protocol;
-  }
-
-  _getBrowserName() {
-    return browserDetect.detect().name;
-  }
-
-  /**
-   * sets this.screenShareExtensionId for cases we need Screen Share support for Chrome
-   * @param {string} screenShareExtensionId the screen share extension id to set
-   * @returns {Promise}
-   * @private
-  */
-  _setScreenShareExtensionId(screenShareExtensionId) {
-    if (typeof screenShareExtensionId !== 'string') {
-      return Promise.reject(new NexmoClientError('not a valid extension id string'));
+    _getWindowLocationProtocol() {
+        return window.location.protocol;
     }
-    this.screenShareExtensionId = screenShareExtensionId;
-    return Promise.resolve();
-  }
-
-  /**
-   * sets this.chromeHelper object to enable screenshare capabilities
-   * @returns {Promise&lt;ChromeHelper>} the generated instance of ChromeHelper
-   * @private
-  */
-  _initChromeHelper() {
-    if (!this.screenShareExtensionId) {
-      return Promise.reject(new NexmoClientError('screenShareExtensionId not set, set it with _setScreenShareExtensionId(screenShareExtensionId)'));
+    _getBrowserName() {
+        return browserDetect.detect().name;
     }
-    this.chromeHelper = new ChromeHelper(this.screenShareExtensionId);
-    return Promise.resolve(this.chromeHelper);
-  }
-
-  isNode() {
-    return this._getBrowserName() === 'node';
-  }
-
-  /**
-   * Check whether the offer SDP has both video and audio enabled and
-   * compare the order of them to match with the answer SDP order
-   *
-   * @param {string} offer the offer SDP
-   * @param {string} answer the answer SDP
-   * @returns {string} the new edited answer SDP
-   * @private
-  */
-  editSDPOrder(offer, answer) {
-    const offerGroupBundleProto = 'a=group:bundle';
-    const offerGroupBundle = offer.toLowerCase().substring(offer.toLowerCase().indexOf(offerGroupBundleProto)).split('\n')[0];
-
-    if (offerGroupBundle !== '') {
-      if ((offerGroupBundle.includes('0') &amp;&amp; offerGroupBundle.includes('1'))
-        || (offerGroupBundle.includes('audio') &amp;&amp; offerGroupBundle.includes('video'))) {
-        const answerAudioIndex = answer.indexOf('m=audio');
-        const answerVideoIndex = answer.indexOf('m=video');
-        offerGroupBundle.replace('audio', '0');
-        offerGroupBundle.replace('video', '1');
-        const offerOrder = offerGroupBundle.replace(offerGroupBundleProto, '').replace(/\s/g, '');
-
-        if (Number(offerOrder[0]) &lt; Number(offerOrder[1]) &amp;&amp; answerAudioIndex > answerVideoIndex) {
-          return answer.substring(0, answerVideoIndex)
-              .concat(answer.substring(answerAudioIndex, answer.length),
-                  answer.substring(answerVideoIndex, answerAudioIndex));
-        } else if (Number(offerOrder[0]) > Number(offerOrder[1]) &amp;&amp; answerAudioIndex &lt; answerVideoIndex) {
-          return answer.substring(0, answerAudioIndex)
-              .concat(answer.substring(answerVideoIndex, answer.length),
-                  answer.substring(answerAudioIndex, answerVideoIndex));
-        }
-      }
+    isNode() {
+        return this._getBrowserName() === 'node';
     }
-
-    return answer;
-  }
-
-  /**
-    * Check if the keys in an object are found in another object
-  */
-  checkValidKeys(object, defaultObject) {
-    let valid = true;
-    Object.keys(object).forEach((key) => {
-      if (!defaultObject.hasOwnProperty(key)) {
-        valid = false;
-      };
-    });
-    return valid;
-  };
+    /**
+      * Check if the keys in an object are found in another object
+    */
+    checkValidKeys(object, defaultObject) {
+        let valid = true;
+        Object.keys(object).forEach((key) => {
+            if (!defaultObject.hasOwnProperty(key)) {
+                valid = false;
+            }
+            ;
+        });
+        return valid;
+    }
+    ;
 }
-
+exports.default = RtcHelper;
 module.exports = RtcHelper;
 </code></pre>
         </article>
@@ -276,13 +102,13 @@ module.exports = RtcHelper;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:connection:fail">media:connection:fail</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Sep 27 2019 12:02:44 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Oct 22 2019 10:32:40 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

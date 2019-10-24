@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: modules/errors_emitter.js</title>
+    <title>JSDoc: Class: NexmoClientError</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,89 +17,186 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: modules/errors_emitter.js</h1>
+    <h1 class="page-title">Class: NexmoClientError</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
-Object.defineProperty(exports, "__esModule", { value: true });
-/*
- * Nexmo Client SDK
- *  Errors Emitter
- *
- * Copyright (c) Nexmo Inc.
-*/
-const getLogger = require('loglevel').getLogger;
-const nexmoClientError_1 = require("../nexmoClientError");
-/**
- * Class that can emit errors via any emitter passed to it.
- * @class ErrorsEmitter
- * @param {Emitter} emitter - Any event emitter that implements "emit" and "releaseGroup". Basically object that is mixed with Wildemitter.
- * @property {string} LISTENER_GROUP='NXM-errors' - the group this emitter will register
- * @emits Emitter#NXM-errors
- * @private
-*/
-/**
- * Application listening for joins.
- *
- * @event Application#NXM-errors
- *
- * @property {NexmoClientError} error
- *
- * @example &lt;caption>listen for errors&lt;/caption>
- * application.on('*', 'NXM-errors', (error) => {
- *    console.log('Error thrown with type ' + error.type);
- *  });
- * @example &lt;caption>Update the token on expired-token error&lt;/caption>
- * application.on('system:error:expired-token', 'NXM-errors', (error) => {
- * 	console.log('token expired');
- * 	application.updateToken(&lt;token>);
- * });
-*/
-class ErrorsEmitter {
-    constructor(emitter) {
-        this.log = getLogger(this.constructor.name);
-        if (!emitter) {
-            throw new nexmoClientError_1.NexmoClientError('no emitter object passed for the Error Emitter');
-        }
-        this.emitter = emitter;
-        this.LISTENER_GROUP = 'NXM-errors';
-    }
-    /**
-     * Detect if the param.type includes error and emit that payload in the LISTENER_GROUP
-     * @param param - the payload to forward in the LISTENER_GROUP
-     * @param param.type - the type of the event to check if it's an error
-    */
-    emitResponseIfError(param) {
-        if (this._isTypeError(param.type)) {
-            return this.emitter.emit(param.type, this.LISTENER_GROUP, param);
-        }
-        return;
-    }
-    /**
-     * Release Group on the registered emitter (using the namespace LISTENER_GROUP that is set)
-    */
-    cleanup() {
-        return this.emitter.releaseGroup(this.LISTENER_GROUP);
-    }
-    /**
-     * Returns true if the param includes 'error'
-     * @param {string} type - the error type to check
-    */
-    _isTypeError(param) {
-        return param.indexOf('error') !== -1;
-    }
-}
-exports.default = ErrorsEmitter;
-module.exports = ErrorsEmitter;
-</code></pre>
-        </article>
-    </section>
+        <h2><span class="attribs"><span class="type-signature"></span></span>NexmoClientError<span class="signature">(errorInput)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">Error constructor of an NexmoClient-error</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="NexmoClientError"><span class="type-signature"></span>new NexmoClientError<span class="signature">(errorInput)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>errorInput</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">String client error</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="nexmoClientError.js.html">nexmoClientError.js</a>, <a href="nexmoClientError.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
