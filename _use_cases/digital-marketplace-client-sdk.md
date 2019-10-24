@@ -34,23 +34,27 @@ Click “Generate public/private key pair” to generate your public key and dow
 
 Take note of your Application ID. 
 
-### Using GitHub
+### Authenticating your application
+
+#### Using GitHub
 
 Move the `private.key` file to the root of your project:
 
 ![Nexmo Application private key location local screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-local.png)
 
-### Using Glitch
+#### Using Glitch
 
 Open the `private.key` file in a text editor. Then, in your Glitch project, create the file `/.data/private.key` and copy and paste in the contents of the `private.key`.
 
 ![Nexmo Application private key location Glitch screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-glitch.png)
 
+### Configuring your application
+
 Regardless of whether you are remixing the Glitch or cloning the GitHub repository, you must configure the application using the `.env` file. Fill in each setting using the values you noted in the preceding steps.
 
-(Note, if your .env file is empty, it should like this)
+The structure of the `.env` file is slightly different depending on whether you are using GitHub or Glitch:
 
-### For GitHub
+#### For GitHub
 
 ```
 API_KEY="your-value-here"
@@ -59,7 +63,7 @@ APP_ID="your-value-here"
 PRIVATE_KEY="/private.key"
 ```
 
-### For Glitch
+#### For Glitch
 
 ```
 DANGEROUSLY_DISABLE_HOST_CHECK=true
@@ -77,9 +81,9 @@ Now we should be ready to go!
 
 ![Marketplace App login screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/app-login.png)
 
-The user will enter a username and select either a Seller or Buyer role.
+The user enters a username and selects either the Seller or Buyer role.
 
-(Note: The request body has properties we can use for setting the user name, display name and image URL, but there is no such property for specifying the role. Fortunately, we can add our own properties in `custom_data`, so we'll create `role` in there.)
+The request body has properties we can use for setting the user name, display name and image URL, but there is no such property for specifying the role. Fortunately, we can add our own properties in `custom_data`, so we'll create `role` in there:
 
 *NexmoMarketplaceApp.js*
 
@@ -103,8 +107,6 @@ The user will enter a username and select either a Seller or Buyer role.
         })
       });
       await results.json();
-      // const data = await results.json();
-      // setUserId(data.id);
       await login();
     } catch(err){
       console.log('getJWT error: ',err);
@@ -144,7 +146,9 @@ The user will enter a username and select either a Seller or Buyer role.
   };
 ```
 
-Authentication is handled with [JWT](/concepts/guides/authentication#json-web-tokens-jwt). The application makes a call to the Node Express server to retrieve the JWT and then logs the user in.
+#### Authentication
+
+The Client SDK authenticates using [JWTs](/concepts/guides/authentication#json-web-tokens-jwt). The application makes a call to the Node Express server to retrieve the JWT and then logs the user in.
 
 *server.js*
 
@@ -191,6 +195,8 @@ app.post('/createUser', function(req, res) {
 });
 ```
 
+#### Displaying items for sale
+
 When the user is logged in, we retrieve a list of all the items for sale.
 
 *NexmoMarketplaceApp.js*
@@ -231,7 +237,7 @@ app.post('/getConversations', function(req, res) {
 });
 ```
 
-### Listings
+### Listing a new item for sale
 
 If the role of Seller was selected, the application displays a form that allows the User to add an item for sale:
 
@@ -275,9 +281,9 @@ With that, we then get an updated list with your item at the top.
 
 Go ahead and click on your item.
 
-### Item details page
+### The item details page
 
-Clicking on an item calls the Client SDK’s `getConversation` function.  The code checks to see if the current user is a Member of the Conversation. If not, the User is  joined to the Conversation.
+Clicking on an item calls the Client SDK’s `getConversation` function.  The code checks to see if the current user is a Member of the Conversation. If not, it adds the User as a Member.
 
 Next, we need to load any events (like chat messages) that may have happened prior to the User joining the Conversation.
 
@@ -318,6 +324,8 @@ Next, we need to load any events (like chat messages) that may have happened pri
     }
   };
 ```
+
+#### Purchasing items
 
 Let’s say you want to purchase the item. When you click the Pay Now button, we raise another custom event (stripe_payment) with the Nexmo Client SDK. Note: In this use case, we simply mock the response from Stripe and leave the implementation of a payment gateway to you.
 
@@ -500,10 +508,10 @@ You will definitely want to add proper authentication if you are using this exam
 
 You might also want to consider adding more custom events to make the buying and selling experience a better one for your users. Perhaps you could allow users to add items they are interested in purchasing to a list of favorites? Or enable sellers to edit an item that they have listed for sale?
 
-_Useful Client SDK links:_
+## Useful Client SDK links
 
-Overview: [https://developer.nexmo.com/client-sdk/overview](https://developer.nexmo.com/client-sdk/overview)
+* [Overview](/client-sdk/overview)
 
-Tutorials: [https://developer.nexmo.com/client-sdk/tutorials](https://developer.nexmo.com/client-sdk/tutorials)
+* [Tutorials](/client-sdk/tutorials)
 
-More Use Cases: [https://developer.nexmo.com/client-sdk/use-cases](https://developer.nexmo.com/client-sdk/use-cases)
+* [More Use Cases](/client-sdk/use-cases)
