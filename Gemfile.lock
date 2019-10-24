@@ -1,23 +1,4 @@
 GIT
-  remote: https://github.com/nexmo/nexmo-oas-renderer
-  revision: 208a8b4037663d9db34d70e2604097d0f7fdead4
-  branch: remove-constraints
-  specs:
-    nexmo-oas-renderer (0.6.2)
-      activemodel (~> 6.0)
-      activesupport (~> 6.0)
-      banzai (~> 0.1.2)
-      dotenv (~> 2.7)
-      neatjson (~> 0.8)
-      oas_parser (= 0.22.2)
-      octicons_helper (~> 8.2)
-      redcarpet (= 3.4.0)
-      rouge (= 2.0.7)
-      sass (~> 3.1)
-      shotgun (~> 0.9)
-      sinatra (~> 2.0)
-
-GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -301,6 +282,19 @@ GEM
     neatjson (0.9)
     nenv (0.3.0)
     netrc (0.11.0)
+    nexmo-oas-renderer (0.6.3)
+      activemodel (~> 6.0)
+      activesupport (~> 6.0)
+      banzai (~> 0.1.2)
+      dotenv (~> 2.7)
+      neatjson (~> 0.8)
+      oas_parser (= 0.22.2)
+      octicons_helper (~> 8.2)
+      redcarpet (= 3.4.0)
+      rouge (= 2.0.7)
+      sass (~> 3.1)
+      shotgun (~> 0.9)
+      sinatra (~> 2.0)
     nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
@@ -565,7 +559,7 @@ DEPENDENCIES
   listen (~> 3.2)
   lograge
   neatjson
-  nexmo-oas-renderer!
+  nexmo-oas-renderer (~> 0.6.3)
   nokogiri (~> 1.10.4)
   octicons_helper
   octokit
