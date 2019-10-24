@@ -315,7 +315,7 @@ The event endpoint will also receive webhooks in the event of an error. This can
 
 Field | Example | Description
  -- | -- | --
-`level` | `error` | `indicates that the call was unable to continue`
+`level` | `error` | indicates that the call was unable to continue
 `reason` | `Syntax error in NCCO. Invalid value type or action.` | Information about the nature of the error
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
@@ -326,7 +326,7 @@ The event endpoint will also receive webhooks in the event of an warning. This c
 
 Field | Example | Description
  -- | -- | --
-`level` | `warn` | `indicates that the call was able to continue but could have been a better user experiance`
+`level` | `warn` | indicates that the call was able to continue but could have been a better user experiance
 `reason` | `Multiple ringbacks detected. Connect actions to a phone endpoint already contain a ringback tone. Recommended: remove the ringback parameter in your action.` | Information about the nature of the error
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
