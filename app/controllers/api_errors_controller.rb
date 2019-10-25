@@ -15,9 +15,15 @@ class ApiErrorsController < ApplicationController
   end
 
   def index_scoped
-    @errors_title = @error_config['products'][params[:definition]]['title']
-    @hide_rfc7807_header = @error_config['products'][params[:definition]]['hide_rfc7807_header']
-    @errors = scoped_errors(params[:definition])
+    oas = params[:definition]
+    # At some point, the subaccounts OAS docs should move in to the account OAS docs
+    if params[:subapi] == 'subaccounts'
+      oas = params[:subapi]
+    end
+
+    @errors_title = @error_config['products'][oas]['title']
+    @hide_rfc7807_header = @error_config['products'][oas]['hide_rfc7807_header']
+    @errors = scoped_errors(oas)
     render 'index'
   end
 
@@ -70,7 +76,7 @@ class ApiErrorsController < ApplicationController
     # level OAS documents, but we still need to support the old URLs
     # e.g. account/secret-management
     allowed_subapis = {
-      'account' => ['secret-management'],
+      'account' => ['secret-management', 'subaccounts'],
     }
 
     render_not_found unless allowed_subapis[params[:definition]]&.include? params[:subapi]

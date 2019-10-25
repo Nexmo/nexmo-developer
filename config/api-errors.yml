@@ -6,6 +6,8 @@ products:
     title: Redact API
   account:
     title: Account API
+  subaccounts:
+    title: Subaccount API
   application:
     title: Application API
   messages-olympus:
