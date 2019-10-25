@@ -2,14 +2,16 @@ require 'rails_helper'
 
 RSpec.feature 'Team' do
   before do
-    expect(Greenhouse).to receive(:careers).and_return([
-                                                         Career.new({
-                                                           title: 'Developer Advocate',
-                                                           location: { name: 'Remote' },
-                                                           content: 'This is some example content',
-                                                           absolute_url: 'https://boards.greenhouse.io/vonage/jobs/123',
-                                                         }),
-                                                       ])
+    expect(Greenhouse).to receive(:devrel_careers).and_return(
+      [
+        Career.new(
+          title: 'Developer Advocate',
+          location: { name: 'Remote' },
+          content: 'This is some example content',
+          absolute_url: 'https://boards.greenhouse.io/vonage/jobs/123'
+        ),
+      ]
+    )
   end
 
   scenario 'visiting the team page' do

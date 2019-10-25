@@ -2,6 +2,10 @@ class Greenhouse
   DEPARTMENT_ID = 4019731002
   TITLES = ['sdk', 'advocate', 'community manager', 'education', 'dashboard', 'documentation'].freeze
 
+  def self.devrel_careers
+    new.devrel_positions
+  end
+
   def self.careers
     new.jobs
   end
@@ -14,6 +18,10 @@ class Greenhouse
     @client = GreenhouseIo::JobBoard.new
   end
 
+  def devrel_positions
+    @devrel_positions ||= jobs.select(&:devrel?)
+  end
+
   def jobs
     @jobs ||= Rails.cache.fetch('careers', expires_in: 1.hour) do
       fetch_jobs.map { |j| Career.new(j) }
@@ -21,13 +29,6 @@ class Greenhouse
   end
 
   def fetch_jobs
-    @client.jobs(content: 'true')[:jobs].select do |j|
-      valid_job?(j)
-    end
-  end
-
-  def valid_job?(job)
-    job[:departments].any? { |d| d[:id] == DEPARTMENT_ID } &&
-      job[:title].downcase.match?(Regexp.union(TITLES))
+    @client.jobs(content: 'true')[:jobs]
   end
 end

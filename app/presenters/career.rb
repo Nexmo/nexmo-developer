@@ -27,4 +27,9 @@ class Career
   def url
     @career[:absolute_url]
   end
+
+  def devrel?
+    @career[:departments].any? { |d| d[:id] == Greenhouse::DEPARTMENT_ID } &&
+      @career[:title].downcase.match?(Regexp.union(Greenhouse::TITLES))
+  end
 end
