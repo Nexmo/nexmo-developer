@@ -49,6 +49,7 @@ namespace :ci do
   desc 'Ensure all OAS error URLS resolve'
   task 'verify_error_urls_resolve': :environment do
     session = ActionDispatch::Integration::Session.new(Rails.application)
+    session.host! 'localhost' unless Rails.env.test?
 
     errors = []
 
