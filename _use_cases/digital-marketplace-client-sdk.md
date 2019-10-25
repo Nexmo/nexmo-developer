@@ -28,7 +28,7 @@ You also need to do the following:
 
 ![Nexmo Developer Create An Application screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/create-an-application.png)
 
-Note: We will not be using Event URL and Answer URL, so you can enter `https://example.com/event` and `https://example.com/answer` respectively.
+> **Note**: We will not be using Event URL and Answer URL, so you can enter `https://example.com/event` and `https://example.com/answer` respectively.
 
 Click “Generate public/private key pair” to generate your public key and download the `private.key` file to your computer.
 
@@ -327,7 +327,9 @@ Next, we need to load any events (like chat messages) that may have happened pri
 
 #### Purchasing items
 
-Let’s say you want to purchase the item. When you click the Pay Now button, we raise another custom event (stripe_payment) with the Nexmo Client SDK. Note: In this use case, we simply mock the response from Stripe and leave the implementation of a payment gateway to you.
+Let’s say you want to purchase the item. When you click the Pay Now button, we raise another custom event (`stripe_payment`) with the Nexmo Client SDK.
+
+> **Note**: In this use case, we simply mock the response from Stripe and leave the implementation of a payment gateway to you.
 
 *NexmoMarketplaceApp.js*
 
