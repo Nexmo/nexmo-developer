@@ -91,6 +91,8 @@ namespace :ci do
                 # Get the page
                 session.get path
 
+                next if path.include?('/subaccounts')
+
                 # Check for migration pending error
                 CommonErrors.check_for_migration_error(session.body)
 
