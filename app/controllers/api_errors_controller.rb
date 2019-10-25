@@ -17,9 +17,7 @@ class ApiErrorsController < ApplicationController
   def index_scoped
     oas = params[:definition]
     # At some point, the subaccounts OAS docs should move in to the account OAS docs
-    if params[:subapi] == 'subaccounts'
-      oas = params[:subapi]
-    end
+    oas = params[:subapi] if params[:subapi] == 'subaccounts'
 
     @errors_title = @error_config['products'][oas]['title']
     @hide_rfc7807_header = @error_config['products'][oas]['hide_rfc7807_header']
