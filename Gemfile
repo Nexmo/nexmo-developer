@@ -138,7 +138,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo-oas-renderer', '~> 0.6.3', require: false
+gem 'nexmo-oas-renderer', '~> 0.6.4', require: false
 
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
