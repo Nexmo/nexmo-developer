@@ -25,6 +25,7 @@ import Concatenation from '../components/concatenation/Concatenation.vue'
 import APIStatus from '../api_status'
 import CodeSnippetEvents from '../code_snippet_events'
 import Navigation from '../navigation'
+import Careers from '../careers'
 
 $(document).ready(function() {
   Scroll()
@@ -37,6 +38,7 @@ $(document).ready(function() {
   CodeSnippetEvents()
   Navigation()
   Spotlight()
+  Careers()
 
   if (document.getElementById('jwt-generator-app')) {
     new Vue({
