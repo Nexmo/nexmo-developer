@@ -185,7 +185,7 @@ RSpec.feature 'Landing page' do
           within('nav') do
             expect(page).to have_link('Overview', href: '/client-sdk/in-app-voice/overview')
             expect(page).to have_link('Concepts', href: '/client-sdk/in-app-voice/overview#concepts')
-            expect(page).to have_link('Setup', href: '/client-sdk/setup/add-sdk-to-your-app')
+            expect(page).to have_link('Setup', href: '/client-sdk/setup/create-your-application')
             expect(page).to have_link('Getting Started', href: '/client-sdk/in-app-voice/getting-started/app-to-app-call')
             expect(page).to have_link('Tutorials', href: '/client-sdk/tutorials')
             expect(page).to have_link('Use Cases', href: '/client-sdk/use-cases')
