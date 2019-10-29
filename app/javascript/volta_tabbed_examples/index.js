@@ -64,6 +64,9 @@ export default class VoltaTabbedExamples {
   }
 
   onTabClick(event) {
+    // Prevent nested tabs from changing the url
+    if ($(event.target).parents('.Vlt-tabs').length > 1) { return; }
+
     const language = $(event.currentTarget).data('language')
     const languageType = $(event.currentTarget).data('language-type')
     const linkable = $(event.currentTarget).data('language-linkable')
