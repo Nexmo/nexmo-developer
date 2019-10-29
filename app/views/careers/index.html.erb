@@ -6,7 +6,7 @@
   <div class="Vlt-grid">
     <div class="Vlt-col">
       <div class="Vlt-native-dropdown">
-        <%= select_tag "department",
+        <%= select_tag "t",
           options_from_collection_for_select(Career::DEPARTMENTS, :first, :first),
           prompt: "Filter by department",
           id: 'department-filter'
@@ -20,18 +20,20 @@
             <h3><%= name %></h3>
           </div>
           <hr class="hr--short"></hr>
-          <% @careers.select { |c| (c.department_codes & codes).any? }.each do |career| %>
-            <div class="Vlt-col Vlt-col--1of2">
-              <div class="Vlt-card Vlt-card--center">
-                <div class="Vlt-card__header">
-                  <h4><%= career.title %></h4>
-                </div>
-                <div class="Vlt-card__content Vlt-grid">
-                  <small class="Nxd-career__subtitle Vlt-col"><%= career.location %></small>
-                  <small><%= link_to "Find out more", career.url, class: "Vlt-text-link Vlt-col" %></small>
+          <% codes.each do |code| %>
+            <% @careers_by_department[code].each do |career| %>
+              <div class="Vlt-col Vlt-col--1of2">
+                <div class="Vlt-card Vlt-card--center">
+                  <div class="Vlt-card__header">
+                    <h4><%= career.title %></h4>
+                  </div>
+                  <div class="Vlt-card__content Vlt-grid">
+                    <small class="Nxd-career__subtitle Vlt-col"><%= career.location %></small>
+                    <small><%= link_to "Find out more", career.url, class: "Vlt-text-link Vlt-col" %></small>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
