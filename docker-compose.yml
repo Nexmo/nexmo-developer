@@ -16,7 +16,7 @@ services:
       - update
       - db
     environment:
-      - OAS_PATH=_open_api/api_specs
+      - OAS_PATH=_open_api/api_specs/definitions
       - POSTGRES_HOST=db
       - POSTGRES_USERNAME=postgres
       - RAILS_ENV=development
