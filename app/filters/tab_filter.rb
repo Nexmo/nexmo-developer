@@ -23,6 +23,7 @@ class TabFilter < Banzai::Filter
     tab = Nokogiri::XML::Element.new 'div', @document
     tab['class'] = 'Vlt-tabs__link'
     tab['class'] += ' Vlt-tabs__link_active' if content[:active]
+    tab['role'] = 'tab'
 
     if content[:language]
       tab['data-language'] = content[:language].key
