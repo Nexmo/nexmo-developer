@@ -65,8 +65,9 @@ use a different database or user, use `createdb database_name_here` or `createus
 `.env` file is updated accordingly.
 
 ```
-brew install postgres rbenv git yarn nvm
+brew install postgres rbenv git yarn nvm redis
 brew services start postgresql
+brew services start redis
 
 git config --global user.name "NAME"
 git config --global user.email "user.name@vonage.com"
