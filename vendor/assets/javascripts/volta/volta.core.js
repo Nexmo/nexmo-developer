@@ -1,5 +1,6 @@
-/**
- * Copyright (c) 2001-present, Vonage.
+/* @preserve
+ *
+ * Copyright (c) 2018-present, Vonage. All rights reserved.
  *	
  * Core of volta
  */
@@ -173,6 +174,13 @@ Volta = function (){
 				Volta.tab.init();
 			} else {
 				console.warn('Volta: volta.tab.js component missing')
+			}
+		}
+		if(components.indexOf('table') !== -1){
+			if(Volta.table) {
+				Volta.table.init();
+			} else {
+				console.warn('Volta: volta.table.js component missing')
 			}
 		}
 		if(components.indexOf('tooltip') !== -1){

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2001-present, Vonage.
+ * Copyright (c) 2018-present, Vonage. All rights reserved.
  *
  * Dropdowns (requires core)
  */
@@ -10,7 +10,8 @@ Volta.dropdown = function () {
 	var _class = {
 		wrapper: 'Vlt-dropdown',
 		block: 'Vlt-dropdown__block',
-		btn: 'Vlt-dropdown__btn',
+		btn: 'Vlt-dropdown__trigger',
+		btnLegacy: 'Vlt-dropdown__btn',
 		dismissed: 'Vlt-callout--dismissed',
 		expanded: 'Vlt-dropdown--expanded',
 		label: 'Vlt-dropdown__label',
@@ -31,7 +32,7 @@ Volta.dropdown = function () {
 			this.dropdown = element;
 			this.selection = this.dropdown.querySelector('.' + _class.selection);
 			this.isSelectionVisible = !!this.selection;
-			this.btn = this.dropdown.querySelector('.' + _class.btn);
+			this.btn = this.dropdown.querySelector('.' + _class.btn) || this.dropdown.querySelector('.' + _class.btnLegacy);
 			this._suppress = supressClickHandler;
 
 			if(!this._suppress) {

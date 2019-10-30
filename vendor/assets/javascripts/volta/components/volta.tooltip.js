@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2001-present, Vonage.
+ * Copyright (c) 2018-present, Vonage. All rights reserved.
  *	
  * Tooltips (requires popper.js, tooltip.js)
  */

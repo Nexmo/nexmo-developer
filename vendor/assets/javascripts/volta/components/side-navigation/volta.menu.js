@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2001-present, Vonage.
+ * Copyright (c) 2018-present, Vonage. All rights reserved.
  *
  * Menu (requires core)
  */
@@ -120,24 +120,39 @@ Volta.menu = function () {
 	}
 
 	/**
-	 *	@private
-	 *
-	 *	@description Attach the listeners to the trigger elements of the menu
-	 * 	@param {HTMLElement} menuItem
-	 *	@return {boolean} If the menu item is nested returns true, otherwise false
-	 */
-	function checkMenuItemIsNested(menuItem) {
-		var isNested = false;
-		var grandSibling = menuItem.parentElement.parentElement.previousElementSibling;
+     *  @private
+     *
+     *  @description Checks if the passed in menu is nested
+     *  @param {HTMLElement} menuItem
+     *  @return {boolean} If the menu item is nested returns true, otherwise false
+     */
+    function checkMenuItemIsNested(menuItem) {
+      return isNestedDescendant(menuItem);
+    }
 
-		if(!grandSibling) {
-			isNested = false;
-		} else {
-			isNested = Volta._hasClass(grandSibling, _class.trigger);
-		}
+    /**
+     *  @private
+     *
+     *  @description Recursive function to check if the passed in menu is nested
+     *  @param {HTMLElement} menuItem
+     *  @param {Boolean} isAncestor
+     *  @return {boolean} If the menu item is nested returns true, otherwise false
+     */
+    function isNestedDescendant(menuItem, isAncestor) {
+      var isNested = false;
+      var ancestor = isAncestor ? menuItem.parentElement : menuItem.parentElement.parentElement;
+      var ancestorSibling = ancestor.previousElementSibling;
 
-		return isNested;
-	}
+      if(ancestorSibling) {
+        isNested = Volta._hasClass(ancestorSibling, _class.trigger);
+      }
+
+      if(ancestorSibling && !isNested) {
+        return isNestedDescendant(ancestor, true);
+      }
+
+      return isNested;
+    }
 
 	/**
 	 *	@private
@@ -183,7 +198,9 @@ Volta.menu = function () {
 		} else {
 			if(!isNestedMenu) {
 				removeAllMenuItemsFromSelectedArr();
-			}
+			} else {
+        	    removeSiblingFromSelectedArr(_this);
+      		}
 			expandedMenus.push(_this);
 			_this.classList.add(_class.triggerActive);
 		}
@@ -266,6 +283,29 @@ Volta.menu = function () {
 		menuItem.classList.remove(_class.triggerActive);
 		expandedMenus.splice(menuIndex, 1);
 	}
+
+	/**
+     *  @private
+     *
+     *  @description Remove sibling menu item from the selected array and close
+     */
+    function removeSiblingFromSelectedArr(menuItem) {
+      var ancestors = menuItem.parentElement.parentElement.children;
+      var openSibling;
+      var count = ancestors.length - 1;
+
+      while(openSibling === undefined && count >= 0) {
+        var siblingIndex = expandedMenus.indexOf(ancestors[count].children[0]);
+        if(siblingIndex >= 0) {
+          openSibling = expandedMenus[siblingIndex];
+        }
+        count--;
+      }
+
+      if(openSibling) {
+        removeMenuFromSelectedArr(openSibling);
+      }
+    }
 
 	/**
 	 *	@public

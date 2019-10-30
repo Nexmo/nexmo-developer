@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2001-present, Vonage.
- *	
+ * Copyright (c) 2018-present, Vonage. All rights reserved.
+ *
  * Modals (requires core)
  */
 
@@ -22,7 +22,7 @@ Volta.modal = function () {
 	}
 
 	var body,
-		dismissModalHandler, 
+		dismissModalHandler,
 		cancelModalHandler,
 		confirmModalHandler,
 		escHandler,
@@ -35,21 +35,21 @@ Volta.modal = function () {
 		attachButtons: function() {
 			var _this = this;
 			_this.dismissBtn = _this.modal.querySelector('.' + _class.dismiss);
-		     
+
 		    if(_this.dismissBtn) {
 		    	dismissModalHandler = dismissModal.bind(_this);
 		    	_this.dismissBtn.addEventListener('click', dismissModalHandler);
 		    }
-		    
+
 		    _this.cancelBtn = _this.modal.querySelector('.' + _class.cancel);
-		    
+
 		    if(_this.cancelBtn) {
 	    		cancelModalHandler = cancelModal.bind(_this);
 		    	_this.cancelBtn.addEventListener('click', cancelModalHandler);
 		    }
-		    
+
 		    _this.confirmBtn = _this.modal.querySelector('.' + _class.confirm);
-		    
+
 		    if(_this.confirmBtn) {
 		    	confirmModalHandler = confirmModal.bind(_this);
 		    	_this.confirmBtn.addEventListener('click', confirmModalHandler);
@@ -73,10 +73,10 @@ Volta.modal = function () {
 		        e.preventDefault();
 		    	e.stopPropagation();
 		    }
-			
+
 		    this.modal.classList.remove(_class.out);
 		    this.modal.classList.add(_class.visible);
-		    this.attachButtons();	
+		    this.attachButtons();
 
 		    disableScroll();
 
@@ -89,7 +89,7 @@ Volta.modal = function () {
 		    if(!this.modal.dataset.disableClick || this.modal.dataset.disableClick === "false") {
 		    	clickHandler = closeModalOnClick.bind(this);
 		   		this.modal.addEventListener('click', clickHandler, { once: true });
-		    } 		    
+		    }
 		},
 		dismiss: function(e, confirmed) {
 			var _this = this;
@@ -105,23 +105,23 @@ Volta.modal = function () {
 				_this.modal.classList.remove(_class.visible);
 				_this.modal.classList.add(_class.out);
 			}
-			
+
 			if(_this._callback) {
 				_this._callback(confirmed);
 			}
-			
+
 			removeModal(_this);
 		}
 	}
-	
+
 	return {
 		create: create,
 		init: attachModalHandlers
 	}
 
-	/**   
+	/**
 	 *	@public
-	 *	
+	 *
 	 *	@description Attach a click listener to each modals trigger on the screen, which will open the modal
 	 */
 	function attachModalHandlers() {
@@ -141,7 +141,7 @@ Volta.modal = function () {
 		if(modals.length > 0) {
 			modals.forEach(attachModalHandler);
 		}
-		
+
 		function attachModalHandler(modal) {
 			if(Volta._hasClass(modal, _class.auto)) {
 				var trigger = document.querySelector('#' + modal.dataset.trigger);
@@ -162,77 +162,80 @@ Volta.modal = function () {
 				trigger.addEventListener('click', function() {
 					create(modal).open();
 				});
-			} 
+			}
 		}
 	}
-    
-    /**   
+
+    /**
 	 *	@private
-	 *	
+	 *
 	 *	@description Close the modal, triggered by cancel button, passes false to callback function
-	 *  @param {event} e 
+	 *  @param {event} e
 	 */
     function cancelModal(e) {
 		return this.dismiss(e, false);
 	}
-	
-	/**   
+
+	/**
 	 *	@private
-	 *	
+	 *
 	 *	@description Close the modal, triggered by confirm button, passes true to callback function
-	 *  @param {event} e 
+	 *  @param {event} e
 	 */
     function confirmModal(e) {
 		return this.dismiss(e, true);
 	}
-    
-    /**   
+
+    /**
 	 *	@private
-	 *	
+	 *
 	 *	@description Close the modal, triggered by 'x' button, passes false to callback function
-	 *  @param {event} e 
+	 *  @param {event} e
 	 */
     function dismissModal(e) {
-		return this.dismiss(e, false); 	
+		return this.dismiss(e, false);
     }
 
     /**	@private
-	 *	
+	 *
 	 *	@description Close the modal, triggered by 'esc' key, passes false to callback function
-	 *  @param {event} e 
+	 *  @param {event} e
 	 */
     function closeModalOnEscape(e){
     	if(e && e.keyCode === 27) {
     		this.dismiss(e, false);
-    	}else {
+    	} else {
 			body.addEventListener('click', escHandler, { once: true });
     	}
     }
 
 
     /**	@private
-	 *	
+	 *
 	 *	@description Close the modal, triggered by 'body click, passes false to callback function
-	 *  @param {event} e 
+	 *  @param {event} e
 	 */
     function closeModalOnClick(e){
-    	if(!Volta._hasClass(e.target, _class.trigger) 
+    	if(!Volta._hasClass(e.target, _class.trigger)
 			&& !Volta._closest(e.target, '.' + _class.trigger, '.' + _class.trigger)
     		&& !Volta._closest(e.target, '.' + _class.panel, '.' + _class.panel)) {
     		this.dismiss(e, false);
-    	} else {
+    	} else if(this.modal) {
 			this.modal.addEventListener('click', clickHandler, { once: true });
     	}
     }
-    
-    /**   
+
+    /**
 	 *	@public
-	 *	
+	 *
 	 *	@description Create the modal object
 	 *  @param {HTMLElement|string} elementOrId Reference to the modal element or the id
 	 *. @return {Object} A modal object
 	 */
     function create(elementOrId) {
+    	if(!body) {
+			body = document.querySelector('body');
+		}
 		var modal = Object.create(Modal.prototype, {})
 		modal.init(elementOrId);
 		return modal;
@@ -244,15 +247,28 @@ Volta.modal = function () {
     function disableScroll() {
 	    body.classList.add(_class.bodyModalOpen);
 		body.addEventListener('touchmove', preventScroll);
-		body.querySelector('main').addEventListener('touchmove', preventScroll);
+
+		if (body.querySelector('.Vlt-main')) {
+			body.querySelector('.Vlt-main').addEventListener('touchmove', preventScroll);
+		} else {
+			body.addEventListener('touchmove', preventScroll);
+		}
+
 		body.querySelector('.' + _class.content).addEventListener('touchmove', allowScroll);
     }
 
     function enableScroll() {
 		body.classList.remove(_class.bodyModalOpen);
 		body.removeEventListener('touchmove', preventScroll);
-		body.querySelector('main').removeEventListener('touchmove', preventScroll);
-		body.querySelector('.' + _class.content).removeEventListener('touchmove', allowScroll);
+
+		if (body.querySelector('.Vlt-main')) {
+			body.querySelector('.Vlt-main').removeEventListener('touchmove', preventScroll);
+		} else {
+			body.removeEventListener('touchmove', preventScroll);
+		}
+		
+		var modalContent = body.querySelector('.' + _class.content);
+		if(modalContent) modalContent.removeEventListener('touchmove', allowScroll);
     }
 
     function allowScroll(e) {
@@ -263,23 +279,23 @@ Volta.modal = function () {
 		e.preventDefault();
     }
 
-  	/**   
+  	/**
 	 *	@private
-	 *	
+	 *
 	 *	@description Remove the modal after dismiss, makes sure to delete the modal properties so it can be garbage collected, and removes event listeners
 	 *  @param {HTMLElement|string} elementOrId Reference to the modal element or the id
 	 */
 	function removeModal(modal) {
 		delete modal.modal;
-		
+
 		if(modal.dismissBtn) {
 			modal.dismissBtn.removeEventListener('click', dismissModalHandler);
 		}
-		
+
 		if(modal.cancelBtn) {
 			modal.cancelBtn.removeEventListener('click', cancelModalHandler);
 		}
-		
+
 		if(modal.confirmBtn) {
 			modal.confirmBtn.removeEventListener('click', confirmModalHandler);
 		}
@@ -291,6 +307,6 @@ Volta.modal = function () {
     	if(escHandler) {
     		body.removeEventListener('keyup', escHandler);
     		escAttached = false;
-    	}		
+    	}
 	}
 }();
