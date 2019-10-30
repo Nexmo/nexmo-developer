@@ -58,13 +58,15 @@ Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Install required packages, create database and configure `git`
+Install required packages, create database and configure `git`.
+
+Note: A default database and user are created for you when you run the `db:setup` script. If you'd like to create and 
+use a different database or user, use `createdb database_name_here` or `createuser username_here` and make sure your 
+`.env` file is updated accordingly.
 
 ```
 brew install postgres rbenv git yarn nvm
 brew services start postgresql
-createdb nexmo_developer_development
-createuser nexmo_developer
 
 git config --global user.name "NAME"
 git config --global user.email "user.name@vonage.com"
@@ -95,8 +97,8 @@ export NVM_DIR="$HOME/.nvm"
 
 Install the correct versions of ruby and node
 ```
-rbenv install 2.5.5
-rbenv global 2.5.5
+rbenv install 2.5.7
+rbenv global 2.5.7
 gem install bundle
 bundle install
 nvm install 12
