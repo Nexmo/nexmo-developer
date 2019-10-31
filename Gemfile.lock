@@ -285,7 +285,7 @@ GEM
     neatjson (0.9)
     nenv (0.3.0)
     netrc (0.11.0)
-    nexmo-oas-renderer (0.6.5)
+    nexmo-oas-renderer (0.6.6)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
       banzai (~> 0.1.2)
@@ -564,7 +564,7 @@ DEPENDENCIES
   listen (~> 3.2)
   lograge
   neatjson
-  nexmo-oas-renderer (~> 0.6.5)
+  nexmo-oas-renderer (~> 0.6.6)
   nokogiri (~> 1.10.4)
   octicons_helper
   octokit
