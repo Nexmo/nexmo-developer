@@ -130,7 +130,8 @@
       },
       createOrUpdate: function() {
         if (this.recaptcha && this.recaptcha.enabled && !this.recaptcha.skip && this.recaptchaToken == undefined) {
-          const element = document.createElement('div').appendTo('#recaptcha-container')[0]
+          const element = document.createElement('div');
+          document.getElementById('recaptcha-container').append(element);
 
           const id = grecaptcha.render(element, {
             sitekey: this.recaptcha.sitekey,
@@ -138,7 +139,7 @@
             size: 'invisible',
             badge: 'inline',
           })
-          return grecaptcha.execute(id)
+          return grecaptcha.execute(id);
         }
 
         fetch('/feedback/feedbacks', {

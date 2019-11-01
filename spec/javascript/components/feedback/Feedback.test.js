@@ -234,6 +234,33 @@ describe('Feedback', function() {
 
         expect(wrapper.text()).toContain('Great! Thanks for the feedback.');
       });
+
+
+      it('with captcha enabled', async function() {
+        document.body.innerHTML = "<div id='recaptcha-container'></div>"
+        fetchMock.mock(
+          '/feedback/feedbacks',
+          { id: '123' },
+          parameters
+        )
+        global.grecaptcha = {
+          render: jest.fn(() => 'id'),
+          execute: jest.fn(),
+        };
+
+        const wrapper = shallowMount(Feedback, { attachToDocument: true, propsData: { recaptcha: { enabled: true } }});
+        wrapper.find('.Vlt-red').trigger('click');
+
+        expect(global.grecaptcha.render).toBeCalled();
+        expect(global.grecaptcha.execute).toBeCalled();
+
+        await flushPromises();
+
+        expect(wrapper.find('.Vlt-spinner')).toBeTruthy();
+        expect(wrapper.find('.Vlt-btn_active .Vlt-red')).toBeTruthy();
+
+        wrapper.destroy();
+      });
     });
   });
 });
