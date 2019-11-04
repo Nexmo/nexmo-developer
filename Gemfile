@@ -150,6 +150,8 @@ gem 'truncato'
 
 gem 'redis'
 
+gem 'barnes'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
