@@ -6,7 +6,7 @@
     <%= render partial: 'layouts/partials/header' %>
     <div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light">
       <div class="Vlt-sidenav__scroll">
-        <nav class="sidenav" tabindex="0" >
+        <nav class="sidenav" tabindex="0" data-active="<%= active_sidenav_item %>">
           <%= render partial: 'layouts/partials/sidenav' %>
         </nav>
       </div>

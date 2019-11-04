@@ -433,7 +433,13 @@ function toggleMobileNavBtn() {
     }
 }
 
+function setActiveNavItem() {
+  const activeItem = $('nav.sidenav').data('active');
+  $(`.Vlt-sidemenu__link[href="${activeItem}"]`).addClass('Vlt-sidemenu__link_active')
+}
+
 export default () => {
+    setActiveNavItem();
     Volta.menu.init();
     toggleMobileNavBtn();
 }
