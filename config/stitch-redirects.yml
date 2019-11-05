@@ -118,3 +118,5 @@
 "/client-sdk/concepts/jwt-acl": "/conversation/guides/jwt-acl"
 "/client-sdk/in-app-voice/guides": "/client-sdk/in-app-voice/guides/enable-audio"
 "/client-sdk/in-app-voice/getting-started": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+"/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions": "/client-sdk/setup/add-sdk-to-your-app/ios#add-permissions"
+"/client-sdk/setup": "/client-sdk/setup/create-your-application"
