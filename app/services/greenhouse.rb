@@ -10,8 +10,13 @@ class Greenhouse
     new.jobs
   end
 
+  def self.offices
+    new.offices
+  end
+
   def self.expire_cache
     Rails.cache.delete('careers')
+    Rails.cache.delete('offices')
   end
 
   def initialize
@@ -25,6 +30,12 @@ class Greenhouse
   def jobs
     @jobs ||= Rails.cache.fetch('careers', expires_in: 1.hour) do
       fetch_jobs.map { |j| Career.new(j) }
+    end
+  end
+
+  def offices
+    @offices ||= Rails.cache.fetch('offices', expires_in: 5.hours) do
+      @client.offices[:offices]
     end
   end
 

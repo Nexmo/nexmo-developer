@@ -13,10 +13,12 @@ RSpec.describe 'Careers page', type: :feature do
 
   it 'renders the page' do
     expect(Greenhouse).to receive(:careers).and_return([career])
+    expect(Greenhouse).to receive(:offices).and_return([])
     visit '/careers'
 
     expect(page).to have_css('h1', text: 'Careers')
     expect(page).to have_select('department-filter')
+    expect(page).to have_select('location-filter')
     expect(page).to have_css('#careers')
   end
 end

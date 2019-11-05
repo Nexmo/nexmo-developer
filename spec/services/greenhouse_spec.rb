@@ -54,6 +54,7 @@ RSpec.describe Greenhouse do
   describe '.expire_cache' do
     it 'expires the careers from the cache' do
       expect(Rails.cache).to receive(:delete).with('careers')
+      expect(Rails.cache).to receive(:delete).with('offices')
       described_class.expire_cache
     end
   end
