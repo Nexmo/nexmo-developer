@@ -120,7 +120,7 @@ navigation_overrides:
   conversation:
     svg: 'message'
     svgColor: 'teal'
-    label: 'Dev Preview'
+    label: 'Beta'
     code-snippets:
       collapsible: false
   vonage-business-cloud:
