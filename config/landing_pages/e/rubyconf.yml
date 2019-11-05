@@ -9,7 +9,7 @@ page:
             text: "Nexmo @ RubyConf 2019"
             align: center
           subtitle:
-            text: "Hello, Rubyists! We love catching up with you at events, and we've put together some resources that we hope you find useful. <br /> Stop by our booth and say hi to our developer advocates, fill out our research survey, pick up some swag and chat about Ruby! <br /> Let us know you're here by [sending us a tweet](https://nexmo.dev/tweetrubyconf), we'd love to connect!"
+            text: "Hello, Rubyists! We love catching up with you at events, and we've put together some resources that we hope you find useful. <br /> Stop by our booth and say hi to our team, pick up some swag and chat about Ruby! <br /> Let us know you're here by [sending us a tweet](https://nexmo.dev/tweetrubyconf), we'd love to connect!"
             align: center
           icon:
             name: "Brand-icon-ruby-color"
@@ -38,7 +38,7 @@ page:
     - column:
       - type: text
         text:
-          content: Want to win a brand new Nintendo Switch Lite? Join our contest this RubyConf and you could go home with the latest Nintendo Switch Lite, an **even** more portable way to bring your games with you no matter where you are!
+          content: Want to win a brand new Nintendo Switch Lite? Join our contest this RubyConf and you could go home with the latest Nintendo Switch Lite (Pokemon edition), an **even** more portable way to bring your games with you no matter where you are!
   
   - row:
     - column:
@@ -55,9 +55,9 @@ page:
             name: icon-rows		
             color: blue
           text:
-          - content: "Have an idea for a great new app that communicates? We want to hear from you!" 
+          - content: "Have an idea for a great new app or service that communicates? We want to hear from you!" 
             type: large
-          - content: "<img src='https://i.imgur.com/Ke9Fldg.png' style='float:right;'/>Text us your idea of a new app that utilizes <a href='https://developer.nexmo.com'>Nexmo APIs</a>, and you could win the Nintendo Switch Lite!<br/><br/>The winner will also have the opportunity to submit their idea for our <a href='https://developer.nexmo.com/spotlight'>Developer Spotlight</a> program where we will either pay you $400 USD or <a href='https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr'>donate $400 to a tech-focused charity</a> for your original technical written content discussing the app that you built."  
+          - content: "<img src='https://i.imgur.com/Ke9Fldg.png' style='float:right;'/>Text us your idea of a new app or service that utilizes <a href='https://developer.nexmo.com'>Nexmo APIs</a>, and you could win the Nintendo Switch Lite!<br/><br/>The winner will also have the opportunity to submit their idea for our <a href='https://developer.nexmo.com/spotlight'>Developer Spotlight</a> program where we will either pay you $400 USD or <a href='https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr'>donate $400 to a tech-focused charity</a> for your original technical written content discussing the app that you built."  
             type: large
           - content: "📢The winner will be announced at the ***afternoon break on November 20th***, so make sure to get your idea in before then!"
             type: large
@@ -239,50 +239,7 @@ page:
   - row:
     - column:
         - type: line_divider
-  - row:
-    - column:
-      - type: call_to_action
-        call_to_action:
-          title: "Voice"
-          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
-          icon:
-            name: "icon-phone"
-            color: "green"
-          url: "/voice"
-
-    - column:
-      - type: call_to_action
-        call_to_action:
-          title: "Messages"
-          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
-          icon:
-            name: "icon-chat"
-            color: "purple"
-          url: "/messages/overview"
-    - column:
-      - type: call_to_action
-        call_to_action:
-          title: "Verify"
-          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
-          icon:
-            name: "icon-lock"
-            color: "indigo"
-          url: "/verify"
-  - row:
-    - column:
-      - type: text
-        text:
-          content: |
-            <br />
-            <div class="Vlt-callout Vlt-callout--shoutout">
-            	<i></i>
-            	<div class="Vlt-callout__content">
-                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
-            	</div>
-            </div>
-  - row:
-    - column:
-        - type: line_divider
+  
   - row:
     - column:
       - type: section_header
