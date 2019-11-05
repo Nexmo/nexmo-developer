@@ -7,7 +7,9 @@
     <div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light">
       <div class="Vlt-sidenav__scroll">
         <nav class="sidenav" tabindex="0" data-active="<%= active_sidenav_item %>">
-          <%= render partial: 'layouts/partials/sidenav' %>
+          <% cache 'sidenav', expires_in: 10.hours do %>
+            <%= render partial: 'layouts/partials/sidenav' %>
+          <% end %>
         </nav>
       </div>
     </div>
