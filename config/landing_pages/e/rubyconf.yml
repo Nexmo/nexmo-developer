@@ -109,7 +109,7 @@ page:
               color: "blue-dark"
         - type: text
           text:
-            content: "At Nexmo, we love Ruby - it's one of our most-loved languages by customers and Developer Advocates alike. Start your Nexmo project by installing either the Nexmo Ruby gem or, if you are working on a Rails app, use the Nexmo Rails initializer gem:"
+            content: "At Nexmo, we love Ruby - it's one of our most-loved languages by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Ruby gem:"
         - type: text
           text:
             content: |
@@ -125,7 +125,7 @@ page:
               ```
         - type: text
           text:
-            content: "You can read more about our new Rails gem and what you can do with it on the [Nexmo blog](https://www.nexmo.com/blog/2019/04/30/announcing-the-nexmo-rails-gem-dr/)."
+            content: "You can read more about our [Ruby gem on GitHub](https://github.com/Nexmo/nexmo-ruby), and can also explore our [Rails initializer gem](https://github.com/Nexmo/nexmo-rails) as well."
     - column:
         - type: header
           header:
