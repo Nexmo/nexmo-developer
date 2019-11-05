@@ -150,7 +150,7 @@ python3 app1.py
 
 ## Send in an SMS
 
-Your base application is now up and running and ready to log events. You can test this basic application by sending an SMS into any Nexmo Number linked to any Voice app, where the Nexmo Number has voice and SMS capabilities. If you don't have a voice application, and are not sure how to create one, you can review [this information](/concepts/guides/applications/curl#getting-started-with-applications). The reason you need to go through this additional step is that Messages and Dispatch API does not currently support inbound SMS, only outbound SMS, so you have to use the account-level webhook to receive inbound SMS notifications.
+Your base application is now up and running and ready to log events. You can test this basic application by sending an SMS into any Nexmo Number linked to any Voice app, where the Nexmo Number has voice and SMS capabilities. If you don't have a voice application, and are not sure how to create one, you can review [this information](/application/code-snippets/create-application). The reason you need to go through this additional step is that Messages and Dispatch API does not currently support inbound SMS, only outbound SMS, so you have to use the account-level webhook to receive inbound SMS notifications.
 
 When you examine the tracing information produced when you send in an SMS you see something similar to the following:
 

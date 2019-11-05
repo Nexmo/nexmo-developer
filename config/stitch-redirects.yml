@@ -111,3 +111,10 @@
 "/use-cases/client-sdk-ios-in-app-messaging": "/client-sdk/in-app-messaging/guides/ios-in-app-messaging"
 "/client-sdk/in-app-voice/guides/call-statuses": "/client-sdk/in-app-voice/concepts/call-statuses"
 "/client-sdk/setup/generate-test-credentials": "/client-sdk/setup/create-your-application"
+
+"/client-sdk/in-app-messaging/guides": "/client-sdk/in-app-messaging/guides/simple-conversation"
+"/client-sdk/in-app-voice": "/client-sdk/in-app-voice/overview"
+"/client-sdk/in-app-messaging": "/client-sdk/in-app-messaging/overview"
+"/client-sdk/concepts/jwt-acl": "/conversation/guides/jwt-acl"
+"/client-sdk/in-app-voice/guides": "/client-sdk/in-app-voice/guides/enable-audio"
+"/client-sdk/in-app-voice/getting-started": "/client-sdk/in-app-voice/getting-started/receive-phone-call"

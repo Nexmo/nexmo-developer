@@ -1,6 +1,6 @@
 ---
 title: Delivery Receipts
-description: How to retreive SMS delivery receipts
+description: How to retrieve SMS delivery receipts
 navigation_weight: 4
 ---
 
@@ -10,9 +10,8 @@ You can verify that a message you sent using Nexmo's SMS API reached your custom
 
 To access the delivery receipt, you need to:
 
-* [Create a webhook endpoint](before-you-begin#webhooks) using one of the code examples shown below
+* [Create a webhook endpoint](/messaging/sms/code-snippets/before-you-begin#webhooks) using one of the code examples shown below
 * [Configure the webhook endpoint in your Nexmo Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
-
 
 ```code_snippets
 source: '_examples/messaging/sms/delivery-receipts'
