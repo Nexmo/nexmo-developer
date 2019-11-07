@@ -19,18 +19,20 @@ In case you have not done that already, more details can be found in the [offici
 
 Obtain a `jwt_dev`, which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
-Get your `server_api_key` from the Firebase console. Navigate to `Firebase console, Project settings, CloudMessaging, Server key`.
+Get your `private_key_file` from the Firebase console. Navigate to `Firebase console, Project settings, Service accounts, Firebase Admin SDK, generate new private key`. You will need to stringify the JSON private_key_file before you can send it to the push service.
+
+Get your `projectId` from the Firebase console. Navigate to `Firebase console, Project settings, General, projectId`.
 
 Get your Nexmo Application ID, `app_id`. It can be obtained from [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-Run the following Curl command, replacing `jwt_dev`, `server_api_key`, `app_id` with your values:
+Run the following Curl command, replacing `jwt_dev`, `google-services.json`, `projectId`, `app_id` with your values:
 
 ```sh
 curl -v -X PUT \
    -H "Authorization: Bearer $jwt_dev" \
    -H "Content-Type: application/json" \
-   -d "{\"token\":\"$server_api_key\"}" \
-   https://api.nexmo.com/v1/applications/$app_id/push_tokens/android
+   -d "{\"token\":\"$private_key_file\", \"projectId\":\"$projectId\"}" \
+   https://api.nexmo.com/v1/applications/$app_id/push_tokens/android  
 ```
 
 ## Add Firebase Cloud Messaging to your Android project
