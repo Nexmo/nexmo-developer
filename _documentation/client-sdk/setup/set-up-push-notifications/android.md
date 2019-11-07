@@ -25,7 +25,7 @@ Get your `projectId` from the Firebase console. Navigate to `Firebase console, P
 
 Get your Nexmo Application ID, `app_id`. It can be obtained from [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-Run the following Curl command, replacing `jwt_dev`, `google-services.json`, `projectId`, `app_id` with your values:
+Run the following Curl command, replacing `jwt_dev`, `private_key_file`, `projectId`, `app_id` with your values:
 
 ```sh
 curl -v -X PUT \
