@@ -22,6 +22,11 @@ export default () => {
         department.classList.add('hide');
       }
     });
+
+    document.getElementById('no-results').classList.toggle(
+      'hide',
+      document.querySelectorAll('.Nxd-department:not(.hide)').length !== 0
+    );
   }
 
   window.addEventListener('load', function() {

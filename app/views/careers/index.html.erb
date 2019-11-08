@@ -3,7 +3,7 @@
     <h1>Careers</h1>
   </div>
 
-  <div class="spacious content-block">
+  <div class="spacious content-block center">
     <div class="Vlt-col">
       <div class="Vlt-native-dropdown">
         <%= select_tag 'department',
@@ -47,6 +47,11 @@
           <% end %>
         </div>
       <% end %>
+      <div class='Vlt-empty' id='no-results'>
+        <div class='Vlt-empty__content'>
+          There are no results that match your criteria.
+        </div>
+      </div>
     </div>
   </div>
 </div>
