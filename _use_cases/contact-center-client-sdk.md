@@ -14,11 +14,11 @@ Your contact center application has two agents: `Jane` and `Joe`, that are users
 
 To achieve that, this guide consists of three parts:
 
-1. [**A server-side application**](set-up-your-backend), for fundamental server-side functionalities, such as managing users and authorization. This is implemented with the [Conversation API](/conversation/overview).
+1. [**A server-side application**](#set-up-your-backend), for fundamental server-side functionalities, such as managing users and authorization. This is implemented with the [Conversation API](/conversation/overview).
 
-2. [**A client-side application**](set-up-your-client-side-application), for your contact center users to log in, make and receive calls. This can be a web, iOS or Android application, which integrates [Nexmo Client SDK](/client-sdk/in-app-voice/overview).
+2. [**A client-side application**](#set-up-your-client-side-application), for your contact center users to log in, make and receive calls. This can be a web, iOS or Android application, which integrates [Nexmo Client SDK](/client-sdk/in-app-voice/overview).
 
-3. [Adding advanced voice capabilities](add-voice-functionality), utilizing Nexmo [Voice API](/voice/voice-api/overview) on your backend side application.
+3. [Adding advanced voice capabilities](#add-voice-functionality), utilizing Nexmo [Voice API](/voice/voice-api/overview) on your backend side application.
 
 > **NOTE:** Under the hood, Nexmo Voice API and Client SDK both use Conversation API. That means that all communication is done over a [Conversation](/conversation/concepts/conversation). That allows you to maintain the communication context of your users, for any communication channel. All of the Conversations and the [Events](/conversation/concepts/event) are accessible for you to utilize, through [Conversation API](/conversation/overview).
 
@@ -60,7 +60,7 @@ After deploying the demo backend application on the previous step, you will need
 2. Create a new Nexmo Application by typing an application name and clicking *Create*
 ![Setup](/assets/images/client-sdk/contact-center/setup.png)
 
-> That uses [Nexmo Applications API](/concepts/guides/applications/curl#getting-started-with-applications). The demo application sets the required webhooks and exposes them for your ease of use. More on that will be mentioned below.
+> That uses [Nexmo Applications API](/api/application.v2). The demo application sets the required webhooks and exposes them for your ease of use. More on that will be mentioned below.
 
 ### Connect a Nexmo Number
 

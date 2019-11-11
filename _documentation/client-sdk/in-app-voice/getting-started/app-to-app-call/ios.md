@@ -113,7 +113,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/in-app-ca
 
 For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.  
 
-To read more about the permissions required, [see the setup tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions).
+To read more about the permissions required, [see the setup tutorial](/client-sdk/setup/add-sdk-to-your-app/ios#add-permissions).
 
 
 ## Conclusion

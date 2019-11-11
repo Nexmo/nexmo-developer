@@ -210,7 +210,7 @@ You can use the following options to control a *talk* action:
 ## Stream
 The `stream` action allows you to send an audio stream to a Conversation
 
-By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.
+By default, the stream action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.
 
 The following NCCO example shows how to send an audio stream to a Conversation or Call:
 
