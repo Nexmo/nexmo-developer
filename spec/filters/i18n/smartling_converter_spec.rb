@@ -7,7 +7,7 @@ RSpec.describe I18n::SmartlingConverterFilter do
 
       `title:` Before you begin
       `navigation_weight:` 0
-      --------------------------------------------------------
+      ------------------------------------------
     FRONTMATTER
   end
 

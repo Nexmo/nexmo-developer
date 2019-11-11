@@ -52,7 +52,7 @@ class DocFinder
     if root.starts_with?('app/views')
       dictionary.fetch(key) && key
     else
-      available_language = dictionary.fetch(key).fetch(language, I18n.default_locale.to_s)
+      available_language = dictionary.fetch(key).fetch(language.to_s, I18n.default_locale.to_s)
       build_doc_path(root, key, available_language)
     end
   end

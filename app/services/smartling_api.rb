@@ -35,6 +35,8 @@ class SmartlingAPI
     file_uri = file_uri(filename)
     wrap_in_rescue do
       response = @client.download_translated(file_uri, locale, retrievalType: type)
+
+      locale = locale_without_region(locale.to_s)
       FileUtils.mkdir_p(storage_folder(locale, filename)) unless File.exists?(storage_folder(locale, filename))
       File.open("_documentation/#{locale}/#{file_uri}", 'w+') do |file|
         file.write(I18n::SmartlingConverterFilter.call(response))
@@ -43,6 +45,10 @@ class SmartlingAPI
   end
 
   private
+
+  def locale_without_region(locale)
+    ['zh-CN', 'cn'].include?(locale) ? :cn : :en
+  end
 
   def storage_folder(locale, filename)
     dir_path = Pathname.new(file_uri(filename)).dirname.to_s
