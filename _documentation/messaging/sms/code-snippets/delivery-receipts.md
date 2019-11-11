@@ -13,6 +13,8 @@ To access the delivery receipt, you need to:
 * [Create a webhook endpoint](/messaging/sms/code-snippets/before-you-begin#webhooks) using one of the code examples shown below
 * [Configure the webhook endpoint in your Nexmo Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
 
+> **NOTE:** After sending a message there may be a delay before you receive the delivery receipt.
+
 ```code_snippets
 source: '_examples/messaging/sms/delivery-receipts'
 ```
@@ -46,4 +48,5 @@ image: public/assets/screenshots/smsDLRsettings.png
 }
 ```
 
-> **NOTE:** There may be a delay before you receive the delivery receipt.
+> **NOTE:** After sending a message there may be a delay before you receive the delivery receipt.
+
