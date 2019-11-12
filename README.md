@@ -62,7 +62,7 @@ Install required packages, create database and configure `git`.
 
 Note: A default database is created for you when you run the `db:setup` script. If you'd like to create and
 use a different database or user, use `createdb database_name_here` or `createuser username_here` and make sure your
-`.env` file is updated accordingly.
+`.env` file is updated accordingly (See [.env.example](https://github.com/Nexmo/nexmo-developer/blob/master/.env.example)).
 
 ```
 brew install postgres rbenv git yarn nvm redis
