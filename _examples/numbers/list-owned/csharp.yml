@@ -9,7 +9,7 @@ client:
     to_line: 21
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/NumberSender.cs
-    from_line: 25
-    to_line: 32
+    from_line: 14
+    to_line: 18
 run_command: 'Run using your IDE'
 file_name: NumberSender.cs
