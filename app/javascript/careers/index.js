@@ -29,11 +29,51 @@ export default () => {
     );
   }
 
+  function updateURL(key, value) {
+    let currentUrl = new URL(window.location.href);
+    let params = new URLSearchParams(window.location.search);
+    if (value) {
+      params.set(key, value);
+    } else {
+      params.delete(key);
+    }
+
+    currentUrl.search = params
+    window.history.pushState({}, 'Careers', currentUrl);
+  }
+
+  function departmentChangeHandler(event) {
+    updateURL('department', event.target.value);
+    toggleCareers();
+  }
+
+  function locationChangeHandler(event) {
+    updateURL('location', event.target.value);
+    toggleCareers();
+  }
+
+  function setFiltersFromURL() {
+    let params = new URLSearchParams(window.location.search);
+    const departmentFilter = document.getElementById('department-filter');
+    const locationFilter = document.getElementById('location-filter');
+
+    departmentFilter.value = params.get('department') || '';
+    locationFilter.value = params.get('location') || '';
+
+    toggleCareers();
+  }
+
   window.addEventListener('load', function() {
     if (!document.getElementById('careers')) { return; }
 
     toggleCareers();
-    document.getElementById('department-filter').addEventListener('change', toggleCareers);
-    document.getElementById('location-filter').addEventListener('change', toggleCareers);
+    document.getElementById('department-filter').addEventListener('change', departmentChangeHandler);
+    document.getElementById('location-filter').addEventListener('change', locationChangeHandler);
+    setFiltersFromURL();
+  });
+
+  window.addEventListener('popstate', function(event) {
+    if (!document.getElementById('careers')) { return; }
+    setFiltersFromURL();
   });
 }
