@@ -37,7 +37,7 @@ class SmartlingAPI
       response = @client.download_translated(file_uri, locale, retrievalType: type)
 
       locale = locale_without_region(locale.to_s)
-      FileUtils.mkdir_p(storage_folder(locale, filename)) unless File.exists?(storage_folder(locale, filename))
+      FileUtils.mkdir_p(storage_folder(locale, filename)) unless File.exist?(storage_folder(locale, filename))
       File.open("_documentation/#{locale}/#{file_uri}", 'w+') do |file|
         file.write(I18n::SmartlingConverterFilter.call(response))
       end
@@ -62,7 +62,7 @@ class SmartlingAPI
   def wrap_in_rescue
     yield
   rescue StandardError => e
-    p e.message
+    p e.message # rubocop:disable Rails/Output
     Bugsnag.notify(e)
     Rails.logger.error(e.message)
   end
