@@ -25,7 +25,6 @@ OPEN_API_PRODUCTS = %w[
   conversion
   subaccounts
   developer/messages
-  pricing
 ].freeze
 
 class OpenApiConstraint
