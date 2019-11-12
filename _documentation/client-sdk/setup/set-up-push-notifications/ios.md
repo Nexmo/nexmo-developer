@@ -56,74 +56,22 @@ To integrate VoIP push in your app, follow these steps:
 
 #### 2. Import `PushKit`, adopt `PKPushRegistryDelegate`, and sign up to VoIP notifications
 
-**Swift**:
-
-```swift
-func registerForVoIPPushes() {
-    self.voipRegistry = PKPushRegistry(queue: nil)
-    self.voipRegistry.delegate = self
-    self.voipRegistry.desiredPushTypes = [PKPushTypeVoIP]
-}
-```
-
-**Objective-C**:
-
-```objective-c
-- (void) registerForVoIPPushes {
-    self.voipRegistry = [[PKPushRegistry alloc] initWithQueue:nil];
-    self.voipRegistry.delegate = self;
-    
-    // Initiate registration.
-    self.voipRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
-}
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/pushkit'
 ```
 
 #### 3. Implement the following delegate method and add the the code to handle an incoming VoIP push notification
 
-**Swift**:
-
-```swift
-func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, 
-        for type: PKPushType, completion: @escaping () -> Void) {
-    if(client.isNexmoPush(userInfo: payload.dictionaryPayload)) {
-        client.processNexmoPush(userInfo: payload.dictionaryPayload) { (error: Error?) in
-            //Code
-        }
-    }
-}
-```
-
-**Objective-C**:
-
-```objective-c
-- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload 
-        forType:(PKPushType)type withCompletionHandler:(void (^)(void))completion {
-    if([client isNexmoPushWithUserInfo: payload.dictionaryPayload]) {
-        [client processNexmoPushWithUserInfo:payload.dictionaryPayload completion:^(NSError * _Nullable error) {
-            //Code
-        }];
-    }
-}
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/pushkit-delegate-voip'
 ```
 
 For the SDK to process the push properly `NXMClient` should be logged in.
 
 #### 4. Enable Nexmo push notifications through a logged in `NXMClient`
 
-**Swift**:
-
-```swift
-client.enablePushNotifications(withDeviceToken: deviceToken, isPushKit: true, isSandbox: isSandbox) { error in 
-    //Code
-}
-```
-
-**Objective-C**:
-
-```objective-c
-[client enablePushNotificationsWithDeviceToken:'deviceToken' isPushKit:YES isSandbox:'isSandbox' completion:^(NSError * _Nullable error) {
-    //Code
-}];
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/enable-notifications-voip'
 ```
 
 * `'isSandbox'` is `YES`/`true` for an app using the Apple sandbox push servers and NO/false for an app using the Apple production push servers.  
@@ -147,16 +95,8 @@ In Xcode under your target, open *Capabilities*:
 
 In your app delegate implement the following delegate method to receive a device token:  
 
-**Swift**:
-
-```swift
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
-```
-
-**Objective-C**:
-
-```objective-c
--(void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/device-token'
 ```
 
 #### 3. Handle an incoming push notification
@@ -165,48 +105,16 @@ In your app delegate adopt the `UNUserNotificationCenterDelegate`.
 
 Implement the following delegate method and add the the code to handle an incoming push notification:
 
-**Swift**:
-
-```swift
-func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-    if(client.isNexmoPush(userInfo: userInfo)) {
-        client.processNexmoPush(userInfo: userInfo) { (error: Error?) in
-            //Code
-        }
-    }
-}
-```
-
-**Objective-C**:
-
-```objective-c
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
-            if([client isNexmoPushWithUserInfo:userInfo]) {
-                [client processNexmoPushWithuserInfo:userInfo completion:^(NSError * _Nullable error) {
-                    //Code
-                }];
-            }
-    }
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/incoming'
 ```
 
 For the SDK to process the push properly the `NXMClient` needs to be logged in.
 
 #### 4. Enable Nexmo push notifications through a logged in `NXMClient`:
 
-**Swift**:
-
-```swift
-client.enablePushNotifications(withDeviceToken: deviceToken, isPushKit: false, isSandbox: isSandbox) { (error: Error?) in 
-    //Code    
-}
-```
-
-**Objective-C**:
-
-```objective-c
-[client enablePushNotificationsWithDeviceToken:'deviceToken' isPushKit:NO isSandbox:'isSandbox' completion:^(NSError * _Nullable error) {
-                //Code
-            }];
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/enable-notifications'
 ```
 
 * `'isSandbox'` is YES/true for an app using the Apple sandbox push servers and NO/false for an app using the Apple production push servers.  
