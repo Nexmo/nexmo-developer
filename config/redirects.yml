@@ -250,3 +250,5 @@
 "/vonage-business-cloud/vbc-apis/user-api/code-snippets": "/vonage-business-cloud/vbc-apis/user-api/code-snippets/retrieve-user"
 "/vonage-business-cloud/vbc-apis/getting-started": "/vonage-business-cloud/vbc-apis/getting-started/create-application"
 "/send-an-sms": "/messaging/sms/code-snippets/send-an-sms"
+"/client-sdk/in-app-messaging/guides/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging"
+
