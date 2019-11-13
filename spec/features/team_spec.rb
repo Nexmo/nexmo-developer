@@ -25,7 +25,7 @@ RSpec.feature 'Team' do
         expect(page).to have_content('Here are some of the people behind Nexmo Developer. Oh, and we\'re hiring for')
         expect(page).to have_link('the developer relations team', href: '#join')
         expect(page).to have_content('and')
-        expect(page).to have_link('other teams at Nexmo', href: 'https://www.vonage.com/corporate/careers/')
+        expect(page).to have_link('other teams at Nexmo', href: '/careers')
       end
 
       within('.Vlt-grid:nth-of-type(1)') do
