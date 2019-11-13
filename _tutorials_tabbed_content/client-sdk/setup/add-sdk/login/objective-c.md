@@ -5,7 +5,7 @@ menu_weight: 2
 ---
 
 ```objective_c
-NXMClient *client = [[NXMClient alloc] initWithToken:@"your token"];
-[client setDelegate:self];
-[client login];
+NXMClient *client = [NXMClient shared];
+[self.client setDelegate:self];
+[self.client loginWithAuthToken:@"your token"];
 ```

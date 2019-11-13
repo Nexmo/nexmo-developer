@@ -5,7 +5,7 @@ menu_weight: 1
 ---
 
 ```swift
-let client = NXMClient(token: "your token")
-client?.setDelegate(self)
-client?.login()
+let client = NXMClient.shared
+client.setDelegate(self)
+client.login(withAuthToken: "your token")
 ```

@@ -5,5 +5,5 @@ menu_weight: 1
 ---
 
 ```swift
-func connectionStatusChanged(_ status: NXMConnectionStatus, reason: NXMConnectionStatusReason)
+func client(_ client: NXMClient, didChange status: NXMConnectionStatus, reason: NXMConnectionStatusReason)
 ```
