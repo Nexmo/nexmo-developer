@@ -62,12 +62,14 @@ const nexmoClient = new NexmoClient({
 
 ## Configuration for Android Client SDK
 
+You can specify your preferred URLs when you create the Client SDK `NexmoClient` object:
+
 ``` java
 nexmoClient = new NexmoClient.Builder()
   .logLevel(ILogger.eLogLevel.SENSITIVE)
   .logKey(0x0L)
-  .restEnvironmentHost([Link To REST API])
-  .environmentHost([Link to WS])
-  .imageProcessingServiceUrl([Link to IPS])
+  .restEnvironmentHost("https://api-eu-1.nexmo.com")
+  .environmentHost("wss://ws-eu-1.nexmo.com")
+  .imageProcessingServiceUrl("https://api-eu-1.nexmo.com/v1/image")
   .build(context);
 ```
