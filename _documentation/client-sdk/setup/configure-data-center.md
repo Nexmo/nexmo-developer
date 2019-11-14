@@ -59,3 +59,15 @@ const nexmoClient = new NexmoClient({
   ips_url: "https://api-eu-1.nexmo.com/v1/image"
 });
 ```
+
+## Configuration for Android Client SDK
+
+``` java
+nexmoClient = new NexmoClient.Builder()
+  .logLevel(ILogger.eLogLevel.SENSITIVE)
+  .logKey(0x0L)
+  .restEnvironmentHost([Link To REST API])
+  .environmentHost([Link to WS])
+  .imageProcessingServiceUrl([Link to IPS])
+  .build(context);
+```
