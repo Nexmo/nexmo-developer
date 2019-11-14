@@ -39,7 +39,7 @@ DAL | https://api-us-2.nexmo.com/v1/image
 LON | https://api-eu-1.nexmo.com/v1/image
 SNG | https://api-sg-1.nexmo.com/v1/image
 
-The data centers are as follows:
+**NOTE:** The data centers are as follows:
 
 Data Center | Location
 ---|---
