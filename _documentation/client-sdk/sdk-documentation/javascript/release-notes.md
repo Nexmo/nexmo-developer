@@ -10,7 +10,7 @@ navigation_weight: 0
 
 ### Fixes
 
-- Remove remained audio elements after transferring a call to a new conversation
+- Remove remaining audio elements after transferring a call to a new conversation
 - Update `conversation.invite()` to not include empty `user_id` or `user_name` fields within the requests
 
 ## Version 6.0.3 - October 22, 2019
