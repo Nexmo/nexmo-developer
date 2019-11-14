@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - '''flask>=1.0'''
+code:
+    source: .repos/nexmo/nexmo-python-code-snippets/voice/track-ncco.py
+    from_line: 5
+    to_line: 39
+client:
+    source: .repos/nexmo/nexmo-python-code-snippets/voice/track-ncco.py
+    from_line: 1
+    to_line: 3
+file_name: track-ncco.py
+run_command: 'python3 track-ncco.py'
