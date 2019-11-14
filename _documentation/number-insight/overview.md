@@ -40,7 +40,6 @@ Number format and origin| ✅ | ✅ | ✅
 Network type| ❌ | ✅ | ✅
 Carrier and country| ❌ | ✅ | ✅
 Ported| ❌ | ❌ | ✅
-IP match| ❌ | ❌ | ✅
 Validity| ❌ | ❌ | ✅
 Reachability (not available in the US)| ❌ | ❌ | ✅
 Roaming status| ❌ | ❌ | ✅
