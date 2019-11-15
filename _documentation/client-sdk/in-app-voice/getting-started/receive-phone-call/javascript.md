@@ -75,7 +75,7 @@ This is done by listening for `member:call` events on the `application` object r
 
 ```javascript
 .then(application => {
-    notification.textContent = `You've logged in with the user ${application.me.user.name}`;
+    notification.textContent = `You've logged in with the user ${application.me.name}`;
     application.on("member:call", (member, call) => {
       notification.textContent = `You're receiving a call`;
     })
