@@ -17,7 +17,7 @@ Phone, SIP and Websocket Channels are enabled through the [Voice API](/voice/voi
 
 ## Contents
 
-* [Developer Preview](#developer-preview)
+* [Beta](#beta)
 * [Supported features](#supported-features)
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
@@ -25,11 +25,11 @@ Phone, SIP and Websocket Channels are enabled through the [Voice API](/voice/voi
 * [Use Cases](#use-cases)
 * [Reference](#reference)
 
-## Developer Preview
+## Beta
 
-This API is currently in Developer Preview.
+This API is currently in Beta.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) and include Conversation API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) and include Conversation API in the subject line. Please note that during the Beta period support times are limited to Monday to Friday.
 
 ## Supported features
 
