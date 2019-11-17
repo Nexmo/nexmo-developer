@@ -32,6 +32,18 @@ Using the Github project you cloned, in the Start folder, open `GettingStarted.x
 
 2. From the `App-to-App` group, open `AppToAppCallViewController.swift` file and make sure the following lines exist:
 
-* `import NexmoClient` - imports the sdk
-* `let client = NXMClient.shared` - the NexmoClient shrared instance
-* `var call: NXMCall?` - property for the call instance
+
+* imports the SDK
+    ```swift
+    import NexmoClient
+    ```
+
+* the NexmoClient shrared instance
+    ```swift
+    let client = NXMClient.shared
+    ```
+
+* property for the call instance
+    ```swift
+    var call: NXMCall?
+    ```
