@@ -14,7 +14,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NexmoClient Docs</a> (9% documented)</p>
+        <p><a href="index.html">NexmoClient 1.0.0 Docs</a> (16% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -37,13 +37,22 @@
                 <a href="Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/NXMClient.html">NXMClient</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMConversation.html">NXMConversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NXMConversationEventsController.html">NXMConversationEventsController</a>
+                <a href="Classes/NXMCustomEvent.html">NXMCustomEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMDTMFEvent.html">NXMDTMFEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMDirection.html">NXMDirection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMEvent.html">NXMEvent</a>
@@ -53,6 +62,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMImageInfo.html">NXMImageInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMInitiator.html">NXMInitiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMLeg.html">NXMLeg</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMLegStatusEvent.html">NXMLegStatusEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMLogger.html">NXMLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMMediaActionEvent.html">NXMMediaActionEvent</a>
@@ -77,12 +98,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMMessageStatusEvent.html">NXMMessageStatusEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NXMRtcAnswerEvent.html">NXMRtcAnswerEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NXMSipEvent.html">NXMSipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMTextEvent.html">NXMTextEvent</a>
@@ -116,16 +131,16 @@
                 <a href="Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a>
+                <a href="Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Type Definitions.html">Type Definitions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a>
               </li>
@@ -166,65 +181,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)NXMConversationEventsControllerDelegate"></a>
-                    <a name="//apple_ref/objc/Protocol/NXMConversationEventsControllerDelegate" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)NXMConversationEventsControllerDelegate">NXMConversationEventsControllerDelegate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Protocols/NXMConversationEventsControllerDelegate.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMConversationEventsControllerDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span>
-
-<span class="k">typedef</span> <span class="n"><a href="Functions.html#/c:@F@NS_ENUM">NS_ENUM</a></span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">,</span> <span class="n">NXMConversationEventsControllerChangeType</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">NXMConversationEventsControllerChangeInsert</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="n">NXMConversationEventsControllerChangeDelete</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="n">NXMConversationEventsControllerChangeMove</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="n">NXMConversationEventsControllerChangeUpdate</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="p">};</span>
-
-<span class="k">@optional</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">nxmConversationEventsController</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMConversationEventsController.html">NXMConversationEventsController</a></span> <span class="o">*</span><span class="p">)</span><span class="n">controller</span>
-                         <span class="n">didChangeEvent</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMEvent.html">NXMEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="n">anEvent</span>
-                                <span class="n">atIndex</span><span class="o">:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="n">index</span>
-                          <span class="n">forChangeType</span><span class="o">:</span><span class="p">(</span><span class="n">NXMConversationEventsControllerChangeType</span><span class="p">)</span><span class="n">type</span>
-                               <span class="n">newIndex</span><span class="o">:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="n">newIndex</span><span class="p">;</span>
-
-<span class="k">@optional</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">nxmConversationEventsControllerWillChangeContent</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMConversationEventsController.html">NXMConversationEventsController</a></span> <span class="o">*</span><span class="p">)</span><span class="n">controller</span><span class="p">;</span>
-
-<span class="k">@optional</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">nxmConversationEventsControllerDidChangeContent</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMConversationEventsController.html">NXMConversationEventsController</a></span> <span class="o">*</span><span class="p">)</span><span class="n">controller</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">NXMConversationEventsControllerDelegate</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:objc(pl)NXMCallDelegate"></a>
                     <a name="//apple_ref/objc/Protocol/NXMCallDelegate" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(pl)NXMCallDelegate">NXMCallDelegate</a>
@@ -243,14 +199,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMCallDelegate</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">statusChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">callMember</span><span class="p">;</span>
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">NXMCallDelegate</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMCallDelegate</span></code></pre>
 
                         </div>
                       </div>
@@ -283,19 +232,13 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMClientDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span>
-
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">connectionStatusChanged</span><span class="o">:</span><span class="p">(</span><span class="n">NXMConnectionStatus</span><span class="p">)</span><span class="n">status</span> <span class="n">reason</span><span class="o">:</span><span class="p">(</span><span class="n">NXMConnectionStatusReason</span><span class="p">)</span><span class="n">reason</span><span class="p">;</span>
-
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">client</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMClient.html">NXMClient</a></span> <span class="o">*</span><span class="p">)</span><span class="n">client</span> <span class="n">didChangeConnectionStatus</span><span class="o">:</span><span class="p">(</span><span class="n">NXMConnectionStatus</span><span class="p">)</span><span class="n">status</span> <span class="n">reason</span><span class="o">:</span><span class="p">(</span><span class="n">NXMConnectionStatusReason</span><span class="p">)</span><span class="n">reason</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">client</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMClient.html">NXMClient</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">client</span> <span class="nf">didReceiveError</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 <span class="k">@optional</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">incomingCall</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMCall.html">NXMCall</a></span> <span class="o">*</span><span class="p">)</span><span class="n">call</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addedToConversation</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">conversation</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">client</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMClient.html">NXMClient</a></span> <span class="o">*</span><span class="p">)</span><span class="n">client</span> <span class="n">didReceiveCall</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMCall.html">NXMCall</a></span> <span class="o">*</span><span class="p">)</span><span class="n">call</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">client</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMClient.html">NXMClient</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">client</span> <span class="nf">didReceiveConversation</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">conversation</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">NXMClientDelegate</span></code></pre>
 
                         </div>
                       </div>
@@ -306,6 +249,34 @@
             </div>
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)NXMConversationUpdateDelegate"></a>
+                    <a name="//apple_ref/objc/Protocol/NXMConversationUpdateDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)NXMConversationUpdateDelegate">NXMConversationUpdateDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/NXMConversationUpdateDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMConversationUpdateDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -327,64 +298,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMConversationDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span>
-<span class="k">@optional</span>
-<span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">textEvent</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="n">textEvent</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">attachmentEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">attachmentEvent</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">messageStatusEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMMessageStatusEvent.html">NXMMessageStatusEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">messageStatusEvent</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mediaEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMEvent.html">NXMEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">mediaEvent</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">typingEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMTextTypingEvent.html">NXMTextTypingEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">typingEvent</span><span class="p">;</span>
-<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">memberEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMMemberEvent.html">NXMMemberEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">memberEvent</span><span class="p">;</span>
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">NXMConversationDelegate</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(pl)NXMLoggerDelegate"></a>
-                    <a name="//apple_ref/objc/Protocol/NXMLoggerDelegate" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)NXMLoggerDelegate">NXMLoggerDelegate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Protocols/NXMLoggerDelegate.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMLoggerDelegate</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">error</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">warning</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">info</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">debug</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">NXMLoggerDelegate</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMConversationDelegate</span></code></pre>
 
                         </div>
                       </div>
@@ -396,8 +310,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-02-07)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-09-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
