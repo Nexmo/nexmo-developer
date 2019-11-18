@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   before_action :set_feedback_author
 
   def not_found
-    redirect = Redirector.find(request.path)
+    redirect = Redirector.find(request)
     if redirect
       redirect_to redirect
     else

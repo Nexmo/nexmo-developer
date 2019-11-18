@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Redirector do
   it 'returns a redirected path' do
-    expect(described_class.find('/sms')).to eq('/messaging/sms/overview')
+    request = OpenStruct.new(path: '/sms')
+    expect(described_class.find(request)).to eq('/messaging/sms/overview')
   end
 
   context 'when a URL is provided in the environment' do
@@ -16,9 +17,11 @@ RSpec.describe Redirector do
     end
 
     it 'returns a redirected path' do
-      expect(described_class.find('/foo/bar')).to eq('https://google.com')
+      request = OpenStruct.new(path: '/foo/bar')
+      expect(described_class.find(request)).to eq('https://google.com')
 
-      expect(described_class.find('/baz/foo/bar')).to eq(false)
+      request = OpenStruct.new(path: '/baz/foo/bar')
+      expect(described_class.find(request)).to eq(false)
     end
   end
 end

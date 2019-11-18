@@ -4,7 +4,7 @@ class MarkdownController < ApplicationController
   before_action :set_tracking_cookie
 
   def show
-    redirect = Redirector.find(request.path)
+    redirect = Redirector.find(request)
     return redirect_to redirect if redirect
 
     if path_is_folder?
@@ -31,7 +31,7 @@ class MarkdownController < ApplicationController
   end
 
   def api
-    redirect = Redirector.find(request.path)
+    redirect = Redirector.find(request)
     if redirect
       redirect_to redirect
     else
