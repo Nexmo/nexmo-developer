@@ -8,7 +8,7 @@ navigation_weight: 1
 
 In order to use the Nexmo Client SDK, there are three things you need to set up before getting started:
 
-* [Nexmo Application](/conversation/concepts/application) - an Application which contains configuration for the app that you are building.
+* [Nexmo Application](/application/overview) - an Application which contains configuration for the app that you are building.
 
 * [Users](/conversation/concepts/user) - Users who are associated with the Nexmo Application. It is expected that Users will have a one-to-one mapping with your own authentication system.
 
@@ -33,34 +33,53 @@ npm install -g nexmo-cli@beta
 
 Set up the Nexmo CLI to use your Nexmo API Key and API Secret. You can get these from the [settings page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
 
-Run the following command in a terminal, while replacing `api_key` and `api_secret` with your own:
+Run the following command in a terminal, while replacing `api_key` and `api_secret` with your Nexmo API key and secret:
 
 ```bash
 nexmo setup api_key api_secret
 ```
 
+This adds this authentication information to the `.nexmorc` file in your home directory.
+
 ## Create a Nexmo Application
 
-Create an application within the Nexmo platform.
+You now need to create a Nexmo application. In this example you create an application capable of handling both in-app Voice and in-app Messaging use cases.
 
-Run the following command:
+1) First create your project directory if you've not already done so.
 
-```bash
-nexmo app:create "My Nexmo App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
+2) Change into the project directory you've just created.
+
+3) Create a Nexmo application [interactively](/application/nexmo-cli#interactive-mode). The following command enters interactive mode:
+
+``` shell
+nexmo app:create
 ```
 
-The output will be similar to:
+4) Specify your application name. Press Enter to continue.
 
-```bash
-Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
-No existing config found. Writing to new file.
-Credentials written to /path/to/your/local/folder/.nexmo-app
-Private Key saved to: private.key
-```
+5) You can now select you application capabilities using the arrow keys and then pressing spacebar to select the capabilities your application needs. For the purposes of this example select both Voice and RTC capabilities using the arrow keys and spacebar to select and then press Enter to continue.
 
-On the first output line is the Application ID. Take a note of it. It will be later referred to as `MY_APP_ID`.
+> **NOTE:** If your app will be Voice-only you can just select Voice capabilities. If you want in-app messaging only select RTC capabilities. If your app will have both in-app voice and messaging select both capabilities.
 
-In addition, a private key is created and is saved locally on your machine. It is used to generate JWTs that are used to authenticate your interactions with Nexmo.
+6) For "Use the default HTTP methods?" press Enter to select the default.
+
+7) For "Voice Answer URL" enter `https://example.ngrok.io/webhooks/answer` or other suitable URL (this depends on how you are testing).
+
+8) You are next prompted for the "Voice Fallback Answer URL". This is an optional fallback URL should your main Voice answer URL fail for some reason. In this case just press Enter. If later you need it you can always add this in the [Dashboard](https://dashboard.nexmo.com/sign-in) or using the Nexmo CLI.
+
+9) You are now required to enter the "Voice Event URL". Enter `https://example.ngrok.io/webhooks/event`.
+
+10) For " RTC Event URL" enter `https://example.ngrok.io/webhooks/rtc`.
+
+11) For "Public Key path" press Enter to select the default. If you want to use your own public-private key pair refer to [this documentation](/application/nexmo-cli#creating-an-application-with-your-own-public-private-key-pair).
+
+12) For "Private Key path" enter `private.key` and press Enter.
+
+The application is then created.
+
+The file `.nexmo-app` is created in your project directory. This file contains the Nexmo Application ID and the private key. A private key file `private.key` is also created.
+
+Creating an application and application capabilities are covered in detail in the [documentation](/application/overview).
 
 ## Create a User
 
@@ -82,7 +101,9 @@ The user ID is used to perform tasks by the SDK, such as login, starting a call 
 
 ## Generate a User JWT
 
-Generate a JWT for the user. Remember to replace `MY_APP_ID` and `MY_USER_NAME` values in the command:
+[JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
+
+To generate a JWT for a specific user run the following command, remembering to replace the `MY_APP_ID` and `MY_USER_NAME` variables with values that suit your application:
 
 ```bash
 nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=MY_APP_ID
@@ -94,4 +115,6 @@ The above command sets the expiry of the JWT to one day from now, which is the m
 
 ## Further information
 
-You can read more about the JWT and ACL [in this topic](/conversation/guides/jwt-acl).
+* [More about JWTs and ACLs](/conversation/guides/jwt-acl)
+* [In-app Voice tutorial](/client-sdk/tutorials/app-to-phone/introduction)
+* [In-app Messaging tutorial](/client-sdk/tutorials/in-app-messaging/introduction)
