@@ -13,6 +13,8 @@ To access the delivery receipt, you need to:
 * [Create a webhook endpoint](/messaging/sms/code-snippets/before-you-begin#webhooks) using one of the code examples shown below
 * [Configure the webhook endpoint in your Nexmo Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
 
+> **NOTE:** After you send a message there may be a delay before you receive the delivery receipt.
+
 ```code_snippets
 source: '_examples/messaging/sms/delivery-receipts'
 ```
@@ -30,7 +32,7 @@ image: public/assets/screenshots/smsDLRsettings.png
 
 ## Try it out
 
-[Send a message](send-an-sms) to a mobile number and you should receive a delivery receipt in the following format:
+[Send a message](send-an-sms) to a mobile number and you will receive a delivery receipt in the following format:
 
 ```json
 {
@@ -45,3 +47,6 @@ image: public/assets/screenshots/smsDLRsettings.png
   "to": "Nexmo CLI"
 }
 ```
+
+> **NOTE:** After you send a message there may be a delay before you receive the delivery receipt.
+

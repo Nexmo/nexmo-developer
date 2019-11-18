@@ -53,18 +53,10 @@ You can either install the Nexmo Client SDK directly, or via CocoaPods.
 4. Open the `xcworkspace` with Xcode and disable `bitcode` for your target.
 
 5. In your code, import the `NexmoClient` library:  
-   
-    **Swift:**
 
-    ```swift
-    import NexmoClient  
-    ```
-
-    **Objective-C:**
-
-    ```objective-c
-    #import <NexmoClient/NexmoClient.h>;
-    ```
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/import'
+```
 
 ### Frameworks
 
@@ -74,17 +66,9 @@ You can either install the Nexmo Client SDK directly, or via CocoaPods.
 
 3. In your code, import the NexmoClient library:
 
-    **Swift:**
-    
-    ```swift
-    import NexmoClient  
-    ```
-
-    **Objective-C:**
-
-    ```objective-c
-    #import <NexmoClient/NexmoClient.h>;
-    ```
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/import'
+```
 
 ## Add permissions
 
@@ -94,33 +78,9 @@ To use the in-app voice features, you need to add audio permissions:
 
 2. In your code add a request for Audio Permissions:  
 
-    **Swift**
-
-    ```swift
-    import AVFoundation
-
-    func askAudioPermissions() {
-        AVAudioSession.sharedInstance().requestRecordPermission { (granted:Bool) in
-            NSLog("Allow microphone use. Response: %d", granted)
-        }
-    }
-    ```
-
-    **Objective-C**:
-
-    ```objective-c
-    #import <AVFoundation/AVAudioSession.h>
-
-    - (void)askAudioPermissions {
-        if ([[AVAudioSession sharedInstance] respondsToSelector:@selector(requestRecordPermission:)])
-        {
-            [[AVAudioSession sharedInstance] requestRecordPermission: ^ (BOOL granted)
-            {
-            NSLog(@"Allow microphone use. Response: %d", granted);
-            }];
-        }
-    }
-    ```
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/permissions'
+```
 
 `AppDelegate` is the best place to do this.
 
@@ -128,54 +88,29 @@ To use the in-app voice features, you need to add audio permissions:
 
 ### Login
 
-1. Create a `NXMClient` object and login with a `jwt` user token. If necessary, you can read more about [generating the JWT](/client-sdk/concepts/jwt-acl).
+Create a `NXMClient` object and login with a `jwt` user token. If necessary, you can read more about [generating the JWT](/client-sdk/concepts/jwt-acl).
 
-    **Swift**:
-
-    ```swift
-    let client = NXMClient(token: "your token")
-    client?.setDelegate(self)
-    client?.login()
-    ```
-
-    **Objective-C**:
-
-    ```objective-c
-    NXMClient *client = [[NXMClient alloc] initWithToken:@"your token"];
-    [client setDelegate:self];
-    [client login];
-    ```
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/login'
+```
 
     Note that `self` should implement the `NXMClientDelegate` protocol.  
 
-2. On a successful login, the following delegate method is called with `NXMConnectionStatusConnected`:
 
-    **Swift**:
+### Connection status
 
-    ```swift
-    func connectionStatusChanged(_ status: NXMConnectionStatus, reason: NXMConnectionStatusReason)
-    ```
+On a successful login, the following delegate method is called with `NXMConnectionStatusConnected`:
 
-    **Objective-C**:
-
-    ```objective-c
-    - (void)connectionStatusChanged:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason;
-    ```
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/delegate'
+```
 
 ### Get current user info
 
 After the login succeeds, the logged in user will be available via:
 
-**Swift**:
-
-```swift
-let user = client.user
-```
-
-**Objective-C**:
-
-```objective-c
-NXMUser *user = client.user;
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/user'
 ```
 
 ## Conclusion
