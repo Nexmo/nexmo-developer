@@ -14,7 +14,7 @@
     <a title="NXMClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NexmoClient Docs</a> (9% documented)</p>
+        <p><a href="../index.html">NexmoClient 1.0.0 Docs</a> (16% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -37,13 +37,22 @@
                 <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NXMClient.html">NXMClient</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMConversation.html">NXMConversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NXMConversationEventsController.html">NXMConversationEventsController</a>
+                <a href="../Classes/NXMCustomEvent.html">NXMCustomEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDTMFEvent.html">NXMDTMFEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDirection.html">NXMDirection</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMEvent.html">NXMEvent</a>
@@ -53,6 +62,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMImageInfo.html">NXMImageInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMInitiator.html">NXMInitiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLeg.html">NXMLeg</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLegStatusEvent.html">NXMLegStatusEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLogger.html">NXMLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMMediaActionEvent.html">NXMMediaActionEvent</a>
@@ -77,12 +98,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMMessageStatusEvent.html">NXMMessageStatusEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMRtcAnswerEvent.html">NXMRtcAnswerEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMSipEvent.html">NXMSipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMTextEvent.html">NXMTextEvent</a>
@@ -116,16 +131,16 @@
                 <a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a>
+                <a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Type Definitions.html">Type Definitions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a>
               </li>
@@ -159,136 +174,7 @@
             <h1>NXMClient</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMClient</span> <span class="p">:</span> <span class="nc">NSObject</span>
-
-<span class="cm">/*!
-Return the connection status.
-*/</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getConnectionStatus</span><span class="p">)</span> <span class="n">NXMConnectionStatus</span> <span class="n">connectionStatus</span><span class="p">;</span>
-
-<span class="cm">/*!
- Return the current user
- */</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getUser</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
-
-<span class="cm">/*!
- Return the current authentication token
- */</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getToken</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">token</span><span class="p">;</span>
-
-<span class="cm">/**
- init nxmClient with authentication token
- @param authToken user authentication token
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span>
-
-<span class="cm">/*!
- Set nexmo client logger delegate
- *  @param delegate a `NXMLoggerDelegate` object.
- *
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setLoggerDelegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
-
-<span class="cm">/*!
- Set nexmo client delegate
- *  @param delegate a `NXMClientDelegate` object.
- *
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setDelegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMClientDelegate.html">NXMClientDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
-
-<span class="cm">/**
- login and connect to nexmo sdk.
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">login</span><span class="p">;</span>
-
-<span class="cm">/**
- Update authentication token when logged in
- @param authToken user authentication token
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">refreshAuthToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span>
-
-<span class="cm">/**
-Logout
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">logout</span><span class="p">;</span>
-
-<span class="cp">#pragma mark - Conversation
-</span>
-<span class="cm">/**
- Get a conversation object by id
- @param converesationId     conversation id
- @param completion          completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getConversationWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">converesationId</span>
-                   <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="../Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">conversation</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Creatw a new conversation with name
-
- @param name                conversation name
- @param completion          completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createConversationWithName</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="../Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">conversation</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cp">#pragma mark - Call
-</span>
-<span class="c1">///**</span>
-<span class="c1">// Create a new call to users</span>
-<span class="c1">//</span>
-<span class="c1">// @param callees         user ids/name or pstn number to call</span>
-<span class="c1">// @param callType        type of the call (InApp/SERVER)</span>
-<span class="c1">// @param delegate        call delegate</span>
-<span class="c1">// @param completion      completion block</span>
-<span class="c1">// */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">call</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*&gt;*</span><span class="p">)</span><span class="nv">callees</span>
-    <span class="nf">callType</span><span class="p">:(</span><span class="n">NXMCallType</span><span class="p">)</span><span class="nv">callType</span>
-    <span class="nf">delegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMCallDelegate.html">NXMCallDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
-  <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="../Classes/NXMCall.html">NXMCall</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">call</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onMemberEvent</span><span class="p">:(</span><span class="n">NSNotification</span><span class="o">*</span> <span class="p">)</span><span class="nv">notification</span><span class="p">;</span>
-
-<span class="cp">#pragma mark - Push Notifications
-</span>
-<span class="cm">/**
- Enable push notification for specific device
-
- @param deviceToken     the device token
- @param isPushKit       is the app using PushKit
- @param isSandbox       is apple sandbox enviroment
- @param completion      completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enablePushNotificationsWithDeviceToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">deviceToken</span>
-                                     <span class="nf">isPushKit</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isPushKit</span>
-                                     <span class="nf">isSandbox</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isSandbox</span>
-                                    <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Disable push notification for the current device
- 
- @param completion      completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disablePushNotificationsWithCompletion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Call this method on incoming push
-
- @param userInfo    pushInfo
- @return true if nexmo push
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isNexmoPushWithUserInfo</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span><span class="p">;</span>
-
-<span class="cm">/**
- Handle nexmo push
- Call this method when isNexmoPushWithUserInfo:userInfo return true
- 
- @param userInfo    pushInfo
- @param completion  completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processNexmoPushWithUserInfo</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
-                           <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMClient</span></code></pre>
 
                 </div>
               </div>
@@ -298,6 +184,33 @@ Logout
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMClient(cpy)shared"></a>
+                    <a name="//apple_ref/objc/Property/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(cpy)shared">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">,</span> <span class="n">class</span><span class="p">)</span> <span class="n">NXMClient</span> <span class="o">*</span><span class="n">shared</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -320,11 +233,6 @@ Logout
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getConnectionStatus</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
     <span class="kt">int</span> <span class="n">connectionStatus</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">connectionStatus</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -351,12 +259,7 @@ Logout
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getUser</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/NXMUser.html">NXMUser</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getUser</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -366,9 +269,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(py)token"></a>
-                    <a name="//apple_ref/objc/Property/token" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(py)token">token</a>
+                    <a name="/c:objc(cs)NXMClient(py)authToken"></a>
+                    <a name="//apple_ref/objc/Property/authToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(py)authToken">authToken</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -383,95 +286,7 @@ Logout
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getToken</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">token</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)NXMClient(im)initWithToken:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithToken:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)initWithToken:">-initWithToken:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>init nxmClient with authentication token</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithToken</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="n"><a href="../Classes/NXMClient.html#/c:objc(cs)NXMClient(py)token">token</a></span> <span class="nv">authToken</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>authToken</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>user authentication token</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)NXMClient(im)setLoggerDelegate:"></a>
-                    <a name="//apple_ref/objc/Method/-setLoggerDelegate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)setLoggerDelegate:">-setLoggerDelegate:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setLoggerDelegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setLoggerDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getToken</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="kt">int</span> <span class="o">*</span><span class="n">authToken</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -501,9 +316,31 @@ Logout
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setDelegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMClientDelegate.html">NXMClientDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMClient(im)loginWithAuthToken:"></a>
+                    <a name="//apple_ref/objc/Method/-loginWithAuthToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)loginWithAuthToken:">-loginWithAuthToken:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NXMClientDelegate.html">NXMClientDelegate</a></span><span class="p">)</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loginWithAuthToken</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -513,9 +350,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)login"></a>
-                    <a name="//apple_ref/objc/Method/-login" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)login">-login</a>
+                    <a name="/c:objc(cs)NXMClient(im)updateAuthToken:"></a>
+                    <a name="//apple_ref/objc/Method/-updateAuthToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)updateAuthToken:">-updateAuthToken:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -523,72 +360,16 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>login and connect to nexmo sdk.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">login</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateAuthToken</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">login</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)NXMClient(im)refreshAuthToken:"></a>
-                    <a name="//apple_ref/objc/Method/-refreshAuthToken:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)refreshAuthToken:">-refreshAuthToken:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Update authentication token when logged in</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">refreshAuthToken</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refreshAuthToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">authToken</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>authToken</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>user authentication token</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -606,7 +387,7 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Logout</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
@@ -614,11 +395,6 @@ Logout
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">logout</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">logout</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -639,9 +415,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)getConversationWithId:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-getConversationWithId:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)getConversationWithId:completion:">-getConversationWithId:completion:</a>
+                    <a name="/c:objc(cs)NXMClient(im)getConversationWithUUid:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getConversationWithUUid:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)getConversationWithUUid:completionHandler:">-getConversationWithUUid:completionHandler:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -649,22 +425,18 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get a conversation object by id</p>
+                        <p>Get a conversation object by id
+@brief getConversation With a specific Id</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getConversationWithId</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">converesationId</span>
-                   <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
-                                                 <span class="n"><a href="../Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span>
-                                  <span class="n">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getConversationWithId</span><span class="p">(</span><span class="n">_</span> <span class="nv">converesationId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt"><a href="../Classes/NXMConversation.html">NXMConversation</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getConversationWithUUid</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">uuid</span>
+              <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                                   <span class="n"><a href="../Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span>
+                                    <span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -675,7 +447,7 @@ Logout
                             <tr>
                               <td>
                                 <code>
-                                <em>converesationId</em>
+                                <em>uuid</em>
                                 </code>
                               </td>
                               <td>
@@ -687,12 +459,17 @@ Logout
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block</p>
+                                  <p>completion block
+@code [myNXNClient getConversationWithUUid:conversationId completion:(void(^_Nullable)(NSError * _Nullable error, NXMConversation * _Nullable conversation))completion{
+if (!error){
+   NXMConversation myConversation = conversation;
+}
+}];</p>
                                 </div>
                               </td>
                             </tr>
@@ -705,9 +482,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)createConversationWithName:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-createConversationWithName:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)createConversationWithName:completion:">-createConversationWithName:completion:</a>
+                    <a name="/c:objc(cs)NXMClient(im)createConversationWithName:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-createConversationWithName:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)createConversationWithName:completionHandler:">-createConversationWithName:completionHandler:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -715,7 +492,7 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creatw a new conversation with name</p>
+                        <p>@brief Create a new conversation with specific name: it is a unique per nexmo application</p>
 
                       </div>
                       <div class="declaration">
@@ -723,14 +500,10 @@ Logout
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createConversationWithName</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">name</span>
-                        <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
-                                       <span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
-                                       <span class="n"><a href="../Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createConversation</span><span class="p">(</span><span class="n">withName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt"><a href="../Classes/NXMConversation.html">NXMConversation</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                 <span class="nf">completionHandler</span><span class="p">:</span>
+                     <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                        <span class="n"><a href="../Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span>
+                         <span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -753,12 +526,16 @@ Logout
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block</p>
+                                  <p>completion block
+@code [myNXNClient createConversationWithName:uniqueName completion:(void(^_Nullable)(NSError * _Nullable error, NXMConversation * _Nullable conversation)){
+if (!error)
+NXMConvertion myNamedConversation = convetsation;
+}];</p>
                                 </div>
                               </td>
                             </tr>
@@ -782,9 +559,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)call:callType:delegate:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-call:callType:delegate:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)call:callType:delegate:completion:">-call:callType:delegate:completion:</a>
+                    <a name="/c:objc(cs)NXMClient(im)call:callHandler:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-call:callHandler:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)call:callHandler:completionHandler:">-call:callHandler:completionHandler:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -792,56 +569,66 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>@brief  Create a new call to users</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">call</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*&gt;*</span><span class="p">)</span><span class="nv">callees</span>
-    <span class="nf">callType</span><span class="p">:(</span><span class="n">NXMCallType</span><span class="p">)</span><span class="nv">callType</span>
-    <span class="nf">delegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMCallDelegate.html">NXMCallDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
-  <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="../Classes/NXMCall.html">NXMCall</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">call</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">call</span><span class="p">(</span><span class="n">_</span> <span class="nv">callees</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">callType</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NXMCallDelegate.html">NXMCallDelegate</a></span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt"><a href="../Classes/NXMCall.html">NXMCall</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">call</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">callee</span>
+          <span class="nf">callHandler</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">callHandler</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                         <span class="n"><a href="../Classes/NXMCall.html">NXMCall</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)NXMClient(im)onMemberEvent:"></a>
-                    <a name="//apple_ref/objc/Method/-onMemberEvent:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)onMemberEvent:">-onMemberEvent:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onMemberEvent</span><span class="p">:(</span><span class="n">NSNotification</span><span class="o">*</span> <span class="p">)</span><span class="nv">notification</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">onMemberEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callee</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>user ids/name or pstn number to call</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>type of the call (InApp/SERVER)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion block
+@code [myNXNClient call:usernames callHandler:NXMCallHandlerInApp delegate:callDelegate completion:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullable call)){
+if (!error){
+NXMCall myCall = call;
+}];</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -860,9 +647,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completion:">-enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completion:</a>
+                    <a name="/c:objc(cs)NXMClient(im)enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completionHandler:">-enablePushNotificationsWithDeviceToken:isPushKit:isSandbox:completionHandler:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -870,7 +657,7 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enable push notification for specific device</p>
+                        <p>@brief  Enable push notification for specific device</p>
 
                       </div>
                       <div class="declaration">
@@ -880,13 +667,9 @@ Logout
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enablePushNotificationsWithDeviceToken</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">deviceToken</span>
                                      <span class="nf">isPushKit</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">isPushKit</span>
                                      <span class="nf">isSandbox</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">isSandbox</span>
-                                    <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
-                                                   <span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enablePushNotifications</span><span class="p">(</span><span class="n">withDeviceToken</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">isPushKit</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">isSandbox</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                             <span class="nf">completionHandler</span><span class="p">:</span>
+                                 <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span>
+                                     <span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -933,12 +716,14 @@ Logout
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block</p>
+                                  <p>completion block
+@code [myNXNClient enablePushNotificationsWithDeviceToken:deviceToken isPushKit:isPushKit isSandbox:isSandbox completion:(void(^_Nullable)(NSError * _Nullable error))completion{
+}];</p>
                                 </div>
                               </td>
                             </tr>
@@ -951,9 +736,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)disablePushNotificationsWithCompletion:"></a>
-                    <a name="//apple_ref/objc/Method/-disablePushNotificationsWithCompletion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)disablePushNotificationsWithCompletion:">-disablePushNotificationsWithCompletion:</a>
+                    <a name="/c:objc(cs)NXMClient(im)disablePushNotifications:"></a>
+                    <a name="//apple_ref/objc/Method/-disablePushNotifications:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)disablePushNotifications:">-disablePushNotifications:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -961,20 +746,15 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disable push notification for the current device</p>
+                        <p>@brief  Disable push notification for current device</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disablePushNotificationsWithCompletion</span><span class="p">:</span>
-    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disablePushNotifications</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disablePushNotifications</span><span class="p">:</span>
+    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -985,12 +765,14 @@ Logout
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block</p>
+                                  <p>completion block
+@code [myNXNClient disablePushNotificationsWithCompletion:(void(^_Nullable)(NSError * _Nullable error))completion{
+}];</p>
                                 </div>
                               </td>
                             </tr>
@@ -1013,7 +795,7 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Call this method on incoming push</p>
+                        <p>@brief  Check if a push notification is a NexmoPush, Call this method on incoming push</p>
 
                       </div>
                       <div class="declaration">
@@ -1021,11 +803,6 @@ Logout
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">isNexmoPushWithUserInfo</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">userInfo</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isNexmoPush</span><span class="p">(</span><span class="n">withUserInfo</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1050,7 +827,13 @@ Logout
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>true if nexmo push</p>
+                        <p>true if nexmo push
+@code BOOL isNexmoPush = [myNXNClient isNexmoPushWithUserInfo:userInfo];
+if (isNexmoPush){
+[myNXNClient processNexmoPushWithUserInfo:userInfo completion:(void(^_Nullable)(NSError * _Nullable error)){
+if (!error){
+NSLog(@<q>Process a Nexmo push</q>);
+}];</p>
                       </div>
                     </section>
                   </div>
@@ -1058,9 +841,9 @@ Logout
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)processNexmoPushWithUserInfo:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-processNexmoPushWithUserInfo:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)processNexmoPushWithUserInfo:completion:">-processNexmoPushWithUserInfo:completion:</a>
+                    <a name="/c:objc(cs)NXMClient(im)processNexmoPushWithUserInfo:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-processNexmoPushWithUserInfo:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)processNexmoPushWithUserInfo:completionHandler:">-processNexmoPushWithUserInfo:completionHandler:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1068,8 +851,7 @@ Logout
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Handle nexmo push
-Call this method when isNexmoPushWithUserInfo:userInfo return true</p>
+                        <p>@brief process Nexmo push, Call this method when isNexmoPushWithUserInfo:userInfo return true</p>
 
                       </div>
                       <div class="declaration">
@@ -1077,13 +859,8 @@ Call this method when isNexmoPushWithUserInfo:userInfo return true</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processNexmoPushWithUserInfo</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">userInfo</span>
-                          <span class="nf">completion</span><span class="p">:</span>
-                              <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">processNexmoPush</span><span class="p">(</span><span class="n">withUserInfo</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                   <span class="nf">completionHandler</span><span class="p">:</span>
+                       <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -1106,12 +883,18 @@ Call this method when isNexmoPushWithUserInfo:userInfo return true</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block</p>
+                                  <p>completion block
+@code BOOL isNexmoPush = [myNXNClient isNexmoPushWithUserInfo:userInfo];
+if (isNexmoPush){
+[myNXNClient processNexmoPushWithUserInfo:userInfo completion:(void(^_Nullable)(NSError * _Nullable error)){
+if (!error){
+NSLog(@<q>Process a Nexmo push</q>);
+}];</p>
                                 </div>
                               </td>
                             </tr>
@@ -1126,8 +909,8 @@ Call this method when isNexmoPushWithUserInfo:userInfo return true</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-02-07)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-09-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

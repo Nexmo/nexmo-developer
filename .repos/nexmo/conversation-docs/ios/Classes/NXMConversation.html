@@ -14,7 +14,7 @@
     <a title="NXMConversation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NexmoClient Docs</a> (9% documented)</p>
+        <p><a href="../index.html">NexmoClient 1.0.0 Docs</a> (16% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -37,13 +37,22 @@
                 <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NXMClient.html">NXMClient</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMConversation.html">NXMConversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NXMConversationEventsController.html">NXMConversationEventsController</a>
+                <a href="../Classes/NXMCustomEvent.html">NXMCustomEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDTMFEvent.html">NXMDTMFEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDirection.html">NXMDirection</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMEvent.html">NXMEvent</a>
@@ -53,6 +62,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMImageInfo.html">NXMImageInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMInitiator.html">NXMInitiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLeg.html">NXMLeg</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLegStatusEvent.html">NXMLegStatusEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLogger.html">NXMLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMMediaActionEvent.html">NXMMediaActionEvent</a>
@@ -77,12 +98,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMMessageStatusEvent.html">NXMMessageStatusEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMRtcAnswerEvent.html">NXMRtcAnswerEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMSipEvent.html">NXMSipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMTextEvent.html">NXMTextEvent</a>
@@ -116,16 +131,16 @@
                 <a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a>
+                <a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Type Definitions.html">Type Definitions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a>
               </li>
@@ -159,124 +174,7 @@
             <h1>NXMConversation</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMConversation</span> <span class="p">:</span> <span class="nc">NSObject</span>
-
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">displayName</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">lastEventId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">creationDate</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">myMember</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">otherMembers</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span>
-<span class="cm">/**
- Join the current logged user as a member of the conversation
-
- @param completion
- A completion block with the new member of the conversation or an error object if an error occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">joinWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">member</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Joins a user as a member of the conversation
-
- @param userId
- The id of the user to join
- 
- @param completion
- A completion block with an error object if one occured, or the new member object if user joined
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">joinMemberWithUserId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">userId</span>
-                <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">member</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Current user's member leaves the conversation
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">leaveWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Kicks a member from participating in the conversation
- 
- @param memberId
- The id of the member to kick
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">kickMemberWithMemberId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">memberId</span>
-                     <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Sends a text message to the members of the conversation
- 
- @param text
- The text to send
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendText</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span>
-     <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Sends an attachment message to the members of the conversation
- 
- @param attachmentType
- The type of the attachment following NXMAttachmentType enum
- 
- @param name
- A name identifier of the attachment
- 
- @param data
- The data of the attachment in a NSData representation
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAttachmentOfType</span><span class="p">:(</span><span class="n">NXMAttachmentType</span><span class="p">)</span><span class="nv">attachmentType</span>
-                   <span class="nf">WithName</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span>
-                        <span class="nf">data</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
-                  <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Sends an indication that the current user's member started typing
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStartTypingWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Sends an indication that the current user's member stopped typing
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStopTypingWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Get an instance of NXMConversationEventsController.
- 
- 
- @param eventTypes
- A NSSet of the types of events the controller should handle
-
- @param delegate
- An instance conforming to the NXMConversationEventsControllerDelegate protocol, used to get notifications about changes in the controller.
- 
- @return a new instance of NXMConversationEventsController
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMConversationEventsController.html">NXMConversationEventsController</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">eventsControllerWithTypes</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSSet</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">eventTypes</span>
-                                                          <span class="nf">andDelegate</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a></span><span class="o">&gt;</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
-<span class="k">@end</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMConversation</span></code></pre>
 
                 </div>
               </div>
@@ -289,9 +187,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(py)conversationId"></a>
-                    <a name="//apple_ref/objc/Property/conversationId" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(py)conversationId">conversationId</a>
+                    <a name="/c:objc(cs)NXMConversation(py)uuid"></a>
+                    <a name="//apple_ref/objc/Property/uuid" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(py)uuid">uuid</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -299,19 +197,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Conversation unique identifier.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationId</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">conversationId</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="kt">int</span> <span class="o">*</span><span class="n">uuid</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -331,19 +224,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Conversation unique name.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">name</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="kt">int</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -363,19 +251,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Conversation display name.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">displayName</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">displayName</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="kt">int</span> <span class="o">*</span><span class="n">displayName</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -405,11 +288,6 @@
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">lastEventId</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">lastEventId</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -427,19 +305,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Conversation creation date</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">creationDate</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">creationDate</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="kt">int</span> <span class="o">*</span><span class="n">creationDate</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -459,19 +332,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The current user member</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">myMember</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">myMember</span><span class="p">:</span> <span class="kt"><a href="../Classes/NXMMember.html">NXMMember</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">myMember</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -491,6 +359,61 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
+                        <p>Conversation events delegate</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMConversation(py)updatesDelegate"></a>
+                    <a name="//apple_ref/objc/Property/updatesDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(py)updatesDelegate">updatesDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Conversation updates delegate</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a></span><span class="o">&gt;</span>
+    <span class="n">updatesDelegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMConversation(im)inviteMemberWithUsername:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-inviteMemberWithUsername:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)inviteMemberWithUsername:completion:">-inviteMemberWithUsername:completion:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
                         <p>Undocumented</p>
 
                       </div>
@@ -498,12 +421,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">inviteMemberWithUsername</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">username</span>
+                      <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -513,9 +432,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)joinWithCompletion:"></a>
-                    <a name="//apple_ref/objc/Method/-joinWithCompletion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)joinWithCompletion:">-joinWithCompletion:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)join:"></a>
+                    <a name="//apple_ref/objc/Method/-join:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)join:">-join:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -523,41 +442,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Join the current logged user as a member of the conversation</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">joinWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
-                                              <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completion</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">join</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt"><a href="../Classes/NXMMember.html">NXMMember</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A completion block with the new member of the conversation or an error object if an error occured</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -565,9 +460,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)joinMemberWithUserId:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-joinMemberWithUserId:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)joinMemberWithUserId:completion:">-joinMemberWithUserId:completion:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)joinMemberWithUsername:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-joinMemberWithUsername:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)joinMemberWithUsername:completion:">-joinMemberWithUsername:completion:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -575,55 +470,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Joins a user as a member of the conversation</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">joinMemberWithUserId</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">userId</span>
-                  <span class="nf">completion</span><span class="p">:</span>
-                      <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
-                                         <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completion</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">joinMemberWithUsername</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">username</span>
+                    <span class="nf">completion</span><span class="p">:</span>
+                        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                           <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completion</span><span class="p">;</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">joinMember</span><span class="p">(</span><span class="n">withUserId</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt"><a href="../Classes/NXMMember.html">NXMMember</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>userId</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The id of the user to join</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A completion block with an error object if one occured, or the new member object if user joined</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -631,9 +490,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)leaveWithCompletion:"></a>
-                    <a name="//apple_ref/objc/Method/-leaveWithCompletion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)leaveWithCompletion:">-leaveWithCompletion:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)leave:"></a>
+                    <a name="//apple_ref/objc/Method/-leave:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)leave:">-leave:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -641,40 +500,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Current user&rsquo;s member leaves the conversation</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">leaveWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">leave</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">leave</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A completion block with an error object if one occured</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -701,11 +536,6 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">kickMemberWithMemberId</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">memberId</span>
                     <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">kickMember</span><span class="p">(</span><span class="n">withMemberId</span> <span class="nv">memberId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -746,9 +576,136 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)sendText:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-sendText:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendText:completion:">-sendText:completion:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)enableMedia"></a>
+                    <a name="//apple_ref/objc/Method/-enableMedia" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)enableMedia">-enableMedia</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable media for the current user member</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">enableMedia</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMConversation(im)disableMedia"></a>
+                    <a name="//apple_ref/objc/Method/-disableMedia" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)disableMedia">-disableMedia</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disable media for the current user member</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">disableMedia</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMConversation(im)sendCustomWithEvent:data:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendCustomWithEvent:data:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendCustomWithEvent:data:completionHandler:">-sendCustomWithEvent:data:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send a custom event in the conversation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendCustomWithEvent</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">customType</span>
+                       <span class="nf">data</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">data</span>
+          <span class="nf">completionHandler</span><span class="p">:</span>
+              <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The customType name</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The custom event data</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block with an error object if one occured</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMConversation(im)sendText:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendText:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendText:completionHandler:">-sendText:completionHandler:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -764,12 +721,7 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendText</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">text</span>
-      <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendText</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -792,7 +744,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -810,9 +762,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)sendAttachmentOfType:WithName:data:completion:"></a>
-                    <a name="//apple_ref/objc/Method/-sendAttachmentOfType:WithName:data:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendAttachmentOfType:WithName:data:completion:">-sendAttachmentOfType:WithName:data:completion:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)sendAttachmentWithType:name:data:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendAttachmentWithType:name:data:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendAttachmentWithType:name:data:completionHandler:">-sendAttachmentWithType:name:data:completionHandler:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -827,15 +779,11 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAttachmentOfType</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">attachmentType</span>
-                    <span class="nf">WithName</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">name</span>
-                        <span class="nf">data</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">data</span>
-                  <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendAttachment</span><span class="p">(</span><span class="n">ofType</span> <span class="nv">attachmentType</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">withName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAttachmentWithType</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">type</span>
+                          <span class="nf">name</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">name</span>
+                          <span class="nf">data</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">data</span>
+             <span class="nf">completionHandler</span><span class="p">:</span>
+                 <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -846,7 +794,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>attachmentType</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
@@ -882,7 +830,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -900,9 +848,69 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)sendStartTypingWithCompletion:"></a>
-                    <a name="//apple_ref/objc/Method/-sendStartTypingWithCompletion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendStartTypingWithCompletion:">-sendStartTypingWithCompletion:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)sendMarkSeenMessage:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendMarkSeenMessage:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendMarkSeenMessage:completionHandler:">-sendMarkSeenMessage:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sends an indication that the current user&rsquo;s member has seen a message</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendMarkSeenMessage</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">message</span>
+          <span class="nf">completionHandler</span><span class="p">:</span>
+              <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message identifier of the message that has been seen by the current user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A completion block with an error object if one occured</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMConversation(im)sendStartTyping:"></a>
+                    <a name="//apple_ref/objc/Method/-sendStartTyping:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendStartTyping:">-sendStartTyping:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -917,13 +925,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStartTypingWithCompletion</span><span class="p">:</span>
-    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendStartTyping</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStartTyping</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -934,7 +936,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -952,9 +954,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)sendStopTypingWithCompletion:"></a>
-                    <a name="//apple_ref/objc/Method/-sendStopTypingWithCompletion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendStopTypingWithCompletion:">-sendStopTypingWithCompletion:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)sendStopTyping:"></a>
+                    <a name="//apple_ref/objc/Method/-sendStopTyping:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)sendStopTyping:">-sendStopTyping:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -969,13 +971,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStopTypingWithCompletion</span><span class="p">:</span>
-    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendStopTyping</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStopTyping</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -986,7 +982,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>completion</em>
+                                <em>completionHandler</em>
                                 </code>
                               </td>
                               <td>
@@ -1004,9 +1000,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversation(im)eventsControllerWithTypes:andDelegate:"></a>
-                    <a name="//apple_ref/objc/Method/-eventsControllerWithTypes:andDelegate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversation(im)eventsControllerWithTypes:andDelegate:">-eventsControllerWithTypes:andDelegate:</a>
+                    <a name="/c:objc(cs)NXMConversation(im)getEvents:"></a>
+                    <a name="//apple_ref/objc/Method/-getEvents:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMConversation(im)getEvents:">-getEvents:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1014,60 +1010,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get an instance of NXMConversationEventsController.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMConversationEventsController.html">NXMConversationEventsController</a></span> <span class="o">*</span><span class="p">)</span>
-<span class="nf">eventsControllerWithTypes</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">eventTypes</span>
-              <span class="nf">andDelegate</span><span class="p">:</span>
-                  <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span><span class="p">)</span>
-                      <span class="n"><a href="../Classes/NXMConversation.html#/c:objc(cs)NXMConversation(py)delegate">delegate</a></span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getEvents</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span> <span class="kt">int</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">eventsController</span><span class="p">(</span><span class="n">withTypes</span> <span class="nv">eventTypes</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">andDelegate</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/NXMConversationEventsController.html">NXMConversationEventsController</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>eventTypes</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A NSSet of the types of events the controller should handle</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>delegate</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An instance conforming to the NXMConversationEventsControllerDelegate protocol, used to get notifications about changes in the controller.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>a new instance of NXMConversationEventsController</p>
                       </div>
                     </section>
                   </div>
@@ -1077,8 +1029,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-02-07)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-09-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
