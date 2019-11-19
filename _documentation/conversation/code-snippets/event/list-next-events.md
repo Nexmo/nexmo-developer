@@ -1,5 +1,6 @@
 ---
 title: List Next Events
+navigation_weight: 6
 ---
 
 # List Next Events

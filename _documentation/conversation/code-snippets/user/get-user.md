@@ -1,5 +1,6 @@
 ---
 title: Get a User
+navigation_weight: 3
 ---
 
 # Get a User

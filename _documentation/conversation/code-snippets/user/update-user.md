@@ -1,5 +1,6 @@
 ---
 title: Update a User
+navigation_weight: 4
 ---
 
 # Update a User

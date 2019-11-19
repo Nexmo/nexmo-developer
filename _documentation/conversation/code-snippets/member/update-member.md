@@ -1,5 +1,6 @@
 ---
 title: Update a Member
+navigation_weight: 4
 ---
 
 # Update a Member

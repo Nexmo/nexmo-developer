@@ -1,5 +1,6 @@
 ---
 title: Delete a User
+navigation_weight: 2
 ---
 
 # Delete a User

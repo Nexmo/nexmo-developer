@@ -1,5 +1,6 @@
 ---
 title: Delete a Conversation
+navigation_weight: 2
 ---
 
 # Delete a Conversation

@@ -1,5 +1,6 @@
 ---
 title: Get a Member
+navigation_weight: 3
 ---
 
 # Get a Member

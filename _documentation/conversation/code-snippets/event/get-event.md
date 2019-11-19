@@ -1,5 +1,6 @@
 ---
 title: Get an Event
+navigation_weight: 4
 ---
 
 # Get an Event

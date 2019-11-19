@@ -1,5 +1,6 @@
 ---
 title: List Next Members
+navigation_weight: 6
 ---
 
 # List Next Members

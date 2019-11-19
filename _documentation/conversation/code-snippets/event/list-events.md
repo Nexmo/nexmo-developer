@@ -1,5 +1,6 @@
 ---
 title: List Events
+navigation_weight: 5
 ---
 
 # List Events

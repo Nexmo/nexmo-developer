@@ -1,5 +1,6 @@
 ---
 title: Create a User
+navigation_weight: 1
 ---
 
 # Create a User

@@ -1,5 +1,6 @@
 ---
 title: List Previous Users
+navigation_weight: 7
 ---
 
 # List Previous Users

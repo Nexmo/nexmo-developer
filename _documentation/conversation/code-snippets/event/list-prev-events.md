@@ -1,5 +1,6 @@
 ---
 title: List Previous Events
+navigation_weight: 7
 ---
 
 # List Previous Events

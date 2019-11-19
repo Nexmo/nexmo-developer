@@ -1,5 +1,6 @@
 ---
 title: Create a Member
+navigation_weight: 1
 ---
 
 # Create a Member

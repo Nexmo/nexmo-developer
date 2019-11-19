@@ -1,5 +1,6 @@
 ---
 title: Delete an Event
+navigation_weight: 3
 ---
 
 # Delete an Event

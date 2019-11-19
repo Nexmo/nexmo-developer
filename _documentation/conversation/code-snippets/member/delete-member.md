@@ -1,5 +1,6 @@
 ---
 title: Delete a Member
+navigation_weight: 2
 ---
 
 # Delete a Member

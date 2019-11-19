@@ -1,5 +1,6 @@
 ---
 title: List Previous Members
+navigation_weight: 7
 ---
 
 # List Previous Members
