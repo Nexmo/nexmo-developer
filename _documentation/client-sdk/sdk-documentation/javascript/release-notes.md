@@ -10,7 +10,7 @@ navigation_weight: 0
 
 ### Fixes
 
-- Update styling of jsdocs to docstrap template
+- Update styling of JavaScript documentation to DocStrap template
 - Change ice gathering process to send sdp on first ice candidate gathered
 
 ## 6.0.4
