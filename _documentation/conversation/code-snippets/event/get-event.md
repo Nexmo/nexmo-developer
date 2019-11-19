@@ -4,7 +4,7 @@ title: Get an Event
 
 # Get an Event
 
-In this code snippet you will see how to get an Event.
+In this code snippet you learn how to get an Event.
 
 ## Example
 

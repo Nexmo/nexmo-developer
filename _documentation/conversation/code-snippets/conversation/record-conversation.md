@@ -4,7 +4,7 @@ title: Record a Conversation
 
 # Record a Conversation
 
-In this code snippet you will see how to record a Conversation.
+In this code snippet you learn how to record a Conversation.
 
 ## Example
 

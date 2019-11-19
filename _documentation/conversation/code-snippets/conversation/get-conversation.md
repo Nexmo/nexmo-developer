@@ -4,7 +4,7 @@ title: Get a Conversation
 
 # Get a Conversation
 
-In this code snippet you will see how to get a specified Conversation.
+In this code snippet you learn how to get a specified Conversation.
 
 ## Example
 

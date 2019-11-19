@@ -4,7 +4,7 @@ title: Delete a Leg
 
 # Delete a Leg
 
-In this code snippet you will see how to delete a Leg.
+In this code snippet you learn how to delete a Leg.
 
 ## Example
 

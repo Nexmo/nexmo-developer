@@ -4,7 +4,7 @@ title: List Users
 
 # List Users
 
-In this code snippet you will see how to get a list Users associated with an Application.
+In this code snippet you learn how to get a list Users associated with an Application.
 
 ```code_snippets
 source: '_examples/conversation/user/list-users'

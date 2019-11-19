@@ -4,7 +4,7 @@ title: Delete a Member
 
 # Delete a Member
 
-In this code snippet you will see how to delete a Member.
+In this code snippet you learn how to delete a Member.
 
 ## Example
 

@@ -4,7 +4,7 @@ title: Get a User
 
 # Get a User
 
-In this code snippet you will see how to get a User.
+In this code snippet you learn how to get a User.
 
 ## Example
 

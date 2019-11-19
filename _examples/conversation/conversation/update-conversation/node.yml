@@ -3,9 +3,9 @@ dependencies:
     - nexmo@beta
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/conversation/conversation/update-conversation.js
-    from_line: 22
-    to_line: 32
+    from_line: 20
+    to_line: 30
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/conversation/conversation/update-conversation.js
     from_line: 13
-    to_line: 20
+    to_line: 18

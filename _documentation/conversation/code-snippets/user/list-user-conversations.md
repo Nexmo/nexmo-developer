@@ -4,7 +4,7 @@ title: List a User's Conversations
 
 # List a User's Conversations
 
-In this code snippet you will see how to get a list of Conversations a User is associated with.
+In this code snippet you learn how to get a list of Conversations a User is associated with.
 
 ## Example
 

@@ -4,7 +4,7 @@ title: Get a Member
 
 # Get a Member
 
-In this code snippet you will see how to get a Member.
+In this code snippet you learn how to get a Member.
 
 ## Example
 

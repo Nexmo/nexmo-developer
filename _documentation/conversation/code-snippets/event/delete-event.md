@@ -4,7 +4,7 @@ title: Delete an Event
 
 # Delete an Event
 
-In this code snippet you will see how to delete an Event.
+In this code snippet you learn how to delete an Event.
 
 ## Example
 

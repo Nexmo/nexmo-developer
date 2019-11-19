@@ -4,7 +4,7 @@ title: Create a Member
 
 # Create a Member
 
-In this code snippet you will see how to create a Member. A Member can be thought of as a User who has been invited to, joined, or left a Conversation.
+In this code snippet you learn how to create a Member. A Member can be thought of as a User who has been invited to, joined, or left a Conversation.
 
 ## Example
 

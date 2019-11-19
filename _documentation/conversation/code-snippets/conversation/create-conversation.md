@@ -4,7 +4,7 @@ title: Create a Conversation
 
 # Create a Conversation
 
-In this code snippet you will see how to create a Conversation.
+In this code snippet you learn how to create a Conversation.
 
 ## Example
 

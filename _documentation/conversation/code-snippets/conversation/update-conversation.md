@@ -4,7 +4,7 @@ title: Update Conversation
 
 # Update Conversation
 
-In this code snippet you will see how to update a Conversation.
+In this code snippet you learn how to update a Conversation.
 
 ## Example
 

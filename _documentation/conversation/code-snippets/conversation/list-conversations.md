@@ -4,7 +4,7 @@ title: List Conversations
 
 # List Conversations
 
-In this code snippet you will see how to list all Conversations.
+In this code snippet you learn how to list all Conversations.
 
 ## Example
 
