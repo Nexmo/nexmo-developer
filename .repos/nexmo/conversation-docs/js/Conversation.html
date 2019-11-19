@@ -1,74 +1,124 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>JSDoc: Class: Conversation</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Class: Conversation</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
 </head>
 
 <body>
 
-<div id="main">
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Application.html#event:call:status:changed">Application#call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">Application#event:NXM-errors</a></li><li><a href="Application.html#event:member:call">Application#member:call</a></li><li><a href="Application.html#event:member:invited">Application#member:invited</a></li><li><a href="Application.html#event:member:joined">Application#member:joined</a></li><li><a href="Application.html#event:rtcstats:report">Application#rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">Application#sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">Conversation#audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">Conversation#audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">Conversation#event:delete</a></li><li><a href="Conversation.html#event:image">Conversation#event:image</a></li><li><a href="Conversation.html#event:text">Conversation#event:text</a></li><li><a href="Conversation.html#event:image:seen">Conversation#image:seen</a></li><li><a href="Conversation.html#event:member:call:status">Conversation#member:call:status</a></li><li><a href="Conversation.html#event:member:invited">Conversation#member:invited</a></li><li><a href="Conversation.html#event:member:joined">Conversation#member:joined</a></li><li><a href="Conversation.html#event:member:left">Conversation#member:left</a></li><li><a href="Conversation.html#event:member:media">Conversation#member:media</a></li><li><a href="Conversation.html#event:text:seen">Conversation#text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">Conversation#text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">Conversation#text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">Member#media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">NexmoClient#event:connecting</a></li><li><a href="NexmoClient.html#event:disconnect">NexmoClient#event:disconnect</a></li><li><a href="NexmoClient.html#event:error">NexmoClient#event:error</a></li><li><a href="NexmoClient.html#event:ready">NexmoClient#event:ready</a></li><li><a href="NexmoClient.html#event:reconnect">NexmoClient#event:reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">NexmoClient#event:reconnecting</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
 
-    <h1 class="page-title">Class: Conversation</h1>
-
-    
-
+</div>
+</div>
 
 
+<div class="container" id="toc-content">
+<div class="row">
 
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: Conversation</h1>
 <section>
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Conversation<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2>
+        Conversation
+        </h2>
         
     
 </header>
+
 
 <article>
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="Conversation"><span class="type-signature"></span>new Conversation()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>A single conversation Object.</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="Conversation"><span class="type-signature"></span>new Conversation<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
-
-
-
-<div class="description">
-    A single conversation Object.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -78,7 +128,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -101,6 +151,7 @@
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -114,7 +165,7 @@
 
             
 
-            <td class="description last">my Member object that belongs to this conversation</td>
+            <td class="description last"><p>my Member object that belongs to this conversation</p></td>
         </tr>
 
     
@@ -130,6 +181,7 @@
 <span class="param-type"><a href="Application.html">Application</a></span>
 
 
+
             
             </td>
 
@@ -143,7 +195,7 @@
 
             
 
-            <td class="description last">the parent Application</td>
+            <td class="description last"><p>the parent Application</p></td>
         </tr>
 
     
@@ -159,6 +211,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -172,7 +225,7 @@
 
             
 
-            <td class="description last">the name of the Conversation (unique)</td>
+            <td class="description last"><p>the name of the Conversation (unique)</p></td>
         </tr>
 
     
@@ -188,6 +241,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -203,7 +257,7 @@
 
             
 
-            <td class="description last">the display_name of the Conversation</td>
+            <td class="description last"><p>the display_name of the Conversation</p></td>
         </tr>
 
     
@@ -219,6 +273,7 @@
 <span class="param-type">Map.&lt;string, <a href="Member.html">Member</a>></span>
 
 
+
             
             </td>
 
@@ -234,7 +289,7 @@
 
             
 
-            <td class="description last">the members of the Conversation keyed by a member's id</td>
+            <td class="description last"><p>the members of the Conversation keyed by a member's id</p></td>
         </tr>
 
     
@@ -250,6 +305,7 @@
 <span class="param-type">Map.&lt;string, <a href="NXMEvent.html">NXMEvent</a>></span>
 
 
+
             
             </td>
 
@@ -265,7 +321,7 @@
 
             
 
-            <td class="description last">the events of the Conversation keyed by an event's id</td>
+            <td class="description last"><p>the events of the Conversation keyed by an event's id</p></td>
         </tr>
 
     
@@ -281,6 +337,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -296,17 +353,21 @@
 
             
 
-            <td class="description last">the last event id</td>
+            <td class="description last"><p>the last event id</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -316,54 +377,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-23">line 23</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line23">line 23</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
     
     </div>
@@ -379,40 +438,47 @@
     
 
     
-
-    
         <h3 class="subsection-title">Members</h3>
 
-        
+        <dl>
             
-<h4 class="name" id="me"><span class="type-signature"></span>me<span class="type-signature"> :<a href="Member.html">Member</a></span></h4>
+<hr>
+<dt class="name" id="me">
+    <h4 id="me"><span class="type-signature"></span>me<span class="type-signature"> :<a href="Member.html">Member</a></span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A Member Object representing the current user.<br>
+Only set if the user is or has been a member of the Conversation,<br>
+otherwise the value will be <code>null</code>.</p>
+    </div>
+    
 
-
-
-<div class="description">
-    A Member Object representing the current user.
-Only set if the user is or has been a member of the Conversation,
-otherwise the value will be `null`.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -422,76 +488,73 @@ otherwise the value will be `null`.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-55">line 55</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line55">line 55</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
+</dd>
 
-
-
-
-        
+        </dl>
     
 
     
         <h3 class="subsection-title">Methods</h3>
 
-        
+        <dl>
             
+<hr>
+<dt>
+    <h4 class="name" id="abortSendImage"><span class="type-signature"></span>abortSendImage(imageRequest)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Cancel sending an Image message to the conversation.</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="abortSendImage"><span class="type-signature"></span>abortSendImage<span class="signature">(imageRequest)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Cancel sending an Image message to the conversation.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -522,6 +585,7 @@ otherwise the value will be `null`.
 <span class="param-type">XMLHttpRequest</span>
 
 
+
             
             </td>
 
@@ -536,12 +600,17 @@ otherwise the value will be `null`.
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -551,104 +620,106 @@ otherwise the value will be `null`.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-483">line 483</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line483">line 483</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 <div class="param-desc">
-    void
+    <p>void</p>
 </div>
 
 
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption">cancel sending an image</p>
     
-    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
+    <pre class="sunlight-highlight-javascript">conversation.sendImage(fileInput.files[0]).then((imageRequest) =&gt; {
    conversation.abortSendImage(imageRequest);
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="del"><span class="type-signature">&lt;async> </span>del()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Delete a conversation</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="del"><span class="type-signature">(async) </span>del<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
 
     
-
-
-
-<div class="description">
-    Delete a conversation
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -658,53 +729,52 @@ otherwise the value will be `null`.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-196">line 196</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line196">line 196</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -716,53 +786,52 @@ otherwise the value will be `null`.
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption">delete the conversation</p>
     
-    <pre class="prettyprint"><code> conversation.del().then(() => {
-   console.log("conversation deleted");
-	})</code></pre>
+    <pre class="sunlight-highlight-javascript">conversation.del().then(() =&gt; {
+   console.log(&quot;conversation deleted&quot;);
+	})</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="deleteEvent"><span class="type-signature"></span>deleteEvent(event)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Delete an NXMEvent (e.g. Text)</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="deleteEvent"><span class="type-signature"></span>deleteEvent<span class="signature">(event)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Delete an NXMEvent (e.g. Text)
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -793,6 +862,7 @@ otherwise the value will be `null`.
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -807,12 +877,17 @@ otherwise the value will be `null`.
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -822,53 +897,52 @@ otherwise the value will be `null`.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-215">line 215</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line215">line 215</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -880,44 +954,42 @@ otherwise the value will be `null`.
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getEvents"><span class="type-signature">&lt;async> </span>getEvents(params)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Query the service to get a list of events in this conversation.</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getEvents"><span class="type-signature">(async) </span>getEvents<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="EventsPage.html">EventsPage</a>.&lt;Map.&lt;Events>>>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Query the service to get a list of events in this conversation.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -948,6 +1020,7 @@ otherwise the value will be `null`.
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -955,11 +1028,11 @@ otherwise the value will be `null`.
 
             
 
-            <td class="description last">configure defaults for paginated events query
-                <h6>Properties</h6>
+            <td class="description last"><p>configure defaults for paginated events query</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -969,7 +1042,7 @@ otherwise the value will be `null`.
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -992,6 +1065,7 @@ otherwise the value will be `null`.
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1007,7 +1081,7 @@ otherwise the value will be `null`.
 
             
 
-            <td class="description last">'asc' or 'desc' ordering of resources based on creation time</td>
+            <td class="description last"><p>'asc' or 'desc' ordering of resources based on creation time</p></td>
         </tr>
 
     
@@ -1023,6 +1097,7 @@ otherwise the value will be `null`.
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1038,7 +1113,7 @@ otherwise the value will be `null`.
 
             
 
-            <td class="description last">the number of resources returned in a single request list</td>
+            <td class="description last"><p>the number of resources returned in a single request list</p></td>
         </tr>
 
     
@@ -1054,6 +1129,7 @@ otherwise the value will be `null`.
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1071,7 +1147,7 @@ otherwise the value will be `null`.
 
             
 
-            <td class="description last">string to access the starting point of a dataset</td>
+            <td class="description last"><p>string to access the starting point of a dataset</p></td>
         </tr>
 
     
@@ -1087,6 +1163,7 @@ otherwise the value will be `null`.
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1104,7 +1181,7 @@ otherwise the value will be `null`.
 
             
 
-            <td class="description last">the type of event used to filter event requests. Supports wildcard options with :* eg. 'members:*'</td>
+            <td class="description last"><p>the type of event used to filter event requests. Supports wildcard options with :* eg. 'members:*'</p></td>
         </tr>
 
     
@@ -1118,12 +1195,17 @@ otherwise the value will be `null`.
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1133,55 +1215,56 @@ otherwise the value will be `null`.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-546">line 546</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line546">line 546</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 <div class="param-desc">
-    - Populate Conversations.events.
+    <ul>
+<li>Populate Conversations.events.</li>
+</ul>
 </div>
 
 
@@ -1195,55 +1278,54 @@ otherwise the value will be `null`.
 <span class="param-type">Promise.&lt;<a href="EventsPage.html">EventsPage</a>.&lt;Map.&lt;Events>>></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption">Get Events</p>
     
-    <pre class="prettyprint"><code>conversation.getEvents({ event_type: 'member:*' ).then((events_page) => {
-  events_page.items.forEach(event => {
+    <pre class="sunlight-highlight-javascript">conversation.getEvents({ event_type: &#x27;member:*&#x27; ).then((events_page) =&gt; {
+  events_page.items.forEach(event =&gt; {
     render(event)
   })
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="invite"><span class="type-signature">&lt;async> </span>invite(params)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Invite the given user (id or name) to this conversation</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="invite"><span class="type-signature">(async) </span>invite<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Member.html">Member</a>>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Invite the given user (id or name) to this conversation
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1274,6 +1356,7 @@ otherwise the value will be `null`.
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -1282,10 +1365,10 @@ otherwise the value will be `null`.
             
 
             <td class="description last">
-                <h6>Properties</h6>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1295,7 +1378,7 @@ otherwise the value will be `null`.
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1318,6 +1401,7 @@ otherwise the value will be `null`.
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1335,7 +1419,7 @@ otherwise the value will be `null`.
 
             
 
-            <td class="description last">the id or the username of the user to invite</td>
+            <td class="description last"><p>the id or the username of the user to invite</p></td>
         </tr>
 
     
@@ -1349,12 +1433,17 @@ otherwise the value will be `null`.
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1364,53 +1453,52 @@ otherwise the value will be `null`.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-239">line 239</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line239">line 239</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -1422,61 +1510,60 @@ otherwise the value will be `null`.
 <span class="param-type">Promise.&lt;<a href="Member.html">Member</a>></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption">invite a user to a conversation</p>
     
-    <pre class="prettyprint"><code> const user_id = 'user to invite';
- const user_name = 'username to invite';
+    <pre class="sunlight-highlight-javascript">const user_id = &#x27;user to invite&#x27;;
+ const user_name = &#x27;username to invite&#x27;;
 
  conversation.invite({
   id: user_id,
   user_name: user_name
- }).then((member) => {
-  displayMessage(member.state + " user: " + user_id + " " + user_name);
- }).catch((error) => {
+ }).then((member) =&gt; {
+  displayMessage(member.state + &quot; user: &quot; + user_id + &quot; &quot; + user_name);
+ }).catch((error) =&gt; {
   console.log(error);
- });</code></pre>
+ });</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="inviteWithAudio"><span class="type-signature"></span>inviteWithAudio(params)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Invite the given user (id or name) to this conversation with media audio</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="inviteWithAudio"><span class="type-signature"></span>inviteWithAudio<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Member.html">Member</a>>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Invite the given user (id or name) to this conversation with media audio
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1507,6 +1594,7 @@ otherwise the value will be `null`.
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -1515,10 +1603,10 @@ otherwise the value will be `null`.
             
 
             <td class="description last">
-                <h6>Properties</h6>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1528,7 +1616,7 @@ otherwise the value will be `null`.
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1551,6 +1639,7 @@ otherwise the value will be `null`.
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1568,7 +1657,7 @@ otherwise the value will be `null`.
 
             
 
-            <td class="description last">the id or the username of the user to invite</td>
+            <td class="description last"><p>the id or the username of the user to invite</p></td>
         </tr>
 
     
@@ -1582,12 +1671,17 @@ otherwise the value will be `null`.
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1597,53 +1691,52 @@ otherwise the value will be `null`.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-296">line 296</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line296">line 296</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -1655,63 +1748,62 @@ otherwise the value will be `null`.
 <span class="param-type">Promise.&lt;<a href="Member.html">Member</a>></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption">invite a user to a conversation</p>
     
-    <pre class="prettyprint"><code> const user_id = 'user to invite';
- const user_name = 'username to invite';
+    <pre class="sunlight-highlight-javascript">const user_id = &#x27;user to invite&#x27;;
+ const user_name = &#x27;username to invite&#x27;;
 
  conversation.inviteWithAudio({
   id: user_id,
   user_name: user_name
- }).then((member) => {
-  displayMessage(member.state + " user: " + user_id + " " + user_name);
- }).catch((error) => {
+ }).then((member) =&gt; {
+  displayMessage(member.state + &quot; user: &quot; + user_id + &quot; &quot; + user_name);
+ }).catch((error) =&gt; {
   console.log(error);
- });</code></pre>
+ });</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="join"><span class="type-signature">&lt;async> </span>join( [params])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Join the given user to this conversation, will typically use this to join<br>
+ourselves to a conversation we create.<br>
+Accept an invitation if our member has state INVITED and no user_id / user_name is given</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="join"><span class="type-signature">(async) </span>join<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Member.html">Member</a>>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Join the given user to this conversation, will typically use this to join
-ourselves to a conversation we create.
-Accept an invitation if our member has state INVITED and no user_id / user_name is given
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1721,7 +1813,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1744,6 +1836,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
             
                 
 <span class="param-type">object</span>
+
 
 
             
@@ -1769,11 +1862,11 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
                 </td>
             
 
-            <td class="description last">The user to join (defaults to this)
-                <h6>Properties</h6>
+            <td class="description last"><p>The user to join (defaults to this)</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1804,6 +1897,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1811,7 +1905,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">the user_name of the user to join</td>
+            <td class="description last"><p>the user_name of the user to join</p></td>
         </tr>
 
     
@@ -1827,6 +1921,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1834,7 +1929,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">the user_id of the user to join</td>
+            <td class="description last"><p>the user_id of the user to join</p></td>
         </tr>
 
     
@@ -1848,12 +1943,17 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1863,53 +1963,52 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-142">line 142</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line142">line 142</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -1921,53 +2020,52 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">Promise.&lt;<a href="Member.html">Member</a>></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption">join a user to a conversation</p>
     
-    <pre class="prettyprint"><code> conversation.join().then((member) => {
-   console.log("joined as member: ", member)
- })</code></pre>
+    <pre class="sunlight-highlight-javascript">conversation.join().then((member) =&gt; {
+   console.log(&quot;joined as member: &quot;, member)
+ })</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="leave"><span class="type-signature"></span>leave( [reason])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Leave from the conversation</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="leave"><span class="type-signature"></span>leave<span class="signature">(reason<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Leave from the conversation
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1977,7 +2075,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -2000,6 +2098,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -2017,11 +2116,11 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">the reason for leaving the conversation
-                <h6>Properties</h6>
+            <td class="description last"><p>the reason for leaving the conversation</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2031,7 +2130,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -2054,6 +2153,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2071,7 +2171,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">the code of the reason</td>
+            <td class="description last"><p>the code of the reason</p></td>
         </tr>
 
     
@@ -2087,6 +2187,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2104,7 +2205,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">the description of the reason</td>
+            <td class="description last"><p>the description of the reason</p></td>
         </tr>
 
     
@@ -2118,12 +2219,17 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2133,53 +2239,52 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-316">line 316</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line316">line 316</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2191,44 +2296,42 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="sendCustomEvent"><span class="type-signature">&lt;async> </span>sendCustomEvent(params, type, body)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Send a custom event to the conversation</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="sendCustomEvent"><span class="type-signature">(async) </span>sendCustomEvent<span class="signature">(params, type, body)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Send a custom event to the conversation
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2259,6 +2362,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -2266,7 +2370,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">params of the custom event</td>
+            <td class="description last"><p>params of the custom event</p></td>
         </tr>
 
     
@@ -2282,6 +2386,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2289,7 +2394,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.</td>
+            <td class="description last"><p>the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.</p></td>
         </tr>
 
     
@@ -2305,6 +2410,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -2312,19 +2418,24 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last">customizable key value pairs</td>
+            <td class="description last"><p>customizable key value pairs</p></td>
         </tr>
 
     
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2334,55 +2445,56 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-375">line 375</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line375">line 375</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 <div class="param-desc">
-    - the custom event that was sent
+    <ul>
+<li>the custom event that was sent</li>
+</ul>
 </div>
 
 
@@ -2396,56 +2508,55 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 <span class="param-type">Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption"> sending a custom event </p>
     
-    <pre class="prettyprint"><code>conversation.sendCustomEvent({ type: 'my-event', body: {}}).then(() => {
-	  console.log('custom event was sent');
-	}).catch((error)=>{
-	  console.log('error sending the custom event', error);
-	});</code></pre>
+    <pre class="sunlight-highlight-javascript">conversation.sendCustomEvent({ type: &#x27;my-event&#x27;, body: {}}).then(() =&gt; {
+	  console.log(&#x27;custom event was sent&#x27;);
+	}).catch((error)=&gt;{
+	  console.log(&#x27;error sending the custom event&#x27;, error);
+	});</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="sendImage"><span class="type-signature">&lt;async> </span>sendImage(file)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Send an Image message to the conversation, which will be relayed to every other member of the conversation.<br>
+implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="sendImage"><span class="type-signature">(async) </span>sendImage<span class="signature">(file)</span><span class="type-signature"> &rarr; {Promise.&lt;XMLHttpRequest>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Send an Image message to the conversation, which will be relayed to every other member of the conversation.
-implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2455,7 +2566,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -2480,6 +2591,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 <span class="param-type">File</span>
 
 
+
             
             </td>
 
@@ -2499,7 +2611,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
                 </td>
             
 
-            <td class="description last">single input file (jpeg/jpg)</td>
+            <td class="description last"><p>single input file (jpeg/jpg)</p></td>
         </tr>
 
     
@@ -2513,6 +2625,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2538,7 +2651,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
                 </td>
             
 
-            <td class="description last">a value between 0 and 100. 0 indicates 'maximum compression' and the lowest quality, 100 will result in the highest quality image</td>
+            <td class="description last"><p>a value between 0 and 100. 0 indicates 'maximum compression' and the lowest quality, 100 will result in the highest quality image</p></td>
         </tr>
 
     
@@ -2552,6 +2665,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2577,7 +2691,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
                 </td>
             
 
-            <td class="description last">a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original</td>
+            <td class="description last"><p>a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original</p></td>
         </tr>
 
     
@@ -2591,6 +2705,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2616,19 +2731,24 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
                 </td>
             
 
-            <td class="description last">a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original</td>
+            <td class="description last"><p>a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original</p></td>
         </tr>
 
     
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2638,53 +2758,52 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-424">line 424</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line424">line 424</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2696,59 +2815,58 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 <span class="param-type">Promise.&lt;XMLHttpRequest></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption">sending an image</p>
     
-    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
- imageRequest.onabort = (e) => {
+    <pre class="sunlight-highlight-javascript">conversation.sendImage(fileInput.files[0]).then((imageRequest) =&gt; {
+ imageRequest.onabort = (e) =&gt; {
    console.log(e);
-   console.log("Image:" + e.type);
+   console.log(&quot;Image:&quot; + e.type);
  };
- imageRequest.onloadend = (e) => {
-   console.log("Image:" + e.type);
+ imageRequest.onloadend = (e) =&gt; {
+   console.log(&quot;Image:&quot; + e.type);
  };
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="sendText"><span class="type-signature">&lt;async> </span>sendText(text)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Send a text message to the conversation, which will be relayed to every other member of the conversation</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="sendText"><span class="type-signature">(async) </span>sendText<span class="signature">(text)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="TextEvent.html">TextEvent</a>>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Send a text message to the conversation, which will be relayed to every other member of the conversation
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2779,6 +2897,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2786,19 +2905,24 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
             
 
-            <td class="description last">the text message to be sent</td>
+            <td class="description last"><p>the text message to be sent</p></td>
         </tr>
 
     
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2808,55 +2932,56 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-333">line 333</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line333">line 333</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 <div class="param-desc">
-    - the text message that was sent
+    <ul>
+<li>the text message that was sent</li>
+</ul>
 </div>
 
 
@@ -2870,56 +2995,60 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 <span class="param-type">Promise.&lt;<a href="TextEvent.html">TextEvent</a>></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
-    <h5>Example</h5>
-    
+        <h5>Example</h5>
+        
         <p class="code-caption"> sending a text </p>
     
-    <pre class="prettyprint"><code>conversation.sendText("Hi Nexmo").then(() => {
-  console.log('message was sent');
-	}).catch((error)=>{
-	  console.log('error sending the message', error);
-	});</code></pre>
+    <pre class="sunlight-highlight-javascript">conversation.sendText(&quot;Hi Nexmo&quot;).then(() =&gt; {
+  console.log(&#x27;message was sent&#x27;);
+	}).catch((error)=&gt;{
+	  console.log(&#x27;error sending the message&#x27;, error);
+	});</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="startTyping"><span class="type-signature"></span>startTyping()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Send start typing indication</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="startTyping"><span class="type-signature"></span>startTyping<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
 
     
-
-
-
-<div class="description">
-    Send start typing indication
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2929,55 +3058,56 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-518">line 518</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line518">line 518</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 <div class="param-desc">
-    - resolves the promise on successful sent
+    <ul>
+<li>resolves the promise on successful sent</li>
+</ul>
 </div>
 
 
@@ -2991,45 +3121,48 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="stopTyping"><span class="type-signature"></span>stopTyping()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Send stop typing indication</p>
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="stopTyping"><span class="type-signature"></span>stopTyping<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
 
     
-
-
-
-<div class="description">
-    Send stop typing indication
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3039,55 +3172,56 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="conversation.js.html">conversation.js</a>,
+				 <a href="conversation.js.html#sunlight-1-line-526">line 526</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line526">line 526</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 <div class="param-desc">
-    - resolves the promise on successful sent
+    <ul>
+<li>resolves the promise on successful sent</li>
+</ul>
 </div>
 
 
@@ -3101,16 +3235,17 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
-    
-
-
-
-
 
         
+
+    
+</dd>
+
+        </dl>
     
 
     
@@ -3118,41 +3253,39 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <h3 class="subsection-title">Events</h3>
 
-        
+        <dl>
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:audio:mute:off">audio:mute:off</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for mute off events<br>
+A member has unmuted their audio</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for mute off events
-A member has unmuted their audio
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -3183,6 +3316,7 @@ A member has unmuted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -3190,7 +3324,7 @@ A member has unmuted their audio
 
             
 
-            <td class="description last">the member object linked to this event</td>
+            <td class="description last"><p>the member object linked to this event</p></td>
         </tr>
 
     
@@ -3206,6 +3340,7 @@ A member has unmuted their audio
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -3213,17 +3348,21 @@ A member has unmuted their audio
 
             
 
-            <td class="description last">information about the mute event</td>
+            <td class="description last"><p>information about the mute event</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -3233,90 +3372,86 @@ A member has unmuted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-493">line 493</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line493">line 493</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:audio:mute:on">audio:mute:on</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for mute on events<br>
+A member has muted their audio</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for mute on events
-A member has muted their audio
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -3347,6 +3482,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -3354,7 +3490,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">the member object linked to this event</td>
+            <td class="description last"><p>the member object linked to this event</p></td>
         </tr>
 
     
@@ -3370,6 +3506,7 @@ A member has muted their audio
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -3377,17 +3514,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">information about the mute event</td>
+            <td class="description last"><p>information about the mute event</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -3397,89 +3538,85 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-484">line 484</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line484">line 484</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:event:delete">event:delete</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for deleted events.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for deleted events.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -3510,6 +3647,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -3517,7 +3655,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">the member who deleted an event</td>
+            <td class="description last"><p>the member who deleted an event</p></td>
         </tr>
 
     
@@ -3533,6 +3671,7 @@ A member has muted their audio
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -3540,17 +3679,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">deleted event: event.id</td>
+            <td class="description last"><p>deleted event: event.id</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -3560,99 +3703,96 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-343">line 343</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line343">line 343</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get details about the deleted event</p>
     
-    <pre class="prettyprint"><code>conversation.on("event:delete", (member, event) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;event:delete&quot;, (member, event) =&gt; {
  console.log(event.id);
  console.log(event.body.timestamp.deleted);
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:image">image</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for image events.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for image events.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -3683,6 +3823,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -3690,7 +3831,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">The sender of the image</td>
+            <td class="description last"><p>The sender of the image</p></td>
         </tr>
 
     
@@ -3706,6 +3847,7 @@ A member has muted their audio
 <span class="param-type"><a href="ImageEvent.html">ImageEvent</a></span>
 
 
+
             
             </td>
 
@@ -3713,17 +3855,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">The image message received</td>
+            <td class="description last"><p>The image message received</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -3733,102 +3879,99 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-326">line 326</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line326">line 326</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">listen for image events</p>
     
-    <pre class="prettyprint"><code> conversation.on("image", (sender, image) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;image&quot;, (sender, image) =&gt; {
    console.log(sender,image);
    // Identify your own imageEvent.
    if (image.from !== conversation.me.id)
    // Identify if the event corresponds to the currently open conversation.
    if (image.cid === conversation.id)
- });</code></pre>
+ });</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:text">text</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for text events.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for text events.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -3859,6 +4002,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -3866,7 +4010,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">The sender of the text</td>
+            <td class="description last"><p>The sender of the text</p></td>
         </tr>
 
     
@@ -3882,6 +4026,7 @@ A member has muted their audio
 <span class="param-type"><a href="TextEvent.html">TextEvent</a></span>
 
 
+
             
             </td>
 
@@ -3889,17 +4034,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">The text message received</td>
+            <td class="description last"><p>The text message received</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -3909,102 +4058,99 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-310">line 310</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line310">line 310</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">listen for text events</p>
     
-    <pre class="prettyprint"><code> conversation.on("text",(sender, message) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text&quot;,(sender, message) =&gt; {
    console.log(sender,message);
    // Identify your own message.
    if (message.from !== conversation.me.id)
    // Identify if the event corresponds to the currently open conversation.
    if (message.cid === conversation.id)
- });</code></pre>
+ });</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:image:seen">image:seen</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members' seen images.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members' seen images.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -4035,6 +4181,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -4042,7 +4189,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">the member that saw the image</td>
+            <td class="description last"><p>the member that saw the image</p></td>
         </tr>
 
     
@@ -4058,6 +4205,7 @@ A member has muted their audio
 <span class="param-type"><a href="ImageEvent.html">ImageEvent</a></span>
 
 
+
             
             </td>
 
@@ -4065,17 +4213,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">the image that was seen</td>
+            <td class="description last"><p>the image that was seen</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -4085,59 +4237,56 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-449">line 449</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line449">line 449</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">listen for seen image events</p>
     
-    <pre class="prettyprint"><code>conversation.on("image:seen", (data, image) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;image:seen&quot;, (data, image) =&gt; {
  console.log(image);
  // Check if the event belongs to this conversation
  if (image.cid === conversation.id)
@@ -4147,44 +4296,44 @@ A member has muted their audio
      console.log(conversation.members.get(member_id).name);
    }
  }
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:member:call:status">member:call:status</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members callStatus changes.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members callStatus changes.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -4215,6 +4364,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -4222,17 +4372,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">the member that has left</td>
+            <td class="description last"><p>the member that has left</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -4242,98 +4396,95 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-381">line 381</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line381">line 381</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get the callStatus of the member that changed call status</p>
     
-    <pre class="prettyprint"><code>conversation.on("member:call:status", (member) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:call:status&quot;, (member) =&gt; {
  console.log(member.callStatus);
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:member:invited">member:invited</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members being invited.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members being invited.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -4364,6 +4515,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -4371,7 +4523,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">the member that is invited</td>
+            <td class="description last"><p>the member that is invited</p></td>
         </tr>
 
     
@@ -4387,6 +4539,7 @@ A member has muted their audio
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -4394,17 +4547,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">data regarding the receiver of the invitation</td>
+            <td class="description last"><p>data regarding the receiver of the invitation</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -4414,98 +4571,95 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-369">line 369</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line369">line 369</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get the name of the invited member</p>
     
-    <pre class="prettyprint"><code>conversation.on("member:invited", (member, event) => {
- console.log(member.user.name + " invited to the conversation");
-});</code></pre>
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:invited&quot;, (member, event) =&gt; {
+ console.log(member.user.name + &quot; invited to the conversation&quot;);
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:member:joined">member:joined</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for new members.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for new members.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -4536,6 +4690,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -4543,7 +4698,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">the member that joined</td>
+            <td class="description last"><p>the member that joined</p></td>
         </tr>
 
     
@@ -4559,6 +4714,7 @@ A member has muted their audio
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -4566,17 +4722,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">the join event</td>
+            <td class="description last"><p>the join event</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -4586,99 +4746,96 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-356">line 356</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line356">line 356</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get the name of the new member</p>
     
-    <pre class="prettyprint"><code>conversation.on("member:joined", (member, event) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:joined&quot;, (member, event) =&gt; {
  console.log(event.id)
- console.log(member.user.name+ " joined the conversation");
-});</code></pre>
+ console.log(member.user.name+ &quot; joined the conversation&quot;);
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:member:left">member:left</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members leaving (kicked or left).</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members leaving (kicked or left).
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -4709,6 +4866,7 @@ A member has muted their audio
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -4716,7 +4874,7 @@ A member has muted their audio
 
             
 
-            <td class="description last">the member that has left</td>
+            <td class="description last"><p>the member that has left</p></td>
         </tr>
 
     
@@ -4732,6 +4890,7 @@ A member has muted their audio
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -4739,17 +4898,21 @@ A member has muted their audio
 
             
 
-            <td class="description last">data regarding the receiver of the invitation</td>
+            <td class="description last"><p>data regarding the receiver of the invitation</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -4759,101 +4922,97 @@ A member has muted their audio
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-392">line 392</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line392">line 392</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get the username of the member that left</p>
     
-    <pre class="prettyprint"><code>conversation.on("member:left", (member , event) => {
- console.log(member.user.name + " left");
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:left&quot;, (member , event) =&gt; {
+ console.log(member.user.name + &quot; left&quot;);
  console.log(event.body.reason);
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:member:media">member:media</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members media changes (audio,text)</p>
+<p>Change in media presence state. They are in the conversation with text or audio.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members media changes (audio,text)
-
-Change in media presence state. They are in the conversation with text or audio.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -4884,6 +5043,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -4891,7 +5051,7 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">the member object linked to this event</td>
+            <td class="description last"><p>the member object linked to this event</p></td>
         </tr>
 
     
@@ -4907,6 +5067,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -4914,10 +5075,10 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">information about media presence state
+            <td class="description last"><p>information about media presence state</p>
                 <h6>Properties</h6>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -4948,6 +5109,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -4955,7 +5117,7 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">is audio enabled</td>
+            <td class="description last"><p>is audio enabled</p></td>
         </tr>
 
     
@@ -4968,11 +5130,15 @@ Change in media presence state. They are in the conversation with text or audio.
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -4982,99 +5148,96 @@ Change in media presence state. They are in the conversation with text or audio.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-468">line 468</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line468">line 468</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get every member's media change events </p>
     
-    <pre class="prettyprint"><code>conversation.on("member:media", (from, event) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:media&quot;, (from, event) =&gt; {
  console.log(from.media.audio_settings.enabled); //true
-	console.log(event.body.media); //{"audio_settings": {"enabled": true, "muted": false, "earmuffed": false}}
-});</code></pre>
+	console.log(event.body.media); //{&quot;audio_settings&quot;: {&quot;enabled&quot;: true, &quot;muted&quot;: false, &quot;earmuffed&quot;: false}}
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:text:seen">text:seen</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members' seen texts.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members' seen texts.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -5105,6 +5268,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -5112,7 +5276,7 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">the member that saw the text</td>
+            <td class="description last"><p>the member that saw the text</p></td>
         </tr>
 
     
@@ -5128,6 +5292,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="TextEvent.html">TextEvent</a></span>
 
 
+
             
             </td>
 
@@ -5135,17 +5300,21 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">the text that was seen</td>
+            <td class="description last"><p>the text that was seen</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -5155,59 +5324,56 @@ Change in media presence state. They are in the conversation with text or audio.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-429">line 429</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line429">line 429</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">listen for seen text events</p>
     
-    <pre class="prettyprint"><code>conversation.on("text:seen", (data, text) => {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:seen&quot;, (data, text) =&gt; {
  console.log(text);
  // Check if the event belongs to this conversation
  if (text.cid === conversation.id)
@@ -5217,44 +5383,44 @@ Change in media presence state. They are in the conversation with text or audio.
      console.log(conversation.members.get(member_id).name);
    }
  }
-});</code></pre>
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:text:typing:off">text:typing:off</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members stopped typing.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members stopped typing.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -5285,6 +5451,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -5292,7 +5459,7 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">the member that stopped typing</td>
+            <td class="description last"><p>the member that stopped typing</p></td>
         </tr>
 
     
@@ -5308,6 +5475,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -5315,17 +5483,21 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">the stop typing event</td>
+            <td class="description last"><p>the stop typing event</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -5335,98 +5507,95 @@ Change in media presence state. They are in the conversation with text or audio.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-417">line 417</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line417">line 417</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get the username of the member that stopped typing</p>
     
-    <pre class="prettyprint"><code>conversation.on("text:typing:off", (data) => {
- console.log(data.name + " stopped typing...");
-});</code></pre>
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:typing:off&quot;, (data) =&gt; {
+ console.log(data.name + &quot; stopped typing...&quot;);
+});</pre>
 
 
+    
+</dd>
 
         
             
-
-    
-
-    
+<hr>
+<dt>
     <h4 class="name" id="event:text:typing:on">text:typing:on</h4>
     
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Conversation listening for members typing.</p>
+    </div>
+    
 
     
 
+    
 
+    
+    
 
-<div class="description">
-    Conversation listening for members typing.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -5457,6 +5626,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="Member.html">Member</a></span>
 
 
+
             
             </td>
 
@@ -5464,7 +5634,7 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">the member that started typing</td>
+            <td class="description last"><p>the member that started typing</p></td>
         </tr>
 
     
@@ -5480,6 +5650,7 @@ Change in media presence state. They are in the conversation with text or audio.
 <span class="param-type"><a href="NXMEvent.html">NXMEvent</a></span>
 
 
+
             
             </td>
 
@@ -5487,17 +5658,21 @@ Change in media presence state. They are in the conversation with text or audio.
 
             
 
-            <td class="description last">the start typing event</td>
+            <td class="description last"><p>the start typing event</p></td>
         </tr>
 
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -5507,65 +5682,64 @@ Change in media presence state. They are in the conversation with text or audio.
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="sdk.js.html">sdk.js</a>,
+				 <a href="sdk.js.html#sunlight-1-line-405">line 405</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line405">line 405</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
         <p class="code-caption">get the username of the member that is typing</p>
     
-    <pre class="prettyprint"><code>conversation.on("text:typing:on", (data) => {
- console.log(data.name + " is typing...");
-});</code></pre>
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:typing:on&quot;, (data) =&gt; {
+ console.log(data.name + &quot; is typing...&quot;);
+});</pre>
 
 
+    
+</dd>
 
-        
+        </dl>
     
 </article>
 
@@ -5574,19 +5748,136 @@ Change in media presence state. They are in the conversation with text or audio.
 
 
 
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:call:status">member:call:status</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">connecting</a></li><li><a href="NexmoClient.html#event:disconnect">disconnect</a></li><li><a href="NexmoClient.html#event:error">error</a></li><li><a href="NexmoClient.html#event:ready">ready</a></li><li><a href="NexmoClient.html#event:reconnect">reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">reconnecting</a></li></ul>
-</nav>
 
-<br class="clear">
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Thu Nov 14 2019 14:02:39 GMT+0000 (Coordinated Universal Time)
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
+	
+		on Tue Nov 19th 2019
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
 </body>
 </html>
