@@ -58,6 +58,20 @@ To interact with Nexmo webhooks:
 
 Information about your request is then sent to your webhook endpoint.
 
+## Testing webhooks locally
+
+In order to test the correct functioning of webhooks on your locally running application, you will need to create a secure tunnel between Nexmo and your application. You can do this with a secure tunnel application such as [Ngrok](https://ngrok.com). See the [Testing with Ngrok](/concepts/guides/testing-with-ngrok) topic for more information.
+
+## Configuring your firewall
+
+If you restrict inbound traffic (including delivery receipts), you need to whitelist the following IP addresses in your firewall. Inbound traffic from Nexmo might come from any of the following:
+
+* `119.81.44.0/28`
+* `169.60.146.16/28`
+* `169.63.86.160/28`
+* `5.10.112.112/28`
+* `169.50.200.64/28`
+
 ## Tips for debugging webhooks
 
 **Start simple** - Publish the simplest possible script that you can think of to respond when the webhook is received and perhaps print some debug information. This makes sure that the URL is what you think it is, and that you can see the output or logs of the application.
@@ -71,30 +85,6 @@ Information about your request is then sent to your webhook endpoint.
 * [Receive an incoming call](/voice/voice-api/code-snippets/receive-an-inbound-call)
 
 You can also check the code snippets section of the documentation for the API you are using.
-
-## Using Ngrok for local development
-
-Webhooks are an unusual situation for developers; often you will work on local platforms while you're getting the details worked out, but when using webhooks your webhook URLs must be publicly accessible in order for Nexmo or another service to access them. One way to work around this problem is to use a free tool called [Ngrok](https://ngrok.com/). Ngrok creates a secure tunnel to your locally-running application from the outside world. To get started with Ngrok, follow these steps:
-
-1. Download and install Ngrok using the [instructions](https://ngrok.com/download) for your platform.
-2. Start your webserver running locally, and check which port it uses (for example, if you usually use <http://localhost:3000> to access your application, then the port is 3000).
-3. Create an Ngrok tunnel to this port with a command such as `ngrok http 3000`.
-4. This command will show the URL of the tunnel, which will look similar to `https://abcdef1.ngrok.io`. Copy this URL.
-5. Go ahead and [configure your Nexmo webhooks](#setting-webhook-endpoints) to point to this URL, and you are up and running.
-
-> Beware that each time you start up the Ngrok tunnel, you're likely to get a new URL so don't forget to update the webhooks configuration accordingly! Paid Ngrok accounts can reserve tunnel names and choose which one to use when they start up, so you can avoid having to reconfigure your webhooks.
-
-**Cool bonus feature of Ngrok:** in addition to the tunnel URL displayed in the command output, you will also see a URL for the "Web Interface". The web interface offers an excellent way of examining the details of all the requests received by the tunnel and the responses returned and is, therefore, a very useful debugging tool. You can also use the "Replay" button to repeat a request rather than having to send yourself lots of text messages or continuously reproduce whatever event your webhook code is responding to. These features make testing your application's response to webhooks much more convenient.
-
-## Configuring your firewall
-
-If you restrict inbound traffic (including delivery receipts), you need to whitelist the following IP addresses in your firewall. Inbound traffic from Nexmo might come from any of the following:
-
-* `119.81.44.0/28`
-* `169.60.146.16/28`
-* `169.63.86.160/28`
-* `5.10.112.112/28`
-* `169.50.200.64/28`
 
 ## See also
 

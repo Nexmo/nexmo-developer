@@ -13,7 +13,7 @@ Use the CLI to create your Nexmo application:
 nexmo app:create "My Client SDK App" https://abcd1234.ngrok.io/webhooks/answer https://abcd1234.ngrok.io/webhooks/event --keyfile=private.key --type=voice
 ```
 
-> **NOTE:** You need to change the webhook URLs to suit your local setup. For more information on using Ngrok for local testing please see [our documentation](/concepts/guides/webhooks#using-ngrok-for-local-development).
+> **NOTE:** You need to change the webhook URLs to suit your local setup. For more information on using Ngrok for local testing please see [testing with Ngrok](/concepts/guides/testing-with-ngrok).
 
 Make a note of the generated Application ID, as you'll need it in the future. You can also check this in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 

@@ -34,7 +34,7 @@ To complete this tutorial, you need:
 * Basic knowledge of Node.js and the `express` package.
 * A publicly accessible Web server so Nexmo can make webhook requests to your app. For local development, we recommend [ngrok](https://ngrok.com/).
 
-> [Learn how to use `ngrok`](https://developer.nexmo.com/concepts/guides/webhooks#using-ngrok-for-local-development)
+> [Learn how to use `ngrok`](/concepts/guides/testing-with-ngrok)
 
 ## Create an application
 

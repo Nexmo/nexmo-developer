@@ -36,7 +36,7 @@ Messages API does not support inbound SMS message and SMS delivery receipt callb
 
 If you want to test your application locally you can use Ngrok.
 
-See our information on [Using Ngrok for local development](/concepts/guides/webhooks#using-ngrok-for-local-development)
+See our information on [Using Ngrok for local development](/concepts/guides/testing-with-ngrok)
 
 If using Ngrok in this manner you would use the Ngrok URLs for your webhook URLs:
 

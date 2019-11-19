@@ -20,7 +20,7 @@ In order to work through this tutorial you'll need:
 
 * A [Nexmo account](https://dashboard.nexmo.com/sign-up)
 * The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
-* A publicly accessible web server so Nexmo can make webhook requests to your app. You can learn more about webhooks in our [webhooks guide](/concepts/guides/webhooks) and it includes information on [using ngrok to expose your local webserver](/concepts/guides/webhooks#using-ngrok-for-local-development)
+* A publicly accessible web server so Nexmo can make webhook requests to your app. You can learn more about webhooks in our [webhooks guide](/concepts/guides/webhooks) and it includes information on [using ngrok to expose your local webserver](/concepts/guides/testing-with-ngrok)
 * Some knowledge of Ruby and the [Sinatra](http://www.sinatrarb.com/) web framework
 
 ⚓ Create a Voice Application

@@ -20,8 +20,8 @@ Please read this information carefully before attempting to use the code snippet
 
 ## Webhooks
 
-If you want to receive incoming SMS or delivery receipts, you will need to create a [webhook](https://developer.nexmo.com/concepts/guides/webhooks). Nexmo needs to be able to access your webhook via the public internet.
+If you want to receive incoming SMS or delivery receipts, you will need to create a [webhook](/concepts/guides/webhooks). Nexmo needs to be able to access your webhook via the public internet.
 
-During development you can use [Ngrok](https://ngrok.com) to expose the webhooks you create on your local machine to Nexmo's APIs. See [Using Ngrok for local development](https://developer.nexmo.com/concepts/guides/webhooks#using-ngrok-for-local-development) for details of how to set up and use Ngrok.
+During development you can use [Ngrok](https://ngrok.com) to expose the webhooks you create on your local machine to Nexmo's APIs. See [Using Ngrok for local development](/concepts/guides/testing-with-ngrok) for details of how to set up and use Ngrok.
 
 
