@@ -6,6 +6,20 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.5 - November 19, 2019
+
+### Fixes
+
+- Update styling of jsdocs to docstrap template
+- Change ice gathering process to send sdp on first ice candidate gathered
+
+## 6.0.4
+
+### Fixes
+
+- Remove remaining audio elements after transferring a call to a new conversation
+- Update `conversation.invite()` to not include empty `user_id` or `user_name` fields within the requests
+
 ## Version 6.0.4 - November 14, 2019
 
 ### Fixes
