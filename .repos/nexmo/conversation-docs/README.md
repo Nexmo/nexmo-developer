@@ -1,6 +1,6 @@
-# A repo to host the API SDK documentation for JS, Android, and iOS
+# API SDK documentation for JS, Android, and iOS
 
-The docs are hosted on https://developer.nexmo.com/stitch/overview
+The docs are hosted on https://developer.nexmo.com/client-sdk/overview
 
 # Making changes
 

@@ -10,7 +10,7 @@ Verify API gives the best chance of reaching your users by combining SMS and TTS
 
 When you send the code and `request_id`, Nexmo will confirm if the code is as expected (or not). For a successful verification, the sequence will stop and no further calls or messages will be sent to the user. If the verification is unsuccessful, the sequence will continue and remain active until either the PIN has expired or three incorrect codes have been sent.
 
-The Verify API allows you to select the best workflow for your use case. This might depend on the type of verification taking place, your users' preference or their geographical location. You can specify which workflow to use for each Verify API request by setting the `workflow_id` field to an integer value 1-5. The details of each of these five preset workflows are detailed below.
+The Verify API allows you to select the best workflow for your use case. This might depend on the type of verification taking place, your users' preference or their geographical location. You can specify which workflow to use for each Verify API request by setting the `workflow_id` field to an integer value 1-7. The details of each of these preset workflows are detailed below.
 
 You can further customize the experience by [setting the timings](/verify/guides/changing-default-timings) when creating a Verify request, and can [trigger the next verification attempt](/verify/code-snippets/trigger-next-verification-process) programmatically if you wish.
 
@@ -73,4 +73,20 @@ Send a PIN code by text message, follow up with a voice call if the code hasn't 
 3. Call user and give **TTS** PIN code
 4. Wait for `next_event_wait` seconds *(default wait: 300 seconds)*
 5. Request expires
+
+
+## Workflow 6: SMS
+
+Send a PIN code by text message once only.
+
+1. Send **SMS** to user with PIN code
+2. Request expires after `pin_expiry` seconds *(default expiry: 300 seconds)*
+
+
+## Workflow 7: TTS
+
+Call the user and speak a PIN code once only.
+
+1. Call user and give **TTS** PIN code
+2. Request expires after `pin_expiry` seconds *(default expiry: 300 seconds)*
 

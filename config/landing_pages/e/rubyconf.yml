@@ -1,0 +1,298 @@
+title: "Nexmo loves Ruby! Use our SDKs or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
+
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Nexmo @ RubyConf 2019"
+            align: center
+          subtitle:
+            text: "Hello, Rubyists! We love catching up with you at events, and we've put together some resources that we hope you find useful. <br /> Stop by our booth and say hi to our team, pick up some swag and chat about Ruby! <br /> Let us know you're here by [sending us a tweet](https://nexmo.dev/tweetrubyconf), we'd love to connect!"
+            align: center
+          icon:
+            name: "Brand-icon-ruby-color"
+            color: "yellow"
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=rubyconf&utm_campaign=landing"
+          center_button: true
+                      
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: true
+          type: primary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "Get the conference schedule"
+          url: "https://rubyconf.org/schedule"
+          center_button: true
+          type: primary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "Let us know you're here!"
+          url: "https://nexmo.dev/tweetrubyconf"
+          center_button: true
+          type: primary
+          large: true
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: header
+        header:
+          title:  
+            text: "Win a Nintendo Switch Lite!"
+          icon: 
+            name: icon-devices		
+            color: blue
+  - row:
+    - column:
+      - type: text
+        text:
+          content: Want to win a brand new Nintendo Switch Lite? Enter our contest at RubyConf and you could go home with the latest Nintendo Switch Lite (Pokemon edition), an **even** more portable way to bring your games with you no matter where you are!
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "&nbsp;"
+
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "How to Win"
+          icon:
+            name: icon-rows		
+            color: blue
+          text:
+          - content: "Have an idea for a great new app or service that communicates? We want to hear from you!" 
+            type: large
+          - content: "<img src='https://i.imgur.com/Ke9Fldg.png' style='float:right;'/>Text us your idea of a new app or service that utilizes any of our <a href='https://developer.nexmo.com'>Nexmo APIs</a>, and you could win a Nintendo Switch Lite!<br/><br/>The winner will also have the opportunity to submit their idea for our <a href='https://developer.nexmo.com/spotlight'>Developer Spotlight</a> program where we will either pay you $400 USD or <a href='https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr'>donate $400 to a tech-focused charity</a> for your original technical written content discussing the app that you built."  
+            type: large
+          - content: "📢 The winner will be announced during the ***afternoon break on November 20th***, so make sure to get your idea in before then!"
+            type: large
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "Send an SMS"
+          icon:
+            name: "icon-message"
+            color: blue
+          text:
+          - content: "Send us an SMS message with your idea in the following format:"
+            type: large
+          - content: "**Your name -- Your Twitter username -- Your email address -- Your idea**<br/>*i.e. Jane Smith -- @jane -- jane@example.com -- This is my great idea<br/>i.e. John Smith -- john@example.com -- This is my great idea*<br/><br/>All fields are **required**, except for your Twitter username.<br/>**Each section needs to be separated by two dashes '--' to count as an entry.**"
+            type: large
+          - content: "Send your SMS message to one of the following:"
+            type: large
+          - content: 🇺🇸 +16152701740
+            type: small
+          - content: 🇬🇧 +447451279370
+            type: small
+          - content: 🇨🇦 +14166194720
+            type: small
+          - content: "<br/>*Your contact details are used only for the purposes of this prize draw and will be removed immediately after the event.*"
+            type: small
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>You can't use any of the phone numbers?</h4>
+                Reach out to <a href="https://twitter.com/rabbigreenberg">Ben</a> on Twitter or at the Nexmo booth and ask him to provision a Nexmo phone number for your country.
+            	</div>
+            </div>
+
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+        - type: header
+          header:
+            title:
+              text: "Nexmo ❤️ Ruby"
+              align: center
+            icon:
+              name: "icon-code"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: "At Nexmo, we love Ruby - it's one of our most-loved languages by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Ruby gem:"
+        - type: text
+          text:
+            content: |
+              ```ruby
+              # Gemfile
+              gem 'nexmo'
+              ```
+        - type: text
+          text:
+            content: |
+              ```bash
+              $ bundle install
+              ```
+        - type: text
+          text:
+            content: "You can read more about our [Ruby gem on GitHub](https://github.com/Nexmo/nexmo-ruby), and can also explore our [Rails initializer gem](https://github.com/Nexmo/nexmo-rails) as well."
+    - column:
+        - type: header
+          header:
+            title:
+              text: "Get started by sending a text"
+              align: center
+            icon:
+              name: "icon-call"
+              color: "blue-dark"
+        - type: text
+          text:
+            content: "Once you've added `nexmo` to your project, sending a text message is as easy as credentialing your client and a few lines of code! Just tell us who to send the text message to, and what you want to say and we'll handle the rest!"
+        - type: text
+          text:
+            content: |
+              ```ruby
+              client = Nexmo::Client.new(
+                api_key: 'YOUR-API-KEY',
+                api_secret: 'YOUR-API-SECRET'
+              )
+
+              response = client.sms.send(
+                from: 'YOUR NUMBER',
+                to: 'RECIPIENT NUMBER',
+                text: 'Hello RubyConf!!'
+              )
+              ```
+              <div class="Vlt-right">
+              <a class="Vlt-btn Vlt-btn--secondary" href="/messaging/sms/code-snippets/send-an-sms/ruby">View the complete code &raquo;</a>
+              </div>
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "What's New with Nexmo and Ruby?"
+          icon:
+            name: "icon-rocket"
+            color: blue
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "`nexmo_rack`"
+          icon:
+            name: "icon-world"
+            color: red
+          text:
+          - content: "We are happy to announce a brand new Rack middleware here at RubyConf! Designed to make working with Nexmo webhooks as easy as possible, all you need to do is include [nexmo_rack](https://github.com/Nexmo/nexmo-rack) in your application's middleware stack and it'll take care of the rest. The first feature is verifying signed SMS messages. Verified inbound messages will continue through to your application, and messages that were not successfully verified will return a `403` HTTP status code."
+            type: large
+          - content: "For more details on the new middleware, check out the [README](https://github.com/Nexmo/nexmo-rack/blob/master/README.md).<br /><span style='display:block; margin-bottom: 66px;' />"
+            type: large
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-rack
+          github_repo_title: "nexmo_rack"
+          language: "Ruby"
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "`nexmo-ruby`"
+          icon:
+            name: "Brand-icon-ruby-color"
+            color: blue
+          text:
+          - content: "The Nexmo Ruby SDK enables you to build your Ruby application with the full suite of Nexmo APIs. We are happy to share that v6.1.0 of the [Nexmo Ruby SDK](https://github.com/Nexmo/nexmo-ruby) was released today, with the ability to change the hashing algorithm you want to use for verifying webhook signatures! Other recent additions include:"
+            type: large
+      - type: unordered_list
+        unordered_list:
+          bullet_shape: square
+          list:
+            - item: "[Applications API v2](https://developer.nexmo.com/api/application.v2)"
+            - item: "[Start recording a call](https://developer.nexmo.com/api/conversation#recordConversation)"
+            - item: "[Improved autoloading with Zeitwerk](https://github.com/fxn/zeitwerk)"
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-ruby
+          github_repo_title: "nexmo-ruby"
+          language: "Ruby"
+
+  - row:
+    - column:
+        - type: line_divider
+  
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Handy Ruby related links and further reading"
+          icon:
+            name: "icon-pin-2"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+            	</div>
+            </div>
+  - row:
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
+              - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+              - item: "[Handling Inbound Calls with Ruby](https://www.nexmo.com/blog/2017/12/21/handle-inbound-phone-calls-ruby-rails-dr/)"
+              - item: "[Building a Rails Voice App Example to Handle Keypad Input (DTMF)](https://www.nexmo.com/blog/2019/02/27/rails-holiday-vapi-checker-dr/)"
+              - item: "[Sending SMS with Ruby](https://www.nexmo.com/blog/2017/10/16/send-sms-ruby-on-rails-dr/)"
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Make an Outbound Call with Ruby on Rails](https://www.nexmo.com/blog/2017/11/02/outbound-text-to-speech-voice-call-ruby-on-rails-dr/)"
+              - item: "[Play Streaming Audio into a Call](https://www.nexmo.com/blog/2019/01/24/play-streaming-audio-to-a-call-with-ruby-dr/)"
+              - item: "[Forward a Call via Voice Proxy with Ruby on Rails](https://www.nexmo.com/blog/2019/04/16/forward-a-call-via-voice-proxy-with-ruby-on-rails-dr/)"
+              - item: "[Connect Callers into a Conference](/voice/voice-api/code-snippets/connect-callers-into-a-conference/ruby)"
+              - item: "[Transfer a Call](/voice/voice-api/code-snippets/transfer-a-call/ruby)"
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider

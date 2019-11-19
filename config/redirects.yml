@@ -83,6 +83,7 @@
 "/messages/code-snippets/send-a-viber-service-message": "/messages/code-snippets/viber/send-text"
 "/number-insight": "/number-insight/overview"
 "/number-insight/guides": "/number-insight/guides/cnam"
+"/number-insight/guides/ip-matching": "/number-insight/overview"
 "/number-insight/code-snippets": "/number-insight/code-snippets/number-insight-basic"
 "/number-insight/api-reference": "/api/number-insight"
 "/numbers": "/numbers/overview"
@@ -251,4 +252,4 @@
 "/vonage-business-cloud/vbc-apis/getting-started": "/vonage-business-cloud/vbc-apis/getting-started/create-application"
 "/send-an-sms": "/messaging/sms/code-snippets/send-an-sms"
 "/client-sdk/in-app-messaging/guides/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging"
-
+"/api/developer/pricing": "/api/pricing"

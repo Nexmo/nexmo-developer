@@ -8,8 +8,8 @@ client:
     from_line: 17
     to_line: 21
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/NumbersController.cs
-    from_line: 69
-    to_line: 72
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/NumberSender.cs
+    from_line: 25
+    to_line: 32
 run_command: 'Run using your IDE'
-file_name: NumbersController.cs
+file_name: NumberSender.cs

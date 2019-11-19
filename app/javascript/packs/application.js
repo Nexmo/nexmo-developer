@@ -127,7 +127,7 @@ $(document).ready(function() {
       sequence: {
           useMaxWidth: false,
       },
-      theme: 'dark',
+      themeCSS: '.actor { fill: #BDD5EA; stroke: #81B1DB; }',
       htmlLabels: true
   });
 });

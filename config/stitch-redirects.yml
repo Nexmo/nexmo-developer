@@ -87,7 +87,6 @@
 # Setup
 "/tutorials/client-sdk-js-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app"
 "/tutorials/client-sdk-android-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app"
-"/tutorials/client-sdk-js-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app"
 
 # Getting Started
 "/tutorials/client-sdk-ios-outbound-call": "/client-sdk/in-app-voice/getting-started/make-phone-call"
@@ -102,7 +101,7 @@
 "/tutorials/client-sdk-js-inbound-call": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
 
 # Moved Generate JWT concept
-"/client-sdk/concepts/jwt-acl": "/conversation/concepts/jwt-acl"
+"/client-sdk/concepts/jwt-acl": "/conversation/guides/jwt-acl"
 
 # Moved concepts to Guides
 "/client-sdk/in-app-voice/concepts/ncco-guide": "/client-sdk/in-app-voice/guides/ncco-guide"
@@ -115,7 +114,6 @@
 "/client-sdk/in-app-messaging/guides": "/client-sdk/in-app-messaging/guides/simple-conversation"
 "/client-sdk/in-app-voice": "/client-sdk/in-app-voice/overview"
 "/client-sdk/in-app-messaging": "/client-sdk/in-app-messaging/overview"
-"/client-sdk/concepts/jwt-acl": "/conversation/guides/jwt-acl"
 "/client-sdk/in-app-voice/guides": "/client-sdk/in-app-voice/guides/enable-audio"
 "/client-sdk/in-app-voice/getting-started": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
 "/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions": "/client-sdk/setup/add-sdk-to-your-app/ios#add-permissions"
