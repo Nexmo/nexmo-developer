@@ -347,13 +347,41 @@ class Media {
                         reject(new nexmoClientError_1.NexmoApiError(error));
                     });
                 };
+                let gatheringTimer = null;
                 let rtc_sent = false;
-                pc.onicecandidate = (event) => {
-                    if (event.candidate &amp;&amp; !rtc_sent) {
-                        rtc_sent = true;
-                        return do_gatherDone();
-                    }
-                };
+                if (this.application.session.config.iceGatherOnlyOneCandidate) {
+                    pc.onicecandidate = (event) => {
+                        if (event.candidate &amp;&amp; !rtc_sent) {
+                            rtc_sent = true;
+                            return do_gatherDone();
+                        }
+                    };
+                }
+                else {
+                    pc.onicegatheringstatechange = () => {
+                        console.log({ pc }, pc.iceGatheringState);
+                        switch (pc.iceGatheringState) {
+                            case 'new':
+                                this.log.info('ice gathering new');
+                                break;
+                            case 'complete':
+                                window.clearTimeout(gatheringTimer);
+                                gatheringTimer = null;
+                                if (!rtc_sent) {
+                                    do_gatherDone();
+                                }
+                                this.log.info('ice gathering complete');
+                                break;
+                            case 'gathering':
+                                gatheringTimer = setTimeout(() => {
+                                    do_gatherDone();
+                                    rtc_sent = true;
+                                }, 2000);
+                                this.log.info('ice gathering gathering');
+                                break;
+                        }
+                    };
+                }
             })
                 .then(() => {
                 // We want to be able to handle these events, for this  member, before they get propagated out

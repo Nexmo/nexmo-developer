@@ -150,6 +150,7 @@ prefix.apply(logger, {
  * @param {string} params.events_page_config.order=asc 'asc' or 'desc' ordering of resources (usually based on creation time)
  * @param {string} params.events_page_config.event_type the type of event used to filter event requests. Supports wildcard options with :* eg. 'members:*'
  * @param {string} params.token the jwt token for network requests
+ * @param {string} params.iceGatherOnlyOneCandidate=false the flag for gathering one candidate or multiple in rtc ice gathering process
  *
  * @emits NexmoClient#connecting
  * @emits NexmoClient#disconnect
@@ -205,7 +206,8 @@ class NexmoClient {
                 order: 'asc',
                 event_type: ''
             },
-            token: null
+            token: null,
+            iceGatherOnlyOneCandidate: false
         };
         this.sessionReady = false;
         this.session_id = null;
