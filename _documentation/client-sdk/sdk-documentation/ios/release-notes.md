@@ -6,6 +6,30 @@ navigation_weight: 0
 
 # Release Notes
 
+## 1.1.0 - 2019-11-14
+### Fixed
+- iOS 13 push notifications support
+- Start server call stability
+- Receiving a DTMF event in call and conversation
+
+### Added
+NXMConverastionDelegate did receive DTMF event method
+```
+- (void)conversation:(nonnull NXMConversation *)conversation didReceiveDTMFEvent:(nullable NXMDTMFEvent *)event;
+```
+
+### Changed
+NXMClient client enable push notifications method changed
+param pushKitToken - only for voip push (incoming calls)
+param userNotificationToken - all push types
+```
+- (void)enablePushNotificationsWithPushKitToken:(nullable NSData *)pushKitToken
+                          userNotificationToken:(nullable NSData *)userNotificationToken
+                                      isSandbox:(BOOL)isSandbox
+                              completionHandler:(void(^_Nullable)(NSError * _Nullable error))completionHandler;
+
+```
+
 ## Version 1.0.0 - 2019-09-05
 
 ### Fixed
