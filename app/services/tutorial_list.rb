@@ -30,7 +30,7 @@ class TutorialList
   def self.all
     tasks = []
     # TODO: make this work with I18n fallback
-    Dir.glob("#{Rails.root}/config/tutorials/en/*.yml") do |filename|
+    Dir.glob("#{Rails.root}/config/tutorials/#{I18n.default_locale}/*.yml") do |filename|
       t = YAML.load_file(filename)
       tasks.push({
         root: 'config/tutorials',
