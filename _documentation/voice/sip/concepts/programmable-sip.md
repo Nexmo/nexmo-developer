@@ -2,11 +2,13 @@
 title: Programmable SIP
 ---
 
-# Programmable SIP (Developer Preview)
+# Programmable SIP
 
 ## Overview
 
 Nexmo’s Programmable SIP product enables you to integrate your existing SIP Infrastructure with Nexmo’s powerful conversational communications platform. This integration will enable you easily connect to mobile, landline, SIP and WebRTC endpoints including browsers and mobile applications. It will also bring Voice API functionality such as multichannel recording, IVR, Text to Speech, web socket connectivity for AI integrations and the power of contextual conversations to your platform.
+
+> **NOTE:** Programmable SIP is currently in Developer Preview.
 
 ## Nexmo SIP Domains
 
