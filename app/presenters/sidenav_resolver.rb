@@ -108,7 +108,7 @@ class SidenavResolver
 
   def document_meta(item)
     doc = DocFinder.find(root: item[:root] || @path, document: item[:path], language: @language, strip_root_and_language: true)
-    Tasks.document_meta(doc)
+    YAML.load_file(doc)
   end
 
   private

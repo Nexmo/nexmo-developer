@@ -100,7 +100,6 @@ RSpec.describe SidenavResolver do
     let(:doc_path) { '_documentation/en/messages/external-accounts/overview.md' }
 
     it 'finds the document and returns its frontmatter' do
-      expect(Tasks).to receive(:document_meta).with(doc_path).and_call_original
       frontmatter = subject.document_meta(root: '_documentation', path: doc_path)
 
       expect(frontmatter['title']).to eq('Overview')

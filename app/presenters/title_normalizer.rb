@@ -11,9 +11,15 @@ class TitleNormalizer
     if @folder[:is_task?] || @folder[:is_tabbed?]
       @folder[:title]
     elsif @folder[:is_file?]
-      Tasks.document_meta(@folder[:path])['navigation'] || Tasks.document_meta(@folder[:path])['title']
+      frontmatter['navigation'] || frontmatter['title']
     else
       I18n.t("menu.#{@folder[:title]}")
     end
+  end
+
+  private
+
+  def frontmatter
+    @frontmatter ||= YAML.load_file(@folder[:path])
   end
 end
