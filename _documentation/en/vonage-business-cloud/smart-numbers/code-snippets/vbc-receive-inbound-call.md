@@ -19,4 +19,3 @@ application:
 ## Try it out
 
 When you call your Smart Number you will hear a text-to-speech message.
-

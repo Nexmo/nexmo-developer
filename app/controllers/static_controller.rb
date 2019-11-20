@@ -54,8 +54,6 @@ class StaticController < ApplicationController
   end
 
   def documentation
-    @navigation = :documentation
-
     @document_path = '/app/views/static/documentation.md'
 
     # Read document
@@ -68,9 +66,14 @@ class StaticController < ApplicationController
 
     @content = MarkdownPipeline.new.call(document)
 
-    @namespace_path = "_documentation/#{@product}"
-    @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.root}/_documentation"
+    @navigation = :documentation
+
+    @sidenav = Sidenav.new(
+      request_path: request.path,
+      navigation: @navigation,
+      product: @product,
+      language: I18n.locale
+    )
 
     render layout: 'documentation'
   end
@@ -95,20 +98,6 @@ class StaticController < ApplicationController
     @document_title = 'Community'
     @past_events = Event.past
     render layout: 'page'
-  end
-
-  def contribute
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/contribute.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @content = MarkdownPipeline.new.call(document)
-
-    render layout: 'static'
   end
 
   def legacy

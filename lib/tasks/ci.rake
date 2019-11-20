@@ -5,7 +5,7 @@ namespace :ci do
   task 'verify_pages': :environment do
     document_paths =
       [
-        "#{Rails.root}/_documentation/**/*.md",
+        "#{Rails.root}/_documentation/en/**/*.md",
         "#{Rails.root}/_api/**/*.md",
         "#{Rails.root}/_tutorials/**/*.md",
       ]

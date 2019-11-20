@@ -9,13 +9,7 @@
     <div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light">
       <div class="Vlt-sidenav__scroll">
         <nav class="sidenav" tabindex="0" >
-          <% if (@sidebar_nav) %>
-            <%= @sidebar_nav %>
-          <% elsif @custom_navigation %>
-            <%= custom_navigation(@custom_navigation) %>
-          <% else %>
-            <%= sidenav(@sidenav_root) %>
-          <% end %>
+          <%= render partial: 'layouts/partials/sidenav' %>
         </nav>
       </div>
     </div>
