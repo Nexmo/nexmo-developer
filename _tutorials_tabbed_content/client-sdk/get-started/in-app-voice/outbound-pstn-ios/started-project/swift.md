@@ -29,7 +29,22 @@ as well as a  phone number to call:
 
 2. From the `Make-phone-call` group, open `MakePhoneCallViewController.swift` file and make sure the following lines exist:
 
-* `import NexmoClient` - imports the sdk
-* `let user = User.jane` - sets the user that places the call
-* `var client: NXMClient?` - property for the client instance
-* `var call: NXMCall?` - property for the call instance
+* Imports the SDK
+    ```swift
+    import NexmoClient
+    ```
+
+* Sets the user that places the call
+    ```swift
+    let user = User.jane
+    ```
+
+* Property for the client instance
+    ```swift
+    var client: NXMClient?
+    ```
+
+* property for the call instance
+    ```swift
+    var call: NXMCall?
+    ```
