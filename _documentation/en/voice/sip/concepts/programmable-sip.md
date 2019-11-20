@@ -4,11 +4,13 @@ title: Programmable SIP
 
 # Programmable SIP
 
+> **NOTE:** Programmable SIP is currently in Developer Preview.
+
 ## Overview
 
 Nexmo’s Programmable SIP product enables you to integrate your existing SIP Infrastructure with Nexmo’s powerful conversational communications platform. This integration will enable you easily connect to mobile, landline, SIP and WebRTC endpoints including browsers and mobile applications. It will also bring Voice API functionality such as multichannel recording, IVR, Text to Speech, web socket connectivity for AI integrations and the power of contextual conversations to your platform.
 
-> **NOTE:** Programmable SIP is currently in Developer Preview.
+![SIP Connect Workflow](/assets/images/workflow_sip_connect.png)
 
 ## Nexmo SIP Domains
 
@@ -61,8 +63,6 @@ You can use the Voice API NCCO connect action to connect a call to your SIP endp
 ## SIP Connect
 
 The SIP Connect feature support will continue where you can dial your virtual number via your SIP endpoint that is attached to your application. _Digest Authentication_ is the accepted authentication method for SIP Connect.
-
-![SIP Connect Workflow](/assets/images/workflow_sip_connect.png)
 
 To test this functionality have your PBX forward calls to `sip.nexmo.com`. Here is an example of doing so with an Asterisk extension, transmitting a custom header that will be sent to your `answer_url`:
 
