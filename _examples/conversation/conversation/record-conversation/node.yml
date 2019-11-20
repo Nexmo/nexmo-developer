@@ -7,5 +7,5 @@ code:
     to_line: 27
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/conversation/conversation/record-conversation.js
-    from_line: 11
+    from_line: 9
     to_line: 16

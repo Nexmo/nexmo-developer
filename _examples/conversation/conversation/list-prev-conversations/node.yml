@@ -7,5 +7,5 @@ code:
     to_line: 33
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/conversation/conversation/list-prev-conversations.js
-    from_line: 10
+    from_line: 8
     to_line: 15

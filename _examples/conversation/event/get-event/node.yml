@@ -7,5 +7,5 @@ code:
     to_line: 27
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/conversation/event/get-event.js
-    from_line: 12
+    from_line: 10
     to_line: 17
