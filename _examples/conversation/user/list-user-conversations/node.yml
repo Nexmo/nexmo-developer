@@ -2,10 +2,10 @@
 dependencies:
     - nexmo@beta
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/conversation/user/get-user-conversations.js
+    source: .repos/nexmo/nexmo-node-code-snippets/conversation/user/list-user-conversations.js
     from_line: 18
     to_line: 25
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/conversation/user/get-user-conversations.js
+    source: .repos/nexmo/nexmo-node-code-snippets/conversation/user/list-user-conversations.js
     from_line: 9
     to_line: 16

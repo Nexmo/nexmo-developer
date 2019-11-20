@@ -1,6 +1,6 @@
 class UseCase
   include ActiveModel::Model
-  attr_accessor :title, :description, :external_link, :products, :document_path, :languages
+  attr_accessor :title, :description, :external_link, :products, :document_path, :languages, :root
 
   def body
     File.read(document_path)
@@ -8,7 +8,8 @@ class UseCase
 
   def path
     return external_link if external_link
-    "/use-cases/#{document_path.relative_path_from(UseCase.origin)}".gsub('.md', '')
+    path = document_path.relative_path_from(UseCase.origin).sub("#{I18n.locale}/", '')
+    "/use-cases/#{path}".gsub('.md', '')
   end
 
   def subtitle
@@ -63,6 +64,7 @@ class UseCase
         products: frontmatter['products'].split(',').map(&:strip),
         languages: frontmatter['languages'] || [],
         document_path: document_path,
+        root: '_use_cases',
       })
     end
   end

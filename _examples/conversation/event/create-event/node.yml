@@ -1,0 +1,11 @@
+---
+dependencies:
+    - nexmo@beta
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/conversation/event/create-event.js
+    from_line: 19
+    to_line: 32
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/conversation/event/create-event.js
+    from_line: 10
+    to_line: 17
