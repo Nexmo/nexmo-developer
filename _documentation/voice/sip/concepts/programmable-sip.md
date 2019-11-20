@@ -60,6 +60,8 @@ You can use the Voice API NCCO connect action to connect a call to your SIP endp
 
 The SIP Connect feature support will continue where you can dial your virtual number via your SIP endpoint that is attached to your application. _Digest Authentication_ is the accepted authentication method for SIP Connect.
 
+![SIP Connect Workflow](/assets/images/workflow_sip_connect.png)
+
 To test this functionality have your PBX forward calls to `sip.nexmo.com`. Here is an example of doing so with an Asterisk extension, transmitting a custom header that will be sent to your `answer_url`:
 
 ``` text
