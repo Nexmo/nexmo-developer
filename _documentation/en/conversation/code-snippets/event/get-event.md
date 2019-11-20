@@ -1,10 +1,11 @@
 ---
 title: Get an Event
+navigation_weight: 4
 ---
 
 # Get an Event
 
-In this code snippet you will see how to get an Event.
+In this code snippet you learn how to get an Event.
 
 ## Example
 

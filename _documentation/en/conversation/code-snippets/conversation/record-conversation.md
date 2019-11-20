@@ -1,10 +1,11 @@
 ---
 title: Record a Conversation
+navigation_weight: 4
 ---
 
 # Record a Conversation
 
-In this code snippet you will see how to record a Conversation.
+In this code snippet you learn how to record a Conversation.
 
 ## Example
 

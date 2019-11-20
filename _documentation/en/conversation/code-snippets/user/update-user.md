@@ -1,10 +1,11 @@
 ---
 title: Update a User
+navigation_weight: 4
 ---
 
 # Update a User
 
-In this code snippet you will see how to update a User's details.
+In this code snippet you learn how to update a User's details.
 
 ## Example
 

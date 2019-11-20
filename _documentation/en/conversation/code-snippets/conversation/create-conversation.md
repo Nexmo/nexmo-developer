@@ -1,10 +1,11 @@
 ---
 title: Create a Conversation
+navigation_weight: 1
 ---
 
 # Create a Conversation
 
-In this code snippet you will see how to create a Conversation.
+In this code snippet you learn how to create a Conversation.
 
 ## Example
 

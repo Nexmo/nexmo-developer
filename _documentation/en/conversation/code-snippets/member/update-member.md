@@ -1,10 +1,11 @@
 ---
 title: Update a Member
+navigation_weight: 4
 ---
 
 # Update a Member
 
-In this code snippet you will see how to update the details of a Member.
+In this code snippet you learn how to update the details of a Member.
 
 ## Example
 

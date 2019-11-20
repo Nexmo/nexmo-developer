@@ -1,10 +1,11 @@
 ---
 title: Delete a User
+navigation_weight: 2
 ---
 
 # Delete a User
 
-In this code snippet you will see how to delete a User.
+In this code snippet you learn how to delete a User.
 
 ## Example
 

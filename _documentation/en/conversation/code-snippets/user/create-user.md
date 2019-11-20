@@ -1,10 +1,11 @@
 ---
 title: Create a User
+navigation_weight: 1
 ---
 
 # Create a User
 
-In this code snippet you will see how to create a User.
+In this code snippet you learn how to create a User.
 
 ## Example
 

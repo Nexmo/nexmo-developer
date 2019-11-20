@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Create an Event
 
-In this code snippet you will see how to create an Event.
+In this code snippet you learn how to create an Event.
 
 ## Example
 

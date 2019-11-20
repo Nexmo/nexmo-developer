@@ -1,10 +1,11 @@
 ---
 title: Get a Member
+navigation_weight: 3
 ---
 
 # Get a Member
 
-In this code snippet you will see how to get a Member.
+In this code snippet you learn how to get a Member.
 
 ## Example
 

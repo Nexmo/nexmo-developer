@@ -1,10 +1,11 @@
 ---
 title: Get a Conversation
+navigation_weight: 3
 ---
 
 # Get a Conversation
 
-In this code snippet you will see how to get a specified Conversation.
+In this code snippet you learn how to get a specified Conversation.
 
 ## Example
 

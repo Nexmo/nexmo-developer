@@ -1,10 +1,11 @@
 ---
 title: Delete a Conversation
+navigation_weight: 2
 ---
 
 # Delete a Conversation
 
-In this code snippet you will see how to delete a specified Conversation.
+In this code snippet you learn how to delete a specified Conversation.
 
 ## Example
 

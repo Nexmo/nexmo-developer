@@ -4,7 +4,7 @@ title: List Legs
 
 # List Legs
 
-In this code snippet you will see how to list Legs.
+In this code snippet you learn how to list Legs.
 
 ```code_snippets
 source: '_examples/conversation/leg/list-legs'

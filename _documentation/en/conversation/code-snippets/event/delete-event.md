@@ -1,10 +1,11 @@
 ---
 title: Delete an Event
+navigation_weight: 3
 ---
 
 # Delete an Event
 
-In this code snippet you will see how to delete an Event.
+In this code snippet you learn how to delete an Event.
 
 ## Example
 

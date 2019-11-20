@@ -1,10 +1,11 @@
 ---
 title: List Events
+navigation_weight: 5
 ---
 
 # List Events
 
-In this code snippet you will see how to list Events.
+In this code snippet you learn how to list Events.
 
 ## Example
 
