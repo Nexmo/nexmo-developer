@@ -1,5 +1,5 @@
 module CodeSnippetRenderer
-  class Dotnet
+  class Dotnet < Base
     def self.dependencies(deps)
       { 'code' => "Install-Package #{deps.join(' ')}" }
     end
@@ -9,11 +9,11 @@ module CodeSnippetRenderer
     end
 
     def self.create_instructions(filename)
-      "Create a file named `#{filename}` and add the following code:"
+      t('services.code_snippet_renderer.create_instructions', filename: filename)
     end
 
     def self.add_instructions(filename)
-      "Add the following to `#{filename}`:"
+      t('services.code_snippet_renderer.add_instructions_to_file', file: filename)
     end
   end
 end

@@ -1,61 +1,56 @@
 navigation_weight:
-  Application: 0
-  Messaging: 1
-  SMS: 1
-  Voice: 2
-  Verify: 3
-  Number Insight: 4
-  Messages: 5
-  Dispatch: 6
-  Numbers: 98
-  Account: 99
-  Audit: 100
-  Redact: 100
-  Reports: 101
-  Vonage Business Cloud: 200
+  application: 0
+  messaging: 1
+  messages: 1
+  voice: 3
+  verify: 3
+  number-insight: 4
+  dispatch: 2
+  numbers: 98
+  account: 99
+  audit: 100
+  redact: 100
+  reports: 101
+  vonage-business-cloud: 200
 
-  Smart Numbers: 1
-  VBC APIs: 2
-  Getting Started: 1
-  Account API: 2
-  Extension API: 3
-  Reports API: 4
-  User API: 5
-  Vonage Integration Suite: 3
+  smart-numbers: 1
+  vbc-apis: 2
+  getting-started: 1
+  account-api: 2
+  extension-api: 3
+  reports-api: 4
+  user-api: 5
+  integration-suite: 3
 
-  Onboarding: 0
-  Overview: 1
-  Developer Preview: 2
-  Tasks: 3
-  Quickstarts: 3
-  Guides: 4
-  Code Snippets: 5
+  onboarding: 0
+  developer-preview: 2
+  tasks: 3
+  quickstarts: 3
+  guides: 4
+  code-snippets: 5
 
-  Tutorials: 6
-  Use Cases: 6
-  Troubleshooting: 7
-  API Reference: 7
-  Conversation: 8
+  tutorials: 6
+  use-cases: 6
+  troubleshooting: 7
+  api-reference: 7
+  conversation: 8
 
-  Voice API: 1
-  SIP: 2
+  voice-api: 1
+  sip: 2
 
-  Client SDK: 30
-  NCCO Reference: 40
-  SDK Documentation: 40
-  API Reference: 50
+  client-sdk: 30
+  ncco-eference: 40
+  sdk-documentation: 40
+  api-reference: 50
 
-  Overview: 1
-  Setup: 2
-  Concepts: 3
-  In-App Messaging: 4
-  In-App Voice: 5
-  In-App Video: 6
+  overview: 1
+  setup: 2
+  concepts: 3
+  in-app-messaging: 4
+  in-app-voice: 5
+  in-app-video: 6
 
-  Messages API: 1
-  Dispatch API: 2
-
-  Secret Management: 30
+  secret-management: 30
 
 navigation_overrides:
   application:
@@ -68,6 +63,19 @@ navigation_overrides:
   messaging:
     svg: 'message'
     svgColor: 'purple'
+    sms:
+      navigation_weight: 0
+    us-short-codes:
+      navigation_weight: 1
+      guides:
+        2fa:
+          navigation_weight: 0
+        campaign-subscription-management:
+          navigation_weight: 1
+        alerts:
+          navigation_weight: 2
+    conversion-api:
+      navigation_weight: 2
   voice:
     svg: 'phone'
     svgColor: 'green'
