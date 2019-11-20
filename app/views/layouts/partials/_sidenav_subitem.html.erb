@@ -1,0 +1,34 @@
+<li class="navigation-item--<%= sidenav_subitem.title.parameterize %> navigation-item">
+  <% if sidenav_subitem.show_link? %>
+    <%= link_to(sidenav_subitem.url, class: "Vlt-sidemenu__link #{sidenav_subitem.link_css_class}") do %>
+      <% if sidenav_subitem.label? %>
+        <span class="Vlt-sidemenu__label">
+          <%= sidenav_subitem.title %>
+          <span class="<%= sidenav_subitem.css_classes %>">
+            <%= sidenav_subitem.label %>
+          </span>
+        </span>
+      <% else %>
+        <%= sidenav_subitem.title %>
+      <% end %>
+    <% end %>
+  <% elsif sidenav_subitem.collapsible? %>
+    <li class="js--collapsible navigation-item--<%= sidenav_subitem.title.parameterize %> navigation-item">
+      <a class="Vlt-sidemenu__trigger" href="/concepts">
+        <span class="Vlt-sidemenu__label"><%= sidenav_subitem.title %></span>
+      </a>
+      <% if sidenav_subitem.children.any? %>
+        <ul class="Vlt-sidemenu__list--compressed">
+          <%= render partial: 'layouts/partials/sidenav_subitem', collection: sidenav_subitem.children %>
+        </ul>
+      <% end %>
+    </li>
+  <% else %>
+    <h5 class="Vlt-sidemenu__title Vlt-sidemenu__title--border"><%= sidenav_subitem.title %></h5>
+    <% if sidenav_subitem.children.any? %>
+      <ul class="Vlt-sidemenu__list--compressed">
+        <%= render partial: 'layouts/partials/sidenav_subitem', collection: sidenav_subitem.children %>
+      </ul>
+    <% end %>
+  <% end %>
+</li>
