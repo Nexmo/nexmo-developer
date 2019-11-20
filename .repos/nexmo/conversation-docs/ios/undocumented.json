@@ -1,1244 +1,1230 @@
 {
   "warnings": [
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 13,
-      "symbol": "NXMConversationEventsControllerDelegate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 15,
-      "symbol": "NS_ENUM",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 23,
-      "symbol": "NXMConversationEventsControllerDelegate.-nxmConversationEventsController:didChangeEvent:atIndex:forChangeType:newIndex:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 30,
-      "symbol": "NXMConversationEventsControllerDelegate.-nxmConversationEventsControllerWillChangeContent:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 33,
-      "symbol": "NXMConversationEventsControllerDelegate.-nxmConversationEventsControllerDidChangeContent:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 37,
-      "symbol": "NXMConversationEventsController",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 39,
-      "symbol": "NXMConversationEventsController.delegate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Events/NXMConversationEventsController.h",
-      "line": 42,
-      "symbol": "NXMConversationEventsController.-loadEarlierEventsWithMaxAmount:completion:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 15,
-      "symbol": "NXMMember",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 16,
-      "symbol": "NXMMember.conversationId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 17,
-      "symbol": "NXMMember.memberId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 18,
-      "symbol": "NXMMember.joinDate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 19,
-      "symbol": "NXMMember.inviteDate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 20,
-      "symbol": "NXMMember.leftDate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 21,
-      "symbol": "NXMMember.user",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 22,
-      "symbol": "NXMMember.state",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 24,
-      "symbol": "NXMMember.-initWithMemberId:conversationId:user:state:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/ConversationDetails/NXMMember.h",
-      "line": 29,
-      "symbol": "NXMMember.-initWithMemberEvent:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
       "line": 10,
       "symbol": "NXMMediaActionEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
       "line": 11,
-      "symbol": "NXMMediaActionEvent.toMemberId",
+      "symbol": "NXMMediaActionEvent.toMemberUuid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
       "line": 12,
       "symbol": "NXMMediaActionEvent.mediaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaActionEvent.h",
       "line": 13,
       "symbol": "NXMMediaActionEvent.actionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaSuspendEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaSuspendEvent.h",
       "line": 10,
       "symbol": "NXMMediaSuspendEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaSuspendEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/MediaAction/NXMMediaSuspendEvent.h",
       "line": 11,
       "symbol": "NXMMediaSuspendEvent.isSuspended",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMDTMFEvent.h",
+      "line": 11,
+      "symbol": "NXMDTMFEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMDTMFEvent.h",
+      "line": 13,
+      "symbol": "NXMDTMFEvent.digit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMDTMFEvent.h",
+      "line": 14,
+      "symbol": "NXMDTMFEvent.duration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaEvent.h",
       "line": 13,
       "symbol": "NXMMediaEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaEvent.h",
       "line": 14,
       "symbol": "NXMMediaEvent.mediaSettings",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaSettings.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaSettings.h",
       "line": 10,
       "symbol": "NXMMediaSettings",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaSettings.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaSettings.h",
       "line": 11,
       "symbol": "NXMMediaSettings.isEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaSettings.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaSettings.h",
       "line": 12,
       "symbol": "NXMMediaSettings.isSuspended",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMMediaSettings.h",
-      "line": 14,
-      "symbol": "NXMMediaSettings.-initWithEnabled:suspend:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMRtcAnswerEvent.h",
-      "line": 10,
-      "symbol": "NXMRtcAnswerEvent",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMRtcAnswerEvent.h",
-      "line": 12,
-      "symbol": "NXMRtcAnswerEvent.conversationId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMRtcAnswerEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
       "line": 13,
-      "symbol": "NXMRtcAnswerEvent.rtcId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMRtcAnswerEvent.h",
-      "line": 14,
-      "symbol": "NXMRtcAnswerEvent.sdp",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMRtcAnswerEvent.h",
-      "line": 15,
-      "symbol": "NXMRtcAnswerEvent.sessionId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMRtcAnswerEvent.h",
-      "line": 16,
-      "symbol": "NXMRtcAnswerEvent.timestamp",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMSipEvent.h",
-      "line": 10,
-      "symbol": "NXMSipEvent",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMSipEvent.h",
-      "line": 11,
-      "symbol": "NXMSipEvent.phoneNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMSipEvent.h",
-      "line": 12,
-      "symbol": "NXMSipEvent.applicationId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Media/NXMSipEvent.h",
-      "line": 13,
-      "symbol": "NXMSipEvent.sipType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 12,
-      "symbol": "NS_ENUM",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 16,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 18,
       "symbol": "NXMMemberEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 20,
-      "symbol": "NXMMemberEvent.memberId",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
+      "line": 15,
+      "symbol": "NXMMemberEvent.member",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 21,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
+      "line": 16,
       "symbol": "NXMMemberEvent.state",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 22,
-      "symbol": "NXMMemberEvent.user",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 23,
-      "symbol": "NXMMemberEvent.phoneNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 24,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
+      "line": 17,
       "symbol": "NXMMemberEvent.media",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 25,
-      "symbol": "NXMMemberEvent.channelType",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
+      "line": 18,
+      "symbol": "NXMMemberEvent.channel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 26,
-      "symbol": "NXMMemberEvent.channelData",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
-      "line": 27,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Member/NXMMemberEvent.h",
+      "line": 19,
       "symbol": "NXMMemberEvent.knockingId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
       "line": 11,
       "symbol": "NXMImageEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
       "line": 12,
-      "symbol": "NXMImageEvent.imageId",
+      "symbol": "NXMImageEvent.imageUuid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
       "line": 13,
       "symbol": "NXMImageEvent.mediumImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
       "line": 14,
       "symbol": "NXMImageEvent.originalImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageEvent.h",
       "line": 15,
       "symbol": "NXMImageEvent.thumbnailImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
       "line": 10,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
       "line": 14,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
       "line": 16,
       "symbol": "NXMImageInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
       "line": 17,
-      "symbol": "NXMImageInfo.imageId",
+      "symbol": "NXMImageInfo.imageUuid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
       "line": 18,
       "symbol": "NXMImageInfo.url",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
       "line": 19,
+      "symbol": "NXMImageInfo.sizeInBytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
+      "line": 20,
       "symbol": "NXMImageInfo.size",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
-      "line": 20,
-      "symbol": "NXMImageInfo.type",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Image/NXMImageInfo.h",
-      "line": 22,
-      "symbol": "NXMImageInfo.-initWithId:size:url:type:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageEvent.h",
       "line": 10,
       "symbol": "NXMMessageEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageStatusEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageStatusEvent.h",
       "line": 10,
       "symbol": "NXMMessageStatusEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageStatusEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageStatusEvent.h",
       "line": 11,
-      "symbol": "NXMMessageStatusEvent.eventId",
+      "symbol": "NXMMessageStatusEvent.referenceEventUuid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageStatusEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/NXMMessageStatusEvent.h",
       "line": 12,
       "symbol": "NXMMessageStatusEvent.status",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextEvent.h",
       "line": 10,
       "symbol": "NXMTextEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextEvent.h",
       "line": 11,
       "symbol": "NXMTextEvent.text",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextTypingEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextTypingEvent.h",
       "line": 11,
       "symbol": "NXMTextTypingEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextTypingEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/Message/Text/NXMTextTypingEvent.h",
       "line": 12,
       "symbol": "NXMTextTypingEvent.status",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 11,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMCustomEvent.h",
+      "line": 12,
+      "symbol": "NXMCustomEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMCustomEvent.h",
+      "line": 14,
+      "symbol": "NXMCustomEvent.customType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMCustomEvent.h",
+      "line": 15,
+      "symbol": "NXMCustomEvent.data",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
+      "line": 13,
       "symbol": "NXMEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 13,
-      "symbol": "NXMEvent.conversationId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 14,
-      "symbol": "NXMEvent.fromMemberId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
       "line": 15,
+      "symbol": "NXMEvent.conversationUuid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
+      "line": 16,
+      "symbol": "NXMEvent.fromMember",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
+      "line": 17,
       "symbol": "NXMEvent.creationDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 16,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
+      "line": 18,
       "symbol": "NXMEvent.deletionDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 17,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
+      "line": 19,
       "symbol": "NXMEvent.type",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 18,
-      "symbol": "NXMEvent.sequenceId",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
+      "line": 20,
+      "symbol": "NXMEvent.uuid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 20,
-      "symbol": "NXMEvent.-initWithConversationId:type:fromMemberId:sequenceId:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/Events/NXMEvent.h",
-      "line": 25,
-      "symbol": "NXMEvent.-initWithConversationId:sequenceId:fromMemberId:creationDate:type:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/User/NXMUser.h",
-      "line": 10,
-      "symbol": "NXMUser",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMLegStatusEvent.h",
+      "line": 14,
+      "symbol": "NXMLegStatusEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/User/NXMUser.h",
-      "line": 12,
-      "symbol": "NXMUser.userId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/User/NXMUser.h",
-      "line": 13,
-      "symbol": "NXMUser.name",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/User/NXMUser.h",
-      "line": 14,
-      "symbol": "NXMUser.displayName",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/User/NXMUser.h",
-      "line": 16,
-      "symbol": "NXMUser.-initWithId:name:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/Internal/NexmoCore/Models/User/NXMUser.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/Internal/NexmoCore/Models/Events/NXMLegStatusEvent.h",
       "line": 17,
-      "symbol": "NXMUser.-initWithId:name:displayName:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "symbol": "NXMLegStatusEvent.current",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMBlocks.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMBlocks.h",
       "line": 10,
       "symbol": "NXMSuccessCallback",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMBlocks.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMBlocks.h",
       "line": 11,
       "symbol": "NXMSuccessCallbackWithId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMBlocks.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMBlocks.h",
       "line": 12,
       "symbol": "NXMSuccessCallbackWithObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMBlocks.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMBlocks.h",
       "line": 13,
       "symbol": "NXMSuccessCallbackWithObjects",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMBlocks.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMBlocks.h",
       "line": 14,
       "symbol": "NXMErrorCallback",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 14,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMBlocks.h",
+      "line": 15,
+      "symbol": "NXMCompletionCallback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 20,
+      "symbol": "NS_ENUM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 25,
+      "symbol": "",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 32,
       "symbol": "NXMCallDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 15,
-      "symbol": "NXMCallDelegate.-statusChanged:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 40,
+      "symbol": "NXMCallDelegate.-call:didUpdate:withStatus:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 18,
-      "symbol": "NS_ENUM",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 48,
+      "symbol": "NXMCallDelegate.-call:didUpdate:isMuted:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 21,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 55,
+      "symbol": "NXMCallDelegate.-call:didReceive:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 22,
-      "symbol": "NS_ENUM",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 65,
+      "symbol": "NXMCallDelegate.-call:didReceive:fromCallMember:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 25,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 28,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 74,
       "symbol": "NXMCall",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 31,
-      "symbol": "NXMCall.myCallMember",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 32,
-      "symbol": "NXMCall.status",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 33,
-      "symbol": "NXMCall.conversation",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 35,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 86,
       "symbol": "NXMCall.-setDelegate:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 37,
-      "symbol": "NXMCall.-answer:completionHandler:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 103,
+      "symbol": "NXMCall.-answer:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 38,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 119,
       "symbol": "NXMCall.-reject:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 40,
-      "symbol": "NXMCall.-addCallMemberWithUserId:completionHandler:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 121,
+      "symbol": "NXMCall.-addCallMemberWithUsername:completionHandler:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCall.h",
-      "line": 41,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 124,
       "symbol": "NXMCall.-addCallMemberWithNumber:completionHandler:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 11,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 127,
+      "symbol": "NXMCall.-sendDTMF:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 129,
+      "symbol": "NXMCall.-hangup",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 12,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 18,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 22,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 20,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 24,
       "symbol": "NXMCallMember",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 22,
-      "symbol": "NXMCallMember.callId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 23,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 26,
       "symbol": "NXMCallMember.memberId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 24,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 27,
       "symbol": "NXMCallMember.user",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 25,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 28,
+      "symbol": "NXMCallMember.channel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 29,
       "symbol": "NXMCallMember.isMuted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 26,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 30,
       "symbol": "NXMCallMember.status",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 27,
-      "symbol": "NXMCallMember.metaInfo",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 31,
+      "symbol": "NXMCallMember.statusDescription",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 29,
-      "symbol": "NXMCallMember.-hangup",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 30,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 33,
       "symbol": "NXMCallMember.-hold:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 31,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 34,
       "symbol": "NXMCallMember.-mute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMCallMember.h",
-      "line": 32,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 35,
       "symbol": "NXMCallMember.-earmuff:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 15,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 11,
+      "symbol": "NXMDirection",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 13,
+      "symbol": "NXMDirection.type",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 14,
+      "symbol": "NXMDirection.data",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 17,
+      "symbol": "NXMChannel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 19,
+      "symbol": "NXMChannel.from",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 20,
+      "symbol": "NXMChannel.to",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 21,
+      "symbol": "NXMChannel.leg",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 55,
       "symbol": "NXMClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 20,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 61,
+      "symbol": "NXMClient.shared",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 67,
       "symbol": "NXMClient.connectionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 25,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 73,
       "symbol": "NXMClient.user",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 30,
-      "symbol": "NXMClient.token",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 80,
+      "symbol": "NXMClient.authToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 43,
-      "symbol": "NXMClient.-setLoggerDelegate:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 50,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 88,
       "symbol": "NXMClient.-setDelegate:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 97,
-      "symbol": "NXMClient.-call:callType:delegate:completion:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 96,
+      "symbol": "NXMClient.-loginWithAuthToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClient.h",
-      "line": 102,
-      "symbol": "NXMClient.-onMemberEvent:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 103,
+      "symbol": "NXMClient.-updateAuthToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClientDelegate.h",
-      "line": 15,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClient.h",
+      "line": 110,
+      "symbol": "NXMClient.-logout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClientDelegate.h",
+      "line": 16,
       "symbol": "NXMClientDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClientDelegate.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClientDelegate.h",
       "line": 17,
-      "symbol": "NXMClientDelegate.-connectionStatusChanged:reason:",
+      "symbol": "NXMClientDelegate.-client:didChangeConnectionStatus:reason:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClientDelegate.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClientDelegate.h",
+      "line": 18,
+      "symbol": "NXMClientDelegate.-client:didReceiveError:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClientDelegate.h",
       "line": 20,
-      "symbol": "NXMClientDelegate.-incomingCall:",
+      "symbol": "NXMClientDelegate.-client:didReceiveCall:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMClientDelegate.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMClientDelegate.h",
       "line": 21,
-      "symbol": "NXMClientDelegate.-addedToConversation:",
+      "symbol": "NXMClientDelegate.-client:didReceiveConversation:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 14,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 13,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 16,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 15,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 18,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 22,
       "symbol": "NXMConversation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 20,
-      "symbol": "NXMConversation.conversationId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 21,
-      "symbol": "NXMConversation.name",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 22,
-      "symbol": "NXMConversation.displayName",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 23,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 32,
       "symbol": "NXMConversation.lastEventId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 24,
-      "symbol": "NXMConversation.creationDate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 61,
+      "symbol": "NXMConversation.-inviteMemberWithUsername:completion:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 76,
+      "symbol": "NXMConversation.-join:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 91,
+      "symbol": "NXMConversation.-joinMemberWithUsername:completion:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 107,
+      "symbol": "NXMConversation.-leave:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 214,
+      "symbol": "NXMConversation.-getEvents:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 18,
+      "symbol": "NXMConversationUpdateDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
       "line": 25,
-      "symbol": "NXMConversation.myMember",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "symbol": "NXMConversationUpdateDelegate.-conversation:didUpdateMember:withType:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversation.h",
-      "line": 27,
-      "symbol": "NXMConversation.delegate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversationDelegate.h",
-      "line": 12,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 32,
       "symbol": "NXMConversationDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversationDelegate.h",
-      "line": 14,
-      "symbol": "NXMConversationDelegate.-textEvent:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 33,
+      "symbol": "NXMConversationDelegate.-conversation:didReceive:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversationDelegate.h",
-      "line": 15,
-      "symbol": "NXMConversationDelegate.-attachmentEvent:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 36,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveCustomEvent:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversationDelegate.h",
-      "line": 16,
-      "symbol": "NXMConversationDelegate.-messageStatusEvent:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 37,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveTextEvent:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversationDelegate.h",
-      "line": 17,
-      "symbol": "NXMConversationDelegate.-mediaEvent:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 38,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveImageEvent:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversationDelegate.h",
-      "line": 18,
-      "symbol": "NXMConversationDelegate.-typingEvent:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 39,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveMessageStatusEvent:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMConversationDelegate.h",
-      "line": 19,
-      "symbol": "NXMConversationDelegate.-memberEvent:",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 40,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveTypingEvent:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 41,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveMemberEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 42,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveLegStatusEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 43,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveMediaEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 10,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 14,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 16,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 24,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 26,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 30,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 32,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 35,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 36,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 37,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 38,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 40,
+      "symbol": "",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
       "line": 42,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 44,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 54,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 55,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 56,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 57,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 61,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 62,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 63,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 64,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 68,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 69,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 70,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 71,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 73,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 74,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 75,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 76,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMEnums.h",
-      "line": 79,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 80,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMErrors.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 82,
+      "symbol": "NS_ENUM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 89,
+      "symbol": "",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 92,
+      "symbol": "NS_ENUM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 97,
+      "symbol": "",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 99,
+      "symbol": "NS_ENUM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 109,
+      "symbol": "",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 111,
+      "symbol": "NS_ENUM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 115,
+      "symbol": "",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMErrors.h",
       "line": 10,
       "symbol": "NSString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMErrors.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMErrors.h",
       "line": 12,
       "symbol": "NS_ENUM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMErrors.h",
-      "line": 56,
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 60,
       "symbol": "",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMLoggerDelegate.h",
-      "line": 9,
-      "symbol": "NXMLoggerDelegate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMInitiator.h",
+      "line": 17,
+      "symbol": "NXMInitiator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMLoggerDelegate.h",
-      "line": 11,
-      "symbol": "NXMLoggerDelegate.-error:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMLeg.h",
+      "line": 15,
+      "symbol": "NXMLeg",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMLoggerDelegate.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 10,
+      "symbol": "NS_ENUM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 16,
+      "symbol": "",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 18,
+      "symbol": "NXMLogger",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 19,
+      "symbol": "NXMLogger.+setLogLevel:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 16,
+      "symbol": "NXMMember",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 18,
+      "symbol": "NXMMember.conversationUuid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 19,
+      "symbol": "NXMMember.memberUuid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 20,
+      "symbol": "NXMMember.user",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 21,
+      "symbol": "NXMMember.state",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 22,
+      "symbol": "NXMMember.media",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 23,
+      "symbol": "NXMMember.channel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/User/NXMUser.h",
+      "line": 10,
+      "symbol": "NXMUser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/User/NXMUser.h",
       "line": 12,
-      "symbol": "NXMLoggerDelegate.-warning:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "symbol": "NXMUser.uuid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMLoggerDelegate.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/User/NXMUser.h",
       "line": 13,
-      "symbol": "NXMLoggerDelegate.-info:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "symbol": "NXMUser.name",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/slave/workspace/Stitch_iOS_Release/NexmoClient/NXMLoggerDelegate.h",
+      "file": "/Users/clev/git/nexmo-sdk-ios/NexmoClient/User/NXMUser.h",
       "line": 14,
-      "symbol": "NXMLoggerDelegate.-debug:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "symbol": "NXMUser.displayName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/slave/workspace/Stitch_iOS_Release"
+  "source_directory": "/Users/clev/git/nexmo-sdk-ios"
 }

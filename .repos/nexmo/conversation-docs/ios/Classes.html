@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NexmoClient Docs</a> (9% documented)</p>
+        <p><a href="index.html">NexmoClient 1.0.0 Docs</a> (16% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -37,13 +37,22 @@
                 <a href="Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/NXMClient.html">NXMClient</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMConversation.html">NXMConversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NXMConversationEventsController.html">NXMConversationEventsController</a>
+                <a href="Classes/NXMCustomEvent.html">NXMCustomEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMDTMFEvent.html">NXMDTMFEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMDirection.html">NXMDirection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMEvent.html">NXMEvent</a>
@@ -53,6 +62,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMImageInfo.html">NXMImageInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMInitiator.html">NXMInitiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMLeg.html">NXMLeg</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMLegStatusEvent.html">NXMLegStatusEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMLogger.html">NXMLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMMediaActionEvent.html">NXMMediaActionEvent</a>
@@ -77,12 +98,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMMessageStatusEvent.html">NXMMessageStatusEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NXMRtcAnswerEvent.html">NXMRtcAnswerEvent</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NXMSipEvent.html">NXMSipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMTextEvent.html">NXMTextEvent</a>
@@ -116,16 +131,16 @@
                 <a href="Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a>
+                <a href="Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Type Definitions.html">Type Definitions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a>
               </li>
@@ -166,101 +181,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMConversationEventsController"></a>
-                    <a name="//apple_ref/objc/Class/NXMConversationEventsController" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMConversationEventsController">NXMConversationEventsController</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/NXMConversationEventsController.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMConversationEventsController</span> <span class="p">:</span> <span class="nc">NSObject</span>
-
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span><span class="n">weak</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span><span class="n">strong</span><span class="p">,</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/NXMEvent.html">NXMEvent</a></span><span class="o">*&gt;*</span>  <span class="n">events</span><span class="p">;</span>
-
-<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadEarlierEventsWithMaxAmount</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">maxAmount</span> <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMConversationEventsController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)NXMMember"></a>
-                    <a name="//apple_ref/objc/Class/NXMMember" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMMember">NXMMember</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/NXMMember.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMMember</span> <span class="p">:</span> <span class="nc">NSObject</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">memberId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">joinDate</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">inviteDate</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">leftDate</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NXMMemberState</span> <span class="n">state</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithMemberId</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">memberId</span>
-                  <span class="nf">conversationId</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">conversationId</span>
-                          <span class="nf">user</span><span class="p">:(</span><span class="n"><a href="Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">user</span>
-                           <span class="nf">state</span><span class="p">:(</span><span class="n">NXMMemberState</span><span class="p">)</span><span class="nv">state</span><span class="p">;</span>
-
-<span class="k">-</span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithMemberEvent</span><span class="p">:(</span><span class="n"><a href="Classes/NXMMemberEvent.html">NXMMemberEvent</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">memberEvent</span><span class="p">;</span>
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMember</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:objc(cs)NXMMediaActionEvent"></a>
                     <a name="//apple_ref/objc/Class/NXMMediaActionEvent" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)NXMMediaActionEvent">NXMMediaActionEvent</a>
@@ -280,16 +200,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMMediaActionEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes/NXMEvent.html">NXMEvent</a></span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">toMemberId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">toMemberUuid</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NXMMediaType</span> <span class="n">mediaType</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NXMMediaActionType</span> <span class="n">actionType</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMediaActionEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMEvent.html">NXMEvent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -326,9 +241,41 @@
 <span class="k">@end</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMDTMFEvent"></a>
+                    <a name="//apple_ref/objc/Class/NXMDTMFEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMDTMFEvent">NXMDTMFEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/NXMDTMFEvent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMediaSuspendEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMMediaActionEvent.html">NXMMediaActionEvent</a></span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMDTMFEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes/NXMEvent.html">NXMEvent</a></span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">digit</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">duration</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
 
                         </div>
                       </div>
@@ -365,11 +312,6 @@
 <span class="k">@end</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMediaEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMEvent.html">NXMEvent</a></span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -403,99 +345,7 @@
 <span class="k">@property</span> <span class="n">bool</span> <span class="n">isEnabled</span><span class="p">;</span>
 <span class="k">@property</span> <span class="n">bool</span> <span class="n">isSuspended</span><span class="p">;</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithEnabled</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">enabled</span> <span class="nf">suspend</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">suspend</span><span class="p">;</span>
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMediaSettings</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)NXMRtcAnswerEvent"></a>
-                    <a name="//apple_ref/objc/Class/NXMRtcAnswerEvent" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMRtcAnswerEvent">NXMRtcAnswerEvent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/NXMRtcAnswerEvent.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMRtcAnswerEvent</span> <span class="p">:</span> <span class="nc">NSObject</span>
-
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">rtcId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">sdp</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">sessionId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">timestamp</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMRtcAnswerEvent</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)NXMSipEvent"></a>
-                    <a name="//apple_ref/objc/Class/NXMSipEvent" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMSipEvent">NXMSipEvent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/NXMSipEvent.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMSipEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes/NXMEvent.html">NXMEvent</a></span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">phoneNumber</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">applicationId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NXMSipEventType</span> <span class="n">sipType</span><span class="p">;</span>
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMSipEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMEvent.html">NXMEvent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -529,21 +379,13 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMMemberEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes/NXMEvent.html">NXMEvent</a></span>
 
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">memberId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">member</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NXMMemberState</span> <span class="n">state</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">phoneNumber</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMMediaSettings.html">NXMMediaSettings</a></span> <span class="o">*</span><span class="n">media</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NXMChannelType</span> <span class="n">channelType</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">channelData</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">knockingId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMMediaSettings.html">NXMMediaSettings</a></span> <span class="o">*</span><span class="n">media</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMChannel.html">NXMChannel</a></span> <span class="o">*</span><span class="n">channel</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">knockingId</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMemberEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMEvent.html">NXMEvent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -576,16 +418,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMImageEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a></span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">imageId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">imageUuid</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMImageInfo.html">NXMImageInfo</a></span> <span class="o">*</span><span class="n">mediumImage</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMImageInfo.html">NXMImageInfo</a></span> <span class="o">*</span><span class="n">originalImage</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMImageInfo.html">NXMImageInfo</a></span> <span class="o">*</span><span class="n">thumbnailImage</span><span class="p">;</span>
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMImageEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -618,19 +455,12 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMImageInfo</span> <span class="p">:</span> <span class="nc">NSObject</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">imageId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">imageUuid</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span><span class="p">;</span>
-<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">size</span><span class="p">;</span>
-<span class="k">@property</span> <span class="n">NXMImageType</span> <span class="n">type</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">imageId</span> <span class="nf">size</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">size</span> <span class="nf">url</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="nf">type</span><span class="p">:(</span><span class="n">NXMImageType</span><span class="p">)</span><span class="nv">type</span><span class="p">;</span>
+<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">sizeInBytes</span><span class="p">;</span>
+<span class="k">@property</span> <span class="n">NXMImageSize</span> <span class="n">size</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMImageInfo</span></code></pre>
 
                         </div>
                       </div>
@@ -666,11 +496,6 @@
 <span class="k">@end</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMessageEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMEvent.html">NXMEvent</a></span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -701,14 +526,9 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMMessageStatusEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes/NXMEvent.html">NXMEvent</a></span>
-<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">eventId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">referenceEventUuid</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NXMMessageStatusType</span> <span class="n">status</span><span class="p">;</span>
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMMessageStatusEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMEvent.html">NXMEvent</a></span></code></pre>
 
                         </div>
                       </div>
@@ -745,11 +565,6 @@
 <span class="k">@end</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMTextEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a></span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -784,9 +599,41 @@
 <span class="k">@end</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMCustomEvent"></a>
+                    <a name="//apple_ref/objc/Class/NXMCustomEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMCustomEvent">NXMCustomEvent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/NXMCustomEvent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMTextTypingEvent</span> <span class="p">:</span> <span class="kt"><a href="Classes/NXMEvent.html">NXMEvent</a></span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMCustomEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes/NXMEvent.html">NXMEvent</a></span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">customType</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
 
                         </div>
                       </div>
@@ -820,30 +667,14 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMEvent</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">fromMemberId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">creationDate</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">deletionDate</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationUuid</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">fromMember</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">creationDate</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">deletionDate</span><span class="p">;</span>
 <span class="k">@property</span> <span class="n">NXMEventType</span> <span class="n">type</span><span class="p">;</span>
-<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">sequenceId</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithConversationId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">conversationId</span>
-                                           <span class="nf">type</span><span class="p">:(</span><span class="n">NXMEventType</span><span class="p">)</span><span class="nv">type</span>
-                                   <span class="nf">fromMemberId</span><span class="p">:(</span><span class="n">nullable</span><span class="p">)</span><span class="nv">memberId</span>
-                                     <span class="nf">sequenceId</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">sequenceId</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithConversationId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">conversationId</span>
-                            <span class="nf">sequenceId</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">sequenceId</span>
-                          <span class="nf">fromMemberId</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">fromMemberId</span>
-                          <span class="nf">creationDate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">creationDate</span>
-                                  <span class="nf">type</span><span class="p">:(</span><span class="n">NXMEventType</span><span class="p">)</span><span class="nv">type</span><span class="p">;</span>
+<span class="k">@property</span> <span class="n">NSInteger</span> <span class="n">uuid</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMEvent</span></code></pre>
 
                         </div>
                       </div>
@@ -857,9 +688,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMUser"></a>
-                    <a name="//apple_ref/objc/Class/NXMUser" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMUser">NXMUser</a>
+                    <a name="/c:objc(cs)NXMLegStatusEvent"></a>
+                    <a name="//apple_ref/objc/Class/NXMLegStatusEvent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMLegStatusEvent">NXMLegStatusEvent</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -869,27 +700,18 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Classes/NXMUser.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/NXMLegStatusEvent.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMUser</span> <span class="p">:</span> <span class="nc">NSObject</span>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMLegStatusEvent</span> <span class="p">:</span> <span class="nc"><a href="Classes/NXMEvent.html">NXMEvent</a></span>
 
-<span class="k">@property</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">userId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">name</span><span class="p">;</span>
-<span class="k">@property</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">displayName</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">initWithId</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">uuid</span> <span class="nf">name</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">name</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">initWithId</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">uuid</span> <span class="nf">name</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">name</span> <span class="nf">displayName</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">displayName</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/NXMLeg.html">NXMLeg</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">history</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMLeg.html">NXMLeg</a></span> <span class="o">*</span><span class="n">current</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMUser</span></code></pre>
 
                         </div>
                       </div>
@@ -921,27 +743,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMCall</span> <span class="p">:</span> <span class="nc">NSObject</span>
-
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">otherCallMembers</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="n">myCallMember</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NXMCallStatus</span> <span class="n">status</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMConversation.html">NXMConversation</a></span><span class="o">*</span> <span class="n">conversation</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setDelegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="Protocols/NXMCallDelegate.html">NXMCallDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">answer</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="Protocols/NXMCallDelegate.html">NXMCallDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span> <span class="nf">completionHandler</span><span class="p">:(</span><span class="n"><a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">reject</span><span class="p">:(</span><span class="n"><a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addCallMemberWithUserId</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">userId</span> <span class="nf">completionHandler</span><span class="p">:(</span><span class="n"><a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addCallMemberWithNumber</span><span class="p">:(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">number</span> <span class="nf">completionHandler</span><span class="p">:(</span><span class="n"><a href="Type Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMCall</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMCall</span></code></pre>
 
                         </div>
                       </div>
@@ -975,24 +777,88 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMCallMember</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">callId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">memberId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">memberId</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMChannel.html">NXMChannel</a></span> <span class="o">*</span><span class="n">channel</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">isMuted</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NXMCallMemberStatus</span> <span class="n">status</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">metaInfo</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">statusDescription</span><span class="p">;</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">hangup</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">hold</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isHold</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mute</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isMute</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">earmuff</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isEarmuff</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">earmuff</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span> <span class="n">isEarmuff</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMDirection"></a>
+                    <a name="//apple_ref/objc/Class/NXMDirection" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMDirection">NXMDirection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/NXMDirection.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMCallMember</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMDirection</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NXMDirectionType</span> <span class="n">type</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMChannel"></a>
+                    <a name="//apple_ref/objc/Class/NXMChannel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMChannel">NXMChannel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/NXMChannel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMChannel</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMDirection.html">NXMDirection</a></span> <span class="o">*</span><span class="n">from</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMDirection.html">NXMDirection</a></span> <span class="o">*</span><span class="n">to</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMLeg.html">NXMLeg</a></span> <span class="o">*</span><span class="n">leg</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
 
                         </div>
                       </div>
@@ -1024,141 +890,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMClient</span> <span class="p">:</span> <span class="nc">NSObject</span>
-
-<span class="cm">/*!
-Return the connection status.
-*/</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getConnectionStatus</span><span class="p">)</span> <span class="n">NXMConnectionStatus</span> <span class="n">connectionStatus</span><span class="p">;</span>
-
-<span class="cm">/*!
- Return the current user
- */</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getUser</span><span class="p">)</span> <span class="n"><a href="Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
-
-<span class="cm">/*!
- Return the current authentication token
- */</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">getToken</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">token</span><span class="p">;</span>
-
-<span class="cm">/**
- init nxmClient with authentication token
- @param authToken user authentication token
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span>
-
-<span class="cm">/*!
- Set nexmo client logger delegate
- *  @param delegate a `NXMLoggerDelegate` object.
- *
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setLoggerDelegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/NXMLoggerDelegate.html">NXMLoggerDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
-
-<span class="cm">/*!
- Set nexmo client delegate
- *  @param delegate a `NXMClientDelegate` object.
- *
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setDelegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/NXMClientDelegate.html">NXMClientDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
-
-<span class="cm">/**
- login and connect to nexmo sdk.
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">login</span><span class="p">;</span>
-
-<span class="cm">/**
- Update authentication token when logged in
- @param authToken user authentication token
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">refreshAuthToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span>
-
-<span class="cm">/**
-Logout
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">logout</span><span class="p">;</span>
-
-<span class="cp">#pragma mark - Conversation
-</span>
-<span class="cm">/**
- Get a conversation object by id
- @param converesationId     conversation id
- @param completion          completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getConversationWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">converesationId</span>
-                   <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">conversation</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Creatw a new conversation with name
-
- @param name                conversation name
- @param completion          completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createConversationWithName</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">conversation</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cp">#pragma mark - Call
-</span>
-<span class="c1">///**</span>
-<span class="c1">// Create a new call to users</span>
-<span class="c1">//</span>
-<span class="c1">// @param callees         user ids/name or pstn number to call</span>
-<span class="c1">// @param callType        type of the call (InApp/SERVER)</span>
-<span class="c1">// @param delegate        call delegate</span>
-<span class="c1">// @param completion      completion block</span>
-<span class="c1">// */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">call</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*&gt;*</span><span class="p">)</span><span class="nv">callees</span>
-    <span class="nf">callType</span><span class="p">:(</span><span class="n">NXMCallType</span><span class="p">)</span><span class="nv">callType</span>
-    <span class="nf">delegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="Protocols/NXMCallDelegate.html">NXMCallDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
-  <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="Classes/NXMCall.html">NXMCall</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">call</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onMemberEvent</span><span class="p">:(</span><span class="n">NSNotification</span><span class="o">*</span> <span class="p">)</span><span class="nv">notification</span><span class="p">;</span>
-
-<span class="cp">#pragma mark - Push Notifications
-</span>
-<span class="cm">/**
- Enable push notification for specific device
-
- @param deviceToken     the device token
- @param isPushKit       is the app using PushKit
- @param isSandbox       is apple sandbox enviroment
- @param completion      completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enablePushNotificationsWithDeviceToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">deviceToken</span>
-                                     <span class="nf">isPushKit</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isPushKit</span>
-                                     <span class="nf">isSandbox</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isSandbox</span>
-                                    <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Disable push notification for the current device
- 
- @param completion      completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disablePushNotificationsWithCompletion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Call this method on incoming push
-
- @param userInfo    pushInfo
- @return true if nexmo push
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isNexmoPushWithUserInfo</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span><span class="p">;</span>
-
-<span class="cm">/**
- Handle nexmo push
- Call this method when isNexmoPushWithUserInfo:userInfo return true
- 
- @param userInfo    pushInfo
- @param completion  completion block
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processNexmoPushWithUserInfo</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
-                           <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMClient</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMClient</span></code></pre>
 
                         </div>
                       </div>
@@ -1190,129 +922,193 @@ Logout
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMConversation</span> <span class="p">:</span> <span class="nc">NSObject</span>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMConversation</span></code></pre>
 
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">displayName</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">lastEventId</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">creationDate</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">myMember</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/NXMMember.html">NXMMember</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">otherMembers</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span>
-<span class="cm">/**
- Join the current logged user as a member of the conversation
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMInitiator"></a>
+                    <a name="//apple_ref/objc/Class/NXMInitiator" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMInitiator">NXMInitiator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
 
- @param completion
- A completion block with the new member of the conversation or an error object if an error occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">joinWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">member</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
+                        <a href="Classes/NXMInitiator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMInitiator</span></code></pre>
 
-<span class="cm">/**
- Joins a user as a member of the conversation
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMLeg"></a>
+                    <a name="//apple_ref/objc/Class/NXMLeg" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMLeg">NXMLeg</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
 
- @param userId
- The id of the user to join
- 
- @param completion
- A completion block with an error object if one occured, or the new member object if user joined
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">joinMemberWithUserId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">userId</span>
-                <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n"><a href="Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">member</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
+                        <a href="Classes/NXMLeg.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMLeg</span></code></pre>
 
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMLogger"></a>
+                    <a name="//apple_ref/objc/Class/NXMLogger" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMLogger">NXMLogger</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
 
-<span class="cm">/**
- Current user's member leaves the conversation
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">leaveWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Kicks a member from participating in the conversation
- 
- @param memberId
- The id of the member to kick
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">kickMemberWithMemberId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">memberId</span>
-                     <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Sends a text message to the members of the conversation
- 
- @param text
- The text to send
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendText</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span>
-     <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-
-<span class="cm">/**
- Sends an attachment message to the members of the conversation
- 
- @param attachmentType
- The type of the attachment following NXMAttachmentType enum
- 
- @param name
- A name identifier of the attachment
- 
- @param data
- The data of the attachment in a NSData representation
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAttachmentOfType</span><span class="p">:(</span><span class="n">NXMAttachmentType</span><span class="p">)</span><span class="nv">attachmentType</span>
-                   <span class="nf">WithName</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span>
-                        <span class="nf">data</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
-                  <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Sends an indication that the current user's member started typing
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStartTypingWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
-<span class="cm">/**
- Sends an indication that the current user's member stopped typing
- 
- @param completion
- A completion block with an error object if one occured
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendStopTypingWithCompletion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completion</span><span class="p">;</span>
-
+                        <a href="Classes/NXMLogger.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMLogger</span> <span class="p">:</span> <span class="nc">NSObject</span>
+<span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setLogLevel</span><span class="p">:(</span><span class="n">NXMLoggerLevel</span><span class="p">)</span><span class="nv">logLevel</span><span class="p">;</span>
 
 <span class="cm">/**
- Get an instance of NXMConversationEventsController.
- 
- 
- @param eventTypes
- A NSSet of the types of events the controller should handle
-
- @param delegate
- An instance conforming to the NXMConversationEventsControllerDelegate protocol, used to get notifications about changes in the controller.
- 
- @return a new instance of NXMConversationEventsController
+ @brief get the log files name, while using NXMLogger
+ @return NSMutableArray&lt;NSString*&gt;&gt;
+ @code NSMutableArray&lt;NSString*&gt;&gt; filesPathes = [NXMLogger getLogFileNames];
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="Classes/NXMConversationEventsController.html">NXMConversationEventsController</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">eventsControllerWithTypes</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSSet</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">eventTypes</span>
-                                                          <span class="nf">andDelegate</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/NXMConversationEventsControllerDelegate.html">NXMConversationEventsControllerDelegate</a></span><span class="o">&gt;</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSMutableArray</span> <span class="o">*</span><span class="p">)</span><span class="n">getLogFileNames</span><span class="p">;</span>
+
 <span class="k">@end</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMMember"></a>
+                    <a name="//apple_ref/objc/Class/NXMMember" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMMember">NXMMember</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/NXMMember.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NXMConversation</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMMember</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">conversationUuid</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">memberUuid</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Classes/NXMUser.html">NXMUser</a></span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NXMMemberState</span> <span class="n">state</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMMediaSettings.html">NXMMediaSettings</a></span> <span class="o">*</span><span class="n">media</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="Classes/NXMChannel.html">NXMChannel</a></span> <span class="o">*</span><span class="n">channel</span><span class="p">;</span>
+
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMUser"></a>
+                    <a name="//apple_ref/objc/Class/NXMUser" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMUser">NXMUser</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/NXMUser.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMUser</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">uuid</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="n">displayName</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
 
                         </div>
                       </div>
@@ -1324,8 +1120,8 @@ Logout
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-02-07)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-09-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

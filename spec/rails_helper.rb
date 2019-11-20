@@ -34,6 +34,8 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
 
+  config.include Rails.application.routes.url_helpers, type: :request
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

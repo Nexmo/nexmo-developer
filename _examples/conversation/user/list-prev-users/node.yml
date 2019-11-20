@@ -1,0 +1,11 @@
+---
+dependencies:
+    - nexmo@beta
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/conversation/user/list-prev-users.js
+    from_line: 17
+    to_line: 35
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/conversation/user/list-prev-users.js
+    from_line: 8
+    to_line: 15

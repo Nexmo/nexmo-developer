@@ -69,8 +69,8 @@ page:
     - column:
       - type: text
         text:
-          content: Want to win a brand new Nintendo Switch Lite? Join our contest this RubyConf and you could go home with the latest Nintendo Switch Lite (Pokemon edition), an **even** more portable way to bring your games with you no matter where you are!
-  
+          content: Want to win a brand new Nintendo Switch Lite? Enter our contest at RubyConf and you could go home with the latest Nintendo Switch Lite (Pokemon edition), an **even** more portable way to bring your games with you no matter where you are!
+
   - row:
     - column:
       - type: text
@@ -88,9 +88,9 @@ page:
           text:
           - content: "Have an idea for a great new app or service that communicates? We want to hear from you!" 
             type: large
-          - content: "<img src='https://i.imgur.com/Ke9Fldg.png' style='float:right;'/>Text us your idea of a new app or service that utilizes <a href='https://developer.nexmo.com'>Nexmo APIs</a>, and you could win the Nintendo Switch Lite!<br/><br/>The winner will also have the opportunity to submit their idea for our <a href='https://developer.nexmo.com/spotlight'>Developer Spotlight</a> program where we will either pay you $400 USD or <a href='https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr'>donate $400 to a tech-focused charity</a> for your original technical written content discussing the app that you built."  
+          - content: "<img src='https://i.imgur.com/Ke9Fldg.png' style='float:right;'/>Text us your idea of a new app or service that utilizes any of our <a href='https://developer.nexmo.com'>Nexmo APIs</a>, and you could win a Nintendo Switch Lite!<br/><br/>The winner will also have the opportunity to submit their idea for our <a href='https://developer.nexmo.com/spotlight'>Developer Spotlight</a> program where we will either pay you $400 USD or <a href='https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr'>donate $400 to a tech-focused charity</a> for your original technical written content discussing the app that you built."  
             type: large
-          - content: "📢The winner will be announced at the ***afternoon break on November 20th***, so make sure to get your idea in before then!"
+          - content: "📢 The winner will be announced during the ***afternoon break on November 20th***, so make sure to get your idea in before then!"
             type: large
     - column:
       - type: structured_text
@@ -112,7 +112,7 @@ page:
             type: small
           - content: 🇨🇦 +14166194720
             type: small
-          - content: "<br/>*Please note we do not save your personal information beyond the purposes of this contest.*"
+          - content: "<br/>*Your contact details are used only for the purposes of this prize draw and will be removed immediately after the event.*"
             type: small
   - row:
     - column:
@@ -123,7 +123,7 @@ page:
             	<i></i>
             	<div class="Vlt-callout__content">
                 <h4>You can't use any of the phone numbers?</h4>
-                Reach out to <a href="https://twitter.com/rabbigreenberg">Ben</a> on Twitter and ask him to provision a Nexmo phone number for your country.
+                Reach out to <a href="https://twitter.com/rabbigreenberg">Ben</a> on Twitter or at the Nexmo booth and ask him to provision a Nexmo phone number for your country.
             	</div>
             </div>
 
@@ -205,42 +205,43 @@ page:
     - column:
       - type: structured_text
         structured_text:
+          header: "`nexmo_rack`"
+          icon:
+            name: "icon-world"
+            color: red
+          text:
+          - content: "We are happy to announce a brand new Rack middleware here at RubyConf! Designed to make working with Nexmo webhooks as easy as possible, all you need to do is include [nexmo_rack](https://github.com/Nexmo/nexmo-rack) in your application's middleware stack and it'll take care of the rest. The first feature is verifying signed SMS messages. Verified inbound messages will continue through to your application, and messages that were not successfully verified will return a `403` HTTP status code."
+            type: large
+          - content: "For more details on the new middleware, check out the [README](https://github.com/Nexmo/nexmo-rack/blob/master/README.md).<br /><span style='display:block; margin-bottom: 66px;' />"
+            type: large
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-rack
+          github_repo_title: "nexmo_rack"
+          language: "Ruby"
+    - column:
+      - type: structured_text
+        structured_text:
           header: "`nexmo-ruby`"
           icon:
             name: "Brand-icon-ruby-color"
             color: blue
           text:
-          - content: "The Nexmo Ruby SDK enables you to build your Ruby application with the full suite of Nexmo APIs. We are happy to share that v6.0.1 of the [Nexmo Ruby SDK](https://github.com/Nexmo/nexmo-ruby) was released just a few weeks ago with approved autoloading with zeitwek, the ability to record a conversation and full Nexmo Applications v2 support! The SDK now has support for the following:"
+          - content: "The Nexmo Ruby SDK enables you to build your Ruby application with the full suite of Nexmo APIs. We are happy to share that v6.1.0 of the [Nexmo Ruby SDK](https://github.com/Nexmo/nexmo-ruby) was released today, with the ability to change the hashing algorithm you want to use for verifying webhook signatures! Other recent additions include:"
             type: large
       - type: unordered_list
         unordered_list:
           bullet_shape: square
           list:
             - item: "[Applications API v2](https://developer.nexmo.com/api/application.v2)"
-            - item: "[Record a Conversation](https://developer.nexmo.com/api/conversation#recordConversation)"
+            - item: "[Start recording a call](https://developer.nexmo.com/api/conversation#recordConversation)"
+            - item: "[Improved autoloading with Zeitwerk](https://github.com/fxn/zeitwerk)"
       - type: github_repo
         github_repo:
           repo_url: https://github.com/Nexmo/nexmo-ruby
           github_repo_title: "nexmo-ruby"
           language: "Ruby"
 
-    - column:
-      - type: structured_text
-        structured_text:
-          header: "`verify_nexmo_signature`"
-          icon:
-            name: "icon-world"
-            color: red
-          text:
-          - content: "We are happy to release at this RubyConf a brand new Rack middleware that makes verifying signed messages easy and simple. All you need to do is include the  [Verify Nexmo Signatures Rack Middleware](https://github.com/Nexmo/rack-verify-signature-middleware) in your application's middleware stack and it will do all the work for you. Verified messages will continue through your application, and messages that were not successfully verified will return a `403` HTTP status code."
-            type: large
-          - content: "For more details on the new middleware, check out the [README](https://github.com/Nexmo/rack-verify-signature-middleware/blob/master/README.md).<br /><br />"
-            type: large
-      - type: github_repo
-        github_repo:
-          repo_url: https://github.com/Nexmo/rack-verify-signature-middleware
-          github_repo_title: "verify_nexmo_signature"
-          language: "Ruby"
   - row:
     - column:
         - type: line_divider
