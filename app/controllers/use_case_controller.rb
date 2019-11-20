@@ -40,7 +40,8 @@ class UseCaseController < ApplicationController
 
   def show
     # Read document
-    @document_path = "_use_cases/#{@document}.md"
+    # TODO: make this work with I18n fallback
+    @document_path = "_use_cases/#{I18n.default_locale}/#{@document}.md"
     document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
@@ -51,9 +52,14 @@ class UseCaseController < ApplicationController
 
     @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
 
-    @namespace_path = "_documentation/#{@product}"
-    @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.root}/_documentation"
+    @sidenav = Sidenav.new(
+      namespace: params[:namespace],
+      language: @language,
+      request_path: request.path,
+      navigation: @navigation,
+      code_language: params[:code_language],
+      product: @product
+    )
 
     render layout: 'documentation'
   end

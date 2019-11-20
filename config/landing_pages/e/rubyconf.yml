@@ -210,7 +210,7 @@ page:
             name: "icon-world"
             color: red
           text:
-          - content: "We are happy to announce a brand new Rack middleware here at RubyConf! Designed to make verifying signed messages as easy as possible, all you need to do is include the [Verify Nexmo Signatures Rack Middleware](https://github.com/Nexmo/nexmo-rack) in your application's middleware stack and it'll take care of the rest. Verified inbound messages will continue through to your application, and messages that were not successfully verified will return a `403` HTTP status code."
+          - content: "We are happy to announce a brand new Rack middleware here at RubyConf! Designed to make working with Nexmo webhooks as easy as possible, all you need to do is include [nexmo_rack](https://github.com/Nexmo/nexmo-rack) in your application's middleware stack and it'll take care of the rest. The first feature is verifying signed SMS messages. Verified inbound messages will continue through to your application, and messages that were not successfully verified will return a `403` HTTP status code."
             type: large
           - content: "For more details on the new middleware, check out the [README](https://github.com/Nexmo/nexmo-rack/blob/master/README.md).<br /><span style='display:block; margin-bottom: 66px;' />"
             type: large

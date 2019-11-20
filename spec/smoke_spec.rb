@@ -47,11 +47,6 @@ RSpec.describe 'Smoke Tests', type: :request do
     expect(response.body).to include('Join the Nexmo Community Slack')
   end
 
-  it '/contribute redirects' do
-    get '/contribute'
-    expect(response.body).to include('<html><body>You are being <a href="http://www.example.com/contribute/overview">redirected</a>.</body></html>')
-  end
-
   it '/contribute/overview contains the expected text' do
     get '/contribute/overview'
     expect(response.body).to include('We\'re always looking at ways to improve our documentation and platform and would love to invite you to contribute your suggestions not only to the content but also the open-source platform that it is built upon.')
@@ -68,6 +63,7 @@ RSpec.describe 'Smoke Tests', type: :request do
   end
 
   it '/team contains the expected text' do
+    expect(Greenhouse).to receive(:careers).and_return([])
     get '/team'
     expect(response.body).to include('Our mission is to build a world-class open source documentation platform to help developers build connected products.')
   end
