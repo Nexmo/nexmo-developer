@@ -19,8 +19,22 @@ Using the Github project you cloned, in the Start folder, open `GettingStarted.x
 
 2. From the `Make-phone-call` group, open `MakePhoneCallViewController.m` file and make sure the following lines exist:
 
- * `#import <NexmoClient/NexmoClient.h>` - imports the sdk
- * `@property User *user;` - sets the user that places the call
- * `@property NXMClient *client;` - property for the client instance
- * `@property NXMCall *call;` - property for the call instance
+* imports the SDK
+    ```objective-c
+    #import <NexmoClient/NexmoClient.h>
+    ```
 
+* Sets the user that places the call
+    ```objective-c
+    @property User *user;
+    ```
+
+* Property for the client instance
+    ```objective-c
+    @property NXMClient *client;
+    ```
+
+* Property for the call instance
+    ```objective-c
+    @property NXMCall *call;
+    ```
