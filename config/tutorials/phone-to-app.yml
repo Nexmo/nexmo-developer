@@ -1,5 +1,5 @@
-title: Handling an inbound PSTN call in your app
-description: You make a phone call from a PSTN handset that is received by your web app.
+title: Receiving an in-app voice call
+description: Your web app receives an inbound phone call.
 products:
   - client-sdk
 
@@ -30,9 +30,9 @@ tasks:
 - link-nexmo-number
 - client-sdk/create-user
 - client-sdk/generate-jwt
-- client-sdk/create-webhook-server-phone-to-app
-- client-sdk/phone-to-app-code
-- client-sdk/run-phone-to-app
+- client-sdk/phone-to-app/create-webhook-server-phone-to-app
+- client-sdk/phone-to-app/phone-to-app-code
+- client-sdk/phone-to-app/run-phone-to-app
 
 conclusion:
   title: What's next?

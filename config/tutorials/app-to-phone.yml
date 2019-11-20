@@ -1,5 +1,5 @@
-title: Making a phone call from a web app
-description: You make a phone call from a web app to a PSTN handset.
+title: Making an in-app voice call
+description: You make a voice call from a web app to a phone.
 products:
   - client-sdk
 
@@ -31,9 +31,9 @@ tasks:
 - client-sdk/create-application
 - client-sdk/create-user
 - client-sdk/generate-jwt
-- client-sdk/create-webhook-server-app-to-phone
-- client-sdk/app-to-phone-code
-- client-sdk/run-app-to-phone
+- client-sdk/app-to-phone/create-webhook-server-app-to-phone
+- client-sdk/app-to-phone/app-to-phone-code
+- client-sdk/app-to-phone/run-app-to-phone
 
 conclusion:
   title: What's next?
