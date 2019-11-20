@@ -140,6 +140,8 @@ gem 'country_select', '~> 4.0'
 
 gem 'nexmo-oas-renderer', '~> 0.6.6', require: false
 
+gem 'smartling'
+
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
 

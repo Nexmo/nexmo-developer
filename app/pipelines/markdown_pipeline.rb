@@ -24,7 +24,7 @@ class MarkdownPipeline < Banzai::Pipeline
       TechioFilter,
       UseCaseListFilter,
       CodeSnippetListFilter,
-      ConceptListFilter,
+      ConceptListFilter.new(options),
       LanguageFilter,
       ColumnsFilter,
       MarkdownFilter.new(options),

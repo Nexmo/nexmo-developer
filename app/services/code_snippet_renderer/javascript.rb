@@ -1,24 +1,19 @@
 module CodeSnippetRenderer
-  class Javascript
+  class Javascript < Base
     def self.dependencies(deps)
       { 'code' => "npm install #{deps.join(' ')}" }
     end
 
     def self.run_command(command, _filename, _file_path)
-      <<~HEREDOC
-        ## Run your code
-         Save this file to your machine and run it:
-         <pre class="highlight bash run-command"><code>#{command}</code></pre>
-
-      HEREDOC
+      t('services.code_snippet_renderer.run_command', command: command)
     end
 
     def self.create_instructions(filename)
-      "<p>Create a file named <code>#{filename}</code> and add the following code:</p>"
+      t('services.code_snippet_renderer.create_instructions', filename: filename)
     end
 
     def self.add_instructions(filename)
-      "<p>Add the following to <code>#{filename}</code>:</p>"
+      t('services.code_snippet_renderer.add_instructions_to_file', file: filename)
     end
   end
 end

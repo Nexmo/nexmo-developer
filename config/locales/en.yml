@@ -30,7 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+
   menu:
     messaging: Messaging
     voice: Voice
@@ -94,3 +94,80 @@ en:
     viber: Viber Service Messages
     subaccounts: Subaccounts (Beta)
     use-cases: Use Cases
+  layouts:
+    partials:
+      header:
+        documentation: Documentation
+        tutorials: Tutorials
+        api-reference: API Reference
+        sdks-and-tools: SDKs & Tools
+        community: Community
+        extend: Extend
+        hiring: We're hiring
+        support: Support
+        sign-in: Sign In
+        try-it: Try it free
+        get_an_api_key: Get an API key
+        start_building: Start building for free
+
+  code_snippets:
+    copy_to_clipboard: Copy to Clipboard
+    use_your_app: Use your existing application
+    create_an_app: Create an application
+    install_the_cli: Install the CLI
+    nexmo_application_contains_html: >-
+      A Nexmo application contains the required configuration for your project. You can create an application using the <a href="https://github.com/Nexmo/nexmo-cli">Nexmo CLI</a> (see below) or <a href="https://dashboard.nexmo.com/voice/create-application">via the dashboard</a>. To learn more about applications <a href="/concepts/guides/applications">see our Nexmo concepts guide</a>.
+    once_you_have_the_cli_installed_html: >-
+      Once you have the CLI installed you can use it to create a Nexmo application. Run the following command and make a note of the application ID that it returns. This is the value to use in <code>NEXMO_APPLICATION_ID</code> in the example below. It will also create <code>private.key</code> in the current directory which you will need in the <em>Initialize your dependencies</em> step
+    nexmo_needs_to_connect_html: >-
+      Nexmo needs to connect to your local machine to access your <code>answer_url</code>. We recommend using <a href="https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/">ngrok</a> to do this. Make sure to change <code>demo.ngrok.io</code> in the examples below to your own ngrok URL.
+    write_code:
+      view_full_source: View full source
+      write_the_code: Write the code
+    configure_client:
+      initialize_dependencies: Initialize your dependencies
+    application_messages_dispatch:
+      no_application_html: If you do not have an application you can <a href="/messages/code-snippets/create-an-application">create one</a>. Make sure you also <a href="/messages/code-snippets/configure-webhooks">configure your webhooks</a>.
+    application_rtc:
+      use_your_existing_app: Or to use your existing Nexmo application
+      use_an_app_to_authenticate: You will need to use an existing Nexmo application and authenticate a User in order to achieve results here.
+      see_the_docs_html: >-
+        See the <a href="https://developer.nexmo.com/conversation/overview">Conversation API docs</a> for information on how to create an Application and Users on your backend server.
+      alternatively_you_can_review_html: >-
+        Alternatively you can review the <a href="https://developer.nexmo.com/tutorials/client-sdk-generate-test-credentials">tutorial on getting started with generating an Application and credentials</a>.
+
+  filters:
+    generate_your_jwt: Generate your JWT
+    install_dependencies: Install dependencies
+    prerequisites: Prerequisites
+
+  services:
+    code_snippet_renderer:
+      add_instructions_to_file: 'Add the following to `%{file}`:'
+      add_instructions_to_code: 'Add the following to your code:'
+      create_instructions: 'Create a file named `%{filename}` and add the following code:'
+      run_command: >-
+        ## Run your code
+          Save this file to your machine and run it:
+            <pre class='highlight bash run-command'><code>%{command}</code></pre>
+
+      curl:
+        only_permitted_dependency: The only permitted curl dependency is `jwt`
+        text: >-
+          Execute the following command at your terminal prompt to create the <a href="/concepts/guides/authentication#json-web-tokens-jwt">JWT</a> for authentication:
+      java:
+        add_instructions: 'Add the following to the `main` method of the `%{file}` class:'
+        create_instructions: 'Create a class named `%{file}` and add the following code to the `main` method:'
+        run_command: >-
+          ## Run your code
+            We can use the `application` plugin for Gradle to simplify the running of our application.
+             Update your `build.gradle` with the following:
+
+             ```groovy
+            apply plugin: 'application'
+            mainClassName = project.hasProperty('main') ? project.getProperty('main') : ''
+            ```
+
+            Run the following `gradle` command to execute your application, replacing `%{chomped_package}` with the package containing `%{file}`:
+
+            <pre class="highlight bash run-command"><code>gradle run -Pmain=%{main}</code></pre>

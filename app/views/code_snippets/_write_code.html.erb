@@ -1,13 +1,13 @@
-<h2 class="Vlt-title--margin-top3">Write the code</h2>
+<h2 class="Vlt-title--margin-top3"><%= I18n.t('.code_snippets.write_code.write_the_code') %></h2>
 <%= add_instructions %>
 
 <div class="copy-wrapper">
   <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="code">
-    <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
+    <%= octicon "clippy", :class => 'top left' %> <span><%= I18n.t('.code_snippets.copy_to_clipboard') %></span>
   </div>
   <pre class="highlight <%= lexer.tag %> main-code"><code><%= highlighted_code_source %></code></pre>
 
 </div>
 
-<p><a data-section="code" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= source_url %>">View full source</a></p>
+<p><a data-section="code" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= source_url %>"><%= I18n.t('.code_snippets.write_code.view_full_source') %></a></p>
 
