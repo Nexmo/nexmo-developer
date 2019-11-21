@@ -5,6 +5,16 @@ navigation_weight: 0
 ---
 
 # Release Notes
+## 1.1.1 - 2019-11-19
+
+### Added
+NXMClientConfig object in order to change data center configuration
+How to use:
+```
+[NXMClient setConfiguration:NXMClientConfig.DC]
+```
+NXMClient setConfiguration is optional, configuration will set to a default value.
+Note: you most call `setConfiguration` method before using `NXMClient.shared`.
 
 ## 1.1.0 - 2019-11-14
 ### Fixed
