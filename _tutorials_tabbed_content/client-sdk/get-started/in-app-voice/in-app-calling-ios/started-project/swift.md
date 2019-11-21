@@ -38,7 +38,7 @@ Using the Github project you cloned, in the Start folder, open `GettingStarted.x
     import NexmoClient
     ```
 
-* the NexmoClient shrared instance
+* the NexmoClient shared instance
     ```swift
     let client = NXMClient.shared
     ```
