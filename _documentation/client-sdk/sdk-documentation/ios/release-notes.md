@@ -5,7 +5,7 @@ navigation_weight: 0
 ---
 
 # Release Notes
-## 1.1.1 - 2019-11-19
+## 1.1.1 - 2019-11-21
 
 ### Added
 NXMClientConfig object in order to change data center configuration
