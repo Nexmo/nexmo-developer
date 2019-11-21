@@ -28,7 +28,7 @@ tasks:
   - client-sdk/create-conversation
   - client-sdk/ip-messaging/create-users
   - client-sdk/ip-messaging/add-users-to-conversation
-  - client-sdk/ip-messaging/generate-jwts
+  - client-sdk/generate-jwts
   - client-sdk/ip-messaging/create-ui
   - client-sdk/ip-messaging/authenticate-users
   - client-sdk/ip-messaging/join-conversation
