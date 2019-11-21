@@ -17,7 +17,7 @@ navigation_weight: 0
 ### Fixes
 
 - Update styling of `JSDocs` to `Docstrap` template
-- Change `RTCPeerConnection ICE candidates` gathering process to send the Sesssion Description Protocol (`SDP`) offer on first `ICE` candidate gathered
+- Change `RTCPeerConnection ICE candidates` gathering process to send the Session Description Protocol (`SDP`) offer on first `ICE` candidate gathered
 
 ## 6.0.4
 
