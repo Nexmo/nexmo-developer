@@ -177,7 +177,7 @@ RSpec.describe Tutorial, type: :model do
         allow(File).to receive(:exist?).with("#{Tutorial.task_content_path}/en/missing-step.md").and_return(false)
         create_example_config
         tutorial = described_class.load('example-tutorial', 'introduction')
-        expect { tutorial.content_for('missing-step') }.to raise_error('Invalid step: missing-step')
+        expect { tutorial.content_for('missing-step') }.to raise_error(DocFinder::MissingDoc, 'Invalid step: missing-step')
       end
     end
   end
