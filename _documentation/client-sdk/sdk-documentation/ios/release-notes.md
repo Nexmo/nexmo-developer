@@ -13,7 +13,7 @@ navigation_weight: 0
 - Receiving a DTMF event in call and conversation
 
 ### Added
-NXMConverastionDelegate did receive DTMF event method
+NXMConversationDelegate did receive DTMF event method
 ```
 - (void)conversation:(nonnull NXMConversation *)conversation didReceiveDTMFEvent:(nullable NXMDTMFEvent *)event;
 ```
