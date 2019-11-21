@@ -50,10 +50,11 @@ Also, Caller Line Identity. See [Caller ID](#caller-id)
 
 ## Client libraries
 
-Nexmo provides client libraries for various programming languages. These client libraries allow you to develop
-Nexmo applications quickly and reduce time to market.
+See [Server SDKs](#server-sdks).
 
-Further information can be found on the [Nexmo Tools page](https://developer.nexmo.com/tools).
+## Client SDK
+
+The [Client SDK](/client-sdk/overview) enables you to add in-app voice and messaging capabilities to your JavaScript, Android, and iOS applications.
 
 ## Cloud number
 
@@ -64,6 +65,10 @@ See also [Virtual Number](#virtual-number).
 ## Conversions
 
 The successful validation that a message was delivered to a user.
+
+## Conversation API
+
+The [Conversation API](/conversation/overview) provides an API to enable you to build applications based on Conversations. Conversations are containers that provide a way to store communications between logged in users. For example a Conversation can store a messaging history and, through [custom events](/client-sdk/custom-events), other data such as an order history.
 
 ## Dashboard
 
@@ -396,6 +401,13 @@ Real-Time Transport Protocol. Media protocol used for transfer of voice data onc
 ## Sender ID
 
 The phone number or message shown on a handset when it receives an SMS API message.
+
+## Server SDKs
+
+Nexmo provides Server SDKs for various programming languages. These SDKs allow you to develop
+Nexmo applications quickly and reduce time to market.
+
+Further information can be found on the [Nexmo Tools page](https://developer.nexmo.com/tools).
 
 ## Shared Short Codes
 
