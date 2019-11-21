@@ -6,12 +6,18 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.6 - November 19, 2019
+
+### Fixes
+
+- Add `iceGatherOnlyOneCandidate` configuration option and use to define path in `ICE gathering` process
+
 ## Version 6.0.5 - November 19, 2019
 
 ### Fixes
 
-- Update styling of JavaScript documentation to DocStrap template
-- Change ice gathering process to send sdp on first ice candidate gathered
+- Update styling of `JSDocs` to `Docstrap` template
+- Change `RTCPeerConnection ICE candidates` gathering process to send the Sesssion Description Protocol (`SDP`) offer on first `ICE` candidate gathered
 
 ## 6.0.4
 
