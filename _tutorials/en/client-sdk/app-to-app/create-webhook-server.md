@@ -59,7 +59,7 @@ app.post('/webhooks/rtc', (req, res) => {
 });
 
 app.get('/', function(req, res) {
-    res.send("<p>Load /user1 and then in an incognito tab load /user2</p>");
+    res.send("<p>Load <b>/user1</b> and then in an incognito tab load <b>/user2</b></p>");
 });
 
 app.get('/user1', function(req, res) {
