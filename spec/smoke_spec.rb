@@ -63,7 +63,7 @@ RSpec.describe 'Smoke Tests', type: :request do
   end
 
   it '/team contains the expected text' do
-    expect(Greenhouse).to receive(:careers).and_return([])
+    expect(Greenhouse).to receive(:devrel_careers).and_return([])
     get '/team'
     expect(response.body).to include('Our mission is to build a world-class open source documentation platform to help developers build connected products.')
   end
