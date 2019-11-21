@@ -29,11 +29,11 @@ prerequisites:
 
 tasks:
 - client-sdk/create-application
-- client-sdk/create-user
-- client-sdk/generate-jwt
+- client-sdk/generate-jwts
 - client-sdk/app-to-app/create-webhook-server
-- client-sdk/app-to-app/app-to-app-code
-- client-sdk/app-to-app/run-app-to-app
+- client-sdk/app-to-app/call-code
+- client-sdk/app-to-app/receive-code
+- client-sdk/app-to-app/run
 
 conclusion:
   title: What's next?
