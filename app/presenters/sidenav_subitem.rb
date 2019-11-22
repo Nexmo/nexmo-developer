@@ -45,20 +45,4 @@ class SidenavSubitem < SidenavItem
       :use_case
     end
   end
-
-  def active?
-    if navigation == :tutorials
-      active_path.starts_with?(url)
-    else
-      url == active_path
-    end
-  end
-
-  def active_path
-    @active_path ||= request_path.chomp("/#{code_language}")
-  end
-
-  def link_css_class
-    active? ? 'Vlt-sidemenu__link_active' : ''
-  end
 end

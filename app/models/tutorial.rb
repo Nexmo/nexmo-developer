@@ -11,7 +11,7 @@ class Tutorial
     # TODO: make this work with I18n fallback
     path = "#{self.class.task_content_path}/#{I18n.default_locale}/#{step_name}.md"
 
-    raise "Invalid step: #{step_name}" unless File.exist? path
+    raise DocFinder::MissingDoc, "Invalid step: #{step_name}" unless File.exist? path
     File.read(path)
   end
 

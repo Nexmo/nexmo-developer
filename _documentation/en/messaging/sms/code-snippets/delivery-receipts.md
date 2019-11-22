@@ -8,6 +8,8 @@ navigation_weight: 4
 
 You can verify that a message you sent using Nexmo's SMS API reached your customer by requesting a [delivery receipt](/messaging/sms/guides/delivery-receipts) from the carrier.
 
+> **NOTE:** Not all networks and countries support delivery receipts. You can check our knowledge base for some further information on what you [might receive](https://help.nexmo.com/hc/en-us/articles/204014863) if the network does not support delivery receipts.
+
 To access the delivery receipt, you need to:
 
 * [Create a webhook endpoint](/messaging/sms/code-snippets/before-you-begin#webhooks) using one of the code examples shown below
@@ -32,7 +34,7 @@ image: public/assets/screenshots/smsDLRsettings.png
 
 ## Try it out
 
-[Send a message](send-an-sms) to a mobile number and you will receive a delivery receipt in the following format:
+[Send a message](send-an-sms) to a mobile number and, if the network supports it, you will receive a delivery receipt in the following format:
 
 ```json
 {
@@ -49,4 +51,3 @@ image: public/assets/screenshots/smsDLRsettings.png
 ```
 
 > **NOTE:** After you send a message there may be a delay before you receive the delivery receipt.
-
