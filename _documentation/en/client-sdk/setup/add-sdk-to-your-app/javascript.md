@@ -78,3 +78,7 @@ let nexmo = new NexmoClient()
 ## Conclusion
 
 You added the Nexmo Client SDK to your client-side JavaScript app and logged in to a `NexmoClient` instance, which returned an `Application` object. You can now use `Application.newConversation()` to create a conversation, and then access the functionality of a `Conversation`.
+
+## See also
+
+* [Data Center Configuration](/client-sdk/setup/configure-data-center) - this is an advanced optional configuration you can carry out after adding the SDK to your application.

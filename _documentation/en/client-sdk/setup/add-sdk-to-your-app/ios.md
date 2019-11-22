@@ -116,3 +116,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/user'
 ## Conclusion
 
 You added the Nexmo Client SDK to your iOS app, and logged in to a `NXMClient` instance. You can now use the `NXMClient` client in your app, and use the Nexmo Client SDK functionality.
+
+## See also
+
+* [Data Center Configuration](/client-sdk/setup/configure-data-center) - this is an advanced optional configuration you can carry out after adding the SDK to your application.
