@@ -404,7 +404,7 @@ The phone number or message shown on a handset when it receives an SMS API messa
 
 ## Server SDKs
 
-Nexmo provides Server SDKs for various programming languages. These SDKs allow you to develop
+Nexmo provides Server SDKs for various programming languages. These SDKs abstract away much of the complexity involved with accessing our APIs directly, enabling you to develop
 Nexmo applications quickly and reduce time to market.
 
 Further information can be found on the [Nexmo Tools page](https://developer.nexmo.com/tools).
