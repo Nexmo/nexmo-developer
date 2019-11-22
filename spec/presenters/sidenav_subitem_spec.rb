@@ -54,12 +54,4 @@ RSpec.describe SidenavSubitem do
       it { expect(subject.url).to eq('/product-lifecycle/beta') }
     end
   end
-
-  describe '#active?' do
-    it { expect(subject.active?).to eq(true) }
-  end
-
-  describe '#link_css_class' do
-    it { expect(subject.link_css_class).to eq('Vlt-sidemenu__link_active') }
-  end
 end
