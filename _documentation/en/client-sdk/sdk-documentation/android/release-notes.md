@@ -6,6 +6,55 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 1.0.3 - 2019-11-20
+
+###Changes
+
+- change signature of `NexmoClient.login()`, remove `NexmoRequestListener<NexmoUser>` parameter:
+
+```
+    nexmoClient = new NexmoClient.Builder().build(context);
+    nexmoClient.setConnectionListener(new NexmoConnectionListener() {
+          @Override
+          public void onConnectionStatusChange(ConnectionStatus connectionStatus, ConnectionStatusReason connectionStatusReason) {
+              switch (connectionStatus){
+                case CONNECTED:
+                    //the client is connected to the server - the login successed 
+                case DISCONNECTED:
+                case CONNECTING:
+                case UNKNOWN:
+                    //the client is not connected to the server - the login failed/not yet successed 
+            } 
+          });
+    NexmoClient.login("MY_AUTH_TOKEN")
+```
+
+- change signature of `NexmoPushEventListener.onIncomingCall()`, remove `MemberEvent` parameter:
+
+```
+    override public void onMessageReceived(@Nullable RemoteMessage message) {
+    if (NexmoClient.isNexmoPushNotification(message.getData())) {
+                handleNexmoPushForLoggedInUser(message)
+            } 
+    }
+    nexmoClient.processPushNotification(message.getData(), new NexmoPushEventListener(){
+        public void onIncomingCall(NexmoCall nexmoCall){
+        }
+        public void onNewEvent(NexmoEvent event){
+        }
+
+        public void onError(NexmoApiError error){
+        }
+    })
+```
+
+### Fixed
+
+- fix `NexmoConversation.sendAttachment` bug
+- fix `NexmoAttachmentEvent` received from backend
+- fix race condition bug cause drop calls
+- fix bug in push notification
+
 ## Version 1.0.2 - 2019-11-11
 
 ### Changes

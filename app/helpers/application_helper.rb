@@ -18,10 +18,12 @@ module ApplicationHelper
     end
   end
 
-  def show_canonical_meta?
-    return true if params[:code_language].present?
-    return true if Rails.env.production? && request.base_url != 'https://developer.nexmo.com'
-    false
+  def active_sidenav_item
+    if params[:tutorial_name]
+      "/#{params[:product]}/tutorials/#{params[:tutorial_name]}"
+    else
+      request.path.chomp("/#{params[:code_language]}")
+    end
   end
 
   def canonical_path

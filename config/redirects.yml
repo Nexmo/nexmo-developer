@@ -252,3 +252,5 @@
 "/vonage-business-cloud/vbc-apis/getting-started": "/vonage-business-cloud/vbc-apis/getting-started/create-application"
 "/send-an-sms": "/messaging/sms/code-snippets/send-an-sms"
 "/api/developer/pricing": "/api/pricing"
+"/concepts/guides/webhooks#using-ngrok-for-local-development": "/en/concepts/guides/testing-with-ngrok"
+"/client-sdk/tutorials/in-app-messaging/client-sdk/create-ui-ip-messaging": "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/create-ui"

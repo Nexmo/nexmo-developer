@@ -23,8 +23,8 @@ Please read this information carefully before attempting to use the code snippet
 
 The following resources will help you use the [Number Insight Advanced Async](number-insight-advanced-async) code snippet:
 
-- [Webhooks](https://developer.nexmo.com/concepts/guides/webhooks)
-- [Using Ngrok for local development](https://developer.nexmo.com/concepts/guides/webhooks#using-ngrok-for-local-development)
+- [Webhooks](/concepts/guides/webhooks)
+- [Using Ngrok for local development](/concepts/guides/testing-with-ngrok)
 
 ## Replaceable variables
 

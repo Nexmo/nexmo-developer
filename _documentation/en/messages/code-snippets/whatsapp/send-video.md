@@ -5,7 +5,7 @@ meta_title: Send a Video message with WhatsApp
 
 # Send a Video Message
 
-In this code snippet you will see how to send a video message through WhatsApp using the Messages API.
+In this code snippet you will see how to send a video message through WhatsApp using the Messages API. For WhatsApp the maximum outbound media size is 64MB.
 
 ## Example
 
