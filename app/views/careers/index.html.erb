@@ -7,7 +7,7 @@
     <div class="Vlt-col">
       <div class="Vlt-native-dropdown">
         <%= select_tag 'department',
-          options_from_collection_for_select(Career::DEPARTMENTS, :first, :first),
+          options_from_collection_for_select(Career::DEPARTMENTS.sort, :first, :first),
           prompt: 'Filter by department',
           id: 'department-filter'
         %>
@@ -24,7 +24,7 @@
 
   <div class="Vlt-grid">
     <div class="Vlt-col" id="careers">
-      <% Career::DEPARTMENTS.each do |name, codes| %>
+      <% Career::DEPARTMENTS.sort.each do |name, codes| %>
         <div class="Vlt-grid Nxd-department" data-department="<%= name %>">
           <div class="Vlt-col Vlt-col--2of2">
             <h3><%= name %></h3>
