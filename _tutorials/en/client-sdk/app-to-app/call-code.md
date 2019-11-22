@@ -7,7 +7,7 @@ description: In this step you learn how to write the code to make an in-app voic
 
 Create an HTML file called `index1.html` in your project directory.
 
-Add the following code, but make sure you paste the JWT you generated for the user making the call in the [earlier step](/client-sdk/tutorials/app-to-app/client-sdk/generate-jwts) to the `USER_JWT` constant:
+Add the following code, but make sure you paste the JWT you generated for the user _making_ the call in the [earlier step](/client-sdk/tutorials/app-to-app/client-sdk/generate-jwts) to the `USER_JWT` constant:
 
 ``` html
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ Add the following code, but make sure you paste the JWT you generated for the us
   <body>
     <form id="call-app-form">
       <h1>Call App from App</h1>
-      <input type="text" name="username" value="">
+      <input type="text" name="username" value="" />
       <input type="submit" value="Call" />
     </form>
     <button id="btn-hangup" type="button">Hang Up</button>
@@ -27,28 +27,29 @@ Add the following code, but make sure you paste the JWT you generated for the us
       const callAppForm = document.getElementById("call-app-form");
       const btnHangUp = document.getElementById("btn-hangup");
       new NexmoClient({ debug: true })
-    .login(USER_JWT)
-    .then(app => {
-        callAppForm.addEventListener("submit", event => {
+        .login(USER_JWT)
+        .then(app => {
+          callAppForm.addEventListener("submit", event => {
             event.preventDefault();
             let username = callAppForm.children.username.value;
-            console.log('username: --> ', username)
+            console.log("username: --> ", username);
             app.callServer(username, "app");
-        });
-        app.on("member:call", (member, call) => {
+          });
+
+          app.on("member:call", (member, call) => {
             btnHangUp.addEventListener("click", () => {
-                console.log("Hanging up...");
-                call.hangUp();
+              console.log("Hanging up...");
+              call.hangUp();
             });
-        });
-    })
-    .catch(console.error);
+          });
+        })
+        .catch(console.error);
     </script>
   </body>
 </html>
 ```
 
-This is your web application that uses the Client SDK to make a voice call to the destination *application* via Nexmo.
+This is your client application that uses the Client SDK to make a voice call to the destination *user*.
 
 There are several key components to this code:
 
