@@ -4,7 +4,7 @@ title: Programmable SIP
 
 # Programmable SIP
 
-> **NOTE:** Programmable SIP is currently in Developer Preview.
+> **NOTE:** Programmable SIP is currently in Developer Preview. In order to get set up with Programmable SIP, please contact [Support](mailto:support@nexmo.com) if you are prepaid customer, and [Sales](mailto:sales@nexmo.com) if you are a postpaid customer.
 
 ## Overview
 
