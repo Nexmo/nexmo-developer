@@ -68,7 +68,7 @@ The successful validation that a message was delivered to a user.
 
 ## Conversation API
 
-The [Conversation API](/conversation/overview) provides an API to enable you to build applications based on Conversations. Conversations are containers that provide a way to store communications between logged in users. For example a Conversation can store a messaging history and, through [custom events](/client-sdk/custom-events), other data such as an order history.
+The [Conversation API](/conversation/overview) enables you to build applications based on Conversations. [Conversations](/conversation/concepts/conversation) are containers that provide a way to store communications between logged in users. For example a Conversation can store a messaging history and, using [custom events](/client-sdk/custom-events), details of other interactions such as all the orders placed by a specific user.
 
 ## Dashboard
 
