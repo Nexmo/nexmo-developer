@@ -54,8 +54,6 @@ This is your client application that uses the Client SDK to make a voice call to
 There are several key components to this code:
 
 1. A simple UI that allows you to enter a username and then click the `Call` button to make the the in-app call to the specified user.
-2. Code that logs the user into the Client SDK (a JWT is used for authentication).
-3. The function to make the call is `callServer(username, type)`, where `type` in this case is "app", as the destination is an application.
-4. When a call is made a button handler is loaded. When the `Hang Up` button is clicked `call.hangUp()` terminates the call.
-
-> **NOTE:** This code has been intentionally kept as simple as possible, but is not suitable for a production application.
+2. Code that logs the user into the Client SDK (a JWT is used for authentication) using `.login(USER_JWT)`.
+3. The function to make the call is `callServer(username, type)`, where `type` in this case is "app", as the destination is the specified user.
+4. When a call is made, a button handler is loaded. When the `Hang Up` button is clicked `call.hangUp()` terminates the call.

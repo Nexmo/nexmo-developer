@@ -49,9 +49,7 @@ This is your client application that uses the Client SDK to receive a voice call
 
 There are several key components to this code:
 
-1. A simple UI that allows you to see when there is an inbound call and click to answer it.
-2. Code that logs the user into the Client SDK (a JWT is used for authentication).
+1. A simple UI that allows you to see if there is an inbound call and click `Answer` to answer it.
+2. Code that logs the user into the Client SDK (a JWT is used for authentication), `.login(USER_JWT)`.
 3. The event handler to answer the call when the answer button is clicked.
-4. An event handler and UI to display the call status.
-
-> **NOTE:** This code has been intentionally kept as simple as possible, but is not suitable for a production application.
+4. An event handler and UI to display when the call status changes through the `call:status:changed` event.
