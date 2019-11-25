@@ -15,7 +15,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 9000;
+const port = 3000;
 
 app.use(express.static('node_modules/nexmo-client/dist'));
 app.use(bodyParser.json());

@@ -32,7 +32,6 @@ Add the following code, but make sure you paste the JWT you generated for the us
           callAppForm.addEventListener("submit", event => {
             event.preventDefault();
             let username = callAppForm.children.username.value;
-            console.log("username: --> ", username);
             app.callServer(username, "app");
           });
 

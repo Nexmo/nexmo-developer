@@ -11,12 +11,12 @@ introduction:
     In this tutorial, you will learn how to create a Client SDK application and then write the code to make a 
     phone call from your web app to another web app.
 
-    To achieve this, you will need:
+    To achieve this, you will create:
 
-    * A web application that will make the voice call using the Client SDK
+    * A web application that will make the app to app voice call using the Client SDK.
     * A webhook server that can process an inbound webhook and return an <abbr title="Nexmo Call Control Object">NCCO</abbr> to forward the inbound voice call to the destination app.
 
-    When the call is triggered from your application, Nexmo will make a request to your webhook server. You then use an NCCO and forward the call to the destination app.
+    When the in-app call is triggered from your application, Nexmo will make a request to your webhook server. You then use an NCCO and forward the call to the destination app.
 
 
 prerequisites:
