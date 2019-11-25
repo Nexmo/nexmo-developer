@@ -31,7 +31,7 @@ We will use the `getEvents` method to retrieve all the events that occurred in t
 
 The `getEvents` method returns a subset or "page" of events with each invocation. The number of events it returns is based on the `page_size` parameter. The default is 10 results, the maximum is 100.
 
-> **Note**: See the [EventsPage](/sdk/stitch/javascript/EventsPage.html) documentation for helper methods you can use to work with this paginated data.
+> **Note**: See the [documentation](/sdk/stitch/javascript/EventsPage.html) for helper methods you can use to work with this paginated data.
 
 ```javascript
 showConversationHistory(conversation) {
