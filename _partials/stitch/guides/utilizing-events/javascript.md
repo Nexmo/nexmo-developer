@@ -25,7 +25,13 @@ We will use the application we already created for [the second getting started g
 
 ### 1.1 - Add conversation history
 
-The first thing we're going to do is add history to the existing conversation. We're going to add a method that gets all the events that happened in the conversation and displays conversation history in the message feed.
+The first thing we're going to do is add history to the existing conversation. 
+
+We will use the `getEvents` method to retrieve all the events that occurred in the context of the conversation and display this history in the message feed.
+
+The `getEvents` method returns a subset or "page" of events with each invocation. The number of events it returns is based on the `page_size` parameter. The default is 10 results, the maximum is 100.
+
+> **Note**: See the [EventsPage](/sdk/stitch/javascript/EventsPage.html) documentation for helper methods you can use to work with this paginated data.
 
 ```javascript
 showConversationHistory(conversation) {
