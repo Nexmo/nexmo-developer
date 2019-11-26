@@ -51,7 +51,7 @@ class CodeSnippetFilter < Banzai::Filter
       run_html = @renderer.run_command(config['run_command'], config['file_name'], config['code']['source']).to_s
 
       prereqs = (application_html + dependency_html + client_html).strip
-      prereqs = "<h2>Prerequisites</h2>#{prereqs}" unless prereqs.empty?
+      prereqs = "<h2>#{I18n.t('.filters.prerequisites')}</h2>#{prereqs}" unless prereqs.empty?
       prereqs + code_html + run_html
     end
   end
@@ -118,9 +118,9 @@ class CodeSnippetFilter < Banzai::Filter
   def generate_dependencies(language, dependencies)
     # The only valid dependency for curl examples is `JWT`
     if dependencies.map(&:upcase).include?('JWT')
-      title = 'Generate your JWT'
+      title = I18n.t('filters.generate_your_jwt')
     else
-      title = 'Install dependencies'
+      title = I18n.t('filters.install_dependencies')
     end
     deps = @renderer.dependencies(dependencies)
     id = SecureRandom.hex

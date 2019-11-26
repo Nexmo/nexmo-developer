@@ -11,7 +11,7 @@
       Our mission is to build a world-class open source documentation platform to help developers build connected products.
     </p>
     <p class="p-large">
-      Here are some of the people behind Nexmo Developer. Oh, and we're hiring for <a href="#join">the developer relations team</a> and <a href="https://www.vonage.com/corporate/careers/">other teams at Nexmo</a>.
+      Here are some of the people behind Nexmo Developer. Oh, and we're hiring for <a href="#join">the developer relations team</a> and <a href="/careers">other teams at Nexmo</a>.
     </p>
 
     <br>
@@ -55,23 +55,10 @@
     <br>
 
     <div class="Vlt-grid Vlt-grid--margin-top1">
-      <% @careers.each do |career| %>
-        <div class="Vlt-col Vlt-col--1of2">
-          <div class="Vlt-card Vlt-card--center Nxd-career">
-            <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-code"/></svg>
-            <hr>
-            <h2>
-              <%= career.title %>
-              <small class="Nxd-career__subtitle"><%= career.location %></small>
-            </h2>
-
-            <div class='Nxd-career__content'>
-              <%= raw Truncato.truncate(career.description, max_length: 450) %>
-            </div>
-            <%= link_to "Find out more", career.url, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
-          </div>
-        </div>
-      <% end %>
+      <%= render partial: 'career', collection: @careers %>
     </div>
+
+
+    <a class='Vlt-btn Vlt-btn--secondary Vlt-btn--app' href='/careers'>View all our open positions</a>
   </div>
 </div>

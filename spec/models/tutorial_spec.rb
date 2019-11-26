@@ -45,12 +45,16 @@ RSpec.describe Tutorial, type: :model do
     end
 
     it 'returns a tutorial with an introduction and a conclusion but no tutorials' do
+      path = 'config/tutorials/en/example-tutorial.yml'
       config = {
         'title' => 'No tutorials',
         'description' => 'Description here',
         'products' => ['demo'],
       }
-      allow(File).to receive(:read).with("#{Tutorial.task_config_path}/example-tutorial.yml") .and_return(config.to_yaml)
+      expect(DocFinder).to receive(:find)
+        .with(root: 'config/tutorials', document: 'example-tutorial', language: :en, format: 'yml')
+        .and_return(path)
+      expect(File).to receive(:read).with(path).and_return(config.to_yaml)
 
       tutorial = described_class.load('example-tutorial', 'introduction')
       expect(tutorial.subtasks).to eq([])
@@ -170,10 +174,10 @@ RSpec.describe Tutorial, type: :model do
       end
 
       it 'raises if it does not exist' do
-        allow(File).to receive(:exist?).with("#{Tutorial.task_content_path}/missing-step.md") .and_return(false)
-        create_example_config(false, false)
+        allow(File).to receive(:exist?).with("#{Tutorial.task_content_path}/en/missing-step.md").and_return(false)
+        create_example_config
         tutorial = described_class.load('example-tutorial', 'introduction')
-        expect { tutorial.content_for('missing-step') }.to raise_error('Invalid step: missing-step')
+        expect { tutorial.content_for('missing-step') }.to raise_error(DocFinder::MissingDoc, 'Invalid step: missing-step')
       end
     end
   end
@@ -208,8 +212,9 @@ def conclusion_subtask
 end
 
 def create_example_config(intro = false, conclusion = false)
+  path = 'config/tutorials/en/example-tutorial.yml'
   stub_task_config(
-    path: "#{Tutorial.task_config_path}/example-tutorial.yml",
+    path: path,
     title: 'This is an example tutorial',
     description: 'Welcome to an amazing description',
     products: ['demo-product'],
@@ -217,6 +222,9 @@ def create_example_config(intro = false, conclusion = false)
     include_introduction: intro,
     include_conclusion: conclusion
   )
+  allow(DocFinder).to receive(:find)
+    .with(root: 'config/tutorials', document: 'example-tutorial', language: :en, format: 'yml')
+    .and_return(path)
 
   create_application_content
   create_outbound_call_content
@@ -249,12 +257,12 @@ def stub_task_config(path:, title:, description:, products:, tasks:, include_int
     }
   end
 
-  allow(File).to receive(:read).with(path) .and_return(config.to_yaml)
+  allow(File).to receive(:read).with(path).and_return(config.to_yaml)
 end
 
 def create_application_content
   stub_task_content(
-    path: "#{Tutorial.task_content_path}/application/create-voice.md",
+    path: "#{Tutorial.task_content_path}/en/application/create-voice.md",
     title: 'Create a voice application',
     description: 'Learn how to create a voice application',
     content: <<~HEREDOC
@@ -266,7 +274,7 @@ end
 
 def create_outbound_call_content
   stub_task_content(
-    path: "#{Tutorial.task_content_path}/voice/make-outbound-call.md",
+    path: "#{Tutorial.task_content_path}/en/voice/make-outbound-call.md",
     title: 'Make an outbound call',
     description: 'Simple outbound call example',
     content: <<~HEREDOC

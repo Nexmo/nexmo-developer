@@ -18,7 +18,7 @@
     <div class="Vlt-dropdown__panel__content">
       <ul>
         <% @products.each do |product| %>
-          <li><a class="Vlt-dropdown__link" href="/<%= product['path'] %>/tutorials/<%= @language %>"><svg style="height: 20px; width: 20px;" class="Vlt-<%= product['icon_colour'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span></a></li>
+          <li><a class="Vlt-dropdown__link" href="/<%= product['path'] %>/tutorials/<%= @code_language %>"><svg style="height: 20px; width: 20px;" class="Vlt-<%= product['icon_colour'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span></a></li>
         <% end %>
       </ul>
     </div>
@@ -43,7 +43,7 @@
         if tutorial[:external_link]
           url = tutorial[:external_link]
         else
-          url = tutorial[:path].gsub("#{Rails.root}/config/", '').gsub('.yml', '')
+          url = "#{@base_path}/#{tutorial[:filename]}"
         end
       %>
 

@@ -1,8 +1,6 @@
 class MarkdownController < ApplicationController
   before_action :set_navigation
   before_action :set_product
-  before_action :set_document
-  before_action :set_namespace
   before_action :set_tracking_cookie
 
   def show
@@ -14,6 +12,15 @@ class MarkdownController < ApplicationController
     else
       @frontmatter, @content = content_from_file
     end
+
+    @sidenav = Sidenav.new(
+      namespace: params[:namespace],
+      language: I18n.locale,
+      request_path: request.path,
+      navigation: @navigation,
+      code_language: params[:code_language],
+      product: @product
+    )
 
     if !Rails.env.development? && @frontmatter['wip']
       @show_feedback = false
@@ -42,37 +49,49 @@ class MarkdownController < ApplicationController
     @product = params[:product]
   end
 
-  def set_document
-    @document = params[:document]
+  def set_tracking_cookie
+    helpers.dashboard_cookie(params[:product])
   end
 
-  def set_namespace
+  def document
+    @document ||= File.read(
+      DocFinder.find(
+        root: root_folder,
+        document: params[:document],
+        language: I18n.locale,
+        product: params[:product],
+        code_language: params[:code_language]
+      )
+    )
+  end
+
+  def root_folder
     if params[:namespace].present?
-      @namespace_path = "app/views/#{params[:namespace]}"
-      @namespace_root = 'app/views'
-      @sidenav_root = "app/views/#{params[:namespace]}"
+      "app/views/#{params[:namespace]}"
     else
-      @namespace_path = "_documentation/#{@product}"
-      @namespace_root = '_documentation'
-      @sidenav_root = "#{Rails.root}/_documentation"
+      '_documentation'
     end
   end
 
-  def set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
-    path = "#{@namespace_path}/#{@document}/#{params[:code_language]}.md"
-    return unless File.exist? path
-    @document_path = path
-    [params, request.parameters].each { |o| o.delete(:code_language) }
-    @code_language = nil
+  def path_is_folder?
+    folder_config_path
+  rescue DocFinder::MissingDoc
+    false
   end
 
-  def path_is_folder?
-    File.directory? "#{@namespace_path}/#{@document}"
+  def folder_config_path
+    DocFinder.find(
+      root: root_folder,
+      document: "#{params[:document]}/.config.yml",
+      language: I18n.locale,
+      product: params[:product],
+      code_language: params[:code_language]
+    )
   end
 
   def content_from_folder
-    path = "#{@namespace_path}/#{@document}"
-    frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
+    frontmatter = YAML.safe_load(File.read(folder_config_path))
+    path = folder_config_path.chomp('/.config.yml')
 
     @document_title = frontmatter['meta_title'] || frontmatter['title']
 
@@ -99,18 +118,9 @@ class MarkdownController < ApplicationController
     content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
+      language: I18n.locale,
     }).call(document)
 
     [frontmatter, content]
-  end
-
-  def set_tracking_cookie
-    helpers.dashboard_cookie(params[:product])
-  end
-
-  def document
-    set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
-    @document_path ||= "#{@namespace_path}/#{@document}.md" unless File.directory?("#{@namespace_path}/#{@document}")
-    @document = File.read("#{Rails.root}/#{@document_path}")
   end
 end

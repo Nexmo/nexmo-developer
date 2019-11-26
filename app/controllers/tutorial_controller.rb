@@ -3,10 +3,11 @@ class TutorialController < ApplicationController
   before_action :set_tutorial_step
   before_action :set_tutorial, except: %i[list single]
   before_action :check_tutorial_step, except: %i[list single]
+  before_action :set_sidenav
 
   def list
     @product = params['product']
-    @language = params['code_language']
+    @code_language = params['code_language']
 
     if @product
       @tutorials = TutorialList.tasks_for_product(@product)
@@ -44,12 +45,11 @@ class TutorialController < ApplicationController
   def index
     if @tutorial_step == 'prerequisites'
       @content = render_to_string(partial: 'prerequisites', layout: false)
-
     else
       @content = MarkdownPipeline.new({
-                                        code_language: @code_language,
-                                        current_user: current_user,
-                                      }).call(@tutorial.content_for(@tutorial_step))
+        code_language: @code_language,
+        current_user: current_user,
+      }).call(@tutorial.content_for(@tutorial_step))
     end
 
     # If it's an intro/conclusion we can't link to a specific task, so make sure that
@@ -78,10 +78,18 @@ class TutorialController < ApplicationController
   private
 
   def set_navigation
-    # Configure our sidebar navigation
-    @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.root}/_documentation"
     @navigation = :tutorials
+  end
+
+  def set_sidenav
+    @sidenav = Sidenav.new(
+      namespace: params[:namespace],
+      language: @language,
+      request_path: request.path,
+      navigation: @navigation,
+      code_language: params[:code_language],
+      product: params[:product]
+    )
   end
 
   def set_tutorial
@@ -99,9 +107,5 @@ class TutorialController < ApplicationController
     # If we don't have a current tutorial step, redirect to the first available page
     return if @tutorial_step
     redirect_to "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}"
-  end
-
-  def tutorial_root
-    "#{Rails.root}/_tutorials"
   end
 end

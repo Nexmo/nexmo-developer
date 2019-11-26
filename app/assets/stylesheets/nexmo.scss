@@ -78,6 +78,7 @@ $font-family: 'Lato', sans-serif;
 @import "../volta/scss/components/tooltips";
 @import "../volta/scss/components/dropdowns";
 @import "../volta/scss/components/modals";
+@import "../volta/scss/components/empties";
 
 @import "../volta/scss/layout/article";
 @import "../volta/scss/layout/utils";
@@ -119,6 +120,7 @@ body {
 @import "layout/team";
 @import "layout/search";
 @import "layout/api";
+@import "layout/careers";
 
 @import "themes/ea";
 

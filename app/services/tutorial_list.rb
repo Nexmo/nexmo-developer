@@ -5,7 +5,8 @@ class TutorialList
 
       'use_cases' => UseCase.by_product(product).map do |t|
                        {
-                         path: t.document_path,
+                         root: t.root,
+                         path: t.document_path.to_s.gsub("#{Rails.root}/", ''),
                          title: t.title,
                          product: product,
                          is_file?: true,
@@ -28,17 +29,20 @@ class TutorialList
 
   def self.all
     tasks = []
-    Dir.glob("#{Rails.root}/config/tutorials/*.yml") do |filename|
+    # TODO: make this work with I18n fallback
+    Dir.glob("#{Rails.root}/config/tutorials/#{I18n.default_locale}/*.yml") do |filename|
       t = YAML.load_file(filename)
       tasks.push({
-                   path: filename,
-                   external_link: t['external_link'],
-                   title: t['title'],
-                   description: t['description'],
-                   products: t['products'],
-                   is_file?: true,
-                   is_task?: true,
-                 })
+        root: 'config/tutorials',
+        path: filename.gsub("#{Rails.root}/", ''),
+        filename: Pathname.new(filename).basename.to_s.chomp('.yml'),
+        external_link: t['external_link'],
+        title: t['title'],
+        description: t['description'],
+        products: t['products'],
+        is_file?: true,
+        is_task?: true,
+      })
     end
 
     tasks
