@@ -14,7 +14,7 @@ However, Vonage also needs to prevent fraudulent activity on its own platform. O
 
 Velocity Rules blocks suspicious traffic based on a combination of volume (number of requests) and conversion rates (the percentage of successful verifications) for customer accounts by operator network.
 
-If we see a customer’s conversion rate for a network fall below 35% and a pre-determined minimum amount of traffic during a given period, our platform blocks any further traffic to that particular network. Any subsequent Verify requests will return code 15: `The destination number is not in a supported network`.
+If we see a customer’s conversion rate for a network fall below 35% and a set minimum amount of traffic during a given period, our platform blocks any further traffic to that particular network. Any subsequent Verify requests will return code 15: `The destination number is not in a supported network`.
 
 ## Monitoring your conversions
 
