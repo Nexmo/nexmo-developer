@@ -1,9 +1,10 @@
 class SearchTerms
   def self.generate
+    # TODO: make this work with different locales
     document_paths = {
       documentation: {
-        documents: Dir.glob("#{Rails.root}/_documentation/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_documentation"),
+        documents: Dir.glob("#{Rails.root}/_documentation/en/**/*.md"),
+        origin: Pathname.new("#{Rails.root}/_documentation/en"),
         base_url_path: '',
       },
       api: {
@@ -12,8 +13,8 @@ class SearchTerms
         base_url_path: '/api',
       },
       use_cases: {
-        documents: Dir.glob("#{Rails.root}/_use_cases/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_use_cases"),
+        documents: Dir.glob("#{Rails.root}/_use_cases/en/**/*.md"),
+        origin: Pathname.new("#{Rails.root}/_use_cases/en"),
         base_url_path: '/use-cases',
       },
     }
