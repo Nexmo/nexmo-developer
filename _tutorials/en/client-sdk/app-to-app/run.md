@@ -9,7 +9,7 @@ description: In this step you learn how to run your app to phone application.
 
 1. Run your application with `node server.js`.
 2. Load [http://localhost:3000/index1](http://localhost:3000/index1) into your browser. This is the calling app.
-3. Start a new Icognito tab (if using Google Chrome), or a new browser instance.
+3. Start a new Incognito tab (if using Google Chrome), or a new browser instance.
 4. Load [http://localhost:3000/index2](http://localhost:3000/index2) into this new tab or instance. This is the receiving app.
 
 In the call app tab (index1):
