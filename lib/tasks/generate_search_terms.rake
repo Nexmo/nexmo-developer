@@ -2,7 +2,7 @@ require 'algoliasearch'
 
 namespace :search_terms do
   desc 'Publish search terms to Algolia'
-  task 'algolia:generate': :environment do
+  task 'algolia:generate', %i[locale] => :environment do |_, args|
     unless ENV['ALGOLIA_APPLICATION_ID']
       puts 'Not rebuilding search index, Algolia Application ID not set'
       next
@@ -10,7 +10,7 @@ namespace :search_terms do
 
     Algolia.init(application_id: ENV['ALGOLIA_APPLICATION_ID'], api_key: ENV['ALGOLIA_API_KEY'])
     index = Algolia::Index.new "#{Rails.env}_nexmo_developer"
-    search_articles = SearchTerms.generate
+    search_articles = SearchTerms.generate(args.fetch(:locale, I18n.default_locale))
 
     search_articles.each do |search_article|
       index.add_object(search_article)
