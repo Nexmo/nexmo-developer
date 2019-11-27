@@ -1,0 +1,19 @@
+<li class='navigation-item--<%= sidenav_item.title %> navigation-item'>
+  <span class='Vlt-sidemenu__trigger' tabindex='0'>
+    <% if sidenav_item.svg? %>
+      <svg class='<%= sidenav_item.svg_color %>'><use xlink:href='<%= sidenav_item.svg %>' /></svg>
+    <% end %>
+    <span class='Vlt-sidemenu__label'>
+      <%= sidenav_item.normalized_title %>
+
+      <% if sidenav_item.label? %>
+        <%= link_to(sidenav_item.label, sidenav_item.link_url, class: "#{sidenav_item.css_classes}") %>
+      <% end %>
+    </span>
+  </span>
+  <% if sidenav_item.children.any? %>
+    <ul class="Vlt-sidemenu__list--compressed">
+      <%= render partial: 'layouts/partials/sidenav_subitem', collection: sidenav_item.children %>
+    </ul>
+  <% end %>
+</li>

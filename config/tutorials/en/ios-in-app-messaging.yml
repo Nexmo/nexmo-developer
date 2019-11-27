@@ -1,0 +1,38 @@
+title: Add in-app messaging to your iOS app
+description: Adds in-app messaging to your iOS app.
+products:
+  - client-sdk
+
+introduction:
+  title: Introduction to this task
+  description: In this tutorial you will learn how to add in-app messaging to your iOS app using the Nexmo Client SDK.
+  content: |
+    # Introduction
+    In this task you will learn how to add in-app messaging to your iOS app using the Nexmo Client SDK.
+
+    See [this guide](/client-sdk/setup/add-sdk-to-your-app/ios) for set up.
+
+prerequisites:
+  - create-nexmo-account
+
+tasks:
+  - client-sdk/ios-in-app-messaging/create-conversation
+  - client-sdk/ios-in-app-messaging/get-conversation
+  - client-sdk/ios-in-app-messaging/join-conversation
+  - client-sdk/ios-in-app-messaging/add-user
+  - client-sdk/ios-in-app-messaging/get-members
+  - client-sdk/ios-in-app-messaging/send-text
+  - client-sdk/ios-in-app-messaging/send-message-attachment
+  - client-sdk/ios-in-app-messaging/get-events
+  - client-sdk/ios-in-app-messaging/get-event-updates
+  - client-sdk/ios-in-app-messaging/get-past-events
+  
+conclusion:
+  title: What's next?
+  description: What else can you do with the Client SDK?
+  content: |
+
+    # What's next?
+    You can do a lot more with the Client SDK.
+
+    See [Client SDK documentation](/client-sdk/overview).

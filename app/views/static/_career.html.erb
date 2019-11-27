@@ -1,0 +1,15 @@
+<div class="Vlt-col Vlt-col--1of2">
+  <div class="Vlt-card Vlt-card--center Nxd-career">
+    <svg class="Vlt-icon Vlt-icon--larger Vlt-blue-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-code"/></svg>
+    <hr>
+    <h2>
+      <%= career.title %>
+      <small class="Nxd-career__subtitle"><%= career.location %></small>
+    </h2>
+
+    <div class='Nxd-career__content'>
+      <%= raw Truncato.truncate(career.description, max_length: 450) %>
+    </div>
+    <%= link_to "Find out more", career.url, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+  </div>
+</div>

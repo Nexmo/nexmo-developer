@@ -5,11 +5,13 @@ navigation_weight: 0
 ---
 
 # Release Notes
+
 ## 1.1.1 - 2019-11-21
 
 ### Added
 NXMClientConfig object in order to change data center configuration
 How to use:
+
 ```
 [NXMClient setConfiguration:NXMClientConfig.DC]
 ```
@@ -23,7 +25,8 @@ Note: you most call `setConfiguration` method before using `NXMClient.shared`.
 - Receiving a DTMF event in call and conversation
 
 ### Added
-NXMConversationDelegate did receive DTMF event method
+NXMConversationDelegate did receive DTMF event method:
+
 ```
 - (void)conversation:(nonnull NXMConversation *)conversation didReceiveDTMFEvent:(nullable NXMDTMFEvent *)event;
 ```
@@ -31,13 +34,13 @@ NXMConversationDelegate did receive DTMF event method
 ### Changed
 NXMClient client enable push notifications method changed
 param pushKitToken - only for voip push (incoming calls)
-param userNotificationToken - all push types
+param userNotificationToken - all push types:
+
 ```
 - (void)enablePushNotificationsWithPushKitToken:(nullable NSData *)pushKitToken
                           userNotificationToken:(nullable NSData *)userNotificationToken
                                       isSandbox:(BOOL)isSandbox
                               completionHandler:(void(^_Nullable)(NSError * _Nullable error))completionHandler;
-
 ```
 
 ## Version 1.0.0 - 2019-09-05

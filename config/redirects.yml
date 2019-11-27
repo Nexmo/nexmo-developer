@@ -251,4 +251,7 @@
 "/vonage-business-cloud/vbc-apis/user-api/code-snippets": "/vonage-business-cloud/vbc-apis/user-api/code-snippets/retrieve-user"
 "/vonage-business-cloud/vbc-apis/getting-started": "/vonage-business-cloud/vbc-apis/getting-started/create-application"
 "/send-an-sms": "/messaging/sms/code-snippets/send-an-sms"
+"/client-sdk/in-app-messaging/guides/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging"
 "/api/developer/pricing": "/api/pricing"
+"/concepts/guides/webhooks#using-ngrok-for-local-development": "/en/concepts/guides/testing-with-ngrok"
+"/client-sdk/tutorials/in-app-messaging/client-sdk/create-ui-ip-messaging": "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/create-ui"

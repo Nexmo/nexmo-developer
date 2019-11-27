@@ -10,16 +10,14 @@
         <%= image_tag 'nexmo-logo-collapsed.svg', alt:'Nexmo Developer Logo' %>
       </a>
       <a href="/team#join" class="Vlt-M-plus">
-        <span id="header-hiring" class="Nxd-logo__hiring">We're hiring</span>
+        <span id="header-hiring" class="Nxd-logo__hiring"><%= t('.hiring') %></span>
       </a>
     </div>
 
     <nav class="Nxd-header__nav">
       <a class="Nxd-main-header__link Vlt-M-plus" href="https://nexmo.com">Nexmo.com</a>
-      <a class="Nxd-main-header__link Vlt-M-plus" href="https://help.nexmo.com/hc/en-us">Support</a>
-      <a class="Nxd-main-header__link Vlt-M-plus" href="https://dashboard.nexmo.com/sign-in">Sign In</a>
-      <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--primary" data-ab="try_button"><b>
-        <% ab_test(:try_button, 'Try it free', '< Try it free />', 'Get an API key', 'Start building for free') do |s| %>
+      <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--primary" data-ab="try_button_v2"><b>
+          <% ab_test(:try_button_v2, "< #{t('.try-it')} />", "{ #{t('.try-it')} }", "< #{t('.get_an_api_key')} />", "< #{t('.start_building')} />") do |s| %>
           <%= s %>
         <% end %>
       </b></a>
@@ -30,12 +28,12 @@
     <a id="Vlt-sidenav-mobile-trigger"><svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-menu"></use></svg></a>
 
     <div class="Nxd-header__sub__menu">
-      <a href="/documentation" class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>">Documentation</a>
-      <a href="/use-cases" class="Vlt-tabs__link <%= @navigation == :use_case ? 'Vlt-tabs__link_active' : '' %>">Use Cases</a>
-      <a href="/api" class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>">API Reference</a>
-      <a href="/tools" class="Vlt-tabs__link <%= @navigation == :tools ? 'Vlt-tabs__link_active' : '' %>">SDKs &amp; Tools</a>
-      <a href="/community" class="Vlt-tabs__link <%= @navigation == :community ? 'Vlt-tabs__link_active' : '' %>">Community</a>
-      <a href="/extend" class="Vlt-tabs__link <%= @navigation == :extend ? 'Vlt-tabs__link_active' : '' %>">Extend</a>
+      <a href="/documentation" class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>"><%= t('.documentation') %></a>
+      <a href="/use-cases" class="Vlt-tabs__link <%= @navigation == :use_case ? 'Vlt-tabs__link_active' : '' %>"><%= t('.use-cases') %></a>
+      <a href="/api" class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>"><%= t('.api-reference') %></a>
+      <a href="/tools" class="Vlt-tabs__link <%= @navigation == :tools ? 'Vlt-tabs__link_active' : '' %>"><%= t('.sdks-and-tools') %></a>
+      <a href="/community" class="Vlt-tabs__link <%= @navigation == :community ? 'Vlt-tabs__link_active' : '' %>"><%= t('.community') %></a>
+      <a href="/extend" class="Vlt-tabs__link <%= @navigation == :extend ? 'Vlt-tabs__link_active' : '' %>"><%= t('.extend') %></a>
     </div>
 
     <% if search_enabled? %>

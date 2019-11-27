@@ -2,14 +2,16 @@ require 'rails_helper'
 
 RSpec.feature 'Team' do
   before do
-    expect(Greenhouse).to receive(:careers).and_return([
-                                                         Career.new({
-                                                           title: 'Developer Advocate',
-                                                           location: { name: 'Remote' },
-                                                           content: 'This is some example content',
-                                                           absolute_url: 'https://boards.greenhouse.io/vonage/jobs/123',
-                                                         }),
-                                                       ])
+    expect(Greenhouse).to receive(:devrel_careers).and_return(
+      [
+        Career.new(
+          title: 'Developer Advocate',
+          location: { name: 'Remote' },
+          content: 'This is some example content',
+          absolute_url: 'https://boards.greenhouse.io/vonage/jobs/123'
+        ),
+      ]
+    )
   end
 
   scenario 'visiting the team page' do
@@ -23,7 +25,7 @@ RSpec.feature 'Team' do
         expect(page).to have_content('Here are some of the people behind Nexmo Developer. Oh, and we\'re hiring for')
         expect(page).to have_link('the developer relations team', href: '#join')
         expect(page).to have_content('and')
-        expect(page).to have_link('other teams at Nexmo', href: 'https://www.vonage.com/corporate/careers/')
+        expect(page).to have_link('other teams at Nexmo', href: '/careers')
       end
 
       within('.Vlt-grid:nth-of-type(1)') do

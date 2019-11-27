@@ -29,21 +29,32 @@ RSpec.describe Greenhouse do
     end
   end
 
-  describe '#valid_job?' do
-    it 'returns true if the job is from our department and team' do
-      job = { title: 'OpenTok Advocate - Remote', departments: [{ id: described_class::DEPARTMENT_ID }] }
-      expect(described_class.new.valid_job?(job)).to be_truthy
+  describe '#devrel_careers' do
+    let(:devrel_position) do
+      { title: 'OpenTok Advocate - Remote', departments: [{ id: described_class::DEPARTMENT_ID }] }
     end
 
-    it 'returns false otherwise' do
-      job = { title: 'OpenTok - Remote', departments: [{ id: described_class::DEPARTMENT_ID }] }
-      expect(described_class.new.valid_job?(job)).to be_falsey
+    let(:open_positions) do
+      [
+        devrel_position,
+        { title: 'OpenTok - Remote', departments: [{ id: described_class::DEPARTMENT_ID }] },
+      ]
+    end
+
+    it 'returns the positions that belong to our department and team' do
+      expect(GreenhouseIo::JobBoard).to receive(:new).and_return(client)
+      expect(client).to receive(:jobs).with(content: 'true').and_return({ jobs: open_positions })
+
+      devrel_positions = described_class.devrel_careers
+      expect(devrel_positions.size).to eq(1)
+      expect(devrel_positions.first.title).to eq(devrel_position[:title])
     end
   end
 
   describe '.expire_cache' do
     it 'expires the careers from the cache' do
       expect(Rails.cache).to receive(:delete).with('careers')
+      expect(Rails.cache).to receive(:delete).with('offices')
       described_class.expire_cache
     end
   end
