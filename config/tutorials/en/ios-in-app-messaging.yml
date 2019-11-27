@@ -16,16 +16,16 @@ prerequisites:
   - create-nexmo-account
 
 tasks:
-  - client-sdk/ios-in-app-messaging/ios-create-conversation
-  - client-sdk/ios-in-app-messaging/ios-get-conversation
-  - client-sdk/ios-in-app-messaging/ios-join-conversation
-  - client-sdk/ios-in-app-messaging/ios-add-user
-  - client-sdk/ios-in-app-messaging/ios-get-members
-  - client-sdk/ios-in-app-messaging/ios-send-text
-  - client-sdk/ios-in-app-messaging/ios-send-message-attachment
-  - client-sdk/ios-in-app-messaging/ios-get-events
-  - client-sdk/ios-in-app-messaging/ios-get-event-updates
-  - client-sdk/ios-in-app-messaging/ios-get-past-events
+  - client-sdk/ios-in-app-messaging/create-conversation
+  - client-sdk/ios-in-app-messaging/get-conversation
+  - client-sdk/ios-in-app-messaging/join-conversation
+  - client-sdk/ios-in-app-messaging/add-user
+  - client-sdk/ios-in-app-messaging/get-members
+  - client-sdk/ios-in-app-messaging/send-text
+  - client-sdk/ios-in-app-messaging/send-message-attachment
+  - client-sdk/ios-in-app-messaging/get-events
+  - client-sdk/ios-in-app-messaging/get-event-updates
+  - client-sdk/ios-in-app-messaging/get-past-events
   
 conclusion:
   title: What's next?
