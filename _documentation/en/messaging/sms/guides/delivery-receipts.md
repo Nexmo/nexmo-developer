@@ -8,7 +8,9 @@ navigation_weight: 4
 
 When you make a successful request to the SMS API, it returns an array of `message` objects, one for each message. Ideally these will have a `status` of `0`, indicating success. But this does not mean that your message has reached your recipients. It only means that your message has been successfully queued for sending.
 
-Nexmo's [adaptive routing](https://help.nexmo.com/hc/en-us/articles/218435987-What-is-Nexmo-Adaptive-Routing-) then identifies the best carrier for your message. When the selected carrier has delivered the message, it returns a *delivery receipt* (DLR). To receive DLRs in your application, you must provide a [webhook](/concepts/guides/webhooks) for Nexmo to send them to.
+Nexmo's [adaptive routing](https://help.nexmo.com/hc/en-us/articles/218435987-What-is-Nexmo-Adaptive-Routing-) then identifies the best carrier for your message. When the selected carrier has delivered the message, it returns a *delivery receipt* (DLR).
+
+To receive DLRs in your application, you must provide a [webhook](/concepts/guides/webhooks) for Nexmo to send them to. Alternatively, you could use the [Reports API](/reports/overview) to periodically download your records, including per-message delivery status.
 
 > **Note**: In most situations, a DLR is a reliable indicator that a message was delivered. However, it is not an absolute guarantee. See [how delivery receipts work](#how-delivery-receipts-work).
 
