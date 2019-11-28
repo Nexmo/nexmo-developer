@@ -32,6 +32,7 @@
 en:
 
   menu:
+    message-search: Message Search
     messaging: Messaging
     voice: Voice
     voice-api: Voice API
