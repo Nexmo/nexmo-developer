@@ -181,7 +181,6 @@ Clicking the `Inbound Call` button will result in an NCCO as follows:
 
 Try this out by executing the following steps:
 
-
 1. Run your client-side app.
 2. Log in as `Jane`.
 3. On another phone, call the Nexmo number assigned to your Nexmo application.
@@ -261,7 +260,6 @@ For this example the NCCO merely connects the caller to the respected agent. The
 ```
 
 The NCCO that will be executed to connect to `Joe` is similar, except for the user name.
-
 
 1. Run two different instances of your client-side app, on two emulators, devices or browser tabs.
 2. Log in as `Jane` in one instance, and log in as `Joe` on the other instance.
