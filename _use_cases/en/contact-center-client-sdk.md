@@ -1,5 +1,5 @@
 ---
-title: Contact Center Use Case
+title: Contact Center
 products: client-sdk
 description: How to build your own contact center application.
 languages: 
@@ -28,7 +28,7 @@ Make sure you have a Nexmo account, or [sign up](https://dashboard.nexmo.com/) t
 
 ## Set Up Your Backend
 
-To use the Client SDK you must have a backend application that uses [Conversation API.](/conversation/overview). Some functionality, like managing users can only be done through the backend. Other capabilities, such as creating Conversations, can be done by both client and server side.
+To use the Client SDK you must have a backend application that uses [Conversation API](/conversation/overview). Some functionality, like managing users can only be done through the backend. Other capabilities, such as creating Conversations, can be done by both client and server side.
 
 ### Deploy Your Server Side Application
 
@@ -292,5 +292,5 @@ You have:
 ## Reference
 
 * Explore [Client SDK](/client-sdk/overview)
-* Explore [Voice API](/conversation/overview)
+* Explore [Voice API](/voice/voice-api/overview)
 * Explore [Conversation API](/conversation/overview)
