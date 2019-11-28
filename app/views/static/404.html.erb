@@ -2,7 +2,7 @@
   <img src="/assets/images/lost.svg" alt="" width="120">
   <br><br>
   <h2>This page can't be found!</h2>
-  <% if @results && @results[0].hits %>
+  <% if @results && @results.map(&:hits).flatten.any? %>
     <p>Perhaps you were looking for one of these?</p>
     <div class="Vlt-grid">
     <% @results.each do |index| %>
