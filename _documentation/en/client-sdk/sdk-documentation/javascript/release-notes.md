@@ -19,13 +19,6 @@ navigation_weight: 0
 - Update styling of `JSDocs` to `Docstrap` template
 - Change `RTCPeerConnection ICE candidates` gathering process to send the Session Description Protocol (`SDP`) offer on first `ICE` candidate gathered
 
-## 6.0.4
-
-### Fixes
-
-- Remove remaining audio elements after transferring a call to a new conversation
-- Update `conversation.invite()` to not include empty `user_id` or `user_name` fields within the requests
-
 ## Version 6.0.4 - November 14, 2019
 
 ### Fixes
