@@ -14,6 +14,8 @@ However, Vonage also needs to prevent fraudulent activity on its own platform. O
 
 Velocity Rules blocks suspicious traffic based on a combination of volume (number of requests) and conversion rates (the percentage of successful verifications) for customer accounts by operator network.
 
+> **Note**: The platform can only determine if a Verify request is successful if a call is subsequently made to the [Verify check endpoint](/verify/code-snippets/check-verify-request). For every Verify request, your code should perform a Verify check.
+
 If we see a customer’s conversion rate for a network fall below 35% and a set minimum amount of traffic during a given period, our platform blocks any further traffic to that particular network. Any subsequent Verify requests will return code 15: `The destination number is not in a supported network`.
 
 ## Monitoring your conversions
@@ -23,6 +25,7 @@ You should monitor your conversion rate to ensure that you are staying within th
 The conversation rate is calculated by comparing the number of successful verification attempts to the total number of attempts, expressed as a percentage:
 
 `Conversion rate = (# successful verifications / # total verifications) * 100`
+
 
 > This information is available in the [Developer Dashboard](https://dashboard.nexmo.com/verify/analytics), from the Verify > Analytics navigation menu option.
 
