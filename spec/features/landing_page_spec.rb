@@ -123,15 +123,11 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(9)') do
+        expect(page).to have_css('h2', text: 'Management APIs')
         within('nav:nth-of-type(1)') do
-          expect(page).to have_css('h3', text: 'Developer API')
-          expect(page).to have_link('Messages', href: '/api/developer/messages')
+          expect(page).to have_link('Message Search', href: '/api/developer/messages')
           expect(page).to have_link('Numbers', href: '/api/developer/numbers')
           expect(page).to have_link('Pricing', href: '/api/developer/pricing')
-        end
-
-        within('nav:nth-of-type(2)') do
-          expect(page).to have_css('h3', text: 'Global APIs')
           expect(page).to have_link('Conversion', href: '/api/conversion')
           expect(page).to have_link('Media', href: '/api/media')
           expect(page).to have_link('Redact', href: '/api/redact')

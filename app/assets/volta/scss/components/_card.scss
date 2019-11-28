@@ -169,6 +169,13 @@
 			}
 		}
 
+		&--green-light {
+			background: linear-gradient(to right, lighten($green-light, 5), darken($green-light, 10));
+
+			.Vlt-card__image__icon svg {
+				fill: $green-light;
+			}
+		}
 		&--purple {
 			background: linear-gradient(to right, lighten($purple, 5), darken($purple, 10));
 

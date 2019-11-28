@@ -61,6 +61,7 @@
 
 .Nxd-card--products {
   min-width: 300px;
+  height: 91%;
 
   nav a {
     display: inline-block;
@@ -70,8 +71,8 @@
     .Vlt-icon {
       margin-right: $unit1;
     }
-  } 
-} 
+  }
+}
 
 .Nxd-card__link {
   border-bottom: 1px solid $grey-light;
