@@ -10,6 +10,11 @@ describe('#isUnicodeRequired', function() {
     let counter = new CharacterCounter('This ^ That');
     expect(counter.isUnicodeRequired()).toBeFalsy();
   });
+
+  test('carraige returns and line feeds are not unicode', function() {
+    let counter = new CharacterCounter('This \r\n That');
+    expect(counter.isUnicodeRequired()).toBeFalsy();
+  });
 });
 
 describe('#getSizeInBytes', function() {
