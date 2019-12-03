@@ -51,7 +51,7 @@ Some features include:
 
 ## Concepts
 
-Many of the concepts used in the Client SDK are a result of the design of the Conversation API, which is the underlying technology. Concpets that will be useful in using the Client SDK are as follows:
+Many of the concepts used in the Client SDK are a result of the design of the Conversation API, which is the underlying technology. Concepts that will be useful in using the Client SDK are as follows:
 
 ```concept_list
 product: conversation

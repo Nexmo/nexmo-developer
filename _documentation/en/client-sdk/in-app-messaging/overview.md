@@ -50,7 +50,7 @@ product: client-sdk
 
 ## Reference
 
-* [Conversation API Reference](/api/conversation)
+* [Conversation API](/api/conversation)
 * [Client SDK Reference - Web](/sdk/client-sdk/javascript)
 * [Client SDK Reference - iOS](/sdk/client-sdk/ios)
 * [Client SDK Reference - Android](/sdk/client-sdk/android)
