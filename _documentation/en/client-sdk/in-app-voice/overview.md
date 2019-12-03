@@ -31,6 +31,15 @@ The Android and iOS Client SDKs additionally offer:
 * Audio Routing Management
 * Push Notifications
 
+## Voice calls
+
+There are two ways to make Voice calls:
+
+1. Using VAPI using the Client SDK `callServer()` method.
+2. Using peer-peer call functionality via the `inAppCall()` method.
+
+The Client SDK application manages the [Event flow](/conversation/guides/event-flow) of the conversation.
+
 ## Setup
 
 * [Create your App](/client-sdk/setup/create-your-application)
