@@ -3,4 +3,12 @@
     height: inherit;
     width: inherit;
   }
+
+  tr.striped {
+    background-color: $grey-light;
+  }
+
+  tbody td {
+    width: 33%;
+  }
 }

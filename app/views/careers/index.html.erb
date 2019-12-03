@@ -1,57 +1,46 @@
 <div class="container">
-  <div class="content-block center">
+  <div class="content-block center spacious">
     <h1>Careers</h1>
-  </div>
-
-  <div class="content-block center">
     <div class="Vlt-col">
       <div class="Vlt-native-dropdown">
         <%= select_tag 'department',
           options_from_collection_for_select(Career::DEPARTMENTS.sort, :first, :first),
-          prompt: 'Filter by department',
+          prompt: 'All departments',
           id: 'department-filter'
         %>
       </div>
       <div class="Vlt-native-dropdown">
         <%= select_tag 'location',
           options_for_select(Greenhouse.offices.map { |o| o[:name] }),
-          prompt: 'Filter by location',
+          prompt: 'All locations',
           id: 'location-filter'
         %>
       </div>
     </div>
   </div>
 
-  <div class="Vlt-grid">
-    <div class="Vlt-col" id="careers">
-      <% Career::DEPARTMENTS.sort.each do |name, codes| %>
-        <div class="Vlt-grid Nxd-department" data-department="<%= name %>">
-          <div class="Vlt-col Vlt-col--2of2">
-            <h3><%= name %></h3>
-          </div>
-          <hr class="hr--short"></hr>
+  <div class="Vlt-table Vlt-table--data" id="careers">
+    <table>
+      <tbody>
+        <% Career::DEPARTMENTS.sort.each do |name, codes| %>
           <% codes.each do |code| %>
             <% @careers_by_department[code].each do |career| %>
-              <div class="Vlt-col Vlt-col--1of2 Nxd-career">
-                <div class="Vlt-card Vlt-card--center">
-                  <div class="Vlt-card__header">
-                    <h4><%= career.title %></h4>
-                  </div>
-                  <div class="Vlt-card__content Vlt-grid">
-                    <small class="Nxd-career__subtitle Vlt-col"><%= career.location %></small>
-                    <small><%= link_to "Find out more", career.url, class: "Vlt-text-link Vlt-col" %></small>
-                  </div>
-                </div>
-              </div>
+              <tr class="Nxd-career">
+                <td class="title"><%= link_to career.title, career.url, class: "Vlt-text-link" %></td>
+                <td class="department" data-department="<%= name %>"><small><%= name %></small></td>
+                <td class="location" data-location="<%= career.location %>"><small><%= career.location %></small></td>
+              </tr>
             <% end %>
           <% end %>
-        </div>
-      <% end %>
-      <div class='Vlt-empty' id='no-results'>
-        <div class='Vlt-empty__content'>
-          There are no results that match your criteria.
-        </div>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+    <div class='Vlt-empty hide' id='no-results'>
+      <div class='Vlt-empty__content'>
+        There are no results that match your criteria.
       </div>
     </div>
-  </div>
+
 </div>

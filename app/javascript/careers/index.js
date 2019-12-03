@@ -1,32 +1,29 @@
 export default () => {
+
+  function showCareer(career, selectedDepartment, selectedCareer) {
+    const department = career.getElementsByClassName('department')[0].dataset.department;
+    const location = career.getElementsByClassName('location')[0].dataset.location;
+
+    return (department === selectedDepartment || selectedDepartment === '')
+      && (location.includes(selectedCareer) || selectedCareer === '');
+  }
+
   function toggleCareers() {
     const selectedDepartment = document.getElementById('department-filter').value;
     const selectedCareer = document.getElementById('location-filter').value;
 
-    document.getElementById('careers').querySelectorAll('.Nxd-department').forEach(function(department) {
-      if (selectedDepartment === '') {
-        department.classList.remove('hide');
-      } else {
-        department.classList.toggle('hide', department.dataset.department !== selectedDepartment);
-      }
-      department.querySelectorAll('.Nxd-career').forEach(function(career) {
-        if (selectedCareer === '') {
-          career.classList.remove('hide');
-        } else {
-          const location = career.getElementsByClassName('Nxd-career__subtitle')[0].innerHTML;
-          career.classList.toggle('hide', !location.includes(selectedCareer));
-        }
-      });
-
-      if (department.querySelectorAll('.Nxd-career:not(.hide)').length === 0) {
-        department.classList.add('hide');
-      }
+    Array.from(document.getElementsByClassName('Nxd-career')).forEach(function(career) {
+      career.classList.toggle('hide', !showCareer(career, selectedDepartment, selectedCareer));
     });
 
     document.getElementById('no-results').classList.toggle(
       'hide',
-      document.querySelectorAll('.Nxd-department:not(.hide)').length !== 0
+      document.querySelectorAll('.Nxd-career:not(.hide)').length !== 0
     );
+
+    document.querySelectorAll('.Nxd-career:not(.hide)').forEach(function(career, index) {
+      career.classList.toggle('striped', index % 2 == 0);
+    });
   }
 
   function updateURL(key, value) {
