@@ -35,7 +35,11 @@ product: conversation
 
 ## Use Cases
 
-Nexmo Client SDK use cases:
+```tutorials
+product: client-sdk
+```
+
+## Use Cases
 
 ```use_cases
 product: client-sdk
@@ -44,3 +48,6 @@ product: client-sdk
 ## Reference
 
 * [Conversation API Reference](/api/conversation)
+* [Client SDK Reference - Web](/sdk/client-sdk/javascript)
+* [Client SDK Reference - iOS](/sdk/client-sdk/ios)
+* [Client SDK Reference - Android](/sdk/client-sdk/android)
