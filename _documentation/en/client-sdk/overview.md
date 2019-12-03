@@ -39,6 +39,10 @@ Some features include:
 * Push Notifications – Keep users aware of important alerts by sending notifications to their device.
 * Text and Image Support – Users can quickly send and receive texts and images from your application.
 
+Read more about:
+
+* [In-App Messaging](/client-sdk/in-app-messaging/overview)
+
 ## In-App Voice
 
 The Client SDK enables you to build in-app voice features into your application. Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature-rich voice experience.
@@ -49,6 +53,10 @@ Some features include:
 * Notifications  – Users can be notified when they receive a call or when participants are muted.
 * Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
+Read more about:
+
+* [In-App Voice](/client-sdk/in-app-voice/overview)
+
 ## Concepts
 
 Many of the concepts used in the Client SDK are a result of the design of the Conversation API, which is the underlying technology. Concepts that will be useful in using the Client SDK are as follows:
@@ -56,13 +64,6 @@ Many of the concepts used in the Client SDK are a result of the design of the Co
 ```concept_list
 product: conversation
 ```
-
-## Next Steps
-
-Read more about:
-
-* [In-App Messaging](/client-sdk/in-app-messaging/overview)
-* [In-App Voice](/client-sdk/in-app-voice/overview)
 
 ## SDK Documentation (generated from source code)
 
