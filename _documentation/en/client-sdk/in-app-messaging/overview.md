@@ -1,10 +1,13 @@
 ---
 title: Overview
+description: This topic provides an overview of using the Client SDK to build in-app messaging applications.
 ---
 
 # In-App Messaging Overview
 
-Nexmo In-App Messaging enables you to build chat experience as part of your mobile and web app over websockets. The Nexmo Client SDKs offers functionality such as:
+Client SDK enables you to build chat experience as part of your mobile and web app over websockets. 
+
+The Nexmo Client SDKs offers functionality such as:
 
 * Conversation creation and management
 * Text Messages
@@ -33,7 +36,7 @@ Conversation API concepts:
 product: conversation
 ```
 
-## Use Cases
+## Tutorials
 
 ```tutorials
 product: client-sdk

@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: This topic provides an overview of using the Client SDK to build in-app voice applications.
 navigation_weight: 0
 ---
 
