@@ -1,7 +1,7 @@
 title: Creating a web-based chat app
 description: Create a web application that enables users to message each other
 products:
-  - client-sdk
+  - client-sdk/in-app-messaging
 
 introduction:
   title: Introduction to this task
