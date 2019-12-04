@@ -38,7 +38,7 @@ $(document).ready(function() {
   CodeSnippetEvents()
   Navigation()
   Spotlight()
-  Careers()
+  new Careers
 
   if (document.getElementById('jwt-generator-app')) {
     new Vue({

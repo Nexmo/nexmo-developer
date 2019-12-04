@@ -17,8 +17,8 @@ RSpec.describe 'Careers page', type: :feature do
     visit '/careers'
 
     expect(page).to have_css('h1', text: 'Careers')
-    expect(page).to have_select('department-filter')
-    expect(page).to have_select('location-filter')
+    expect(page).to have_css('#department-filter')
+    expect(page).to have_css('#location-filter')
     expect(page).to have_css('#careers')
   end
 end

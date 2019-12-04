@@ -2,19 +2,49 @@
   <div class="content-block center spacious">
     <h1>Careers</h1>
     <div class="Vlt-col">
-      <div class="Vlt-native-dropdown">
-        <%= select_tag 'department',
-          options_from_collection_for_select(Career::DEPARTMENTS.sort, :first, :first),
-          prompt: 'All departments',
-          id: 'department-filter'
-        %>
+      <div class="Vlt-dropdown" id="department-filter">
+        <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn"><button class="Vlt-btn Vlt-dropdown__btn Vlt-btn--tertiary">Departments</button></div>
+        <div class="Vlt-dropdown__panel Vlt-dropdown__panel--width2">
+          <div class="Vlt-dropdown__panel__content Vlt-dropdown__panel__content--scroll-area">
+            <div class="Vlt-dropdown__scroll">
+              <% Career::DEPARTMENTS.sort.each do |name, codes| %>
+                <div class="Vlt-dropdown__link Vlt-dropdown__link--noclose">
+                  <div class="Vlt-checkbox">
+                    <label for="<%= name %>">
+                      <span class="Vlt-checkbox__button">
+                        <input type="checkbox" id="<%= name %>" value="<%= name %>" name="<%= name %>">
+                        <span class="Vlt-checkbox__icon"></span>
+                      </span>
+                      <%= name %>
+                    </label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="Vlt-native-dropdown">
-        <%= select_tag 'location',
-          options_for_select(Greenhouse.offices.map { |o| o[:name] }),
-          prompt: 'All locations',
-          id: 'location-filter'
-        %>
+      <div class="Vlt-dropdown" id="location-filter">
+        <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn"><button class="Vlt-btn Vlt-dropdown__btn Vlt-btn--tertiary">Locations</button></div>
+        <div class="Vlt-dropdown__panel Vlt-dropdown__panel--width2">
+          <div class="Vlt-dropdown__panel__content Vlt-dropdown__panel__content--scroll-area">
+            <div class="Vlt-dropdown__scroll">
+              <% Greenhouse.offices.map { |o| o[:name] }.each do |name| %>
+                <div class="Vlt-dropdown__link Vlt-dropdown__link--noclose">
+                  <div class="Vlt-checkbox">
+                    <label for="<%= name %>">
+                      <span class="Vlt-checkbox__button">
+                        <input type="checkbox" id="<%= name %>" value="<%= name %>" name="<%= name %>">
+                        <span class="Vlt-checkbox__icon"></span>
+                      </span>
+                      <%= name %>
+                    </label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
