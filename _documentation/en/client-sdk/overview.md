@@ -1,6 +1,7 @@
 ---
 title: Overview
 meta_title: Realtime communication with In-App Messaging and In-app Voice
+description: This topic provides a brief overview of Nexmo Client SDK.
 ---
 
 # Overview
