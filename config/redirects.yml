@@ -257,3 +257,5 @@
 "/concepts/guides/webhooks#using-ngrok-for-local-development": "/en/concepts/guides/testing-with-ngrok"
 "/client-sdk/tutorials/in-app-messaging/client-sdk/create-ui-ip-messaging": "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/create-ui"
 "/messaging/sms/message-search/api-reference": "/api/developer/messages"
+"/client-sdk/setup/configure-data-center": "/client-sdk/configuration/configure-data-center"
+
