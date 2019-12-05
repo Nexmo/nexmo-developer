@@ -67,12 +67,6 @@ In-app Voice concepts:
 product: client-sdk/in-app-voice
 ```
 
-## Tutorials
-
-```tutorials
-product: client-sdk
-```
-
 ## Use Cases
 
 ```use_cases

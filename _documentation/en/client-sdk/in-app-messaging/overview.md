@@ -36,12 +36,6 @@ Conversation API concepts:
 product: conversation
 ```
 
-## Tutorials
-
-```tutorials
-product: client-sdk
-```
-
 ## Use Cases
 
 ```use_cases
