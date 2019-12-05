@@ -103,7 +103,7 @@ export default class Careers {
     }, this);
 
     params.get('locations') && params.get('locations').split(',').forEach(function(location) {
-      let checkbox = document.querySelector(`[id^=${location}]`);
+      let checkbox = document.querySelector(`[id^='${location}']`);
       if (checkbox) {
         this.locations.push(location);
         checkbox.checked = true;
