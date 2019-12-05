@@ -6,6 +6,13 @@ navigation_weight: 0
 
 # Release Notes
 
+## 1.2.1 - 2019-12-05
+
+### Fixed
+Fixed nil `fromMember` for `NXMConversation` events.
+
+---
+
 ## 1.2.0 - 2019-12-03
 
 ### Added
