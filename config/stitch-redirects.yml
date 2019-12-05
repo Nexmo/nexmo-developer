@@ -118,3 +118,4 @@
 "/client-sdk/in-app-voice/getting-started": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
 "/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions": "/client-sdk/setup/add-sdk-to-your-app/ios#add-permissions"
 "/client-sdk/setup": "/client-sdk/setup/create-your-application"
+"/client-sdk/setup/configure-data-center": "/client-sdk/configuration/configure-data-center"

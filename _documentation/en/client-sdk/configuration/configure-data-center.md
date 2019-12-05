@@ -1,7 +1,7 @@
 ---
 title: Configure your data center
 description: This topic shows you how to configure the appropriate data centre to minimize network delays in your application.
-navigation_weight: 4
+navigation_weight: 1
 ---
 
 # Configure your data center

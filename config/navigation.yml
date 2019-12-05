@@ -45,6 +45,7 @@ navigation_weight:
 
   overview: 1
   setup: 2
+  configuration: 3
   concepts: 3
   in-app-messaging: 4
   in-app-voice: 5
@@ -106,8 +107,10 @@ navigation_overrides:
       navigation_weight: 1
     setup:
       navigation_weight: 2
+    configuration:
+      navigation_weight: 3  
     custom-events:
-      navigation_weight: 3
+      navigation_weight: 4
     sdk-documentation:
       link: false
       collapsible: false
