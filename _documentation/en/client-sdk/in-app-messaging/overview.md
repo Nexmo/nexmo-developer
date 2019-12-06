@@ -5,7 +5,7 @@ description: This topic provides an overview of using the Client SDK to build in
 
 # In-App Messaging Overview
 
-Client SDK enables you to build a two-way messaging experience as part of your mobile and web app over websockets.
+Client SDK enables you to build a two-way messaging experience as part of your application.
 
 The Nexmo Client SDKs offers functionality such as:
 
