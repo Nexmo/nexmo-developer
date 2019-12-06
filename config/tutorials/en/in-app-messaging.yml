@@ -26,7 +26,7 @@ prerequisites:
 tasks:
   - client-sdk/create-application
   - client-sdk/create-conversation
-  - client-sdk/ip-messaging/create-users
+  - client-sdk/create-users
   - client-sdk/ip-messaging/add-users-to-conversation
   - client-sdk/generate-jwts
   - client-sdk/ip-messaging/create-ui

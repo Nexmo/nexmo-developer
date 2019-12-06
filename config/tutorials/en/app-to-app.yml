@@ -29,6 +29,7 @@ prerequisites:
 
 tasks:
 - client-sdk/create-application
+- client-sdk/create-users
 - client-sdk/generate-jwts
 - client-sdk/app-to-app/create-webhook-server
 - client-sdk/app-to-app/call-code
