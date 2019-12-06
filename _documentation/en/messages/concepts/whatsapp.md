@@ -100,6 +100,8 @@ curl -X POST \
 
 ## Further information
 
+* [Custom objects](/messages/concepts/custom-objects)
+
 WhatsApp documentation at Facebook:
 
 * [Text Message](https://developers.facebook.com/docs/whatsapp/api/messages/text)

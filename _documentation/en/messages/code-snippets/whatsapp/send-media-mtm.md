@@ -91,3 +91,6 @@ Key | Description
 
 When you run the code a WhatsApp Media Template Message is sent to the destination number.
 
+## Further information
+
+* [Custom objects](/messages/concepts/custom-objects)

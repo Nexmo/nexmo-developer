@@ -6,7 +6,7 @@ description: Understanding custom objects
 
 # Custom objects
 
-The Messages API has the concept of a custm object. The custom object allows you to leverage advanced features of the supported messaging platforms.
+The Messages API has the concept of a custom object. The custom object allows you to leverage advanced features of the supported messaging platforms.
 
 The custom object takes a partial section of the original messaging API's request format and sends it directly to that platform. 
 
