@@ -1,10 +1,10 @@
 ---
-title: Send a Media Message Template MTM
+title: Send a Media Message Template
 meta_title: Send a WhatsApp Media Message Template using the Messages API
 navigation_weight: 2
 ---
 
-# Send a WhatsApp Media Message Template (MTM)
+# Send a WhatsApp Media Message Template
 
 In this code snippet you will see how to send a WhatsApp Media Message Template using the Messages API.
 
