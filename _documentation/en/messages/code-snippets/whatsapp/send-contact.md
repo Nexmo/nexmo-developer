@@ -4,7 +4,7 @@ meta_title: Send a contact on WhatsApp using the Messages API
 navigation_weight: 8
 ---
 
-# Send a contact
+# Send a Contact
 
 In this code snippet you will see how to send a contact to WhatsApp using the Messages API.
 
