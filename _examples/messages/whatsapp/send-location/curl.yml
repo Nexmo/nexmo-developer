@@ -4,6 +4,6 @@ language: curl
 code:
     source: .repos/nexmo/nexmo-curl-code-snippets/messages/whatsapp/send-location.sh
     from_line: 6
-    to_line: 34
+    to_line: 33
 file_name: send-location.sh
 run_command: bash send-location.sh
