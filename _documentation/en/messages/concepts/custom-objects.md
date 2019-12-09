@@ -1,5 +1,5 @@
 ---
-title: Understanding custom objects
+title: Custom objects
 navigation_weight: 4
 description: Understanding custom objects
 ---
