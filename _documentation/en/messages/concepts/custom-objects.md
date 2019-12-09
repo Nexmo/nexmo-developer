@@ -6,21 +6,11 @@ description: Understanding custom objects
 
 # Custom objects
 
-The Messages API has the concept of a custom object. The custom object allows you to leverage advanced features of the supported messaging platforms.
+The Messages API has the concept of a custom object. The custom object allows you to leverage advanced features of the supported native messaging platforms, such as Facebook Messenger, WhatsApp and Viber.
 
-The custom object takes a partial section of the original messaging API's request format and sends it directly to that platform. 
+The custom object takes a partial section of the native messaging API's request format and sends it directly to that platform.
 
-Taking WhatsApp as an example, here's what Nexmo would send through to WhatsApp in summary format:
-
-``` json
-{
-  "recipient_type": "individual",
-  "to": "$TO_NUMBER",
-  {$CUSTOM_OBJECT}
-}
-```
-
-The Nexmo message format is:
+Using WhatsApp by way of example, for the following Messages API call:
 
 ``` json
 {
@@ -36,16 +26,26 @@ The Nexmo message format is:
     "content": {
       "type": "custom",
       "custom": {
-          DATA
+        $CUSTOM_OBJECT
       }
     }
   }
 }
 ```
 
-The JSON to insert in `DATA` depends on the format of the messaging platform's format.
+Nexmo would send the following to WhatsApp:
 
-Using WhatsApp again by way of example, if the original request format is:
+``` json
+{
+  "recipient_type": "individual",
+  "to": "$TO_NUMBER",
+  {$CUSTOM_OBJECT}
+}
+```
+
+The JSON in `CUSTOM_OBJECT` depends on the messaging platform's format for the type of request you want to make.
+
+If the WhatsApp request was:
 
 ``` json
 {
@@ -79,6 +79,10 @@ Using WhatsApp again by way of example, if the original request format is:
           {
             "type": "text",
             "text": "Value 2"
+          },
+          {
+            "type": "text",
+            "text": "Value 3"
           }
         ]
       }
@@ -136,6 +140,10 @@ The Nexmo Messages API request format would be:
                 {
                   "type": "text",
                   "text": "Value 2"
+                },
+                {
+                  "type": "text",
+                  "text": "Value 3"
                 }
               ]
             }
@@ -147,30 +155,7 @@ The Nexmo Messages API request format would be:
 }
 ```
 
-In other words when considering this Nexmo request:
-
-``` json
-{
-  "from": {
-    "type": "whatsapp",
-    "number": "447700900001"
-  },
-  "to": {
-    "type": "whatsapp",
-    "number": "447700900000"
-  },
-  "message": {
-    "content": {
-      "type": "custom",
-      "custom": {
-          DATA
-      }
-    }
-  }
-}
-```
-
-The custom object, `DATA`, obtained from the original request format is:
+The custom object, `CUSTOM_OBJECT`, defined in the original request format is:
 
 ``` json
   "type": "template",
