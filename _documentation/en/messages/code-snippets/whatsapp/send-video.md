@@ -13,7 +13,6 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` | The ID of the application that you created.
 `WHATSAPP_NUMBER` | The WhatsApp number you are sending from.
 `TO_NUMBER` | The WhatsApp number you are sending to.
 `VIDEO_URL` | The link to the video to send. WhatsApp supports `.mp4` and `.3gpp`. Note, only `H.264` video codec and `AAC` audio codecs are supported.

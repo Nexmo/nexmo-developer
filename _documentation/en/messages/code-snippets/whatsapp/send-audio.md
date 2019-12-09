@@ -15,7 +15,6 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` | The ID of the application that you created.
 `WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Nexmo.
 `TO_NUMBER` | The phone number you are sending the message to.
 `AUDIO_URL` | The URL of the audio file to send.
