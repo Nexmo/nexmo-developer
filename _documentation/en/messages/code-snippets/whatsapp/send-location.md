@@ -1,6 +1,7 @@
 ---
 title: Send a Location
 meta_title: Send a location on WhatsApp using the Messages API
+navigation_weight: 9
 ---
 
 # Send a location
