@@ -192,3 +192,5 @@ The custom object, `CUSTOM_OBJECT`, defined in the original request format is:
     ]
   }
 ```
+
+Note that when using custom objects, the format for properties such as language code must match that of the target platform. For example, in the WhatsApp native message format, language codes are of the form `en_GB`, not `en-GB`.
