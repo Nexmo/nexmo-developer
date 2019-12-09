@@ -25,72 +25,13 @@ Key | Description
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
-``` json
-{
-  "from": {
-    "type": "whatsapp",
-    "number": "$WHATSAPP_NUMBER"
-  },
-  "to": {
-    "type": "whatsapp",
-    "number": "$TO_NUMBER"
-  },
-  "message": {
-    "content": {
-      "type": "custom",
-      "custom": {
-        "type": "template",
-        "template": {
-          "namespace": "whatsapp:hsm:technology:nexmo",
-          "name": "parcel_location",
-          "language": {
-            "policy": "deterministic",
-            "code": "en"
-          },
-          "components": [
-            {
-              "type": "header",
-              "parameters": [
-                {
-                  "type": "location",
-                  "location": {
-                    "longitude": -122.425332,
-                    "latitude": 37.758056,
-                    "name": "Facebook HQ",
-                    "address": "1 Hacker Way, Menlo Park, CA 94025"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "body",
-              "parameters": [
-                {
-                  "type": "text",
-                  "text": "Value 1"
-                },
-                {
-                  "type": "text",
-                  "text": "Value 2"
-                },
-                {
-                  "type": "text",
-                  "text": "Value 3"
-                }
-              ]
-            }
-          ]
-        }
-      }
-    }
-  }
-}
+```code_snippets
+source: '_examples/messages/whatsapp/send-media-mtm'
+application:
+  type: messages
+  name: 'Send a WhatsApp media message template'
 ```
 
 ## Try it out
 
 When you run the code a WhatsApp Media Message Template is sent to the destination number.
-
-## Further information
-
-* [Custom objects](/messages/concepts/custom-objects)

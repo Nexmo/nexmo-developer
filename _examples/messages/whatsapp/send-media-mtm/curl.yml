@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/messages/whatsapp/send-media-mtm.sh
+    from_line: 6
+    to_line: 68
+file_name: send-media-mtm.sh
+run_command: bash send-media-mtm.sh
