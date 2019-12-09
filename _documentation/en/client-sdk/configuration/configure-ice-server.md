@@ -1,5 +1,5 @@
 ---
-title: Configure your ICE server URL
+title: Configure ICE server URL
 description: This topic shows you how to configure your ICE server URL.
 navigation_weight: 2
 ---
