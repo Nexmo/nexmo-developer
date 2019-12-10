@@ -1,5 +1,5 @@
 ---
-title: Client library
+title: Install Client Library
 navigation_weight: 3
 description: Client libraries are used to help you rapidly develop your messaging applications.
 ---

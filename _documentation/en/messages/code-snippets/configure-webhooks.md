@@ -1,5 +1,5 @@
 ---
-title: Configure webhooks
+title: Configure Webhooks
 navigation_weight: 4
 ---
 
