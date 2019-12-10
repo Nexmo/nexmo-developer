@@ -33,13 +33,13 @@ You can also keep track of your conversion rate based on the responses you recei
 
 ## Unblocking a network
 
-If your verification attempts are consistently returning error code 15: `The destination number is not in a supported network`, that network might have been blocked by Velocity Rules. You can ask us to restore service, but first we advise that you do the following:
+If your verification attempts are consistently returning error code 15: `The destination number is not in a supported network`, that network might have been blocked by Velocity Rules. You can [contact support](mailto://support@nexmo.com) to restore service, but first we advise that you do the following:
 
 * Check the most recent blocked verification attempts sent to this network (or country)
 * Confirm that they are legitimate verification attempts
 * Address any suspicious traffic by updating your fraud prevention rules
 
-If, having done this, you are satisfied that the traffic is genuine and would like to restore service to this network, please contact support@nexmo.com for assistance.
+If, having done this, you are satisfied that the traffic is genuine and would like to restore service to this network, please [contact support](mailto://support@nexmo.com) for assistance.
 
 ## Further information
 
