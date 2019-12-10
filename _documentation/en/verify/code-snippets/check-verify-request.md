@@ -7,7 +7,7 @@ navigation_weight: 3
 
 Check the verification code that a user has provided. Use the `request_id` that was received when the [verification code was sent](/verify/code-snippets/send-verify-request).
 
-> **Note**: You should always call the Verify check endpoint after making a Verify request. This enables Vonage to determine the number of successful requests and [protect against fraudulent use](/verify/guides/velocity-rules) of the platform
+> **Note**: You should always [check the verification code](/verify/code-snippets/check-verify-request) after [sending it](/verify/code-snippets/send-verify-request). This enables Vonage to determine the number of successful requests and [protect against fraudulent use](/verify/guides/velocity-rules) of the platform
 
 Replace the following variables in the sample code with your own values:
 
