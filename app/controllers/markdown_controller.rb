@@ -53,16 +53,18 @@ class MarkdownController < ApplicationController
     helpers.dashboard_cookie(params[:product])
   end
 
-  def document
-    @document ||= File.read(
-      DocFinder.find(
-        root: root_folder,
-        document: params[:document],
-        language: I18n.locale,
-        product: params[:product],
-        code_language: params[:code_language]
-      )
+  def document_path
+    @document_path ||= DocFinder.find(
+      root: root_folder,
+      document: params[:document],
+      language: I18n.locale,
+      product: params[:product],
+      code_language: params[:code_language]
     )
+  end
+
+  def document
+    @document ||= File.read(document_path)
   end
 
   def root_folder

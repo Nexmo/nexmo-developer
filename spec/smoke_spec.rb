@@ -70,7 +70,9 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it 'markdown page contains the expected text' do
     get '/voice/voice-api/guides/numbers'
+
     expect(response.body).to include('Numbers are a key concept to understand when working with the Nexmo Voice API. The following points should be considered before developing your Nexmo Application.')
+    expect(response.body).to include('github_url')
   end
 
   it 'markdown page has default code_language' do
