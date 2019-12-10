@@ -6,7 +6,7 @@ navigation_weight: 1
 
 # Send a WhatsApp Message Template (MTM)
 
-In this code snippet you will see how to send a WhatsApp Message Template Message (MTM) using the Messages API.
+In this code snippet you learn how to send a WhatsApp Message Template Message (MTM) using the Messages API.
 
 > **IMPORTANT:** If a customer messages you, you have 24 hours to respond to the customer with a free-form message. After this period you must use a message template (MTM). If a customer has not messaged you first, then the first time you send a message to a user, WhatsApp requires that the message contains a template. This is explained in more detail in the [Understanding WhatsApp topic](/messages/concepts/whatsapp).
 
@@ -31,3 +31,7 @@ application:
 ## Try it out
 
 When you run the code a WhatsApp message template (MTM) is sent to the destination number.
+
+## Further information
+
+* [WhatsApp documentation for Message Templates](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates)

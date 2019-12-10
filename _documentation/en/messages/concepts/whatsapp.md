@@ -102,7 +102,7 @@ curl -X POST \
 
 * [Custom objects](/messages/concepts/custom-objects)
 
-WhatsApp documentation at Facebook:
+WhatsApp developer documentation:
 
 * [Text Message](https://developers.facebook.com/docs/whatsapp/api/messages/text)
 * [Media Message](https://developers.facebook.com/docs/whatsapp/api/messages/media)

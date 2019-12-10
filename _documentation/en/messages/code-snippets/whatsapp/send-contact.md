@@ -5,7 +5,7 @@ meta_title: Send a contact on WhatsApp using the Messages API
 
 # Send a Contact
 
-In this code snippet you will see how to send a contact to WhatsApp using the Messages API.
+In this code snippet you learn how to send a contact to WhatsApp using the Messages API. This uses Nexmo's [Custom object](/messages/concepts/custom-objects)] feature. Further information on the specific message format can be found in the WhatsApp developers [Contacts message](https://developers.facebook.com/docs/whatsapp/api/messages/others#contacts-messages) documentation.
 
 ## Example
 
@@ -32,3 +32,4 @@ When you run the code a WhatsApp contact message is sent to the destination numb
 ## Further information
 
 * [Custom objects](/messages/concepts/custom-objects)
+* [WhatsApp documentation for send contact](https://developers.facebook.com/docs/whatsapp/api/messages/others#contacts-messages)

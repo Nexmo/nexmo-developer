@@ -5,6 +5,10 @@ meta_title: Send a link button on WhatsApp using the Messages API
 
 # Send a Link Button
 
+In this code snippet you learn how to send a link style button on WhatsApp. This uses Nexmo's [custom object](/messages/concepts/custom-object) facility. You can reference the WhatsApp developer documnetation for the specifics of the [message format](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/interactive-message-templates).
+
+When the message recipient clicks on the link button, they will be prompted for permission to continue to the target link.
+
 ## Example
 
 Ensure the following variables are set to your required values using any convenient method:
@@ -31,7 +35,4 @@ When you run the code a WhatsApp message containing a link button is sent to the
 ## Further information
 
 * [Custom objects](/messages/concepts/custom-objects)
-
-## WhatsApp documentation
-
-* [WhatsApp Messages](https://developers.facebook.com/docs/whatsapp/api/messages)
+* [WhatsApp documentation for Link Button](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/interactive-message-templates)

@@ -6,7 +6,7 @@ navigation_weight: 2
 
 # Send a WhatsApp Media Message Template
 
-In this code snippet you will see how to send a WhatsApp Media Message Template using the Messages API.
+In this code snippet you learn how to send a WhatsApp Media Message Template using the Messages API.
 
 To send the Media Message Template you need to use the Messages custom object. The custom object takes a partial section of the original WhatsApp API request and sends it directly through to WhatsApp.
 
@@ -35,3 +35,7 @@ application:
 ## Try it out
 
 When you run the code a WhatsApp Media Message Template is sent to the destination number.
+
+## Further information
+
+* [WhatsApp documentation for Media Message Templates](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/media-message-templates)
