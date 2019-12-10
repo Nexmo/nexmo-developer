@@ -12,28 +12,32 @@ Each of these methods is described in the following sections.
 To create your application using the Nexmo CLI, enter the following command into the shell:
 
 ``` shell
-nexmo app:create "My Messages App" https://example.com/webhooks/inbound-message https://example.com/webhooks/message-status --keyfile=private.key --type=messages
+nexmo app:create "My Messages App" --capabilities=messages --messages-inbound-url=https://example.com/webhooks/inbound-message --messages-status-url=https://example.com/webhooks/message-status --keyfile=private.key
 ```
+
+This will create a Nexmo application with messages [capabilities](/application/overview#capabilities), with the webhook URLs configured as specified, and generate a private key file `private.key`.
 
 ### How to create a Messages and Dispatch application using the Dashboard
 
-You can now create Messages and Dispatch applications in the [Dashboard](https://dashboard.nexmo.com/messages/create-application). This allows you to set webhooks for each application created - this is important for receiving inbound messages and message status updates.
+You can create Messages and Dispatch applications in the [Dashboard](https://dashboard.nexmo.com/applications/new).
 
 To create your application using the Dashboard:
 
-1. Under Messages and Dispatch in the Dashboard, click [Create an application](https://dashboard.nexmo.com/messages/create-application).
+1. Under Messages and Dispatch in the Dashboard, click [Create an application](https://dashboard.nexmo.com/applications/new).
 
-2. Enter the Application name, which can be anything you like.
+2. Under **Name**, enter the Application name. Choose a name for ease of future reference.
 
-3. Enter the URL for your message status webhook, for example, `https://example.com/webhooks/message-status`.
+3. Click the button **Generate public and private key**. This will create a public/private key pair and the private key will be downloaded by your browser.
 
-4. Enter the URL for your inbound message webhook, for example, `https://example.com/webhooks/inbound-message`.
+4. Under **Capabilities** select the **Messages** button.
 
-5. Click the link *Generate public/private key pair* just below the public key text area. This will create a public/private key pair and the private key will be downloaded by your browser.
+5. Enter the URL for your inbound message webhook, for example, `https://example.com/webhooks/inbound-message`.
 
-6. Click the *Create Application* button. You will be taken to phase 2 of the Create Application procedure where you can link external accounts such as Facebook to this application. If you do not have any external accounts listed here, or do not want to link one of those accounts to this application you can click *Done*.
+6. Enter the URL for your message status webhook, for example, `https://example.com/webhooks/message-status`.
 
-7. If there is an external account you want to link this application to, click the corresponding *Link* button and then click *Done*.
+7. Click the **Create new application** button. You are now taken to the next step of the Create Application procedure where you can link a Nexmo number to the application, and link external accounts such as Facebook to this application.
+
+8. If there is an external account you want to link this application to, click the corresponding *Link* button.
 
 You have now created your application.
 
