@@ -1,7 +1,6 @@
 ---
 title: Send a Contact
 meta_title: Send a contact on WhatsApp using the Messages API
-navigation_weight: 8
 ---
 
 # Send a Contact
