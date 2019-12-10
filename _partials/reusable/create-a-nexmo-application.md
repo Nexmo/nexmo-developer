@@ -37,7 +37,7 @@ To create your application using the Dashboard:
 
 7. Click the **Create new application** button. You are now taken to the next step of the Create Application procedure where you can link a Nexmo number to the application, and link external accounts such as Facebook to this application.
 
-8. If there is an external account you want to link this application to, click the corresponding *Link* button.
+8. If there is an external account you want to link this application to, click the corresponding **Link** button.
 
 You have now created your application.
 
