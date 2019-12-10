@@ -12,7 +12,7 @@ However, Vonage also needs to prevent fraudulent activity on its own platform. O
 
 ## How it works
 
-Velocity Rules blocks suspicious traffic based on a combination of volume (number of requests) and conversion rates (the percentage of successful verifications) for customer accounts by operator network.
+Velocity Rules blocks suspicious traffic based on a combination of volume and conversion rates for customer accounts by operator network. The volume is the number of requests and the conversion rate is the percentage of successful verifications.
 
 > **Note**: The platform can only determine if a Verify request is successful if a call is subsequently made to the [Verify check endpoint](/verify/code-snippets/check-verify-request). For every Verify request, your code should perform a Verify check.
 
