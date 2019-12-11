@@ -210,7 +210,7 @@ You can use custom objects on Facebook Messenger. The Message API format would b
 }
 ```
 
-Where the custom object, `$CUSTOM_OBJECT` can be anything from within the [Messenger Message Object](https://developers.facebook.com/docs/messenger-platform/send-messages/templates/).
+Where the custom object, `$CUSTOM_OBJECT`, can be anything from within the [Messenger Message Object](https://developers.facebook.com/docs/messenger-platform/send-messages/templates/).
 
 ## See more examples
 
