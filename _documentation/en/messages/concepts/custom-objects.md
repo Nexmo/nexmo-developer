@@ -195,7 +195,25 @@ The custom object, `CUSTOM_OBJECT`, defined in the original request format is:
 
 Note that *when using custom objects*, the format for properties such as language code must match that of the target platform. For example, in the WhatsApp native message format, language codes are of the form `en_GB`, not `en-GB`.
 
+## Facebook Messenger
+
+You can use custom objects on Facebook Messenger. The Message API format would be similar to the following:
+
+``` json
+{
+  "recipient":{
+    "id":"<PSID>"
+  },
+  "message":{
+    $CUSTOM_OBJECT
+  }
+}
+```
+
+Where the custom object, `$CUSTOM_OBJECT` can be anything from within the [Messenger Message Object](https://developers.facebook.com/docs/messenger-platform/send-messages/templates/).
+
 ## See more examples
 
 * [WhatsApp send contact](/messages/code-snippets/whatsapp/send-contact)
 * [WhatsApp send location](/messages/code-snippets/whatsapp/send-location)
+* [Facebook Messenger custom object](/messages/code-snippets/messenger/send-custom)
