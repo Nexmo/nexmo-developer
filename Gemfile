@@ -142,6 +142,8 @@ gem 'nexmo-oas-renderer', '~> 0.6.6', require: false
 
 gem 'smartling'
 
+gem 'newrelic_rpm'
+
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
 
