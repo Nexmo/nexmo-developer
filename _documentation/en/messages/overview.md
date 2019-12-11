@@ -1,6 +1,6 @@
 ---
 title: Overview
-meta_title: Send messages via SMS, WhatsApp, Viber and Facebook Messenger
+meta_title: Send messages via SMS, MMS, WhatsApp, Viber and Facebook Messenger with a single API.
 navigation_weight: 1
 ---
 
@@ -43,7 +43,7 @@ During Beta Nexmo will expand the capabilities of the API.
 In this release the following features are supported:
 
 Channel | Outbound Text | Outbound Image | Outbound Audio | Outbound Video | Outbound File | Outbound Template
--- | -- | -- | -- | -- | -- | --
+:--- | :---: | :---: | :---: | :---: | :---: | :---:
 SMS | ✅ | n/a | n/a | n/a | n/a | n/a
 MMS | ✅ | ✅ | n/a | n/a | n/a | n/a
 Viber Service Messages | ✅ | ✅ | n/a | n/a | n/a | ✅
@@ -51,15 +51,25 @@ Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 WhatsApp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 
 Channel | Inbound Text | Inbound Image | Inbound Audio | Inbound Video | Inbound File | Inbound Location
--- | -- | -- | -- | -- | -- | --
+:--- | :---: | :---: | :---: | :---: | :---: | :---:
 MMS | ✅ | ✅ | n/a | n/a | n/a | n/a
 Facebook Messenger | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 WhatsApp | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
 
+Limited support is also provided for [custom objects](/messages/concepts/custom-objects):
+
+Channel | Outbound Button | Outbound Location | Outbound Contact
+:--- | :---: | :---: | :---:
+SMS | n/a | n/a | n/a
+MMS | n/a | n/a | n/a
+Viber Service Messages | ✅ | n/a | n/a
+Facebook Messenger | ✅ | n/a | n/a
+WhatsApp | ✅ | ✅ | ✅
+
 **Key:**
 
 * ✅ = Supported.
-* ❌ = Supported by the channel, but not by Nexmo. 
+* ❌ = Supported by the channel, but not by Nexmo.
 * n/a = Not supported by the channel.
 
 ## External Accounts API
