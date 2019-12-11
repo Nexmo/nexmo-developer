@@ -197,7 +197,7 @@ Note that *when using custom objects*, the format for properties such as languag
 
 ## Facebook Messenger
 
-You can use custom objects on Facebook Messenger. The Message API format would be similar to the following:
+You can use custom objects for Facebook Messenger messages. The Messages API format would be similar to the following:
 
 ``` json
 {
