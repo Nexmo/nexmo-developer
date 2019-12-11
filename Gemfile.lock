@@ -5,6 +5,13 @@ GIT
     rawler (0.1.8)
       nokogiri (~> 1.5)
 
+GIT
+  remote: https://github.com/rails/actionpack-page_caching.git
+  revision: f5931b6c8907c1fb2a810bb93fb3cb22a072fc14
+  specs:
+    actionpack-page_caching (1.1.1)
+      actionpack (>= 5.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -533,6 +540,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-page_caching!
   activeadmin (~> 2.4)
   algoliasearch
   autoprefixer-rails

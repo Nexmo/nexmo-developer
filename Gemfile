@@ -156,6 +156,8 @@ gem 'redis'
 
 gem 'barnes'
 
+gem 'actionpack-page_caching', github: 'rails/actionpack-page_caching'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
