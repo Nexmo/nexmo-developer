@@ -117,4 +117,3 @@ product: messages
 
 * [Messages API Reference](/api/messages-olympus)
 * [External Accounts API Reference](/api/external-accounts)
-
