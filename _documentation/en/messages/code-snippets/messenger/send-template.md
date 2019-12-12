@@ -1,11 +1,11 @@
 ---
-title: Send a Custom Object Message
-meta_title: Send a custom object message with Facebook Messenger
+title: Send a Message Template
+meta_title: Send a message template with Facebook Messenger
 ---
 
-# Send a Custom Object Message
+# Send a Message Template
 
-In this code snippet you learn how to send a Facebook [custom object](/messages/concepts/custom-objects) message using the Messages API.
+In this code snippet you learn how to send a Facebook message template using a Nexmo [custom object](/messages/concepts/custom-objects) message using the Messages API.
 
 ## Example
 
@@ -20,7 +20,7 @@ Key | Description
 `ABOVE_BAR_CODE_IMAGE_URL` | An optional image for above the bar code.
 
 ```code_snippets
-source: '_examples/messages/messenger/send-custom'
+source: '_examples/messages/messenger/send-template'
 application:
   type: messages
   name: 'Send a custom object Facebook message'
@@ -28,8 +28,10 @@ application:
 
 ## Try it out
 
-When you run the code a Facebook message is sent to the recipient containing a custom object. In this case the object is an airline boarding pass.
+When you run the code a Facebook message template is sent to the recipient. In this example the message is an airline boarding pass.
 
 ## Further information
 
+* [Custom Objects](/messages/concepts/custom-objects)
 * [Sending Facebook Messenger messages with the Messages API](/use-cases/sending-facebook-messenger-messages-with-messages-api)
+* [Facebook Message Templates documentation](https://developers.facebook.com/docs/messenger-platform/send-messages/templates/)

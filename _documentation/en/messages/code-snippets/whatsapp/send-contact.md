@@ -5,7 +5,7 @@ meta_title: Send a contact on WhatsApp using the Messages API
 
 # Send a Contact
 
-In this code snippet you learn how to send a contact to WhatsApp using the Messages API. This uses Nexmo's [Custom object](/messages/concepts/custom-objects)] feature. Further information on the specific message format can be found in the WhatsApp developers [Contacts message](https://developers.facebook.com/docs/whatsapp/api/messages/others#contacts-messages) documentation.
+In this code snippet you learn how to send a contact to WhatsApp using the Messages API. This uses Nexmo's [Custom object](/messages/concepts/custom-objects) feature. Further information on the specific message format can be found in the WhatsApp developers [Contacts message](https://developers.facebook.com/docs/whatsapp/api/messages/others#contacts-messages) documentation.
 
 ## Example
 
