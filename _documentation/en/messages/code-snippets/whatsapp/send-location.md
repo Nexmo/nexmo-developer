@@ -5,7 +5,7 @@ meta_title: Send a location on WhatsApp using the Messages API
 
 # Send a Location
 
-In this code snippet you learn how to send a location to WhatsApp using the Messages API. This uses Nexmo's [Custom object](/messages/concepts/custom-objects)] feature. Further information on the specific message format can be found in the WhatsApp developers [Location message](https://developers.facebook.com/docs/whatsapp/api/messages/others#location-messages) documentation.
+In this code snippet you learn how to send a location to WhatsApp using the Messages API. This uses Nexmo's [Custom object](/messages/concepts/custom-objects) feature. Further information on the specific message format can be found in the WhatsApp developers [Location message](https://developers.facebook.com/docs/whatsapp/api/messages/others#location-messages) documentation.
 
 ## Example
 
