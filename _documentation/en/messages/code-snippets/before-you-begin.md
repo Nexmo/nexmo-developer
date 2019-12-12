@@ -1,9 +1,9 @@
 ---
-title: Before You Begin
+title: Before you Begin
 navigation_weight: 0
 ---
 
-# Before You Begin
+# Before you Begin
 
 This topic provides some background information on using the code snippets.
 
