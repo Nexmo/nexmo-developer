@@ -5,7 +5,7 @@ meta_title: Send a quick reply button on WhatsApp using the Messages API
 
 # Send a Quick Reply Button
 
-In this code snippet you learn how to send a quick reply style button on WhatsApp. This uses Nexmo's [custom object](/messages/concepts/custom-object) facility. You can reference the WhatsApp developer docs for the specifics of the [message format](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/interactive-message-templates).
+In this code snippet you learn how to send a quick reply style button on WhatsApp. This uses Nexmo's [custom object](/messages/concepts/custom-objects) facility. You can reference the WhatsApp developer docs for the specifics of the [message format](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/interactive-message-templates).
 
 When the message recipient clicks on the quick reply button, Nexmo will `POST` relevant data to your inbound message webhook URL.
 
