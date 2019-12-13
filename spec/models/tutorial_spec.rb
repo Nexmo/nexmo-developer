@@ -174,10 +174,10 @@ RSpec.describe Tutorial, type: :model do
       end
 
       it 'raises if it does not exist' do
-        allow(File).to receive(:exist?).with("#{Tutorial.task_content_path}/en/missing-step.md").and_return(false)
         create_example_config
         tutorial = described_class.load('example-tutorial', 'introduction')
-        expect { tutorial.content_for('missing-step') }.to raise_error(DocFinder::MissingDoc, 'Invalid step: missing-step')
+        expect(DocFinder).to receive(:find).with(root: '_tutorials', document: 'missing-step', language: :en).and_call_original
+        expect { tutorial.content_for('missing-step') }.to raise_error(DocFinder::MissingDoc)
       end
     end
   end
@@ -261,8 +261,9 @@ def stub_task_config(path:, title:, description:, products:, tasks:, include_int
 end
 
 def create_application_content
+  path = "#{Tutorial.task_content_path}/en/application/create-voice.md"
   stub_task_content(
-    path: "#{Tutorial.task_content_path}/en/application/create-voice.md",
+    path: path,
     title: 'Create a voice application',
     description: 'Learn how to create a voice application',
     content: <<~HEREDOC
@@ -270,11 +271,15 @@ def create_application_content
       Creating a voice application is very important. Please do it
     HEREDOC
   )
+  allow(DocFinder).to receive(:find)
+    .with(root: '_tutorials', document: 'application/create-voice', language: :en)
+    .and_return(path)
 end
 
 def create_outbound_call_content
+  path = "#{Tutorial.task_content_path}/en/voice/make-outbound-call.md"
   stub_task_content(
-    path: "#{Tutorial.task_content_path}/en/voice/make-outbound-call.md",
+    path: path,
     title: 'Make an outbound call',
     description: 'Simple outbound call example',
     content: <<~HEREDOC
@@ -282,11 +287,14 @@ def create_outbound_call_content
       This is an example outbound call with Text-To-Speech
     HEREDOC
   )
+  allow(DocFinder).to receive(:find)
+    .with(root: '_tutorials', document: 'voice/make-outbound-call', language: :en)
+    .and_return(path)
 end
 
 def stub_task_content(path:, title:, description:, content:)
-  allow(File).to receive(:exist?).with(path) .and_return(true)
-  allow(File).to receive(:read).with(path) .and_return({
+  allow(File).to receive(:exist?).with(path).and_return(true)
+  allow(File).to receive(:read).with(path).and_return({
     'title' => title,
     'description' => description,
   }.to_yaml + "---\n" + content)

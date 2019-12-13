@@ -8,10 +8,12 @@ class Tutorial
       return raw[step_name]['content']
     end
 
-    # TODO: make this work with I18n fallback
-    path = "#{self.class.task_content_path}/#{I18n.default_locale}/#{step_name}.md"
+    path = DocFinder.find(
+      root: self.class.task_content_path,
+      document: step_name,
+      language: I18n.locale
+    )
 
-    raise DocFinder::MissingDoc, "Invalid step: #{step_name}" unless File.exist? path
     File.read(path)
   end
 
@@ -63,9 +65,11 @@ class Tutorial
     return [] unless prerequisites
 
     prerequisites.map do |t|
-      # TODO: make this work with I18n fallback
-      t_path = "#{task_content_path}/#{I18n.default_locale}/#{t}.md"
-
+      t_path = DocFinder.find(
+        root: task_content_path,
+        document: t,
+        language: I18n.locale
+      )
       raise "Prerequisite not found: #{t}" unless File.exist? t_path
       content = File.read(t_path)
       prereq = YAML.safe_load(content)
@@ -83,8 +87,11 @@ class Tutorial
     tasks ||= []
 
     tasks = tasks.map do |t|
-      # TODO: make this work with I18n fallback
-      t_path = "#{task_content_path}/#{I18n.default_locale}/#{t}.md"
+      t_path = DocFinder.find(
+        root: task_content_path,
+        document: t,
+        language: I18n.locale
+      )
       raise "Subtask not found: #{t}" unless File.exist? t_path
       subtask_config = YAML.safe_load(File.read(t_path))
       {
@@ -126,6 +133,6 @@ class Tutorial
   end
 
   def self.task_content_path
-    Pathname.new("#{Rails.root}/_tutorials")
+    '_tutorials'
   end
 end

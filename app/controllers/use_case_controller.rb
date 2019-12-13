@@ -1,5 +1,4 @@
 class UseCaseController < ApplicationController
-  before_action :set_document
   before_action :set_navigation
 
   def index
@@ -40,17 +39,21 @@ class UseCaseController < ApplicationController
 
   def show
     # Read document
-    # TODO: make this work with I18n fallback
-    @document_path = "_use_cases/#{I18n.default_locale}/#{@document}.md"
-    document = File.read("#{Rails.root}/#{@document_path}")
+    @document_path = DocFinder.find(
+      root: '_use_cases',
+      document: params[:document],
+      language: I18n.locale,
+      code_language: params[:code_language]
+    )
+    @document = File.read(@document_path)
 
     # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
+    @frontmatter = YAML.safe_load(@document)
 
     @document_title = @frontmatter['title']
     @product = @frontmatter['products']
 
-    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(@document)
 
     @sidenav = Sidenav.new(
       namespace: params[:namespace],
@@ -65,10 +68,6 @@ class UseCaseController < ApplicationController
   end
 
   private
-
-  def set_document
-    @document = params[:document]
-  end
 
   def set_navigation
     @navigation = :use_case

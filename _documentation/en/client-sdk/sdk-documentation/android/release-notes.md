@@ -6,6 +6,19 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 1.1.0 - 2019-12-04
+
+### Changes
+- Add `iceServerUrls` parameters to `NexmoClient.Builder`
+```
+    nexmoClient = new NexmoClient.Builder().iceServerUrls(new String[]{"stun/turn servr url"}).build(context);
+``` 
+
+### Fixed
+- fix Push Notification incoming call issue
+
+---
+
 ## Version 1.0.3 - 2019-11-20
 
 ###Changes

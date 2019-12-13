@@ -4,17 +4,17 @@ title: Programmable SIP
 
 # Programmable SIP
 
-> **NOTE:** Programmable SIP is currently in Developer Preview. In order to get set up with Programmable SIP, please contact [Support](mailto:support@nexmo.com) if you are prepaid customer, and [Sales](mailto:sales@nexmo.com) if you are a postpaid customer.
+> **NOTE:** Programmable SIP is currently in Developer Preview. In order to get set up with Programmable SIP, please contact [Support](mailto:support@nexmo.com) or your Account Manager.
 
 ## Overview
 
-Nexmo’s Programmable SIP product enables you to integrate your existing SIP Infrastructure with Nexmo’s powerful conversational communications platform. This integration will enable you easily connect to mobile, landline, SIP and WebRTC endpoints including browsers and mobile applications. It will also bring Voice API functionality such as multichannel recording, IVR, Text to Speech, web socket connectivity for AI integrations and the power of contextual conversations to your platform.
+Nexmo’s Programmable SIP enables you to integrate your existing SIP Infrastructure with Nexmo’s powerful conversational communications platform. This integration will enable you to easily connect to mobile, landline, SIP and WebRTC endpoints, including browsers and mobile applications. It will also bring Voice API functionality, such as multichannel recording, IVR, Text to Speech, WebSocket connectivity for AI integrations, and the power of contextual conversations to your platform.
 
 ![SIP Connect Workflow](/assets/images/workflow_sip_connect.png)
 
 ## Nexmo SIP Domains
 
-A _Nexmo SIP Domain_ contains configuration you need to connect to Nexmo SIP endpoints to link to your Nexmo application.
+A _Nexmo SIP Domain_ contains configuration you need to connect to Nexmo SIP endpoints and link to your Nexmo application.
 
 To route a SIP call to your Nexmo application, you need to create a unique Nexmo domain, such as `yourcompany`. The domain name will form the SIP URI, for example `sip:number@yourcompany.sip.nexmo.com`, and any calls routed to that SIP URI will be routed to your application NCCO `answer_url`.
 
@@ -45,9 +45,9 @@ sip:number@yourcompany.sip-eu.nexmo.com
 Available domains are the same as the A records:
 
 ``` text
-sip-us.nexmo.com: US
-sip-eu.nexmo.com: EU
-sip-ap.nexmo.com: AP
+sip-us.nexmo.com: USA
+sip-eu.nexmo.com: Europe
+sip-ap.nexmo.com: Asia Pacific
 ```
 
 ## Custom SIP Headers
