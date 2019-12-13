@@ -15,7 +15,7 @@ To create your application using the Nexmo CLI, enter the following command into
 nexmo app:create "My Messages App" --capabilities=messages --messages-inbound-url=https://example.com/webhooks/inbound-message --messages-status-url=https://example.com/webhooks/message-status --keyfile=private.key
 ```
 
-This will create a Nexmo application with messages [capabilities](/application/overview#capabilities), with the webhook URLs configured as specified, and generate a private key file `private.key`.
+This creates a Nexmo application with a messages [capability](/application/overview#capabilities), with the webhook URLs configured as specified, and generate a private key file `private.key`.
 
 ### How to create a Messages and Dispatch application using the Dashboard
 
