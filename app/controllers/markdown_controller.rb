@@ -3,6 +3,8 @@ class MarkdownController < ApplicationController
   before_action :set_product
   before_action :set_tracking_cookie
 
+  caches_page :show
+
   def show
     redirect = Redirector.find(request)
     return redirect_to redirect if redirect
