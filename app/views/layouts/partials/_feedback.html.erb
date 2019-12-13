@@ -15,25 +15,6 @@
         sitekey: '<%= ENV['RECAPTCHA_INVISIBLE_SITE_KEY'] %>',
       },
 
-      <% if current_user %>
-        current_user: {
-          email: '<%= current_user.email %>',
-          signout_path: '<%= signout_path %>',
-        },
-      <% end %>
-
-      <% if @feedback_author %>
-        feedback_author: {
-          email: '<%= @feedback_author.email %>',
-        },
-      <% end %>
-
-      <% if @feedback_author %>
-        feedback_author: {
-          email: '<%= @feedback_author.email %>',
-        },
-      <% end %>
-
       <% if @document_path %>
         github_url: '<%= "https://github.com/Nexmo/nexmo-developer/blob/#{ ENV['branch'] || 'master' }/#{@document_path}" %>',
       <% end %>

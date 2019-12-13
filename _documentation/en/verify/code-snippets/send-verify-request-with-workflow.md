@@ -22,3 +22,5 @@ Name | Description
 ```code_snippets
 source: '_examples/verify/send-verification-request-with-workflow'
 ```
+
+> **Note**: If you receive the error code 15: `The destination number is not in a supported network`, the target network might have been blocked by the platform's anti-fraud system. See [Velocity Rules](/verify/guides/velocity-rules).

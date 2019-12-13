@@ -3,7 +3,7 @@ title: Create the users
 description: In this step you learn how to create the Users that will participate in the Conversation.
 ---
 
-# Create a User
+# Create the Users
 
 Each participant in a Conversation is represented by a [User](/conversation/concepts/user) object and must be authenticated by the Client SDK. In a production application, you would typically store this user information in a database.
 

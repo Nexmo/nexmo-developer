@@ -287,7 +287,7 @@ Option | Description | Required
 -- | -- | --
 `timeOut` | The result of the callee's activity is sent to the `eventUrl` webhook endpoint `timeOut` seconds after the last action. The default value is *3*. Max is 10.| No
 `maxDigits` | The number of digits the user can press. The maximum value is `20`, the default is `4` digits. | No
-`submitOnHash` | Set to `true` so the callee's activity is sent to your webhook endpoint at `eventUrl` after he or she presses *#*. If *#* is not pressed the result is submitted after `timeOut` seconds. The default value is `false`. That is, the result is sent to your webhook endpoint after `timeOut` seconds. | No
+`submitOnHash` | Set to `true` so the callee's activity is sent to your webhook endpoint at `eventUrl` after they press *#*. If *#* is not pressed the result is submitted after `timeOut` seconds. The default value is `false`. That is, the result is sent to your webhook endpoint after `timeOut` seconds. | No
 `eventUrl` | Nexmo sends the digits pressed by the callee to this URL after `timeOut` pause in activity or when *#* is pressed.  | No
 `eventMethod` | The HTTP method used to send event information to `event_url` The default value is POST.| No
 

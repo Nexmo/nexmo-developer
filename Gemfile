@@ -13,7 +13,7 @@ gem 'webpacker'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -138,9 +138,11 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo-oas-renderer', '~> 0.6.6', require: false
+gem 'nexmo-oas-renderer', '~> 0.7', require: false
 
 gem 'smartling'
+
+gem 'newrelic_rpm'
 
 # A/B Testing
 gem 'split', '~> 3.3.2', require: 'split/dashboard'
@@ -153,6 +155,8 @@ gem 'truncato'
 gem 'redis'
 
 gem 'barnes'
+
+gem 'actionpack-page_caching', github: 'rails/actionpack-page_caching'
 
 group :development, :test do
   gem 'awesome_print'
