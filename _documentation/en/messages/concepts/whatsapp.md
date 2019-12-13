@@ -84,7 +84,7 @@ curl -X POST \
 
 When a message template is sent with the deterministic language policy, the receiving device will query its cache for a *language pack* for the language and locale specified in the message. If not available in the cache, the device will query the server for the required language pack. With the deterministic language policy the target device language and locale settings are ignored. If the language pack specified for the message is not available an error will be logged.
 
-Further information is available oin the [WhatsApp documentation](https://developers.facebook.com/docs/whatsapp/message-templates/sending/#language).
+Further information is available in the [WhatsApp documentation](https://developers.facebook.com/docs/whatsapp/message-templates/sending/#language).
 
 ## Important WhatsApp Rules
 
