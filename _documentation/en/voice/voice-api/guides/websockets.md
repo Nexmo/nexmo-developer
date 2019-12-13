@@ -1,10 +1,10 @@
 ---
-title: Websockets
+title: WebSockets
 description: You can connect the audio of a call to a websocket to work with it in real time.
 navigation_weight: 7
 ---
 
-# Websockets [Beta]
+# WebSockets [Beta]
 
 This guide introduces you to WebSockets and how and why you might want to use them in your Nexmo Voice API applications.
 

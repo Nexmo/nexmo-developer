@@ -7,9 +7,23 @@ navigation_weight: 0
 # Release Notes
 
 ## 1.2.1 - 2019-12-05
+### Added
+Configuration for ICE server:
+
+```
+NXMClientConfig *config = [[NXMClientConfig alloc] initWithApiUrl:restUrl
+                                                     websocketUrl:wsUrl
+                                                           ipsUrl:ipsUrl
+                                                    iceServerUrls:iceUrls];
+[NXMClient setConfiguration:config]
+```
+
+This configuration is optional and a default will be set if not specified.
+
+Note: `setConfiguration` should be used before accessing `NXMClient.shared`.
 
 ### Fixed
-Fixed nil `fromMember` for `NXMConversation` events.
+Corrected nil values for `fromMember` for `NXMConversation` events.
 
 ---
 
