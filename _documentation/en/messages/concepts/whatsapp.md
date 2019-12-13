@@ -38,7 +38,7 @@ The parameters are an array. The first value being `{{1}}` in the MTM.
 
 Below is an example API call:
 
-```
+``` shell
 curl -X POST \
   https://api.nexmo.com/beta/messages \
   -H 'Authorization: Bearer' $JWT \
@@ -75,8 +75,7 @@ curl -X POST \
         "locale": "en-GB"
       }
    }
-}
-'
+}'
 ```
 
 ## WhatsApp deterministic language policy
