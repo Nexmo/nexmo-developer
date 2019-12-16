@@ -5,6 +5,17 @@ navigation_weight: 0
 ---
 
 # Release Notes
+## 1.2.2 - 2019-12-12
+
+### Fixed
+- Support for DTLS in WebRTC.
+- 'didReceiveCall' and 'didReceiveConversation' not being called twice for the same call or conversation.
+- Option to enable push notification with only one token `pushKit` or `userNotification`.
+- NXMClientConfig region URLs fix.
+- On login with invalid user, fixed to `NXMConnectionStatusReasonUserNotFound`.
+- Added build architectures: `armv7` and `armv7s`.
+
+---
 
 ## 1.2.1 - 2019-12-05
 ### Added
