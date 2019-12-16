@@ -1,13 +1,16 @@
 ---
-title: Before you begin
+title: Before you Begin
 navigation_weight: 0
 ---
 
-# Before you begin
+# Before you Begin
+
+This topic provides some background information on using the code snippets.
 
 ## What are Code Snippets?
 
 Code snippets are short pieces of code you can reuse in your own applications.
+
 The code snippets utilize code from the [Nexmo Node Code Snippets](https://github.com/Nexmo/nexmo-node-code-snippets) and [Nexmo Curl Code Snippets](https://github.com/Nexmo/nexmo-curl-code-snippets) repositories.
 
 Please read this information carefully, so you can best use the code snippets.
