@@ -24,4 +24,4 @@ MEM-df8e57d8-1c8e-4573-bf4d-29d5414dcb42
 
 Memberships can be created in various ways: [via the Conversation API](/conversation/code-snippets/member/create-member), using the functions provided by the [Client SDK](/client-sdk/overview), or using the command line.
 
-> **NOTE:** There is a limit of 100 Members that can be added to a Conversation.
+> **NOTE:** You can add a maximum of 100 Members to a Conversation.
