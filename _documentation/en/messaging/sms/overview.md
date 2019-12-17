@@ -3,7 +3,7 @@ title: Overview
 meta_title: Send and receive SMS with the SMS API
 ---
 
-# SMS API
+# SMS API 2
 
 Nexmo's SMS API enables you to send and receive text messages to and from users worldwide, using simple REST APIs.
 
