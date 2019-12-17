@@ -11,7 +11,7 @@ navigation_weight: 0
 
 ### Fixed.
 - `conversation.getEvents` returned some `NXMEvent`s containing a nil `fromMember`
-- Added description for errors.
+- Added descriptive `userInfo` for `NXMError`s.
 
 ---
 
