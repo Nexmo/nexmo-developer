@@ -4,6 +4,7 @@ module Usage
 
     def create
       ab_finished(params['t'].to_sym)
+      render json: {}
     end
   end
 end
