@@ -5,7 +5,13 @@ navigation_weight: 0
 ---
 
 # Release Notes
+## 1.2.3 - 2019-12-17
 
+### Fixed.
+- Calling `conversation.getEvents` returned an `NXMEvent` with the field `fromMember` set to `nil`
+- Description in errors.
+
+___
 
 ## 1.2.2 - 2019-12-12
 
