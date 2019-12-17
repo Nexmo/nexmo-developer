@@ -197,7 +197,6 @@ page:
               - item: "[Voice Applications: Before You Begin](/voice/voice-api/code-snippets/before-you-begin)"
               - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
               - item: "[Interactive Voice Response](/tutorials/interactive-voice-response)"
-              - item: "[Connecting Voice Calls to Amazon Lex Bots](/voice/voice-api/guides/lex-connector)"
               - item: "[Receive a Phone Call with Voice API and Swift](https://www.nexmo.com/blog/2019/02/07/receive-call-swift-dr/)"
               - item: "[Forward a Call Via Voice Proxy With Koa.js](https://www.nexmo.com/blog/2019/02/05/forward-call-with-koa-js-dr/)"
     - column:
