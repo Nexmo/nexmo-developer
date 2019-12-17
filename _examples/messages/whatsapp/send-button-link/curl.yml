@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/messages/whatsapp/send-button-link.sh
+    from_line: 6
+    to_line: 80
+file_name: send-button-link.sh
+run_command: bash send-button-link.sh

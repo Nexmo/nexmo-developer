@@ -5,7 +5,7 @@ meta_title: Send a Video message with WhatsApp
 
 # Send a Video Message
 
-In this code snippet you will see how to send a video message through WhatsApp using the Messages API. For WhatsApp the maximum outbound media size is 64MB.
+In this code snippet you learn how to send a video message through WhatsApp using the Messages API. For WhatsApp the maximum outbound media size is 64MB.
 
 ## Example
 
@@ -13,7 +13,6 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` | The ID of the application that you created.
 `WHATSAPP_NUMBER` | The WhatsApp number you are sending from.
 `TO_NUMBER` | The WhatsApp number you are sending to.
 `VIDEO_URL` | The link to the video to send. WhatsApp supports `.mp4` and `.3gpp`. Note, only `H.264` video codec and `AAC` audio codecs are supported.

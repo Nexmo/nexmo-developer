@@ -9,7 +9,7 @@ services:
 addons:
   postgresql: '9.4'
 before_install:
-  - gem update --system
+  - gem update --system 3.0.3
   - gem update bundler
   - nvm install
 install: bundle install --deployment --path vendor/bundle && yarn install
