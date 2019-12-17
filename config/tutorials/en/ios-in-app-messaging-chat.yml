@@ -1,0 +1,50 @@
+title: Creating an iOS chat app
+description: Create a iOS application that enables users to message each other
+products:
+  - client-sdk
+
+introduction:
+  title: Introduction to this task
+  description: This task shows you how to create a iOS chat application using the iOS Client SDK.
+  content: |
+    # Introduction
+    In this task, you will learn how to create and configure a Client SDK Application and then code a web app that enables two users to send messages to each other.
+
+    First, you will create a Conversation and two Users. Then, you will authenticate these Users and add them to the Conversation as Members.
+
+    Finally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when either party is currently typing.
+
+    The source code is available [on GitHub](https://github.com/nexmo-community/ip-messaging-tutorial).
+
+prerequisites:
+  - create-nexmo-account
+  - install-nodejs
+  - install-nexmo-cli-beta
+  - install-xcode
+
+tasks:
+  - client-sdk/ios-in-app-messaging-chat/create-application
+  - client-sdk/ios-in-app-messaging-chat/create-conversation
+  - client-sdk/ios-in-app-messaging-chat/create-users
+  - client-sdk/ios-in-app-messaging-chat/add-users-to-conversation
+  - client-sdk/ios-in-app-messaging-chat/generate-jwts
+  - client-sdk/ios-in-app-messaging-chat/starter-project
+  # - client-sdk/ip-messaging/create-ui-ios
+  # - client-sdk/ip-messaging/authenticate-users
+  # - client-sdk/ip-messaging/join-conversation
+  # - client-sdk/ip-messaging/show-message-history
+  # - client-sdk/ip-messaging/send-message
+  # - client-sdk/ip-messaging/typing-indicators
+  # - client-sdk/ip-messaging/run-application
+
+conclusion:
+  title: What's next?
+  description: What else can you do with the Client SDK?
+  content: |
+
+    # What's next?
+    You can do a lot more with the Client SDK.
+
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+
+    See [Client SDK documentation](/client-sdk/overview).
