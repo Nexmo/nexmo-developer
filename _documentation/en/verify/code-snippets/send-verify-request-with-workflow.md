@@ -17,7 +17,7 @@ Name | Description
 `NEXMO_API_SECRET` | Your Nexmo [API secret](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
 `RECIPIENT_NUMBER` | The phone number to verify
 `BRAND_NAME` | Included in the message to explain who is confirming the phone number
-`WORKFLOW_ID` | Choose a workflow (number between 1 and 5), these are defined in the [workflows guide](/verify/guides/workflows-and-events)
+`WORKFLOW_ID` | Choose a workflow (number between 1 and 7), these are defined in the [workflows guide](/verify/guides/workflows-and-events)
 
 ```code_snippets
 source: '_examples/verify/send-verification-request-with-workflow'
