@@ -7,6 +7,14 @@ navigation_weight: 0
 # Release Notes
 
 
+## 1.2.3 - 2019-12-17
+
+### Fixed.
+- `conversation.getEvents` returned some `NXMEvent`s containing a nil `fromMember`
+- Added description for errors.
+
+---
+
 ## 1.2.2 - 2019-12-12
 
 ### Fixed
@@ -18,7 +26,6 @@ navigation_weight: 0
 - Added build architectures: `armv7` and `armv7s`.
 
 ---
-
 
 ## 1.2.1 - 2019-12-05
 ### Added
