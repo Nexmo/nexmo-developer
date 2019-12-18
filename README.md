@@ -285,9 +285,10 @@ git push origin your-branch-name
 Create a pull request in GitHub:
 
 1. In the next-developer repository, click the Pull requests tab.
-2. Click the New pull request button.
-3. Select your branch in the base drop-down menu.
-4. Click the Create pull request button.
+2. Click the Compare & new pull request button next to your branch in the list. 
+3. Review the changes between your branch and master.
+4. Add a Description of the changes.
+5. Click the Create pull request button.
 
 ## License
 
