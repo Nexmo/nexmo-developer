@@ -251,6 +251,44 @@ We :heart: contributions from everyone! It is a good idea to [talk to us](https:
 
 ## [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![GitHub contributors](https://img.shields.io/github/contributors/Nexmo/nexmo-developer.svg)](https://GitHub.com/Nexmo/nexmo-developer/graphs/contributors/)
 
+## Content Updates
+Follow these instructions to make updates to any content in the Nexmo Developer repository.
+
+Checkout a new branch, naming it appropriately:
+
+```
+git checkout -b your-branch-name
+```
+
+Locate the file containing the content you wish to update and open it in your preferred editor (i.e. Visual Studio Code).
+
+Make and save the necessary updates in the file.
+
+Add your changes:
+
+```
+git add -p
+```
+
+Commit the changes in your branch. Note: Include a commit message adequately: describing the update(s):
+
+```
+git commit -m “Add a commit message”
+```
+
+Push your branch in order to raise a pull request:
+
+```
+git push origin your-branch-name
+```
+
+Create a pull request in GitHub:
+
+1. In the next-developer repository, click the Pull requests tab.
+2. Click the New pull request button.
+3. Select your branch in the base drop-down menu.
+4. Click the Create pull request button.
+
 ## License
 
 This library is released under the [MIT License][license]
