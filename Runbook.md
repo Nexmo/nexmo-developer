@@ -33,6 +33,14 @@ We use [Pingdom](https://www.pingdom.com/) to monitor [NDP's](https://developer.
 
 We currently cache the sidenav and the information we fetch from Greenhouse in order to render the careers page. The cache is cleared as part of the deploy process, so when facing a caching issue, just trigger a new deploy or run the following rake task in Heroku `rake cache:clear`.
 
+## Troubleshooting Production issues
+
+In case NDP is Down:
+
+* Check if [Heroku](https://status.heroku.com/) is having an outage. Unfortunately, if that is the case then there isn't much you can do about it (at least for now).
+* Otherwise, check the [logs](#logs) or [Bugsnag](#error-monitoring-and-reporting) to see if any issues show up and try to reproduce it locally.
+If the issue is related to the latest deploy, just revert the offending commits and the deploy again while you work on a fix. Once a fix is ready, open a Pull Request, make sure that it works in the corresponding Review App and finally after all the checks pass merge it into master.
+
 # Available configuration options
 
 ## Configuration management
