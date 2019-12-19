@@ -64,13 +64,11 @@ In order to test the correct functioning of webhooks on your locally running app
 
 ## Configuring your firewall
 
-If you restrict inbound traffic (including delivery receipts), you need to whitelist the following IP addresses in your firewall. Inbound traffic from Nexmo might come from any of the following:
+If you restrict inbound traffic (including delivery receipts), you need to whitelist the Nexmo IP addresses in your firewall. You can find more information about IP whitelisting on our knowledge base:
 
-* `119.81.44.0/28`
-* `169.60.146.16/28`
-* `169.63.86.160/28`
-* `5.10.112.112/28`
-* `169.50.200.64/28`
+* [Voice IP Ranges](https://help.nexmo.com/hc/en-us/articles/115004859247)
+* [SMS IP Ranges](https://help.nexmo.com/hc/en-us/articles/204015053)
+* [Messages and Dispatch IP Ranges](https://help.nexmo.com/hc/en-us/articles/360035845911)
 
 ## Tips for debugging webhooks
 
