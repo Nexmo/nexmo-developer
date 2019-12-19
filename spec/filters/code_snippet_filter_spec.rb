@@ -12,7 +12,8 @@ RSpec.describe CodeSnippetFilter do
   end
 
   it 'returns code snippet in the code only template if code only parameter is defined as true' do
-    expect(File).to receive(:exist?).and_return(true)
+    allow(File).to receive(:exist?).and_call_original
+    expect(File).to receive(:exist?).with(/example_snippet/).and_return(true)
     expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file)
     expect(File).to receive(:read).with(/code_only/).and_return(code_only_template)
 
