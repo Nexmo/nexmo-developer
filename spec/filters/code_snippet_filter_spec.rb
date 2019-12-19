@@ -33,8 +33,25 @@ RSpec.describe CodeSnippetFilter do
     expect(described_class.call(input)).to match_snapshot('code_snippet_filter/code_only_default')
   end
 
-  it "returns prereqs + code_html + run_html if config['code_html'] is falsey" do
-    # snapshot test
+  it 'returns full code snippet with run instructions and prerequisites if code only parameter is undefined or false' do
+    allow(File).to receive(:exist?).and_call_original
+    expect(File).to receive(:exist?).with(/example_snippet/).and_return(true)
+    expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file)
+    expect(File).to receive(:read).with(/write_code/).and_return(write_code_template)
+
+    input = <<~HEREDOC
+      ```single_code_snippet
+      language: ruby
+      title: Ruby
+      code:
+        source: .repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb
+        from_line: 18
+        to_line: 32
+      unindent: false
+      ```
+    HEREDOC
+
+    expect(described_class.call(input)).to match_snapshot('code_snippet_filter/code_snippet_default')
   end
 
   it 'generates application_html with defaults if no default provided' do
@@ -122,5 +139,22 @@ def code_only_template
       </div>
       <pre class="highlight <%= lexer.tag %> main-code"><code><%= highlighted_code_source %></code></pre>
     </div>
+  HEREDOC
+end
+
+def write_code_template
+  <<~HEREDOC
+    <h2 class="Vlt-title--margin-top3"><%= I18n.t('.code_snippets.write_code.write_the_code') %></h2>
+    <%= add_instructions %>
+
+    <div class="copy-wrapper">
+      <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="code">
+        <%= octicon "clippy", :class => 'top left' %> <span><%= I18n.t('.code_snippets.copy_to_clipboard') %></span>
+      </div>
+      <pre class="highlight <%= lexer.tag %> main-code"><code><%= highlighted_code_source %></code></pre>
+
+    </div>
+
+    <p><a data-section="code" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= source_url %>"><%= I18n.t('.code_snippets.write_code.view_full_source') %></a></p>
   HEREDOC
 end
