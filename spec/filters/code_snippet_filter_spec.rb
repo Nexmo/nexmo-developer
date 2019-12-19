@@ -70,12 +70,56 @@ RSpec.describe CodeSnippetFilter do
   end
 
   it 'raises an exception if language is not known' do
+    input = <<~HEREDOC
+      ```single_code_snippet
+      language: klingon
+      title: Ruby
+      code:
+        source: .repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb
+        from_line: 18
+        to_line: 32
+      unindent: false
+      ```
+    HEREDOC
+
+    expect { described_class.call(input) }.to raise_error('Unknown language: klingon')
   end
 
   it 'raises an exception if language file does not exist' do
+    allow(File).to receive(:exist?).and_call_original
+    expect(File).to receive(:exist?).with(/example_snippet/).and_return(false)
+
+    input = <<~HEREDOC
+      ```single_code_snippet
+      language: ruby
+      title: Ruby
+      code:
+        source: .repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb
+        from_line: 18
+        to_line: 32
+      unindent: false
+      ```
+    HEREDOC
+
+    expect { described_class.call(input) }.to raise_error("CodeSnippetFilter - Could not load #{Rails.root}/.repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb for language ruby")
   end
 
-  it 'raises an exception of application type is not known' do
+  it 'raises an exception if application is specified but type is not recognized' do
+    input = <<~HEREDOC
+      ```single_code_snippet
+      language: ruby
+      title: Ruby
+      code:
+        source: .repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb
+        from_line: 18
+        to_line: 32
+      application:
+        type: 'klingon_warbird'
+      unindent: false
+      ```
+    HEREDOC
+
+    expect { described_class.call(input) }.to raise_error("Invalid application type when creating code snippet: 'klingon_warbird'")
   end
 
   it 'dependency_html is an empty string if there are no dependencies' do
