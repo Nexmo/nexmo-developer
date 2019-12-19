@@ -29,9 +29,10 @@ tasks:
   - client-sdk/ios-in-app-messaging-chat/add-users-to-conversation
   - client-sdk/ios-in-app-messaging-chat/generate-jwts
   - client-sdk/ios-in-app-messaging-chat/starter-project
-  # - client-sdk/ip-messaging/create-ui-ios
-  # - client-sdk/ip-messaging/authenticate-users
-  # - client-sdk/ip-messaging/join-conversation
+  - client-sdk/ios-in-app-messaging-chat/authenticate-users
+  - client-sdk/ios-in-app-messaging-chat/conversation-ui
+  - client-sdk/ios-in-app-messaging-chat/fetch-conversation
+  - client-sdk/ios-in-app-messaging-chat/fetch-events
   # - client-sdk/ip-messaging/show-message-history
   # - client-sdk/ip-messaging/send-message
   # - client-sdk/ip-messaging/typing-indicators

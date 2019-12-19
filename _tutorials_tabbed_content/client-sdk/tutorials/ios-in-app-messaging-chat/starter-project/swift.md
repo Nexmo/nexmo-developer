@@ -39,3 +39,7 @@ enum User: String {
 }
 
 ```
+
+Notice that we defined the `User` as an `enum` to make it clearer and simpler to work with its properties. 
+
+We've also defined `conversationId` as a static property on `User` - this might feel a bit out of place but makes it easier to use later on.

@@ -4,7 +4,7 @@ language: objective_c
 menu_weight: 2
 ---
 
-Clone this [Github project](https://github.com/Nexmo/ClientSDK-Get-Started-Voice-Objective-C).
+Clone this [Github project](https://github.com/Nexmo/ClientSDK-Get-Started-Messaging-Objective-C).
 
 Using the Github project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within XCode:
 
