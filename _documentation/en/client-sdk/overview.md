@@ -27,8 +27,8 @@ The Client SDK supports the following platforms and languages:
 Platform | Language
 ----|----
 Web | JavaScript
-iOS | Objective-C, Swift
-Android | Java, Kotlin
+iOS (10.2 and above) | Objective-C, Swift
+Android (6.0 and above - API level 23 and above) | Java, Kotlin
 
 ## In-App Messaging
 

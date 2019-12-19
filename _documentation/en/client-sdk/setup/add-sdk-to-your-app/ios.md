@@ -12,7 +12,7 @@ In this guide you learn how to add the Nexmo Client SDK to your iOS app.
 To use the Nexmo SDK for iOS, you need to have the following installed:
 
 * Xcode 10 or later
-* iOS 10 or later
+* iOS 10.2 or later
 
 ## Add the SDK to your iOS Project
 
