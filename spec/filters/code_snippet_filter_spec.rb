@@ -109,6 +109,7 @@ RSpec.describe CodeSnippetFilter do
 
   it 'returns code snippet with application and client configuration instructions and dependencies if they are defined' do
     allow(File).to receive(:exist?).and_call_original
+    expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
     expect(File).to receive(:exist?).with(/example_snippet/).and_return(true).twice
     expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file).twice
     expect(File).to receive(:read).with(/write_code/).and_return(write_code_template)
@@ -139,10 +140,38 @@ RSpec.describe CodeSnippetFilter do
     expect(described_class.call(input)).to match_snapshot('code_snippet_filter/code_snippet_with_prereqs_deps_client_application_defined')
   end
 
-  it 'reads code only snippet data if code only is specified' do
-  end
+  it 'returns default application values if none are specified' do
+    allow(File).to receive(:exist?).and_call_original
+    expect(File).to receive(:exist?).with(/example_snippet/).and_return(true)
+    expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file)
+    expect(File).to receive(:read).with(/write_code/).and_return(write_code_template)
+    expect(File).to receive(:read).with(/_application_voice/).and_return(voice_template_file)
 
-  it 'reads write code snippet data if code only is not specified' do
+    input = <<~HEREDOC
+      ```single_code_snippet
+      language: ruby
+      title: Ruby
+      code:
+        source: .repos/nexmo/nexmo-ruby-code-snippets/example/example_snippet.rb
+        from_line: 18
+        to_line: 32
+      application:
+        name:
+      unindent: false
+      ```
+    HEREDOC
+
+    expected_app_name = 'ExampleProject'
+    expected_base_url = 'http://demo.ngrok.io'
+    expected_events_url = "#{expected_base_url}/webhooks/events"
+    expected_answer_url = "#{expected_base_url}/webhooks/answer"
+
+    output = described_class.call(input)
+
+    expect(output).to include(expected_app_name)
+    expect(output).to include(expected_base_url)
+    expect(output).to include(expected_events_url)
+    expect(output).to include(expected_answer_url)
   end
 end
 
