@@ -22,7 +22,7 @@ RSpec.describe CollapsibleFilter do
     expect(described_class.call(input)).to eq(expected_output)
   end
 
-  it 'accepts up to six # characters as acceptable input' do
+  it 'accepts up to six # characters as acceptable input to cause input alteration' do
     input = "| ###### Heading\n|\nContent\n\n"
 
     expected_output = <<~HEREDOC
