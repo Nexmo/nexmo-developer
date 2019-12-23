@@ -15,7 +15,7 @@ RSpec.describe CodeSnippetFilter do
     allow(File).to receive(:exist?).and_call_original
     expect(File).to receive(:exist?).with(/example_snippet/).and_return(true)
     expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file)
-    expect(File).to receive(:read).with(/code_only/).and_return(code_only_template)
+    expect(File).to receive(:read).with(/code_only/).once.and_call_original
 
     input = <<~HEREDOC
       ```single_code_snippet
@@ -37,7 +37,7 @@ RSpec.describe CodeSnippetFilter do
     allow(File).to receive(:exist?).and_call_original
     expect(File).to receive(:exist?).with(/example_snippet/).and_return(true)
     expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file)
-    expect(File).to receive(:read).with(/write_code/).and_return(write_code_template)
+    expect(File).to receive(:read).with(/write_code/).once.and_call_original
 
     input = <<~HEREDOC
       ```single_code_snippet
@@ -112,10 +112,10 @@ RSpec.describe CodeSnippetFilter do
     expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
     expect(File).to receive(:exist?).with(/example_snippet/).and_return(true).twice
     expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file).twice
-    expect(File).to receive(:read).with(/write_code/).and_return(write_code_template)
-    expect(File).to receive(:read).with(/_application_voice/).and_return(voice_template_file)
-    expect(File).to receive(:read).with(/_dependencies/).and_return(dependencies_template)
-    expect(File).to receive(:read).with(/_configure_client/).and_return(configure_client_template)
+    expect(File).to receive(:read).with(/write_code/).once.and_call_original
+    expect(File).to receive(:read).with(/_application_voice/).once.and_call_original
+    expect(File).to receive(:read).with(/_dependencies/).once.and_call_original
+    expect(File).to receive(:read).with(/_configure_client/).once.and_call_original
 
     input = <<~HEREDOC
       ```single_code_snippet
@@ -144,8 +144,8 @@ RSpec.describe CodeSnippetFilter do
     allow(File).to receive(:exist?).and_call_original
     expect(File).to receive(:exist?).with(/example_snippet/).and_return(true)
     expect(File).to receive(:read).with(/example_snippet/).and_return(example_source_file)
-    expect(File).to receive(:read).with(/write_code/).and_return(write_code_template)
-    expect(File).to receive(:read).with(/_application_voice/).and_return(voice_template_file)
+    expect(File).to receive(:read).with(/write_code/).once.and_call_original
+    expect(File).to receive(:read).with(/_application_voice/).once.and_call_original
 
     input = <<~HEREDOC
       ```single_code_snippet
@@ -209,101 +209,5 @@ def example_source_file
     )
 
     puts response.inspect
-  HEREDOC
-end
-
-def code_only_template
-  <<~HEREDOC
-    <div class="copy-wrapper">
-      <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="code">
-        <%= octicon "clippy", :class => 'top left' %> <span><%= I18n.t('.copy-to-clipboad') %></span>
-      </div>
-      <pre class="highlight <%= lexer.tag %> main-code"><code><%= highlighted_code_source %></code></pre>
-    </div>
-  HEREDOC
-end
-
-def write_code_template
-  <<~HEREDOC
-    <h2 class="Vlt-title--margin-top3"><%= I18n.t('.code_snippets.write_code.write_the_code') %></h2>
-    <%= add_instructions %>
-
-    <div class="copy-wrapper">
-      <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="code">
-        <%= octicon "clippy", :class => 'top left' %> <span><%= I18n.t('.code_snippets.copy_to_clipboard') %></span>
-      </div>
-      <pre class="highlight <%= lexer.tag %> main-code"><code><%= highlighted_code_source %></code></pre>
-
-    </div>
-
-    <p><a data-section="code" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= source_url %>"><%= I18n.t('.code_snippets.write_code.view_full_source') %></a></p>
-  HEREDOC
-end
-
-def voice_template_file
-  <<~HEREDOC
-    <div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-    <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
-        <%= app['use_existing'] ? I18n.t('.code_snippets.use_your_app') : I18n.t('.code_snippets.create_an_app') %>
-    </h5>
-
-    <div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
-        <% if app['use_existing'] %>
-            <p><%= app['use_existing'] %></p>
-        <% else %>
-            <p><%= I18n.t('.code_snippets.nexmo_application_contains_html') %></p>
-            <h4><%= I18n.t('.code_snippets.install_the_cli') %></h4>
-            <pre class="highlight bash dependencies"><code>npm install -g nexmo-cli</code></pre>
-
-            <h4><%= I18n.t('.code_snippets.create_an_app') %></h4>
-            <p><%= I18n.t('.code_snippets.once_you_have_the_cli_installed_html') %></p>
-
-            <% unless app['disable_ngrok'] %>
-              <p><%= I18n.t('.code_snippets.nexmo_needs_to_connect_html') %></p>
-            <% end %>
-
-            <pre class="highlight bash dependencies"><code>nexmo app:create "<%=app['name'] %>" <%=app['answer_url'] %> <%=app['event_url'] %> --keyfile private.key</code></pre>
-        <% end %>
-      </div>
-    </div>
-  HEREDOC
-end
-
-def dependencies_template
-  <<~HEREDOC
-    <div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-    <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0"><%= title %></h5>
-
-    <div id="acc<%= id %>" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
-          <p><%=deps['text']%></p>
-          <% if deps['code'] %>
-          <pre class="highlight <%= deps['type'] || 'bash' %> dependencies"><code><%=deps['code']%></code></pre>
-          <% end %>
-      </div>
-    </div>
-  HEREDOC
-end
-
-def configure_client_template
-  <<~HEREDOC
-    <div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
-    <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
-            <%= I18n.t('.code_snippets.configure_client.initialize_dependencies') %>
-    </h5>
-
-    <div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
-      <%= create_instructions %>
-      <div class="copy-wrapper">
-
-        <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="configure">
-          <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
-        </div>
-        <pre class="highlight copy-to-clipboard <%= config['title'] %>"><code><%= highlighted_client_source %></code></pre>
-      </div>
-
-      <p><a data-section="configure" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= client_url %>">View full source</a></p>
-
-      </div>
-    </div>
   HEREDOC
 end
