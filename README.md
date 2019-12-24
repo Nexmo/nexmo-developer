@@ -284,7 +284,7 @@ git push origin your-branch-name
 
 Create a pull request in GitHub:
 
-1. In the `s/next-developer/nexmo-developer` repository, click the Pull requests tab.
+1. In the `nexmo-developer` repository, click the Pull requests tab.
 2. Click the Compare & new pull request button next to your branch in the list. 
 3. Review the changes between your branch and master.
 4. Add a Description of the changes.
