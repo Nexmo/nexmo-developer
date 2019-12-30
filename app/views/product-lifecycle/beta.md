@@ -25,3 +25,6 @@ Client libraries are available in Java, JavaScript, .NET, PHP, Python and Ruby<s
 <small>* *Excluded products*: Conversation API</small>
 
 
+## Deprecation
+
+We will provide a minimum of 30 days notice of any deprecated features during the Beta period. Deprecated products may continue to function after the deprecation date, but we make no promises that they will work indefinitely.
