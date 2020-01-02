@@ -29,12 +29,12 @@ class CodeSnippet
   end
 
   def self.generate_url(path)
-    '/' + path.gsub("#{origin}/", '').gsub('.md', '')
+    '/' + path.gsub(%r{#{origin}/\w{2}/}, '').gsub('.md', '')
   end
 
   def self.extract_product(path)
     # Remove the prefix
-    path = path.gsub!("#{origin}/", '')
+    path = path.gsub!(%r{#{origin}/\w{2}/}, '')
 
     # Each file is in the form code-snippets/<title>.md, so let's remove everything after code-snippets
     path = path.gsub(%r{/code-snippets/.*}, '')
@@ -44,7 +44,7 @@ class CodeSnippet
 
   def self.extract_category(path)
     # Remove the prefix
-    path = path.gsub("#{origin}/", '')
+    path = path.gsub(%r{#{origin}/\w{2}/}, '')
 
     # Each file is in the form code-snippets/<title>.md, so let's capture everything after code-snippets
     path = path.gsub(%r{.*/code-snippets/(.*)$}, '\1')
