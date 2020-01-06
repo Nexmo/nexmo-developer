@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CodeSnippetFilter do
-  def example_source_file
+  let(:example_source_file) do
     <<~HEREDOC
       require 'dotenv/load'
       require 'nexmo'
