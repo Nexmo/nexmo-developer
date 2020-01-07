@@ -121,3 +121,10 @@
 "/client-sdk/in-app-messaging/guides/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging"
 "/client-sdk/tutorials/in-app-messaging/client-sdk/create-ui-ip-messaging": "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/create-ui"
 "/client-sdk/setup/configure-data-center": "/client-sdk/configuration/configure-data-center"
+
+"/client-sdk/in-app-voice/guides/call-member-actions": "/client-sdk/in-app-voice/overview"
+"/client-sdk/in-app-voice/guides/enable-audio": "/client-sdk/in-app-voice/overview"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/android": "/client-sdk/in-app-voice/guides/make-call/android"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/ios": "/client-sdk/in-app-voice/guides/make-call/ios"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/javascript": "/client-sdk/in-app-voice/guides/make-call/javascript"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/.config.": "/client-sdk/in-app-voice/guides/make-call/.config."
