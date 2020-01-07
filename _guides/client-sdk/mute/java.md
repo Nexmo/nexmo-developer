@@ -21,4 +21,5 @@ member.mute(ActionStatus.ON, listener);
 
 //Mute my Member
 call.mute(ActionStatus.ON, listener);
+
 ```
