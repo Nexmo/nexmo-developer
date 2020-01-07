@@ -93,3 +93,6 @@ current:
     email: 'michael.jolley@vonage.com'
     twitter: 'michaeljolley'
     role: 'Developer Advocate'
+  - name: 'Nick Iati'
+    email: 'nick.iati@vonage.com'
+    role: 'Technical Writer'
