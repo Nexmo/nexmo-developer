@@ -1,0 +1,9 @@
+---
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/number-insights/advanced-async-trigger.php
+    from_line: 5
+    to_line: 6
+code:
+    source: .repos/nexmo/nexmo-php-code-snippets/number-insights/advanced-async-trigger.php
+    from_line: 45
+    to_line: 54
