@@ -5,11 +5,273 @@ navigation_weight: 0
 ---
 
 # Release Notes
+## Version 2.1.0 - January 01, 2020
+
+### Added
+- Add `clearNexmoEventsListeners` method in `NexmoConversation` to clear all listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+            //Add listener to events
+            myConversation.addMemberEventListener(new NexmoMemberEventListener(){
+                    //implement functions
+                }
+            });
+            
+            myConversation.addCustomEventListener(new NexmoCustomEventListener(){
+                    //implement functions
+            });
+            //Add more listeners
+        }
+        
+        @Override public void onStop(){
+            //Clear all listeners
+            myConversation.clearNexmoEventsListeners();
+        }
+    }
+```
+- Add `clearMemberEventListeners` method in `NexmoConversation` to clear all `NexmoMemberEventListener` listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+        //Add listener to NexmoMemberEvent
+            myConversation.addMemberEventListener(new NexmoMemberEventListener(){
+            
+            });
+        }
+        
+        @Override public void onStop(){
+            myConversation.clearMemberEventListeners();
+        }
+    }
+```
+- Add `clearCustomEventListeners` method in `NexmoConversation` to clear all `NexmoCustomEventListener` listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+        //Add listener to NexmoCustomEvent
+            myConversation.addCustomEventListener(new NexmoCustomEventListener(){
+            
+            });
+        }
+        
+        @Override public void onStop(){
+            myConversation.clearCustomEventListeners();
+        }
+    }
+```
+- Add `clearLegStatusEventListeners` method in `NexmoConversation` to clear all `NexmoLegStatusEventListener` listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+        //Add listener to NexmoLegStatusEvent
+            myConversation.addLegStatusEventListener(new NexmoLegStatusEventListener(){
+            
+            });
+        }
+        
+        @Override public void onStop(){
+            myConversation.clearLegStatusEventListeners();
+        }
+    }
+```
+- Add `clearDTMFEventListeners` method in `NexmoConversation` to clear all `NexmoDTMFEventListener` listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+        //Add listener to NexmoDTMFEvent
+            myConversation.addDTMFEventListener(new NexmoDTMFEventListener(){
+            
+            });
+        }
+        
+        @Override public void onStop(){
+            myConversation.clearDTMFEventListeners();
+        }
+    }
+```
+- Add `clearMessageEventListeners` method in `NexmoConversation` to clear all `NexmoMessageEventListener` listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+        //Add listener to NexmoMessageEvent
+            myConversation.addMessageEventListener(new NexmoMessageEventListener(){
+            
+            });
+        }
+        
+        @Override public void onStop(){
+            myConversation.clearMessageEventListeners();
+        }
+    }
+```
+- Add `clearNexmoConversationListeners` method in `NexmoConversation` to clear all `NexmoConversationListener` listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+        //Add listener to NexmoConversation
+            myConversation.addNexmoConversationListener(new NexmoConversationListener(){
+            
+            });
+        }
+        
+        @Override public void onStop(){
+            myConversation.clearNexmoConversationListeners();
+        }
+    }
+```
+- Add `clearTypingEventListeners` method in `NexmoConversation` to clear all `NexmoTypingEventListener` listeners
+
+```
+    class MyActivity extends Activity{
+        NexmoConversation myConversation;
+        
+        @Override public void onStart(){
+        //Add listener to NexmoTypingEvent
+            myConversation.addTypingEventListener(new NexmoTypingEventListener(){
+            
+            });
+        }
+        
+        @Override public void onStop(){
+            myConversation.clearTypingEventListeners();
+        }
+    }
+```
+- Add `NexmoMember` parameter to `NexmoMemberEvent` with respect to the `NexmoMember` acted on by: 
+
+```
+    NexmoConversation myConversation;
+    myConversation.addMemberEventListener(new NexmoMemberEventListener{
+        void onMemberInvited(@NonNull final NexmoMemberEvent event){
+            //The invitee member
+            event.getMember()
+            //the inviter member
+            event.getFromMember()
+        }
+    });
+```
+
+### Fixed
+- dispatch `NexmoAttachmentEvent` with respect to `NexmoConversation`
+
+```
+    NexmoConversation myConversation;
+    myConversation.addNexmoMessageEventListener(new NexmoMessageEventListener(){
+        
+        void onAttachmentEvent(@NonNull final NexmoAttachmentEvent attachmentEvent){
+            //handle attachment event
+        }    
+    });
+```
+- dispatch `NexmoMediaEvent` with respect to `NexmoConveration`
+- dispatch `NexmoMediaActionEvent` with respect to `NexmoConveration`
+- make `NexmoDTMFEvent` inheritance `NexmoEvent`
+- `NexmoTextEvent.equals` to use `super.equals`
+- `NexmoConversation.getCreationDate` to return `Date` java object 
+- `NexmoEvent.getCreationDate` fix `IllegalArgumentException`
+
+---
+
+## 2.0.0 - 2019-12-22
+
+### Added
+- Add filter by `EventType` in `NexmoConversation.getEvents`
+```
+    NexmoConversation myConversation
+    //Get all text event for a specifc conversation
+    myConversation.getEvents(10, NexmoPageOrderDesc, "text", new NexmoRequestListener<NexmoEventsPage> {
+        void onError(@NonNull NexmoApiError error){
+        }
+        
+        void onSuccess(@Nullable NexmoEventsPage result){
+            Collection<NexmoEvent> textEvents =  result.getData()
+        }
+    });
+    //Get all member event for a specifc conversation
+    myConversation.getEvents(10, NexmoPageOrderDesc, "member:*", new NexmoRequestListener<NexmoEventsPage> {
+        void onError(@NonNull NexmoApiError error){
+        }
+        
+        void onSuccess(@Nullable NexmoEventsPage result){
+            Collection<NexmoEvent> memberEvents =  result.getData()
+        }
+    });
+```
+
+### Changed
+- `NexmoDeliveredEvent` remove `InitialEvent` parameter and add `InitialEventId`
+- `NexmoSeenEvent` remove `InitialEvent` parameter and add `InitialEventId`
+
+### Fixed
+- Support for DTLS in WebRTC
+- `NexmoConversationsPage.getPrev()` return the conversations from the right cursor
+
+---
+
+## 2.0.0 - 2019-12-22
+
+### Added
+- Add filter by `EventType` in `NexmoConversation.getEvents`
+
+```
+    NexmoConversation myConversation
+    //Get all text event for a specifc conversation
+    myConversation.getEvents(10, NexmoPageOrderDesc, "text", new NexmoRequestListener<NexmoEventsPage> {
+        void onError(@NonNull NexmoApiError error){
+        }
+        
+        void onSuccess(@Nullable NexmoEventsPage result){
+            Collection<NexmoEvent> textEvents =  result.getData()
+        }
+    });
+    //Get all member event for a specifc conversation
+    myConversation.getEvents(10, NexmoPageOrderDesc, "member:*", new NexmoRequestListener<NexmoEventsPage> {
+        void onError(@NonNull NexmoApiError error){
+        }
+        
+        void onSuccess(@Nullable NexmoEventsPage result){
+            Collection<NexmoEvent> memberEvents =  result.getData()
+        }
+    });
+```
+
+### Changed
+- `NexmoDeliveredEvent` remove `InitialEvent` parameter and add `InitialEventId`
+- `NexmoSeenEvent` remove `InitialEvent` parameter and add `InitialEventId`
+
+### Fixed
+- Support for DTLS in WebRTC
+- `NexmoConversationsPage.getPrev()` return the conversations from the right cursor
+
+---
 
 ## 1.2.0 - 2019-12-16 
 
 ### Added
 - Add filter by `EventType` in `NexmoConversation.getEvents`
+
 ```
     NexmoConversation myConversation
     //Get all text event for a specifc conversation
@@ -40,6 +302,7 @@ navigation_weight: 0
 
 ### Changes
 - Add `iceServerUrls` parameters to `NexmoClient.Builder`
+
 ```
     nexmoClient = new NexmoClient.Builder().iceServerUrls(new String[]{"stun/turn servr url"}).build(context);
 ``` 

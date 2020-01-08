@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require jquery-scrolltofixed
 //= require volta/volta.core.js
+//= require volta/popper.min.js
+//= require volta/tooltip.min.js
 //= require volta/components/volta.accordion.js
 //= require volta/components/volta.tab.js
 //= require volta/components/volta.tooltip.js

@@ -1,4 +1,7 @@
 class CollapsibleFilter < Banzai::Filter
+  # Transforms matching input into a collapsible HTML element on NDP.
+  # Matching input example: | ## Heading\n|\nContent\n\n
+
   def call(input)
     input.gsub(/^\|\s(\#{1,6})(\s)?(.+?)\n^\|\n(.+?)\n\n/m) do |_s|
       heading = $3

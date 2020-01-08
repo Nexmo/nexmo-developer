@@ -1,33 +1,54 @@
 require 'rails_helper'
 
 RSpec.describe CodeSnippet, type: :model do
+  before do
+    allow(Dir).to receive(:glob).and_call_original
+  end
+
   describe '#extract_product' do
-    it 'extracts voice successfully' do
+    before do
       allow(CodeSnippet).to receive(:origin).and_return('/path/to/_documentation')
-      expect(CodeSnippet.extract_product("#{CodeSnippet.origin}/voice/voice-api/code-snippets/demo.md")).to eq('voice/voice-api')
+    end
+
+    it 'extracts voice successfully' do
+      snippet = "#{CodeSnippet.origin}/en/voice/voice-api/code-snippets/demo.md"
+      allow(Dir).to receive(:glob).and_return([snippet])
+
+      expect(CodeSnippet.extract_product(snippet)).to eq('voice/voice-api')
     end
 
     it 'extracts sms successfully' do
-      allow(CodeSnippet).to receive(:origin).and_return('/path/to/_documentation')
-      expect(CodeSnippet.extract_product("#{CodeSnippet.origin}/messaging/sms/code-snippets/demo.md")).to eq('messaging/sms')
+      snippet = "#{CodeSnippet.origin}/en/messaging/sms/code-snippets/demo.md"
+      allow(Dir).to receive(:glob).and_return([snippet])
+
+      expect(CodeSnippet.extract_product(snippet)).to eq('messaging/sms')
     end
   end
 
   describe '#extract_category' do
-    it 'sets no category for top level code snippets' do
+    before do
       allow(CodeSnippet).to receive(:origin).and_return('/path/to/_documentation')
-      expect(CodeSnippet.extract_category("#{CodeSnippet.origin}/voice/voice-api/code-snippets/demo.md")).to eq(nil)
+    end
+
+    it 'sets no category for top level code snippets' do
+      snippet = "#{CodeSnippet.origin}/en/voice/voice-api/code-snippets/demo.md"
+      allow(Dir).to receive(:glob).and_return([snippet])
+
+      expect(CodeSnippet.extract_category(snippet)).to eq(nil)
     end
 
     it 'sets the correct category for nested code snippets' do
-      allow(CodeSnippet).to receive(:origin).and_return('/path/to/_documentation')
-      expect(CodeSnippet.extract_category("#{CodeSnippet.origin}/messaging/sms/code-snippets/sub-folder/demo.md")).to eq('Sub folder')
+      snippet = "#{CodeSnippet.origin}/en/messaging/sms/code-snippets/sub-folder/demo.md"
+      allow(Dir).to receive(:glob).and_return([snippet])
+
+      expect(CodeSnippet.extract_category(snippet)).to eq('Sub folder')
     end
   end
 
   describe '#all' do
     it 'returns all code snippets' do
       stub_available_blocks
+
       expect(CodeSnippet.all).to have(4).items
     end
   end
@@ -83,7 +104,7 @@ def stub_available_blocks
   }.each do |title, product|
     i += 1
     slug = title.parameterize
-    path = "/path/to/_documentation/#{product}/code-snippets/#{slug}.md"
+    path = "_documentation/en/#{product}/code-snippets/#{slug}.md"
     paths.push(path)
 
     allow(File).to receive(:read).with(path) .and_return(
@@ -95,7 +116,7 @@ def stub_available_blocks
   end
 
   # Add an example that has nested folders
-  path = '/path/to/_documentation/voice/voice-api/code-snippets/nested-blocks/nested-example.md'
+  path = '_documentation/en/voice/voice-api/code-snippets/nested-blocks/nested-example.md'
   i += 1
   allow(File).to receive(:read).with(path) .and_return(
     {
@@ -105,6 +126,6 @@ def stub_available_blocks
   )
   paths.push(path)
 
-  allow(CodeSnippet).to receive(:origin).and_return('/path/to/_documentation')
+  allow(CodeSnippet).to receive(:origin).and_return('_documentation')
   allow(CodeSnippet).to receive(:files).and_return(paths)
 end
