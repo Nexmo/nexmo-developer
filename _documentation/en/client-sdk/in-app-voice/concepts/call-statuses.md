@@ -20,16 +20,17 @@ A call may pass from Started to Ringing to Answered to Complete but there are ma
 
 Here is the list of all call statuses:
 
-- **started**: The call is created on the Nexmo platform
-- **ringing**: The destination has confirmed that the call is ringing
-- **answered**: The destination has answered the call
-- **rejected**: The call attempt was rejected by the destination
-- **busy**: The destination is on the line with another caller
-- **unanswered**: The call was canceled by the caller
-- **timeout**: The call timed out before it was answered
-- **failed**: The call failed before reaching the destination
-- **completed**: The call is completed successfully
-- **machine**: The call is answered by a machine
+Status | Description
+----|----
+`started` | The call is created on the Nexmo platform
+`cancelled` | The call was cancelled by the originator before it was answered
+`ringing` | The destination has confirmed that the call is ringing
+`answered` | The destination has answered the call
+`rejected` | The call attempt was rejected by the destination
+`busy` | The destination is on the line with another caller
+`timeout` | The call timed out before it was answered
+`failed` | The call failed before reaching the destination
+`completed` | The call is completed successfully
 
 These statuses are valid for all 1:1 call combinations such as IP to IP, IP to PSTN, PSTN to IP.
 
