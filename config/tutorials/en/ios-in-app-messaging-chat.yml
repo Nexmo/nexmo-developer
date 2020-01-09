@@ -33,10 +33,7 @@ tasks:
   - client-sdk/ios-in-app-messaging-chat/conversation-ui
   - client-sdk/ios-in-app-messaging-chat/fetch-conversation
   - client-sdk/ios-in-app-messaging-chat/fetch-events
-  # - client-sdk/ip-messaging/show-message-history
-  # - client-sdk/ip-messaging/send-message
-  # - client-sdk/ip-messaging/typing-indicators
-  # - client-sdk/ip-messaging/run-application
+  - client-sdk/ios-in-app-messaging-chat/receive-new-messages
 
 conclusion:
   title: What's next?
