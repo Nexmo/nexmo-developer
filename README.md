@@ -252,6 +252,7 @@ We :heart: contributions from everyone! It is a good idea to [talk to us](https:
 ## [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![GitHub contributors](https://img.shields.io/github/contributors/Nexmo/nexmo-developer.svg)](https://GitHub.com/Nexmo/nexmo-developer/graphs/contributors/)
 
 ## Content Updates
+
 Follow these instructions to make updates to any content in the Nexmo Developer repository.
 
 Checkout a new branch, naming it appropriately:
