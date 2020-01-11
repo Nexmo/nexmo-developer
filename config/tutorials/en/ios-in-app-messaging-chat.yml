@@ -41,8 +41,11 @@ conclusion:
   content: |
 
     # What's next?
-    You can do a lot more with the Client SDK.
+
+    For the complete version please see the Xcode workspace in the `Completed` folder of the `git` repository you've cloned.
+
+    You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview).
 
     We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
 
-    See [Client SDK documentation](/client-sdk/overview).
+    

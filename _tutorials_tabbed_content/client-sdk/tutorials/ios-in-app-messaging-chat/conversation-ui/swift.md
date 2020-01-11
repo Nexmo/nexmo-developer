@@ -33,4 +33,4 @@ func updateInterface() {
 }
 ```
 
-Please do have a look at the other lines inside `updateInterface()` to understand how the interface changes as resources are being retrieved.
+Please do have a look at the other lines inside `updateInterface` to understand how the interface changes as resources are being retrieved.

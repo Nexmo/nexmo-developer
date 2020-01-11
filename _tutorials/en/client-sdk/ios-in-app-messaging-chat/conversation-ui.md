@@ -5,7 +5,7 @@ description: Walkthrough the ConversationViewController
 
 # The Conversation UI
 
-The `ConversationViewController` is responsible for displaying all conversation elements and some elements are already included as part of the starter project:
+The `ConversationViewController` is responsible for displaying the conversation:
 
 ![Conversation UI](/assets/images/client-sdk/ios-messaging/conversation-ui.png)
 

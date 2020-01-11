@@ -4,7 +4,7 @@ language: swift
 menu_weight: 1
 ---
 
-Inside `UserSelectionViewController`, explore the setup methods that were written for you on `viewDidLoad`.
+Inside `UserSelectionViewController`, explore the `updateInterface` method that was written for you and referenced from `viewDidLoad`.
 
 Now locate the following line `//MARK: Setup Nexmo Client` and complete the `loginAs(user: User)` method implementation:
 
@@ -15,6 +15,8 @@ func loginAs(user: User) {
     client.login(withAuthToken: user.jwt)
 }
 ```
+
+This method is called when one of the two `Login as ...` buttons are tapped.
 
 > **NOTE:** The `User` type is an enum we've defined in the `Constants.swift` file.
 
@@ -44,6 +46,6 @@ extension UserSelectionViewController: NXMClientDelegate {
 }
 ```
 
-The `client(_:didChanged:reason:)` methods of the `NXMClientDelegate` protocol indicates changes to the connection. 
+The `client(_:didChanged:reason:)` method of the `NXMClientDelegate` protocol indicates changes to the connection. 
 
-If `status` is `.connected` then the user is authenticated and we're ready to move to the next screen, holding the conversation - we do this by performing the `showMessages` segue. 
+If `status` is `connected` then the user is authenticated and we're ready to move to the next screen, holding the conversation - we do this by performing the `showMessages` segue. 
