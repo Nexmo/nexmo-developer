@@ -5,14 +5,14 @@ navigation_weight: 0
 ---
 
 # Release Notes
-## Version 2.1.0 - January 01, 2020
+
 ## Version 2.1.2 - January 12, 2020
 
 ### Added
 - add annotation of `PermissionRequired` for function that start media: `NexmoClient.call` , `NexmoCall.answer` , `NexmoConvesation.enableMedia`
 
 ```
-    class MyAcitivity MakeCallActivity extends Activity {
+    class MyActivity MakeCallActivity extends Activity {
         @Override public void onCreate(Bundle savedInstanceState){
             //Call requires permission which may be rejected by user: 
             //code should explicitly check to see if permission is available (with 'checkPermission') 
@@ -37,8 +37,12 @@ navigation_weight: 0
 - remove require for permission `PROCESS_OUTGOING_CALLS` 
 - remove require for permission `READ_PHONE_STATE`
 
+---
+
+## Version 2.1.0 - January 01, 2020
 
 ### Added
+
 - Add `clearNexmoEventsListeners` method in `NexmoConversation` to clear all listeners
 
 ```
