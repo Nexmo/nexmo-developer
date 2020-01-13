@@ -7,11 +7,12 @@ description: The Audit API overview.
 
 # Audit API Overview
 
+Nick's fix.
+
 The Nexmo Audit API enables you to monitor your account by tracking events. These events are generated when your account users work with the SDKs or interact with the Nexmo Dashboard.
 
 With this API you can:
 
-* Retrieve a list of Audit events.
 * Retrieve a specific Audit event.
 * Filter events by parameters such as date, user ID, and event type.
 
