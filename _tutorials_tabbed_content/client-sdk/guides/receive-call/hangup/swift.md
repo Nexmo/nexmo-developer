@@ -1,10 +1,9 @@
 ---
 title: Swift
 language: swift
-menu_weight: 1
+menu_weight: 2
 ---
 
 ```swift
-call.myCallMember.hangup()
-
+call.hangup()
 ```

@@ -36,3 +36,5 @@ On the client side, start the call as such:
 source: '_tutorials_tabbed_content/client-sdk/guides/make-call/server-managed'
 frameless: false
 ```
+
+### Listen For Call Events
