@@ -33,6 +33,7 @@ tasks:
   - client-sdk/ios-in-app-messaging-chat/conversation-ui
   - client-sdk/ios-in-app-messaging-chat/fetch-conversation
   - client-sdk/ios-in-app-messaging-chat/fetch-events
+  - client-sdk/ios-in-app-messaging-chat/send-message
   - client-sdk/ios-in-app-messaging-chat/receive-new-messages
 
 conclusion:

@@ -5,7 +5,7 @@ menu_weight: 2
 ---
 
 
-Inside `ConversationViewController`, locate the following line 
+Inside `ConversationViewController.m`, locate the following line 
 
 `//MARK: Fetch Conversation` 
 
