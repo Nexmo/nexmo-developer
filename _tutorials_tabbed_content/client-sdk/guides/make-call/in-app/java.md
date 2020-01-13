@@ -1,7 +1,7 @@
 ---
 title: Java
-language: android
-menu_weight: 3
+language: java
+menu_weight: 1
 ---
 
 ```java

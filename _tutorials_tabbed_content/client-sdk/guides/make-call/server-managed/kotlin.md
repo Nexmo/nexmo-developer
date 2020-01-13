@@ -1,13 +1,13 @@
 ---
 title: Kotlin
 language: android
-menu_weight: 1
+menu_weight: 4
 ---
 
 ```java
-val callee = listOf(...)
+val callee = "..."
 var callListener = object: NexmoRequestListener<NexmoCall> {...}
 
-NexmoClient.get().call(callees, NexmoCallHandler.IN_APP, callListener);
+NexmoClient.get().call(callee, NexmoCallHandler.SERVER, callListener);
 
 ```

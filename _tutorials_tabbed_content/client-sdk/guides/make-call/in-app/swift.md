@@ -1,7 +1,7 @@
 ---
 title: Swift
 language: swift
-menu_weight: 1
+menu_weight: 4
 ---
 
 ```swift
