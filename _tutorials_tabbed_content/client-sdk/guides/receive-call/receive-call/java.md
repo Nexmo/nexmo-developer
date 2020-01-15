@@ -1,11 +1,10 @@
 ---
 title: Java
-language: android
+language: java
 menu_weight: 2
 ---
 
 ```java
-
 NexmoIncomingCallListener incomingCallListener = new NexmoIncomingCallListener() {
     @Override
     public void onIncomingCall(NexmoCall call) {
@@ -14,7 +13,6 @@ NexmoIncomingCallListener incomingCallListener = new NexmoIncomingCallListener()
 };
 
 nexmoCall.addIncomingCallListener(incomingCallListener);
-
 ```
 
 Remove the listener when needed:

@@ -9,5 +9,4 @@ String callee = ...;
 NexmoRequestListener<NexmoCall> callListener = ...;
 
 NexmoClient.get().call(callee, NexmoCallHandler.SERVER, callListener);
-
 ```
