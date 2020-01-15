@@ -38,3 +38,12 @@ frameless: false
 ```
 
 ### Listen For Call Events
+
+To see updates on the state of a call, for example, to know if the other member answered or hung up the call, you should listen to call events.
+
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/guides/make-call/listen-to-call-events'
+frameless: false
+```
+
+
