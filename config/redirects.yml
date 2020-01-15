@@ -255,3 +255,6 @@
 "/en/voice/sip/concepts/sip-connect": "/en/voice/sip/concepts/programmable-sip"
 "/concepts/guides/webhooks#using-ngrok-for-local-development": "/en/concepts/guides/testing-with-ngrok"
 "/messaging/sms/message-search/api-reference": "/api/developer/messages"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/android": "/client-sdk/in-app-voice/guides/make-call/android"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/ios": "/client-sdk/in-app-voice/guides/make-call/swift"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/javascript": "/client-sdk/in-app-voice/guides/make-call/javascript"
