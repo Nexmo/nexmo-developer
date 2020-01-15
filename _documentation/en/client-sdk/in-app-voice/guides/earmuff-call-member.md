@@ -1,7 +1,7 @@
 ---
 title: Earmuff a Call Member
 description: How to earmuff a call member.
-navigation_weight: 7
+navigation_weight: 8
 ---
 
 # Earmuff a Call Member
