@@ -1,6 +1,6 @@
 ---
 title: Java
-language: android
+language: java
 menu_weight: 3
 ---
 

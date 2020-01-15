@@ -255,3 +255,4 @@
 "/en/voice/sip/concepts/sip-connect": "/en/voice/sip/concepts/programmable-sip"
 "/concepts/guides/webhooks#using-ngrok-for-local-development": "/en/concepts/guides/testing-with-ngrok"
 "/messaging/sms/message-search/api-reference": "/api/developer/messages"
+"/client-sdk/in-app-voice/guides/call-member-actions": "/client-sdk/in-app-voice/guides/mute-call-member"

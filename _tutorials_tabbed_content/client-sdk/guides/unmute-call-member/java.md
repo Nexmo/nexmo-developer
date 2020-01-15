@@ -1,6 +1,6 @@
 ---
 title: Java
-language: android
+language: java
 menu_weight: 3
 ---
 
@@ -17,9 +17,9 @@ NexmoRequestListener<CallMember> listener = new NexmoRequestListener<>() {
         }
 };
 
-member.mute(ActionStatus.ON, listener);
+member.mute(ActionStatus.OFF, listener);
 
 //Mute my Member
-call.mute(ActionStatus.ON, listener);
+call.mute(ActionStatus.OFF, listener);
 
 ```
