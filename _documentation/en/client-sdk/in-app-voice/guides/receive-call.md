@@ -7,7 +7,7 @@ navigation_weight: 6
 # Receive a Call
 
 
-In order to receive an incoming in-app call, you should register and listen to incoming call events by implementing the NXMClientDelegate:
+In order to receive an incoming in-app call, you should register and listen to incoming call events:
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/guides/receive-call/receive-call'

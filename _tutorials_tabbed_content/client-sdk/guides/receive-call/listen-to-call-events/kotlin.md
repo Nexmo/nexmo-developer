@@ -14,5 +14,4 @@ Remove the listener when needed:
 
 ```java
 nexmoCall?.removeCallEventListener(callEventListener)
-
 ```
