@@ -9,6 +9,6 @@ new NexmoClient()
     .login(USER_JWT)
     .then(application => {
         ...
-        application.callPhone();
+        application.callServer(phoneNumber);
     })
 ```

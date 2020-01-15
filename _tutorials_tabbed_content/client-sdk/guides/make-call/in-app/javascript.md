@@ -4,4 +4,11 @@ language: javascript
 menu_weight: 1
 ---
 
-Not available in JavaScript.
+```javascript
+new NexmoClient()
+    .login(USER_JWT)
+    .then(application => {
+        ...
+        application.inAppCall(userName);
+    })
+```
