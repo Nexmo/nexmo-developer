@@ -6,11 +6,16 @@ navigation_weight: 0
 
 # Release Notes
 
-## Version 6.0.6 - January 16, 2020
+## Version 6.0.7 - January 16, 2020
 
 ### Fixes
 
-- Add `iceGatherOnlyOneCandidate` configuration option and use to define path in `ICE gathering` process
+- Fix ANSWERED call status in IP - IP calling
+- Fix docs issues
+
+### Changes
+
+- Improve TypeScript definitions
 
 ## Version 6.0.6 - November 19, 2019
 
