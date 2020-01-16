@@ -1,6 +1,6 @@
 ---
 title: Kotlin
-language: java
+language: android
 menu_weight: 1
 ---
 
