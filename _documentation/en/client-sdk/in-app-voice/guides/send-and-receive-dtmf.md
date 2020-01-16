@@ -14,12 +14,14 @@ DTMF is used both for dialing a destination on a landline telephone and also for
 
 With Nexmo Client SDKs you can both collect a DTMF input from your app user, and listen to DTMF input that was sent from another member.
 
+Before you begin, make sure you [added the SDK to your app](/client-sdk/setup/add-sdk-to-your-app) and you are able to [make](/client-sdk/in-app-voice/guides/make-call) or [receive](/client-sdk/in-app-voice/guides/receive-call) calls.
+
 ## Send DTMF
 
 In order to send DTMF tones from your application to the backend, use this method:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/get-started/dtmf/send'
+source: '_tutorials_tabbed_content/client-sdk/guides/dtmf/send'
 frameless: false
 ```
 
@@ -31,6 +33,6 @@ Whenever a member in a `Conversation` or a `Call` sends a DTMF, all of the other
 
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/get-started/dtmf/receive'
+source: '_tutorials_tabbed_content/client-sdk/guides/dtmf/receive'
 frameless: false
 ```
