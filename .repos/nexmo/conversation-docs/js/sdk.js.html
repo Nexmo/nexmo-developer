@@ -89,8 +89,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Copyright (c) Nexmo Inc.
 */
 const WildEmitter = require('wildemitter');
-const logger = require('loglevel');
-const prefix = require('loglevel-plugin-prefix');
+const loglevel_plugin_prefix_1 = __importDefault(require("loglevel-plugin-prefix"));
+const loglevel_1 = __importDefault(require("loglevel"));
 const nexmoClientError_1 = require("./nexmoClientError");
 const socket_io_client_1 = __importDefault(require("socket.io-client"));
 const js_1 = __importDefault(require("@bugsnag/js"));
@@ -98,8 +98,8 @@ const utils_1 = __importDefault(require("./utils"));
 const application_1 = __importDefault(require("./application"));
 const errors_emitter_1 = __importDefault(require("./modules/errors_emitter"));
 const user_1 = __importDefault(require("./user"));
-prefix.reg(logger);
-prefix.apply(logger, {
+loglevel_plugin_prefix_1.default.reg(loglevel_1.default);
+loglevel_plugin_prefix_1.default.apply(loglevel_1.default, {
     template: '[%t] %l (NXM-%n):',
     timestampFormatter: (date) => {
         return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
@@ -160,9 +160,9 @@ prefix.apply(logger, {
  * @emits NexmoClient#reconnecting
 */
 class NexmoClient {
-    constructor(params) {
+    constructor(params = {}) {
         // save an array of instances
-        const inputParams = params || {};
+        const inputParams = params;
         this.config = {
             debug: 'silent',
             callstats: {
@@ -221,15 +221,15 @@ class NexmoClient {
           debug: messages to help in diagnosing a problem
         */
         if (['debug', 'info', 'warn', 'error'].includes(inputParams.debug)) {
-            logger.setLevel(inputParams.debug);
+            loglevel_1.default.setLevel(inputParams.debug);
         }
         else if (inputParams.debug === true) {
-            logger.setLevel('debug');
+            loglevel_1.default.setLevel('debug');
         }
         else {
-            logger.setLevel('silent');
+            loglevel_1.default.setLevel('silent');
         }
-        this.log = logger.noConflict();
+        this.log = loglevel_1.default.noConflict();
         // set our config from the inputParams
         this.config = utils_1.default.deepMergeObj(this.config, this._sanitizeConfig(inputParams));
         // inject callstats library
@@ -244,11 +244,12 @@ class NexmoClient {
         }
         // inject bug reporting tool
         if (this.config.log_reporter.enabled) {
-            global.NXMbugsnagClient = js_1.default({
+            const bugsnagConfig = {
                 apiKey: this.config.log_reporter.bugsnag_key || utils_1.default._getBugsnagKey(),
                 appVersion: this.config.SDK_version,
                 releaseStage: this.config.environment
-            });
+            };
+            global.NXMbugsnagClient = js_1.default(bugsnagConfig);
         }
         this._createAndSetConnection();
         WildEmitter.mixin(NexmoClient);
@@ -590,8 +591,8 @@ class NexmoClient {
         this.connection.emit(type, request);
         this.requests[request.tid] = {
             type: type,
-            request: request,
-            callback: callback
+            request,
+            callback
         };
     }
     async sendNetworkRequest(params) {
@@ -642,7 +643,7 @@ class NexmoClient {
                     OS_family: 'js',
                     OS_revision: (typeof navigator !== 'undefined') ? navigator.userAgent : (typeof window !== 'undefined') ? window.navigator.userAgent : 'Generic JS navigator'
                 }
-            }, (response) => {
+            }, async (response) => {
                 if (response.type === 'session:success') {
                     this.session_id = response.body.id;
                     this.config.token = this.config.nexmo_api_url.includes('npe') ? token : null;
@@ -700,11 +701,13 @@ class NexmoClient {
                     this.config.token = token;
                     if (this.config.sync !== 'none') {
                         // Retrieve the existing conversation data for this user
-                        return this.application.getConversations().then(() => {
+                        try {
+                            await this.application.getConversations();
                             resolve(this.application);
-                        }).catch((reason) => {
-                            reject(reason);
-                        });
+                        }
+                        catch (error) {
+                            reject(error);
+                        }
                     }
                     else {
                         resolve(this.application);
@@ -720,7 +723,7 @@ class NexmoClient {
      * logout from the cloud.
     */
     logout() {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             const logoutRequest = () => {
                 return this.sendRequest({
                     type: 'session:logout',
@@ -748,13 +751,13 @@ class NexmoClient {
                         disablePromises.push(conversation.media.disable());
                     }
                 }
-                return Promise.all(disablePromises)
-                    .catch((err) => {
-                    this.log.info(err);
-                })
-                    .then(() => {
-                    return logoutRequest();
-                });
+                try {
+                    await Promise.all(disablePromises);
+                }
+                catch (error) {
+                    this.log.info(error);
+                }
+                return logoutRequest();
             }
             else {
                 return logoutRequest();
@@ -823,7 +826,7 @@ module.exports = NexmoClient;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
 	
-		on Tue Nov 19th 2019
+		on Thu Jan 16th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

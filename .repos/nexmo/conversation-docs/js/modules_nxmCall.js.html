@@ -89,7 +89,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Copyright (c) Nexmo Inc.
 */
 const WildEmitter = require('wildemitter');
-const getLogger = require('loglevel').getLogger;
+const loglevel_1 = require("loglevel");
 const nexmoClientError_1 = require("../nexmoClientError");
 const utils_1 = __importDefault(require("../utils"));
 /**
@@ -135,7 +135,7 @@ const utils_1 = __importDefault(require("../utils"));
 class NXMCall {
     constructor(application, conversation, from) {
         this.application = application;
-        this.log = getLogger(this.constructor.name);
+        this.log = loglevel_1.getLogger(this.constructor.name);
         this.from = from;
         this.conversation = null;
         /**
@@ -366,11 +366,11 @@ class NXMCall {
         });
         _handleStatusChangeMap.set('member:media', () => {
             if (this.status !== this.CALL_STATUS.ANSWERED &amp;&amp; event.body.audio) {
-                if (!_isEventFromMe || !_isOutbound) {
-                    this._setStatusAndEmit(this.CALL_STATUS.ANSWERED);
-                }
                 if (_isEventFromMe &amp;&amp; event.body.channel) {
                     this.id = event.body.channel.id;
+                }
+                if ((!_isEventFromMe || !_isOutbound) &amp;&amp; this.id) {
+                    this._setStatusAndEmit(this.CALL_STATUS.ANSWERED);
                 }
             }
             return Promise.resolve();
@@ -455,59 +455,58 @@ class NXMCall {
      * @returns {Promise[]} an array of the invite promises for the provided usernames
      * @private
     */
-    createCall(usernames, autoPlayAudio = true) {
+    async createCall(usernames, autoPlayAudio = true) {
         if (!usernames || !Array.isArray(usernames) || usernames.length === 0) {
             return Promise.reject(new nexmoClientError_1.NexmoClientError('error:application:call:params'));
         }
-        return this.application.newConversationAndJoin({ display_name: 'CALL_' + this.application.me.name + '_' + usernames.join('_').replace(' ', '') })
-            .then((conversation) => {
+        try {
+            const conversation = await this.application.newConversationAndJoin({ display_name: 'CALL_' + this.application.me.name + '_' + usernames.join('_').replace(' ', '') });
             this.from = conversation.me;
             this.successful_invited_members = new Map();
-            const invites = usernames.map((username) => {
+            const invites = usernames.map(async (username) => {
                 // check all invites, if at least one is resolved enable audio
                 // we need to catch rejections to allow all the chain to go through (all invites)
                 // we then catch-reject a promise so that the errors are passing through the end of the chain
-                return conversation.inviteWithAudio({ user_name: username })
-                    .then((member) => {
+                try {
+                    const member = await conversation.inviteWithAudio({ user_name: username });
                     this.successful_invited_members.set(member.id, member);
-                    return Promise.resolve(member);
-                })
-                    .catch((error) => {
+                    return member;
+                }
+                catch (error) {
                     this.log.error(error);
                     // resolve the error to allow the promise.all to collect
                     // and return all the promises
-                    return Promise.resolve(error);
-                });
+                    return error;
+                }
             });
             // helper function to process in Promise.all() the failed invites too
-            const process_invites = () => {
+            const process_invites = async () => {
                 if (this.successful_invited_members.size > 0) {
-                    return conversation.media.enable({
+                    await conversation.media.enable({
                         audio: {
                             muted: false,
                             earmuffed: false
                         },
                         autoPlayAudio
-                    }).then((stream) => {
-                        this.application.calls.set(conversation.id, this);
-                        return Promise.resolve(invites);
                     });
+                    this.application.calls.set(conversation.id, this);
+                    return invites;
                 }
                 else {
-                    return Promise.reject(invites);
+                    throw invites;
                 }
             };
             // we need to continue the invites even if one fails,
             // in process_invites we do the check if at least one was successful
-            return Promise.all(invites).then(() => {
-                this._setupConversationObject(conversation);
-                return process_invites();
-            });
-        }).catch((error) => {
+            await Promise.all(invites);
+            this._setupConversationObject(conversation);
+            return await process_invites();
+        }
+        catch (error) {
             this.log.error(error);
             this._setStatusAndEmit(this.CALL_STATUS.FAILED);
-            return Promise.reject(error);
-        });
+            throw error;
+        }
     }
     /**
      * Trigger the nxmCall flow for the phone call.
@@ -565,47 +564,50 @@ class NXMCall {
    * @param {string} [reason.reason_text] the description of the reason
      * @returns {Promise}
     */
-    hangUp(reason) {
+    async hangUp(reason) {
         let disable_promise = [];
         if (this.conversation) {
             disable_promise.push(this.conversation.media.disable());
         }
-        return Promise.all(disable_promise).finally(() => {
+        try {
+            await Promise.all(disable_promise);
+        }
+        finally {
             if (!this.knocking_id &amp;&amp; this.conversation) {
                 return this.conversation.leave(reason);
             }
             else {
-                return new Promise((resolve, reject) => {
-                    let path = `knocking/${this.knocking_id}`;
-                    if (reason) {
-                        let params = new URLSearchParams();
-                        Object.keys(reason).forEach((key) => {
-                            params.append(key, reason[key]);
-                        });
-                        path += `?${params.toString()}`;
-                    }
-                    this.application.session.sendNetworkRequest({
+                let path = `knocking/${this.knocking_id}`;
+                if (reason) {
+                    let params = new URLSearchParams();
+                    Object.keys(reason).forEach((key) => {
+                        params.append(key, reason[key]);
+                    });
+                    path += `?${params.toString()}`;
+                }
+                try {
+                    const response = await this.application.session.sendNetworkRequest({
                         type: 'DELETE',
                         path
-                    }).then((response) => {
-                        const nxmCall = this.application._call_draft_list.get(this.client_ref);
-                        nxmCall._handleStatusChange(response);
-                        this.application._call_draft_list.delete(this.client_ref);
-                        resolve(response);
-                    }).catch((error) => {
-                        // Don't switch yet to fail status, it could be an expected race between knocking:delete and conversation.leave
-                        if (!this.conversation) {
-                            this.log.debug('Problem cancelling the call: Knocking cancel failed and Conversation. Leave not available');
-                            resolve();
-                        }
-                        else {
-                            this.conversation.leave(reason).then(resolve).catch(reject);
-                            this.log.error(new nexmoClientError_1.NexmoApiError(error));
-                        }
                     });
-                });
+                    const nxmCall = this.application._call_draft_list.get(this.client_ref);
+                    nxmCall._handleStatusChange(response);
+                    this.application._call_draft_list.delete(this.client_ref);
+                    return response;
+                }
+                catch (error) {
+                    // Don't switch yet to fail status, it could be an expected race between knocking:delete and conversation.leave
+                    if (!this.conversation) {
+                        this.log.debug('Problem cancelling the call: Knocking cancel failed and Conversation. Leave not available');
+                        return;
+                    }
+                    else {
+                        this.log.error(new nexmoClientError_1.NexmoApiError(error));
+                        return this.conversation.leave(reason);
+                    }
+                }
             }
-        });
+        }
     }
     /**
      * Rejects an incoming nxmCall
@@ -672,7 +674,7 @@ module.exports = NXMCall;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
 	
-		on Tue Nov 19th 2019
+		on Thu Jan 16th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

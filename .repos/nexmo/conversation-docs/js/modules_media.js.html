@@ -90,7 +90,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 */
 const TraceWS = require('./rtcstats/trace-ws');
 const RTCStats = require('./rtcstats/rtcstats');
-const getLogger = require('loglevel').getLogger;
+const loglevel_1 = require("loglevel");
 const nexmoClientError_1 = require("../nexmoClientError");
 const rtc_helper_1 = __importDefault(require("./rtc_helper"));
 const utils_1 = __importDefault(require("../utils"));
@@ -124,12 +124,11 @@ const nxmEvent_1 = __importDefault(require("../events/nxmEvent"));
  */
 class Media {
     constructor(conversation) {
-        this.log = getLogger(this.constructor.name);
+        this.log = loglevel_1.getLogger(this.constructor.name);
         if (conversation) {
             this.rtcHelper = new rtc_helper_1.default();
             this.application = conversation.application;
             this.application.activeStreams = this.application.activeStreams || [];
-            this._eventsQueue = [];
             this.parentConversation = conversation;
             this.rtcObjects = {};
             this.streamIndex = 0;
@@ -267,17 +266,17 @@ class Media {
             };
             const streamIndex = this.streamIndex;
             this.streamIndex++;
-            this.rtcHelper.getUserAudio(params.audioConstraints)
-                .then((localStream) => {
+            this.rtcHelper.getUserAudio(params.audioConstraints).then((localStream) => {
                 const pc_config = {
-                    'iceTransportPolicy': 'all',
-                    'bundlePolicy': 'balanced',
-                    'rtcpMuxPolicy': 'require',
-                    'iceCandidatePoolSize': '0'
+                    iceTransportPolicy: 'all',
+                    bundlePolicy: 'balanced',
+                    rtcpMuxPolicy: 'require',
+                    iceCandidatePoolSize: '0',
+                    ...(this.application.session.config &amp;&amp;
+                        this.application.session.config.iceServers &amp;&amp; {
+                        iceServers: this.application.session.config.iceServers
+                    })
                 };
-                if (this.application.session.config &amp;&amp; this.application.session.config.iceServers) {
-                    pc_config.iceServers = this.application.session.config.iceServers;
-                }
                 const pc = this.rtcHelper.createRTCPeerConnection(pc_config);
                 pc.trace('conversation_id', this.parentConversation.id);
                 pc.trace('member_id', this.parentConversation.me.id);
@@ -295,12 +294,17 @@ class Media {
                     });
                     resolve(evt.streams[0]);
                 };
-                pc.addStream(localStream);
-                pc.onnegotiationneeded = () => {
-                    pc.createOffer()
-                        .then((offer) => {
+                localStream.getTracks().forEach((track) => {
+                    pc.addTrack(track);
+                });
+                pc.onnegotiationneeded = async () => {
+                    try {
+                        const offer = await pc.createOffer();
                         return pc.setLocalDescription(offer);
-                    }).catch(onClientError);
+                    }
+                    catch (error) {
+                        onClientError(error);
+                    }
                 };
                 pc.oniceconnectionstatechange = (connection_event) => {
                     switch (pc.iceConnectionState) {
@@ -317,35 +321,33 @@ class Media {
                             break;
                     }
                 };
-                const do_gatherDone = () => {
+                const do_gatherDone = async () => {
                     if (!this.pc) {
                         return;
                     }
-                    this.log.debug(this.pc.localDescription.sdp);
-                    this.application.session.sendNetworkRequest({
-                        type: "POST",
-                        path: `conversations/${this.parentConversation.id}/rtc`,
-                        data: {
-                            from: this.parentConversation.me.id,
-                            body: {
-                                offer: this.pc.localDescription
+                    try {
+                        const { rtc_id } = await this.application.session.sendNetworkRequest({
+                            type: 'POST',
+                            path: `conversations/${this.parentConversation.id}/rtc`,
+                            data: {
+                                from: this.parentConversation.me.id,
+                                body: {
+                                    offer: this.pc.localDescription
+                                }
                             }
-                        }
-                    })
-                        .then((response) => {
-                        const rtc_id = response.rtc_id;
-                        pc.trace("rtc_id", rtc_id);
+                        });
+                        pc.trace('rtc_id', rtc_id);
                         this.rtcObjects[rtc_id] = {
                             rtc_id,
                             pc,
                             stream: localStream,
-                            type: "audio",
+                            type: 'audio',
                             streamIndex
                         };
-                    })
-                        .catch((error) => {
-                        reject(new nexmoClientError_1.NexmoApiError(error));
-                    });
+                    }
+                    catch (error) {
+                        throw new nexmoClientError_1.NexmoApiError(error);
+                    }
                 };
                 let gatheringTimer = null;
                 let rtc_sent = false;
@@ -359,7 +361,6 @@ class Media {
                 }
                 else {
                     pc.onicegatheringstatechange = () => {
-                        console.log({ pc }, pc.iceGatheringState);
                         switch (pc.iceGatheringState) {
                             case 'new':
                                 this.log.info('ice gathering new');
@@ -404,10 +405,6 @@ class Media {
             });
         });
     }
-    _deleteMemberMedia(member) {
-        this._closeStream(member.stream);
-        member.pc.close();
-    }
     _findRtcObjectByType(type) {
         return Object.values(this.rtcObjects).find((rtcObject) => rtcObject.type === type);
     }
@@ -446,24 +443,27 @@ class Media {
         this.listeningToRtcEvent = false;
     }
     async _disableLeg(leg_id) {
-        const csRequestPromise = new Promise((resolve, reject) => {
-            this.application.session.sendNetworkRequest({
-                type: 'DELETE',
-                path: `conversations/${this.parentConversation.id}/rtc/${leg_id}?from=${this.parentConversation.me.id}&amp;originating_session=${this.application.session.session_id}`,
-                version: 'beta2'
-            }).then((response) => {
+        const csRequestPromise = new Promise(async (resolve, reject) => {
+            try {
+                await this.application.session.sendNetworkRequest({
+                    type: 'DELETE',
+                    path: `conversations/${this.parentConversation.id}/rtc/${leg_id}?from=${this.parentConversation.me.id}&amp;originating_session=${this.application.session.session_id}`,
+                    version: "beta2"
+                });
                 resolve('rtc:terminate:success');
-            }).catch((error) => {
+            }
+            catch (error) {
                 reject(new nexmoClientError_1.NexmoApiError(error));
-            });
+            }
         });
-        const closeResourcesPromise = Promise.resolve().then(() => {
+        const closeResourcesPromise = new Promise((resolve) => {
             if (this.rtcObjects[leg_id].pc) {
                 this.rtcObjects[leg_id].pc.close();
             }
             if (this.rtcObjects[leg_id].stream) {
                 this._closeStream(this.rtcObjects[leg_id].stream);
             }
+            resolve();
         });
         try {
             await Promise.all([csRequestPromise, closeResourcesPromise]);
@@ -514,10 +514,11 @@ class Media {
      * @returns {Promise&lt;MediaStream>} - Returns the new stream.
      * @example &lt;caption>Update the stream currently being used with a new one&lt;/caption>
     */
-    updateAudioConstraints(constraints = {}) {
+    async updateAudioConstraints(constraints = {}) {
         let rtcObjectByType = this._findRtcObjectByType('audio');
         if (rtcObjectByType &amp;&amp; rtcObjectByType.pc) {
-            return this.rtcHelper.getUserAudio(constraints).then((localStream) => {
+            try {
+                const localStream = await this.rtcHelper.getUserAudio(constraints);
                 localStream.getTracks().forEach((track) => {
                     const sender = rtcObjectByType.pc.getSenders().find((s) => s.track.kind === track.kind);
                     if (sender) {
@@ -528,12 +529,13 @@ class Media {
                 this._closeStream(rtcObjectByType.stream);
                 rtcObjectByType.stream = localStream;
                 return localStream;
-            }).catch((error) => {
+            }
+            catch (error) {
                 return error;
-            });
+            }
         }
         else {
-            return Promise.reject(new nexmoClientError_1.NexmoApiError('error:media:stream:not-found'));
+            throw new nexmoClientError_1.NexmoApiError('error:media:stream:not-found');
         }
     }
     /**
@@ -733,7 +735,7 @@ class Media {
             if (!utils_1.default.validateDTMF(digit)) {
                 throw new nexmoClientError_1.NexmoClientError('error:audio:dtmf:invalid-digit');
             }
-            const response = await this.application.session.sendNetworkRequest({
+            const { id, timestamp } = await this.application.session.sendNetworkRequest({
                 type: 'POST',
                 path: `conversations/${this.parentConversation.id}/events`,
                 data: {
@@ -751,8 +753,8 @@ class Media {
                 },
                 cid: this.parentConversation.id,
                 from: this.parentConversation.me.id,
-                id: response.id,
-                timestamp: response.timestamp,
+                id,
+                timestamp,
                 type: 'audio:dtmf'
             };
             const dtmfEvent = new nxmEvent_1.default(this.parentConversation, placeholder_event);
@@ -899,7 +901,7 @@ module.exports = Media;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
 	
-		on Tue Nov 19th 2019
+		on Thu Jan 16th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
