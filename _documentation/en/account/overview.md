@@ -29,5 +29,5 @@ product: account
 
 ## See also
 
-* [Secret Management overview](/accounts/secret-management/overview)
+* [Secret Management overview](/account/secret-management)
 
