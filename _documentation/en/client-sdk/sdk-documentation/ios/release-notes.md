@@ -13,7 +13,7 @@ navigation_weight: 0
 - `NXMHelper` with `descriptionForEventType:` method.
 
 ### Fixed
-- Calling `conversation.getEvents` returned an `NXMMemberEvent` with the field `member` set to `nil`
+- Calling `conversation.getEvents` returned a `NXMMemberEvent` with the field `member` set to `nil`
 
 ### Changed
 - `NXMConversation`'s `getEvents:` method replaced by `getEventsPage:`, `getEventsPageWithSize:order:completionHandler:`, `getEventsPageWithSize:order:eventType:completionHandler:`.
