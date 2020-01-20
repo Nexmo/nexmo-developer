@@ -7,6 +7,20 @@ navigation_weight: 0
 # Release Notes
 
 
+## 2.0.0 - 2020-01-15
+
+### Added
+- `NXMHelper` with `descriptionForEventType:` method.
+
+### Fixed
+- Calling `conversation.getEvents` returned an `NXMMemberEvent` with the field `member` set to `nil`
+
+### Changed
+- `NXMConversation`'s `getEvents:` method replaced by `getEventsPage:`, `getEventsPageWithSize:order:completionHandler:`, `getEventsPageWithSize:order:eventType:completionHandler:`.
+- `NXMConversationsPage`'s `nextPage:` and `previousPage:` completion handlers are now non-null.
+
+---
+
 ## 1.2.3 - 2019-12-17
 
 ### Fixed.
