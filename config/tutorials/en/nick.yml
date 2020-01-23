@@ -1,4 +1,4 @@
-title: Making an app to app voice call
+title: Nick's Hacking Experiment
 description: You make a phone call from a web app to another web app.
 products:
   - client-sdk
@@ -22,28 +22,18 @@ introduction:
 prerequisites:
 - create-nexmo-account
 - install-nodejs
-- install-node-client-sdk
-- install-nexmo-cli-beta
-- install-express
-- run-ngrok
+
 
 tasks:
 - client-sdk/create-application
 - client-sdk/create-users
 - client-sdk/generate-jwts
-- client-sdk/app-to-app/create-webhook-server
-- client-sdk/app-to-app/call-code
-- client-sdk/app-to-app/receive-code
-- client-sdk/app-to-app/run
+
 
 conclusion:
   title: What's next?
   description: What else can you do with the Client SDK?
   content: |
 
-    # What's next?
-    You can do a lot more with the Client SDK.
-
-    We want to hear what ideas you have in mind? Contact us at [devrel@nexmo.com](mailto:devrel@nexmo.com)
-
-    See [Client SDK documentation](/client-sdk/overview).
+    # Nick's What's Next
+    The end.
