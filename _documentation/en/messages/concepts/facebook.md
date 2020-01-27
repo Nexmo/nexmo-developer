@@ -19,8 +19,6 @@ The Facebook User will have a Page-scoped ID (PSID) and this is unique for each 
 
 In order to get started with Facebook Messenger you will need to link your business's Facebook Page to Nexmo.
 
-> **NOTE:** The link between your Nexmo account and Facebook page expires after 90 days. After then you must [re-link it](#re-linking-your-facebook-page-to-your-nexmo-account).
-
 ```partial
 source: _partials/reusable/link-facebook-to-nexmo.md
 ```

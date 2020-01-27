@@ -15,7 +15,7 @@ Linking your Facebook page to your Nexmo account allows Nexmo to handle inbound 
 
 4. Click **Subscribe**. You will receive a message confirm successful subscription.
 
-At this point your Nexmo Account and this Facebook Page are linked.
+At this point your Nexmo Account and this Facebook Page are linked. The link between your Nexmo account and Facebook page expires after 90 days. After then you must [re-link it](#re-linking-your-facebook-page-to-your-nexmo-account).
 
 ## Part 2: Link your Facebook Page to your Nexmo application
 
@@ -31,7 +31,7 @@ Once your Facebook page is linked to your Nexmo account, it becomes available fo
 
 You're now ready to receive messages users send to you on your Facebook Page.
 
-> **NOTE:** If in the future you want to link a different application to this Facebook page, you can repeat the procedure described in Part 2, for the new application.
+> **NOTE:** If in the future you want to link a different application to this Facebook page, you only need to repeat the procedure described in Part 2, for the new application.
 
 ## Re-linking your Facebook page to your Nexmo account
 
