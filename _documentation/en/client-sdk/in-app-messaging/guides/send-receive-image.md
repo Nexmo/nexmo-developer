@@ -17,11 +17,11 @@ Before you begin, make sure you [added the SDK to your app](/client-sdk/setup/ad
 ## Send an Image
 
 ```tabbed_content
-source: _tutorials_tabbed_content/client-sdk/guides/messaging/send-image
+source: _tutorials_tabbed_content/client-sdk/guides/messaging/send-images
 ```
 
 ## Receive an Image
 
 ```tabbed_content
-source: _tutorials_tabbed_content/client-sdk/guides/messaging/receive-image
+source: _tutorials_tabbed_content/client-sdk/guides/messaging/receive-images
 ```
