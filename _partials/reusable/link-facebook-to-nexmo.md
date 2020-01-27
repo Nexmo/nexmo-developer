@@ -34,7 +34,7 @@ You are now ready to link your Facebook Page to Nexmo:
 
 **6.** Click the following link when you have your JWT pasted to the clipboard and you are ready to link your Facebook Page to Nexmo:
 
-* [Link your Facebook Page to Nexmo](https://static.nexmo.com/messenger/)
+* [Link your Facebook Page to Nexmo](https://messenger.nexmo.com/)
 
 You will see your Facebook Pages listed.
 
@@ -74,7 +74,7 @@ The link between your Nexmo account and Facebook page expires after 90 days. You
 
 **2.** Visit the following page and select the page you want to re-link from the drop down list:
 
-* [Link your Facebook Page to Nexmo](https://static.nexmo.com/messenger/)
+* [Link your Facebook Page to Nexmo](https://messenger.nexmo.com/)
 
 **3.** Paste the JWT you generated in step 1 into the "Provide a valid JWT token" text box.
 

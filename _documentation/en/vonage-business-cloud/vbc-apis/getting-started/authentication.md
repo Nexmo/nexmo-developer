@@ -43,6 +43,8 @@ Replace the following placeholders in the example with your own values:
 * `VBC_CLIENT_ID` - The Consumer Key that you generated in step 5 above
 * `VBC_CLIENT_SECRET` - The Consumer Secret that you generated in step 5 above
 
+When using this type of authentication, you will need to append `@vpc.prod` to your username. 
+
 ```code_snippets
 source: '_examples/vonage-business-cloud/vbc-apis/general/authenticate-password'
 ```

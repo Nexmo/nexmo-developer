@@ -6,33 +6,32 @@ navigation_weight: 5
 
 # Call Statuses
 
-This topic explains call statuses like started, ringing, answered, rejected, busy, unanswered, timeout, failed, complete and machine. Since everyone is familiar with the phone, these concepts are pretty straightforward.
+This topic describes call statuses such as `started`, `ringing`, `answered`, and `failed`.
 
 ## Lifecycle
 
-Each call goes through a sequence of statuses in its lifecycle:
+Each call goes through a sequence of statuses in its lifecycle. A call may pass from `started` to `ringing` to `answered` to `complete` but there are many different sequences for statuses in a call's lifecycle. Below is a diagram outlining all possible paths:
 
-A call may pass from Started to Ringing to Answered to Complete but there are many different sets of sequences for statuses in a call's lifecycle. Below is a schematic diagram outlining all possible paths.
-
-![Visual diagram of Call statuses. A description of the text is given in the next section.](/assets/images/call-statuses-rtc-diagram.png)
+![Visual diagram of Call statuses. A description of the text is given in the next section.](/assets/images/client-sdk/call-statuses-rtc-diagram.png)
 
 ## Statuses
 
-Here is the list of all call statuses:
+The following table lists call statuses:
 
-- **started**: The call is created on the Nexmo platform
-- **ringing**: The destination has confirmed that the call is ringing
-- **answered**: The destination has answered the call
-- **rejected**: The call attempt was rejected by the destination
-- **busy**: The destination is on the line with another caller
-- **unanswered**: The call was canceled by the caller
-- **timeout**: The call timed out before it was answered
-- **failed**: The call failed before reaching the destination
-- **completed**: The call is completed successfully
-- **machine**: The call is answered by a machine
+Status | Description
+----|----
+`started` | The call is created on the Nexmo platform
+`cancelled` | The call was cancelled by the originator before it was answered
+`ringing` | The destination has confirmed that the call is ringing
+`answered` | The destination has answered the call
+`rejected` | The call attempt was rejected by the destination
+`busy` | The destination is on the line with another caller
+`timeout` | The call timed out before it was answered
+`failed` | The call failed before reaching the destination
+`completed` | The call is completed successfully
 
-These statuses are valid for all 1:1 call combinations such as IP to IP, IP to PSTN, PSTN to IP.
+These statuses are valid for all one-to-one call combinations such as IP to IP, IP to PSTN, PSTN to IP.
 
 ## Disclaimer
 
-While Nexmo, the Vonage API Platform strives to provide the most accurate status, we have little to no control over statuses like busy, rejected, unanswered and failed, most of which depend in the largest part upon the carriers themselves. More specifically, a call might not be completed because the callee was on another line(busy) but it is relayed as rejected by the carrier.
+While Nexmo, the Vonage API Platform, strives to provide the most accurate call status, we have little to no control over statuses like busy, rejected, and failed, most of which depend on status provided by the carriers. More specifically, a call might not be completed because the callee was on another line (`busy`) but it is relayed as `rejected` by the carrier.
