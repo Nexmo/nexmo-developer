@@ -11,5 +11,5 @@ menu_weight: 2
         return;
     }
     NSLog(@"Conversation left.");
-}]
+}];
 ```
