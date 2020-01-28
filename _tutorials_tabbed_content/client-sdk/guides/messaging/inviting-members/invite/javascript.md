@@ -5,5 +5,9 @@ menu_weight: 1
 ---
 
 ```javascript
-// TODO
+conversation.invite({ user_name: "Jane" }).then((member) => {
+  console.log(member.state + " user: " + user_id + " " + user_name);
+  }).catch((error) => {
+  console.log(error);
+  });
 ```
