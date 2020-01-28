@@ -175,7 +175,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
-    ffi (1.11.3)
+    ffi (1.12.1)
     formatador (0.2.5)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
