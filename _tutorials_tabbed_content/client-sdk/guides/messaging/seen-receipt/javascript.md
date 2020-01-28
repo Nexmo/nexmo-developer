@@ -5,5 +5,7 @@ menu_weight: 1
 ---
 
 ```javascript
-/* TODO */
+conversation.on('text:seen', (data, text) => {
+  console.log(text);
+});
 ```

@@ -5,5 +5,11 @@ menu_weight: 1
 ---
 
 ```javascript
-/* TODO */
+conversation.on('text:typing:on', (data) => {
+  console.log(data.name + " is typing");
+});
+
+conversation.on("text:typing:off", (data) => {
+  console.log(data.name + " stopped typing");
+});
 ```

@@ -5,5 +5,8 @@ menu_weight: 1
 ---
 
 ```javascript
-/* TODO */
+const fileInput = document.getElementById('fileInput');
+conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
+  ...
+}).catch(errorLogger)
 ```
