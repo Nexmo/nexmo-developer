@@ -11,7 +11,7 @@ published: true
 
 # AnsweringMachineDetection
 
-For this solution, we built a machine learning algorithm that is able to detect when a call goes to voicemail by listening to the `beep` sound with 96% accuracy. When the call is picked up by the answering machine, we perform a speech-to-text action(TTS) which is recorded by the answering machine.
+For this solution, we built a machine learning algorithm that is able to detect when a call goes to voicemail by listening to the `beep` sound with 96% accuracy. When the call is picked up by the answering machine, we perform a text-to-speech action(TTS) which is recorded by the answering machine.
 
 ## Try it out on Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-community/AnsweringMachineDetection)
