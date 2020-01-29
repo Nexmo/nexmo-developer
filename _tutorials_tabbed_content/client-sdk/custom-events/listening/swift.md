@@ -8,6 +8,6 @@ Implement `conversation(_ conversation: NXMConversation, didReceive event: NXMCu
 
 ```swift
 func conversation(_ conversation: NXMConversation, didReceive event: NXMCustomEvent) {
-    NSLog("Received custome type \(String(describing: event.customType)): \(String(describing: event.data))");
+    NSLog("Received custom event with type \(String(describing: event.customType)): \(String(describing: event.data))");
 }
 ```

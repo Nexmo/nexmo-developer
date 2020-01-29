@@ -8,6 +8,6 @@ Implement `conversation:didReceiveCustomEvent:`:, part of the `NXMConversationDe
 
 ```objective_c
 - (void)conversation:(NXMConversation *)conversation didReceiveCustomEvent:(NXMCustomEvent *)event {
-    NSLog(@"Received custome type %@: %@", event.customType, event.data);
+    NSLog(@"Received custom event with type %@: %@", event.customType, event.data);
 }
 ```
