@@ -123,7 +123,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    chartkick (3.3.0)
+    chartkick (3.3.1)
     clipboard-rails (1.7.1)
     coderay (1.1.2)
     coffee-rails (5.0.0)
@@ -556,7 +556,7 @@ DEPENDENCIES
   bugsnag
   byebug
   capybara
-  chartkick (= 3.3.0)
+  chartkick (= 3.3.1)
   clipboard-rails
   coffee-rails (~> 5.0)
   colorize

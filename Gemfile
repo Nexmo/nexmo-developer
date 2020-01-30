@@ -105,7 +105,7 @@ gem 'octokit', require: false
 gem 'woothee'
 
 # Create beautiful JavaScript charts with one line of Ruby
-gem 'chartkick', '3.3.0'
+gem 'chartkick', '3.3.1'
 
 # The simplest way to group temporal data
 gem 'groupdate', '4.3.0'
