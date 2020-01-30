@@ -87,7 +87,7 @@ gem 'neatjson'
 gem 'faker', '1.8.4', require: false
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
-gem 'factory_bot_rails', '4.8.2', require: false
+gem 'factory_bot_rails', '5.1.1', require: false
 
 # A slim ruby wrapper for posting to slack webhooks
 gem 'slack-notifier', '2.3.1'
