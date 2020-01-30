@@ -1,12 +1,12 @@
 ---
-title: Call a Websocket
+title: Call a Websocket with Python
 products: voice/voice-api
 description: In this tutorial, you will learn how to connect a call to a websocket endpoint that echoes the call audio back to the caller.
 languages:
     - Python
 ---
 
-# Call a Websocket
+# Call a Websocket with Python
 
 You can use the Nexmo Voice API to connect a call to a [WebSocket](/voice/voice-api/guides/websockets), giving you a two-way stream of the call audio delivered over the WebSocket protocol in real-time. This enables you to process the call audio to perform tasks such as sentiment analysis, real-time transcription and decision-making using artificial intelligence.
 
