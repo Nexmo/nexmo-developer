@@ -146,7 +146,7 @@ gem 'smartling'
 gem 'newrelic_rpm'
 
 # A/B Testing
-gem 'split', '~> 3.3.2', require: 'split/dashboard'
+gem 'split', '~> 3.4.1', require: 'split/dashboard'
 
 gem 'greenhouse_io'
 
