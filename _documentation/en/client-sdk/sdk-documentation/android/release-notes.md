@@ -35,7 +35,7 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
 }
 
 ```
-- Add markAsDelivered method to NexmoTextEvent and NexmoAttachmentEvent
+- Add `markAsDelivered()` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
 
 ```
   NexmoTextEvent.markAsDelivered(object: NexmoRequestListener<Any>{
@@ -48,7 +48,7 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
    })
    ```
    
- - add markAsSeen method to NexmoTextEvent and NexmoAttachmentEvent
+ - Add `markAsSeen()` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
  
  ```
   NexmoAttachmentEvent.markAsSeen(object: NexmoRequestListener<Any>{
