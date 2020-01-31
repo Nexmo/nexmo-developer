@@ -11,6 +11,7 @@ navigation_weight: 0
 ### Added
 
 - Add support for Custom Push Notifications, using `processNexmoPush()` (`processPushNotification()` is deprecated)
+
 ```
 if (NexmoClient.isNexmoPushNotification(message!!.data)) {
     val pushListener = object : NexmoPushEventListener {
@@ -33,8 +34,8 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
             // you should parse nexmoPushEvent.customData your backend had defined.
     }
 }
-
 ```
+
 - Add `markAsDelivered()` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
 
 ```
@@ -46,7 +47,7 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
        Log.d(TAG, TAG + "onTextEvent.markAsDelivered():onError with: " + error)
         }
    })
-   ```
+```
    
  - Add `markAsSeen()` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
  
@@ -59,7 +60,7 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
        Log.d(TAG, TAG + "onAttachmentEvent.markAsSeen():onError with: " + error)
         }
    })
-   ```
+```
 
 ## Version 2.1.2 - January 12, 2020
 
