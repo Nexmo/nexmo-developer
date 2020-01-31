@@ -48,7 +48,7 @@ So, if you are ready to continue...
 First you will need to create a Nexmo Application if you have not already done so:
 
 ``` bash
-nexmo app:create "Conversation App" http://demo.ngrok.io:3000/webhooks/answer http://demo.ngrok.io:3000/webhooks/event --keyfile private.key
+nexmo app:create "Conversation App" http://demo.ngrok.io/webhooks/answer http://demo.ngrok.io/webhooks/event --keyfile private.key
 ```
 
 In this previous command you will need to replace `demo` by what applies to your setup.
