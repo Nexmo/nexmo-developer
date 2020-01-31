@@ -7,6 +7,27 @@ navigation_weight: 0
 # Release Notes
 
 
+## 2.1.0 - 2020-01-31
+
+### Added
+- `NXMPushPayload` for custom push notifications.
+```
+ if (NXNClient.shared isNexmoPushWithUserInfo:pushInfo]){
+ 	NXMPushPayload *pushPayload = [myNXNClient processNexmoPushPayload:pushInfo];
+ 	if (!pushPayload){
+    	// "Not a Nexmo push!!"
+    	return;
+ 	};
+
+	if (pushPayload.template == NXMPushTemplateCustom) {
+		// Got custom push
+		pushPayload.customData // your customData
+	} 	
+ */
+```
+
+---
+
 ## 2.0.0 - 2020-01-15
 
 ### Added
