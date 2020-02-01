@@ -5,7 +5,9 @@ menu_weight: 2
 ---
 
 ```objective_c
-[client enablePushNotificationsWithDeviceToken:'deviceToken' isPushKit:YES isSandbox:'isSandbox' completion:^(NSError * _Nullable error) {
-    //Code
+[NXMClient.shared enablePushNotificationsWithPushKitToken:pushKitToken 
+        userNotificationToken:userNotificationToken isSandbox:YES 
+        completionHandler:^(NSError * _Nullable error) {
+    // code 
 }];
 ```

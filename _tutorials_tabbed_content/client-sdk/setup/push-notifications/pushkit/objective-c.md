@@ -4,6 +4,14 @@ language: objective_c
 menu_weight: 2
 ---
 
+Add a `voipRegistry` property:
+
+```objective_c
+@property PKPushRegistry* voipRegistry;
+```
+
+and set it up:
+
 ```objective_c
 - (void) registerForVoIPPushes {
     self.voipRegistry = [[PKPushRegistry alloc] initWithQueue:nil];

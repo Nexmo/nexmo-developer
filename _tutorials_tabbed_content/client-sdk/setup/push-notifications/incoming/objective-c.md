@@ -6,10 +6,16 @@ menu_weight: 2
 
 ```objective_c
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
-    if([client isNexmoPushWithUserInfo:userInfo]) {
-        [client processNexmoPushWithuserInfo:userInfo completion:^(NSError * _Nullable error) {
-            //Code
-        }];
+    if([NXMClient.shared isNexmoPushWithUserInfo:userInfo]) {
+        NXMPushPayload *pushPayload = [NXMClient.shared processNexmoPushPayload:userInfo];
+        if (!pushPayload){
+            NSLog(@"Not a Nexmo push!!");
+            return;
+        };
+        if (pushPayload.template == NXMPushTemplateCustom) {
+            // Got custom push
+            NSLog(@"Got a custom push: %@", pushPayload.customData);
+        }
     }
 }
 ```

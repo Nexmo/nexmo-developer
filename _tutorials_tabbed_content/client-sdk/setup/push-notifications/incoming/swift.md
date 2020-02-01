@@ -11,5 +11,15 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
             //Code
         }
     }
+    if NXMClient.shared.isNexmoPush(userInfo: userInfo) {
+        guard let pushPayload = NXMClient.shared.processNexmoPushPayload(userInfo) else {
+            NSLog("Not a Nexmo push notification")
+            return
+        }
+        if pushPayload.template == NXMPushTemplate.custom {
+            // Got custom push
+            NSLog("Received custom push notification \(String(describing: pushPayload.customData))")
+        }
+    }
 }
 ```
