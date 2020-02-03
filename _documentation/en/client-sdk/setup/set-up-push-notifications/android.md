@@ -79,33 +79,19 @@ Push notifications are received in your implementation of `MyFirebaseMessagingSe
 
 You can use `NexmoClient.isNexmoPushNotification(message.data))` to determine if the message is sent from Nexmo server.
 
-Use `NexmoClient.get().processPushNotification(message.data, listener)` to process the data received from Firebase Cloud Messaging (FCM) into an easy to use Nexmo object.
-
-For example, in your `MyFirebaseMessagingService`:
+Use `processPushNotification(message.data, listener)` to process the data received from Firebase Cloud Messaging (FCM) into an easy to use Nexmo object:
 
 ```java
- val pushEventListener = object : NexmoPushEventListener {
-        override fun onIncomingCall(p0: NexmoCall?, p1: MemberEvent?) {
-            TODO("not implemented")
-        }
-
-        override fun onNewEvent(p0: NexmoEvent?) {
-            TODO("not implemented")
-        }
-
-        override fun onError(p0: NexmoApiError?) {
-            TODO("not implemented")
-        }
+// determine if the message is sent from Nexmo server
+if (NexmoClient.isNexmoPushNotification(message!!.data)) {  
+    NexmoPushPayload nexmoPushPayload = nexmoClient.processPushPayload(message!!.data, pushListener)
+    when(nexmoPushPayload.pushTemplate){
+        Custom ->
+            nexmoPushEvent.customData //got custom push data 😀
+        Default ->
+            nexmoPushEvent.eventData // got default push event data
     }
-
-    override fun onMessageReceived(message: RemoteMessage?) {
-        message?.data?.let {
-            if (NexmoClient.isCommsPushNotification(message.data)) {
-                NexmoClient.get().processPushNotification(message.data, pushEventListener)
-            }
-
-        }
-    }
+}
 ```
 
 > *Note:* in order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in]((/client-sdk/getting-started/add-sdk-to-your-app/android)) to it.
