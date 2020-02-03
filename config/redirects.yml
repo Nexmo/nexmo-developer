@@ -40,6 +40,7 @@
 "/messaging/us-short-codes": "/messaging/us-short-codes/overview"
 "/messaging/us-short-codes/guides": "/messaging/us-short-codes/guides/campaign-subscription-management"
 "/messaging/conversion-api": "/messaging/conversion-api/overview"
+"/messaging/conversion-api/api-reference": "/api/conversion"
 "/messaging/sms/code-snippets": "/messaging/sms/code-snippets/send-an-sms"
 "/messaging/sms/code-snippets/receive-a-delivery-receipt": "/messaging/sms/guides/delivery-receipts"
 "/messaging/sms/guides": "/messaging/sms/overview#sms-api-features"
