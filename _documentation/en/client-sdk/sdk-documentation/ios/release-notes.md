@@ -25,6 +25,7 @@ navigation_weight: 0
 		// Got custom push
 		pushPayload.customData // your customData
 	}
+ }
 ```
 
 ---
@@ -34,6 +35,7 @@ navigation_weight: 0
 ### Added
 - `NXMHelper` with `descriptionForEventType:` method.
 - `NXMConversation`'s `getEvents:` method replaced by `getEventsPage:`, `getEventsPageWithSize:order:completionHandler:`, `getEventsPageWithSize:order:eventType:completionHandler:`.
+
 ```
 [myNXMConversation getEventsPagePageWithSize:15
                                        order:NXMPageOrderDesc
@@ -47,6 +49,7 @@ navigation_weight: 0
                                // use page...
                            }];
 ```
+
 - `NXMConversationsPage`'s `nextPage:` and `previousPage:` completion handlers are now non-null.
 
 ### Fixed
