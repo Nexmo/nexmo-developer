@@ -9,7 +9,7 @@
         <% if @tutorial.previous_step %>
           <a
             class="Vlt-btn Vlt-btn--secondary"
-            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.previous_step['path'], only_path: true, controller: :tutorial, action: :index) %>"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.previous_step['path'], code_language: @tutorial.code_language, only_path: true, controller: :tutorial, action: :index) %>"
           >
             &laquo; Previous
           </a>
@@ -19,7 +19,7 @@
         <% if @tutorial.next_step %>
           <a
             class="Vlt-btn Vlt-btn--secondary"
-            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.next_step['path'], only_path: true, controller: :tutorial, action: :index) %>"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.next_step['path'], code_language: @tutorial.code_language, only_path: true, controller: :tutorial, action: :index) %>"
           >
             Next &raquo;
           </a>
@@ -35,6 +35,17 @@
           <h4><%= @tutorial.title %></h4>
           <small><%= @tutorial.description %></small>
           <br /><br />
+          <div>
+            <span style="font-weight: bold;">Also available on:</span>
+            <ul>
+              <% @tutorial.available_languages.each do |language| %>
+                <li>
+                  <a title="<%= language %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}/#{language}" %>"><%= language %></a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <br /><br />
           <span style="font-weight: bold;">Steps</span>
           <br />
           <br />
@@ -46,7 +57,7 @@
               <div class="Vlt-col Vlt-col--3of4 Nxd-step">
                 <a
                   title="<%= t['description'] %>"
-                  href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: t['path']) %>"
+                  href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: t['path'], code_language: @tutorial.code_language) %>"
                 >
                   <%= t['title'] %>
                 </a>
