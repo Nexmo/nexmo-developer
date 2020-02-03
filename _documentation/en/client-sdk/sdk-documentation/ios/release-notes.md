@@ -24,8 +24,7 @@ navigation_weight: 0
 	if (pushPayload.template == NXMPushTemplateCustom) {
 		// Got custom push
 		pushPayload.customData // your customData
-	} 	
- */
+	}
 ```
 
 ---
