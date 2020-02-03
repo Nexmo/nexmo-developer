@@ -22,4 +22,4 @@ application:
 
 ## Try it out
 
-The webhook is invoked on receipt of an inbound message and the message details and data are printed to the console.
+The webhook is invoked on receipt of an [inbound message](https://developer.nexmo.com/api/messages-olympus#inbound-message) and the message details and data are printed to the console.
