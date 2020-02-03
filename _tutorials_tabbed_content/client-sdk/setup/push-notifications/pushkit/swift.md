@@ -7,7 +7,7 @@ menu_weight: 1
 Add a `voipRegistry` property:
 
 ```swift
-var voipRegistry = PKPushRegistry(queue: nil)
+let voipRegistry = PKPushRegistry(queue: nil)
 ```
 
 and set it up:
