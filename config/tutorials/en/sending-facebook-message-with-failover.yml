@@ -24,7 +24,6 @@ prerequisites:
 tasks:
 - olympus/create-application
 - olympus/link-facebook-page
-- olympus/link-application-to-facebook
 - olympus/send-facebook-failover
 
 conclusion:

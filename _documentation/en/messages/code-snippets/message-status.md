@@ -22,4 +22,6 @@ application:
 
 ## Try it out
 
-The webhook is invoked on changing message status and details printed to the console.
+The webhook is invoked on a change in status for an outbound message sent from Nexmo. The message status is also printed to the console.
+
+The format of the message status `POST` request can be found in the [Message Status](/api/messages-olympus#message-status) section of the [API reference](/api/messages-olympus#overview).

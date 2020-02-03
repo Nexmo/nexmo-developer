@@ -23,7 +23,7 @@ source: _partials/reusable/prereqs.md
 
 After the prerequisites have been met, the steps are as follows:
 
-1. [Link your Facebook Page to Nexmo](#link-your-facebook-page-to-nexmo)
+1. [Link your Facebook Page to Nexmo](#part-1-link-your-facebook-page-to-your-nexmo-account)
 2. [Create a Nexmo Application](#create-a-nexmo-application)
 3. [Receive a Facebook message](#receive-a-facebook-message)
 4. [Reply to a Facebook message](#reply-to-a-facebook-message)

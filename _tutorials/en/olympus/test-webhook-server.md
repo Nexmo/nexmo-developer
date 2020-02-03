@@ -9,5 +9,5 @@ See our information on [Using Ngrok for local development](/concepts/guides/test
 
 If using Ngrok in this manner you would use the Ngrok URLs for your webhook URLs:
 
-* `https://abcdef1.ngrok.io:3000/webhooks/inbound-message`
-* `https://abcdef1.ngrok.io:3000/webhooks/message-status`
+* `https://abcdef1.ngrok.io/webhooks/inbound-message`
+* `https://abcdef1.ngrok.io/webhooks/message-status`

@@ -32,15 +32,13 @@ The source code for this project is available in the Nexmo Community [GitHub rep
 After the prerequisites have been met, the steps are as follows:
 
 1. [Create a Nexmo Application](#create-your-nexmo-application)
-2. [Generate a JWT](#generate-a-jwt)
-3. [Link your Facebook Page to Nexmo](#link-your-facebook-page-to-your-nexmo-account)
-4. [Link your Nexmo application to your Facebook page](#link-your-application-to-your-facebook-page)
-5. [Get Ngrok up and running](#get-ngrok-up-and-running)
-6. [Write your basic application](#write-your-basic-application)
-7. [Interact with your Facebook Page](#interact-with-your-facebook-page)
-8. [Minimal client for sending Facebook Messenger messages using Python](#minimal-client-for-sending-facebook-messenger-messages-using-python)
-9. [The use case revisited](#the-use-case-revisited)
-10. [A simple implementation](#a-simple-implementation)
+2. [Link your Nexmo application to your Facebook page](#link-your-application-to-your-facebook-page)
+3. [Get Ngrok up and running](#get-ngrok-up-and-running)
+4. [Write your basic application](#write-your-basic-application)
+5. [Interact with your Facebook Page](#interact-with-your-facebook-page)
+6. [Minimal client for sending Facebook Messenger messages using Python](#minimal-client-for-sending-facebook-messenger-messages-using-python)
+7. [The use case revisited](#the-use-case-revisited)
+8. [A simple implementation](#a-simple-implementation)
 
 There are various ways you can achieve the same result with Nexmo. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
 
@@ -60,43 +58,11 @@ This command will also create a private key, `private.key` in your current direc
 
 This command also sets the two webhooks that need to be set. All interaction between your App and Nexmo takes place through these webhooks. You must at least acknowledge each of these webhooks in your app.
 
-## Generate a JWT
-
-You will need to generate a JWT to validate the linking of your Facebook Page to your Nexmo account. You can skip this step if you have already linked your Facebook Page to your Nexmo account.
-
-In the following command make sure you paste in the Application ID of the Nexmo application you just created:
-
-``` shell
-JWT="$(nexmo jwt:generate ./private.key application_id=YOUR_APP_ID)"
-```
-
-Note the default expiry time for the JWT is 15 minutes.
-
-Type the following command to echo your JWT:
-
-``` shell
-echo $JWT
-```
-
-Copy the JWT to the clipboard. You will use it in linking your Facebook Page to your Nexmo account.
-
-## Link your Facebook Page to your Nexmo account
-
-To link your Facebook Page to your Nexmo account navigate to the following page:
-
-* [Link your Facebook Page to Nexmo](https://static.nexmo.com/messenger/)
-
-Select the Facebook Page you want to link to your account from the dropdown list.
-
-Paste the JWT you copied to your clipboard earlier into the JWT Token field and click Subscribe. You receive a message confirming the page is now linked to your account.
-
 ## Link your application to your Facebook Page
 
-Go into the Nexmo Dashboard and check your Nexmo application [is listed](https://dashboard.nexmo.com/messages/applications).
-
-Click on your app and then click the External Accounts tab. Facebook Pages that you've linked to your Nexmo account are listed. Click the `Link` button to link your application to the desired Facebook Page.
-
-> At this point you have the preparatory work completed. You now have a Nexmo app and your Facebook Page connected to your Nexmo account, and your app linked to your Facebook Page. In subsequent sections you will write the code for your application.
+```partial
+source: _partials/reusable/link-facebook-to-nexmo.md
+```
 
 ## Get Ngrok up and running
 

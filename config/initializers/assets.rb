@@ -14,8 +14,3 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-
-Rails.application.config.assets.precompile += %w[stats.js]
-Rails.application.config.assets.precompile += %w[sequence-diagram-min.js]
-Rails.application.config.assets.precompile += %w[webfont.js]

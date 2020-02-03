@@ -15,7 +15,7 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 4.1.20'
 # Use CoffeeScript for .coffee assets and views
@@ -87,10 +87,10 @@ gem 'neatjson'
 gem 'faker', '1.8.4', require: false
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
-gem 'factory_bot_rails', '4.8.2', require: false
+gem 'factory_bot_rails', '5.1.1', require: false
 
 # A slim ruby wrapper for posting to slack webhooks
-gem 'slack-notifier', '2.3.1'
+gem 'slack-notifier', '2.3.2'
 
 # The administration framework for Ruby on Rails.
 gem 'activeadmin', '~> 2.4'
@@ -105,7 +105,7 @@ gem 'octokit', require: false
 gem 'woothee'
 
 # Create beautiful JavaScript charts with one line of Ruby
-gem 'chartkick', '3.3.0'
+gem 'chartkick', '3.3.1'
 
 # The simplest way to group temporal data
 gem 'groupdate', '4.3.0'
@@ -146,7 +146,7 @@ gem 'smartling'
 gem 'newrelic_rpm'
 
 # A/B Testing
-gem 'split', '~> 3.3.2', require: 'split/dashboard'
+gem 'split', '~> 3.4.1', require: 'split/dashboard'
 
 gem 'greenhouse_io'
 

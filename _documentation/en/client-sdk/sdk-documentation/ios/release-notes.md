@@ -10,7 +10,9 @@ navigation_weight: 0
 ## 2.1.0 - 2020-01-31
 
 ### Added
+
 - `NXMPushPayload` for custom push notifications.
+
 ```
  if (NXNClient.shared isNexmoPushWithUserInfo:pushInfo]){
  	NXMPushPayload *pushPayload = [myNXNClient processNexmoPushPayload:pushInfo];
@@ -22,8 +24,8 @@ navigation_weight: 0
 	if (pushPayload.template == NXMPushTemplateCustom) {
 		// Got custom push
 		pushPayload.customData // your customData
-	} 	
- */
+	}
+ }
 ```
 
 ---
@@ -33,6 +35,7 @@ navigation_weight: 0
 ### Added
 - `NXMHelper` with `descriptionForEventType:` method.
 - `NXMConversation`'s `getEvents:` method replaced by `getEventsPage:`, `getEventsPageWithSize:order:completionHandler:`, `getEventsPageWithSize:order:eventType:completionHandler:`.
+
 ```
 [myNXMConversation getEventsPagePageWithSize:15
                                        order:NXMPageOrderDesc
@@ -46,6 +49,7 @@ navigation_weight: 0
                                // use page...
                            }];
 ```
+
 - `NXMConversationsPage`'s `nextPage:` and `previousPage:` completion handlers are now non-null.
 
 ### Fixed

@@ -1,36 +1,44 @@
 ---
 title: Link your Facebook Page to your Nexmo account
-description: In this step you learn how to link your Facebook Page to your Nexmo account. This process is validating using a JWT associated with an application in your Nexmo account.
+description: In this step you learn how to link your Facebook Page to your Nexmo account.
 ---
 
-# Link your Facebook Page to your Nexmo account
+## Part 1: Link your Facebook Page to your Nexmo account
 
-## Generate a JWT
+Linking your Facebook page to your Nexmo account allows Nexmo to handle inbound messages and enables you to send messages from the Nexmo Messages API.
 
-You will need to generate a JWT to validate the linking of your Facebook Page to your Nexmo account. You can skip this step if you have already linked your Facebook Page to your Nexmo account.
+1. To link your Facebook page to your Nexmo account click [Link your Facebook Page to Nexmo](https://messenger.nexmo.com/).
 
-In the following command make sure you paste in the Application ID of the Nexmo application you created in the [previous step](/task/sending-facebook-message-with-failover/olympus/create-application):
+2. Select the Facebook Page you want to connect to your Nexmo account from the drop down list.
 
-``` shell
-JWT="$(nexmo jwt:generate ./private.key application_id=YOUR_APP_ID)"
-```
+3. Enter the API key and API secret for your Nexmo account.
 
-> **NOTE:** The default expiry time for the JWT is 15 minutes.
+4. Click **Subscribe**. You will receive a message confirm successful subscription.
 
-Type the following command to echo your JWT:
+At this point your Nexmo Account and this Facebook Page are linked. The link between your Nexmo account and Facebook page expires after 90 days. After then you must [re-link it](#re-linking-your-facebook-page-to-your-nexmo-account).
 
-``` shell
-echo $JWT
-```
+## Part 2: Link your Facebook Page to your Nexmo application
 
-Copy the JWT text to the clipboard. You will use it later to validate the linking of your Facebook Page to your Nexmo account.
+Once your Facebook page is linked to your Nexmo account, it becomes available for use by any of your applications. To link the Facebook page to a Nexmo application:
 
-## Link your Facebook Page to your Nexmo account
+1. Navigate to the [Messages and Dispatch applications page](https://dashboard.nexmo.com/messages/applications).
 
-To link your Facebook Page to your Nexmo account navigate to the following page:
+2. From the list, select the application you want to link to.
 
-* [Link your Facebook Page to Nexmo](https://static.nexmo.com/messenger/)
+3. Then, select the **Linked external accounts** tab from the top navigation.
 
-Select the Facebook Page you want to link to your account from the dropdown list.
+4. Click the **Link** button beside your Facebook Page ensuring that the **Provider** is **messenger**.
 
-Paste the JWT you previously copied to your clipboard into the JWT Token field and click Subscribe. You receive a message confirming the page is now linked to your account.
+You're now ready to receive messages users send to you on your Facebook Page.
+
+> **NOTE:** If in the future you want to link a different application to this Facebook page, you only need to repeat the procedure described in Part 2, for the new application.
+
+## Re-linking your Facebook page to your Nexmo account
+
+The link between your Nexmo account and Facebook page expires after 90 days. You can re-link it by performing the following steps:
+
+1. Visit the following page and select the page you want to re-link from the [drop down list](https://messenger.nexmo.com/)
+
+2. Click **Unsubscribe**.
+
+3. When the page is successfully unsubscribed, re-link it by clicking **Subscribe**.
