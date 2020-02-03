@@ -22,4 +22,4 @@ application:
 
 ## Try it out
 
-The webhook is invoked on change in [inbound message](/messages/code-snippets/sms/send-sms) status and the message status is printed to the console.
+The webhook is invoked on change in the [sent message](/messages/code-snippets/sms/send-sms) status and the message status is printed to the console.
