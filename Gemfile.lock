@@ -333,7 +333,7 @@ GEM
     parallel (1.19.1)
     parser (2.7.0.2)
       ast (~> 2.4.0)
-    pg (0.21.0)
+    pg (1.2.2)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
     pry (0.12.2)
@@ -582,7 +582,7 @@ DEPENDENCIES
   nokogiri (~> 1.10.4)
   octicons_helper
   octokit
-  pg (~> 0.18)
+  pg (~> 1.2)
   pry
   puma (~> 4.3)
   rack (>= 2.0.6)
