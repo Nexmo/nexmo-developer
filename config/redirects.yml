@@ -262,3 +262,6 @@
 "/client-sdk/in-app-voice/guides/start-and-receive-calls/javascript": "/client-sdk/in-app-voice/guides/make-call/javascript"
 "/client-sdk/tutorials/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging-chat"
 "/client-sdk/in-app-messaging/guides/simple-conversation": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/messaging/us-short-codes/two-factor-api": "/api/sms/us-short-codes/2fa"
+"/messaging/us-short-codes/alerts-subscribing-api": "/api/sms/us-short-codes/alerts/subscription"
+"/messaging/us-short-codes/alerts-sending-api": "/api/sms/us-short-codes/alerts/sending"
