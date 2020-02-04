@@ -93,7 +93,7 @@ gem 'factory_bot_rails', '5.1.1', require: false
 gem 'slack-notifier', '2.3.2'
 
 # The administration framework for Ruby on Rails.
-gem 'activeadmin', '~> 2.4'
+gem 'activeadmin', '~> 2.6'
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '>= 4.6.0'
