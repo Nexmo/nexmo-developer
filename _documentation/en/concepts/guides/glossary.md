@@ -224,6 +224,12 @@ Mobile Station International Subscriber Directory Number (MSISDN) is a number us
 
 Mobile Terminated. That is, sent by a customer to a phone number through the Platform. For example, requests to deliver an SMS are MT, they go to a phone number.
 
+## NCCO
+
+A Nexmo Call Control Object (NCCO) is a JSON array that you use to control the flow of a Voice API call. For your NCCO to execute correctly, the JSON objects must be valid.
+
+While developing and testing NCCOs, you can use the Voice Playground to try out NCCOs interactively. You can [read more about it in the Voice API Overview](/voice/voice-api/overview#voice-playground) or [go directly to the Voice Playground in the Dashboard](https://dashboard.nexmo.com/voice/playground).
+
 ## Network
 
 A Telecommunications Service Provider.
@@ -530,7 +536,7 @@ Voice includes:
 * SIP Trunking
 * Voice Enabled Numbers (LVNs)
 
-## Voice API
+## Voice API, VAPI
 
 This [Voice](#voice) product provides a simple and affordable personalized voice communication experience.
 
