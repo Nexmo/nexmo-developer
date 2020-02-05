@@ -206,7 +206,7 @@ another-inique-id:
   path: '^\/(api\/)?new-product'
   content: |-
     <h4>Welcome to the Developer Preview for New Product</h4>
-    <p>If you are interested in participating, have any questions, or feedback you can email us at <a href="mailto:new-product-support@nexmo.com">ea-support@nexmo.com</a>.</p>
+    <p>If you are interested in participating, have any questions, or feedback you can email us at <a href="mailto:support@nexmo.com">support@nexmo.com</a>.</p>
 ```
 
 ## Code Examples
