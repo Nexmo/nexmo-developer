@@ -1,6 +1,9 @@
 <div class="Vlt-grid">
   <div class="Vlt-col Vlt-col--3of4">
     <div class="Vlt-card">
+      <div class="Ndx-task-step__code-language Vlt-right">
+        <%= render 'code_languages/icon', code_language: @tutorial.code_language %>
+      </div>
     <%= @content.html_safe %>
 
     <br />
@@ -36,14 +39,18 @@
           <small><%= @tutorial.description %></small>
           <br /><br />
           <div>
-            <span style="font-weight: bold;">Also available on:</span>
-            <ul>
-              <% @tutorial.available_languages.each do |language| %>
-                <li>
-                  <a title="<%= language %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}/#{language}" %>"><%= language %></a>
-                </li>
-              <% end %>
-            </ul>
+            <% if @tutorial.available_languages.any? %>
+              <span style="font-weight: bold;">Also available on:</span>
+              <ul class="Ndx-task__code-language-list">
+                <% @tutorial.available_languages.each do |language| %>
+                  <li class="Ndx-task-step__code-language">
+                    <a title="<%= language %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}/#{language}" %>">
+                      <%= render 'code_languages/icon', code_language: language %>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
           </div>
           <br /><br />
           <span style="font-weight: bold;">Steps</span>

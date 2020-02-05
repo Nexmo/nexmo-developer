@@ -1,4 +1,4 @@
-introduction: 
+introduction:
   title: Introduction to this task
   description: This task shows you how to handle an inbound call into your web app using the JavaScript Client SDK.
   content: |

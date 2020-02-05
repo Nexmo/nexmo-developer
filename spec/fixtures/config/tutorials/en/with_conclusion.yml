@@ -1,0 +1,13 @@
+title: This is an example tutorial
+description: Welcome to an amazing description
+products:
+  - demo-product
+
+tasks:
+  - application/create-voice
+  - voice/make-outbound-call
+
+conclusion:
+  title: Conclusion Title
+  description: This is a conclusion
+  content: End of a tutorial

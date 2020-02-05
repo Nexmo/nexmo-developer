@@ -7,7 +7,6 @@ class TutorialController < ApplicationController
 
   def list
     @product = params['product']
-    @code_language = params['code_language']
 
     if @product
       @tutorials = TutorialList.tasks_for_product(@product)
@@ -16,9 +15,6 @@ class TutorialController < ApplicationController
     end
 
     @document_title = 'Tutorials'
-
-    excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
-    @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
 
     render layout: 'page'
   end
@@ -98,7 +94,8 @@ class TutorialController < ApplicationController
       action: action_name,
       product: @tutorial.current_product,
       tutorial_name: @tutorial.name,
-      tutorial_step: @tutorial.first_step
+      tutorial_step: @tutorial.first_step,
+      code_language: @tutorial.code_language
     )
   end
 end

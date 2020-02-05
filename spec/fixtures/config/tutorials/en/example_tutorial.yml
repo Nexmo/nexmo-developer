@@ -1,0 +1,8 @@
+title: This is an example tutorial
+description: Welcome to an amazing description
+products:
+  - demo-product
+
+tasks:
+  - application/create-voice
+  - voice/make-outbound-call

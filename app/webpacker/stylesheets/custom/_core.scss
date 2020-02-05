@@ -144,6 +144,18 @@ table {
   }
 }
 
+.Ndx-task__code-language-list li {
+  margin-top: 5px;
+}
+
+.Ndx-task-step__code-language {
+  svg {
+    height: 20px;
+    width: 20px;
+    margin-bottom: -4px;
+  }
+}
+
 .Nxd-task-step-list {
   a {
     color: black;
