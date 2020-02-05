@@ -240,7 +240,7 @@ A [Delivery Receipt](#delivery-receipt).
 
 ## Nexmo Application
 
-An application object that you create in the [Nexmo Dashboard](#nexmo-dashboard), or using the [CLI](#cli), [client libraries](#client-libraries) or [REST APIs](https://developer.nexmo.com).
+An application object that you create in the [Nexmo Dashboard](#nexmo-dashboard), or using the [CLI](#cli), [Server SDKs](#server-sdks) or [REST APIs](https://developer.nexmo.com).
 
 ## Nexmo Dashboard
 
