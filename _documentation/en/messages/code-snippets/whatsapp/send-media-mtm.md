@@ -10,9 +10,13 @@ In this code snippet you learn how to send a WhatsApp Media Message Template usi
 
 To send the Media Message Template you need to use the Messages custom object. The custom object takes a partial section of the original WhatsApp API request and sends it directly through to WhatsApp.
 
-WhatsApp Media Message Templates consist of a Header, Body and Footer structure. The Header contains the media, which can be text, location, video, image or file. The Body contains the text message. This is currently limited to 160 characters when displayed to the end user, so as to avoid the need for scrolling. The Footer is optional and contains static text only.
-
 > **IMPORTANT:** If a customer messages you, you have 24 hours to respond to the customer with a free form message. After this period you must use a template message (MTM). If a customer has not messaged you first, then the first time you send a message to a user, WhatsApp requires that the message contains a template. This is explained in more detail in the [Understanding WhatsApp topic](/messages/concepts/whatsapp).
+
+## Message format and length restrictions
+
+WhatsApp Media Message Templates consist of a Header, Body and Footer structure. The Header contains the media, which can be text, location, video, image or file. The Body contains the text message. **This is currently limited to 160 characters when displayed to the end user, so as to avoid the need for scrolling.** The Footer is optional and contains static text only.
+
+> **NOTE:** Message body length is currently limited to 160 characters.
 
 ## Example
 
