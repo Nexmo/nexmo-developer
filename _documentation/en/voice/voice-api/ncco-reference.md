@@ -315,7 +315,7 @@ Name | Description
 
 ## Notify
 
-Use the `notify` action to send a custom payload to your event URL
+Use the `notify` action to send a custom payload to your event URL. Your webhook endpoint can return another NCCO that replaces the existing NCCO or return an empty payload meaning the existing NCCO will continue to execute.
 
 ```json
 [
