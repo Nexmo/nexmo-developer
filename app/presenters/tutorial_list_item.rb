@@ -17,7 +17,7 @@ class TutorialListItem
   end
 
   def languages
-    (tutorial.raw['languages'] || tutorial.available_languages).map(&:downcase)
+    @languages ||= tutorial.available_code_languages.map(&:downcase)
   end
 
   def root
@@ -33,15 +33,15 @@ class TutorialListItem
   end
 
   def external_link
-    tutorial.metadata['external_link']
+    tutorial.metadata.external_link
   end
 
   def title
-    tutorial.metadata['title']
+    tutorial.metadata.title
   end
 
   def description
-    tutorial.metadata['description']
+    tutorial.metadata.description
   end
 
   def products # rubocop:disable Rails/Delegate
@@ -59,7 +59,7 @@ class TutorialListItem
   # rubocop:enable Naming/PredicateName
 
   def first_step
-    return if tutorial.metadata['external_link']
+    return if tutorial.metadata.external_link
 
     tutorial.first_step
   end
