@@ -30,7 +30,7 @@ gem 'clipboard-rails'
 # Icons!
 gem 'octicons_helper'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.9.0'
+gem 'jbuilder', '~> 2.10.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
