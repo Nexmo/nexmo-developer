@@ -5,7 +5,7 @@ menu_weight: 1
 ---
 
 ```javascript
-conversation.on('text:seen', (data, text) => {
-  console.log(text);
+conversation.on('text:seen', (data, event) => {
+  console.log(event);
 });
 ```
