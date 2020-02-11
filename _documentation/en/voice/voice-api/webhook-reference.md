@@ -317,7 +317,7 @@ The fallback answer webhook is accessed when either the answer webhook or the ev
 If there was a connection closed or reset, timeout or an HTTP status code of `429`, `503` or `504` during the initial NCCO the `answer_url` is attempted twice, then:
 
 1. Go to `fallback_answer_url`
-2. Attempt two times at the fallback URL
+2. Attempt to reach the fallback URL twice
 3. If no success, then the call is terminated
 
 If there was a connection closed or reset, timeout or an HTTP status code of `429`, `503` or `504` during a call in progress the `event_url` for events that are expected to return an NCCO (e.g. return for an `input` or `notify` action) is attempted twice, then:
