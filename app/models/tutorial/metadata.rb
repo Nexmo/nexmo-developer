@@ -28,6 +28,7 @@ class Tutorial::Metadata
       DocFinder
         .code_languages_for_tutorial(path: path.sub('.yml', '/'))
         .map { |file_path| File.basename(Pathname.new(file_path).basename, '.yml') }
+        .sort_by { |l| CodeLanguage.find(l).weight }
     end
   end
 
