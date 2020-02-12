@@ -129,15 +129,15 @@ $client = new \Nexmo\Client($keypair);
 $claims = [
     'acl' => [
         'paths' => [
-            '/*/users/**' => [],
-            '/*/conversations/**' => [],
-            '/*/sessions/**' => [],
-            '/*/devices/**' => [],
-            '/*/image/**' => [],
-            '/*/media/**' => [],
-            '/*/applications/**' => [],
-            '/*/push/**' => [],
-            '/*/knocking/**' => [],
+            '/*/users/**' => (object) [],
+            '/*/conversations/**' => (object) [],
+            '/*/sessions/**' => (object) [],
+            '/*/devices/**' => (object) [],
+            '/*/image/**' => (object) [],
+            '/*/media/**' => (object) [],
+            '/*/applications/**' => (object) [],
+            '/*/push/**' => (object) [],
+            '/*/knocking/**' => (object) [],
         ]
     ]
 ];
