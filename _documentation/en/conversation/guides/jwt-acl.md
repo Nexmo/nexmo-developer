@@ -126,7 +126,22 @@ $keypair = new \Nexmo\Client\Credentials\Keypair(
 );
 $client = new \Nexmo\Client($keypair);
 
-$token = $client->generateJwt();
+$claims = [
+    'acl' => [
+        'paths' => [
+            '/*/users/**' => [],
+            '/*/conversations/**' => [],
+            '/*/sessions/**' => [],
+            '/*/devices/**' => [],
+            '/*/image/**' => [],
+            '/*/media/**' => [],
+            '/*/applications/**' => [],
+            '/*/push/**' => [],
+            '/*/knocking/**' => [],
+        ]
+    ]
+];
+$token = $client->generateJwt($claims);
 $tokenString = (string) $token;
 ```
 
