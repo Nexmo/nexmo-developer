@@ -30,7 +30,7 @@ to update event locally after `markAsSeen` or `markAsDelivered` has been success
 
 ### Changed
 
-- upgrade dependency libraries please add to your build gradle
+- upgrade dependency libraries please add to your build Gradle
 
 ```groovy
 android {
