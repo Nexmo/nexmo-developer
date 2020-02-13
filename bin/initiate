@@ -9,7 +9,7 @@ docs_path = OptionParser.new do |opts|
       ENV['DOCS_BASE_PATH'] = v
       puts "Documentation path: '#{v}' set successfully."
     else
-      puts "--docs parameter value must be equal to a directory containing documentation"
+      puts "Error: --docs parameter value must be equal to a directory containing documentation."
       exit
     end
   end
