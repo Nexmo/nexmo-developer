@@ -19,7 +19,8 @@ class Navigation
       path = @folder[:path].sub(@folder[:root], '')
       path.sub(%r{^/\w+\/}, '').chomp('.yml')
     else
-      @folder[:path].sub(%r{^\w+\/\w+\/}, '').chomp('.md')
+      path = @folder[:path].gsub("#{Rails.configuration.docs_base_path}/", '')
+      path.sub(%r{^\w+\/\w+\/}, '').chomp('.md')
     end
   end
 end

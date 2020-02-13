@@ -74,7 +74,7 @@ RSpec.describe CodeSnippet, type: :model do
 
   describe '#origin' do
     it 'returns the correct origin' do
-      expect(CodeSnippet.origin).to eq("#{Rails.root}/_documentation")
+      expect(CodeSnippet.origin).to eq("#{Rails.configuration.docs_base_path}/_documentation")
     end
   end
 

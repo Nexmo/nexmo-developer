@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PartialFilter do
   it 'renders input as HTML with config["platform"] set to true' do
-    allow(File).to receive(:read).and_return(mock_partial)
+    allow(File).to receive(:read).with("#{Rails.configuration.docs_base_path}/_some_path/to/a/file.md").and_return(mock_partial)
 
     input = <<~HEREDOC
       ```partial
@@ -18,7 +18,7 @@ RSpec.describe PartialFilter do
   end
 
   it 'renders input as markdown with config["platform"] not included' do
-    allow(File).to receive(:read).and_return(mock_partial)
+    allow(File).to receive(:read).with("#{Rails.configuration.docs_base_path}/_some_path/to/a/file.md").and_return(mock_partial)
 
     input = <<~HEREDOC
       ```partial

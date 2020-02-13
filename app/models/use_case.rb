@@ -50,7 +50,7 @@ class UseCase
   end
 
   def self.origin
-    Pathname.new("#{Rails.root}/_use_cases")
+    Pathname.new("#{Rails.configuration.docs_base_path}/_use_cases")
   end
 
   def self.all
@@ -66,7 +66,7 @@ class UseCase
         products: frontmatter['products'].split(',').map(&:strip),
         languages: frontmatter['languages'] || [],
         document_path: document_path,
-        root: '_use_cases',
+        root: origin.to_s,
       })
     end
   end

@@ -17,7 +17,7 @@ When Nexmo sends a webhook to your Answer URL it expects the server to respond i
 1. The TCP connection should be established within 3 seconds.
 2. The HTTP response (NCCO) should be returned within 5 seconds.
 
-If Nexmo does not get a response within these time frames it will retry the request.
+If Nexmo does not get a response within these time frames it will retry the request twice. If this fails, Nexmo will make two further attempts to access your Fallback Answer URL, if it is configured. If Nexmo does not get a response within these time frames from your Fallback Answer URL it will retry again. If the Fallback Answer URL responds with a HTTP error code or invalid NCCO then the call is disconnected.
 
 ## Regions
 

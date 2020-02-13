@@ -11,7 +11,7 @@ task move: :environment do
   to_dir, = File.split(to)
 
   # Make sure it starts with _documentation
-  documentation_folder = '_documentation/'
+  documentation_folder = "#{Rails.configuration.docs_base_path}/_documentation/"
   raise "'from' must start with '#{documentation_folder}'" unless from[0..documentation_folder.length - 1] == documentation_folder
   raise "'to' must start with '#{documentation_folder}'" unless to[0..documentation_folder.length - 1] == documentation_folder
 

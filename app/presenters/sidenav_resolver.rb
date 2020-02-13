@@ -41,7 +41,7 @@ class SidenavResolver
     end
 
     # Do we have tasks for this product?
-    product = path.sub(%r{\w+\/\w+\/}, '')
+    product = path.sub(%r{#{Rails.configuration.docs_base_path}/\w+\/\w+\/}, '')
     if DocumentationConstraint.product_with_parent_list.include? product
       tasks = TutorialList.by_product(product)
 
@@ -87,8 +87,9 @@ class SidenavResolver
   end
 
   def strip_namespace(path)
-    path = path.gsub('.yml', '').sub('_use_cases/', 'use-cases/')
+    path = path.gsub('.yml', '').sub("#{Rails.configuration.docs_base_path}/_use_cases/", 'use-cases/')
     path = path.gsub('.yml', '').sub('config/tutorials/', '/tutorials/')
+    path = path.gsub('.yml', '').sub("#{Rails.configuration.docs_base_path}/", '')
     path.sub(%r{\w+\/\w+\/}, '')
   end
 

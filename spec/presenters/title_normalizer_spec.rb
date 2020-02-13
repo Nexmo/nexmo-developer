@@ -4,7 +4,9 @@ RSpec.describe TitleNormalizer do
   describe '.call' do
     context 'with a file' do
       context 'without :navigation in its frontmatter' do
-        let(:path) { '_documentation/en/messages/external-accounts/overview.md' }
+        let(:path) do
+          "#{Rails.configuration.docs_base_path}/_documentation/en/messages/external-accounts/overview.md"
+        end
 
         it 'returns the :title defined in the frontmatter' do
           expect(described_class.call({ is_file?: true, path: path })).to eq('Overview')

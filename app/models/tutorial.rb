@@ -138,6 +138,6 @@ class Tutorial
   end
 
   def self.task_content_path
-    '_tutorials'
+    "#{Rails.configuration.docs_base_path}/_tutorials"
   end
 end

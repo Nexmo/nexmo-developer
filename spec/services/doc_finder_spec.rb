@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe DocFinder do
   describe '.build_doc_language' do
-    let(:root) { '_documentation' }
-    let(:doc)  { '_documentation/conversation/api-reference.md' }
+    let(:root) { "#{Rails.configuration.docs_base_path}/_documentation" }
+    let(:doc)  { "#{Rails.configuration.docs_base_path}/_documentation/conversation/api-reference.md" }
 
     it 'adds the language to the doc\'s path' do
-      expect(described_class.build_doc_path(root, doc, 'en')).to eq('_documentation/en/conversation/api-reference.md')
+      expect(described_class.build_doc_path(root, doc, 'en')).to eq("#{Rails.configuration.docs_base_path}/_documentation/en/conversation/api-reference.md")
     end
   end
 
@@ -41,12 +41,12 @@ RSpec.describe DocFinder do
     end
 
     context 'with a code_language' do
-      let(:root)          { '_documentation' }
+      let(:root)          { "#{Rails.configuration.docs_base_path}/_documentation" }
       let(:document)      { 'numbers/code-snippets/list-owned' }
       let(:code_language) { 'ruby' }
 
       it 'returns the path to the doc' do
-        expect(subject).to eq('_documentation/en/numbers/code-snippets/list-owned.md')
+        expect(subject).to eq("#{Rails.configuration.docs_base_path}/_documentation/en/numbers/code-snippets/list-owned.md")
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe DocFinder do
   end
 
   describe '.linkable_code_language' do
-    let(:root)     { '_documentation' }
+    let(:root)     { "#{Rails.configuration.docs_base_path}/_documentation" }
     let(:document) { 'numbers/code-snippets/list-owned' }
     let(:format)   { 'md' }
 
@@ -79,7 +79,7 @@ RSpec.describe DocFinder do
       let(:language) { 'de' }
 
       it 'defaults to english' do
-        expect(subject).to eq('_documentation/en/numbers/code-snippets/list-owned.md')
+        expect(subject).to eq("#{Rails.configuration.docs_base_path}/_documentation/en/numbers/code-snippets/list-owned.md")
       end
     end
   end
@@ -107,14 +107,14 @@ RSpec.describe DocFinder do
     end
 
     context 'otherwise' do
-      let(:root)     { '_documentation' }
+      let(:root)     { "#{Rails.configuration.docs_base_path}/_documentation" }
       let(:document) { 'messages/external-accounts/overview.md' }
 
       context 'when the document is not available in the given language' do
         let(:language) { 'de' }
 
         it 'returns the path to the file in the default language' do
-          expect(subject).to eq('_documentation/en/messages/external-accounts/overview.md')
+          expect(subject).to eq("#{Rails.configuration.docs_base_path}/_documentation/en/messages/external-accounts/overview.md")
         end
       end
     end

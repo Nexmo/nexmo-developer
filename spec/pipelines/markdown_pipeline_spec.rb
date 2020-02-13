@@ -30,10 +30,14 @@ RSpec.describe MarkdownPipeline do
   end
 
   context 'injected code examples' do
+    before(:each) do
+      allow(Rails.configuration).to receive(:docs_base_path).and_return('.')
+    end
+
     it 'highlights PHP examples that begin with <?php' do
       input = <<~HEREDOC
         ```tabbed_examples
-        source: '/spec/fixtures/filters/tabbed_examples_php_tagged'
+        source: 'spec/fixtures/filters/tabbed_examples_php_tagged'
         ```
       HEREDOC
 
@@ -44,7 +48,7 @@ RSpec.describe MarkdownPipeline do
     it 'highlights PHP examples that do not begin with <?php' do
       input = <<~HEREDOC
         ```tabbed_examples
-        source: '/spec/fixtures/filters/tabbed_examples_php_untagged'
+        source: 'spec/fixtures/filters/tabbed_examples_php_untagged'
         ```
       HEREDOC
 

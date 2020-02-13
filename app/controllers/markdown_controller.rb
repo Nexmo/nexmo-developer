@@ -71,7 +71,7 @@ class MarkdownController < ApplicationController
     if params[:namespace].present?
       "app/views/#{params[:namespace]}"
     else
-      '_documentation'
+      "#{Rails.configuration.docs_base_path}/_documentation"
     end
   end
 

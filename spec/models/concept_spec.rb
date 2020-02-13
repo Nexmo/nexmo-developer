@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Concept, type: :model do
   describe '#extract_product' do
     it 'extracts voice successfully' do
-      stub_const("#{described_class}::ORIGIN", '/path/to/_documentation')
+      stub_const("#{described_class}::ORIGIN", "#{Rails.configuration.docs_base_path}/path/to/_documentation")
       expect(described_class.extract_product("#{described_class::ORIGIN}/en/voice/voice-api/guides/demo.md")).to eq('voice/voice-api')
     end
 
     it 'extracts sms successfully' do
-      stub_const("#{described_class}::ORIGIN", '/path/to/_documentation')
+      stub_const("#{described_class}::ORIGIN", "#{Rails.configuration.docs_base_path}/path/to/_documentation")
       expect(described_class.extract_product("#{described_class::ORIGIN}/en/messaging/sms/guides/demo.md")).to eq('messaging/sms')
     end
   end
@@ -48,7 +48,7 @@ RSpec.describe Concept, type: :model do
     let(:language) { 'en' }
 
     it 'has the correct glob pattern' do
-      stub_const("#{described_class}::ORIGIN", '/path/to/_documentation')
+      stub_const("#{described_class}::ORIGIN", "#{Rails.configuration.docs_base_path}/path/to/_documentation")
       stub_const("#{described_class}::FILES", ['guide', 'concept'])
 
       expect(DocFinder).to receive(:find).with(root: described_class::ORIGIN, document: 'guide', language: language).and_return('guide')
@@ -60,7 +60,7 @@ RSpec.describe Concept, type: :model do
 
   describe '#origin' do
     it 'returns the correct origin' do
-      expect(described_class::ORIGIN).to eq('_documentation')
+      expect(described_class::ORIGIN).to eq("#{Rails.configuration.docs_base_path}/_documentation")
     end
   end
 
@@ -99,7 +99,7 @@ def stub_available_concepts
   }.each do |title, details|
     i += 1
     slug = title.parameterize
-    path = "/path/to/_documentation/en/#{details['product']}/#{details['folder']}/#{slug}.md"
+    path = "#{Rails.configuration.docs_base_path}/path/to/_documentation/en/#{details['product']}/#{details['folder']}/#{slug}.md"
     paths.push(path)
 
     allow(File).to receive(:read).with(path) .and_return(
@@ -112,6 +112,6 @@ def stub_available_concepts
     )
   end
 
-  stub_const("#{described_class}::ORIGIN", '/path/to/_documentation')
+  stub_const("#{described_class}::ORIGIN", "#{Rails.configuration.docs_base_path}/path/to/_documentation")
   allow(described_class).to receive(:files).and_return(paths)
 end

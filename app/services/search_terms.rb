@@ -2,18 +2,18 @@ class SearchTerms
   def self.generate(locale = I18n.default_locale)
     document_paths = {
       documentation: {
-        documents: Dir.glob("#{Rails.root}/_documentation/#{locale}/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_documentation/#{locale}"),
+        documents: Dir.glob("#{Rails.configuration.docs_base_path}/_documentation/#{locale}/**/*.md"),
+        origin: Pathname.new("#{Rails.configuration.docs_base_path}/_documentation/#{locale}"),
         base_url_path: '',
       },
       api: {
-        documents: Dir.glob("#{Rails.root}/_api/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_api"),
+        documents: Dir.glob("#{Rails.configuration.docs_base_path}/_api/**/*.md"),
+        origin: Pathname.new("#{Rails.configuration.docs_base_path}/_api"),
         base_url_path: '/api',
       },
       use_cases: {
-        documents: Dir.glob("#{Rails.root}/_use_cases/#{locale}/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_use_cases/#{locale}"),
+        documents: Dir.glob("#{Rails.configuration.docs_base_path}/_use_cases/#{locale}/**/*.md"),
+        origin: Pathname.new("#{Rails.configuration.docs_base_path}/_use_cases/#{locale}"),
         base_url_path: '/use-cases',
       },
     }

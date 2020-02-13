@@ -10,7 +10,9 @@ class SmartlingAPI
   def upload(filename)
     file_uri = file_uri(filename)
     file = Tempfile.new
-    file.write I18n::FrontmatterFilter.new.call(File.read(filename))
+    file.write I18n::FrontmatterFilter.new.call(
+      File.read("#{Rails.configuration.docs_base_path}/#{filename}")
+    )
     file.rewind
 
     wrap_in_rescue do
@@ -38,7 +40,7 @@ class SmartlingAPI
 
       locale = locale_without_region(locale.to_s)
       FileUtils.mkdir_p(storage_folder(locale, filename)) unless File.exist?(storage_folder(locale, filename))
-      File.open("_documentation/#{locale}/#{file_uri}", 'w+') do |file|
+      File.open("#{Rails.configuration.docs_base_path}/_documentation/#{locale}/#{file_uri}", 'w+') do |file|
         file.write(I18n::SmartlingConverterFilter.call(response))
       end
     end
@@ -52,7 +54,7 @@ class SmartlingAPI
 
   def storage_folder(locale, filename)
     dir_path = Pathname.new(file_uri(filename)).dirname.to_s
-    "_documentation/#{locale}/#{dir_path}/"
+    "#{Rails.configuration.docs_base_path}/_documentation/#{locale}/#{dir_path}/"
   end
 
   def file_uri(filename)

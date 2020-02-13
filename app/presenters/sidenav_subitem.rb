@@ -26,7 +26,7 @@ class SidenavSubitem < SidenavItem
         product: @folder[:product],
         only_path: true
       )
-    elsif @folder[:root] == '_use_cases'
+    elsif @folder[:root] == "#{Rails.configuration.docs_base_path}/_use_cases"
       url_for(
         document: Navigation.new(@folder).path_to_url,
         controller: controller,
@@ -39,9 +39,9 @@ class SidenavSubitem < SidenavItem
   end
 
   def controller
-    if @folder[:path].starts_with?('_documentation')
+    if @folder[:path].starts_with?("#{Rails.configuration.docs_base_path}/_documentation")
       :markdown
-    elsif @folder[:path].starts_with?('_use_cases')
+    elsif @folder[:path].starts_with?("#{Rails.configuration.docs_base_path}/_use_cases")
       :use_case
     end
   end

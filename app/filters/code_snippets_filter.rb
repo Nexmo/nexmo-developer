@@ -87,7 +87,7 @@ class CodeSnippetsFilter < Banzai::Filter
   end
 
   def content_from_source
-    source_path = "#{Rails.root}/#{@config['source']}/*.yml"
+    source_path = "#{Rails.configuration.docs_base_path}/#{@config['source']}/*.yml"
 
     files = Dir[source_path]
     raise "No .yml files found for #{@config['source']} code snippets" if files.empty?

@@ -6,9 +6,9 @@ class TabFilter < Banzai::Filter
       @config = YAML.safe_load($3)
 
       if tabbed_folder?
-        raise "#{@config['source']} is not a directory" unless File.directory? @config['source']
+        raise "#{@config['source']} is not a directory" unless File.directory? "#{Rails.configuration.docs_base_path}/#{@config['source']}"
 
-        @tabbed_config = YAML.safe_load(File.read("#{@config['source']}/.config.yml"))
+        @tabbed_config = YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/#{@config['source']}/.config.yml"))
         @path = @config['source']
         validate_folder_config
       else
@@ -144,7 +144,7 @@ class TabFilter < Banzai::Filter
   end
 
   def content_from_source
-    source_path = "#{Rails.root}/#{@config['source']}"
+    source_path = "#{Rails.configuration.docs_base_path}/#{@config['source']}"
     source_path += '/*' if tabbed_code_examples?
     source_path += '/*.md' if tabbed_content?
 
@@ -163,7 +163,7 @@ class TabFilter < Banzai::Filter
   end
 
   def content_from_folder
-    source_path = @config['source']
+    source_path = "#{Rails.configuration.docs_base_path}/#{@config['source']}"
     source_path += '/*.md'
 
     files = Dir.glob(source_path)
@@ -180,9 +180,9 @@ class TabFilter < Banzai::Filter
 
   def content_from_tabs
     @config['tabs'].map do |title, config|
-      raise "Could not find content_from_tabs file: #{config['source']}" unless File.exist? config['source']
+      raise "Could not find content_from_tabs file: #{Rails.configuration.docs_base_path}/#{@config['source']}" unless File.exist? "#{Rails.configuration.docs_base_path}/#{@config['source']}"
 
-      source = File.read(config['source'])
+      source = File.read("#{Rails.configuration.docs_base_path}/#{@config['source']}")
 
       config.symbolize_keys.merge({
         id: SecureRandom.hex,

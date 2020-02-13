@@ -176,7 +176,7 @@ RSpec.describe Tutorial, type: :model do
       it 'raises if it does not exist' do
         create_example_config
         tutorial = described_class.load('example-tutorial', 'introduction')
-        expect(DocFinder).to receive(:find).with(root: '_tutorials', document: 'missing-step', language: :en).and_call_original
+        expect(DocFinder).to receive(:find).with(root: "#{Rails.configuration.docs_base_path}/_tutorials", document: 'missing-step', language: :en).and_call_original
         expect { tutorial.content_for('missing-step') }.to raise_error(DocFinder::MissingDoc)
       end
     end
@@ -272,7 +272,7 @@ def create_application_content
     HEREDOC
   )
   allow(DocFinder).to receive(:find)
-    .with(root: '_tutorials', document: 'application/create-voice', language: :en)
+    .with(root: "#{Rails.configuration.docs_base_path}/_tutorials", document: 'application/create-voice', language: :en)
     .and_return(path)
 end
 
@@ -288,7 +288,7 @@ def create_outbound_call_content
     HEREDOC
   )
   allow(DocFinder).to receive(:find)
-    .with(root: '_tutorials', document: 'voice/make-outbound-call', language: :en)
+    .with(root: "#{Rails.configuration.docs_base_path}/_tutorials", document: 'voice/make-outbound-call', language: :en)
     .and_return(path)
 end
 

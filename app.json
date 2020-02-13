@@ -23,7 +23,8 @@
     "GIT_SSH_KEY": { "required": true },
     "RACK_ENV": { "required": true },
     "RAILS_ENV": { "required": true },
-    "OAS_PATH": "_open_api/api_specs/definitions"
+    "OAS_PATH": "_open_api/api_specs/definitions",
+    "DOCS_BASE_PATH": "."
   },
   "stack": "heroku-18"
 }

@@ -40,7 +40,7 @@ class UseCaseController < ApplicationController
   def show
     # Read document
     @document_path = DocFinder.find(
-      root: '_use_cases',
+      root: "#{Rails.configuration.docs_base_path}/_use_cases",
       document: params[:document],
       language: I18n.locale,
       code_language: params[:code_language]

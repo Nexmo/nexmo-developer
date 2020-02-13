@@ -25,11 +25,13 @@ RSpec.describe OpenApiDefinitionResolver do
 
   describe '#paths' do
     it 'returns paths in the expected order' do
-      expect(OpenApiDefinitionResolver.paths('foobar')).to eq([
-                                                                '_open_api/api_specs/definitions/foobar.json',
-                                                                '_open_api/api_specs/definitions/foobar.yaml',
-                                                                '_open_api/api_specs/definitions/foobar.yml',
-                                                              ])
+      expect(OpenApiDefinitionResolver.paths('foobar')).to eq(
+        [
+          "#{Rails.configuration.docs_base_path}/_open_api/api_specs/definitions/foobar.json",
+          "#{Rails.configuration.docs_base_path}/_open_api/api_specs/definitions/foobar.yaml",
+          "#{Rails.configuration.docs_base_path}/_open_api/api_specs/definitions/foobar.yml",
+        ]
+      )
     end
   end
 end
