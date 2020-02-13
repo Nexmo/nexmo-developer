@@ -1,10 +1,15 @@
 #!/usr/bin/env ruby
 require 'optparse'
+
 options = {}
 docs_path = OptionParser.new do |opts|
-  opts.banner = "Usage: example.rb [options]"
-  opts.on("-d", "--docs[=DOCS]") do |v|
+  opts.banner = "Usage: bundle exec initiate server --docs='/path/to/docs'"
+  opts.on("-d", "--docs[=DOCS]", "Specify path to documentation") do |v|
     ENV['DOCS_BASE_PATH'] = v
+  end
+  opts.on("-h", "--help", "Prints help instructions") do
+    puts opts
+    exit
   end
 end.parse!
 APP_PATH = File.expand_path('../config/application', __dir__)
