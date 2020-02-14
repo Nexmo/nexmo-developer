@@ -4,6 +4,6 @@ language: curl
 code:
     source: .repos/nexmo/nexmo-curl-code-snippets/application/create-application.sh
     from_line: 5
-    to_line: 24
+    to_line: 49
 file_name: create-application.sh
 run_command: './create-application.sh'
