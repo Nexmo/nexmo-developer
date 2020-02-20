@@ -121,7 +121,7 @@ The `mobile_api_key` can be found in the `SDK Integration` page, as a rudimentar
 
 Nexmo Client SDK supports web (JavaScript), iOS and Android.
 
-You may [integrate the SDK](/client-sdk/setup/add-sdk-to-your-app) to your own client-side application and [add in-app voice functionality](/client-sdk/in-app-voice/guides/start-and-receive-calls).
+You may [integrate the SDK](/client-sdk/setup/add-sdk-to-your-app) to your own client-side application and [add in-app voice functionality](/client-sdk/in-app-voice/guides/make-call).
 
 However, to get started you may clone and run one of the demo client-side applications.
 

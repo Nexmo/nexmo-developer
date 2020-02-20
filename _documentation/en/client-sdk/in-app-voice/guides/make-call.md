@@ -12,8 +12,7 @@ This guide covers the functionalities in your Nexmo Client application, in order
 
 Before you begin, make sure you [added the SDK to your app](/client-sdk/setup/add-sdk-to-your-app).
 
-
-### Start an In-App Call
+## Start an In-App Call
 
 The quickest way to start an in-app call is by conducting an in-app to in-app call, meaning between two users.
 
@@ -22,9 +21,9 @@ source: '_tutorials_tabbed_content/client-sdk/guides/make-call/in-app'
 frameless: false
 ```
 
-The possible voice capabilities are very limited, as this doesn’t utilize [Nexmo Voice API](/voice/voice-api/overview). This method is recommended mostly for onboarding. Later, it is recommended to use a server managed call.
+The possible voice capabilities are very limited, as this doesn't utilize [Nexmo Voice API](/voice/voice-api/overview). This method is recommended mostly for onboarding. Later, it is recommended to use a server managed call.
 
-### Start a Server Managed Call
+## Start a Server Managed Call
 
 This method allows you to conduct in-app calls as well as phone calls while taking advantage of the rich [Nexmo Voice API features](/voice/voice-api/overview).
 
@@ -37,7 +36,7 @@ source: '_tutorials_tabbed_content/client-sdk/guides/make-call/server-managed'
 frameless: false
 ```
 
-### Listen For Call Events
+## Listen For Call Events
 
 To see updates on the state of a call, for example, to know if the other member answered or hung up the call, you should listen to call events.
 
@@ -45,5 +44,3 @@ To see updates on the state of a call, for example, to know if the other member 
 source: '_tutorials_tabbed_content/client-sdk/guides/make-call/listen-to-call-events'
 frameless: false
 ```
-
-

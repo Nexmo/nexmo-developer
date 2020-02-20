@@ -25,7 +25,6 @@ To add the Nexmo Client SDK to your project, add the following dependency in you
 dependencies {
     implementation 'com.nexmo.android:client-sdk:1.0.0'
 }
-
 ```
 
 ### Add permissions
@@ -63,7 +62,7 @@ To use the In-App Voice features, add audio permissions using the following proc
     android.Manifest.permission.PROCESS_OUTGOING_CALLS
     ```
 
-    Read more about requesting runtime permissions on Android [here]("https://developer.android.com/training/permissions/requesting")
+    Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting)
 
 ## Using `NexmoClient` in your App
 
@@ -86,7 +85,6 @@ NexmoClient.get().setConnectionListener(new NexmoConnectionListener() {
         //...
         }
     });
-
 ```
 
 ### Login `NexmoClient`

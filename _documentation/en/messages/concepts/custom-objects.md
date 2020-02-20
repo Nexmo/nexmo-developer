@@ -239,4 +239,4 @@ Where the custom object, `$CUSTOM_OBJECT`, can be anything from within the [Mess
 
 * [WhatsApp send contact](/messages/code-snippets/whatsapp/send-contact)
 * [WhatsApp send location](/messages/code-snippets/whatsapp/send-location)
-* [Facebook Messenger custom object](/messages/code-snippets/messenger/send-custom)
+* [Facebook Messenger custom object](/messages/code-snippets/messenger/send-template)

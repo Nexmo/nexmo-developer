@@ -13,13 +13,13 @@ The Nexmo CLI allows you to create and manage your Nexmo applications. To obtain
 
 The Nexmo CLI (Beta) can be installed with the following command:
 
-```
+```shell
 npm install -g nexmo-cli@beta
 ```
 
 The latest Beta includes all the facilities to support Application API V2 on the command line. You can check your installed version with the command:
 
-```
+```shell
 nexmo --version
 ```
 
@@ -27,7 +27,7 @@ nexmo --version
 
 To list your current applications use:
 
-```
+```shell
 nexmo app:list
 ```
 
@@ -37,13 +37,13 @@ This displays a list showing the application ID and name.
 
 To show the details of a specific application (where the `APP_ID` is the application  ID of an application that already exists):
 
-```
+```shell
 nexmo app:show APP_ID
 ```
 
 Returns something like:
 
-```
+```shell
 [id]
 61fd1849-280d-4722-8712-1cc59aa12345
 
@@ -79,13 +79,13 @@ GET
 
 Or to display the results in Application V2 format:
 
-```
+```shell
 nexmo as APP_ID --v2
 ```
 
 This would return:
 
-```
+```shell
 [id]
 61fd1849-280d-4722-8712-1cc59aa12345
 
@@ -114,16 +114,17 @@ GET
 /v2/applications/61fd1849-280d-4722-8712-1cc59aa12345
 ```
 
-This shows the Application V2 [capabilities](/Application/overview#capabilities).
+This shows the Application V2 [capabilities](/application/overview#capabilities).
 
 For a messages application the command might be:
-```
+
+```shell
 nexmo as 43fd399e-0f17-4027-83b9-cc16f4a12345 --v2
 ```
 
 This would return something similar to:
 
-```
+```shell
 [id]
 43fd399e-0f17-4027-83b9-cc16f4a12345
 
@@ -151,7 +152,7 @@ POST
 /v2/applications/43fd399e-0f17-4027-83b9-cc16f4a12345
 ```
 
-Note that in this case the messages [capabilities](/Application/overview#capabilities) are displayed.
+Note that in this case the messages [capabilities](/application/overview#capabilities) are displayed.
 
 ## Creating an application
 
@@ -159,7 +160,7 @@ Note that in this case the messages [capabilities](/Application/overview#capabil
 
 First create a new directory for your application and change into it. You can then create an application in **interactive mode** using the command:
 
-```
+```shell
 nexmo app:create
 ```
 
@@ -171,7 +172,7 @@ Note that the command you could use to recreate the application in the future is
 
 To create the application without the interactive mode (useful for scripts), use a command such as:
 
-```
+```shell
 nexmo app:create "Test Application 1" --capabilities=voice,rtc --voice-event-url=http://example.com/webhooks/event --voice-answer-url=http://example.com/webhooks/answer --rtc-event-url=http://example.com/webhooks/rtcevent
 ```
 
@@ -185,7 +186,7 @@ You can create an application with your own public key if you have a suitable pu
 
 First you need a suitable public/private key pair. To create one, first enter:
 
-```
+```shell
 ssh-keygen -t rsa -b 4096 -m PEM -f private.key
 ```
 
@@ -193,13 +194,13 @@ Press enter (twice) to not use a passphrase. This generates your private key, `p
 
 Then enter the following:
 
-```
+```shell
 openssl rsa -in private.key -pubout -outform PEM -out public.key.pub
 ```
 
 This generates `public.key.pub`. This is the public key you use in creating or updating your Nexmo application:
 
-```
+```shell
 nexmo app:update asdasdas-asdd-2344-2344-asdasd12345 "Application with Public Key" --capabilities=voice,rtc --voice-event-url=http://example.com/webhooks/event --voice-answer-url=http://example.com/webhooks/answer --rtc-event-url=http://example.com/webhooks/rtcevent --public-keyfile=public.key.pub
 ```
 
@@ -207,13 +208,13 @@ nexmo app:update asdasdas-asdd-2344-2344-asdasd12345 "Application with Public Ke
 
 You can see how an application was created by using the `--recreate` option to `app:show`. For example, the command:
 
-```
+```shell
 nexmo app:show 9a1089f2-3990-4db2-be67-3e7767bd20c9  --recreate
 ```
 
 Would generate the following output:
 
-```
+```shell
 [id]
 9a1089f2-3990-4db2-be67-3e7767bd20c9
 
@@ -265,7 +266,7 @@ Note, the command to _recreate_ this application is shown at the end of the outp
 
 You can update a previously created application with a command similar to:
 
-```
+```shell
 nexmo app:update asdasdas-asdd-2344-2344-asdasda12345 "Updated Application" --capabilities=voice,rtc --voice-event-url=http://example.com/webhooks/event --voice-answer-url=http://example.com/webhooks/answer --rtc-event-url=http://example.com/webhooks/rtcevent
 ```
 
@@ -275,7 +276,7 @@ You can change the application name, modify any of the webhooks, or add new capa
 
 You can delete an application with the following command:
 
-```
+```shell
 nexmo app:delete APP_ID
 ```
 
