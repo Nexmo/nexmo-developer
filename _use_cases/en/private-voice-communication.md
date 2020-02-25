@@ -136,7 +136,11 @@ from_line: 2
 to_line: 47
 ```
 
-Then rent the numbers you want and associate them with your application. When any even occurs relating to each number associated with an application, Nexmo sends a request to your webhook endpoint with information about the event. After configuration you store the phone number for later user.
+Then rent the numbers you want and associate them with your application.
+
+> **NOTE:** Some types numbers require you have a postal address in order to rent them. If you are not able to obtain a number programmatically, visit the [Dashboard](https://dashboard.nexmo.com/buy-numbers) where you can rent numbers as required.
+
+When any event occurs relating to each number associated with an application, Nexmo sends a request to your webhook endpoint with information about the event. After configuration you store the phone number for later use:
 
 ```code
 source: '_code/voice_proxy.js'
@@ -146,7 +150,7 @@ to_line: 79
 
 You now have the virtual numbers you need to mask communication between your users.
 
-**NOTE:** In a production application you choose from a pool of virtual numbers. However, you should keep this functionality in place to rent additional numbers on the fly.
+> **NOTE:** In a production application you choose from a pool of virtual numbers. However, you should keep this functionality in place to rent additional numbers on the fly.
 
 ## Create a call
 
