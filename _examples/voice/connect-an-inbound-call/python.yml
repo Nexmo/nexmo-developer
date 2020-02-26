@@ -5,7 +5,7 @@ dependencies:
     - '''flask>=1.0'''
 code:
     source: .repos/nexmo/nexmo-python-code-snippets/voice/connect-an-inbound-call.py
-    from_line: 4
+    from_line: 6
     to_line: 21
 client:
     source: .repos/nexmo/nexmo-python-code-snippets/voice/connect-an-inbound-call.py
