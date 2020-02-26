@@ -16,7 +16,7 @@ Key |	Description
 -- | --
 `UUID` | The UUID of the call to modify.
 `action` | The action to use in updating the call. In this case `transfer`.
-`url` | The URL of the NCCO to transfer control to. URLs _must_ be array type (for Python library).
+`NCCO_URL` | The URL of the NCCO to transfer control to. URLs _must_ be array type.
 
 
 ```code_snippets

@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/applications/update-application.js
-    from_line: 16
-    to_line: 59
+    from_line: 17
+    to_line: 60
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/applications/update-application.js
     from_line: 7
-    to_line: 14
+    to_line: 15

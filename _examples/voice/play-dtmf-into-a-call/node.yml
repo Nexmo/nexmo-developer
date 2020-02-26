@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/play-dtmf-into-call.js
-    from_line: 19
-    to_line: 24
+    from_line: 21
+    to_line: 28
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/play-dtmf-into-call.js
-    from_line: 10
-    to_line: 17
+    from_line: 12
+    to_line: 19

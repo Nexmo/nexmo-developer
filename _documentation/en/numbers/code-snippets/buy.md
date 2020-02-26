@@ -21,7 +21,7 @@ Name | Description
 --|--
 `NEXMO_API_KEY` | Your Nexmo [API key](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
 `NEXMO_API_SECRET` | Your Nexmo [API secret](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
-`COUNTRY_CODE` | The two digit country code for the number you want to cancel. For example: `GB` for the United Kingdom.
+`COUNTRY_CODE` | The two digit country code for the number you want to buy. For example: `GB` for the United Kingdom.
 `NEXMO_NUMBER` | The Nexmo virtual number you want to cancel. Omit the leading zero but include the international dialing code. For example: `447700900000`.
 
 ```code_snippets

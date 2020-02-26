@@ -4,9 +4,9 @@ dependencies:
     - body-parser
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/conference-call.js
-    from_line: 6
-    to_line: 23
+    from_line: 9
+    to_line: 26
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/conference-call.js
-    from_line: 1
-    to_line: 4
+    from_line: 4
+    to_line: 7
