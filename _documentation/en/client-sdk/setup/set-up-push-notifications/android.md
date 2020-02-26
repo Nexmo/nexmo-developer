@@ -94,7 +94,7 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
 }
 ```
 
-> **NOTE:** In order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in](/client-sdk/getting-started/add-sdk-to-your-app/android) to it.
+> *Note:* in order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in]((/client-sdk/getting-started/add-sdk-to-your-app/android)) to it.
 
 ## Conclusion
 

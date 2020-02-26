@@ -34,7 +34,7 @@ class Sidenav
     if @namespace.present?
       @path = "app/views/#{@namespace}"
     else
-      @path = "#{Rails.configuration.docs_base_path}/_documentation"
+      @path = '_documentation'
     end
   end
 

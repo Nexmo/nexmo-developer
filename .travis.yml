@@ -14,7 +14,7 @@ before_install:
   - nvm install
 install: bundle install --deployment --path vendor/bundle && yarn install
 env:
-  - DOCS_BASE_PATH="." OAS_PATH="_open_api/api_specs/definitions"
+  - OAS_PATH="_open_api/api_specs/definitions"
 before_script:
   - |
     if [ -z "$SSH_KEY_REQUIRED" ]; then

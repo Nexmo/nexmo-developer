@@ -51,7 +51,7 @@ RSpec.describe Tutorial, type: :model do
         'description' => 'Description here',
         'products' => ['demo'],
       }
-      expect(Nexmo::Markdown::DocFinder).to receive(:find)
+      expect(DocFinder).to receive(:find)
         .with(root: 'config/tutorials', document: 'example-tutorial', language: :en, format: 'yml')
         .and_return(path)
       expect(File).to receive(:read).with(path).and_return(config.to_yaml)
@@ -176,8 +176,8 @@ RSpec.describe Tutorial, type: :model do
       it 'raises if it does not exist' do
         create_example_config
         tutorial = described_class.load('example-tutorial', 'introduction')
-        expect(Nexmo::Markdown::DocFinder).to receive(:find).with(root: "#{Rails.configuration.docs_base_path}/_tutorials", document: 'missing-step', language: :en).and_call_original
-        expect { tutorial.content_for('missing-step') }.to raise_error(Nexmo::Markdown::DocFinder::MissingDoc)
+        expect(DocFinder).to receive(:find).with(root: '_tutorials', document: 'missing-step', language: :en).and_call_original
+        expect { tutorial.content_for('missing-step') }.to raise_error(DocFinder::MissingDoc)
       end
     end
   end
@@ -222,7 +222,7 @@ def create_example_config(intro = false, conclusion = false)
     include_introduction: intro,
     include_conclusion: conclusion
   )
-  allow(Nexmo::Markdown::DocFinder).to receive(:find)
+  allow(DocFinder).to receive(:find)
     .with(root: 'config/tutorials', document: 'example-tutorial', language: :en, format: 'yml')
     .and_return(path)
 
@@ -271,8 +271,8 @@ def create_application_content
       Creating a voice application is very important. Please do it
     HEREDOC
   )
-  allow(Nexmo::Markdown::DocFinder).to receive(:find)
-    .with(root: "#{Rails.configuration.docs_base_path}/_tutorials", document: 'application/create-voice', language: :en)
+  allow(DocFinder).to receive(:find)
+    .with(root: '_tutorials', document: 'application/create-voice', language: :en)
     .and_return(path)
 end
 
@@ -287,8 +287,8 @@ def create_outbound_call_content
       This is an example outbound call with Text-To-Speech
     HEREDOC
   )
-  allow(Nexmo::Markdown::DocFinder).to receive(:find)
-    .with(root: "#{Rails.configuration.docs_base_path}/_tutorials", document: 'voice/make-outbound-call', language: :en)
+  allow(DocFinder).to receive(:find)
+    .with(root: '_tutorials', document: 'voice/make-outbound-call', language: :en)
     .and_return(path)
 end
 

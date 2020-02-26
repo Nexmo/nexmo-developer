@@ -1,0 +1,11 @@
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
+	<h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0"><%= title %></h5>
+
+	<div id="acc<%= id %>" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+		    <p><%=deps['text']%></p>
+        <% if deps['code'] %>
+		    <pre class="highlight <%= deps['type'] || 'bash' %> dependencies"><code><%=deps['code']%></code></pre>
+        <% end %>
+	</div>
+</div>
+

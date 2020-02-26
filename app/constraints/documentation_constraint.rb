@@ -1,6 +1,6 @@
 class DocumentationConstraint
   def self.documentation
-    Nexmo::Markdown::CodeLanguage.route_constraint.merge(product_with_parent)
+    CodeLanguage.route_constraint.merge(product_with_parent)
   end
 
   def self.product_list

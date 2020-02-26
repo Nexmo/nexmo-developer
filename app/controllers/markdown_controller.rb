@@ -54,7 +54,7 @@ class MarkdownController < ApplicationController
   end
 
   def document_path
-    @document_path ||= Nexmo::Markdown::DocFinder.find(
+    @document_path ||= DocFinder.find(
       root: root_folder,
       document: params[:document],
       language: I18n.locale,
@@ -71,18 +71,18 @@ class MarkdownController < ApplicationController
     if params[:namespace].present?
       "app/views/#{params[:namespace]}"
     else
-      "#{Rails.configuration.docs_base_path}/_documentation"
+      '_documentation'
     end
   end
 
   def path_is_folder?
     folder_config_path
-  rescue Nexmo::Markdown::DocFinder::MissingDoc
+  rescue DocFinder::MissingDoc
     false
   end
 
   def folder_config_path
-    Nexmo::Markdown::DocFinder.find(
+    DocFinder.find(
       root: root_folder,
       document: "#{params[:document]}/.config.yml",
       language: I18n.locale,
@@ -97,7 +97,7 @@ class MarkdownController < ApplicationController
 
     @document_title = frontmatter['meta_title'] || frontmatter['title']
 
-    content = Nexmo::Markdown::Renderer.new({
+    content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
     }).call(<<~HEREDOC
@@ -117,7 +117,7 @@ class MarkdownController < ApplicationController
 
     raise Errno::ENOENT if frontmatter['redirect']
 
-    content = Nexmo::Markdown::Renderer.new({
+    content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
       language: I18n.locale,

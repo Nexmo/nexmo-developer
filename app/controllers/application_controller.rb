@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   rescue_from Errno::ENOENT, with: :not_found
-  rescue_from Nexmo::Markdown::DocFinder::MissingDoc, with: :not_found
+  rescue_from DocFinder::MissingDoc, with: :not_found
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
 
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   def set_code_language
     return unless request.params[:code_language]
 
-    @code_language = Nexmo::Markdown::CodeLanguage.find(request.params[:code_language])
+    @code_language = CodeLanguage.find(request.params[:code_language])
   end
 
   def set_notices

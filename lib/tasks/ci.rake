@@ -5,16 +5,16 @@ namespace :ci do
   task 'verify_pages': :environment do
     document_paths =
       [
-        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_api/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
+        "#{Rails.root}/_documentation/en/**/*.md",
+        "#{Rails.root}/_api/**/*.md",
+        "#{Rails.root}/_tutorials/**/*.md",
       ]
 
     document_paths.each do |path|
       Dir.glob(path).each do |filename|
         document = File.read(filename)
         begin
-          Nexmo::Markdown::Renderer.new.call(document)
+          MarkdownPipeline.new.call(document)
         rescue StandardError => e
           puts "Error whilst processing #{filename}"
           raise e
@@ -117,12 +117,12 @@ namespace :ci do
   task 'check_word_blocklist': :environment do
     markdown_files =
       [
-        "#{Rails.configuration.docs_base_path}/_documentation/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_api/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_partials/*.md",
-        "#{Rails.configuration.docs_base_path}/_partials/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_modals/**/*.md",
+        "#{Rails.root}/_documentation/**/*.md",
+        "#{Rails.root}/_api/**/*.md",
+        "#{Rails.root}/_tutorials/**/*.md",
+        "#{Rails.root}/_partials/*.md",
+        "#{Rails.root}/_partials/**/*.md",
+        "#{Rails.root}/_modals/**/*.md",
       ]
 
     block_list = File.read('.disallowed_words').split("\n")
@@ -134,7 +134,7 @@ namespace :ci do
           word = word.downcase
           document = File.read(filename).downcase
           if document.include? word
-            errors.push("#{word} found in #{filename.gsub("#{Rails.configuration.docs_base_path}/", '')}")
+            errors.push("#{word} found in #{filename.gsub("#{Rails.root}/", '')}")
           end
         end
       end

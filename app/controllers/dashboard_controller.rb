@@ -137,8 +137,8 @@ class DashboardController < ApplicationController
   end
 
   def coverage_from_unsupported
-    Dir.glob("#{Rails.configuration.docs_base_path}/_examples/**/.unsupported.yml").each do |e|
-      relative_path = e.gsub("#{Rails.configuration.docs_base_path}/_examples/", '')
+    Dir.glob("#{Rails.root}/_examples/**/.unsupported.yml").each do |e|
+      relative_path = e.gsub("#{Rails.root}/_examples/", '')
       parts = relative_path.split('/')
       parts.insert(1, 'top-level') if parts.count < 4
       parts = parts[0..-2]
@@ -160,8 +160,8 @@ class DashboardController < ApplicationController
   end
 
   def coverage_from_yaml
-    Dir.glob("#{Rails.configuration.docs_base_path}/_examples/**/*.yml").each do |e|
-      relative_path = e.gsub("#{Rails.configuration.docs_base_path}/_examples/", '')
+    Dir.glob("#{Rails.root}/_examples/**/*.yml").each do |e|
+      relative_path = e.gsub("#{Rails.root}/_examples/", '')
       source_path = "_examples/#{relative_path}"
       parts = relative_path.split('/')
       parts.insert(1, 'top-level') if parts.count < 4
@@ -185,8 +185,8 @@ class DashboardController < ApplicationController
   end
 
   def coverage_from_files
-    Dir.glob("#{Rails.configuration.docs_base_path}/_examples/**/*").each do |e|
-      relative_path = e.gsub("#{Rails.configuration.docs_base_path}/_examples/", '')
+    Dir.glob("#{Rails.root}/_examples/**/*").each do |e|
+      relative_path = e.gsub("#{Rails.root}/_examples/", '')
       next unless File.file?(e)
       next if File.extname(e) == '.md' # Markdown files are handled by the config coverage
       next if File.extname(e) == '.yml' # Yaml files are handled by yaml coverage

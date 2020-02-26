@@ -1,0 +1,6 @@
+<div class="copy-wrapper">
+  <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="code">
+    <%= octicon "clippy", :class => 'top left' %> <span><%= I18n.t('.copy-to-clipboad') %></span>
+  </div>
+  <pre class="highlight <%= lexer.tag %> main-code"><code><%= highlighted_code_source %></code></pre>
+</div>

@@ -49,7 +49,7 @@ Name | Description
 
 A Nexmo application can use various APIs, including Voice, Messages and Dispatch, Conversation, and Client SDK.
 
-When creating an application you can specify the capabilities you want your application to support. For each capability you can set webhooks depending on what capabilities you want, for example for an application with an `rtc` capability you could specify an event URL to receive RTC events. If your application also needed to use `voice` capabilities you could also potentially set an Answer URL to receive a call answered webhook, a fallback URL in case your Answer URL fails, and another Event URL to receive voice call related events.
+When creating an application you can specify the capabilities you want your application to support. For each capability you can set webhooks depending on what capabilities you want, for example for an application with an `rtc` capability you could specify an event URL to receive RTC events. If your application also needed to use `voice` capabilities you could also potentially set an Answer URL to receive a call answered webhook, and another Event URL to receive voice call related events.
 
 A summary of capabilities is given in the following table:
 
@@ -78,7 +78,7 @@ The following table describes webhooks available per capability:
 Capability | Webhook | API | Example | Description
 --- | --- | --- | --- | --- |
 `voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
-`voice` | `fallback_answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If the `fallback_answer_url` is set, Nexmo makes a request to it if the `answer_url` is offline or returns an HTTP error code or the `event_url` is offline or returns an error code and an event is expected to return an NCCO. The `fallback_answer_url` must return an NCCO. If your `fallback_answer_url` fails after two attempts for an initial NCCO, the call is ended. If your `fallback_answer_url` fails after two attempts for a call in progress, the call flow is continued.
+`voice` | `fallback_answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If your `answer_url` is offline or returns a HTTP error code, Nexmo will make a request to a `fallback_answer_url` if it is set. This URL must return an NCCO.
 `voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
 `messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
 `messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.

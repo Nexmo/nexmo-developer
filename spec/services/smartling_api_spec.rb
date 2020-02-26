@@ -40,9 +40,7 @@ RSpec.describe SmartlingAPI do
 
   describe '#download_translated' do
     it 'downloads the file in the provided locale' do
-      expect(File).to receive(:open)
-        .with("#{Rails.configuration.docs_base_path}/_documentation/cn/messages/overview.md", 'w+')
-        .and_return('')
+      expect(File).to receive(:open).with('_documentation/cn/messages/overview.md', 'w+').and_return('')
       smartling_api.download_translated(filename: file, locale: locale)
 
       expect(file_api).to have_received(:download_translated)

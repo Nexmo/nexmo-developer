@@ -117,32 +117,15 @@ Nexmo.generateJwt(PRIVATE_KEY, {
 
 ### PHP
 
-The current version of the [Nexmo PHP](https://github.com/Nexmo/nexmo-php) library can also create a JWT including the appropriate claims when using the Keypair authentication.
+The current version of the [Nexmo PHP](https://github.com/Nexmo/nexmo-php) library can also create a JWT including the appropriate claims.
 
 ```php
-$keypair = new \Nexmo\Client\Credentials\Keypair(
-    file_get_contents('/path/to/private.key'),
-    'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
-);
-$client = new \Nexmo\Client($keypair);
-
-$claims = [
-    'acl' => [
-        'paths' => [
-            '/*/users/**' => (object) [],
-            '/*/conversations/**' => (object) [],
-            '/*/sessions/**' => (object) [],
-            '/*/devices/**' => (object) [],
-            '/*/image/**' => (object) [],
-            '/*/media/**' => (object) [],
-            '/*/applications/**' => (object) [],
-            '/*/push/**' => (object) [],
-            '/*/knocking/**' => (object) [],
-        ]
-    ]
-];
-$token = $client->generateJwt($claims);
-$tokenString = (string) $token;
+Nexmo::generateJwt([
+        'application_id': "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+        'exp' => time() + 86400,
+        'sub' => "jamie",
+        'acl' => ["paths" => ["/*/sessions/**" => (object)[], "/*/users/**" => (object)[], "/*/conversations/**" => (object)[], "/*/devices/**" => (object)[], "/*/image/**" => (object)[], "/*/media/**" => (object)[], "/*/applications/**" => (object)[], "/*/push/**" => (object)[], "/*/knocking/**" => (object)[]]],
+    ])
 ```
 
 ### Other languages

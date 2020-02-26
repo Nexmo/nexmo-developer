@@ -44,7 +44,7 @@ RSpec.describe Search::Document do
 
   describe '#body' do
     it 'parses the body as html' do
-      expect(Nexmo::Markdown::Renderer).to receive_message_chain(:new, :call)
+      expect(MarkdownPipeline).to receive_message_chain(:new, :call)
 
       subject.body
     end

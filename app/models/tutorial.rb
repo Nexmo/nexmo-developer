@@ -9,10 +9,10 @@ class Tutorial
       return raw[step_name]['content']
     end
 
-    path = Nexmo::Markdown::DocFinder.find(
+    path = DocFinder.find(
       root: self.class.task_content_path,
       document: step_name,
-      language: ::I18n.locale
+      language: I18n.locale
     )
 
     File.read(path)
@@ -42,36 +42,36 @@ class Tutorial
   end
 
   def self.load(name, current_step, current_product = nil)
-    document_path = Nexmo::Markdown::DocFinder.find(
+    document_path = DocFinder.find(
       root: 'config/tutorials',
       document: name,
-      language: ::I18n.default_locale,
+      language: I18n.default_locale,
       format: 'yml'
     )
     config = YAML.safe_load(File.read(document_path))
     current_product ||= config['products'].first
 
     Tutorial.new({
-       raw: config,
-       name: name,
-       current_step: current_step,
-       current_product: current_product,
-       title: config['title'],
-       description: config['description'],
-       products: config['products'],
-       prerequisites: load_prerequisites(config['prerequisites'], current_step),
-       subtasks: load_subtasks(config['introduction'], config['prerequisites'], config['tasks'], config['conclusion'], current_step),
-     })
+      raw: config,
+      name: name,
+      current_step: current_step,
+      current_product: current_product,
+      title: config['title'],
+      description: config['description'],
+      products: config['products'],
+      prerequisites: load_prerequisites(config['prerequisites'], current_step),
+      subtasks: load_subtasks(config['introduction'], config['prerequisites'], config['tasks'], config['conclusion'], current_step),
+    })
   end
 
   def self.load_prerequisites(prerequisites, current_step)
     return [] unless prerequisites
 
     prerequisites.map do |t|
-      t_path = Nexmo::Markdown::DocFinder.find(
+      t_path = DocFinder.find(
         root: task_content_path,
         document: t,
-        language: ::I18n.locale
+        language: I18n.locale
       )
       raise "Prerequisite not found: #{t}" unless File.exist? t_path
 
@@ -91,10 +91,10 @@ class Tutorial
     tasks ||= []
 
     tasks = tasks.map do |t|
-      t_path = Nexmo::Markdown::DocFinder.find(
+      t_path = DocFinder.find(
         root: task_content_path,
         document: t,
-        language: ::I18n.locale
+        language: I18n.locale
       )
       raise "Subtask not found: #{t}" unless File.exist? t_path
 
@@ -138,6 +138,6 @@ class Tutorial
   end
 
   def self.task_content_path
-    "#{Rails.configuration.docs_base_path}/_tutorials"
+    '_tutorials'
   end
 end

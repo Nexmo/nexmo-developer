@@ -1,7 +1,7 @@
 <% raise "Missing 'name' key in tutorial landing page block" unless local_assigns['name'] %>
 
 <%
-  path = Nexmo::Markdown::DocFinder.find(
+  path = DocFinder.find(
     root: 'config/tutorials',
     document: "#{local_assigns['name']}.yml",
     language: @language,

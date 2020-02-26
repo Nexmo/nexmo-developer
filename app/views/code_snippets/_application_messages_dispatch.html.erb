@@ -1,0 +1,9 @@
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
+  <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
+    <%= app['use_existing'] ? I18n.t('.code_snippets.use_your_app') : I18n.t('.code_snippets.create_an_app') %>
+  </h5>
+
+  <div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+    <%= I18n.t('.code_snippets.application_messages_dispatch.no_application_html') %>
+  </div>
+</div>

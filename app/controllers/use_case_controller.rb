@@ -5,22 +5,22 @@ class UseCaseController < ApplicationController
     @product = params['product']
     @language = params['code_language']
 
-    @use_cases = Nexmo::Markdown::UseCase.all
+    @use_cases = UseCase.all
 
-    @use_cases = Nexmo::Markdown::UseCase.by_product(@product, @use_cases) if @product
-    @use_cases = Nexmo::Markdown::UseCase.by_language(@language, @use_cases) if @language
+    @use_cases = UseCase.by_product(@product, @use_cases) if @product
+    @use_cases = UseCase.by_language(@language, @use_cases) if @language
 
     @document_title = 'Use Cases'
 
     @base_path = request.original_fullpath.chomp('/')
 
     # We have to strip the last section off if it matches any code languages. Hacky, but it works
-    Nexmo::Markdown::CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
+    CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
       @base_path.gsub!(%r{/#{lang}$}, '')
     end
 
     excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
-    @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
+    @languages = CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
 
     @products = [
       { 'path' => 'messaging/sms', 'icon' => 'message', 'icon_colour' => 'purple', 'name' => 'SMS' },
@@ -39,8 +39,8 @@ class UseCaseController < ApplicationController
 
   def show
     # Read document
-    @document_path = Nexmo::Markdown::DocFinder.find(
-      root: "#{Rails.configuration.docs_base_path}/_use_cases",
+    @document_path = DocFinder.find(
+      root: '_use_cases',
       document: params[:document],
       language: I18n.locale,
       code_language: params[:code_language]
@@ -53,7 +53,7 @@ class UseCaseController < ApplicationController
     @document_title = @frontmatter['title']
     @product = @frontmatter['products']
 
-    @content = Nexmo::Markdown::Renderer.new({ code_language: @code_language }).call(@document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(@document)
 
     @sidenav = Sidenav.new(
       namespace: params[:namespace],

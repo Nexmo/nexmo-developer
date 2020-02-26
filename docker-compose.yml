@@ -17,7 +17,6 @@ services:
       - db
     environment:
       - OAS_PATH=_open_api/api_specs/definitions
-      - DOCS_BASE_PATH=.
       - POSTGRES_HOST=db
       - POSTGRES_USERNAME=postgres
       - RAILS_ENV=development

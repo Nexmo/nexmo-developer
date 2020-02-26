@@ -1,0 +1,10 @@
+<ul class="Vlt-list Vlt-list--simple">
+  <% @blocks.each do |block| %>
+    <li><a href="<%= block.url %>">
+      <% if block.category %>
+        <%= block.category %> /
+        <% end %>
+      <%= block.title %></a>
+    </li>
+  <% end %>
+</ul>

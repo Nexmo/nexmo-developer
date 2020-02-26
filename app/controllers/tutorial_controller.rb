@@ -20,12 +20,12 @@ class TutorialController < ApplicationController
     @base_path = request.original_fullpath.chomp('/')
 
     # We have to strip the last section off if it matches any code languages. Hacky, but it works
-    Nexmo::Markdown::CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
+    CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
       @base_path.gsub!(%r{/#{lang}$}, '')
     end
 
     excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
-    @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
+    @languages = CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
 
     @products = [
       { 'path' => 'messaging/sms', 'icon' => 'message', 'icon_colour' => 'purple', 'name' => 'SMS' },
@@ -46,7 +46,7 @@ class TutorialController < ApplicationController
     if @tutorial_step == 'prerequisites'
       @content = render_to_string(partial: 'prerequisites', layout: false)
     else
-      @content = Nexmo::Markdown::Renderer.new({
+      @content = MarkdownPipeline.new({
         code_language: @code_language,
         current_user: current_user,
       }).call(@tutorial.content_for(@tutorial_step))
@@ -66,9 +66,9 @@ class TutorialController < ApplicationController
   end
 
   def single
-    path = "#{Rails.configuration.docs_base_path}/_tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
+    path = "#{Rails.root}/_tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
     @content = File.read(path)
-    @content = Nexmo::Markdown::Renderer.new({
+    @content = MarkdownPipeline.new({
                                       code_language: @code_language,
                                       current_user: current_user,
                                     }).call(@content)

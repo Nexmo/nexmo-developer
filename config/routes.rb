@@ -33,8 +33,8 @@ Rails.application.routes.draw do
   get '/stats', to: 'dashboard#stats'
   get '/stats/summary', to: 'dashboard#stats_summary'
 
-  get '/use-cases/(:code_language)', to: 'use_case#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
-  get '/use-cases/*document(/:code_language)', to: 'use_case#show', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
+  get '/use-cases/(:code_language)', to: 'use_case#index', constraints: CodeLanguage.route_constraint
+  get '/use-cases/*document(/:code_language)', to: 'use_case#show', constraints: CodeLanguage.route_constraint
 
   get '/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: lambda { |request|
     products = DocumentationConstraint.product_with_parent_list
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
     # If there's a language in the URL, match on that too
     if request['code_language']
-      language = Nexmo::Markdown::CodeLanguage.linkable.map(&:key).map(&:downcase)
+      language = CodeLanguage.linkable.map(&:key).map(&:downcase)
       includes_language = language.include?(request['code_language'])
     end
 
@@ -90,7 +90,7 @@ Rails.application.routes.draw do
   get '/(:product)/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
   get '/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
   get '/(:product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
-  get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
+  get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: CodeLanguage.route_constraint
 
   get '/*product/api-reference', to: 'markdown#api'
 

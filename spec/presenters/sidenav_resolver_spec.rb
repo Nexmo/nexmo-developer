@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SidenavResolver do
-  let(:path)      { "#{Rails.configuration.docs_base_path}/_documentation" }
+  let(:path)      { '_documentation' }
   let(:language)  { 'en' }
   let(:namespace) { nil }
 
@@ -90,17 +90,17 @@ RSpec.describe SidenavResolver do
 
     context 'otherwise' do
       it 'returns the corresponding weight' do
-        item = { is_file?: true, path: '/en/messages/external-accounts/overview.md' }
+        item = { is_file?: true, path: '_documentation/en/messages/external-accounts/overview.md' }
         expect(subject.navigation_weight_from_meta(item)).to eq(1)
       end
     end
   end
 
   describe '#document_meta' do
-    let(:doc_path) { '/en/messages/external-accounts/overview.md' }
+    let(:doc_path) { '_documentation/en/messages/external-accounts/overview.md' }
 
     it 'finds the document and returns its frontmatter' do
-      frontmatter = subject.document_meta(root: "#{Rails.configuration.docs_base_path}/_documentation", path: doc_path)
+      frontmatter = subject.document_meta(root: '_documentation', path: doc_path)
 
       expect(frontmatter['title']).to eq('Overview')
       expect(frontmatter['meta_title']).to eq('Connect external services to your Nexmo account for the Messages API')

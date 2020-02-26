@@ -64,7 +64,7 @@ class StaticController < ApplicationController
 
     @document_title = @frontmatter['title']
 
-    @content = Nexmo::Markdown::Renderer.new.call(document)
+    @content = MarkdownPipeline.new.call(document)
 
     @navigation = :documentation
 
@@ -107,7 +107,7 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
     @document_title = @frontmatter['title']
-    @content = Nexmo::Markdown::Renderer.new.call(document)
+    @content = MarkdownPipeline.new.call(document)
 
     render layout: 'page'
   end
@@ -139,7 +139,7 @@ class StaticController < ApplicationController
 
     @namespace_path = "_documentation/#{page}"
     @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.configuration.docs_base_path}/_documentation"
+    @sidenav_root = "#{Rails.root}/_documentation"
     @skip_feedback = true
 
     if page == 'sms'

@@ -4,18 +4,18 @@ class Diff
   def self.generate(mode:)
     document_paths = {
       documentation: {
-        documents: Dir.glob("#{Rails.configuration.docs_base_path}/_documentation/**/*.md"),
-        origin: Pathname.new("#{Rails.configuration.docs_base_path}/_documentation"),
+        documents: Dir.glob("#{Rails.root}/_documentation/**/*.md"),
+        origin: Pathname.new("#{Rails.root}/_documentation"),
         base_url_path: '',
       },
       api: {
-        documents: Dir.glob("#{Rails.configuration.docs_base_path}/_api/**/*.md"),
-        origin: Pathname.new("#{Rails.configuration.docs_base_path}/_api"),
+        documents: Dir.glob("#{Rails.root}/_api/**/*.md"),
+        origin: Pathname.new("#{Rails.root}/_api"),
         base_url_path: '/api',
       },
       tutorials: {
-        documents: Dir.glob("#{Rails.configuration.docs_base_path}/_use_cases/**/*.md"),
-        origin: Pathname.new("#{Rails.configuration.docs_base_path}/_use_cases"),
+        documents: Dir.glob("#{Rails.root}/_use_cases/**/*.md"),
+        origin: Pathname.new("#{Rails.root}/_use_cases"),
         base_url_path: '/tutorials',
       },
     }
@@ -30,7 +30,7 @@ class Diff
 
         begin
           document = File.read(document_path)
-          body_html = Nexmo::Markdown::Renderer.new.call(document)
+          body_html = MarkdownPipeline.new.call(document)
           document = Nokogiri::HTML::DocumentFragment.parse(body_html)
 
           ['id', 'data-tabs-content', 'data-id', 'data-open', 'data-collapsible-id'].each do |attribute|

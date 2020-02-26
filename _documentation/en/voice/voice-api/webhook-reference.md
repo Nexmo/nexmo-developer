@@ -6,11 +6,10 @@ api: "Voice API: Webhooks"
 
 # Voice API Webhooks Reference
 
-Nexmo uses webhooks alongside its Voice API to enable your application to interact with the call. There are two required, and one optional, webhook endpoints:
+Nexmo uses webhooks alongside its Voice API to enable your application to interact with the call. There are two webhook endpoints:
 
 * [Answer webhook](#answer-webhook) is sent when a call is answered. This is for both incoming and outgoing calls.
 * [Event webhook](#event-webhook) is sent for all the events that occur during a call. Your application can log, react to or ignore each event type.
-* [Fallback Answer URL](#fallback-answer-url) is used when either the Answer or Event webhook fails or returns an HTTP error status. 
 * [Errors](#errors) are also delivered to the event webhook endpoint if they occur.
 
 For more general information, check out our [webhooks guide](/concepts/guides/webhooks).
@@ -310,22 +309,6 @@ Field | Example | Description
 
 [Back to event webhooks list](#event-webhook)
 
-## Fallback Answer URL
-
-The fallback answer webhook is accessed when either the answer webhook or the event webhook, when the event is expected to respond with an NCCO, returns an HTTP error status or is unreachable. The data that is returned from the fallback answer URL is the same as would be received in the original answer URL or event URL.
-
-If there was a connection closed or reset, timeout or an HTTP status code of `429`, `503` or `504` during the initial NCCO the `answer_url` is attempted twice, then:
-
-1. Go to `fallback_answer_url`
-2. Attempt to reach the fallback URL twice
-3. If no success, then the call is terminated
-
-If there was a connection closed or reset, timeout or an HTTP status code of `429`, `503` or `504` during a call in progress the `event_url` for events that are expected to return an NCCO (e.g. return for an `input` or `notify` action) is attempted twice, then:
-
-1. Go to `fallback_answer_url`
-2. Attempt to reach the fallback URL twice
-3. If no success, continue the call flow
-
 ## Errors
 
 The event endpoint will also receive webhooks in the event of an error. This can be useful when debugging your application.
@@ -335,3 +318,4 @@ Field | Example | Description
 `reason` | `Syntax error in NCCO. Invalid value type or action.` | Information about the nature of the error
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+

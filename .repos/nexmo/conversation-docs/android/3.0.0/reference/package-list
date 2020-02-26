@@ -1,0 +1,15 @@
+com.nexmo.sdk.conversation.client
+com.nexmo.sdk.conversation.client.audio
+com.nexmo.sdk.conversation.client.event
+com.nexmo.sdk.conversation.client.event.container
+com.nexmo.sdk.conversation.client.event.misc
+com.nexmo.sdk.conversation.client.event.network
+com.nexmo.sdk.conversation.config
+com.nexmo.sdk.conversation.core
+com.nexmo.sdk.conversation.core.client.request
+com.nexmo.sdk.conversation.core.client.request.audio
+com.nexmo.sdk.conversation.core.networking
+com.nexmo.sdk.conversation.core.util
+com.nexmo.sdk.conversation.device
+com.nexmo.sdk.conversation.push
+

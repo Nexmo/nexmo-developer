@@ -1,0 +1,28 @@
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
+    <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
+      <%= I18n.t('.code_snippets.create_an_app') %>
+    </h5>
+
+    <div id="acc<%=id %>" class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+        <p><%= I18n.t('.code_snippets.nexmo_application_contains_html') %></p>
+        <h4><%= I18n.t('.code_snippets.install_the_cli') %></h4>
+        <pre class="highlight shell"><code>$ npm install -g nexmo-cli</code></pre>
+
+        <h4><%= I18n.t('.code_snippets.create_an_app') %></h4>
+        <p><%= I18n.t('.code_snippets.once_you_have_the_cli_installed_html') %></p>
+
+        <% unless app['disable_ngrok'] %>
+          <p><%= I18n.t('.code_snippets.nexmo_needs_to_connect_html') %></p>
+        <% end %>
+
+        <pre class="highlight shell"><code>$ nexmo app:create "<%=app['name'] %>" <%=app['answer_url'] %> <%=app['event_url'] %> --keyfile=private.key --type=rtc</code></pre>
+
+        <h4><%= I18n.t('.code_snippets.application_rtc.use_your_existing_app') %></h4>
+
+        <p><%= I18n.t('.code_snippets.application_rtc.use_an_app_to_authenticate') %></p>
+        <p><%= I18n.t('.code_snippets.application_rtc.see_the_docs_html') %></p>
+        <p><%= I18n.t('.code_snippets.application_rtc.alternatively_you_can_review_html') %></p>
+    </div>
+
+
+</div>

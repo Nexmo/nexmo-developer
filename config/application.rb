@@ -33,7 +33,5 @@ module NexmoDeveloper
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
-
-    config.docs_base_path = ENV.fetch('DOCS_BASE_PATH', '.')
   end
 end

@@ -2,7 +2,7 @@ class ExtendController < ApplicationController
   before_action :set_navigation
 
   def index
-    document_paths = Dir.glob("#{Rails.configuration.docs_base_path}/_extend/**/*.md")
+    document_paths = Dir.glob("#{Rails.root}/_extend/**/*.md")
 
     @extensions = document_paths.map do |document_path|
       document = File.read(document_path)
@@ -21,10 +21,10 @@ class ExtendController < ApplicationController
   end
 
   def show
-    document_path = "#{Rails.configuration.docs_base_path}/_extend/#{params[:title]}.md"
+    document_path = "#{Rails.root}/_extend/#{params[:title]}.md"
 
     document = File.read(document_path)
-    body = Nexmo::Markdown::Renderer.new.call(document)
+    body = MarkdownPipeline.new.call(document)
     frontmatter = YAML.safe_load(document)
     title = frontmatter['title']
     description = frontmatter['description']

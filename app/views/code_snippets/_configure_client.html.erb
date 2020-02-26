@@ -1,0 +1,20 @@
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
+	<h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
+          <%= I18n.t('.code_snippets.configure_client.initialize_dependencies') %>
+	</h5>
+
+	<div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+    <%= create_instructions %>
+    <div class="copy-wrapper">
+
+      <div class="copy-button" data-lang="<%= lang %>" data-block="<%= config['source'] %>" data-section="configure">
+        <%= octicon "clippy", :class => 'top left' %> <span>Copy to Clipboard</span>
+      </div>
+      <pre class="highlight copy-to-clipboard <%= config['title'] %>"><code><%= highlighted_client_source %></code></pre>
+    </div>
+
+    <p><a data-section="configure" data-lang="<%= lang %>" data-block="<%= config['source'] %>" href="<%= client_url %>">View full source</a></p>
+
+  </div>
+</div>
+

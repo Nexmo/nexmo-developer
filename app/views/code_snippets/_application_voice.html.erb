@@ -1,0 +1,24 @@
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis">
+    <h5 class="Vlt-js-accordion__trigger Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
+        <%= app['use_existing'] ? I18n.t('.code_snippets.use_your_app') : I18n.t('.code_snippets.create_an_app') %>
+    </h5>
+
+    <div id="acc<%=id %>"  class="Vlt-js-accordion__content Vlt-accordion__content Vlt-accordion__content--noborder">
+        <% if app['use_existing'] %>
+            <p><%= app['use_existing'] %></p>
+        <% else %>
+            <p><%= I18n.t('.code_snippets.nexmo_application_contains_html') %></p>
+            <h4><%= I18n.t('.code_snippets.install_the_cli') %></h4>
+            <pre class="highlight bash dependencies"><code>npm install -g nexmo-cli</code></pre>
+
+            <h4><%= I18n.t('.code_snippets.create_an_app') %></h4>
+            <p><%= I18n.t('.code_snippets.once_you_have_the_cli_installed_html') %></p>
+
+            <% unless app['disable_ngrok'] %>
+              <p><%= I18n.t('.code_snippets.nexmo_needs_to_connect_html') %></p>
+            <% end %>
+
+            <pre class="highlight bash dependencies"><code>nexmo app:create "<%=app['name'] %>" <%=app['answer_url'] %> <%=app['event_url'] %> --keyfile private.key</code></pre>
+        <% end %>
+    </div>
+</div>
