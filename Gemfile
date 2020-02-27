@@ -108,7 +108,7 @@ gem 'woothee'
 gem 'chartkick', '3.3.1'
 
 # The simplest way to group temporal data
-gem 'groupdate', '4.3.0'
+gem 'groupdate', '5.0.0'
 
 # A configurable and documented Rails view helper for adding gravatars into your Rails application.
 gem 'gravatar_image_tag', '1.2.0'
