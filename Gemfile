@@ -139,7 +139,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo-oas-renderer', '~> 0.7', require: false
+gem 'nexmo-oas-renderer', '~> 0.8', require: false
 
 gem 'smartling'
 
