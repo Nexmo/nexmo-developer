@@ -1,6 +1,6 @@
 "use strict";
 
-const Promise = require('bluebird');
+
 const Nexmo = require('nexmo');
 
 /**
@@ -34,7 +34,7 @@ VoiceProxy.prototype.provisionVirtualNumbers = function() {
       console.error(err);
     }
     else {
-      let numbers = res.numbers;
+      const numbers = res.numbers;
 
       // For demo purposes:
       // - Assume that at least two numbers will be available
@@ -63,7 +63,7 @@ VoiceProxy.prototype.rentNumber = function(number) {
  * Configure the number to be associated with the Voice Proxy application.
  */
 VoiceProxy.prototype.configureNumber = function(number) {
-  let options = {
+  const options = {
     voiceCallbackType: 'app',
     voiceCallbackValue: this.config.NEXMO_APP_ID,
   };
@@ -105,9 +105,19 @@ VoiceProxy.prototype.createConversation = function(userANumber, userBNumber, cb)
  * Ensure the given numbers are valid and which country they are associated with.
  */
 VoiceProxy.prototype.checkNumbers = function(userANumber, userBNumber) {
-  let niGetPromise = Promise.promisify(this.nexmo.numberInsight.get, {context: this.nexmo.numberInsight});
-  let userAGet = niGetPromise({level: 'basic', number: userANumber});
-  let userBGet = niGetPromise({level: 'basic', number: userBNumber});
+  const niGetPromise = (number) => new Promise ((resolve) => {
+    this.nexmo.numberInsight.get(number, (error, result) => {
+      if(error) {
+        console.error('error',error);
+      }
+      else {
+        return resolve(result);
+      }
+    })
+  });
+
+  const userAGet = niGetPromise({level: 'basic', number: userANumber});
+  const userBGet = niGetPromise({level: 'basic', number: userBNumber});
 
   return Promise.all([userAGet, userBGet]);
 };
@@ -169,11 +179,11 @@ VoiceProxy.prototype.sendSMS = function(conversation) {
   return conversation;
 };
 
-let fromUserAToUserB = function(from, to, conversation) {
+const fromUserAToUserB = function(from, to, conversation) {
   return (from === conversation.userA.realNumber.msisdn &&
           to === conversation.userB.virtualNumber.msisdn);
 };
-let fromUserBToUserA = function(from, to, conversation) {
+const fromUserBToUserA = function(from, to, conversation) {
   return (from === conversation.userB.realNumber.msisdn &&
           to === conversation.userA.virtualNumber.msisdn);
 };
@@ -188,8 +198,8 @@ VoiceProxy.prototype.getProxyRoute = function(from, to) {
     conversation = this.conversations[i];
 
     // Use to and from to determine the conversation
-    let fromUserA = fromUserAToUserB(from, to, conversation);
-    let fromUserB = fromUserBToUserA(from, to, conversation);
+    const fromUserA = fromUserAToUserB(from, to, conversation);
+    const fromUserB = fromUserBToUserA(from, to, conversation);
 
     if(fromUserA || fromUserB) {
       proxyRoute = {
@@ -209,10 +219,10 @@ VoiceProxy.prototype.getProxyRoute = function(from, to) {
  */
 VoiceProxy.prototype.getProxyNCCO = function(from, to) {
   // Determine how the call should be routed
-  let proxyRoute = this.getProxyRoute(from, to);
+  const proxyRoute = this.getProxyRoute(from, to);
 
   if(proxyRoute === null) {
-    let errorText = 'No conversation found' +
+    const errorText = 'No conversation found' +
                     ' from: ' + from +
                     ' to: ' + to;
     throw new Error(errorText);
@@ -221,13 +231,13 @@ VoiceProxy.prototype.getProxyNCCO = function(from, to) {
   // Build the NCCO
   let ncco = [];
 
-  let textAction = {
+  const textAction = {
     action: 'talk',
     text: 'Please wait whilst we connect your call'
   };
   ncco.push(textAction);
 
-  let connectAction = {
+  const connectAction = {
     action: 'connect',
     from: proxyRoute.from.virtualNumber.msisdn,
     endpoint: [{

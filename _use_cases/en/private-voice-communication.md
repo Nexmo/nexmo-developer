@@ -45,7 +45,7 @@ To build the application, you perform the following steps:
 
 ## Configuration
 
-You need to create `.env` file containing configuration. Instructions on how to do that are containing in the [GitHub Readme](https://github.com/Nexmo/node-voice-proxy#configuration). As you work through this use case you can populate your configuration file with the required values for variables such as API key, API secret, Application ID, debug mode, and provisioned numbers.
+You need to create a `.env` file containing configuration. Instructions on how to do that are explained in the [GitHub Readme](https://github.com/Nexmo/node-voice-proxy#configuration). As you work through this use case you can populate your configuration file with the required values for variables such as API key, API secret, Application ID, debug mode, and provisioned numbers.
 
 ## Create a Voice API application
 
@@ -53,7 +53,7 @@ A Voice API Application is a Nexmo construct and should not be confused with the
 
 You can create a Voice API Application with the Nexmo CLI. You must provide a name for the application and the URLs of two webhook endpoints: the first is the one that Nexmo's APIs will make a request to when you receive an inbound call on your virtual number and the second is where the API can post event data.
 
-Replace the domain name in the following Nexmo CLI command with your ngrok domain name and run it in your project's root directory:
+Replace the domain name in the following Nexmo CLI command with your ngrok domain name ([How to run ngrok](https://developer.nexmo.com/concepts/guides/testing-with-ngrok/)) and run it in your project's root directory:
 
 ``` shell
 nexmo app:create "voice-proxy" --capabilities=voice --voice-answer-url=https://example.com/proxy-call --voice-event-url=https://example.com/event --keyfile=private.key
@@ -65,22 +65,22 @@ This command downloads a file called `private.key` that contains authentication 
 
 This application uses the [Express](https://expressjs.com/) framework for routing and the [Nexmo Node Server SDK](https://github.com/Nexmo/nexmo-node) for working with the Voice API. `dotenv` is used so that the application can be configured using a `.env` text file.
 
-In `server.js` the code initializes the application's dependencies and starts the web server. A route handler is implemented for the application's home page (`/`) so that you can test that the server is running by running `node server.js` and visiting `http://localhost:5000` in your browser:
+In `server.js` the code initializes the application's dependencies and starts the web server. A route handler is implemented for the application's home page (`/`) so that you can test that the server is running by running `node server.js` and visiting `http://localhost:3000` in your browser:
 
 ``` javascript
 "use strict";
 
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var app = express();
-app.set('port', (process.env.PORT || 5000));
+const app = express();
+app.set('port', (process.env.PORT || 3000));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var config = require(__dirname + '/../config');
+const config = require(__dirname + '/../config');
 
-var VoiceProxy = require('./VoiceProxy');
-var voiceProxy = new VoiceProxy(config);
+const VoiceProxy = require('./VoiceProxy');
+const voiceProxy = new VoiceProxy(config);
 
 app.listen(app.get('port'), function() {
   console.log('Voice Proxy App listening on port', app.get('port'));
@@ -90,7 +90,7 @@ app.listen(app.get('port'), function() {
 Note that the code instantiates an object of the `VoiceProxy` class to handle the routing of messages sent to your virtual number to the intended recipient's real number. The proxying process is described in [proxy the call](#proxy-the-call), but for now just be aware that this class initializes the Nexmo Server SDK using the API key and secret that you configure in the next step. This enables your application to make and receive voice calls:
 
 ``` javascript
-var VoiceProxy = function(config) {
+const VoiceProxy = function(config) {
   this.config = config;
   
   this.nexmo = new Nexmo({
@@ -148,6 +148,8 @@ from_line: 48
 to_line: 79
 ```
 
+To provision virtual numbers, visit `http://localhost:3000/numbers/provision` in your browser.
+
 You now have the virtual numbers you need to mask communication between your users.
 
 > **NOTE:** In a production application you choose from a pool of virtual numbers. However, you should keep this functionality in place to rent additional numbers on the fly.
@@ -190,7 +192,7 @@ When your application users supply their phone numbers use Number Insight to ens
 ```code
 source: '_code/voice_proxy.js'
 from_line: 104
-to_line: 114
+to_line: 124
 ```
 
 ### Map phone numbers to real numbers
@@ -199,8 +201,8 @@ Once you are sure that the phone numbers are valid, map each real number to a [v
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 115
-to_line: 149
+from_line: 125
+to_line: 159
 ```
 
 ### Send a confirmation SMS
@@ -211,8 +213,8 @@ Send an SMS to notify each conversation participant of the virtual number they n
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 150
-to_line: 171
+from_line: 160
+to_line: 181
 ```
 
 The users cannot SMS each other. To enable this functionality you need to setup [Private SMS communication](/use-cases/private-sms-communication).
@@ -237,10 +239,10 @@ Extract `to` and `from` from the inbound webhook and pass them on to the voice p
 
 ``` javascript
 app.get('/proxy-call', function(req, res) {
-  var from = req.query.from;
-  var to = req.query.to;
+  const from = req.query.from;
+  const to = req.query.to;
 
-  var ncco = voiceProxy.getProxyNCCO(from, to);
+  const ncco = voiceProxy.getProxyNCCO(from, to);
   res.json(ncco);
 });
 ```
@@ -267,8 +269,8 @@ The call direction can be identified as:
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 172
-to_line: 206
+from_line: 182
+to_line: 216
 ```
 
 With the number lookup performed all that's left to do is proxy the call.
@@ -294,18 +296,18 @@ In order to do this, create an [NCCO (Nexmo Call Control Object)](/voice/voice-a
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 6
-to_line: 25
+from_line: 217
+to_line: 252
 ```
 
 The NCCO is returned to Nexmo by the web server.
 
 ``` javascript
 app.get('/proxy-call', function(req, res) {
-  var from = req.query.from;
-  var to = req.query.to;
+  const from = req.query.from;
+  const to = req.query.to;
 
-  var ncco = voiceProxy.getProxyNCCO(from, to);
+  const ncco = voiceProxy.getProxyNCCO(from, to);
   res.json(ncco);
 });
 ```
