@@ -129,7 +129,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     countries (3.0.1)
       i18n_data (~> 0.10.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -166,7 +166,7 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-    faker (2.10.1)
+    faker (2.10.2)
       i18n (>= 1.6, < 2)
     faraday (1.0.0)
       multipart-post (>= 1.2, < 3)
@@ -551,7 +551,7 @@ DEPENDENCIES
   diffy
   dotenv-rails
   factory_bot_rails (= 5.1.1)
-  faker (= 2.10.1)
+  faker (= 2.10.2)
   ffi (>= 1.9.24)
   geocoder
   gmaps4rails
