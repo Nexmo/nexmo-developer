@@ -311,7 +311,7 @@ GEM
       redcarpet (~> 3.4)
       rouge (~> 2.0.7)
     nio4r (2.5.2)
-    nokogiri (1.10.8)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -577,7 +577,7 @@ DEPENDENCIES
   newrelic_rpm
   nexmo-oas-renderer (~> 0.8.0)
   nexmo_markdown_renderer (~> 0.0.3)
-  nokogiri (~> 1.10.8)
+  nokogiri (~> 1.10.9)
   octokit
   pg (~> 1.2)
   pry
