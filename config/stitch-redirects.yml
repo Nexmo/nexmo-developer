@@ -65,11 +65,6 @@
 "/client-sdk/sdk-documentation/ios/ios": "/sdk/stitch/ios/"
 "/client-sdk/sdk-documentation/javascript/javascript": "/sdk/stitch/javascript/"
 
-"/sdk/client-sdk/android": "/sdk/stitch/android/"
-"/sdk/client-sdk/ios": "/sdk/stitch/ios/"
-"/sdk/client-sdk/javascript": "/sdk/stitch/javascript/"
-
-
 # Conversation API
 
 "/conversation": "/conversation/overview"
