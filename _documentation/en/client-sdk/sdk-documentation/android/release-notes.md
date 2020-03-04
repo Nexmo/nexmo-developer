@@ -12,7 +12,8 @@ navigation_weight: 0
 
 - Add filter by state to `getConversationsPage`  in `NexmoClient`.
 
-```NexmoClient.get().getConversationsPage(50, NexmoPageOrderDesc, "JOINED", new NexmoRequestListener<NexmoConversationsPage>(){
+```
+NexmoClient.get().getConversationsPage(50, NexmoPageOrderDesc, "JOINED", new NexmoRequestListener<NexmoConversationsPage>(){
    void onError(@NonNull NexmoApiError error){
 
    }
@@ -40,7 +41,6 @@ navigation_weight: 0
         })
    }
 });
-
 ```
 
 ## Version 2.3.0 - February 11, 2020
