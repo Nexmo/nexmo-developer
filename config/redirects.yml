@@ -261,3 +261,4 @@
 "/messaging/us-short-codes/alerts-subscribing-api": "/api/sms/us-short-codes/alerts/subscription"
 "/messaging/us-short-codes/alerts-sending-api": "/api/sms/us-short-codes/alerts/sending"
 "/messages/code-snippets/messenger/send-custom": "/messages/code-snippets/messenger/send-template"
+"/number-insight/code-snippets/number-insight-advanced": "/number-insight/code-snippets/number-insight-advanced-async"
