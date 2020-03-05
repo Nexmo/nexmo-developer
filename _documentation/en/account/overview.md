@@ -22,7 +22,7 @@ Each of the main items in the diagram is explained in  more detail in the follow
 
 ## Account
 
-Represents a relationship between clients and Nexmo. Each account is identified with a unique API key (account Id) and contains balance, settings, reports, logs of Nexmo API usage.
+Represents a relationship between clients and Nexmo. Each account is identified with a unique API key (account Id) and contains balance, settings, reports, and logs of Nexmo API usage.
 
 ## User
 
@@ -32,15 +32,15 @@ Represents a person that manages and configures the account. Users have logins a
 
 Each account can be associated with subaccounts. This division facilitates differential product configuration, reporting, and billing.
 
-An account divided into subaccounts is called a primary account, while subaccounts are considered to be collectively owned and controlled by the primary account. Only one level of hierarchy is allowed, i.e. subaccounts cannot have their own subaccounts.
+An account divided into subaccounts is called a primary account, while subaccounts are considered to be collectively owned and controlled by the primary account. Only one level of hierarchy is allowed, so subaccounts cannot have their own subaccounts.
 
 ## Primary user
 
-Primary user is created when Nexmo account is created. There can be only a single primary user for the account and its subaccounts. Primary user can invite other people to register as users. Primary user defines management and oversight rights for new users and the accounts/subaccounts that they will manage.
+A _primary user_ is created when a Nexmo account is created. There can only be a single primary user for the account and its subaccounts. A primary user can invite others to register as users. A primary user defines management and oversight rights for new users and the accounts/subaccounts that they will manage.
 
 ## API secret
 
-In order to call Nexmo REST APIs, one has to send API key (account ID) and associated secret in the API call. Nexmo will verify that secret is correct and will bill the account identified by the API key.
+In order to make an API call with the Nexmo REST APIs, an API key (account ID) is required, as well as an associated API secret. Nexmo verifies that the secret is correct and bills the account identified by the API key.
 
 ## Guides
 
@@ -59,4 +59,4 @@ product: account
 ## See also
 
 * [Secret Management overview](/account/secret-management)
-
+* [Subaccounts](/account/subaccounts/overview)
