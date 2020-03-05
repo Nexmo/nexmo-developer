@@ -16,7 +16,7 @@ Within your account you can check your balance, configure the account-level sett
 
 The overall architecture is illustrated in the following diagram:
 
-![Overview](/public/assets/images/account/users.png)
+![Overview](/assets/images/account/users.png)
 
 Each of the main items in the diagram is explained in  more detail in the following sections.
 
