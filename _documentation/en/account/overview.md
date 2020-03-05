@@ -26,11 +26,11 @@ Represents a relationship between clients and Nexmo. Each account is identified 
 
 ## User
 
-Represents a person that manages and configures the account. Users have logins and passwords, and different sets of permissions.
+Represents a person that manages and configures the account via the [Dashboard](https://dashboard.nexmo.com/). Users have logins and passwords, and different sets of permissions.
 
 ## Subaccounts
 
-Each account can be associated with subaccounts. This division facilitates differential product configuration, reporting, and billing.
+Each account can be associated with [subaccounts](/account/subaccounts/overview). This division facilitates differential product configuration, reporting, and billing.
 
 An account divided into subaccounts is called a primary account, while subaccounts are considered to be collectively owned and controlled by the primary account. Only one level of hierarchy is allowed, so subaccounts cannot have their own subaccounts.
 
