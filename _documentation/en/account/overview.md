@@ -26,7 +26,7 @@ Represents a relationship between clients and Nexmo. Each account is identified 
 
 ## User
 
-Represents a person that manages and configures the account via the [Dashboard](https://dashboard.nexmo.com/). Users have logins and passwords, and different sets of permissions.
+Represents a person that manages and configures the account via the [Dashboard](https://dashboard.nexmo.com/). Users have usernames and passwords to login to the [Dashboard](https://dashboard.nexmo.com/), and different sets of permissions to define what users can manage via the Dashboard.
 
 ## Subaccounts
 
