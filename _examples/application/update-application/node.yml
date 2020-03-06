@@ -5,5 +5,5 @@ code:
     to_line: 60
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/applications/update-application.js
-    from_line: 7
+    from_line: 8
     to_line: 15

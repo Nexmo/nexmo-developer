@@ -16,7 +16,7 @@ Key | Description
 -- | --
 `NEXMO_API_KEY` | Your Nexmo API key.
 `NEXMO_API_SECRET` | Your Nexmo API secret.
-`NAME` | The name for your Nexmo Application.
+`APPLICATION_NAME` | The name for your Nexmo Application.
 
 ```code_snippets
 source: '_examples/application/create-application'
