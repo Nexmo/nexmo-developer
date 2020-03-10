@@ -93,8 +93,8 @@
     color: rgba($white, 80);
 
     @media #{$M-plus} {
-      margin: $unit1 $unit3 $unit1 0;
-    }
+       margin: $unit1 $unit3 $unit1 $unit1;
+     }
 
     &:hover {
       color: $white;

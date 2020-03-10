@@ -16,6 +16,7 @@ require.context('@vonagevolta/volta2/images/logos', true)
 
 // XXX: hack for Volta, unfortunately it doesn't provide modules :(
 import Volta from "../javascript/volta/volta.js"
+import Rails from '@rails/ujs';
 
 import Vue from 'vue/dist/vue.esm'
 
@@ -34,7 +35,9 @@ import APIStatus from '../javascript/api_status'
 import CodeSnippetEvents from '../javascript/code_snippet_events'
 import Navigation from '../javascript/navigation'
 import Careers from '../javascript/careers'
+import LocaleSwitcher from '../javascript/locale_switcher'
 
+Rails.start()
 
 $(document).ready(function() {
   Scroll()
@@ -48,6 +51,7 @@ $(document).ready(function() {
   Navigation()
   Spotlight()
   new Careers
+  new LocaleSwitcher
 
   if (document.getElementById('jwt-generator-app')) {
     new Vue({

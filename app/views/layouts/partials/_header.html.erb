@@ -21,12 +21,15 @@
     </div>
 
     <nav class="Nxd-header__nav">
+      <div class="Vlt-native-dropdown">
+        <%= select_tag :preferred_locale, options_for_select(I18n.available_locales, session[:locale]), id: 'locale-switcher' %>
+      </div>
       <a class="Nxd-main-header__link Vlt-M-plus Vlt-black" href="https://vonage.com/communications-apis">Vonage.com</a>
       <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--secondary Vlt-btn--app" data-ab="try_button_v2"><b>
           <% ab_test(:try_button_v2, "< #{t('.try-it')} />", "{ #{t('.try-it')} }", "< #{t('.get_an_api_key')} />", "{ #{t('.get_an_api_key')} }", "< #{t('.start_building')} />", "{ #{t('.start_building')} }") do |s| %>
-          <%= s %>
-        <% end %>
-      </b></a>
+            <%= s %>
+          <% end %>
+        </b></a>
     </nav>
   </header>
 

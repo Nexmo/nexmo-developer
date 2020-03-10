@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'markdown/show'
 
   get '/signout', to: 'sessions#destroy'
+  put '(/:locale)/set_user_locale', to: 'sessions#set_user_locale', as: :set_user_locale, constraints: LocaleConstraint.new
 
   post '/jobs/code_example_push', to: 'jobs#code_example_push'
   post '/jobs/open_pull_request', to: 'jobs#open_pull_request'
