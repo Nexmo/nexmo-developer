@@ -7,6 +7,18 @@ navigation_weight: 0
 # Release Notes
 
 
+## 2.1.1 - 2020-03-05
+
+### Added
+- `NXMClient`'s `getConversationsPageWithSize:order:filter:completionHandler:` method to get conversations with paging.
+
+### Deprecated
+- `NXMClient`'s `getConversationsPageWithSize:order:completionHandler:` method to get conversations with paging.
+
+### Internal
+- The SDK is now built with Xcode 11.
+
+
 ## 2.1.0 - 2020-01-31
 
 ### Added
