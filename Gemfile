@@ -158,7 +158,7 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.9'
   gem 'rspec-snapshot', '~> 0.1.2'
   gem 'simplecov', require: false
 end
