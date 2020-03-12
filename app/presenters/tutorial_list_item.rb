@@ -76,7 +76,7 @@ class TutorialListItem
     languages.map do |language|
       OpenStruct.new(
         language: language,
-        label: CodeLanguage.find(language).label,
+        label: Nexmo::Markdown::CodeLanguage.find(language).label,
         url: external_link || "/#{products.join('')}/tutorials/#{filename}/#{first_step}/#{language}"
       )
     end
