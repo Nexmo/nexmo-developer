@@ -63,10 +63,10 @@
               </div>
               <div class="Vlt-col Vlt-col--3of4 Nxd-step">
                 <a
-                  title="<%= t['description'] %>"
+                  title="<%= t.description %>"
                   href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: t.name, code_language: @tutorial.code_language) %>"
                 >
-                  <%= t['title'] %>
+                  <%= t.description %>
                 </a>
               </div>
             </div>

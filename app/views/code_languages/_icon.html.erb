@@ -1,6 +1,6 @@
 <% if code_language %>
   <span>
-    <% language = CodeLanguage.find(code_language) %>
+    <% language = Nexmo::Markdown::CodeLanguage.find(code_language) %>
     <svg><use xlink:href="<%= "/assets/images/brands/#{language.icon}.svg##{language.icon}" %>"></use></svg>
     <span><%= language.label %></span>
   </span>
