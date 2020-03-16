@@ -41,7 +41,7 @@ class SmartlingAPI
       locale = locale_without_region(locale.to_s)
       FileUtils.mkdir_p(storage_folder(locale, filename)) unless File.exist?(storage_folder(locale, filename))
       File.open("#{Rails.configuration.docs_base_path}/_documentation/#{locale}/#{file_uri}", 'w+') do |file|
-        file.write(I18n::SmartlingConverterFilter.call(response))
+        file.write(Nexmo::Markdown::I18n::SmartlingConverterFilter.call(response))
       end
     end
   end
