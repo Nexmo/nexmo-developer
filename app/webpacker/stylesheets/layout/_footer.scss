@@ -101,6 +101,10 @@
 #footer-social-links {
   text-align: center;
   font-size: 24px;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+
   a {
     margin: 0 10px;
     display: inline-block;
