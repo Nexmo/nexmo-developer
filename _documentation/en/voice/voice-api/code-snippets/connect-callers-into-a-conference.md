@@ -17,6 +17,12 @@ conference called `nexmo-conference` and there would be no problem.
 
 ## Example
 
+Replace the following variables in the example code:
+
+Key |	Description
+-- | --
+`CONF_NAME` | The named identifier for your conference
+
 ```code_snippets
 source: '_examples/voice/connect-callers-to-a-conference'
 application:

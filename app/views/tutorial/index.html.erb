@@ -7,12 +7,22 @@
     <div class="Vlt-grid">
       <div class="Vlt-col">
         <% if @tutorial.previous_step %>
-          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.previous_step['path']}" %>"> &laquo; Previous</a>
+          <a
+            class="Vlt-btn Vlt-btn--secondary"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.previous_step['path'], only_path: true, controller: :tutorial, action: :index) %>"
+          >
+            &laquo; Previous
+          </a>
         <% end %>
       </div>
       <div class="Vlt-col Vlt-right">
         <% if @tutorial.next_step %>
-          <a class="Vlt-btn Vlt-btn--secondary" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.next_step['path']}" %>">Next &raquo;</a>
+          <a
+            class="Vlt-btn Vlt-btn--secondary"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.next_step['path'], only_path: true, controller: :tutorial, action: :index) %>"
+          >
+            Next &raquo;
+          </a>
         <% end %>
       </div>
      </div>
@@ -34,7 +44,12 @@
               <span class="Nxd-step-number Vlt-number <%= t['is_active'] ? 'Vlt-bg-black': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
                 </div>
               <div class="Vlt-col Vlt-col--3of4 Nxd-step">
-                <a title="<%= t['description'] %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{t['path']}" %>"><%= t['title'] %></a>
+                <a
+                  title="<%= t['description'] %>"
+                  href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: t['path']) %>"
+                >
+                  <%= t['title'] %>
+                </a>
               </div>
             </div>
             <% end %>

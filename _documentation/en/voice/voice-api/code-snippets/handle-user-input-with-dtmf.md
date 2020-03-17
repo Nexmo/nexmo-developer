@@ -11,13 +11,6 @@ via a text-to-speech message.
 
 ## Example
 
-Replace the following variables in the example code:
-
-Key |	Description
--- | --
-`NEXMO_NUMBER` | Nexmo Number to call.
-
-
 ```code_snippets
 source: '_examples/voice/handle-user-input-with-dtmf'
 application:

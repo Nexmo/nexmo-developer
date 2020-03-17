@@ -16,7 +16,7 @@ Velocity Rules blocks suspicious traffic based on a combination of volume and co
 
 > **Note**: The platform can only determine if a Verify request is successful if a call is subsequently made to the [Verify check endpoint](/verify/code-snippets/check-verify-request). For every Verify request, your code should perform a Verify check.
 
-If we see a customer’s conversion rate for a network fall below 35% and a set minimum amount of traffic during a given period, our platform blocks any further traffic to that particular network. Any subsequent Verify requests will return code 15: `The destination number is not in a supported network`.
+If we see a customer’s conversion rate for a network fall below 35% and a set minimum amount of traffic during a given period, our platform blocks any further traffic to that particular network. Any subsequent Verify requests will return code 7: `This number is blacklisted for verification.`
 
 ## Monitoring your conversions
 
@@ -33,11 +33,10 @@ You can also keep track of your conversion rate based on the responses you recei
 
 ## Unblocking a network
 
-If your verification attempts are consistently returning error code 15: `The destination number is not in a supported network`, that network might have been blocked by Velocity Rules. You can [contact support](mailto://support@nexmo.com) to restore service, but first we advise that you do the following:
+If your verification attempts are consistently returning error code 7: `This number is blacklisted for verification.`, that network might have been blocked by Velocity Rules. You can [contact support](mailto://support@nexmo.com) to restore service, but first we advise that you do the following:
 
 * Check the most recent blocked verification attempts sent to this network (or country)
 * Confirm that they are legitimate verification attempts
-* Address any suspicious traffic by updating your fraud prevention rules
 
 If, having done this, you are satisfied that the traffic is genuine and would like to restore service to this network, please [contact support](mailto://support@nexmo.com) for assistance.
 

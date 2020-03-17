@@ -1,18 +1,4 @@
 GIT
-  remote: https://github.com/Nexmo/nexmo-markdown-renderer
-  revision: 716f4978c024aed2e5d599b8e422e79e4e89c949
-  branch: update-volta
-  specs:
-    nexmo_markdown_renderer (0.0.3)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
-
-GIT
   remote: https://github.com/Nexmo/nexmo-oas-renderer
   revision: 7fdb54d64c63f014c6717189e464bd450fd590e7
   branch: update-volta
@@ -322,6 +308,14 @@ GEM
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (6.9.0.363)
+    nexmo_markdown_renderer (0.2.0)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -589,7 +583,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer!
-  nexmo_markdown_renderer!
+  nexmo_markdown_renderer (~> 0.2.0)
   nokogiri (~> 1.10.9)
   octokit
   pg (~> 1.2)
@@ -602,7 +596,7 @@ DEPENDENCIES
   redis
   rest-client
   rspec-collection_matchers
-  rspec-rails (~> 3.7)
+  rspec-rails (~> 3.9)
   rspec-snapshot (~> 0.1.2)
   rubocop (~> 0.79.0)
   rubocop-rails (~> 2.4)

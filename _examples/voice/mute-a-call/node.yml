@@ -1,9 +1,9 @@
 ---
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/mute-a-call.js
-    from_line: 19
-    to_line: 35
+    from_line: 20
+    to_line: 36
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/mute-a-call.js
-    from_line: 10
-    to_line: 17
+    from_line: 11
+    to_line: 18

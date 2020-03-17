@@ -11,10 +11,15 @@
     <div class="item">
       <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
         <div class="Vlt-card__image Vlt-card__image--tech Vlt-gradient--blue-to-purple">
-          <a href="/<%= use_case.products.join("") %>/use-cases/<%= @language %>" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Vlt-badge--<%= Card::COLOUR.fetch(use_case.subtitle, 'blue') %>"><%= use_case.subtitle %></a>
+          <a
+            href="<%= url_for(controller: 'use_case', action: :index, product: use_case.products.join(''), code_language: @language, only_path: true) %>"
+            class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Vlt-badge--<%= Card::COLOUR.fetch(use_case.subtitle, 'blue') %>"
+          >
+            <%= use_case.subtitle %>
+          </a>
         </div>
 
-        <a href="<%= use_case.path %>">
+        <a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>">
           <div class="Vlt-card__content">
             <h2>
               <span><%= use_case.title %></span>
@@ -24,12 +29,16 @@
 
         <% if use_case.languages.count > 0 %>
           <% use_case.languages.each do |language| %>
-            <a href="<%= "#{@base_path}/#{language.downcase}" %>"><small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language %>"><span>●</span> <%= language == "Objective_C" ? "Objective-C" : language %></small></a>
+            <a
+              href="<%= url_for(controller: 'use_case', action: :index, product: @product, code_language: language.downcase, only_path: true) %>"
+            >
+              <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language %>"><span>●</span> <%= language == "Objective_C" ? "Objective-C" : language %></small>
+            </a>
             <% end %>
           <% end %>
 
           <div class="Vlt-card__cta">
-            <a href="<%= use_case.path %>" class="Vlt-btn Vlt-btn--tertiary">
+            <a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>" class="Vlt-btn Vlt-btn--tertiary">
             Read more
             </a>
           </div>

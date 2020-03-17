@@ -5,7 +5,7 @@
     root: 'config/tutorials',
     document: "#{local_assigns['name']}.yml",
     language: @language,
-  )
+  ).path
 
   raise "Unable to read file: #{path}" unless File.exist? path
   file = File.read(path)

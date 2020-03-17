@@ -11,7 +11,7 @@ RSpec.describe 'rendering _tutorial landing page partial' do
         root: 'config/tutorials',
         document: 'this-is-a-sample.yml',
         language: I18n.default_locale
-      ).and_return('config/tutorials/en/this-is-a-sample.yml')
+      ).and_return(Nexmo::Markdown::DocFinder::Doc.new(path: 'config/tutorials/en/this-is-a-sample.yml', available_languages: ['en']))
       expect(File).to receive(:exist?).with('config/tutorials/en/this-is-a-sample.yml').and_return(true)
     end
 

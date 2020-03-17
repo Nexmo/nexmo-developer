@@ -35,14 +35,14 @@ class SidenavResolver
           data[:children] << directories(full_path, entry)
         end
       else
-        doc_path = Nexmo::Markdown::DocFinder.find(root: @path, document: full_path, language: @language, strip_root_and_language: true)
+        doc_path = Nexmo::Markdown::DocFinder.find(root: @path, document: full_path, language: @language, strip_root_and_language: true).path
         data[:children] << { title: entry, path: doc_path, is_file?: true }
       end
     end
 
     # Do we have tasks for this product?
     product = path.sub(%r{#{Rails.configuration.docs_base_path}/\w+\/\w+\/}, '')
-    if DocumentationConstraint.product_with_parent_list.include? product
+    if DocumentationConstraint.products_for_routes.include? product
       tasks = TutorialList.by_product(product)
 
       # If we have use cases and tutorials, output them
@@ -109,7 +109,7 @@ class SidenavResolver
   end
 
   def document_meta(item)
-    doc = Nexmo::Markdown::DocFinder.find(root: item[:root] || @path, document: item[:path], language: @language, strip_root_and_language: true)
+    doc = Nexmo::Markdown::DocFinder.find(root: item[:root] || @path, document: item[:path], language: @language, strip_root_and_language: true).path
     YAML.load_file(doc)
   end
 

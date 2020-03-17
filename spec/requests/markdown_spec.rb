@@ -29,6 +29,48 @@ RSpec.describe 'Markdown', type: :request do
         expect(response).to redirect_to('/sdk/stitch/ios/')
       end
     end
+
+    context 'requesting a document in a language it is not available' do
+      it 'sets the canonical url to the default locale' do
+        allow(File).to receive(:read).and_call_original
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_raise(Nexmo::Markdown::DocFinder::MissingDoc)
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_return(Nexmo::Markdown::DocFinder::Doc.new(path: 'path/to/doc', available_languages: ['en']))
+        expect(File).to receive(:read).with('path/to/doc').and_return('markdown content')
+        allow(Nexmo::Markdown::DocFinder).to receive(:find).and_call_original
+
+        get '/cn/messages/overview'
+
+        expect(response).to have_http_status(:ok)
+        res = Capybara::Node::Simple.new(response.body)
+        link = res.find("link[rel='canonical']", visible: false)
+        expect(link[:href]).to eq("http://#{request.host}/messages/overview")
+      end
+    end
+
+    context 'requesting a document in a language that is available and different from the default one' do
+      it 'sets the canonical url to the default locale' do
+        allow(File).to receive(:read).and_call_original
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_raise(Nexmo::Markdown::DocFinder::MissingDoc)
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_return(Nexmo::Markdown::DocFinder::Doc.new(path: 'path/to/doc', available_languages: ['cn', 'en']))
+        expect(File).to receive(:read).with('path/to/doc').and_return('markdown content')
+        allow(Nexmo::Markdown::DocFinder).to receive(:find).and_call_original
+
+        get '/cn/messages/overview'
+
+        expect(response).to have_http_status(:ok)
+        res = Capybara::Node::Simple.new(response.body)
+        link = res.find("link[rel='canonical']", visible: false)
+        expect(link[:href]).to eq("http://#{request.host}/cn/messages/overview")
+      end
+    end
+
+    context 'requesting a document in the default locale' do
+      it 'redirects to the canonical version' do
+        get '/en/messaging/sms/overview'
+
+        expect(response).to redirect_to('/messaging/sms/overview')
+      end
+    end
   end
 
   describe '#api' do

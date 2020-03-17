@@ -2,20 +2,21 @@ class MarkdownController < ApplicationController
   before_action :set_navigation
   before_action :set_product
   before_action :set_tracking_cookie
+  before_action :check_redirects, only: :show
+  before_action :canonical_redirect, only: :show
 
   def show
-    redirect = Redirector.find(request)
-    return redirect_to redirect if redirect
-
     if path_is_folder?
       @frontmatter, @content = content_from_folder
     else
+      @document_path = document.path
       @frontmatter, @content = content_from_file
+      set_canonical_url
     end
 
     @sidenav = Sidenav.new(
       namespace: params[:namespace],
-      language: I18n.locale,
+      locale: params[:locale],
       request_path: request.path,
       navigation: @navigation,
       code_language: params[:code_language],
@@ -53,18 +54,14 @@ class MarkdownController < ApplicationController
     helpers.dashboard_cookie(params[:product])
   end
 
-  def document_path
-    @document_path ||= Nexmo::Markdown::DocFinder.find(
+  def document
+    @document ||= Nexmo::Markdown::DocFinder.find(
       root: root_folder,
       document: params[:document],
-      language: I18n.locale,
+      language: params[:locale],
       product: params[:product],
       code_language: params[:code_language]
     )
-  end
-
-  def document
-    @document ||= File.read(document_path)
   end
 
   def root_folder
@@ -82,13 +79,13 @@ class MarkdownController < ApplicationController
   end
 
   def folder_config_path
-    Nexmo::Markdown::DocFinder.find(
+    @folder_config_path ||= Nexmo::Markdown::DocFinder.find(
       root: root_folder,
       document: "#{params[:document]}/.config.yml",
-      language: I18n.locale,
+      language: params[:locale],
       product: params[:product],
       code_language: params[:code_language]
-    )
+    ).path
   end
 
   def content_from_folder
@@ -113,16 +110,47 @@ class MarkdownController < ApplicationController
   end
 
   def content_from_file
-    frontmatter = YAML.safe_load(document)
+    content = File.read(document.path)
+    frontmatter = YAML.safe_load(content)
 
     raise Errno::ENOENT if frontmatter['redirect']
 
     content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,
       current_user: current_user,
-      language: I18n.locale,
-    }).call(document)
+      locale: params[:locale],
+    }).call(content)
 
     [frontmatter, content]
+  end
+
+  def set_canonical_url
+    if params[:namespace] || !params[:locale] || document.available_languages.include?(params[:locale])
+      @canonical_url = canonical_url
+    else
+      @canonical_url = "#{canonical_base}#{canonical_path.sub("#{params[:locale]}/", '')}"
+    end
+  end
+
+  def check_redirects
+    redirect = Redirector.find(request)
+    return redirect_to redirect if redirect
+  end
+
+  def canonical_redirect
+    return if params[:namespace] || !params[:locale]
+
+    # TODO: change this to use the locale from the domain
+    # once we add support for that.
+    return if params[:locale] != I18n.default_locale.to_s
+
+    redirect_to url_for(
+      controller: :markdown,
+      action: :show,
+      only_path: true,
+      locale: nil,
+      document: params[:document],
+      product: params[:product]
+    )
   end
 end

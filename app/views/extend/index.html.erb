@@ -19,7 +19,7 @@
 
         </div>
         <div class="Vlt-card__footer">
-        	  <a href="/extend/<%= extension[:route] %>" class="Vlt-btn Vlt-btn--secondary Vlt-btn--app Vlt-btn--small">
+          <a href=<%= url_for(controller: :extend, action: :show, title: extension[:route], only_path: true) %> class="Vlt-btn Vlt-btn--secondary Vlt-btn--app Vlt-btn--small">
              Learn More
             </a>
         </div>

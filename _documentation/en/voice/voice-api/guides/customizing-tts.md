@@ -108,7 +108,7 @@ text.
 
 * The `volume` attribute can be set to the following values: `default`,
 `silent`, `x-soft`, `soft`, `medium`, `loud` and `x-loud`. You can
-also specify a relative decibel value in the form `+ndB` or `-nDB`
+also specify a relative decibel value in the form `+ndB` or `-ndB`
 where `n` is an integer value.
 
 * The `rate` attribute changes the speed of speech. Acceptable values

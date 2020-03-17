@@ -17,27 +17,8 @@ class TutorialController < ApplicationController
 
     @document_title = 'Tutorials'
 
-    @base_path = request.original_fullpath.chomp('/')
-
-    # We have to strip the last section off if it matches any code languages. Hacky, but it works
-    Nexmo::Markdown::CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
-      @base_path.gsub!(%r{/#{lang}$}, '')
-    end
-
     excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
     @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
-
-    @products = [
-      { 'path' => 'messaging/sms', 'icon' => 'message', 'icon_colour' => 'purple', 'name' => 'SMS' },
-      { 'path' => 'voice/voice-api', 'icon' => 'phone', 'icon_colour' => 'green', 'name' => 'Voice' },
-      { 'path' => 'verify', 'icon' => 'lock', 'icon_colour' => 'purple-dark', 'name' => 'Verify' },
-      { 'path' => 'messages', 'icon' => 'chat', 'icon_colour' => 'blue', 'name' => 'Messages' },
-      { 'path' => 'dispatch', 'icon' => 'flow', 'icon_colour' => 'blue', 'name' => 'Dispatch' },
-      { 'path' => 'number-insight', 'icon' => 'file-search', 'icon_colour' => 'orange', 'name' => 'Number Insight' },
-      { 'path' => 'conversation', 'icon' => 'message', 'icon_colour' => 'blue', 'name' => 'Conversation' },
-      { 'path' => 'client-sdk', 'icon' => 'queue', 'icon_colour' => 'blue', 'name' => 'Client SDK' },
-      { 'path' => 'account/subaccounts', 'icon' => 'user', 'icon_colour' => 'blue', 'name' => 'Subaccounts' },
-    ]
 
     render layout: 'page'
   end
@@ -83,7 +64,7 @@ class TutorialController < ApplicationController
   def set_sidenav
     @sidenav = Sidenav.new(
       namespace: params[:namespace],
-      language: @language,
+      locale: params[:locale],
       request_path: request.path,
       navigation: @navigation,
       code_language: params[:code_language],
@@ -94,7 +75,7 @@ class TutorialController < ApplicationController
   def set_tutorial
     @tutorial_name = params[:tutorial_name]
     render_not_found unless @tutorial_name
-    @tutorial = Tutorial.load(@tutorial_name, @tutorial_step, params[:product])
+    @tutorial = Nexmo::Markdown::Tutorial.load(@tutorial_name, @tutorial_step, params[:product])
   end
 
   def set_tutorial_step
@@ -107,6 +88,12 @@ class TutorialController < ApplicationController
     # If we don't have a current tutorial step, redirect to the first available page
     return if @tutorial_step
 
-    redirect_to "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}"
+    redirect_to url_for(
+      controller: :tutorial,
+      action: action_name,
+      product: @tutorial.current_product,
+      tutorial_name: @tutorial.name,
+      tutorial_step: @tutorial.first_step
+    )
   end
 end

@@ -12,27 +12,8 @@ class UseCaseController < ApplicationController
 
     @document_title = 'Use Cases'
 
-    @base_path = request.original_fullpath.chomp('/')
-
-    # We have to strip the last section off if it matches any code languages. Hacky, but it works
-    Nexmo::Markdown::CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
-      @base_path.gsub!(%r{/#{lang}$}, '')
-    end
-
     excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
     @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
-
-    @products = [
-      { 'path' => 'messaging/sms', 'icon' => 'message', 'icon_colour' => 'purple', 'name' => 'SMS' },
-      { 'path' => 'voice/voice-api', 'icon' => 'phone', 'icon_colour' => 'green', 'name' => 'Voice' },
-      { 'path' => 'verify', 'icon' => 'lock', 'icon_colour' => 'purple-dark', 'name' => 'Verify' },
-      { 'path' => 'messages', 'icon' => 'chat', 'icon_colour' => 'blue', 'name' => 'Messages' },
-      { 'path' => 'dispatch', 'icon' => 'flow', 'icon_colour' => 'blue', 'name' => 'Dispatch' },
-      { 'path' => 'number-insight', 'icon' => 'file-search', 'icon_colour' => 'orange', 'name' => 'Number Insight' },
-      { 'path' => 'conversation', 'icon' => 'message', 'icon_colour' => 'blue', 'name' => 'Conversation' },
-      { 'path' => 'client-sdk', 'icon' => 'queue', 'icon_colour' => 'blue', 'name' => 'Client SDK' },
-      { 'path' => 'account/subaccounts', 'icon' => 'user', 'icon_colour' => 'blue', 'name' => 'Subaccounts' },
-    ]
 
     render layout: 'page'
   end
@@ -44,7 +25,7 @@ class UseCaseController < ApplicationController
       document: params[:document],
       language: I18n.locale,
       code_language: params[:code_language]
-    )
+    ).path
     @document = File.read(@document_path)
 
     # Parse frontmatter
@@ -53,11 +34,14 @@ class UseCaseController < ApplicationController
     @document_title = @frontmatter['title']
     @product = @frontmatter['products']
 
-    @content = Nexmo::Markdown::Renderer.new({ code_language: @code_language }).call(@document)
+    @content = Nexmo::Markdown::Renderer.new(
+      code_language: @code_language,
+      locale: params[:locale]
+    ).call(@document)
 
     @sidenav = Sidenav.new(
       namespace: params[:namespace],
-      language: @language,
+      locale: params[:locale],
       request_path: request.path,
       navigation: @navigation,
       code_language: params[:code_language],

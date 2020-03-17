@@ -9,8 +9,15 @@
   <div class="Vlt-dropdown__panel">
     <div class="Vlt-dropdown__panel__content">
       <ul>
-        <% @products.each do |product| %>
-          <li><a class="Vlt-dropdown__link" href="/<%= product['path'] %>/tutorials/<%= @code_language %>"><svg style="height: 20px; width: 20px;" class="Vlt-gray-darker"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span></a></li>
+        <% Product.all.each do |product| %>
+          <li>
+            <a
+              class="Vlt-dropdown__link"
+              href="<%= url_for(controller: :tutorial, action: :list, code_language: @code_language, product: product['path'], only_path: true)%>"
+            >
+              <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
+            </a>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -32,12 +39,18 @@
   <div class="masonry">
     <% @tutorials.each_with_index do |tutorial, index| %>
       <%
-          if tutorial[:external_link]
-            url = tutorial[:external_link]
-      else
-        url = "#{@base_path}/#{tutorial[:filename]}"
-      end
-    %>
+        if tutorial[:external_link]
+          url = tutorial[:external_link]
+        else
+          url = url_for(
+            controller: :tutorial,
+            action: :index,
+            product: params[:product],
+            tutorial_name: tutorial[:filename],
+            only_path: true
+          )
+        end
+      %>
 
     <div class="item">
       <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">

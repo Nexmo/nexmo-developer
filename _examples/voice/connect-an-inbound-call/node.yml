@@ -3,9 +3,9 @@ dependencies:
     - express
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/connect-an-inbound-call.js
-    from_line: 6
-    to_line: 20
+    from_line: 7
+    to_line: 22
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/connect-an-inbound-call.js
-    from_line: 4
-    to_line: 4
+    from_line: 5
+    to_line: 5

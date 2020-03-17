@@ -1,4 +1,6 @@
 class StaticController < ApplicationController
+  before_action :canonical_redirect, only: :documentation
+
   def default_landing
     yaml_name = request[:landing_page]
 
@@ -64,7 +66,7 @@ class StaticController < ApplicationController
 
     @document_title = @frontmatter['title']
 
-    @content = Nexmo::Markdown::Renderer.new.call(document)
+    @content = Nexmo::Markdown::Renderer.new(locale: params[:locale]).call(document)
 
     @navigation = :documentation
 
@@ -72,7 +74,7 @@ class StaticController < ApplicationController
       request_path: request.path,
       navigation: @navigation,
       product: @product,
-      language: I18n.locale
+      locale: params[:locale]
     )
 
     render layout: 'documentation'
@@ -224,5 +226,13 @@ class StaticController < ApplicationController
     @careers = Greenhouse.devrel_careers
 
     render layout: 'page'
+  end
+
+  private
+
+  def canonical_redirect
+    return if params[:locale] != I18n.default_locale.to_s
+
+    redirect_to documentation_path(locale: nil)
   end
 end

@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Connect an inbound call
 
-In this code snippet you see how to connect an inbound call to a second number.
+In this code snippet you see how to connect an inbound call to another person by making an outbound call.
 
 ## Example
 
@@ -13,7 +13,8 @@ Replace the following variables in the example code:
 
 Key |	Description
 -- | --
-`YOUR_SECOND_NUMBER` |	The number you wish the inbound caller to be connected to.
+`NEXMO_NUMBER` |  This is your nexmo number used for CallerID to the recipient.
+`YOUR_SECOND_NUMBER` |  This is the number to be connected to e.g. 447700900002.
 
 ```code_snippets
 source: '_examples/voice/connect-an-inbound-call'

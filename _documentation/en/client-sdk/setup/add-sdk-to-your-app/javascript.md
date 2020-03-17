@@ -75,6 +75,18 @@ let nexmo = new NexmoClient()
   .catch(err => console.log(err));
 ```
 
+### Nexmo Client SDK analytics and usage data
+
+To provide Nexmo with more information to enable us to fix bugs and build features, you can _optionally_ opt-in to our Client SDK analytics and usage data programme.
+
+To enable analytics and data usage reporting, please set the `enabled` parameter of `log_reporter` to `true`. The following code provides an example of this:
+
+```javascript
+new NexmoClient({debug:true, log_reporter: {enabled: true}})
+```
+
+> **NOTE:** This is opt-in only and turned off by default.
+
 ## Conclusion
 
 You added the Nexmo Client SDK to your client-side JavaScript app and logged in to a `NexmoClient` instance, which returned an `Application` object. You can now use `Application.newConversation()` to create a conversation, and then access the functionality of a `Conversation`.

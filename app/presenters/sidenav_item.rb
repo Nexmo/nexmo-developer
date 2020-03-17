@@ -1,6 +1,8 @@
 class SidenavItem
+  include Rails.application.routes.url_helpers
+
   delegate :request_path, :navigation, :product, :documentation?,
-           :namespace, :code_language, to: :@sidenav
+           :namespace, :code_language, :locale, to: :@sidenav
 
   def initialize(folder:, sidenav:)
     @folder  = folder

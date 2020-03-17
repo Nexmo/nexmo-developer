@@ -35,5 +35,8 @@ module NexmoDeveloper
     end
 
     config.docs_base_path = ENV.fetch('DOCS_BASE_PATH', '.')
+    config.oas_path = ENV.fetch('OAS_PATH', './_open_api/api_specs/definitions')
+
+    config.i18n.load_path += Dir[Pathname.new(config.docs_base_path).join('config', 'locales', '**', '*.yml')]
   end
 end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SidenavItem do
+  let(:locale) { nil }
   let(:folder) do
     {
       children: [{ title: 'overview.md', path: '_documentation/en/dispatch/overview.md', is_file?: true }],
@@ -12,7 +13,7 @@ RSpec.describe SidenavItem do
   subject do
     described_class.new(
       folder: folder,
-      sidenav: instance_double(Sidenav)
+      sidenav: instance_double(Sidenav, locale: locale)
     )
   end
 

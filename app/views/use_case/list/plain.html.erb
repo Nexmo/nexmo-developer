@@ -1,5 +1,5 @@
 <ul class="Vlt-list Vlt-list--simple">
   <% @use_cases.each do |use_case| %>
-    <li><a href="<%= use_case.path %>"><%= use_case.title %></a></li>
+    <li><a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>"><%= use_case.title %></a></li>
   <% end %>
 </ul>

@@ -12,6 +12,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@rails/ujs": "^6.0.2-1",
     "@rails/webpacker": "^4.0.2",
     "@vonagevolta/volta2": "^0.0.24",
     "algoliasearch": "^3.24.9",
@@ -53,6 +54,10 @@
     "webpack-merge": "^4.1.0",
     "webpacker": "^4",
     "whatwg-fetch": "^2.0.3"
+  },
+  "resolutions": {
+    "acorn": "^6.4.1",
+    "minimist": "^1.2.2"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.29",

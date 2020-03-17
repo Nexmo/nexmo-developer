@@ -16,12 +16,12 @@ CNAM is an acronym which stands for Caller ID Name. US networks use it to displa
 
 ## Making the request
 
-Passing `cname=true` as an extra parameter in a call to the Advanced API looks up that number's CNAM.
+Passing `cnam=true` as an extra parameter in a call to the Advanced API looks up that number's CNAM.
 
 The following example shows how you would request CNAM data using `curl`:
 
 ```bash
-$ curl "https://api.nexmo.com/ni/advanced/json?api_key=NEXMO_API_KEY&api_secret=NEXMO_API_SECRET&number=14155550100&cname=true"
+$ curl "https://api.nexmo.com/ni/advanced/json?api_key=NEXMO_API_KEY&api_secret=NEXMO_API_SECRET&number=14155550100&cnam=true"
 ```
 
 ## Understanding the response

@@ -1,45 +1,18 @@
-OPEN_API_PRODUCTS = %w[
-  sms
-  media
-  number-insight
-  conversation
-  conversation.v2
-  messages-olympus
-  dispatch
-  redact
-  audit
-  voice.v2
-  voice
-  account
-  external-accounts
-  numbers
-  verify
-  vonage-business-cloud/account
-  vonage-business-cloud/extension
-  vonage-business-cloud/reports
-  vonage-business-cloud/call-recording
-  vonage-business-cloud/user
-  vonage-business-cloud/vgis
-  application.v2
-  application
-  reports
-  conversion
-  subaccounts
-  developer/messages
-  pricing
-].freeze
-
 class OpenApiConstraint
+  OPEN_API_PRODUCTS = Dir.glob("#{Rails.configuration.oas_path}/**/*.yml").map do |dir|
+    dir.gsub("#{Rails.configuration.oas_path}/", '').gsub('.yml', '')
+  end
+
   def self.list
-    OPEN_API_PRODUCTS
+    @list ||= OPEN_API_PRODUCTS.sort.reject { |d| d.include? 'common/' }
   end
 
   def self.products
-    { definition: Regexp.new("^(#{OPEN_API_PRODUCTS.join('|')})$") }
+    { definition: Regexp.new("^(#{list.join('|')})$") }
   end
 
   def self.errors_available
-    all = OPEN_API_PRODUCTS.dup.concat(['application'])
+    all = list.dup.concat(['application'])
     { definition: Regexp.new(all.join('|')) }
   end
 
@@ -51,7 +24,7 @@ class OpenApiConstraint
     # Remove the .v2 etc if needed
     name = name.gsub(/(\.v\d+)/, '')
 
-    matches = OPEN_API_PRODUCTS.select do |s|
+    matches = list.select do |s|
       s.starts_with?(name) && !s.include?("#{name}/")
     end
 

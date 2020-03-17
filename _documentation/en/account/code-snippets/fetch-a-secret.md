@@ -10,7 +10,8 @@ never be shown.
 
 Key | Description
  -- | --
-`NEXMO_SECRET_ID` | The ID of the secret to delete.
+`NEXMO_API_KEY` | The API key of the account to fetch secrets for. Can be the same as authenticating account or it can be a subaccount.
+`NEXMO_SECRET_ID` | The ID of the secret to retrieve.
 
 ```code_snippets
 source: _examples/account/secret-management/fetch-a-secret

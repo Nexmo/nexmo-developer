@@ -35,6 +35,17 @@
 "/stitch/in-app-video/guides/2-enable-screenshare": "/stitch/in-app-video/guides/1-enable-video/javascript"
 "/stitch/in-app-voice/ncco-guide": "/voice/voice-api/ncco-reference"
 "/stitch/in-app-voice/inbound-pstn": "/client-sdk/in-app-voice/guides/receive-call"
+"/stitch/in-app-messaging/guides/simple-conversation": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/stitch/in-app-messaging/guides/inviting-members": "/client-sdk/in-app-messaging/guides/inviting-members"
+
+"/stitch/in-app-messaging/guides/simple-conversation/javascript": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/stitch/in-app-messaging/guides/inviting-members/javascript": "/client-sdk/in-app-messaging/guides/inviting-members"
+"/stitch/in-app-messaging/guides/utilizing-events/javascript": "/client-sdk/in-app-messaging/guides/utilizing-events"
+"/stitch/in-app-voice/guides/enable-audio/javascript": "/client-sdk/in-app-voice/guides/enable-audio"
+"/stitch/in-app-voice/guides/calling-users/javascript": "/client-sdk/in-app-voice/guides/make-call"
+"/stitch/in-app-voice/guides/outbound-pstn/javascript": "/client-sdk/in-app-voice/guides/make-call"
+"/stitch/in-app-video/guides/enable-video/javascript": "https://tokbox.com/developer/guides/basics/"
+"/stitch/in-app-video/guides/enable-screenshare/javascript": "https://tokbox.com/developer/guides/basics/"
 
 # Client SDK 
 

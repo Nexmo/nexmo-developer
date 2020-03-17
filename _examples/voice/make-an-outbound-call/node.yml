@@ -2,7 +2,7 @@
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/make-call.js
     from_line: 20
-    to_line: 30
+    to_line: 35
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/make-call.js
     from_line: 11

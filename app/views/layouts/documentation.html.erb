@@ -7,7 +7,7 @@
     <div id="Vlt-sidenav" class="Vlt-sidenav Nxd-sidenav Vlt-sidenav--animate Vlt-sidenav--rounded">
       <div class="Vlt-sidenav__scroll">
         <nav class="sidenav" tabindex="0" data-active="<%= active_sidenav_item %>">
-          <% cache_unless params[:namespace].present?, 'sidenav' do %>
+          <% cache_unless params[:namespace].present?, ['sidenav', I18n.locale] do %>
             <%= render partial: 'layouts/partials/sidenav' %>
           <% end %>
         </nav>

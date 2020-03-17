@@ -129,7 +129,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo_markdown_renderer', git: 'https://github.com/Nexmo/nexmo-markdown-renderer', branch: 'update-volta'
+gem 'nexmo_markdown_renderer', '~> 0.2.0'
 
 gem 'nexmo-oas-renderer', git: 'https://github.com/Nexmo/nexmo-oas-renderer', branch: 'update-volta', require: false
 
@@ -158,7 +158,7 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.9'
   gem 'rspec-snapshot', '~> 0.1.2'
   gem 'simplecov', require: false
 end

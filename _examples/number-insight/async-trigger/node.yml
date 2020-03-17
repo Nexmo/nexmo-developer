@@ -1,9 +1,9 @@
 ---
-dependencies:
-    - nexmo
-    - express
-    - body-parser
-code:
+client:
     source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-advanced-async-client.js
     from_line: 9
+    to_line: 14
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-advanced-async-client.js
+    from_line: 16
     to_line: 27

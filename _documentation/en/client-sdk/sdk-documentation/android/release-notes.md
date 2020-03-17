@@ -6,6 +6,43 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.4.0 - March 3 , 2020
+
+### Added
+
+- Add filter by state to `getConversationsPage`  in `NexmoClient`.
+
+```
+NexmoClient.get().getConversationsPage(50, NexmoPageOrderDesc, "JOINED", new NexmoRequestListener<NexmoConversationsPage>(){
+   void onError(@NonNull NexmoApiError error){
+
+   }
+   void onSuccess(@Nullable NexmoConversationsPage result){
+        //Get the current page conversations -Sync
+        Collection<NexmoConversation> conversations = result.getData()
+        //Get the next page -Async
+        result.getNext(new NexmoRequestListener<NexmoConversationsPage>(){
+        void onError(@NonNull NexmoApiError error){
+
+           }
+           void onSuccess(@Nullable NexmoConversationsPage result){
+
+           }
+        })
+
+        //Get the previous page -Async
+        result.getPrev(new NexmoRequestListener<NexmoConversationsPage>(){
+        void onError(@NonNull NexmoApiError error){
+
+           }
+           void onSuccess(@Nullable NexmoConversationsPage result){
+
+           }
+        })
+   }
+});
+```
+
 ## Version 2.3.0 - February 11, 2020
 
 ### Added

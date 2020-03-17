@@ -14,7 +14,7 @@ Replace the following variables in the example code:
 Key |	Description
 -- | --
 `UUID` | the UUID of the call into which to play the text-to-speech message.
-`Text` | text of the message to play into the call.
+`TEXT` | text of the message to play into the call.
 
 
 ```code_snippets

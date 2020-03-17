@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/robots.txt', to: 'static#robots'
   get '/jwt', to: 'static#jwt'
 
-  get '/*landing_page', to: 'static#default_landing', constraints: LandingPageConstraint.matches?
+  get '/*landing_page', to: 'static#default_landing', constraints: LandingPageConstraint.matches?, as: :static
 
   get 'markdown/show'
 
@@ -33,11 +33,13 @@ Rails.application.routes.draw do
   get '/stats', to: 'dashboard#stats'
   get '/stats/summary', to: 'dashboard#stats_summary'
 
-  get '/use-cases/(:code_language)', to: 'use_case#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
+  get '/use-cases/(:code_language)', to: 'use_case#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint, as: :use_cases
   get '/use-cases/*document(/:code_language)', to: 'use_case#show', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
 
+  get '/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: DocumentationConstraint.documentation
+
   get '/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: lambda { |request|
-    products = DocumentationConstraint.product_with_parent_list
+    products = Product.all.map { |p| p['path'] }
 
     # If there's no language in the URL it's an implicit match
     includes_language = true
@@ -51,7 +53,7 @@ Rails.application.routes.draw do
     products.include?(request['product']) && includes_language
   }
 
-  get '/documentation', to: 'static#documentation'
+  get '(/:locale)/documentation', to: 'static#documentation', constraints: LocaleConstraint.new, as: :documentation
 
   get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'
 
@@ -66,7 +68,7 @@ Rails.application.routes.draw do
 
   get '/feeds/events', to: 'feeds#events'
 
-  get '/extend', to: 'extend#index'
+  get '/extend', to: 'extend#index', as: :extend
   get '/extend/:title', to: 'extend#show'
 
   get '/event_search', to: 'static#event_search'
@@ -77,9 +79,10 @@ Rails.application.routes.draw do
   get '/api-errors/:definition(/*subapi)', to: 'api_errors#index_scoped', as: 'api_errors_scoped', constraints: OpenApiConstraint.errors_available
   get '/api-errors/*definition/:id', to: 'api_errors#show', constraints: OpenApiConstraint.errors_available
 
-  get '/api', to: 'api#index'
+  get '/api', to: 'api#index', as: :api
 
   mount ::Nexmo::OAS::Renderer::API, at: '/api'
+
   authenticated(:user) do
     mount Split::Dashboard, at: 'split' if ENV['REDIS_URL']
   end
@@ -87,20 +90,20 @@ Rails.application.routes.draw do
   resources :careers, only: [:index]
 
   get '/task/(*tutorial_step)', to: 'tutorial#single'
-  get '/(:product)/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
+  get '/(*product)/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
   get '/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
-  get '/(:product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
+  get '/(*product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
   get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
 
-  get '/*product/api-reference', to: 'markdown#api'
-
-  scope '(:namespace)', namespace: 'product-lifecycle' do
-    get '/product-lifecycle/*document', to: 'markdown#show'
+  scope '(/:locale)', constraints: LocaleConstraint.new do
+    get '/*product/api-reference', to: 'markdown#api'
   end
 
-  scope '(:namespace)', namespace: /contribute/, defaults: { namespace: '' } do
-    get '/(:product)/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
-  end
+  get '(/:locale)/:namespace/*document', to: 'markdown#show', constraints: { namespace: 'product-lifecycle', locale: LocaleConstraint.available_locales }, as: 'product_lifecycle'
+
+  get '(/:locale)/:namespace/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(namespace: 'contribute', locale: LocaleConstraint.available_locales)
+
+  get '(/:locale)/*product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(locale: LocaleConstraint.available_locales)
 
   get '*unmatched_route', to: 'application#not_found'
 
