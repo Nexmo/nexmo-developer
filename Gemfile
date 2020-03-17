@@ -131,7 +131,7 @@ gem 'country_select', '~> 4.0'
 
 gem 'nexmo_markdown_renderer', '~> 0.2.0'
 
-gem 'nexmo-oas-renderer', git: 'https://github.com/Nexmo/nexmo-oas-renderer', branch: 'update-volta', require: false
+gem 'nexmo-oas-renderer', '~> 0.9', require: false
 
 gem 'smartling'
 
