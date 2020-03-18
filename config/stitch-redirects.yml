@@ -46,6 +46,7 @@
 "/stitch/in-app-voice/guides/outbound-pstn/javascript": "/client-sdk/in-app-voice/guides/make-call"
 "/stitch/in-app-video/guides/enable-video/javascript": "https://tokbox.com/developer/guides/basics/"
 "/stitch/in-app-video/guides/enable-screenshare/javascript": "https://tokbox.com/developer/guides/basics/"
+"/stitch/concepts/jwt-acl": "/conversation/guides/jwt-acl"
 
 # Client SDK 
 
