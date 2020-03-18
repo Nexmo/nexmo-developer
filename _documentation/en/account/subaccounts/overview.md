@@ -89,7 +89,7 @@ A newly created subaccount with a shared balance can perform API calls directly,
 
 > RULE: Balance_available_for_transfer = |account_balance - credit_limit|
 
-It means that the primary account can transfer funds to the secondary account, and these funds can come either from its balance (assuming it is positive) or from the credit provided by Nexmo. It is also possible to transfer balance from the subaccount back to the primary account, but direct transfer of balance between subaccounts is not supported.
+It means that the primary account can transfer funds to the subaccount, and these funds can come either from its balance (assuming it is positive) or from the credit provided by Nexmo. It is also possible to transfer balance from the subaccount back to the primary account, but direct transfer of balance between subaccounts is not supported.
 
 Example: A postpaid primary account that initially had a zero balance and was given €100 in credit by Nexmo already used 20€ of the provided credit, that is, its balance was €-20. It had still €80 = |-20 - -100| that it could either spend itself or transfer to one of its subaccounts. The postpaid primary account decided to transfer €20 to Subaccount1. The primary account's balance became €-40 after this operation.
 
@@ -101,7 +101,7 @@ A primary account is considered postpaid if it has a credit facility provided by
 
 > RULE: Credit_available_for_allocation =  |credit_limit| - |account_balance|, if account_balance < 0 AND |credit_limit|, if account_balance > 0
 
-It means that the primary account can allocate part or all of its credit facility that has not been already spent or allocated to the secondary account, and vice versa (credit that was not used by the subaccount can be returned to the primary account).
+It means that the primary account can allocate part or all of its credit facility that has not been already spent or allocated to the subaccount, and vice versa (credit that was not used by the subaccount can be returned to the primary account).
 
 Example: After spending €20 and transferring another €20 to subaccount1, the postpaid primary account's balance dropped to €-40, and it decided to assign individual balance to Subaccount2 and to allocate €35 out of its remaining credit to it. The primary account had |-100| - |-40| = €60 in credit available for allocation. After the credit allocation operation, the primary account's remaining credit line became €65: |credit_limit| = |-100| - 35 = €65.
 

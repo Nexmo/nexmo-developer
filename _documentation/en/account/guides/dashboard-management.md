@@ -11,7 +11,7 @@ Dashboard is a web application that makes it easy to:
 * Manage payments - top up your account balance, configure notifications and generate invoices
 * Manage numbers - view and buy virtual numbers and short codes
 * Analyze your API use - each product has a dedicated page you use to search and interpret the results of your API requests
-* Manage your team
+* Manage your team - you can create team members who have controlled access to your primary account or [subaccounts](/account/subaccounts/overview)
 
 ## Contents
 
@@ -47,25 +47,25 @@ To retrieve your Nexmo account information:
 
 ## Manage your team
 
-When you setup your Nexmo account you create your primary user. The primary user has unlimited access to your Nexmo products and services. That is:
+When you setup your Nexmo account you create your primary user. The primary user has unlimited access to your Nexmo products and services. The primary user can:
 
 * Manage payments and view your payment history
 * Rent virtual numbers and short codes
 * Search through your requests
 * Analyze your API use
 
-After setup, you can add team members to your Nexmo account. A team member can have the same access rights as your primary account or a restricted set. For example, you can create a team member with no access to payments.
+After setup, you can add team members to your Nexmo account. A team member can have the same access rights as your primary user or a restricted set. For example, you can create a team member with no access to payments.
 
 To create a team member:
 
 1. [Sign in](https://dashboard.nexmo.com/sign-in) to Dashboard.
 2. On the top-right of Dashboard, click the arrow next to **&lt;username>**, then click **Team**.
 3. Click **Invite team member**.
-4. Add the team member information and choose any restrictions you want to apply.
+4. Add the team member information, assign one or more API keys, and then choose any restrictions you want to apply.
 5. Click **Invite**.
-6. Your team member uses the temporary password they receive in an email to access Dashboard and create a new password.
+6. Your team member uses the temporary password they receive in an email to access Dashboard and then creates a new password.
 
-You use the *api_key* and *api_secret* associated with primary and subaccounts to connect to Nexmo API endpoints.
+Team members then use the *api_key* and *api_secret* associated with any assigned accounts to connect to Nexmo API endpoints.
 
 ## Manage your profile
 

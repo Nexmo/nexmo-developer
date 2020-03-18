@@ -20,6 +20,6 @@ Note right of SecretB: API secret in use
 
 You can manage your API secrets via the [account API](/api/account) or the `settings` section in the [Nexmo Dashboard](https://dashboard.nexmo.com/settings).
 
-## Secondary Account Secret Management
+## Subaccount Secret Management
 
-In addition to managing your own API secrets, primary accounts can manage API secrets for any secondary account that it owns. To do this, authenticate with the Nexmo API using your primary account's API key and secret and specify the secondary account's API key as the `account_id` to manage in your [API call](/api/account/secret-management).
+In addition to managing your own API secrets, primary accounts can manage API secrets for any subaccount that it owns. To do this, authenticate with the Nexmo API using your primary account's API key and secret and specify the subaccount's API key as the `account_id` to manage in your [API call](/api/account/secret-management).

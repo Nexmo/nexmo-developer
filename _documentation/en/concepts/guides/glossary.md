@@ -249,7 +249,7 @@ This product is a self-service customer tool.
 You use your Dashboard to:
 
 * Manage your account:
-    * Secondary users
+    * Team members
     * Top-ups
     * Notifications
     * Profile
