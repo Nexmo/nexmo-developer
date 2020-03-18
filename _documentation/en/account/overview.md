@@ -10,7 +10,7 @@ Your Nexmo account can be managed in a few different ways:
 
 * Via the [Dashboard](https://dashboard.nexmo.com/)
 * Using the [CLI](/tools) (command line interface) tool
-* By calling the [API](/api/account) directly or with one of the [Nexmo client libraries](/tools) for your preferred technology stack
+* By calling the [API](/api/account) directly or with one of the [Nexmo Server SDKs](/tools) for your preferred technology stack
 
 Within your account you can check your balance, configure the account-level settings, and rotate your API secrets for security purposes.
 
@@ -36,7 +36,7 @@ A _primary user_ is created when a Nexmo account is created. There can only be a
 
 ## Team member
 
-A Team Member, formerly referred to as a _secondary user_, represents a user that manages and configures one or more accounts via the [Dashboard](https://dashboard.nexmo.com/). Team Members have usernames and passwords to login to the [Dashboard](https://dashboard.nexmo.com/), and different sets of permissions to define what they can manage via the Dashboard.
+A team member, formerly referred to as a _secondary user_, represents a user that manages and configures one or more accounts via the [Dashboard](https://dashboard.nexmo.com/). Team members have usernames and passwords to login to the [Dashboard](https://dashboard.nexmo.com/), and different sets of permissions to define what they can manage via the Dashboard.
 
 ## API secret
 
