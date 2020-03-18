@@ -11,7 +11,7 @@ languages:
 
 You can retrieve the details of a Conversation object for a voice call using the Conversation API.
 
-While this tutorial looks at retrieving the details for an voice call, there are many possible scenarios that could have been looked at, such as a video call or a text chat session. It is hoped that this tutorial will provide insight into the structure of a Conversation, as the Conversation is an important object that underlies much of the Nexmo technology. It is a fundamental data structure for communication activities, as all communication takes place through a Conversation.
+While this tutorial looks specifically at retrieving the details of a voice call, there are many other possible use cases with other capabilities, such as a video call or a text chat session. The purpose of this tutorial is to provide insight into the structure of a Conversation, as the Conversation is an important object that underlies much of the Nexmo technology. It is a fundamental data structure for communication activities, as all communication takes place through a Conversation.
 
 The setup you will have in this tutorial is illustrated in the following diagram:
 
