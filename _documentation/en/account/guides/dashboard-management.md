@@ -63,7 +63,7 @@ To create a team member:
 3. Click **Invite team member**.
 4. Add the team member information, assign one or more API keys, and then choose any restrictions you want to apply.
 5. Click **Invite**.
-6. Your team member uses the temporary password they receive in an email to access Dashboard and then creates a new password.
+6. Your team member uses the temporary password they receive in an email to access the Dashboard and then create a new password.
 
 Team members then use the *api_key* and *api_secret* associated with any assigned accounts to connect to Nexmo API endpoints.
 
