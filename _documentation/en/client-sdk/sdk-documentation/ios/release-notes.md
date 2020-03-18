@@ -7,6 +7,12 @@ navigation_weight: 0
 # Release Notes
 
 
+## 2.1.5 - 2020-03-18
+
+### Internal
+- Updated Device Registration format for production environments.
+
+
 ## 2.1.1 - 2020-03-05
 
 ### Added
