@@ -1,0 +1,83 @@
+cn:
+  menu:
+    message-search: 消息搜索
+    messaging: 消息传递
+    voice: 语音
+    voice-api: 语音 API
+    sip: SIP
+    account: 帐户
+    number-insight: 号码洞察
+    stitch: 线圈
+    client-sdk: Client SDK
+    conversation: 会话
+    user: 用户
+    member: 成员
+    event: 事件
+    leg: 链路
+    in-app-messaging: 应用内消息传递
+    in-app-voice: 应用内语音
+    in-app-video: 应用内视频
+    messages: 消息 API
+    dispatch: 调度 API
+    reports: 报告
+    us-short-codes: 美国短代码
+    sms: 短信
+    mms: 彩信
+    guides: 指南
+    quickstarts: 快速开始
+    tutorials: 教程
+    conversion-api: 转换 API
+    concepts: 概念
+    code-snippets: 代码片段
+    verify: 验证
+    configure: 配置
+    contribute: 贡献
+    structure: 结构
+    sdk-documentation: SDK 文档
+    android: Android
+    ios: iOS
+    javascript: JavaScript
+    javascript-quickstart: JS 快速开始
+    redact: 编写
+    audit: 审计
+    numbers: 号码
+    secret-management: 密码管理
+    external-accounts: 外部帐户 API
+    vonage-business-cloud: Vonage Business Cloud
+    smart-numbers: 智能号码
+    integration-suite: Vonage 集成套件
+    vbc-apis: VBC API
+    account-api: 帐户 API
+    extension-api: 分机 API
+    reports-api: 报告 API
+    user-api: 用户 API
+    call-recording-api: 通话记录 API
+    getting-started: 入门
+    setup: 设置
+    configuration: 配置
+
+    administration: Administration
+    tasks: Tasks
+    application: Application
+    product-lifecycle: Product Lifecycle
+    whatsapp: WhatsApp
+    messenger: Facebook Messenger
+    viber: Viber Service Messages
+    subaccounts: Subaccounts (Beta)
+    use-cases: Use Cases
+
+  layouts:
+    partials:
+      header:
+        documentation: 文档
+        tutorials: 教程
+        api-reference: API 参考
+        sdks-and-tools: SDK 和工具
+        community:  社区
+        extend: 扩展
+        hiring: 我们正在招聘
+        support: 支持
+        sign-in: 登录
+        try-it: 免费试用
+        get_an_api_key: 获取 API 密钥
+        start_building: 开始免费构建
