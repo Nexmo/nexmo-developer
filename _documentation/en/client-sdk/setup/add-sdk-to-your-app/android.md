@@ -23,7 +23,7 @@ To add the Nexmo Client SDK to your project, add the following dependency in you
 
 ```groovy
 dependencies {
-    implementation 'com.nexmo.android:client-sdk:1.0.0'
+    implementation 'com.nexmo.android:client-sdk:2.1.2'
 }
 ```
 
@@ -43,8 +43,6 @@ To use the In-App Voice features, add audio permissions using the following proc
 
         <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
         <uses-permission android:name="android.permission.RECORD_AUDIO" />
-        <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
         <application>
 
@@ -52,17 +50,22 @@ To use the In-App Voice features, add audio permissions using the following proc
     </>
     ```
 
-2. For devices running Android version M (API level 23) or higher, you should add a request for the permissions required:
+2. For devices running Android version M (API level 23) or higher, you should request for the `RECORD_AUDIO` permission at runtime:
 
     ```java
-    android.Manifest.permission.READ_PHONE_STATE,
+    // Here, thisActivity is the current activity
+    if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
 
-    android.Manifest.permission.RECORD_AUDIO,
+        // Permission is not granted, so we will request it
+        int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 123;
 
-    android.Manifest.permission.PROCESS_OUTGOING_CALLS
+        ActivityCompat.requestPermissions(thisActivity, 
+                                            new String[]{Manifest.permission.RECORD_AUDIO}, 
+                                            MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+    }
     ```
 
-    Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting)
+    Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting). 
 
 ## Using `NexmoClient` in your App
 
