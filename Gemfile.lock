@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Nexmo/nexmo-markdown-renderer
-  revision: 679c0d7464ae10b0e3fa7ead6fcfd9f5cc93accd
+  revision: 50976c4fd7b5dc7312c56f93d31de316bbe9804a
   branch: fix-voice-snippets
   specs:
     nexmo_markdown_renderer (0.2.0)
