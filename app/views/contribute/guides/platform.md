@@ -11,7 +11,7 @@ This document provides some insight into the inner-workings of Nexmo Developer a
 - [Icons](#icons)
 - [Navigation Text](#navigation-text)
 - [Pages and content](#pages-and-content)
-- [Open API Pages](#open-api-pages)
+- [OpenAPI Pages](#openapi-pages)
 - [Admin](#admin)
 - [Search](#search)
 - [Non-markdown pages](#non-markdown-pages)
@@ -67,11 +67,12 @@ Documentation pages can be created by creating a new Markdown file for the conte
 
 You can find this at `/app/constraints/documentation_constraint.rb`. The `product` and `product_with_parent` methods supply a hash of constraints back to the router so that context can be inferred by the application. Any new products should be added to this list.
 
-## Open API Pages
+<a name="open-api-pages" />
+## OpenAPI Pages
 
-API pages use a custom Open API parser and renderer. The parser belongs to a separate dependency you can find at [https://github.com/nexmo/oas_parser](https://github.com/nexmo/oas_parser). The rendering is provided by views that can be found at `/app/views/open_api/`.
+API pages use a custom OpenAPI parser and renderer. The parser belongs to a separate dependency you can find at [https://github.com/nexmo/oas_parser](https://github.com/nexmo/oas_parser). The rendering is provided by views that can be found at `/app/views/open_api/`.
 
-Each of the Open API pages consumes an Open API Specification 3 definition for that API. These are held in a separate repo <https://github.com/Nexmo/api-specification> and are brought into NDP as a git submodule.
+Each of the OpenAPI pages consumes an OpenAPI Specification 3 definition for that API. These are held in a separate repo <https://github.com/Nexmo/api-specification> and are brought into NDP as a git submodule.
 
 The parser has been built in such a way that it has tested against several OAS definitions however full compatibility with the specification shouldn't be assumed and development work may be required to support new features as they are authored within our definitions.
 

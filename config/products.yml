@@ -19,6 +19,7 @@ products:
   - numbers
   - redact
   - reports
+  - tools
   - verify
   - voice
   - voice/sip

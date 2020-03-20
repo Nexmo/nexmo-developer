@@ -164,7 +164,7 @@ User.create!(email: 'example@example.com', password: 'password', admin: true)
 
 ## Working with submodules
 
-Some of the contents of NDP are brought in via git submodules, such as the Open API Specification (OAS) documents. A submodule is a separate repository used within the main repository (in this case NDP) as a dependency. The main repository holds information about the location of the remote repository and **which commit to reference**. So to make a change within a submodule, you need to commit to the submodule and the main repository and crucially remember to push both sets of changes to GitHub.
+Some of the contents of NDP are brought in via git submodules, such as the OpenAPI Specification (OAS) documents. A submodule is a separate repository used within the main repository (in this case NDP) as a dependency. The main repository holds information about the location of the remote repository and **which commit to reference**. So to make a change within a submodule, you need to commit to the submodule and the main repository and crucially remember to push both sets of changes to GitHub.
 
 Here are some tips for working with submodules:
 

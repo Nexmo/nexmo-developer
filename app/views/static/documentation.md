@@ -14,6 +14,7 @@ There are a number of shared concepts between the various Nexmo APIs:
 - [Authentication](/concepts/guides/authentication) – API keys and JSON Web Tokens (JWTs)
 - [Signing messages](/concepts/guides/signing-messages) – How to cryptographically sign messages and verify signatures
 - [Webhooks](/concepts/guides/webhooks) – Nexmo's API can send data back to your web server via a webhook
+* [OpenAPI](/concepts/guides/openapi) – All Nexmo APIs have OpenAPI descriptions that you can take advantage of in your own development process
 
 You can also find definitions of commonly used terms in the [Glossary](/concepts/guides/glossary).
 

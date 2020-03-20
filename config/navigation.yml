@@ -144,6 +144,8 @@ navigation_overrides:
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'
+  tools:
+    svg: 'tool'
   contribute:
     administration:
       navigation_weight: 9999
