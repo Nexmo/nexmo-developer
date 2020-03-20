@@ -31,23 +31,17 @@ dependencies {
 
 To use the In-App Voice features, add audio permissions using the following procedure:
 
-1. On your `AndroidManifest.xml` add the required permissions:
+1. Add required permissions to `AndroidManifest.xml` file:
 
     ```xml
     <manifest ...>
-
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-
         <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
         <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-        <application>
-
-        </>
-    </>
+    </manifest>
     ```
 
 2. For devices running Android version M (API level 23) or higher, you should request for the `RECORD_AUDIO` permission at runtime:
@@ -55,13 +49,7 @@ To use the In-App Voice features, add audio permissions using the following proc
     ```java
     // Here, thisActivity is the current activity
     if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-
-        // Permission is not granted, so we will request it
-        int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 123;
-
-        ActivityCompat.requestPermissions(thisActivity, 
-                                            new String[]{Manifest.permission.RECORD_AUDIO}, 
-                                            MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+        ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.RECORD_AUDIO}, "123");
     }
     ```
 
