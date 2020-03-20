@@ -36,6 +36,12 @@ We write the docs in US English and enforce this at build time with a CI check. 
 ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
 ```
 
+Or if you're using Docker:
+
+```
+docker-compose exec web ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
+```
+
 If there is a word that isn't in the dictionary but is correct to use, add it to the `.spelling` file (there's a lot of exceptions in there, including `Nexmo`!)
 
 ## Running locally
