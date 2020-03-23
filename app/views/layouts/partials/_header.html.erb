@@ -4,7 +4,7 @@
   <header id="header" class="Nxd-header__main">
     <div class="Nxd-logo">
       <a href="/" id="logo" class="Nxd-logo__image Vlt-M-plus">
-        <%= image_tag asset_pack_path('media/logos/vonage-logo.svg'), alt:'Nexmo Developer Logo' %>
+        <%= image_tag asset_pack_path('media/logos/Vonage-wordmark.svg'), alt:'Nexmo Developer Logo' %>
 
         <hr class="Nxd-product__separator">
         <div class="Nxd-product__title Vlt-black">
@@ -13,7 +13,7 @@
         </div>
       </a>
       <a href="/" id="logo" class="Nxd-logo__image Vlt-S-only">
-        <%= image_tag asset_pack_path('media/logos/vonage-logo--collapsed.svg'), alt:'Nexmo Developer Logo' %>
+        <%= image_tag asset_pack_path('media/logos/Vonage-wordmark.svg'), alt:'Nexmo Developer Logo' %>
       </a>
       <a href=<%= careers_path %> class="Vlt-M-plus Vlt-badge Vlt-badge--purple Vlt-badge--transparent Vlt-badge--small Nxd-product__hiring">
         <span id="header-hiring"><%= t('.hiring') %></span>
@@ -21,9 +21,6 @@
     </div>
 
     <nav class="Nxd-header__nav">
-      <div class="Vlt-native-dropdown">
-        <%= select_tag :preferred_locale, options_for_select(I18n.available_locales, session[:locale]), id: 'locale-switcher' %>
-      </div>
       <a class="Nxd-main-header__link Vlt-M-plus Vlt-black" href="https://vonage.com/communications-apis">Vonage.com</a>
       <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--secondary Vlt-btn--app" data-ab="try_button_v2"><b>
           <% ab_test(:try_button_v2, "< #{t('.try-it')} />", "{ #{t('.try-it')} }", "< #{t('.get_an_api_key')} />", "{ #{t('.get_an_api_key')} }", "< #{t('.start_building')} />", "{ #{t('.start_building')} }") do |s| %>
