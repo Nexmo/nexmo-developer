@@ -20,4 +20,6 @@ You can then view the JWT with:
 echo $JWT
 ```
 
-> **TIP:** You can test your JWT at [jwt.io](https://jwt.io)
+Alternatively, you can use our [JWT web app](/jwt) to generate a JWT.
+
+> **TIP:** You can test your generated JWT at [jwt.io](https://jwt.io)
