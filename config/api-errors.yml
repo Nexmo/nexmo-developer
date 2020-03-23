@@ -91,14 +91,26 @@ generic_errors:
 
   accept-header:
     description: Invalid Accept header provided
-    resolution: Most Nexmo APIs only send back application/json. Check the API documentation for the API that you're working with for a complete list of supported data types
+    resolution: Most Vonage APIs only send back application/json. Check the API documentation for the API that you're working with for a complete list of supported data types
     link:
       text: API documentation
       url: /api
 
   content-type-header:
     description: Invalid Content-Type header provided
-    resolution: Most Nexmo APIs only accept application/json. Check the API documentation for the API that you're working with for a complete list of supported data types
+    resolution: Most Vonage APIs only accept application/json. Check the API documentation for the API that you're working with for a complete list of supported data types
     link:
       text: API documentation
       url: /api
+
+  unavailable-legal:
+    description: Unavailable For Legal Reasons
+    resolution: |
+        Vonage APIs are unavailable in the following areas due to international sanctions
+
+        * Sudan
+        * Syria
+        * Crimea
+        * North Korea
+        * Iran
+        * Cuba
