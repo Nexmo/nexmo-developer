@@ -25,7 +25,7 @@ prerequisites:
 - install-node-client-sdk
 - install-nexmo-cli-beta
 - install-express
-- run-ngrok
+- set-up-webhook-server
 
 tasks:
 - client-sdk/create-application
