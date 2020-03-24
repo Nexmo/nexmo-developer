@@ -7,6 +7,8 @@ description: In this step you learn how to create a suitable webhook server that
 
 Nexmo will make a request to your `answer_url` when an inbound call is received. You need to create a webhook server that is capable of receiving this request and returning an NCCO containing a `connect` action that will forward the call to the PSTN phone number. You do this by extracting the destination number from the `to` query parameter and returning it in your response.
 
+> **NOTE:** If using Glitch, your server.js is already created in your project, make your modifications there..
+
 Create a file named `server.js` and add the server code as shown. Modify the values in `allowed_numbers` to include only those phone numbers that you will permit incoming calls to be forwarded to:
 
 ``` javascript

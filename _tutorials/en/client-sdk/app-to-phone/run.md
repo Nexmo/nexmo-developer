@@ -5,9 +5,11 @@ description: In this step you learn how to run your app to phone application.
 
 # Run your application
 
-> **NOTE:** If you have not already done so, make sure you have [Ngrok running](/client-sdk/tutorials/app-to-phone/prerequisites#how-to-run-ngrok).
 
-Run your application with `node server.js`, then visit [http://localhost:3000](http://localhost:3000)
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/tutorials/app-to-phone/run-application'
+```
+
 
 A text field and button is displayed on the page.
 

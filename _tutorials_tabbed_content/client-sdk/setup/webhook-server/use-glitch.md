@@ -4,29 +4,8 @@ menu_weight: 2
 ---
 
 
-Glitch instructions here
-Inside `ConversationViewController.m`, locate the following line 
+To get started faster, we have a [Glitch](https://glitch.com) webhook server that you can remix and use so you do not need to set one up locally.
 
-`//MARK: Fetch Conversation` 
-
-and fill in the `getConversation` method implementation:
-
-```objective-c
-//MARK: Fetch Conversation
-
-- (void)getConversation {
-    [NXMClient.shared getConversationWithUuid:kConversationUUID completionHandler:^(NSError * _Nullable error, NXMConversation * _Nullable conversation) {
-        self.error = error;
-        self.conversation = conversation;
-        [self updateInterface];
-        [self getEvents];
-    }];
-}
-```
-
-Notice the use of the `NXMClient.shared` singleton - this references the exact same object we had as a `client` property in `UserSelectionViewController`.
-
-> **Note:** This is where we get to use the `kConversationUUID` static property we've defined in the "The Starter Project" step.
-
-If a conversation has been retrieved, we're ready to process to the next step: getting the events for our conversation.
-
+Steps:
+- Remix the webhook server template: [https://glitch.com/edit/#!/remix/ash-traveling-globe](https://glitch.com/edit/#!/remix/ash-traveling-globe)
+- Take note of your Glitch Project Name: https://glitch.com/edit/#!/glitch-project-name
