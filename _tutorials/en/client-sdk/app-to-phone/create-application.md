@@ -11,7 +11,7 @@ You now need to create a Nexmo application. In this step you create an applicati
 >
 >Using Ngrok: For more information on using Ngrok for local testing please see [testing with Ngrok](/concepts/guides/testing-with-ngrok). 
 >
->Using Glitch: Modify the endpoints to use your Glitch Project name: glitch-project-name.glitch.me
+>Using Glitch: Modify the endpoints to use your Glitch Project name: `glitch-project-name.glitch.me`
 >
 >Any requests that Nexmo makes to the webhook URLs *must* be acknowledged by returning a HTTP `200` or `204` response.
 

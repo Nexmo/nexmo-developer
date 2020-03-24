@@ -4,4 +4,4 @@ menu_weight: 2
 ---
 
 
-Open index.html into a browser.
+Open `index.html` in a browser.
