@@ -1,0 +1,36 @@
+<div class="Vlt-dropdown" id="locale-switcher">
+  <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn">
+    <button class="Vlt-btn Vlt-btn--app Vlt-btn--secondary Vlt-btn--outline">
+      <span class="Vlt-dropdown__selection">
+        <svg class="Vlt-dropdown__link__icon">
+          <% if I18n.locale.to_s == 'cn' %>
+            <use xlink:href="<%= asset_pack_path('media/symbol/volta-flag-icons.svg') %>#china"/>
+          <% else %>
+            <use xlink:href="<%= asset_pack_path('media/symbol/volta-flag-icons.svg') %>#united-kingdom"/>
+          <% end %>
+        </svg>
+        <% if I18n.locale.to_s == 'cn' %>
+          简体中文
+        <% else %>
+          English
+        <% end %>
+      </span>
+    </button>
+  </div>
+  <div class="Vlt-dropdown__panel">
+    <div class="Vlt-dropdown__panel__content">
+      <div class="Vlt-dropdown__link" data-locale="en">
+        <span class="Vlt-dropdown__label">
+          <svg class="Vlt-dropdown__link__icon"><use xlink:href="<%= asset_pack_path('media/symbol/volta-flag-icons.svg') %>#united-kingdom"/></svg>
+          English
+        </span>
+      </div>
+      <div class="Vlt-dropdown__link" data-locale="cn">
+        <span class="Vlt-dropdown__label">
+          <svg class="Vlt-dropdown__link__icon"><use xlink:href="<%= asset_pack_path('media/symbol/volta-flag-icons.svg') %>#china"/></svg>
+          简体中文
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

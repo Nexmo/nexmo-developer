@@ -13,6 +13,7 @@ import '@vonagevolta/volta2/js/addons/prism'
 import '../stylesheets/application'
 
 require.context('@vonagevolta/volta2/images/logos', true)
+require.context('@vonagevolta/volta2/dist/symbol', true)
 
 // XXX: hack for Volta, unfortunately it doesn't provide modules :(
 import Volta from "../javascript/volta/volta.js"

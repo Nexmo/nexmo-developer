@@ -3,23 +3,34 @@ import Rails from '@rails/ujs';
 export default class LocaleSwitcher {
   constructor() {
     this.switcher = document.getElementById('locale-switcher');
-    this.setupEventListeners();
+    if (this.switcher) {
+      this.setupEventListeners();
+    }
   }
 
   setupEventListeners() {
     const self = this;
 
     window.addEventListener('load', function() {
-      self.switcher.addEventListener('change', self.localeChangeHandler.bind(self));
+      let dropdownBtn = self.switcher.querySelector('.Vlt-btn');
+      let dropdownOptions = self.switcher.querySelectorAll('.Vlt-dropdown__link');
+
+      dropdownOptions.forEach(function(option) {
+        let value = option.innerText
+        option.addEventListener("click", function() {
+          dropdownBtn.innerHTML = option.innerHTML;
+          self.localeChangeHandler(option.dataset.locale);
+        });
+      });
     });
   }
 
-  localeChangeHandler() {
+  localeChangeHandler(locale) {
     Rails.ajax({
       url: "/set_user_locale",
       type: "PUT",
       dataType: 'json',
-      data: `preferred_locale=${this.switcher.value}`
+      data: `preferred_locale=${locale}`
     })
   }
 }
