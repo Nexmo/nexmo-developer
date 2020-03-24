@@ -25,7 +25,7 @@ RSpec.describe SidenavSubitem do
 
   describe '#title' do
     it 'delegates the title generation to TitleNormalizer' do
-      expect(TitleNormalizer).to receive(:call).with(folder)
+      expect(TitleNormalizer).to receive(:call).with(folder).and_return('Example Title')
       subject.title
     end
   end

@@ -3,6 +3,9 @@ class SidenavSubitem < SidenavItem
 
   def title
     @title ||= TitleNormalizer.call(@folder)
+    raise "Missing 'title' in frontmatter for #{@folder[:path]}" unless @title
+
+    @title
   end
 
   def show_link?
