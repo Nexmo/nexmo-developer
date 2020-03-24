@@ -7,7 +7,7 @@ description: In this step you learn how to create a Nexmo Application.
 
 You now need to create a Nexmo application. In this step you create an application capable of handling both in-app Voice and in-app Messaging use cases.
 
-> **NOTE:** In the following procedure you need to change the webhook URLs to suit your local setup. For more information on using Ngrok for local testing please see [testing with Ngrok](/concepts/guides/testing-with-ngrok). Any requests that Nexmo makes to the webhook URLs *must* be acknowledged by returning a HTTP `200` or `204` response.
+> **NOTE:** In the following procedure you need to change the webhook URLs to suit your local setup. For more information on using Ngrok for local testing please see [testing with Ngrok](/tools/ngrok). Any requests that Nexmo makes to the webhook URLs *must* be acknowledged by returning a HTTP `200` or `204` response.
 
 1) First create your project directory if you've not already done so.
 

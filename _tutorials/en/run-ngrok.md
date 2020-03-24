@@ -5,7 +5,7 @@ description: How to run Ngrok to test your application locally.
 
 <a name="how-to-run-ngrok"></a>
 
-You must make your webhook accessible to Nexmo’s APIs over the public Internet. An easy way to achieve this during development without standing up your own server is to use [Ngrok](https://ngrok.com/). To learn more, [read our documentation on Ngrok](/concepts/guides/testing-with-ngrok).
+You must make your webhook accessible to Nexmo’s APIs over the public Internet. An easy way to achieve this during development without standing up your own server is to use [Ngrok](https://ngrok.com/). To learn more, [read our documentation on Ngrok](/tools/ngrok).
 
 Download and install ngrok, then execute the following command to expose your application on port 3000 to the public Internet:
 

@@ -24,7 +24,7 @@ Please read this information carefully before attempting to use the code snippet
 The following resources will help you use the [Number Insight Advanced Async](number-insight-advanced-async) code snippet:
 
 - [Webhooks](/concepts/guides/webhooks)
-- [Using Ngrok for local development](/concepts/guides/testing-with-ngrok)
+- [Using Ngrok for local development](/tools/ngrok)
 
 ## Replaceable variables
 

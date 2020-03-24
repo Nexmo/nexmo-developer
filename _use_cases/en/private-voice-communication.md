@@ -53,7 +53,7 @@ A Voice API Application is a Nexmo construct and should not be confused with the
 
 You can create a Voice API Application with the Nexmo CLI. You must provide a name for the application and the URLs of two webhook endpoints: the first is the one that Nexmo's APIs will make a request to when you receive an inbound call on your virtual number and the second is where the API can post event data.
 
-Replace the domain name in the following Nexmo CLI command with your ngrok domain name ([How to run ngrok](https://developer.nexmo.com/concepts/guides/testing-with-ngrok/)) and run it in your project's root directory:
+Replace the domain name in the following Nexmo CLI command with your ngrok domain name ([How to run ngrok](https://developer.nexmo.com/tools/ngrok/)) and run it in your project's root directory:
 
 ``` shell
 nexmo app:create "voice-proxy" --capabilities=voice --voice-answer-url=https://example.com/proxy-call --voice-event-url=https://example.com/event --keyfile=private.key

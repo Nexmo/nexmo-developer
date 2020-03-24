@@ -1,5 +1,5 @@
 ---
-title: Testing with Ngrok
+title: Ngrok
 description: This topic shows you how to test your Nexmo application locally using Ngrok. 
 ---
 

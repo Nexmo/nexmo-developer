@@ -5,7 +5,7 @@ description: Expose your local webhook server to the internet
 
 If you want to test your application locally you can use Ngrok.
 
-See our information on [Using Ngrok for local development](/concepts/guides/testing-with-ngrok)
+See our information on [Using Ngrok for local development](/tools/ngrok)
 
 If using Ngrok in this manner you would use the Ngrok URLs for your webhook URLs:
 
