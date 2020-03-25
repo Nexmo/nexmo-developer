@@ -12,31 +12,62 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 <html lang="en">
 
 <head>
-  <script src="nexmoClient.js"></script>
+    <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
+    <style>
+        input, button {
+            font-size: 1rem;
+        }
+        #hangup {
+            display:none;
+        }
+    </style>
 </head>
 
 <body>
-
-  <form id="call-phone-form">
     <h1>Call Phone from App</h1>
-    <input type="text" name="phonenumber" value="">
-    <input type="submit" value="Call" />
-  </form>
+    <label for="phone-number">Your Phone Number:</label>
+    <input type="text" name="phone-number" value="" placeholder="i.e. 14155550100" id="phone-number" size="30">
+    <button type="button" id="call">Call</button>
+    <button type="button" id="hangup">Hang Up</button>
+    <div id="status"></div>
 
-  <script>
-    const USER_JWT = "PASTE YOUR JWT HERE";
-    const callPhoneForm = document.getElementById("call-phone-form");
-    new NexmoClient({ debug: true })
-      .login(USER_JWT)
-      .then(app => {
-        callPhoneForm.addEventListener("submit", event => {
-          event.preventDefault();
-          let number = callPhoneForm.children.phonenumber.value;
-          app.callServer(number);
-        });
-      })
-      .catch(console.error);
-  </script>
+    <script>
+        const USER_JWT = "PASTE YOUR JWT HERE";
+        const phoneNumberInput = document.getElementById("phone-number");
+        const callButton = document.getElementById("call");
+        const hangupButton = document.getElementById("hangup");
+        const statusElement = document.getElementById("status");
+        new NexmoClient({ debug: true })
+            .login(USER_JWT)
+            .then(app => {
+                callButton.addEventListener("click", event => {
+                    event.preventDefault();
+                    let number = phoneNumberInput.value;
+                    if (number !== ""){
+                        app.callServer(number);
+                    } else {
+                        statusElement.innerText = 'Please enter your phone number.';
+                    }
+                });
+                app.on("member:call", (member, call) => {
+                    hangupButton.addEventListener("click", () => {
+                        call.hangUp();
+                    });
+                });
+                app.on("call:status:changed",(call) => {
+                    statusElement.innerText = `Call status: ${call.status}`;
+                    if (call.status === "started"){
+                        callButton.style.display = "none";
+                        hangupButton.style.display = "inline";
+                    }
+                    if (call.status === "completed"){
+                        callButton.style.display = "inline";
+                        hangupButton.style.display = "none";
+                    }
+                });
+            })
+            .catch(console.error);
+    </script>
 
 </body>
 

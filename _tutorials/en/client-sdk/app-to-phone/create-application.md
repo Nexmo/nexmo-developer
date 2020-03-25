@@ -7,14 +7,6 @@ description: In this step you learn how to create a Nexmo Application.
 
 You now need to create a Nexmo application. In this step you create an application capable of handling both in-app Voice and in-app Messaging use cases.
 
-> **NOTE:** In the following procedure you need to change the webhook URLs to suit your setup. 
->
->Using Ngrok: For more information on using Ngrok for local testing please see [testing with Ngrok](/concepts/guides/testing-with-ngrok). 
->
->Using Glitch: Modify the endpoints to use your Glitch Project name: `glitch-project-name.glitch.me`
->
->Any requests that Nexmo makes to the webhook URLs *must* be acknowledged by returning a HTTP `200` or `204` response.
-
 1) First create your project directory if you've not already done so.
 
 2) Change into the project directory.
@@ -33,13 +25,13 @@ nexmo app:create
 
 6) For "Use the default HTTP methods?" press Enter to select the default.
 
-7) For "Voice Answer URL" enter `https://{your url here}/webhooks/answer` or other suitable URL (this depends on how you are testing).
+7) For "Voice Answer URL" enter `https://GLITCH-PROJECT-NAME.glitch.me/ncco.json`.
 
 8) You are next prompted for the "Voice Fallback Answer URL". This is an optional fallback URL should your main Voice Answer URL fail for some reason. In this case just press Enter. If later you need the fallback URL you can add it in the [Dashboard](https://dashboard.nexmo.com/sign-in), or using the Nexmo CLI.
 
-9) You are now required to enter the "Voice Event URL". Enter `https://{your url here}/webhooks/event`.
+9) You are now required to enter the "Voice Event URL". Press Enter to select the default.
 
-10) For " RTC Event URL" enter `https://{your url here}/webhooks/rtc`.
+10) For "RTC Event URL", press Enter to select the default.
 
 11) For "Public Key path" press Enter to select the default. If you want to use your own public-private key pair refer to [this documentation](/application/nexmo-cli#creating-an-application-with-your-own-public-private-key-pair).
 

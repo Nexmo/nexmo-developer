@@ -24,14 +24,15 @@ prerequisites:
 - install-nodejs
 - install-node-client-sdk
 - install-nexmo-cli-beta
-- install-express
-- set-up-webhook-server
+- client-sdk/app-to-phone/modify-ncco
+#- install-express
+#- set-up-webhook-server
 
 tasks:
 - client-sdk/app-to-phone/create-application
 - client-sdk/create-user
 - client-sdk/generate-jwt
-- client-sdk/app-to-phone/create-webhook-server
+#- client-sdk/app-to-phone/create-webhook-server
 - client-sdk/app-to-phone/code
 - client-sdk/app-to-phone/run
 

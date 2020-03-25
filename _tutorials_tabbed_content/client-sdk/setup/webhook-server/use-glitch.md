@@ -8,6 +8,6 @@ To get started faster, we have a [Glitch](https://glitch.com) webhook server tha
 
 Steps:
 
-- Remix the webhook server template: [https://glitch.com/edit/#!/remix/ash-traveling-globe](https://glitch.com/edit/#!/remix/ash-traveling-globe)
+- Remix the webhook server template: [https://glitch.com/edit/#!/remix/closed-innate-mint](https://glitch.com/edit/#!/remix/closed-innate-mint)
 
 - Take note of your Glitch Project Name: https://glitch.com/edit/#!/glitch-project-name
