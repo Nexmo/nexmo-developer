@@ -57,7 +57,7 @@ navigation_weight: 0
 
 ### Added
 
-- Add `updateAsDelivered` and `updateAsSeen` to `NexmoAttachmentEvent` & `NexmoTextEvent` as helper method
+- Add `updateAsDelivered` and `updateAsSeen` to `NexmoAttachmentEvent` and `NexmoTextEvent` as helper method
 to update event locally after `markAsSeen` or `markAsDelivered` has been successful.
 
 ```
@@ -75,7 +75,7 @@ to update event locally after `markAsSeen` or `markAsDelivered` has been success
 - fix `markAsSeen` and `markAsDelivered` for `NexmoTextEvent` and `NexmoAttachmentEvent`
 
 ### Changed
-- upgrade dependency libraries please add to your build gradle
+- upgrade dependency libraries please add to your Gradle build file
 
 ```groovy
 android {
@@ -93,7 +93,7 @@ android {
 
 ### Added
 
-- Add support for Custom Push Notifications, using `processNexmoPush()` (`processPushNotification()` is deprecated)
+- Add support for Custom Push Notifications, using `processNexmoPush()` ,`processPushNotification()` is deprecated
 ```
 if (NexmoClient.isNexmoPushNotification(message!!.data)) {
     val pushListener = object : NexmoPushEventListener {
@@ -131,7 +131,7 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
    })
    ```
    
- - add `markAsSeen` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
+ - Add `markAsSeen` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
  
  ```
   NexmoAttachmentEvent.markAsSeen(object: NexmoRequestListener<Any>{
