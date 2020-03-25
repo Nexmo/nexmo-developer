@@ -6,6 +6,144 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.5.0 - March 25, 2020
+
+### Added
+
+- Add `useFirstIceCandidate` parameters to `NexmoClient.Builder`
+
+```
+    nexmoClient = new NexmoClient.Builder().useFirstIceCandidate(true/false).build(context);    
+```
+
+## Version 2.4.0 - March 3 , 2020
+
+### Added
+
+- Add filter by state to `getConversationsPage`  in `NexmoClient`.
+
+```NexmoClient.get().getConversationsPage(50, NexmoPageOrderDesc, "JOINED", new NexmoRequestListener<NexmoConversationsPage>(){
+   void onError(@NonNull NexmoApiError error){
+
+   }
+   void onSuccess(@Nullable NexmoConversationsPage result){
+        //Get the current page conversations -Sync
+        Collection<NexmoConversation> conversations = result.getData()
+        //Get the next page -Async
+        result.getNext(new NexmoRequestListener<NexmoConversationsPage>(){
+        void onError(@NonNull NexmoApiError error){
+
+           }
+           void onSuccess(@Nullable NexmoConversationsPage result){
+
+           }
+        })
+
+        //Get the previous page -Async
+        result.getPrev(new NexmoRequestListener<NexmoConversationsPage>(){
+        void onError(@NonNull NexmoApiError error){
+
+           }
+           void onSuccess(@Nullable NexmoConversationsPage result){
+
+           }
+        })
+   }
+});
+
+```
+
+## Version 2.3.0 - February 11, 2020
+
+### Added
+
+- Add `updateAsDelivered` and `updateAsSeen` to `NexmoAttachmentEvent` & `NexmoTextEvent` as helper method
+to update event locally after `markAsSeen` or `markAsDelivered` has been successful.
+
+```
+  NexmoTextEvent.markAsDelivered(object: NexmoRequestListener<Any>{
+       override fun onSuccess(result: Any?) {
+       Log.d(TAG, TAG + "onTextEvent.markAsDelivered():onSuccess with: " + result.toString())
+
+            NexmoTextEvent.updateAsDelivered(my_member_id, Date.now())
+
+       }
+   })
+```
+
+### Fixed
+- fix `markAsSeen` and `markAsDelivered` for `NexmoTextEvent` and `NexmoAttachmentEvent`
+
+### Changed
+- upgrade dependency libraries please add to your build gradle
+
+```groovy
+android {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+``` 
+
+## Version 2.2.0 - January 31, 2020
+
+### Added
+
+- Add support for Custom Push Notifications, using `processNexmoPush()` (`processPushNotification()` is deprecated)
+```
+if (NexmoClient.isNexmoPushNotification(message!!.data)) {
+    val pushListener = object : NexmoPushEventListener {
+            override fun onIncomingCall(nexmoCall: NexmoCall?) {
+                Log.d(TestAppMessagingService.TAG, "$TAG:TestAppMessagingService:onIncomingCall() with: $nexmoCall")
+            }
+            override fun onError(nexmoError: NexmoApiError?) {
+                Log.d(TestAppMessagingService.TAG, "$TAG:TestAppMessagingService:onError() with: $nexmoError")
+            }
+            override fun onNewEvent(event: NexmoEvent?) {
+                Log.d(TestAppMessagingService.TAG, "$TAG:TestAppMessagingService:onNewEvent() with: $event")
+            }
+        }
+    NexmoPushPayload nexmoPushPayload = nexmoClient.processNexmoPush(message!!.data, pushListener)
+    when(nexmoPushPayload.pushTemplate){
+        Default ->
+            // you can use nexmoPushPayload.eventData if needed
+        Custom ->
+            // got nexmo custom push. 😀
+            // you should parse nexmoPushEvent.customData your backend had defined.
+    }
+}
+
+```
+- Add `markAsDelivered` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
+
+```
+  NexmoTextEvent.markAsDelivered(object: NexmoRequestListener<Any>{
+       override fun onSuccess(result: Any?) {
+       Log.d(TAG, TAG + "onTextEvent.markAsDelivered():onSuccess with: " + result.toString())
+       }
+       override fun onError(error: NexmoApiError) {
+       Log.d(TAG, TAG + "onTextEvent.markAsDelivered():onError with: " + error)
+        }
+   })
+   ```
+   
+ - add `markAsSeen` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
+ 
+ ```
+  NexmoAttachmentEvent.markAsSeen(object: NexmoRequestListener<Any>{
+       override fun onSuccess(result: Any?) {
+       Log.d(TAG, TAG + "onAttachmentEvent.markAsSeen():onSuccess with: " + result.toString())
+       }
+       override fun onError(error: NexmoApiError) {
+       Log.d(TAG, TAG + "onAttachmentEvent.markAsSeen():onError with: " + error)
+        }
+   })
+   ```
+   
 ## Version 2.4.0 - March 3 , 2020
 
 ### Added
