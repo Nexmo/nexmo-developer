@@ -73,4 +73,16 @@ RSpec.describe LocaleRedirector do
 
     it { expect(subject).to eq('/client-sdk/tutorials/phone-to-app/introduction') }
   end
+
+  context 'api' do
+    let(:locale) { 'cn' }
+    let(:url) do
+      'https://developer.nexmo.com/api'
+    end
+
+    it { expect(subject).to eq('/api') }
+  end
+
+  describe '#add_locale?' do
+  end
 end

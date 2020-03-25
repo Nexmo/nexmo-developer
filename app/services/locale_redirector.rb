@@ -5,10 +5,10 @@ class LocaleRedirector
   end
 
   def path
-    if skip_locale?
-      current_path
-    else
+    if add_locale?
       "/#{@params[:preferred_locale]}#{current_path}"
+    else
+      current_path
     end
   end
 
@@ -20,9 +20,9 @@ class LocaleRedirector
       .sub(%r{\/\w{2}\/}, '/')
   end
 
-  def skip_locale?
-    @params[:preferred_locale] == I18n.default_locale.to_s ||
-      ['tutorials', 'use-cases'].any? { |path| current_path.include?(path) } ||
-      current_path == '/'
+  def add_locale?
+    @params[:preferred_locale] != I18n.default_locale.to_s &&
+      ['tutorials', 'use-cases'].none? { |path| current_path.include?(path) } &&
+      DocumentationConstraint.product_with_parent_list.any? { |path| current_path.include?(path) }
   end
 end
