@@ -117,7 +117,7 @@ namespace :ci do
   task 'check_word_blocklist': :environment do
     markdown_files =
       [
-        "#{Rails.configuration.docs_base_path}/_documentation/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
         "#{Rails.configuration.docs_base_path}/_api/**/*.md",
         "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
         "#{Rails.configuration.docs_base_path}/_partials/*.md",
