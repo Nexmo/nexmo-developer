@@ -24,7 +24,7 @@ prerequisites:
 - install-nodejs
 - install-node-client-sdk
 - install-nexmo-cli-beta
-- client-sdk/app-to-phone/modify-ncco
+- modify-ncco
 
 tasks:
 - client-sdk/app-to-phone/create-application
