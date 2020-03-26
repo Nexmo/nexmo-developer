@@ -4,7 +4,7 @@ page:
       - type: header
         header:
           title:
-            text: Nexmo ❤️ Community
+            text: Vonage ❤️ Community
             align: center
   - row:
     - column:
@@ -40,13 +40,13 @@ page:
     - column:
       - type: section_header
         section_header:
-          title: "@NexmoDev on Twitter"
+          title: "@VonageDev on Twitter"
           icon:
             name: Brand-icon-twitter
             color: blue
       - type: html
         html:
-          content: <a class="twitter-timeline" data-width="100%" data-height="300" data-dnt="true" href="https://twitter.com/NexmoDev?ref_src=twsrc%5Etfw">Tweets by NexmoDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          content: <a class="twitter-timeline" data-width="100%" data-height="300" data-dnt="true" href="https://twitter.com/VonageDev?ref_src=twsrc%5Etfw">Tweets by VonageDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   - row:
     - column:
       - type: line_divider

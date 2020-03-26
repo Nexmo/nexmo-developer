@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2019_10_22_100247) do
     t.uuid "resource_id"
     t.string "author_type"
     t.uuid "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
   end
 
@@ -86,8 +86,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_100247) do
 
   create_table "redirects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "url"
-    t.integer "uses", default: 0
-    t.datetime "created_at", default: "2018-10-23 03:47:51"
+    t.integer "uses"
   end
 
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

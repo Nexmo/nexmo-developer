@@ -19,7 +19,7 @@ RSpec.feature 'Community' do
     visit '/community'
 
     within('.Nxd-landing-page') do
-      expect(page).to have_css('h1#nexmo-community', text: 'Nexmo ❤️ Community')
+      expect(page).to have_css('h1#vonage-community', text: 'Vonage ❤️ Community')
 
       expect(page).to have_css('h2', text: 'You can find us at these upcoming events')
 
@@ -46,16 +46,16 @@ RSpec.feature 'Community' do
 
       expect(page).to have_css('h2', text: 'Get in touch')
       expect(page).to have_content('Do you have a question or want us to support your tech community event?')
-      expect(page).to have_content('Drop us an email at community[at]nexmo.com')
-      expect(page).to have_link('community[at]nexmo.com', href: 'mailto:community@nexmo.com')
+      expect(page).to have_content('Drop us an email at community[at]vonage.com')
+      expect(page).to have_link('community[at]vonage.com', href: 'mailto:community@vonage.com')
       expect(page).to have_content('Your data will be treated in accordance with our')
       expect(page).to have_link('Privacy Policy', href: 'https://www.nexmo.com/privacy-policy')
       expect(page).to have_content(', which sets out the rights you have in respect of your data')
 
-      expect(page).to have_css('h2#nexmodev-on-twitter', text: '@NexmoDev on Twitter')
+      expect(page).to have_css('h2#vonagedev-on-twitter', text: '@VonageDev on Twitter')
 
-      expect(page).to have_content('Join the Nexmo Community Slack')
-      expect(page).to have_link('Nexmo Community Slack', href: '/community/slack')
+      expect(page).to have_content('Join the Vonage Developer Community Slack')
+      expect(page).to have_link('Vonage Developer Community Slack', href: '/community/slack')
     end
   end
 end
