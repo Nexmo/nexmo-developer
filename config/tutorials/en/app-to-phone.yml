@@ -16,7 +16,7 @@ introduction:
     * A web application that will make the voice call using the Client SDK
     * An <abbr title="Nexmo Call Control Object">NCCO</abbr> to forward the inbound voice call to the destination phone
 
-    When the call is triggered from your application, Nexmo will get the NCCO and forward the call to the destination phone number.
+    When the call is triggered from your application, Nexmo will get the NCCO from Glitch and forward the call to the destination phone number.
 
 
 prerequisites:
