@@ -27,7 +27,7 @@ prerequisites:
 - client-sdk/app-to-phone/modify-ncco
 
 tasks:
-- client-sdk/create-application
+- client-sdk/app-to-phone/create-application
 - client-sdk/create-user
 - client-sdk/generate-jwt
 - client-sdk/app-to-phone/code
