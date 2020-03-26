@@ -14,9 +14,9 @@ introduction:
     To achieve this, you will need:
 
     * A web application that will make the voice call using the Client SDK
-    * A webhook server that can process an inbound webhook and return an <abbr title="Nexmo Call Control Object">NCCO</abbr> to forward the inbound voice call to the destination phone
+    * An <abbr title="Nexmo Call Control Object">NCCO</abbr> to forward the inbound voice call to the destination phone
 
-    When the call is triggered from your application, Nexmo will make a request to your webhook server, passing the number provided by the application in the `GET` parameters. You will use this to generate the correct NCCO and forward the call to the destination phone number.
+    When the call is triggered from your application, Nexmo will get the NCCO and forward the call to the destination phone number.
 
 
 prerequisites:
@@ -24,14 +24,12 @@ prerequisites:
 - install-nodejs
 - install-node-client-sdk
 - install-nexmo-cli-beta
-- install-express
-- run-ngrok
+- client-sdk/app-to-phone/modify-ncco
 
 tasks:
 - client-sdk/create-application
 - client-sdk/create-user
 - client-sdk/generate-jwt
-- client-sdk/app-to-phone/create-webhook-server
 - client-sdk/app-to-phone/code
 - client-sdk/app-to-phone/run
 
