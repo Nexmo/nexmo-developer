@@ -3,12 +3,12 @@ description: You make a voice call from a web app to a phone.
 products:
   - client-sdk
 
-introduction: 
+introduction:
   title: Introduction to this task
   description: This task shows you how to use make a phone call from a web app using the JavaScript Client SDK.
   content: |
     # Introduction
-    In this tutorial, you will learn how to create a Client SDK application and then write the code to make a 
+    In this tutorial, you will learn how to create a Client SDK application and then write the code to make a
     phone call from your web app to a <abbr title="Public Switched Telephone Network">PSTN</abbr> phone.
 
     To achieve this, you will need:
@@ -20,20 +20,18 @@ introduction:
 
 
 prerequisites:
-- create-nexmo-account
-- install-nodejs
-- install-node-client-sdk
-- install-nexmo-cli-beta
-- install-express
-- run-ngrok
+  - create-nexmo-account
+  - install-nodejs
+  - install-node-client-sdk
+  - install-nexmo-cli-beta
+  - client-sdk/app-to-phone/modify-ncco
 
 tasks:
-- client-sdk/create-application
-- client-sdk/create-user
-- client-sdk/generate-jwt
-- client-sdk/app-to-phone/create-webhook-server
-- client-sdk/app-to-phone/code
-- client-sdk/app-to-phone/run
+  - client-sdk/app-to-phone/create-application
+  - client-sdk/create-user
+  - client-sdk/generate-jwt
+  - client-sdk/app-to-phone/code
+  - client-sdk/app-to-phone/run
 
 conclusion:
   title: What's next?
