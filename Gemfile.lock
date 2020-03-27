@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/nexmo/nexmo-markdown-renderer.git
+  revision: 91cb994eae0016fe1bd2d1de365ccbff63b6276d
+  branch: i18n-fixes
+  specs:
+    nexmo_markdown_renderer (0.2.1)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
+
+GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -303,14 +317,6 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.2.1)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -581,7 +587,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer (~> 0.9)
-  nexmo_markdown_renderer (~> 0.2)
+  nexmo_markdown_renderer!
   nokogiri (~> 1.10.9)
   octokit
   pg (~> 1.2)

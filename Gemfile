@@ -129,7 +129,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo_markdown_renderer', '~> 0.2'
+gem 'nexmo_markdown_renderer', github: 'nexmo/nexmo-markdown-renderer', branch: 'i18n-fixes'
 
 gem 'nexmo-oas-renderer', '~> 0.9', require: false
 
