@@ -6,7 +6,7 @@ navigation_weight: 5
 
 # OpenAPI
 
-[OpenAPI](https://www.openapis.org/) is an industry standard specification for describing APIs. At Nexmo, we use OpenAPI to describe all our APIs, and we make those specifications publicly available too.
+[OpenAPI](https://www.openapis.org/) is an industry standard specification for describing APIs. We use OpenAPI to describe all our APIs, and we make those specifications publicly available too.
 
 ## Finding an OpenAPI Specification
 
