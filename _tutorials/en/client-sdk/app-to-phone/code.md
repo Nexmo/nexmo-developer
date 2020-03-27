@@ -56,11 +56,11 @@ Create an HTML file called `index.html` in your project directory. Add the follo
                 });
                 app.on("call:status:changed",(call) => {
                     statusElement.innerText = `Call status: ${call.status}`;
-                    if (call.status === "started"){
+                    if (call.status === call.CALL_STATUS.STARTED){
                         callButton.style.display = "none";
                         hangupButton.style.display = "inline";
                     }
-                    if (call.status === "completed"){
+                    if (call.status === call.CALL_STATUS.COMPLETED){
                         callButton.style.display = "inline";
                         hangupButton.style.display = "none";
                     }
