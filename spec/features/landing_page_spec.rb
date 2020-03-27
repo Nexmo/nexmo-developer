@@ -131,7 +131,6 @@ RSpec.feature 'Landing page' do
           expect(page).to have_link('Conversion', href: '/api/conversion')
           expect(page).to have_link('Media', href: '/api/media')
           expect(page).to have_link('Redact', href: '/api/redact')
-          expect(page).to have_link('Secret Management', href: '/api/account/secret-management')
         end
       end
 
