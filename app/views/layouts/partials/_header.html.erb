@@ -35,7 +35,7 @@
     <a id="Vlt-sidenav-mobile-trigger"><svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-menu"></use></svg></a>
 
     <div class="Nxd-header__sub__menu">
-      <a href=<%= documentation_path(locale: params[:locale]) %> class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>"><%= t('.documentation') %></a>
+      <a href=<%= documentation_path(locale: I18n.locale) %> class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>"><%= t('.documentation') %></a>
       <a href=<%= use_cases_path %> class="Vlt-tabs__link <%= @navigation == :use_case ? 'Vlt-tabs__link_active' : '' %>"><%= t('.use-cases') %></a>
       <a href=<%= api_path %> class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>"><%= t('.api-reference') %></a>
       <a href=<%= tools_path %> class="Vlt-tabs__link <%= @navigation == :tools ? 'Vlt-tabs__link_active' : '' %>"><%= t('.sdks-and-tools') %></a>

@@ -5,7 +5,7 @@ RSpec.feature 'Landing page' do
     visit '/'
 
     within('#subnav') do
-      expect(page).to have_link('Documentation', href: '/documentation')
+      expect(page).to have_link('Documentation', href: '/en/documentation')
       expect(page).to have_link('Use Cases', href: '/use-cases')
       expect(page).to have_link('API Reference', href: '/api')
       expect(page).to have_link('SDKs & Tools', href: '/tools')
