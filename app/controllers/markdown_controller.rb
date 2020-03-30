@@ -138,19 +138,24 @@ class MarkdownController < ApplicationController
   end
 
   def canonical_redirect
-    return if params[:namespace] || !params[:locale]
-
     # TODO: change this to use the locale from the domain
     # once we add support for that.
-    return if params[:locale] != I18n.default_locale.to_s
 
-    redirect_to url_for(
-      controller: :markdown,
-      action: :show,
-      only_path: true,
-      locale: nil,
-      document: params[:document],
-      product: params[:product]
-    )
+    return if params[:namespace]
+    return if params[:locale].nil? && session[:locale].nil?
+    return if params[:locale] && params[:locale] != I18n.default_locale.to_s
+
+    if params[:locale]
+      redirect_to url_for(
+        controller: :markdown,
+        action: :show,
+        only_path: true,
+        locale: nil,
+        document: params[:document],
+        product: params[:product]
+      )
+    elsif session[:locale] && session[:locale] != I18n.default_locale.to_s
+      redirect_to "/#{session[:locale]}/#{params[:product]}/#{params[:document]}"
+    end
   end
 end
