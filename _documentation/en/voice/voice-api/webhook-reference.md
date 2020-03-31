@@ -74,6 +74,7 @@ The format of the data included depends on which event has occurred:
 * [`busy`](#busy)
 * [`cancelled`](#cancelled)
 * [`unanswered`](#unanswered)
+* [`disconnected`](#disconnected)
 * [`rejected`](#rejected)
 * [`failed`](#failed)
 * [`human/machine`](#human-machine)
@@ -178,6 +179,21 @@ Field | Example | Description
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `status` | `unanswered` | Call status
 `direction` | `outbound` | Call direction, this will be `outbound` in this context
+`timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
+
+[Back to event webhooks list](#event-webhook)
+
+### Disconnected
+
+If the WebSocket connection is terminated from the application side by any reason, the disconnected event callback will be sent.
+
+Field | Example | Description
+-- | -- | --
+`from` | `442079460000` | The number the call came from
+`to` | `447700900000` | The number the call was made to 
+`uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
+`conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
+`status` | `disconnected` | Call status
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
 
 [Back to event webhooks list](#event-webhook)
