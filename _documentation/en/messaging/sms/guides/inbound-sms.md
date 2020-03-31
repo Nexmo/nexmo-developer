@@ -6,7 +6,7 @@ navigation_weight: 5
 
 # Inbound SMS
 
-To receive inbound SMS, create a [webhook endpoint](/concepts/guides/webhooks) and configure your account to use it in the API settings tab of the [Nexmo Developer Dashboard](https://dashboard.nexmo.com/settings).
+To receive inbound SMS, create a [webhook endpoint](/concepts/guides/webhooks) and configure your account to use it in the API settings tab of the [Vonage APIs Dashboard](https://dashboard.nexmo.com/settings).
 
 Any messages sent to one of your Nexmo virtual numbers are sent to your webhook using a [GET] or [POST] request. When you receive a message on your webhook, you must send a `200 OK` response. If you don't, then Nexmo will assume that you have not received the message and will keep resending it for the next 24 hours.
 

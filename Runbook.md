@@ -1,6 +1,6 @@
 # System Overview
 
-Nexmo Developer is a simple Rails application with a mounted Sinatra app that handles the rendering of the [API References](https://developer.nexmo.com/api).
+Vonage APIs Developer Portal is a simple Rails application with a mounted Sinatra app that handles the rendering of the [API References](https://developer.nexmo.com/api).
 
 # Deployment
 

@@ -1,4 +1,4 @@
-# Nexmo Developer
+# Vonage APIs Developer Portal
 
 [![Build Status](https://api.travis-ci.org/Nexmo/nexmo-developer.svg?branch=master)](https://travis-ci.org/Nexmo/nexmo-developer/)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
@@ -12,7 +12,7 @@ This repository is the code and content for <https://developer.nexmo.com>, which
 
 ## Testing
 
-We use [rspec](http://rspec.info/) to test Nexmo Developer.
+We use [rspec](http://rspec.info/) to test Vonage APIs Developer Portal.
 
 To run all tests:
 
@@ -130,7 +130,7 @@ You should now be able to see the site on http://localhost:3000/
 
 ### Setting up with Docker
 
-If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
+If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Vonage APIs Developer Portal into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
 
 ```
 $ git clone git@github.com:Nexmo/nexmo-developer.git
@@ -156,7 +156,7 @@ $ docker-compose down
 
 You can access the admin dashboard by visiting `/admin`. If you've populated data via `rake db:seed` you will have an admin user with the username of `admin@nexmo.com` and password of `development`.
 
-The following is an example if you are running Nexmo Developer within a Docker container:
+The following is an example if you are running Vonage APIs Developer Portal within a Docker container:
 
 ```sh
 docker exec -it <container_id> rake db:seed
@@ -245,10 +245,10 @@ Once PostgreSQL is running you'll need to create and migrate the database. See [
 
 ## Upgrading Volta
 
-Volta is the Vonage design system, and is used to style Nexmo Developer. To upgrade the version of Volta used:
+Volta is the Vonage design system, and is used to style Vonage APIs Developer Portal. To upgrade the version of Volta used:
 
 * Clone Volta on to your local machine
-* Remove the `app/assets/volta/scss` folder in Nexmo Developer
+* Remove the `app/assets/volta/scss` folder in Vonage APIs Developer Portal
 * Copy the `scss` folder from the Volta repo in to `app/assets/volta`
 * Commit and push. Rails will take care of compilation etc
 
@@ -259,7 +259,7 @@ We :heart: contributions from everyone! It is a good idea to [talk to us](https:
 
 ## Content Updates
 
-Follow these instructions to make updates to any content in the Nexmo Developer repository.
+Follow these instructions to make updates to any content in the Vonage APIs Developer Portal repository.
 
 Checkout a new branch, naming it appropriately:
 
