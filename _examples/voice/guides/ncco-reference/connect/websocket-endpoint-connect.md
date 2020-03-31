@@ -11,6 +11,7 @@ menu_weight: 2
   },
   {
     "action": "connect",
+    "eventType": "synchronous",
     "eventUrl": [
       "https://example.com/events"
     ],
