@@ -1,6 +1,6 @@
 # Contributing
 
-Vonage welcomes everybody contributing to Vonage APIs Developer Portal. These guidelines outline how to contribute reports, bug fixes, features, suggestions and content.
+Vonage welcomes everybody contributing to the Vonage APIs Developer Portal. These guidelines outline how to contribute reports, bug fixes, features, suggestions and content.
 
 ### Setup
 
@@ -8,11 +8,11 @@ If you'd like to make contributions it's best if you setup a local version of th
 
 ### Report a bug
 
-If you find a bug on Vonage APIs Developer Portal you can report it to us by [opening an issue](https://github.com/Nexmo/nexmo-developer/issues/new). This will give you a template to fill in the details.
+If you find a bug on the Vonage APIs Developer Portal you can report it to us by [opening an issue](https://github.com/Nexmo/nexmo-developer/issues/new). This will give you a template to fill in the details.
 
 ### Suggest a feature
 
-We'd love to hear your ideas about what goes into Vonage APIs Developer Portal. You can suggest a feature by opening an issue [opening an issue](https://github.com/Nexmo/nexmo-developer/issues/new). You might want to search to see if that feature has already been requested in the [project issues](https://github.com/Nexmo/nexmo-developer/issues/).
+We'd love to hear your ideas about what goes into the Vonage APIs Developer Portal. You can suggest a feature by opening an issue [opening an issue](https://github.com/Nexmo/nexmo-developer/issues/new). You might want to search to see if that feature has already been requested in the [project issues](https://github.com/Nexmo/nexmo-developer/issues/).
 
 ## Bug fixes / features
 
