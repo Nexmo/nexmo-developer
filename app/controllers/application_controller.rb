@@ -75,8 +75,16 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    I18n.locale = params[:locale] || session[:locale] || locale_from_domain
   rescue I18n::InvalidLocale
     I18n.locale = I18n.default_locale
+  end
+
+  def locale_from_domain
+    if Rails.env.production?
+      request.host == 'developer.nexmocn.com' ? 'cn' : 'en'
+    else
+      I18n.default_locale
+    end
   end
 end
