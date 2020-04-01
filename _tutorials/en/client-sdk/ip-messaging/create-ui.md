@@ -32,7 +32,8 @@ Create a file named `index.html` in your project directory with the following co
       font: 13px Helvetica, Arial;
     }
 
-    #login, #messages {
+    #login,
+    #messages {
       width: 80%;
       height: 500px;
     }
@@ -53,7 +54,7 @@ Create a file named `index.html` in your project directory with the following co
     }
 
     textarea {
-      width:85%;
+      width: 85%;
       font-size: 20px;
     }
 
@@ -89,6 +90,14 @@ Create a file named `index.html` in your project directory with the following co
 
   <section id="messages">
     <h1 id="sessionName"></h1>
+
+    <div id="loadSection">
+      <button id="loadMessages">
+        Load Previous Messages
+      </button>
+      &nbsp; &nbsp;<h3>Showing <span id="messagesCount"></span> starting at <span id="messageDate"></span></h3>
+    </div>
+
     <div id="messageFeed"></div>
 
     <div>
@@ -96,7 +105,6 @@ Create a file named `index.html` in your project directory with the following co
       <button id="send">Send</button>
       <div id="status"></div>
     </div>
-
   </section>
 
   <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
