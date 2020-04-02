@@ -2,7 +2,7 @@ ActiveAdmin.register Event do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :title, :description, :starts_at, :ends_at, :url, :city, :country
+  permit_params :title, :description, :starts_at, :ends_at, :url, :city, :country, :remote
   #
   # or
   #
@@ -20,6 +20,7 @@ ActiveAdmin.register Event do
     column :url
     column :city
     column :country
+    column :remote
     actions
   end
 
@@ -28,8 +29,9 @@ ActiveAdmin.register Event do
       input :title
       input :description
       input :url
+      input :remote, as: :boolean
       input :city
-      input :country
+      input :country, include_blank: true, selected: ''
       input :starts_at, as: :datepicker
       input :ends_at, as: :datepicker
     end
