@@ -26,7 +26,7 @@
 <hr>
 
 <% if @sessions.any? %>
-  
+
   <div class="Vlt-card">
     <div class="Vlt-grid">
       <% @sessions.each do |session| %>
@@ -47,6 +47,6 @@
 <hr>
 
 <center class="spacious">
-  <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Nexmo Community Slack", community_slack_path, { :class=>"Vlt-text-btn" } %></h2>
+  <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Vonage Developer Community Slack", community_slack_path, { :class=>"Vlt-text-btn" } %></h2>
 </center>
 </div>

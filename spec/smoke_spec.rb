@@ -44,7 +44,7 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it '/community/slack contains the expected text' do
     get '/community/slack'
-    expect(response.body).to include('Join the Nexmo Community Slack')
+    expect(response.body).to include('Join the Vonage Developer Community Slack')
   end
 
   it '/contribute/overview contains the expected text' do
