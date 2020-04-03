@@ -265,3 +265,4 @@
 "/messages/code-snippets/messenger/send-custom": "/messages/code-snippets/messenger/send-template"
 "/number-insight/code-snippets/number-insight-advanced": "/number-insight/code-snippets/number-insight-advanced-async"
 "/messages/code-snippets/client-library": "/messages/code-snippets/server-sdk"
+"/dispatch/code-snippets/client-library": "/dispatch/code-snippets/server-sdk"
