@@ -31,3 +31,5 @@ application:
 ## Try it out
 
 When you run the code it will attempt to send an SMS to phone 1. If this fails, then a message will be sent via SMS to phone 2.
+
+> **NOTE:** Correct functioning of this code snippet will depend on the support provided by the underlying network. For example, availability of delivery and read receipts.
