@@ -8,9 +8,9 @@ introduction:
   description: This task shows you how to create a iOS chat application using the iOS Client SDK.
   content: |
     # Introduction
-    In this task, you will learn how to create and configure a Client SDK Application and then code a web app that enables two users to send messages to each other.
+    In this task, you will learn how to create and configure a Client SDK Application and then code the app that enables two users to send messages to each other.
 
-    First, you will create a Conversation and two Users. Then, you will authenticate these Users and add them to the Conversation as Members.
+    First, you will create a `Conversation` and two `Users`. Then, you will authenticate these `Users` and add them to the `Conversation` as `Members`.
 
     Finally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when either party is currently typing.
 
