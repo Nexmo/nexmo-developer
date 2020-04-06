@@ -185,7 +185,7 @@ Field | Example | Description
 
 ### Disconnected
 
-If the WebSocket connection is terminated from the application side by any reason, the disconnected event callback will be sent.
+If the WebSocket connection is terminated from the application side for any reason and there is another call in the conversation then the disconnected event callback will be sent, if the response contains an NCCO then this will be processed, if no NCCO is present then the existing call will be terminated.
 
 Field | Example | Description
 -- | -- | --
