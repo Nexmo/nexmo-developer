@@ -1,5 +1,6 @@
 ---
 title: Beta
+navigation_weight: 2
 ---
 
 # Beta
