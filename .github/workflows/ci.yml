@@ -62,6 +62,9 @@ jobs:
     - name: Run Tests
       env:
         POSTGRES_USERNAME: postgres
+        DOCS_BASE_PATH: "."
+        OAS_PATH: "_open_api/api_specs/definitions"
+        FORCE_COLOR: true
       run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
