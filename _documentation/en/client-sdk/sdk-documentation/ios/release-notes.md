@@ -32,7 +32,7 @@ navigation_weight: 0
 
 - `NXMPushPayload` for custom push notifications.
 
-```objective-c
+```objectivec
  if (NXNClient.shared isNexmoPushWithUserInfo:pushInfo]){
     NXMPushPayload *pushPayload = [myNXNClient processNexmoPushPayload:pushInfo];
     if (!pushPayload){
@@ -98,7 +98,7 @@ navigation_weight: 0
 
 Configuration for ICE server:
 
-```objective-c
+```objective_c
 NXMClientConfig *config = [[NXMClientConfig alloc] initWithApiUrl:restUrl
                                                      websocketUrl:wsUrl
                                                            ipsUrl:ipsUrl
@@ -135,7 +135,7 @@ Corrected `nil` values for `fromMember` for `NXMConversation` events.
 
 `NXMClientConfig` object in order to change data center configuration. How to use:
 
-```objective-c
+```objective_c
 [NXMClient setConfiguration:NXMClientConfig.DC];
 ```
 
@@ -155,7 +155,7 @@ Corrected `nil` values for `fromMember` for `NXMConversation` events.
 
 `NXMConversationDelegate` did receive DTMF event method:
 
-```objective-c
+```objective_c
 - (void)conversation:(nonnull NXMConversation *)conversation didReceiveDTMFEvent:(nullable NXMDTMFEvent *)event;
 ```
 
@@ -165,7 +165,7 @@ Corrected `nil` values for `fromMember` for `NXMConversation` events.
 `param pushKitToken` - only for VoIP push (incoming calls).
 `param userNotificationToken` - all push types:
 
-```objective-c
+```objective_c
 - (void)enablePushNotificationsWithPushKitToken:(nullable NSData *)pushKitToken
                           userNotificationToken:(nullable NSData *)userNotificationToken
                                       isSandbox:(BOOL)isSandbox
@@ -189,7 +189,7 @@ Corrected `nil` values for `fromMember` for `NXMConversation` events.
 
 - Added conversation media:
 
-```objective-c
+```objective_c
 NXMConversation myConversation;
 [myConversation enableMedia];   // my media will be enabled
 [myConversation disableMedia];  // my media will be disabled
@@ -197,7 +197,7 @@ NXMConversation myConversation;
 
 - Added invite member:
 
-```objective-c
+```objective_c
 NXMConversation myConversation;
 [myConversation inviteMemberWithUsername:@"someUsername"
                               completion:myCompletionBlock];
@@ -205,7 +205,7 @@ NXMConversation myConversation;
 
 - Added the member state initiator:
 
-```objective-c
+```objective_c
 NXMMember *member = someMember;
 NSDictionary<NSValue *, NXMInitiator *> *initiators = member.initiators;
 
@@ -219,13 +219,13 @@ leftStateInitiator.time;
 - Added `NXMConversationUpdateDelegate` to notify on member updates like media,leg, and state.
 - Added `updatesDelegate` property to `NXMConversation`:
 
-```objective-c
+```objective_c
 @property (nonatomic, weak, nullable) id <NXMConversationUpdateDelegate> updatesDelegate;
 ```
 
 Example:
 
-```objective-c
+```objective_c
 @interface MyClass() <NXMConversationUpdateDelegate>
 @implementation MyClass
 
@@ -249,13 +249,13 @@ Example:
 
 - `NXMClient` is now a singleton:
 
-```objective-c
+```objective_c
 NXMClient.shared // the shared instance of NXMClient
 ```
 
 - Renamed:
 
-```objective-c
+```objective_c
 @property (nonatomic, readonly, nullable, getter=getToken) NSString *authToken; // was token
 
 // was - (void)login;
@@ -274,7 +274,7 @@ completionHandler:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullab
 
 - `NXMClientDelegate` renamed:
 
-```objective-c
+```objective_c
 @protocol NXMClientDelegate <NSObject>
 
 // was - (void)connectionStatusChanged:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason;
@@ -290,7 +290,7 @@ completionHandler:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullab
 
 - `NXMConversation` `otherMembers` property renamed to `allMembers`:
 
-```objective-c
+```objective_c
 NXMConversation myConversation = someConversation;
 NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all conversation members
 
@@ -299,7 +299,7 @@ NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all 
 
 - `NXMConversationDelegate` renamed methods:
 
-```objective-c
+```objective_c
 // was - (void)customEvent:(nonnull NXMCustomEvent *)customEvent;
 - (void)conversation:(nonnull NXMConversation *)conversation didReceiveCustomEvent:(nonnull NXMCustomEvent *)event;
 
@@ -329,7 +329,7 @@ NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all 
 
 - `NXMCallDelegate` renamed:
 
-```objective-c
+```objective_c
 // was - (void)statusChanged:(nonnull NXMCallMember *)callMember;
 - (void)didUpdate:(nonnull NXMCallMember *)callMember status:(NXMCallMemberStatus)status; 
 - (void)didUpdate:(nonnull NXMCallMember *)callMember muted:(BOOL)muted;
@@ -346,20 +346,20 @@ NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all 
 
 - `NXMImageInfo` renamed properties:
 
-```objective-c
+```objective_c
 @property NSInteger sizeInBytes; // was size
 @property NXMImageSize size; // was type
 ```
 
 - `NXMMessageStatusEvent` renamed property:
 
-```objective-c
+```objective_c
 @property NSInteger referenceEventId; // was refEventId
 ```
 
 - `NexmoClient` logger exposed - `NXMLogger` object:
 
-```objective-c
+```objective_c
 [NXMLogger setLogLevel:NXMLoggerLevelDebug];
 NSArray *logNames = [NXMLogger getLogFileNames];
 ```
@@ -368,7 +368,7 @@ NSArray *logNames = [NXMLogger getLogFileNames];
 
 - `NXMLoggerDelegate`
 
-```objective-c
+```objective_c
 NXMClient myClient = ...;
 [myClient setLoggerDelegate:LoggerDelegate];
 ```
@@ -383,7 +383,7 @@ NXMClient myClient = ...;
 
 - `NXMCallMember` - added member channel with direction data:
 
-```objective-c
+```objective_c
 @interface NXMCallMember : NSObject
 ...
 @property (nonatomic, readonly, nullable) NXMChannel *channel;
@@ -391,7 +391,7 @@ NXMClient myClient = ...;
 @end
 ```
 
-```objective-c
+```objective_c
 @interface NXMChannel : NSObject
 
 @property (nonatomic, readonly, nonnull) NXMDirection *from;
