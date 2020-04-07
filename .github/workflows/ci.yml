@@ -49,14 +49,20 @@ jobs:
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-gems-
-    - name: Build and test with Rake
+    - name: Install postgres headers
+      run: sudo apt-get -yqq install libpq-dev
+    - name: Bundle Install
       env:
         POSTGRES_USERNAME: postgres
       run: |
-        sudo apt-get -yqq install libpq-dev
         gem update --system 3.0.3
         gem install bundler
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
+    - name: Run Tests
+      env:
+        POSTGRES_USERNAME: postgres
+      run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
         bundle exec rake spec
