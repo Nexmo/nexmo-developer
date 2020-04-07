@@ -54,7 +54,7 @@ navigation_weight: 0
 - `NXMHelper` with `descriptionForEventType:` method.
 - `NXMConversation`'s `getEvents:` method replaced by `getEventsPage:`, `getEventsPageWithSize:order:completionHandler:`, `getEventsPageWithSize:order:eventType:completionHandler:`.
 
-```objective-c
+```objective_c
 [myNXMConversation getEventsPagePageWithSize:15
                                        order:NXMPageOrderDesc
                                    eventType:nil
