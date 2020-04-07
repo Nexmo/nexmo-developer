@@ -32,7 +32,7 @@ navigation_weight: 0
 
 - `NXMPushPayload` for custom push notifications.
 
-```objectivec
+```objective_c
  if (NXNClient.shared isNexmoPushWithUserInfo:pushInfo]){
     NXMPushPayload *pushPayload = [myNXNClient processNexmoPushPayload:pushInfo];
     if (!pushPayload){
