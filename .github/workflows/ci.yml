@@ -56,7 +56,7 @@ jobs:
         POSTGRES_USERNAME: postgres
       run: |
         gem update --system 3.0.3 -N
-        gem install bundler --no-rdoc --no-ri
+        gem install --no-document bundler
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
     - name: Run Tests
