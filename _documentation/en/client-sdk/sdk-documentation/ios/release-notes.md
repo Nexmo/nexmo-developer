@@ -340,7 +340,7 @@ NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all 
 
 - `NXMEvent` and `NXMMemberEvent` add member object instead of `memberId`:
 
-```objective-c
+```objective_c
 @property (nonatomic, readonly, nonnull) NXMMember *member;
 ```
 
