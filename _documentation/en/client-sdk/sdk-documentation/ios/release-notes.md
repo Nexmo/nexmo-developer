@@ -12,7 +12,7 @@ navigation_weight: 0
 
 - Add `useFirstIceCandidate` parameters to `NXMClientConfig`
 
-```
+```objective_c
 NXMClientConfig *config = [[NXMClientConfig alloc] initWithApiUrl:restUrl
                                                      websocketUrl:wsUrl
                                                            ipsUrl:ipsUrl
