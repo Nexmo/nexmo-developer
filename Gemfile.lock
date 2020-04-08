@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer
-  revision: 91cb994eae0016fe1bd2d1de365ccbff63b6276d
-  branch: i18n-fixes
+  revision: 6718914507c14c4a793e8b3704f5c75b8e6d9c56
+  branch: multi-language-tutorials
   specs:
-    nexmo_markdown_renderer (0.2.1)
+    nexmo_markdown_renderer (0.2.2)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
