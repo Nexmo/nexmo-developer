@@ -203,7 +203,7 @@ Note over Nexmo: Request accepted
 Nexmo->Phone number: Send SMS
 ```
 
-In this tutorial, to send an SMS you add the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to your app:
+In this tutorial, to send an SMS you add the [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby) to your app:
 
 **Gemfile**
 
@@ -284,6 +284,6 @@ All the code for this tutorial is available in the [Mobile app invites tutorial 
 
 ## Resources
 
-* [Nexmo Client Library for Ruby](https://github.com/Nexmo/nexmo-ruby)
+* [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby)
 * [SMS](/sms)
 * [SMS API reference guide](/api/sms)

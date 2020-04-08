@@ -1,5 +1,4 @@
 .Nxd-header {
-  height: 111px;
   width: 100%;
   z-index: 700;
 
@@ -93,8 +92,8 @@
     color: rgba($white, 80);
 
     @media #{$M-plus} {
-      margin: $unit1 $unit3 $unit1 0;
-    }
+       margin: $unit1 $unit3 $unit1 $unit1;
+     }
 
     &:hover {
       color: $white;
@@ -155,4 +154,23 @@
       }
     }
   }
+}
+
+#locale-switcher {
+  .Vlt-btn {
+    margin-right: 24px;
+
+    .Vlt-dropdown__link__icon {
+      margin-top: -4px;
+    }
+  }
+
+  .Vlt-dropdown__panel {
+    margin-top: 4px;
+  }
+}
+
+.Nxd-main-header__link {
+  font-weight: 600;
+  padding-top: 3px;
 }

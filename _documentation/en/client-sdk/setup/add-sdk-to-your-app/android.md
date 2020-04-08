@@ -23,7 +23,7 @@ To add the Nexmo Client SDK to your project, add the following dependency in you
 
 ```groovy
 dependencies {
-    implementation 'com.nexmo.android:client-sdk:2.1.2'
+    implementation 'com.nexmo.android:client-sdk:2.5.0'
 }
 ```
 

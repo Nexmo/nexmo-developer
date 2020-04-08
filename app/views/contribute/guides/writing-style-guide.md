@@ -124,7 +124,7 @@ Getting Started Guide (top-level topic)
 
 Installation Guide
   Configure your Dashboard
-  Install the client library
+  Install the Server SDK
     How to install the Node library
       Clone the source code from GitHub (sub-section heading, not visible in TOC)
     How to install the Python library
@@ -187,7 +187,7 @@ Some examples are given here:
 * Using 'Nexmo Application' rather than 'application' (where appropriate).
 * Using 'web application' rather than 'application' (where appropriate).
 * Using 'webhook URL' rather than 'endpoint' or 'callback URL'.
-* Using Nexmo Client Library rather than 'library'.
+* Using Nexmo Server SDK rather than 'SDK'.
 * Using Nexmo Command Line Interface, or Nexmo CLI, rather than 'command line'.
 
 ## Avoid using 'he or she' constructs

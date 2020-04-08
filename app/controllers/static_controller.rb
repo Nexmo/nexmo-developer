@@ -21,7 +21,7 @@ class StaticController < ApplicationController
       @upcoming_events = Event.upcoming
       @past_events_count = Event.past.count
 
-      @hash = Gmaps4rails.build_markers(@upcoming_events) do |event, marker|
+      @hash = Gmaps4rails.build_markers(@upcoming_events.reject(&:remote?)) do |event, marker|
         event.geocode
         marker.lat event.latitude
         marker.lng event.longitude
@@ -35,7 +35,7 @@ class StaticController < ApplicationController
   def event_search
     @events = Event.search(params[:query]) if params[:query]
 
-    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+    @hash = Gmaps4rails.build_markers(@events.reject(&:remote?)) do |event, marker|
       event.geocode
       marker.lat event.latitude
       marker.lng event.longitude
@@ -91,7 +91,7 @@ class StaticController < ApplicationController
     @document_title = 'Community'
     @upcoming_events = Event.upcoming
     @past_events_count = Event.past.count
-    @sessions = Session.visible_to(current_user)
+    @sessions = Session.visible_to(current_user).order(created_at: :desc)
     render layout: 'page'
   end
 

@@ -15,7 +15,7 @@
               class="Vlt-dropdown__link"
               href="<%= url_for(controller: :tutorial, action: :list, code_language: @code_language, product: product['path'], only_path: true)%>"
             >
-              <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
+              <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
             </a>
           </li>
         <% end %>
