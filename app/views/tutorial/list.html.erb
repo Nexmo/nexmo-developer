@@ -44,7 +44,7 @@
             <a href="<%= tutorial.product_url %>" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Vlt-badge--<%= Card::COLOUR.fetch(tutorial.subtitle, 'blue') %>"><%= tutorial.subtitle %></a>
           </div>
 
-          <a href="<%= url %>">
+          <a href="<%= tutorial.url %>">
             <div class="Vlt-card__content">
               <h2>
                 <span><%= tutorial.title %></span>
@@ -57,7 +57,7 @@
           <% end %>
 
           <div class="Vlt-card__cta">
-            <a href="<%= url %>" class="Vlt-btn Vlt-btn--tertiary">
+            <a href="<%= tutorial.url %>" class="Vlt-btn Vlt-btn--tertiary">
               Read more
             </a>
           </div>
