@@ -413,7 +413,7 @@ NXMClient myClient = ...;
 @end
 ```
 
-```objective-c
+```objective_c
 @interface NXMDirection : NSObject
 
 @property (nonatomic, assign) NXMDirectionType type;
