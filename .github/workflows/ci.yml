@@ -41,10 +41,10 @@ jobs:
     - name: Install packages
       run: |
         yarn install --pure-lockfile
-    - name: Set up Ruby 2.5.7
+    - name: Set up Ruby 2.5.8
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.5.7
+        ruby-version: 2.5.8
     - name: Ruby gem cache
       uses: actions/cache@v1
       with:
