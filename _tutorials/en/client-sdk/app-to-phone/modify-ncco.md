@@ -9,7 +9,7 @@ A Nexmo Call Control Object (NCCO) is a JSON array that you use to control the f
 
 The NCCO must be accessible by the internet. To accomplish that, we will be using [Glitch](https://glitch.com).
 
-To get your NCCO:
+To create your NCCO
 
 1) Remix the Glitch template: [https://glitch.com/edit/#!/remix/closed-innate-mint](https://glitch.com/edit/#!/remix/closed-innate-mint)
    
