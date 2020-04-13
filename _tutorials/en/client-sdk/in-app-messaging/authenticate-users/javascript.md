@@ -20,6 +20,15 @@ const sendButton = document.getElementById('send');
 const loginForm = document.getElementById('login');
 const status = document.getElementById('status');
 
+const loadMessagesButton = document.getElementById('loadMessages');
+const messagesCountSpan = document.getElementById('messagesCount');
+const messageDateSpan = document.getElementById('messageDate');
+
+let conversation;
+let listedEvents;
+let messagesCount = 0;
+let messageDate;
+
 function authenticate(username) {
   if (username == "USER1_NAME") {
     return USER1_JWT;
