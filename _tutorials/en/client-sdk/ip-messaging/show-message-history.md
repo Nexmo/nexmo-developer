@@ -7,7 +7,7 @@ description: In this step you display any messages already sent as part of this 
 
 You want your users to see all the messages in the Conversation. You can achieve this by handling the Conversation’s `getEvents` method (to retrieve messages sent and received before the current session started) and its `text` event (which alerts your application when a user sends a message).
 
-In the case when the number of messages are more than the page size of the request, you can use `getNext()` to receive the next page. More information on `getNext()` can be found in the [documentation](https://developer.nexmo.com/sdk/stitch/javascript/EventsPage.html#getNext). You will call this when the "Load Previous Messages" button is clicked.
+In the case where the number of messages are more than the page size of the request, you can use `getNext()` to receive the next page. More information on `getNext()` can be found in the [documentation](https://developer.nexmo.com/sdk/stitch/javascript/EventsPage.html#getNext). This function is called when the Load Previous Messages button is clicked. Place this code after the `loginForm` event listener and before the `run` function.
 
 ```javascript
 loadMessagesButton.addEventListener('click', async (event) => {
