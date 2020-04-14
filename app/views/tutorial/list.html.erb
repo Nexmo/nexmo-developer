@@ -1,25 +1,49 @@
 <h1>Tutorials</h1>
 
-<strong>Filter: &nbsp;&nbsp;</strong>
+<div class="Nxd-use-cases--filters">
+  <strong>Filter: &nbsp;&nbsp;</strong>
 
-<div class="Vlt-dropdown">
-  <button class="Vlt-dropdown__btn">
-    Choose a product
-  </button>
-  <div class="Vlt-dropdown__panel">
-    <div class="Vlt-dropdown__panel__content">
-      <ul>
-        <% Product.all.each do |product| %>
+  <div class="Vlt-dropdown">
+    <button class="Vlt-dropdown__btn">
+      Choose a language
+    </button>
+    <div class="Vlt-dropdown__panel">
+      <div class="Vlt-dropdown__panel__content">
+        <ul>
+          <% Language.all.each do |lang| %>
           <li>
             <a
               class="Vlt-dropdown__link"
-              href="<%= url_for(controller: :tutorial, action: :list, code_language: @code_language, product: product['path'], only_path: true)%>"
+              href="<%= url_for(controller: :use_case, action: :index, product: params[:product], code_language: lang.key)%>"
             >
-              <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
+              <svg class="Vlt-dropdown__link__icon" style="height: 20px; width: 20px;" ><use xlink:href="/assets/images/brands/<%= lang.icon %>.svg#<%= lang.icon %>"></use></svg><span><%= lang.label %></span>
             </a>
           </li>
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="Vlt-dropdown">
+    <button class="Vlt-dropdown__btn">
+      Choose a product
+    </button>
+    <div class="Vlt-dropdown__panel">
+      <div class="Vlt-dropdown__panel__content">
+        <ul>
+          <% Product.all.each do |product| %>
+            <li>
+              <a
+                class="Vlt-dropdown__link"
+                href="<%= url_for(controller: :tutorial, action: :list, code_language: @code_language, product: product['path'], only_path: true)%>"
+                >
+                <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
