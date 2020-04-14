@@ -1,7 +1,6 @@
 ---
 title: Java
 language: java
-menu_weight: 3
 ---
 
 ```java

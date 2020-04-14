@@ -1,7 +1,6 @@
 ---
 title: Kotlin
 language: kotlin
-menu_weight: 2
 ---
 
 ```kotlin
