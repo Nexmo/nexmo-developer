@@ -1,7 +1,7 @@
 ---
 title: Objective-C
 language: objective_c
-menu_weight: 2
+menu_weight: 5
 ---
 
 Have a `ViewController`, or similar, conform to `NXMConversationDelegate` and implement `conversation:didReceiveTextEvent:`:

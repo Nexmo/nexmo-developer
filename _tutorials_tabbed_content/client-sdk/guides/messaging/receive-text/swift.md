@@ -1,7 +1,7 @@
 ---
 title: Swift
 language: swift
-menu_weight: 1
+menu_weight: 4
 ---
 
 Add `NXMConversationDelegate` as an extension to a `ViewController` or similar, and implement `conversation(_ conversation: NXMConversation, didReceive event: NXMTextEvent)`:
