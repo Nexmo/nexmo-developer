@@ -38,43 +38,32 @@
 <% else %>
   <div class="masonry">
     <% @tutorials.each_with_index do |tutorial, index| %>
-      <%
-        if tutorial[:external_link]
-          url = tutorial[:external_link]
-        else
-          url = url_for(
-            controller: :tutorial,
-            action: :index,
-            product: params[:product],
-            tutorial_name: tutorial[:filename],
-            only_path: true
-          )
-        end
-      %>
-
-    <div class="item">
-      <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
-        <div class="Vlt-card__image Vlt-card__image--tech Vlt-gradient--blue-to-purple">
-          <% product = Nexmo::Markdown::UseCase.new.normalise_product_title(tutorial[:products].first) %>
-          <a href="/<%= tutorial[:products].join("") %>/tutorials" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Vlt-badge--<%= Card::COLOUR.fetch(product, 'blue') %>"><%= product %></a>
-        </div>
-
-        <a href="<%= url %>">
-          <div class="Vlt-card__content">
-            <h2>
-              <span><%= tutorial[:title] %></span>
-            </h2>
-            <p><%= tutorial[:description] %></p>
-        </a>
-
-        <div class="Vlt-card__cta">
-          <a href="<%= url %>" class="Vlt-btn Vlt-btn--tertiary">
-            Read more
-          </a>
-        </div>
+      <div class="item">
+        <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
+          <div class="Vlt-card__image Vlt-card__image--tech Vlt-gradient--blue-to-purple">
+            <a href="<%= tutorial.product_url %>" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Vlt-badge--<%= Card::COLOUR.fetch(tutorial.subtitle, 'blue') %>"><%= tutorial.subtitle %></a>
           </div>
+
+          <a href="<%= tutorial.url %>">
+            <div class="Vlt-card__content">
+              <h2>
+                <span><%= tutorial.title %></span>
+              </h2>
+              <p><%= tutorial.description %></p>
+          </a>
+
+          <% tutorial.available_languages.each do |language| %>
+            <a href="<%= language.url %>"><small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language.language %>"><span>●</span> <%= language.label %></small></a>
+          <% end %>
+
+          <div class="Vlt-card__cta">
+            <a href="<%= tutorial.url %>" class="Vlt-btn Vlt-btn--tertiary">
+              Read more
+            </a>
+          </div>
+            </div>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 <% end %>

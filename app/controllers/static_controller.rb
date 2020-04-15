@@ -91,7 +91,7 @@ class StaticController < ApplicationController
     @document_title = 'Community'
     @upcoming_events = Event.upcoming
     @past_events_count = Event.past.count
-    @sessions = Session.visible_to(current_user)
+    @sessions = Session.visible_to(current_user).order(created_at: :desc)
     render layout: 'page'
   end
 

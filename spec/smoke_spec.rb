@@ -123,4 +123,10 @@ RSpec.describe 'Smoke Tests', type: :request do
     get '/product-lifecycle/beta'
     expect(response.body).to include('Beta products at Nexmo are in the final stages of testing')
   end
+
+  it '/tutorials' do
+    get '/tutorials'
+
+    expect(response).to have_http_status(:ok)
+  end
 end

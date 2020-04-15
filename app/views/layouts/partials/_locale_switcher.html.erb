@@ -2,9 +2,9 @@
 
 <div class="Vlt-dropdown" id="locale-switcher">
   <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn">
-    <%= button_tag type: :button, class: "Vlt-btn Vlt-btn--app Vlt-btn--secondary Vlt-btn--outline", disabled: disabled do %>
+    <%= button_tag type: :button, class: "Vlt-btn Vlt-btn--app Vlt-btn--white", disabled: disabled do %>
       <span class="Vlt-dropdown__selection">
-        <svg class="Vlt-dropdown__link__icon"><use xlink:href="<%= asset_pack_path('media/symbol/volta-icons.svg') %>#Vlt-icon-world"/></svg>
+        <svg class="Vlt-dropdown__link__icon Vlt-grey-darker"><use xlink:href="<%= asset_pack_path('media/symbol/volta-icons.svg') %>#Vlt-icon-world"/></svg>
         <span class="Nxd-locale">
           <% if I18n.locale.to_s == 'cn' %>
             简体中文

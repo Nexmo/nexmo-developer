@@ -47,7 +47,7 @@ class SidenavResolver
 
       # If we have use cases and tutorials, output them
       if tasks['tutorials'].any?
-        data[:children] << { title: 'tutorials', path: "/#{product}/tutorials", children: tasks['tutorials'] }
+        data[:children] << { title: 'tutorials', path: "/#{product}/tutorials", children: tasks['tutorials'].map(&:as_json) }
       end
 
       if tasks['use_cases'].any?
