@@ -10,7 +10,7 @@ conversation.sendText(message, new NexmoRequestListener<Void>() {
     }
 
     public void onError(@NotNull NexmoApiError apiError) {
-        Log.d("TAG", "Error: Message not sent" + apiError);
+        Log.d("TAG", "Error: Message not sent " + apiError.getMessage());
     }
 });
 ```
