@@ -10,7 +10,7 @@ private val messageListener = object : NexmoMessageEventListener {
     override fun onAttachmentEvent(attachmentEvent: NexmoAttachmentEvent) {
         val userName = attachmentEvent.fromMember.user.name
 
-        Timber.d("Image event received. User $userName")
+        Log.d("TAG", "Image event received. User $userName")
 
         // Event contains URL's for multiple sizes of images
         attachmentEvent.original.url
