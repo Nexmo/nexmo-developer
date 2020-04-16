@@ -6,6 +6,10 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.1.10 - 2020-04-16
+### Internal
+- Improved single ice candidate gathering implementation.
+
 ## 2.1.8 - 2020-04-02
 
 ### Added
@@ -447,3 +451,4 @@ NXMClient myClient = ...;
 
 - Please refer to list of features and usage: <https://developer.nexmo.com/>
 - **Cocoapods**: <https://cocoapods.org/pods/nexmoclient>
+
