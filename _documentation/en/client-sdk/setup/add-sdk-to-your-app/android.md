@@ -19,19 +19,17 @@ Open your Android project codebase in your IDE.
 
 ### Add dependencies
 
-To add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (usually `app/build.gradle`):
+To add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
 
-```groovy
-dependencies {
-    implementation 'com.nexmo.android:client-sdk:2.5.0'
-}
-```
+ ```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/build-client'
+``` 
 
 ### Add permissions
 
 To use the In-App Voice features, add audio permissions using the following procedure:
 
-1. Add required permissions to `AndroidManifest.xml` file:
+1. Add required permissions to `AndroidManifest.xml` file (typically `app/src/main/AndroidManifest.xml`):
 
     ```xml
     <manifest ...>
@@ -46,12 +44,9 @@ To use the In-App Voice features, add audio permissions using the following proc
 
 2. For devices running Android version M (API level 23) or higher, you should request for the `RECORD_AUDIO` permission at runtime:
 
-    ```java
-    // Here, thisActivity is the current activity
-    if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-        ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.RECORD_AUDIO}, "123");
-    }
-    ```
+ ```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/request-permissions'
+``` 
 
     Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting). 
 
@@ -61,22 +56,17 @@ To use the In-App Voice features, add audio permissions using the following proc
 
 Make sure to build the NexmoClient instance before using it. The default build being:
 
-```java
-NexmoClient.Builder().build(context)
-```
+ ```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/build-client'
+``` 
 
 ### Setting `NexmoConnectionListener`
 
 Set `NexmoConnectionListener` that will notify you on any changes on the connection to the SDK and the availability of its functionality:
 
-```java
-NexmoClient.get().setConnectionListener(new NexmoConnectionListener() {
-    @Override
-    public void onConnectionStatusChange(ConnectionStatus status, ConnectionStatusReason reason) {
-        //...
-        }
-    });
-```
+ ```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/connection-listener'
+``` 
 
 ### Login `NexmoClient`
 
@@ -84,17 +74,17 @@ After initializing `NexmoClient`, you need log in to it, using a `jwt` user toke
 
 Replace the token so as to authenticate the relevant user:
 
-```java
-    NexmoClient.get().login(token, requestListener)
-```
+ ```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/login'
+``` 
 
 After the login succeeds, the logged in user is available via `NexmoClient.get().getUser()`.
 
 ## Conclusion
 
-You added the Nexmo Client SDK to your Android app, initialized it, and logged in to a `NexmoClient` instance.
+You added the Nexmo Client SDK to your Android app, initialized it, and logged in to a `NexmoClient` instance. 
 
-You can now use `NexmoClient.get()` in your app, and then use additional `NexmoClient` functionality.
+In production application good place to initialize `NexmoClient` is custom Android [Application](https://developer.android.com/reference/android/app/Application) class. You can latter retreave `NexmoClient` instance using `NexmoClient.get()` method and use additional `NexmoClient` functionality.
 
 ## See also
 
