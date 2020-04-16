@@ -21,6 +21,6 @@ This guide will introduce you to the following concepts.
 
 
 ```tabbed_content
-source: _tutorials_tabbed_content/client-sdk/guides/messaging/events-history
+source: _tutorials_tabbed_content/client-sdk/guides/messaging/utilizing-events
 ```
 
