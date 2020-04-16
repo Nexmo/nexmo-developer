@@ -55,7 +55,7 @@ You can either install the Nexmo Client SDK directly, or via CocoaPods.
 5. In your code, import the `NexmoClient` library:  
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/import'
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/import'
 ```
 
 ### Frameworks
@@ -67,7 +67,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/import'
 3. In your code, import the NexmoClient library:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/import'
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/import'
 ```
 
 ## Add permissions
@@ -79,7 +79,7 @@ To use the in-app voice features, you need to add audio permissions:
 2. In your code add a request for Audio Permissions:  
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/permissions'
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/permissions'
 ```
 
 `AppDelegate` is the best place to do this.
@@ -91,7 +91,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/permissions'
 Create a `NXMClient` object and login with a `jwt` user token. If necessary, you can read more about [generating the JWT](/client-sdk/concepts/jwt-acl).
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/login'
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/login'
 ```
 
     Note that `self` should implement the `NXMClientDelegate` protocol.  
@@ -102,7 +102,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/login'
 On a successful login, the following delegate method is called with `NXMConnectionStatusConnected`:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/delegate'
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/delegate'
 ```
 
 ### Get current user info
@@ -110,7 +110,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/delegate'
 After the login succeeds, the logged in user will be available via:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/user'
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/user'
 ```
 
 ## Conclusion
