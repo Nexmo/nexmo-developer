@@ -84,7 +84,7 @@ After the login succeeds, the logged in user is available via `NexmoClient.get()
 
 You added the Nexmo Client SDK to your Android app, initialized it, and logged in to a `NexmoClient` instance. 
 
-In production application good place to initialize `NexmoClient` is custom Android [Application](https://developer.android.com/reference/android/app/Application) class. You can latter retreave `NexmoClient` instance using `NexmoClient.get()` method and use additional `NexmoClient` functionality.
+In production application good place to initialize `NexmoClient` is custom Android [Application](https://developer.android.com/reference/android/app/Application) class. You can later retrieve `NexmoClient` instance using `NexmoClient.get()` method and use additional `NexmoClient` functionality.
 
 ## See also
 
