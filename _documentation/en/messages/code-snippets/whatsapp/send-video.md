@@ -13,7 +13,8 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`MESSAGES_API_URL` | For production use the endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
+`BASE_URL` | For production use the base URL is `https://api.nexmo.com/`. For sandbox testing the base URL is `https://messages-sandbox.nexmo.com/`.
+`MESSAGES_API_URL` | For production use the Messages API endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the Messages API endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
 `WHATSAPP_NUMBER` | The WhatsApp number you are sending from.
 `TO_NUMBER` | The WhatsApp number you are sending to.
 `VIDEO_URL` | The link to the video to send. WhatsApp supports `.mp4` and `.3gpp`. Note, only `H.264` video codec and `AAC` audio codecs are supported.
