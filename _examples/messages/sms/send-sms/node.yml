@@ -4,4 +4,4 @@ dependencies:
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/messages/send-sms.js
     from_line: 11
-    to_line: 30
+    to_line: 36
