@@ -18,7 +18,7 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`API_ENDPOINT` | For production use the endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
+`MESSAGES_API_URL` | For production use the endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
 `NEXMO_APPLICATION_ID` | The ID of the application that you created.
 `VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
 `TO_NUMBER` | The phone number you are sending the message to.
