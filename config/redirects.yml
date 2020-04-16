@@ -268,5 +268,5 @@
 "/numbers/code-snippets/buy-a-number": "/numbers/code-snippets/buy"
 "/client-sdk/in-app-voice/code-snippets/reject-call": “/client-sdk/in-app-voice/getting-started/app-to-app-call/ios”
 "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/add-users-to-conversation": "/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/add-users-to-conversation"
-"voice/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots"
+"/voice/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots"
 "/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/overview"
