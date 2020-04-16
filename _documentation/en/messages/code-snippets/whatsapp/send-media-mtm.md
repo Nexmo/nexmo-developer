@@ -24,10 +24,11 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
+`API_ENDPOINT` | For production use the endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
 `WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Nexmo.
 `TO_NUMBER` | The phone number you are sending the message to.
-`WHATSAPP_TEMPLATE_NAMESPACE` | The namespace ID found in your WhatsApp Business Account. Only templates created in your own namespace will work. Using an template with a namespace outside of your own results in an error code 1022 being returned.
-`WHATSAPP_TEMPLATE_NAME` | The name of the template created in your WhatsApp Business Account.
+`WHATSAPP_TEMPLATE_NAMESPACE` | The namespace ID found in your WhatsApp Business Account. Only templates created in your own namespace will work. Using an template with a namespace outside of your own results in an error code 1022 being returned. For sandbox testing the supported namespace is `9b6b4fcb_da19_4a26_8fe8_78074a91b584`.
+`WHATSAPP_TEMPLATE_NAME` | The name of the template created in your WhatsApp Business Account. For sandbox testing the `verify` template is currently available. Refer to [this table](/messages/concepts/messages-api-sandbox#whatsapp-templates-for-use-with-the-messages-api-sandbox) for new templates as they become available.
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 

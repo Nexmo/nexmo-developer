@@ -27,6 +27,7 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
+`API_ENDPOINT` | For production use the endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
 `WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Nexmo.
 `TO_NUMBER` | The phone number you are sending the message to.
 

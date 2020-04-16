@@ -15,6 +15,7 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
+`API_ENDPOINT` | For production use the endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
 `FB_SENDER_ID` | Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 `FB_RECIPIENT_ID` | The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 
