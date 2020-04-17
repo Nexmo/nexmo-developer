@@ -78,6 +78,7 @@
 "/client-sdk/sdk-documentation/javascript/javascript": "/sdk/stitch/javascript/"
 "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/add-users-to-conversation": "/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/add-users-to-conversation"
 "/client-sdk/in-app-voice/code-snippets/reject-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/ios"
+"/client-sdk/in-app-voice/code-snippets/start-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/android"
 
 # Conversation API
 
@@ -85,6 +86,7 @@
 "/conversation/concepts": "/conversation/concepts/conversation"
 "/conversation/code-snippets": "/conversation/code-snippets/conversation/create-conversation"
 "/conversation/api-reference": "/api/conversation"
+"/conversation/code-snippets/leg": "/conversation/code-snippets/delete-leg"
 
 # Temporary landing page for onboarding
 "/client-sdk/in-app-voice/onboarding": "/client-sdk/in-app-voice/overview"
