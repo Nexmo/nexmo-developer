@@ -109,6 +109,13 @@ languages:
     icon: ios
     dependencies: []
 
+  groovy:
+    weight: 11
+    label: Groovy
+    lexer: groovy
+    icon: android
+    dependencies: []
+
 platforms:
   ios:
     languages:
@@ -117,6 +124,7 @@ platforms:
   android:
     languages:
       - java
+      - kotlin
   web:
     languages:
       - javascript
