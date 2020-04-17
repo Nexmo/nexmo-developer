@@ -29,7 +29,7 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it '/extend contains the expected text' do
     get '/extend'
-    expect(response.body).to include('The Nexmo Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.')
+    expect(response.body).to include('The Vonage API Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.')
   end
 
   it '/extend/ibm-watson-sms-sentiment-analysis contains the expected text' do
