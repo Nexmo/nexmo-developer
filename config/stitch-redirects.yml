@@ -86,7 +86,7 @@
 "/conversation/concepts": "/conversation/concepts/conversation"
 "/conversation/code-snippets": "/conversation/code-snippets/conversation/create-conversation"
 "/conversation/api-reference": "/api/conversation"
-"/conversation/code-snippets/leg": "/conversation/code-snippets/delete-leg"
+"/conversation/code-snippets/leg": "/conversation/code-snippets/leg/delete-leg"
 
 # Temporary landing page for onboarding
 "/client-sdk/in-app-voice/onboarding": "/client-sdk/in-app-voice/overview"
