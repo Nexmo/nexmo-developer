@@ -144,4 +144,50 @@ namespace :ci do
       raise "Blocked words found:\n\n#{errors.join("\n")}"
     end
   end
+
+  task 'duplicate_navigation_weight': :environment do
+    markdown_files =
+      [
+        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_api/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_use_cases/**/*.md",
+      ]
+
+    paths = {}
+    markdown_files.each do |path|
+      Dir.glob(path).each do |filename|
+        weight = YAML.load_file(filename)['navigation_weight']
+        next unless weight
+
+        dir = File.dirname(filename)
+        paths[dir] ||= {}
+        paths[dir][weight] ||= []
+        paths[dir][weight].push(filename)
+      end
+    end
+
+    # Loop through everything!
+    errors = []
+    paths.each do |path, weights|
+      weights.each do |weight, items|
+        next if items.size <= 1
+
+        errors.push({
+          'path' => path,
+          'weight' => weight,
+          'items' => items.map { |i| i.gsub("#{path}/", '') },
+        })
+      end
+    end
+
+    if errors.length.positive?
+      error = "Duplicate weights found:\n\n"
+      errors.each do |err|
+        error += "#{err['path']} (Weight: #{err['weight']})\n#{err['items'].join("\n")}"
+        error += "\n------------------------------\n"
+      end
+      abort(error)
+    end
+  end
 end
