@@ -1,25 +1,20 @@
 ---
 title: Java
 language: java
-menu_weight: 5
 ---
 
-
 ```java
-private NexmoRequestListener<Void> customEventSendListener =  new NexmoRequestListener<Void>() {
-    @Override
-    public void onError(NexmoApiError error) {
-        Log.d("Custom event", "Error");
+
+HashMap<String, Object> data = new HashMap<>();
+data.put("key", "data");
+
+conversation.sendCustomEvent("my_custom_event", data, new NexmoRequestListener<Void>() {
+    public void onSuccess(@Nullable Void p0) {
+        Log.d("TAG", "Custom event sent")
     }
 
-    @Override
-    public void onSuccess(Void aVoid) {
-        Log.d("Custom event", "Success");
+    public void onError(@NotNull NexmoApiError apiError) {
+        Log.d("TAG", "Custom event error")
     }
-};
-
-HashMap<String, Object> customData = new HashMap<>();
-customData.put("your", "data");
-
-conversation.sendCustomEvent("my_custom_event_type", customData, customEventSendListener);
+});
 ```

@@ -8,12 +8,12 @@ Custom events allow you to add custom metadata to conversations by recording dat
 
 ## Creating a custom event
 
-Each custom event consists of a unique `type` and a `body`. The `type` has the following restrictions:
+Each custom event consists of a unique `type` and a `data`. The `type` has the following restrictions:
 
 * Must not exceed 100 characters
 * Must only contain alphanumeric, `-` and `_` characters
 
-In addition, the event body must not exceed 4096 bytes.
+In addition, the event `data` must not exceed 4096 bytes.
 
 ```tabbed_content
 source: _tutorials_tabbed_content/client-sdk/custom-events/creating

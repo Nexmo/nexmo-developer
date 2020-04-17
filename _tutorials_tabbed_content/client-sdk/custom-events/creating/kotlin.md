@@ -1,19 +1,16 @@
 ---
 title: Kotlin
-language: android
-menu_weight: 4
+language: kotlin
 ---
 
-
 ```kotlin
-var sendListener: NexmoRequestListener<Void> = object: NexmoRequestListener<Void> {
-    override fun onError(error: NexmoApiError) {
-        Log.d(TAG, "Custom event error")
+conversation.sendCustomEvent("my_custom_event", hashMapOf("key" to "data"), object : NexmoRequestListener<Void> {
+    override fun onError(apiError: NexmoApiError) {
+        Log.d("TAG", "Custom event error")
     }
-    override fun onSuccess(var1: Void?) {
-        Log.d(TAG, "Custom event sent")
-    }
-}
 
-conversation.sendCustomEvent("my_custom_event", hashMapOf("your" to "data"), sendListener)
+    override fun onSuccess(p0: Void?) {
+        Log.d("TAG", "Custom event sent")
+    }
+})
 ```
