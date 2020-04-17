@@ -60,7 +60,7 @@ To integrate VoIP push in your app, follow these steps:
 source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/pushkit'
 ```
 
-#### 3. Implement the following delegate method and add the the code to handle an incoming VoIP push notification
+#### 3. Implement the following delegate method and add the code to handle an incoming VoIP push notification
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/pushkit-delegate-voip'

@@ -39,10 +39,8 @@ curl -v -X PUT \
 
 In your IDE, in your app level `build.gradle` file (usually `app/build.gradle`), add the `firebase-messaging` dependency:
 
-```groovy
-dependencies{
-    implementation 'com.google.firebase:firebase-messaging:x.y.z'
-}
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/dependencies'
 ```
 
 You need to replace `x.y.z` with the latest Cloud Messaging versions number, which can be found on the [Firebase website](https://firebase.google.com/support/release-notes/android).
