@@ -266,3 +266,5 @@
 "/messages/code-snippets/client-library": "/messages/code-snippets/server-sdk"
 "/dispatch/code-snippets/client-library": "/dispatch/code-snippets/server-sdk"
 "/numbers/code-snippets/buy-a-number": "/numbers/code-snippets/buy"
+"/voice/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots"
+"/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/overview"
