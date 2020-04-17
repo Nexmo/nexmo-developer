@@ -10,7 +10,7 @@ navigation_weight: 0
 
 ### Fixed
 
-- `NXMClientConfig` convenience initialiser implementations.
+- `NXMClientConfig` convenience initializer implementations.
 
 ## 2.1.8 - 2020-04-02
 
@@ -453,4 +453,3 @@ NXMClient myClient = ...;
 
 - Please refer to list of features and usage: <https://developer.nexmo.com/>
 - **Cocoapods**: <https://cocoapods.org/pods/nexmoclient>
-
