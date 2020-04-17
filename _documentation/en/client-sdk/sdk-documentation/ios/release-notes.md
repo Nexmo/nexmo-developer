@@ -7,8 +7,16 @@ navigation_weight: 0
 # Release Notes
 
 ## 2.1.10 - 2020-04-16
+
 ### Internal
-- Improved single ice candidate gathering implementation.
+
+- Improved single ICE candidate gathering implementation.
+
+## 2.1.9 - 2020-04-14
+
+### Fixed
+
+- `NXMClientConfig` convenience initializer implementations.
 
 ## 2.1.8 - 2020-04-02
 
