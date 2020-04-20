@@ -22,7 +22,7 @@ Open your Android project codebase in your IDE.
 To add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
 
  ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/build-client'
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/dependencies'
 ``` 
 
 ### Add permissions
