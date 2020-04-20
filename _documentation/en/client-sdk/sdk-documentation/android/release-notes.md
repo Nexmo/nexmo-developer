@@ -6,6 +6,20 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.0 - April 20, 2020
+
+### Added
+
+- Expose connection status `isConnected` in `NexmoClient`.
+
+```
+    NexmoClient.get().isConnected()
+```
+
+### Fixed
+
+- Avoid invoking `login` multiple times when the user is already connected.
+
 ## Version 2.5.1 - April 20, 2020
 
 ### Internal
