@@ -82,7 +82,7 @@
 "/client-sdk/in-app-voice/code-snippets/reject-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/ios"
 "/client-sdk/in-app-voice/code-snippets/start-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/android"
 "/client-sdk": "/client-sdk/overview"
-"/client-sdk/configuration/": "/client-sdk/overview"
+"/client-sdk/configuration": "/client-sdk/overview"
 
 # Conversation API
 
