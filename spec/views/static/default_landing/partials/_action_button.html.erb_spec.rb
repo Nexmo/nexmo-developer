@@ -28,7 +28,7 @@ RSpec.describe 'rendering _action_button landing page partial' do
       render partial: '/static/default_landing/partials/action_button.html.erb', locals: {
       'text' => 'Click here!',
       }
-    end    .to raise_error("missing 'url' key in action_button landing page block")
+    end.to raise_error("missing 'url' key in action_button landing page block")
   end
 
   it 'raises an error if text is not provided' do
@@ -36,6 +36,6 @@ RSpec.describe 'rendering _action_button landing page partial' do
       render partial: '/static/default_landing/partials/action_button.html.erb', locals: {
       'url' => '#a-sample-url',
       }
-    end    .to raise_error("missing 'text' key in action_button landing page block")
+    end.to raise_error("missing 'text' key in action_button landing page block")
   end
 end

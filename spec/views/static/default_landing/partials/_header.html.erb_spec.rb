@@ -21,7 +21,7 @@ RSpec.describe 'rendering _header landing page partial' do
         'title' => { 'text' => 'A title here', 'align' => 'center' },
         'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
-    end .to raise_error("Missing icon 'color' key in header landing page block")
+    end.to raise_error("Missing icon 'color' key in header landing page block")
   end
 
   it 'raises an error when an icon name is not provided' do
@@ -31,7 +31,7 @@ RSpec.describe 'rendering _header landing page partial' do
         'title' => { 'text' => 'A title here', 'align' => 'center' },
         'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
-    end .to raise_error("Missing icon 'name' key in header landing page block")
+    end.to raise_error("Missing icon 'name' key in header landing page block")
   end
 
   it 'raises an error when a title is not provided' do
@@ -40,7 +40,7 @@ RSpec.describe 'rendering _header landing page partial' do
         'icon' => { 'name' => 'icon-here', 'color' => 'orange' },
         'subtitle' => { 'text' => 'A subtitle here', 'align' => 'center', 'type' => 'small' },
     }
-    end .to raise_error("Missing 'title' key in header landing page block")
+    end.to raise_error("Missing 'title' key in header landing page block")
   end
 
   it 'renders without a subtitle when no subtitle is provided' do

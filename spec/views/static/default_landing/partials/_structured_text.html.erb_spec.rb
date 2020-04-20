@@ -41,7 +41,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
           { 'type' => 'large', 'content' => 'Large things here' },
         ],
     }
-    end .to raise_error("Missing 'icon color' key in structured_text landing page icon block")
+    end.to raise_error("Missing 'icon color' key in structured_text landing page icon block")
   end
 
   it 'raises an error if icon key is provided without icon name' do
@@ -54,7 +54,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
           { 'type' => 'large', 'content' => 'Large things here' },
         ],
     }
-    end .to raise_error("Missing 'icon name' key in structured_text landing page icon block")
+    end.to raise_error("Missing 'icon name' key in structured_text landing page icon block")
   end
 
   it 'raises an error if a header is not provided' do
@@ -66,7 +66,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
           { 'type' => 'large', 'content' => 'Large things here' },
         ],
     }
-    end .to raise_error("Missing 'header' key in structured_text landing page block")
+    end.to raise_error("Missing 'header' key in structured_text landing page block")
   end
 
   it 'raises an error if text is not provided' do
@@ -75,6 +75,6 @@ RSpec.describe 'rendering _structured_text landing page partial' do
         'icon' => { 'name' => 'nexmo-circle', 'color' => 'blue' },
         'header' => 'My header',
     }
-    end .to raise_error("Missing 'text' key in structured_text landing page block")
+    end.to raise_error("Missing 'text' key in structured_text landing page block")
   end
 end

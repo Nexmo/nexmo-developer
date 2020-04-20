@@ -23,7 +23,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
         'subtitle' => 'A subtitle here',
         'url' => '/path/to/link',
     }
-    end .to raise_error("Missing icon 'color' key in call_to_action landing page block")
+    end.to raise_error("Missing icon 'color' key in call_to_action landing page block")
   end
 
   it 'raises an error when an icon name is not provided' do
@@ -34,7 +34,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
         'subtitle' => 'A subtitle here',
         'url' => '/path/to/link',
     }
-    end .to raise_error("Missing icon 'name' key in call_to_action landing page block")
+    end.to raise_error("Missing icon 'name' key in call_to_action landing page block")
   end
 
   it 'raises an error when a title is not provided' do
@@ -44,7 +44,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
         'subtitle' => 'A subtitle here',
         'url' => '/path/to/link',
     }
-    end .to raise_error("Missing 'title' key in call_to_action landing page block")
+    end.to raise_error("Missing 'title' key in call_to_action landing page block")
   end
 
   it 'raises an error when a url is not provided' do
@@ -54,7 +54,7 @@ RSpec.describe 'rendering _call_to_action landing page partial' do
         'title' => 'A title here',
         'subtitle' => 'A subtitle here',
     }
-    end .to raise_error("Missing 'url' key in call_to_action landing page block")
+    end.to raise_error("Missing 'url' key in call_to_action landing page block")
   end
 
   it 'renders without a subtitle when no subtitle is provided' do

@@ -32,7 +32,7 @@ RSpec.describe 'rendering _table landing page partial' do
           ],
         ],
       }
-    end .to raise_error("Missing 'head' key in table landing page block")
+    end.to raise_error("Missing 'head' key in table landing page block")
   end
 
   it 'raises an error if the body key is not provided' do
@@ -43,6 +43,6 @@ RSpec.describe 'rendering _table landing page partial' do
           { 'content' => 'Header 2' },
         ],
       }
-    end .to raise_error("Missing 'body' key in table landing page block")
+    end.to raise_error("Missing 'body' key in table landing page block")
   end
 end
