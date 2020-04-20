@@ -53,9 +53,14 @@ The following table shows possible values for the `status` field of an event obj
 | `recording`  | A `record` stage has completed. This event contains the recording URL |
 | `rejected`   | The call attempt was rejected by the Nexmo platform |
 | `timeout`    | The call timed out before it was answered|
-| `transfer`    | The call has been transferred to a new conversation
 | `unanswered` | The recipient handset was unreachable, or the recipient declined the call | 
 | `notify` | An event to signify that processing has reached the `notify` action in the NCCO | 
+
+The `type` field in the event object is used for the `transfer` event:
+
+|Event Name | Description |
+| --------- | ----------- |
+| `transfer`    | The call has been transferred to a new conversation
 
 An example event object is shown here:
 
@@ -68,6 +73,18 @@ An example event object is shown here:
     'timestamp': '2018-08-14T11:07:01.284Z',
     'to': '447700900001',
     'uuid': '688fd94bd0e1f59c36a4cbd36312fc28'
+}
+```
+
+An example object for a `transfer` event is shown here:
+
+```
+{
+    'conversation_uuid_from': 'CON-4bf66420-d6cb-46e0-9ba9-f7eede9a7301',
+    'type': 'transfer',
+    'uuid': '688fd94bd0e1f59c36a4cbd36312fc28',
+    'conversation_uuid_to': 'CON-4bf66420-d6cb-46e0-9ba9-f8eeba9f5619',
+    'timestamp': '2018-08-14T11:07:01.284Z'
 }
 ```
 
