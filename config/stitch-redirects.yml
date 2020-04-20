@@ -47,6 +47,8 @@
 "/stitch/in-app-video/guides/enable-video/javascript": "https://tokbox.com/developer/guides/basics/"
 "/stitch/in-app-video/guides/enable-screenshare/javascript": "https://tokbox.com/developer/guides/basics/"
 "/stitch/concepts/jwt-acl": "/conversation/guides/jwt-acl"
+"/stitch/in-app-messaging/overview": "/client-sdk/in-app-messaging/overview"
+"/stitch/in-app-video/overview": "https://tokbox.com/developer/guides/basics/"
 
 # Client SDK 
 
@@ -80,7 +82,7 @@
 "/client-sdk/in-app-voice/code-snippets/reject-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/ios"
 "/client-sdk/in-app-voice/code-snippets/start-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/android"
 "/client-sdk": "/client-sdk/overview"
-"client-sdk/configuration": "client-sdk/overview"
+"/client-sdk/configuration/": "client-sdk/overview"
 
 # Conversation API
 
