@@ -5,6 +5,6 @@ language: groovy
 
 ```groovy
 dependencies {
-    implementation 'com.nexmo.android:client-sdk:2.5.0'
+    implementation 'com.nexmo.android:client-sdk:2.5.1'
 }
 ```
