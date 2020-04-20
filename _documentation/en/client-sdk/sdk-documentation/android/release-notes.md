@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.5.1 - April 20, 2020
+
+### Internal
+
+- Improved single ICE candidate gathering implementation.
+
 ## Version 2.5.0 - March 25, 2020
 
 ### Added
