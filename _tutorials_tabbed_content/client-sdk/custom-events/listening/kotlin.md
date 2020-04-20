@@ -1,13 +1,13 @@
 ---
 title: Kotlin
-language: android
+language: kotlin
 menu_weight: 4
 ---
 
 
 ```kotlin
-var customEventListener: NexmoCustomEventListener = NexmoCustomEventListener { event ->
-    Log.d(TAG, "Incoming custom event of type " + event.customType + ": " + event.data)
+val customEventListener = NexmoCustomEventListener {
+    Log.d("TAG", "Incoming custom event of type ${ it.customType} : ${it.data}")
 }
 
 conversation.addCustomEventListener(customEventListener)

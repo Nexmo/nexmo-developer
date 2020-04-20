@@ -9,7 +9,7 @@ menu_weight: 5
 private NexmoCustomEventListener customEventListener = new NexmoCustomEventListener() {
     @Override
     public void onCustomEvent(NexmoCustomEvent event) {
-        Log.d("Custom event", "Incoming custom event of type " + event.getCustomType() + ": " + event.getData());
+        Log.d("TAG", "Incoming custom event of type " + event.getCustomType() + ": " + event.getData());
     }
 };
 
