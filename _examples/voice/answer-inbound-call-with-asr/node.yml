@@ -1,0 +1,12 @@
+---	
+dependencies:	
+    - express	
+    - body-parser	
+code:	
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/asr.js	
+    from_line: 6	
+    to_line: 39	
+client:	
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/asr.js	
+    from_line: 1	
+    to_line: 4

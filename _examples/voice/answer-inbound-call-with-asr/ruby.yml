@@ -1,0 +1,13 @@
+---	
+dependencies:	
+    - sinatra	
+    - sinatra-contrib	
+    - rack-contrib	
+code:	
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/answer-inbound-call-with-asr.rb	
+    from_line: 7	
+    to_line: 40	
+client:	
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/answer-inbound-call-with-asr.rb	
+    from_line: 1	
+    to_line: 5
