@@ -76,7 +76,7 @@ You can use `NexmoClient.isNexmoPushNotification(message.data))` to determine if
 Use `processPushNotification(message.data, listener)` to process the data received from Firebase Cloud Messaging (FCM) into an easy to use Nexmo object:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/firebase-recieve-push-notifications'
+source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/firebase-receive-push-notifications'
 ```
 
 > **NOTE:** In order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in](/client-sdk/getting-started/add-sdk-to-your-app/android) to it.
