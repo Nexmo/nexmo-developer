@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.1 - April 22, 2020
+
+### Added
+
+- Expose the interface `NexmoDTMFEventListener` to subscribe for DTMF events on `NexmoConversation`.
+
 ## Version 2.6.0 - April 20, 2020
 
 ### Added
