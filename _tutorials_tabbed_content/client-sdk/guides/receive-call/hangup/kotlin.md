@@ -1,8 +1,9 @@
 ---
 title: Kotlin
-language: kotlin
+language: android
+menu_weight: 1
 ---
 
-```kotlin
-call?.hangup(object : NexmoRequestListener<NexmoCall> {...})
+```java
+nexmoCall?.hangup(object : NexmoRequestListener<NexmoCall> {...})
 ```

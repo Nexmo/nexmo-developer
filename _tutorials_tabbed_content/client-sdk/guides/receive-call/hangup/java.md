@@ -1,8 +1,9 @@
 ---
 title: Java
 language: java
+menu_weight: 2
 ---
 
 ```java
-call.hangup(new NexmoRequestListener<NexmoCall>(){...})
+nexmoCall.hangup(new NexmoRequestListener<NexmoCall>(){...})
 ```
