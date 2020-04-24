@@ -85,7 +85,7 @@ The procedure for whitelisting yourself differs slightly depending on the sandbo
 
 ### Webhook Retries
 
-Inbound and Status webhooks are retried on a per-notification basis in the Messages API Sandbox. Any non-2xx response to the webhook will prompt Vonage to retry periodically at intervals of increasing length: 5s, 10s, 20s, 40s, 80s, 160s, 320s, 640s, and then every 900s(15 min) for 24 hours.
+Inbound and Status webhooks are retried on a per-notification basis in the Messages API Sandbox. Any non 200 response to a webhook will prompt Vonage to retry periodically at intervals of increasing length: 5, 10, 20, 40, 80, 160, 320, 640, and then every 900 seconds for 24 hours.
 
 ## Send a test message via the Messages API Sandbox
 
