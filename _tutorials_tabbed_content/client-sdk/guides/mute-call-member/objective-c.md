@@ -5,6 +5,7 @@ menu_weight: 5
 ---
 
 ```objective_c
+//Mute Member
 [callMember mute:YES];
 
 //Mute my Member

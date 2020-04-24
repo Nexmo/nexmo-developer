@@ -4,21 +4,12 @@ language: java
 ---
 
 ```java
-NexmoRequestListener<CallMember> listener = new NexmoRequestListener<>() {
-        @Override
-        public void onError(NexmoApiError nexmoApiError) {
-            //Handle error
-        }
+// Mute member
+callMember.mute(true, muteListener);
 
-        @Override
-        public void onSuccess(CallMember member) {
-            //Handle success
-        }
-};
+// Mute my member
+call.getMyCallMember().mute(true, muteListener);
 
-member.mute(ActionStatus.ON, listener);
-
-//Mute my Member
-call.mute(ActionStatus.ON, listener);
-
+// Mute whole call
+call.mute(true);
 ```

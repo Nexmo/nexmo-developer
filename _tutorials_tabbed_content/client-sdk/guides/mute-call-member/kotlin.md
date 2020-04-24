@@ -4,19 +4,12 @@ language: kotlin
 ---
 
 ```kotlin
-val listener = object : NexmoRequestListener<CallMember> {
-    override fun onError(nexmoApiError: NexmoApiError) {
-            TODO("Handle error")
-        }
+// Mute member
+callMember.mute(true, muteListener)
 
-        override fun onSuccess(callMember: CallMember) {
-            TODO("Handle success")
-        }
-    }
+// Mute my member
+call?.myCallMember?.mute(true, muteListener)
 
-member.mute(ActionStatus.ON, listener)
-
-//Mute my Member
-call.mute(ActionStatus.ON, listener)
-
+// Mute whole call
+call?.mute(true)
 ```

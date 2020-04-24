@@ -5,6 +5,7 @@ menu_weight: 4
 ---
 
 ```swift
+//Mute Member
 member.mute(true)
 
 //Mute my Member
