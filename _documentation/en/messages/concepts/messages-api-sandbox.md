@@ -83,6 +83,10 @@ The procedure for whitelisting yourself differs slightly depending on the sandbo
 
 ![Configure webhooks](/assets/images/messages/config-webhooks.png)
 
+### Callback Queuing
+
+Inbound and Status webhooks are queued on a per-message basis in the Messages API Sandbox. Any non-2xx response to the webhook will prompt Vonage to retry periodically at intervals of increasing length: 5s, 10s, 20s, 40s, 80s, 160s, 320s, 640s, and then every 900s(15 min) for 24 hours.
+
 ## Send a test message via the Messages API Sandbox
 
 Once your number or recipient ID is added to the whitelist, you will use a Messages API Sandbox endpoint to send your test messages. The `from` value in the request should be the ID or number associated with the specific Vonage Sandbox external account. For your testing purposes, the value in the `from` field is already populated in the code snippets provided in the [Dashboard](https://dashboard.nexmo.com/messages/sandbox). It is important to note that you will need to replace the value in the `to` field with your number or Recipient ID that is whitelisted on the specific Vonage Sandbox external account.
