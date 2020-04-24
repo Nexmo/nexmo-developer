@@ -4,19 +4,19 @@ language: kotlin
 ---
 
 ```kotlin
-val listener = object : NexmoRequestListener<CallMember> {
-    override fun onError(nexmoApiError: NexmoApiError) {
-            TODO("Handle error")
-        }
-
-        override fun onSuccess(callMember: CallMember) {
-            TODO("Handle success")
-        }
+val earmuffListener = object : NexmoRequestListener<NexmoCallMember> {
+    override fun onSuccess(callMember: NexmoCallMember?) {
+        Log.d("TAG", "Member earmuff enabled $callMember")
     }
 
-member.earmuff(ActionStatus.ON, listener)
+    override fun onError(apiError: NexmoApiError) {
+        Log.d("TAG", "Error: Earmuff member ${apiError.message}")
+    }
+}
 
-//Earmuff my Member
-call.earmuff(ActionStatus.ON, listener)
+// Earmuff member
+call?.callMembers?.firstOrNull()?.earmuff(true, earmuffListener)
 
+// Earmuff my member
+call?.myCallMember?.earmuff(true, earmuffListener)
 ```
