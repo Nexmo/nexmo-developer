@@ -1,10 +1,9 @@
 ---
 title: Kotlin
-language: android
-menu_weight: 2
+language: kotlin
 ---
 
-```java
+```kotlin
 val listener = object : NexmoRequestListener<CallMember> {
     override fun onError(nexmoApiError: NexmoApiError) {
             TODO("Handle error")
