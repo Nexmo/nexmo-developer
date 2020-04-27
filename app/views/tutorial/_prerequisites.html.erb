@@ -9,15 +9,15 @@
 
 <% @tutorial.prerequisites.map do |p| %>
   <div class="Vlt-accordion">
-    <button class="Vlt-accordion__trigger" style="padding-top: 10px;"><h4 style="margin-bottom:10px;"><%= p['title'] %></h4></button>
+    <button class="Vlt-accordion__trigger" style="padding-top: 10px;"><h4 style="margin-bottom:10px;"><%= p.title %></h4></button>
 
-  <div class="Vlt-accordion__content">
-  <%=
-    Nexmo::Markdown::Renderer.new({
-                             code_language: @code_language,
-                             current_user: current_user,
-                         }).call(p['content']).html_safe
-  %>
-  </div>
+    <div class="Vlt-accordion__content">
+      <%=
+        Nexmo::Markdown::Renderer.new({
+          code_language: @code_language,
+          current_user: current_user,
+        }).call(p.content).html_safe
+      %>
+    </div>
   </div>
 <% end %>

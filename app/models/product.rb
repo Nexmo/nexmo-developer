@@ -1,4 +1,5 @@
 class Product
+  # TODO: return instances
   def self.all
     [
       { 'path' => 'messaging/sms', 'icon' => 'message', 'icon_colour' => 'purple', 'name' => 'SMS' },
@@ -11,5 +12,17 @@ class Product
       { 'path' => 'client-sdk', 'icon' => 'queue', 'icon_colour' => 'blue', 'name' => 'Client SDK' },
       { 'path' => 'account/subaccounts', 'icon' => 'user', 'icon_colour' => 'blue', 'name' => 'Subaccounts' },
     ]
+  end
+
+  def self.normalize_title(product)
+    return 'SMS' if product == 'messaging/sms'
+    return 'Voice' if product == 'voice/voice-api'
+    return 'Number Insight' if product == 'number-insight'
+    return 'Messages' if product == 'messages'
+    return 'Dispatch' if product == 'dispatch'
+    return 'Client SDK' if product == 'client-sdk'
+    return 'Subaccounts' if product == 'account/subaccounts'
+
+    product.camelcase
   end
 end

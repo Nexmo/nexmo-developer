@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.7'
+ruby '2.5.8'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -110,7 +110,7 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
-gem 'rubocop', '~> 0.80.0', require: false
+gem 'rubocop', '~> 0.81.0', require: false
 gem 'rubocop-rails', '~> 2.5', require: false
 
 # Volta needs a CSS autoprefixer
@@ -129,7 +129,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo_markdown_renderer', '~> 0.2'
+gem 'nexmo_markdown_renderer', '~> 0.3'
 
 gem 'nexmo-oas-renderer', '~> 0.9', require: false
 

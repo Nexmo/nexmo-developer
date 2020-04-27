@@ -1,8 +1,9 @@
 <%
-  @featured = featured_video()
-  @sessions = Session.where(published: true)
+  @featured = featured_video
+  @sessions = Session.where(published: true).order(created_at: :desc)
+
   if @featured
-    @sessions = @sessions.where("id <> ?", @featured.id)
+    @sessions = @sessions.where("id <> ?", @featured.id).order(created_at: :desc)
   end
 %>
 

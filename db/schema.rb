@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_100247) do
+ActiveRecord::Schema.define(version: 2020_04_02_092734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_100247) do
     t.string "country", limit: 2
     t.float "latitude"
     t.float "longitude"
+    t.boolean "remote", default: false
     t.index ["ends_at"], name: "index_events_on_ends_at"
     t.index ["starts_at"], name: "index_events_on_starts_at"
   end

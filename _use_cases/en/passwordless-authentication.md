@@ -213,7 +213,7 @@ When the user has submitted this form, your application redirects to the `/verif
 
 The [verify request](/api/verify#verify-request) starts the verification process by generating a verification code to send to the user. The first one is sent by SMS. If the user fails to respond within a [specified time period](/verify/guides/verification-events#timing-of-each-event) then the API makes a second and, if necessary, third attempt to deliver the PIN code using a voice call.
 
-To send the verification request, use the [nexmo-node](https://github.com/Nexmo/nexmo-node) REST API client library to your application. Add the following to `server.js`:
+To send the verification request, use the [Node Server SDK](https://github.com/Nexmo/nexmo-node) from your application. Add the following to `server.js`:
 
 ```javascript
 const nexmo = new Nexmo({

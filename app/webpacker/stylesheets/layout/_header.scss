@@ -1,5 +1,4 @@
 .Nxd-header {
-  height: 111px;
   width: 100%;
   z-index: 700;
 
@@ -61,6 +60,7 @@
     flex-direction: column;
 
     h4 {
+      line-height: 2rem;
       margin-bottom: 0px;
     }
   }
@@ -68,7 +68,7 @@
   .Nxd-product__separator {
     height: 35px;
     flex: 0;
-    margin: 0 24px;
+    margin: 0 21px;
     border-left: 1px solid $black;
   }
 
@@ -93,8 +93,8 @@
     color: rgba($white, 80);
 
     @media #{$M-plus} {
-      margin: $unit1 $unit3 $unit1 0;
-    }
+       margin: $unit1 $unit3 $unit1 $unit1;
+     }
 
     &:hover {
       color: $white;
@@ -155,4 +155,23 @@
       }
     }
   }
+}
+
+#locale-switcher {
+  .Vlt-btn {
+    margin-right: 24px;
+
+    .Vlt-dropdown__link__icon {
+      margin-top: -4px;
+    }
+  }
+
+  .Vlt-dropdown__panel {
+    margin-top: 4px;
+  }
+}
+
+.Nxd-main-header__link {
+  font-weight: 600;
+  padding-top: 2px;
 }

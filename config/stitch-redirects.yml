@@ -76,6 +76,8 @@
 "/client-sdk/sdk-documentation/android/android": "/sdk/stitch/android/"
 "/client-sdk/sdk-documentation/ios/ios": "/sdk/stitch/ios/"
 "/client-sdk/sdk-documentation/javascript/javascript": "/sdk/stitch/javascript/"
+"/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/add-users-to-conversation": "/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/add-users-to-conversation"
+"/client-sdk/in-app-voice/code-snippets/reject-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/ios"
 
 # Conversation API
 

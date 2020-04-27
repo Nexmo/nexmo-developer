@@ -144,7 +144,7 @@ Note that it is useful to record both the Facebook ID of your page (which you mi
 
 ## Minimal client for sending Facebook Messenger messages using Python
 
-Currently Nexmo does not officially support Messages and Dispatch API in the Python client library, but our REST API is fully supported and the [Python code is provided](https://github.com/nexmo-community/fbm-product-info/blob/master/FBMClient/FBMClient.py) in the project for you in a reusable class. As the code is provided we will not cover it further in this tutorial.
+Currently Nexmo does not officially support Messages and Dispatch API in the Python Server SDK, but our REST API is fully supported and the [Python code is provided](https://github.com/nexmo-community/fbm-product-info/blob/master/FBMClient/FBMClient.py) in the project for you in a reusable class. As the code is provided we will not cover it further in this tutorial.
 
 ## The use case revisited
 

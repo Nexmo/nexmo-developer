@@ -167,7 +167,7 @@ When you examine the tracing information produced when you send in an SMS you se
 
 ## Generic client
 
-Currently Nexmo does not officially support Messages and Dispatch API in the Python client library, but our REST API is supported (Beta) and the [Python code is provided](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/Client/Client.py) in the project for you in a reusable class. This class allows sending of a message using the Messages API to any of its supported channels. The code is worth taking a quick look at:
+Currently Nexmo does not officially support Messages and Dispatch API in the Python Server SDK, but our REST API is supported (Beta) and the [Python code is provided](https://github.com/nexmo-community/messages-api-real-time-feed/blob/master/Client/Client.py) in the project for you in a reusable class. This class allows sending of a message using the Messages API to any of its supported channels. The code is worth taking a quick look at:
 
 ``` python
     def send_message (self, channel_type, sender, recipient, msg):

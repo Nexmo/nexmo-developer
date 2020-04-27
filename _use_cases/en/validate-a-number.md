@@ -19,15 +19,15 @@ The Number Insight API has three product levels:
 > Find out more about the [basic, standard and advanced APIs](/number-insight/overview#basic-standard-and-advanced-apis).
 > **Note**: Requests to the Number Insight Basic API are free. The other API levels incur costs. See the [API reference](/api/number-insight) for more information.
 
-The [Nexmo Ruby](http://github.com/nexmo/nexmo-ruby) REST API client library makes it easy to access the Number Insight API. It also enables you to work with the other APIs, such as the Pricing API. This means that as well as validating and sanitizing a phone number, you can confirm the cost of sending text messages and voice calls to it, as we demonstrate in the [calculate the cost](#calculate-the-cost) section of this tutorial.
+The [Ruby Server SDK](http://github.com/nexmo/nexmo-ruby) makes it easy to access the Number Insight API. It also enables you to work with the other APIs, such as the Pricing API. This means that as well as validating and sanitizing a phone number, you can confirm the cost of sending text messages and voice calls to it, as we demonstrate in the [calculate the cost](#calculate-the-cost) section of this tutorial.
 
 ## In this tutorial
 
-You learn how to sanitize and validate phone numbers using the Nexmo REST API client for Ruby.
+You learn how to sanitize and validate phone numbers using the Ruby Server SDK.
 
 * [Before you begin](#before-you-begin) make sure that you have what you need to complete this tutorial
 * [Create the project](#create-the-project) by cloning the tutorial source code on GitHub and configuring it with your Nexmo account details
-* [Install the dependencies](#install-the-dependencies) including the Ruby REST API client
+* [Install the dependencies](#install-the-dependencies) including the Ruby Server SDK
 * [Code walkthrough](#code-walkthrough) to learn how the code works
 
 ## Before you begin

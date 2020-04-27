@@ -235,7 +235,7 @@ before_action :ensure_verified
 
 ## Send a verification request
 
-To send the verification request, add the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to the project:
+To send the verification request, add the [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby) to the project:
 
 **Gemfile**
 
@@ -243,7 +243,7 @@ To send the verification request, add the [Nexmo REST API client for Ruby](https
 gem 'nexmo'
 ```
 
-To initialize the Nexmo client library you pass it your [API key and secret](https://dashboard.nexmo.com/settings). Best practice is to store your API credentials in your environment variables rather than your code.
+To initialize the Server SDK you pass it your [API key and secret](https://dashboard.nexmo.com/settings). Best practice is to store your API credentials in your environment variables rather than your code.
 
 Send a verification code to an unverified user:
 
@@ -344,6 +344,6 @@ That's it. You can now log a user into your Web app using two-factor authenticat
 ## Resources
 
 * [Two-factor authentication with Nexmo Verify](https://github.com/Nexmo/ruby-2fa)
-* [Nexmo Client Library for Ruby](https://github.com/Nexmo/nexmo-ruby)
+* [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby)
 * [Verify API](/verify)
 * [Verify API reference guide](/api/verify)

@@ -12,6 +12,7 @@ In this tutorial, you will learn how to record a Voice API call and transcribe i
 ![Application Overview](/assets/images/amazon-transcribe-vapi-tutorial.png "Application Overview")
 
 ## Prerequisites
+
 You need at least two personal phone numbers:
 
 * One to call your [Nexmo virtual number](/numbers/overview) and initiate the conference call.
@@ -22,6 +23,7 @@ If you have access to more than two numbers you can include them as participants
 You also need a Nexmo account. [Sign up here](https://dashboard.nexmo.com/sign-up) if you don't already have one.
 
 ## Install and configure Nexmo CLI
+
 This tutorial uses the [Nexmo command line tool](https://github.com/Nexmo/nexmo-cli), so ensure that it is installed and configured before proceeding.
 
 Run the following `npm` command at a terminal prompt to install the CLI tool:
@@ -37,6 +39,7 @@ nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
 ```
 
 ## Purchase a Nexmo number
+
 If you don't already have one, purchase a Nexmo number to receive inbound calls.
 
 1. List the numbers available for purchase, replacing `COUNTRY_CODE` with your location's [two-character country code](https://www.iban.com/country-codes):
@@ -92,6 +95,7 @@ You will also need to:
 [Create an AWS account with an Administrator user](https://docs.aws.amazon.com/transcribe/latest/dg/setting-up-asc.html). Make a note of your AWS key and secret, because you cannot retrieve the secret later on.
 
 ### Install the AWS CLI
+
 Install and configure the AWS CLI using [this guide](https://docs.aws.amazon.com/transcribe/latest/dg/setup-asc-awscli.html).
 
 ### Create S3 storage buckets
@@ -120,7 +124,7 @@ Run `npm install` in the application directory to install the required dependenc
 * `aws-sdk`: The AWS node.js SDK
 * `body-parser`: node.js body-parsing middleware
 * `express`: A web application framework for node.js
-* `nexmo`: The REST API client library for node.js
+* `nexmo`: The Node Server SDK
 * `serverless`: To deploy your Lambda function
 * `shortid`: Generates random file names for call recordings
 
@@ -237,9 +241,9 @@ The application directory also contains the following sub folders:
 * `transcripts`: Contains the completed transcripts, downloaded from S3 when the transcription jobs complete
 * `transcribeReadyService`: Contains the Lambda function and CloudWatch event definition YAML
 
-### Using the Nexmo REST API client library
+### Using the Node Server SDK
 
-The following code in `index.js` instantiates the Nexmo REST API client library, which you will use to save the call recordings later on:
+The following code in `index.js` instantiates the Node Server SDK, which you will use to save the call recordings later on:
 
 ```javascript
 const Nexmo = require("nexmo")
@@ -566,6 +570,7 @@ Hello back this is channel one .
 ```
 
 ### Adding more callers
+
 If you have more than two numbers, you can add more callers to the conversation. Simply create a `connect` action for each in the `/webhooks/answer` NCCO and increase the number of channels in the `record` action accordingly.
 
 ## Further reading

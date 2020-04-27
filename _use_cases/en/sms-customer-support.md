@@ -98,7 +98,7 @@ Finally, Nexmo must be informed of the webhook endpoint to make an HTTP request 
 Number updated
 ```
 
-> *Note*: Ensure your server is running and publicly available before trying to set up a new callback URL for webhooks. When you are setting up a new webhook Nexmo will make a call to your server to confirm it's available.*
+> *Note*: Ensure your server is running and publicly available before trying to set up a new callback URL for webhooks. When you are setting up a new webhook Nexmo will make a call to your server to confirm it's available.
 
 ⚓ Process an SMS
 ## Process an Inbound SMS
@@ -157,7 +157,7 @@ gem 'nexmo'
 gem 'dotenv-rails'
 ```
 
-> *Note*: To initialize the Nexmo client library you will need to pass it your [API key and secret](https://dashboard.nexmo.com/settings). We highly recommend that you do not store your API credentials in your code but to use environment variables instead.*
+> *Note*: To initialize the Server SDK you will need to pass it your [API key and secret](https://dashboard.nexmo.com/settings). We highly recommend that you do not store your API credentials in your code but to use environment variables instead.
 
 With the library initialized the application can now [send an SMS](/api/sms#send-an-sms). Only send a response if this was the first message on this ticket.
 

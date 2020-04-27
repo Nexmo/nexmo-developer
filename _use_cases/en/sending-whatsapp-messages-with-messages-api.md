@@ -57,3 +57,4 @@ source: '_examples/messages/whatsapp/send-text'
 
 * [Messages documentation](/messages/overview)
 * [Understanding WhatsApp Messaging](/messages/concepts/whatsapp)
+* [Messages API Sandbox](/messages/concepts/messages-api-sandbox)

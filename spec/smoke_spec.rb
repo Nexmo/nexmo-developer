@@ -29,7 +29,7 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it '/extend contains the expected text' do
     get '/extend'
-    expect(response.body).to include('The Nexmo Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.')
+    expect(response.body).to include('The Vonage API Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.')
   end
 
   it '/extend/ibm-watson-sms-sentiment-analysis contains the expected text' do
@@ -44,7 +44,7 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it '/community/slack contains the expected text' do
     get '/community/slack'
-    expect(response.body).to include('Join the Nexmo Community Slack')
+    expect(response.body).to include('Join the Vonage Developer Community Slack')
   end
 
   it '/contribute/overview contains the expected text' do
@@ -122,5 +122,11 @@ RSpec.describe 'Smoke Tests', type: :request do
   it '/product-lifecycle/beta contains the expected text' do
     get '/product-lifecycle/beta'
     expect(response.body).to include('Beta products at Nexmo are in the final stages of testing')
+  end
+
+  it '/tutorials' do
+    get '/tutorials'
+
+    expect(response).to have_http_status(:ok)
   end
 end

@@ -49,3 +49,4 @@ source: '_examples/messages/viber/send-text'
 ## Further reading
 
 * [Messages documentation](/messages/overview)
+* [Messages API Sandbox](/messages/concepts/messages-api-sandbox)

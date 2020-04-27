@@ -1,5 +1,6 @@
 ---
 title: Developer Preview
+navigation_weight: 1
 ---
 
 # Developer Preview
@@ -16,8 +17,6 @@ For support with Developer Preview APIs, please join our [community Slack channe
 
 API documentation and `curl` examples for common use cases are available.
 
-## Client Libaries
+## Server SDKs
 
-The feature is supported in our `node` client library but no others.
-
-
+The feature is supported in our Server SDK for Node but other languages are not supported.
