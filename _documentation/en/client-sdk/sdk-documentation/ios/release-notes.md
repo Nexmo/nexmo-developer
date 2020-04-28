@@ -7,6 +7,7 @@ navigation_weight: 0
 # Release Notes
 
 ## 2.2.0 - 2020-04-22
+
 ### Added
 - Added `isConnected` method to `NXMClient` to show current connection state.
 
