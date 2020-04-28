@@ -26,21 +26,21 @@ navigation_weight: 3
 ---
 ```
 
-Broadly the purpose of the metadata is to provide useful information in the following areas:
+The purpose of the metadata is to provide useful information in the following areas:
 
 * Algolia search results (that is when you search in NDP)
-* Google (and other search engine) search results
+* Google (and other external search engine) search results
 * Information for the navbar (also sometimes called the table of contents or TOC)
 
 The meta data items that can be used are described in the following table:
 
 Metadata | Description
 ----|----
-title | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.
-description | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP.
-meta_title | Used in search engine results.
-meta_description | Used in search engine results. Provides SEO. Should be no more than 160 characters.
-navigation_weight | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`.
+`title` | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.
+`description` | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP. It should indicate the nature of the content of the topic.
+`meta_title` | Used in external search engine results. This should be more descriptive than the `title` to provide additional context in the absence of the navbar.
+`meta_description` | Used in external search engine results. Provides SEO. Should be no more than 160 characters.
+`navigation_weight` | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`. In most cases you only need to add a `navigation_weight` item if your topic is not automatically displayed in your preferred position in the navbar.
 
 ### Example
 
@@ -56,14 +56,33 @@ navigation_weight: 1
 ---
 ```
 
-### Guidelines on writing effective metadata
+### Writing an effective `title`
 
-The following are some tips on writing effective metadata:
+When using `title` bear in mind that while something like "Overview" may be fine for the navbar (as the navbar provides positional context), that would not be very informative in the title of a search result. Sometimes you would see `title` as Overview, but supplement that with a `meta_title` of "Vonage Voice API Overview" for clarity in external search engine search results.
 
-* When using `title` bear in mind that while something like "Overview" may be fine for the navbar (as the navbar provides positional context), that would not be very informative in the title of a search result. Sometimes you would see `title` as Overview, but supplement that with a `meta_title` of "Vonage Voice API Overview" for clarity in search results.
-* Remember that navigation overrides are set in `config/navigation.yml`. In many cases you will only need to add a `navigation_weight` item if your topic is not automatically displayed in your preferred position in the navbar.
-* `description` is used in search results when you search on NDP. The description should give the user a very clear idea of the purpose on the topic.
-* `meta_description` is used by external search engines. It provide SEO for external engines. It is an opportunity to create an information description containing important key words.
+Ideally task (step) or other active topics should include a gerund. For example:
+
+* Installing the Vonage Command Line Interface (CLI)
+
+Topics providing reference information would have a noun-based title, for example:
+
+* The Conversation object
+
+To provide greater context in external search results a corresponding `meta_title` might contain much more specific information, for example:
+
+* The Vonage Conversation API Conversation object
+
+### Writing an effective `description`
+
+`description` is used in search results when you search on NDP. The description should be written to give the user a clear idea of the purpose on the topic, as in many cases it will not be possible to determine the content of a topic from `title` alone.
+
+### Writing an effective `meta_title`
+
+This appears in external search engine results. While navbar titles such as "Overview" might be fine for the navbar (as the navbar provides positional context) this would not be very information in search engine results. `meta_title` could then be set to something that clearly indicates the content of the topic in the external search engine context.
+
+### Writing an effective `meta_description`
+
+`meta_description` is used by external search engines. It provide SEO for external engines. It is an opportunity to create an information description containing important key words. You can read more information about how `meta_description` is leveraged by search engines on [this page](https://moz.com/learn/seo/meta-description).
 
 ## Typography
 
