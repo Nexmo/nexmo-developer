@@ -9,6 +9,7 @@ navigation_weight: 0
 ## 2.2.0 - 2020-04-22
 
 ### Added
+
 - Added `isConnected` method to `NXMClient` to show current connection state.
 
 ```objective_c
@@ -16,6 +17,7 @@ navigation_weight: 0
 ```
 
 ### Fixed
+
 - API Event `client_ref` handling.
 
 ## 2.1.10 - 2020-04-16
