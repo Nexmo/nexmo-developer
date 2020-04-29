@@ -3,6 +3,15 @@ title: Link your Facebook Page to your Nexmo account
 description: In this step you learn how to link your Facebook Page to your Nexmo account.
 ---
 
+# Link your Facebook Page to your Nexmo account
+
+The process of completely linking your application to your Facebook consists of two parts:
+
+1. Linking your Facebook page to your Nexmo account
+2. Linking your Facebook page to a specific Nexmo application
+
+There may be occasions where you want to link your Nexmo account to a Facebook page, but have not yet created a Nexmo application. This is fine, as long as after you create your Nexmo application, you then link that application to your Facebook page. This step shows both parts of the complete process.
+
 ## Part 1: Link your Facebook Page to your Nexmo account
 
 Linking your Facebook page to your Nexmo account allows Nexmo to handle inbound messages and enables you to send messages from the Nexmo Messages API.
@@ -21,13 +30,13 @@ At this point your Nexmo Account and this Facebook Page are linked. The link bet
 
 Once your Facebook page is linked to your Nexmo account, it becomes available for use by any of your applications. To link the Facebook page to a Nexmo application:
 
-1. Navigate to the [Messages and Dispatch applications page](https://dashboard.nexmo.com/messages/applications).
+1. Navigate to your [applications page](https://dashboard.nexmo.com/applications).
 
-2. From the list, select the application you want to link to.
+2. From the list, click on the application you want to link. You can filter by using the Capabilities drop down and selecting `messages` to make this easier.
 
-3. Then, select the **Linked external accounts** tab from the top navigation.
+3. Then, select the **Linked external accounts** tab.
 
-4. Click the **Link** button beside your Facebook Page ensuring that the **Provider** is **messenger**.
+4. Click the **Link** button beside the Facebook Page you want to link your application to, ensuring that the **Provider** is **Facebook Messenger**.
 
 You're now ready to receive messages users send to you on your Facebook Page.
 

@@ -1,0 +1,37 @@
+title: Sending a Facebook Messenger message
+description: The Messages API provides the ability to .... This task looks at using the Messages API to send a Facebook Messenger message.
+products:
+  - messages
+
+introduction: 
+  title: Introduction to this task
+  description: This task shows you how to send a Facebook Messenger message with Messages API.
+  content: |
+    # Introduction
+    The TBD....
+
+    > **NOTE:** This task assumes you have already created a Facebook Profile and a Facebook Page.
+
+prerequisites:
+- create-nexmo-account
+- install-nodejs
+- install-nexmo-cli-beta
+- install-node-sdk-beta
+- messages-dispatch/configure-webhooks
+- messages-dispatch/write-webhook-server
+- messages-dispatch/test-webhook-server
+
+tasks:
+- messages-dispatch/create-application
+- messages-dispatch/link-facebook-page
+- messages-dispatch/send-facebook-message
+
+conclusion:
+  title: What's next?
+  description: What else can you do with the Messages API?
+  content: |
+
+    # What's next?
+    You can do a lot more with the Messages API.
+
+    See [Messages API documentation](/messages/overview).

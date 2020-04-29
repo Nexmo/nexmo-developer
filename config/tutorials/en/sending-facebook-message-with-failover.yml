@@ -17,14 +17,14 @@ prerequisites:
 - install-nodejs
 - install-nexmo-cli-beta
 - install-node-sdk-beta
-- olympus/configure-webhooks
-- olympus/write-webhook-server
-- olympus/test-webhook-server
+- messages-dispatch/configure-webhooks
+- messages-dispatch/write-webhook-server
+- messages-dispatch/test-webhook-server
 
 tasks:
-- olympus/create-application
-- olympus/link-facebook-page
-- olympus/send-facebook-failover
+- messages-dispatch/create-application
+- messages-dispatch/link-facebook-page
+- messages-dispatch/send-facebook-failover
 
 conclusion:
   title: What's next?
