@@ -23,7 +23,7 @@ You can create Messages and Dispatch applications in the [Dashboard](https://das
 
 To create your application using the Dashboard:
 
-1. Under [Applications](https://dashboard.nexmo.com/applications) in the Dashboard, click **Create a new application** button.
+1. Under [Applications](https://dashboard.nexmo.com/applications) in the Dashboard, click the **Create a new application** button.
 
 2. Under **Name**, enter the Application name. Choose a name for ease of future reference.
 
