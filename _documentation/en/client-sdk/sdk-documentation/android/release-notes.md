@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.2 - April 29, 2020
+
+### Fixed
+
+- Potential `NullPointerException` when processing push notifications during client login.
+
 ## Version 2.6.1 - April 22, 2020
 
 ### Added
