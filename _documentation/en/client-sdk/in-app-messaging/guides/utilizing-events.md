@@ -16,9 +16,9 @@ This guide will introduce you to the following concepts.
 - **Conversation History** - an `events` object that stores all text Events happening on a conversation
 
 
-> **NOTE:** A step-by-step tutorial to building a web-based chat application is also available [here](/client-sdk/tutorials/in-app-messaging/introduction).
-
-
+```partial
+source: _partials/client-sdk/messaging/chat-app-tutorial-note.md
+```
 
 ```tabbed_content
 source: _tutorials_tabbed_content/client-sdk/guides/messaging/utilizing-events

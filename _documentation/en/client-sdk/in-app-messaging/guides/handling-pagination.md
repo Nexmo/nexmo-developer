@@ -7,7 +7,9 @@ navigation_weight: 8
 
 This guide covers the process loading and displaying chunks of conversation events at a time.
 
-> **NOTE:** A step-by-step tutorial to building a web-based chat application is also available here for [JavaScript](/client-sdk/tutorials/in-app-messaging) and [iOS](/client-sdk/tutorials/ios-in-app-messaging-chat).
+```partial
+source: _partials/client-sdk/messaging/chat-app-tutorial-note.md
+```
 
 Given a Conversation you are already a Member of, you can download chunks (pages) of events existing within this conversation. 
 
