@@ -17,12 +17,12 @@ prerequisites:
 - install-nodejs
 - install-nexmo-cli-beta
 - install-node-sdk-beta
+- messages-dispatch/create-application
 - messages-dispatch/configure-webhooks
 - messages-dispatch/write-webhook-server
 - messages-dispatch/test-webhook-server
 
 tasks:
-- messages-dispatch/create-application
 - messages-dispatch/link-facebook-page
 - messages-dispatch/send-facebook-failover
 
