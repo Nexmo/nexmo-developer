@@ -3,7 +3,7 @@ title: Handling pagination
 navigation_weight: 8
 ---
 
-# Handling Events
+# Handling pagination
 
 This guide covers the process loading and displaying chunks of conversation events at a time.
 
