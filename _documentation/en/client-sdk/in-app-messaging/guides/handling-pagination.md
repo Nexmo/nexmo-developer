@@ -18,7 +18,7 @@ Load first page off events:
 source: _tutorials_tabbed_content/client-sdk/guides/messaging/handling-pagnation/load-page-events
 ```
 
-After loading the first chunk of events you will get the reference to the current [NexmoEventsPage](https://developer.nexmo.com/sdk/stitch/android/). This reference allows to retrieve following event pages:
+After loading the first chunk of events you will get the reference to the current [Nexmo Events Page](http://127.0.0.1:3000/sdk/stitch/android/com/nexmo/client/NexmoEventsPage.html). This reference allows to retrieve following event pages:
 
 ```tabbed_content
 source: _tutorials_tabbed_content/client-sdk/guides/messaging/handling-pagnation/load-next-event-page
