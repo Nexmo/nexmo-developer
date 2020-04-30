@@ -3,7 +3,7 @@ title: Send an SMS
 description: In this step you learn how to send an SMS message.
 ---
 
-## Send an SMS message
+# Send an SMS message
 
 Sending an SMS message with the Messages API can be done with one API call, authenticated using a JWT.
 

@@ -271,4 +271,5 @@
 "/voice/voice-api/guides/connecting-voice-calls-to-amazon-lex-bots": "/voice/voice-api/overview"
 "/voice/voice-api/code-snippets/answer-inbound-call-with-asr": "/voice/voice-api/code-snippets/before-you-begin"
 "/use-cases/sending-facebook-messenger-messages-with-messages-api": "/messages/tutorials/send-fbm-message"
-"/use-cases/sending-sms-messages-with-messages-api": "/messages/tutorials/send-sms"
+"/use-cases/sending-sms-messages-with-messages-api": "/messages/tutorials/send-sms-with-messages"
+"/use-cases/sending-whatsapp-messages-with-messages-api": "/messages/tutorials/send-whatsapp-message"

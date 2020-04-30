@@ -1,14 +1,9 @@
 ---
 title: Send a Facebook message 
-description: In this step you learn how to send a Facebook message ... 
+description: In this step you learn how to send a Facebook message 
 ---
 
-# Send a Facebook message 
-
-Sending a Facebook message ....TBD.
-
-
-## Reply to a Facebook message
+# Send a Facebook message
 
 You can then use the Messages API to respond to the inbound message received from the Facebook User.
 
