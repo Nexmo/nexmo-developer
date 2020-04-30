@@ -84,7 +84,7 @@ To change your profile information:
 
 To reset your Nexmo password:
 
-1. Navigate to [Forgot your password?](https://dashboard.nexmo.com/sign-in/forgot-password).
+1. Navigate to [Forgot your password?](https://dashboard.nexmo.com/forgot-password).
 2. Enter the email address associated with your Nexmo account and click **Reset password**.
 3. You receive a password reset link at the email address associated with your Nexmo account. This link is valid for 15 minutes.
 4. Navigate to the reset link and reset your password.
