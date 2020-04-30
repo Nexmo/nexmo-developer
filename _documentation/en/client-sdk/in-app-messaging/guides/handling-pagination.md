@@ -13,7 +13,7 @@ source: _partials/client-sdk/messaging/chat-app-tutorial-note.md
 
 Given a Conversation you are already a Member of, you can download chunks (pages) of events existing within this conversation. 
 
-Load first page off events:
+Load first page of events:
 
 ```tabbed_content
 source: _tutorials_tabbed_content/client-sdk/guides/messaging/handling-pagnation/load-page-events
