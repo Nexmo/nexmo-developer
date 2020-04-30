@@ -1,14 +1,14 @@
 title: Sending a Facebook Messenger message
-description: The Messages API provides the ability to .... This task looks at using the Messages API to send a Facebook Messenger message.
+description: The Messages API provides the ability to send messages to various channels, including Facebook Messenger, SMS, WhatsApp and Viber. This task looks at using the Messages API to send a Facebook Messenger message.
 products:
   - messages
 
 introduction: 
-  title: Introduction to this task
-  description: This task shows you how to send a Facebook Messenger message with Messages API.
+  title: Introduction to this tutorial
+  description: This tutorial shows you how to send a Facebook Messenger message with Messages API.
   content: |
     # Introduction
-    The TBD....
+    The Messages API allows you to send a Facebook Messenger message. In this tutorial you learn how to receive a Messenger message and then return a message.
 
     > **NOTE:** This task assumes you have already created a Facebook Profile and a Facebook Page.
 
