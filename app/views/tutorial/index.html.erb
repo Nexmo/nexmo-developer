@@ -42,7 +42,7 @@
             <% if @tutorial.available_code_languages.any? %>
               <span style="font-weight: bold;">Also available on:</span>
               <ul class="Ndx-task__code-language-list">
-                <% @tutorial.available_code_languages.each do |language| %>
+                <% @tutorial.available_code_languages.reject { |l| l == @tutorial.code_language }.each do |language| %>
                   <li class="Ndx-task-step__code-language">
                     <a title="<%= language %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}/#{language}" %>">
                       <%= render 'code_languages/icon', code_language: language %>
