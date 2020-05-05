@@ -37,4 +37,21 @@ RSpec.describe 'tutorials routes', type: :routing do
       end
     end
   end
+
+  describe 'tutorial#list' do
+    it 'supports product and code_language' do
+      expect(get('/client-sdk/tutorials/javascript'))
+        .to route_to(controller: 'tutorial', action: 'list', product: 'client-sdk', code_language: 'javascript')
+    end
+
+    it 'supports a product' do
+      expect(get('/client-sdk/tutorials'))
+        .to route_to(controller: 'tutorial', action: 'list', product: 'client-sdk')
+    end
+
+    it 'supports a code_language' do
+      expect(get('/tutorials/javascript'))
+        .to route_to(controller: 'tutorial', action: 'list', code_language: 'javascript')
+    end
+  end
 end

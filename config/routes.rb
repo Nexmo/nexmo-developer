@@ -91,8 +91,7 @@ Rails.application.routes.draw do
   resources :careers, only: [:index]
 
   get '/task/(*tutorial_step)', to: 'tutorial#single'
-  get '/(*product)/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
-  get '/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
+  get '/(*product)/tutorials(/:code_language)', to: 'tutorial#list', constraints: DocumentationConstraint.documentation.merge(Nexmo::Markdown::CodeLanguage.route_constraint)
   get '/(*product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
   get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
 

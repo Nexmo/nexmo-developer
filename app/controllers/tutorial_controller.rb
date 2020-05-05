@@ -7,12 +7,14 @@ class TutorialController < ApplicationController
 
   def list
     @product = params['product']
+    @code_language = params['code_language']
 
     if @product
       @tutorials = TutorialList.tasks_for_product(@product)
     else
       @tutorials = TutorialList.all
     end
+    @tutorials = @tutorials.select { |t| t.languages.include?(@code_language) } if @code_language
 
     @document_title = 'Tutorials'
 
