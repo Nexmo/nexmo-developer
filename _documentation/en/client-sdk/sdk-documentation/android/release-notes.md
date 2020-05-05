@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.3 - May 4, 2020
+
+### Fixed
+
+- Changed visibility of `Nexmo.page.isPrevPageExist()` to `public`.
+
 ## Version 2.6.2 - April 29, 2020
 
 ### Fixed
