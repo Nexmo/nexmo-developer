@@ -7,7 +7,7 @@ description: In this step you authenticate your users via the JWTs you created e
 
 Your users must be authenticated to be able to participate in the Conversation. You perform this authentication using the Conversation ID and the JWTs you generated in a previous step.
 
-Declare the following variables at the top of your `chat.js` file and populate `USER1_JWT`, `USER2_  JWT` and `CONVERSATION_ID` with your own values:
+Declare the following variables at the top of your `chat.js` file and populate `USER1_JWT`, `USER2_JWT` and `CONVERSATION_ID` with your own values:
 
 ```javascript
 const USER1_JWT = '';

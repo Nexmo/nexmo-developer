@@ -5,7 +5,7 @@ description: In this step you will clone the starter project
 
 # The Starter Project
 
-To make things easier, we are providing a `Starter` project for you. It is a simple Android Studio project that contains an application with the following two screens:
+To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
 
 ```screenshot
 image: public/assets/images/tutorials/client-sdk/android-in-app-messaging-chat/login_screen.png
@@ -20,7 +20,7 @@ All files that will be modified during this tutorial are located in the `app/src
 image: public/assets/images/client-sdk/android-in-app-messaging-chat/project-files.png
 ```
 
-Now it's time to fill previously generated `conversation ID` and `JWT` tokens.
+Now it's time to fill previously generated `CONVERSATION_ID` and `JWT` tokens.
 
 Open `Config.kt` file and add fill:
 
@@ -52,4 +52,4 @@ object Config {
 
 ```
 
-Notice that we hardcoded these cons and values to store the properties of users. This might feel a bit out of place but makes it easier to use later on in this tutorial.
+Notice that these constants and values are hardcoded to store the properties of users. This makes it easier to use these values later in this tutorial.

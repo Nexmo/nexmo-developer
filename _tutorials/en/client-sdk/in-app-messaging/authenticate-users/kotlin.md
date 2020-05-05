@@ -11,15 +11,15 @@ Your users must be authenticated to be able to participate in the `Conversation`
 image: public/assets/images/tutorials/client-sdk/android-in-app-messaging-chat/login_screen.png
 ```
 
-> **NOTE:** You perform this authentication using the `JWTs` generated and provided in previous steps. 
+> **NOTE:** You perform this authentication using the `JWTs` generated and provided in previous steps.
 
-Now You have to retrieve client instance inside `LoginViewModel` class. Usually, it would be provided it via injection, but for tutorial purposes you will retrieve instance directly using static method. Locate the `private val client` property in the `LoginViewModel` class and update it's implementation:
+Now You have to retrieve client instance inside `LoginViewModel` class. Usually, it would be provided it via injection, but for tutorial purposes you will retrieve instance directly using static method. Locate the `private val client` property in the `LoginViewModel` class and update its implementation:
 
 ```kotlin
 private val client = NexmoClient.get()
 ```
 
-Locate the `onLoginUser` method within the `LoginViewModel` class and fill it's body to enable user login:
+Locate the `onLoginUser` method within the `LoginViewModel` class and fill its body to enable user login:
 
 ```kotlin
 fun onLoginUser(user: User) {
@@ -45,7 +45,7 @@ init {
 }
 ```
 
-Now view needs to react to the newly dispatched connection state. Locate the `private val stateObserver` property within `LoginFragment` and fill it's body:
+Now view needs to react to the newly dispatched connection state. Locate the `private val stateObserver` property within `LoginFragment` and fill its body:
 
 ```kotlin
 private val stateObserver = Observer<ConnectionStatus> {

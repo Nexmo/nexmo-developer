@@ -5,7 +5,7 @@ description: In this step you display any new messages
 
 # Receive new messages
 
-All events we got so far are already in this conversation. So how do we display any new incoming messages? We can achieve this by implementing the conversation listener.
+All events received so far are already in this conversation. So how are new incoming messages displayed? You can achieve this by implementing the conversation listener.
 
 Firstly, inside `ChatViewModel` class, `getConversation()` method, add `conversation.addMessageEventListener`:
 
@@ -50,9 +50,9 @@ Now, locate the `private val messageListener = object : NexmoMessageEventListene
     }
 ```
 
-Now each time new message is revieved `onTextEvent(textEvent: NexmoTextEvent)` listener will be called, new message will be passed to `updateConversation(textEvent: NexmoTextEvent)` method and dispatched to the view via  `conversationMessages` `LiveData` (same `LiveData` used to dispatch all the messages after loading conversation events).
+Now each time a new message is received `onTextEvent(textEvent: NexmoTextEvent)` listener is called, the new message will be passed to `updateConversation(textEvent: NexmoTextEvent)` method and dispatched to the view via `conversationMessages` `LiveData` (same `LiveData` used to dispatch all the messages after loading conversation events).
 
-The last thing to do is to make sure that all listeners will be removed when `ChatViewModel` is destroyed eg. when the user navigates back. Fill the body of the `onCleared()` method in the `ChatViewModel` class.
+The last thing to do is to make sure that all listeners are removed when `ChatViewModel` is destroyed, for example, when the user navigates back. Fill the body of the `onCleared()` method in the `ChatViewModel` class.
 
 ```kotlin
 override fun onCleared() {
