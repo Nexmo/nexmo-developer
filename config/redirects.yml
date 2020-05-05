@@ -274,3 +274,5 @@
 "/use-cases/sending-sms-messages-with-messages-api": "/messages/tutorials/send-sms-with-messages"
 "/use-cases/sending-whatsapp-messages-with-messages-api": "/messages/tutorials/send-whatsapp-message"
 "/use-cases/sending-viber-service-messages-with-messages-api": "/messages/tutorials/send-viber-message"
+"/dispatch/tutorials/sending-facebook-message-with-failover": "/dispatch/tutorials/send-facebook-message-with-failover"
+"/task/sending-facebook-message-with-failover": "/dispatch/tutorials/send-facebook-message-with-failover"
