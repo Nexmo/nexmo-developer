@@ -131,7 +131,7 @@ gem 'country_select', '~> 4.0'
 
 gem 'nexmo_markdown_renderer', github: 'nexmo/nexmo-markdown-renderer', branch: 'fix-kotlin-icon'
 
-gem 'nexmo-oas-renderer', '~> 0.10', require: false
+gem 'nexmo-oas-renderer', '~> 0.11', require: false
 
 gem 'smartling'
 
