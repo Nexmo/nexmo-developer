@@ -25,7 +25,7 @@ page:
       column:
       - type: html
         html:
-          content: '<img src="/assets/images/developer_spotlight.png" />'
+          content: '<img src="/assets/images/developer_spotlight_new.png" />'
   - row:
     - column:
         - type: line_divider
@@ -88,6 +88,17 @@ page:
               type: large
             - content: "Authors can now choose to pay it forward and donate their $400 to a charity making a difference in the technology industry."
               type: small
+	- type: structured_text
+        structured_text:
+          header: "Does my post have to be about Vonage products"
+          icon:
+            name: "icon-gear"
+            color: blue
+          text:
+          - content: "Your posts should involve Vonage products"
+            type: large
+          - content: "It can be any of them: SMS, Voice, Video, Verify, Conversation APIs, or one of the other tools of our communication suite."
+            type: small
       - type: structured_text
         structured_text:
           header: "The Process"
