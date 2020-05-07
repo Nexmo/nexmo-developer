@@ -222,9 +222,8 @@ class StaticController < ApplicationController
 
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
-
+    @document_title = 'Vonage Developer Relations Team'
     @careers = Greenhouse.devrel_careers
-
     render layout: 'page'
   end
 

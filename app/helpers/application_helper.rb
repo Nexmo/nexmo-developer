@@ -11,11 +11,11 @@ module ApplicationHelper
 
   def title
     if @product && @document_title
-      "Nexmo Developer | #{@product.titleize} > #{@document_title}"
+      "#{@product.titleize} > #{@document_title} | Vonage API Developer"
     elsif @document_title
-      "Nexmo Developer | #{@document_title}"
+      "#{@document_title} | Vonage API Developer"
     else
-      'Nexmo Developer'
+      'Vonage API Developer'
     end
   end
 
