@@ -228,6 +228,19 @@ class StaticController < ApplicationController
     render layout: 'page'
   end
 
+  def spotlight
+    response = RestClient.post(
+      'https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/',
+      params.permit(:name, :email_address, :background, :outline, :previous_content).to_h
+    )
+
+    if response.code == 200
+      head :ok
+    else
+      head :unprocessable_entity
+    end
+  end
+
   private
 
   def canonical_redirect

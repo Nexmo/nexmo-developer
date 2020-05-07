@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
+  post '/spotlight', to: 'static#spotlight'
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'

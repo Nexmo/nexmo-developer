@@ -3,7 +3,7 @@
     <%= local_assigns['header'].render_markdown(skip_paragraph_surround: true) %>
 </h2>
 
-<%= form_tag('https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/', authenticity_token: false, remote: true, id: 'spotlight-form') do %>
+<%= form_tag('/spotlight', remote: true, id: 'spotlight-form') do %>
   <div class="Vlt-form__element">
     <%= label_tag 'name', 'Your Name', class: 'Vlt-label' %>
     <div class="Vlt-input">
