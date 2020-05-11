@@ -138,8 +138,8 @@ page:
               - column: "15:00"
               - column: "23:00"
             - row:
-              - column: To be confirmed
-              - column: It will be good
+              - column: Community Project Spotlight
+              - column: We’ll be hearing about projects by some of our amazing community members. Join us to hear about The Validation Station, JWTs in Go and how technology is supporting communities in remote islands.
               - column: "08:00"
               - column: "11:00"
               - column: "16:00"
