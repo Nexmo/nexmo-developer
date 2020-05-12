@@ -88,7 +88,7 @@ page:
               type: large
             - content: "Authors can now choose to pay it forward and donate their $400 to a charity making a difference in the technology industry."
               type: small
-	- type: structured_text
+      - type: structured_text
         structured_text:
           header: "Does my post have to be about Vonage products?"
           icon:
