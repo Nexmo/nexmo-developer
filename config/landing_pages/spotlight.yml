@@ -90,7 +90,7 @@ page:
               type: small
 	- type: structured_text
         structured_text:
-          header: "Does my post have to be about Vonage products"
+          header: "Does my post have to be about Vonage products?"
           icon:
             name: "icon-gear"
             color: blue
