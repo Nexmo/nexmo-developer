@@ -80,19 +80,19 @@ page:
             name: "icon-user"
             color: blue
           text:
-            - content: "We pay $400 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
+            - content: "We pay $500 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
               type: large
             - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Vonage marketing and social media teams behind you getting the word out about your work. Your success is our success."
               type: small
             - content: "And Now Introducing:  [Spotlight for Donations]( https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr)"
               type: large
-            - content: "Authors can now choose to pay it forward and donate their $400 to a charity making a difference in the technology industry."
+            - content: "Authors can now choose to pay it forward and donate their $500 to a charity making a difference in the technology industry."
               type: small
       - type: structured_text
         structured_text:
           header: "Does my post have to be about Vonage products?"
           icon:
-            name: "icon-gear"
+            name: "icon-code"
             color: blue
           text:
           - content: "Your posts should involve Vonage products."
