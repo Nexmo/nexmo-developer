@@ -34,7 +34,7 @@ IP addresses of your devices and endpoints can be configured to reach your Nexmo
 
 ## Domain Based Routing
 
-Calls made to a Programmable SIP domain must be handled at a regional level. You must use a R-URI with a regional domain. Please be aware that a R-URI without a regional component in the domain will fail the call.
+Calls made to a Programmable SIP domain must be handled at a regional level. You must use a Request URI with a regional domain. Please be aware that a Request URI without a regional component in the domain will fail the call.
 
 The following code will indicate to Nexmo that you want this SIP call to be handled in the EU:
 
