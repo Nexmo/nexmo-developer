@@ -15,7 +15,7 @@ Nexmo uses this conversion data, together with [delivery receipts (DLRs)](/messa
 
 ## Before you send conversion data
 
-Access to the Conversion API is not enabled by default when you create your Nexmo account. To use the Conversion API, you must first request access by sending an email to [support@nexmo.com](mailto:support@nexmo.com).
+Access to the Conversion API is not enabled by default when you create your Nexmo account. To use the Conversion API, you must first request access by sending an email to [api.support@vonage.com](mailto:api.support@vonage.com).
 
 When sending us conversion data you must differentiate between your [2FA](/messaging/us-short-codes/guides/2fa) messages and other communications. For example, [event based alerts](/messaging/us-short-codes/guides/alerts) or marketing messages. To do this, use one [API key](/api/conversion) to authenticate requests to the Conversion API for 2FA, and a different API key for everything else.
 

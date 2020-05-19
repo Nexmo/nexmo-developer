@@ -13,6 +13,6 @@ The business accounts can be one of two different types. A One Way account is li
 This means there is no way for a customer to respond and means that you don't need to worry about dealing with inbound messages.
 A Two Way account enables both inbound and outbound messages. 
 
-In order to get started with Viber Service Messages you will need to email [sales@nexmo.com](mailto:sales@nexmo.com). Nexmo is an official partner and will handle the application and creation of your Viber Service Messages account for you.
+In order to get started with Viber Service Messages you will need to email [api.sales@vonage.com](mailto:api.sales@vonage.com). Vonage is an official partner and will handle the application and creation of your Viber Service Messages account for you.
 
-If successful, your account manager will provide you with a Viber Service Messages ID. This ID can only be used on Nexmo.
+If successful, your account manager will provide you with a Viber Service Messages ID. This ID can only be used on Vonage.

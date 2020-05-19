@@ -21,7 +21,7 @@ The figure below illustrates the relationship between the primary account and th
 
 This API is currently in Beta.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include the Subaccounts API in the subject line.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include the Subaccounts API in the subject line.
 
 During Beta Nexmo will expand the capabilities of the API.
 
