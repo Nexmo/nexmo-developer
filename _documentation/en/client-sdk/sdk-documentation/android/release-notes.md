@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.4 - May 19, 2020
+
+### Internal
+
+- Improved user-agent SDK version reporting.
+
 ## Version 2.6.3 - May 4, 2020
 
 ### Fixed
