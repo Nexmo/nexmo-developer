@@ -97,7 +97,7 @@ curl -X POST \
 
 ## WhatsApp deterministic language policy
 
-> **NOTE:** WhatsApp will deprecate the "fallback" locale method when sending template messages on January 1st 2020. Please ensure that you are using the "deterministic" option in your requests. Starting April 8, 2020, messages will fail with a 1020 error in your message status webhook if you are not using the deterministic policy.
+> **NOTE:** WhatsApp deprecated the "fallback" locale method when sending template messages on January 1st 2020. As of April 8, 2020, messages bearing the "fallback" policy will fail with a 1020 error in your message status webhook.
 
 When a message template is sent with the deterministic language policy, the receiving device will query its cache for a *language pack* for the language and locale specified in the message. If not available in the cache, the device will query the server for the required language pack. With the deterministic language policy the target device language and locale settings are ignored. If the language pack specified for the message is not available an error will be logged.
 
