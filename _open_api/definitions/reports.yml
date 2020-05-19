@@ -8,7 +8,7 @@ info:
     We recommend to keep reports fairly small, that is up to a month worth of data, by specifying the start and end date accordingly in the request body.
   contact:
     name: Nexmo.com
-    email: devrel@nexmo.com
+    email: devrel@vonage.com
     url: 'https://developer.nexmo.com/'
     x-twitter: Nexmo
   termsOfService: 'https://www.nexmo.com/terms-of-use'

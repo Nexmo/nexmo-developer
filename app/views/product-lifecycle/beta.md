@@ -11,7 +11,7 @@ Breaking changes at this stage in the lifecycle are **extremely** rare and only 
 
 ## Support
 
-If you encounter an issue with a Beta product you can email [support@nexmo.com](mailto:support@nexmo.com) as usual. Normal support SLAs do not apply.
+If you encounter an issue with a Beta product you can email [api.support@vonage.com](mailto:api.support@vonage.com) as usual. Normal support SLAs do not apply.
 
 At this stage we may not be aware of all possible issues and some investigation may be needed in conjunction with the engineering team.
 

@@ -126,7 +126,7 @@ conclusion:
     # What's next?
     You can do a lot more with the Client SDK.
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
 
     See [Client SDK documentation](/client-sdk/overview).
 ```
@@ -191,7 +191,7 @@ conclusion:
     # What's next?
     You can do a lot more with the Client SDK.
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
 
     See [Client SDK documentation](/client-sdk/overview).
 ```
