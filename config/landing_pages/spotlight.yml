@@ -40,24 +40,24 @@ page:
             color: yellow
       - type: linked_image
         linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2019/10/E_2FA-WordPress_1200x600.jpg"
-          url: "https://www.nexmo.com/blog/2019/10/09/adding-2-factor-authentication-to-wordpress-with-nexmo-verify-api-dr"
-          alt_text: "Adding 2-Factor Authentication to WordPress with Nexmo Verify API"
+          image: "https://www.nexmo.com/wp-content/uploads/2020/05/Blog_ASP-NET_Angular_1200x600.png"
+          url: "https://www.nexmo.com/blog/2020/05/08/create-a-basic-video-chat-app-with-asp-net-and-angular-dr"
+          alt_text: "Create a Basic Video Chat App with ASP.NET and Angular"
       - type: linked_image
         linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2019/09/E_GitLab-CI-Pipeline_1200x600.jpg"
-          url: "https://www.nexmo.com/blog/2019/09/30/sending-gitlab-ci-pipeline-notifications-with-nexmo-messages-dr"
-          alt_text: "Sending GitLab CI Pipeline Notifications with Nexmo Messages"
+          image: "https://www.nexmo.com/wp-content/uploads/2020/05/Blog_Home-Surveillance_Node-RaspberryPi_1200x600.png"
+          url: "https://www.nexmo.com/blog/2020/05/19/home-surveillance-system-with-node-and-a-raspberry-pi"
+          alt_text: "Home Surveillance System With Node and a Raspberry Pi"
       - type: linked_image
         linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2019/08/Incident-Reporting_1200x600.jpg"
-          url: "https://www.nexmo.com/blog/2019/08/21/incident-reporting-with-pagerduty-and-nexmo-dr"
-          alt_text: "Incident Reporting with PagerDuty and Nexmo"
+          image: "https://www.nexmo.com/wp-content/uploads/2020/05/Blog_Python-AWS-Lambda_OpenTok_1200x600.png"
+          url: "https://www.nexmo.com/blog/2020/05/21/creating-a-video-session-in-aws-lambda-with-python"
+          alt_text: "Creating a Video Session in AWS Lambda With Python"
       - type: linked_image
         linked_image:
-          image: "https://www.nexmo.com/wp-content/uploads/2019/06/unnamed.jpg"
-          url: "https://www.nexmo.com/blog/2019/06/20/creating-a-complex-ivr-system-with-ease-with-xstate-dr"
-          alt_text: "Creating a Complex IVR System with Ease with XState"
+          image: "https://www.nexmo.com/wp-content/uploads/2020/05/Social_Call-Recording_Golang_1200x600.png"
+          url: "https://www.nexmo.com/blog/2020/05/18/download-vonage-voice-api-recordings-with-golang"
+          alt_text: "Download Vonage Voice API Recordings with Golang"
     - width: 2
       column:
       - type: structured_text
