@@ -106,6 +106,8 @@ Rails.application.routes.draw do
 
   get '(/:locale)/*product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(locale: LocaleConstraint.available_locales)
 
+  get '/ed', to: 'static#blog_cookie'
+
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'
