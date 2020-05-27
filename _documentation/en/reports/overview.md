@@ -3,7 +3,7 @@ title: Overview
 meta_title: The Reports API
 ---
 
-# Reports
+# Reports API
 
 When you use our communication APIs, server logs and transactional records of the activity are created, which are called CDRs (Call Detail Record). The Reports API enables you to download your CDRs. You can filter your CDRs based on attributes such  as origin and destination phone numbers, status, time period and more. [See the list of supported parameters](/api/reports). You can include the message body/text and download reports for any of your subaccounts.
 
