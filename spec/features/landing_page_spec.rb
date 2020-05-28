@@ -134,7 +134,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Nxd-products-banner:nth-of-type(1)') do
-        expect(page).to have_link('Messages and Dispatch - Beta', href: '/messages/overview')
+        expect(page).to have_link('Messages and Dispatch', href: '/messages/overview')
         expect(page).to have_css('p', text: 'Integrate with various communication channels including Facebook Messenger, WhatsApp and Viber with failover')
       end
 
@@ -167,7 +167,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Nxd-products-banner:nth-of-type(2)') do
-        expect(page).to have_link('Nexmo Client SDK - Beta', href: '/client-sdk/overview')
+        expect(page).to have_link('Nexmo Client SDK', href: '/client-sdk/overview')
         expect(page).to have_css('p', text: 'Build multi-platform applications with contextual communications using Nexmo Client SDK and Conversation API.')
       end
 
