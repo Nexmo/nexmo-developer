@@ -46,7 +46,7 @@ navigation_weight:  6
 | 5        | 内部错误          | 处理此消息时平台中发生了错误。                                                                          |
 | 6        | 消息无效          | 平台无法处理此消息，例如，无法识别的数字前缀。                                                                  |
 | 7        | 禁止号码          | 您尝试向其发送消息的号码已停用，可能不会收到。                                                                  |
-| 8        | 禁止合作伙伴帐户      | 您的 Nexmo 帐户已被暂停。请联系 [support@nexmo.com](mailto:support@nexmo.com)。                       |
+| 8        | 禁止合作伙伴帐户      | 您的 Nexmo 帐户已被暂停。请联系 [api.support@vonage.com](mailto:api.support@vonage.com)。                       |
 | 9        | 违反合作伙伴配额      | 您没有足够的积分来发送消息。请充值并重试。                                                                    |
 | 10       | 现有绑定太多        | 与平台的同时连接数超出了您的帐户分配。                                                                      |
 | 11       | 帐户未启用 HTTP    | 该帐户未配置短信 API，您应该改用 SMPP。                                                                 |

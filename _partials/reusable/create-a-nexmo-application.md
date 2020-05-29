@@ -19,11 +19,11 @@ This creates a Nexmo application with a messages [capability](/application/overv
 
 ### How to create a Messages and Dispatch application using the Dashboard
 
-You can create Messages and Dispatch applications in the [Dashboard](https://dashboard.nexmo.com/applications/new).
+You can create Messages and Dispatch applications in the [Dashboard](https://dashboard.nexmo.com/applications).
 
 To create your application using the Dashboard:
 
-1. Under Messages and Dispatch in the Dashboard, click [Create an application](https://dashboard.nexmo.com/applications/new).
+1. Under [Applications](https://dashboard.nexmo.com/applications) in the Dashboard, click the **Create a new application** button.
 
 2. Under **Name**, enter the Application name. Choose a name for ease of future reference.
 
@@ -31,13 +31,13 @@ To create your application using the Dashboard:
 
 4. Under **Capabilities** select the **Messages** button.
 
-5. Enter the URL for your inbound message webhook, for example, `https://example.com/webhooks/inbound-message`.
+5. In the **Inbound URL** box, enter the URL for your inbound message webhook, for example, `https://example.com/webhooks/inbound-message`.
 
-6. Enter the URL for your message status webhook, for example, `https://example.com/webhooks/message-status`.
+6. In the **Status URL** box, enter the URL for your message status webhook, for example, `https://example.com/webhooks/message-status`.
 
-7. Click the **Create new application** button. You are now taken to the next step of the Create Application procedure where you can link a Nexmo number to the application, and link external accounts such as Facebook to this application.
+7. Click the **Generate new application** button. You are now taken to the next step of the Create Application procedure where you can link a Nexmo number to the application, and link external accounts such as Facebook to this application.
 
-8. If there is an external account you want to link this application to, click the corresponding **Link** button.
+8. If there is an external account you want to link this application to, click the **Linked external accounts** tab, and then click the corresponding **Link** button for the account you want to link to.
 
 You have now created your application.
 

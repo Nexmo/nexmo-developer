@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
 
+  helper_method :page_title
+
   rescue_from Errno::ENOENT, with: :not_found
   rescue_from Nexmo::Markdown::DocFinder::MissingDoc, with: :not_found
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
@@ -86,5 +88,9 @@ class ApplicationController < ActionController::Base
     else
       I18n.default_locale
     end
+  end
+
+  def page_title
+    @page_title ||= PageTitle.new(@product, @document_title).title
   end
 end

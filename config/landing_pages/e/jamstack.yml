@@ -1,0 +1,119 @@
+page:
+  - row:
+    - column: 
+      - type: linked_image
+        linked_image:
+          image: https://www.nexmo.com/wp-content/uploads/2020/04/hearts-devs.png
+          url: "#"
+          alt_text: "Vonage Loves Developers"
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Vonage @ Jamstack Conf"
+            align: center
+          subtitle:
+            text: "Hello, Jamstackers! We love catching up with you at events, whether in person or remotely, and we've put together some resources that we hope you find useful. Want to explore building apps with SMS, Voice or Chatbot integrations? Get started today with €10 complimentary credit by using coupon code <strong>JAMST0520</strong> before <strong>June 29th, 2020</strong>."
+            align: center
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=jamstack&utm_campaign=landing"
+          center_button: true
+          large: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon: 
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          icon: 
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages/overview"
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Verify"
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
+          icon: 
+            name: "icon-lock"
+            color: "indigo"
+          url: "/verify"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <div class="Vlt-callout Vlt-callout--shoutout">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
+            	</div>
+            </div>
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Handy related links and further reading"
+          icon:
+            name: "icon-pin-2"
+            color: "blue-dark"
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Please let us know! You can reach out to our community team at community@vonage.com. We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+            	</div>
+            </div>
+  - row:
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
+              - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+              - item: "[Thought of the Day Project (Powered by Netlify Functions)](https://github.com/phazonoverload/thought-of-the-day)"
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Build a Health Blog With Video Coaching Using Preact.js, Vonage & Netlify CMS](https://www.nexmo.com/blog/2020/02/28/create-preact-netlify-cms-opentok-health-app-dr)"
+              - item: "[Build a Video Conversation Platform for Online Gatherings With Nuxt.js](https://www.nexmo.com/blog/2020/04/08/build-a-video-conversation-platform-for-online-gatherings-with-nuxt-js-dr)"
+              - item: "[Add 2FA to Your Nuxt Application with Vonage Verify](https://www.nexmo.com/blog/2018/09/11/add-2fa-to-nuxt-with-nexmo-verify-dr)"
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider

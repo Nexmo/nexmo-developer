@@ -90,6 +90,7 @@ wildcard
 WhatsApp
 Viber
 nexmo.com
+vonage.com
 failover
 unix
 ACLs
@@ -333,3 +334,6 @@ OpenAPI
 ReDoc
 1m
 initializer
+IPv6
+on-answer
+ringback-tone

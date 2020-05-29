@@ -228,6 +228,38 @@ class StaticController < ApplicationController
     render layout: 'page'
   end
 
+  def spotlight
+    response = RestClient.post(
+      'https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/',
+      params.permit(:name, :email_address, :background, :outline, :previous_content).to_h
+    )
+
+    if response.code == 200
+      head :ok
+    else
+      head :unprocessable_entity
+    end
+  end
+
+  def blog_cookie
+    # This is the first touch time so we only want to set it if it's not already set
+    set_utm_cookie('ft', Time.now.getutc.to_i) unless cookies[:ft]
+
+    # Clear out old values that might not be set
+    cookies.delete('utm_campaign', domain: :all)
+    cookies.delete('utm_term', domain: :all)
+    cookies.delete('utm_content', domain: :all)
+
+    # These are the things we'll be tracking through the customer dashboard
+    set_utm_cookie('utm_medium', 'dev_education')
+    set_utm_cookie('utm_source', 'blog')
+    set_utm_cookie('utm_campaign', params['c']) if params['c']
+    set_utm_cookie('utm_content', params['ct']) if params['ct']
+    set_utm_cookie('utm_term', params['t']) if params['t']
+
+    redirect_to 'https://dashboard.nexmo.com/sign-up'
+  end
+
   private
 
   def canonical_redirect

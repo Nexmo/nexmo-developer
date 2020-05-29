@@ -1,0 +1,224 @@
+# Vonage Developer Day - May 14 2020
+
+page:
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<style>.Nxd-header-notices {display: none} .Nxd-landing-page { margin-bottom: 2em; } .Vlt-table { margin: 2em 0 4em; } .Vlt-table table td:first-child { min-width: 200px; } .Vlt-table table td:first-child p { font-weight: bold; } .Vlt-table table td:first-child a { display: block; } .Nxd-landing-col img { display: block; width: 100%; margin-bottom: -2.5em; } .Vlt-btn--primary { font-size: 1.5em; padding: 0.5em 1em; } .Vlt-grid .Nxd-landing-col:nth-child(3) { margin-bottom: 2em; } @media screen and (max-width: 768px) { .Vlt-table table tr td:nth-child(2), .Vlt-table table tr th:nth-child(2) { display: none; } }</style>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<div></div>"
+    - column: 
+      - type: linked_image
+        linked_image:
+          image: https://www.nexmo.com/wp-content/uploads/2020/04/dev-day-extrusion-update.png
+          url: https://www.eventbrite.com/e/vonage-developer-day-tickets-102886113134
+          alt_text: "Vonage Developer Day - 14 May 2020"
+    - column:
+      - type: html
+        html:
+          content: "<div></div>"
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: ""
+            align: center
+          subtitle:
+            text: "Join us on the 14th May 2020 for Vonage Developer Day, an online event taking place across different time zones. We’ll be bringing you interactive workshops, panels with Q&As and community socialising opportunities while giving you the ability to connect with our team and wider community."
+            align: center
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up Free"
+          url: "https://www.eventbrite.com/e/vonage-developer-day-tickets-102886113134"
+          center_button: true
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: Learn
+            align: center
+          subtitle:
+            text: Access interactive sessions from our developer relations team on a range of communication technologies in different programming languages
+            align: center    
+    - column:
+      - type: header
+        header:
+          title:
+            text: Question
+            align: center
+          subtitle:
+            text: Participate in the sessions with live Q&As to ask our team questions you have and upvote the questions you would like to hear answered
+            align: center
+    - column:
+      - type: header
+        header:
+          title:
+            text: Connect
+            align: center
+          subtitle:
+            text: Chat with other members of our community using an innovative networking set up designed to support virtual connections
+            align: center
+  - row:
+    - column: 
+      - type: linked_image
+        linked_image:
+          image: https://www.nexmo.com/wp-content/uploads/2020/04/hearts-devs.png
+          url: https://www.eventbrite.com/e/vonage-developer-day-tickets-102886113134
+          alt_text: "Join us live on May 14th across different timezones for Vonage Developer Day. Sessions | Discussions | Q&As"
+  - row:
+    - column: 
+      - type: table
+        table:
+          head:
+            - content: Session
+            - content: Description
+            - content: PST
+            - content: EST
+            - content: BST
+            - content: SGT
+          body:
+            - row:
+              - column: Welcome talks
+              - column: Hello from the Vonage Developer Team
+              - column: "03:00"
+              - column: "06:00"
+              - column: "11:00"
+              - column: "19:00"
+            - row:
+              - column: How to Build a Facebook Bot [Kevin Lewis](https://twitter.com/_phzn)
+              - column: In this workshop, we'll build our very first Facebook bot with the Vonage Messages API. Receive a message, store it in a database and respond, all with no prior knowledge of JavaScript or the Vonage APIs. 
+              - column: "03:15"
+              - column: "06:15"
+              - column: "11:15"
+              - column: "19:15"
+            - row:
+              - column: What's Love Got to Do with It? Ruby and Sentiment Analysis [Ben Greenberg](https://twitter.com/RabbiGreenberg)
+              - column: This session will take a dive into understanding how Natural Language Understanding works, and apply it in a Ruby app that connects NLU analysis, the daily headlines and social media all in one. Get ready to learn some Ruby, some human language insights, and how they all intertwine!
+              - column: "04:00"
+              - column: "07:00"
+              - column: "12:00"
+              - column: "20:00"
+            - row:
+              - column: Low-Code for Developers [Julia Biro](https://twitter.com/iza_biro)
+              - column: Low-code solutions are on the rise and visual builder tools are opening up creation to a wide range of users. In this session, we’re going to look at low-code tools like Node-RED and Zapier, what they have to offer, and whether they have a place in a developer’s toolkit.
+              - column: "05:00"
+              - column: "08:00"
+              - column: "13:00"
+              - column: "21:00"
+            - row:
+              - column: Social Session
+              - column: We don’t want folks to miss the hallway track experience of physical events, so we will be having regular social sessions to facilitate connecting our community and chatting with our team.
+              - column: "05:30"
+              - column: "08:30"
+              - column: "13:30"
+              - column: "21:30"
+            - row:
+              - column: An Introduction to Web Components [Dwane Hemmings](https://twitter.com/dwaneio)
+              - column: In this session, we will do a general overview of Web Components. We will go over what they are and who uses them. There will be an example of how a Web Component can be included in different JavaScript frameworks. Lastly, we will show what it takes to make a simple one.
+              - column: "06:00"
+              - column: "09:00"
+              - column: "14:00"
+              - column: "22:00"
+            - row:
+              - column: Introduction to Computer Vision in .NET [Steve Lorello](https://twitter.com/slorello)
+              - column: Computer Vision is revolutionizing the world around us. It's ubiquitous, yet the entry points are opaque and can be daunting to understand. In this talk we'll break down these barriers as we cover some of the basics of Computer Vision using .NET. We'll look at edge detection, facial detection, feature tracking, and some basic augmented reality using OpenCV.
+              - column: "07:00"
+              - column: "10:00"
+              - column: "15:00"
+              - column: "23:00"
+            - row:
+              - column: Community Project Spotlight
+              - column: We’ll be hearing about projects by some of our amazing community members. Join us to hear about The Validation Station, JWTs in Go and how technology is supporting communities in remote islands.
+              - column: "08:00"
+              - column: "11:00"
+              - column: "16:00"
+              - column: "00:00"
+            - row:
+              - column: Social Session
+              - column: We don’t want folks to miss the hallway track experience of physical events, so we will be having regular social sessions to facilitate connecting our community and chatting with our team.
+              - column: "08:30"
+              - column: "11:30"
+              - column: "16:30"
+              - column: "00:30"
+            - row:
+              - column: "Flask: How 'Micro' of a Microframework? [Diana Rodriguez](https://twitter.com/cotufa82)"
+              - column: In this session, we will talk about flask. How much of a "microframework" it really is, and how extensible it can be. It is as simple (or complex) as you decide! Let's see where all the superpowers of this awesome "microframework" come from and how "micro" it really is.
+              - column: "09:00"
+              - column: "12:00"
+              - column: "17:00"
+              - column: "01:00"
+            - row:
+              - column: Building a SMS Spam Classifier Using Machine Learning [Tony Hung](https://twitter.com/Thung)
+              - column: In this talk, we’ll go over how to build a machine learning model in order to detect spam SMS messages. We’ll go over how to train a model and build an SMS application using the Vonage SMS API that allows you to send a message, and respond with the prediction of that text (spam or not spam) using an Amazon Lambda function. You’ll need an AWS and Google Colab account.
+              - column: "10:00"
+              - column: "13:00"
+              - column: "18:00"
+              - column: "02:00"
+            - row:
+              - column: "Communications on Fire: Using Vonage API on Firebase [Kelly Andrews](https://twitter.com/kellyjandrews)"
+              - column: In this talk, we'll learn how to use the Firebase toolset with Vonage API to build communication solutions. Topics will include SMS and Messaging, Voice, and Verify along with practical tips on setting yourself up for success. We will walk away with the information needed to get started in about thirty minutes! 
+              - column: "11:00"
+              - column: "14:00"
+              - column: "19:00"
+              - column: "03:00"
+            - row:
+              - column: Social Session
+              - column: We don’t want folks to miss the hallway track experience of physical events, so we will be having regular social sessions to facilitate connecting our community and chatting with our team.
+              - column: "11:30"
+              - column: "14:30"
+              - column: "19:30"
+              - column: "03:30"
+            - row:
+              - column: Dead Simple APIs with Open API [Chris Tankersley](https://twitter.com/dragonmantank)
+              - column: We live in a world that is powered by APIs. OpenAPI is a specification and set of related tooling that can make it easy to design, describe, and help build an API in many different languages. See how easy it is to hit the ground running using OpenAPI, Spotlight, and OpenAPI Generator to drop in an API into any project.
+              - column: "12:00"
+              - column: "15:00"
+              - column: "20:00"
+              - column: "04:00"
+            - row:
+              - column: The Art of Writing Technical Content [Lauren Lee](https://twitter.com/LoLoCoding)
+              - column: In this talk, we will discuss the art of technical writing and how to turn an application into a tutorial for others to create as well. We’ll cover how to artfully explain the reasoning behind your technical choices so that the reader can clearly understand the development process while considering factors such as audience, tone, scale, and best practices to reach potential readers.
+              - column: "13:00"
+              - column: "16:00"
+              - column: "21:00"
+              - column: "05:00"
+            - row:
+              - column: Geppetto’s Guide to Living Puppets [Michael Jolley](https://twitter.com/baldbeardbuild)
+              - column: Join us as we learn from Geppetto's Guide to Living Puppets and build an animatronic puppet that mimics our movements using the Vonage Video API, Azure Functions, Particle IoT devices and yes, an animatronic puppet.
+
+              - column: "14:00"
+              - column: "17:00"
+              - column: "22:00"
+              - column: "06:00"
+            - row:
+              - column: Social Session & Farewell
+              - column: We don’t want folks to miss the hallway track experience of physical events, so we will be having regular social sessions to facilitate connecting our community and chatting with our team.
+              - column: "14:30"
+              - column: "17:30"
+              - column: "22:30"
+              - column: "06:30"
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: Join us for Vonage Developer Day
+            align: center
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up Free"
+          url: "https://www.eventbrite.com/e/vonage-developer-day-tickets-102886113134"
+          center_button: true

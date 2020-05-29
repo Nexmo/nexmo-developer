@@ -23,6 +23,7 @@ The following diagram illustrates the relationship between the Dispatch API and 
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Code Snippets](#code-snippets)
+* [Tutorials](#tutorials)
 * [Use Cases](#use-cases)
 * [Reference](#reference)
 
@@ -32,7 +33,7 @@ This API is currently in Beta.
 
 In this release Nexmo provides a failover template. The failover template instructs the [Messages API](/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Workflow API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
 
 ## Supported features
 
@@ -79,6 +80,10 @@ product: dispatch
 ```code_snippet_list
 product: dispatch
 ```
+
+## Tutorials
+
+* [Send Facebook Messenger message with failover](/dispatch/tutorials/send-facebook-message-with-failover/introduction)
 
 ## Use Cases
 

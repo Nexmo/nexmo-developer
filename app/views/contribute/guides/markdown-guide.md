@@ -15,6 +15,75 @@ You can find this document in `/app/views/contribute/guides/markdown-guide.md`. 
 
 There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping Markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
 
+## Metadata
+
+The first part of a Markdown file includes metadata similar to the following:
+
+```
+---
+title: Markdown Guide
+navigation_weight: 3
+---
+```
+
+The purpose of the metadata is to provide useful information in the following areas:
+
+* Algolia search results (that is when you search in NDP)
+* Google (and other external search engine) search results
+* Information for the navbar (also sometimes called the table of contents or TOC)
+
+The meta data items that can be used are described in the following table:
+
+Metadata | HTML generated | Description
+----|----|----
+`title` | N/A | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.
+`description` | N/A | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP. It should indicate the nature of the content of the topic.
+`meta_title` | `<head><title>The title</title>...</head>` | Used for SEO in external search engine results. This should be more descriptive than the `title` to provide additional context in the absence of the navbar. [Further reading](https://moz.com/learn/seo/title-tag).
+`meta_description` | `<head><meta name="description" content="The description">...</head>` | Used in external search engine results. Provides SEO. Should be no more than 160 characters. [Further reading](https://moz.com/learn/seo/meta-description).
+`navigation_weight` | N/A | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`. In most cases you only need to add a `navigation_weight` item if your topic is not automatically displayed in your preferred position in the navbar.
+
+### Example
+
+The following shows an example of metadata use:
+
+```
+---
+title: Overview
+description: An overview of the Vonage Voice API.
+meta_title: Text-To-Speech, IVR, Call Recording and more with the Vonage Voice API.
+meta_description: The Vonage Voice API is the easiest way to build high-quality voice applications in the Cloud.
+navigation_weight: 1
+---
+```
+
+### Writing an effective `title`
+
+When using `title` bear in mind that while something like "Overview" may be fine for the navbar (as the navbar provides positional context), that would not be very informative in the title of a search result. Sometimes you would see `title` as Overview, but supplement that with a `meta_title` of "Vonage Voice API Overview" for clarity in external search engine search results.
+
+Ideally task (step) or other active topics should include a gerund. For example:
+
+* Installing the Vonage Command Line Interface (CLI)
+
+Topics providing reference information would have a noun-based title, for example:
+
+* The Conversation object
+
+To provide greater context in external search results a corresponding `meta_title` might contain much more specific information, for example:
+
+* The Vonage Conversation API Conversation object
+
+### Writing an effective `description`
+
+`description` is used in search results when you search on NDP. The description should be written to give the user a clear idea of the purpose on the topic, as in many cases it will not be possible to determine the content of a topic from `title` alone.
+
+### Writing an effective `meta_title`
+
+This appears in external search engine results. While navbar titles such as "Overview" might be fine for the navbar (as the navbar provides positional context) this would not be very information in search engine results. `meta_title` could then be set to something that clearly indicates the content of the topic in the external search engine context. You can read more information about how `meta_title` is leveraged by search engines on [this page](https://moz.com/learn/seo/meta-title).
+
+### Writing an effective `meta_description`
+
+`meta_description` is used by external search engines. It provide SEO for external engines. It is an opportunity to create an information description containing important key words. You can read more information about how `meta_description` is leveraged by search engines on [this page](https://moz.com/learn/seo/meta-description).
+
 ## Typography
 
 **Headings**

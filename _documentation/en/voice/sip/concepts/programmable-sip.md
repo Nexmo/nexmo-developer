@@ -4,7 +4,7 @@ title: Programmable SIP
 
 # Programmable SIP
 
-> **NOTE:** Programmable SIP is currently in Developer Preview. In order to get set up with Programmable SIP, please contact [Support](mailto:support@nexmo.com) or your Account Manager.
+> **NOTE:** Programmable SIP is currently in Developer Preview. In order to get set up with Programmable SIP, please contact [Support](mailto:api.support@vonage.com) or your Account Manager.
 
 ## Overview
 
@@ -34,7 +34,7 @@ IP addresses of your devices and endpoints can be configured to reach your Nexmo
 
 ## Domain Based Routing
 
-If you require your call to be handled by a specific Nexmo region, then you can specify that by using R-URI with such information in the domain part.
+Calls made to a Programmable SIP domain must be handled at a regional level. You must use a Request URI with a regional domain. Please be aware that a Request URI without a regional component in the domain will fail the call.
 
 The following code will indicate to Nexmo that you want this SIP call to be handled in the EU:
 
@@ -58,7 +58,7 @@ You can specify any additional headers you need when sending a SIP Request. Any 
 
 ## Receiving Calls From Nexmo
 
-You can use the Voice API NCCO connect action to connect a call to your SIP endpoints. The detailed documentation is here.
+You can use the Voice API NCCO connect action to connect a call to your SIP endpoints. The detailed documentation is [here](/voice/voice-api/ncco-reference#connect).
 
 ## SIP Connect
 

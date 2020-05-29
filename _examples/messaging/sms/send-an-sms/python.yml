@@ -5,11 +5,11 @@ dependencies:
     - nexmo
 client:
     source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms.py
-    from_line: 12
-    to_line: 14    
+    from_line: 13
+    to_line: 15  
 code:
     source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms.py
-    from_line: 16
-    to_line: 27
+    from_line: 17
+    to_line: 28
 file_name: send-an-sms.py
 run_command: 'python send-an-sms.py'

@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
+  post '/spotlight', to: 'static#spotlight'
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
@@ -91,8 +92,7 @@ Rails.application.routes.draw do
   resources :careers, only: [:index]
 
   get '/task/(*tutorial_step)', to: 'tutorial#single'
-  get '/(*product)/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
-  get '/tutorials', to: 'tutorial#list', constraints: DocumentationConstraint.documentation
+  get '/(*product)/tutorials(/:code_language)', to: 'tutorial#list', constraints: DocumentationConstraint.documentation.merge(Nexmo::Markdown::CodeLanguage.route_constraint)
   get '/(*product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
   get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
 
@@ -105,6 +105,8 @@ Rails.application.routes.draw do
   get '(/:locale)/:namespace/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(namespace: 'contribute', locale: LocaleConstraint.available_locales)
 
   get '(/:locale)/*product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(locale: LocaleConstraint.available_locales)
+
+  get '/ed', to: 'static#blog_cookie'
 
   get '*unmatched_route', to: 'application#not_found'
 

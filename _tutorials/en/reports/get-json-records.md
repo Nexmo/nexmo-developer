@@ -23,4 +23,4 @@ To obtain records within a specific time period use the `date_start` and `date_e
 curl -X GET -u $API_KEY:$API_SECRET 'https://api.nexmo.com/v2/reports/records?account_id=$TARGET_API_KEY&product=SMS&direction=outbound&include_message=true&date_start=2020-04-02T12:00:00Z&date_end=2020-04-02T12:05:00Z'
 ```
 
-> **NOTE:** `date_end` must be within 1 hour of `date_start`.
+> **NOTE:** `date_end` must be no more than 24 hours later than `date_start`.

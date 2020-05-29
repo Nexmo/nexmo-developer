@@ -14,6 +14,8 @@ class MarkdownController < ApplicationController
       set_canonical_url
     end
 
+    @document_title = @frontmatter['meta_title'] || @frontmatter['title']
+
     @sidenav = Sidenav.new(
       namespace: params[:namespace],
       locale: params[:locale],
@@ -91,8 +93,6 @@ class MarkdownController < ApplicationController
   def content_from_folder
     frontmatter = YAML.safe_load(File.read(folder_config_path))
     path = folder_config_path.chomp('/.config.yml')
-
-    @document_title = frontmatter['meta_title'] || frontmatter['title']
 
     content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,

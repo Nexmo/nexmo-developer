@@ -14,7 +14,7 @@ introduction:
 
     Finally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when either party is currently typing.
 
-    The source code is available [on GitHub](https://github.com/nexmo-community/ip-messaging-tutorial).
+    The source code is available on [GitHub](https://github.com/Nexmo/ClientSDK-Get-Started-Messaging-Objective-C).
 
 prerequisites:
   - create-nexmo-account
@@ -24,7 +24,7 @@ prerequisites:
 
 tasks:
   - client-sdk/in-app-messaging/create-application
-  - client-sdk/in-app-messaging/create-conversation
+  - client-sdk/create-conversation
   - client-sdk/in-app-messaging/create-users
   - client-sdk/in-app-messaging/add-users-to-conversation
   - client-sdk/in-app-messaging/generate-jwts
@@ -47,4 +47,4 @@ conclusion:
 
     You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview).
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>

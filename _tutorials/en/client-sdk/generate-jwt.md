@@ -15,7 +15,7 @@ Remember to replace the `MY_APP_ID` and `MY_USER_NAME` variables with your own v
 
 You can generate a JWT using the Nexmo CLI by running the following command:
 
-``` shell
+```shell
 nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+21600)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=MY_APP_ID
 ```
 

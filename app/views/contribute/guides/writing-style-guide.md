@@ -192,7 +192,7 @@ Some examples are given here:
 
 ## Avoid using 'he or she' constructs
 
-Avoid "He or she" (use user/developer/caller as appropriate). Do not replace 'he or she' by 'they'.
+Avoid "He or she" (use user/developer/caller as appropriate). Do not replace 'he or she' with 'they'.
 
 Example:
 

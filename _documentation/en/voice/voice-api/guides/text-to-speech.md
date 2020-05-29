@@ -95,6 +95,14 @@ Name | Language | Gender | [SSML](/voice/voice-api/guides/customizing-tts) suppo
 `Filiz` | `tr-TR` | `female` | ✅
 `Mizuki` | `ja-JP` | `female` | ✅
 `Seoyeon`| `ko-KR` | `female`| ✅
+`Zeina` | `ar` | `Female` | ✅
+`Zhiyu` | `cmn-CN` | `Female` | ✅
+`Lea` | `fr-FR` | `Female` | ✅
+`Vicki` | `de-DE` | `Female` | ✅
+`Bianca` | `it-IT` | `Female` | ✅
+`Takumi` | `ja-JP` | `Male` | ✅
+`Mia` | `es-MX` | `Female` | ✅
+`Lucia` | `es-ES` | `Female` | ✅
 `Laila` | `ara-XWW` | `female` | ❌
 `Maged` | `ara-XWW` | `male` | ❌
 `Tarik` | `ara-XWW` | `male` | ❌

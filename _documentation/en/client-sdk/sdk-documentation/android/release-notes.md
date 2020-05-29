@@ -6,6 +6,24 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.4 - May 19, 2020
+
+### Internal
+
+- Improved user-agent SDK version reporting.
+
+## Version 2.6.3 - May 4, 2020
+
+### Fixed
+
+- Changed visibility of `Nexmo.page.isPrevPageExist()` to `public`.
+
+## Version 2.6.2 - April 29, 2020
+
+### Fixed
+
+- Potential `NullPointerException` when processing push notifications during client login.
+
 ## Version 2.6.1 - April 22, 2020
 
 ### Added

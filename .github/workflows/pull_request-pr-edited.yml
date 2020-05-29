@@ -10,5 +10,5 @@ jobs:
       uses: mheap/github-action-pr-heroku-review-app@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        HEROKU_APPLICATION_ID: ${{ secrets.HEROKU_APPLICATION_ID }}
-        HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
+        HEROKU_PIPELINE_ID: ${{ secrets.HEROKU_PIPELINE_ID }}
+        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}

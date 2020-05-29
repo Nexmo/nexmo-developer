@@ -1,5 +1,6 @@
 class Tutorial::Metadata
   attr_reader :name, :file_loader
+
   delegate :path, :yaml, to: :file_loader
 
   def initialize(name:)

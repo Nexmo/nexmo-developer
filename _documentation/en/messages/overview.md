@@ -27,6 +27,7 @@ The following diagram illustrates the relationship between the Messages API and 
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Code Snippets](#code-snippets)
+* [Tutorials](#tutorials)
 * [Use Cases](#use-cases)
 * [Reference](#reference)
 
@@ -34,7 +35,7 @@ The following diagram illustrates the relationship between the Messages API and 
 
 This API is currently in Beta.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include the Messages API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
+Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include the Messages API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
 
 During Beta Nexmo will expand the capabilities of the API.
 
@@ -107,6 +108,13 @@ product: messages
 ```code_snippet_list
 product: messages
 ```
+
+## Tutorials
+
+* [How to send an SMS message](/messages/tutorials/send-sms-with-messages/introduction)
+* [How to send a Viber message](/messages/tutorials/send-viber-message/introduction)
+* [How to send a WhatsApp message](/messages/tutorials/send-whatsapp-message/introduction)
+* [How to send a Facebook Messenger message](/messages/tutorials/send-fbm-message/introduction)
 
 ## Use Cases
 

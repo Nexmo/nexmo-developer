@@ -126,7 +126,7 @@ conclusion:
     # What's next?
     You can do a lot more with the Client SDK.
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
 
     See [Client SDK documentation](/client-sdk/overview).
 ```
@@ -191,7 +191,7 @@ conclusion:
     # What's next?
     You can do a lot more with the Client SDK.
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
 
     See [Client SDK documentation](/client-sdk/overview).
 ```
@@ -200,5 +200,5 @@ This content is provided directly in the tutorial configuration file as it is sp
 
 ## Further information
 
-* See [Sending a Facebook message with Failover](/dispatch/tutorials/sending-facebook-message-with-failover/introduction) for an example of a single-language tutorial.
+* See [Sending a Facebook message with Failover](/dispatch/tutorials/send-facebook-message-with-failover/introduction) for an example of a single-language tutorial.
 * See [Creating a chat app](/client-sdk/tutorials/in-app-messaging/introduction) for an example of a multi-language tutorial.

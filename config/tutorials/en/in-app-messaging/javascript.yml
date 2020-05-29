@@ -14,7 +14,7 @@ introduction:
 
     Finally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when either party is currently typing.
 
-    The source code is available [on GitHub](https://github.com/nexmo-community/ip-messaging-tutorial).
+    The source code is available on [GitHub](https://github.com/nexmo-community/ip-messaging-tutorial).
 
 prerequisites:
   - create-nexmo-account
@@ -26,9 +26,9 @@ prerequisites:
 tasks:
   - client-sdk/create-application
   - client-sdk/create-conversation
-  - client-sdk/create-users
+  - client-sdk/in-app-messaging/create-users
   - client-sdk/in-app-messaging/add-users-to-conversation
-  - client-sdk/generate-jwts
+  - client-sdk/in-app-messaging/generate-jwts
   - client-sdk/in-app-messaging/create-ui
   - client-sdk/in-app-messaging/authenticate-users
   - client-sdk/in-app-messaging/join-conversation
@@ -45,6 +45,6 @@ conclusion:
     # What's next?
     You can do a lot more with the Client SDK.
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
 
     See [Client SDK documentation](/client-sdk/overview).

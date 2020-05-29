@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.10 - May 04, 2020
+
+### Fixes
+
+- Filter IPv6 Candidates from `iceGatherOnlyOneCandidate` SDP offer
+
 ## Version 6.0.9 - March 24, 2020
 
 ### Fixes

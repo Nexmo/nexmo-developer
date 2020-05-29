@@ -8,6 +8,7 @@ module Feedback
     belongs_to :owner, polymorphic: true
 
     attr_accessor :email, :source
+
     before_validation :set_resource
 
     validates :sentiment, presence: true

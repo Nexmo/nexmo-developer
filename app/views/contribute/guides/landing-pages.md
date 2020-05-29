@@ -31,7 +31,9 @@ title: Landing Pages
 
 ## Introduction
 
-Config driven landing pages allow you to create pages with the content you need quickly and painlessly. Each landing page is generated from a [YAML](https://yaml.org/start.html) file in `/config/landing_pages/`. The name of the YAML file should be the same name as the URL you want for the landing page. For example, if you want a PHP language landing page that can be accessed at `https://developer.nexmo.com/php` then you need to name your YAML file `php.yml`.  
+Config driven landing pages allow you to create pages with the content you need quickly and painlessly. Each landing page is generated from a [YAML](https://yaml.org/start.html) file in `/config/landing_pages/`. The name of the YAML file should be the same name as the URL you want for the landing page. For example, if you want a PHP language landing page that can be accessed at `https://developer.nexmo.com/php` then you need to name your YAML file `php.yml`.
+
+Event landing pages should be added to `/config/landing_pages/e`, unless it is a Vonage event, in that case it can be added to `/config/landing_pages` directly. The event landing pages added to the `/e` sub-folder can be accessed at `https://developer.nexmo.com/e/#{name-of-event}`.
 
 The config file represents rows and columns on a website with pre-defined content blocks. You can design your landing page with the visual layout that best works for your information and use the pre-defined content blocks to give your content shape and design.
 

@@ -9,16 +9,6 @@ module ApplicationHelper
     "theme--#{ENV['THEME']}"
   end
 
-  def title
-    if @product && @document_title
-      "Nexmo Developer | #{@product.titleize} > #{@document_title}"
-    elsif @document_title
-      "Nexmo Developer | #{@document_title}"
-    else
-      'Nexmo Developer'
-    end
-  end
-
   def active_sidenav_item
     if params[:tutorial_name]
       url_for(controller: :tutorial, action: :index, product: params[:product], tutorial_name: params[:tutorial_name])

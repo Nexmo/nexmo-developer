@@ -42,7 +42,7 @@ If the SMS API returns a non-zero `status` value then use the following table to
 | 5 | Internal Error | An error has occurred in the platform whilst processing this message.
 | 6 | Invalid Message | The platform was unable to process this message, for example, an unrecognized number prefix.
 | 7 | Number Barred | The number you are trying to send messages to is blacklisted and may not receive them.
-| 8 | Partner Account Barred  | Your Nexmo account has been suspended. Contact <support@nexmo.com>. |
+| 8 | Partner Account Barred  | Your Nexmo account has been suspended. Contact <api.support@vonage.com>. |
 | 9 | Partner Quota Violation  | You do not have sufficient credit to send the message. Top-up and retry.  |
 | 10 | Too Many Existing Binds | The number of simultaneous connections to the platform exceeds your account allocation.
 | 11 | Account Not Enabled For HTTP | This account is not provisioned for the SMS API, you should use SMPP instead.
