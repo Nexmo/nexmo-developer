@@ -108,9 +108,9 @@ Namespace | Name | Languages
 ----|----|----
 `9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | English, Korean, Japanese, Italian
 
-## Sandbox Supported Features
+## Sandbox supported features
 
-The table below shows a comparison between the features supported in the Messages Sandbox vs the full Messages API
+The following table shows the supported features of the Messages Sandbox compared to the production Messages API:
 
 Feature | Messages Sandbox | Messages API
 ----|----|----
