@@ -110,7 +110,7 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
-gem 'rubocop', '~> 0.84.0', require: false
+gem 'rubocop', '~> 0.85.0', require: false
 gem 'rubocop-rails', '~> 2.5', require: false
 
 # Volta needs a CSS autoprefixer
