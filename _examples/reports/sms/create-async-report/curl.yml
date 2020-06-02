@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/reports/sms/create-async-report.sh
+    from_line: 5
+    to_line: 15
+file_name: create-async-report.sh
+run_command: bash create-async-report.sh

@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/reports/list-reports.sh
+    from_line: 5
+    to_line: 6
+file_name: list-reports.sh
+run_command: bash list-reports.sh

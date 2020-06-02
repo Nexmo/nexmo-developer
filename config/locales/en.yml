@@ -1,6 +1,8 @@
 en:
 
   menu:
+    product-sms: SMS
+    product-messages: Messages
     message-search: Message Search
     messaging: Messaging
     voice: Voice
