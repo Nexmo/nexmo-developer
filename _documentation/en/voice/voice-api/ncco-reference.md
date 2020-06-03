@@ -282,8 +282,8 @@ The following options can be used to control an `input` action:
 
 Option | Description | Required
 -- | -- | --
-`dtmf` | [DTMF settings](#dtmf-input-settings). Should be specified to enable DTMF input. If all the DTMF input settings will have default values, it should be specified as empty object: `dtmf: { }`. | No
-`speech` | [Speech recognition settings](#speech-recognition-settings). Should be specified to enable speech input. | No
+`dtmf` | [DTMF settings](#dtmf-input-settings). Required if `speech` is not provided. Should be specified to enable DTMF input. If all the DTMF input settings will have default values, it should be specified as empty object: `dtmf: { }`. | No
+`speech` | [Speech recognition settings](#speech-recognition-settings). Required if `dtmf` is not provided. Should be specified to enable speech input. | No
 `eventUrl` | Nexmo sends the digits pressed by the callee to this URL 1) after `timeOut` pause in activity or when *#* is pressed for DTMF or 2) after user stops speaking or `30` seconds of speech for speech input.  | No
 `eventMethod` | The HTTP method used to send event information to `event_url` The default value is `POST`.| No
 

@@ -308,6 +308,7 @@ Field | Example | Description
 `from` | `447700900000` | The number the call came from
 `to` | `447700900000` | The number the call was made to
 `dtmf` | `42` | The buttons pressed by the user
+`speech` | `sales` | The text spoken by the user, a complete example payload shown in [NCCO Reference](/voice/voice-api/ncco-reference#speech-recognition-settings)
 `timed_out` | `true` | Whether the input action timed out: `true` if it did, `false` if not
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
