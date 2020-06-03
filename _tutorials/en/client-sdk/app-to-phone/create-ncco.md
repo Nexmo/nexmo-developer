@@ -1,17 +1,13 @@
 ---
-title: Modify NCCO
+title: Create a NCCO
 description: In this step, you modify your NCCO using GitHub Gist.
 ---
 
-# Modify NCCO
+# Create a NCCO
 
 A Nexmo Call Control Object (NCCO) is a JSON array that you use to control the flow of a Voice API call. More information on NCCO can be found [here](https://developer.nexmo.com/voice/voice-api/ncco-reference).
 
-The NCCO must be public and accessible by the internet. To accomplish that, we will be using [GitHub Gist](https://gist.github.com/).
-
-> **NOTE**: You will need a [GitHub](https://github.com) account and be logged in.
-
-To create your NCCO
+The NCCO must be public and accessible by the internet. To accomplish that, we will be using [GitHub Gist](https://gist.github.com/):
 
 1) Go to [https://gist.github.com/](https://gist.github.com/).
 
@@ -30,16 +26,18 @@ To create your NCCO
         "endpoint": [
             {
                 "type": "phone",
-                "number": "Your-Phone-Number"
+                "number": "PHONE_NUMBER"
             }
         ]
     }
 ]
 ```
 
-4) Replace Your-Phone-Number with your phone number (must be in [E.164](https://developer.nexmo.com/concepts/guides/glossary#e-164-format) format i.e. 14155550100)
+4) Replace `PHONE_NUMBER` with your phone number (must be in [E.164](https://developer.nexmo.com/concepts/guides/glossary#e-164-format) format e.g. 14155550100 or 447700900001)
 
 5) Click the `Create secret gist` button.
 
-6) Click the `Raw` button. Take note of the URL, you will be using it in the next step.
+6) Click the `Raw` button and take note of the URL shown in your browser, you will be using it in the next step. It should look like this:
+**https://gist.githubusercontent.com/`USERNAME`/`RANDOM_HEX`/raw/`RANDOM_HEX`/ncco.json**
+
 

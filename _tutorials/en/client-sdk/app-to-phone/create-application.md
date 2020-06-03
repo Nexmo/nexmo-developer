@@ -11,24 +11,22 @@ You now need to create a Nexmo application. In this step you create an applicati
 
 2) Change into the project directory.
 
-3) Create a Nexmo application by copying and pasting the command below. Make sure to replace `GITHUB-GIST-RAW-URL` (the URL from the previous step) and `App Name` with a name for your application.
+3) Create a Nexmo application by copying and pasting the command below. Make sure to replace `GIST-URL`  wih the URL from the previous step.
 
 ``` shell
-nexmo app:create --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GITHUB-GIST-RAW-URL "App Name"
+nexmo app:create "App to Phone Swift Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL 
 ```
 
 > **NOTE:** An application can be also created using the CLI's [interactive mode](/application/nexmo-cli#interactive-mode).
 
-The application is then created.
+A file named `.nexmo-app` is created in your project directory and contains the Nexmo Application ID and the private key. A private key file named `private.key` is also created.
 
-The file `.nexmo-app` is created in your project directory. This file contains the Nexmo Application ID and the private key. A private key file `private.key` is also created.
+For more details on how to create an application and various available application capabilities please see our [documentation](/application/overview).
 
-Creating an application and application capabilities are covered in detail in the [documentation](/application/overview).
-
-Make a note of the generated Application ID, as you'll need it in the future. 
+The command will also output some details including the generated Application ID. Please make a note of it as you'll need it in the future. 
 
 ## Nexmo Dashboard
 
-You can obtain information about your application, including Application ID, in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
+You can also obtain information about your application, including the Application ID, in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
 ![Nexmo Developer Dashboard Applications screenshot](/assets/screenshots/tutorials/app-to-phone/nexmo-dashboard-applications.png "Nexmo Developer Dashboard Applications screenshot")
