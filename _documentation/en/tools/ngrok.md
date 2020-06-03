@@ -66,7 +66,7 @@ http 3000 --host-header="localhost:3000"
 
 ### Point IIS Express at the correct port
 
-Validate that IIS Express is listening on port 3000, or whichever port you've decided to point ngrok at, by opening up your `properties/launchSettings.json` and making sure the port number on `iisExpress` -> `applicationUrl` matches the port you've instructed ngrok to forward to. You may also want to disable ssl on IIS Express by setting the ssl port to 0. See the following valid configuration for IIS Express from `launchSettings.json`:
+Validate that IIS Express is listening on port 3000, or whichever port you've decided to point ngrok at, by opening up your `properties/launchSettings.json` and making sure the port number on `iisExpress` -> `applicationUrl` matches the port you've instructed ngrok to forward to. You may also want to disable SSL on IIS Express by setting the `sslPort` to 0. See the following valid configuration for IIS Express from `launchSettings.json`:
 
 ``` json
 "iisSettings": {
