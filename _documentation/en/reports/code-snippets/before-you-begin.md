@@ -17,10 +17,13 @@ Variable | Description
 `NEXMO_API_SECRET` | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `ACCOUNT_ID` | The account ID (same as `NEXMO_API_KEY`) for the account you want to generate reports, or retrieve records for.
 `PRODUCT` | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+`REQUEST_ID` | When you request creation of report asynchronously, a `request_id` for the report generation is returned.
 
 ## Product
 
-Product specifies the product for which reports and records are obtained. It can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`. In the following examples this is usually hard-coded into the example, as the parameters passed to the API call may depend on the product specified.
+Product specifies the product for which reports and records are obtained. It can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+
+> In the following examples the product is usually hard-coded into the example, as the parameters passed to the API call may depend on the product specified.
 
 ## Date ranges
 
@@ -47,3 +50,28 @@ Parameter | SMS | VOICE-CALL | VERIFY-API | NUMBER-INSIGHT | MESSAGES | CONVERSA
 `include_message` | optional | invalid | invalid | invalid | optional | invalid
 
 > `status` is invalid if ID specified in request.
+
+## Request ID
+
+When you request asynchronous creation of a report, a request ID will be returned. You can use this in subsequent calls, for example to check on report status, or cancel a report. An example response to an asynchronous report creation request is as follows:
+
+```json
+{
+  "request_id": "ri3p58f-48598ea7-1234-5678-9012-faabd79bdc2e",
+  "request_status": "PENDING",
+  "direction": "outbound",
+  "product": "SMS",
+  "account_id": "abcd1234",
+  "date_start": "2020-05-21T13:27:00+0000",
+  "date_end": "2020-05-21T13:57:00+0000",
+  "include_subaccounts": false,
+  "status": "delivered",
+  "include_message": false,
+  "receive_time": "2020-06-03T15:24:31+0000",
+  "_links": {
+    "self": {
+      "href": "https://api.nexmo.com/v2/reports/ri3p58f-48598ea7-cb2d-1234-5678-fa1234567890"
+    }
+  }
+}
+```
