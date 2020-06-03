@@ -41,22 +41,22 @@ Note that each time you start up the Ngrok tunnel, you will receive a new URL so
 
 ## Usage with IIS Express
 
-IIS express will, by default, reject inbound requests from ngrok if the host header does not match the binding laid out in the applicationhost.config. Consequentially if you are using IIS express you will need to do one of two things.
+IIS express will, by default, reject inbound requests from ngrok if the host header does not match the binding laid out in the `applicationhost.config`. Consequentially if you are using IIS express you will need to do one of two things.
 
 - 1: Override the default `bindingInformation` for your site in IIS Express' `applicaitonhost.config` file.
 - 2: Tell ngrok to swap out the host header field with the local address using the `--host-header` option.
 
-### Overriding bindingInformation
+### Overriding config file
 
 - Open `%USERPROFILE%\Documents\IISExpress\config\applicationhost.config`
 - Find the `<bindings>` tag for the site you are working on - it should hold a value comparable to: `<binding protocol="http" bindingInformation=":8080:localhost" />`
-- Swap out `localhost` for `*` in the aforementioned xml - it should now look like `<binding protocol="http" bindingInformation=":8080:*" />`
+- Swap out `localhost` for `*` in the aforementioned XML - it should now look like `<binding protocol="http" bindingInformation=":8080:*" />`
 - Save the file
 - Relaunch IIS Express
 
 ### Instruct ngrok to swap out the host header
 
-Using nrok's `host-header` option we can instruct ngrok to swap out the host in the header for the host that it's expected see the command below for how this might be done for port 3000:
+Using ngrok's `host-header` option we can instruct ngrok to swap out the host in the header for the host that it's expected see the command below for how this might be done for port 3000:
 
 ``` shell
 http 3000 --host-header="localhost:3000"
