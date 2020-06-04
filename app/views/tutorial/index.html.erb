@@ -39,7 +39,7 @@
           <small><%= @tutorial.description %></small>
           <br /><br />
           <div>
-            <% if @tutorial.available_code_languages.any? %>
+            <% if @tutorial.available_code_languages.reject { |l| l == @tutorial.code_language }.any? %>
               <span style="font-weight: bold;">Also available on:</span>
               <ul class="Ndx-task__code-language-list">
                 <% @tutorial.available_code_languages.reject { |l| l == @tutorial.code_language }.each do |language| %>
