@@ -360,5 +360,6 @@ The event endpoint will also receive webhooks in the event of an error. This can
 Field | Example | Description
  -- | -- | --
 `reason` | `Syntax error in NCCO. Invalid value type or action.` | Information about the nature of the error
+`error` | `ERR1: Failed to analyze audio` | This field present for automatic speech recognition
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)
