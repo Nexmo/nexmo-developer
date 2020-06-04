@@ -41,9 +41,9 @@ Note that each time you start up the Ngrok tunnel, you will receive a new URL so
 
 ## Usage with IIS Express
 
-IIS Express will, by default, reject inbound requests from ngrok if the host header does not match the `bindingInformation` pattern in its config. Consequentially if you are using IIS express you will need to instruct ngrok to swap out the host name in the header to agree with IIS Express.
+IIS Express rejects inbound requests from ngrok if the host header does not match the `bindingInformation` pattern in its configuration. Therefore you will need to configure ngrok to change the host name in the header to match the IIS Express configuration.
 
-This can be done using ngrok's `host-header` option see the following command for how this might be done for port 3000:
+This can be done using ngrok's `host-header` option. The following command for how to do this for port 3000:
 
 ``` shell
 ngrok http 3000 --host-header="localhost:3000"
@@ -51,9 +51,9 @@ ngrok http 3000 --host-header="localhost:3000"
 
 If you are doing this for your testing and need the original host for something, you can retrieve it from the `X-Original-Host` header.
 
-### Point IIS Express at the correct port
+### Configure IIS Express for the correct port
 
-Validate that IIS Express is listening on port 3000, or whichever port you've decided to point ngrok at, by opening up your `properties/launchSettings.json` and making sure the port number on `iisExpress` -> `applicationUrl` matches the port you've instructed ngrok to forward to. You should also disable SSL on IIS Express by setting the `sslPort` to 0. See the following valid configuration for IIS Express from `launchSettings.json`:
+Validate that IIS Express is listening on port 3000, or whichever port you've decided to configure ngrok to, by opening up your `properties/launchSettings.json` and making sure the port number in the `iisExpress` object's `applicationUrl` field matches the port you've configured ngrok to forward to. You should also disable SSL on IIS Express by setting the `sslPort` to `0`. See the following valid configuration for IIS Express from `launchSettings.json`:
 
 ``` json
 "iisSettings": {
