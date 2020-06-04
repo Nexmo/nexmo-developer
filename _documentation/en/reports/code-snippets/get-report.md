@@ -5,7 +5,7 @@ navigation_weight: 7
 
 # Get report
 
-stuff ...
+This code snippet shows you how to retrieve a report file.
 
 ## Example
 
@@ -18,3 +18,14 @@ Variable | Required | Description
 ```code_snippets
 source: '_examples/reports/get-report'
 ```
+
+## Try it out
+
+1. Set the replaceable variables. [Parameter](/reports/code-snippets/before-you-begin#parameters) validity may vary with [product](/reports/code-snippets/before-you-begin#product).
+
+2. Run the script and you receive downloaded Zip file containing the report.
+
+## See also
+
+* [Information on valid parameters](/reports/code-snippets/before-you-begin#parameters)
+* [API Reference](/api/reports)
