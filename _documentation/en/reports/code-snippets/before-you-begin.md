@@ -16,16 +16,16 @@ Variable | Description
 `NEXMO_API_KEY` | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `NEXMO_API_SECRET` | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `ACCOUNT_ID` | The account ID (same as `NEXMO_API_KEY`) for the account you want to generate reports, or retrieve records for.
-`PRODUCT` | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+`REPORT_PRODUCT` | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
 `REQUEST_ID` | When you request creation of report asynchronously, a `request_id` for the report generation is returned.
 `DATE_START` | Date of time window from when you want to start gathering records in ISO-8601 format.
 `DATE_END` | Date of time window from when you want to stop gathering records in ISO-8601 format.
 
 ## Product
 
-Product specifies the product for which reports and records are obtained. It can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+The _product_ specifies the product for which reports and records are obtained. Product can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
 
-> In the following examples the product is usually hard-coded into the example, as the parameters passed to the API call may depend on the product specified.
+> In the following examples you can enter the product you want, but please note that some parameters are required for certain products, for example, `CONVERSATIONS` requires `type`. See also [parameters](#parameters).
 
 ## Date ranges
 
@@ -39,19 +39,19 @@ This example shows fetching a list of records using a date range:
 
 ```sh
 curl -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
-     "https://api.nexmo.com/v2/reports/records?account_id=$ACCOUNT_ID&product=MESSAGES&direction=$REPORT_DIRECTION&date_start=2020-06-04T00:01:00Z&date_end=2020-06-04T00:02:00Z"
+     "https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=MESSAGES&direction=outbound&date_start=2020-06-04T00:01:00Z&date_end=2020-06-04T00:02:00Z"
 ```
 
 ## Parameters
 
 The parameters specified in API calls may vary with product. The following table shows use of a parameter for different products:
 
-Parameter | SMS | VOICE-CALL | VERIFY-API | NUMBER-INSIGHT | MESSAGES | CONVERSATION
-----|----|----|----|----|----|----
-`direction` | required | optional | invalid | invalid | optional | invalid
-`type` | invalid | invalid | invalid | invalid | invalid | required
-`status` | optional | optional | invalid | invalid | optional  | optional
-`include_message` | optional | invalid | invalid | invalid | optional | invalid
+Parameter | SMS | VOICE-CALL | VERIFY-API | NUMBER-INSIGHT | MESSAGES | CONVERSATIONS | Description
+----|----|----|----|----|----|----|----
+`direction` | required | optional | invalid | invalid | optional | invalid | Direction of messages or call. Can be `inbound` or `outbound`.
+`type` | invalid | invalid | invalid | invalid | invalid | required | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`.
+`status` | optional | optional | invalid | invalid | optional  | optional | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values.
+`include_message` | optional | invalid | invalid | invalid | optional | invalid | If `true`, the body of the message will be included in the response.
 
 > `status` is invalid if ID is specified in request.
 

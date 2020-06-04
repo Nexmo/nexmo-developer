@@ -5,7 +5,9 @@ navigation_weight: 3
 
 # Create report asynchronously
 
-Code snippets...
+This code snippet shows you how to generate a report asynchronously, using a date range. Date ranges are limited to a window of 24 hours.
+
+This is an asynchronous call and so will return immediately. You can check the current status of report generation with [Get Report Status](/reports/code-snippets/get-report-status). Once completed, you can obtain the report with [Get Report](/reports/code-snippets/get-report).
 
 ## Example
 
@@ -15,7 +17,7 @@ Variable | Required | Description
 `NEXMO_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `ACCOUNT_ID` | Yes | The API key for the target account. Reports generated, or records retrieved, are for this account.
 `REPORT_DIRECTION` | Yes | Either `inbound` or `outbound`
-`PRODUCT` | Yes | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+`REPORT_PRODUCT` | Yes | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
 `DATE_START` | Yes | Date of time window from when you want to start gathering records in ISO-8601 format.
 `DATE_END` | Yes | Date of time window from when you want to stop gathering records in ISO-8601 format.
 
@@ -25,4 +27,31 @@ source: '_examples/reports/create-async-report'
 
 ## Try it out
 
-xxx
+1. Set the replaceable variables to values suitable for the records you may have generated in the past, for example through making voice calls or using the Messages API. [Parameter](/reports/code-snippets/before-you-begin#parameters) validity may vary with [product](/reports/code-snippets/before-you-begin#product).
+
+2. Run the script and you receive a response similar to the following:
+
+```json
+{
+  "request_id": "ri3p58f-42d57cfd-1234-5678-9abc-67580d95f54a",
+  "request_status": "PENDING",
+  "direction": "outbound",
+  "product": "SMS",
+  "account_id": "abcd1234",
+  "date_start": "2020-05-21T13:27:00+0000",
+  "date_end": "2020-05-21T13:57:00+0000",
+  "include_subaccounts": false,
+  "include_message": false,
+  "receive_time": "2020-06-04T10:53:32+0000",
+  "_links": {
+    "self": {
+      "href": "https://api.nexmo.com/v2/reports/ri3p58f-42d57cfd-1234-5678-9abc-67580d95f54a"
+    }
+  }
+}
+```
+
+## See also
+
+* [Information on valid parameters](/reports/code-snippets/before-you-begin#parameters)
+* [API Reference](/api/reports)
