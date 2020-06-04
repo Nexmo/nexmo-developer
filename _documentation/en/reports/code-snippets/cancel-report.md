@@ -1,5 +1,6 @@
 ---
 title: Cancel report
+navigation_weight: 6
 ---
 
 # Cancel report

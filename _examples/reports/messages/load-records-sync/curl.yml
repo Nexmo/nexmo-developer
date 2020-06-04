@@ -1,9 +1,0 @@
----
-title: cURL
-language: curl
-code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/reports/messages/load-records-sync.sh
-    from_line: 5
-    to_line: 15
-file_name: load-records-sync.sh
-run_command: bash load-records-sync.sh

@@ -1,5 +1,6 @@
 ---
 title: Get report status
+navigation_weight: 5
 ---
 
 # Get report status

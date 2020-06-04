@@ -18,6 +18,8 @@ Variable | Description
 `ACCOUNT_ID` | The account ID (same as `NEXMO_API_KEY`) for the account you want to generate reports, or retrieve records for.
 `PRODUCT` | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
 `REQUEST_ID` | When you request creation of report asynchronously, a `request_id` for the report generation is returned.
+`DATE_START` | Date of time window from when you want to start gathering records in ISO-8601 format.
+`DATE_END` | Date of time window from when you want to stop gathering records in ISO-8601 format.
 
 ## Product
 
@@ -27,7 +29,9 @@ Product specifies the product for which reports and records are obtained. It can
 
 ## Date ranges
 
-For many of the calls you can specify either an ID or a date range, but not both. The date ranges are from oldest to newest and are in ISO-8601 format. The dates can use either of the following formats: `yyyy-mm-ddThh:mm:ss[.sss]±hh:mm` or `yyyy-mm-ddThh:mm:ss[.sss]Z`. A maximum window of 24 hours may be specified.
+For many of the calls you can specify either an ID or a date range, but not both. The date ranges are from oldest to newest and are in ISO-8601 format.
+
+The dates can use either of the following formats: `yyyy-mm-ddThh:mm:ss[.sss]±hh:mm` or `yyyy-mm-ddThh:mm:ss[.sss]Z`. A maximum window of 24 hours may be specified.
 
 ### Example
 
@@ -49,7 +53,7 @@ Parameter | SMS | VOICE-CALL | VERIFY-API | NUMBER-INSIGHT | MESSAGES | CONVERSA
 `status` | optional | optional | invalid | invalid | optional  | optional
 `include_message` | optional | invalid | invalid | invalid | optional | invalid
 
-> `status` is invalid if ID specified in request.
+> `status` is invalid if ID is specified in request.
 
 ## Request ID
 
