@@ -1,1 +1,29 @@
-<svg id="kotlin" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  x="0px" y="0px" width="53" height="53" viewBox="0 0 128 128"><defs><linearGradient id="b" x1="-21.045" y1="114.925" x2="95.274" y2="-1.395" gradientUnits="userSpaceOnUse"><stop offset=".108" stop-color="#c757bc"/><stop offset=".173" stop-color="#cd5ca9"/><stop offset=".492" stop-color="#e8744f"/><stop offset=".716" stop-color="#f88316"/><stop offset=".823" stop-color="#ff8900"/></linearGradient><linearGradient id="a" x1="39.893" y1="147.552" x2="96.589" y2="90.856" gradientUnits="userSpaceOnUse"><stop offset=".296" stop-color="#00afff"/><stop offset=".694" stop-color="#5282ff"/><stop offset="1" stop-color="#945dff"/></linearGradient><linearGradient id="c" x1="-1.501" y1="34.501" x2="38.272" y2="-5.273" xlink:href="#a"/></defs><title>icon_Kotlin</title><path fill="url(#b)" d="M62.759 0L0 65.999V125l62.669-62.779L125 0H62.759z"/><path fill="url(#a)" d="M0 125l62.669-62.778L125 125H0z"/><path fill="url(#c)" d="M0 0h62.759L0 65.999V0z"/></svg>
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path d="M12.0497 0L0 12.6718V24L12.0324 11.9464L24 0H12.0497Z" fill="url(#paint0_linear)"/>
+<path d="M0 24.0002L12.0324 11.9468L24 24.0002H0Z" fill="url(#paint1_linear)"/>
+<path d="M0 0H12.0497L0 12.6718V0Z" fill="url(#paint2_linear)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="-4.04064" y1="22.0656" x2="18.2926" y2="-0.267841" gradientUnits="userSpaceOnUse">
+<stop offset="0.108" stop-color="#C757BC"/>
+<stop offset="0.173" stop-color="#CD5CA9"/>
+<stop offset="0.492" stop-color="#E8744F"/>
+<stop offset="0.716" stop-color="#F88316"/>
+<stop offset="0.823" stop-color="#FF8900"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="7.65946" y1="28.3301" x2="18.5451" y2="17.4445" gradientUnits="userSpaceOnUse">
+<stop offset="0.296" stop-color="#00AFFF"/>
+<stop offset="0.694" stop-color="#5282FF"/>
+<stop offset="1" stop-color="#945DFF"/>
+</linearGradient>
+<linearGradient id="paint2_linear" x1="-18.0866" y1="437.19" x2="485.272" y2="-41.4698" gradientUnits="userSpaceOnUse">
+<stop offset="0.296" stop-color="#00AFFF"/>
+<stop offset="0.694" stop-color="#5282FF"/>
+<stop offset="1" stop-color="#945DFF"/>
+</linearGradient>
+<clipPath id="clip0">
+<path d="M0 0H24V24H0V0Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -32,7 +32,7 @@ languages:
     weight: 3
     label: Kotlin
     lexer: java
-    icon: android
+    icon: kotlin
     dependencies: []
 
   java:
