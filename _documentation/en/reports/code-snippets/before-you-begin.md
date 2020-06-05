@@ -21,29 +21,10 @@ Variable | Description
 `DATE_START` | Date of time window from when you want to start gathering records in ISO-8601 format.
 `DATE_END` | Date of time window from when you want to stop gathering records in ISO-8601 format.
 
-## Product
-
-The _product_ specifies the product for which reports and records are obtained. Product can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
-
-> In the following examples you can enter the product you want, but please note that some parameters are required for certain products, for example, `CONVERSATIONS` requires `type`. See also [parameters](#parameters).
+> In the following examples you can enter the product you want, but please note that some parameters are required for certain products, for example, `CONVERSATIONS` requires `type`.
 
 ```partial
 source: _partials/reports/parameters.md
-```
-
-## Date ranges
-
-For many of the calls you can specify either a message or call ID or a date range, but not both. The date ranges are from oldest to newest and are in ISO-8601 format.
-
-The dates can use either of the following formats: `yyyy-mm-ddThh:mm:ss[.sss]±hh:mm` or `yyyy-mm-ddThh:mm:ss[.sss]Z`. A maximum window of 24 hours may be specified.
-
-### Example
-
-This example shows fetching a list of records using a date range:
-
-```sh
-curl -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
-     "https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=MESSAGES&direction=outbound&date_start=2020-06-04T00:01:00Z&date_end=2020-06-04T00:02:00Z"
 ```
 
 ## Request ID
