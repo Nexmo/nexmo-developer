@@ -23,7 +23,7 @@ source: '_examples/reports/get-report'
 
 1. Set the replaceable variables. [Parameter](/reports/code-snippets/before-you-begin#parameters) validity may vary with [product](/reports/code-snippets/before-you-begin#product).
 
-2. Run the script and you receive downloaded Zip file containing the report.
+2. Run the script to download a Zip file containing the report in PDF format.
 
 ## See also
 
