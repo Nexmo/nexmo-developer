@@ -20,6 +20,7 @@ Variable | Required | Description
 `REPORT_PRODUCT` | Yes | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
 `DATE_START` | Yes | Date of time window from when you want to start gathering records in ISO-8601 format.
 `DATE_END` | Yes | Date of time window from when you want to stop gathering records in ISO-8601 format.
+`STATUS` | Optional | Status of message or call. Examples include `delivered`, `answered`.
 
 ```code_snippets
 source: '_examples/reports/create-async-report'

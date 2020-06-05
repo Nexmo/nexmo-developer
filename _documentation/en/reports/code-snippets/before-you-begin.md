@@ -20,6 +20,8 @@ Variable | Description
 `REQUEST_ID` | When you request creation of report asynchronously, a `request_id` for the report generation is returned.
 `DATE_START` | Date of time window from when you want to start gathering records in ISO-8601 format.
 `DATE_END` | Date of time window from when you want to stop gathering records in ISO-8601 format.
+`STATUS` | Status of message or call.
+`REPORT_STATUS` | Status of report generation.
 
 > In the following examples you can enter the product you want, but please note that some parameters are required for certain products, for example, `CONVERSATIONS` requires `type`.
 

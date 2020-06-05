@@ -16,6 +16,8 @@ Variable | Required | Description
 `ACCOUNT_ID` | Yes | The API key for the target account. Reports generated, or records retrieved, are for this account.
 `REPORT_STATUS` | Yes | Can be one of `PENDING`, `PROCESSING`, `SUCCESS`, `ABORTED`, `FAILED`, `TRUNCATED`.
 
+If you don't specify a date range, you receive the reports generated over the previous seven days.
+
 ```code_snippets
 source: '_examples/reports/list-reports'
 ```
