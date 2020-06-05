@@ -27,9 +27,13 @@ The _product_ specifies the product for which reports and records are obtained. 
 
 > In the following examples you can enter the product you want, but please note that some parameters are required for certain products, for example, `CONVERSATIONS` requires `type`. See also [parameters](#parameters).
 
+```partial
+source: _partials/reports/parameters.md
+```
+
 ## Date ranges
 
-For many of the calls you can specify either an ID or a date range, but not both. The date ranges are from oldest to newest and are in ISO-8601 format.
+For many of the calls you can specify either a message or call ID or a date range, but not both. The date ranges are from oldest to newest and are in ISO-8601 format.
 
 The dates can use either of the following formats: `yyyy-mm-ddThh:mm:ss[.sss]±hh:mm` or `yyyy-mm-ddThh:mm:ss[.sss]Z`. A maximum window of 24 hours may be specified.
 
@@ -41,19 +45,6 @@ This example shows fetching a list of records using a date range:
 curl -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
      "https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=MESSAGES&direction=outbound&date_start=2020-06-04T00:01:00Z&date_end=2020-06-04T00:02:00Z"
 ```
-
-## Parameters
-
-The parameters specified in API calls may vary with product. The following table shows use of a parameter for different products:
-
-Parameter | SMS | VOICE-CALL | VERIFY-API | NUMBER-INSIGHT | MESSAGES | CONVERSATIONS | Description
-----|----|----|----|----|----|----|----
-`direction` | required | optional | invalid | invalid | optional | invalid | Direction of messages or call. Can be `inbound` or `outbound`.
-`type` | invalid | invalid | invalid | invalid | invalid | required | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`.
-`status` | optional | optional | invalid | invalid | optional  | optional | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values.
-`include_message` | optional | invalid | invalid | invalid | optional | invalid | If `true`, the body of the message will be included in the response.
-
-> `status` is invalid if ID is specified in request.
 
 ## Request ID
 
@@ -79,3 +70,7 @@ When you request asynchronous creation of a report, a request ID will be returne
   }
 }
 ```
+
+## See also
+
+* [API Reference](/api/reports)
