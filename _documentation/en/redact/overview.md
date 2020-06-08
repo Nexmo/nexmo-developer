@@ -104,7 +104,7 @@ This method may be used for any customers sending outbound SMS, but does not wor
 
 This API can be used to download up to 50000 records at a time, or more for enterprise customers. Records can be queried using a variety of parameters such as originating and destination phone numbers, status, date range, and other parameters.
 
-For more information about the Reports API, please [sign up for early access](https://info.Vonage.com/ReportingAPI.html)
+For more information about the Reports API, please [sign up for early access](https://info.nexmo.com/ReportingAPI.html)
 
 ## Guides
 
