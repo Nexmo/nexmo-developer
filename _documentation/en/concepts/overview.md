@@ -1,24 +1,25 @@
 ---
 title: Overview
-meta_title: Understanding core Nexmo concepts
+meta_title: Understanding core Vonage API concepts.
+description: There are a number of shared concepts between the Vonage APIs. The use of JSON Web Tokens (JWTs), signed requests, and webhooks. This guide explains in detail how to use these elements. (Nexmo is now Vonage).
 ---
 
 # Concepts
 
-There are a number of shared concepts between the Nexmo APIs: the use of JSON Web Tokens (JWTs), signed requests, and webhooks. The guides below explain in detail how to use these elements.
+There are a number of shared concepts between the Vonage APIs: the use of JSON Web Tokens (JWTs), signed requests, and webhooks. The guides below explain in detail how to use these elements. (Nexmo is now Vonage).
 
 ## Guides
 
-* [Applications](/concepts/guides/applications) - Security and configuration information you need to connect to Nexmo endpoints.
+* [Applications](/concepts/guides/applications) - Security and configuration information you need to connect to Vonage endpoints.
 * [Authentication](/concepts/guides/authentication) – API keys and JSON Web Tokens (JWTs).
 * [Signing messages](/concepts/guides/signing-messages) – how to cryptographically sign messages and verify message signatures.
-* [Webhooks](/concepts/guides/webhooks) – Nexmo's API can send data back to your web server via a webhook.
-* [OpenAPI](/concepts/guides/openapi) – All Nexmo APIs have OpenAPI descriptions that you can take advantage of in your own development process.
-* [Glossary](/concepts/guides/glossary) – A glossary of common terms used throughout the Nexmo platform.
+* [Webhooks](/concepts/guides/webhooks) – Vonage's API can send data back to your web server via a webhook.
+* [OpenAPI](/concepts/guides/openapi) – All Vonage APIs have OpenAPI descriptions that you can take advantage of in your own development process.
+* [Glossary](/concepts/guides/glossary) – A glossary of common terms used throughout the Vonage platform.
 
 ## Number format
 
-Within the Nexmo APIs, all phone numbers are in [E.164 format](https://en.wikipedia.org/wiki/E.164). This means that numbers:
+Within the Vonage APIs, all phone numbers are in [E.164 format](https://en.wikipedia.org/wiki/E.164). This means that numbers:
 
 * Omit both a leading `+` and the international access code such as `00` or `001`. 
 * Contain no special characters, such as space, `()` or `-`

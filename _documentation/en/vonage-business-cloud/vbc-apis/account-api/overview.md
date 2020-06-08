@@ -1,10 +1,11 @@
 ---
 title: Overview
 meta_title: Account API
+description:  The VBC Account API is a read-only API that lets you retrieve information about accounts and the locations associated with them.
 ---
 # Account API
 
-The Account API is a read-only API that lets you retrieve information about accounts and the locations associated with them.
+The VBC Account API is a read-only API that lets you retrieve information about accounts and the locations associated with them.
 
 Using the Account API in your applications, you can:
 

@@ -1,6 +1,7 @@
 ---
 title: Overview
-meta_title: Send messages via SMS, MMS, WhatsApp, Viber and Facebook Messenger with a single API.
+meta_title: Send messages via SMS, MMS, WhatsApp, Viber and Facebook Messenger with a single API. 
+description: The Messages API allows you to send and in some cases receive messages over SMS/MMS, Facebook Messenger, Viber, WhatsApp. (Nexmo is now Vonage)
 navigation_weight: 1
 ---
 
@@ -35,9 +36,9 @@ The following diagram illustrates the relationship between the Messages API and 
 
 This API is currently in Beta.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include the Messages API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
+Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include the Messages API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
 
-During Beta Nexmo will expand the capabilities of the API.
+During Beta Vonage will expand the capabilities of the API.
 
 ## Supported features
 
@@ -71,7 +72,7 @@ WhatsApp | ✅ | ✅ | ✅
 **Key:**
 
 * ✅ = Supported.
-* ❌ = Supported by the channel, but not by Nexmo.
+* ❌ = Supported by the channel, but not by Vonage.
 * n/a = Not supported by the channel.
 
 ## External Accounts API
@@ -84,8 +85,8 @@ In this example you will need to replace the following variables with actual val
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | Nexmo API key which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
-`NEXMO_API_SECRET` | Nexmo API secret which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_KEY` | Vonage API key which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_SECRET` | Vonage API secret which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
 `FROM_NUMBER` | A phone number you own or some text to identify the sender.
 `TO_NUMBER` | The number of the phone to which the message will be sent.
 

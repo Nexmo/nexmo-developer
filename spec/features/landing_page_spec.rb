@@ -15,7 +15,7 @@ RSpec.feature 'Landing page' do
 
     within('.container .row .center', match: :first) do
       expect(page).to have_css('h1.Vlt-title--margin-top2', text: 'Connected Code')
-      expect(page).to have_css('p.p-large', text: 'Everything you need to build connected applications with Nexmo')
+      expect(page).to have_css('p.p-large', text: 'Everything you need to build connected applications with Vonage APIs')
     end
 
     within('.Nxd-products-list') do

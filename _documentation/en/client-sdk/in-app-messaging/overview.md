@@ -7,7 +7,7 @@ description: This topic provides an overview of using the Client SDK to build in
 
 Client SDK enables you to build a two-way messaging experience into your application.
 
-The Nexmo Client SDKs offers functionality such as:
+The Vonage Client SDKs offers functionality such as:
 
 * Conversation creation and management
 * Text Messages

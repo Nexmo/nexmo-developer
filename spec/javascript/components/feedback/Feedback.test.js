@@ -8,7 +8,7 @@ describe('Feedback', function() {
   const githubUrl = 'https://github.com/Nexmo/nexmo-developer/blob/master/_documentation/messaging/sms/guides/concatenation-and-encoding.md';
   const source = 'http://developer.nexmo.com';
   const currentUser = {
-    email: 'admin@nexmo.com',
+    email: 'api.admin@vonage.com',
     signout_path: '/signout'
   };
 
@@ -25,7 +25,7 @@ describe('Feedback', function() {
   it('renders a link to log out if there is a currentUser', function() {
     const wrapperWithUser = shallowMount(Feedback, { propsData: { currentUser: currentUser } });
 
-    expect(wrapperWithUser.text()).toContain('Logged in as admin@nexmo.com.');
+    expect(wrapperWithUser.text()).toContain('Logged in as api.admin@vonage.com.');
     expect(wrapperWithUser.find('a[href="/signout"]').text()).toEqual('Sign out');
 
     const wrapperWithoutUser = shallowMount(Feedback);
@@ -48,7 +48,7 @@ describe('Feedback', function() {
         "feedback_feedback": {
           "sentiment": "positive",
           "comment": "",
-          "email": "admin@nexmo.com",
+          "email": "api.admin@vonage.com",
           "source": "http://developer.nexmo.com"
         }
       }
@@ -100,7 +100,7 @@ describe('Feedback', function() {
           "feedback_feedback": {
             "sentiment": "negative",
             "comment": "",
-            "email": "admin@nexmo.com",
+            "email": "api.admin@vonage.com",
             "source": "http://developer.nexmo.com"
           }
         }
@@ -112,7 +112,7 @@ describe('Feedback', function() {
           "feedback_feedback": {
             "sentiment": "negative",
             "comment": "One of the examples did not work for me",
-            "email": "admin@nexmo.com",
+            "email": "api.admin@vonage.com",
             "source": "http://developer.nexmo.com",
             "id": "123"
           }
@@ -183,7 +183,7 @@ describe('Feedback', function() {
           "feedback_feedback": {
             "sentiment": "negative",
             "comment": "One of the examples did not work for me",
-            "email": "test@nexmo.com",
+            "email": "test@vonage.com",
             "source": "http://developer.nexmo.com",
             "id": "123"
           }
@@ -218,7 +218,7 @@ describe('Feedback', function() {
 
         expect(wrapper.find('.Vlt-form__element--elastic p').text()).toEqual("Can we let you know when we've solved your issue?");
         expect(wrapper.find('input[type="submit"][disabled="disabled"]').element.value).toEqual('Send Feedback');
-        wrapper.find('input[type="email"]').setValue('test@nexmo.com');
+        wrapper.find('input[type="email"]').setValue('test@vonage.com');
 
         wrapper.find('textarea').setValue('One of the examples did not work for me');
 

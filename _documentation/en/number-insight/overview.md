@@ -1,11 +1,12 @@
 ---
 title: Overview
 meta_title: Number Insights API
+description: Vonage's Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application. (Nexmo is now Vonage)
 ---
 
 # Number Insight API Overview
 
-Nexmo's Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application.
+Vonage's Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application. (Nexmo is now Vonage).
 
 ## Contents
 This document contains the following information:
@@ -57,7 +58,7 @@ This example shows you how to use the [Nexmo CLI](/tools) to access the Number I
 
 ### Before you begin:
 
-* Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
+* Sign up for a [Vonage API account](https://dashboard.nexmo.com/signup)
 * Install [Node.JS](https://nodejs.org/en/download/)
 
 ### Install and set up the Nexmo CLI
