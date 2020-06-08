@@ -32,6 +32,7 @@ Parameter | Load records sync | Generate report async | List reports | Get repor
 `product` | **required** | **required** | not used | not used | not used | not used | Required to load records or generate reports
 `id` | optional | optional | not used | not used | not used | not used | Invalid if date range specified
 `date_start`, `date_end` | optional | optional | optional | not used | not used | not used | Invalid if ID is specified
+`include_subaccounts` | invalid | optional | not used | not used | not used | not used | Include subaccounts in report generation
 
 Further, the parameters specified in API calls may vary depending on the `product` specified. The following table shows use of a parameter for different products:
 
