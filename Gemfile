@@ -111,7 +111,7 @@ gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 0.85.1', require: false
-gem 'rubocop-rails', '~> 2.5', require: false
+gem 'rubocop-rails', '~> 2.6', require: false
 
 # Volta needs a CSS autoprefixer
 gem 'autoprefixer-rails'

@@ -235,7 +235,7 @@ GEM
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    i18n (1.8.2)
+    i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     icalendar (2.6.1)
@@ -448,10 +448,10 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.0.3)
       parser (>= 2.7.0.1)
-    rubocop-rails (2.5.2)
-      activesupport
+    rubocop-rails (2.6.0)
+      activesupport (>= 4.2.0)
       rack (>= 1.1)
-      rubocop (>= 0.72.0)
+      rubocop (>= 0.82.0)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     sass (3.7.4)
@@ -605,7 +605,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0)
   rspec-snapshot (~> 0.1.2)
   rubocop (~> 0.85.1)
-  rubocop-rails (~> 2.5)
+  rubocop-rails (~> 2.6)
   ruby-progressbar
   sassc-rails (~> 2.1)
   simplecov
