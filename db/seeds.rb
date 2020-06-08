@@ -7,7 +7,7 @@
 #   Character.create!(name: 'Luke', movie: movies.first)
 
 unless Rails.env.test?
-  User.create!(email: 'admin@nexmo.com', password: 'development', admin: true)
+  User.create!(email: 'api.admin@vonage.com', password: 'development', admin: true)
 end
 
 Event.create!({

@@ -1,29 +1,29 @@
 ---
 title: Overview
-meta_title: Connect to Nexmo using SIP
-description: Use Nexmo SIP to forward inbound and send outbound Voice calls that use the Session Initiation Protocol.
+meta_title: Connect to Vonage using SIP
+description: Use Vonage SIP to forward inbound and send outbound Voice calls that use the Session Initiation Protocol. (Nexmo is now Vonage)
 ---
 
 # SIP Overview
 
-Nexmo allows you to [forward inbound](#inbound-configuration) and [send outbound](#configuring-your-system-for-sip-forwarding) Voice calls using the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
+Vonage allows you to [forward inbound](#inbound-configuration) and [send outbound](#configuring-your-system-for-sip-forwarding) Voice calls using the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
 
 This document explains the relevant setup options.
 
 **Endpoint**
 
-You can send your [INVITE](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) requests to the Nexmo SIP endpoint: `sip.nexmo.com`.
+You can send your [INVITE](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) requests to the Vonage SIP endpoint: `sip.nexmo.com`.
 
 **Authentication**
 
 Every INVITE request is authenticated with Digest authentication:
 
-- `username` - your Nexmo *key*
-- `password` - your Nexmo *secret*
+- `username` - your Vonage *key*
+- `password` - your Vonage *secret*
 
 **Service records**
 
-If your system is not enabled for [Service records](https://en.wikipedia.org/wiki/SRV_record) (SRV records), you should load balance between the two closest endpoints and set the remaining ones as backup. The Nexmo SIP endpoints are:
+If your system is not enabled for [Service records](https://en.wikipedia.org/wiki/SRV_record) (SRV records), you should load balance between the two closest endpoints and set the remaining ones as backup. The Vonage SIP endpoints are:
 
 - `sip-eu1.nexmo.com` (London)
 - `sip-eu2.nexmo.com` (London)
@@ -53,7 +53,7 @@ The following codecs are supported:
 
 **Media traffic**
 
-Visit [the Nexmo Knowledge Base](https://help.nexmo.com/hc/en-us/articles/115004859247-Which-IP-addresses-should-I-whitelist-in-order-to-receive-voice-traffic-from-Nexmo-) to obtain a list of the IP ranges to open traffic for on all ports.
+Visit [the Vonage Knowledge Base](https://help.nexmo.com/hc/en-us/articles/115004859247-Which-IP-addresses-should-I-whitelist-in-order-to-receive-voice-traffic-from-Nexmo-) to obtain a list of the IP ranges to open traffic for on all ports.
 
 **DTMF**
 
@@ -71,7 +71,7 @@ You can use the following protocols:
 - TCP on port 5060
 - TLS on port 5061
 
-[Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) is a cryptographic protocol designed to provide communications security to your SIP connection. You can use self-signed certificates on your user agent, Nexmo does not validate the client certificate.
+[Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) is a cryptographic protocol designed to provide communications security to your SIP connection. You can use self-signed certificates on your user agent, Vonage does not validate the client certificate.
 
 Connections using TLS 1.2 are accepted. Older protocols are disabled as they are considered insecure.
 
@@ -99,9 +99,9 @@ To configure for SIP forwarding:
   This field supports comma-separated entries for failover capabilities. For example: `sip:1234@example.com,sip:1234@example.net,sip:1234@example.org`. If you set more than one endpoint in *Forward to SIP* the call is initially forwarded to the first endpoint in the list. If this fails, the call is forwarded to the second endpoint in the list, and so on.
   Calls failover for the whole 5xx class of HTTP errors. The timeout is 486.
 5. You can specify a timeout for non responding SIP endpoints, by appending a `;timeout=xxxxx` to the related URI. For example: `sip:1234@example.com;timeout=2000,sip:1234@example.net` will attempt to forward to the first URI, and in case of no response within 2 seconds it will try the second one. Timeouts are expressed in milliseconds and can range from 2000 to 20000. This is useful to quickly fail over when an endpoint is temporarily unavailable. The default value is 5000 ms.
-6. Ensure that the traffic generated from Nexmo IP addresses can pass your firewall. Visit [the Nexmo Knowledge Base](https://help.nexmo.com/hc/en-us/articles/115004859247-Which-IP-addresses-should-I-whitelist-in-order-to-receive-voice-traffic-from-Nexmo-) to obtain the current list of IP addresses.
+6. Ensure that the traffic generated from Vonage IP addresses can pass your firewall. Visit [the Vonage Knowledge Base](https://help.nexmo.com/hc/en-us/articles/115004859247-Which-IP-addresses-should-I-whitelist-in-order-to-receive-voice-traffic-from-Nexmo-) to obtain the current list of IP addresses.
 
-> **Note**: Nexmo supports TLS for forwarded calls. To enable this, enter a valid URI in the format sip:user@(IP|domain);transport=tls. For example, *sip:1234@example.com;transport=tls*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your domain or IP address: *sip:1234@example.com:5062;transport=tls*.
+> **Note**: Vonage supports TLS for forwarded calls. To enable this, enter a valid URI in the format sip:user@(IP|domain);transport=tls. For example, *sip:1234@example.com;transport=tls*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your domain or IP address: *sip:1234@example.com:5062;transport=tls*.
 
 ## Example configurations
 

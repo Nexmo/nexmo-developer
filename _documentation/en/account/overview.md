@@ -1,16 +1,16 @@
 ---
 title: Overview
 description: This documentation describes the Account API and Subaccounts API
-meta_title: Manage your Nexmo account and subaccounts
+meta_title: Manage your Vonage account and subaccounts
 ---
 
 # Overview
 
-Your Nexmo account can be managed in a few different ways:
+Your Vonage account can be managed in a few different ways:
 
 * Via the [Dashboard](https://dashboard.nexmo.com/)
 * Using the [CLI](/tools) (command line interface) tool
-* By calling the [API](/api/account) directly or with one of the [Nexmo Server SDKs](/tools) for your preferred technology stack
+* By calling the [API](/api/account) directly or with one of the [Vonage Server SDKs](/tools) for your preferred technology stack
 
 Within your account you can check your balance, configure the account-level settings, and rotate your API secrets for security purposes.
 
@@ -22,7 +22,7 @@ Each of the main items in the diagram is explained in  more detail in the follow
 
 ## Account
 
-Represents a relationship between clients and Nexmo. Each account is identified with a unique API key (account Id) and contains balance, settings, reports, and logs of Nexmo API usage.
+Represents a relationship between clients and Vonage. Each account is identified with a unique API key (account Id) and contains balance, settings, reports, and logs of Vonage API usage.
 
 ## Subaccounts
 
@@ -32,7 +32,7 @@ An account divided into subaccounts is called a primary account, while subaccoun
 
 ## Primary user
 
-A _primary user_ is created when a Nexmo account is created. There can only be a single primary user for the account and its subaccounts. A primary user can invite others to register as team members. A primary user defines management and oversight rights for new team members and the accounts/subaccounts that they will manage.
+A _primary user_ is created when a Vonage account is created. There can only be a single primary user for the account and its subaccounts. A primary user can invite others to register as team members. A primary user defines management and oversight rights for new team members and the accounts/subaccounts that they will manage.
 
 ## Team member
 
@@ -40,7 +40,7 @@ A team member, formerly referred to as a _secondary user_, represents a user tha
 
 ## API secret
 
-In order to make an API call with the Nexmo REST APIs, an API key (account ID) is required, as well as an associated API secret. Nexmo verifies that the secret is correct and bills the account identified by the API key.
+In order to make an API call with the Vonage REST APIs, an API key (account ID) is required, as well as an associated API secret. Vonage  verifies that the secret is correct and bills the account identified by the API key.
 
 ## Guides
 

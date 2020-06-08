@@ -1,6 +1,7 @@
 ---
 title: Overview
 meta_title: Redact your data to stay GDPR compliant
+description: To facilitate our customers' privacy compliance efforts, Vonage provide an API that allows you to manage personal data within the Vonage API platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs. (Nexmo is now Vonage)
 ---
 
 # Redact your data
@@ -9,7 +10,7 @@ Vonage provides two solutions to cover your compliance and privacy needs. The Au
 
 ## Contents
 
-* [Redact Concepts](#concepts)
+* [Vonage Redact Concepts](#concepts)
    * [Stored data](#stored-data-and-redaction)
    * [Auto-redact service](#auto-redact-service)
    * [Redact API](#redact-api)
@@ -21,8 +22,7 @@ Vonage provides two solutions to cover your compliance and privacy needs. The Au
    * [Voice API](#voice-api)
    * [Conversations API](#conversations-api)
 * [Right to erasure requests](#right-to-erasure-requests)
-* [Subject Access Requests](#subject-access-requests)
-* [Technical Support Impact](#technical-support-impact)
+
 
 ## Concepts
 
@@ -61,7 +61,7 @@ The Redact API provides Vonage customers with an endpoint to programmatically re
 To use the Redact API, you have to provide transaction (message or call) IDs returned in the responses to the API requests sent by you to the Vonage communication APIs. For each ID, you need to make a request to the [Redact API](/api/redact).
 
 It is not possible to make the redaction API request immediately after receiving the transaction ID because it takes time (up to several minutes) for the CDRs to propagate to the long-term storage that Redact API redacts from. Thus, you either have to save the returned transaction (CDR) IDs in your database for later reference or use the Reports API to retrieve the CDRs along with their IDs for your account.
-
+ HEAD
 The scope of redaction of the Redact API depends on what Vonage communication APIs you were using. The detailed description is provided below.
 
 To request access to the Redact API, please visit [this page](https://info.nexmo.com/RedactAPI.html).
@@ -131,11 +131,12 @@ For the multi-channel communications APIs of Conversation, a developer might dec
 
 If Conversation messages need to be redacted, the corresponding Event resource can be deleted using the [[DELETE] method](/api/conversation#deleteEvent).
 
-Note that when a Conversation resource is deleted, it will no longer be available to query via a [GET] API call. If you need this information, you must store it in your own database outside of the Vonage platform.
+Note that when a Conversation resource is deleted, it will no longer be available to query via a [GET] API call. If you need this information, you must store it in your own database outside of the Vonage API platform.
 
 ## Right to erasure requests
 
 Under GDPR (and other privacy laws and regulations), a person may ask you to remove any data being held about them. This could typically happen when someone terminates their relationship with a vendor, for example, the user of a dating app no longer needs the service, and asks the dating app vendor to delete their account and all the information it holds about them.
+
 
 ## Subject Access Requests
 
@@ -150,7 +151,7 @@ Each of these options is described in more detail in the following sections.
 
 ### Customer Dashboard
 
-In the [Customer Dashboard](https://dashboard.nexmo.com/sign-in), it is possible to search for records via a user interface. Generally, searches can be by:
+In the [Vonage Customer Dashboard](https://dashboard.nexmo.com/sign-in), it is possible to search for records via a user interface. Generally, searches can be by:
 
 * Transaction ID, for example, find details of a single SMS by providing the `message-id`.
 * Phone number and date, for example, find all SMS sent to a specific phone number on a specific date.
@@ -176,7 +177,7 @@ Please be aware that redaction of identifying data can have a negative impact on
 If your system does not log the responses you receive from the Vonage API (for instance storing the transaction ID and details in a database table or a text file), or it is difficult to access this response data, it is common to identify the transaction relating to an issue via a related phone number or message text body. Examples could include:
 
 * The `to` phone number for an outbound SMS to the phone of one of your users.
-* The `from` phone number for an inbound call to your Nexmo virtual number.
+* The `from` phone number for an inbound call to your Vonage virtual number.
 
 If you need to redact a phone number because one of your users has asked to delete their account and data, you can use the Redact API to do this as described above. This means that we will remove the phone number from all of our communications records (also known as "CDRs") in our system.
 

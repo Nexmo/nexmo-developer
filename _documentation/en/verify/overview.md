@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Enable 2FA with the Verify API
-description: The Verify API overview.
+description: The Verify API enables you to confirm that you can contact a user at a specific number. (Nexmo is now Vonage)
 ---
 
 # Verify API
@@ -17,16 +17,16 @@ The general workflow is shown in the following sequence diagram:
 ```sequence_diagram
 Participant User
 Participant Your server
-Participant Nexmo
+Participant Vonage
 User -> Your server: User supplies phone number
-Your server -> Nexmo: Request to Verify this number
-Nexmo --> Your server: Supply `request_id`
-Note left of Nexmo: Nexmo sends PIN\n code to user\n (multiple attempts\n as needed)
-Nexmo -> User: 
-Nexmo --> User: 
+Your server -> Vonage: Request to Verify this number
+Vonage --> Your server: Supply `request_id`
+Note left of Vonage: Vonage sends PIN\n code to user\n (multiple attempts\n as needed)
+Vonage -> User: 
+Vonage --> User: 
 User -> Your server: Enter PIN code
-Your server -> Nexmo: Check PIN is valid for `request_id`
-Nexmo --> Your server: OK
+Your server -> Vonage: Check PIN is valid for `request_id`
+Vonage --> Your server: OK
 ```
 
 ## Getting Started
@@ -39,7 +39,7 @@ source: '_examples/verify/send-verification-request'
 
 ## Features
 
-Nexmo Verify API offers powerful default behavior for easy integration. By default we will handle the code generation and verification, and deliver the message via the fastest route available. You can also control the user experience by defining which [workflow](/verify/guides/workflows-and-events) should be used for each request; by default Nexmo will use SMS followed by TTS and another TTS in most cases.
+Vonage Verify API offers powerful default behavior for easy integration. By default we will handle the code generation and verification, and deliver the message via the fastest route available. You can also control the user experience by defining which [workflow](/verify/guides/workflows-and-events) should be used for each request; by default Vonage will use SMS followed by TTS and another TTS in most cases.
 
 > It is possible to supply your own PIN code in some circumstances, please contact your account manager.
 

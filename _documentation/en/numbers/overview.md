@@ -1,16 +1,17 @@
 ---
 title: Overview
 meta_title: Virtual Numbers
+description: A Vonage virtual number is a telephone number that is not directly associated with a specific phone. It is programmable, enabling you to create custom call and messaging experiences for your users. (Nexmo is now Vonage)
 ---
 # Numbers
 
-A **Nexmo virtual number** is a telephone number that is not directly associated with a specific phone. It is programmable, enabling you to create custom call and messaging experiences for your users.
+A **Vonage virtual number** is a telephone number that is not directly associated with a specific phone. It is programmable, enabling you to create custom call and messaging experiences for your users.
 
-Nexmo offers virtual numbers worldwide so that you can use phone numbers that are in the same locale as your customers or prospects. This maximizes the chances that your calls are answered and your messages are read and responded to. 
+Vonage offers virtual numbers worldwide so that you can use phone numbers that are in the same locale as your customers or prospects. This maximizes the chances that your calls are answered and your messages are read and responded to. 
 
 ## Getting Started
 
-You can rent new numbers and manage your existing numbers using the Nexmo [developer dashboard](https://dashboard.nexmo.com) or Nexmo CLI. The following guides show you how:
+You can rent new numbers and manage your existing numbers using the Vonage [developer dashboard](https://dashboard.nexmo.com) or Nexmo CLI. The following guides show you how:
 
 ```concept_list
 product: numbers

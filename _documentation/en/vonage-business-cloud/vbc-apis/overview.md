@@ -1,6 +1,7 @@
 ---
 title: Overview
 meta_title: Introducing the Vonage Business Cloud APIs
+description: The Vonage Business Cloud (VBC) APIs are a set of read-only APIs that enable you to retrieve information about VBC accounts. You can use this information in the Smart Number applications that you create.
 ---
 
 # The Vonage Business Cloud APIs

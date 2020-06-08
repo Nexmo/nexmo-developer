@@ -51,7 +51,7 @@ You can configure SMPP access to the Nexmo platform by using one of the followin
 ### Standard configuration
 
 1. Read the [SMPP FAQ](https://help.nexmo.com/hc/en-us/sections/200621223), which contains details about character encoding, DLR formats, concatenated messages, throttle management and other important information.
-2. [Email us](mailto:smpp@nexmo.com) your monthly volume forecast. We will configure our system to enable SMPP access for you and send you a confirmation email with links to further resources.
+2. [Email us](mailto:smpp@vonage.com) your monthly volume forecast. We will configure our system to enable SMPP access for you and send you a confirmation email with links to further resources.
 
 ### Using Kannel
 

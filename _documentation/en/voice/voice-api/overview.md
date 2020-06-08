@@ -1,16 +1,16 @@
 ---
 title: Overview
-meta_title: Text-To-Speech, IVR, Call Recording and more with Nexmo's Voice API
+meta_title: Text-To-Speech, IVR, Call Recording and more with Vonage's Voice API
 navigation_weight: 1
-description: The Voice API overview.
+description: The Vonage Voice API is the easiest way to build high-quality voice applications in the Cloud. (Nexmo is now Vonage)
 ---
 
 # Voice API Overview
 
-The Nexmo Voice API is the easiest way to build high-quality voice applications in the Cloud. With the Voice API you can:
+The Vonage Voice API is the easiest way to build high-quality voice applications in the Cloud. With the Voice API you can:
 
 * Build apps that scale with the web technologies you are already using
-* Control the flow of inbound and outbound calls in JSON with Nexmo Call Control Objects (NCCO)
+* Control the flow of inbound and outbound calls in JSON with Nexmo Call Control Objects (NCCO). (Nexmo is now Vonage).
 * Record and store inbound or outbound calls
 * Create conference calls
 * Send text-to-speech messages in 40 languages with different genders and accents
@@ -19,7 +19,7 @@ The Nexmo Voice API is the easiest way to build high-quality voice applications 
 
 In this document you can learn about:
 
-* [Nexmo Voice API Concepts](#concepts) to introduce terminology
+* [Vonage Voice API Concepts](#concepts) to introduce terminology
 * [**How to Get Started with the Voice API**](#getting-started) including examples in your language
 * [Guides](#guides) learn about working with the Voice API
 * [Code Snippets](#code-snippets) code snippets to help with specific tasks
@@ -28,13 +28,13 @@ In this document you can learn about:
 
 ## Concepts
 
-* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs (JSON Web Tokens). The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information see [authenticating your applications](/concepts/guides/authentication).
+* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs (JSON Web Tokens). The [Nexmo libraries](/tools) handle JWT generation using a unique Vonage Voice Application ID and a Private Key. For more information see [authenticating your applications](/concepts/guides/authentication).
 
-* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such as virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo Dashboard](https://dashboard.nexmo.com/sign-in), the [Nexmo CLI](/tools), or via the [Application API](/concepts/guides/applications).
+* **Nexmo Voice Applications** - Vonage Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such as virtual numbers and webhook callback URLs. You can create Vonage Voice Applications using the [Vonage Dashboard](https://dashboard.nexmo.com/sign-in), the [Nexmo CLI](/tools), or via the [Application API](/concepts/guides/applications).
 
-* **[NCCOs](/voice/voice-api/ncco-reference)** - Nexmo Call Control Objects are a set of actions that instruct Nexmo how to control the call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference).
+* **[NCCOs](/voice/voice-api/ncco-reference)** - Nexmo Call Control Objects are a set of actions that instruct Vonage how to control the call to your Vonage application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference).
 
-* **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the Nexmo Voice API.
+* **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the Vonage Voice API.
 
 * **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, an incoming call will send a webhook.
 
@@ -42,21 +42,21 @@ In this document you can learn about:
 
 ### Voice Playground
 
-In the [Nexmo Dashboard](https://dashboard.nexmo.com), you can try out the Voice API interactively in the Voice Playground. Once you are [signed up for a Nexmo account](https://dashboard.nexmo.com/signup), you can go to [Voice Playground](https://dashboard.nexmo.com/voice/playground) in the Dashboard (Voice ‣ Voice Playground).
+In the [Nexmo Dashboard](https://dashboard.nexmo.com), you can try out the Voice API interactively in the Voice Playground. Once you are [signed up for a Vonage API account](https://dashboard.nexmo.com/signup), you can go to [Voice Playground](https://dashboard.nexmo.com/voice/playground) in the Dashboard (Voice ‣ Voice Playground).
 
-More details are available in this blog post: [Meet Voice Playground, Your Testing Sandbox for Nexmo Voice Apps](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
+More details are available in this blog post: [Meet Voice Playground, Your Testing Sandbox for Vonage Voice Apps](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
 
 ### Using the API
 
-The primary way that you'll interact with the Nexmo voice platform is via the [public API](/voice/voice-api/api-reference). To place an outbound call, you make a `POST` request to `https://api.nexmo.com/v1/calls`.
+The primary way that you'll interact with the Vonage API voice platform is via the [public API](/voice/voice-api/api-reference). To place an outbound call, you make a `POST` request to `https://api.nexmo.com/v1/calls`.
 
-To make this easier, Nexmo provides Server SDKs in various languages that take care of authentication and creating the correct request body for you.
+To make this easier, Vonage provides Server SDKs in various languages that take care of authentication and creating the correct request body for you.
 
 To get started, choose your language below and replace the following variables in the example code:
 
 Key | Description
 -- | --
-`NEXMO_NUMBER` | Your Nexmo number that the call will be made from. For example `447700900000`.
+`NEXMO_NUMBER` | Your Vonage number that the call will be made from. For example `447700900000`.
 `TO_NUMBER` | The number you would like to call to in E.164 format. For example `447700900001`.
 
 ```code_snippets

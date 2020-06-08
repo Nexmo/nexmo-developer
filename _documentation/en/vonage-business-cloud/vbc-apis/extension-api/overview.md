@@ -1,6 +1,7 @@
 ---
 title: Overview
 meta_title: Extension API
+description: The VBC Extension API is a read-only API that lets you retrieve information about extensions.
 ---
 # Extension API
 

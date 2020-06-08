@@ -2,12 +2,12 @@
 title: Overview
 meta_title: Audit your account by monitoring events as they happen
 navigation_weight: 1
-description: The Audit API overview.
+description: The Audit API overview. (Nexmo is now Vonage)
 ---
 
 # Audit API Overview
 
-The Nexmo Audit API enables you to monitor your account by tracking events. These events are generated when your account users work with the SDKs or interact with the Nexmo Dashboard.
+The Vonage Audit API enables you to monitor your account by tracking events. These events are generated when your account users work with the SDKs or interact with the Vonage API Dashboard. (Nexmo is now Vonage)
 
 With this API you can:
 
@@ -19,9 +19,9 @@ With this API you can:
 
 This API is currently in Beta.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Audit API in the subject line. Please note that during the Beta period support times are limited to Monday to Friday.
+Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Audit API in the subject line. Please note that during the Beta period support times are limited to Monday to Friday.
 
-During the Beta period Nexmo may expand the capabilities of the Audit API.
+During the Beta period Vonage may expand the capabilities of the Audit API.
 
 ## Contents
 
@@ -42,11 +42,11 @@ Interactions with the Audit API are authenticated using Basic Authentication. Ba
 
 ## Audit Events
 
-Audit Events are activities that occur when a user interacts with the Nexmo API or the Nexmo Dashboard. Audit events are represented by a JSON object. Examples of audit events include:
+Audit Events are activities that occur when a user interacts with the Vonage API or the Vonage API Dashboard. Audit events are represented by a JSON object. Examples of audit events include:
 
 * Account settings updates.
-* A Nexmo Number gets assigned to an application.
-* Creation of a Nexmo application.
+* A Vonage Number gets assigned to an application.
+* Creation of a Vonage application.
 
 Further information on types of audit events is given on the [Audit Events](/audit/concepts/audit-events) page.
 
@@ -88,8 +88,8 @@ You will need to ensure that the following replaceable values are set in the exa
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | Your Nexmo API key.
-`NEXMO_API_SECRET` | Your Nexmo API secret.
+`NEXMO_API_KEY` | Your Vonage API key.
+`NEXMO_API_SECRET` | Your Vonage API secret.
 
 > In the following example the _Create an application_ and _Initialize your dependencies_ procedures are optional.
 

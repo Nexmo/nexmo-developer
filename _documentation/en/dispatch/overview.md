@@ -1,6 +1,7 @@
 ---
 title: Overview
 meta_title: Failover automatically from WhatsApp to SMS with Dispatch
+description: The Dispatch API enables the developer to send messages to users using a multiple channel strategy. (Nexmo is now Vonage)
 ---
 
 # Dispatch API Overview
@@ -31,9 +32,9 @@ The following diagram illustrates the relationship between the Dispatch API and 
 
 This API is currently in Beta.
 
-In this release Nexmo provides a failover template. The failover template instructs the [Messages API](/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
+In this release Vonage provides a failover template. The failover template instructs the [Messages API](/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
-Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Workflow API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
+Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Workflow API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
 
 ## Supported features
 
@@ -54,8 +55,8 @@ In this example you will need to replace the following variables with actual val
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | Nexmo API key which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
-`NEXMO_API_SECRET` | Nexmo API secret which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_KEY` | Vonage API key which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_SECRET` | Vonage API secret which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
 `FB_SENDER_ID` | Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 `FB_RECIPIENT_ID` | The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 `FROM_NUMBER` | A phone number you own or some text to identify the sender.
