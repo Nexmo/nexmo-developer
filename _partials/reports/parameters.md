@@ -26,7 +26,7 @@ curl -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
 For dates containing a `+` in a `GET` query, where dates are passed as query parameters, you need to URL encode the dates, for example:
 
 ```sh
-curl -G --data-urlencode date_start=2020-06-04T08:00:00+0000 --data-urlencode date_end=2020-06-04T14:00:00+0000 -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
+curl -G --data-urlencode date_start="2020-06-04T08:00:00+0000" --data-urlencode date_end="2020-06-04T14:00:00+0000" -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
      "https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=SMS&direction=outbound"
 ```
 
