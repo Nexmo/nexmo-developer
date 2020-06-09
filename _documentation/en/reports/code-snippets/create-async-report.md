@@ -18,8 +18,8 @@ Variable | Required | Description
 `ACCOUNT_ID` | Yes | The API key for the target account. Reports generated, or records retrieved, are for this account.
 `REPORT_DIRECTION` | Yes | Either `inbound` or `outbound`
 `REPORT_PRODUCT` | Yes | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
-`DATE_START` | Yes | Date of time window from when you want to start gathering records in ISO-8601 format.
-`DATE_END` | Yes | Date of time window from when you want to stop gathering records in ISO-8601 format.
+`DATE_START` | Yes | Date of time window from when you want to start gathering records in ISO-8601 format. For example, `2020-06-09T18:05:00Z`.
+`DATE_END` | Yes | Date of time window from when you want to stop gathering records in ISO-8601 format. For example, `2020-06-09T20:05:00Z`.
 `STATUS` | Optional | Status of message or call. Examples include `delivered`, `answered`.
 
 ```code_snippets
@@ -28,9 +28,13 @@ source: '_examples/reports/create-async-report'
 
 ## Try it out
 
-1. Set the replaceable variables to values suitable for the records you may have generated in the past, for example through making voice calls or using the Messages API. [Parameter](/reports/code-snippets/before-you-begin#parameters) validity may vary with [product](/reports/code-snippets/before-you-begin#product).
+1. Set the replaceable variables for your account.  
 
-2. Run the script and you receive a response similar to the following:
+2. For this example, set `REPORT_PRODUCT` to one of `SMS`, `VOICE` or `MESSAGES`.
+
+3. Using the table as a guide set values for the remaining variables.
+
+4. Run the script and you receive a response similar to the following:
 
 ```json
 {
@@ -51,6 +55,8 @@ source: '_examples/reports/create-async-report'
   }
 }
 ```
+
+If you set a callback URL, you will receive a callback on that URL with the same content as shown in the previous step.
 
 ## See also
 
