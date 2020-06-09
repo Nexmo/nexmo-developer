@@ -54,7 +54,7 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it '/contribute/guides/writing-style-guide contains the expected text' do
     get '/contribute/guides/writing-style-guide'
-    expect(response.body).to include('These are technical writing guidelines that can be used across all Nexmo technical documentation as well as blog posts.')
+    expect(response.body).to include('These are technical writing guidelines that can be used across all our technical documentation as well as blog posts.')
   end
 
   it '/legacy contains the expected text' do
