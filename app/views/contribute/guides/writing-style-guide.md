@@ -80,7 +80,7 @@ Use Vonage rather than 'we' when referring to the company.
 Example:
 
 * *Avoid:* We also provide an SMS API.
-* *Better:* Nexmo also provides an SMS API.
+* *Better:* Vonage also provides an SMS API.
 
 ## Use American English
 
