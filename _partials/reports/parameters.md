@@ -44,7 +44,7 @@ Parameter | SMS | Voice | Verify | Number Insight | Messages | Conversations | D
 `date_start` | optional | optional | optional | optional | optional | optional | Invalid if `id` specified. |
 `date_end` | optional | optional | optional | optional | optional | optional | Invalid if `id` specified. |
 `include_message` | optional | n/a | n/a | n/a | optional | n/a | If `true` include the body of the text message.
-`type` | n/a | n/a | n/a | n/a | n/a | requied | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`. |
+`type` | n/a | n/a | n/a | n/a | n/a | required | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`. |
 `status` | optional | optional | n/a | n/a | optional | n/a | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values. |
 
 ### Create asynchronous report parameters
