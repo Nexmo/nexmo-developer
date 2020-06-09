@@ -18,7 +18,7 @@ When an inbound message is received, a callback with message payload is invoked 
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Messages and Dispatch](https://dashboard.nexmo.com/messages/create-application).
 
-> **TIP:** If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [api.support@vonage.com](mailto:api.support@vonage.com) and ask for a sub API Key.
+> **TIP:** If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
 Enter your Webhook URLs in the fields labeled **Status URL** and **Inbound URL**.
 

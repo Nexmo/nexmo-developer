@@ -37,7 +37,7 @@ The process for sending a signed message is as follows:
 
 If you did not generate the signature correctly the [status](/messaging/sms/guides/troubleshooting-sms#sms-api-error-codes) is `14, invalid signature`. You can find more information in the [troubleshooting](#troubleshooting-signatures) section of this guide.
 
-> By default, message signatures are optional when sending messages and are not included with incoming webhooks. To enable either signed webhooks or enforce all sent messages to be signed, please contact api.support@vonage.com.
+> By default, message signatures are optional when sending messages and are not included with incoming webhooks. To enable either signed webhooks or enforce all sent messages to be signed, please contact support@nexmo.com.
 
 The code example below shows how to send a signed message with the SMS API.
 
@@ -47,9 +47,9 @@ source: '_examples/concepts/guides/send-signed-sms'
 
 ## Validate the signature on incoming messages
 
-In order to verify the origin of incoming webhooks to your SMS endpoint, you can enable message signing for incoming messages - contact api.support@vonage.com to request incoming messages be accompanied by a signature. With this setting enabled, the webhooks for both incoming SMS and delivery receipts will include a `sig` parameter. Use the other parameters in the request with your signature secret to generate the signature and compare it to the signature that was sent. If the two match, the request is valid.
+In order to verify the origin of incoming webhooks to your SMS endpoint, you can enable message signing for incoming messages - contact support@nexmo.com to request incoming messages be accompanied by a signature. With this setting enabled, the webhooks for both incoming SMS and delivery receipts will include a `sig` parameter. Use the other parameters in the request with your signature secret to generate the signature and compare it to the signature that was sent. If the two match, the request is valid.
 
-> Contact support to enable message signing on your account: api.support@vonage.com
+> Contact support to enable message signing on your account: support@nexmo.com
 
 The code example below shows how to verify a signature for an incoming SMS message, using the `sig` parameter in the query string. 
 

@@ -4,7 +4,7 @@ title: Programmable SIP
 
 # Programmable SIP
 
-> **NOTE:** Programmable SIP is currently in Developer Preview. In order to get set up with Programmable SIP, please contact [Support](mailto:api.support@vonage.com) or your Account Manager.
+> **NOTE:** Programmable SIP is currently in Developer Preview. In order to get set up with Programmable SIP, please contact [Support](mailto:support@nexmo.com) or your Account Manager.
 
 ## Overview
 

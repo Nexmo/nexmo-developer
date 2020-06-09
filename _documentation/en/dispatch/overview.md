@@ -34,7 +34,7 @@ This API is currently in Beta.
 
 In this release Vonage provides a failover template. The failover template instructs the [Messages API](/messages/overview) to send a message to the specified channel. If that message fails immediately or if the `condition_status` is not reached within the specified time period the next message is sent.
 
-Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Workflow API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
+Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Beta period, support times are limited to Monday to Friday.
 
 ## Supported features
 

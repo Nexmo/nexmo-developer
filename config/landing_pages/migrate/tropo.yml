@@ -57,7 +57,7 @@ page:
           text:
             - content: "Head over to the [Nexmo dashboard](https://dashboard.nexmo.com/buy-numbers) and purchase a virtual number to use for your application. You may not need it if you're in a country that supports alpha senders - search for your destination country on the knowledge base for more information."
               type: "small" 
-            - content: "If you've already got a US or Canadian number and would like to keep it, you can port the number to Nexmo using the [Nexmo dashboard](https://dashboard.nexmo.com/keep-your-number). To check the feasibility of porting numbers outside of US and Canada, please contact [api.support@vonage.com](mailto:api.support@vonage.com)"
+            - content: "If you've already got a US or Canadian number and would like to keep it, you can port the number to Nexmo using the [Nexmo dashboard](https://dashboard.nexmo.com/keep-your-number). To check the feasibility of porting numbers outside of US and Canada, please contact [support@nexmo.com](mailto:support@nexmo.com)"
               type: "small"
   - row:
     - column:

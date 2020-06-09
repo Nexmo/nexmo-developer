@@ -36,7 +36,7 @@ To add a payment method to your Nexmo account:
 3. If you see an "Upgrade your account" message, click **Upgrade account**.
 4. Select a payment method, payment amount and complete your billing address details and then click **Next**. Note that you must use the address associated with the card or Paypal account for the payment to be successful.
 5. Complete the details for your chosen payment method, then click **Make payment**
-6. The payment method you chose is saved for future one-click payments. You can also set up [auto reload](#auto-reload-your-account-balance). If you do not see auto reload as an option in the Paypal payments page, email [api.support@vonage.com](mailto://api.support@vonage.com) to add the capability.
+6. The payment method you chose is saved for future one-click payments. You can also set up [auto reload](#auto-reload-your-account-balance). If you do not see auto reload as an option in the Paypal payments page, email [support@nexmo.com](mailto://support@nexmo.com) to add the capability.
 
 Payments will appear as **Nexmo** on your bank/card statements.
 

@@ -30,7 +30,7 @@ Phone, SIP and Websocket Channels are enabled through the [Voice API](/voice/voi
 
 This API is currently in Beta.
 
-Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Conversation API in the subject line. Please note that during the Beta period support times are limited to Monday to Friday.
+Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Conversation API in the subject line. Please note that during the Beta period support times are limited to Monday to Friday.
 
 ## Supported features
 
@@ -39,7 +39,7 @@ The Conversation API currently supports a range of communication channels descri
 As the Conversation API expands to support more and more Vonage services, the supported Channels will also expand.
 Conversations would, as a result, become the container for the history of all your communication exchanged via Vonage API Services. This history would then be accessible through the Conversation API.
 
-> **IMPORTANT:** If you are in APAC region there are some limitations. Please contact [api.support@vonage.com](mailto:api.support@vonage.com) for information on how to obtain APAC LVN support via our Singapore servers.
+> **IMPORTANT:** If you are in APAC region there are some limitations. Please contact [support@nexmo.com](mailto:support@nexmo.com) for information on how to obtain APAC LVN support via our Singapore servers.
 
 ## Concepts
 

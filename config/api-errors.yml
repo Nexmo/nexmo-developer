@@ -45,7 +45,7 @@ generic_errors:
 
   account-suspended:
     description: This account has been suspended
-    resolution: Contact api.support@vonage.com for more information
+    resolution: Contact support@nexmo.com for more information
 
   jwt-expired:
     description: The JWT provided has expired

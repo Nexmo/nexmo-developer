@@ -91,12 +91,12 @@ The `err-code` field in the DLR provides more detailed information and can help 
 | 8 | Network Error | The message failed due to a network error - retry  |
 | 9 | Illegal Number | The user has specifically requested not to receive messages from a specific service |
 | 10 | Illegal Message | There is an error in a message parameter, e.g. wrong encoding flag |
-| 11 | Unroutable  | Nexmo cannot find a suitable route to deliver the message - contact <mailto:api.support@vonage.com> |
+| 11 | Unroutable  | Nexmo cannot find a suitable route to deliver the message - contact <mailto:support@nexmo.com> |
 | 12 | Destination Unreachable | A route to the number cannot be found - confirm the recipient's number  |
 | 13 | Subscriber Age Restriction | The target cannot receive your message due to their age  |
 | 14 | Number Blocked by Carrier | The recipient should ask their carrier to enable SMS on their plan |
 | 15 | Prepaid Insufficient Funds | The recipient is on a prepaid plan and does not have enough credit to receive your message |
-| 99 | General Error | Typically refers to an error in the route - contact <mailto:api.support@vonage.com> |
+| 99 | General Error | Typically refers to an error in the route - contact <mailto:support@nexmo.com> |
 
 > The other fields in the DLR are explained in the [API Reference](/api/sms#delivery-receipt).
 

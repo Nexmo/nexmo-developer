@@ -55,4 +55,4 @@ In order to validate the origin of your webhooks, you can validate the signature
 
 ### Webhooks in production use
 
-If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [api.support@vonage.com](mailto:api.support@vonage.com) and ask for a sub API Key.
+If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
