@@ -19,7 +19,7 @@ With this API you can:
 
 This API is currently in Beta.
 
-Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [api.support@vonage.com](mailto:api.support@vonage.com) and include Audit API in the subject line. Please note that during the Beta period support times are limited to Monday to Friday.
+Vonage always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Audit API in the subject line. Please note that during the Beta period support times are limited to Monday to Friday.
 
 During the Beta period Vonage may expand the capabilities of the Audit API.
 

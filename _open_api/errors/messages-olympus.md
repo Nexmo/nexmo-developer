@@ -34,7 +34,7 @@ Code | Text | Meaning
 `1230` | Network Error | A network failure while sending your message. This is a temporary failure, retry later for a positive result.
 `1240` | Illegal Number | You tried to send a message to a blacklisted phone number. That is, the user has already sent a STOP opt-out message and no longer wishes to receive messages from you.
 `1241` | Too many send requests | Too many send requests to phone numbers.
-`1250` | Unroutable | The chosen route to send your message is not available. This is because the phone number is either currently on an unsupported network or on a pre-paid or reseller account that could not receive a message sent by from. To resolve this issue either email us at api.support@vonage.com or create a helpdesk ticket at https://help.nexmo.com.
+`1250` | Unroutable | The chosen route to send your message is not available. This is because the phone number is either currently on an unsupported network or on a pre-paid or reseller account that could not receive a message sent by from. To resolve this issue either email us at support@nexmo.com or create a helpdesk ticket at https://help.nexmo.com.
 `1260` | Destination unreachable | The message could not be delivered to the phone number. If using Viber Service Messages your account might not be enabled for this country.
 `1270` | Subscriber Age Restriction | The carrier blocked this message because the content is not suitable for to based on age restrictions.
 `1280` | Number Blocked by Carrier | The carrier blocked this message. This could be due to several reasons. For example, to's plan does not include SMS or the account is suspended.

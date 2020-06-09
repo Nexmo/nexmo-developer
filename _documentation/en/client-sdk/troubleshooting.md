@@ -87,4 +87,4 @@ Getting Connection error or Connection Timeout while trying to login to the SDK:
 
 # Have more Questions?
 
-Should you have any further questions, issues or feedback, please contact us on `api.support@vonage.com` or at [Vonage Developer Community Slack](https://developer.nexmo.com/community/slack).
+Should you have any further questions, issues or feedback, please contact us on `support@nexmo.com` or at [Vonage Developer Community Slack](https://developer.nexmo.com/community/slack).
