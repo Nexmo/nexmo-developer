@@ -47,6 +47,8 @@ Typically, ASR is used in conjunction with an audio message playing to the user.
 ]
 ```
 
+The [NCCO Reference Guide](/voice/voice-api/ncco-reference#speech-recognition-settings) contains information on all the possible parameters that can be used in conjunction with the ASR `input` NCCO action.
+
 ### Call ID
 
 ASR action (`input` with `speech`) cannot be executed for the whole conversation; it’s performed against the call (leg), so the call identifier should be explicitly specified in the NCCO as the `speech.uuid` parameter.
