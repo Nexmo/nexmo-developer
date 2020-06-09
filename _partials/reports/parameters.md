@@ -43,6 +43,8 @@ Parameter | SMS | VOICE-CALL | VERIFY-API | NUMBER-INSIGHT | MESSAGES | CONVERSA
 `status` | optional | optional | invalid | invalid | optional  | optional | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values. `status` is invalid if ID is specified in request.
 `include_message` | optional | invalid | invalid | invalid | optional | invalid | If `true`, the body of the message will be included in the response.
 
+> These parameter tables do not include all available parameters. See the [API Reference](/api/reports) for all parameters.
+
 ### Examples
 
 You can find many examples of Reports API calls in the [Curl code snippet repository](https://github.com/Nexmo/nexmo-curl-code-snippets). These examples show some additional calls in addition to the ones shown in the [code snippet section](/reports/code-snippets/before-you-begin) here, and also demonstrate the use of product-specific parameters.
