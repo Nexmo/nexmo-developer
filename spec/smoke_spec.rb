@@ -4,7 +4,7 @@ RSpec.describe 'Smoke Tests', type: :request do
   it '/ contains the expected text' do
     get '/'
     expect(response.body).to include('Connected Code')
-    expect(response.body).to include('Everything you need to build connected applications with Nexmo')
+    expect(response.body).to include('Everything you need to build connected applications with Vonage APIs')
   end
 
   it '/documentation contains the expected text' do
