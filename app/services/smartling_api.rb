@@ -86,7 +86,7 @@ class SmartlingAPI
   end
 
   def file_uri(filename)
-    filename.gsub(%r{_documentation\/[a-z]{2}\/}, '')
+    filename.gsub(%r{_documentation/[a-z]{2}/}, '')
   end
 
   def wrap_in_rescue
