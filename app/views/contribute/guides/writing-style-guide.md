@@ -5,15 +5,19 @@ navigation_weight: 2
 
 # Writing Style Guide
 
-These are technical writing guidelines that can be used across all Nexmo technical documentation as well as blog posts.
+These are technical writing guidelines that can be used across all our technical documentation as well as blog posts.
 
 These guidelines are designed to improve clarity and consistency. Some of the benefits of writing in this style are:
 
-* Easier to read and understand, especially for readers whose first language is not English.
+* Easier to read and understand.
 * More professional appearance.
 * Easier to translate.
 
 As with most guidelines these are suggestions, not hard and fast rules. Use your best judgement.
+
+## Use inclusive language
+
+Use inclusive language. There are a few specifics mentioned later in this guide, but for a good overview see the [Google guide](https://developers.google.com/style/inclusive-documentation).
 
 ## Use present tense
 
@@ -41,14 +45,14 @@ Examples:
 * *Passive voice:* The apple was eaten by the man.
 * *Active voice:* The NCCO controls the call.
 * *Passive voice:* The call is controlled by the NCCO.
-* *Active voice:* Nexmo provides a Messages API.
-* *Passive voice:* A Messages API is provided by Nexmo.
+* *Active voice:* Vonage provides a Messages API.
+* *Passive voice:* A Messages API is provided by Vonage.
 
-Active voice leads to text that is simpler and more direct, and is easier to translate.
+Active voice is simpler, more direct, and easier to translate.
 
 ## Paragraph breaks
 
-In technical writing, and especially blog posts, you can be a little more generous with your use of paragraph breaks. Paragraph breaks make the text less overwhelming and easier to read.
+In technical writing, and especially blog posts, you can be more generous with your use of paragraph breaks. Paragraph breaks make the text less overwhelming and easier to read.
 
 ## Avoid vague and cautious language
 
@@ -71,7 +75,7 @@ Example:
 * *Better:* You can now click the button to register your Nexmo Number.
 * *Best:* Click the button to register your Nexmo Number.
 
-Use Nexmo rather than 'we' when referring to the company.
+Use Vonage rather than 'we' when referring to the company.
 
 Example:
 
@@ -146,7 +150,7 @@ Code Snippets  (main section)
 
 ## Blog article titles
 
-For Nexmo developer blog article titles, use title case. Blog article sub-headings should also use title case.
+For Vonage developer blog article titles, use title case. Blog article sub-headings should also use title case.
 
 You can refer to [these guidelines](https://www.bkacontent.com/wp-content/uploads/2015/10/Rules-of-AP-Title-Case.png) on using title case.
 
@@ -175,7 +179,7 @@ When inserting codeblocks for example code in the text:
 
 ## Acronyms
 
-Define acronyms before first use. On subsequent use on a page/section you do not need to redefine the acronym.
+Define acronyms on first use. On subsequent use on a page/section you do not need to redefine the acronym.
 
 ## Be explicit
 
@@ -210,10 +214,11 @@ Some additional points to bear in mind:
 * Avoid time sensitive information. Specify an exact version where possible, for example '1.1', rather than 'current version' as the current version may change.
 * Avoid using ampersand ('&') instead of 'and', unless you are specifying a programming language operator or similar.
 * "It's" _always_ means 'it is'.
+* Avoid pricing information in technical documentation as it is subject to change, hard to maintain, and could lead to legal issues if wrong.
 
 ## Replaceable values
 
-When working with keys, phone numbers, or accounts be clear where values should be replaced by customer-specific values. 
+When working with keys, phone numbers, or accounts be clear where values should be replaced by customer-specific values.
 
 Key | Markdown Value | Rendered Value  <small>(if different)</small>
 -- | -- | --
@@ -270,3 +275,4 @@ Some further examples of writing style guides are:
 * [Microsoft Style for Technical Publications](https://books.google.co.uk/books/about/The_Microsoft_Manual_of_Style_for_Techni.html)
 * [Kubernetes](https://kubernetes.io/docs/home/contribute/style-guide/)
 * [.NET](https://github.com/dotnet/docs/blob/master/styleguide/voice-tone.md)
+* [Google's guide on inclusive documentation](https://developers.google.com/style/inclusive-documentation)
