@@ -58,7 +58,7 @@ source: '_examples/reports/get-report-status'
 }
 ```
 
-Note the report `request_id` is in the response. Also the `file_id`, in this case `e87a2d7c-abcd-1234-aa45-9bf17a1eb2a1`.
+The `file_id` is also returned in the response, in this case `e87a2d7c-abcd-1234-aa45-9bf17a1eb2a1`. The `file_id` is used to subsequently download a report Zip file.
 
 ## See also
 
