@@ -14,13 +14,20 @@ This is the UUID of the message or call you require a record for.
 
 For many of the calls you can specify either a message or call ID or a date range, but not both. The date ranges are from oldest to newest and are in ISO-8601 format.
 
-The dates can use either of the following formats: `yyyy-mm-ddThh:mm:ss[.sss]±hh:mm` or `yyyy-mm-ddThh:mm:ss[.sss]Z`.
+The dates can use either of the following formats: `yyyy-mm-ddThh:mm:ss[.sss]±hhmm` or `yyyy-mm-ddThh:mm:ss[.sss]Z`.
 
 This example shows fetching a list of records using a date range:
 
 ```sh
 curl -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
      "https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=MESSAGES&direction=outbound&date_start=2020-06-04T00:01:00Z&date_end=2020-06-04T00:02:00Z"
+```
+
+For dates containing a `+` in a `GET` query, where dates are passed as query parameters, you need to URL encode the dates, for example:
+
+```sh
+curl -G --data-urlencode date_start=2020-06-04T08:00:00+0000 --data-urlencode date_end=2020-06-04T14:00:00+0000 -u "$NEXMO_API_KEY:$NEXMO_API_SECRET" \
+     "https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=SMS&direction=outbound"
 ```
 
 ### Product
