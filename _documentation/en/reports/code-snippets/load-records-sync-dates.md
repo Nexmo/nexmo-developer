@@ -25,9 +25,13 @@ source: '_examples/reports/load-records-sync-dates'
 
 ## Try it out
 
-1. Set the replaceable variables to values suitable for the records you may have generated in the past, for example through making voice calls or using the Messages API. [Parameter](/reports/code-snippets/before-you-begin#parameters) validity may vary with [product](/reports/code-snippets/before-you-begin#product).
+1. Set the replaceable variables for your account.  
 
-2. Run the script and you receive a response similar to the following:
+2. For this example, set `REPORT_PRODUCT` to `SMS`.
+
+3. Using the table as a guide set values for the remaining variables.
+
+4. Run the script and you receive a response similar to the following:
 
 ```json
 {
