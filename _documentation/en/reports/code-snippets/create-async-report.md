@@ -1,13 +1,16 @@
 ---
 title: Create report
+description: Creation of a report asynchronously.
 navigation_weight: 3
 ---
 
 # Create report asynchronously
 
-This code snippet shows you how to generate a report asynchronously, using a date range. Date ranges are limited to a window of 24 hours.
+This code snippet shows you how to generate a report asynchronously, using a date range.
 
-This is an asynchronous call and so will return immediately. You can check the current status of report generation with [Get Report Status](/reports/code-snippets/get-report-status). Once completed, you can obtain the report with [Get Report](/reports/code-snippets/get-report).
+This is an asynchronous call and so will return immediately. You can check the current status of report generation with [Get Report Status](/reports/code-snippets/get-report-status). Once completed, you can obtain the report with [Get Report](/reports/code-snippets/get-report). Alternatively, you can set a callback URL and receive a notification when report generation is complete.
+
+Date range is limited to 13 months for this call.
 
 ## Example
 

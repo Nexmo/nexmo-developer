@@ -1,11 +1,12 @@
 ---
-title: Load record by ID
+title: Get a record by UUID
+description: How to get a record by specifying a message or call UUID.
 navigation_weight: 1
 ---
 
-# Load record synchronously by ID
+# Get a specific record by UUID
 
-This code snippet shows you how to retrieve a record using a message or call UUID. This is a synchronous call and so will block until it returns a response.
+This code snippet shows you how to retrieve a specific record by specifying a **message or call** UUID. This is a synchronous call and so will block until it returns a response.
 
 ## Example
 

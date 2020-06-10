@@ -1,11 +1,12 @@
 ---
 title: Get report status
+description: Allows you to retrieve the status of asynchronous report generation.
 navigation_weight: 5
 ---
 
 # Get report status
 
-This code snippet shows you how to obtain the status of a report.
+This code snippet shows you how to obtain the status of a report. It is often used to determine whether a report generation has successfully completed or not.
 
 ## Example
 

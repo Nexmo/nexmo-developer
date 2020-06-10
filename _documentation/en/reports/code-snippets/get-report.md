@@ -1,11 +1,12 @@
 ---
 title: Get report
+description: Retrieve the report file generated as a result of a asynchronous report generation request.
 navigation_weight: 7
 ---
 
 # Get report
 
-This code snippet shows you how to retrieve a report file.
+This code snippet shows you how to retrieve a report file. The report file is a Zipped CSV file containing all the records for the request.
 
 ## Example
 

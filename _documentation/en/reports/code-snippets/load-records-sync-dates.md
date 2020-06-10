@@ -1,11 +1,14 @@
 ---
-title: Load records by dates
+title: Get records by dates
+description: Retrieve records synchronously using a date range (limited to a maximum period of 24 hours). 
 navigation_weight: 2
 ---
 
-# Load records synchronously by date range
+# Get records synchronously by date range
 
-This code snippet shows you how to retrieve a set of records using a date range. This is a synchronous call and so will block until it returns a response. Date ranges are limited to a window of 24 hours.
+This code snippet shows you how to retrieve a set of records using a date range. This is a synchronous call, and so will block until it returns a response. It is used where you want to return a limited number of records (thousands) immediately. If you want to obtain large numbers of records (millions) use [Create Report](/reports/code-snippets/create-async-report).
+
+**Date ranges are limited to a window of 24 hours for synchronous queries.**
 
 ## Example
 

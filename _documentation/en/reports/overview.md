@@ -13,11 +13,22 @@ You can use the Reports API in a wide variety of use cases, including:
 * Invoice reconciliation - Compare your usage data with the invoice you have received.
 * Monitoring and analytics - Add CDR data to your business intelligence or analytics system to correlate it with other events.
 
-## Features
-
 You can query your CDRs using a wide range of filters. Data records are kept for thirteen months (maximum retention period). Records older than 13 months cannot be obtained because they are automatically deleted from the system.
 
-Depending on your query pattern, you can choose from one of the two versions of Reports API: asynchronous and synchronous. Asynchronous version is optimized for infrequent and large data queries (from several records to tens of millions). Synchronous version is optimized for frequent and periodic retrievals of small batches of data records (from one record to tens of thousand per query).
+## Synchronoous and asynchronous operation
+
+Depending on your query pattern, you can choose from one of the two approaches for the Reports API:
+
+1. Synchronous
+2. Asynchronous
+
+The *synchronous* version is optimized for frequent and periodic retrievals of small batches of data records (from one record to tens of thousand per query).
+
+The *asynchronous* version is optimized for infrequent and large data queries (from several records to tens of millions).
+
+## Feature summary
+
+The following table compares the features of the synchronous and asynchronous methods of using the Reports API:
 
 Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpoint)
 ---- | ---- | ----
@@ -74,6 +85,12 @@ Charge = 300 * 0.0002€ = 0.06€
 `GET` Requests (create and get JSON report) can return records either by ID or by a time period they belong to. Search by ID is not time-bounded. Time period search supports ranges of up to 24 hours.
 
 > Pricing information documented here is provisional and is subject to change.
+
+## Code Snippets
+
+```code_snippet_list
+product: reports
+```
 
 ## Tutorials
 

@@ -1,11 +1,12 @@
 ---
 title: List reports
+description: Obtain a list of all asynchronously requested reports.
 navigation_weight: 4
 ---
 
 # List reports
 
-This code snippet shows you how to list all report requests with the specified status. If required, you can also specify a date range.
+This code snippet shows you how to list all asynchronous report requests with the specified status. If required, you can also specify a date range.
 
 ## Example
 
