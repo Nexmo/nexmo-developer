@@ -15,7 +15,7 @@ You can use the Reports API in a wide variety of use cases, including:
 
 You can query your CDRs using a wide range of filters. Data records are kept for thirteen months (maximum retention period). Records older than 13 months cannot be obtained because they are automatically deleted from the system.
 
-## Synchronoous and asynchronous operation
+## Synchronous and asynchronous operation
 
 Depending on your query pattern, you can choose from one of the two approaches for the Reports API:
 
