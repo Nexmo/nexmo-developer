@@ -1,0 +1,12 @@
+---
+title: .NET
+language: dotnet
+dependencies:
+    - Nexmo.Csharp.Client
+code:
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/AsrController.cs
+    from_line: 19
+    to_line: 49
+run_command: 'dotnet run --urls=http://localhost:3000'
+file_name: AsrController.cs
+unindent: true

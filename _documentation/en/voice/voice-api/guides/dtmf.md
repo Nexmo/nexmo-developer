@@ -16,6 +16,31 @@ DTMF is used both for dialing a destination on a landline telephone and also for
 
 You can collect input from your caller by using the `input` action within your NCCO. You can collect a specific number of digits, set a timeout value or wait until the user has pressed the `#` key before continuing (see the [input action](/voice/voice-api/ncco-reference#input)). Once the action is complete, Nexmo will send a webhook to your `event_url` containing the keys that were pressed. If you return a new NCCO in response to this event Nexmo will replace the existing NCCO, ignoring any actions defined after the `input`.
 
+### NCCO Example
+
+```json
+[
+  {
+    "action": "talk",
+    "text": "Please enter a digit",
+    "bargeIn": true
+  },
+  {
+    "eventUrl": [
+      "https://api.example.com/callbacks/events"
+    ],
+    "action": "input",
+    "dtmf": {
+      "maxDigits": 1,
+      "submitOnHash": true,
+      "timeOut": 5
+    }
+  }
+]
+```
+
+The [NCCO Reference Guide](/voice/voice-api/ncco-reference#dtmf-input-settings) contains information on all the possible parameters that can be used in conjunction with the DTMF `input` NCCO action.
+
 ## Sending DTMF 
 
 There are two ways to send DTMF tones to a call:

@@ -107,3 +107,29 @@ At the moment the following WhatsApp templates can be used with the Messages API
 Namespace | Name | Languages
 ----|----|----
 `9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | English, Korean, Japanese, Italian
+
+## Sandbox supported features
+
+The following table shows the supported features of the Messages Sandbox compared to the production Messages API:
+
+Feature | Messages Sandbox | Messages API
+----|----|----
+WhatsApp Outbound | ✅ | ✅
+WhatsApp Inbound  | ✅  |✅
+Your own WhatsApp Numbers | ❌ | ✅
+Your own WhatsApp Templates | ❌ | ✅
+Viber Outbound  | ✅ | ✅
+Viber Inbound  | ✅ | ✅
+Use your own Viber account | ❌ | ✅
+Facebook Messenger Outbound | ✅  |✅
+Facebook Messenger Inbound | ✅  |✅
+Your Own Messenger Page | ❌ | ✅
+Signed Webhooks | ✅ | ❌
+SMS Outbound | ❌ | ✅
+MMS Outbound | ❌ | ✅
+MMS Inbound | ❌ | ✅
+
+**Key:**
+
+* ✅ = Supported.
+* ❌ = Not supported

@@ -43,7 +43,7 @@ Nexmo Verify API offers powerful default behavior for easy integration. By defau
 
 > It is possible to supply your own PIN code in some circumstances, please contact your account manager.
 
-Delivery of the PIN code to the user uses a combination of SMS messages and [TTS](/concepts/guides/glossary#tts-api) (Text to Speech) calls based on the user's locale. For example, the TTS for a `61*` phone number is sent in English with an Australian accent (`en-au`). You can specify the language, accent and gender in the Verify request.
+Delivery of the PIN code to the user uses a combination of SMS messages and [TTS](/concepts/guides/glossary#tts-api) (Text to Speech) calls based on the user's locale. For example, the TTS for a `61*` phone number is sent in English with an Australian accent (`en-au`) by default. You can specify the language to use in the request if you want to override the default for the locale.
 
 ## Concepts
 

@@ -308,6 +308,7 @@ Field | Example | Description
 `from` | `447700900000` | The number the call came from
 `to` | `447700900000` | The number the call was made to
 `dtmf` | `42` | The buttons pressed by the user
+`speech` | `sales` | The text spoken by the user, a complete example payload shown in [NCCO Reference](/voice/voice-api/ncco-reference#speech-recognition-settings)
 `timed_out` | `true` | Whether the input action timed out: `true` if it did, `false` if not
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
@@ -359,5 +360,6 @@ The event endpoint will also receive webhooks in the event of an error. This can
 Field | Example | Description
  -- | -- | --
 `reason` | `Syntax error in NCCO. Invalid value type or action.` | Information about the nature of the error
+`error` | `ERR1: Failed to analyze audio` | This field present for automatic speech recognition
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this conversation
 `timestamp` | `2020-01-01T12:00:00.000Z` | Timestamp (ISO 8601 format)

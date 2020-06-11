@@ -135,7 +135,7 @@ You can use the following options to control a `connect` action:
 
 Option | Description | Required
 -- | -- | --
-`endpoint` | Connect to a single endpoint. [Available endpoint types](#endpoint-types-and-values) | Yes
+`endpoint` | Array of `endpoint` objects to connect to. Currently supports a **maximum** of one `endpoint` object. [Available endpoint types](#endpoint-types-and-values) | Yes
 `from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. If the caller is an app user, this option should be omitted.| No
 `eventType` | Set to `synchronous` to: <ul class="Vlt-list Vlt-list--simple"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states.</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
@@ -248,7 +248,7 @@ The following NCCO example shows how to configure an IVR endpoint:
       "maxDigits": 1
     },
     "speech": {
-      "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+      "uuid": ["aaaaaaaa-bbbb-cccc-dddd-0123456789ab"]
     }
   }
 ]
@@ -272,7 +272,7 @@ The following NCCO example shows how to use `bargeIn` to allow a user to interru
       "maxDigits": 1
     },
     "speech": {
-      "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+      "uuid": ["aaaaaaaa-bbbb-cccc-dddd-0123456789ab"]
     }
   }
 ]
@@ -282,8 +282,8 @@ The following options can be used to control an `input` action:
 
 Option | Description | Required
 -- | -- | --
-`dtmf` | [DTMF settings](#dtmf-input-settings). Should be specified to enable DTMF input. If all the DTMF input settings will have default values, it should be specified as empty object: `dtmf: { }`. | No
-`speech` | [Speech recognition settings](#speech-recognition-settings). Should be specified to enable speech input. | No
+`dtmf` | [DTMF settings](#dtmf-input-settings). Required if `speech` is not provided. Should be specified to enable DTMF input. If all the DTMF input settings will have default values, it should be specified as empty object: `dtmf: { }`. | No
+`speech` | [Speech recognition settings](#speech-recognition-settings). Required if `dtmf` is not provided. Should be specified to enable speech input. | No
 `eventUrl` | Nexmo sends the digits pressed by the callee to this URL 1) after `timeOut` pause in activity or when *#* is pressed for DTMF or 2) after user stops speaking or `30` seconds of speech for speech input.  | No
 `eventMethod` | The HTTP method used to send event information to `event_url` The default value is `POST`.| No
 
@@ -299,7 +299,7 @@ Option | Description | Required
 
 Option | Description | Required
 -- | -- | --
-`uuid` | The unique ID of the Call leg for the user to capture the speech of. | Yes
+`uuid` | The unique ID of the Call leg for the user to capture the speech of, defined as an array with a single element. | Yes
 `endOnSilence` | Controls how long the system will wait after user stops speaking to decide the input is completed. The default value is `2` (seconds). The range of possible values is between 1 second and 10 seconds. | No
 `language` | Expected language of the user's speech. Format: BCP-47. Default: `en-US`. [List of supported languages](/voice/voice-api/guides/asr#language). | No
 `context` | Array of hints (strings) to improve recognition quality if certain words are expected from the user. | No

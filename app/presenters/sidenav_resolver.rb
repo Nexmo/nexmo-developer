@@ -41,7 +41,7 @@ class SidenavResolver
     end
 
     # Do we have tasks for this product?
-    product = path.sub(%r{#{Rails.configuration.docs_base_path}/\w+\/\w+\/}, '')
+    product = path.sub(%r{#{Rails.configuration.docs_base_path}/\w+/\w+/}, '')
     if DocumentationConstraint.products_for_routes.include? product
       tasks = TutorialList.by_product(product)
 
@@ -90,7 +90,7 @@ class SidenavResolver
     path = path.gsub('.yml', '').sub("#{Rails.configuration.docs_base_path}/_use_cases/", 'use-cases/')
     path = path.gsub('.yml', '').sub('config/tutorials/', '/tutorials/')
     path = path.gsub('.yml', '').sub("#{Rails.configuration.docs_base_path}/", '')
-    path.sub(%r{\w+\/\w+\/}, '')
+    path.sub(%r{\w+/\w+/}, '')
   end
 
   def path_to_url(path)

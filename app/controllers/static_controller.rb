@@ -252,7 +252,7 @@ class StaticController < ApplicationController
 
     # These are the things we'll be tracking through the customer dashboard
     set_utm_cookie('utm_medium', 'dev_education')
-    set_utm_cookie('utm_source', 'blog')
+    set_utm_cookie('utm_source', params['s'] || 'blog')
     set_utm_cookie('utm_campaign', params['c']) if params['c']
     set_utm_cookie('utm_content', params['ct']) if params['ct']
     set_utm_cookie('utm_term', params['t']) if params['t']

@@ -39,6 +39,33 @@ Connections ttl opn rt1 rt5 p50 p90
 
 Note that each time you start up the Ngrok tunnel, you will receive a new URL so don't forget to update the webhooks configuration accordingly!
 
+## Usage with IIS Express
+
+IIS Express rejects inbound requests from Ngrok if the host header does not match the `bindingInformation` pattern in its configuration. Therefore you will need to configure Ngrok to change the host name in the header to match the IIS Express configuration.
+
+This can be done using Ngrok's `host-header` option. The following command demonstrates how to do this for port 3000:
+
+``` shell
+ngrok http 3000 --host-header="localhost:3000"
+```
+
+If you are doing this for your testing and need the original host for something, you can retrieve it from the `X-Original-Host` header.
+
+### Configure IIS Express for the correct port
+
+Validate that IIS Express is listening on port 3000, or whichever port you've decided to configure Ngrok to, by opening up your `properties/launchSettings.json` and making sure the port number in the `iisExpress` object's `applicationUrl` field matches the port you've configured Ngrok to forward to. You should also disable SSL on IIS Express by setting the `sslPort` to `0`. See the following valid configuration for IIS Express from `launchSettings.json`:
+
+``` json
+"iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:3000/",
+      "sslPort": 0
+    }
+  }
+```
+
 ## Ngrok plans
 
 Paid Ngrok plans can reserve tunnel names and choose which one to use when they start up, so you can avoid having to reconfigure your webhooks. If you have a paid Ngrok account, you can start on your own domain using a command such as:
