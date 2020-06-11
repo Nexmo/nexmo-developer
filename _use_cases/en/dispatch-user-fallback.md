@@ -85,8 +85,6 @@ Note that the following conditions apply:
 
 The Python source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/dispatch-user-fallback). Three use cases are actually included in the codebase, but this tutorial only describes `case-2`. The code for `case-2` specifically can be found [here](https://github.com/nexmo-community/dispatch-user-fallback/tree/master/case-2). There are just two files - the sample configuration file, `sample.json` and the application, `app.py`.
 
-> **IMPORTANT:** You should also run a webhook server to ensure that webhooks are acknowledged - this prevents clogging the callback queue with unacknowledged webhook retries. The code for this is given later in this tutorial.
-
 ## Prerequisites
 
 1. [Create a Nexmo Account](https://dashboard.nexmo.com/sign-in)

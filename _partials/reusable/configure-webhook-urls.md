@@ -45,9 +45,13 @@ If using Ngrok in this manner you would use the Ngrok URLs for your webhook URLs
 
 ### Callback queue
 
-Please note that callbacks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-account basis, **not** a per-application basis.
+Please note that callbacks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
 
-**NOTE:** To avoid callbacks stalling the callback queue, please ensure that all applications acknowledge callbacks with a 200 response. Further, it is advisable to cease activity on a test application 24 hours before deleting it, or removing webhook configuration, otherwise it could potentially leave callbacks in your callback queue that will not be acknowledged, and therefore result in delays on callbacks destined for your production applications.
+Please ensure that all applications acknowledge callbacks with a 200 response.
+
+### Signed webhooks
+
+In order to validate the origin of your webhooks, you can validate the signature of the webhooks, see instructions [here](https://developer.nexmo.com/messages/concepts/signed-webhooks)
 
 ### Webhooks in production use
 
