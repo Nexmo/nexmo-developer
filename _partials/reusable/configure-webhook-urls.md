@@ -43,11 +43,11 @@ If using Ngrok in this manner you would use the Ngrok URLs for your webhook URLs
 * `https://abcdef1.ngrok.io/webhooks/inbound-message`
 * `https://abcdef1.ngrok.io/webhooks/message-status`
 
-### Callback queue
+### Webhook queue
 
-Please note that callbacks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
+Please note that webhooks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
 
-Please ensure that all applications acknowledge callbacks with a 200 response.
+Please ensure that all applications acknowledge webhooks with a 200 response.
 
 ### Signed webhooks
 

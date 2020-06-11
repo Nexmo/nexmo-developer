@@ -35,11 +35,11 @@ Inbound URL | `https://www.example.com/webhooks/inbound-message`
 
 Messages API does not support inbound SMS message and SMS delivery receipt callbacks via the application-specific webhooks described in the previous section. In order to receive callbacks for SMS message and SMS delivery receipts you need to set the [account-level webhooks for SMS](https://dashboard.nexmo.com/settings).
 
-### Callback queue
+### Webhook queue
 
-Please note that callbacks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
+Please note that webhooks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
 
-Please ensure that all applications acknowledge callbacks with a 200 response.
+Please ensure that all applications acknowledge webhooks with a 200 response.
 
 ### Signed webhooks
 
