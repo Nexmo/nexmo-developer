@@ -140,3 +140,6 @@
 "/client-sdk/tutorials/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging-chat"
 "/client-sdk/in-app-messaging/guides/simple-conversation": "/client-sdk/tutorials/in-app-messaging/introduction"
 "/client-sdk/getting-started/add-sdk-to-your-app/android": "/client-sdk/setup/add-sdk-to-your-app/android"
+
+"/client-sdk/in-app-voice/code-snippets/answer-call": "/client-sdk/in-app-voice/guides/receive-call"
+"/stitch/in-app-voice/call-statuses": "/client-sdk/in-app-voice/concepts/call-statuses"
