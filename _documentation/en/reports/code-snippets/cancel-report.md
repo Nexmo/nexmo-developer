@@ -1,7 +1,7 @@
 ---
 title: Cancel report
 description: Cancel the creation of an asynchronous report
-navigation_weight: 6
+navigation_weight: 7
 ---
 
 # Cancel report

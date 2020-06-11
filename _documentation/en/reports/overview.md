@@ -22,9 +22,9 @@ Depending on your query pattern, you can choose from one of the two approaches f
 1. Synchronous
 2. Asynchronous
 
-The *synchronous* version is optimized for frequent and periodic retrievals of small batches of data records (from one record to tens of thousand per query).
+The *synchronous* version is optimized for frequent and periodic retrievals of small batches of data records. Typical batch sizes range from one record to tens of thousands per query.
 
-The *asynchronous* version is optimized for infrequent and large data queries (from several records to tens of millions).
+The *asynchronous* version is optimized for infrequent and large data queries. Typical batch sizes range from several thousand records to tens of millions.
 
 ## Feature summary
 
@@ -64,7 +64,6 @@ Charges are applied based on the quantity of requests and the volume of data ret
 Resource | Price
 ---- | ----
 Report generation | 0.0002€ per CDR
-
 
 ### Pricing example (`POST` requests)
 
