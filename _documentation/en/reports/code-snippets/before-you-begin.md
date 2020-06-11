@@ -76,48 +76,54 @@ The API calls Load Records Synchronously and Generate Report Asynchronously requ
 The following table shows which API call use `product`:
 
 Parameter | Load records sync | Generate report async | List reports | Get report status | Cancel report | Get report | Notes
-----|----|----|----|----|----|----|----|----
-`product` | **required** | **required** | not used | not used | not used | not used | Required to load records or generate reports. One of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|----
+`product` | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | Required to load records or generate reports. One of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+
+**Table legend:** ✅ = required | ❌ = n/a
 
 ### Request parameters for Load Records Synchronously
 
 The parameters specified in API calls may vary depending on the `product` specified. The following table shows use of a parameter for different products:
 
 Parameter | SMS | Voice | Verify | Number Insight | Messages | Conversations | Description |
-----------|-----|-------|--------|----------------|----------|---------------|-------------|
-`product` | required | required | required | required | required | required |
-`account_id` | required | required | required | required | required | required | Account to obtain records for.
-`direction` | required | optional | n/a | n/a | required | n/a | Direction of messages or call. Can be `inbound` or `outbound`. |
-`id` | optional | optional | optional | optional | optional | optional | Invalid if date range specified. |
-`date_start` | optional | optional | optional | optional | optional | optional | Invalid if `id` specified. |
-`date_end` | optional | optional | optional | optional | optional | optional | Invalid if `id` specified. |
-`include_message` | optional | n/a | n/a | n/a | optional | n/a | If `true` include the body of the text message.
-`type` | n/a | n/a | n/a | n/a | n/a | required | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`. |
-`status` | optional | optional | n/a | n/a | optional | n/a | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values. |
+----------|:---:|:-----:|:------:|:--------------:|:--------:|:-------------:|:-----------:|
+`product` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+`account_id` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Account to obtain records for.
+`direction` | ✅ | 🔸 | ❌ | ❌ | ✅ | ❌ | Direction of messages or call. Can be `inbound` or `outbound`. |
+`id` | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | Invalid if date range specified. |
+`date_start` | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | Invalid if `id` specified. |
+`date_end` | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | Invalid if `id` specified. |
+`include_message` | 🔸 | ❌ | ❌ | ❌ | 🔸 | ❌ | If `true` include the body of the text message.
+`type` | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`. |
+`status` | 🔸 | 🔸 | ❌ | ❌ | 🔸 | ❌ | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values. |
+
+**Table legend:** ✅ = required | 🔸 = optional | ❌ = n/a
 
 ### Request parameters for Create Asynchronous Report
 
 The parameters specified in API calls may vary depending on the `product` specified. The following table shows use of a parameter for different products:
 
 Parameter | SMS | Voice | Verify | Number Insight | Messages | Conversations | Description |
-----------|-----|-------|--------|----------------|----------|---------------|-------------|
-`product` | required | required | required | required | required | required | Required to load records or generate reports. |
-`account_id` | required | required | required | required | required | required |
-`direction` | required | optional | n/a | n/a | required | n/a | Direction of messages or call. Can be `inbound` or `outbound`. |
-`date_start` | optional | optional | optional | optional | optional | optional |
-`date_end` | optional | optional | optional | optional | optional | optional |
-`include_subaccounts` | optional | optional | optional | optional | optional | optional |
-`callback_url` | optional | optional | optional | optional | optional | optional |
-`status` | optional | optional | n/a | n/a | optional | optional | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values. |
-`client_ref` | optional | n/a | n/a | n/a | n/a | n/a |
-`account_ref` | optional | n/a | n/a | n/a | n/a | n/a |
-`include_message` | optional | n/a | n/a | n/a | optional | n/a | If `true`, the body of the message will be included in the response. |
-`network` | optional | optional | optional | optional | n/a | n/a |
-`from` | optional | optional | n/a | n/a | optional | n/a |
-`to` | optional | optional | optional | n/a | optional | n/a |
-`number` | n/a | n/a | n/a | optional | n/a | n/a |
-`id` | n/a | n/a | n/a | n/a | optional | n/a |
-`type` | n/a | n/a | n/a | n/a | n/a | required | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`.
+----------|:---:|:-----:|:------:|:--------------:|:--------:|:-------------:|:-----------:|
+`product` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Required to load records or generate reports. |
+`account_id` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+`direction` | ✅ | 🔸 | ❌ | ❌ | ✅ | ❌ | Direction of messages or call. Can be `inbound` or `outbound`. |
+`date_start` | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 |
+`date_end` | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 |
+`include_subaccounts` | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 |
+`callback_url` | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 | 🔸 |
+`status` | 🔸 | 🔸 | ❌ | ❌ | 🔸 | 🔸 | Checks for records with specified status. For example `delivered` (for messages) or `answered` (for a voice call). For report status checking it may be `SUCCESS` or one of the other supported values. |
+`client_ref` | 🔸 | ❌ | ❌ | ❌ | ❌ | ❌ |
+`account_ref` | 🔸 | ❌ | ❌ | ❌ | ❌ | ❌ |
+`include_message` | 🔸 | ❌ | ❌ | ❌ | 🔸 | ❌ | If `true`, the body of the message will be included in the response. |
+`network` | 🔸 | 🔸 | 🔸 | 🔸 | ❌ | ❌ |
+`from` | 🔸 | 🔸 | ❌ | ❌ | 🔸 | ❌ |
+`to` | 🔸 | 🔸 | 🔸 | ❌ | 🔸 | ❌ |
+`number` | ❌ | ❌ | ❌ | 🔸 | ❌ | ❌ |
+`id` | ❌ | ❌ | ❌ | ❌ | 🔸 | ❌ |
+`type` | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | For `CONVERSATIONS` only. Can be `ip-voice` or `cs-custom-event`.
+
+**Table legend:** ✅ = required | 🔸 = optional | ❌ = n/a
 
 > These parameter tables do not include all available parameters. See the [API Reference](/api/reports) for all parameters.
 
