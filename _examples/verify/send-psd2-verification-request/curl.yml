@@ -1,0 +1,9 @@
+---
+title: cURL
+language: curl
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/verify/send-psd2-code.sh
+    from_line: 4
+    to_line: 4
+file_name: send-psd2-code.sh
+run_command: 'sh send-psd2-code.sh'

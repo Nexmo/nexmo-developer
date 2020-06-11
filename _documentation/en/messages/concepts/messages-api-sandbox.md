@@ -4,7 +4,7 @@ navigation_weight: 5
 description: Understanding and utilizing the Messages API Sandbox.
 ---
 
-# Using the Messages API Sandbox
+# Messages API Sandbox
 
 The Messages API Sandbox provides a quick and easy method for sending test messages using the Vonage Messages API on supported messaging platforms without requiring the setup of business accounts on any of those platforms. This means you can code your application now while you wait for your business accounts to be created and approved. A sandbox can only be associated with one API key and supports the following three channels:
 
@@ -20,7 +20,33 @@ The Messages API Sandbox is accessible via the [Dashboard](https://dashboard.nex
 
 The Messages API Sandbox is currently free to use.
 
-## The steps
+## Sandbox supported features
+
+The following table shows the supported features of the Messages Sandbox compared to the production Messages API:
+
+Feature | Messages Sandbox | Messages API
+|:----|:----:|:----:|
+WhatsApp Outbound | ✅ | ✅
+WhatsApp Inbound  | ✅  |✅
+Your own WhatsApp Numbers | ❌ | ✅
+Your own WhatsApp Templates | ❌ | ✅
+Viber Outbound  | ✅ | ✅
+Viber Inbound  | ✅ | ✅
+Use your own Viber account | ❌ | ✅
+Facebook Messenger Outbound | ✅  |✅
+Facebook Messenger Inbound | ✅  |✅
+Your Own Messenger Page | ❌ | ✅
+Signed Webhooks | ✅ | ❌
+SMS Outbound | ❌ | ✅
+MMS Outbound | ❌ | ✅
+MMS Inbound | ❌ | ✅
+
+**Key:**
+
+* ✅ = Supported.
+* ❌ = Not supported
+
+## Using the sandbox
 
 The steps to use the Messages API Sandbox to send test messages on supported messaging platforms are as follows:
 
@@ -107,29 +133,3 @@ At the moment the following WhatsApp templates can be used with the Messages API
 Namespace | Name | Languages
 ----|----|----
 `9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | English, Korean, Japanese, Italian
-
-## Sandbox supported features
-
-The following table shows the supported features of the Messages Sandbox compared to the production Messages API:
-
-Feature | Messages Sandbox | Messages API
-----|----|----
-WhatsApp Outbound | ✅ | ✅
-WhatsApp Inbound  | ✅  |✅
-Your own WhatsApp Numbers | ❌ | ✅
-Your own WhatsApp Templates | ❌ | ✅
-Viber Outbound  | ✅ | ✅
-Viber Inbound  | ✅ | ✅
-Use your own Viber account | ❌ | ✅
-Facebook Messenger Outbound | ✅  |✅
-Facebook Messenger Inbound | ✅  |✅
-Your Own Messenger Page | ❌ | ✅
-Signed Webhooks | ✅ | ❌
-SMS Outbound | ❌ | ✅
-MMS Outbound | ❌ | ✅
-MMS Inbound | ❌ | ✅
-
-**Key:**
-
-* ✅ = Supported.
-* ❌ = Not supported
