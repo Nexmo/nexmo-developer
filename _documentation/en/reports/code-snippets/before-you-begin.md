@@ -1,5 +1,6 @@
 ---
 title: Before you Begin
+description: Some tips on how to get started using the Reports API code snippets.
 navigation_weight: 0
 ---
 
