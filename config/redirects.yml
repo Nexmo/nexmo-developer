@@ -276,4 +276,4 @@
 "/use-cases/sending-viber-service-messages-with-messages-api": "/messages/tutorials/send-viber-message"
 "/dispatch/tutorials/sending-facebook-message-with-failover": "/dispatch/tutorials/send-facebook-message-with-failover"
 "/task/sending-facebook-message-with-failover": "/dispatch/tutorials/send-facebook-message-with-failover"
-"/concepts/guides/webhook": "concepts/guides/webhooks"
+"/concepts/guides/webhook": "/concepts/guides/webhooks"
