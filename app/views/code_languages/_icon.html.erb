@@ -1,11 +1,11 @@
 <% if code_language %>
-  <span>
+  <div>
     <% language = Nexmo::Markdown::CodeLanguage.find(code_language) %>
     <% if language.label == 'Kotlin' %>
       <img src="<%= "/assets/images/brands/#{language.icon}.svg" %>"/>
     <% else %>
-      <svg><use xlink:href="<%= "/assets/images/brands/#{language.icon}.svg##{language.icon}" %>"></use></svg>
+      <svg class="Vlt-icon Vlt-black" ><use xlink:href="<%= asset_pack_path("media/symbol/volta-brand-icons.svg")%><%="#Brand-icon-#{language.icon}" %>"></use></svg>
     <% end %>
     <span><%= language.label %></span>
-  </span>
+  </div>
 <% end %>
