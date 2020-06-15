@@ -5,7 +5,7 @@ export default () => {
     // Track copy to clipboard usage
     var clipboard = new Clipboard('.copy-button',{
         text: function(trigger) {
-            return $(trigger).next().text().replace('Copy', '');
+            return $(trigger).next().find('.main-code').text();
         }
     });
 
