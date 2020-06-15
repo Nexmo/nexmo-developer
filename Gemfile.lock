@@ -7,9 +7,9 @@ GIT
 
 GIT
   remote: https://github.com/rails/actionpack-page_caching.git
-  revision: 92e557785bfb5ab8d569ebd992c09e6e02eec36f
+  revision: 42a2d81cbb98bc3edea49c396e751ce0e72b6fed
   specs:
-    actionpack-page_caching (1.2.2)
+    actionpack-page_caching (1.2.3)
       actionpack (>= 5.0.0)
 
 GEM
