@@ -23,7 +23,9 @@ There are two parts to validating signed webhooks:
 
 ### Verify the request
 
-Webhooks for both inbound messages and message status will include a JWT in the authorization header. Use the API key included in the JWT claims to identify which of your signature secrets has been used to sign the request. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims. You can identify your signature secret on the [Dashboard](https://dashboard.nexmo.com/settings).
+Webhooks for both inbound messages and message status will include a JWT in the authorization header. Use the API key included in the JWT claims to identify which of your signature secrets has been used to sign the request. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims. You can identify your signature secret on the [Dashboard](https://dashboard.nexmo.com/settings). It's recommended that signature secrets be no less than 32 bits to ensure their security.
+
+> Note: The `signature method` drop down does not affect the method used for signing Messages API webhooks, SHA-256 is always used.
 
 ### Verify the payload has not been tampered with in transit
 

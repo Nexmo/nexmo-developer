@@ -36,7 +36,7 @@ Use your own Viber account | ❌ | ✅
 Facebook Messenger Outbound | ✅  |✅
 Facebook Messenger Inbound | ✅  |✅
 Your Own Messenger Page | ❌ | ✅
-Signed Webhooks | ✅ | ❌
+Signed Webhooks | ✅ | ✅
 SMS Outbound | ❌ | ✅
 MMS Outbound | ❌ | ✅
 MMS Inbound | ❌ | ✅
