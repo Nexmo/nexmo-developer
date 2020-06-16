@@ -12,6 +12,12 @@ The advantage of WhatsApp is that the identifier of users on the platform is the
 
 > **NOTE:** WhatsApp is in Limited Availability and Nexmo cannot guarantee you will receive a WhatsApp account.
 
+## Using existing WhatsApp Business Number
+
+If you already have a WhatsApp Business Number and would like to use that number with the Vonage Messages API you can the [WhatsApp Product](https://www.nexmo.com/products/messages/whatsapp) page has more details about how to get started using WhatsApp with Voange.
+
+> **NOTE:** Once a WhatsApp number is integrated with the API it cannot be used in the mobile app.
+
 ## Important WhatsApp rules
 
 If your customer initiates messaging with you, WhatsApp will not charge you for any MTMs (Template Messages) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which you will be charged. The Nexmo Usage fee for every outbound message applies regardless of the customer care window. There are no charges for inbound messages. Further pricing information is available on the [WhatsApp Product](https://www.nexmo.com/products/messages/whatsapp) Page.
