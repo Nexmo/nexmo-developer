@@ -14,7 +14,7 @@ The advantage of WhatsApp is that the identifier of users on the platform is the
 
 ## Using existing WhatsApp Business Number
 
-If you already have a WhatsApp Business Number and would like to use that number with the Vonage Messages API you can the [WhatsApp Product](https://www.nexmo.com/products/messages/whatsapp) page has more details about how to get started using WhatsApp with Vonage.
+If you already have a WhatsApp Business Number and would like to use that number with the Vonage Messages API, you can see the [WhatsApp Product](https://www.nexmo.com/products/messages/whatsapp) page has more details about how to get started using WhatsApp with Vonage.
 
 > **NOTE:** Once a WhatsApp number is integrated with the API it cannot be used in the mobile app.
 
