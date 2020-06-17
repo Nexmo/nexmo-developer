@@ -27,6 +27,8 @@ class ViewController: UIViewController, NXMClientDelegate {
 }
 ```
 
+## Add the JWT
+
 At the end of `viewDidLoad`, set the client delegate and log in - please make sure to replace `ALICE_JWT` for the `JWT` you created during a previous step. Please remember, the expiry time for the token was set to 6 hours so you will need to generate a new one if it is too old.
 
 ```swift
@@ -36,6 +38,8 @@ override func viewDidLoad() {
     client.login(withAuthToken: "ALICE_JWT")
 }
 ```
+
+## The Client Delegate
 
 For the delegate part to work, you need to have `ViewController` conform to `NXMClientDelegate`. At the end of the file, add:
 
@@ -67,6 +71,8 @@ extension ViewController: NXMClientDelegate {
 ```
 
 An error is shown if encountered and the `connectionStatusLabel` is updated with the relevant connection status. Also, `callButton` is shown when connected.
+
+## Build and Run
 
 `Cmd + R` to build & run again:
 

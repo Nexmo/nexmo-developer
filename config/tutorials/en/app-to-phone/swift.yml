@@ -8,8 +8,10 @@ introduction:
   description: This task shows you how to use make a phone call from an iOS app using the iOS Client SDK and Swift.
   content: |
     # Introduction
-    In this tutorial, you will learn how to create an iOS application using Swift and the Nexmo iOS Client SDK, and then write the code to make a
-    phone call from your iOS app to a phone.
+    In this tutorial, you will learn how to create an iOS application using Swift and the Nexmo iOS Client SDK, and then write the code to make a phone call from your iOS app to a phone.
+
+    ### Completed project
+    If you would like to follow along without building the app yourself, the completed project for this tutorial is available on [Github](https://github.com/nexmo-community/client-sdk-swift-voice-app-to-phone) for you to download.
 
 prerequisites:
 - create-nexmo-account

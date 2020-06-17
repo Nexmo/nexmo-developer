@@ -19,29 +19,9 @@ nexmo jwt:generate ./private.key exp=$(($(date +%s)+21600)) acl='{"paths":{"/*/u
 
 The generated JWT will be valid for the next 6 hours.
 
-## Using the web interface
+## Alternative: using the web interface
 
-Alternatively, you can use our <a href="/jwt" target="_blank">online JWT generator</a> with the following parameters to generate a JWT.
-
-**Application ID:** `APP_ID`<br />
-**Sub:** `Alice`<br />
-**ACL:**
-
-```json
-{
-  "paths": {
-    "/*/users/**": {},
-      "/*/conversations/**": {},
-      "/*/sessions/**": {},
-      "/*/devices/**": {},
-      "/*/image/**": {},
-      "/*/media/**": {},
-      "/*/applications/**": {},
-      "/*/push/**": {},
-      "/*/knocking/**": {}
-  }
-}
-```
+Alternatively, you can use our <a href="/jwt" target="_blank">online JWT generator</a> with the `Alice` as the **Sub** parameters, and your application id for **Application ID** to generate a JWT.
 
 ## Further information
 

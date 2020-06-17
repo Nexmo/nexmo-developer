@@ -53,8 +53,8 @@ The `callButton` has been hidden, its `alpha` is set 0, and will be shown when a
 
 Also, a target has been added for when `callButton` is tapped and will be used to place and end calls.
 
-Run the project again (`Cmd + R`) to launch it in the simulator. 
+## Build and Run
 
-Notice the prompt asking for permission to use the microphone:
+Run the project again (`Cmd + R`) to launch it in the simulator. 
 
 ![Interface](/assets/images/client-sdk/ios-voice/interface.jpg)

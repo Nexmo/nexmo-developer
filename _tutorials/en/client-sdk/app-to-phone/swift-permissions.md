@@ -9,6 +9,8 @@ As you'll be using the microphone when making a call, you need to request the pe
 
 ## Info.plist
 
+Every Xcode project contains an `Info.plist` file containing all the metadata required in each app or bundle  - you will find the file inside the `AppToPhone` group.
+
 A new entry in the `Info.plist` file is required:
 
 1. Hover your mouse over the last entry in the list and click the little `+` button that appears.
@@ -28,25 +30,20 @@ import UIKit
 import AVFoundation
 ```
 
-Next, add the following method above `// MARK: UISceneSession Lifecycle`:
-
-``` swift
-func askAudioPermissions() {
-    AVAudioSession.sharedInstance().requestRecordPermission { (granted:Bool) in
-        NSLog("Allow microphone use. Response: %d", granted)
-    }
-}
-```
-
-You will then call this method from within `application:didFinishLaunchingWithOptions:`:
+Next, call `requestRecordPermission:` inside `application:didFinishLaunchingWithOptions:`:
 
 ``` swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    askAudioPermissions()
+    AVAudioSession.sharedInstance().requestRecordPermission { (granted:Bool) in
+        NSLog("Allow microphone use. Response: %d", granted)
+    }
     return true
 }
 ```
+
+
+## Build and Run
 
 You can now build and run the project, by either selecting `Product` > `Run` from the top menu, or pressing `Cmd + R`, and launch it in the simulator. 
 
