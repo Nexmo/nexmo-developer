@@ -5,10 +5,10 @@ description: In this step you will build the only screen of the app.
 
 # Building the interface
 
-To be able to place the call, you need to add 2 elements to the screen:
+To be able to place the call, you need to add two elements to the screen:
 
-* a `UILabel` to show the connection status
-* a `UIButton` to start and end calls
+* A `UILabel` to show the connection status
+* A `UIButton` to start and end calls
 
 Open `ViewController.swift` and add these two programmatically:
 
