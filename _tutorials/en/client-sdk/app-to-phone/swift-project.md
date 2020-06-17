@@ -1,5 +1,5 @@
 ---
-title: Xcode Project & Workspace
+title: Xcode Project and Workspace
 description: In this step you create an Xcode project and add the iOS Client SDK library.
 ---
 
@@ -20,7 +20,7 @@ You will be using the iOS Client SDK library inside an Xcode project you'll crea
 
 * Select the `Desktop` as the place where your project folder will reside. You can select a different location but please make sure to remember it as you'll need to navigate to it soon from the `Terminal`.
 
-* We now have a brand new Xcode Project.
+* You now have a brand new Xcode Project.
 
 
 **Before continuing, please close the new project you've just created.**
@@ -35,13 +35,15 @@ You will add the iOS Client SDK library to your project via [CocoaPods](https://
 cd ~/Desktop/AppToPhone
 ```
 
-* Install CocoaPods in your system (if you don't have it already). CocoaPods is built with Ruby, available by default on macOS.
+* Install CocoaPods in your system, if you don't have it already:
 
 ``` shell
 sudo gem install cocoapods
 ```
 
-* Create a Podfile for your project
+Note: CocoaPods is built with Ruby, available by default on macOS.
+
+* Create a Podfile for your project:
 
 ``` shell
 pod init
@@ -55,7 +57,7 @@ pod init
 open -a Xcode Podfile
 ```
 
-* Update the Podfile as shown below.
+* Update the Podfile as shown below:
 
 ```
 # Uncomment the next line to define a global platform for your project
@@ -94,7 +96,7 @@ Pod installation complete! There is 1 dependency from the Podfile and 1 total po
 
 ## Open the Workspace
 
-As per the notice you received in the last step above, please use `AppToPhone.xcworkspace` rather than the initial project from now on. To open it, type the following in the terminal:
+As described in the output above, please use `AppToPhone.xcworkspace` rather than the initial project from now on. To open it, type the following in the terminal:
 
 ``` shell
 open AppToPhone.xcworkspace
