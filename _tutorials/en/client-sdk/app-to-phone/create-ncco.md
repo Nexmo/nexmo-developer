@@ -33,7 +33,7 @@ The NCCO must be public and accessible by the internet. To accomplish that, we w
 ]
 ```
 
-4) Replace `PHONE_NUMBER` with your phone number (must be in [E.164](https://developer.nexmo.com/concepts/guides/glossary#e-164-format) format e.g. 14155550100 or 447700900001)
+4) Replace `PHONE_NUMBER` with your phone number (must be in [E.164](https://developer.nexmo.com/concepts/guides/glossary#e-164-format) format, for example: 14155550100 or 447700900001)
 
 5) Click the `Create secret gist` button.
 
