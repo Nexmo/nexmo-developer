@@ -1,11 +1,11 @@
 ---
 title: NXMClient
-description: In this step you will authenticate to the Nexmo servers.
+description: In this step you will authenticate to the Vonage servers.
 ---
 
 # NXMClient
 
-Before you can place a call, the Client SDK needs to authenticate to the Nexmo servers. 
+Before you can place a call, the Client SDK needs to authenticate to the Vonage servers. 
 
 The following additions are required to `ViewController.swift`:
 
@@ -74,6 +74,6 @@ An error is shown if encountered and the `connectionStatusLabel` is updated with
 
 ## Build and Run
 
-`Cmd + R` to build & run again:
+`Cmd + R` to build and run again:
 
 ![Interface connected](/assets/images/client-sdk/ios-voice/interface-connected.jpg)
