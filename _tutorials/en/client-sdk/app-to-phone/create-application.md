@@ -11,7 +11,7 @@ You now need to create a Nexmo application. In this step you create an applicati
 
 2) Change into the project directory.
 
-3) Create a Nexmo application by copying and pasting the command below. Make sure to replace `GIST-URL`  wih the URL from the previous step.
+3) Create a Nexmo application by copying and pasting the command below. Make sure to replace `GIST-URL`  with the URL from the previous step.
 
 ``` shell
 nexmo app:create "App to Phone Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL 
