@@ -16,7 +16,7 @@ To send the Media Message Template you need to use the Messages custom object. T
 
 WhatsApp Media Message Templates consist of a Header, Body and Footer structure. The Header contains the media, which can be text, location, video, image or file. The Body contains the text message. **This is currently limited to 160 characters when displayed to the end user, so as to avoid the need for scrolling.** The Footer is optional and contains static text only.
 
-> **NOTE:** Message body length is currently limited to 160 characters.
+> **NOTE:** Message body length is limited to 1024 characters.
 
 ## Example
 
