@@ -49,6 +49,8 @@ The MTM allows a business to send just the template identifier along with the ap
 
 > **NOTE:** New templates need to be approved by WhatsApp. Please contact your Nexmo Account Manager to submit the templates. Only templates created in your own namespace are valid. Using an template with a namespace outside of your own results in an error code 1022 being returned.
 
+> **NOTE:** Templates are subject to a restriction of 60 characters in their header and footer, and 1024 characters in their body.
+
 MTMs are designed to reduce the likelihood of spam to users on WhatsApp.
 
 For the purpose of testing Nexmo provides a template, `whatsapp:hsm:technology:nexmo:verify`, that you can use:
