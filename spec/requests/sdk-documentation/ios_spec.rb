@@ -5,11 +5,11 @@ RSpec.describe 'iOS docs', type: :request do
     it 'redirects to the proper path' do
       get '/client-sdk/sdk-documentation/ios/ios'
 
-      expect(response).to redirect_to('/sdk/stitch/ios/')
+      expect(response).to redirect_to('/sdk/stitch/ios/index')
     end
 
     it 'renders successsfully' do
-      get '/sdk/stitch/ios'
+      get '/sdk/stitch/ios/index'
 
       expect(response).to have_http_status(:ok)
     end

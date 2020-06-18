@@ -26,7 +26,7 @@ RSpec.describe 'Markdown', type: :request do
       it 'redirects' do
         get '/client-sdk/sdk-documentation/ios/ios'
 
-        expect(response).to redirect_to('/sdk/stitch/ios/')
+        expect(response).to redirect_to('/sdk/stitch/ios/index')
       end
     end
 
