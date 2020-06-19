@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('rails', '~> 6.0')
   spec.add_runtime_dependency('bootsnap', '~> 1.4')
   spec.add_runtime_dependency('nexmo-oas-renderer', '~> 0.11')
-  spec.add_runtime_dependency('nexmo_markdown_renderer', '~> 0.3')
+  #spec.add_runtime_dependency('nexmo_markdown_renderer', '~> 0.3')
   spec.add_runtime_dependency('activesupport', '~> 6.0')
   spec.add_runtime_dependency('bugsnag', '~> 6.13')
   spec.add_runtime_dependency('railties', '~> 6.0')

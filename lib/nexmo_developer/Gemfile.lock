@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: bf904a7f51eaef37a8e52b99033fb5d571b7bc3a
-  branch: fix-kotlin-icon
+  revision: 8577d35b928874fbcb7c60c72e3889444a717aa5
+  branch: consider-rails-root-for-views
   specs:
-    nexmo_markdown_renderer (0.3.1)
+    nexmo_markdown_renderer (0.4.0)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
