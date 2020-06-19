@@ -1,30 +1,175 @@
 products:
-  - account
-  - account/subaccounts
-  - application
-  - audit
-  - client-sdk
-  - client-sdk/in-app-voice
-  - client-sdk/in-app-video
-  - client-sdk/in-app-messaging
-  - concepts
-  - conversation
-  - dispatch
-  - messages
-  - messaging/sms
-  - messaging/conversion-api
-  - messaging/us-short-codes
-  - number-insight
-  - numbers
-  - redact
-  - reports
-  - tools
-  - verify
-  - voice/sip
-  - voice/voice-api
-  - vonage-business-cloud/smart-numbers
-  - vonage-business-cloud/integration-suite
-  - vonage-business-cloud/vbc-apis/account-api
-  - vonage-business-cloud/vbc-apis/extension-api
-  - vonage-business-cloud/vbc-apis/reports-api
-  - vonage-business-cloud/vbc-apis/user-api
+  - 
+    name: 'Account'
+    icon: 'user'
+    icon_colour: 'purple-dark'
+    path: account
+    dropdown: true
+  - 
+    name: 'Subaccounts'
+    icon: 'user'
+    icon_colour: 'purple-dark'
+    path: account/subaccounts
+    dropdown: true
+  -
+    name: 'Applications'
+    icon: 'flow'
+    icon_colour: 'purple-dark' 
+    path: application
+    dropdown: true
+  -
+    name: 'Audit'
+    icon: 'search'
+    icon_colour: 'purple-dark' 
+    path: audit
+    dropdown: true
+  -
+    name: 'Client SDK'
+    icon: 'duplicate'
+    icon_colour: 'purple-dark' 
+    path: client-sdk
+    dropdown: true
+  -
+    name: 'In-App Voice'
+    icon: 'microphone'
+    icon_colour: 'purple-dark' 
+    path: client-sdk/in-app-voice
+    dropdown: true
+  -
+    name: 'In-App Video'
+    icon: 'video'
+    icon_colour: 'purple-dark' 
+    path: client-sdk/in-app-video
+    dropdown: true
+  -
+    name: 'In-App Messaging'
+    icon: 'chat'
+    icon_colour: 'purple-dark' 
+    path: client-sdk/in-app-messaging
+    dropdown: true
+  -
+    name: 'Concepts'
+    icon: 'books'
+    icon_colour: 'purple-dark' 
+    path: concepts
+    dropdown: true
+  -
+    name: 'Conversation API'
+    icon: 'queue'
+    icon_colour: 'purple-dark' 
+    path: conversation
+    dropdown: true
+  -
+    name: 'Dispatch API'
+    icon: 'message'
+    icon_colour: 'purple-dark' 
+    path: dispatch
+    dropdown: true
+  -
+    name: 'Messages API'
+    icon: 'message'
+    icon_colour: 'purple-dark' 
+    path: messages
+    dropdown: true
+  -
+    name: 'SMS API'
+    icon: 'message'
+    icon_colour: 'purple-dark' 
+    path: messaging/sms
+    dropdown: true
+  -
+    name: 'Conversion API'
+    icon: 'message'
+    icon_colour: 'purple-dark' 
+    path: messaging/conversion-api
+    dropdown: true
+  -
+    name: 'US Short Codes'
+    icon: 'message'
+    icon_colour: 'purple-dark' 
+    path: messaging/us-short-codes
+    dropdown: true
+  -
+    name: 'Number Insight API'
+    icon: 'hash'
+    icon_colour: 'purple-dark' 
+    path: number-insight
+    dropdown: true
+  -
+    name: 'Numbers'
+    icon: 'hash'
+    icon_colour: 'purple-dark'   
+    path: numbers
+    dropdown: true
+  -
+    name: 'Redact API'
+    icon: 'search'
+    icon_colour: 'purple-dark' 
+    path: redact
+    dropdown: true
+  -
+    name: 'Reports API'
+    icon: 'code'
+    icon_colour: 'purple-dark' 
+    path: reports
+    dropdown: true
+  -
+    name: 'Tools'
+    icon: 'code'
+    icon_colour: 'purple-dark' 
+    path: tools
+    dropdown: true
+  -
+    name: 'Verify'
+    icon: 'check-circle'
+    icon_colour: 'purple-dark' 
+    path: verify
+    dropdown: true
+  -
+    name: 'SIP'
+    icon: 'phone'
+    icon_colour: 'purple-dark' 
+    path: voice/sip
+    dropdown: true
+  -
+    name: 'Voice API'
+    icon: 'phone'
+    icon_colour: 'purple-dark' 
+    path: voice/voice-api
+    dropdown: true
+  -
+    name: 'Smart Numbers'
+    icon: 'telephone'
+    icon_colour: 'purple-dark' 
+    path: vonage-business-cloud/smart-numbers
+    dropdown: true
+  -
+    name: 'Vonage Integration Suite'
+    icon: 'telephone'
+    icon_colour: 'purple-dark' 
+    path: vonage-business-cloud/integration-suite
+    dropdown: true
+  -
+    name: 'VBC Account API'
+    icon: 'telephone'
+    icon_colour: 'purple-dark' 
+    path: vonage-business-cloud/vbc-apis/account-api
+    dropdown: true
+  -
+    name: 'VBC Extension API'
+    icon: 'telephone'
+    icon_colour: 'purple-dark' 
+    path: vonage-business-cloud/vbc-apis/extension-api
+    dropdown: true
+  -
+    name: 'VBC Reports API'
+    icon: 'telephone'
+    icon_colour: 'purple-dark' 
+    path: vonage-business-cloud/vbc-apis/reports-api
+    dropdown: true
+  -
+    name: 'VBC User API'
+    icon: 'telephone'
+    icon_colour: 'purple-dark' 
+    path: vonage-business-cloud/vbc-apis/user-api
+    dropdown: true
