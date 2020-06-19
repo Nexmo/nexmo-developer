@@ -38,7 +38,24 @@ class Footer
   end
 
   def self.navigation_link_text(link)
-    link.keys.join(' ').titleize
+    text = link.keys.join(' ')
+    if text.include?('-')
+      link_split = text.split('-').map do |word|
+        if word == 'api'
+          word.upcase
+        elsif word == 'apis'
+          word = 'APIs'
+        else
+          word.titleize
+        end
+      end
+      link = link_split.join(' ')
+    elsif text == 'sms'
+      link = text.upcase
+    else
+      link = text.titleize
+    end
+    link
   end
 
   def self.support_link(link)
