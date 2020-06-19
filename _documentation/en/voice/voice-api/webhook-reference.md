@@ -25,8 +25,8 @@ By default, the answer webhook will be a `GET` request but this can be overridde
 
 Field | Example | Description 
  -- | -- | --
-`to` | `442079460000` | The number the call came from (this could be your Nexmo number if the call is started programmatically)
-`from` | `447700900000` | The call the number is to (this could be a Nexmo number or another phone number)
+`to` | `442079460000` | The number that answered the call. (This is the virtual number linked to in your [application](/application/overview).)
+`from` | `447700900000` | The number that called `to`. (This could be a landline or mobile number, or another virtual number if the call was made programmatically.)
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | A unique identifier for this call
 `conversation_uuid` | `CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | A unique identifier for this conversation
 
