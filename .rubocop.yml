@@ -146,3 +146,6 @@ Style/RedundantRegexpCharacterClass:
 
 Style/RedundantRegexpEscape:
   Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
