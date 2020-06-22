@@ -157,6 +157,126 @@ You can send audio back into the call by writing binary messages to the WebSocke
 
 You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed. Nexmo will only buffer 1024 messages which should be enough for around 20 seconds of audio, if your file is longer than this you should implement a delay of 18-19ms between each message, or consider using the [REST API to play an audio file](/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call/).
 
+
+## Websocket fallback options
+
+You can be notified via an event when a connection to a WebSocket cannot be established or if the application terminates the WebSocket connection for any reason.
+
+To receive this event, you must include the `eventType: synchronous` in your `connect` action:
+
+``` json
+[
+  {
+    "action": "connect",
+    "eventType": "synchronous",
+    "eventUrl": [
+      "https://example.com/events"
+    ],
+    "from": "447700900000",
+    "endpoint": [
+      {
+        "type": "websocket",
+        "uri": "wss://example.com/socket",
+        "content-type": "audio/l16;rate=16000"
+      }
+    ]
+  }
+]
+```
+
+Our API will `POST` the event to your webhook at `eventURL`. You can optionally return a new NCCO in the response with the required fallback actions. For example, if you cannot establish a connection, you might want to play a message to the caller or transfer the call.
+
+If you do not return an NCCO, the next action in the original NCCO will be processed. If there are no further actions in the original NCCO, the call will complete.
+
+
+### Connection cannot be established
+
+In the event of a connection failure, the event `status` will be one of `failed` or `unanswered`. For example:
+
+``` json
+{
+  "from": "442079460000",
+  "to": "wss://example.com/socket",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "status": "unanswered",
+  "timestamp": "2020-03-31T12:00:00.000Z"
+}
+```
+
+### Websocket disconnected
+
+If the WebSocket connection is terminated by the application, your webhook will receive an event with `status` of `disconnected`:
+
+``` json
+{
+  "from": "442079460000",
+  "to": "wss://example.com/socket",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "status": "disconnected",
+  "timestamp": "2020-03-31T12:00:00.000Z"
+}
+```
+
+If the disconnection is intentional, you should explicitly terminate the call leg via an API request instead of just closing the connection:
+
+``` curl
+PUT https://api.nexmo.com/v1/calls/aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+
+{
+  "action": "hangup"
+}
+```
+
+Using this approach, you will not receive an event with `status: disconnected`, allowing you to fallback only when the disconnection is unintentional. You can also use the [Fallback URL webhook](/voice/voice-api/webhook-reference#fallback-url) with this method.
+
+### Enabling better event context
+
+In fallback scenarios, some additional information in the callback payload might be helpful. You can use the `headers` parameter in the NCCO's `connect` action for this.
+
+The following example uses `headers` to include the `from` number of the incoming PSTN call leg:
+
+``` json
+[
+  {
+    "action": "connect",
+    "eventType": "synchronous",
+    "eventUrl": [
+      "https://example.com/events"
+    ],
+    "from": "447700900000",
+    "endpoint": [
+      {
+        "type": "websocket",
+        "uri": "wss://example.com/socket",
+        "content-type": "audio/l16;rate=16000",
+        "headers": {
+          "original_from": "15551234567"
+        }
+      }
+    ]
+  }
+]
+```
+
+This information is then included in the event webhook payload as follows:
+
+``` json
+{
+  "from": "442079460000",
+  "to": "wss://example.com/socket",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "status": "disconnected",
+  "timestamp": "2020-03-31T12:00:00.000Z",
+  "headers": {
+    "original_from": "15551234567"
+  }
+}
+```
+
+
 ## Further reading
 
 Use the following resources to help you make the most of WebSockets in your Voice API applications:
