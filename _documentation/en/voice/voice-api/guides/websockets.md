@@ -184,7 +184,9 @@ To receive this event, you must include the `eventType: synchronous` in your `co
 ]
 ```
 
-Our API will `POST` the event to your webhook at `eventURL`. You can optionally return a new NCCO in the response with the required fallback actions. For example, if you cannot establish a connection, you might want to play a message to the caller or transfer the call.
+Our API will send the event object to your webhook at `eventURL`. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action.
+
+You can then return a new NCCO in the response with the required fallback actions. For example, if you cannot establish a connection, you might want to play a message to the caller or transfer the call.
 
 If you do not return an NCCO, the next action in the original NCCO will be processed. If there are no further actions in the original NCCO, the call will complete.
 
@@ -204,9 +206,11 @@ In the event of a connection failure, the event `status` will be one of `failed`
 }
 ```
 
+You can return a new NCCO in your webhook response to handle the failed connection attempt.
+
 ### Websocket disconnected
 
-If the WebSocket connection is terminated by the application, your webhook will receive an event with `status` of `disconnected`:
+If the connection is dropped by your application, you will receive an event on your `eventUrl` webhook with a `status` of `disconnected`:
 
 ``` json
 {
@@ -219,7 +223,11 @@ If the WebSocket connection is terminated by the application, your webhook will 
 }
 ```
 
-If the disconnection is intentional, you should explicitly terminate the call leg via an API request instead of just closing the connection:
+When you receive a `disconnected` event, you can commence your fallback strategy by providing a new NCCO in the response.
+
+However, the `disconnected` event gets raised both when the disconnection was unintentional (due to some problem) or you intentionally disconnected the websocket (as part of your business logic).
+
+Ideally, you want to fallback _only when the disconnect is unintentional_, so a better approach than just closing the connection is to explicitly terminate the call leg via an API request:
 
 ``` curl
 PUT https://api.nexmo.com/v1/calls/aaaaaaaa-bbbb-cccc-dddd-0123456789ab
@@ -229,7 +237,7 @@ PUT https://api.nexmo.com/v1/calls/aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 }
 ```
 
-Using this approach, you will not receive an event with `status: disconnected`, allowing you to fallback only when the disconnection is unintentional. You can also use the [Fallback URL webhook](/voice/voice-api/webhook-reference#fallback-url) with this method.
+This method does not raise a `disconnected` event. Therefore, if you do receive a `disconnected` event you can reliably assume that it is an unintentional disconnection and fallback appropriately. You can also use the [Fallback URL webhook](/voice/voice-api/webhook-reference#fallback-url) with this approach.
 
 ### Enabling better event context
 
