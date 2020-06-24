@@ -239,7 +239,7 @@ PUT https://api.nexmo.com/v1/calls/aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 
 This method does not raise a `disconnected` event. Therefore, if you do receive a `disconnected` event you can reliably assume that it is an unintentional disconnection and fallback appropriately. You can also use the [Fallback URL webhook](/voice/voice-api/webhook-reference#fallback-url) with this approach.
 
-### Enabling better event context
+### Adding context to events
 
 In fallback scenarios, some additional information in the callback payload might be helpful. You can use the `headers` parameter in the NCCO's `connect` action for this.
 
