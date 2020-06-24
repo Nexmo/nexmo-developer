@@ -74,7 +74,7 @@ gem 'icalendar', require: false
 gem 'neatjson'
 
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
-gem 'faker', '2.12.0', require: false
+gem 'faker', '2.13.0', require: false
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
 gem 'factory_bot_rails', '6.0.0', require: false
