@@ -16,11 +16,11 @@ To make things easier, a `Starter` project is provided for you. It is a simple A
 image: public/assets/images/client-sdk/android-app-to-phone/nav-graph.png
 ```
 
-The application consists of 4 screens: 
+The application consists of four screens: 
 
 - **login** - responsible for logging the user
 - **mian** - allows to start a call and listenes for incomming call
-- **incomming call** - answear or reject incomming call
+- **incoming call** - answer or reject incoming call
 - **on call** - displayed during call, allows to end current call
 
 ## Project internal structure

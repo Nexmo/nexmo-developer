@@ -25,4 +25,4 @@ The above code will allow retrieving `NexmoClient` instance later by using `Nexm
 > **NOTE:** You can enable additional `Logcat` logging by utilising `logLevel()` method of the builder eg.
 `NexmoClient.Builder().logLevel(ILogger.eLogLevel.SENSITIVE).build(this)`
 
-We have a working client so let's authenticate the users.
+You now have a working client. Your next step is to authenticate the users.
