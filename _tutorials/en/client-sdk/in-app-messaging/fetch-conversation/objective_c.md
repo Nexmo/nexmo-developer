@@ -5,7 +5,7 @@ description: In this step you join your Users to your Conversation
 
 # Fetch the Conversation
 
-We're now ready to fetch the conversation to use for our chat app.
+You're now ready to fetch the conversation to use for our chat app.
 
 Inside `ConversationViewController.m`, locate the following line
 

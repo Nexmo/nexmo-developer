@@ -19,7 +19,7 @@ image: public/assets/images/client-sdk/android-app-to-phone/nav-graph.png
 The application consists of four screens: 
 
 - **login** - responsible for logging the user
-- **mian** - allows to start a call and listenes for incomming call
+- **main** - allows to start a call and listens for incoming call
 - **incoming call** - answer or reject incoming call
 - **on call** - displayed during call, allows to end current call
 

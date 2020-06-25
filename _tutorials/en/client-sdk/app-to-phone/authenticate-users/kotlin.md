@@ -58,4 +58,4 @@ init {
 
 The above code will monitor connection state and if the user is authenticated (`ConnectionStatus.CONNECTED`) it will navigate the user to the `MainFragment`.
 
-We're now ready to make the call within the app.
+You're now ready to make the call within the app.

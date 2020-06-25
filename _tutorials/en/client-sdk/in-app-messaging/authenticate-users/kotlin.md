@@ -62,4 +62,4 @@ private val stateObserver = Observer<ConnectionStatus> {
 
 The above code will display the current connection state and if the user is authenticated (`ConnectionStatus.CONNECTED`) it will navigate the user to the `ChatFragment` where the user can view and interact with the conversation.
 
-We're now ready to fetch the conversation within the app.
+You're now ready to fetch the conversation within the app.
