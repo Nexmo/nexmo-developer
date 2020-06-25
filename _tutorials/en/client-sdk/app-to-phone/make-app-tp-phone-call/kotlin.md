@@ -26,4 +26,4 @@ startAppToPhoneCallButton.setOnClickListener {
 }
 ```
 
-Launch the app and make your fist call.
+Launch the app and make your first call.
