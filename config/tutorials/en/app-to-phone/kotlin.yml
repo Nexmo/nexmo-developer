@@ -1,0 +1,44 @@
+title: Making an in-app voice call
+description: You make a voice call from an Android app to a phone.
+products:
+  - client-sdk
+
+introduction:
+  title: Introduction to this task
+  description: This task shows you how to use make a phone call from an Android app using the Android Client SDK and Kotlin.
+  content: |
+    # Introduction
+    In this tutorial, you will learn how to create an Android application using Kotlin and the Nexmo Android Client SDK, and then write the code to make a phone call from your Android app to a phone.
+    The source code is available on [GitHub](https://github.com/nexmo-community/client-sdk-android-tutorial-voice).
+
+prerequisites:
+  - create-nexmo-account
+  - install-nodejs
+  - install-nexmo-cli-beta
+  - install-android-studio
+
+tasks:
+  - client-sdk/app-to-phone/create-ncco
+  - client-sdk/app-to-phone/create-application
+  - client-sdk/android-shared/create-users
+  - client-sdk/android-shared/generate-jwts
+  - client-sdk/app-to-phone/starter-project
+  - client-sdk/android-shared/initialize-client
+  - client-sdk/android-shared/configure-jwts
+  - client-sdk/app-to-phone/authenticate-users
+  - client-sdk/app-to-phone/make-app-tp-phone-call
+
+conclusion:
+  title: What's next?
+  description: What else can you do with the Client SDK?
+  content: |
+
+    # What's next?
+
+    For the complete version please see the Android Studio project in the `kotlin-completed` folder of the `git` repository you've cloned ([GitHub](https://github.com/nexmo-community/client-sdk-android-tutorial-voice)).
+
+    You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview).
+
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
+
+    
