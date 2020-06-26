@@ -27,7 +27,7 @@ All are referenced as `IBOutlet`s:
 @IBOutlet weak var conversationTextView: UITextView!
 ```
 
-All the interface changes are affected inside the `updateInterface()` method; eg: when the conversation screen is showb, the loading interface will be shown:
+All the interface changes are affected inside the `updateInterface()` method. That is, when the conversation screen is displayed, the loading interface is displayed:
 
 ```swift
 func updateInterface() {

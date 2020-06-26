@@ -79,4 +79,4 @@ The important part of this code is in the `answer` webhook handler:
 2. Check that a username is provided. If not play a message and hang up.
 3. The dynamically built NCCO then forwards the call to the destination application (user) using a `connect` action.
 
-> **NOTE:** For additional logging, uncomment the `console.log()` calls.
+> **NOTE:** For additional logging, remove the comment markers for the `console.log()` calls.

@@ -5,11 +5,7 @@ description: In this step you will send a message to the conversation
 
 # Send a message
 
-Inside `ConversationViewController.swift`, locate the following line
-
-`///MARK: Send a message`
-
-and fill in the `send(message:)` method implementation:
+Inside `ConversationViewController.swift`, locate the following line `///MARK: Send a message` and fill in the `send(message:)` method implementation:
 
 ```swift
 //MARK: Send a message
@@ -27,4 +23,4 @@ func send(message: String) {
 }
 ```
 
-You'll notice that, altought the message was sent, the conversation doesn't include it. We could be calling `getEvents` after sending but the SDK provides a way to receive new events.
+You'll notice that although the message was sent, the conversation doesn't include it. We could be calling `getEvents` after sending but the SDK provides a way to receive new events.

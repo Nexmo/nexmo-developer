@@ -5,15 +5,15 @@ description: In this step you will clone the starter project
 
 # The Starter Project
 
-To make things easier, we are providing a `Starter` project for you. It is a simple Xcode project that contains the following 2 screens:
+To make things easier, we are providing a `Starter` project for you. It is a simple Xcode project that contains the following two screens:
 
 ```screenshot
 image: public/assets/images/tutorials/client-sdk/ios-in-app-messaging-chat/screens.png
 ```
 
-Clone this [Github project](https://github.com/Nexmo/ClientSDK-Get-Started-Messaging-Swift).
+Clone this [GitHub project](https://github.com/Nexmo/ClientSDK-Get-Started-Messaging-Swift).
 
-Using the Github project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within XCode:
+Using the GitHub project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within Xcode:
 
     
 Open `Constants.swift` file and add `Jane`'s and `Joe`'s user IDs and JWTs, and conversation ID you've created on the previous steps:

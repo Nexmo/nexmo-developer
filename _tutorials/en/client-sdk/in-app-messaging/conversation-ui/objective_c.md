@@ -27,7 +27,7 @@ All are referenced as `IBOutlet`s:
 @property (weak, nonatomic) IBOutlet UITextView *conversationTextView;
 ```
 
-All the interface changes are affected inside the `updateInterface()` method; eg: when the conversation screen is showb, the loading interface will be shown:
+All the interface changes are affected inside the `updateInterface()` method. That is when the conversation screen is displayed, the loading interface is displayed:
 
 ```objective-c
 - (void)updateInterface {

@@ -5,11 +5,7 @@ description: In this step you will send a message to the conversation
 
 # Send a message
 
-Inside `ConversationViewController.m`, locate the following line
-
-`///MARK: Send a message`
-
-and fill in the `sendMessage:` method implementation:
+Inside `ConversationViewController.m`, locate the following line `///MARK: Send a message` and fill in the `sendMessage:` method implementation:
 
 ```objective-c
 //MARK: Send a message
@@ -27,4 +23,4 @@ and fill in the `sendMessage:` method implementation:
 }
 ```
 
-You'll notice that, altought the message was sent, the conversation doesn't include it. We could be calling `getEvents` after sending but the SDK provides a way to receive new events.
+You'll notice that although the message was sent, the conversation doesn't include it. We could be calling `getEvents` after sending but the SDK provides a way to receive new events.

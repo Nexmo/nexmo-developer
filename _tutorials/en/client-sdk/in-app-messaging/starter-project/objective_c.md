@@ -11,9 +11,9 @@ To make things easier, we are providing a `Starter` project for you. It is a sim
 image: public/assets/images/tutorials/client-sdk/ios-in-app-messaging-chat/screens.png
 ```
 
-Clone this [Github project](https://github.com/Nexmo/ClientSDK-Get-Started-Messaging-Objective-C).
+Clone this [GitHub project](https://github.com/Nexmo/ClientSDK-Get-Started-Messaging-Objective-C).
 
-Using the Github project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within XCode:
+Using the GitHub project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within Xcode:
 
 
 Open `User.h` file and replace the user id and token:

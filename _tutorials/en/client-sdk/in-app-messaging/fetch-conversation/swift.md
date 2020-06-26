@@ -7,11 +7,7 @@ description: In this step you join your Users to your Conversation
 
 We're now ready to fetch the conversation to use for our chat app.
 
-Inside `ConversationViewController.swift`, locate the following line
-
-`//MARK: Fetch Conversation`
-
-and fill in the `getConversation` method implementation:
+Inside `ConversationViewController.swift`, locate the following line `//MARK: Fetch Conversation` and fill in the `getConversation` method implementation:
 
 ```swift
 //MARK: Fetch Conversation
@@ -28,8 +24,8 @@ func getConversation() {
 }
 ```
 
-Notice the use of the `NXMClient.shared` singleton - this references the exact same object we had as a `client` property in `UserSelectionViewController`.
+Notice the use of the `NXMClient.shared` singleton - this references the same object that was a `client` property in `UserSelectionViewController`.
 
 > **Note:** This is where we get to use the `conversationId` static property we've defined in the "The Starter Project" step.
 
-If a conversation has been retrieved, we're ready to process to the next step: getting the events for our conversation.
+If a conversation has been retrieved, you're ready to process to the next step: getting the events for your conversation.

@@ -11,7 +11,7 @@ The NCCO must be public and accessible by the internet. To accomplish that, we w
 
 1) Go to [https://gist.github.com/](https://gist.github.com/).
 
-2) Enter ``ncco.json`` into "Filename including extension".
+2) Enter `ncco.json` into "Filename including extension".
    
 3) Copy and paste the following JSON object into the gist:
 

@@ -3,7 +3,7 @@ title: NXMClient
 description: In this step you will authenticate to the Vonage servers.
 ---
 
-# NXMClient
+# `NXMClient`
 
 Before you can place a call, the Client SDK needs to authenticate to the Vonage servers. 
 

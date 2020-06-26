@@ -7,7 +7,7 @@ description: In this step you will add the necessary permissions to the project 
 
 As you'll be using the microphone when making a call, you need to request the permission to use it.
 
-## Info.plist
+## `Info.plist`
 
 Every Xcode project contains an `Info.plist` file containing all the metadata required in each app or bundle  - you will find the file inside the `AppToPhone` group.
 
@@ -41,7 +41,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
-
 
 ## Build and Run
 

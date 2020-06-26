@@ -5,9 +5,9 @@ description: In this step you join your Users to your Conversation
 
 # Fetch the Conversation
 
-Chat screen (`ChatFragment` and `ChatViewModel` classes) is responsible for fetching the conversation and all the conversation evets.
+Chat screen (`ChatFragment` and `ChatViewModel` classes) is responsible for fetching the conversation and all the conversation events.
 
-View (`ChattFragment`) creation results in calling `viewModel.getConversation()` method tha loads the conversation.
+View (`ChattFragment`) creation results in calling `viewModel.getConversation()` method that loads the conversation.
 
 Inside `ChatViewModel` class, locate the following line and fill in the `getConversation()` method implementation:
 
@@ -35,4 +35,4 @@ Notice the use of the `client` - this references the exact same object as the  `
 
 > **Note:** Conversation id is retrieved from `Config.CONVERSATION_ID` provided in the previous step.
 
-If a conversation has been retrieved, we're ready to process to the next step: getting the events for our conversation.
+If a conversation has been retrieved, you're ready to process to the next step: getting the events for your conversation.
