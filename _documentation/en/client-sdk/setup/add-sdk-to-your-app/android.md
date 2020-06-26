@@ -19,11 +19,19 @@ Open your Android project codebase in your IDE.
 
 ### Add dependencies
 
-To add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
+You need to add custom maven url repository to your gradle configuration. Add the following url in your top level `build.gradle` file:
+
+ ```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/maven'
+``` 
+
+Now to add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
 
  ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/dependencies'
 ``` 
+
+
 
 ### Add permissions
 
