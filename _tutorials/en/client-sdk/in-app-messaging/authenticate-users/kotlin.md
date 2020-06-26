@@ -8,7 +8,7 @@ description: In this step you authenticate your users via the JWTs you created e
 Your users must be authenticated to be able to participate in the `Conversation`. Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the users.
 
 ```screenshot
-image: public/assets/images/tutorials/client-sdk/android-in-app-messaging-chat/login_screen.png
+image: public/assets/images/client-sdk/android-in-app-messaging-chat/login-screen.png
 ```
 
 > **NOTE:** You perform this authentication using the `JWTs` generated and provided in previous steps.
@@ -29,7 +29,7 @@ fun onLoginUser(user: User) {
 }
 ```
 
-> **NOTE:** Inside `LoginFragment` class, explore the `loginUser` method that was written for you. This method is called when one of the two `Login as ...` buttons are clicked. This method calls the above `onLoginUser` method. 
+> **NOTE:** Inside `LoginFragment` class, explore the `loginUser` method that was written for you. This method is called when one of the two `Login ...` buttons are clicked. This method calls the above `onLoginUser` method. 
 
 > **NOTE:** The `User` type is the `data class` that we've defined in the `Config.kt` file.
 
@@ -62,4 +62,4 @@ private val stateObserver = Observer<ConnectionStatus> {
 
 The above code will display the current connection state and if the user is authenticated (`ConnectionStatus.CONNECTED`) it will navigate the user to the `ChatFragment` where the user can view and interact with the conversation.
 
-We're now ready to fetch the conversation within the app.
+You're now ready to fetch the conversation within the app.

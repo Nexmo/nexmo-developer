@@ -22,7 +22,7 @@ image: public/assets/images/client-sdk/android-in-app-messaging-chat/project-fil
 
 Now it's time to fill previously generated `CONVERSATION_ID` and `JWT` tokens.
 
-Open `Config.kt` file and add fill:
+Open `Config.kt` file and fill:
 
 1. `USER1`'s user Id and JWTs
 2. `USER2`'s user Id and JWTs
