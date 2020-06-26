@@ -19,7 +19,7 @@ Open your Android project codebase in your IDE.
 
 ### Add dependencies
 
-You need to add custom maven url repository to your gradle configuration. Add the following url in your top level `build.gradle` file:
+You need to add custom maven URL repository to your Gradle configuration. Add the following URL in your top level `build.gradle` file:
 
  ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/maven'
