@@ -130,6 +130,6 @@ Once your number or recipient ID is added to the whitelist, you will use a Messa
 
 At the moment the following WhatsApp templates can be used with the Messages API Sandbox:
 
-Namespace | Name | Languages
-----|----|----
-`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | English, Korean, Japanese, Italian
+Namespace | Name | Template Structure |Languages
+----|----|----|----
+`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | Header: `none`<br>Body: `{{1}} code: {{2}}. Valid for {{3}} minutes.`<br>Footer: `none` |English, Korean, Japanese, Italian
