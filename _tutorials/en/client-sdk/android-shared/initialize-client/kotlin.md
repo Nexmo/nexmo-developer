@@ -22,7 +22,6 @@ class BaseApplication : Application() {
 
 The above code will allow retrieving `NexmoClient` instance later by using `NexmoClient.get()`.
 
-> **NOTE:** You can enable additional `Logcat` logging by utilising `logLevel()` method of the builder eg.
-`NexmoClient.Builder().logLevel(ILogger.eLogLevel.SENSITIVE).build(this)`
+> **NOTE:** You can enable additional `Logcat` logging by using `logLevel()` method of the builder, for example, `NexmoClient.Builder().logLevel(ILogger.eLogLevel.SENSITIVE).build(this)`
 
 You now have a working client. Your next step is to authenticate the users.

@@ -7,7 +7,7 @@ description: In this step you will clone the starter project
 
 To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
 
-1. Clone this [Github project](https://github.com/nexmo-community/client-sdk-android-tutorial-voice).
+1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-voice).
 2. Open the project in the `Android Studio` - navigate to menu `File -> Open` and select the `kotlin-start` folder from cloned repository.
 
 ## Project navigation overview

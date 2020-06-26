@@ -16,9 +16,9 @@ fun startAppToPhoneCall() {
 }
 ```
 
-> **NOTE:** we set the `IGNORED_NUMBER` argument, becaue our number is speciified in the NCCO config (answer URL that points to the gist file)
+> **NOTE:** we set the `IGNORED_NUMBER` argument, because our number is specified in the NCCO config (answer URL that points to the gist file).
 
-Now you need to make sure that above method is called after pressing UI button. Open `MainFragment` class and update `startAppToPhoneCallButton.setOnClickListener` inside `onViewCreated` method.
+Now you need to make sure that above method is called after pressing UI button. Open `MainFragment` class and update `startAppToPhoneCallButton.setOnClickListener` inside `onViewCreated` method:
 
 ```kotlin
 startAppToPhoneCallButton.setOnClickListener {
