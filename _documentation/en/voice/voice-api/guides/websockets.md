@@ -55,9 +55,7 @@ To instruct Nexmo to connect to a WebSocket your application server must return 
                     "address": {
                         "line_1": "Apartment 14",
                         "line_2": "123 Example Street",
-                        "city": "New York City",
-                        "system_roles": [183493, 1038492, 22],
-                        "enable_auditing": false
+                        "city": "New York City"
                     }
                 }
            }
@@ -76,21 +74,18 @@ Field | Example | Description
 
 You can find all the data fields for an NCCO at the [NCCO Reference Guide](/voice/voice-api/ncco-reference).
 
-
 ## Handling incoming WebSocket messages
 
 ### First message
 
-The initial message sent on an established WebSocket connection will be text-based and contain a JSON payload, it will have the `event` field set to `websocket:connected` and detail the audio format in `content-type`, along with any other metadata that you have put in the `headers` property of the WebSocket endpoint in your NCCO `connect` action, for example:
+The initial message sent on an established WebSocket connection will be text-based and contain a JSON payload, it will have the `event` field set to `websocket:connected` and detail the audio format in `content-type`, along with any other metadata that you have put in the `headers` property of the WebSocket endpoint in your NCCO `connect` action. The `headers` property is not present on the JSON payload so the properties are at the top-level of the JSON. For example:
 
 ``` json
 {
-    "headers": {
-      "prop1": "value1",
-      "prop2": "value2"
-    },
     "event":"websocket:connected",
     "content-type":"audio/l16;rate=16000",
+    "prop1": "value1",
+    "prop2": "value2"
 }
 ```
 
@@ -121,10 +116,8 @@ This results in the following JSON in the first message on the WebSocket:
 {
     "event":"websocket:connected",
     "content-type":"audio/l16;rate=16000",
-    "headers": {
-      "language": "en-GB",
-      "callerID": "447700900123"
-    }
+    "language": "en-GB",
+    "callerID": "447700900123"
 }
 ```
 After the initial text message subsequent messages on the WebSocket can be text or binary.
@@ -169,7 +162,11 @@ You can send the messages at a faster than real-time rate and they will be buffe
 
 ## Websocket Event Callbacks
 
-You can be notified via an event when a connection to a WebSocket cannot be established or if the application terminates the WebSocket connection for any reason.
+Event data is sent to the `eventURL` as with all voice applications. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action.
+
+In addition to what is outlined in the [event webhook guide]('/voice/voice-api/webhook-reference#event-webhook), each Websockets event payload contains a `headers` field. The value of the `headers` field will be an empty object, unless custom `headers` data was provided in the initial `connect` action.
+
+You can also be notified via an event when a connection to a WebSocket cannot be established or if the application terminates the WebSocket connection for any reason.
 
 To receive this event, you must include the `eventType: synchronous` in your `connect` action:
 
@@ -192,8 +189,6 @@ To receive this event, you must include the `eventType: synchronous` in your `co
   }
 ]
 ```
-
-Our API will send the event object to your webhook at `eventURL`. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action.
 
 You can then return a new NCCO in the response with the required fallback actions. For example, if you cannot establish a connection, you might want to play a message to the caller or transfer the call.
 
