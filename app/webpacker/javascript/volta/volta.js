@@ -1308,6 +1308,9 @@ Volta.tab = function () {
 
 					link.index = index;
 					link.addEventListener('keyup', _this._keyUpEventListener.bind(_this));
+					link.addEventListener('toggle', function () {
+						_this.toggle(link);
+					});
 					link.addEventListener('click', function () {
 						_this.toggle(link);
 					});
