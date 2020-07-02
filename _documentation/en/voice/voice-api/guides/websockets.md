@@ -162,9 +162,7 @@ You can send the messages at a faster than real-time rate and they will be buffe
 
 ## Websocket Event Callbacks
 
-Event data is sent to the `eventURL` as with all voice applications. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action.
-
-In addition to what is outlined in the [event webhook guide]('/voice/voice-api/webhook-reference#event-webhook), each Websockets event payload contains a `headers` field. The value of the `headers` field will be an empty object, unless custom `headers` data was provided in the initial `connect` action.
+Event data is sent to the `eventURL` as with all voice applications. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action. Any custom metadata set in the WebSocket will be displayed in the `headers` field in the event callback payload.
 
 You can also be notified via an event when a connection to a WebSocket cannot be established or if the application terminates the WebSocket connection for any reason.
 
