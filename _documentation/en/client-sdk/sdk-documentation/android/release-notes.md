@@ -10,7 +10,8 @@ navigation_weight: 0
 
 ### New
 
-- We have split our artifacts from this version, so custom maven repository has to be added to the project
+- We have split our artifacts from this version, so custom maven repository has to be added to the project:
+
 ```groovy
     //Groovy - build.gradle
     allprojects {
@@ -22,6 +23,7 @@ navigation_weight: 0
         }
     }
 ```
+
 ```kotlin
     // Kotlin Gradle script  - build.gradle.kts
     allprojects {
