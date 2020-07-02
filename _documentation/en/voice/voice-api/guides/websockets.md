@@ -160,7 +160,7 @@ You can send audio back into the call by writing binary messages to the WebSocke
 You can send the messages at a faster than real-time rate and they will be buffered by our API platform for later playback. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed. Nexmo will only buffer 1024 messages which should be enough for around 20 seconds of audio, if your file is longer than this you should implement a delay of 18-19ms between each message, or consider using the [REST API to play an audio file](/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call/).
 
 
-## Websocket Event Callbacks
+## WebSocket Event Callbacks
 
 Event data is sent to the `eventURL` as with all voice applications. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action. Any custom metadata set in the WebSocket will be displayed in the `headers` field in the event callback payload.
 
