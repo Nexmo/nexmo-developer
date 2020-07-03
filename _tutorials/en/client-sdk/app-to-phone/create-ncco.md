@@ -7,7 +7,7 @@ description: In this step, you modify your NCCO using GitHub Gist.
 
 A Nexmo Call Control Object (NCCO) is a JSON array that you use to control the flow of a Voice API call. More information on NCCO can be found [here](/voice/voice-api/ncco-reference).
 
-The NCCO must be public and accessible by the internet. To accomplish that, we will be using [GitHub Gist](https://gist.github.com/) that provides easy way to host the configuration:
+The NCCO must be public and accessible by the internet. To accomplish that, you will be using [GitHub Gist](https://gist.github.com/) that provides a convenient way to host the configuration:
 
 1) Go to [https://gist.github.com/](https://gist.github.com/).
 
