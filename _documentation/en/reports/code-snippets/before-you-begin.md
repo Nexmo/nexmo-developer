@@ -38,7 +38,7 @@ Variable | Description
 `DATE_START` | Date of time window from when you want to start gathering records in ISO-8601 format.
 `DATE_END` | Date of time window from when you want to stop gathering records in ISO-8601 format.
 `STATUS` | Status of message or call.
-`REPORT_STATUS` | Status of report generation.
+`REPORT_STATUS` | Status of report generation, can be any of `PENDING`, `PROCESSING`, `SUCCESS`, `ABORTED`, `FAILED`, `TRUNCATED`. For [report listing](/reports/code-snippets/list-reports), `status` is passed in as a comma-separated list of report status values.
 
 > In the following examples you can enter the product you want, but please note that some parameters are required for certain products, for example, `CONVERSATIONS` requires `type`.
 
