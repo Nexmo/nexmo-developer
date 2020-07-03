@@ -1,0 +1,7 @@
+---
+dependencies:
+    - nexmo@beta
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/messages/whatsapp/send-template.js
+    from_line: 15
+    to_line: 62
