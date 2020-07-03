@@ -1,0 +1,7 @@
+---
+dependencies:
+    - nexmo@beta
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/messages/messenger/send-image.js
+    from_line: 14
+    to_line: 46

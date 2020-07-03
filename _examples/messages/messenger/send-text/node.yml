@@ -3,5 +3,5 @@ dependencies:
     - nexmo@beta
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/messages/messenger/send-text.js
-    from_line: 12
-    to_line: 39
+    from_line: 13
+    to_line: 44
