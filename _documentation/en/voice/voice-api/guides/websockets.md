@@ -162,7 +162,25 @@ You can send the messages at a faster than real-time rate and they will be buffe
 
 ## WebSocket Event Callbacks
 
-Event data is sent to the `eventURL` as with all voice applications. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action. Any custom metadata set in the WebSocket will be displayed in the `headers` field in the event callback payload.
+Event data is sent to the `eventURL` as with all voice applications. This is a `POST` request by default, but you can specify the request type in the `eventMethod` parameter of the `connect` action.
+
+Event callbacks are documented in the [Webhook Reference Guide](/voice/voice-api/webhook-reference). In the guide you can find all the types of webhooks and the parameters each webhook sends as part of its payload.
+
+Within WebSockets particularly, you can also set custom metadata in your event callback.
+
+### Custom Metadata
+
+WebSockets have the ability to include custom metadata set by the user. Any custom metadata set in the WebSocket will be displayed in the `headers` field in the event callback payload. The `headers` field is also present in every other Voice API callback event as an empty object. The only time it will contain data is when it is set by the user for a WebSocket connection.
+
+A common use case for custom metadata is providing useful information for fallback options. For example, you way want to include the original `from` number in the fallback event. You can set it with the following inside your `connect` NCCO action:
+
+```json
+ "headers": {
+    "original_from": "15551234567"
+}
+```
+
+More examples of using custom metadata inside the `headers` field is found in the following section on fallback options.
 
 ### Fallback Options
 
