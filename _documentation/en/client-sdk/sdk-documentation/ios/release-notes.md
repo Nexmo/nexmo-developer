@@ -6,6 +6,17 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.2.1 - 2020-07-06
+
+### Fixed
+
+- Server-call error reported by `NXMCallDelegate` on call completion.
+
+### Internal
+
+- Improved call events handling.
+- Improved conversation expiration handling.
+
 ## 2.2.0 - 2020-04-22
 
 ### Added
