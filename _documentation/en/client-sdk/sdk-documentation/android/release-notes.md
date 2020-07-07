@@ -34,7 +34,7 @@ navigation_weight: 0
     }
 ```
 
-### Internal
+### Enhancements
 
 - Improved user-agent SDK version reporting.
 
@@ -72,7 +72,7 @@ navigation_weight: 0
 
 ## Version 2.5.1 - April 20, 2020
 
-### Internal
+### Enhancements
 
 - Improved single ICE candidate gathering implementation.
 
