@@ -12,7 +12,7 @@ navigation_weight: 0
 
 - Server-call error reported by `NXMCallDelegate` on call completion.
 
-### Internal
+### Enhancements
 
 - Improved call events handling.
 - Improved conversation expiration handling.
@@ -33,7 +33,7 @@ navigation_weight: 0
 
 ## 2.1.10 - 2020-04-16
 
-### Internal
+### Enhancements
 
 - Improved single ICE candidate gathering implementation.
 
@@ -58,7 +58,7 @@ NXMClientConfig *config = [[NXMClientConfig alloc] initWithApiUrl:restUrl
 
 ## 2.1.5 - 2020-03-18
 
-### Internal
+### Enhancements
 
 - Updated Device Registration format for production environments.
 
@@ -72,7 +72,7 @@ NXMClientConfig *config = [[NXMClientConfig alloc] initWithApiUrl:restUrl
 
 - `NXMClient`'s `getConversationsPageWithSize:order:completionHandler:` method to get conversations with paging.
 
-### Internal
+### Enhancements
 
 - The Client SDK is now built with Xcode 11.
 
@@ -381,7 +381,7 @@ NSArray<NXMMember *> * allMembers = myConversation.allMembers // return the all 
 
 ```objective_c
 // was - (void)statusChanged:(nonnull NXMCallMember *)callMember;
-- (void)didUpdate:(nonnull NXMCallMember *)callMember status:(NXMCallMemberStatus)status; 
+- (void)didUpdate:(nonnull NXMCallMember *)callMember status:(NXMCallMemberStatus)status;
 - (void)didUpdate:(nonnull NXMCallMember *)callMember muted:(BOOL)muted;
 
 // was - (void)DTMFReceived:(nonnull NSString *)dtmf callMember:(nonnull NXMCallMember *)callMember;
