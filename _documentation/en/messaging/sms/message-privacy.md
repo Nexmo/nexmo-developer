@@ -35,7 +35,9 @@ The image below shows an example of the flow of Advanced SMS Auto-redact with Vo
 
 ## How to set up Auto-redact for your Vonage account
 
+You can find pricing relevant to the Advanced Auto-redact service on the [Vonage pricing](https://www.vonage.com/communications-apis/pricing/) page.
 
+If you wish to activate the Advanced Auto-redact service for your account, please complete the form on [this page](https://info.nexmo.com/RedactAPI.html).
 
 
 
