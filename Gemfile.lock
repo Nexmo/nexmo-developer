@@ -14,7 +14,8 @@ GIT
 
 GIT
   remote: https://github.com/nexmo/station.git
-  revision: 81aa6975fe3d8f2ebef41207a860e9bfef712dd8
+  revision: 96f738058361cd44cb991dea4c820f4aa6912ffc
+  branch: master
   specs:
     nexmo-developer (0.0.71)
       activeadmin (~> 2.7)
