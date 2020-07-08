@@ -430,7 +430,7 @@ GEM
     rspec-snapshot (0.1.2)
       rspec (> 3.0.0)
     rspec-support (3.9.3)
-    rubocop (0.87.0)
+    rubocop (0.87.1)
       parallel (~> 1.10)
       parser (>= 2.7.1.1)
       rainbow (>= 2.2.2, < 4.0)
@@ -597,7 +597,7 @@ DEPENDENCIES
   rspec-collection_matchers
   rspec-rails (~> 4.0)
   rspec-snapshot (~> 0.1.2)
-  rubocop (~> 0.87.0)
+  rubocop (~> 0.87.1)
   rubocop-rails (~> 2.6)
   ruby-progressbar
   sassc-rails (~> 2.1)
