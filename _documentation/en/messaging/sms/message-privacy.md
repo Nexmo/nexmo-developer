@@ -39,9 +39,3 @@ The image below shows an example of the flow of Advanced SMS Auto-redact with Vo
 
 
 
-
-## Instruction
-
-
-
-
