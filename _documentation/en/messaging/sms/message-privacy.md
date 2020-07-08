@@ -27,11 +27,20 @@ By using the Advanced Auto-redact feature, when an SMS gets sent through the SMS
 3. Phone number encryption only.
 4. Message content redaction together with redaction or encryption of the phone number.
 
+However, with immediate Advanced Auto-redact Vonage does not store the message body in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to.
+
 The image below shows an example of the flow of Advanced SMS Auto-redact with Vonage.
 
 ![Advanced SMS Redaction](/assets/images/messaging/sms/advanced_sms_redaction.png)
 
 ## How to set up Auto-redact for your Vonage account
+
+
+
+
+
+
+## Instruction
 
 
 
