@@ -70,11 +70,11 @@ jobs:
         OAS_PATH: "_open_api/api_specs/definitions"
         FORCE_COLOR: true
       run: |
-        ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
+        ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**/*.md'
     - name: Run rake tasks
       env:
         POSTGRES_USERNAME: postgres
-        OAS_PATH: "_open_api/api_specs/definitions"
+        OAS_PATH: "./_open_api/api_specs/definitions"
         FORCE_COLOR: true
       run: |
         RAILS_ENV=test bundle exec nexmo-developer --docs=. --rake-ci
