@@ -74,7 +74,7 @@ jobs:
     - name: Run rake tasks
       env:
         POSTGRES_USERNAME: postgres
-        OAS_PATH: "./_open_api/api_specs/definitions"
+        OAS_PATH: "_open_api/api_specs/definitions"
         FORCE_COLOR: true
       run: |
         RAILS_ENV=test bundle exec nexmo-developer --docs=. --rake-ci
