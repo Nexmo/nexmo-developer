@@ -149,3 +149,12 @@ Style/RedundantRegexpEscape:
 
 Style/RedundantFetchBlock:
   Enabled: true
+
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: true
