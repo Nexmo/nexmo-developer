@@ -12,7 +12,7 @@ The content on the page below will describe what Auto-redact is, how it can appl
 
 ## How does Auto-redact work?
 
-Redaction is the editing of a document or a record to delete or mask Personal Identifiable Information (PII) or confidential information. For example, your telephone number, bank details, or your address. PII removal is often required for businesses or organisations that are highly regulated to comply with those regulations.
+Redaction is the editing of a document or a record to delete or mask Personal Identifiable Information (PII) or confidential information. For example, your telephone number, bank details, or your address. PII removal is often required for businesses or organizations that are highly regulated to comply with those regulations.
 
 By sending SMS messages through Vonage, two pieces of data could contain PII. These two pieces are the sender or receiver's phone number, and the message body content.
 
