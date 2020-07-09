@@ -1,5 +1,6 @@
 name: Vonage API Developer
 subtitle: Nexmo is now Vonage
+base_url: 'https://developer.nexmo.com'
 docs_repo: 'nexmo/nexmo-developer'
 oas_url: https://www.github.com/nexmo/api-specification/blob/master/definitions
 assets:
