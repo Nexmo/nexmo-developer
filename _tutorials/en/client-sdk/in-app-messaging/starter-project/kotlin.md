@@ -8,7 +8,7 @@ description: In this step you will clone the starter project
 To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
 
 ```screenshot
-image: public/meta/tutorials/client-sdk/android-in-app-messaging-chat/login_screen.png
+image: public/meta/client-sdk/android-in-app-messaging-chat/login-screen.png
 ```
 
 1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging).
