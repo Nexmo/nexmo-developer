@@ -80,6 +80,7 @@ ja:
                 try-it: "無料トライアル"
                 get_an_api_key: "API キーを取得"
                 start_building: "無料で構築開始"
+                use-cases: "ユースケース"
     services:
       code_snippet_renderer:
         add_instructions_to_file: 'Add the following to `%{file}`:'
