@@ -14,8 +14,12 @@ header:
     sign-up:
       path: https://dashboard.nexmo.com/sign-up
       text:
-        - 'Log In'
-        - 'Try Me'
+        - '{ Try it free }'
+        - '< Try it free />'
+        - '{ Get an API key }'
+        - '< Get an API key />'
+        - '{ Start building for free }'
+        - '< Start building for free />'
   hiring:
     display: true
 footer:
