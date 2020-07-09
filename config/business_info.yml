@@ -12,7 +12,7 @@ assets:
 header:
   links:
     sign-up:
-      path: https://developer.vonage.com
+      path: https://dashboard.nexmo.com/sign-up
       text:
         - 'Log In'
         - 'Try Me'
