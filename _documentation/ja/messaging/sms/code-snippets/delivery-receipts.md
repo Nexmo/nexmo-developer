@@ -33,7 +33,7 @@ Web フックはコードスニペットの `/webhooks/delivery-receipt` にあ�
 
 ```screenshot
 script: app/screenshots/webhook-url-for-delivery-receipt.js
-image: public/assets/screenshots/smsDLRsettings.png
+image: public/meta/screenshots/smsDLRsettings.png
 ```
 
 試行手順

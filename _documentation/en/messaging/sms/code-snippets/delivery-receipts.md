@@ -29,7 +29,7 @@ In the code snippets, the webhook is located at `/webhooks/delivery-receipt`. If
 
 ```screenshot
 script: app/screenshots/webhook-url-for-delivery-receipt.js
-image: public/assets/screenshots/smsDLRsettings.png
+image: public/meta/screenshots/smsDLRsettings.png
 ```
 
 ## Try it out

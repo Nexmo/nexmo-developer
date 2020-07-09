@@ -27,7 +27,7 @@ Web フックはコードスニペットの `/webhooks/inbound-sms` にありま
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/smsInboundWebhook.png
+image: public/meta/screenshots/smsInboundWebhook.png
 ```
 
 試行手順
