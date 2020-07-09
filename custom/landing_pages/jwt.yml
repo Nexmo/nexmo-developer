@@ -1,0 +1,6 @@
+page:
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<div class='container'><div id='jwt-generator-app'></div></div>"
