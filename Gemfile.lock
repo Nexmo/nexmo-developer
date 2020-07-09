@@ -12,6 +12,25 @@ GIT
       redcarpet (~> 3.4)
       rouge (~> 2.0.7)
 
+GIT
+  remote: https://github.com/nexmo/nexmo-oas-renderer.git
+  revision: f81ee989314ce1a3001a0290cf7aeb2d82eaf72d
+  branch: ndp-gemification
+  specs:
+    nexmo-oas-renderer (2.0.1)
+      activemodel (~> 6.0)
+      activesupport (~> 6.0)
+      banzai (~> 0.1.2)
+      dotenv (~> 2.7)
+      neatjson (~> 0.8)
+      nexmo_markdown_renderer (~> 0.3)
+      oas_parser (~> 0.25.1)
+      octicons_helper (~> 8.2)
+      redcarpet (= 3.4.0)
+      sass (~> 3.1)
+      shotgun (~> 0.9)
+      sinatra (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rubygems.pkg.github.com/nexmo/
@@ -282,19 +301,6 @@ GEM
       uglifier (= 4.2.0)
       webpacker (~> 5.1)
       woothee (~> 1.11)
-    nexmo-oas-renderer (2.0.1)
-      activemodel (~> 6.0)
-      activesupport (~> 6.0)
-      banzai (~> 0.1.2)
-      dotenv (~> 2.7)
-      neatjson (~> 0.8)
-      nexmo_markdown_renderer (~> 0.3)
-      oas_parser (~> 0.25.1)
-      octicons_helper (~> 8.2)
-      redcarpet (= 3.4.0)
-      sass (~> 3.1)
-      shotgun (~> 0.9)
-      sinatra (~> 2.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -462,6 +468,7 @@ PLATFORMS
 
 DEPENDENCIES
   nexmo-developer (= 0.0.73)!
+  nexmo-oas-renderer!
   nexmo_markdown_renderer!
   oas_parser (= 0.25.1)
 

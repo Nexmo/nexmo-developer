@@ -5,4 +5,5 @@ source "https://rubygems.pkg.github.com/nexmo" do
 end
 
 gem 'oas_parser', '0.25.1'
+gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer', branch: 'ndp-gemification', require: false
 gem 'nexmo_markdown_renderer', github: 'nexmo/nexmo-markdown-renderer', branch: 'consider-rails-root-for-views'
