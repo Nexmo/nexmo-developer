@@ -76,4 +76,4 @@ An error is shown if encountered and the `connectionStatusLabel` is updated with
 
 `Cmd + R` to build and run again:
 
-![Interface connected](/assets/images/client-sdk/ios-voice/interface-connected.jpg)
+![Interface connected](/meta/client-sdk/ios-voice/interface-connected.jpg)

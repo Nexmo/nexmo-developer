@@ -57,4 +57,4 @@ Also, a target has been added for when `callButton` is tapped and will be used t
 
 Run the project again (`Cmd + R`) to launch it in the simulator. 
 
-![Interface](/assets/images/client-sdk/ios-voice/interface.jpg)
+![Interface](/meta/client-sdk/ios-voice/interface.jpg)
