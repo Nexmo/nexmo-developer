@@ -8,7 +8,7 @@ description: In this step you authenticate your users via the JWTs you created e
 Your users must be authenticated to be able to participate in the `Conversation`. Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the users.
 
 ```screenshot
-image: public/assets/images/client-sdk/android-in-app-messaging-chat/login-screen.png
+image: public/meta/client-sdk/android-in-app-messaging-chat/login-screen.png
 ```
 
 > **NOTE:** You perform this authentication using the `JWTs` generated and provided in previous steps.

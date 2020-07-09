@@ -14,7 +14,7 @@ To make things easier, a `Starter` project is provided for you. It is a simple A
 ## Project navigation overview
 
 ```screenshot
-image: public/assets/images/client-sdk/android-app-to-app/nav-graph.png
+image: public/meta/client-sdk/android-app-to-app/nav-graph.png
 ```
 
 The application consists of four screens: 
@@ -29,5 +29,5 @@ The application consists of four screens:
 All files that will be modified during this tutorial are located in the `app/src/main/java/com/vonage/tutorial/voice` directory:
 
 ```screenshot
-image: public/assets/images/client-sdk/android-app-to-app/project-files.png
+image: public/meta/client-sdk/android-app-to-app/project-files.png
 ```

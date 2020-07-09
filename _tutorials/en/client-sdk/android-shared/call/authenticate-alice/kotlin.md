@@ -8,7 +8,7 @@ description: In this step you authenticate your users via the JWTs you created e
 Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the users.
 
 ```screenshot
-image: public/assets/images/client-sdk/android-shared/login-screen-user.png
+image: public/meta/client-sdk/android-shared/login-screen-user.png
 ```
 
 > **NOTE:** You perform this authentication using the `JWT` generated in previous steps.

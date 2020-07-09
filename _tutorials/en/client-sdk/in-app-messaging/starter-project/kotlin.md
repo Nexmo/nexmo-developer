@@ -8,7 +8,7 @@ description: In this step you will clone the starter project
 To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
 
 ```screenshot
-image: public/assets/images/tutorials/client-sdk/android-in-app-messaging-chat/login_screen.png
+image: public/meta/tutorials/client-sdk/android-in-app-messaging-chat/login_screen.png
 ```
 
 1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging).
@@ -17,7 +17,7 @@ image: public/assets/images/tutorials/client-sdk/android-in-app-messaging-chat/l
 All files that will be modified during this tutorial are located in the `app/src/main/java/com/vonage/tutorial/messaging/chat` directory:
 
 ```screenshot
-image: public/assets/images/client-sdk/android-in-app-messaging-chat/project-files.png
+image: public/meta/client-sdk/android-in-app-messaging-chat/project-files.png
 ```
 
 Now it's time to fill previously generated `CONVERSATION_ID` and `JWT` tokens.
