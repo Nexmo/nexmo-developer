@@ -1,5 +1,6 @@
 ---
 title: Message Privacy
+description: This topic describes the Auto-redact feature of the SMS API
 ---
 
 # Message Privacy
