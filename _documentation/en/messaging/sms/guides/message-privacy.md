@@ -20,16 +20,16 @@ With Vonage, inbound messages can be auto-redacted with the Standard Auto-redact
 
 When a customer sends an SMS through the SMS API, logs get stored in two locations. Server logs get created as are transactional records of the activity known as a Call Detail Record (CDR). Server logs are retained for around 15 days, no more than one month. CDRs, however, are stored for 13 months. Both server logs and CDRs are viewable by Vonage support staff, for testing, debugging, diagnosing user issues and reconciling CDRs against customer's transaction records.
 
-By using the Advanced Auto-redact feature, when an SMS gets sent through the SMS API, before the server logs and CDRs are stored, the message content or phone number can be encrypted or redacted or both. The configurations available are listed below:
+By using the Advanced Auto-redact feature, when an SMS gets sent through the SMS API, before the server logs and CDRs are stored, the message content or phone number can be encrypted or redacted or both. The configurations available are listed here:
 
 1. Message content redaction only.
 2. Phone number redaction only.
 3. Phone number encryption only.
 4. Message content redaction together with redaction or encryption of the phone number.
 
-However, with immediate Advanced Auto-redact Vonage does not store the message body in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to.
+However, with immediate Advanced Auto-redact, Vonage does not store the message body in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to.
 
-The image below shows an example of the flow of Advanced SMS Auto-redact with Vonage.
+The following image shows an example of the flow of Advanced SMS Auto-redact with Vonage:
 
 ![Advanced SMS Redaction](/assets/images/messaging/sms/advanced_sms_redaction.png)
 
@@ -37,7 +37,4 @@ The image below shows an example of the flow of Advanced SMS Auto-redact with Vo
 
 You can find pricing relevant to the Advanced Auto-redact service on the [Vonage pricing](https://www.vonage.com/communications-apis/pricing/) page.
 
-If you wish to activate the Advanced Auto-redact service for your account, please complete the form on [this page](https://info.nexmo.com/RedactAPI.html).
-
-
-
+If you want to activate the Advanced Auto-redact service for your account, please complete the form on [this page](https://info.nexmo.com/RedactAPI.html).
