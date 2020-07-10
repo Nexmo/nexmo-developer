@@ -146,3 +146,6 @@ page:
                   - title: 'Audit API'
                     path: 'api/audit'
                     description: 'Get an audit trail of changes to your account for security and compliance purposes.'
+                    badge:
+                      name: Beta
+                      color: green
