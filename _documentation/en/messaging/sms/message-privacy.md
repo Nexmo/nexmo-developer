@@ -14,9 +14,9 @@ Redaction is the editing of a document or a record to delete or mask Personal Id
 
 When you send SMS messages using the Vonage SMS API, two pieces of information containing PII get recorded: sender or receiver's phone number and the message body content.
 
-With Vonage, inbound messages can be auto-redacted with the Standard Auto-redact feature. However, the outbound messages can be Auto-redacted using the Advanced Auto-redact feature found under the Vonage Enterprise Plan.
-
 When a customer sends an SMS through the SMS API, logs get stored in two locations. Server logs get created as are transactional records of the activity known as a Call Detail Record (CDR). Server logs are retained for around 15 days, no more than one month. CDRs, however, are stored for 13 months. Both server logs and CDRs can be viewed by Vonage support staff, for testing, debugging, diagnosing user issues and reconciling CDRs against customer's transaction records.
+
+With Vonage, inbound messages can be auto-redacted with the Standard Auto-redact feature. For more information on the Standard Auto-redact feature, please refer to the [Redaction page](https://developer.nexmo.com/redact/overview).
 
 Advanced Auto-redact feature ensures that the message content is encrypted or redacted or both before the server logs and CDRs are stored. The phone number cannot be redacted in the server logs in order to meet data retention requirements. The configurations available are listed below:
 
@@ -25,7 +25,7 @@ Advanced Auto-redact feature ensures that the message content is encrypted or re
 3. Phone number encryption only.
 4. Message content redaction together with redaction or encryption of the phone number.
 
-However, with immediate Advanced Auto-redact Vonage does not store the message body in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to.
+A key point of Vonage's immediate Advanced Auto-redact is that the message body is not stored in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to. Later those encrypted numbers get redacted as well. Please refer to the (Redaction page)[https://developer.nexmo.com/redact/overview] for more information.
 
 The image below shows an example of the flow of Advanced SMS Auto-redact with Vonage.
 
