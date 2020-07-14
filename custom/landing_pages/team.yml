@@ -3,7 +3,7 @@ page:
     - column:
       - type: section_header
         section_header:
-          title: Nexmo Developer Relations Team
+          title: Vonage API Developer Relations Team
           icon: 
             name: Vlt-icon-group
             color: blue-dark

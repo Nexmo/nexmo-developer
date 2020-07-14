@@ -26,5 +26,5 @@ Node-RED has a thriving ecosystem of other nodes to connect to different service
 
 ## Support
 
-This open source project is supported by the Nexmo Developer Relations team on a best effort basis. Please ask questions and raise issues in the [nexmo-nodered GitHub repository](https://github.com/Nexmo/nexmo-nodered/issues).
+This open source project is supported by the Vonage API Developer Relations team on a best effort basis. Please ask questions and raise issues in the [nexmo-nodered GitHub repository](https://github.com/Nexmo/nexmo-nodered/issues).
 
