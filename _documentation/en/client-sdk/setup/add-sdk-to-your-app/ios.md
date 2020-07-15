@@ -60,9 +60,11 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/import'
 
 ### Frameworks
 
-1. Download the Nexmo Client SDK and add it to your project.
+1. Download the Nexmo Client SDK then drag and drop the `NexmoClient.framework` folder into your project:
+![Project explorer](/images/client-sdk/ios-manual-setup-project.png)
 
-2. Open the `xcworkspace` with Xcode and disable `bitcode` for your target.
+2. Turn on *Embed & Sign* for `NexmoClient.framework` in your target's settings:
+![Embed & sign](/images/client-sdk/ios-manual-setup-signing.png)
 
 3. In your code, import the NexmoClient library:
 
