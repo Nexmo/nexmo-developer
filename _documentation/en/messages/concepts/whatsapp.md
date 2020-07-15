@@ -43,7 +43,7 @@ A business can start a conversation with a user and a user can start a conversat
 
 WhatsApp has a core concept of Messages Templates (MTM). These were previously known as Highly Structured Messages (HSM).
 
-> **IMPORTANT:** WhatsApp requires that a message that is sent to a user for the first time, or that is outside the Customer Care Window, is an MTM message. This means the message you first send must contain a suitable template. An example is provided in the following section.
+> **IMPORTANT:** WhatsApp requires that a message that is sent to a user for the first time, or that is outside the Customer Care Window, be an MTM message. WhatsApp also requires that you obtain opt-in from your customers prior to sending them a message, this may be obtained on your website, IVR, or other standard means see [Facebook's docs](https://developers.facebook.com/docs/whatsapp/guides/opt-in/) for more details.
 
 The MTM allows a business to send just the template identifier along with the appropriate parameters instead of the full message content.
 
