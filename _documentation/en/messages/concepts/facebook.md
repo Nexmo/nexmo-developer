@@ -8,7 +8,7 @@ description: Understanding Facebook messaging.
 
 Only individuals may create a Facebook Profile. However, an individual can use their Profile to create a Facebook Page for a business.
 
-A Facebook user must initiate communication using Facebook Messenger via the business's Facebook Page. A message from the business to the Facebook user will otherwise be refused.
+A Facebook user must initiate communication using Facebook Messenger via the business's Facebook Page. A message from the business to the Facebook user will be refused if a user has not initiated contact with the business's Facebook Page within 24 hours.
 
 Facebook Messenger uses its own form of IDs for the Facebook User and the Facebook Page :
 
