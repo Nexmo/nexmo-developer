@@ -4,21 +4,25 @@ title: Message Privacy
 
 # Message Privacy
 
-Vonage's Auto-redact feature enables customers to protect their SMS privacy. Auto-redact automatically replaces all Personal Identifiable Information (PII) with the string "REDACTED". The Advanced Auto-redact is an important feature for when you don't want full logs of sensitive customer information in their messages.
+Vonage's Auto-redact feature enables customers to protect their SMS privacy by replacing all Personal Identifiable Information (PII) in Vonage logs with the string "REDACTED". Auto-redact is automatic and is suitable for cases when you don't want sensitive customer information, like SMS message content, to end up in Vonage logs.
 
-Businesses in industries that are highly regulated, such as financial services, education, and the police require redacted content to meet compliance and regulation rules. 
+In general, businesses dealing with industries and sectors that are highly regulated, such as financial services, public authorities, educational institutions, hospitals, and the police need to safeguard sensitive data to comply with data protection laws and regulations.
 
 ## How does Auto-redact work?
 
 Redaction is the editing of a document or a record to delete or mask Personal Identifiable Information (PII) or confidential information. For example, your telephone number, bank details, or your address.
 
-When you send SMS messages using the Vonage SMS API, two pieces of information containing PII get recorded: sender or receiver's phone number and the message body content.
+When you send SMS messages using the Vonage SMS API, two pieces of PII get recorded: the SMS message body content and the receiver's phone number. When you use Vonage SMS API to receive SMS, we record the SMS message body content and the sender's phone number.
 
-When a customer sends an SMS through the SMS API, logs get stored in two locations. Server logs get created as are transactional records of the activity known as a Call Detail Record (CDR). Server logs are retained for around 15 days, no more than one month. CDRs, however, are stored for 13 months. Both server logs and CDRs can be viewed by Vonage support staff, for testing, debugging, diagnosing user issues and reconciling CDRs against customer's transaction records.
+This sensitive PII ends up in two places: server logs and transactional records of the activity. Server logs are retained for around 15 days, no more than one month. Transactional records of the activity, however, are stored for 13 months. Transactional records of the activity are known as Call Detail Records (CDRs). Both server logs and CDRs can be viewed by Vonage support staff, for testing, debugging, diagnosing user issues and reconciling CDRs against customer's transaction records.
 
-With Vonage, inbound messages can be auto-redacted with the Standard Auto-redact feature. For more information on the Standard Auto-redact feature, please refer to the [Redaction page](https://developer.nexmo.com/redact/overview).
+The image below shows an example of the flow of Advanced SMS Auto-redact with Vonage.
 
-Advanced Auto-redact feature ensures that the message content is encrypted or redacted or both before the server logs and CDRs are stored. The phone number cannot be redacted in the server logs in order to meet data retention requirements. The configurations available are listed below:
+![Advanced SMS Redaction](/assets/images/messaging/sms/advanced_sms_redaction.png)
+
+N.B. Advanced Auto-redact works only for messages sent out using the Vonage SMS API. For messages received using the the Vonage SMS API, we can offer the Standard Auto-redact feature. For more information on the Standard Auto-redact please refer to the [Redaction page](https://developer.nexmo.com/redact/overview).
+
+Advanced Auto-redact feature ensures that the message content gets redacted before it gets written to the server logs and CDRs. The phone number cannot be immediately redacted due to data retention regulations, thus we provide an option to encrypt it. The available configuration options are listed below:
 
 1. Message content redaction only.
 2. Phone number redaction only.
@@ -26,10 +30,6 @@ Advanced Auto-redact feature ensures that the message content is encrypted or re
 4. Message content redaction together with redaction or encryption of the phone number.
 
 A key point of Vonage's immediate Advanced Auto-redact is that the message body is not stored in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to. Later those encrypted numbers get redacted as well. Please refer to the (Redaction page)[https://developer.nexmo.com/redact/overview] for more information.
-
-The image below shows an example of the flow of Advanced SMS Auto-redact with Vonage.
-
-![Advanced SMS Redaction](/assets/images/messaging/sms/advanced_sms_redaction.png)
 
 ## How to set up Auto-redact for your Vonage account
 
