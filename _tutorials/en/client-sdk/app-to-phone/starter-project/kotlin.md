@@ -16,7 +16,7 @@ To make things easier, a `Starter` project is provided for you. It is a simple A
 image: public/screenshots/tutorials/client-sdk/android-app-to-phone/nav-graph.png
 ```
 
-The application consists of four screens: 
+The application consists of three screens: 
 
 - **login** - responsible for logging the user
 - **main** - allows to start a call and listens for incoming call
