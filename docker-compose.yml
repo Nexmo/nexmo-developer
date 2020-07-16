@@ -1,43 +1,18 @@
-version: '3'
+version: "3"
 services:
   db:
     image: postgres
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=nexmo_developer
+      - POSTGRES_DB=nexmo_developer_production
   web:
-    image: nexmodeveloper_app
-    build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    image: nexmodev/station:latest
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/docs
     ports:
       - "3000:3000"
     depends_on:
-      - clean
-      - update
-      - db
-    environment:
-      - OAS_PATH=_open_api/api_specs/definitions
-      - DOCS_BASE_PATH=.
-      - POSTGRES_HOST=db
-      - POSTGRES_USERNAME=postgres
-      - RAILS_ENV=development
-      - RACK_ENV=development
-  clean:
-    image: nexmodeveloper_app
-    build: .
-    command: bash -c "rm -Rf public/packs && rm -f /app/tmp/pids/server.pid"
-    volumes:
-      - .:/app
-  update:
-    image: nexmodeveloper_app
-    build: .
-    command: bash -c "rake db:setup"
-    volumes:
-      - .:/app
-    depends_on:
       - db
     environment:
       - POSTGRES_HOST=db
-      - POSTGRES_USERNAME=postgres

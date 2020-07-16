@@ -83,6 +83,7 @@ en:
         get_an_api_key: Get an API key
         start_building: Start building for free
         use-cases: Use Cases
+        voyagers: Voyagers
 
   code_snippets:
     copy_to_clipboard: Copy to Clipboard

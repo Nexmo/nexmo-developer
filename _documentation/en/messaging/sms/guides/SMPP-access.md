@@ -83,12 +83,13 @@ You can use [Kannel](http://www.kannel.org) version 1.4.3 or higher to configure
 
 ## Our SMPP instances
 
-Nexmo hosts three instances of SMPP:
+Nexmo hosts five instances of SMPP:
 
-- `SMPP1/2` - clustered
+- `SMPP1/2` - clustered (NA)
+- `SMPP3/4` - clustered (APAC)
 - `SMPP0` - not clustered
 
-We recommend that you bind to both `SMPP1` and `SMPP2`. Only bind to `SMPP0` if you cannot bind to a clustered setup.
+We recommend that you bind to both `SMPP1` and `SMPP2` or both `SMPP3` and `SMPP4`. Only bind to `SMPP0` if you cannot bind to a clustered setup.
 
 The standalone instance `SMPP0` is for aggregators running legacy infrastructure who cannot maintain simultaneous binds to multiple IP addresses. If you are binding to `SMPP0`, you must implement SMPP redundancy to avoid a higher risk of planned and unplanned downtime.
 

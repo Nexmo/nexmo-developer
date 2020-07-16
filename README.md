@@ -102,22 +102,19 @@ If you don't want to install Ruby & PostgreSQL then you can use docker to sandbo
 ```
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
-$ cp .env.example .env
 ```
-
-Edit the `.env` file as appropriate for your platform.  Then, start the web server with this command:
 
 ```
 $ docker-compose up
 ```
 
-At this point, open your browser to http://localhost:3000/ ... and wait (it takes about 30 seconds for the first load).
+Once `docker-compose up` has stopped returning output, open a new terminal and run `docker-compose run web bundle exec rake db:migrate`.
 
-To stop the server cleanly run:
+At this point, open your browser to http://localhost:3000/ and you should see the homepage. The first time you click on `Documentation` it might take 5 seconds or so, but any further page loads will be almost instantaneous.
 
-```
-$ docker-compose down
-```
+To stop the server press `ctrl+c`.
+
+> If you get an error that says "We're sorry, but something went wrong." you might need to run the database migrations with `docker-compose run web bundle exec rake db:migrate`
 
 ## Admin dashboard
 

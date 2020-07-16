@@ -1,0 +1,172 @@
+title: "Vonage Voyagers"
+meta_title: "Developer Spotlight - Teach others, grow as a writer, and help us build the next go-to destination for developers"
+container_classes:
+  - voyagers-page
+page:
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <style>
+              .Vlt-btn--larger {
+                font-size: 1.3em;
+                line-height: 2.6em;
+              }
+              .voyagers-page {
+                .Vlt-list > li {
+                  font-size: 1.6rem;
+                }
+            }
+            @media only screen and (max-width: 767px) {
+              .Voyagers-logo img {
+                width: 100%;
+              }
+              .Vlt-btn--larger {
+                width: 240px;
+              }
+            }
+            </style>
+  - row:
+    - column:
+      - type: html
+        html:
+          content: '<div class="Vlt-center Voyagers-logo"><img width="30%" src="/images/voyagers/logo.png" /></div><br/><br/>'
+  - row:
+    - column:
+        - type: header
+          header:
+            title:
+              text: "We’re assembling a team of developers passionate about building connected applications and inspiring their communities."
+              align: center
+            subtitle:
+              text: "Embark on a journey of exploration and get access to pre-release products, learn from API experts, improve your technical communication skills, and support your peers."
+              align: center
+  - row:
+    - column:
+      - type: html
+        html:
+          content: |
+            <div class="Vlt-center">
+              <a class="Vlt-btn Vlt-btn--primary Vlt-btn--large Vlt-btn--larger" href="https://airtable.com/shrOGdDIjGXQYclXx">Apply to be a Voyager</a>
+            </div>
+    - column:
+      - type: html
+        html:
+          content: |
+            <div class="Vlt-center">
+              <a class="Vlt-btn Vlt-btn--primary Vlt-btn--large Vlt-btn--larger" href="https://airtable.com/shrI1b8WWx4B85ZSZ">Nominate a Voyager</a>
+            </div>
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - width: 2
+      column:
+      - type: structured_text
+        structured_text:
+          header: "What is required to become a Voyager?"
+          text:
+            - content: "To participate in the Vonage Voyagers program you must:"
+              type: large
+            - content: |
+                * Be fluent in written and spoken English
+                * Be over 18 years old and have a Vonage API account
+                * Show how you’ve used Vonage APIs to create content for your peers or to build communications into your projects
+                * Demonstrate expertise within a specific developer community or area
+                * Display empathy and understanding when trying to help others grasp technological concepts or solve issues
+              type: large
+    - width: 2
+      column:
+      - type: html
+        html:
+          content: '<img width="90%" src="/images/voyagers/ticket.svg" />'
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - width: 2
+      column:
+      - type: html
+        html:
+          content: '<img src="/images/voyagers/composition_peach_trousers.svg" />'
+    - width: 2
+      column:
+      - type: structured_text
+        structured_text:
+          header: "What perks come with being part of the Program?"
+          text:
+            - content: "As an official Voyager, you’ll join a crew of like-minded developers with exclusive access to:"
+              type: large
+            - content: |
+                * Pre-release products
+                * Mentorship and learning opportunities with Vonage developer advocates, product managers, engineers and more
+                * Training to improve your content creation skills and access to our platforms to expand your reach
+                * Limited edition swag
+                * Other fantastic opportunities to learn from and share with your communities
+              type: large
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - width: 2
+      column:
+      - type: structured_text
+        structured_text:
+          header: "How does a Voyager contribute?"
+          text:
+            - content: "Voyagers help developers build powerful applications. Here’s how you can contribute:"
+              type: large
+            - content: |
+                * Participate in pre-release product feedback sessions, such as online hack days
+                * Create content showcasing how you’re using Vonage APIs together with other technologies
+                * Contribute to our Open Source projects and provide feedback on developer documentation
+                * Help other developers on the Vonage Developer Community Slack and other platforms
+                * Support your developer community by letting us know how we can help
+              type: large
+    - width: 2
+      column:
+      - type: html
+        html:
+          content: <div class="Vlt-center"><img width="70%" src="/images/voyagers/sitting_peach_trousers.svg" /></div>
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: html
+        html:
+          content: |
+            <div class="Vlt-center">
+              <a class="Vlt-btn Vlt-btn--primary Vlt-btn--large Vlt-btn--larger" href="https://airtable.com/shrOGdDIjGXQYclXx">Apply to be a Voyager</a>
+            </div>
+    - column:
+      - type: html
+        html:
+          content: |
+            <div class="Vlt-center">
+              <a class="Vlt-btn Vlt-btn--primary Vlt-btn--large Vlt-btn--larger" href="https://airtable.com/shrI1b8WWx4B85ZSZ">Nominate a Voyager</a>
+            </div>
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - width: 3
+      column:
+        - type: structured_text
+          structured_text:
+            header: "Get in touch"
+            text:
+              - content: Do you have a question about Vonage Voyagers?
+                type: large
+              - content: Drop us an email at voyagers[at]vonage.com.
+                type: large
+              - content: <br/>Your data will be treated in accordance with our <a href="https://www.vonage.com/legal/privacy-policy/" target="_blank" rel="nofollow">Privacy Policy</a>, which sets out the rights you have in respect of your data.
+                type: large
+              - content:  <a href="https://www.vonage.com/legal/communications-apis/voyager/" target="_blank" rel="nofollow">Vonage Voyagers Terms and Conditions</a>
+                type: large
+    - width: 1
+      column:
+      - type: html
+        html:
+          content: '<img width="60%" src="/images/voyagers/space_probe.svg" />'

@@ -16,12 +16,12 @@ import UIKit
 import NexmoClient
 ```
 
-Add a `NXMClient` instance, below the `callButton`:
+Add a `NXMClient` instance, below the `connectionStatusLabel`:
 
 ```swift
-class ViewController: UIViewController {
+class ViewController: UIViewController, NXMClientDelegate {
     ...
-    var callButton = UIButton(type: .roundedRect)
+    let connectionStatusLabel = UILabel()
     let client = NXMClient.shared
     ...
 }
@@ -41,23 +41,15 @@ override func viewDidLoad() {
 
 ## The Client Delegate
 
-For the delegate part to work, you need to have `ViewController` conform to `NXMClientDelegate`. At the end of the file, add:
+For the delegate to work, you need to have `ViewController` conform to `NXMClientDelegate`. At the end of the file, add:
 
 ```swift
 extension ViewController: NXMClientDelegate {
     
-    func client(_ client: NXMClient, didReceiveError error: Error) {
-        callButton.alpha = 0
-        connectionStatusLabel.text = error.localizedDescription
-    }
-    
-    func client(_ client: NXMClient, didChange status: NXMConnectionStatus,
-                reason: NXMConnectionStatusReason) {
-        callButton.alpha = 0
+    func client(_ client: NXMClient, didChange status: NXMConnectionStatus, reason: NXMConnectionStatusReason) {
         switch status {
         case .connected:
             connectionStatusLabel.text = "Connected"
-            callButton.alpha = 1
         case .disconnected:
             connectionStatusLabel.text = "Disconnected"
         case .connecting:
@@ -67,13 +59,17 @@ extension ViewController: NXMClientDelegate {
         }
     }
     
+    func client(_ client: NXMClient, didReceiveError error: Error) {
+        connectionStatusLabel.text = error.localizedDescription
+    }
+    
 }
 ```
 
-An error is shown if encountered and the `connectionStatusLabel` is updated with the relevant connection status. Also, `callButton` is shown when connected.
+An error is shown if encountered and the `connectionStatusLabel` is updated with the relevant connection status. 
 
 ## Build and Run
 
 `Cmd + R` to build and run again:
 
-![Interface connected](/meta/client-sdk/ios-voice/interface-connected.jpg)
+![Interface connected](/meta/client-sdk/ios-phone-to-app/interface-connected.png)
