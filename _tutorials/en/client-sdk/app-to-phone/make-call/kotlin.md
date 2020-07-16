@@ -25,4 +25,6 @@ startAppToPhoneCallButton.setOnClickListener {
 }
 ```
 
-Launch the app and make your first app to phone call.
+# Launch the app
+
+Launch the app and make your first app to phone call. You can either launch the app on the physical phone (with [USB Debugging enabled](https://developer.android.com/studio/debug/dev-options#enable)) or create new [Android Virual Device](https://developer.android.com/studio/run/managing-avds).
