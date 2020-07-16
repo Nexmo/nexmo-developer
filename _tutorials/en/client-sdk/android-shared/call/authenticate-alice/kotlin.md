@@ -23,7 +23,7 @@ private val client = NexmoClient.get()
 
 ## Login user
 
-Your user must be authenticated to be able to participate in the Call. Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the user.
+Your user must be authenticated to be able to participate in the Call. Locate the `onLoginUser` method inside `LoginViewModel` class and replace it with this code:
 
 ```kotlin
 fun onLoginUser(user: User) {
@@ -34,7 +34,7 @@ fun onLoginUser(user: User) {
 }
 ```
 
-> **NOTE:** Inside `LoginFragment` class, explore the `loginUser` method that was written for you. This method is called when one of the two `Login ...` buttons are clicked. This method calls the above `onLoginUser` method. 
+> **NOTE:** Inside `LoginFragment` class, explore the `loginUser` method that was written for you. This method is called when one of the two `Login ...` buttons are clicked. This method calls the above `onLoginUser` method.
 
 > **NOTE:** The `User` type is the `data class` that we've defined in the `Config.kt` file.
 

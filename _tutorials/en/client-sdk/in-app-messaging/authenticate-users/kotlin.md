@@ -19,7 +19,7 @@ Now You have to retrieve client instance inside `LoginViewModel` class. Usually,
 private val client = NexmoClient.get()
 ```
 
-Locate the `onLoginUser` method within the `LoginViewModel` class and fill its body to enable user login:
+Your user must be authenticated to be able to participate in the Call. Locate the `onLoginUser` method inside `LoginViewModel` class and replace it with this code:
 
 ```kotlin
 fun onLoginUser(user: User) {
