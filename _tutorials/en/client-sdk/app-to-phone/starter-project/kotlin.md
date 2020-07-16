@@ -19,7 +19,7 @@ image: public/screenshots/tutorials/client-sdk/android-app-to-phone/nav-graph.pn
 The application consists of three screens: 
 
 - **login** - responsible for logging the user
-- **main** - allows to start a call and listens for incoming call
+- **main** - allows to start a call
 - **on call** - displayed during ongoing call, allows to end current call
 
 ## Project internal structure
