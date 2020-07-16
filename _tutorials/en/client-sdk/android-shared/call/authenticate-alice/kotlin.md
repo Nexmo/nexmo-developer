@@ -40,7 +40,7 @@ fun onLoginUser(user: User) {
 
 ## Monitor connection state
 
-Now add a connection listener to listen to the `client` instance to listen for connection state changes and use `_connectionStatus` `LiveData` to propagate a new connection state to the view (`LoginFragment`). Locate the `init` block inside `LoginViewModel` class and replace it with this code:
+When sucesfull conection is established you need to navigate user to `MainFragment`. Locate the `init` block inside `LoginViewModel` class and replace it with this code:
 
 
 ```kotlin
