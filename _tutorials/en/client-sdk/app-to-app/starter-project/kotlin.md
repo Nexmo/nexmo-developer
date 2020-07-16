@@ -37,3 +37,5 @@ All files that will be modified during this tutorial are located in the `app/src
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-app-to-app/project-files.png
 ```
+
+> **NOTE:** Each view is represented by two classes -> `Fragment` that is the thin view and `ViewModel` that handles the view logic.
