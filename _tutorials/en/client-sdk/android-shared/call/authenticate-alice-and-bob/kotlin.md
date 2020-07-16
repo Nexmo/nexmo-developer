@@ -28,6 +28,7 @@ Now you should locate the `onLoginUser` method within the `LoginViewModel` class
 ```kotlin
 fun onLoginUser(user: User) {
     if (!user.jwt.isBlank()) {
+        this.user = user
         client.login(user.jwt)
     }
 }

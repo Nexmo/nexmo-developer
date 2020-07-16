@@ -28,6 +28,7 @@ Your user must be authenticated to be able to participate in the Call. Login scr
 ```kotlin
 fun onLoginUser(user: User) {
     if (!user.jwt.isBlank()) {
+        this.user = user
         client.login(user.jwt)
     }
 }
