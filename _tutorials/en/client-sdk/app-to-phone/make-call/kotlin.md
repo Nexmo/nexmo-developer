@@ -10,7 +10,6 @@ Locate the `startAppToAppCall` method within the `MainViewModel` class and fill 
 ```kotlin
 @SuppressLint("MissingPermission")
 fun startAppToPhoneCall() {
-    lastCalledUserName = ""
     client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
     loadingMutableLiveData.postValue(true)
 }
