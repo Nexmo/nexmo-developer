@@ -8,7 +8,7 @@ introduction:
   description: This task shows you how to create a Android chat application using the Android Client SDK.
   content: |
     # Introduction
-    In this task, you will learn how to create and configure a Client SDK Application and then code a web app that enables two users to send messages to each other.
+    In this task, you will learn how to create and configure a Client SDK Application and then code an application that enables two users to send messages to each other.
 
     First, you will create a Conversation and two Users. Then, you will authenticate these Users and add them to the Conversation as Members.
 
