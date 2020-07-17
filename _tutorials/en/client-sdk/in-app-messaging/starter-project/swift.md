@@ -16,28 +16,28 @@ Clone this [GitHub project](https://github.com/nexmo-community/ClientSDK-Get-Sta
 Using the GitHub project you cloned, in the Start folder, open `GettingStarted.xcworkspace`. Then, within Xcode:
 
     
-Open `Constants.swift` file and add `Jane`'s and `Joe`'s user IDs and JWTs, and conversation ID you've created on the previous steps:
+Open `Constants.swift` file and add `Alice`'s and `Bob`'s user IDs and JWTs, and conversation ID you've created on the previous steps:
 
 ```swift
 enum User: String {
-    case jane = "Jane"
-    case joe = "Joe"
+    case alice = "Alice"
+    case bob = "Bob"
     
     var uuid: String {
         switch self {
-        case .jane:
-            return "" //TODO: swap with Jane's user uuid
-        case .joe:
-            return "" //TODO: swap with Joe's user uuid
+        case .alice:
+            return "" //TODO: swap with Alice's user uuid
+        case .bob:
+            return "" //TODO: swap with Bob's user uuid
         }
     }
     
     var jwt: String {
         switch self {
-        case .jane:
-            return "" //TODO: swap with a token for Jane
-        case .joe:
-            return "" //TODO: swap with a token for Joe
+        case .alice:
+            return "" //TODO: swap with a token for Alice
+        case .bob:
+            return "" //TODO: swap with a token for Bob
         }
     }
     

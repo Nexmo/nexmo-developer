@@ -19,14 +19,14 @@ Using the GitHub project you cloned, in the Start folder, open `GettingStarted.x
 Open `User.h` file and replace the user id and token:
 
 ```objective-c
-#define kJaneName @"Jane"
-#define kJaneUUID @"" //TODO: swap with a user uuid for Jane
-#define kJaneJWT @"" //TODO: swap with a token for Jane
+#define kAliceName @"Alice"
+#define kAliceUUID @"" //TODO: swap with a user uuid for Alice
+#define kAliceJWT @"" //TODO: swap with a token for Alice
 
 
-#define kJoeName @"Joe"
-#define kJoeUUID @"" //TODO: swap with a user uuid for Joe
-#define kJoeJWT @"" //TODO: swap with a token for Joe
+#define kBobName @"Bob"
+#define kBobUUID @"" //TODO: swap with a user uuid for Bob
+#define kBobJWT @"" //TODO: swap with a token for Bob
 
 
 #define kConversationUUID @"" //TODO: swap with a phone number to call
