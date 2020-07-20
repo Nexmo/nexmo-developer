@@ -13,7 +13,7 @@ page:
     - column:
       - type: html
         html:
-          content: "<p>The <a href='https://developer.nexmo.com/client-sdk/overview'>Nexmo Client SDKs</a> allows you to build in-app messaging and voice solutions. Android, iOS and JavaScript are supported.</p>"
+          content: "<p>The <a href='https://developer.nexmo.com/client-sdk/overview'>Client SDKs</a> allows you to build in-app messaging and voice solutions. Android, iOS and JavaScript are supported.</p>"
   - row:
     - column:
       - type: client_sdk_card
@@ -24,7 +24,7 @@ page:
           icon:
             name: Brand-icon-android-color
           text:
-            content: Develop voice and message applications using the Nexmo Client SDK for Android.
+            content: Develop voice and message applications using the Client SDK for Android.
           documentation_url: https://developer.nexmo.com/client-sdk/sdk-documentation/android
     - column:
       - type: client_sdk_card
@@ -35,7 +35,7 @@ page:
           icon:
             name: Brand-icon-apple-color
           text:
-            content: Develop voice and message applications using the Nexmo Client SDK for iOS.
+            content: Develop voice and message applications using the Client SDK for iOS.
           documentation_url: https://developer.nexmo.com/client-sdk/sdk-documentation/ios
     - column:
       - type: client_sdk_card
@@ -46,7 +46,7 @@ page:
           icon:
             name: Brand-icon-javascript-color
           text:
-            content: Develop voice and message applications using the Nexmo Client SDK for JavaScript.
+            content: Develop voice and message applications using the Client SDK for JavaScript.
           documentation_url: https://developer.nexmo.com/client-sdk/sdk-documentation/javascript
   - row:
     - column:
@@ -57,7 +57,7 @@ page:
     - column:
       - type: html
         html:
-          content: "<p>The Nexmo Server SDKs allow you to get up an running with Nexmo API quickly in your language of choice.</p>"
+          content: "<p>The Server SDKs allow you to quickly get up an running with the Vonage APIs in your language of choice.</p>"
   - row:
     - column:
       - type: github_repo
@@ -109,7 +109,7 @@ page:
     - column:
       - type: html
         html:
-          content: "<p>You use the Nexmo Command Line Interface (CLI) to manage your Nexmo account and use Nexmo products from the command line.</p>"
+          content: "<p>You use the Nexmo Command Line Interface (CLI) to manage your Vonage account and use Vonage API products from the command line.</p>"
   - row:
     - column:
       - type: github_repo
