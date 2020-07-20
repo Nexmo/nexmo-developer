@@ -27,7 +27,7 @@ Advanced Auto-redact feature ensures that the message content (SMS text) gets re
 The redaction options available are:
 
 1. Message content redaction only.
-2. Phone number redaction only.
+2. Phone number redaction only (implies encryption of phone numbers in the server logs and redaction in the long-term storage).
 3. Phone number encryption only.
 4. Message content redaction combined with either redaction or encryption of the phone number.
 
