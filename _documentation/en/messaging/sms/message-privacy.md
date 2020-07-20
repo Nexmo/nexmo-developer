@@ -14,7 +14,7 @@ Redaction is the editing of a document or a record to delete or mask Personally 
 
 When you send SMS messages using the Vonage SMS API, two pieces of PII get recorded: the SMS message body content and the receiver's phone number. When you use Vonage SMS API to receive SMS, we record the SMS message body content and the sender's phone number.
 
-This sensitive PII ends up in two places: server logs and transactional records of the activity. Server logs are retained for around 15 days, no more than one month. Transactional records of the activity, however, are stored for 13 months. Transactional records of the activity are known as Call Detail Records (CDRs). Both server logs and CDRs can be viewed by Vonage support staff, for testing, debugging, diagnosing user issues and reconciling CDRs against customer's transaction records.
+This sensitive PII ends up in two places: server logs and transactional records of the activity. Server logs are retained for around 15 days, no more than one month. Transactional records of the activity, however, are stored for 13 months. Transactional records of the activity are known as Call Detail Records (CDRs). Both server logs and CDRs can be viewed by Vonage support staff, for testing, debugging, diagnosing user issues and reconciling CDRs against customers' transaction records.
 
 The image below shows an example of the flow of Advanced SMS Auto-redact with Vonage.
 
