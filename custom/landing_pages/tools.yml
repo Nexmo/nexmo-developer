@@ -57,7 +57,7 @@ page:
     - column:
       - type: html
         html:
-          content: "<p>The Server SDKs allow you to quickly get up an running with the Vonage APIs in your language of choice.</p>"
+          content: "<p>The Server SDKs allow you to quickly get up and running with the Vonage APIs in your language of choice.</p>"
   - row:
     - column:
       - type: github_repo
