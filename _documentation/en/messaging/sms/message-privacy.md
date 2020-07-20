@@ -22,17 +22,19 @@ The image below shows an example of the flow of Advanced SMS Auto-redact with Vo
 
 N.B. Advanced Auto-redact works only for messages sent out using the Vonage SMS API. For messages received using the the Vonage SMS API, we can offer the Standard Auto-redact feature. For more information on the Standard Auto-redact please refer to the [Redact API documentation](https://developer.nexmo.com/redact/overview).
 
-Advanced Auto-redact feature ensures that the message content gets redacted before it gets written to the server logs and CDRs. The phone number cannot be immediately redacted due to data retention regulations, thus we provide an option to encrypt it. The available configuration options are listed below:
+Advanced Auto-redact feature ensures that the message content gets redacted before it gets written to the server logs and CDRs. The phone number cannot be immediately redacted due to data retention regulations, thus we provide an option to encrypt it.
+
+The redaction options available are:
 
 1. Message content redaction only.
 2. Phone number redaction only.
 3. Phone number encryption only.
-4. Message content redaction together with redaction or encryption of the phone number.
+4. Message content redaction combined with either redaction or encryption of the phone number.
 
 A key point of Vonage's immediate Advanced Auto-redact is that the message body is not stored in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to. Later those encrypted numbers get redacted as well. Please refer to the (Redaction page)[https://developer.nexmo.com/redact/overview] for more information.
 
 ## How to set up Auto-redact for your Vonage account
 
-You can find pricing relevant to the Advanced Auto-redact service on the [Vonage pricing](https://www.vonage.com/communications-apis/pricing/) page.
-
 If you wish to activate the Advanced Auto-redact service for your account, please complete the form on [this page](https://info.nexmo.com/RedactAPI.html).
+
+You can find pricing relevant to the Advanced Auto-redact service on the [Vonage pricing](https://www.vonage.com/communications-apis/pricing/) page.
