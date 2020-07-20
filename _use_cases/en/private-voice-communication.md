@@ -35,13 +35,23 @@ There is a [GitHub repository containing the code](https://github.com/Nexmo/node
 
 To build the application, you perform the following steps:
 
-1. [Create a configuration file](#configuration)
-2. [Create a Voice API application](#create-a-voice-api-application) - create and configure a Voice API application.
-3. [Create the web application](#create-the-web-application) - create the web application.
-4. [Provision virtual numbers](#provision-virtual-voice-numbers) - rent virtual numbers to mask your callers' real numbers.
-5. [Create a Call](#create-a-call) - create a Call between two users, validate their phone numbers, and determine the country the phone number is registered in using Number Insight.
-6. [Handle inbound calls](#handle-inbound-calls) - configure your webhook endpoint to handle incoming voice calls, find the phone number it is associated with, and return the NCCO to control the call.
-7. [Proxy the Call](#proxy-the-call) - instruct Nexmo to make a private call to a phone number.
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Code repository](#code-repository)
+- [Steps](#steps)
+- [Configuration](#configuration)
+- [Create a Voice API application](#create-a-voice-api-application)
+- [Create the web application](#create-the-web-application)
+- [Provision virtual numbers](#provision-virtual-numbers)
+- [Create a call](#create-a-call)
+  - [Validate the phone numbers](#validate-the-phone-numbers)
+  - [Map phone numbers to real numbers](#map-phone-numbers-to-real-numbers)
+  - [Send a confirmation SMS](#send-a-confirmation-sms)
+- [Handle inbound calls](#handle-inbound-calls)
+- [Reverse map real phone numbers to virtual numbers](#reverse-map-real-phone-numbers-to-virtual-numbers)
+- [Proxy the call](#proxy-the-call)
+- [Conclusion](#conclusion)
+- [Further information](#further-information)
 
 ## Configuration
 
@@ -120,12 +130,12 @@ Participant Nexmo
 Participant UserA
 Participant UserB
 Note over App,Nexmo: Initialization
-App->Nexmo: Search Numbers
-Nexmo-->App: Numbers Found
-App->Nexmo: Provision Numbers
-Nexmo-->App: Numbers Provisioned
-App->Nexmo: Configure Numbers
-Nexmo-->App: Numbers Configured
+App->>Nexmo: Search Numbers
+Nexmo-->>App: Numbers Found
+App->>Nexmo: Provision Numbers
+Nexmo-->>App: Numbers Provisioned
+App->>Nexmo: Configure Numbers
+Nexmo-->>App: Numbers Configured
 ```
 
 To provision a virtual number you search through the available numbers that meet your criteria. For example, a phone number in a specific country with voice capability:
@@ -164,13 +174,13 @@ Participant Nexmo
 Participant UserA
 Participant UserB
 Note over App,Nexmo: Conversation Starts
-App->Nexmo: Basic Number Insight
-Nexmo-->App: Number Insight response
-App->App: Map Real/Virtual Numbers\nfor Each Participant
-App->Nexmo: SMS to UserA
-Nexmo->UserA: SMS
-App->Nexmo: SMS to UserB
-Nexmo->UserB: SMS
+App->>Nexmo: Basic Number Insight
+Nexmo-->>App: Number Insight response
+App->>App: Map Real/Virtual Numbers\nfor Each Participant
+App->>Nexmo: SMS to UserA
+Nexmo->>UserA: SMS
+App->>Nexmo: SMS to UserB
+Nexmo->>UserB: SMS
 ```
 
 The following call:
@@ -231,8 +241,8 @@ Participant Nexmo
 Participant UserA
 Participant UserB
 Note over UserA,Nexmo: UserA calls UserB's\nVirtual Number
-UserA->Nexmo: Calls virtual number
-Nexmo->App:Inbound Call(from, to)
+UserA->>Nexmo: Calls virtual number
+Nexmo->>App:Inbound Call(from, to)
 ```
 
 Extract `to` and `from` from the inbound webhook and pass them on to the voice proxy business logic:
@@ -256,10 +266,10 @@ Participant App
 Participant Nexmo
 Participant UserA
 Participant UserB
-UserA->Nexmo: 
-Nexmo->App: 
-Note right of App:Find the real number for UserB
-App->App:Number mapping lookup
+UserA->>Nexmo: 
+Nexmo->>App: 
+Note right of App:Find the real number\n for UserB
+App->>App:Number mapping lookup
 ```
 
 The call direction can be identified as:
@@ -284,11 +294,11 @@ Participant App
 Participant Nexmo
 Participant UserA
 Participant UserB
-UserA->Nexmo: 
-Nexmo->App: 
-App->Nexmo:Connect (proxy)
+UserA->>Nexmo: 
+Nexmo->>App: 
+App->>Nexmo:Connect (proxy)
 Note right of App:Proxy Inbound\ncall to UserB's\nreal number
-Nexmo->UserB: Call
+Nexmo->>UserB: Call
 Note over UserA,UserB:UserA has called\nUserB. But UserA\ndoes not have\n the real number\nof UserB, nor\n vice versa.
 ```
 

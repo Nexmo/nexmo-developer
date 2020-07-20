@@ -83,8 +83,8 @@ Participant App
 Participant Nexmo
 Participant Caller
 Note over Caller,Nexmo: Caller calls one of\nthe tracking numbers
-Caller->Nexmo: Calls Nexmo number
-Nexmo->App:Inbound Call(from, to)
+Caller->>Nexmo: Calls Nexmo number
+Nexmo->>App:Inbound Call(from, to)
 ```
 
 When the caller makes the call, the application receives the incoming webhook. It extracts the number that the caller is calling from (the `to` number) and the number that they dialled (the `from` number) and passes these values to the call tracking logic.

@@ -22,12 +22,12 @@ participant Nexmo
 participant Carrier
 participant Handset
 
-Your Application->Nexmo: Send an SMS
-Nexmo->Carrier: SMS
-Carrier->Handset: SMS
-Handset->Carrier: Delivery Receipt
-Carrier->Nexmo: Delivery Receipt
-Nexmo->Your Application: Delivery Receipt Webhook
+Your Application->>Nexmo: Send an SMS
+Nexmo->>Carrier: SMS
+Carrier->>Handset: SMS
+Handset->>Carrier: Delivery Receipt
+Carrier->>Nexmo: Delivery Receipt
+Nexmo->>Your Application: Delivery Receipt Webhook
 ```
 
 Delivery receipts are either:
@@ -63,40 +63,40 @@ The most important fields are `status` and `err-code` as these tell you whether 
 
 The `status` field in the DLR tells you if your SMS was delivered successfully. Possible values are:
 
-| `status`  | Description  |
-|---|---|
-| `accepted` | Message has been accepted for delivery, but has not yet been delivered |
-| `delivered`  | Message has been delivered  |
-| `buffered` | Message has been buffered for later delivery  |
-| `expired`  | Message was held at downstream carrier's retry scheme and could not be delivered within the expiry time |
-| `failed` | Message not delivered |
-| `rejected` | Downstream carrier refuses to deliver message |
-| `unknown`  | No useful information available |
+| `status`    | Description                                                                                             |
+| ----------- | ------------------------------------------------------------------------------------------------------- |
+| `accepted`  | Message has been accepted for delivery, but has not yet been delivered                                  |
+| `delivered` | Message has been delivered                                                                              |
+| `buffered`  | Message has been buffered for later delivery                                                            |
+| `expired`   | Message was held at downstream carrier's retry scheme and could not be delivered within the expiry time |
+| `failed`    | Message not delivered                                                                                   |
+| `rejected`  | Downstream carrier refuses to deliver message                                                           |
+| `unknown`   | No useful information available                                                                         |
 
 
 ### DLR error codes
 
 The `err-code` field in the DLR provides more detailed information and can help troubleshoot a failed delivery. A non-zero code indicates that the message could not be delivered.
 
-| `err-code` | Meaning | Description |
-|---|---|---|
-| 0 | Delivered  | Message was delivered successfully |
-| 1 | Unknown  | Message was not delivered, and no reason could be determined |
-| 2 | Absent Subscriber - Temporary | Message was not delivered because handset was temporarily unavailable - retry | 
-| 3 | Absent Subscriber - Permanent | The number is no longer active and should be removed from your database  |
-| 4 | Call Barred by User | This is a permanent error:the number should be removed from your database and the user must contact their network operator to remove the bar |
-| 5 | Portability Error | There is an issue relating to portability of the number and you should contact the network operator to resolve it |
-| 6 | Anti-Spam Rejection  | The message has been blocked by a carrier's anti-spam filter |
-| 7 | Handset Busy | The handset was not available at the time the message was sent - retry |
-| 8 | Network Error | The message failed due to a network error - retry  |
-| 9 | Illegal Number | The user has specifically requested not to receive messages from a specific service |
-| 10 | Illegal Message | There is an error in a message parameter, e.g. wrong encoding flag |
-| 11 | Unroutable  | Nexmo cannot find a suitable route to deliver the message - contact <mailto:support@nexmo.com> |
-| 12 | Destination Unreachable | A route to the number cannot be found - confirm the recipient's number  |
-| 13 | Subscriber Age Restriction | The target cannot receive your message due to their age  |
-| 14 | Number Blocked by Carrier | The recipient should ask their carrier to enable SMS on their plan |
-| 15 | Prepaid Insufficient Funds | The recipient is on a prepaid plan and does not have enough credit to receive your message |
-| 99 | General Error | Typically refers to an error in the route - contact <mailto:support@nexmo.com> |
+| `err-code` | Meaning                       | Description                                                                                                                                  |
+| ---------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0          | Delivered                     | Message was delivered successfully                                                                                                           |
+| 1          | Unknown                       | Message was not delivered, and no reason could be determined                                                                                 |
+| 2          | Absent Subscriber - Temporary | Message was not delivered because handset was temporarily unavailable - retry                                                                |
+| 3          | Absent Subscriber - Permanent | The number is no longer active and should be removed from your database                                                                      |
+| 4          | Call Barred by User           | This is a permanent error:the number should be removed from your database and the user must contact their network operator to remove the bar |
+| 5          | Portability Error             | There is an issue relating to portability of the number and you should contact the network operator to resolve it                            |
+| 6          | Anti-Spam Rejection           | The message has been blocked by a carrier's anti-spam filter                                                                                 |
+| 7          | Handset Busy                  | The handset was not available at the time the message was sent - retry                                                                       |
+| 8          | Network Error                 | The message failed due to a network error - retry                                                                                            |
+| 9          | Illegal Number                | The user has specifically requested not to receive messages from a specific service                                                          |
+| 10         | Illegal Message               | There is an error in a message parameter, e.g. wrong encoding flag                                                                           |
+| 11         | Unroutable                    | Nexmo cannot find a suitable route to deliver the message - contact <mailto:support@nexmo.com>                                               |
+| 12         | Destination Unreachable       | A route to the number cannot be found - confirm the recipient's number                                                                       |
+| 13         | Subscriber Age Restriction    | The target cannot receive your message due to their age                                                                                      |
+| 14         | Number Blocked by Carrier     | The recipient should ask their carrier to enable SMS on their plan                                                                           |
+| 15         | Prepaid Insufficient Funds    | The recipient is on a prepaid plan and does not have enough credit to receive your message                                                   |
+| 99         | General Error                 | Typically refers to an error in the route - contact <mailto:support@nexmo.com>                                                               |
 
 > The other fields in the DLR are explained in the [API Reference](/api/sms#delivery-receipt).
 

@@ -17,10 +17,10 @@ With webhooks, it's important that the URL to send the webhooks to is configured
 The process looks something like this:
 
 ```sequence_diagram
-Your App->Nexmo: Configure URL for webhook
+Your App->>Nexmo: Configure URL for webhook
 Note over Your App, Nexmo: Some time later ...
-Nexmo->Your App: Have some interesting data
-Your App->Nexmo: 200 OK
+Nexmo->>Your App: Sending some interesting data
+Your App->>Nexmo: 200 OK - I got it, thanks
 ```
 
 Webhooks provide a convenient mechanism for Nexmo to send information to your application for events such as an incoming call or message, or a change in call status. They can also be used to send follow-up information such as a delivery receipt which may become available some time after the request it relates to.
@@ -31,14 +31,14 @@ Information resulting from requests to the SMS API, Voice API, Number Insight AP
 
 Nexmo sends and retrieves the following information using webhooks:
 
-| API Name | Webhooks usage |
-|-------|--------|
-| SMS API | Sends the delivery status of your message and receives inbound SMS |
-| Voice API | Retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another. View the [Webhook Reference](/voice/voice-api/webhook-reference) for more detail. |
-| Number Insight Advanced Async API | Receives complete information about a phone number |
-| US Short Codes API | Sends the delivery status of your message and receives inbound SMS |
-| Client SDK/Conversation API| Real-time Communication (RTC) events are sent to the RTC event webhook |
-| Message and Dispatch APIs | Supports both inbound message and message status webhooks |
+| API Name                          | Webhooks usage                                                                                                                                                                                                                                                               |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SMS API                           | Sends the delivery status of your message and receives inbound SMS                                                                                                                                                                                                           |
+| Voice API                         | Retrieves the [Nexmo Call Control Objects](/voice/voice-api/ncco-reference) you use to control the call from one webhook endpoint, and sends information about the call status to another. View the [Webhook Reference](/voice/voice-api/webhook-reference) for more detail. |
+| Number Insight Advanced Async API | Receives complete information about a phone number                                                                                                                                                                                                                           |
+| US Short Codes API                | Sends the delivery status of your message and receives inbound SMS                                                                                                                                                                                                           |
+| Client SDK/Conversation API       | Real-time Communication (RTC) events are sent to the RTC event webhook                                                                                                                                                                                                       |
+| Message and Dispatch APIs         | Supports both inbound message and message status webhooks                                                                                                                                                                                                                    |
 
 ## Setting webhook endpoints
 

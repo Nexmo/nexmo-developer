@@ -190,18 +190,18 @@ Participant Browser
 Participant App
 Participant Nexmo
 Note over App,Nexmo: Initialization
-Browser->App: User registers by \nsubmitting number
-App->Nexmo: Number Insight request
-Nexmo-->App: Number Insight response
+Browser->>App: User registers by \nsubmitting number
+App->>Nexmo: Number Insight request
+Nexmo-->>App: Number Insight response
 Note over App,Nexmo: If Number Insight shows that the \nuser and their phone are in different \ncountries, start the verification process
-App->Nexmo: Send verification code to user's phone
-Nexmo-->App: Receive acknowledgement that\nverification code was sent
-App->Browser: Request the code from the user
-Browser->App: User submits the code they received
-App->Nexmo: Check verification code
-Nexmo-->App: Code Verification status
+App->>Nexmo: Send verification code to user's phone
+Nexmo-->>App: Receive acknowledgement that\nverification code was sent
+App->>Browser: Request the code from the user
+Browser->>App: User submits the code they received
+App->>Nexmo: Check verification code
+Nexmo-->>App: Code Verification status
 Note over Browser,App: If either Number Insight response or verification step \nis satisfactory, continue registration
-App->Browser: Confirm registration
+App->>Browser: Confirm registration
 ```
 
 ### Creating the fraud detection logic

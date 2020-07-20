@@ -18,15 +18,14 @@ The general workflow is shown in the following sequence diagram:
 Participant User
 Participant Your server
 Participant Vonage
-User -> Your server: User supplies phone number
-Your server -> Vonage: Request to Verify this number
-Vonage --> Your server: Supply `request_id`
+User ->> Your server: User supplies phone number
+Your server ->> Vonage: Request to Verify this number
+Vonage -->> Your server: Supply `request_id`
 Note left of Vonage: Vonage sends PIN\n code to user\n (multiple attempts\n as needed)
-Vonage -> User: 
-Vonage --> User: 
-User -> Your server: Enter PIN code
-Your server -> Vonage: Check PIN is valid for `request_id`
-Vonage --> Your server: OK
+Vonage -->> User: Send PIN 
+User ->> Your server: Enter PIN code
+Your server ->> Vonage: Check PIN is valid for `request_id`
+Vonage -->> Your server: OK
 ```
 
 ## Getting Started

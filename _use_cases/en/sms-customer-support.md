@@ -40,10 +40,10 @@ For this tutorial start off with a simple web application with one page. The use
 Participant Phone
 Participant Nexmo
 Participant App
-Phone->Nexmo: SMS 1
-Nexmo-->App: Webhook
-App->Nexmo: SMS Request
-Nexmo->Phone: SMS 2
+Phone->>Nexmo: SMS 1
+Nexmo-->>App: Webhook
+App->>Nexmo: SMS Request
+Nexmo->>Phone: SMS 2
 ```
 
 **Start by creating a basic app.**

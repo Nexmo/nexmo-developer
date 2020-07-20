@@ -197,10 +197,10 @@ Participant App
 Participant Nexmo
 Participant Phone number
 Note over App: Initialize library
-App->Nexmo: Request to SMS API
-Nexmo-->App: Response from SMS API
+App->>Nexmo: Request to SMS API
+Nexmo-->>App: Response from SMS API
 Note over Nexmo: Request accepted
-Nexmo->Phone number: Send SMS
+Nexmo->>Phone number: Send SMS
 ```
 
 In this tutorial, to send an SMS you add the [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby) to your app:

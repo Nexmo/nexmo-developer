@@ -27,12 +27,12 @@ You will see how to build add a Call Whisper to an inbound call:
 ## How it works
 
 ```sequence_diagram
-User->Nexmo number: User calls either of\nthe numbers linked\n to this Application
-Nexmo number-->Application: /answer
-Application->Operative: Connects to operative's number
+User->>Nexmo number: User calls either of\nthe numbers linked\n to this Application
+Nexmo number-->>Application: /answer
+Application->>Operative: Connects to operative's number
 Note left of Operative: When operative\nanswers
-Operative-->Application: /answer_outbound
-Application->Operative: Announces key information\nabout original caller
+Operative-->>Application: /answer_outbound
+Application->>Operative: Announces key information\nabout original caller
 Note left of Operative: Callers are connected
 ```
 
