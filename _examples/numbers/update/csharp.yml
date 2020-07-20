@@ -13,7 +13,7 @@ client:
     to_line: 28
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/UpdateNumber.cs
-    from_line: 30
-    to_line: 40
+    from_line: 32
+    to_line: 43
 run_command: 'Run using your IDE'
 file_name: UpdateNumber.cs
