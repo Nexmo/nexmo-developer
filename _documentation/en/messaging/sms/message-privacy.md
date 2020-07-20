@@ -4,13 +4,13 @@ title: Message Privacy
 
 # Message Privacy
 
-Vonage's Auto-redact feature enables customers to protect their SMS privacy by replacing all Personal Identifiable Information (PII) in Vonage logs with the string "REDACTED". Auto-redact is automatic and is suitable for cases when you don't want sensitive customer information, like SMS message content, to end up in Vonage logs.
+Vonage's Auto-redact feature enables customers to protect their SMS privacy by replacing all Personally Identifiable Information (PII) in Vonage logs with the string "REDACTED". Auto-redact is automatic and is suitable for cases when you don't want sensitive customer information, like SMS message content, to end up in Vonage logs.
 
 In general, businesses dealing with industries and sectors that are highly regulated, such as financial services, public authorities, educational institutions, hospitals, and the police need to safeguard sensitive data to comply with data protection laws and regulations.
 
 ## How does Auto-redact work?
 
-Redaction is the editing of a document or a record to delete or mask Personal Identifiable Information (PII) or confidential information. For example, your telephone number, bank details, or your address.
+Redaction is the editing of a document or a record to delete or mask Personally Identifiable Information (PII) or confidential information. For example, your telephone number, bank details, or your address.
 
 When you send SMS messages using the Vonage SMS API, two pieces of PII get recorded: the SMS message body content and the receiver's phone number. When you use Vonage SMS API to receive SMS, we record the SMS message body content and the sender's phone number.
 
@@ -36,6 +36,3 @@ A key point of Vonage's immediate Advanced Auto-redact is that the message body 
 You can find pricing relevant to the Advanced Auto-redact service on the [Vonage pricing](https://www.vonage.com/communications-apis/pricing/) page.
 
 If you wish to activate the Advanced Auto-redact service for your account, please complete the form on [this page](https://info.nexmo.com/RedactAPI.html).
-
-
-
