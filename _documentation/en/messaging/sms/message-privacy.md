@@ -22,7 +22,7 @@ The image below shows an example of the flow of Advanced SMS Auto-redact with Vo
 
 **NB** Advanced Auto-redact works only for messages sent out using the Vonage SMS API. For messages received using the the Vonage SMS API, we can offer the Standard Auto-redact feature. For more information on the Standard Auto-redact please refer to the [Redact API documentation](https://developer.nexmo.com/redact/overview).
 
-Advanced Auto-redact feature ensures that the message content (SMS text) gets redacted before it gets written to the server logs and CDRs. The phone number cannot be immediately redacted in the server logs due to data retention regulations, thus we provide an option to encrypt it.
+Advanced Auto-redact feature ensures that the message content (SMS text) is redacted before it is written to the server logs and CDRs. The phone number cannot be immediately redacted in the server logs due to data retention regulations, thus we provide an option to encrypt it.
 
 The redaction options available are:
 
