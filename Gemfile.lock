@@ -12,25 +12,6 @@ GIT
       redcarpet (~> 3.4)
       rouge (~> 2.0.7)
 
-GIT
-  remote: https://github.com/nexmo/nexmo-oas-renderer.git
-  revision: f81ee989314ce1a3001a0290cf7aeb2d82eaf72d
-  branch: ndp-gemification
-  specs:
-    nexmo-oas-renderer (2.0.1)
-      activemodel (~> 6.0)
-      activesupport (~> 6.0)
-      banzai (~> 0.1.2)
-      dotenv (~> 2.7)
-      neatjson (~> 0.8)
-      nexmo_markdown_renderer (~> 0.3)
-      oas_parser (~> 0.25.1)
-      octicons_helper (~> 8.2)
-      redcarpet (= 3.4.0)
-      sass (~> 3.1)
-      shotgun (~> 0.9)
-      sinatra (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rubygems.pkg.github.com/nexmo/
@@ -149,7 +130,7 @@ GEM
     diffy (3.3.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.7.5)
+    dotenv (2.7.6)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (1.0.1)
@@ -249,7 +230,7 @@ GEM
     neatjson (0.9)
     netrc (0.11.0)
     newrelic_rpm (6.12.0.367)
-    nexmo-developer (0.0.78)
+    nexmo-developer (0.0.79)
       activeadmin (~> 2.7)
       activesupport (~> 6.0)
       algoliasearch (= 1.27.3)
@@ -279,7 +260,7 @@ GEM
       msgpack (~> 1.3)
       neatjson (= 0.9)
       newrelic_rpm (= 6.12.0.367)
-      nexmo-oas-renderer (~> 2.0)
+      nexmo-oas-renderer (~> 2.1)
       nexmo_markdown_renderer (~> 0.3)
       nokogiri (= 1.10.10)
       octokit (~> 4.18)
@@ -301,6 +282,19 @@ GEM
       uglifier (= 4.2.0)
       webpacker (~> 5.1)
       woothee (~> 1.11)
+    nexmo-oas-renderer (2.1.0)
+      activemodel (~> 6.0)
+      activesupport (~> 6.0)
+      banzai (~> 0.1.2)
+      dotenv (~> 2.7)
+      neatjson (~> 0.8)
+      nexmo_markdown_renderer (~> 0.3)
+      oas_parser (~> 0.25.1)
+      octicons_helper (~> 8.2)
+      redcarpet (= 3.4.0)
+      sass (~> 3.1)
+      shotgun (~> 0.9)
+      sinatra (~> 2.0)
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -467,10 +461,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  nexmo-developer (= 0.0.78)!
-  nexmo-oas-renderer!
+  nexmo-developer (= 0.0.79)!
   nexmo_markdown_renderer!
-  oas_parser (= 0.25.1)
 
 BUNDLED WITH
    2.1.4
