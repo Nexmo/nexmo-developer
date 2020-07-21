@@ -70,8 +70,8 @@ ja:
             header: 
                 documentation: "ドキュメント"
                 tutorials: "チュートリアル"
-                api-reference: "API 情報"
-                sdks-and-tools: "SDK ＆ ツール"
+                api: "API 情報"
+                tools: "SDK ＆ ツール"
                 community: "コミュニティ"
                 extend: "拡張オプション"
                 hiring: "求人情報"

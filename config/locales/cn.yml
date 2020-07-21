@@ -70,8 +70,8 @@ cn:
             header:
                 documentation: "文档"
                 tutorials: "教程"
-                api-reference: "API 参考"
-                sdks-and-tools: "SDK 和工具"
+                api: "API 参考"
+                tools: "SDK 和工具"
                 community: "社区"
                 extend: "扩展"
                 hiring: "人才招聘"

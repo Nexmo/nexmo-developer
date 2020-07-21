@@ -75,8 +75,8 @@ en:
       header:
         documentation: Documentation
         tutorials: Tutorials
-        api-reference: API Reference
-        sdks-and-tools: SDKs & Tools
+        api: API Reference
+        tools: SDKs & Tools
         community: Community
         extend: Extend
         hiring: We're hiring
