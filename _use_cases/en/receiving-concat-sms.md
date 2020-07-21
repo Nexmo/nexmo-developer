@@ -115,7 +115,7 @@ Enter your webhook endpoint in the field labeled **Webhook URL for Inbound Messa
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/smsInboundWebhook.png
+image: public/screenshots/smsInboundWebhook.png
 ```
 
 Now, if any of your virtual numbers receive an SMS, Nexmo will call that webhook endpoint with the message details.

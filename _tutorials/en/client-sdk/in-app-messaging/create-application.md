@@ -41,4 +41,4 @@ Creating an application and application capabilities are covered in detail in th
 
 You can obtain information about your application, including Application ID, in the [Nexmo Dashboard](https://dashboard.nexmo.com/applications).
 
-![Nexmo Developer Dashboard Applications screenshot](/assets/screenshots/tutorials/nexmo-dashboard-applications.png "Nexmo Developer Dashboard Applications screenshot")
+![Nexmo Developer Dashboard Applications screenshot](/screenshots/tutorials/nexmo-dashboard-applications.png "Nexmo Developer Dashboard Applications screenshot")

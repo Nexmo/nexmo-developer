@@ -69,13 +69,13 @@ You need to authenticate your application using the private key file you [previo
 
 Open the `private.key` file in a text editor. Then, in your Glitch project, create the file `/.data/private.key` and copy and paste in the contents of the `private.key`:
 
-![Nexmo Application private key location Glitch screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-glitch.png)
+![Nexmo Application private key location Glitch screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-glitch.png)
 
 ### Using GitHub
 
 Move the `private.key` file to the root of your project:
 
-![Nexmo Application private key location local screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-local.png)
+![Nexmo Application private key location local screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-local.png)
 
 ## Configure your application
 
@@ -118,7 +118,7 @@ This section provides a walkthrough of the code for the most important pieces of
 
 The login screen is shown in the following screenshot:
 
-![Marketplace App login screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/app-login.png)
+![Marketplace App login screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/app-login.png)
 
 The user enters a username and selects either the Seller or Buyer role.
 
@@ -290,7 +290,7 @@ app.post('/getConversations', function(req, res) {
 
 If the role of Seller was selected, the application displays a form that allows the User to add an item for sale. This is shown in the following screenshot:
 
-![Marketplace App listing add item for sale screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/app-listing-item-for-sale.png)
+![Marketplace App listing add item for sale screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/app-listing-item-for-sale.png)
 
 When you fill out the form and press ‘submit’, a call to create a Conversation is made by the Nexmo Client SDK. Once the Conversation is created, you then join the User to the Conversation as a Member.
 
