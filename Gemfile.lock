@@ -1,17 +1,3 @@
-GIT
-  remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: f4af0a2d405572dd83056f58acb531adb72179f2
-  branch: consider-rails-root-for-views
-  specs:
-    nexmo_markdown_renderer (0.4.0)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rubygems.pkg.github.com/nexmo/
@@ -95,10 +81,10 @@ GEM
     barnes (0.0.8)
       multi_json (~> 1)
       statsd-ruby (~> 1.1)
-    bcrypt (3.1.13)
+    bcrypt (3.1.15)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    bugsnag (6.13.1)
+    bugsnag (6.14.0)
       concurrent-ruby (~> 1.0)
     builder (3.2.4)
     chartkick (3.3.1)
@@ -165,7 +151,7 @@ GEM
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    i18n (1.8.3)
+    i18n (1.8.4)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     icalendar (2.6.1)
@@ -230,7 +216,7 @@ GEM
     neatjson (0.9)
     netrc (0.11.0)
     newrelic_rpm (6.12.0.367)
-    nexmo-developer (0.0.79)
+    nexmo-developer (0.0.80)
       activeadmin (~> 2.7)
       activesupport (~> 6.0)
       algoliasearch (= 1.27.3)
@@ -261,7 +247,7 @@ GEM
       neatjson (= 0.9)
       newrelic_rpm (= 6.12.0.367)
       nexmo-oas-renderer (~> 2.1)
-      nexmo_markdown_renderer (~> 0.3)
+      nexmo_markdown_renderer (~> 0.4)
       nokogiri (= 1.10.10)
       octokit (~> 4.18)
       pg (~> 1.2)
@@ -282,7 +268,7 @@ GEM
       uglifier (= 4.2.0)
       webpacker (~> 5.1)
       woothee (~> 1.11)
-    nexmo-oas-renderer (2.1.0)
+    nexmo-oas-renderer (2.1.1)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
       banzai (~> 0.1.2)
@@ -295,6 +281,14 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
+    nexmo_markdown_renderer (0.4.1)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -451,18 +445,17 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     woothee (1.11.1)
-    zeitwerk (2.3.1)
+    zeitwerk (2.4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  nexmo-developer (= 0.0.79)!
-  nexmo_markdown_renderer!
+  nexmo-developer (= 0.0.80)!
 
 BUNDLED WITH
    2.1.4
