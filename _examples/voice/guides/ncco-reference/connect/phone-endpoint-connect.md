@@ -1,5 +1,5 @@
 ---
-title: PSTN endpoint
+title: Phone endpoint
 menu_weight: 1
 ---
 

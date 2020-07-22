@@ -147,39 +147,44 @@ Option | Description | Required
 
 ### Endpoint Types and Values
 
-#### Phone - phone numbers in E.164 format
+#### Phone (PSTN) - phone numbers in E.164 format
 
 Value | Description
 -- | --
+`type` | The endpoint type: `phone` for a PSTN endpoint.
 `number` | The phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The `*` and `#` digits are respected. You create pauses using `p`. Each pause is 500ms.
 `onAnswer` | A JSON object containing a required `url` key. The URL serves an NCCO to execute in the number being connected to, before that call is joined to your existing conversation. Optionally, the `ringbackTone` key can be specified with a URL value that points to a `ringbackTone` to be played back on repeat to the **caller**, so they do not hear just silence. The `ringbackTone` will automatically stop playing when the call is fully connected. Example: `{"url":"https://example.com/answer", "ringbackTone":"http://example.com/ringbackTone.wav" }`. Please note, the key `ringback` is still supported.
 
-#### app - Connect the call to an app
+#### App - Connect the call to an app
 
 Value | Description
 -- | --
-`user` | the username of the user to connect to. This username must have been [added as a user](/api/conversation#createUser)
+`type` | The endpoint type: `app` for an application.
+`user` | The username of the user to connect to. This username must have been [added as a user](/api/conversation#createUser)
 
-#### Websocket - the websocket to connect to
+#### WebSocket - the WebSocket to connect to
 
 Value | Description
 -- | --
-`uri` | the URI to the websocket you are streaming to.
+`type` | The endpoint type: `websocket` for a WebSocket.
+`uri` | The URI to the websocket you are streaming to.
 `content-type` | the internet media type for the audio you are streaming. Possible values are: `audio/l16;rate=16000` or `audio/l16;rate=8000`.
 `headers` | a JSON object containing any metadata you want. See [connecting to a websocket](/voice/voice-api/guides/websockets#connecting-to-a-websocket) for example headers
 
-#### sip - the sip endpoint to connect to
+#### SIP - the SIP endpoint to connect to
 
 Value | Description
 -- | --
+`type` | The endpoint type: `sip` for SIP.
 `uri` | the SIP URI to the endpoint you are connecting to in the format `sip:rebekka@sip.example.com`.
 `headers` | `key` => `value` string pairs containing any metadata you need e.g. `{ "location": "New York City", "occupation": "developer" }`
 
-#### vbc - the Vonage Business Cloud (VBC) extension to connect to
+#### VBC - the Vonage Business Cloud (VBC) extension to connect to
 
 Value | Description
 -- | --
+`type` | The endpoint type: `vbc` for a VBC extension.
 `extension` | the VBC extension to connect the call to.
 
 ## Talk
