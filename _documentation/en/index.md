@@ -1,7 +1,7 @@
 ---
-title: API Development Tools
-h1: Vonage API Development Tools
-description: Get the API development tools you’re looking for from Vonage. You’ll find guides, code snippets, and more to develop connected applications with Vonage APIs.
+title: ""
+h1: "Vonage API Developer"
+description: "Get guides and code snippets, browse reference documentation, and more to develop connected applications with Vonage APIs and SDKs."
 ---
 
 # Documentation
