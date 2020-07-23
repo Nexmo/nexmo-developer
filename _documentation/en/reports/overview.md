@@ -52,7 +52,7 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 * Voice API
 * Conversations API
 * Verify API
-* Number Insight
+* Number Insight API
 
 ## Pricing (subject to change)
 
