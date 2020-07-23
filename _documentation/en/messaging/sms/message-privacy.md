@@ -18,7 +18,7 @@ This sensitive PII ends up in two places: server logs and transactional records 
 
 The image below shows an example of the flow of Advanced SMS Auto-redact with Vonage.
 
-![Advanced SMS Redaction](/assets/images/messaging/sms/advanced_sms_redaction.png)
+![Advanced SMS Redaction](/images/messaging/sms/advanced_sms_redaction.png)
 
 **Note**: Advanced Auto-redact works only for messages sent using the Vonage SMS API. For messages received using the Vonage SMS API, we can offer the Standard Auto-redact feature. For more information on the Standard Auto-redact please refer to the [Redact API documentation](/redact/overview).
 
