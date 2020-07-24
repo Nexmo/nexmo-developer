@@ -49,6 +49,7 @@
 "/messaging/tutorials": "/messaging/sms/tutorials"
 "/messaging/sms/guides/global-messaging": "/messaging/sms/guides/country-specific-features"
 "/messaging/sms/guides/delivery-reciepts": "/messaging/sms/guides/delivery-receipts"
+"/messaging/sms/guides/message-privacy": "/messaging/sms/message-privacy"
 "/messages-and-workflows-apis": "/messages/overview"
 "/messages-and-workflows-apis/messages": "/messages/overview"
 "/messages-and-workflows-apis/workflows": "/dispatch/overview"
