@@ -2,13 +2,13 @@ name: PR Edited
 on:
   repository_dispatch: {}
   pull_request:
-    types: [opened, synchronize, labeled]
+    types: [opened, reopened, synchronize, labeled, closed]
 jobs:
   create-review-app:
     runs-on: ubuntu-latest
     steps:
     - name: Create Review App
-      uses: mheap/github-action-pr-heroku-review-app@master
+      uses: mheap/github-action-pr-heroku-review-app@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         HEROKU_PIPELINE_ID: ${{ secrets.HEROKU_PIPELINE_ID }}
