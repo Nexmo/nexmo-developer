@@ -18,7 +18,7 @@ image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/log
    1. Navigate to the menu `File -> Open` 
    2. Select the `kotlin-start` folder from cloned repository
 
-3. Make project `Build -> Make project`
+3. Make project `Build -> Make Project`
 4. 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png

@@ -11,7 +11,7 @@ To make things easier, a starter project is provided for you.
 
 2. Open the project in the `Android Studio`:
 
-3. Make project `Build -> Make project`
+3. Make project `Build -> Make Project`
    
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png
