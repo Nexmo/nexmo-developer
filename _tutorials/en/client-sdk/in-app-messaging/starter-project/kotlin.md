@@ -15,9 +15,9 @@ image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/log
 
 2. Open the project in the `Android Studio` - navigate to menu `File -> Open` and select the `kotlin-start` folder from cloned repository.
 
-3. Build the project
+3. Make project
 ```screenshot
-image: public/screenshots/tutorials/client-sdk/android-shared/build-project.png
+image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png
 ```
 
 All files that will be modified during this tutorial are located in the `app/src/main/java/com/vonage/tutorial/messaging/chat` directory:

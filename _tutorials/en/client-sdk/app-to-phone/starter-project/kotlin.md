@@ -11,9 +11,9 @@ To make things easier, a `Starter` project is provided for you. It is a simple A
 
 2. Open the project in the `Android Studio` - navigate to the menu `File -> Open` and select the `kotlin-start` folder from cloned repository.
 
-3. Build the project
+3. Make project
 ```screenshot
-image: public/screenshots/tutorials/client-sdk/android-shared/build-project.png
+image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png
 ```
 
 ## Project navigation overview
