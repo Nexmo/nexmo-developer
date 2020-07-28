@@ -1,9 +1,9 @@
 ---
-title: Authenticate Your User
+title: Authenticate your User
 description: In this step you authenticate your users via the JWTs you created earlier
 ---
 
-# Authenticate Your User
+# Authenticate your User
 
 Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the users.
 
