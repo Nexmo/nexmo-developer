@@ -5,13 +5,13 @@ description: In this step you will clone the starter project
 
 # The Starter Project
 
-To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
+To make things easier, a starter project is provided for you.
 
 1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-phone).
 
 2. Open the project in the `Android Studio`:
 
-3. Make project
+3. Make project `Build -> Make project`
    
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png

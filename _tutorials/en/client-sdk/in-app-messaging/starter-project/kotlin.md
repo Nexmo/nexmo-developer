@@ -5,7 +5,7 @@ description: In this step you will clone the starter project
 
 # The Starter Project
 
-To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
+To make things easier, a starter project is provided for you.
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/login-screen.png
@@ -18,7 +18,8 @@ image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/log
    1. Navigate to the menu `File -> Open` 
    2. Select the `kotlin-start` folder from cloned repository
 
-3. Make project
+3. Make project `Build -> Make project`
+4. 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png
 ```
