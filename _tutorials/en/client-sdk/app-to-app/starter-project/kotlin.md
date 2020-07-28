@@ -9,7 +9,10 @@ To make things easier, a `Starter` project is provided for you. It is a simple A
 
 1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-app).
 
-2. Open the project in the `Android Studio` - navigate to the menu `File -> Open` and select the `kotlin-start` folder from cloned repository.
+2. Open the project in the `Android Studio`
+   
+   1. Navigate to the menu `File -> Open` 
+   2. Select the `kotlin-start` folder from cloned repository
 
 3. Make project
 
