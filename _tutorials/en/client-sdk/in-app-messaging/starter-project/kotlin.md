@@ -13,7 +13,7 @@ image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/log
 
 1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging).
 
-2. Open the project in the `Android Studio`
+2. Open the project in the `Android Studio`;
    
    1. Navigate to the menu `File -> Open` 
    2. Select the `kotlin-start` folder from cloned repository
