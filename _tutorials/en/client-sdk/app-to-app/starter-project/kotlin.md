@@ -1,9 +1,9 @@
 ---
-title: The Starter Project
+title: The starter project
 description: In this step you will clone the starter project
 ---
 
-# The Starter Project
+# The starter project
 
 To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
 

@@ -1,11 +1,11 @@
 ---
-title: The Starter Project
+title: The starter project
 description: In this step you will clone the starter project
 ---
 
-# The Starter Project
+# The starter project
 
-To make things easier, we are providing a `Starter` project for you. It is a simple Xcode project that contains the following two screens:
+To make things easier, we are providing a starter project for you. It is a simple Xcode project that contains the following two screens:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/ios-in-app-messaging-chat/screens.png

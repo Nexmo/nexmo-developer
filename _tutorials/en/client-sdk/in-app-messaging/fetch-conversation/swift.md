@@ -26,6 +26,6 @@ func getConversation() {
 
 Notice the use of the `NXMClient.shared` singleton - this references the same object that was a `client` property in `UserSelectionViewController`.
 
-> **Note:** This is where we get to use the `conversationId` static property we've defined in the "The Starter Project" step.
+> **Note:** This is where we get to use the `conversationId` static property we've defined in the "The starter project" step.
 
 If a conversation has been retrieved, you're ready to process to the next step: getting the events for your conversation.

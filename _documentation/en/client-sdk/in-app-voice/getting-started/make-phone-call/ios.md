@@ -27,7 +27,7 @@ source: _partials/client-sdk/voice/pstn-prerequisites.md
 source: _partials/client-sdk/voice/outbound-pstn-application-webhook.md
 ```
 
-## The Starter Project
+## The starter project
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/started-project'

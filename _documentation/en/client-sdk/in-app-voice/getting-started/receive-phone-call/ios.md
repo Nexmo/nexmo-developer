@@ -32,7 +32,7 @@ source: _partials/client-sdk/voice/inbound-pstn-application-webhook.md
 source: _partials/client-sdk/voice/link-nexmo-number.md
 ```
 
-## The Starter project
+## The starter project
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/started-project'
