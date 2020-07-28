@@ -40,7 +40,7 @@ fun onLoginUser(user: User) {
 
 ## Monitor connection state
 
-When successful connection is established you need to navigate user to `MainFragment`. Locate the `init` block inside `LoginViewModel` class and replace it with this code:
+When a successful connection is established you need to navigate user to `MainFragment`. Locate the `init` block inside `LoginViewModel` class and replace it with this code:
 
 
 ```kotlin
