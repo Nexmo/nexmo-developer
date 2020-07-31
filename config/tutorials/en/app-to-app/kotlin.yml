@@ -25,7 +25,7 @@ tasks:
   - client-sdk/android-shared/initialize-client
   - client-sdk/android-shared/configure-jwt-alice-and-bob
   - client-sdk/android-shared/call/authenticate-alice-and-bob
-  - client-sdk/app-to-app/recieve-call
+  - client-sdk/app-to-app/receive-call
   - client-sdk/app-to-app/make-call
 
 
