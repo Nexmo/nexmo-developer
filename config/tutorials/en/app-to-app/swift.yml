@@ -11,6 +11,8 @@ introduction:
     In this task, you will learn how to create and configure a Client SDK Application and then build an iOS application that enables two users to call each other.
 
     If you would like to follow along without building the app yourself, the completed project for this tutorial is available on [GitHub](https://github.com/nexmo-community/ClientSDK-app-to-app-call-Swift).
+
+    *This tutorial uses NexmoClient version 2.2.1 and Swift 5*
     
 prerequisites:
   - create-nexmo-account
