@@ -64,7 +64,7 @@ source: '_examples/voice/make-an-outbound-call'
 application:
   type: voice
   name: 'Outbound Call code snippet'
-  answer_url: https://developer.nexmo.com/ncco/tts.json
+  answer_url: https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/text-to-speech.json
 ```
 
 ## Guides

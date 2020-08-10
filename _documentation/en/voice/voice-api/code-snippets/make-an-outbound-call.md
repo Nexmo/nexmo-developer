@@ -16,14 +16,14 @@ Key |	Description
 -- | --
 `NEXMO_NUMBER` |	Your Nexmo number that the call will be made from. For example `447700900000`.
 `TO_NUMBER` |	The number you would like to call to in E.164 format. For example `447700900001`.
-`ANSWER_URL` | The answer URL. For example `https://developer.nexmo.com/ncco/tts.json`.
+`ANSWER_URL` | The answer URL. For example `https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/text-to-speech.json`.
 
 ```code_snippets
 source: '_examples/voice/make-an-outbound-call'
 application:
   type: voice
   name: 'Outbound Call code snippet'
-  answer_url: https://developer.nexmo.com/ncco/tts.json
+  answer_url: https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/text-to-speech.json
   disable_ngrok: true
 ```
 
