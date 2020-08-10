@@ -92,7 +92,7 @@ navigation_overrides:
     sip:
       concepts:
         programmable-sip:
-          label: 'Developer Preview'
+          label: 'Dev Preview'
   verify:
     svg: 'lock'
     svgColor: 'indigo'
