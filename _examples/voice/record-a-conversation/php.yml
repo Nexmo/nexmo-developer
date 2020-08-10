@@ -3,9 +3,18 @@ title: PHP
 language: php
 dependencies:
     - 'slim/slim:^3.8'
+    - 'nexmo/client'
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-conversation/index.php
+    from_line: 16
+    to_line: 43
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-conversation/index.php
     from_line: 7
-    to_line: 33
+    to_line: 14
+import_dependencies:
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-conversation/index.php
+    from_line: 2
+    to_line: 5
 file_name: index.php
 run_command: 'php index.php'

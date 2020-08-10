@@ -1,11 +1,11 @@
 ---
 client:
     source: .repos/nexmo/nexmo-php-code-snippets/verify/cancel.php
-    from_line: 10
-    to_line: 11
+    from_line: 14
+    to_line: 15
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/verify/cancel.php
-    from_line: 13
-    to_line: 20
+    from_line: 17
+    to_line: 24
 file_name: cancel.php
 run_command: 'php cancel.php'

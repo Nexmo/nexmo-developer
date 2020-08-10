@@ -1,8 +1,16 @@
 ---
+dependencies:
+    - 'slim/slim:^3.8'
+    - 'nexmo/client'
 client:
     source: .repos/nexmo/nexmo-php-code-snippets/voice/trigger-notify-action/index.php
-    from_line: 2
-    to_line: 7
+    from_line: 7
+    to_line: 9
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/voice/trigger-notify-action/index.php
-    from_line: 8
+    from_line: 11
+    to_line: 56
+import_dependencies:
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/trigger-notify-action/index.php
+    from_line: 3
+    to_line: 5

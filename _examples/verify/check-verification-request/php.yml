@@ -1,11 +1,11 @@
 ---
 client:
     source: .repos/nexmo/nexmo-php-code-snippets/verify/verify.php
-    from_line: 11
-    to_line: 12
+    from_line: 16
+    to_line: 17
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/verify/verify.php
-    from_line: 14
-    to_line: 15
+    from_line: 19
+    to_line: 21
 file_name: verify.php
 run_command: 'php verify.php'
