@@ -1,0 +1,26 @@
+---
+title: Step-up Authentication
+description: Add an extra layer of security when users perform sensitive tasks
+products:
+  - verify
+
+introduction:
+  title: Introduction
+  description: Learn how to implement step-up authentication in your applications
+  content: |
+    # Introduction
+
+    Using step-up authentication, users can access some resources with one set of credentials but are prompted for more credentials when they request access to sensitive resources.
+
+    This tutorial shows you how use Node.js and the Verify API to add this extra layer of security to your applications. You will build an application that simulates a user trying to access their account settings and being asked to verify themselves before being allowed to do so.
+tasks:
+  - verify/stepup-auth-create-node-application
+  - verify/stepup-auth-init-dependencies
+  - verify/stepup-auth-configure-application
+  - verify/stepup-auth-define-routes
+  - verify/stepup-auth-create-ui
+  - verify/stepup-auth-display-home-page
+  - verify/stepup-auth-send-verification-request
+  - verify/stepup-auth-check-verification-code
+  - verify/stepup-auth-test-your-application
+  - verify/stepup-auth-whats-next
