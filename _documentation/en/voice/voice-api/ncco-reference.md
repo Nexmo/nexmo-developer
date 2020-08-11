@@ -156,11 +156,11 @@ Value | Description
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The `*` and `#` digits are respected. You create pauses using `p`. Each pause is 500ms.
 `onAnswer` | A JSON object containing a required `url` key. The URL serves an NCCO to execute in the number being connected to, before that call is joined to your existing conversation. Optionally, the `ringbackTone` key can be specified with a URL value that points to a `ringbackTone` to be played back on repeat to the **caller**, so they do not hear just silence. The `ringbackTone` will automatically stop playing when the call is fully connected. Example: `{"url":"https://example.com/answer", "ringbackTone":"http://example.com/ringbackTone.wav" }`. Please note, the key `ringback` is still supported.
 
-#### App - Connect the call to an app
+#### App - Connect the call to a Client SDK application
 
 Value | Description
 -- | --
-`type` | The endpoint type: `app` for an application.
+`type` | The endpoint type: `app` for an [application](/client-sdk/overview).
 `user` | The username of the user to connect to. This username must have been [added as a user](/api/conversation#createUser)
 
 #### WebSocket - the WebSocket to connect to
