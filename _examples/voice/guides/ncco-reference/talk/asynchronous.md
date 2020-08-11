@@ -9,13 +9,13 @@ menu_weight: 2
   {
     "action": "talk",
     "text": "Welcome to a Voice API I V R. ",
-    "voiceName": "Amy",
+    "language": "en-GB",
     "bargeIn": false
   },
   {
     "action": "talk",
     "text": "Press 1 for maybe and 2 for not sure followed by the hash key",
-    "voiceName": "Amy",
+    "language": "en-GB",
     "bargeIn": true
   },
   {

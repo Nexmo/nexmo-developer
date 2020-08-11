@@ -7,11 +7,14 @@ description: In this step you will clone the starter project
 
 To make things easier, a starter project is provided for you.
 
-1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-phone).
+1. Clone this [GitHub repository](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging) (Android Studio `New project from version control` feature can’t be used, because repository contains two projects `kotlin-start` and `kotlin-complted`).
 
-2. Open the project in the `Android Studio`.
+2. Open the `kotlin-start` project in the Android Studio:
 
-3. Make the project `Build -> Make Project`, as shown in the following screenshot:
+   1. Navigate to the menu `File -> Open` 
+   2. Select the `kotlin-start` folder from cloned repository
+
+3. Make the project `Build -> Make Project`, to generate missing classes as shown in the following screenshot:
    
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png

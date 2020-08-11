@@ -5,7 +5,7 @@ description: In this step you learn how to create a Nexmo Application.
 
 # Create your Nexmo Application
 
-You now need to create a Nexmo [Application](/conversation/concepts/application). In this step you create an application capable of handling in-app Messaging use cases.
+In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of handling in-app Messaging use cases. Notice that this is not an Android project, but rather Nexmo application project that allows to configure backend for the mobile application that we will create in the following steps.
 
 1) First create your project directory if you've not already done so.
 

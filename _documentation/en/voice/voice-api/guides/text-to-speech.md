@@ -8,7 +8,7 @@ navigation_weight: 3
 
 ## Overview
 
-Nexmo uses text-to-speech engines to allow you to play machine
+Vonage uses text-to-speech engines to allow you to play machine
 generated speech to your users. This can either be done via an NCCO
 with the use of the `talk` action, or by [making a PUT request](/api/voice#startTalk) to an
 in-progress call.
@@ -23,129 +23,84 @@ The following example NCCO shows a simple use case:
 [
   {
     "action": "talk",
-    "voiceName": "Amy",
-    "text": "Thank you for calling Nexmo. Please leave your message after the tone."
+    "text": "Thank you for calling. Please leave your message after the tone."
   }
 ]
 ```
 ## Locale
 
-You should choose a voice that matches the language type of the text
+You should choose a locale that matches the language type of the text
 you are asking to be read, trying to read Spanish with an `en-us`
-voice for example will not produce good results. For many languages
-Nexmo offers a choice of voices with different styles and genders.
+voice for example will not produce good results.
 
-You can set the Voice with a Voice Name parameter in the talk command,
-if you do not specify a voice name then nexmo will default to
-`Kimberly`, an `en-US` voice.
+You can set the language code ([BCP-47](https://tools.ietf.org/html/bcp47)) with a `language` parameter in the `talk` command,
+if you do not specify a language then Vonage will default to an `en-US` voice. 
+For many languages Vonage offers a choice of voices with different styles. The `style` parameter maps to features such as 
+vocal range, timbre and tessitura of the selected voice. You can experiment with different styles to find the one appropriate
+for your use case. You can choose a specific voice style by using the `style` parameter. By default, the first style (`0`) is used.
+Please note not all the voice styles support [SSML](/voice/voice-api/guides/customizing-tts), 
+see the list of all the supported languages and SSML enabled styles below.
 
-### Voice Names
+NCCO example with specific voice language and style:
 
-Name | Language | Gender | [SSML](/voice/voice-api/guides/customizing-tts) support
+``` json
+[
+  {
+    "action": "talk",
+    "text": "Obrigado pela sua chamada. Por favor, deixe sua mensagem após o sinal.",
+    "language": "pt-PT",
+    "style": 6
+  }
+]
+```
+
+### Supported Languages
+
+Language | Code | Styles | [SSML](/voice/voice-api/guides/customizing-tts) Support (Styles)
 -- | -- | -- | -- 
-`Salli` | `en-US` | `female` | ✅
-`Joey` | `en-US` | `male` | ✅
-`Naja` | `da-DK` | `female` | ✅
-`Mads` | `da-DK` | `male` | ✅
-`Marlene` | `de-DE` | `female` | ✅
-`Hans` | `de-DE` | `male` | ✅
-`Nicole` | `en-AU` | `female` | ✅
-`Russell` | `en-AU` | `male` | ✅
-`Amy` | `en-GB` | `female` | ✅
-`Brian` | `en-GB` | `male` | ✅
-`Emma` | `en-GB` | `female` | ✅
-`Geraint` | `en-GB-WLS` | `male` | ✅
-`Gwyneth` | `cy-GB` | `female` | ✅
-`Raveena` | `en-IN` | `female` | ✅
-`Ivy` | `en-US` | `female` | ✅
-`Matthew` | `en-US` | `male` | ✅
-`Justin` | `en-US` | `male` | ✅
-`Kendra` | `en-US` | `female` | ✅
-`Kimberly` | `en-US` | `female` | ✅
-`Joanna` | `en-US` | `female` | ✅
-`Conchita` | `es-ES` | `female` | ✅
-`Enrique` | `es-ES` | `male` | ✅
-`Penelope` | `es-US` | `female` | ✅
-`Miguel` | `es-US` | `male` | ✅
-`Chantal` | `fr-CA` | `female` | ✅
-`Celine` | `fr-FR` | `female` | ✅
-`Mathieu` | `fr-FR` | `male` | ✅
-`Aditi` | `hi-IN` | `female` | ✅
-`Dora` | `is-IS` | `female` | ✅
-`Karl` | `is-IS` | `male` | ✅
-`Carla` | `it-IT` | `female` | ✅
-`Giorgio` | `it-IT` | `male` | ✅
-`Liv` | `nb-NO` | `female` | ✅
-`Lotte` | `nl-NL` | `female` | ✅
-`Ruben` | `nl-NL` | `male` | ✅
-`Jacek` | `pl-PL` | `male` | ✅
-`Ewa` | `pl-PL` | `female` | ✅
-`Jan` | `pl-PL` | `male` | ✅
-`Maja` | `pl-PL` | `female` | ✅
-`Vitoria` | `pt-BR` | `female` | ✅
-`Ricardo` | `pt-BR` | `male` | ✅
-`Cristiano` | `pt-PT` | `male` | ✅
-`Ines` | `pt-PT` | `female` | ✅
-`Carmen` | `ro-RO` | `female` | ✅
-`Maxim` | `ru-RU` | `male` | ✅
-`Tatyana` | `ru-RU` | `female` | ✅
-`Astrid` | `sv-SE` | `female` | ✅
-`Filiz` | `tr-TR` | `female` | ✅
-`Mizuki` | `ja-JP` | `female` | ✅
-`Seoyeon`| `ko-KR` | `female`| ✅
-`Zeina` | `ar` | `Female` | ✅
-`Zhiyu` | `cmn-CN` | `Female` | ✅
-`Lea` | `fr-FR` | `Female` | ✅
-`Vicki` | `de-DE` | `Female` | ✅
-`Bianca` | `it-IT` | `Female` | ✅
-`Takumi` | `ja-JP` | `Male` | ✅
-`Mia` | `es-MX` | `Female` | ✅
-`Lucia` | `es-ES` | `Female` | ✅
-`Laila` | `ara-XWW` | `female` | ❌
-`Maged` | `ara-XWW` | `male` | ❌
-`Tarik` | `ara-XWW` | `male` | ❌
-`Damayanti` | `ind-IDN` | `female` | ❌
-`Miren` | `baq-ESP` | `female` | ❌
-`Sin-Ji` | `yue-CHN` | `female` | ❌
-`Jordi` | `cat-ESP` | `male` | ❌
-`Montserrat` | `cat-ESP` | `female` | ❌
-`Iveta` | `ces-CZE` | `female` | ❌
-`Zuzana` | `ces-CZE` | `female` | ❌
-`Tessa` | `eng-ZAF` | `female` | ❌
-`Satu` | `fin-FIN` | `female` | ❌
-`Melina` | `ell-GRC` | `female` | ❌
-`Nikos` | `ell-GRC` | `male` | ❌
-`Carmit` | `heb-ISR` | `female` | ❌
-`Lekha` | `hin-IND` | `female` | ❌
-`Mariska` | `hun-HUN` | `female` | ❌
-`Sora` | `kor-KOR` | `female` | ❌
-`Tian-Tian` | `cmn-CHN` | `female` | ❌
-`Mei-Jia` | `cmn-TWN` | `female` | ❌
-`Nora` | `nor-NOR` | `female` | ❌
-`Henrik` | `nor-NOR` | `male` | ❌
-`Luciana` | `por-BRA` | `female` | ❌
-`Felipe` | `por-BRA` | `male` | ❌
-`Catarina` | `por-PRT` | `female` | ❌
-`Joana` | `por-PRT` | `female` | ❌
-`Ioana` | `ron-ROU` | `female` | ❌
-`Laura` | `slk-SVK` | `female` | ❌
-`Alva` | `swe-SWE` | `female` | ❌
-`Oskar` | `swe-SWE` | `male` | ❌
-`Kanya` | `tha-THA` | `female` | ❌
-`Cem` | `tur-TUR` | `male` | ❌
-`Yelda` | `tur-TUR` | `female` | ❌
-`Empar` | `spa-ESP` | `female` | ❌
-
-#### Discontinued voices
-
-Some voices have been removed. The table below shows the discontinued
-voice names and which voice you will now get if you use the
-discontinued voice name.
-
-Name | Locale | Gender | Now redirects to
------|--------|--------|-----------------
-`Chipmunk` | `en-US` | `male` | `Justin`
-`Eric` | `en-US` | `male` | `Justin`
-`Jennifer` | `en-US` | `female` | `Kimberly`
-`Agnieszka` | `pl-PL` | `female` | `Ewa`
-
+Arabic | `ar` | `0` - `6` | `0`, `1`, `3`, `4`
+Basque (Spain) | `eu-ES` | `0` | -
+Catalan, Valencian | `ca-ES` | `0` - `1` | -
+Chinese, Cantonese | `yue-CN` | `0` | -
+Chinese, Mandarin | `cmn-CN` | `0` - `5` | `0`, `1`, `2`, `4`, `5`
+Chinese, Mandarin (Taiwan) | `cmn-TW` | `0` | -
+Czech | `cs-CZ` | `0` - `2` | `0`
+Danish | `da-DK` | `0` - `2` | `0` - `2`
+Dutch | `nl-NL` | `0` - `6` | `0` - `6`
+English (Australia) | `en-AU` | `0` - `5` | `0` - `5`
+English (India) | `en-IN` | `0` - `4` | `0` - `4`
+English (South Africa) | `en-ZA` | `0` | -
+English (United Kingdom) | `en-GB` | `0` - `6` | `0` - `6`
+English (United States) | `en-US` | `0` - `11` | `0` - `11`
+English (Wales) | `en-GB-WLS` | `0` | -
+Filipino | `fil-PH` | `0` | `0`
+Finnish | `fi-FI` | `0` - `1` | `0`
+French (Canada) | `fr-CA` | `0` - `4` | `0` - `4`
+French (France) | `fr-FR` | `0` - `7` | `0` - `7`
+German | `de-DE` | `0` - `4` | `0` - `4`
+Greek | `el-GR` | `0` - `2` | `0`
+Hebrew | `he-IL` | `0` | -
+Hindi | `hi-IN` | `0` - `4` | `0`, `1`, `3`, `4`
+Hungarian | `hu-HU` | `0` - `1` | `0`
+Icelandic | `is-IS` | `0` - `1` | `0` - `1`
+Indonesian | `id-ID` | `0` - `3` | `0`, `2`, `3`
+Italian | `it-IT` | `0` - `6` | `0` - `6`
+Japanese | `ja-JP` | `0` - `5` | `0` - `5`
+Korean | `ko-KR` | `0` - `5` | `0`, `1`, `2`, `4`, `5`
+Norwegian | `no-NO` | `0` - `1` | -
+Norwegian Bokmål | `nb-NO` | `0` - `5` | `0` - `5`
+Polish | `pl-PL` | `0` - `8` | `0` - `8`
+Portuguese (Brazil) | `pt-BR` | `0` - `4` | `0`, `1`, `3`
+Portuguese (Portugal) | `pt-PT` | `0` - `7` | `0` - `2`, `5` - `7`
+Romanian | `ro-RO` | `0` - `1` | `0`
+Russian | `ru-RU` | `0` - `6` | `0` - `6`
+Slovak | `sk-SK` | `0` - `1` | `0`
+Spanish (Mexico) | `es-MX` | `0` | `0`
+Spanish (Spain) | `es-ES` | `0` - `4` | `0`, `1`, `2`, `4`
+Spanish (United States) | `es-US` | `0` - `1` | `0` - `1`
+Swedish | `sv-SE` | `0` - `3` | `0` - `1`
+Thai | `th-TH` | `0` | -
+Turkish | `tr-TR` | `0` - `7` | `0` - `3`, `5` - `6`
+Ukrainian | `uk-UA` | `0` | `0`
+Vietnamese | `vi-VN` | `0` - `3` | `0` - `3`
+Welsh | `cy-GB` | `0` | `0`

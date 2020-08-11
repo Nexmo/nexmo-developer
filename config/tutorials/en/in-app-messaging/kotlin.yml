@@ -21,7 +21,7 @@ introduction:
     - Android (6.0 and above - API level 23 and above)
     - Client SDK for Android 2.6.4
 
-    Last update: 3rd August 2020
+    Last update: 11th August 2020
 
 prerequisites:
   - create-nexmo-account
@@ -36,7 +36,7 @@ tasks:
   - client-sdk/in-app-messaging/add-users-to-conversation
   - client-sdk/in-app-messaging/generate-jwts
   - client-sdk/in-app-messaging/starter-project
-  - client-sdk/in-app-messaging/initialize-client
+  - client-sdk/android-shared/initialize-client
   - client-sdk/in-app-messaging/authenticate-users
   - client-sdk/in-app-messaging/fetch-conversation
   - client-sdk/in-app-messaging/fetch-events
