@@ -11,7 +11,7 @@ In this step you will create a Nexmo [Application](/conversation/concepts/applic
 
 2) Change into the project directory.
 
-3) Create a Nexmo application by copying and pasting the command below. Make sure to change the value of `--voice-answer-url` argument by replecing `GIST-URL` with the gist URL from the previous step.
+3) Create a Nexmo application by copying and pasting the command below. Make sure to change the value of `--voice-answer-url` argument by replacing `GIST-URL` with the gist URL from the previous step.
 
 ``` shell
 nexmo app:create "Phone To App Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL 
