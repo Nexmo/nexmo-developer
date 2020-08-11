@@ -5,9 +5,7 @@ description: Create the user interface for your app
 
 # Create the UI
 
-The application will use the `pug` templating engine to render the pages as HTML.
-
-> Find out more about `pug` at [pugjs.com](https://pugjs.org/)
+The application will use the [`pug` template engine](https://pugjs.org/) to render the pages as HTML.
 
 In a folder called `views` in your application directory, create the following templates:
 
@@ -70,7 +68,7 @@ block content
             input.ghost-button(type='submit', value='Verify me!')
 ```
 
-Finally, create a file called `style.css` in a `public/css` directory, which contains the following stylesheet:
+Finally, create a file called `style.css` in a `public/css` directory, which contains the following style sheet:
 
 ```css
 body {
