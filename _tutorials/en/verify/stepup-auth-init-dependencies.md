@@ -9,7 +9,7 @@ description: Load the modules that your application will use
 In `server.js`, write the following code to initialize dependencies and define some variables which you will use to configure your application: 
 
 ```javascript
-require('dotenv').load();
+require('dotenv').config();
 
 const path = require('path')
 const express = require('express');
