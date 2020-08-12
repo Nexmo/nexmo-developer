@@ -40,6 +40,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // For templating
 app.set('view engine', 'pug');
 
+// Define your routes here
+
 // Run the web server
 const server = app.listen(3000, () => {
     console.log(`Server running on port ${server.address().port}`);

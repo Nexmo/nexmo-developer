@@ -22,7 +22,7 @@ In addition to `express` and `pug`, you will be using the following external mod
 * `express-session` - to manage the login state of the user
 * `body-parser` - to parse `POST` requests
 * `dotenv` - to store your Nexmo API key and secret and the name of your application in a `.env` file
-* `nexmo` - the [client library for Node.js](https://github.com/nexmo/nexmo-node)
+* `nexmo` - the [Node Server SDK](https://github.com/nexmo/nexmo-node)
 
 Install these dependencies by running the following `npm` command at a terminal prompt:
 
