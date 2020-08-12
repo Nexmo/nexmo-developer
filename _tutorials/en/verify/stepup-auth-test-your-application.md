@@ -5,7 +5,7 @@ description: Test your application
 
 # Try it out!
 
-First, run the program:
+First, kill any running instances of your application (using Ctrl+C) and then run your program again using:
 
 ```sh
 node server.js

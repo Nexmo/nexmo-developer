@@ -40,6 +40,8 @@ Also ensure that when you click the "Verify me" button, you are redirected to a 
 
 ![The enter code page](/images/tutorials/verify-stepup-auth-enter-number-page.png)
 
+Although you can enter your number here, you still won't receive a verification code. You'll implement that functionality in the next step!
+
 
 
 

@@ -7,7 +7,7 @@ description: Start the verification process with a call to the Verify request en
 
 Start the verification process by using the [Verify API request endpoint](/api/verify#verifyRequest) to generate a verification code and send it to the user.
 
-Use the Node.js client library for this. First, instantiate it:
+Use the Node Server SDK for this. First, instantiate it after the lines of code that read your environment variables from `.env`:
 
 ```javascript
 const nexmo = new Nexmo(
