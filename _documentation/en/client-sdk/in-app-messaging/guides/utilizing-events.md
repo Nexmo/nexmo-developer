@@ -3,7 +3,7 @@ title: Utilizing Events
 navigation_weight: 7
 ---
 
-# Using more Events with the Nexmo Client SDK
+# Using more Events with the Client SDK
 
 In this guide we'll cover adding more conversation events; we'll deal with multiple types of events, the ones that come via the conversation, and the ones we send to the conversation.
 

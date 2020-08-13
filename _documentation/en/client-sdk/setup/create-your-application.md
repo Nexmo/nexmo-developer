@@ -6,13 +6,13 @@ navigation_weight: 1
 
 # Create your application, users and tokens
 
-In order to use the Nexmo Client SDK, there are three things you need to set up before getting started:
+In order to use the Client SDK, there are three things you need to set up before getting started:
 
 * [Nexmo Application](/application/overview) - an Application which contains configuration for the app that you are building.
 
 * [Users](/conversation/concepts/user) - Users who are associated with the Nexmo Application. It is expected that Users will have a one-to-one mapping with your own authentication system.
 
-* [JSON Web Tokens, JWTs](https://jwt.io/) - Nexmo Client SDK uses JWTs for authentication. In order for a user to log in and use the SDK functionality, you need to provide a JWT per user. JWTs contain all the information the Nexmo platform needs to authenticate requests, as well as information such as the associated Applications, Users and permissions.
+* [JSON Web Tokens, JWTs](https://jwt.io/) - Client SDK uses JWTs for authentication. In order for a user to log in and use the SDK functionality, you need to provide a JWT per user. JWTs contain all the information the Nexmo platform needs to authenticate requests, as well as information such as the associated Applications, Users and permissions.
 
 All of these may be [created by your backend](/conversation/overview). 
 If you wish to get started and experience using the SDK without any implementation of your backend, this tutorial will show you how to do so, using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli).

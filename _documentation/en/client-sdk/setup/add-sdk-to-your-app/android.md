@@ -5,13 +5,13 @@ language: android
 
 # Overview
 
-In this guide you learn how to add the Nexmo Client SDK to your Android app.
+In this guide you learn how to add the Client SDK to your Android app.
 
 ## Prerequisites
 
-The Nexmo Client SDK requires a minimum Android API level of 23.
+The Client SDK requires a minimum Android API level of 23.
 
-## To add the Nexmo Client SDK to your project
+## To add the Client SDK to your project
 
 ### Open you Android project
 
@@ -25,7 +25,7 @@ First, you need to add a custom Maven URL repository to your Gradle configuratio
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/maven'
 ``` 
 
-Now to add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
+Now to add the Client SDK to your project, add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
 
  ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/dependencies'
@@ -90,7 +90,7 @@ After the login succeeds, the logged in user is available via `NexmoClient.get()
 
 ## Conclusion
 
-You added the Nexmo Client SDK to your Android app, initialized it, and logged in to a `NexmoClient` instance. 
+You added the Client SDK to your Android app, initialized it, and logged in to a `NexmoClient` instance. 
 
 In production application good place to initialize `NexmoClient` is custom Android [Application](https://developer.android.com/reference/android/app/Application) class. You can later retrieve `NexmoClient` instance using `NexmoClient.get()` method and use additional `NexmoClient` functionality.
 

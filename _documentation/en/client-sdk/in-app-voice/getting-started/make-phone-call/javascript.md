@@ -3,7 +3,7 @@ title: JavaScript
 language: javascript
 ---
 
-# How to Make Phone Calls with the Nexmo Client SDK in JavaScript
+# How to Make Phone Calls with the Client SDK in JavaScript
 
 ```partial
 source: _partials/client-sdk/voice/outbound-call-intro.md
@@ -112,6 +112,6 @@ source: _partials/client-sdk/voice/javascript/hangup.md
 
 ## Conclusion
 
-You have implemented your first App to Phone Voice application with the Nexmo Client SDK for JavaScript.
+You have implemented your first App to Phone Voice application with the Client SDK for JavaScript.
 
 Open the webpage in a browser to see that you can make a call and hangup a call to a phone number. If you've followed along this tutorial, your code should look similar to [this](https://github.com/Nexmo/client-sdk-javascript-make-phone-calls/blob/master/index.html).

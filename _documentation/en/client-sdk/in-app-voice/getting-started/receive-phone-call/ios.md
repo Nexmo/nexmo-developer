@@ -3,7 +3,7 @@ title: iOS
 language: ios
 ---
 
-# How to Receive Phone Calls with the Nexmo Client SDK on iOS
+# How to Receive Phone Calls with the Client SDK on iOS
 
 In this guide, you'll learn how to receive an incoming phone call in a Nexmo application by implementing a [webhook](/concepts/guides/webhooks) and linking that to a [Nexmo application](/concepts/guides/applications).
 
@@ -40,7 +40,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 
 ## Login
 
-Using the Nexmo Client SDK should start with logging in to `NexmoClient`, using a `jwt` user token.
+Using the Client SDK should start with logging in to `NexmoClient`, using a `jwt` user token.
 
 In production apps, your server would authenticate the user, and would return a [correctly configured JWT](/client-sdk/concepts/jwt-acl) to your app.
 
@@ -106,7 +106,7 @@ To read more about the permissions required, [see the setup tutorial](/client-sd
 
 ## Conclusion
 
-Congratulations! You have implemented your first Phone to App Voice application with the Nexmo Client SDK for iOS.
+Congratulations! You have implemented your first Phone to App Voice application with the Client SDK for iOS.
 
 Run the app on a simulator, and with another device call the nexmo Number you linked. Then, see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.
 
