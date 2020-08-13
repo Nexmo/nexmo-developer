@@ -17,10 +17,6 @@ You now need to create a Nexmo application. In this step you create an applicati
 nexmo app:create "App to Phone Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL 
 ```
 
-```screenshot
-image: public/screenshots/tutorials/client-sdk/app-to-phone/create-ncco/gist3.png
-```
-
 > **NOTE:** An application can be also created using the CLI's [interactive mode](/application/nexmo-cli#interactive-mode).
 
 A file named `.nexmo-app` is created in your project directory and contains the Nexmo Application ID and the private key. A private key file named `private.key` is also created.
