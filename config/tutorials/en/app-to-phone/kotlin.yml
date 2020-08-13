@@ -19,7 +19,7 @@ prerequisites:
 
 tasks:
   - client-sdk/app-to-phone/create-ncco
-  - client-sdk/android-shared/create-application
+  - client-sdk/app-to-phone/create-nexmo-application
   - client-sdk/android-shared/call/create-user-alice
   - client-sdk/android-shared/generate-jwt-alice
   - client-sdk/app-to-phone/starter-project
