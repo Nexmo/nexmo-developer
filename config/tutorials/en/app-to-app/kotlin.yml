@@ -11,6 +11,13 @@ introduction:
     In this tutorial, you will learn how to create an Android application using Kotlin and the Nexmo Android Client SDK, and then write the code to make a phone call from your Android app to another Android app.
     The source code is available on [GitHub](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-app).
 
+    ### This tutorial requires the following versions:
+
+    - Android (6.0 and above - API level 23 and above)
+    - Client SDK for Android 2.6.4
+
+    Last update: 3rd August 2020
+
 prerequisites:
   - create-nexmo-account
   - install-nodejs
@@ -25,7 +32,7 @@ tasks:
   - client-sdk/android-shared/initialize-client
   - client-sdk/android-shared/configure-jwt-alice-and-bob
   - client-sdk/android-shared/call/authenticate-alice-and-bob
-  - client-sdk/app-to-app/recieve-call
+  - client-sdk/app-to-app/receive-call
   - client-sdk/app-to-app/make-call
 
 

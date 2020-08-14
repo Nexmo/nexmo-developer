@@ -89,6 +89,10 @@ navigation_overrides:
         websockets:
         asr:
           label: 'Beta'
+    sip:
+      concepts:
+        programmable-sip:
+          label: 'Dev Preview'
   verify:
     svg: 'lock'
     svgColor: 'indigo'

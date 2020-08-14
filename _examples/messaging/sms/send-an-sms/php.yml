@@ -5,11 +5,11 @@ dependencies:
     - nexmo/client
 client:
     source: .repos/nexmo/nexmo-php-code-snippets/sms/send-sms.php
-    from_line: 5
-    to_line: 6    
+    from_line: 6
+    to_line: 7  
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/sms/send-sms.php
-    from_line: 8
-    to_line: 23
+    from_line: 9
+    to_line: 19
 file_name: send-sms.php
 run_command: 'php send-sms.php'

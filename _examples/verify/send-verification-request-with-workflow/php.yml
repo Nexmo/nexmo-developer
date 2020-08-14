@@ -6,6 +6,6 @@ client:
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/verify/request_with_workflow.php
     from_line: 49
-    to_line: 50
+    to_line: 52
 file_name: request_with_workflow.php
 run_command: 'php request_with_workflow.php'

@@ -156,11 +156,11 @@ Value | Description
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The `*` and `#` digits are respected. You create pauses using `p`. Each pause is 500ms.
 `onAnswer` | A JSON object containing a required `url` key. The URL serves an NCCO to execute in the number being connected to, before that call is joined to your existing conversation. Optionally, the `ringbackTone` key can be specified with a URL value that points to a `ringbackTone` to be played back on repeat to the **caller**, so they do not hear just silence. The `ringbackTone` will automatically stop playing when the call is fully connected. Example: `{"url":"https://example.com/answer", "ringbackTone":"http://example.com/ringbackTone.wav" }`. Please note, the key `ringback` is still supported.
 
-#### App - Connect the call to an app
+#### App - Connect the call to a RTC capable application
 
 Value | Description
 -- | --
-`type` | The endpoint type: `app` for an application.
+`type` | The endpoint type: `app` for an [application](/client-sdk/setup/create-your-application).
 `user` | The username of the user to connect to. This username must have been [added as a user](/api/conversation#createUser)
 
 #### WebSocket - the WebSocket to connect to
@@ -208,7 +208,8 @@ You can use the following options to control a *talk* action:
 | `bargeIn` | Set to `true` so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set `bargeIn` to `true` the next non-talk action in the NCCO stack <b>must</b> be an `input` action. The default value is `false`. <br /><br />Once `bargeIn` is set to `true` it will stay `true` (even if `bargeIn: false` is set in a following action) until an `input` action is encountered | No |
 | `loop` | The number of times `text` is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely. | No |
 | `level` | The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.  | No |
-| `voiceName` | The name of the voice used to deliver `text`. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice `kimberly` is a female who speaks English with an American accent (en-US). Possible values are listed in the [Text-To-Speech guide](/voice/voice-api/guides/text-to-speech#voice-names). | No |
+| `language` | The language ([BCP-47](https://tools.ietf.org/html/bcp47) format) for the message you are sending. Default: `en-US`. Possible values are listed in the [Text-To-Speech guide](/voice/voice-api/guides/text-to-speech#supported-languages). | No |
+| `style` | The vocal style (vocal range, tessitura and timbre). Default: `0`. Possible values are listed in the [Text-To-Speech guide](/voice/voice-api/guides/text-to-speech#supported-languages). | No |
 
 ## Stream
 The `stream` action allows you to send an audio stream to a Conversation

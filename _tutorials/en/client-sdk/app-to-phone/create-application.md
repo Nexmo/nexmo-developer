@@ -5,7 +5,7 @@ description: In this step you learn how to create a Nexmo Application.
 
 # Create your Nexmo Application
 
-In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of handling communication use cases. 
+In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of handling communication use cases.
 
 > **NOTE:** This is the Nexmo application project that allows client application to use Nexmo backend.
 

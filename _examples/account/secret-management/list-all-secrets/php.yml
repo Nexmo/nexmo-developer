@@ -4,7 +4,7 @@ language: php
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/secret-management/fetch-secrets.php
     from_line: 8
-    to_line: 11
+    to_line: 12
 client:
     source: .repos/nexmo/nexmo-php-code-snippets/secret-management/fetch-secrets.php
     from_line: 5
