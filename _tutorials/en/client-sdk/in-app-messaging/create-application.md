@@ -7,7 +7,7 @@ description: In this step you learn how to create a Nexmo Application.
 
 In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of handling in-app Messaging use cases. Notice that this is not an Android project, but rather Nexmo application project that allows to configure backend for the mobile application that we will create in the following steps.
 
-**1.** First create your project directory if you've not already done so.
+**1.** Create your project directory if you've not already done so.
 
 ``` shell
 mkdir nexmo-tutorial
@@ -37,7 +37,7 @@ nexmo app:create
 
 **9.**  For "Private Key path" type in `private.key` and press Enter.
 
- file named `.nexmo-app` is created in your project directory and contains the newly created Nexmo Application ID and the private key. A private key file named `private.key` is also created.
+A file named `.nexmo-app` is created in your project directory and contains the newly created Nexmo Application ID and the private key. A private key file named `private.key` is also created.
 
 **Please make a note of it as you'll need it in the future.**
 

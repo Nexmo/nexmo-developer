@@ -7,7 +7,7 @@ description: In this step you learn how to create a Nexmo application.
 
 You now need to create a Nexmo [Application](/conversation/concepts/application). In this step you create an application capable of handling voice use cases.
 
-**1.** First create your project directory if you've not already done so.
+**1.** Create your project directory if you've not already done so.
 
 ``` shell
 mkdir nexmo-tutorial
