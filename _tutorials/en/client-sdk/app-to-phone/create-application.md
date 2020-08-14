@@ -5,13 +5,15 @@ description: In this step you learn how to create a Nexmo Application.
 
 # Create your Nexmo Application
 
-In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of handling communication use cases. Notice that this is not an Android project, but rather Nexmo application project that allows to configure backend for the mobile application that we will create in the following steps.
+In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of handling communication use cases. 
 
-1) First create your project directory if you've not already done so.
+> **NOTE:** This is the Nexmo application project that allows to configure and use Nexmo backend.
 
-2) Change into the project directory.
+1. First create your project directory if you've not already done so.
 
-3) Create a Nexmo application by copying and pasting the command below. Make sure to change the value of `--voice-answer-url` argument by replacing `GIST-URL` with the gist URL from the previous step.
+2. Change into the project directory.
+
+3. Create a Nexmo application by copying and pasting the command below. Make sure to change the value of `--voice-answer-url` argument by replacing `GIST-URL` with the gist URL from the previous step.
 
 ``` shell
 nexmo app:create "App to Phone Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL
