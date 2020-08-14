@@ -5,9 +5,9 @@ description: In this step you learn how to generate valid JWTs for each User in 
 
 # Generate JWTs
 
-You need to generate a JWT for each user. The JWT is used to authenticate the user.
+The JWT is used to authenticate the user. Execute the following commands in the terminal to generate a JWT for the users `Alice` and `Bob`.
 
-In the following code remember to replace the `APPLICATION_ID` variable with id of your application:
+In the following command replace the `APPLICATION_ID` with id of your application:
 
 ``` shell
 nexmo jwt:generate sub=Alice exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=APPLICATION_ID
