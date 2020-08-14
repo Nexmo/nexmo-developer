@@ -19,6 +19,10 @@ The above commands set the expiry of the JWT to one day from now, which is the m
 
 Make a note of the JWT you generated for each user.
 
+```screenshot
+image: public/screenshots/tutorials/client-sdk/generated-jwt-key.png
+```
+
 > **NOTE**: In a production environment, your application should expose an endpoint that generates a JWT for each client request.
 
 ## Further information

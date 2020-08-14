@@ -15,7 +15,11 @@ nexmo jwt:generate sub=Alice exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users
 
 The above command set the expiry of the JWT to one day from now, which is the maximum.
 
-Make a note of the JWT you generated for each user.
+Make a note of the JWT you generated for the user.
+
+```screenshot
+image: public/screenshots/tutorials/client-sdk/generated-jwt-key.png
+```
 
 > **NOTE**: In a production environment, your application should expose an endpoint that generates a JWT for each client request.
 

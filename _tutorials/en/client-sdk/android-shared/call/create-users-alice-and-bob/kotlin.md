@@ -21,3 +21,8 @@ User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
 There is no need to remember this user ID because we will use JWT token to authenticate users. 
+
+
+nexmo app:create "Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=http://gist.github.com/igorwojda/a96652e93b867c11d2348a2fd27747af
+
+
