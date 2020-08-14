@@ -5,34 +5,34 @@ description: In this step you learn how to create a Nexmo Application.
 
 # Create your Nexmo Application
 
-In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of handling communication use cases.
+In this step you will create a Nexmo [Application](/conversation/concepts/application) capable of in-app Voice communication use cases.
 
 > **NOTE:** This is the Nexmo application project that allows client application to use Nexmo backend.
 
-First create your project directory if you've not already done so.
+**1.** Create your project directory if you've not already done so.
 
 ``` shell
 mkdir nexmo-tutorial
 ```
 
-Then change into the project directory.
+**2.** Change into the project directory.
 
 ``` shell
 cd nexmo-tutorial
 ```
 
-Finally create a Nexmo application by copying and pasting the command below into terminal Make sure to change the value of `--voice-answer-url` argument by replacing `GIST-URL` with the gist URL from the previous step.
+**3.** Create a Nexmo application by copying and pasting the command below into terminal Make sure to change the value of `--voice-answer-url` argument by replacing `GIST-URL` with the gist URL from the previous step.
 
 ``` shell
 nexmo app:create "App to Phone Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL
 ```
 
-A file named `.nexmo-app` is created in your project directory and contains the Nexmo Application ID and the private key. A private key file named `private.key` is also created.
+A file named `.nexmo-app` is created in your project directory and contains the newly created Nexmo Application ID and the private key. A private key file named `private.key` is also created.
 
 **Please make a note of it as you'll need it in the future.**
 
 ```screenshot
-image: public/screenshots/tutorials/client-sdk/android-app-to-phone/nexmo-application-created.png
+image: public/screenshots/tutorials/client-sdk/nexmo-application-created.png
 ```
 
 > **NOTE:** An application can be also created using the CLI's [interactive mode](/application/nexmo-cli#interactive-mode).
