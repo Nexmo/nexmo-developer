@@ -3,7 +3,7 @@ title: Generate JWT
 description: In this step you learn how to generate valid JWTs for each User in your Conversation
 ---
 
-# Generate JWTs
+# Generate JWT
 
 The JWT is used to authenticate the user. Execute the following command in the terminal to generate a JWT for the user `Alice`.
 
