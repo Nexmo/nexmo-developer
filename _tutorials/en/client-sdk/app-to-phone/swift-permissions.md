@@ -19,7 +19,7 @@ A new entry in the `Info.plist` file is required:
 
 Your `Info.plist` should look like this:
 
-![Info.plist](/meta/client-sdk/ios-voice/Xcode-permissions.jpg)
+![Info.plist](/images/client-sdk/ios-voice/Xcode-permissions.jpg)
 
 ## Request permission on application start
 
@@ -48,4 +48,4 @@ You can now build and run the project, by either selecting `Product` > `Run` fro
 
 Notice the prompt asking for permission to use the microphone:
 
-![Simulator microphone permission ask](/meta/client-sdk/ios-voice/Simulator-microphone-permission-ask.jpg)
+![Simulator microphone permission ask](/images/client-sdk/ios-voice/Simulator-microphone-permission-ask.jpg)

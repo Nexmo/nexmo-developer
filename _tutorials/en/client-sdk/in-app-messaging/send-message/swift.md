@@ -1,26 +1,49 @@
 ---
-title: Send a message
-description: In this step you will send a message to the conversation
+title: Sending a message
+description: In this step you will build the send message functionality.
 ---
 
-# Send a message
+# Sending a message
 
-Inside `ConversationViewController.swift`, locate the following line `///MARK: Send a message` and fill in the `send(message:)` method implementation:
+In the previous step you learned about conversations and events, sending a message creates a new event and sends it via the conversation.
+
+To send a message, add the following function to `ChatViewController.swift`:
 
 ```swift
-//MARK: Send a message
-
-func send(message: String) {
-    inputTextField.resignFirstResponder()
-    inputTextField.isEnabled = false
-    activityIndicator.startAnimating()
-    conversation?.sendText(message, completionHandler: { [weak self] (error) in
-        DispatchQueue.main.async { [weak self] in
-            self?.inputTextField.isEnabled = true
-            self?.activityIndicator.stopAnimating()
-        }
-    })
+class ChatViewController: UIViewController {
+    ...
+    func send(message: String) {
+        inputField.isEnabled = false
+        conversation?.sendText(message, completionHandler: { [weak self] (error) in
+            DispatchQueue.main.async { [weak self] in
+                self?.inputField.isEnabled = true
+            }
+        })
+    }
 }
 ```
 
-You'll notice that although the message was sent, the conversation doesn't include it. We could be calling `getEvents` after sending but the SDK provides a way to receive new events.
+To get the text from the `inputField` you need to add another function provided by the `UITextFieldDelegate`. Add the following function to the `UITextFieldDelegate` extension: 
+
+```swift
+extension ChatViewController: UITextFieldDelegate {
+    ...
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text {
+            send(message: text)
+        }
+        textField.text = ""
+        textField.resignFirstResponder()
+        return true
+    }
+}
+```
+
+This delegate function is called when the return button on the keyboard is pressed.
+
+
+## Build and Run
+
+`Cmd + R` to build and run again. You now have a functioning chat app! To chat simultaneously you can run the app on two different simulators/devices:
+
+![Sent messages](/images/client-sdk/ios-messaging/messages.png)

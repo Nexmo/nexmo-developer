@@ -3,9 +3,18 @@ title: PHP
 language: php
 dependencies:
     - 'slim/slim:^3.8'
+    - 'nexmo/client'
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/voice/user-input-dtmf-slim/index.php
-    from_line: 7
-    to_line: 40
+    from_line: 10
+    to_line: 43
+import_dependencies:
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/user-input-dtmf-slim/index.php
+    from_line: 2
+    to_line: 4
+client:
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/user-input-dtmf-slim/index.php
+    from_line: 6
+    to_line: 8
 file_name: index.php
 run_command: 'php -t . -S localhost:3000'

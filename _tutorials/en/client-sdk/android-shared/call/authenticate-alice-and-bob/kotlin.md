@@ -1,9 +1,9 @@
 ---
-title: Authenticate Your Users
+title: Authenticate your Users
 description: In this step you authenticate your users via the JWTs you created earlier
 ---
 
-# Authenticate Your Users
+# Authenticate your Users
 
 Your users must be authenticated to be able to participate in the Call. Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the users.
 
@@ -23,11 +23,12 @@ private val client = NexmoClient.get()
 
 ## Login user
 
-Now you should locate the `onLoginUser` method within the `LoginViewModel` class and fill its body to enable user login:
+Your user must be authenticated to be able to participate in the Call. Locate the `onLoginUser` method inside `LoginViewModel` class and replace it with this code:
 
 ```kotlin
 fun onLoginUser(user: User) {
     if (!user.jwt.isBlank()) {
+        this.user = user
         client.login(user.jwt)
     }
 }
@@ -39,7 +40,7 @@ fun onLoginUser(user: User) {
 
 ## Monitor connection state
 
-Now add a connection listener to listen to the `client` instance to listen for connection state changes and use `_connectionStatus` `LiveData` to propagate a new connection state to the view (`LoginFragment`). Locate the `init` block inside `LoginViewModel` class and replace it with this code:
+When a successful connection is established you need to navigate user to `MainFragment`. Locate the `init` block inside `LoginViewModel` class and replace it with this code:
 
 
 ```kotlin

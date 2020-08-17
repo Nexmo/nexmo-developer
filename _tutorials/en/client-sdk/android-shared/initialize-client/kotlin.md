@@ -24,4 +24,10 @@ The above code will allow retrieving `NexmoClient` instance later by using `Nexm
 
 > **NOTE:** You can enable additional `Logcat` logging by using `logLevel()` method of the builder, for example, `NexmoClient.Builder().logLevel(ILogger.eLogLevel.SENSITIVE).build(this)`
 
+If Android Studio can't find the reference to the `NexmoClient` class then you have to add the missing import. Roll over on the `NexmoClient` class, wait for window to appear and press `Import` (this will be required in following steps as well).
+
+```screenshot
+image: public/screenshots/tutorials/client-sdk/android-shared/missing-import.png
+```
+
 You now have a working client. Your next step is to authenticate the users.

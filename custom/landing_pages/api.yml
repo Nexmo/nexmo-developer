@@ -143,6 +143,9 @@ page:
                   - title: 'Redact API'
                     path: 'api/redact'
                     description: "Ensure your organisation is compliant with data regulations such as GDPR by redacting individual's data from the Nexmo platform."
+                    badge:
+                      name: Dev Preview
+                      color: blue
                   - title: 'Audit API'
                     path: 'api/audit'
                     description: 'Get an audit trail of changes to your account for security and compliance purposes.'

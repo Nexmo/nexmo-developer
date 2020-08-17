@@ -1,9 +1,9 @@
 ---
-title: Authenticate Your Users
+title: Authenticate your Users
 description: In this step you authenticate your users via the JWTs you created earlier
 ---
 
-# Authenticate Your Users
+# Authenticate your Users
 
 Your users must be authenticated to be able to participate in the `Conversation`. Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the users.
 
@@ -19,11 +19,12 @@ Now You have to retrieve client instance inside `LoginViewModel` class. Usually,
 private val client = NexmoClient.get()
 ```
 
-Locate the `onLoginUser` method within the `LoginViewModel` class and fill its body to enable user login:
+Your user must be authenticated to be able to participate in the Call. Locate the `onLoginUser` method inside `LoginViewModel` class and replace it with this code:
 
 ```kotlin
 fun onLoginUser(user: User) {
     if (!user.jwt.isBlank()) {
+        this.user = user
         client.login(user.jwt)
     }
 }

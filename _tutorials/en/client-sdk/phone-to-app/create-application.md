@@ -5,13 +5,13 @@ description: In this step you learn how to create a Nexmo Application.
 
 # Create your Nexmo Application
 
-You now need to create a Nexmo application. In this step you create an application with Voice capabilities.
+In this step you will create a Nexmo [Application](/conversation/concepts/application) with Voice capabilities. Notice that this is not an Android project, but rather Nexmo application project that allows to configure backend for the mobile application that we will create in following steps.
 
 1) First create your project directory if you've not already done so.
 
 2) Change into the project directory.
 
-3) Create a Nexmo application by copying and pasting the command below. Make sure to replace `GIST-URL`  with the URL from the previous step.
+3) Create a Nexmo application by copying and pasting the command below. Make sure to change the value of `--voice-answer-url` argument by replacing `GIST-URL` with the gist URL from the previous step.
 
 ``` shell
 nexmo app:create "Phone To App Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL 
@@ -29,4 +29,4 @@ The command will also output some details including the generated Application ID
 
 You can also obtain information about your application, including the Application ID, in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-![Nexmo Developer Dashboard Applications screenshot](/assets/screenshots/tutorials/app-to-phone/nexmo-dashboard-applications.png "Nexmo Developer Dashboard Applications screenshot")
+![Nexmo Developer Dashboard Applications screenshot](/screenshots/tutorials/app-to-phone/nexmo-dashboard-applications.png "Nexmo Developer Dashboard Applications screenshot")

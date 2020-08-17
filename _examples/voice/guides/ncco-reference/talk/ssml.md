@@ -7,7 +7,7 @@ menu_weight: 3
 [
   {
     "action": "talk",
-    "text": "<speak><lang xml:lang='pt-BR'>Bom dia.</lang> <prosody rate='fast'>I can speak fast.</prosody> <lang xml:lang='fr'>Au revoir!</lang></speak>"
+    "text": "<speak><prosody rate='fast'>I can speak fast.</prosody></speak>"
   }
 ]
 ```

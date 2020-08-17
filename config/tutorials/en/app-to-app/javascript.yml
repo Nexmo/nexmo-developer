@@ -5,7 +5,7 @@ products:
 
 introduction: 
   title: Introduction to this task
-  description: This task shows you how to use make a voice call from a web app to another web app using the JavaScript Client SDK.
+  description: This task shows you how to use make a voice call from a web app to another web app using the Client SDK for JavaScript.
   content: |
     # Introduction
     In this tutorial, you will learn how to create a Client SDK application and then write the code to make a 

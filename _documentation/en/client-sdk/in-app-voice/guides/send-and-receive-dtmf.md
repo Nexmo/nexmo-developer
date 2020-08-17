@@ -12,7 +12,7 @@ Dual Tone Multi Frequency (DTMF), is a form of signalling used by phone systems 
 
 DTMF is used both for dialing a destination on a landline telephone and also for signalling to the remote end once a call is answered. Typically this is used to implement an Interactive Voice Response (IVR) system, or to enter information like a PIN number or conference call pin.
 
-With Nexmo Client SDKs you can both collect a DTMF input from your app user, and listen to DTMF input that was sent from another member.
+With the Client SDKs you can both collect a DTMF input from your app user, and listen to DTMF input that was sent from another member.
 
 Before you begin, make sure you [added the SDK to your app](/client-sdk/setup/add-sdk-to-your-app) and you are able to [make](/client-sdk/in-app-voice/guides/make-call) or [receive](/client-sdk/in-app-voice/guides/receive-call) calls.
 

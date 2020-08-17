@@ -51,4 +51,4 @@ Make a note of the generated Application ID, as you'll need it in the future.
 
 You can obtain information about your application, including Application ID, in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-![Nexmo Developer Dashboard Applications screenshot](/assets/screenshots/tutorials/nexmo-dashboard-applications.png "Nexmo Developer Dashboard Applications screenshot")
+![Nexmo Developer Dashboard Applications screenshot](/screenshots/tutorials/nexmo-dashboard-applications.png "Nexmo Developer Dashboard Applications screenshot")

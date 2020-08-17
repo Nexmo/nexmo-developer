@@ -19,7 +19,7 @@ import NexmoClient
 Add a `NXMClient` instance, below the `connectionStatusLabel`:
 
 ```swift
-class ViewController: UIViewController, NXMClientDelegate {
+class ViewController: UIViewController {
     ...
     let connectionStatusLabel = UILabel()
     let client = NXMClient.shared

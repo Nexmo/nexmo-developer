@@ -32,7 +32,7 @@ source: '_examples/reports/get-report'
     ```
 
     In this case `84a14d67-1234-5678-9012-ac042b16092a` is the `FILE_ID`.
-3. Run the script to download a Zip file containing the report in PDF format.
+3. Run the script to download a Zip file containing the report in CSV format.
 
 ## See also
 

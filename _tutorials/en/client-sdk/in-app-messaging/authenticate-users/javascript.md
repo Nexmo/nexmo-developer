@@ -1,9 +1,9 @@
 ---
-title: Authenticate your users
+title: Authenticate your Users
 description: In this step you authenticate your users via the JWTs you created earlier
 ---
 
-# Authenticate Your Users
+# Authenticate your Users
 
 Your users must be authenticated to be able to participate in the Conversation. You perform this authentication using the Conversation ID and the JWTs you generated in a previous step.
 

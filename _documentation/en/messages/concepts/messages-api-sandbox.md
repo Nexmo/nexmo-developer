@@ -132,4 +132,7 @@ At the moment the following WhatsApp templates can be used with the Messages API
 
 Namespace | Name | Template Structure |Languages
 ----|----|----|----
-`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | Header: `none`<br>Body: `{{1}} code: {{2}}. Valid for {{3}} minutes.`<br>Footer: `none` |English, Korean, Japanese, Italian
+`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | Header: `none`<br>Body: `{{1}} code: {{2}}. Valid for {{3}} minutes.`<br>Footer: `none` |`en-US`, `en-GB`, `ko`, `ja`, `it`
+`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `sandbox_doctor_appointment` | Header: `APPOINTMENT CONFIRMATION`<br>Body: `Your appointment with Doctor {{1}} is now confirmed for the {{2}} at {{3}} and the {{4}}.`Footer: `none`|`en_US`, `en_GB`
+`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `sandbox_shipping_update` | Header: `Shipping Update`<br>Body:`Your parcel from {{1}} is due to arrive on {{2}} between {{3}} and {{4}}.`<br><br>`Not going to be in? You can either change the date of your delivery or instruct us to leave your parcel in your designated safe place.`<br>Footer:`none`|`en_US`, `en_GB`
+`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `sandbox_travel_boardingpass` | Header: `image`<br>Body: `Hello {{1}}, your boarding pass for {{2}} Flight {{3}} is now ready`<br>`Please arrive at the gate at least 40 minutes before the scheduled departure time of {{4}}.` | `en_US`, `en_GB`

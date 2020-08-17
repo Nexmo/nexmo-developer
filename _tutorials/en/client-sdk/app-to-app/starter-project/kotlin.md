@@ -1,15 +1,24 @@
 ---
-title: The Starter Project
+title: The starter project
 description: In this step you will clone the starter project
 ---
 
-# The Starter Project
+# The starter project
 
-To make things easier, a `Starter` project is provided for you. It is a simple Android Studio project that contains an application with the following two screens:
+To make things easier, a starter project is provided for you.
 
 1. Clone this [GitHub project](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-app).
 
-3. Open the project in the `Android Studio` - navigate to the menu `File -> Open` and select the `kotlin-start` folder from cloned repository.
+2. Open the project in the `Android Studio`:
+   
+   1. Navigate to the menu `File -> Open` 
+   2. Select the `kotlin-start` folder from cloned repository
+
+3. Make project `Build -> Make Project` 
+
+```screenshot
+image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png
+```
 
 ## Project navigation overview
 
@@ -31,3 +40,5 @@ All files that will be modified during this tutorial are located in the `app/src
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-app-to-app/project-files.png
 ```
+
+> **NOTE:** Each view is represented by two classes -> `Fragment` that is the thin view and `ViewModel` that handles the view logic.

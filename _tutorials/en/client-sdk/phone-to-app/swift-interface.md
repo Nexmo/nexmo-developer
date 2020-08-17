@@ -12,7 +12,7 @@ Open `ViewController.swift` and add it programmatically:
 ```swift
 class ViewController: UIViewController {
 
-    var connectionStatusLabel = UILabel()
+    let connectionStatusLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

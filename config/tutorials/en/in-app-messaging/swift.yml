@@ -12,9 +12,9 @@ introduction:
 
     First, you will create a Conversation and two Users. Then, you will authenticate these Users and add them to the Conversation as Members.
 
-    Finally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when either party is currently typing.
+    Finally, you will implement chat functionality in your application, including the ability to view and send messages.
 
-    The source code is available on [GitHub](https://github.com/nexmo-community/ClientSDK-Get-Started-Messaging-Swift).
+    If you would like to follow along without building the app yourself, the completed project for this tutorial is available on [GitHub](https://github.com/nexmo-community/ClientSDK-app-to-app-chat-Swift).
 
 prerequisites:
   - create-nexmo-account
@@ -28,13 +28,13 @@ tasks:
   - client-sdk/in-app-messaging/create-users
   - client-sdk/in-app-messaging/add-users-to-conversation
   - client-sdk/in-app-messaging/generate-jwts
-  - client-sdk/in-app-messaging/starter-project
-  - client-sdk/in-app-messaging/authenticate-users
+  - client-sdk/in-app-messaging/create-project
+  - client-sdk/in-app-messaging/create-ui
+  - client-sdk/in-app-messaging/create-model
+  - client-sdk/in-app-messaging/initialize-client
   - client-sdk/in-app-messaging/conversation-ui
-  - client-sdk/in-app-messaging/fetch-conversation
   - client-sdk/in-app-messaging/fetch-events
   - client-sdk/in-app-messaging/send-message
-  - client-sdk/in-app-messaging/receive-new-messages
 
 conclusion:
   title: What's next?
@@ -43,7 +43,7 @@ conclusion:
 
     # What's next?
 
-    For the complete version please see the Xcode workspace in the `Completed` folder of the `git` repository you've cloned.
+    For completeness, the project you've built as part of this tutorial is also available on [GitHub](https://github.com/nexmo-community/ClientSDK-app-to-app-chat-Swift).
 
     You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview).
 

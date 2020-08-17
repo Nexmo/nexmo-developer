@@ -19,7 +19,7 @@ Using that `private.key` and the application ID, we can mint a new JWT. In order
 |Claim | Description |
 | --------- | ----------- |
 | `sub`| The "subject". The subject, in this case, will be the name of the user created and associated with your Nexmo Application |
-| `acl`| Access control list. The Nexmo Client SDK uses this as a permission system for users. Read more about it in the [ACL overview](#acls) |
+| `acl`| Access control list. The Client SDK uses this as a permission system for users. Read more about it in the [ACL overview](#acls) |
 | `application_id`| This is the ID of the Nexmo Application you created. |
 | `iat`| "Issued at time" This is the time the JWT was issued, in unix epoch time. |
 | `jti`| "JWT ID". This is a unique identifier for this JWT. |
@@ -58,7 +58,7 @@ Once all the claims have been provided, the resulting claims should appear like 
 
 ### Overview
 
-In the previous section, you can see that the `acl` claim has `paths` object containing multiple endpoints. These endpoints correspond with certain permissions a user can have when utilizing Nexmo Client SDK features.
+In the previous section, you can see that the `acl` claim has `paths` object containing multiple endpoints. These endpoints correspond with certain permissions a user can have when utilizing Client SDK features.
 
 ### Paths
 

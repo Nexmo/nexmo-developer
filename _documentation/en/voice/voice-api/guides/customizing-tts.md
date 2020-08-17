@@ -19,18 +19,19 @@ Here is an example of SSML in the `text` property of a NCCO `talk` action:
 [
   {
     "action": "talk",
-    "text": "<speak><lang xml:lang='es-ES'>Hola!</lang></speak>"
+    "text": "<speak><p>Hello.</p><p>How are you?</p></speak>"
   }
 ]
 ```
 
-🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/01-hola.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/05-paragraphs.mp3]
 
 
 ## SSML tags
 
 * [Breaks](#breaks): Add breaks (pauses) to spoken text
-* [Language](#language): Specify the language to use in Text-to-Speech
+* [Emphasizing](#emphasizing): Add or remove emphasis from text
+* [Language](#language): Specify another language for specific words
 * [Phonemes](#phonemes): Spell out the text using the [phonetic alphabet](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)
 * [Prosody](#prosody): Set the pitch, speed and volume of the spoken text
 * [Say as](#say-as): Provide pronunciation hints for words, numbers and dates
@@ -66,10 +67,27 @@ that is the question.
 
 🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/04-breaks-2.mp3]
 
+### Emphasizing
+
+To emphasize words, use the `emphasis` tag. Emphasizing words changes the speaking rate and volume. More emphasis makes the text spoken louder and slower. Less emphasis makes it quieter and faster. To specify the degree of emphasis, use the `level` attribute.
+
+Valid `level` values include:
+
+* `strong`: Increases the volume and slows the speaking rate so that the speech is louder and slower.
+* `moderate`: Increases the volume and slows the speaking rate, but less than strong. `moderate` is the default.
+* `reduced`: Decreases the volume and speeds up the speaking rate. Speech is softer and faster.
+
+```xml
+<speak>
+<emphasis level="moderate">This is an important announcement</emphasis>
+</speak>
+```
+
 ### Language
 
-The `lang` tag allows you to control the language used in the
-speech. The language tag should contain both the language tag and
+The `lang` tag allows you to specify another language for a specific word, phrase, or sentence.
+It might be useful for better pronunciation of foreign words.
+The language tag should contain both the language tag and
 country code (e.g. `pt-BR` for Brazilian Portuguese, `en-GB` for
 British English), even for languages with no country variations where
 a country code might otherwise be redundant (e.g. `it-IT` for
@@ -81,6 +99,12 @@ Italian).
 
 🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/02-langage.mp3]
 
+Please note, `lang` changes the pronunciation, though it doesn't change the "native" language of the voice, 
+for example, if the language in `talk` action/request is set to `en-US`, and SSML `lang` tag in the text set to `fr-FR`,
+the sentence will be spoken in American-accented French.
+To change the language for the whole message, use the `language` parameter or the `talk` action/request instead.
+
+> Not all the voice styles support `lang` tag.
 
 ### Phonemes
 

@@ -115,7 +115,7 @@ Option | Description | Required
 `musicOnHoldUrl` | A URL to the *mp3* file to stream to participants until the conversation starts. By default the conversation starts when the first person calls the virtual number associated with your Voice app. To stream this mp3 before the moderator joins the conversation, set *startOnEnter* to *false* for all users other than the moderator. | No
 `startOnEnter` | The default value of *true* ensures that the conversation starts when this caller joins conversation `name`. Set to *false* for attendees in a moderated conversation. | No
 `endOnExit` | Specifies whether a moderated conversation ends when the moderator hangs up. This is set to *false* by default, which means that the conversation only ends when the last remaining participant hangs up, regardless of whether the moderator is still on the call. Set `endOnExit` to *true* to terminate the conversation when the moderator hangs up. | No
-`record` | Set to *true* to record this conversation. For standard conversations, recordings start when one or more attendees connects to the conversation. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where *startOnEnter* is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL. <br>By default audio is recorded in MP3 format. See the [recording](/voice/voice-api/guides/recording#file-formats) guide for more details | No
+`record` | Set to *true* to record this conversation. For standard conversations, recordings start when one or more attendees connects to the conversation. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where *startOnEnter* is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL. You can override the default recording event URL and default HTTP method by providing custom `eventUrl` and `eventMethod` options in the `conversation` action definition. <br>By default audio is recorded in MP3 format. See the [recording](/voice/voice-api/guides/recording#file-formats) guide for more details | No
 `canSpeak` | A list of leg UUIDs that this participant can be heard by. If not provided, the participant can be heard by everyone. If an empty list is provided, the participant will not be heard by anyone | No
 `canHear` | A list of leg UUIDs that this participant can hear. If not provided, the participant can hear everyone. If an empty list is provided, the participant will not hear any other participants| No
 
@@ -147,39 +147,44 @@ Option | Description | Required
 
 ### Endpoint Types and Values
 
-#### Phone - phone numbers in E.164 format
+#### Phone (PSTN) - phone numbers in E.164 format
 
 Value | Description
 -- | --
+`type` | The endpoint type: `phone` for a PSTN endpoint.
 `number` | The phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The `*` and `#` digits are respected. You create pauses using `p`. Each pause is 500ms.
 `onAnswer` | A JSON object containing a required `url` key. The URL serves an NCCO to execute in the number being connected to, before that call is joined to your existing conversation. Optionally, the `ringbackTone` key can be specified with a URL value that points to a `ringbackTone` to be played back on repeat to the **caller**, so they do not hear just silence. The `ringbackTone` will automatically stop playing when the call is fully connected. Example: `{"url":"https://example.com/answer", "ringbackTone":"http://example.com/ringbackTone.wav" }`. Please note, the key `ringback` is still supported.
 
-#### app - Connect the call to an app
+#### App - Connect the call to a RTC capable application
 
 Value | Description
 -- | --
-`user` | the username of the user to connect to. This username must have been [added as a user](/api/conversation#createUser)
+`type` | The endpoint type: `app` for an [application](/client-sdk/setup/create-your-application).
+`user` | The username of the user to connect to. This username must have been [added as a user](/api/conversation#createUser)
 
-#### Websocket - the websocket to connect to
+#### WebSocket - the WebSocket to connect to
 
 Value | Description
 -- | --
-`uri` | the URI to the websocket you are streaming to.
+`type` | The endpoint type: `websocket` for a WebSocket.
+`uri` | The URI to the websocket you are streaming to.
 `content-type` | the internet media type for the audio you are streaming. Possible values are: `audio/l16;rate=16000` or `audio/l16;rate=8000`.
 `headers` | a JSON object containing any metadata you want. See [connecting to a websocket](/voice/voice-api/guides/websockets#connecting-to-a-websocket) for example headers
 
-#### sip - the sip endpoint to connect to
+#### SIP - the SIP endpoint to connect to
 
 Value | Description
 -- | --
+`type` | The endpoint type: `sip` for SIP.
 `uri` | the SIP URI to the endpoint you are connecting to in the format `sip:rebekka@sip.example.com`.
 `headers` | `key` => `value` string pairs containing any metadata you need e.g. `{ "location": "New York City", "occupation": "developer" }`
 
-#### vbc - the Vonage Business Cloud (VBC) extension to connect to
+#### VBC - the Vonage Business Cloud (VBC) extension to connect to
 
 Value | Description
 -- | --
+`type` | The endpoint type: `vbc` for a VBC extension.
 `extension` | the VBC extension to connect the call to.
 
 ## Talk
@@ -203,7 +208,8 @@ You can use the following options to control a *talk* action:
 | `bargeIn` | Set to `true` so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set `bargeIn` to `true` the next non-talk action in the NCCO stack <b>must</b> be an `input` action. The default value is `false`. <br /><br />Once `bargeIn` is set to `true` it will stay `true` (even if `bargeIn: false` is set in a following action) until an `input` action is encountered | No |
 | `loop` | The number of times `text` is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely. | No |
 | `level` | The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.  | No |
-| `voiceName` | The name of the voice used to deliver `text`. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice `kimberly` is a female who speaks English with an American accent (en-US). Possible values are listed in the [Text-To-Speech guide](/voice/voice-api/guides/text-to-speech#voice-names). | No |
+| `language` | The language ([BCP-47](https://tools.ietf.org/html/bcp47) format) for the message you are sending. Default: `en-US`. Possible values are listed in the [Text-To-Speech guide](/voice/voice-api/guides/text-to-speech#supported-languages). | No |
+| `style` | The vocal style (vocal range, tessitura and timbre). Default: `0`. Possible values are listed in the [Text-To-Speech guide](/voice/voice-api/guides/text-to-speech#supported-languages). | No |
 
 ## Stream
 The `stream` action allows you to send an audio stream to a Conversation

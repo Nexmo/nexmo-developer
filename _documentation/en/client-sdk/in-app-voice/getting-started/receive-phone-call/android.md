@@ -3,7 +3,7 @@ title: Android
 language: android
 ---
 
-# How to Receive Phone Calls with the Nexmo Client SDK on Android
+# How to Receive Phone Calls with the Client SDK on Android
 
 In this guide, you'll learn how to receive an incoming phone call in an Android application.
 
@@ -130,6 +130,6 @@ source: _partials/client-sdk/voice/android/permissions.md
 
 # Conclusion
 
-Congratulations! You have implemented your first Phone to App Voice application with the Nexmo Client SDK for Android.
+Congratulations! You have implemented your first Phone to App Voice application with the Client SDK for Android.
 
 Run the app on a simulator or a device, and with another device call the Nexmo Number you linked to you application. Then, see that you receive the call, and can answer and hangup.

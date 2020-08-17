@@ -51,7 +51,7 @@ These steps are described in more detail below.
 
 4. Your backend **sends the JWT** to your client-side application.
 
-5. Your client-side application can make authenticated requests to the Conversation API, with the provided JWT. If you use the Nexmo Client SDK, your User should log in to the SDK with the JWT. As long as you are logged in, the authentication will be handled for you by the SDK.
+5. Your client-side application can make authenticated requests to the Conversation API, with the provided JWT. If you use the Client SDK, your User should log in to the SDK with the JWT. As long as you are logged in, the authentication will be handled for you by the SDK.
 
 You are now ready to start creating a rich communication experience for your users.
 

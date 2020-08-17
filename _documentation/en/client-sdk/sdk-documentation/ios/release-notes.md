@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.2.2 - 2020-07-20
+
+### Fixed
+
+- Event syncing after socket disconnection.
+
 ## 2.2.1 - 2020-07-06
 
 ### Fixed
