@@ -21,6 +21,8 @@ You have to retrieve client instance inside `LoginViewModel` class. Usually, it 
 private val client = NexmoClient.get()
 ```
 
+Make sure to add missing import again.
+
 ## Login user
 
 Your user must be authenticated to be able to participate in the Call. Locate the `onLoginUser` method inside `LoginViewModel` class and replace it with this code:
