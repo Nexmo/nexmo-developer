@@ -6,11 +6,11 @@ dependencies:
 import_dependencies:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/RecordMessageController.cs
     from_line: 9
-    to_line: 10
+    to_line: 11
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/RecordMessageController.cs
-    from_line: 17
-    to_line: 49
+    from_line: 18
+    to_line: 45
 run_command: 'Run using your IDE'
 file_name: RecordMessageController.cs
 unindent: true

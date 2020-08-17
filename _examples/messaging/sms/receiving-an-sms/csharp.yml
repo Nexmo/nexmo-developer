@@ -5,11 +5,11 @@ dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SmsController.cs
-    from_line: 6
-    to_line: 6
+    from_line: 10
+    to_line: 11
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SmsController.cs
-    from_line: 16
-    to_line: 26
+    from_line: 17
+    to_line: 23
 run_command: 'Run using your IDE'
 file_name: SmsController.cs

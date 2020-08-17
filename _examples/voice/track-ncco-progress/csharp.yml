@@ -6,11 +6,11 @@ dependencies:
 import_dependencies:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/TrackNccoController.cs
     from_line: 9
-    to_line: 10
+    to_line: 11
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/TrackNccoController.cs
-    from_line: 16
-    to_line: 50
+    from_line: 17
+    to_line: 45
 run_command: 'dotnet run --urls=http://localhost:3000'
 file_name: TrackNccoController.cs
 unindent: true
