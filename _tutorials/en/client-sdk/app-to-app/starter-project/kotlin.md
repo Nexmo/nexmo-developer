@@ -12,7 +12,7 @@ To make things easier, a starter project is provided for you.
 2. Open the project in the `Android Studio`:
    
    1. Navigate to the menu `File -> Open` 
-   2. Select the `kotlin-start` folder from cloned repository
+   2. Select the `kotlin-start` folder from cloned repository and click `Open`
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/select-kotlin-start-project.png
@@ -33,7 +33,7 @@ image: public/screenshots/tutorials/client-sdk/android-app-to-app/nav-graph.png
 The application consists of four screens: 
 
 - **login** - responsible for logging the user
-- **main** - allows to start a call and listens for incoming call
+- **main** - allows to start a call an d listens for incoming call
 - **incoming call** - answer or reject incoming call
 - **on call** - displayed during ongoing call, allows to end current call
 

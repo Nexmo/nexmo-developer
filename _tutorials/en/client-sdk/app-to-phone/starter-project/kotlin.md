@@ -12,7 +12,7 @@ To make things easier, a starter project is provided for you.
 2. Open the `kotlin-start` project in the Android Studio:
 
    1. Navigate to the menu `File -> Open` 
-   2. Select the `kotlin-start` folder from cloned repository
+   2. Select the `kotlin-start` folder from cloned repository and click `Open`
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/select-kotlin-start-project.png
