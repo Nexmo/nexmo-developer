@@ -7,7 +7,7 @@ description: In this step you will clone the starter project
 
 To make things easier, a starter project is provided for you.
 
-1. Clone this [GitHub repository](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging) (Android Studio `New project from version control` feature can’t be used, because repository contains two projects `kotlin-start` and `kotlin-complted`).
+1. Clone this [GitHub repository](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-phone) (Android Studio `New project from version control` feature can’t be used, because repository contains two projects `kotlin-start` and `kotlin-complted`).
 
 2. Open the `kotlin-start` project in the Android Studio:
 
