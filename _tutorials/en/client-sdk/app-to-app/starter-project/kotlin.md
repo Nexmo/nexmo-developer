@@ -18,7 +18,7 @@ To make things easier, a starter project is provided for you.
 image: public/screenshots/tutorials/client-sdk/android-shared/select-kotlin-start-project.png
 ```
 
-**3.** Make project `Build -> Make Project`
+**3.** Make project `Build -> Make Project`. If `Make Project` button is disabled please wait until Android Studio will finish parsing the project (progress will be displayed in bottom right corner of the Android Studio).
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/make-project.png
