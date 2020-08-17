@@ -46,7 +46,7 @@ Value of `lg` | Language
 `th-th` | Thai
 `tr-tr` | Turkish
 `vi-vn` | Vietnamese
-`yue-cn` | Yue Chinese
+`yue-cn` | Yue Chinese (Cantonese)
 `zh-cn` | Chinese (Mainland)
 `zh-tw` | Chinese (Taiwan)
 

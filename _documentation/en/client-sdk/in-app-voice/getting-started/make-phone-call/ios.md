@@ -3,7 +3,7 @@ title: iOS
 language: ios
 ---
 
-# How to Make Phone Calls with the Nexmo Client SDK on iOS
+# How to Make Phone Calls with the Client SDK on iOS
 
 ```partial
 source: _partials/client-sdk/voice/outbound-call-intro.md
@@ -35,7 +35,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-
 
 ## Login
 
-Using the Nexmo Client SDK should start with logging in to `NexmoClient`, using a `jwt` user token.
+Using the Client SDK should start with logging in to `NexmoClient`, using a `jwt` user token.
 
 In production apps, your server would authenticate the user, and would return a [correctly configured JWT](/client-sdk/concepts/jwt-acl) to your app.
 
@@ -99,7 +99,7 @@ To read more about the permissions required, [see the setup tutorial](/client-sd
 
 ## Conclusion
 
-You have implemented your first App to Phone Voice application with the Nexmo Client SDK for iOS.
+You have implemented your first App to Phone Voice application with the Client SDK for iOS.
 
 Run the app on a simulator and see that you can place and hangup a call to a PSTN phone number from the phone number associated with your Nexmo application.
 

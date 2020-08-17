@@ -3,7 +3,7 @@ title: JavaScript
 language: javascript
 ---
 
-# How to Receive Phone Calls with the Nexmo Client SDK in JavaScript
+# How to Receive Phone Calls with the Client SDK in JavaScript
 
 In this guide, you'll learn how to forward an incoming phone call from a Nexmo phone number, to an in-app user by implementing a webhook and linking that to a Nexmo application.
 
@@ -124,6 +124,6 @@ source: _partials/client-sdk/voice/javascript/hangup.md
 
 ## Conclusion
 
-You have implemented your first Phone to App Voice application with the Nexmo Client SDK for JavaScript.
+You have implemented your first Phone to App Voice application with the Client SDK for JavaScript.
 
 Open the webpage in a browser to see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application. If you've followed along this tutorial, your code should look similar to [this](https://github.com/Nexmo/client-sdk-javascript-receive-phone-calls/blob/master/index.html).

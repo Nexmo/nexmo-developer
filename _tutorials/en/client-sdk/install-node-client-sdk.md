@@ -1,9 +1,9 @@
 ---
-title: Install the Nexmo Client SDK
-description: Install the Nexmo Node Client SDK to get the latest functionality for building Programmable Conversation apps.
+title: Install the Client SDK for JavaScript
+description: Install the Client SDK to get the latest functionality for building Programmable Conversation apps.
 ---
 
-If you are planning to use JavaScript to develop your application, you'll need to install (or update) the latest version of the Nexmo Client SDK.
+If you are planning to use JavaScript to develop your application, you'll need to install (or update) the latest version of the Client SDK for JavaScript.
 
 Create a new project directory and change into it.
 

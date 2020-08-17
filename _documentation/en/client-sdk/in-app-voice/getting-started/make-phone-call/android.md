@@ -3,7 +3,7 @@ title: Android
 language: android
 ---
 
-# How to Make Phone Calls with the Nexmo Client SDK on Android
+# How to Make Phone Calls with the Client SDK on Android
 
 ```partial
 source: _partials/client-sdk/voice/outbound-call-intro.md
@@ -119,6 +119,6 @@ source: _partials/client-sdk/voice/android/permissions.md
 
 # Conclusion
 
-Congratulations! You have implemented your first Phone to App Voice application with the Nexmo Client SDK for Android.
+Congratulations! You have implemented your first Phone to App Voice application with the Client SDK for Android.
 
 Run the app on a simulator or a device, and with another device call the Nexmo Number you linked. Then, see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.

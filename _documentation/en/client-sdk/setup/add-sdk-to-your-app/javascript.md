@@ -5,13 +5,13 @@ language: javascript
 
 # Overview
 
-In this guide you learn how to add the Nexmo Client SDK to your client-side JavaScript app.
+In this guide you learn how to add the Client SDK to your client-side JavaScript app.
 
 ## Prerequisites
 
-The Nexmo Client SDK requires [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/).
+The Client SDK requires [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/).
 
-## To add the Nexmo Client SDK to your project
+## To add the Client SDK to your project
 
 ### Navigate to your app
 
@@ -23,7 +23,7 @@ npm init -y
 
 ### Install the Client SDK package
 
-Install the Nexmo Client SDK using `npm`:
+Install the Client SDK using `npm`:
 
 ```
 npm install nexmo-client -s
@@ -45,7 +45,7 @@ If your application will run on a single page, you can load the module in your H
 
 Be sure to check that the path to `nexmoClient.js` is correct for your project structure.
 
-## Using the Nexmo Client SDK in your app
+## Using the Client SDK in your app
 
 ### Creating Users and JWTs
 
@@ -75,7 +75,7 @@ let nexmo = new NexmoClient()
   .catch(err => console.log(err));
 ```
 
-### Nexmo Client SDK analytics and usage data
+### Client SDK analytics and usage data
 
 To provide Nexmo with more information to enable us to fix bugs and build features, you can _optionally_ opt-in to our Client SDK analytics and usage data programme.
 
@@ -89,7 +89,7 @@ new NexmoClient({debug:true, log_reporter: {enabled: true}})
 
 ## Conclusion
 
-You added the Nexmo Client SDK to your client-side JavaScript app and logged in to a `NexmoClient` instance, which returned an `Application` object. You can now use `Application.newConversation()` to create a conversation, and then access the functionality of a `Conversation`.
+You added the Client SDK to your client-side JavaScript app and logged in to a `NexmoClient` instance, which returned an `Application` object. You can now use `Application.newConversation()` to create a conversation, and then access the functionality of a `Conversation`.
 
 ## See also
 

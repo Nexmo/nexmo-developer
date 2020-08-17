@@ -5,7 +5,7 @@ language: ios
 
 # Overview
 
-In this guide you learn how to add the Nexmo Client SDK to your iOS app.
+In this guide you learn how to add the Client SDK to your iOS app.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ To use the Nexmo SDK for iOS, you need to have the following installed:
 
 Open Xcode with your iOS project.
 
-You can either install the Nexmo Client SDK directly, or via CocoaPods.
+You can either install the Client SDK directly, or via CocoaPods.
 
 ### CocoaPods
 
@@ -60,7 +60,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/import'
 
 ### Frameworks
 
-1. Download the Nexmo Client SDK then drag and drop the `NexmoClient.framework` folder into your project:
+1. Download the Client SDK then drag and drop the `NexmoClient.framework` folder into your project:
 ![Project explorer](/images/client-sdk/ios-manual-setup-project.png)
 
 2. Turn on *Embed & Sign* for `NexmoClient.framework` in your target's settings:
@@ -117,7 +117,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/user'
 
 ## Conclusion
 
-You added the Nexmo Client SDK to your iOS app, and logged in to a `NXMClient` instance. You can now use the `NXMClient` client in your app, and use the Nexmo Client SDK functionality.
+You added the Client SDK to your iOS app, and logged in to a `NXMClient` instance. You can now use the `NXMClient` client in your app, and use the Client SDK functionality.
 
 ## See also
 

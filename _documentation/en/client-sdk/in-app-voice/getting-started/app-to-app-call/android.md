@@ -3,9 +3,9 @@ title: Android
 language: android
 ---
 
-# How to Make and Receive In App calls with the Nexmo Client SDK on Android
+# How to Make and Receive In App calls with the Client SDK on Android
 
-In this tutorial you learn how to use the Nexmo Client SDK for Android, in order to perform an in-app (IP to IP) voice call.
+In this tutorial you learn how to use the Client SDK for Android, in order to perform an in-app (IP to IP) voice call.
 
 You create a simple app that can make a call and receive a call.
 
@@ -137,6 +137,6 @@ source: _partials/client-sdk/voice/android/permissions.md
 
 # Conclusion
 
-Congratulations!  You have implemented your first In-App Voice application with Nexmo Client SDK for Android.
+Congratulations!  You have implemented your first In-App Voice application with Client SDK for Android.
 
 You can now run the app on two devices, log in as two different users, and start an in-app voice call between the users.

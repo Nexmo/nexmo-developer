@@ -3,9 +3,9 @@ title: iOS
 language: ios
 ---
 
-# How to Make and Receive In App Calls with the Nexmo Client SDK on iOS
+# How to Make and Receive In App Calls with the Client SDK on iOS
 
-In this tutorial you learn how to use the Nexmo Client SDK for iOS, in order to perform an in-app (IP to IP) voice call.
+In this tutorial you learn how to use the Client SDK for iOS, in order to perform an in-app (IP to IP) voice call.
 
 You will create a simple app to make a call and receive a call.
 
@@ -28,7 +28,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/in-app-ca
 
 ## Login
 
-Using the Nexmo Client SDK should start with logging in to `NexmoClient`, using a user's `jwt`.
+Using the Client SDK should start with logging in to `NexmoClient`, using a user's `jwt`.
 
 In production apps, your server would authenticate the user, and would return a [correctly configured JWT](/client-sdk/concepts/jwt-acl) to your app.
 
@@ -118,7 +118,7 @@ To read more about the permissions required, [see the setup tutorial](/client-sd
 
 ## Conclusion
 
-You have implemented your first In App Voice application with the Nexmo Client SDK for iOS.
+You have implemented your first In App Voice application with the Client SDK for iOS.
 
 Run the app on two simulators and see that you can call, answer, reject and hangup.
 
