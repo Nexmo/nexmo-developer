@@ -42,6 +42,7 @@ tasks:
   - client-sdk/in-app-messaging/fetch-events
   - client-sdk/in-app-messaging/send-message
   - client-sdk/in-app-messaging/receive-new-messages
+  - client-sdk/android-shared/run-app
 
 conclusion:
   title: What's next?
