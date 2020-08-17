@@ -6,6 +6,16 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.3.0 - 2020-08-17
+
+### Added
+
+- `[NXMClientConfig AMS]` static method.
+
+### Fixed
+
+- Custom events parsing.
+
 ## 2.2.2 - 2020-07-20
 
 ### Fixed
