@@ -5,7 +5,7 @@ description: In this step you learn how to create a Nexmo Application.
 
 # Create your Nexmo application
 
-You now need to create a Nexmo [Application](/conversation/concepts/application). In this step you create an application ccapable of handling both in-app Voice and in-app Messaging use cases.
+You now need to create a Nexmo [Application](/conversation/concepts/application). In this step you create an application capable of handling both in-app Voice and in-app Messaging use cases.
 
 **1.** Create your project directory if you've not already done so.
 
