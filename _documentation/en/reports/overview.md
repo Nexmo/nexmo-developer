@@ -54,7 +54,7 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 * Verify API
 * Number Insight API
 
-## Pricing (subject to change)
+## Pricing
 
 > The Reports API Beta is available free of charge for all customers until the 1st of October 2020. After that date, charges will be applied. **Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the Reports API pricing.**
 
