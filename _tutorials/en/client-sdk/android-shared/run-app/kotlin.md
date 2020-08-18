@@ -1,6 +1,6 @@
 ---
 title: Run the app
-description: In this step you will run the Android app
+description: In this step you run the Android app
 ---
 
 # Run the app
