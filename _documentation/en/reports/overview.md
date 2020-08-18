@@ -56,13 +56,14 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 
 ## Pricing
 
-> The Reports API Beta is available free of charge for all customers until the 1st of October 2020. After that date, charges will be applied. **Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the Reports API pricing.**
+> The Reports API Beta is available free of charge for all customers until the 1st of October 2020. After that date, charges will be applied.
 
 Charges are applied based on the quantity of requests and the volume of data retrieved as listed in the following table:
 
 Resource | Price
 ---- | ----
-Report generation | 0.0004€ per CDR
+Pay As You Go (PAYG) report generation | 0.0004€ per CDR
+Unlimited report generation | 450€ per month
 
 ### Pricing example (`POST` requests)
 
