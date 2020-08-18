@@ -56,22 +56,20 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 
 ## Pricing (subject to change)
 
-> The Reports API Beta is available free of charge for all customers until the 1st of October 2020. After that date, charges will be applied if the number of requests exceeds the Free Usage Tier. Free Usage Tier applies only to create CSV report `POST` requests. **Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the Reports API pricing.**
-
-As part of the Free Usage Tier, you can create ten reports per month per account (API key) for free. Generated reports are not limited in size and can fetch up to thirteen months of data (maximum retention period for CDRs).
+> The Reports API Beta is available free of charge for all customers until the 1st of October 2020. After that date, charges will be applied. **Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the Reports API pricing.**
 
 Charges are applied based on the quantity of requests and the volume of data retrieved as listed in the following table:
 
 Resource | Price
 ---- | ----
-Report generation | 0.0002€ per CDR
+Report generation | 0.0004€ per CDR
 
 ### Pricing example (`POST` requests)
 
-Assume you create an SMS report to retrieve one day of data and this report contains 10,000 CDRs. If you still have some free reports left (for example, you created six reports this calendar month so you can only create four more reports for free), then you will not be charged for this report. If you have already used your free monthly reports, then the total charge for this report will be the following:
+Assume you create an SMS report to retrieve one day of data and this report contains 10,000 CDRs, then the total charge for this report will be the following:
 
 ```
-Charge = 10,000 * 0.0002€ = 2€
+Charge = 10,000 * 0.0004€ = 4€
 ```
 
 ### Pricing example (`GET` requests)
@@ -79,12 +77,10 @@ Charge = 10,000 * 0.0002€ = 2€
 Assume you want to retrieve SMS records for the last one minute, and it turns out that there are 300 records in this time period. The total charge for this report will be the following:
 
 ```
-Charge = 300 * 0.0002€ = 0.06€
+Charge = 300 * 0.0004€ = 0.12€
 ```
 
 `GET` Requests (create and get JSON report) can return records either by ID or by a time period they belong to. Search by ID is not time-bounded. Time period search supports ranges of up to 24 hours.
-
-> Pricing information documented here is provisional and is subject to change.
 
 ## Code Snippets
 
