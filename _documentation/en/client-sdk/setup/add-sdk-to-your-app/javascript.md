@@ -21,29 +21,11 @@ Open your terminal. If you have an existing app, navigate to its root. Otherwise
 npm init -y
 ```
 
-### Install the Client SDK package
+### Get the Client SDK into your project
 
-Install the Client SDK using `npm`:
-
-```
-npm install nexmo-client -s
-```
-
-### Import the Client SDK into your code
-
-If your application is using ES6 module syntax, you can import the client module near the top of your application code:
-
-```
-import NexmoClient from 'nexmo-client';
-```
-
-If your application will run on a single page, you can load the module in your HTML using a script tag:
-
-```
-<script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
-```
-
-Be sure to check that the path to `nexmoClient.js` is correct for your project structure.
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/javascript'
+``` 
 
 ## Using the Client SDK in your app
 
