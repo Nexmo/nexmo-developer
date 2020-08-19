@@ -21,7 +21,7 @@ Open your terminal. If you have an existing app, navigate to its root. Otherwise
 npm init -y
 ```
 
-### Get the Client SDK into your project
+### Add the Client SDK to your project
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/javascript'
