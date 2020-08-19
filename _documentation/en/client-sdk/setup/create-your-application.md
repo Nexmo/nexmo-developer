@@ -85,10 +85,10 @@ Creating an application and application capabilities are covered in detail in th
 
 Create a User who will log in to Nexmo Client and participate in the SDK functionality: Conversations, Calls and so on.
 
-Replace `MY_USER_NAME` with your desired user name, and run the following command on a terminal:
+Run the following command in your terminal to create a user named Alice: 
 
 ```bash
-nexmo user:create name="MY_USER_NAME"
+nexmo user:create name="Alice"
 ```
 
 The output with the user ID, is similar to:
@@ -103,10 +103,10 @@ The user ID is used to perform tasks by the SDK, such as login, starting a call 
 
 [JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
 
-To generate a JWT for a specific user run the following command, remembering to replace the `MY_APP_ID` and `MY_USER_NAME` variables with values that suit your application:
+To generate a JWT for Alice run the following command, remembering to replace the `MY_APP_ID` variable with the value that suits your application:
 
 ```bash
-nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=MY_APP_ID
+nexmo jwt:generate ./private.key exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' sub=Alice application_id=MY_APP_ID
 ```
 
 The above command sets the expiry of the JWT to one day from now, which is the maximum amount of time. You may change the expiration to a shortened amount of time, or regenerate a JWT for the user after the current JWT has expired.
