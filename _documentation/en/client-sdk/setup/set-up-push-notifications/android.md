@@ -5,7 +5,7 @@ language: android
 
 # Overview
 
-On incoming events such as a new message, or an incoming call, the user often expects to receive a push notification, if the app is not active (app is in the background).
+On incoming events such as a new message, or an incoming call, the user often expects to receive a push notification or the app itself. If the app is not active (is in the background), push notifications are the only way to notify app about new events.
 
 This guide explains how to configure your Android app to receive push notifications from the Client SDK.
 
@@ -14,6 +14,8 @@ This guide explains how to configure your Android app to receive push notificati
 In order to enable push notifications for your Android app, you need to configure your Android application, create a new Firebase project and connect it to your Nexmo application.
 
 ## Configure Android project 
+
+Let's start with setting up Android project.
 
 ### To add the Client SDK dependency
 
@@ -31,17 +33,17 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/d
 
 ### Implement a custom service class to receive push notifications
 
-If you do not have one already, create a service that extends `FirebaseMessagingService`. 
+If you do not have one already, create a class (service) that extends `FirebaseMessagingService`. 
 
 In order for Nexmo to be able to send push notifications to a device, the Nexmo server has to know the device `token`, also known as `InstanceID`.
 
-In your class that extends `FirebaseMessagingService`,  override `onNewToken()` method and update the Nexmo and pass new `token` to `NexmoClient`:
+In your class that extends `FirebaseMessagingService`,  override `onNewToken()` method and update the `NexmoClient` by passing new `token`:
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/firebase-new-token'
 ```
 
-Make sure your service is declared in your `AndroidManifest.xml` (typically `app/src/main/AndroidManifest.xml`):
+Make sure your service is declared in your `AndroidManifest.xml` (typically `app/src/main/AndroidManifest.xml`) by adding `service` tag inside `application` tag:
 
 ```xml
 <service android:name=".MyFirebaseMessagingService">
