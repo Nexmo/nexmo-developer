@@ -5,8 +5,9 @@ language: kotlin
 
 ```kotlin
 class MyFirebaseMessagingService: FirebaseMessagingService() {
-    // No need for client initialization here. Client initialization is already done in BaseApplication class.
-    // NexmoClient.Builder().build(this)
+    
+    // We can retrieve client instance only if it has been already initialized
+    // NexmoClient.Builder().build(context)
     private val client = NexmoClient.get()
 
     override fun onNewToken(token: String) {

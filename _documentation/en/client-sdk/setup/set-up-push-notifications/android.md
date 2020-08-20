@@ -5,37 +5,21 @@ language: android
 
 # Overview
 
-On incoming events such as a new message, or an incoming call, the user often expects to receive a push notification, if the app is not active.
+On incoming events such as a new message, or an incoming call, the user often expects to receive a push notification, if the app is not active (app is in the background).
 
 This guide explains how to configure your Android app to receive push notifications from the Client SDK.
 
 ## Set up Firebase project for your app
 
-In order to enable push notifications for your Android app, you should use the Firebase Cloud Messaging (FCM) API. To do that, start by adding Firebase to your Android project.
+In order to enable push notifications for your Android app, you need to configure your Android application, create a new Firebase project and connect it to your Nexmo application.
 
-In case you have not done that already, more details can be found in the [official Firebase documentation](https://firebase.google.com/docs/android/setup).
+## Configure Android project 
 
-## Provision your server key
+### To add the Client SDK dependency
 
-Obtain a `jwt_dev`, which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
+[Add Nexmo Client SDK](/client-sdk/setup/add-sdk-to-your-app) to your project.
 
-Get your `private_key_file` from the Firebase console. Navigate to `Firebase console, Project settings, Service accounts, Firebase Admin SDK, generate new private key`. You will need to ensure the `private_key_file` is encoded to JSON using a suitable method before you can send it to the push service.
-
-Get your `projectId` from the Firebase console. Navigate to `Firebase console, Project settings, General, projectId`.
-
-Get your Nexmo Application ID, `app_id`. It can be obtained from [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
-
-Run the following Curl command, replacing `jwt_dev`, `private_key_file`, `projectId`, `app_id` with your values:
-
-```sh
-curl -v -X PUT \
-   -H "Authorization: Bearer $jwt_dev" \
-   -H "Content-Type: application/json" \
-   -d "{\"token\":\"$private_key_file\", \"projectId\":\"$projectId\"}" \
-   https://api.nexmo.com/v1/applications/$app_id/push_tokens/android  
-```
-
-## Add Firebase Cloud Messaging dependency to your Android project
+### Add Firebase Cloud Messaging dependency
 
 In your IDE, in your app level `build.gradle` file (usually `app/build.gradle`), add the `firebase-messaging` dependency:
 
@@ -43,9 +27,9 @@ In your IDE, in your app level `build.gradle` file (usually `app/build.gradle`),
 source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/dependencies'
 ```
 
-You need to replace `x.y.z` with the latest Cloud Messaging versions number, which can be found on the [Firebase website](https://firebase.google.com/docs/cloud-messaging/android/client).
+> **NOTE:** The latest version number can be found on the [Firebase website](https://firebase.google.com/docs/cloud-messaging/android/client#add_firebase_sdks_to_your_app).
 
-## Implement a service to receive push notifications
+### Implement a custom service class to receive push notifications
 
 If you do not have one already, create a service that extends `FirebaseMessagingService`. 
 
@@ -67,7 +51,7 @@ Make sure your service is declared in your `AndroidManifest.xml` (typically `app
 </service>
 ```
 
-## Receive push notifications
+### Receive push notifications
 
 Push notifications are received in your implementation of `MyFirebaseMessagingService`, on `onMessageReceived()` method.
 
@@ -80,6 +64,74 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/f
 ```
 
 > **NOTE:** In order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in](/client-sdk/getting-started/add-sdk-to-your-app/android) to it.
+
+## Connect Nexmo Application to Firebase
+
+To connect Nexmo Application with Fiebase you will need the following:
+
+1. Nexmo application id
+2. Nexmo user name
+3. JWT token 
+4. Firebase project id
+5. Firebase Private Key file
+
+### Get Nexmo application Id
+
+Obtain your Nexmo Application ID. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have Nexmo applicattion already you can create the new Nexmo application via [Nexmo CLI](/client-sdk/setup/create-your-application).
+
+### Create a User
+
+If you don't have user already you can create one using [Nexmo CLI](/client-sdk/setup/create-your-application#create-a-user).
+
+### Generate a User JWT
+
+[JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
+
+To generate a JWT for a specific user run the following command. Remember to replace the `MY_APP_ID` and `MY_USER_NAME` variables with values that suit your application:
+
+```bash
+nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=MY_APP_ID
+```
+
+> **NOTE:** More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
+
+### Get Firebase project Id
+
+Get your `FIREBASE_PROJECT_ID` from the [Firebase console](https://console.firebase.google.com/). Navigate to `Firebase console -> Project settings -> General`.
+
+```screenshot
+image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-project-settings.png
+```
+
+```screenshot
+image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-project-id.png
+```
+
+### Get Firebase private key file
+
+Get your `FIREBASE_PRIVATE_KEY_FILE` from the Firebase console. Navigate to `Firebase console ->  Project settings -> Service accounts` and generate a new private key. 
+
+```screenshot
+image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-project-settings.png
+```
+
+```screenshot
+image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-generate-new-private-key.png
+```
+
+## Putting it all together
+
+Now your Android client is ready to receive push notificaitons. 
+
+Replease `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
+
+```sh
+curl -v -X PUT \
+   -H "Authorization: Bearer $JWT_DEV" \
+   -H "Content-Type: application/json" \
+   -d "{\"token\":\"$FIREBASE_PRIVATE_KEY_FILE\", \"projectId\":\"$FIREBASE_PROJECT_ID\"}" \
+   https://api.nexmo.com/v1/applications/$NEXMO_APP_ID/push_tokens/android  
+```
 
 ## Conclusion
 
