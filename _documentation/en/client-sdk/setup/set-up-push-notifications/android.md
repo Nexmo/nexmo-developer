@@ -125,7 +125,7 @@ image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-ge
 
 Now your Android client is ready to receive push notifications. 
 
-Repleace `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
+Replace `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
 
 ```sh
 curl -v -X PUT \
