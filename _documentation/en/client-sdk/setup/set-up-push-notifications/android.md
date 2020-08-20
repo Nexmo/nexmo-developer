@@ -5,11 +5,7 @@ language: android
 
 # Overview
 
-<<<<<<< HEAD
 On incoming events such as a new message, or an incoming call, the user often expects to receive a push notification or the app itself. If the app is not active (is in the background), push notifications are the only way to notify app about new events.
-=======
-On incoming events such as a new message, or an incoming call, the user often expects to receive a push notification, if the app is not active (app is in the background).
->>>>>>> 80750b9767fd41926d8767d0019eb11aa40b2c0c
 
 This guide explains how to configure your Android app to receive push notifications from the Client SDK.
 
@@ -19,19 +15,12 @@ In order to enable push notifications for your Android app, you need to configur
 
 ## Configure Android project 
 
-<<<<<<< HEAD
 Let's start with setting up Android project.
 
 ### To add the Client SDK dependency
 
 [Add Nexmo Client SDK](/client-sdk/setup/add-sdk-to-your-app) to your project.
 
-=======
-### To add the Client SDK dependency
-
-[Add Nexmo Client SDK](/client-sdk/setup/add-sdk-to-your-app) to your project.
-
->>>>>>> 80750b9767fd41926d8767d0019eb11aa40b2c0c
 ### Add Firebase Cloud Messaging dependency
 
 In your IDE, in your app level `build.gradle` file (usually `app/build.gradle`), add the `firebase-messaging` dependency:
@@ -134,15 +123,9 @@ image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-ge
 
 ## Putting it all together
 
-<<<<<<< HEAD
 Now your Android client is ready to receive push notifications. 
 
 Repleace `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
-=======
-Now your Android client is ready to receive push notificaitons. 
-
-Replease `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
->>>>>>> 80750b9767fd41926d8767d0019eb11aa40b2c0c
 
 ```sh
 curl -v -X PUT \
