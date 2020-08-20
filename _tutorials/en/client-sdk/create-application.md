@@ -33,11 +33,9 @@ capabilities your application needs. For the purposes of this example select bot
 
 > **NOTE:** If your application will be in-app voice only you can just select Voice capabilities. If you want in-app messaging select only RTC capabilities. If your app will have both in-app voice and in-app messaging select both capabilities.
 
-**6.**F or "Use the default HTTP methods?" press Enter to select the default.
+**6.** For "Use the default HTTP methods?" press Enter to select the default.
 
-**7.** For "Voice Answer URL" enter `https://example.ngrok.io/webhooks/answer` or other suitable URL (this depends on 
-how 
-you are testing).
+**7.** For "Voice Answer URL" enter `https://example.ngrok.io/webhooks/answer` or other suitable URL (this depends on how you are testing).
 
 **8.** You are next prompted for the "Voice Fallback Answer URL". This is an optional fallback URL should your main 
 Voice 
