@@ -86,7 +86,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/permissions'
 
 `AppDelegate` is the best place to do this.
 
-## Using NXMClient in your app
+## Using Nexmo client in your app
 
 ### Login
 
