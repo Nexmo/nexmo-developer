@@ -68,7 +68,7 @@ Make sure to build the NexmoClient instance before using it.
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/build-client'
 ``` 
 
-### Setting NexmoConnectionListener
+### Setting connection listeener
 
 Set `NexmoConnectionListener` that will notify you on any changes on the connection to the SDK and the availability of its functionality:
 

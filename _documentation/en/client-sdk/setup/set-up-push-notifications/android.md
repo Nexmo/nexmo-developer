@@ -69,7 +69,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/f
 
 ## Connect Nexmo Application to Firebase
 
-To connect Nexmo Application with Fiebase you will need the following:
+To connect Nexmo Application with Firebase you will need the following:
 
 1. Nexmo application id
 2. Nexmo user name
@@ -79,7 +79,7 @@ To connect Nexmo Application with Fiebase you will need the following:
 
 ### Get Nexmo application Id
 
-Obtain your Nexmo Application ID. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have Nexmo applicattion already you can create the new Nexmo application via [Nexmo CLI](/client-sdk/setup/create-your-application).
+Obtain your Nexmo Application ID. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have Nexmo application already you can create the new Nexmo application via [Nexmo CLI](/client-sdk/setup/create-your-application).
 
 ### Create a User
 
@@ -123,9 +123,9 @@ image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-ge
 
 ## Putting it all together
 
-Now your Android client is ready to receive push notificaitons. 
+Now your Android client is ready to receive push notifications. 
 
-Replease `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
+Repleace `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
 
 ```sh
 curl -v -X PUT \
