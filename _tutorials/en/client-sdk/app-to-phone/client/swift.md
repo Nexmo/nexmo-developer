@@ -5,18 +5,16 @@ description: In this step you will authenticate to the Vonage servers.
 
 # `NXMClient`
 
-Before you can place a call, the Client SDK needs to authenticate to the Vonage servers. 
+Before you can place a call, the Client SDK needs to authenticate to the Vonage servers. The following additions are required to `ViewController.swift`.
 
-The following additions are required to `ViewController.swift`:
-
-At the top of the file, import `NexmoClient`:
+At the top of the file, import `NexmoClient`.
 
 ```swift
 import UIKit
 import NexmoClient
 ```
 
-Add a `NXMClient` instance, below the `callButton`:
+Add a `NXMClient` instance, below the `callButton`.
 
 ```swift
 class ViewController: UIViewController {
@@ -41,7 +39,7 @@ override func viewDidLoad() {
 
 ## The Client Delegate
 
-For the delegate part to work, you need to have `ViewController` conform to `NXMClientDelegate`. At the end of the file, add:
+For the delegate part to work, you need to have `ViewController` conform to `NXMClientDelegate`. At the end of the file, add this extension.
 
 ```swift
 extension ViewController: NXMClientDelegate {
@@ -76,4 +74,4 @@ An error is shown if encountered and the `connectionStatusLabel` is updated with
 
 `Cmd + R` to build and run again:
 
-![Interface connected](/meta/client-sdk/ios-voice/interface-connected.jpg)
+![Interface connected](/images/client-sdk/ios-voice/interface-connected.jpg)

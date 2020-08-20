@@ -3,7 +3,7 @@ title: Xcode Project and Workspace
 description: In this step you create an Xcode project and add the iOS Client SDK library.
 ---
 
-# Xcode Project & Workspace
+# Xcode Project and Workspace
 
 You will be using the iOS Client SDK library inside an Xcode project you'll create next:
 
@@ -16,7 +16,7 @@ You will be using the iOS Client SDK library inside an Xcode project you'll crea
 
 * For the `Product Name` type in `AppToPhone`, select the relevant `Team` and `Organisation Identifier`.
 
-* User `Swift` for `Language` and `Storyboard` for `User Interface`. Click `Next`.
+* User `Objective-C` for `Language` and `Storyboard` for `User Interface`. Click `Next`.
 
 * Select the `Desktop` as the place where your project folder will reside. You can select a different location but please make sure to remember it as you'll need to navigate to it soon from the `Terminal`.
 
@@ -29,13 +29,13 @@ You will add the iOS Client SDK library to your project via [CocoaPods](https://
 
 ## Install CocoaPods
 
-* Open the `Terminal` app and navigate to the project folder by typing:
+* Open the `Terminal` app and navigate to the project folder by typing.
 
 ``` shell
 cd ~/Desktop/AppToPhone
 ```
 
-* Install CocoaPods in your system, if you don't have it already:
+* Install CocoaPods in your system, if you don't have it already.
 
 ``` shell
 sudo gem install cocoapods
@@ -51,13 +51,13 @@ pod init
 
 ## Add the iOS Client SDK
 
-* Add the Nexmo iOS Client SDK to the Podfile. To do this, let's open it in `Xcode`:
+* Add the Nexmo iOS Client SDK to the Podfile. To do this, let's open it in `Xcode`.
 
 ``` shell
 open -a Xcode Podfile
 ```
 
-* Update the Podfile as shown below:
+* Update the Podfile as shown below.
 
 ```
 # Uncomment the next line to define a global platform for your project
@@ -73,7 +73,7 @@ target 'AppToPhone' do
 end
 ```
 
-* Install the library:
+* Install the library.
 
 ``` shell
 pod install
