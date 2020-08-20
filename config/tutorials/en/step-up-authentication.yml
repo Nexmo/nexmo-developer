@@ -10,7 +10,9 @@ introduction:
   content: |
     # Introduction
 
-    Using step-up authentication, users can access some resources with one set of credentials but are prompted for more credentials when they request access to sensitive resources.
+    Step-up authentication is an adaptive method of authenticating a user. You give basic access to your application with one set of credentials so that they can start using your service with as little friction as possible. But when that user tries to do something that has an element of risk, you ask for further credentials. These extra credentials provide reassurance that they are entitled to do so.
+
+    You might have seen this sort of authentication being used in Internet banking. You'll log into your banking application with one set of credentials, but when you attempt to make a payment or transfer money, you'll often be asked to provide further proof that you are the account holder, such as a one-time password sent via SMS or some memorable information that only you could reasonably know.
 
     This tutorial shows you how use Node.js and the Verify API to add this extra layer of security to your applications. You will build an application that simulates a user trying to access their account settings and being asked to verify themselves before being allowed to do so.
 tasks:
