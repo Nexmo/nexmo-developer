@@ -35,37 +35,3 @@ image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/pro
 ```
 
 > **NOTE:** Each screen is represented by two classes: `Fragment` that is the thin view and `ViewModel` that handles the view logic.
-
-Now it's time to fill previously generated `CONVERSATION_ID` and `JWT` tokens.
-
-Open `Config.kt` file and fill:
-
-1. `USER1`'s user Id and JWTs
-2. `USER2`'s user Id and JWTs
-3. `CONVERSATION_ID` you've created on the previous steps:
-
-```kotlin
-package com.vonage.tutorial.messaging
-
-data class User(
-    val name: String,
-    val jwt: String
-)
-
-object Config {
-
-    const val CONVERSATION_ID: String = "" // TODO: set conversation Id
-
-    val user1 = User(
-        "USER1",
-        "" // TODO: "set USER1's JWT token"
-    )
-    val user2 = User(
-        "USER1",
-        "" // TODO: set USER2's JWT token"
-    )
-}
-
-```
-
-Notice that these constants and values are hardcoded to store the properties of users. This makes it easier to use these values later in this tutorial.
