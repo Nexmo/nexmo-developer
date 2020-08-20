@@ -31,6 +31,13 @@ Now to add the Client SDK to your project, add the following dependency in your 
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/dependencies'
 ``` 
 
+### Set Java 1.8
+
+Set Java 1.8 in your app level `build.gradle` file (typically `app/build.gradle`):
+
+ ```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/gradlejava18'
+``` 
 
 
 ### Add permissions
