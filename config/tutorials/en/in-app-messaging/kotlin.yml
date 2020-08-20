@@ -30,13 +30,15 @@ prerequisites:
   - install-android-studio
 
 tasks:
+
   - client-sdk/in-app-messaging/create-application
   - client-sdk/create-conversation
-  - client-sdk/in-app-messaging/create-users
+  - client-sdk/android-shared/create-users-alice-and-bob
   - client-sdk/in-app-messaging/add-users-to-conversation
-  - client-sdk/in-app-messaging/generate-jwts
+  - client-sdk/android-shared/generate-jwt-alice-and-bob
   - client-sdk/in-app-messaging/starter-project
   - client-sdk/android-shared/initialize-client
+  - client-sdk/in-app-messaging/configure-jwts-and-conversation-id
   - client-sdk/in-app-messaging/authenticate-users
   - client-sdk/in-app-messaging/fetch-conversation
   - client-sdk/in-app-messaging/fetch-events

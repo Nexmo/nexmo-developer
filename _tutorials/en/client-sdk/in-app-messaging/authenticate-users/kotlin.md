@@ -21,6 +21,8 @@ private val client = NexmoClient.get()
 
 Make sure to add missing import again.
 
+## Login user
+
 Your user must be authenticated to be able to participate in the Call. Locate the `onLoginUser` method inside `LoginViewModel` class and replace it with this code:
 
 ```kotlin
@@ -36,6 +38,7 @@ fun onLoginUser(user: User) {
 
 > **NOTE:** The `User` type is the `data class` that we've defined in the `Config.kt` file.
 
+## Monitor connection state
 
 Now add a connection listener to listen to the `client` instance to listen for connection state changes and use `_connectionStatus` `LiveData` to propagate a new connection state to the view (`LoginFragment`). Locate the `init` block inside `LoginViewModel` class and replace it with this code:
 
