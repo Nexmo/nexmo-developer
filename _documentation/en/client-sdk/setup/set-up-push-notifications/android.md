@@ -9,9 +9,9 @@ On incoming events such as a new message, or an incoming call, the user often ex
 
 This guide explains how to configure your Android app to receive push notifications from the Client SDK.
 
-## Set up Firebase project for your app
+## Set up Firebase project for your Android application
 
-In order to enable push notifications for your Android app, you need to configure your Android application, create a new Firebase project and connect it to your Nexmo application.
+In order to enable push notifications for your Android application, you need to configure your Android application, create a new Firebase project and connect it to your Vonage API application.
 
 ## Configure Android project 
 
@@ -19,7 +19,7 @@ Let's start with setting up Android project.
 
 ### To add the Client SDK dependency
 
-[Add Nexmo Client SDK](/client-sdk/setup/add-sdk-to-your-app) to your project.
+[Add Client SDK](/client-sdk/setup/add-sdk-to-your-app) to your project.
 
 ### Add Firebase Cloud Messaging dependency
 
@@ -35,14 +35,14 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/d
 
 If you do not have one already, create a class (service) that extends `FirebaseMessagingService`. 
 
-In order for Nexmo to be able to send push notifications to a device, the Nexmo server has to know the device `token`, also known as `InstanceID`.
+In order for Vonage API application to be able to send push notifications to a device, the Vonage server has to know the device `token`, also known as `InstanceID`.
 
 In your class that extends `FirebaseMessagingService`,  override `onNewToken()` method and update the `NexmoClient` by passing new `token`:
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/firebase-new-token'
 ```
-git 
+
 Make sure your service is declared in your `AndroidManifest.xml` (typically `app/src/main/AndroidManifest.xml`) by adding `service` tag inside `application` tag:
 
 ```xml
@@ -57,7 +57,7 @@ Make sure your service is declared in your `AndroidManifest.xml` (typically `app
 
 Push notifications are received in your implementation of `MyFirebaseMessagingService`, on `onMessageReceived()` method.
 
-You can use `NexmoClient.isNexmoPushNotification(message.data))` to determine if the message is sent from Nexmo server.
+You can use `NexmoClient.isNexmoPushNotification(message.data))` to determine if the message is sent from Vonage server.
 
 Use `processPushNotification(message.data, listener)` to process the data received from Firebase Cloud Messaging (FCM) into an easy to use Nexmo object:
 
@@ -67,32 +67,32 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/f
 
 > **NOTE:** In order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in](/client-sdk/getting-started/add-sdk-to-your-app/android) to it.
 
-## Connect Nexmo Application to Firebase
+## Connect Vonage API application to Firebase
 
-To connect Nexmo Application with Firebase you will need the following:
+To connect Vonage API Application with Firebase you will need the following:
 
-1. Nexmo application id
-2. Nexmo user name
+1. Application id
+2. User name
 3. JWT token 
 4. Firebase project id
 5. Firebase Private Key file
 
-### Get Nexmo application Id
+### Get Vonage application Id
 
-Obtain your Nexmo Application ID. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have Nexmo application already you can create the new Nexmo application via [Nexmo CLI](/client-sdk/setup/create-your-application).
+Obtain your `VONAGE_APP_ID`. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have an application already you can create the new application via [Nexmo CLI](/client-sdk/setup/create-your-application).
 
-### Create a User
+### Create a Vonage User
 
-If you don't have user already you can create one using [Nexmo CLI](/client-sdk/setup/create-your-application#create-a-user).
+Get your `VONAGE_USER_NAME`. If you don't have user already you can create one using [Nexmo CLI](/client-sdk/setup/create-your-application#create-a-user).
 
-### Generate a User JWT
+### Generate a Vonage User JWT
 
 [JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
 
-To generate a JWT for a specific user run the following command. Remember to replace the `MY_APP_ID` and `MY_USER_NAME` variables with values that suit your application:
+To generate a `VONAGE_JWT` for a specific user run the following command. Remember to replace the `APP_ID` and `USER_NAME` variables with values that suit your application:
 
 ```bash
-nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=MY_APP_ID
+nexmo jwt:generate ./private.key sub=VONAGE_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=VONAGE_APP_ID
 ```
 
 > **NOTE:** More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
@@ -125,14 +125,14 @@ image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-ge
 
 Now your Android client is ready to receive push notifications. 
 
-Replace `JWT_DEV`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `NEXMO_APP_ID` with previously obtained values to send a push notification.
+Replace `VONAGE_JWT`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `VONAGE_APP_ID` with previously obtained values to send a push notification.
 
 ```sh
 curl -v -X PUT \
-   -H "Authorization: Bearer $JWT_DEV" \
+   -H "Authorization: Bearer $VONAGE_JWT" \
    -H "Content-Type: application/json" \
    -d "{\"token\":\"$FIREBASE_PRIVATE_KEY_FILE\", \"projectId\":\"$FIREBASE_PROJECT_ID\"}" \
-   https://api.nexmo.com/v1/applications/$NEXMO_APP_ID/push_tokens/android  
+   https://api.nexmo.com/v1/applications/$VONAGE_APP_ID/push_tokens/android  
 ```
 
 ## Conclusion
