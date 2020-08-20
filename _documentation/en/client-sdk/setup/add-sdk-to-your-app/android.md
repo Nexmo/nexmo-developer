@@ -58,17 +58,17 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/request-perm
 
     Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting). 
 
-## Using `NexmoClient` in your App
+## Using NexmoClient in your App
 
-### Building `NexmoClient`
+### Building NexmoClient
 
-Make sure to build the NexmoClient instance before using it. The default build being:
+Make sure to build the NexmoClient instance before using it.
 
  ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/build-client'
 ``` 
 
-### Setting `NexmoConnectionListener`
+### Setting NexmoConnectionListener
 
 Set `NexmoConnectionListener` that will notify you on any changes on the connection to the SDK and the availability of its functionality:
 
@@ -76,7 +76,7 @@ Set `NexmoConnectionListener` that will notify you on any changes on the connect
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/connection-listener'
 ``` 
 
-### Login `NexmoClient`
+### Login NexmoClient
 
 After initializing `NexmoClient`, you need log in to it, using a `jwt` user token. This is described in the topic on [JWTs and ACLs](/client-sdk/concepts/jwt-acl).
 

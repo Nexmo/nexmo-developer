@@ -6,7 +6,7 @@ language: kotlin
 ```kotlin
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
-    // We can retrieve client instance after it has been initializated.
+    // We can retrieve client instance only if it has been already initialized
     // NexmoClient.Builder().build(context)
     private val client = NexmoClient.get()
 

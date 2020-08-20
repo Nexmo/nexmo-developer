@@ -6,8 +6,8 @@ language: java
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
-    // We can retrieve client instance after it has been initializated.
-    // new NexmoClient.Builder().build(context);
+    // We can retrieve client instance only if it has been already initialized
+    // new NexmoClient.Builder().build(context)
     private NexmoClient client = NexmoClient.get();
 
     @Override
