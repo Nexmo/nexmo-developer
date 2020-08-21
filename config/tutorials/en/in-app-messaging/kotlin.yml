@@ -37,7 +37,7 @@ tasks:
   - client-sdk/in-app-messaging/generate-jwts
   - client-sdk/in-app-messaging/starter-project
   - client-sdk/android-shared/initialize-client
-  - client-sdk/in-app-messaging/authenticate-users
+  - client-sdk/android-shared/call/authenticate-alice-and-bob
   - client-sdk/in-app-messaging/fetch-conversation
   - client-sdk/in-app-messaging/fetch-events
   - client-sdk/in-app-messaging/send-message
