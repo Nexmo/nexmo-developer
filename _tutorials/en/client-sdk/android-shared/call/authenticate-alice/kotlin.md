@@ -50,7 +50,7 @@ init {
         client.setConnectionListener { newConnectionStatus, _ ->
 
             if (newConnectionStatus == ConnectionStatus.CONNECTED) {
-                navigateToMainFragment()
+                navigate()
                 return@setConnectionListener
             }
 
