@@ -19,14 +19,14 @@ The NCCO must be public and accessible by the internet. To accomplish that, you 
 [
     {
         "action": "talk",
-        "text": "Please wait while we connect you."
+        "text": "Connecting you to Bob"
     },
     {
         "action": "connect",
         "endpoint": [
             {
-                "type": "phone",
-                "number": "PHONE_NUMBER"
+                "type": "app",
+                "user": "Bob"
             }
         ]
     }

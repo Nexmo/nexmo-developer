@@ -29,7 +29,7 @@ nexmo app:create "App to Phone Tutorial" --capabilities=voice --keyfile=private.
 
 A file named `.nexmo-app` is created in your project directory and contains the newly created Nexmo Application ID and the private key. A private key file named `private.key` is also created.
 
-**Please make a note of it as you'll need it in the future.**
+**Please make a note of the Application ID as you'll need it in the future.**
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/nexmo-application-created.png
