@@ -14,10 +14,10 @@ At the top of the file, import `NexmoClient`.
 #import <NexmoClient/NexmoClient.h>
 ```
 
-Add a `NXMClient` instance and conformance to the `NXMCallDelegate` to the interface .
+Add a `NXMClient` instance and conformance to the `NXMClientDelegate` to the interface.
 
 ```objective_c
-@interface ViewController () <NXMCallDelegate>
+@interface ViewController () <NXMClientDelegate>
 ...
 @property NXMClient *client;
 @end
