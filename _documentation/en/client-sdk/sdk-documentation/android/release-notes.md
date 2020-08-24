@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.5 - Aug 24, 2020
+
+### Enhancements
+
+- Improved SDK logs implementation and socket connection stability.
+
 ## Version 2.6.4 - May 19, 2020
 
 ### New
