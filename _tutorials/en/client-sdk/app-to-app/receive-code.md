@@ -45,7 +45,7 @@ Add the following code, but make sure you paste the Bob JWT you generated for th
 </html>
 ```
 
-This is your client application that uses the Client SDK to receive a voice call from the source *user* (ALice).
+This is your client application that uses the Client SDK to receive a voice call from the source *user* (Alice).
 
 There are several key components to this code:
 
