@@ -19,32 +19,30 @@ The NCCO must be public and accessible by the internet. To accomplish that, you 
 [
     {
         "action": "talk",
-        "text": "Please wait while we connect you."
+        "text": "Connecting you to Bob"
     },
     {
         "action": "connect",
         "endpoint": [
             {
-                "type": "phone",
-                "number": "PHONE_NUMBER"
+                "type": "app",
+                "user": "Bob"
             }
         ]
     }
 ]
 ```
 
-4) Replace `PHONE_NUMBER` with your phone number. Nexmo numbers are in [E.164](/concepts/guides/glossary#e-164-format) format, '+' and '-' are not valid. Make sure you specify your country code when entering your number, for example, US: 14155550100 and UK: 447700900001.
-
-5) Click the `Create secret gist` button:
+4) Click the `Create secret gist` button:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/app-to-phone/create-ncco/gist1.png
 ```
 
-6) Click the `Raw` button:
+5) Click the `Raw` button:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/app-to-phone/create-ncco/gist2.png
 ```
 
-7) Take note of the URL shown in your browser, you will be using it in the next step.
+6) Take note of the URL shown in your browser, you will be using it in the next step.

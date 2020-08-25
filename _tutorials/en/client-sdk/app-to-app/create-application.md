@@ -19,27 +19,15 @@ mkdir nexmo-tutorial
 cd nexmo-tutorial
 ```
 
-**3.** Create a Nexmo application [interactively](/application/nexmo-cli#interactive-mode). The following command enters interactive mode:
+**3.** Create a Nexmo application by copying and pasting the command below into terminal Make sure to change the value of `--voice-answer-url` argument by replacing `GIST-URL` with the gist URL from the previous step.
 
 ``` shell
-nexmo app:create
+nexmo app:create "App to App Tutorial" --capabilities=voice --keyfile=private.key  --voice-event-url=https://example.com/ --voice-answer-url=GIST-URL
 ```
-
-**4.** Specify your application name. Press Enter to continue.
-
-**5.** You can now select your application capabilities using the arrow keys and then pressing spacebar to select the capabilities your application needs. For the purposes of this example select Voice capabilities only, using the arrow keys and spacebar to select. Once you made your selection, press Enter to continue.
-
-**6.** For "Use the default HTTP methods?" press Enter to select the default.
-
-**7.** For " RTC Event URL" press 'Enter' to accept the default.
-
-**8.**  For "Public Key path" press Enter to select the default. If you want to use your own public-private key pair refer to [this documentation](/application/nexmo-cli#creating-an-application-with-your-own-public-private-key-pair).
-
-**9.**  For "Private Key path" type in `private.key` and press Enter.
 
 A file named `.nexmo-app` is created in your project directory and contains the newly created Nexmo Application ID and the private key. A private key file named `private.key` is also created.
 
-**Please make a note of it as you'll need it in the future.**
+**Please make a note of the Application ID as you'll need it in the future.**
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/nexmo-application-created.png
