@@ -23,7 +23,7 @@ Create an HTML file called `index.html` in your project directory. Add the follo
   <button type="button" id="hangup">Hang Up</button>
   <script>
 
-    const AGENT_JWT = "PASTE YOUR USER JWT HERE";
+    const AGENT_JWT = "PASTE ALICE JWT HERE";
 
     new NexmoClient({ debug: true })
     .login(AGENT_JWT)
