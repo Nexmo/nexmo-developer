@@ -18,7 +18,6 @@ Create an HTML file called `index.html` in your project directory. Add the follo
   <h1>Inbound PSTN phone call</h1>
   <p id="notification">Lines are open for calls...</p>
   <br />
-  <button id="button">Answer</button>
   <button type="button" id="answer">Answer</button>
   <button type="button" id="reject">Reject</button>
   <button type="button" id="hangup">Hang Up</button>
