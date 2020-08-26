@@ -424,56 +424,33 @@ page:
                         Vonage API
                       </h5>
                     </div>
-                    <div class="padding-top-32">
-                      <div class="Vlt-col padding-left-0">
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
                         <h4>About The Show</h4>
                         <p class="text-justify">
                           What would you get if your favorite tech conference and late night television program got together? The Late Night Build. Every other week, join Michael Jolley as he is joined by a special guest to talk all things tech. Then relax to the sounds of each episode's musical guest. Finally, watch an awesome demo in various languages & stacks. All this while contestants are competing in a hack-a-thon for prizes.
                         </p>
                       </div>
-                      <div class="Vlt-grid padding-top-32">
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4 class="inline-block">About Michael Jolley</h4>
-                          <a href="https://twitter.com/baldbeardbuild" target="_blank">
-                            <i class="icon icon-twitter"></i>
-                          </a>
-                          <a href="https://github.com/MichaelJolley" target="_blank">
-                            <i class="icon icon-github"></i>
-                          </a>
-                          <h5>
-                            Developer Advocate
-                          </h5>
-                          <p class="text-justify">
-                            Michael is the bald, bearded builder.
-                            <br>
-                            Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
-                          </p>
-                          </br>
-                          <a class="Vlt-purple" href="https://baldbeardedbuilder.com/">
-                             BaldBeardedBuilder.com
-                          </a>
-                        </div>
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4 class="inline-block">About Featured Guest</h4>
-                          <a href="https://twitter.com/iza_biro" target="_blank">
-                            <i class="icon icon-twitter"></i>
-                          </a>
-                          <a href="https://github.com/juliacodez" target="_blank">
-                            <i class="icon icon-github"></i>
-                          </a>
-                          <h5>
-                            Guest Job
-                          </h5>
-                          <p class="text-justify">
-                            👩🏼‍💻, 🎨 & 🥑 shenanigans @DevRelAvocados and Vonage.
-                            <br>
-                            I spend most of my time wrangling Node-RED into doing my bidding, creating resources for the community.
-                          </p>
-                          </br>
-                          <a class="Vlt-purple" href="https://developeravocados.net/">
-                            DeveloperAvocados.net
-                          </a>
-                        </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/MichaelJolley" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://baldbeardedbuilder.com/">
+                           BaldBeardedBuilder.com
+                        </a>
                       </div>
                     </div>
                   </div>
