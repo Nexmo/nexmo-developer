@@ -13,6 +13,7 @@ page:
             <h2 class="Vlt-center">August - September</h2>
             <div class="Vlt-tabs container">
               <div class="Vlt-table--data  Vlt-tabs__header">
+                <div class="Vlt-tabs__link Vlt-tabs__link_active no-border"></div>
                 <div class="Vlt-table__header">
                   <div class="Vlt-table__cell">Monday</div>
                   <div class="Vlt-table__cell">Tuesday</div>
@@ -116,6 +117,14 @@ page:
                 </div>
               </div>
               <div class="Vlt-tabs__content">
+                <div class="Vlt-tabs__panel Vlt-tabs__panel_active">
+                  <div class="Vlt-callout Vlt-callout--tip margin-top-2p">
+                    <i></i>
+                    <div class="Vlt-callout__content">
+                      <p><b>Note:</b> Click on a show for more information</p>
+                    </div>
+                  </div>
+                </div>
                 <div class="Vlt-tabs__panel" id="tab-24">24</div>
                 <div class="Vlt-tabs__panel" id="tab-25">
                   <div class="Vlt-grid">
@@ -136,9 +145,26 @@ page:
                     <div class="Vlt-col">
                       <div>
                         <h4>About The Show</h4>
-                        <p>
+                        <p class="text-justify">
                           Weekly, each Tuesday Lauren is joined by a PDX team member who is there to teach her (and the viewers) how to build an app or implement one of our APIs. They may be following along a recent blog post or working through a new demo the Developer Advocate is excited about. The app is always built from scratch and is accessible to all levels of developers, from experts to beginners!
                         </p>
+                        <h4 class="inline-block">About Lauren Lee</h4>
+                        <a href="https://twitter.com/LoLoCoding" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/laurenelee" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          developer educator manager
+                        </h5>
+                        <p class="text-justify">
+                          An English teacher turned empathetic software engineer. 👩🏼‍🏫  ➡️  👩🏼‍💻 A curious optimist with a passion for accessible creating content and helping developers level up their skills at Nexmo, the Vonage API. I'm community and social-justice minded and am an innovative, enthusiastic, and curious learner. I enjoy dialogue, being apart of a team, and puzzling through complex logic-based and engineering challenges. When I am not coding 👩🏼‍💻, I am involved in community theater 🎭, a mentor with Chicktech Seattle 🐣, a member of an intramural ice hockey team 🏒, and a certified rescue scuba diver ⚓️.
+                        </p>
+                        </br>
+                        <a class="Vlt-black" href="https://lolocoding.com">
+                          LoLoCoding.com
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -166,6 +192,7 @@ page:
             <style>
               .Nxd-landing-col .Vlt-tabs__header {
                 flex-direction: column;
+                border-bottom: none !important;
               }
               .Nxd-landing-col .Vlt-table__header {
                 display: flex;
@@ -206,6 +233,21 @@ page:
               }
               .Vlt-table__header{
                 border-top: 1px solid #131415;
+              }
+              .no-border{
+                border: none !important;
+              }
+              .no-border:after{
+                background: none !important;
+              }
+              #watch-now-btn{
+                margin-top: 0;
+              }
+              .inline-block{
+                display: inline-block;
+              }
+              .text-justify{
+                text-align: justify;
               }
               @media (max-width: 380px) {
                 .calendar-item .show {
