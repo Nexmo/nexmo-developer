@@ -15,11 +15,7 @@ The Client SDK requires [Node.js](https://nodejs.org) and [NPM](https://www.npmj
 
 ### Navigate to your app
 
-Open your terminal. If you have an existing app, navigate to its root. Otherwise, create a new directory for your project and add a default `package.json` by running:
-
-```
-npm init -y
-```
+Open your terminal. If you have an existing app, navigate to its root. Otherwise, create a new directory for your project.
 
 ### Add the Client SDK to your project
 
