@@ -45,8 +45,4 @@ image: public/screenshots/tutorials/client-sdk/app-to-app/create-ncco/gist1.png
 image: public/screenshots/tutorials/client-sdk/app-to-app/create-ncco/gist2.png
 ```
 
-6) Take note of the URL shown in your browser, you will be using it in the next step:
-
-```screenshot
-image: public/screenshots/tutorials/client-sdk/app-to-app/create-ncco/gist3.png
-```
+6) Take note of the URL shown in your browser, you will be using it in the next step.
