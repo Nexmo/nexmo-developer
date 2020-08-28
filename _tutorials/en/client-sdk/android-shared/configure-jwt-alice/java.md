@@ -9,13 +9,17 @@ Now it's time to fill previously generated `JWT` token.
 
 Open `Config.kt` file and replace `ALICE_TOKEN` placeholder with real values:
 
-```kotlin
-object Config {
+```java
+public class Config {
 
-    val alice = User(
-        "Alice",
-        "ALICE_TOKEN" // TODO: "set Alice's JWT token"
-    )
+    public static User getAlice() {
+        return new User(
+                "Alice",
+                "ALICE_TOKEN" // TODO: "set Bob JWT token"
+        );
+    }
+
+    //...
 }
 ```
 

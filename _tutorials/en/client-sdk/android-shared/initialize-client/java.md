@@ -11,7 +11,7 @@ Locate the `initializeNexmoClient` method in the `BaseApplication` class and ini
 
 ```kotlin
 private fun initializeNexmoClient() {
-    NexmoClient.Builder().build(this)
+    new NexmoClient.Builder().build(this);
 }
 ```
 
@@ -22,7 +22,7 @@ private fun initializeNexmoClient() {
 If Android Studio can't find the reference to the `NexmoClient` class then you have to add the missing import. Roll over on the `NexmoClient` class, wait for window to appear and press `Import` (this will be required in following steps as well).
 
 ```screenshot
-image: public/screenshots/tutorials/client-sdk/android-shared/missing-import-kotlin.png
+image: public/screenshots/tutorials/client-sdk/android-shared/missing-import-java.png
 ```
 
 You now have a working client. Your next step is to authenticate the users.
