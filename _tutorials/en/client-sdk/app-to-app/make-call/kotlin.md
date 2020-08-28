@@ -16,6 +16,8 @@ fun startAppToAppCall() {
 }
 ```
 
+> **NOTE** Only Alice calling Bob scenario will work given used NCCO config.
+
 Now you need to make sure that above method is called after pressing the button. Open `MainFragment` class and update `startAppToAppCallButton.setOnClickListener` inside `onViewCreated` method:
 
 ```kotlin
