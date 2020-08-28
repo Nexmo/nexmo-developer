@@ -44,3 +44,4 @@ The NCCO must be public and accessible by the internet. To accomplish that, you 
 6) Take note of the URL shown in your browser, you will be using it in the next step:
 
 ![Copy gist url](/meta/client-sdk/phone-to-app/create-ncco/gist3.png)
+

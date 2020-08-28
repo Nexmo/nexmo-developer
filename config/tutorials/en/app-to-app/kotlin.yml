@@ -25,7 +25,7 @@ prerequisites:
   - install-android-studio
 
 tasks:
-  - client-sdk/app-to-phone/create-ncco
+  - client-sdk/app-to-app/create-ncco
   - client-sdk/app-to-app/create-application
   - client-sdk/android-shared/create-users-alice-and-bob
   - client-sdk/android-shared/generate-jwt-alice-and-bob
