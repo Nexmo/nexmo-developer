@@ -33,9 +33,8 @@ tasks:
   - client-sdk/android-shared/initialize-client
   - client-sdk/android-shared/configure-jwt-alice
   - client-sdk/android-shared/call/authenticate-alice
-  - client-sdk/app-to-phone/make-call
-  - client-sdk/android-shared/run-app
-
+  # - client-sdk/app-to-phone/make-call
+  # - client-sdk/android-shared/run-app
 conclusion:
   title: What's next?
   description: What else can you do with the Client SDK?
