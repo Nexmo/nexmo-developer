@@ -84,6 +84,8 @@
 "/client-sdk": "/client-sdk/overview"
 "/client-sdk/configuration": "/client-sdk/overview"
 
+"/client-sdk/in-app-voice/getting-started/receive-phone-call/javascript": "/client-sdk/tutorials/phone-to-app/introduction/javascript"
+
 # Conversation API
 
 "/conversation": "/conversation/overview"
