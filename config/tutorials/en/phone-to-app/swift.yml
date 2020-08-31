@@ -28,11 +28,11 @@ tasks:
 - link-nexmo-number
 - client-sdk/create-user
 - client-sdk/generate-jwt-alice
-- client-sdk/phone-to-app/swift-project
-- client-sdk/phone-to-app/swift-permissions
-- client-sdk/phone-to-app/swift-interface
-- client-sdk/phone-to-app/swift-client
-- client-sdk/phone-to-app/swift-call
+- client-sdk/phone-to-app/project
+- client-sdk/phone-to-app/permissions
+- client-sdk/phone-to-app/interface
+- client-sdk/phone-to-app/client
+- client-sdk/phone-to-app/call
 
 
 conclusion:

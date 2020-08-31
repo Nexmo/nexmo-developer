@@ -79,10 +79,14 @@
 "/client-sdk/sdk-documentation/ios/ios": "/sdk/stitch/ios/index"
 "/client-sdk/sdk-documentation/javascript/javascript": "/sdk/stitch/javascript/index"
 "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/add-users-to-conversation": "/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/add-users-to-conversation"
-"/client-sdk/in-app-voice/code-snippets/reject-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/ios"
+"/client-sdk/in-app-voice/code-snippets/reject-call": "/client-sdk/in-app-voice/guides/receive-call/swift#reject"
 "/client-sdk/in-app-voice/code-snippets/start-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/android"
 "/client-sdk": "/client-sdk/overview"
 "/client-sdk/configuration": "/client-sdk/overview"
+
+"/client-sdk/in-app-voice/getting-started/app-to-app-call/ios": "/client-sdk/tutorials/app-to-app/introduction/swift"
+"/client-sdk/in-app-voice/getting-started/make-phone-call/ios": "/client-sdk/tutorials/app-to-phone/introduction/swift"
+"/client-sdk/in-app-voice/getting-started/receive-phone-call/ios": "/client-sdk/tutorials/phone-to-app/introduction/swift"
 
 "/client-sdk/in-app-voice/getting-started/receive-phone-call/javascript": "/client-sdk/tutorials/phone-to-app/introduction/javascript"
 

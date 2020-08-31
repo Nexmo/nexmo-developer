@@ -14,7 +14,7 @@ object Config {
 
     val alice = User(
         "Alice",
-        "TOKEN" // TODO: "set Alice's JWT token"
+        "ALICE_TOKEN" // TODO: "set Alice's JWT token"
     )
 }
 

@@ -48,7 +48,7 @@ class CallViewController: UIViewController {
         setHangUpButtonHidden(true)
         view.addSubview(hangUpButton)
         
-        setStatusLabelText("")
+        setStatusLabelText("Ready to receive call...")
         statusLabel.textAlignment = .center
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statusLabel)
@@ -113,15 +113,18 @@ class CallViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 ```
-This defines a custom initializer for the class which has a `User.type` as its parameter, which then gets stored in the local `user` property. Now that we have the user information you use the `callButton` to show who the user will be calling, in `viewDidLoad` add:
+This defines a custom initializer for the class which has a `User.type` as its parameter, which then gets stored in the local `user` property. Now that you have the user information you can use the `callButton` to show who the user will be calling, in `viewDidLoad` add the following.
 
 ```swift
 navigationItem.leftBarButtonItem = 
 UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(self.logout))
 callButton.setTitle("Call \(user.callPartnerName)", for: .normal)
+if user.name == "Alice" {
+    callButton.alpha = 0
+}
 ```
 
-This will also creates a logout button in the navigation bar, add the `logout` function to the end of `CallViewController.swift`:
+This will hide the call button for Alice since for this demonstration only Bob will be able to make a call to Alice. In a production application the `NCCO` that is returned by your application's answer URL will dynamically return the correct username to avoid this. It also creates a logout button in the navigation bar, add the corresponding `logout` function to the end of `CallViewController.swift` 
 
 ```swift 
 class CallViewController: UIViewController {

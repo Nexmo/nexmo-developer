@@ -17,7 +17,7 @@ To do this you will create a new User `Class`. From the Xcode menu, select `File
 
 ![Xcode adding file](/images/client-sdk/ios-messaging/userclass.png)
 
-Open `User.h` declare the properties and functions needed to store the user's information:
+Open `User.h` declare the properties and functions needed to store the user's information.
 
 ```objective_c
 @interface User : NSObject
@@ -36,7 +36,7 @@ Open `User.h` declare the properties and functions needed to store the user's in
 @end
 ```
 
-To make things easier for later on there are some static properties on the `User` type for the users Alice and Bob. Open `User.m` to implement these alongside the initializer for the class, Replacing `ALICE_USERID`, `ALICE_JWT`, `BOB_USERID`, `BOB_JWT` and `CONVERSATION_ID` with the values you created earlier:
+To make things easier for later on there are some static properties on the `User` type for the users Alice and Bob. Open `User.m` to implement these alongside the initializer for the class, Replacing `ALICE_USERID`, `ALICE_JWT`, `BOB_USERID`, `BOB_JWT` and `CONVERSATION_ID` with the values you created earlier.
 
 ```objective_c
 @implementation User

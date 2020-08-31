@@ -25,7 +25,7 @@ class CallViewController: UIViewController {
     @objc private func makeCall() {
         setStatusLabelText("Calling \(user.callPartnerName)")
 
-        client.call(user.callPartnerName, callHandler: .inApp) { error, call in
+        client.call(user.callPartnerName, callHandler: .server) { error, call in
             if error != nil {
                 self.setStatusLabelText(error?.localizedDescription)
                 return
@@ -38,11 +38,11 @@ class CallViewController: UIViewController {
 }
 ```
 
-The `makeCall` function uses the `NXMClient` instance to make the call. If there is no error the call's delegate is set so that changes to the call can be monitored and the `hangUpButton` is made visible.  
+The `makeCall` function uses the `NXMClient` instance to make the call. The Client SDK supports making calls with the server, your answer URL that provides a `NCCO`, or directly in app. If there is no error the call's delegate is set so that changes to the call can be monitored and the `hangUpButton` is made visible.  
 
 
 ## Build and run
 
-Press `Cmd + R` to build and run again. You now have a functioning call app! To test it out you can run the app on two different simulators/devices:
+Press `Cmd + R` to build and run again. You now have a functioning call app! To test it out you can run the app on two different simulators/devices, and call the device logged in as the Alice user from the device logged in as the Bob user:
 
 ![Sent messages](/images/client-sdk/ios-in-app-voice/active-call.png)

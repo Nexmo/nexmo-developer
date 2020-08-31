@@ -1,0 +1,50 @@
+title: Making an app to app voice call
+description: You make a voice call from an iOS app to another iOS app
+products:
+  - client-sdk
+
+introduction:
+  title: Introduction to this task
+  description: This task shows you how to use make a phone call from an iOS application to another iOS application using the iOS Client SDK and Swift.
+  content: |
+    # Introduction
+    In this task, you will learn how to create and configure a Client SDK Application and then build an iOS application that enables two users to call each other.
+
+    If you would like to follow along without building the app yourself, the completed project for this tutorial is available on [GitHub](https://github.com/nexmo-community/clientsdk-app-to-app-call-objective-c).
+
+    *This tutorial uses NexmoClient version 2.2.1*
+    
+prerequisites:
+  - create-nexmo-account
+  - install-nodejs
+  - install-nexmo-cli-beta
+  - install-xcode
+
+tasks:
+  - client-sdk/phone-to-app/create-ncco
+  - client-sdk/app-to-app/create-application
+  - client-sdk/app-to-app/create-users
+  - client-sdk/app-to-app/generate-jwts
+  - client-sdk/app-to-app/create-project
+  - client-sdk/app-to-app/permissions
+  - client-sdk/app-to-app/create-ui
+  - client-sdk/app-to-app/create-model
+  - client-sdk/app-to-app/initialize-client
+  - client-sdk/app-to-app/call-ui
+  - client-sdk/app-to-app/receive-call
+  - client-sdk/app-to-app/make-call
+
+conclusion:
+  title: What's next?
+  description: What else can you do with the Client SDK?
+  content: |
+
+    # What's next?
+
+    For completeness, the project you've built as part of this tutorial is also available on [GitHub](https://github.com/nexmo-community/clientsdk-app-to-app-call-objective-c).
+
+    You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview).
+
+    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
+
+    

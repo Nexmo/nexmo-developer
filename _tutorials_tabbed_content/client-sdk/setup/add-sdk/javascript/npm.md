@@ -4,6 +4,12 @@ title: Using npm
 
 ### Install the Client SDK package
 
+Add a default `package.json` by running:
+
+```shell
+npm init -y
+```
+
 Install the Client SDK using `npm`:
 
 ```shell

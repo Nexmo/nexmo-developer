@@ -140,8 +140,8 @@ page:
         unordered_list:
             bullet_shape: simple
             list:
-              - item: "[Call a landline from your iOS app](/client-sdk/in-app-voice/getting-started/make-phone-call/ios)"
-              - item: "[Receive a phone call in your app](/client-sdk/in-app-voice/getting-started/receive-phone-call/ios)"
+              - item: "[Call a landline from your iOS app](/client-sdk/tutorials/app-to-phone/introduction/swift)"
+              - item: "[Receive a phone call in your app](/client-sdk/tutorials/phone-to-app/introduction/swift)"
               - item: "[Understanding Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
     - column:
       - type: unordered_list

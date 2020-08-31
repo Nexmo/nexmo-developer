@@ -5,23 +5,21 @@ description: In this step you learn how to add JWTs to the application.
 
 # Configure JWTs
 
-Now it's time to fill previously generated `JWT` tokens.
+Open `Config.kt` file and replace placeholders with real values:
 
-Open `Config.kt` file and fill tokens:
-
-1. `Alice`'s user JWTs
-2. `Bob`'s user JWTs
+1. `ALICE_TOKEN` - Alice JWT token
+2. `BOB_TOKEN` - Bob JWT token
 
 ```kotlin
 object Config {
 
     val alice = User(
         "Alice",
-        "TOKEN_ALICE" // TODO: "set Alice's JWT token"
+        "ALICE_TOKEN" // TODO: "set Alice's JWT token"
     )
     val bob = User(
         "Bob",
-        "TOKEN_BOB" // TODO: "set Bob's JWT token"
+        "BOB_TOKEN" // TODO: "set Bob's JWT token"
     )
 }
 

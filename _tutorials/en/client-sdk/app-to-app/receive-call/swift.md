@@ -23,7 +23,7 @@ extension Notification.Name {
 }
 ```
 
-The `CallViewController` class will be in the foreground and the class handling the call so the call is passed along using a `NSNotification` post. For `CallViewController` to receive this notification it needs to observe it. In the `CallViewController` add.
+The `CallViewController` class will be in the foreground and the class handling the call, so the call is passed along using a `NSNotification` post. For `CallViewController` to receive this notification it needs to observe it. In the `CallViewController` add.
 
 ```swift
 class CallViewController: UIViewController {
@@ -35,7 +35,6 @@ class CallViewController: UIViewController {
         nc.addObserver(self, selector: #selector(didReceiveCall), name: .call, object: nil)
 
         hangUpButton.addTarget(self, action: #selector(endCall), for: .touchUpInside)
-        callButton.addTarget(self, action: #selector(makeCall), for: .touchUpInside)
     }
 
     ...
@@ -77,7 +76,7 @@ class CallViewController: UIViewController {
     @objc private func endCall() {
         call?.hangup()
         self.setHangUpButtonHidden(true)
-        self.setStatusLabelText("")
+        self.setStatusLabelText("Ready to receive call...")
     }
 }
 ```

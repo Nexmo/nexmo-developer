@@ -16,7 +16,7 @@ introduction:
     - Android (6.0 and above - API level 23 and above)
     - Client SDK for Android 2.6.4
 
-    Last update: 17th August 2020
+    Last update: August 2020
 
 prerequisites:
   - create-nexmo-account
@@ -27,7 +27,7 @@ prerequisites:
 tasks:
   - client-sdk/app-to-phone/create-ncco
   - client-sdk/app-to-phone/create-application
-  - client-sdk/android-shared/call/create-user-alice
+  - client-sdk/android-shared/create-user-alice
   - client-sdk/android-shared/generate-jwt-alice
   - client-sdk/app-to-phone/starter-project
   - client-sdk/android-shared/initialize-client

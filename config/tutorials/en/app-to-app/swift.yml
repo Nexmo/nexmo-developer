@@ -21,11 +21,12 @@ prerequisites:
   - install-xcode
 
 tasks:
+  - client-sdk/phone-to-app/create-ncco
   - client-sdk/app-to-app/create-application
   - client-sdk/app-to-app/create-users
   - client-sdk/app-to-app/generate-jwts
   - client-sdk/app-to-app/create-project
-  - client-sdk/app-to-app/swift-permissions
+  - client-sdk/app-to-app/permissions
   - client-sdk/app-to-app/create-ui
   - client-sdk/app-to-app/create-model
   - client-sdk/app-to-app/initialize-client

@@ -9,7 +9,7 @@ To be able to chat, you will need to create a new View Controller for the chat i
 
 ![Xcode adding file](/images/client-sdk/ios-messaging/chatviewcontrollerobjc.png)
 
-This will create a new file called `ChatViewController.m`, at the top import `NexmoClient` and `User`:
+This will create a new file called `ChatViewController.m`, at the top import `NexmoClient` and `User`.
 
 ```objective_c
 #import "ChatViewController.h"
@@ -22,7 +22,7 @@ The chat interface will need:
 * A `UITextView` to show the chat messages
 * A `UITextField` to type messages into
 
-Open `ChatViewController.m` and add it programmatically:
+Open `ChatViewController.m` and add it programmatically.
 
 ```objective_c
 @implementation ChatViewController
@@ -82,7 +82,7 @@ In the `viewWillAppear` function an observer is added to the `keyboardDidShowNot
 
 ## The `UITextField` delegate
 
-You will need to conform to the `UITextFieldDelegate` to know when the user has finished typing to move the input field to its original position:
+You will need to conform to the `UITextFieldDelegate` to know when the user has finished typing to move the input field to its original position.
 
 ```objective_c
 @interface ChatViewController () <NXMClientDelegate>
@@ -92,7 +92,7 @@ You will need to conform to the `UITextFieldDelegate` to know when the user has 
 @end
 ```
 
-At the end of the `ChatViewController` class add the `textFieldDidEndEditing` delegate function:
+At the end of the `ChatViewController` class add the `textFieldDidEndEditing` delegate function.
 
 ```objective_c
 @implementation ChatViewController
@@ -115,7 +115,7 @@ Now that the chat interface is built you will need to present the view controlle
 #import "User.h"
 ```
 
-Add an initializer to the interface:
+Add an initializer to the interface.
 
 ```objective_c
 @interface ChatViewController : UIViewController
@@ -125,7 +125,7 @@ Add an initializer to the interface:
 @end
 ```
 
-Then in `ChatViewController.m`, add a user and client property to the interface:
+Then in `ChatViewController.m`, add a user and client property to the interface.
 
 ```objective_c
 @interface ChatViewController () <UITextFieldDelegate>
@@ -153,14 +153,14 @@ Implement the initializer:
 @end
 ```
 
-This defines a custom initializer for the class which has a `User.type` as its parameter, which then gets stored in the local `user` property. Now that you have the user information, use the navigation bar to show who the user will be chatting with, in `viewDidLoad` add:
+This defines a custom initializer for the class which has a `User.type` as its parameter, which then gets stored in the local `user` property. Now that you have the user information, use the navigation bar to show who the user will be chatting with, in `viewDidLoad` add the following.
 
 ```objective_c
 self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];
 self.title = [NSString stringWithFormat:@"Conversation with %@", self.user.chatPartnerName];
 ```
 
-This will also creates a logout button in the navigation bar, add the `logout` function to the end of `ChatViewController.swift`:
+This will also creates a logout button in the navigation bar, add the `logout` function to the end of `ChatViewController.m`.
 
 ```objective_c 
 @implementation ChatViewController
@@ -172,7 +172,7 @@ This will also creates a logout button in the navigation bar, add the `logout` f
 @end
 ```
 
-Now you are ready to present the chat interface along with the user information. To do this you will need to edit the `didChangeConnectionStatus` function in the `ViewController.m` file:
+Now you are ready to present the chat interface along with the user information. To do this you will need to edit the `didChangeConnectionStatus` function in the `ViewController.m` file.
 
 ```objective_c
 - (void)client:(NXMClient *)client didChangeConnectionStatus:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason {
@@ -193,6 +193,14 @@ Now you are ready to present the chat interface along with the user information.
     }
 }
 ```
+
+Then import `ChatViewController` at the top of the file.
+
+```objective_c
+...
+#import "ChatViewController.h"
+```
+
 If the user connects successfully a `ChatViewController` will be presented with the user data needed.
 
 ## Build and Run
