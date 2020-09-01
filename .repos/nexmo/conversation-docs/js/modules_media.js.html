@@ -285,12 +285,14 @@ class Media {
                 if (this.application.session.config.callstats &amp;&amp; this.application.session.config.callstats.enabled) {
                     this._enableCallStats(pc);
                 }
+                let stream;
                 this.pc = pc;
                 pc.ontrack = (evt) => {
-                    this.application.activeStreams.push(evt.streams[0]);
+                    stream = evt.streams[0];
+                    this.application.activeStreams.push(stream);
                     this.parentConversation.me.emit('media:stream:on', {
                         pc: this.pc,
-                        stream: evt.streams[0],
+                        stream,
                         type: 'audio',
                         streamIndex
                     });
@@ -299,7 +301,7 @@ class Media {
                     switch (pc.connectionState) {
                         case "connected":
                             this.log.info("The connection has become fully connected");
-                            resolve(localStream);
+                            resolve(stream);
                             break;
                         case "disconnected":
                         case "failed":
