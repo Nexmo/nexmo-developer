@@ -1,0 +1,747 @@
+title: "Vonage Devs TV"
+meta_title: "Each week our developers host livestreams on Twitch showing viewers how to code and build innovative apps using our APIs and products."
+page:
+  - row:
+    - column:
+      - type: html
+        html:
+          content: |
+            <div class="Vlt-grid Vlt-grid--stack-flush">
+              <div class="Vlt-col Vlt-col--1of2 Vlt-center"><h1 id="vonage-devs-tv">Vonage Dev TV</h1></div>
+              <div class="Vlt-col Vlt-col--1of2 Vlt-center"><a id="watch-now-btn" class="Vlt-btn Vlt-btn--primary Vlt-btn--app Vlt-btn--large" href="https://twitch.tv/vonagedevs" target="_blank" > < Watch now! > </a></div>
+            </div>
+            <h2 class="Vlt-center margin-bottom-0 margin-top-16">September</h2>
+            <div class="Vlt-tabs container padding-top-0">
+              <div class="Vlt-table--data  Vlt-tabs__header">
+                <div class="Vlt-tabs__link Vlt-tabs__link_active no-border padding-top-0 padding-bottom-0"></div>
+                <div class="Vlt-table__header">
+                  <div class="Vlt-table__cell">Monday</div>
+                  <div class="Vlt-table__cell">Tuesday</div>
+                  <div class="Vlt-table__cell">Wednesday</div>
+                  <div class="Vlt-table__cell">Thursday</div>
+                  <div class="Vlt-table__cell">Friday</div>
+                </div>
+                <div class="Vlt-table__header Vlt-table__header_mobile">
+                  <div class="Vlt-table__cell">M</div>
+                  <div class="Vlt-table__cell">T</div>
+                  <div class="Vlt-table__cell">W</div>
+                  <div class="Vlt-table__cell">T</div>
+                  <div class="Vlt-table__cell">F</div>
+                </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="31">
+                    <div class="calendar-item">
+                      <b>31</b>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link" id="1">
+                    <div class="calendar-item">
+                      <b>1</b>
+                      <p class="show">Lauren Learns Things</p>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link" id="2">
+                    <div class="calendar-item">
+                      <b>2</b>
+                      <p class="show">Developer Drop-In</p>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link" id="3">
+                    <div class="calendar-item">
+                      <b>3</b>
+                      <p class="show">New Stream, Who Dis?</p>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link" id="4">
+                    <div class="calendar-item">
+                      <b>4</b>
+                      <p class="show">The Late Night Build</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="7">
+                    <div class="calendar-item">
+                      <b>7</b>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="8">
+                    <div class="calendar-item">
+                      <b>8</b>
+                      <p class="show">Lauren Learns Things</p>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="9">
+                    <div class="calendar-item">
+                      <b>9</b>
+                      <p class="show">The Low-Code Hour</p>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="10">
+                    <div class="calendar-item">
+                      <b>10</b>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="11">
+                    <div class="calendar-item">
+                      <b>11</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="14">
+                    <div class="calendar-item">
+                      <b>14</b>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="15">
+                    <div class="calendar-item">
+                      <b>15</b>
+                      <p class="show">Lauren Learns Things</p>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="16">
+                    <div class="calendar-item">
+                      <b>16</b>
+                      <p class="show">Developer Drop-In</p>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="17">
+                    <div class="calendar-item">
+                      <b>17</b>
+                    </div>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="18">
+                    <div class="calendar-item">
+                      <b>18</b>
+                      <p class="show">The Late Night Build</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="Vlt-tabs__content">
+                <div class="Vlt-tabs__panel Vlt-tabs__panel_active">
+                  <div class="Vlt-callout Vlt-callout--tip">
+                    <i></i>
+                    <div class="Vlt-callout__content">
+                      <p><b>Note:</b> Click on a show for more information</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-31">31</div>
+                <div class="Vlt-tabs__panel" id="tab-1">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1598802449/Lauren_Learns_things_31_rtflsw.png" alt="Lauren Learns Things">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Lauren Learns Things</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">19:00 London / 14:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">Discussing all things OPEN SOURCE! Guest Chris Tankersley will join Lauren.</p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Open Source - Vonage API
+                      </h5>
+                    </div>
+                    <div class="padding-top-32">
+                      <div class="Vlt-col padding-left-0">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Weekly, each Tuesday Lauren is joined by a PDX team member who is there to teach her (and the viewers) how to build an app or implement one of our APIs. They may be following along a recent blog post or working through a new demo the Developer Advocate is excited about. The app is always built from scratch and is accessible to all levels of developers, from experts to beginners!
+                        </p>
+                      </div>
+                      <div class="Vlt-grid padding-top-32">
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Lauren Lee</h4>
+                          <a href="https://twitter.com/LoLoCoding" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/laurenelee" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Developer Educator Manager
+                          </h5>
+                          <p class="text-justify">
+                            An English teacher turned empathetic software engineer. 👩🏼‍🏫  ➡️  👩🏼‍💻 A curious optimist with a passion for accessible creating content and helping developers level up their skills at Nexmo, the Vonage API. I'm community and social-justice minded and am an innovative, enthusiastic, and curious learner. I enjoy dialogue, being apart of a team, and puzzling through complex logic-based and engineering challenges. When I am not coding 👩🏼‍💻, I am involved in community theater 🎭, a mentor with Chicktech Seattle 🐣, a member of an intramural ice hockey team 🏒, and a certified rescue scuba diver ⚓️.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://lolocoding.com">
+                            LoLoCoding.com
+                          </a>
+                        </div>
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Chris Tankersley</h4>
+                          <a href="https://twitter.com/dragonmantank" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/dragonmantank" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            PHP Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            Chris is the Senior PHP Developer Advocate and Server SDK Initiative Lead. He has been programming for more than 15 years across various languages and types of projects from client work all the way up to big-data, large scale systems. He lives in Ohio, spending his time with his family and playing video and TTRPG games.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://ctankersley.com/">
+                            cTankersley.com
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-2">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Developer_Drop-In_Lorna_1_2_lkqquz.png" alt="Developer Drop-In">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Developer Drop-In: Jolly Wednesday Tech! (JWTs)</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        What does JWT stand for? JSON Web Tokens! As we see these tokens used for integrating all sorts of web applications, including our own APIs and webhooks, this seems like a great time to dive in a little deeper and look at what they are and how they work. Take some time to understand the mechanics and also pick up some tips for debugging when things don't work as expected.
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Javascript - Security - JWT - Vonage Verify API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly, on Wednesdays, Developer Drop-In is a chance for developers to get their questions answered live on stream and meet the people who build the libraries and sample apps they know and love. Lorna is the host, often joined by other team members. She takes questions from the audience and builds something as a more detailed answer to questions the team receives on StackOverflow or the community slack.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lorna Mitchell</h4>
+                        <a href="https://twitter.com/lornajane" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/lornajane" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Senior Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          An enthusiastic, organised individual with a software engineering background. As a Developer Advocate I listen to developers both online and IRL and then work to improve their experience whether by talking or by patching. I love to write and am a published author; I am also a very experienced and engaging technical conference speaker. I am passionate about open source and helping developers to make even more awesome things than they did already, and I'm happiest when my GitHub graph is green.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lornajane.net">
+                          https://lornajane.net
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-3">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/16-7-2020_Nahrin_4_hkywr8.png" alt="New Stream, Who Dis?">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">New Stream, Who Dis?<br>An Interview with Pariss Athena</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">17:00 London / 12:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        We'll be discussing <a href="https://twitter.com/ParissAthena" target="_blank"><b>Pariss'</b></a> experience with having a platform on Twitter and authentically growing that presence
+                      </p>
+                    </div>
+                    <div class="padding-top-32">
+                      <div class="Vlt-col padding-left-0">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          An ad hoc stream hosted by a variety of hosts from the DevRel team at Vonage. Variety of topics.
+                        </p>
+                      </div>
+                      <div class="Vlt-grid padding-top-32">
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Nahrin Jalal</h4>
+                          <a href="https://twitter.com/NahrinJalal" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/NJalal7" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Developer Educator
+                          </h5>
+                          <p class="text-justify">
+                            A results-orientated professional who is passionate about building inclusive communities and pragmatic software solutions to address real-world needs.
+                          </p>
+                        </div>
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Pariss Athena</h4>
+                          <a href="https://twitter.com/ParissAthena" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <h5>
+                            Developer Success at G2i Inc.
+                          </h5>
+                          <p class="text-justify">
+                            Pariss began her career as a front-end developer after graduating from Resilient Coders. She works for G2i as a hiring and platform member- vetting engineers as an engineer, and taking lead on social media marketing efforts.
+                            <br>
+                            Creator of #BlackTechTwitter & Founder of Black Tech Pipeline
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://twitter.com/btpipeline">
+                            Black Tech Pipeline
+                         </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-4">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Late_Night_Build_2_jlys7x.png" alt="The Late Night Build">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">The Late Night Build</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">21:00 London / 16:00 New York / 15:00 SF</p>
+                      </div>
+                      <ul class="Vlt-list Vlt-list--simple">
+                        <li><b>Compile Time:</b> Featured guest<a href="https://twitter.com/carolstran?lang=en" target="_blank"> Carolyn Stransky </a> will speak about Self Care for developers.</li>
+                        <li><b>Musical Guest:</b> <a href="https://twitter.com/johnnyandheidi?lang=en" target="_blank"> Johnny & Heidi </a></li>
+                        <li><b>Deploy on Friday:</b> A mini-hack, challenge based contest for cool prizes!
+                          <ul class="Vlt-list Vlt-list--simple">
+                            <li>Prize: <a href="https://www.amazon.com/Atari-Flashback-Console-Wireless-Controllers-gamecube/dp/B0779JXNV9" target="_blank">Atari Flashback 8 Gold Console</a>
+                            </li>
+                            <li>Participants:
+                              <ul class="Vlt-list Vlt-list--simple">
+                                <li>Edward Baker</li>
+                                <li><a href="https://twitter.com/rgeek" target="_blank">Wayne Taylor</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          What would you get if your favorite tech conference and late night television program got together? The Late Night Build. Every other week, join Michael Jolley as he is joined by a special guest to talk all things tech. Then relax to the sounds of each episode's musical guest. Finally, watch an awesome demo in various languages & stacks. All this while contestants are competing in a hack-a-thon for prizes.
+                        </p>
+                        <br>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcQ01fcB0ETuX-D-X7MRYN3DGxrYQlQEqUv4-BjNkvj5oHjQ/viewform">Apply to Participate in Deploy on Friday!</a>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/MichaelJolley" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://baldbeardedbuilder.com/">
+                           BaldBeardedBuilder.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-7">7</div>
+                <div class="Vlt-tabs__panel" id="tab-8">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Lauren_Learns_things_1_1_uggvrj.png" alt="Lauren Learns Things">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Lauren Learns Things</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">19:00 London / 14:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">TBD</p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Weekly, each Tuesday Lauren is joined by a PDX team member who is there to teach her (and the viewers) how to build an app or implement one of our APIs. They may be following along a recent blog post or working through a new demo the Developer Advocate is excited about. The app is always built from scratch and is accessible to all levels of developers, from experts to beginners!
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lauren Lee</h4>
+                        <a href="https://twitter.com/LoLoCoding" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/laurenelee" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          developer educator manager
+                        </h5>
+                        <p class="text-justify">
+                          An English teacher turned empathetic software engineer. 👩🏼‍🏫  ➡️  👩🏼‍💻 A curious optimist with a passion for accessible creating content and helping developers level up their skills at Nexmo, the Vonage API. I'm community and social-justice minded and am an innovative, enthusiastic, and curious learner. I enjoy dialogue, being apart of a team, and puzzling through complex logic-based and engineering challenges. When I am not coding 👩🏼‍💻, I am involved in community theater 🎭, a mentor with Chicktech Seattle 🐣, a member of an intramural ice hockey team 🏒, and a certified rescue scuba diver ⚓️.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lolocoding.com">
+                          LoLoCoding.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-9">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/The_Low-Code_Hour_1_iijvbd.png" alt="The Low-Code Hour">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">The Low-Code Hour</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        Show Description
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage SMS API - Vonage Voice API
+                      </h5>
+                    </div>
+                    <div class="padding-top-32">
+                      <div class="Vlt-col padding-left-0">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly on Wednesdays Sam and Julia explore different low-code tools, a software development approach that enables the delivery of applications faster and with minimal hand-coding, such as Node-Red, Zapier, Netlify, etc.
+                        </p>
+                      </div>
+                      <div class="Vlt-grid padding-top-32">
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Sam Machin</h4>
+                          <a href="https://twitter.com/sammachin" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/sammachin" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Senior Product Manager
+                          </h5>
+                          <p class="text-justify">
+                            Technical all rounder with a penchant for mobile, enjoys & excels at bridging the gap between product management & development.
+                            <br>
+                            A well rounded geek with a keen eye for end to end user experience.
+                            <br>
+                            Specialties: Architecture, Hacking, Prototypes, Ideas
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://www.sammachin.com">
+                            SamMachin.com
+                          </a>
+                        </div>
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Julia Biro</h4>
+                          <a href="https://twitter.com/iza_biro" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/juliacodez" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            👩🏼‍💻, 🎨 & 🥑 shenanigans @DevRelAvocados and Vonage.
+                            <br>
+                            I spend most of my time wrangling Node-RED into doing my bidding, creating resources for the community.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://developeravocados.net/">
+                            DeveloperAvocados.net
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-10">10</div>
+                <div class="Vlt-tabs__panel" id="tab-11">11</div>
+                <div class="Vlt-tabs__panel" id="tab-14">14</div>
+                <div class="Vlt-tabs__panel" id="tab-15">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Lauren_Learns_things_1_1_uggvrj.png" alt="Lauren Learns Things">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Lauren Learns Things: Cloudinary Collab</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">19:00 London / 14:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        Lauren Learns Things Cloudinary Collab #1!
+                        <br>
+                        Guests: Tess Mero & Becky!
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Weekly, each Tuesday Lauren is joined by a PDX team member who is there to teach her (and the viewers) how to build an app or implement one of our APIs. They may be following along a recent blog post or working through a new demo the Developer Advocate is excited about. The app is always built from scratch and is accessible to all levels of developers, from experts to beginners!
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lauren Lee</h4>
+                        <a href="https://twitter.com/LoLoCoding" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/laurenelee" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          developer educator manager
+                        </h5>
+                        <p class="text-justify">
+                          An English teacher turned empathetic software engineer. 👩🏼‍🏫  ➡️  👩🏼‍💻 A curious optimist with a passion for accessible creating content and helping developers level up their skills at Nexmo, the Vonage API. I'm community and social-justice minded and am an innovative, enthusiastic, and curious learner. I enjoy dialogue, being apart of a team, and puzzling through complex logic-based and engineering challenges. When I am not coding 👩🏼‍💻, I am involved in community theater 🎭, a mentor with Chicktech Seattle 🐣, a member of an intramural ice hockey team 🏒, and a certified rescue scuba diver ⚓️.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lolocoding.com">
+                          LoLoCoding.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-16">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Developer_Drop-In_Lorna_1_2_lkqquz.png" alt="Developer Drop-In">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Developer Drop-In: Episode Topic</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        Episode Description
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage Verify API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly, on Wednesdays, Developer Drop-In is a chance for developers to get their questions answered live on stream and meet the people who build the libraries and sample apps they know and love. Lorna is the host, often joined by other team members. She takes questions from the audience and builds something as a more detailed answer to questions the team receives on StackOverflow or the community slack.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lorna Mitchell</h4>
+                        <a href="https://twitter.com/lornajane" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/lornajane" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Senior Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          An enthusiastic, organised individual with a software engineering background. As a Developer Advocate I listen to developers both online and IRL and then work to improve their experience whether by talking or by patching. I love to write and am a published author; I am also a very experienced and engaging technical conference speaker. I am passionate about open source and helping developers to make even more awesome things than they did already, and I'm happiest when my GitHub graph is green.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lornajane.net">
+                          https://lornajane.net
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-17">17</div>
+                <div class="Vlt-tabs__panel" id="tab-18">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Late_Night_Build_2_jlys7x.png" alt="The Late Night Build">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">The Late Night Build</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">21:00 London / 16:00 New York / 15:00 SF</p>
+                      </div>
+                      <ul class="Vlt-list Vlt-list--simple">
+                        <li><b>Compile Time:</b> Featured guest<a href="#" target="_blank"> TBD </a></li>
+                        <li><b>Musical Guest:</b> <a href="#" target="_blank"> TBD </a></li>
+                        <li><b>Deploy on Friday:</b> A mini-hack, challenge based contest for cool prizes!
+                          <ul class="Vlt-list Vlt-list--simple">
+                            <li>Prize: <a href="https://www.amazon.com/all-new-fire-tv-cube-with-alexa-voice-remote/dp/B07KGVB6D6" target="_blank">Amazon Fire TV Cube</a>
+                            </li>
+                            <li>Participants:
+                              <ul class="Vlt-list Vlt-list--simple">
+                                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdcQ01fcB0ETuX-D-X7MRYN3DGxrYQlQEqUv4-BjNkvj5oHjQ/viewform">Apply to Participate in Deploy on Friday!</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          What would you get if your favorite tech conference and late night television program got together? The Late Night Build. Every other week, join Michael Jolley as he is joined by a special guest to talk all things tech. Then relax to the sounds of each episode's musical guest. Finally, watch an awesome demo in various languages & stacks. All this while contestants are competing in a hack-a-thon for prizes.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/MichaelJolley" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://baldbeardedbuilder.com/">
+                           BaldBeardedBuilder.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  - row:
+    - column:
+      - type: text
+        text:
+          content: |
+            <style>
+              .Nxd-landing-col .Vlt-tabs__header {
+                flex-direction: column;
+                border-bottom: none !important;
+              }
+              .Nxd-landing-col .Vlt-table__header {
+                display: flex;
+                width: 100%;
+              }
+              .Nxd-landing-col .Vlt-table__cell {
+                display: flex;
+                width: 100%;
+                margin: 0px;
+              }
+              .Nxd-landing-col .Vlt-table__row {
+                display: flex;
+              }
+              .Vlt-table__header_mobile {
+                display: none !important;
+              }
+              .Nxd-landing-col .Vlt-tabs__link, .Nxd-landing-col .Vlt-tabs__link_active {
+                border-bottom: 1px solid #e1e2e6
+              }
+              .Nxd-landing-col .Vlt-tabs__link_active .calendar-item {
+                background: #B779FF;
+                color: white;
+              }
+              .Nxd-landing-col .Vlt-tabs__link_active .calendar-item p {
+                color: white;
+              }
+
+              .calendar-item {
+                display: flex;
+                flex-direction: column;
+                padding: 5px;
+                height: 100%;
+                width: 100%;
+                border-radius: 6px;
+              }
+              .Vlt-table__cell{
+                background-color: transparent !important;
+              }
+              .Vlt-table__header{
+                border-top: 1px solid #131415;
+              }
+              .no-border{
+                border: none !important;
+              }
+              .no-border:after{
+                background: none !important;
+              }
+              #watch-now-btn{
+                margin-top: 0;
+              }
+              .inline-block{
+                display: inline-block;
+              }
+              .text-justify{
+                text-align: justify;
+              }
+              .padding-left-0{
+                padding-left: 0;
+              }
+              .padding-top-0{
+                padding-top: 0;
+              }
+              .padding-bottom-0{
+                padding-bottom: 0;
+              }
+              .margin-bottom-0{
+                margin-bottom: 0;
+              }
+              .margin-top-16{
+                margin-top: 16px;
+              }
+              .padding-top-32{
+                padding-top: 32px;
+              }
+              @media (max-width: 380px) {
+                .calendar-item .show {
+                  display: none;
+                }
+                .Nxd-landing-col .Vlt-table__cell {
+                  width: 50px !important;
+                }
+                .Vlt-table__header {
+                  display: none !important;
+                }
+                .Vlt-table__header_mobile {
+                  display: flex !important;
+                }
+                .mobile-justify{
+                  text-align: justify !important;
+                }
+                .mobile-center{
+                  text-align: center !important;
+                }
+              }
+            }
+            </style>

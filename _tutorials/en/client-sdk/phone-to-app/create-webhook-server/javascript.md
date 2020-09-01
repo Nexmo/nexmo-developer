@@ -9,7 +9,7 @@ You will need to create a webhook server. When the inbound call comes into Nexmo
 
 Create a `server.js` file and add the code for the server:
 
-> **NOTE:** Paste in your Nexmo number and your user name to the code below. The username is the one you created a JWT for in a previous step.
+> **NOTE:** Paste in your Nexmo number and your user name to the code below. The username is the one you created a JWT for in a previous step (Alice).
 
 ``` javascript
 'use strict';
@@ -34,7 +34,7 @@ const ncco = [
     "endpoint": [
       {
         "type": "app",
-        "user": "MY_USER_NAME"
+        "user": "Alice"
       }
     ]
   }
@@ -62,5 +62,5 @@ app.listen(port, () => console.log(`Server listening on port ${port}!`));
 
 The important parts of this code are:
 
-1. A static NCCO is used in this example to forward the inbound call to the agent identified by `MY_USER_NAME`.
+1. A static NCCO is used in this example to forward the inbound call to the agent identified by `Alice`.
 2. The NCCO uses a `connect` action of type `app`, providing a username to connect to.

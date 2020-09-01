@@ -18,29 +18,43 @@ Create an HTML file called `index.html` in your project directory. Add the follo
   <h1>Inbound PSTN phone call</h1>
   <p id="notification">Lines are open for calls...</p>
   <br />
-  <button id="button">Answer</button>
-
+  <button type="button" id="answer">Answer</button>
+  <button type="button" id="reject">Reject</button>
+  <button type="button" id="hangup">Hang Up</button>
   <script>
 
-    const AGENT_JWT = "PASTE YOUR USER JWT HERE";
+    const AGENT_JWT = "PASTE ALICE JWT HERE";
 
     new NexmoClient({ debug: true })
     .login(AGENT_JWT)
     .then(app => {
 
-        let btn = document.getElementById('button');
-        let notification = document.getElementById('notification');
+        const answerBtn = document.getElementById("answer");
+        const rejectBtn = document.getElementById("reject");
+        const hangupBtn = document.getElementById("hangup");
+        const notification = document.getElementById("notification");
 
         app.on("member:call", (member, call) => {
-            notification.innerHTML = "Inbound call - click to answer..."
-            btn.addEventListener('click', (event) => {
-                event.preventDefault();
+            notification.textContent = "You are receiving a call";
+            // Answer the call.
+            answerBtn.addEventListener('click', () => {
                 call.answer();
+                notification.textContent = "You are in a call";
+            });
+            // Reject the call
+            rejectBtn.addEventListener("click", () => {
+                call.reject();
+                notification.textContent = `You rejected the call`;
+            });
+            // Hang-up the call
+            hangupBtn.addEventListener("click", () => {
+                call.hangUp();
+                notification.textContent = `You ended the call`;
             });
         });
 
         app.on("call:status:changed", (call) => {
-          notification.innerHTML = "Call Status: " + call.status;
+          notification.textContent = "Call Status: " + call.status;
         });
     })
     .catch(console.error);
@@ -55,6 +69,8 @@ The main features of this code are:
 
 1. A notification box that can be updated with the call status.
 2. A button used when the agent wants to answer an inbound call.
-3. The code logs the agent in using the user JWT generated in an [earlier step](/client-sdk/tutorials/phone-to-app/client-sdk/generate-jwt).
-4. The code sets up two main event handlers. The first is fired on the inbound call. This in turn sets up a click button event handler which answers the inbound call using the Client SDK method `call.answer()`.
-5. The second, the call status changed (`call:status:changed`) event handler sets the text of the notification box to the inbound call status.
+3. A button used when the agent wants to reject an inbound call.
+4. A button used when the agent wants to hang-up an inbound call.
+5. The code logs the agent in using the user JWT generated in an [earlier step](/client-sdk/tutorials/phone-to-app/client-sdk/generate-jwt).
+6. The code sets up two main event handlers. The first is fired on the inbound call. This in turn sets up 3 click button event handlers which answers, rejects and hangs-up the inbound call using the Client SDK method `call.answer()`,`call.reject()`, and `call.hangUp()` respectively.
+7. The second, the call status changed (`call:status:changed`) event handler sets the text of the notification box to the inbound call status.
