@@ -88,6 +88,9 @@
 "/client-sdk/in-app-voice/getting-started/make-phone-call/ios": "/client-sdk/tutorials/app-to-phone/introduction/swift"
 "/client-sdk/in-app-voice/getting-started/receive-phone-call/ios": "/client-sdk/tutorials/phone-to-app/introduction/swift"
 
+"/client-sdk/in-app-voice/getting-started/app-to-app-call/android": "/client-sdk/tutorials/app-to-app/introduction/kotlin"
+"/client-sdk/in-app-voice/getting-started/make-phone-call/android": "/client-sdk/tutorials/app-to-phone/introduction/kotlin"
+"/client-sdk/in-app-voice/getting-started/receive-phone-call/android": "/client-sdk/tutorials/phone-to-app/introduction/kotlin"
 "/client-sdk/in-app-voice/getting-started/receive-phone-call/javascript": "/client-sdk/tutorials/phone-to-app/introduction/javascript"
 
 # Conversation API
