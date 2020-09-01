@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.12 - Sep 01, 2020
+
+### Fixes
+
+- Update resolved stream on media enabling
+
 ## Version 6.0.11 - Sep 01, 2020
 
 ### Changes
