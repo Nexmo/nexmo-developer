@@ -6,6 +6,13 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.11 - Sep 01, 2020
+
+### Changes
+
+- Update websocket reconnection logic
+- Fix delay in establishing media connection with one ice candidate sent
+
 ## Version 6.0.10 - May 04, 2020
 
 ### Fixes
