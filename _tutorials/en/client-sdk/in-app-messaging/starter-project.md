@@ -14,10 +14,6 @@ To make things easier, a starter project is provided for you.
    1. Navigate to the menu `File -> Open` 
    2. Select the `kotlin-start` folder from cloned repository and click `Open`
 
-```screenshot
-image: public/screenshots/tutorials/client-sdk/android-shared/select-kotlin-start-project.png
-```
-
 **3.** Make project `Build -> Make Project`. If `Make Project` button is disabled please wait until Android Studio will finish parsing the project (progress will be displayed in bottom right corner of the Android Studio).
  
 ```screenshot
@@ -44,4 +40,3 @@ image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/pro
 ```
 
 > **NOTE:** Each screen is represented by two classes : `Fragment` that is the thin view and `ViewModel` that handles the view logic.
-
