@@ -17,7 +17,7 @@ Ensure the following variables are set to your required values using any conveni
 | ---- | ---- |
 | `FROM_NUMBER` | The phone number you are sending the MMS from. (US Short Code only) |
 | `TO_NUMBER`   | The phone number you are sending the message to. |
-| `IMAGE_URL`     | The URL of the media you want to send. Accepted file formats are .jpg, .jpeg, .png, and .gif. |
+| `IMAGE_URL`     | The URL of the media you want to send. Accepted file formats are `.jpg`, `.jpeg`, `.png`, and `.gif`. |
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 14155550105.
 
