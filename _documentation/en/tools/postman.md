@@ -4,17 +4,25 @@ title: Postman
 
 # Postman
 
-Our APIs can be used with any HTTP client; choose your favorite! We love [Postman](https://postman.com), it's a friendly graphical interface to a powerful cross-platform HTTP client. Best of all it has support for the OpenAPI specs that we publish with all our APIs.
+Our APIs can be used with any HTTP client; choose your favorite! We love [Postman](https://postman.com), it's a friendly graphical interface to a powerful cross-platform HTTP client.
+
+Try our "run in Postman" button to get a quick start on our most well-used APIs: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/33e95b98348636ae5cd4#?env%5BVonage%20Environment%5D=W3sia2V5IjoiYXBpX2tleSIsInZhbHVlIjoiWU9VUl9BUElfS0VZIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJhcGlfc2VjcmV0IiwidmFsdWUiOiJZT1VSX0FQSV9TRUNSRVQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6IkpXVCIsInZhbHVlIjoiSldUIiwiZW5hYmxlZCI6dHJ1ZX1d)
+
+If you need any of our Beta or Developer Preview APIs, read on for how to use the OpenAPI documents from the API reference pages with Postman.
+
+## Postman and OpenAPI
+
+Postman has support for the OpenAPI documents that we publish with all our APIs.
 
 > If you're new to OpenAPI, we have a [Guide to OpenAPI](/concepts/guides/openapi) just for you!
 
-Install Postman and follow the steps laid out below to very quickly try out any of the Nexmo APIs. We publish an OpenAPI specification for each API and Postman can read these and create a collection of requests that you can simply enter values into.
+Install Postman and follow the steps laid out below to very quickly try out any of the Nexmo APIs. We publish an OpenAPI document for each API and Postman can read these and create a collection of requests that you can simply enter values into.
 
-## Get the OpenAPI Spec of the API
+## Get the OpenAPI Description of the API
 
-The easiest way to find the OpenAPI spec is to click the "Download OpenAPI 3 Specification" button on the API reference for the API you'd like to try. For example visit the [Verify API reference page](https://developer.nexmo.com/api/verify) and click the download button. The files are in `.yml` format.
+The easiest way to find the OpenAPI document is to click the "Download OpenAPI 3 Specification" button on the API reference for the API you'd like to try. For example visit the [Verify API reference page](https://developer.nexmo.com/api/verify) and click the download button. The files are in `.yml` format.
 
-> We also publish all our specs on GitHub, if you'd like to see the whole collection, they're in the `definitions/` folder: <https://github.com/nexmo/api-specification>
+> We also publish all our API descriptions on GitHub, if you'd like to see the whole collection, they're in the `definitions/` folder: <https://github.com/nexmo/api-specification>
 
 ## Import Spec into Postman
 
@@ -24,7 +32,7 @@ In the left hand side bar, you will now have a folder/collection for your API, a
 
 ## Make an API Call
 
-For example if you imported the Verify API spec, you'd be able to choose "Verify Request" from the left hand bar, and get a ready-made request to use. Go ahead and add the fields you need:
+For example if you imported the Verify API description, you'd be able to choose "Verify Request" from the left hand bar, and get a ready-made request to use. Go ahead and add the fields you need:
 
 * Your API credentials! For Verify API that's the `api_key` and `api_secret` fields and you can find these details in your account dashboard
 * The phone number to Verify (remember to use E.164 format)
