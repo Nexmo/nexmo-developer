@@ -1,5 +1,5 @@
 title: Creating an Android chat app
-description: Create a Android application that enables users to message each other
+description: Create a Android application that enables users to message each other using the Android Client SDK and Java.
 products:
   - client-sdk
 
@@ -53,7 +53,7 @@ conclusion:
 
     # What's next?
 
-    For the complete version please see the Android Studio project in the `kotlin-completed` folder of 
+    For the complete version please see the Android Studio project in the `java-completed` folder of 
     the [git repository](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging) you've cloned.
 
     You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview) or review

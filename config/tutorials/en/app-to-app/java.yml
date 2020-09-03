@@ -1,11 +1,11 @@
 title: Making an app to app voice call
-description: You make a voice call from an Android app to the same Android app installed on other device.
+description: Make a voice call from an Android app to the same Android app installed on other device using the Android Client SDK.
 products:
   - client-sdk
 
 introduction:
   title: Introduction to this task
-  description: This task shows you how to use make a phone call from an Android to another Android app app using the Android Client SDK and Kotlin.
+  description: This task shows you how to use make a phone call from an Android to another Android app app using the Android Client SDK and Java.
   content: |
     # Introduction
     In this tutorial, you will learn how to create an Android application using Kotlin and the Nexmo Android Client SDK, and then write the code to make a phone call from your Android app to another Android app.
@@ -44,7 +44,7 @@ conclusion:
 
     # What's next?
 
-    For the complete version please see the Android Studio project in the `kotlin-completed` folder of 
+    For the complete version please see the Android Studio project in the `java-completed` folder of 
     the [git repository](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-app) you've cloned.
 
     You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview) or review

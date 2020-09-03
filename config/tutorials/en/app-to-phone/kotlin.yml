@@ -1,5 +1,5 @@
 title: Making an in-app voice call
-description: You make a voice call from an Android app to a phone.
+description: Make a voice call from a web app to a phone using the Android Client SDK.
 products:
   - client-sdk
 

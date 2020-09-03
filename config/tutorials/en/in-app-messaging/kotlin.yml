@@ -1,5 +1,5 @@
 title: Creating an Android chat app
-description: Create a Android application that enables users to message each other
+description: Create a Android application that enables users to message each other using the Android Client SDK and Kotlin.
 products:
   - client-sdk
 
