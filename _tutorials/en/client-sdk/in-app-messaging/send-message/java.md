@@ -9,20 +9,24 @@ Time to send the first message.
 
 Inside `ChatViewModel` class, locate the `onSendMessage` method and fill its body:
 
-```kotlin
-fun onSendMessage(message: String) {
+```java
+public void onSendMessage(String message) {
     if (conversation == null) {
-        _errorMessage.postValue("Error: Conversation does not exist")
-        return
+        _errorMessage.postValue("Error: Conversation does not exist");
+        return;
     }
 
-    conversation?.sendText(message, object : NexmoRequestListener<Void> {
-        override fun onSuccess(p0: Void?) {
+    conversation.sendText(message, new NexmoRequestListener<Void>() {
+        @Overridew
+        public void onError(@NonNull NexmoApiError apiError) {
+
         }
 
-        override fun onError(apiError: NexmoApiError) {
+        @Override
+        public void onSuccess(@Nullable Void aVoid) {
+
         }
-    })
+    });
 }
 ```
 

@@ -32,7 +32,7 @@ tasks:
   - client-sdk/app-to-app/starter-project
   - client-sdk/android-shared/initialize-client
   - client-sdk/android-shared/configure-jwt-alice-and-bob
-  - client-sdk/android-shared/call/authenticate-alice-and-bob
+  - client-sdk/android-shared/authenticate-alice-and-bob
   - client-sdk/app-to-app/receive-call
   - client-sdk/app-to-app/make-call
   - client-sdk/android-shared/run-app

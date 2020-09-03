@@ -7,20 +7,20 @@ description: In this step you display any messages already sent as part of this 
 
 Right below  `getConversation()` method, let's add a method to retrieve the events:
 
-```kotlin
-private fun getConversationEvents(conversation: NexmoConversation) {
+```java
+private void getConversationEvents(NexmoConversation conversation) {
     conversation.getEvents(100, NexmoPageOrder.NexmoMPageOrderAsc, null,
-        object : NexmoRequestListener<NexmoEventsPage> {
-            override fun onSuccess(nexmoEventsPage: NexmoEventsPage?) {
-                nexmoEventsPage?.pageResponse?.data?.let {
-                    _conversationMessages.postValue(it.toList())
+            new NexmoRequestListener<NexmoEventsPage>() {
+                @Override
+                public void onSuccess(@Nullable NexmoEventsPage nexmoEventsPage) {
+                    _conversationEvents.postValue(new ArrayList<>(nexmoEventsPage.getPageResponse().getData()));
                 }
-            }
 
-            override fun onError(apiError: NexmoApiError) {
-                _errorMessage.postValue("Error: Unable to load conversation events ${apiError.message}")
-            }
-        })
+                @Override
+                public void onError(@NonNull NexmoApiError apiError) {
+                    _errorMessage.postValue("Error: Unable to load conversation events " + apiError.getMessage());
+                }
+            });
 }
 ```
 
@@ -30,7 +30,7 @@ Once the events are retrieved (or an error is returned), we're updating the view
 
 Let's make our view react to the new data. Inside `ChatFragment` locate the `private var conversationMessages = Observer<List<NexmoEvent>?>` property and add this code to handle our conversation history:
 
-```kotlin
+```java
 private var conversationMessages = Observer<List<NexmoEvent>?> { events ->
     val messages = events?.mapNotNull {
         when (it) {
@@ -53,7 +53,7 @@ private var conversationMessages = Observer<List<NexmoEvent>?> { events ->
 
 To handle member related events (member invited, joined or left) we need to fill the body of the `fun getConversationLine(memberEvent: NexmoMemberEvent)` method:
 
-```kotlin
+```java
 private fun getConversationLine(memberEvent: NexmoMemberEvent): String {
     val user = memberEvent.member.user.name
 
@@ -68,10 +68,10 @@ private fun getConversationLine(memberEvent: NexmoMemberEvent): String {
 
 Above method converts `NexmoMemberEvent` to a `String` that will be displayed as a single line in the chat conversation. Similar conversion need to be done for `NexmoTextEvent`. Let's fill the body of the `getConversationLine(textEvent: NexmoTextEvent)` method:
 
-```kotlin
-private fun getConversationLine(textEvent: NexmoTextEvent): String {
-    val user = textEvent.fromMember.user.name
-    return "$user said: ${textEvent.text}"
+```java
+private String getConversationLine(NexmoTextEvent textEvent) {
+    String user = textEvent.getFromMember().getUser().getName();
+    return "$user said: " + textEvent.getText();
 }
 ```
 

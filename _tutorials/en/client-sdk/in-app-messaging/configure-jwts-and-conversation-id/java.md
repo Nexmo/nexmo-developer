@@ -15,23 +15,23 @@ Open `Config.kt` file and replace placeholders with real values:
 ```kotlin
 package com.vonage.tutorial.messaging
 
-data class User(
-    val name: String,
-    val jwt: String
-)
+public class Config {
 
-object Config {
+    public static String CONVERSATION_ID = ""; // TODO: set conversation Id
 
-    const val CONVERSATION_ID: String = "" // TODO: set conversation Id
+    public static User getAlice() {
+        return new User(
+                "Alice",
+                "" // TODO: "set Alice JWT token"
+        );
+    }
 
-    val alice = User(
-        "Alice",
-        "ALICE_TOKEN" // TODO: "set Alice's JWT token"
-    )
-    val bob = User(
-        "Bob",
-        "BOB_TOKEN" // TODO: "set Bob's JWT token"
-    )
+    public static User getBob() {
+        return new User(
+                "Bob",
+                "" // TODO: "set Bob JWT token"
+        );
+    }
 }
 ```
 
