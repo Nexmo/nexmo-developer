@@ -16,7 +16,7 @@ introduction:
     - Android (6.0 and above - API level 23 and above)
     - Client SDK for Android 2.6.4
 
-    Last update: August 2020
+    Last update: September 2020
 
 prerequisites:
   - create-nexmo-account
@@ -32,9 +32,10 @@ tasks:
   - client-sdk/app-to-phone/starter-project
   - client-sdk/android-shared/initialize-client
   - client-sdk/android-shared/configure-jwt-alice
-  - client-sdk/android-shared/call/authenticate-alice
-  # - client-sdk/app-to-phone/make-call
-  # - client-sdk/android-shared/run-app
+  - client-sdk/android-shared/authenticate-alice
+  - client-sdk/app-to-phone/make-call
+  - client-sdk/android-shared/run-app
+
 conclusion:
   title: What's next?
   description: What else can you do with the Client SDK?
