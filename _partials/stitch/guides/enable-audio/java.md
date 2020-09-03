@@ -112,7 +112,7 @@ public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceStat
 }
 ```
 
-## Enable and diable audio 
+## Enable and disable audio 
 
 Add listeners to the buttons inside `onViewCreated` method of `ChatFragment`:
 
@@ -147,7 +147,7 @@ public void enableMedia() {
 
 ## Display audio events
 
-When enabling media, `NexmoMediaEvent` events are sent to the conversation. To display these events you will need to add a `NexmoMediaEventListener`. Repleace the whole `getConversation` method in the `ChatViewModel`:
+When enabling media, `NexmoMediaEvent` events are sent to the conversation. To display these events you will need to add a `NexmoMediaEventListener`. Replace the whole `getConversation` method in the `ChatViewModel`:
 
 ```java
 private fun getConversation() {
@@ -195,7 +195,7 @@ private var conversationEvents = Observer<List<NexmoEvent>?> { events ->
         // ...
 ```
 
-Now add `getConversationLine` method neeeds to support `NexmoMediaEvent` type as well:
+Now add `getConversationLine` method needs to support `NexmoMediaEvent` type as well:
 ```
 private fun getConversationLine(mediaEvent: NexmoMediaEvent): String? {
     val user = mediaEvent.fromMember.user.name
@@ -205,6 +205,4 @@ private fun getConversationLine(mediaEvent: NexmoMediaEvent): String? {
 
 ## Build and run
 
-Press `Cmd + R` to build and run again. Once logged in you can enable or disable audio. To test it out you can run the app on two different simulators/devices.
-
-![Enable media](/images/client-sdk/ios-enable-media.png)
+Press `Cmd + R` to build and run again. Once logged in you can enable or disable audio. To test it out you can run the app on two different devices.

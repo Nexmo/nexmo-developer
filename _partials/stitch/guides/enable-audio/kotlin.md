@@ -93,7 +93,7 @@ You will now need to add two buttons for the user to enable and disable audio. O
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## Enable and diable audio 
+## Enable and disable audio 
 
 Add listeners to the buttons inside `onViewCreated` method of `ChatFragment`:
 
@@ -128,7 +128,7 @@ fun enableMedia() {
 
 ## Display audio events
 
-When enabling media, `NexmoMediaEvent` events are sent to the conversation. To display these events you will need to add a `NexmoMediaEventListener`. Repleace the whole `getConversation` method in the `ChatViewModel`:
+When enabling media, `NexmoMediaEvent` events are sent to the conversation. To display these events you will need to add a `NexmoMediaEventListener`. Replace the whole `getConversation` method in the `ChatViewModel`:
 
 ```kotlin
 private void getConversation() {
@@ -183,7 +183,7 @@ private Observer<ArrayList<NexmoEvent>> conversationEvents = events -> {
     };
 ```
 
-Now add `getConversationLine` method neeeds to support `NexmoMediaEvent` type as well:
+Now add `getConversationLine` method needs to support `NexmoMediaEvent` type as well:
 ```
 private String getConversationLine(NexmoMediaEvent mediaEvent) {
     String user = mediaEvent.getFromMember().getUser().getName();
@@ -193,6 +193,5 @@ private String getConversationLine(NexmoMediaEvent mediaEvent) {
 
 ## Build and run
 
-Press `Cmd + R` to build and run again. Once logged in you can enable or disable audio. To test it out you can run the app on two different simulators/devices.
+Press `Cmd + R` to build and run again. Once logged in you can enable or disable audio. To test it out you can run the app on two different devices.
 
-![Enable media](/images/client-sdk/ios-enable-media.png)
