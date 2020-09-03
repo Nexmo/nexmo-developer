@@ -36,8 +36,13 @@ tasks:
   - client-sdk/android-shared/create-users-alice-and-bob
   - client-sdk/in-app-messaging/add-users-to-conversation
   - client-sdk/android-shared/generate-jwt-alice-and-bob
+<<<<<<< HEAD
   - client-sdk/in-app-messaging/starter-project
   - client-sdk/android-shared/initialize-client
+=======
+  # - client-sdk/in-app-messaging/starter-project
+  # - client-sdk/android-shared/initialize-client
+>>>>>>> fb5cabbed34c90a854b080b5d1ac9c8a6b427087
   # - client-sdk/in-app-messaging/configure-jwts-and-conversation-id
   # - client-sdk/in-app-messaging/authenticate-users
   # - client-sdk/in-app-messaging/fetch-conversation
