@@ -1,11 +1,11 @@
 ---
-title: Java
-language: java
+title: Kotlin
+language: kotlin
 ---
 
 # Enable Audio in your Application
 
-In this guide we'll cover adding audio events to the Conversation we have created in the [creating a chat app tutorial](/client-sdk/tutorials/in-app-messaging/introduction/java) guide. We'll deal with sending and receiving media events to and from the conversation.
+In this guide we'll cover adding audio events to the Conversation we have created in the [creating a chat app tutorial](/client-sdk/tutorials/in-app-messaging/introduction/kotlin) guide. We'll deal with sending and receiving media events to and from the conversation.
 
 ## Concepts
 
@@ -16,7 +16,7 @@ This guide will introduce you to the following concepts:
 
 ## Before you begin
 
-Run through the [creating a chat app tutorial](/client-sdk/tutorials/in-app-messaging/introduction/java). You will be building on top of this project.
+Run through the [creating a chat app tutorial](/client-sdk/tutorials/in-app-messaging/introduction/kotlin). You will be building on top of this project.
 
 ## Add audio permissions
 
@@ -33,11 +33,10 @@ Add new entry in the `app/src/AndroidManifest.xml` file (below last `<uses-permi
 Add `requestCallPermissions` method inside `LoginFragment` class.
 
 ```kotlin
-private void requestCallPermissions() {
-    String[] callsPermissions = {Manifest.permission.RECORD_AUDIO};
-    int CALL_PERMISSIONS_REQUEST = 123;
-
-    ActivityCompat.requestPermissions(requireActivity(), callsPermissions, CALL_PERMISSIONS_REQUEST);
+private fun requestCallPermissions() {
+    val callsPermissions = arrayOf(Manifest.permission.RECORD_AUDIO)
+    val CALL_PERMISSIONS_REQUEST = 123
+    ActivityCompat.requestPermissions(requireActivity(), callsPermissions, CALL_PERMISSIONS_REQUEST)
 }
 ```
 
@@ -45,10 +44,10 @@ Call `requestCallPermissions` method inside `onViewCreated` method.
 
 ``` kotlin
 @Override
-public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     // ...
 
-    requestCallPermissions();
+    requestCallPermissions()
 }
 ```
 
@@ -94,52 +93,34 @@ You will now need to add two buttons for the user to enable and disable audio. O
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-Now you need to make sure that these buttons are accessible in the fragment. Add two new properties in the `ChatFragment` class:
-
-```java
-Button enableMediaButton;
-Button disableMediaButton;
-```
-
-Retrieve the buttons references by adding `findViewById` calls in the `onViewCreated` method:
-
-```java
-public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-    //...
-    enableMediaButton = view.findViewById(R.id.enableMediaButton);
-    disableMediaButton = view.findViewById(R.id.disableMediaButton);
-}
-```
-
 ## Enable and diable audio 
 
 Add listeners to the buttons inside `onViewCreated` method of `ChatFragment`:
 
-```java
-enableMediaButton.setOnClickListener(it -> {
-    viewModel.enableMedia();
-    enableMediaButton.setVisibility(View.GONE);
-    disableMediaButton.setVisibility(View.VISIBLE);
-});
+```kotlin
+enableMediaButton.setOnClickListener {
+    viewModel.enableMedia()
+    enableMediaButton.visibility = View.GONE
+    disableMediaButton.visibility = View.VISIBLE
+}
 
-disableMediaButton.setOnClickListener(it -> {
-    viewModel.disableMedia();
-    enableMediaButton.setVisibility(View.VISIBLE);
-    disableMediaButton.setVisibility(View.GONE);
-});
+disableMediaButton.setOnClickListener {
+    viewModel.disableMedia()
+    enableMediaButton.visibility = View.VISIBLE
+    disableMediaButton.visibility = View.GONE
+}
 ```
 
 Add two methods to `ChatViewModel`:
 
-```java
-public void disableMedia() {
-    conversation.disableMedia();
+```kotlin
+fun disableMedia() {
+    conversation?.disableMedia()
 }
 
 @SuppressLint("MissingPermission")
-public void enableMedia() {
-    conversation.enableMedia();
+fun enableMedia() {
+    conversation?.enableMedia()
 }
 ```
 
@@ -149,57 +130,64 @@ public void enableMedia() {
 
 When enabling media, `NexmoMediaEvent` events are sent to the conversation. To display these events you will need to add a `NexmoMediaEventListener`. Repleace the whole `getConversation` method in the `ChatViewModel`:
 
-```java
-private fun getConversation() {
-    client.getConversation(Config.CONVERSATION_ID, object : NexmoRequestListener<NexmoConversation> {
-        override fun onSuccess(conversation: NexmoConversation?) {
-            this@ChatViewModel.conversation = conversation
+```kotlin
+private void getConversation() {
+    client.getConversation(Config.CONVERSATION_ID, new NexmoRequestListener<NexmoConversation>() {
+        @Override
+        public void onSuccess(@Nullable NexmoConversation conversation) {
+            ChatViewModel.this.conversation = conversation;
 
-            conversation?.let {
-                getConversationEvents(it)
-                it.addMessageEventListener(messageListener)
+            if (ChatViewModel.this.conversation != null) {
+                getConversationEvents(ChatViewModel.this.conversation);
+                ChatViewModel.this.conversation.addMessageEventListener(messageListener);
 
-                it.addMediaEventListener(object : NexmoMediaEventListener {
-                    override fun onMediaEnabled(mediaEvent: NexmoMediaEvent) {
-                        updateConversation(mediaEvent)
+                ChatViewModel.this.conversation.addMediaEventListener(new NexmoMediaEventListener() {
+                    @Override
+                    public void onMediaEnabled(@NonNull NexmoMediaEvent nexmoMediaEvent) {
+                        updateConversation(nexmoMediaEvent);
                     }
 
-                    override fun onMediaDisabled(mediaEvent: NexmoMediaEvent) {
-                        updateConversation(mediaEvent)
+                    @Override
+                    public void onMediaDisabled(@NonNull NexmoMediaEvent nexmoMediaEvent) {
+                        updateConversation(nexmoMediaEvent);
                     }
-                })
+                });
             }
         }
 
-        override fun onError(apiError: NexmoApiError) {
-            this@ChatViewModel.conversation = null
-            _errorMessage.postValue("Error: Unable to load conversation ${apiError.message}")
+        @Override
+        public void onError(@NonNull NexmoApiError apiError) {
+            ChatViewModel.this.conversation = null;
+            _errorMessage.postValue("Error: Unable to load conversation " + apiError.getMessage());
         }
-    })
+    });
 }
 ```
 
 The `conversationEvents` observer have to support newly added `NexmoMediaEvent` type. Add new branch to the if statement:
 
 ```kotlin
-private var conversationEvents = Observer<List<NexmoEvent>?> { events ->
-        val events = events?.mapNotNull {
-            when (it) {
-                is NexmoMemberEvent -> getConversationLine(it)
-                is NexmoTextEvent -> getConversationLine(it)
-                is NexmoMediaEvent -> getConversationLine(it)
-                else -> null
-            }
+private Observer<ArrayList<NexmoEvent>> conversationEvents = events -> {
+
+        //...
+
+        if (event instanceof NexmoMemberEvent) {
+            line = getConversationLine((NexmoMemberEvent) event);
+        } else if (event instanceof NexmoTextEvent) {
+            line = getConversationLine((NexmoTextEvent) event);
+        } else if (event instanceof NexmoMediaEvent) {
+            line = getConversationLine((NexmoMediaEvent) event);
         }
 
-        // ...
+        //...
+    };
 ```
 
 Now add `getConversationLine` method neeeds to support `NexmoMediaEvent` type as well:
 ```
-private fun getConversationLine(mediaEvent: NexmoMediaEvent): String? {
-    val user = mediaEvent.fromMember.user.name
-    return user + " media state: " + mediaEvent.mediaState
+private String getConversationLine(NexmoMediaEvent mediaEvent) {
+    String user = mediaEvent.getFromMember().getUser().getName();
+    return user + "  media state: " + mediaEvent.getMediaState();
 }
 ```
 
