@@ -131,56 +131,49 @@ fun enableMedia() {
 When enabling media, `NexmoMediaEvent` events are sent to the conversation. To display these events you will need to add a `NexmoMediaEventListener`. Replace the whole `getConversation` method in the `ChatViewModel`:
 
 ```kotlin
-private void getConversation() {
-    client.getConversation(Config.CONVERSATION_ID, new NexmoRequestListener<NexmoConversation>() {
-        @Override
-        public void onSuccess(@Nullable NexmoConversation conversation) {
-            ChatViewModel.this.conversation = conversation;
+private fun getConversation() {
+    client.getConversation(Config.CONVERSATION_ID, object : NexmoRequestListener<NexmoConversation> {
+        override fun onSuccess(conversation: NexmoConversation?) {
+            this@ChatViewModel.conversation = conversation
 
-            if (ChatViewModel.this.conversation != null) {
-                getConversationEvents(ChatViewModel.this.conversation);
-                ChatViewModel.this.conversation.addMessageEventListener(messageListener);
+            conversation?.let {
+                getConversationEvents(it)
+                it.addMessageEventListener(messageListener)
 
-                ChatViewModel.this.conversation.addMediaEventListener(new NexmoMediaEventListener() {
-                    @Override
-                    public void onMediaEnabled(@NonNull NexmoMediaEvent nexmoMediaEvent) {
-                        updateConversation(nexmoMediaEvent);
+                it.addMediaEventListener(object : NexmoMediaEventListener {
+                    override fun onMediaEnabled(mediaEvent: NexmoMediaEvent) {
+                        updateConversation(mediaEvent)
                     }
 
-                    @Override
-                    public void onMediaDisabled(@NonNull NexmoMediaEvent nexmoMediaEvent) {
-                        updateConversation(nexmoMediaEvent);
+                    override fun onMediaDisabled(mediaEvent: NexmoMediaEvent) {
+                        updateConversation(mediaEvent)
                     }
-                });
+                })
             }
         }
 
-        @Override
-        public void onError(@NonNull NexmoApiError apiError) {
-            ChatViewModel.this.conversation = null;
-            _errorMessage.postValue("Error: Unable to load conversation " + apiError.getMessage());
+        override fun onError(apiError: NexmoApiError) {
+            this@ChatViewModel.conversation = null
+            _errorMessage.postValue("Error: Unable to load conversation ${apiError.message}")
         }
-    });
+    })
 }
 ```
 
 The `conversationEvents` observer have to support newly added `NexmoMediaEvent` type. Add new branch to the if statement:
 
 ```kotlin
-private Observer<ArrayList<NexmoEvent>> conversationEvents = events -> {
-
-        //...
-
-        if (event instanceof NexmoMemberEvent) {
-            line = getConversationLine((NexmoMemberEvent) event);
-        } else if (event instanceof NexmoTextEvent) {
-            line = getConversationLine((NexmoTextEvent) event);
-        } else if (event instanceof NexmoMediaEvent) {
-            line = getConversationLine((NexmoMediaEvent) event);
+private var conversationEvents = Observer<List<NexmoEvent>?> { events ->
+    val events = events?.mapNotNull {
+        when (it) {
+            is NexmoMemberEvent -> getConversationLine(it)
+            is NexmoTextEvent -> getConversationLine(it)
+            is NexmoMediaEvent -> getConversationLine(it)
+            else -> null
         }
+    }
 
-        //...
-    };
+    // ...
 ```
 
 Now add `getConversationLine` method needs to support `NexmoMediaEvent` type as well:

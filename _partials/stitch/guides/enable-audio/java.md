@@ -32,7 +32,7 @@ Add new entry in the `app/src/AndroidManifest.xml` file (below last `<uses-permi
 
 Add `requestCallPermissions` method inside `LoginFragment` class.
 
-```kotlin
+```java
 private void requestCallPermissions() {
     String[] callsPermissions = {Manifest.permission.RECORD_AUDIO};
     int CALL_PERMISSIONS_REQUEST = 123;
@@ -43,7 +43,7 @@ private void requestCallPermissions() {
 
 Call `requestCallPermissions` method inside `onViewCreated` method.
 
-``` kotlin
+``` java
 @Override
 public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     // ...
@@ -150,49 +150,56 @@ public void enableMedia() {
 When enabling media, `NexmoMediaEvent` events are sent to the conversation. To display these events you will need to add a `NexmoMediaEventListener`. Replace the whole `getConversation` method in the `ChatViewModel`:
 
 ```java
-private fun getConversation() {
-    client.getConversation(Config.CONVERSATION_ID, object : NexmoRequestListener<NexmoConversation> {
-        override fun onSuccess(conversation: NexmoConversation?) {
-            this@ChatViewModel.conversation = conversation
+private void getConversation() {
+    client.getConversation(Config.CONVERSATION_ID, new NexmoRequestListener<NexmoConversation>() {
+        @Override
+        public void onSuccess(@Nullable NexmoConversation conversation) {
+            ChatViewModel.this.conversation = conversation;
 
-            conversation?.let {
-                getConversationEvents(it)
-                it.addMessageEventListener(messageListener)
+            if (ChatViewModel.this.conversation != null) {
+                getConversationEvents(ChatViewModel.this.conversation);
+                ChatViewModel.this.conversation.addMessageEventListener(messageListener);
 
-                it.addMediaEventListener(object : NexmoMediaEventListener {
-                    override fun onMediaEnabled(mediaEvent: NexmoMediaEvent) {
-                        updateConversation(mediaEvent)
+                ChatViewModel.this.conversation.addMediaEventListener(new NexmoMediaEventListener() {
+                    @Override
+                    public void onMediaEnabled(@NonNull NexmoMediaEvent nexmoMediaEvent) {
+                        updateConversation(nexmoMediaEvent);
                     }
 
-                    override fun onMediaDisabled(mediaEvent: NexmoMediaEvent) {
-                        updateConversation(mediaEvent)
+                    @Override
+                    public void onMediaDisabled(@NonNull NexmoMediaEvent nexmoMediaEvent) {
+                        updateConversation(nexmoMediaEvent);
                     }
-                })
+                });
             }
         }
 
-        override fun onError(apiError: NexmoApiError) {
-            this@ChatViewModel.conversation = null
-            _errorMessage.postValue("Error: Unable to load conversation ${apiError.message}")
+        @Override
+        public void onError(@NonNull NexmoApiError apiError) {
+            ChatViewModel.this.conversation = null;
+            _errorMessage.postValue("Error: Unable to load conversation " + apiError.getMessage());
         }
-    })
+    });
 }
 ```
 
 The `conversationEvents` observer have to support newly added `NexmoMediaEvent` type. Add new branch to the if statement:
 
-```kotlin
-private var conversationEvents = Observer<List<NexmoEvent>?> { events ->
-        val events = events?.mapNotNull {
-            when (it) {
-                is NexmoMemberEvent -> getConversationLine(it)
-                is NexmoTextEvent -> getConversationLine(it)
-                is NexmoMediaEvent -> getConversationLine(it)
-                else -> null
-            }
+```java
+private Observer<ArrayList<NexmoEvent>> conversationEvents = events -> {
+
+        //...
+
+        if (event instanceof NexmoMemberEvent) {
+            line = getConversationLine((NexmoMemberEvent) event);
+        } else if (event instanceof NexmoTextEvent) {
+            line = getConversationLine((NexmoTextEvent) event);
+        } else if (event instanceof NexmoMediaEvent) {
+            line = getConversationLine((NexmoMediaEvent) event);
         }
 
-        // ...
+        //...
+    };
 ```
 
 Now add `getConversationLine` method needs to support `NexmoMediaEvent` type as well:
