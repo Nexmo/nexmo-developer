@@ -1,11 +1,11 @@
 ---
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/voice/text-to-speech-outbound.php
-    from_line: 12
-    to_line: 22
+    from_line: 16
+    to_line: 28
 client:
     source: .repos/nexmo/nexmo-php-code-snippets/initialize/application.php
     from_line: 3
     to_line: 8
-file_name: index.php
-run_command: 'php -t . -S localhost:3000'
+file_name: text-to-speech-outbound.php
+run_command: 'php text-to-speech-outbound.php'

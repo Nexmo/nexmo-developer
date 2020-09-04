@@ -12,4 +12,4 @@ client:
     from_line: 6
     to_line: 7
 file_name: send-unicode-sms.php
-run_command: 'php -f send-unicode-sms.php'
+run_command: 'php send-unicode-sms.php'

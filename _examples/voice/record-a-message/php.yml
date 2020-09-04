@@ -17,4 +17,4 @@ import_dependencies:
     from_line: 2
     to_line: 4
 file_name: index.php
-run_command: 'php -t . -S localhost:3000'
+run_command: 'php -S localhost:3000 -t .'
