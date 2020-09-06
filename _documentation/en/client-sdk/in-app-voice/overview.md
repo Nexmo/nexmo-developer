@@ -47,11 +47,11 @@ The Client SDK application manages the [Event flow](/conversation/guides/event-f
 * [Set up push notifications](/client-sdk/setup/set-up-push-notifications)
 * [Configure data center](/client-sdk/setup/configure-data-center)
 
-## Getting Started
+## Tutorials
 
-* [App to App call](/client-sdk/in-app-voice/getting-started/app-to-app-call)
-* [Make a phone call](/client-sdk/in-app-voice/getting-started/make-phone-call)
-* [Receive a phone call](/client-sdk/in-app-voice/getting-started/receive-phone-call)
+* [App to App call](/client-sdk/tutorials/app-to-app)
+* [Make a phone call](/client-sdk/tutorials/app-to-phone)
+* [Receive a phone call](/client-sdk/tutorials/phone-to-app)
 
 ## Concepts
 
