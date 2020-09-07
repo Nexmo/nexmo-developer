@@ -11,9 +11,8 @@ Start by requiring that users include a phone number when registering. Do this b
 rails generate migration add_phone_number_to_users
 ```
 
-Edit the file that was created in `/db/migrate` to add a new column to the `user` model:
+Edit the `db/migrate/..._add_phone_number_to_users.rb` file to add a new column to the `user` model:
 
-**db/migrate/..._add_phone_number_to_users.rb**
 
 ```ruby
 class AddPhoneNumberToUsers < ActiveRecord::Migration
@@ -50,7 +49,7 @@ Then, amend the edit template to add a field for the user to enter a phone numbe
 
 Finally, you need to make Devise aware of this extra parameter:
 
-**app/controllers/application_controller.rb**
+**`app/controllers/application_controller.rb`**
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -68,4 +67,4 @@ end
 
 To add a phone number to your account, run `rails server`, then navigate to http://localhost:3000/ and log in using the account details you registered with in the previous step.
 
-Click your email address at the top right of the screen, enter your phone number and the password you used at signup and click Update. This will save your phone number to the database.
+Click your email address at the top right of the screen, enter your phone number and the password you used to register with and click Update. This will save your phone number to the database.

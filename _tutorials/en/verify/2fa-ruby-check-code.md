@@ -9,7 +9,7 @@ The final part of the process is to have the user enter the code they received a
 
 First, add a new route:
 
-**config/routes.rb**
+**`config/routes.rb`**
 
 ```ruby
 Rails.application.routes.draw do
@@ -22,7 +22,7 @@ end
 
 Then, create a basic controller:
 
-**app/controllers/verifications_controller.rb**
+**`app/controllers/verifications_controller.rb`**
 
 ```ruby
 class VerificationsController < ApplicationController
@@ -40,7 +40,7 @@ Note from the above that is important to skip the `before_action` we added to th
 
 Create a view to enable the user to fill in their verification code:
 
-**app/views/verifications/edit.html.erb**
+**`app/views/verifications/edit.html.erb`**
 
 ```html
 <div class="panel panel-default devise-bs">
@@ -63,7 +63,7 @@ Create a view to enable the user to fill in their verification code:
 
 The user then submits their code to the new `update` action. Within this action you need to take the `request_id` and `code` and pass them to the `check_verification_request` method:
 
-**app/controllers/verifications_controller.rb**
+**`app/controllers/verifications_controller.rb`**
 
 ```ruby
 def update

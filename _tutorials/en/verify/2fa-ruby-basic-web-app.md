@@ -7,9 +7,9 @@ description: Download the basic web application from GitHub
 
 In this step, you will install the code you will use as the starting point for this tutorial.
 
-The application is a fictional social network site called Kittens and Co. It currently enables you to register with a user name and password but you will improve it to support two-factor authentication (2fa) for added security.
+The application is a fictional social network site called Kittens and Co. It currently enables you to register with a user name and password but you will improve it to support two-factor authentication (2FA) for added security.
 
-First, ensure that you have Ruby and Bundler installed by running:
+First, ensure that you have Ruby and `bundler` installed by running:
 
 ```sh
 ruby --version
