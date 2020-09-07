@@ -1,0 +1,23 @@
+---
+title: Two-factor authentication for security and spam prevention
+description: Learn how to implement 2fa in your Ruby applications
+products:
+  - verify
+
+introduction:
+  title: Introduction
+  description: Learn how to implement 2fa in your Ruby applications
+  content: |
+    # Introduction
+
+    Username and password authentication is used almost everywhere, but it is often not very secure. Good passwords can be difficult to remember and are therefore often written down or re-used in multiple accounts. Relying solely on usernames and passwords to register people for your service also makes it vulnerable to bot networks that create multiple fake accounts to send spam from.
+
+    One good way of stopping the botnets from creating these accounts is to use two-factor authentication (2fa): you link a phone number to an account upon registration and require your user to enter a PIN that is sent to that number every time they log in. This is far more effective against spam than captchas or social logins.
+
+    In this tutorial, you will learn how to implement 2fa in your Ruby applications using the Verify API.
+tasks:
+  - verify/2fa-ruby-basic-web-app
+  - verify/2fa-ruby-add-number-to-model
+  - verify/2fa-ruby-send-verify-request
+  - verify/2fa-ruby-check-code
+  - verify/2fa-ruby-try-it-out
