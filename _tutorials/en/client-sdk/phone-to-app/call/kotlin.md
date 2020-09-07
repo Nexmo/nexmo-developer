@@ -12,7 +12,7 @@ private var call: NexmoCall? = null
 private var incomingCall = false
 ```
 
-At the bottom of the `onCreate` method in the `MainActivity` class add incomming call listener to be notified about incomming call.
+At the bottom of the `onCreate` method in the `MainActivity` class add incoming call listener to be notified about incoming call.
 
 ```java
 override fun onCreate(savedInstanceState: Bundle?) {
