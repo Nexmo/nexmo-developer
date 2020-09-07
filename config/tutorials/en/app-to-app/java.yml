@@ -23,6 +23,7 @@ prerequisites:
   - install-nodejs
   - install-nexmo-cli-beta
   - install-android-studio
+  - join-github
 
 tasks:
   - client-sdk/app-to-app/create-ncco

@@ -13,7 +13,7 @@ description: In this step you learn how to link a Nexmo number to your applicati
 
 ## Using the Nexmo CLI
 
-Once you have a suitable number you can link it with your Nexmo application:
+Once you have a suitable number you can link it with your Nexmo application. Replace `YOUR_NEXMO_NUMBER` with newly generated number, replace `APPLICATION_ID` with your application id and run this command:
 
 ```
 nexmo link:app YOUR_NEXMO_NUMBER APPLICATION_ID

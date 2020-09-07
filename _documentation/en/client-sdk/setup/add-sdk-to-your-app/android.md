@@ -25,7 +25,7 @@ First, you need to add a custom Maven URL repository to your Gradle configuratio
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/maven'
 ``` 
 
-Now to add the Client SDK to your project, add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
+Now add the Client SDK to your project. Add the following dependency in your app level `build.gradle` file (typically `app/build.gradle`):
 
  ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/dependencies'
@@ -63,7 +63,7 @@ To use the In-App Voice features, add audio permissions using the following proc
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/android/request-permissions'
 ``` 
 
-    Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting). 
+Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting). 
 
 ## Using NexmoClient in your App
 
