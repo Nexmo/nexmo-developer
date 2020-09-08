@@ -16,6 +16,8 @@ introduction:
 
     If you would like to follow along without building the app yourself, the completed project for this tutorial is available on [GitHub](https://github.com/nexmo-community/ClientSDK-app-to-app-chat-Swift).
 
+    *This tutorial uses NexmoClient version 2.2.0 and Swift 5*
+
 prerequisites:
   - create-nexmo-account
   - install-nodejs

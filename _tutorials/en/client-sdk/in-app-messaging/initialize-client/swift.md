@@ -102,22 +102,27 @@ For the delegate to work, you need to have `ViewController` conform to `NXMClien
 
 ```swift
 extension ViewController: NXMClientDelegate {
-    func client(_ client: NXMClient, didChange status: NXMConnectionStatus, reason: NXMConnectionStatusReason) {
-
+    func client(_ client: NXMClient, didChange status: NXMConnectionStatus, reason: NXMConnectionStatusReason) { 
         switch status {
         case .connected:
-            self.statusLabel.text = "Connected"
+            setStatusLabel("Connected")
         case .disconnected:
-            self.statusLabel.text = "Disconnected"
+            setStatusLabel("Disconnected")
         case .connecting:
-            self.statusLabel.text = "Connecting"
+            setStatusLabel("Connecting")
         @unknown default:
-            self.statusLabel.text = ""
+            setStatusLabel("")
         }
     }
-
+    
     func client(_ client: NXMClient, didReceiveError error: Error) {
-        self.statusLabel.text = error.localizedDescription
+        setStatusLabel(error.localizedDescription)
+    }
+    
+    func setStatusLabel(_ newStatus: String?) {
+        DispatchQueue.main.async { [weak self] in
+            self?.statusLabel.text = newStatus
+        }
     }
 }
 ```

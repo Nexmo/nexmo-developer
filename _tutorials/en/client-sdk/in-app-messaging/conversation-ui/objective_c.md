@@ -178,17 +178,17 @@ Now you are ready to present the chat interface along with the user information.
 - (void)client:(NXMClient *)client didChangeConnectionStatus:(NXMConnectionStatus)status reason:(NXMConnectionStatusReason)reason {
     switch (status) {
         case NXMConnectionStatusConnected: {
-            self.statusLabel.text = @"Connected";
+            [self setStatusLabelText:@"Connected"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[ChatViewController alloc] initWithUser:self.user]];
             navigationController.modalPresentationStyle = UIModalPresentationOverFullScreen;
             [self presentViewController:navigationController animated:YES completion:nil];
             break;
         }
         case NXMConnectionStatusConnecting:
-            self.statusLabel.text = @"Connecting";
+            [self setStatusLabelText:@"Connecting"];
             break;
         case NXMConnectionStatusDisconnected:
-            self.statusLabel.text = @"Disconnected";
+            [self setStatusLabelText:@"Disconnected"];
             break;
     }
 }

@@ -134,7 +134,7 @@ extension ViewController: NXMClientDelegate {
 
         switch status {
         case .connected:
-            self.statusLabel.text = "Connected"
+            setStatusLabel("Connected")
             let navigationController = UINavigationController(rootViewController: ChatViewController(user: user))
             navigationController.modalPresentationStyle = .overFullScreen
             present(navigationController, animated: true, completion: nil)
