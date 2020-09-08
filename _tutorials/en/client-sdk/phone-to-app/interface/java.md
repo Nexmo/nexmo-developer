@@ -65,7 +65,7 @@ To be able view the connection status of the app you will need to add a `TextVie
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-# Retrieve views references
+## Retrieve views references
 
 Create 4 properties for each view inside `MainActivity` and retrieve view instances inside inside `onCreate` method:
 
