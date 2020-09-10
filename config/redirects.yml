@@ -307,3 +307,4 @@
 "/api/vonage-business-cloud/user": "https://vbcdeveloper.vonage.com/api/provisioning"
 "/api/vonage-business-cloud/call-recording": "https://vbcdeveloper.vonage.com/api/call-recording"
 "/api/vonage-business-cloud/vgis": "https://vbcdeveloper.vonage.com/api/vonage-integration-platform"
+"/use-cases/two-factor-authentication": "/verify/tutorials/verify-2fa-ruby/introduction"
