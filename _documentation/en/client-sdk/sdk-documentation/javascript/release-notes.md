@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.13 - Sep 14, 2020
+
+### Fixes
+
+- Update websocket reconnection logic for token expiry
+
 ## Version 6.0.12 - Sep 01, 2020
 
 ### Fixes
