@@ -153,6 +153,57 @@ page:
             <div class="Vlt-center">
               <a class="Vlt-btn Vlt-btn--primary Vlt-btn--large Vlt-btn--larger" href="https://airtable.com/shrI1b8WWx4B85ZSZ">Nominate a Voyager</a>
             </div>
+  #- row:
+    #- column:
+        #- type: line_divider
+  #- row:
+    #- column:
+      #- type: html
+        #html:
+          #content: "<h2>Discover the Vonage Voyagers</h2>"
+  #- row:
+    #- column:
+      #- type: headshot
+        #headshot:
+          #name: Vonage Voyager
+          #url: 'https://www.nexmo.com/blog/author/martyn'
+          #img_src: '/images/voyagers/headshot.png'
+          #twitter: 'vonage.voyager'
+          #intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt eu dui vitae fermentum. Nulla facilisi. Vivamus varius nunc at risus pretium, nec pharetra orci dignissim. Etiam hendrerit facilisis mi.
+
+    #- column:
+      #- type: headshot
+        #headshot:
+          #name: Vonage Voyager
+          #url: 'https://www.nexmo.com/blog/author/martyn'
+          #img_src: '/images/voyagers/headshot.png'
+          #intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt eu dui vitae fermentum. Nulla facilisi. Vivamus varius nunc at risus pretium, nec pharetra orci dignissim. Etiam hendrerit facilisis mi.
+    #- column:
+      #- type: headshot
+        #headshot:
+          #name: Vonage Voyager
+          #url: 'https://www.nexmo.com/blog/author/martyn'
+          #img_src: '/images/voyagers/headshot.png'
+          #twitter: vonage.voyager
+          #intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt eu dui vitae fermentum. Nulla facilisi. Vivamus varius nunc at risus pretium, nec pharetra orci dignissim. Etiam hendrerit facilisis mi.
+          #location: Germany
+          #github: vonage.voyager
+    #- column:
+      #- type: headshot
+        #headshot:
+          #name: Vonage Voyager
+          #url: 'https://www.nexmo.com/blog/author/martyn'
+          #img_src: '/images/voyagers/headshot.png'
+          #twitter: 'vonage.voyager'
+          #intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt eu dui vitae fermentum. Nulla facilisi. Vivamus varius nunc at risus pretium, nec pharetra orci dignissim. Etiam hendrerit facilisis mi.
+  #- row:
+    #- column:
+        #- type: line_divider
+  #- row:
+    #- column:
+      #- type: html
+        #html:
+          #content: "<h2>Content from Voyagers</h2>"
   - row:
     - column:
         - type: line_divider
