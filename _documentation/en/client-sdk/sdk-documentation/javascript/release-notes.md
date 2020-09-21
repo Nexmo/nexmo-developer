@@ -6,6 +6,13 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.14 - September 21, 2020
+
+### Fixes
+
+- Set sdk default to single preset ice candidate
+- Remove `iceGatherOnlyOneCandidate` flag from nexmo client config
+
 ## Version 6.0.13 - Sep 14, 2020
 
 ### Fixes
