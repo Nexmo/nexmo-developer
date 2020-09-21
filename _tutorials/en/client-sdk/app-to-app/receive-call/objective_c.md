@@ -92,4 +92,4 @@ Similar to `NXMClient`, `NXMCall` also has a delegate to handle changes to the c
 @end
 ```
 
-In the next step we will add the code needed to make a call.
+In the next step you will add the code needed to make a call.

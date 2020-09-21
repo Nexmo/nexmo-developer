@@ -138,7 +138,7 @@ Implement the initializer:
 @end
 ```
 
-This defines a custom initializer for the class which has a `User.type` as its parameter, which then gets stored in the local `user` property. Now that we have the user information you use the `callButton` to show who the user will be calling, in `viewDidLoad` add the following.
+This defines a custom initializer for the class which has a `User.type` as its parameter, which then gets stored in the local `user` property. Now that you have the user information you use the `callButton` to show who the user will be calling, in `viewDidLoad` add the following.
 
 ```objective_c
 self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout)];

@@ -20,4 +20,4 @@ This will return user IDs similar to the following:
 User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
-There is no need to remember this user ID because we will use user names (instead of user IDs) to add them to the conversation. 
+There is no need to remember this user ID because you will use user names (instead of user IDs) to add them to the conversation. 

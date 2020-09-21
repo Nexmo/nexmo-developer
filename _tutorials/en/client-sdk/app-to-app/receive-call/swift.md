@@ -111,4 +111,4 @@ extension CallViewController: NXMCallDelegate {
 }
 ```
 
-In the next step we will add the code needed to make a call.
+In the next step you will add the code needed to make a call.

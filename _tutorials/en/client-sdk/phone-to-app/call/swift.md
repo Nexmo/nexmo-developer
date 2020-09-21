@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 }
 ```
 
-When the application receives a call we want to give the option to accept or reject the call. To do this add the `displayIncomingCallAlert` function to the `ViewController` class.
+When the application receives a call you will want to give the option to accept or reject the call. To do this add the `displayIncomingCallAlert` function to the `ViewController` class.
 
 ```swift
 class ViewController: UIViewController {
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     }
 }
 ```
-The `displayIncomingCallAlert` function takes a `NXMCall` as a parameter, with this we can access the members, which are the type `NXMCallMember`, of the call to retrieve the phone number of the incoming call. Note in the `UIAlertAction` for answering the call we assign the call to the property from earlier.
+The `displayIncomingCallAlert` function takes a `NXMCall` as a parameter, with this you can access the members, which are the type `NXMCallMember`, of the call to retrieve the phone number of the incoming call. Note in the `UIAlertAction` for answering the call you assign the call to the property from earlier.
 
 To use `displayIncomingCallAlert` you need to use the `NXMClientDelegate` which has a function that will be called when the client receives an incoming `NXMCall`.
 

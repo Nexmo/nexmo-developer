@@ -5,7 +5,7 @@ description: In this step you learn how to make an app-to-app call.
 
 # Make a call
 
-To make a call we will make use of the `callButton` in the `CallViewController` UI. First we need to add a target to the button.
+To make a call you will make use of the `callButton` in the `CallViewController` UI. First you need to add a target to the button.
 
 ```swift
 class CallViewController: UIViewController {
