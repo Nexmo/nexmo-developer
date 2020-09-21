@@ -6,19 +6,26 @@ navigation_weight: 0
 
 # Release Notes
 
-## Version 6.0.13 - Sep 14, 2020
+## Version 6.0.15 - September 21, 2020
+
+### Fixes
+
+- Set SDK default to single preset ICE candidate
+- Remove `iceGatherOnlyOneCandidate` flag from client configuration
+
+## Version 6.0.13 - September 14, 2020
 
 ### Fixes
 
 - Update websocket reconnection logic for token expiry
 
-## Version 6.0.12 - Sep 01, 2020
+## Version 6.0.12 - September 01, 2020
 
 ### Fixes
 
 - Update resolved stream on media enabling
 
-## Version 6.0.11 - Sep 01, 2020
+## Version 6.0.11 - September 01, 2020
 
 ### Changes
 
