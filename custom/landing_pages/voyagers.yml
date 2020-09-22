@@ -161,7 +161,7 @@ page:
           - type: html
             html:
               content: "<h2>Discover the Vonage Voyagers</h2>"
-  - row:
+  # - row:
       # - column:
       #     - type: headshot
       #       headshot:
