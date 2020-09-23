@@ -43,13 +43,7 @@ page:
                  and you are welcome to contribute to any repository.
               </h5>
               <br>
-
-              <div class="Vlt-callout Vlt-callout--tip">
-                <i></i>
-                <div class="Vlt-callout__content">
-                  <a href="https://github.com/search?q=label%3A%22hacktoberfest%22+is%3Aissue+is%3Aopen+org%3Anexmo+org%3Avonage+org%3Anexmo-community+org%3Aopentok+org%3Aopentok-community+org%3Avonage&type=Issues" target="_blank"><p>Github issues specially curated for Hacktoberfest</p></a>
-                </div>
-              </div>
+              <h5>We've curated these <a href="https://github.com/search?q=label%3A%22hacktoberfest%22+is%3Aissue+is%3Aopen+org%3Anexmo+org%3Avonage+org%3Anexmo-community+org%3Aopentok+org%3Aopentok-community+org%3Avonage&type=Issues" target="_blank" class="text-purple"><b>GitHub Issues</b> especially for Hacktoberfest!</a></h5>
               <br>
               <div class="Vlt-table--data scrolling">
                 <div class="Vlt-table__header">
@@ -156,7 +150,7 @@ page:
                 </div>
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell">
-                    <a href="https://github.com/vonage/vonage-dotnet-sdk" target="_blank" class="text-purple"><b>Vonage Client Library for .NET</b></a>
+                    <a href="https://github.com/vonage/vonage-dotnet-sdk" target="_blank" class="text-purple"><b>Vonage Server SDK for .NET</b></a>
                   </div>
                   <div class="Vlt-table__cell">
                     <p class="Vlt-black">.NET, Async</p>
@@ -167,7 +161,7 @@ page:
                 </div>
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell">
-                    <a href="https://github.com/vonage/vonage-dotnet-sdk" target="_blank" class="text-purple"><b>Vonage Client Library for .NET</b></a>
+                    <a href="https://github.com/vonage/vonage-dotnet-sdk" target="_blank" class="text-purple"><b>Vonage Server SDK for .NET</b></a>
                   </div>
                   <div class="Vlt-table__cell">
                     <p class="Vlt-black">.NET, SDK</p>
@@ -178,7 +172,7 @@ page:
                 </div>
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell">
-                    <a href="https://github.com/vonage/vonage-dotnet-sdk" target="_blank" class="text-purple"><b>Vonage Client Library for .NET</b></a>
+                    <a href="https://github.com/vonage/vonage-dotnet-sdk" target="_blank" class="text-purple"><b>Vonage Server SDK for .NET</b></a>
                   </div>
                   <div class="Vlt-table__cell">
                     <p class="Vlt-black">.NET, SDK</p>
@@ -189,7 +183,7 @@ page:
                 </div>
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell">
-                    <a href="https://github.com/vonage/vonage-php-sdk-core" target="_blank" class="text-purple"><b>Client Library for PHP</b></a>
+                    <a href="https://github.com/vonage/vonage-php-sdk-core" target="_blank" class="text-purple"><b>Vonage Server SDK for PHP</b></a>
                   </div>
                   <div class="Vlt-table__cell">
                     <p class="Vlt-black">PHP, SDK</p>
