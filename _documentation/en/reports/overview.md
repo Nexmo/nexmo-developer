@@ -60,7 +60,7 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 
 Charges are applied based on the volume of data retrieved on the Pay As You Go as follows:
 
-> 0.40€ per 1k CDRs
+> 0.40€ per 1000 CDRs
 
 Alternatively, you can download as much as you like with the Unlimited plan which costs 450€ / month.
 
