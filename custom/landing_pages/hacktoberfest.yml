@@ -361,7 +361,7 @@ page:
               </div>
 
               <h2 class="Vlt-black"><b>Video Resources</b></h2>
-              <div class="Vlt-grid Vlt-grid--stack-flush">
+              <div class="Vlt-grid Vlt-grid--stack-flush" id="video-resources">
                 <iframe class="Vlt-col Vlt-col--1of3" src="https://www.youtube.com/embed/zYJpYMCy6PA" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <iframe class="Vlt-col Vlt-col--1of3" src="https://www.youtube.com/embed/W6ztOG7ncNg" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <iframe class="Vlt-col Vlt-col--1of3" src="https://www.youtube.com/embed/0be98VXGHh0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -706,6 +706,13 @@ page:
                   display: flex;
                   margin: 0 auto;
                   margin-left: -48px !important;
+                }
+                #video-resources{
+                  width: 100vw;
+                  margin-left: -48px;
+                }
+                iframe{
+                  margin-bottom: 10px !important;
                 }
               }
               @media (max-width: 640px) {
