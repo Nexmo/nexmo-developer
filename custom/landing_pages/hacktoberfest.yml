@@ -43,6 +43,14 @@ page:
                  and you are welcome to contribute to any repository.
               </h5>
               <br>
+
+              <div class="Vlt-callout Vlt-callout--tip">
+                <i></i>
+                <div class="Vlt-callout__content">
+                  <a href="https://github.com/search?q=label%3A%22hacktoberfest%22+is%3Aissue+is%3Aopen+org%3Anexmo+org%3Avonage+org%3Anexmo-community+org%3Aopentok+org%3Aopentok-community+org%3Avonage&type=Issues" target="_blank"><p>Github issues specially curated for Hacktoberfest</p></a>
+                </div>
+              </div>
+              <br>
               <div class="Vlt-table--data scrolling">
                 <div class="Vlt-table__header">
                   <div class="Vlt-table__cell"><h3 class="Vlt-black table-header-mobile ">Project</h3></div>
@@ -365,8 +373,24 @@ page:
                 </div>
               </div>
 
-              <h2 class="Vlt-black"><b>Featured Talks</b></h2>
-              <div class="Vlt-grid Vlt-grid--stack-flush">
+              <h2 class="Vlt-black"><b>Featured Talks (3)</b></h2>
+              <div class="Vlt-grid Vlt-grid--stack-flush scrolling talks-section">
+                <a href="https://organize.mlh.io/participants/events/4087-hacktoberfest-at-tiet" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
+                  <div class="Vlt-card talk-card">
+                    <div class="Vlt-card__content Vlt-grid">
+                      <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
+                        <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
+                        <h3 class="Vlt-white Vlt-center speaker"><b>Garann Means</b></h3>
+                        <h5 class="Vlt-white Vlt-center italic">JS Developer Advocate</h5>
+                      </div>
+                      <div class="Vlt-col Vlt-col--2of3 vertical-align">
+                        <h3 class="Vlt-white Vlt-center">Storming the Gates<br>of Open Source</h3>
+                        <h3 class="Vlt-white Vlt-center"><b>Thursday, October 1</b></h3>
+                        <h5 class="Vlt-white Vlt-center">4:30 IST / 11:00 UTC</h5>
+                      </div>
+                    </div>
+                  </div>
+                </a>
                 <a href="https://organize.mlh.io/participants/events/4525-acm-juit-open-source-season-hacktoberfest-meetup" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
                   <div class="Vlt-card talk2-card">
                     <div class="Vlt-card__content Vlt-grid">
@@ -384,7 +408,7 @@ page:
                   </div>
                 </a>
                 <a href="https://www.digitalocean.com/community/tech_talks/level-up-as-an-open-source-contributor" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                  <div class="Vlt-card talk-card">
+                  <div class="Vlt-card talk3-card">
                     <div class="Vlt-card__content Vlt-grid">
                       <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
                         <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811773/lorna-mitchel_gphcbt.jpg" alt="Lorna Mitchel"><img>
@@ -399,144 +423,24 @@ page:
                     </div>
                   </div>
                 </a>
-
+                <a href="https://www.digitalocean.com/community/tech_talks/level-up-as-an-open-source-contributor" target="_blank" class="Vlt-col Vlt-col--1of2 talks hide">
+                  <div class="Vlt-card talk4-card">
+                    <div class="Vlt-card__content Vlt-grid">
+                      <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
+                        <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811773/lorna-mitchel_gphcbt.jpg" alt="Lorna Mitchel"><img>
+                        <h3 class="Vlt-white Vlt-center speaker"><b>Lorna Mitchel</b></h3>
+                        <h5 class="Vlt-white Vlt-center italic">Developer Advocate</h5>
+                      </div>
+                      <div class="Vlt-col Vlt-col--2of3 vertical-align">
+                        <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
+                        <h3 class="Vlt-white Vlt-center"><b>Tuesday, October 6</b></h3>
+                        <h5 class="Vlt-white Vlt-center">11:00 EDT / 15:00 UTC</h5>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
               <br>
-              <div class="Vlt-accordion hide">
-                <button class="Vlt-accordion__trigger"><h2>See All Talks</h2></button>
-                <div class="Vlt-accordion__content">
-                  <div class="Vlt-grid Vlt-grid--stack-flush">
-                    <a href="https://www.digitalocean.com/community/tech_talks/level-up-as-an-open-source-contributor" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811773/lorna-mitchel_gphcbt.jpg" alt="Lorna Mitchel"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Lorna Mitchel</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Tuesday, October 6</b></h3>
-                            <h5 class="Vlt-white Vlt-center">11:00 EDT / 15:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="https://organize.mlh.io/participants/events/4087-hacktoberfest-at-tiet" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk2-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Garann Means</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">JS Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">The Benefits of Participating in The Open Source Community</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Saturday, October 10</b></h3>
-                            <h5 class="Vlt-white Vlt-center">10:30 IST / 5:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="https://www.digitalocean.com/community/tech_talks/level-up-as-an-open-source-contributor" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811773/lorna-mitchel_gphcbt.jpg" alt="Lorna Mitchel"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Lorna Mitchel</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Tuesday, October 6</b></h3>
-                            <h5 class="Vlt-white Vlt-center">11:00 EDT / 15:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="https://organize.mlh.io/participants/events/4087-hacktoberfest-at-tiet" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk2-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Garann Means</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">JS Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Saturday, October 10</b></h3>
-                            <h5 class="Vlt-white Vlt-center">10:30 IST / 5:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="https://www.digitalocean.com/community/tech_talks/level-up-as-an-open-source-contributor" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811773/lorna-mitchel_gphcbt.jpg" alt="Lorna Mitchel"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Lorna Mitchel</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Tuesday, October 6</b></h3>
-                            <h5 class="Vlt-white Vlt-center">11:00 EDT / 15:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="https://organize.mlh.io/participants/events/4087-hacktoberfest-at-tiet" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk2-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Garann Means</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">JS Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Saturday, October 10</b></h3>
-                            <h5 class="Vlt-white Vlt-center">10:30 IST / 5:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="https://www.digitalocean.com/community/tech_talks/level-up-as-an-open-source-contributor" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811773/lorna-mitchel_gphcbt.jpg" alt="Lorna Mitchel"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Lorna Mitchel</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Tuesday, October 6</b></h3>
-                            <h5 class="Vlt-white Vlt-center">11:00 EDT / 15:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="https://organize.mlh.io/participants/events/4087-hacktoberfest-at-tiet" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                      <div class="Vlt-card talk2-card">
-                        <div class="Vlt-card__content Vlt-grid">
-                          <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                            <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
-                            <h3 class="Vlt-white Vlt-center speaker"><b>Garann Means</b></h3>
-                            <h5 class="Vlt-white Vlt-center italic">JS Developer Advocate</h5>
-                          </div>
-                          <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                            <h3 class="Vlt-white Vlt-center">Level Up as an<br>Open Source Contributor</h3>
-                            <h3 class="Vlt-white Vlt-center"><b>Saturday, October 10</b></h3>
-                            <h5 class="Vlt-white Vlt-center">10:30 IST / 5:00 UTC</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
 
 
 
@@ -758,6 +662,12 @@ page:
               .talk2-card{
                 background-color: #94C2DB;
               }
+              .talk3-card{
+                background-color: #06253F;
+              }
+              .talk4-card{
+                background-color: #9D4769;
+              }
               .scrolling{
                 max-height: 8%;
                 overflow: scroll;
@@ -790,6 +700,11 @@ page:
               }
               @media (max-width: 380px) {
                 .Vlt-table--data{
+                  margin-left: -48px !important;
+                }
+                .talks-section{
+                  display: flex;
+                  margin: 0 auto;
                   margin-left: -48px !important;
                 }
               }
