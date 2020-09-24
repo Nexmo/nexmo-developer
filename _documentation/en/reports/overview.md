@@ -56,13 +56,12 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 
 ## Pricing
 
-> From the 1st of October 2020 Vonage is introducing two pricing options for all new Reports API customers.
+From the **1st of October 2020**, Vonage is introducing two pricing plans for all new Reports API customers. These are shown in the following table:
 
-Charges are applied based on the volume of data retrieved on the Pay As You Go as follows:
-
-> 0.40€ per 1000 CDRs
-
-Alternatively, you can download as much as you like with the Unlimited plan which costs 450€ / month.
+Plan | Price | Notes
+----|----|----
+Pay As You Go | 0.0004€ per CDR (0.40€ per 1000 CDRs) | Charges are applied based on the volume of data retrieved.
+Unlimited Plan |  450€ per month | You can download as much data as you like, included in the single price.
 
 ### Pricing example (`GET` requests)
 
