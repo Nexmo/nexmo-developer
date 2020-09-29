@@ -50,9 +50,10 @@ page:
                       </div>
                     </span>
                   </div>
-                  <div class="Vlt-table__cell Vlt-tabs__link Vlt-tabs__link_disabled" id="30">
+                  <div class="Vlt-table__cell Vlt-tabs__link" id="30" role="tab">
                     <div class="calendar-item">
                       <b>30</b>
+                      <p class="show">Developer Drop-In</p>
                     </div>
                   </div>
                   <div class="Vlt-table__cell Vlt-tabs__link" id="1" role="tab">
@@ -149,11 +150,16 @@ page:
                       </div>
                     </span>
                   </div>
-                  <div class="Vlt-table__cell Vlt-tabs__link" id="14" role="tab">
-                    <div class="calendar-item">
-                      <b>15</b>
-                      <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Igor (2pm UTC)</p>
-                    </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="14">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="14a" role="tab">
+                        <b>14</b>
+                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Igor (2pm UTC)</p>
+                      </div>
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="14b" role="tab">
+                        <p class="show">Developer Drop-In</p>
+                      </div>
+                    </span>
                   </div>
                   <div class="Vlt-table__cell Vlt-tabs__link" id="15" role="tab">
                     <div class="calendar-item">
@@ -188,11 +194,16 @@ page:
                       </div>
                     </span>
                   </div>
-                  <div class="Vlt-table__cell Vlt-tabs__link" id="21" role="tab">
-                    <div class="calendar-item">
-                      <b>21</b>
-                      <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Zach (6pm UTC)</p>
-                    </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="21">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="21a" role="tab">
+                        <b>21</b>
+                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Zach (6pm UTC)</p>
+                      </div>
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="21b" role="tab">
+                        <p class="show">The Low-Code Hour</p>
+                      </div>
+                    </span>
                   </div>
                   <div class="Vlt-table__cell Vlt-tabs__link" id="22" role="tab">
                     <div class="calendar-item">
@@ -240,11 +251,16 @@ page:
                       </div>
                     </span>
                   </div>
-                  <div class="Vlt-table__cell Vlt-tabs__link" id="28" role="tab">
-                    <div class="calendar-item">
-                      <b>28</b>
-                      <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Julia (6pm UTC)</p>
-                    </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="28">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="28a" role="tab">
+                        <b>28</b>
+                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Julia (6pm UTC)</p>
+                      </div>
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="28b" role="tab">
+                        <p class="show">Developer Drop-In</p>
+                      </div>
+                    </span>
                   </div>
                   <div class="Vlt-table__cell Vlt-tabs__link" id="29" role="tab">
                     <div class="calendar-item">
@@ -370,6 +386,7 @@ page:
                         <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
                       </div>
                       <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Adding User Moderation to a Video API Session</h5>
                         One of the first things you'll want to add to your multi-party video apps is moderation, including the ability to mute or remove participants in the session. In this episode, we'll add moderation using the Vonage Video API's signaling feature.
                       </p>
                       <br>
@@ -471,7 +488,75 @@ page:
                     </div>
                   </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-30">30
+                <div class="Vlt-tabs__panel" id="tab-30" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601392891/Developer_Drop-In_7_cvokvo.png" alt="Developer Drop-In">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Developer Drop-In</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Webhooks with Zapier</h5>
+                        For developers new to webhooks this can be a whole new thing with ngrok coming into your local platform. This episode, we'll tackle that differently by sending webhooks to Zapier and looking at what we can integrate with when a webhook happens. Tentative plans include a spreadsheet and a Lifx bulb. Hopefully we can look at some NCCO stuff and call flow as well. I think it's likely to be most Voice API and NodeJS.
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        IoT - Low Code - NodeJS - Voice - Fun
+                      </h5>
+                    </div>
+                    <div class="padding-top-32">
+                      <div class="Vlt-col padding-left-0">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly, on Wednesdays, Developer Drop-In is a chance for developers to get their questions answered live on stream and meet the people who build the libraries and sample apps they know and love. Lorna is the host, often joined by other team members. She takes questions from the audience and builds something as a more detailed answer to questions the team receives on StackOverflow or the community slack.
+                        </p>
+                      </div>
+                      <div class="Vlt-grid padding-top-32">
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Lorna Mitchell</h4>
+                          <a href="https://twitter.com/lornajane" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/lornajane" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Senior Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            Lorna is a software engineer with an incurable blogging habit. She works on the Developer Relations team at Nexmo and tries to tame words and code in equal measure.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://lornajane.net">
+                            https://lornajane.net
+                          </a>
+                        </div>
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Julia Biro</h4>
+                          <a href="https://twitter.com/iza_biro" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/juliacodez" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://developeravocados.net/">
+                            DeveloperAvocados.net
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-1" role="tabpanel">
                   <div class="Vlt-grid">
@@ -706,7 +791,7 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-6c" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600672610/Twitch_Show_Social_Graphics_5_i1occu.png" alt="Mistakes Were Made">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601392165/Twitch_Show_Social_Graphics_14_gsl4rl.png" alt="Mistakes Were Made">
                     </div>
                     <div class="Vlt-col Vlt-col--2of3">
                       <div class="Vlt-grid">
@@ -714,6 +799,7 @@ page:
                         <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
                       </div>
                       <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Recording Video API Sessions Made Easy</h5>
                         Sometimes you need to record a Video API call for future reference. In this episode, we add the ability to archive recordings to AWS or Azure from within our Video API session.
                       </p>
                       <br>
@@ -795,11 +881,12 @@ page:
                         <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
                       </div>
                       <p class="Vlt-col padding-left-0 mobile-justify">
-                        TBD
+                        <h5>Getting Started with n8n.io</h5>
+                        In this episode we'll have a look at the low-code platform n8n and the getting started experience, then we'll take a stab at creating a couple of workflows.
                       </p>
                       <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
                         <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        Vonage API - Low-Code - No Code
+                         n8n - Low-Code - No-Code
                       </h5>
                     </div>
                     <div class="padding-top-32">
@@ -851,7 +938,6 @@ page:
                       </div>
                     </div>
                   </div>
-
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-8" role="tabpanel">
                   <div class="Vlt-grid">
@@ -972,7 +1058,6 @@ page:
                     </div>
                   </div>
                 </div>
-
                 <div class="Vlt-tabs__panel" id="tab-12a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
@@ -1213,7 +1298,7 @@ page:
                     </div>
                   </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-14" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-14a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601133461/hacktoberfest/igor-light_1_hn28qy.png" alt="Hacktoberfest Stream Art">
@@ -1230,11 +1315,59 @@ page:
                           <i class="icon icon-github"></i>
                         </a>
                         <h5>
-                          Andrioid Developer Advocate
+                          Android Developer Advocate
                         </h5>
                         <p class="text-justify">
                           Igor Wojda is a passionate engineer with over a decade of software development experience. He is deeply interested in Android application architecture, Kotlin language and he is an active member of the open-source community. Igor is a conference speaker, technical proffer for ‘Kotlin In Action’ book, and author of ‘Android Development with Kotlin’ book. Igor enjoys sharing his passion for coding with other developers. Currently, he is working as Android Developer Advocate at Vonage.
                         </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-14b" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Developer_Drop-In_Lorna_1_2_lkqquz.png" alt="Developer Drop-In">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Developer Drop-In</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Introducing the Go SDK</h5>
+                        Vonage just launched a Go SDK, let's take a look at what we can do with it! If you're a Go developer, or are interested in getting more familiar with this tech stack, then join us! Bring your questions about Go and all the Vonage APIs, and let's write some code!
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Go - Golang - API - SDK - Code
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly, on Wednesdays, Developer Drop-In is a chance for developers to get their questions answered live on stream and meet the people who build the libraries and sample apps they know and love. Lorna is the host, often joined by other team members. She takes questions from the audience and builds something as a more detailed answer to questions the team receives on StackOverflow or the community slack.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lorna Mitchell</h4>
+                        <a href="https://twitter.com/lornajane" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/lornajane" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Senior Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Lorna is a software engineer with an incurable blogging habit. She works on the Developer Relations team at Nexmo and tries to tame words and code in equal measure.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lornajane.net">
+                          https://lornajane.net
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1372,7 +1505,7 @@ page:
                     </div>
                   </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-21" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-21a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601061031/hacktoberfest/zach-light_1_oklvee.png" alt="Hacktoberfest Stream Art">
@@ -1391,6 +1524,75 @@ page:
                         <h5>
                           Senior Developer Educator
                         </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-21b" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601236016/Twitch_Show_Social_Graphics_10_jhrspg.png" alt="The Low-Code Hour">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">The Low-Code Hour</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Low-Code Hacktoberfest</h5>
+                        In this episode we'll explore the options of contributing to low-code open source projects.
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                         Hacktoberfest - OpenSource - Low-Code
+                      </h5>
+                    </div>
+                    <div class="padding-top-32">
+                      <div class="Vlt-col padding-left-0">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly on Wednesdays Sam and Julia explore different low-code tools, a software development approach that enables the delivery of applications faster and with minimal hand-coding, such as Node-Red, Zapier, Netlify, etc.
+                        </p>
+                      </div>
+                      <div class="Vlt-grid padding-top-32">
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Sam Machin</h4>
+                          <a href="https://twitter.com/sammachin" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/sammachin" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Senior Product Manager
+                          </h5>
+                          <p class="text-justify">
+                            Sam Machin has nearly 20 years of experience in the communications industry and a strong track record of innovation. His role as a developer advocate enables him to attend events where he loves to chat with developers about their projects, His personal projects mostly revolve around Amazon Alexa, Sam created the AlexaPi project allowing developers to build thier own Alexa powered devices and he is recognised by Amazon as an Alexa Champion.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://www.sammachin.com">
+                            SamMachin.com
+                          </a>
+                        </div>
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Julia Biro</h4>
+                          <a href="https://twitter.com/iza_biro" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/juliacodez" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://developeravocados.net/">
+                            DeveloperAvocados.net
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1646,7 +1848,7 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-27c" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600672526/Twitch_Show_Social_Graphics_4_qc3853.png" alt="Mistakes Were Made">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600671582/Twitch_Show_Social_Graphics_3_i87htl.png" alt="Mistakes Were Made">
                     </div>
                     <div class="Vlt-col Vlt-col--2of3">
                       <div class="Vlt-grid">
@@ -1692,7 +1894,7 @@ page:
                     </div>
                   </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-28" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-28a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601237648/hacktoberfest/julia-dark-6pm_1_hn5ycn.png" alt="Hacktoberfest Stream Art">
@@ -1714,6 +1916,54 @@ page:
                         <p class="text-justify">
                           Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
                         </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-28b" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Developer_Drop-In_Lorna_1_2_lkqquz.png" alt="Developer Drop-In">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Developer Drop-In</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Tips for Voice API</h5>
+                        Vonage Voice API is a world of possibilities. There are API endpoints, call objects you can create and send, basically everything you can think of - and sometimes that's too much choice. In this session we'll take some of your use cases and questions, and show how to put together applications, events and webhooks that let you abuild the applications you are dreaming of.
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        API - Code - Voice - Telephone - Fun
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly, on Wednesdays, Developer Drop-In is a chance for developers to get their questions answered live on stream and meet the people who build the libraries and sample apps they know and love. Lorna is the host, often joined by other team members. She takes questions from the audience and builds something as a more detailed answer to questions the team receives on StackOverflow or the community slack.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lorna Mitchell</h4>
+                        <a href="https://twitter.com/lornajane" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/lornajane" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Senior Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Lorna is a software engineer with an incurable blogging habit. She works on the Developer Relations team at Nexmo and tries to tame words and code in equal measure.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lornajane.net">
+                          https://lornajane.net
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
