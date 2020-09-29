@@ -226,12 +226,14 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="27">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="27a" role="tab">
+
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="27b" role="tab">
                         <b>27</b>
-                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Hacktoberfest Tuesday (6pm UTC)</p>
+                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Lauren Learns Things (2pm UTC)</p>
                       </div>
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="27b" role="tab">
-                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Lauren Learns Things</p>
+
+                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Hacktoberfest Tuesday (6pm UTC)</p>
                       </div>
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="27c" role="tab">
                         <p class="show">Mistakes Were Made</p>
@@ -344,7 +346,7 @@ page:
                             <i class="icon icon-github"></i>
                           </a>
                           <h5>
-                            iOS Developer Advocate
+                            Android Developer Advocate
                           </h5>
                           <p class="text-justify">
                             Igor Wojda is a passionate engineer with over a decade of software development experience. He is deeply interested in Android application architecture, Kotlin language and he is an active member of the open-source community. Igor is a conference speaker, technical proffer for ‘Kotlin In Action’ book, and author of ‘Android Development with Kotlin’ book. Igor enjoys sharing his passion for coding with other developers. Currently, he is working as Android Developer Advocate at Vonage.
@@ -680,7 +682,7 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-6b" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601233351/americas-horizontal_fbuovn.png" alt="Hacktoberfest Stream Art">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601384443/americas-horizontal_1_gc3bar.png" alt="Hacktoberfest Stream Art">
                     </div>
                     <div class="Vlt-col Vlt-col--1of2">
                         <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Tuesdays: Americas</h3>
@@ -839,9 +841,7 @@ page:
                             Developer Advocate
                           </h5>
                           <p class="text-justify">
-                            👩🏼‍💻, 🎨 & 🥑 shenanigans @DevRelAvocados and Vonage.
-                            <br>
-                            I spend most of my time wrangling Node-RED into doing my bidding, creating resources for the community.
+                            Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
                           </p>
                           </br>
                           <a class="Vlt-purple" href="https://developeravocados.net/">
@@ -1004,7 +1004,7 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-12b" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600673534/Twitch_Show_Social_Graphics_7_ovlst5.png" alt="Week.init()">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601387494/hacktoberfest/Twitch_Show_Social_Graphics_13_uxzpjv.png" alt="Week.init()">
                     </div>
                     <div class="Vlt-col Vlt-col--2of3">
                       <div class="Vlt-grid">
@@ -1068,6 +1068,7 @@ page:
                             Javascript Developer Advocate
                           </h5>
                           <p class="text-justify">
+                            Dwane is a JavaScript Developer Advocate at Vonage. Can most likely be found at events and meetups speaking with people about various Web Technologies. Maker of various random side projects. Host of a community radio show.
                           </p>
                           </br>
                           <a class="Vlt-purple" href="https://dwane.io//">
@@ -1102,7 +1103,7 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-13a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601233356/asia-horizontal_1_1_blqef6.png" alt="Hacktoberfest Stream Art">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601384441/asia-horizontal_1_2_cif4q0.png" alt="Hacktoberfest Stream Art">
                     </div>
                     <div class="Vlt-col Vlt-col--1of2">
                         <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Tuesdays: Asia</h3>
@@ -1321,7 +1322,7 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-20a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601233357/israel-horizontal_1_1_d5dlxg.png" alt="Hacktoberfest Stream Art">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601384441/israel-horizontal_1_2_kokrhh.png" alt="Hacktoberfest Stream Art">
                     </div>
                     <div class="Vlt-col Vlt-col--1of2">
                         <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Tuesdays: Israel</h3>
@@ -1412,6 +1413,9 @@ page:
                         <h5>
                           Developer Advocate
                         </h5>
+                        <p class="text-justify">
+                          Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
+                        </p>
                     </div>
                   </div>
                 </div>
@@ -1588,35 +1592,11 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-27a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601233354/europe-horizontal_1_u1prny.png" alt="Hacktoberfest Stream Art">
-                    </div>
-                    <div class="Vlt-col Vlt-col--1of2">
-                        <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Tuesdays: Israel</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">19:00 Central Europe / 18:00 London / 14:00 New York</h5>
-                        <br><br>
-                        <h4 class="inline-block">Schedule</h4>
-                        <p class="text-justify">
-                          6pm - Welcome and networking<br>
-                          6:15pm - Introducing Hacktoberfest and Open Source <br>
-                          6:30pm - Workshop: how to contribute to Open Source <br>
-                          6:45pm - Open Source project examples <br>
-                          7pm - Get Hacking <br>
-                          9pm - Wrap up and goodbye!
-                        </p>
-                        <a href="https://organize.mlh.io/participants/events/4101-hacktoberfest-tuesdays-london-and-more">
-                          <h4 class="inline-block Vlt-purple">Full Info</h4>
-                        </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-27b" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601373749/hacktoberfest/lauren-light-notime_1_md1tj1.png" alt="Hacktoberfest Stream Art">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601386540/hacktoberfest/lauren-light-2pm_1_pvukti.png" alt="Hacktoberfest Stream Art">
                     </div>
                     <div class="Vlt-col Vlt-col--1of2">
                         <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Daily Stream</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center hide">18:00 London / 14:00 New York / 11:00 SF</h5>
+                        <h5 class="Vlt-col padding-left-0 mobile-center">14:00 London / 10:00 New York / 7:00 SF</h5>
                         <br>
                         <h4 class="inline-block">About Lauren Lee</h4>
                         <a href="https://twitter.com/LoLoCoding" target="_blank">
@@ -1638,6 +1618,31 @@ page:
                     </div>
                   </div>
                 </div>
+                <div class="Vlt-tabs__panel" id="tab-27b" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601384443/europe-horizontal_1_1_qbg5ew.png" alt="Hacktoberfest Stream Art">
+                    </div>
+                    <div class="Vlt-col Vlt-col--1of2">
+                        <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Tuesdays: Europe</h3>
+                        <h5 class="Vlt-col padding-left-0 mobile-center">19:00 Central Europe / 18:00 London / 14:00 New York</h5>
+                        <br><br>
+                        <h4 class="inline-block">Schedule</h4>
+                        <p class="text-justify">
+                          6pm - Welcome and networking<br>
+                          6:15pm - Introducing Hacktoberfest and Open Source <br>
+                          6:30pm - Workshop: how to contribute to Open Source <br>
+                          6:45pm - Open Source project examples <br>
+                          7pm - Get Hacking <br>
+                          9pm - Wrap up and goodbye!
+                        </p>
+                        <a href="https://organize.mlh.io/participants/events/4101-hacktoberfest-tuesdays-london-and-more">
+                          <h4 class="inline-block Vlt-purple">Full Info</h4>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="Vlt-tabs__panel" id="tab-27c" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
@@ -1706,6 +1711,9 @@ page:
                         <h5>
                           Developer Advocate
                         </h5>
+                        <p class="text-justify">
+                          Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
+                        </p>
                     </div>
                   </div>
                 </div>
