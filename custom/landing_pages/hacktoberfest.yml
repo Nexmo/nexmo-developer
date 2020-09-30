@@ -116,6 +116,16 @@ page:
                 </div>
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell">
+                    <a href="https://github.com/vonage/vonage-java-sdk" target="_blank" class="text-purple"><b>Vonage Server SDK for Java</b></a>
+                  </div>
+                  <div class="Vlt-table__cell">
+                    <p class="Vlt-black">Java, SDK</p>
+                  </div>
+                  <div class="Vlt-table__cell">
+                  </div>
+                </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell">
                     <a href="https://github.com/Nexmo/nexmo-spring-boot-starter" target="_blank" class="text-purple"><b>Nexmo Spring Boot Starter</b></a>
                   </div>
                   <div class="Vlt-table__cell">
@@ -123,16 +133,6 @@ page:
                   </div>
                   <div class="Vlt-table__cell">
                     <p class="Vlt-black">Share your best practices around repositories.</p>
-                  </div>
-                </div>
-                <div class="Vlt-table__row">
-                  <div class="Vlt-table__cell">
-                    <a href="https://github.com/vonage/vonage-java-sdk" target="_blank" class="text-purple"><b>Vonage Server SDK for Java</b></a>
-                  </div>
-                  <div class="Vlt-table__cell">
-                    <p class="Vlt-black">Java, SDK</p>
-                  </div>
-                  <div class="Vlt-table__cell">
                   </div>
                 </div>
                 <div class="Vlt-table__row">
@@ -231,6 +231,28 @@ page:
                   </div>
                   <div class="Vlt-table__cell">
                     <p class="Vlt-black">Better integration with Laravel, updating to remove deprecated calls.</p>
+                  </div>
+                </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell">
+                    <a href="https://github.com/vonage/vonage-python-sdk" target="_blank" class="text-purple"><b>Vonage Server SDK for Python</b></a>
+                  </div>
+                  <div class="Vlt-table__cell">
+                    <p class="Vlt-black">Python SDK</p>
+                  </div>
+                  <div class="Vlt-table__cell">
+                    <p class="Vlt-black">General work around our Python SDK, Asyncio Support, Better handling for server errors.</p>
+                  </div>
+                </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell">
+                    <a href="https://github.com/vonage/vonage-python-code-snippets" target="_blank" class="text-purple"><b>Nexmo Code Snippets for Python</b></a>
+                  </div>
+                  <div class="Vlt-table__cell">
+                    <p class="Vlt-black">Python, Examples, SDK</p>
+                  </div>
+                  <div class="Vlt-table__cell">
+                    <p class="Vlt-black"></p>
                   </div>
                 </div>
                 <div class="Vlt-table__row">
