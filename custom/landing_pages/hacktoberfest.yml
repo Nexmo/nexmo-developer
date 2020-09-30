@@ -464,27 +464,29 @@ page:
                   </div>
                 </a>
               </div>
-              <br>
+              <div class="Vlt-grid Nxd-landing-row">
+                <div class="Vlt-col Nxd-landing-col">
+                  <hr class="hr--tall"></hr>
+                </div>
+              </div>
 
-
-
-              <h2 class="Vlt-black hide"><b>Resources</b></h2>
-              <ul class="Vlt-list Vlt-list--simple hide">
+              <h2 class="Vlt-black"><b>Resources</b></h2>
+              <ul class="Vlt-list Vlt-list--simple">
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://www.nexmo.com/blog/2020/09/28/vonage-joins-hacktoberfest-2020?utm_source=hacktoberfest&utm_medium=organic&utm_campaign=social_media" target="_blank">
                     <h4 class="text-purple skinny-link">
-                      Hacktoberfest 2020 announcement blogpost
+                      Vonage Joins Hacktoberfest 2020
                     </h4>
                   </a>
                 </li>
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://www.nexmo.com/blog/2020/09/29/an-introduction-to-git-dr?utm_source=hacktoberfest&utm_medium=organic&utm_campaign=social_media" target="_blank">
                     <h4 class="text-purple skinny-link">
-                      Hacktoberfest 2020 announcement blogpost
+                      An Introduction To Git
                     </h4>
                   </a>
                 </li>
-                <li>
+                <li class="hide">
                   <a href="#" target="_blank">
                     <h4 class="text-purple skinny-link">
                       Hacktoberfest 2020 announcement blogpost
@@ -492,6 +494,13 @@ page:
                   </a>
                 </li>
               </ul>
+
+              <div class="Vlt-grid Nxd-landing-row">
+                <div class="Vlt-col Nxd-landing-col">
+                  <hr class="hr--tall"></hr>
+                </div>
+              </div>
+
               <h2 class="Vlt-black "><b>FAQ</b></h2>
               <h5 class="text-grey ">
                 You can find answers to some Vonage-specific questions below. For the official Hacktoberfest FAQ, <a href="https://hacktoberfest.digitalocean.com/faq/" target="_blank" class="text-purple">please see here</a>.
