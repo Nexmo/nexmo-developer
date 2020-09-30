@@ -397,24 +397,8 @@ page:
                 </div>
               </div>
 
-              <h2 class="Vlt-black"><b>Featured Talks (3)</b></h2>
+              <h2 class="Vlt-black"><b>Featured Talks (2)</b></h2>
               <div class="Vlt-grid Vlt-grid--stack-flush scrolling talks-section">
-                <a href="https://organize.mlh.io/participants/events/4087-hacktoberfest-at-tiet" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                  <div class="Vlt-card talk-card">
-                    <div class="Vlt-card__content Vlt-grid">
-                      <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
-                        <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
-                        <h3 class="Vlt-white Vlt-center speaker"><b>Garann Means</b></h3>
-                        <h5 class="Vlt-white Vlt-center italic">JS Developer Advocate</h5>
-                      </div>
-                      <div class="Vlt-col Vlt-col--2of3 vertical-align">
-                        <h3 class="Vlt-white Vlt-center">Storming the Gates<br>of Open Source</h3>
-                        <h3 class="Vlt-white Vlt-center"><b>Thursday, October 1</b></h3>
-                        <h5 class="Vlt-white Vlt-center">4:30 IST / 11:00 UTC</h5>
-                      </div>
-                    </div>
-                  </div>
-                </a>
                 <a href="https://organize.mlh.io/participants/events/4525-acm-juit-open-source-season-hacktoberfest-meetup" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
                   <div class="Vlt-card talk2-card">
                     <div class="Vlt-card__content Vlt-grid">
