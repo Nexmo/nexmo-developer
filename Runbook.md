@@ -4,7 +4,7 @@ Nexmo Developer is a simple Rails application with a mounted Sinatra app that ha
 
 # Deployment
 
-NDP is hosted in Heroku and is automatically deployed every time a branch is merged into master via a Github integration.
+NDP is hosted in Heroku and is automatically deployed every time a branch is merged into master via a GitHub integration.
 In case you want to force a deploy, you can always deploy NDP from [Heroku's dashboard](https://dashboard.heroku.com/apps/nexmo-developer).
 
 ## Required Resources

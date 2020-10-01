@@ -68,7 +68,7 @@ Generate an SSH key for authentication
 
 ```
 ssh-keygen -t rsa
-cat .ssh/id_rsa.pub # Add to Github
+cat .ssh/id_rsa.pub # Add to GitHub
 ```
 
 Clone NDP to your local machine

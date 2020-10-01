@@ -19,7 +19,7 @@ To use the Nexmo integration you will need a Nexmo account. After you have creat
 - Launch Blog Posts
   - [Converse.AI and Nexmo partner to help Dolby drive collaboration](https://blog.converse.ai/converse-ai-and-nexmo-partner-to-help-dolby-drive-collaboration-6acffceb427f)
   - [Automate Business Workflows with Real-time Communication and Intelligent Bots](https://www.nexmo.com/blog/2018/03/13/automate-business-workflows-with-real-time-communication-and-intelligent-bots/)
-- [Github Repository](https://github.com/Nexmo/nexmo-converseai) -
+- [GitHub Repository](https://github.com/Nexmo/nexmo-converseai) -
 
 ## Support
 

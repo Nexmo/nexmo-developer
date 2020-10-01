@@ -1,5 +1,5 @@
 ---
-title: Github Account
+title: GitHub Account
 description: For this tutorial we will be using [GitHub Gist](https://gist.github.com/) so a [GitHub Account](https://www.github.com/) is required.
 ---
 
