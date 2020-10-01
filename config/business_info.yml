@@ -7,7 +7,7 @@ assets:
   header_logo:
     path: '/images/logos/vbc-logo.svg'
     small_path: '/images/logos/Vonage-lettermark.svg'
-    alt: 'Vonage API Developer Header'
+    alt: 'Vonage API Developer Test Change'
   footer_logo:
     path: '/images/logos/vbc-logo-white.svg'
     alt: 'Vonage API Developer Footer'
