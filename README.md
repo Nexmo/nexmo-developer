@@ -44,7 +44,7 @@ Before you start, you need to make sure that you have:
 
 Install Homebrew
 
-```
+```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -54,7 +54,7 @@ Note: A default database is created for you when you run the `db:setup` script. 
 use a different database or user, use `createdb database_name_here` or `createuser username_here` and make sure your
 `.env` file is updated accordingly (See [.env.example](https://github.com/Nexmo/nexmo-developer/blob/master/.env.example)).
 
-```
+```bash
 brew install postgres rbenv git yarn nvm redis
 brew services start postgresql
 brew services start redis
@@ -66,14 +66,14 @@ git config --global user.email "user.name@vonage.com"
 
 Generate an SSH key for authentication
 
-```
+```bash
 ssh-keygen -t rsa
 cat .ssh/id_rsa.pub # Add to Github
 ```
 
 Clone NDP to your local machine
 
-```
+```bash
 git clone git@github.com:Nexmo/nexmo-developer.git
 cd nexmo-developer
 cp .env.example .env
@@ -89,7 +89,7 @@ bundle install
 
 Edit the `.env` file as appropriate for your platform.  Then, run the following:
 
-```
+```bash
 bundle exec nexmo-developer --docs=`pwd`
 ```
 
@@ -99,12 +99,12 @@ You should now be able to see the site on http://localhost:3000/
 
 If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
 
-```
+```sh
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
 ```
 
-```
+```bash
 $ docker-compose up
 ```
 
@@ -136,14 +136,14 @@ Here are some tips for working with submodules:
 
 ### When cloning the repo or starting to work with submodules
 
-```
+```bash
 git submodule init
 git submodule update
 ```
 
 ### When pulling in changes to a branch e.g. updating master
 
-```
+```bash
 git pull
 git submodule update
 ```
@@ -189,7 +189,7 @@ A flow chart on surviving submodules from @lornajane: <https://lornajane.net/pos
 
 The image may have changed, try rebuilding it with the following command:
 
-```
+```bash
 $ docker-compose up --build
 ```
 
@@ -197,7 +197,7 @@ $ docker-compose up --build
 
 This error indicates that PostgreSQL is not running. If you installed PostgreSQL using `brew` you can get information about how to start it by running:
 
-```
+```bash
 $ brew info postgresql
 ```
 
@@ -223,7 +223,7 @@ Follow these instructions to make updates to any content in the Nexmo Developer 
 
 Checkout a new branch, naming it appropriately:
 
-```
+```bash
 git checkout -b your-branch-name
 ```
 
@@ -233,19 +233,19 @@ Make and save the necessary updates in the file.
 
 Add your changes:
 
-```
+```bash
 git add -p
 ```
 
 Commit the changes in your branch. Include a commit message adequately describing the update(s):
 
-```
+```bash
 git commit -m “Add a commit message”
 ```
 
 Push your branch in order to raise a pull request:
 
-```
+```bash
 git push origin your-branch-name
 ```
 
