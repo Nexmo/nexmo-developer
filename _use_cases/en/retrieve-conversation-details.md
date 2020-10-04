@@ -32,7 +32,7 @@ The setup you will have in this tutorial is illustrated in the following diagram
 
 1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account) - you won't get far without this.
 2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers) - you should have a couple of Euros free credit. It's more than enough.
-3. [Install the Nexmo Command Line tools](/tools) - you will need [Node](https://nodejs.org) installed but using nexmo CLI is quick and convenient.
+3. [Install the Nexmo Command Line tools](/tools) - you will need [Node](https://nodejs.org) installed but using Nexmo CLI is quick and convenient.
 4. You should have [Python 3](https://realpython.com/installing-python/) and [Flask](http://flask.pocoo.org/) installed. These are required for your webhook server.
 
 This tutorial assumes you will be running [Ngrok](https://ngrok.com) in order to run your [webhook](/concepts/guides/webhooks) server locally.

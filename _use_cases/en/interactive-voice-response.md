@@ -103,7 +103,7 @@ All set? Then start up the PHP webserver:
 php -S 0:8080 ./public/index.php
 ```
 
-Once it's running, call your nexmo voice number and follow the instructions! The code receives webhooks to `/event` as the call is started, ringing, etc. When the system answers the call, a webhook comes in to `/answer` and the code responds with some text-to-speech and then waits for user input. The user's input then arrives by webhook to `/search` and again the code responds with some text-to-speech.
+Once it's running, call your Nexmo voice number and follow the instructions! The code receives webhooks to `/event` as the call is started, ringing, etc. When the system answers the call, a webhook comes in to `/answer` and the code responds with some text-to-speech and then waits for user input. The user's input then arrives by webhook to `/search` and again the code responds with some text-to-speech.
 
 Now you've seen it in action, you may be curious to know how the various elements work. Read on for a full walkthrough of our PHP code and how it manages the flow of the call...
 
