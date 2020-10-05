@@ -23,7 +23,7 @@ We use [Logz.io](https://logz.io/) as a logging solution with a 3Gb daily volume
 ## Error Monitoring and Reporting
 
 We use [Bugsnag](https://www.bugsnag.com/) for monitoring errors both on the Backend and Frontend splitted into different Projects.
-Bare in mind that most of the errors are logged under `Markdown#show` so it might take a while to find a specific error.
+Bear in mind that most of the errors are logged under `Markdown#show` so it might take a while to find a specific error.
 
 ## Health checks
 
