@@ -8,7 +8,7 @@ client:
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/CancelVerification.java
     from_line: 39
-    to_line: 39
+    to_line: 40
 file_name: CancelVerification.java
 run_command: java-ide
 unindent: true

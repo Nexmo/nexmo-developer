@@ -3,12 +3,12 @@ title: Java
 language: java
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/SendDtmfToCall.java
-    from_line: 56
-    to_line: 56
+    from_line: 47
+    to_line: 58
 client:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/SendDtmfToCall.java
-    from_line: 39
-    to_line: 42
+    from_line: 41
+    to_line: 44
 run_command: java-ide
 file_name: SendDtmfToCall.java
 unindent: true

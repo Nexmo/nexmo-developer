@@ -1,9 +1,9 @@
 ---
 client:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/insight/AdvancedInsightAsync.java
-    from_line: 37
-    to_line: 40
+    from_line: 36
+    to_line: 39
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/insight/AdvancedInsightAsync.java
-    from_line: 42
-    to_line: 48
+    from_line: 41
+    to_line: 47

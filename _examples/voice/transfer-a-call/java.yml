@@ -3,12 +3,12 @@ title: Java
 language: java
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/TransferCall.java
-    from_line: 41
-    to_line: 41
+    from_line: 45
+    to_line: 62
 client:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/TransferCall.java
-    from_line: 17
-    to_line: 20
+    from_line: 40
+    to_line: 43
 run_command: java-ide
 file_name: TransferCall.java
 unindent: true

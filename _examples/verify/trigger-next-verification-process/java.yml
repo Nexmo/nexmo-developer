@@ -8,7 +8,7 @@ client:
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/AdvanceVerification.java
     from_line: 39
-    to_line: 39
+    to_line: 40
 file_name: AdvanceVerification.java
 run_command: java-ide
 unindent: true

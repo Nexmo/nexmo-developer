@@ -3,12 +3,12 @@ title: Java
 language: java
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/OutboundTextToSpeech.java
-    from_line: 25
-    to_line: 25
+    from_line: 44
+    to_line: 46
 client:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/OutboundTextToSpeech.java
-    from_line: 16
-    to_line: 19
+    from_line: 37
+    to_line: 40
 run_command: java-ide
 file_name: OutboundTextToSpeech.java
 unindent: true

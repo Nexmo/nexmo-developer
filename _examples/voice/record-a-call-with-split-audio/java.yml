@@ -2,7 +2,7 @@
 title: Java
 language: java
 dependencies:
-    - 'com.nexmo:client:@latest'
+    - 'com.vonage:client:@latest'
     - 'com.sparkjava:spark-core:2.7.2'
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/RecordCallSplitAudio.java
