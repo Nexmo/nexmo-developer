@@ -1,0 +1,40 @@
+title: How to Send SMS Messages with Python, Flask and Nexmo
+description: This tutorial introduces you to sending SMS with Python, making use of the Nexmo Python library. It starts by showing how to send SMS from the REPL, then goes on to show you how to build a simple flask app with SMS capabilities.
+products:
+ - voice/voice-api
+languages:
+  - Node.js
+
+introduction: 
+  title: Introduction to this tutorial
+  description: This tutorial shows you how to send an SMS message with nexmo-python.
+  content: |
+    # Introduction
+    The [Vonage SMS API](/messaging/sms/overview) is an HTTP-based API using either XML or JSON to describe how to send an SMS or understand a received SMS. Vonage provides a Python client library called nexmo-python that takes care of a lot of the underlying detail for you.
+
+    > Before starting, make sure you have Python installed. The code here was tested on Python 2.7 and 3.6. If you’re running Python 2, make sure you also have [virtualenv](https://virtualenv.pypa.io/en/stable/) installed.
+
+prerequisites:
+- create-nexmo-account
+
+tasks:
+- sms-api/install-nexmo-python
+- sms-api/send-sms-from-repl
+- sms-api/set-up-sms-flask
+- sms-api/add-send-sms-view
+- sms-api/run-flask-server
+- sms-api/handle-form-post
+
+conclusion:
+  title: What's next?
+  description: What else can you do with the SMS API?
+  content: |
+
+    # What's next?
+    You can do a lot more with the SMS API.
+
+    See [SMS API documentation](/messaging/sms/overview).
+
+    In the meantime for more information on our APIs including [inbound SMS](/messaging/sms/guides/inbound-sms), [Voice](/voice/overview), [2-Factor-Authentication](/verify/overview) and others.
+
+    The original tutorial can be found at this [blog article](https://www.nexmo.com/blog/2017/06/22/send-sms-messages-python-flask-dr) by Mark Smith.
