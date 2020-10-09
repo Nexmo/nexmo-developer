@@ -43,6 +43,7 @@ languages:
     icon: java
     dependencies:
       - "com.vonage:client:@latest"
+    version: "5.5.0"
 
   dotnet:
     weight: 5
