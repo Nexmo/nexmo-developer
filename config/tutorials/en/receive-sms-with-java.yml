@@ -1,9 +1,41 @@
 ---
 title: Receive SMS Messages with Java
-external_link: https://www.nexmo.com/blog/2017/05/31/receive-sms-messages-java-dr/
 products:
  - messaging/sms
 description: This tutorial walks you through creating a servlet to receive incoming SMS messages from your users. You'll learn how to configure your Nexmo number and account, set up the servlet, and have the incoming messages logged to the console.
 languages:
   - Java
 ---
+introduction: 
+  title: Introduction to this tutorial
+  description: This tutorial shows you how to send an SMS message with nexmo-python.
+  content: |
+    # Introduction
+    The [Vonage SMS API](/messaging/sms/overview) is a service that allows you to send and receive SMS messages anywhere in the world. Vonage provides REST APIs, but it’s much easier to use the Java client library we’ve written for you.
+
+    In this tutorial we’ll cover how to send SMS messages with Java.
+
+    View the [source code on Github](https://github.com/nexmo-community/nexmo-java-quickstart/blob/master/src/main/java/com/nexmo/quickstart/sms/SendMessage.java).
+
+    > Before starting, you will need a basic understanding of Java, Java SDK 1.8 or 1.7 installed, and Gradle for building your project.
+
+    Note that this tutorial also uses a virtual phone number. To purchase one, go to *Numbers > Buy Numbers* and search for one that meets your needs. If you’ve just signed up, the initial cost of a number will be easily covered by your available credit.
+        
+prerequisites:
+- create-nexmo-account
+
+tasks:
+- sms-api/nexmo-client-library-java
+- sms-api/send-sms-with-java
+- sms-api/set-up-java-web-service
+
+conclusion:
+  title: What's next?
+  description: What else can you do with the SMS API?
+  content: |
+    # What's next?
+    You have now successfully built a REST Web service for sending SMS messages. In reality, there are many more things you’d want to do before deploying this, like adding authentication (otherwise anyone could send a message using your Vonage API account!), a nice Web form for posting to the service, and improving the error handling – but this is a good start!
+
+    ## References
+    * [Vonage SMS API Reference](https://docs.nexmo.com/messaging/sms-api/api-reference)
+    * [Nexmo Client Library for Java](https://github.com/nexmo/nexmo-java)
