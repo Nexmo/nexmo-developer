@@ -9,47 +9,52 @@ When Nexmo receives an inbound call to your Nexmo number it makes a request to t
 
 This tutorial code uses a simple router to handle these inbound webhooks. The router determines the requested URI path and uses it to map the caller's navigation through the phone menu - the same as URLs in web application.
 
-Data from webhook body is captured and passed in the request information to the node.js application.
+Data from webhook body is captured and passed in the request information to the Menu:
 
-Nexmo sends a webhook for every change in call status. For example, when the phone is `ringing`, the call has been `answered` or is `complete`. The application uses an Express framework route to log the data received by the `/event` endpoint for debug purposes. Every other request goes to the code that handles the user input. Here is the code:
-
-```javascript
+```php
 <?php
 
-// index.js
-app.get('/answer', (req, res) => {
-  const ncco = [{
-      action: 'talk',
-      bargeIn: true,
-      text: 'Hello. Please enter a digit.'
-    },
-    {
-      action: 'input',
-      maxDigits: 1,
-      eventUrl: [`${req.protocol}://${req.get('host')}/dtmf`]
-    }
-  ]
+// public/index.php
 
-  res.json(ncco)
-})
+require_once __DIR__ . '/../bootstrap.php';
 
-app.post('/event', (req, res) => {
-  console.log(req.body)
-  res.send(200);
-})
-
-app.post('/dtmf', (req, res) => {
-  const ncco = [{
-    action: 'talk',
-    text: `You pressed ${req.body.dtmf}`
-  }]
-
-  res.json(ncco)
-})
+$uri = ltrim(strtok($_SERVER["REQUEST_URI"],'?'), '/');
+$data = file_get_contents('php://input');
 ```
 
-Any request that is not for `/event` is mapped to an `/answer` route. Incoming request data is passed to that method. The router retrieves the NCCO (Nexmo Call Control Object) and sends it in the response as a JSON body with the correct `Content-Type`.
+Nexmo sends a webhook for every change in call status. For example, when the phone is `ringing`, the call has been `answered` or is `complete`. The application uses a `switch()` statement to log the data received by the `/event` endpoint for debug purposes. Every other request goes to the code that handles the user input. Here is the code:
 
+```php
+<?php
 
+// public/index.php
 
+switch($uri) {
+    case 'event':
+        error_log($data);
+        break;
+    default:
+        $ivr = new \NexmoDemo\Menu($config);
+        $method = strtolower($uri) . 'Action';
 
+        $ivr->$method(json_decode($data, true));
+
+        header('Content-Type: application/json');
+        echo json_encode($ivr->getStack());
+}
+```
+
+Any request that is not for `/event` is mapped to an `Action` method on the `Menu` object. Incoming request data is passed to that method. The router retrieves the NCCO (Nexmo Call Control Object) and sends it in the response as a JSON body with the correct `Content-Type`.
+
+The `$config` array is passed to the `Menu` object, as it needs to know the base URL for the application when generating NCCOs that could include callback URLs:
+
+```php
+<?php
+
+// src/Menu.php
+
+public function __construct($config)
+{
+    $this->config = $config;
+}
+```

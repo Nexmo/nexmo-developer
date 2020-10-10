@@ -7,7 +7,7 @@ languages:
 
 introduction: 
   title: Introduction to this tutorial
-  description: This tutorial shows you how to  Build an automated phone system for users to input information with the keypad and hear a spoken response with Node.js.
+  description: This tutorial shows you how to Build an automated phone system for users to input information with the keypad and hear a spoken response with Node.js.
   content: |
   # Interactive Voice Response
 
@@ -22,23 +22,32 @@ prerequisites:
 - install-nodejs
 
 tasks:
-- sms-api/install-nexmo-nodejs
-- sms-api/send-sms-from-repl
-- sms-api/set-up-sms-flask
-- sms-api/add-send-sms-view
-- sms-api/run-flask-server
-- sms-api/handle-form-post
+- voice-api/ivr-node/setting-up-for-ivr
+- voice-api/ivr-node/create-a-voice-application
+- voice-api/ivr-node/buy-a-phone-number
+- voice-api/ivr-node/link-phone-number-to-the-nexmo-application
+- voice-api/ivr-node/try-it-yourself
+- voice-api/ivr-node/handle-an-inbound-call
+- voice-api/ivr-node/generate-nccos
+- voice-api/ivr-node/send-text-to-speech-greeting
+- voice-api/ivr-node/request-user-input-via-ivr
+- voice-api/ivr-node/respond-to-user-input
+- voice-api/ivr-node/tips-for-better-text-to-speech
+- voice-api/ivr-node/conclusion
 
 conclusion:
-  title: What's next?
+  title: Next Steps
   description: What else can you do with the Voice API?
   content: |
 
-    # What's next?
-    You can do a lot more with the Voice API.
+    ## Next Steps
 
-    See [Voice API documentation](/voice/voice-api/overview).
+    Here are a few more resources that could be useful for building this type of application:
 
-    In the meantime for more information on our APIs including [inbound SMS](/messaging/sms/guides/inbound-sms), [Voice](/voice/overview), [2-Factor-Authentication](/verify/overview) and others.
+    * [Text-To-Speech Guide](https://developer.nexmo.com/voice/voice-api/guides/customizing-tts) - includes the different voices on offer and information about SSML (Speech Synthesis Markup Language) for better control of the spoken output.
+    * [Twitter IVR](https://www.nexmo.com/blog/2018/06/26/twitter-interactive-voice-response-dr/) - another fairly silly example but a great example app written in Python.
+    * [Text To Speech With Prompt Calls Using Python on AWS Lambda](https://www.nexmo.com/blog/2018/02/16/text-speech-prompt-calls-using-python-aws-lambda-dr/) - a similar application but this time using AWS Lambda (a serverless platform) and Python.
+    * [Code Samples for handling DTMF](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-dtmf) - examples in various programming languages for handling the user keypad input as used in this tutorial.
+  
 
     
