@@ -9,9 +9,9 @@ When Nexmo receives an inbound call to your Nexmo number it makes a request to t
 
 This tutorial code uses a simple router to handle these inbound webhooks. The router determines the requested URI path and uses it to map the caller's navigation through the phone menu - the same as URLs in web application.
 
-Data from webhook body is captured and passed in the request information to the *index.js*.
+Data from webhook body is captured and passed in the request information to the node.js application.
 
-Nexmo sends a webhook for every change in call status. For example, when the phone is `ringing`, the call has been `answered` or is `complete`. The application uses an *expressjs* route to log the data received by the `/event` endpoint for debug purposes. Every other request goes to the code that handles the user input. Here is the code:
+Nexmo sends a webhook for every change in call status. For example, when the phone is `ringing`, the call has been `answered` or is `complete`. The application uses an Express framework route to log the data received by the `/event` endpoint for debug purposes. Every other request goes to the code that handles the user input. Here is the code:
 
 ```javascript
 <?php
