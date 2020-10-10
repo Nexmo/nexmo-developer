@@ -2,12 +2,12 @@
 title: Python
 language: python
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/application/list-applications.py
-    from_line: 10
-    to_line: 12
+  source: .repos/vonage/vonage-python-code-snippets/application/list-applications.py
+  from_line: 18
+  to_line: 20
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/application/list-applications.py
-    from_line: 5
-    to_line: 8
+  source: .repos/vonage/vonage-python-code-snippets/application/list-applications.py
+  from_line: 13
+  to_line: 16
 file_name: list-applications.py
-run_command: 'python3 list-applications.py'
+run_command: "python3 list-applications.py"

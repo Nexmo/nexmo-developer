@@ -100,7 +100,7 @@ Sometimes you will connect to an endpoint that does not have a ring back tone pr
     },
     {
         "action": "connect",
-        "from": "NEXMO_NUMBER",
+        "from": "VONAGE_NUMBER",
         "ringbackTone": "https://example.com/tones/call.wav",
         "endpoint": [
             {
@@ -126,7 +126,7 @@ In some use cases you might want to execute an NCCO when a call is answered. For
     },
     {
         "action": "connect",
-        "from": "NEXMO_NUMBER",
+        "from": "VONAGE_NUMBER",
         "endpoint": [
             {
                 "type": "phone",
@@ -150,7 +150,7 @@ You can also use `onAnswer` in conjunction with `ringbackTone` so that the calle
     },
     {
         "action": "connect",
-        "from": "NEXMO_NUMBER",
+        "from": "VONAGE_NUMBER",
         "endpoint": [
             {
                 "type": "phone",

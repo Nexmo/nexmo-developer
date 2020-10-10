@@ -5,10 +5,10 @@ dependencies:
   - nexmo/client
 file_name: redact.php
 client:
-    source: '.repos/nexmo/nexmo-php-code-snippets/redact/transaction.php'
+    source: '.repos/vonage/vonage-php-code-snippets/redact/transaction.php'
     from_line: 5
     to_line: 6
 code:
-    source: '.repos/nexmo/nexmo-php-code-snippets/redact/transaction.php'
+    source: '.repos/vonage/vonage-php-code-snippets/redact/transaction.php'
     from_line: 8
     to_line: 9

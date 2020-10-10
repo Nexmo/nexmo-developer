@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+  - nexmo
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/verify/cancel.py
-    from_line: 18
-    to_line: 20
+  source: .repos/vonage/vonage-python-code-snippets/verify/cancel.py
+  from_line: 18
+  to_line: 22
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/verify/cancel.py
-    from_line: 22
-    to_line: 27
+  source: .repos/vonage/vonage-python-code-snippets/verify/cancel.py
+  from_line: 24
+  to_line: 29
 file_name: cancel.py
-run_command: 'python cancel.py'
+run_command: "python cancel.py"

@@ -1,0 +1,11 @@
+---
+title: cURL
+language: curl
+dependencies:
+  - JWT
+code:
+    source: .repos/nexmo/nexmo-curl-code-snippets/voice/voice-api/transfer-call-inline-ncco.sh 
+    from_line: 5
+    to_line: 9
+file_name: transfer-call-inline-ncco.sh
+run_command: bash transfer-call-inline-ncco.sh 

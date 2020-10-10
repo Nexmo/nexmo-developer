@@ -13,8 +13,8 @@ Replace the following variables in the sample code with your own values:
 
 Name | Description
 --|--
-`NEXMO_API_KEY` | Your Nexmo [API key](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
-`NEXMO_API_SECRET` | Your Nexmo [API secret](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
+`VONAGE_API_KEY` | Your Vonage [API key](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
+`VONAGE_API_SECRET` | Your Vonage [API secret](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
 `REQUEST_ID` | The ID of the Verify request you wish to check (this is returned in the API response when you [send a verification code](/verify/code-snippets/send-verify-request))
 `CODE` | The code the user supplies as having been sent to them
 

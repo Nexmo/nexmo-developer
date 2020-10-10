@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+  - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/get-recording.py
-    from_line: 10
-    to_line: 11
+  source: .repos/vonage/vonage-python-code-snippets/voice/get-recording.py
+  from_line: 18
+  to_line: 19
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/get-recording.py
-    from_line: 5
-    to_line: 8
+  source: .repos/vonage/vonage-python-code-snippets/voice/get-recording.py
+  from_line: 13
+  to_line: 16
 file_name: get-recording.py
-run_command: 'python3 get-recording.py > recording.mp3'
+run_command: "python3 get-recording.py > recording.mp3"

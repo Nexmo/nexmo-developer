@@ -62,40 +62,40 @@ page:
     - column:
       - type: github_repo
         github_repo:
-          repo_url: https://github.com/Nexmo/nexmo-ruby
-          badge_url: //badge.fury.io/rb/nexmo.svg
-          github_repo_title: "Nexmo REST API client for Ruby"
+          repo_url: https://github.com/vonage/vonage-ruby-sdk
+          badge_url: //badge.fury.io/rb/vonage.svg
+          github_repo_title: "Vonage REST API client for Ruby"
           language: "Ruby"
       - type: github_repo
         github_repo:
-          repo_url: https://github.com/Nexmo/nexmo-php
-          badge_url: //badge.fury.io/ph/nexmo%2Fclient.svg
-          github_repo_title: "Nexmo REST API client for PHP"
+          repo_url: https://github.com/vonage/vonage-php-sdk
+          badge_url: //badge.fury.io/ph/vonage%2Fclient.svg
+          github_repo_title: "Vonage REST API client for PHP"
           language: "PHP"
       - type: github_repo
         github_repo:
-          repo_url: https://github.com/Nexmo/nexmo-python
-          badge_url: //badge.fury.io/py/nexmo.svg
-          github_repo_title: "Nexmo REST API client for Python"
+          repo_url: https://github.com/vonage/vonage-python-sdk
+          badge_url: //badge.fury.io/py/vonage.svg
+          github_repo_title: "Vonage REST API client for Python"
           language: "Python"
     - column:
       - type: github_repo
         github_repo:
-          repo_url: https://github.com/Nexmo/nexmo-dotnet
-          badge_url: //badge.fury.io/nu/nexmo.svg
-          github_repo_title: "Nexmo REST API client for .NET"
+          repo_url: https://github.com/vonage/vonage-dotnet-sdk
+          badge_url: //badge.fury.io/nu/vonage.svg
+          github_repo_title: "Vonage REST API client for .NET"
           language: "C#"
       - type: github_repo
         github_repo:
-          repo_url: https://github.com/Nexmo/nexmo-node
-          badge_url: //badge.fury.io/js/nexmo.svg
-          github_repo_title: "Nexmo REST API client for Node.js"
+          repo_url: https://github.com/vonage/vonage-node-sdk
+          badge_url: //badge.fury.io/js/vonage.svg
+          github_repo_title: "Vonage REST API client for Node.js"
           language: "JavaScript"
       - type: github_repo
         github_repo:
-          repo_url: https://github.com/Nexmo/nexmo-java
-          badge_url: //badge.fury.io/gh/nexmo%2Fnexmo-java.svg
-          github_repo_title: "Nexmo REST API client for Java"
+          repo_url: https://github.com/Vonage/vonage-java-sdk
+          badge_url: //badge.fury.io/gh/vonage%2Fvonage-java.svg
+          github_repo_title: "Vonage REST API client for Java"
           language: "Java"
   - row:
     - column:
@@ -138,7 +138,7 @@ page:
     - column:
       - type: html
         html:
-          content: "<p>The Nexmo framework libraries can get you up and running with the Nexmo APIs quickly and easily in your framework of choice.</p>"
+          content: "<p>The Vonage framework libraries can get you up and running with the Vonage APIs quickly and easily in your framework of choice.</p>"
   - row:
     - column:
       - type: github_repo
@@ -152,7 +152,7 @@ page:
         github_repo:
           repo_url: https://github.com/Nexmo/nexmo-rails
           badge_url: //badge.fury.io/rb/nexmo_rails.svg
-          github_repo_title: "Nexmo framework library for Rails"
+          github_repo_title: "Vonage framework library for Rails"
           language: "Ruby"
     - column:
       - type: github_repo

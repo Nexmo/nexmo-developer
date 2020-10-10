@@ -1,6 +1,6 @@
 ---
 title: Ngrok
-description: This topic shows you how to test your Nexmo application locally using Ngrok. 
+description: This topic shows you how to test your Vonage application locally using Ngrok.
 ---
 
 # Testing with Ngrok

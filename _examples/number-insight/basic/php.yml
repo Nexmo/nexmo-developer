@@ -1,5 +1,5 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/number-insights/basic.php
+    source: .repos/vonage/vonage-php-code-snippets/number-insights/basic.php
     from_line: 5
     to_line: 8

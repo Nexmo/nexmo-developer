@@ -4,11 +4,11 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client    
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectInboundCallController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectInboundCallController.cs
     from_line: 6
     to_line: 7
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectInboundCallController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectInboundCallController.cs
     from_line: 14
     to_line: 31
 run_command: 'Run using your IDE'

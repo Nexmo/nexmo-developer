@@ -3,10 +3,10 @@ dependencies:
     - sinatra
     - sinatra-contrib
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/join_a_conference_call.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/join_a_conference_call.rb
     from_line: 9
     to_line: 22
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/join_a_conference_call.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/join_a_conference_call.rb
     from_line: 1
     to_line: 7

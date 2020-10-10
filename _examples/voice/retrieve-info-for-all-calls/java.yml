@@ -2,13 +2,13 @@
 title: Java
 language: java
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/RetrieveInfoForAllCalls.java
-    from_line: 27
-    to_line: 32
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/RetrieveInfoForAllCalls.java
+    from_line: 48
+    to_line: 67
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/RetrieveInfoForAllCalls.java
-    from_line: 22
-    to_line: 25
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/RetrieveInfoForAllCalls.java
+    from_line: 43
+    to_line: 46
 run_command: java-ide
 file_name: RetrieveInfoForAllCalls.java
 unindent: true

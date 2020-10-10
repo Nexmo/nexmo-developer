@@ -11,8 +11,8 @@ You must have at least one API secret at all times.
 
 Key | Description
  -- | --
-`NEXMO_API_KEY` | The API key of the account.
-`NEXMO_SECRET_ID` | The ID of the secret to delete.
+`VONAGE_API_KEY` | The API key of the account.
+`VONAGE_SECRET_ID` | The ID of the secret to delete.
 
 ```code_snippets
 source: _examples/account/secret-management/revoke-a-secret

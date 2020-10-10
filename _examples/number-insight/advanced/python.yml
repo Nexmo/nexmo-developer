@@ -2,11 +2,11 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
-    - pprint
+  - nexmo
+  - pprint
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/number-insight/ni-advanced.py
-    from_line: 15
-    to_line: 18
+  source: .repos/vonage/vonage-python-code-snippets/number-insight/ni-advanced.py
+  from_line: 15
+  to_line: 18
 file_name: ni-advanced.py
-run_command: 'python ni-advanced.py'
+run_command: "python ni-advanced.py"

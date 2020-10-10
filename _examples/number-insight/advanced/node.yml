@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-advanced.js
+    source: .repos/vonage/vonage-node-code-snippets/number_insight/ni-advanced.js
     from_line: 16
     to_line: 23
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-advanced.js
+    source: .repos/vonage/vonage-node-code-snippets/number_insight/ni-advanced.js
     from_line: 9
     to_line: 14

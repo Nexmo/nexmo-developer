@@ -27,11 +27,11 @@ $ npm install -g nexmo-cli
 
 > *Note*: If you do not have sufficient system privileges you might need to prefix the above command with `sudo`.
 
-Then, provide the Nexmo CLI with your `NEXMO_API_KEY` and `NEXMO_API_SECRET` which you can 
+Then, provide the Nexmo CLI with your `VONAGE_API_KEY` and `VONAGE_API_SECRET` which you can 
 find on the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide):
 
 ```bash
-$ nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
+$ nexmo setup VONAGE_API_KEY VONAGE_API_SECRET
 ```
 
 You only need to do this the first time you use the Nexmo CLI.

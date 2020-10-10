@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/applications/delete-application.js
+    source: .repos/vonage/vonage-node-code-snippets/applications/delete-application.js
     from_line: 16
     to_line: 23
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/applications/delete-application.js
+    source: .repos/vonage/vonage-node-code-snippets/applications/delete-application.js
     from_line: 7
     to_line: 14

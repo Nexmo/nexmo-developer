@@ -4,11 +4,11 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Messaging/SendSignedSms.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Messaging/SendSignedSms.cs
     from_line: 18
     to_line: 24
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Messaging/SendSignedSms.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Messaging/SendSignedSms.cs
     from_line: 26
     to_line: 31
 run_command: 'Run using your IDE'

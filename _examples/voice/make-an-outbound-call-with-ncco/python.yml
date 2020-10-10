@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/make-outbound-call-ncco.py
-    from_line: 10
-    to_line: 16
+  source: .repos/vonage/vonage-python-code-snippets/voice/make-outbound-call-ncco.py
+  from_line: 10
+  to_line: 16
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/make-outbound-call-ncco.py
-    from_line: 2
-    to_line: 8
+  source: .repos/vonage/vonage-python-code-snippets/voice/make-outbound-call-ncco.py
+  from_line: 21
+  to_line: 29

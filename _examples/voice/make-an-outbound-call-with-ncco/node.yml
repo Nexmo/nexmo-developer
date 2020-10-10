@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/make-call-ncco.js
+    source: .repos/vonage/vonage-node-code-snippets/voice/make-call-ncco.js
     from_line: 20
     to_line: 36
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/make-call-ncco.js
+    source: .repos/vonage/vonage-node-code-snippets/voice/make-call-ncco.js
     from_line: 11
     to_line: 18

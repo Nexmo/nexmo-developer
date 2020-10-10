@@ -3,10 +3,10 @@ dependencies:
     - sinatra
     - sinatra-contrib
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record_a_call.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/record_a_call.rb
     from_line: 20
     to_line: 46
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record_a_call.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/record_a_call.rb
     from_line: 6
     to_line: 18

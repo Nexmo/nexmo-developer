@@ -1,13 +1,13 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/make-outbound-call-ncco/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/make-outbound-call-ncco/index.php
     from_line: 5
     to_line: 12
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/make-outbound-call-ncco/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/make-outbound-call-ncco/index.php
     from_line: 14
     to_line: 24
 import_dependencies:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/make-outbound-call-ncco/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/make-outbound-call-ncco/index.php
     from_line: 3
     to_line: 3

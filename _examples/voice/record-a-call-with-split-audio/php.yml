@@ -5,15 +5,15 @@ dependencies:
     - 'slim/slim:^3.8'
     - 'nexmo/client'
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-call-split-audio/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/record-a-call-split-audio/index.php
     from_line: 17
     to_line: 44
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-call-split-audio/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/record-a-call-split-audio/index.php
     from_line: 7
     to_line: 15
 import_dependencies:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-call-split-audio/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/record-a-call-split-audio/index.php
     from_line: 2
     to_line: 5
 file_name: index.php

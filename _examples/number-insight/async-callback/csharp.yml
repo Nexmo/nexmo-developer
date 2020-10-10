@@ -4,11 +4,11 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/NumberInsightsController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/NumberInsightsController.cs
     from_line: 3
     to_line: 4
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/NumberInsightsController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/NumberInsightsController.cs
     from_line: 14
     to_line: 23
 run_command: 'Run using your IDE'

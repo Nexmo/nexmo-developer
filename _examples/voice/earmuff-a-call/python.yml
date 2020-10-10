@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+  - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/earmuff-a-call.py
-    from_line: 11
-    to_line: 15
+  source: .repos/vonage/vonage-python-code-snippets/voice/earmuff-a-call.py
+  from_line: 19
+  to_line: 23
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/earmuff-a-call.py
-    from_line: 2
-    to_line: 9
+  source: .repos/vonage/vonage-python-code-snippets/voice/earmuff-a-call.py
+  from_line: 14
+  to_line: 17
 file_name: earmuff-a-call.py
-run_command: 'python3 earmuff-a-call.py'
+run_command: "python3 earmuff-a-call.py"

@@ -16,7 +16,7 @@ Replace the following variables in the example code:
 
 Key |	Description
 -- | --
-`NEXMO_NUMBER` | The Nexmo Number of the application (the FROM number).
+`VONAGE_NUMBER` | The Vonage number of the application (the FROM number).
 `TO_NUMBER` | The number to connect the call to.
 
 ```code_snippets

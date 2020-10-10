@@ -4,15 +4,15 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Redact/RedactTransaction.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Redact/RedactTransaction.cs
     from_line: 1
     to_line: 3
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Redact/RedactTransaction.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Redact/RedactTransaction.cs
     from_line: 21
     to_line: 22
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Redact/RedactTransaction.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Redact/RedactTransaction.cs
     from_line: 27
     to_line: 28
 file_name: RedactTransaction.cs

@@ -4,11 +4,11 @@ language: python
 dependencies:
     - nexmo
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/verify/check.py
+    source: .repos/vonage/vonage-python-code-snippets/verify/check.py
     from_line: 20
     to_line: 22
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/verify/check.py
+    source: .repos/vonage/vonage-python-code-snippets/verify/check.py
     from_line: 24
     to_line: 29
 file_name: check.py

@@ -3,10 +3,10 @@ dependencies:
     - express
     - body-parser
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/dtmf.js
+    source: .repos/vonage/vonage-node-code-snippets/voice/dtmf.js
     from_line: 6
     to_line: 36
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/dtmf.js
+    source: .repos/vonage/vonage-node-code-snippets/voice/dtmf.js
     from_line: 1
     to_line: 5

@@ -4,11 +4,11 @@ language: python
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/retrieve-info-for-a-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/retrieve-info-for-a-call.py
     from_line: 10
     to_line: 12
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/retrieve-info-for-a-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/retrieve-info-for-a-call.py
     from_line: 2
     to_line: 8
 file_name: retrieve-info-for-a-call.py

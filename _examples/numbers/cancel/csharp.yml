@@ -4,15 +4,15 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/CancelNumber.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/CancelNumber.cs
     from_line: 4
     to_line: 6
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/CancelNumber.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/CancelNumber.cs
     from_line: 19
     to_line: 20
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/CancelNumber.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/CancelNumber.cs
     from_line: 22
     to_line: 23
 run_command: 'Run using your IDE'

@@ -11,9 +11,9 @@ Multiple inbound calls can be joined into a conversation (conference
 call) by simply connecting the call into the same named
 conference.
 
-Conference names are scoped at the Nexmo Application
-level. For example, NexmoApp1 and NexmoApp2 could both have a
-conference called `nexmo-conference` and there would be no problem.
+Conference names are scoped at the Vonage Application
+level. For example, VonageApp1 and VonageApp2 could both have a
+conference called `vonage-conference` and there would be no problem.
 
 ## Example
 
@@ -33,5 +33,5 @@ application:
 ## Try it out
 
 Start your server and make multiple inbound calls to the Nexmo Number
-assigned to this Nexmo Application. The inbound calls will be connected
+assigned to this Vonage Application. The inbound calls will be connected
 into the same conversation (conference).

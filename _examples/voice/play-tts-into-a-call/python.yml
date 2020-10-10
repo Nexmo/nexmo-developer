@@ -4,10 +4,10 @@ language: python
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/play-tts-into-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/play-tts-into-call.py
     from_line: 9
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/play-tts-into-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/play-tts-into-call.py
     from_line: 1
     to_line: 7
 file_name: play-tts-into-call.py

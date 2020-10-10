@@ -2,13 +2,13 @@
 title: Java
 language: java
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/StreamAudioToCall.java
-    from_line: 57
-    to_line: 57
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/StreamAudioToCall.java
+    from_line: 46
+    to_line: 60
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/StreamAudioToCall.java
-    from_line: 39
-    to_line: 42
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/StreamAudioToCall.java
+    from_line: 41
+    to_line: 44
 run_command: java-ide
 file_name: StreamAudioToCall.java
 unindent: true

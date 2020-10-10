@@ -3,7 +3,7 @@ dependencies:
     - express
     - body-parser
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/messages/message-status.js
+    source: .repos/vonage/vonage-node-code-snippets/messages/message-status.js
     from_line: 1
     to_line: 14
 file_name: app.js

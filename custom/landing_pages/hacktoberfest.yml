@@ -1,3 +1,4 @@
+# Avital did you find this?
 title: "Hacktoberfest 2020"
 meta_title: "Vonage is thrilled to be a Hacktoberfest 2020 partner. We’re no strangers to Open Source, with our libraries, code snippets and demos all on GitHub. We’re looking forward to supporting participants, sharing our knowledge and chatting about how important and awesome open source contributions can be!"
 page:
@@ -51,8 +52,13 @@ page:
                  and you are welcome to contribute to any repository.
               </h5>
               <br>
-              <h5>We've curated these <a href="https://github.com/search?q=label%3A%22hacktoberfest%22+is%3Aissue+is%3Aopen+org%3Anexmo+org%3Avonage+org%3Anexmo-community+org%3Aopentok+org%3Aopentok-community+org%3Avonage&type=Issues" target="_blank" class="text-purple"><b>GitHub Issues</b> especially for Hacktoberfest!</a></h5>
               <br>
+              <div class="Vlt-callout Vlt-callout--tip">
+                <i></i>
+                <div class="Vlt-callout__content">
+                  <p>We've curated these <a href="https://github.com/search?q=label%3A%22hacktoberfest%22+is%3Aissue+is%3Aopen+org%3Anexmo+org%3Avonage+org%3Anexmo-community+org%3Aopentok+org%3Aopentok-community+org%3Avonage&type=Issues" target="_blank" class="text-purple"><b>GitHub Issues especially for Hacktoberfest!</b></a></p>
+                </div>
+              </div>
               <div class="Vlt-table--data scrolling">
                 <div class="Vlt-table__header">
                   <div class="Vlt-table__cell"><h3 class="Vlt-black table-header-mobile ">Project</h3></div>
@@ -402,10 +408,11 @@ page:
                 </div>
               </div>
 
-              <h2 class="Vlt-black"><b>Featured Talks (3)</b></h2>
+
+              <h2 class="Vlt-black"><b>Featured Talks (4)</b></h2>
               <div class="Vlt-grid Vlt-grid--stack-flush scrolling talks-section">
                 <a href="https://www.digitalocean.com/community/tech_talks/level-up-as-an-open-source-contributor" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
-                  <div class="Vlt-card talk3-card">
+                  <div class="Vlt-card talk-card">
                     <div class="Vlt-card__content Vlt-grid">
                       <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
                         <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811773/lorna-mitchel_gphcbt.jpg" alt="Lorna Mitchel"><img>
@@ -420,8 +427,24 @@ page:
                     </div>
                   </div>
                 </a>
-                <a href="https://organize.mlh.io/participants/events/5055-iiit-sonepat-hacktoberfest-meetup" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
+                <a href="https://organize.mlh.io/participants/events/4702-hacktoberfest-online-asuncion-2020" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
                   <div class="Vlt-card talk2-card">
+                    <div class="Vlt-card__content Vlt-grid">
+                      <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
+                        <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
+                        <h3 class="Vlt-white Vlt-center speaker"><b>Garann Means</b></h3>
+                        <h5 class="Vlt-white Vlt-center italic">JS Developer Advocate</h5>
+                      </div>
+                      <div class="Vlt-col Vlt-col--2of3 vertical-align">
+                        <h3 class="Vlt-white Vlt-center">Storming the Gates<br>of Open Source</h3>
+                        <h3 class="Vlt-white Vlt-center"><b>Saturday, October 10</b></h3>
+                        <h5 class="Vlt-white Vlt-center">09:00 PYST / 12:00 UTC</h5>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="https://organize.mlh.io/participants/events/5055-iiit-sonepat-hacktoberfest-meetup" target="_blank" class="Vlt-col Vlt-col--1of2 talks">
+                  <div class="Vlt-card talk3-card">
                     <div class="Vlt-card__content Vlt-grid">
                       <div class="Vlt-col Vlt-col--1of3 Vlt-center vertical-align">
                         <img class="Vlt-center avatar" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600811650/Garann_Means_trf17a.jpg" alt="Garann Means"><img>
@@ -492,8 +515,7 @@ page:
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.nexmo.com/blog/2020/10/01/how-to-create-a-pull-request-with-github-desktop?utm_source=hacktoberfest&utm_medium=organic&utm_campaign=social_media" target="_blank">
-                    <h4 class="text-purple skinny-link">
+                  <a href="https://www.nexmo.com/blog/2020/10/01/how-to-create-a-pull-request-with-github-desktop?utm_source=hacktoberfest&utm_medium=organic&utm_campaign=social_media" target="_blank">                    <h4 class="text-purple skinny-link">
                       How To Create a Pull Request With GitHub Desktop
                     </h4>
                   </a>
@@ -502,6 +524,20 @@ page:
                   <a href="https://www.nexmo.com/blog/2020/10/02/version-control-guis?utm_source=hacktoberfest&utm_medium=organic&utm_campaign=social_media" target="_blank">
                     <h4 class="text-purple skinny-link">
                       Version Control GUIs
+                    </h4>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.nexmo.com/blog/2020/10/06/opening-multiple-pull-requests-dr?utm_source=hacktoberfest&utm_medium=organic&utm_campaign=social_media" target="_blank">
+                    <h4 class="text-purple skinny-link">
+                      Opening Multiple Pull Requests
+                    </h4>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.nexmo.com/blog/2020/10/08/hacktoberfest-using-github-desktop?utm_source=hacktoberfest&utm_medium=organic&utm_campaign=social_media" target="_blank">
+                    <h4 class="text-purple skinny-link">
+                      Hacktoberfest: Using GitHub Desktop
                     </h4>
                   </a>
                 </li>
@@ -515,59 +551,128 @@ page:
 
               <h2 class="Vlt-black "><b>FAQ</b></h2>
               <h5 class="text-grey ">
-                You can find answers to some Vonage-specific questions below. For the official Hacktoberfest FAQ, <a href="https://hacktoberfest.digitalocean.com/faq/" target="_blank" class="text-purple">please see here</a>.
+                You can find answers to Vonage-specific questions below. For the official Hacktoberfest FAQ, <a href="https://hacktoberfest.digitalocean.com/faq/" target="_blank" class="text-purple">please see here</a>.
               </h5>
               <br>
-              <h4>
-                <b>What swag can I earn from Vonage?</b>
-              </h4>
-              <h5 class="text-grey">
-                You can receive either a <a href="https://opencollective.com/gift-cards" target="_blank" class="text-purple">$5 USD Open Collective Gift Card</a> or a pair of Vonage-branded bamboo socks if you have made a valid contribution to one of our repos.
-              </h5>
-              <br>
-              <h4>
-                <b>How do I get the $5 Open Collective Gift Card or Vonage socks?</b>
-              </h4>
-              <h5 class="text-grey">
-                Fill in <a href="https://airtable.com/shrMXMw6Nwd3Rnjn4" target="_blank" class="text-purple">Vonage Hacktoberfest Reward Giveaway Form</a> to claim your reward. <a href="https://nexmo.dev/33Nt6tm" target="_blank" class="text-purple">Terms and Conditions can be found here.</a>
-              </h5>
-              <br>
-              <h4>
-                <b>Do PRs have to be merged to count towards earning Vonage swag?</b>
-              </h4>
-              <h5 class="text-grey">
-                No, so long as your PR is valid according to the rules of Hacktoberfest, your PR will count regardless of whether it has, or will be, merged.
-              </h5>
-              <br>
-              <h4>
-                <b>How will I receive the swag?</b>
-              </h4>
-              <h5 class="text-grey">
-                Winners will be contacted by email and/or mail at the address or email provided with the entry, to confirm the successful reward and the order of the prize. Gift Cards will be sent to the email address submitted on the <a href="https://airtable.com/shrMXMw6Nwd3Rnjn4" target="_blank" class="text-purple">Vonage Hacktoberfest Reward Giveaway Form</a> provided at the time of entry. <a href="https://opencollective.com/gift-cards" target="_blank" class="text-purple">Gift Card Terms</a> may apply. If the socks are chosen as the prize, note that we will start shipping these prizes at the start of November and be aware that shipping time may vary significantly based on your location.
-              </h5>
-              <br>
-              <h4>
-                <b>Where can I find more information about and contribute to Vonage projects?</b>
-              </h4>
-              <h5 class="text-grey">
-                Vonage projects and repositories can be found at:
-                <ul class="Vlt-list Vlt-list--simple">
+              <div class="Vlt-grid Vlt-grid--stack-flush">
+                <div class="Vlt-col Vlt-col--1of2">
+                  <h4>
+                    <b>What swag can I earn from Vonage?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    You can receive either a <a href="https://opencollective.com/gift-cards" target="_blank" class="text-purple">$5 USD Open Collective Gift Card</a> or a pair of Vonage-branded bamboo socks if you have made a valid contribution to one of our repos.
+                  </h5>
                   <br>
-                  <li><a href="https://github.com/Vonage" target="_blank" class="text-purple">https://github.com/Vonage</a></li>
-                  <li><a href="https://github.com/nexmo" target="_blank" class="text-purple">https://github.com/nexmo</a></li>
-                  <li><a href="https://github.com/nexmo-community" target="_blank" class="text-purple">https://github.com/nexmo-community</a></li>
-                  <li><a href="https://github.com/opentok" target="_blank" class="text-purple">https://github.com/opentok</a></li>
-                  <li><a href="https://github.com/opentok-community" target="_blank" class="text-purple">https://github.com/opentok-community</a></li>
-                </ul>
-              </h5>
+                  <h4>
+                    <b>How do I get the $5 Open Collective Gift Card or Vonage socks?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    Fill in <a href="https://airtable.com/shrMXMw6Nwd3Rnjn4" target="_blank" class="text-purple">Vonage Hacktoberfest Reward Giveaway Form</a> to claim your reward. <a href="https://nexmo.dev/33Nt6tm" target="_blank" class="text-purple">Terms and Conditions can be found here.</a>
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>How many valid PRs must I make to earn the Vonage swag?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    As long as you make one valid PR to one of our repos, you are entitled to earn the Vonage swag.
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>Do PRs have to be merged to count towards earning Vonage swag?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    No, so long as your PR is valid according to the rules of Hacktoberfest, your PR will count regardless of whether it has, or will be, merged.
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>Do I contribute only to the repos labelled as Hacktoberfest for it to count towards earning Vonage swag?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    No, you can contribute to any Vonage projects or repositories regardless of whether it is labelled with <u>hacktoberfest</u>. Your contribution will count provided that your PR is marked valid and labelled with <u>hacktoberfest-accepted</u>.
+                  </h5>
+                  <h4>
+                    <b>I really want to get the Vonage swag but my PR has been marked invalid/spam. What can I do?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    We are sorry to hear that. When a PR has been marked <u>invalid/spam</u>, we are unable to send the Vonage swag as it doesn’t meet the requirement. Please resubmit the <a href="https://airtable.com/shrMXMw6Nwd3Rnjn4" target="_blank" class="text-purple">Vonage Hacktoberfest Reward Giveaway Form</a> with a valid PR.
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>I’ve submitted a PR to one of the Vonage repos. Can I fill up the reward giveaway form before the PR is marked valid/merged?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    Yes, you can. If the PR is marked as <u>invalid</u>, we will send an email to let you know it has not been confirmed.
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>I’ve submitted a PR contribution, but it is not made to Vonage repos. Can I still get the swag?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    Only a valid contribution to one of our repos qualify for the Vonage swag.
+                  </h5>
+                  <h4>
+                    <b>Can I get two types of swag if I made two valid PRs?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    No, you can only claim one of either the $5 USD Open Collective Gift Card or a pair of Vonage-branded bamboo socks.
+                  </h5>
+                  <br>
+                </div>
+                <div class="Vlt-col Vlt-col--1of2">
+                  <h4>
+                    <b>What is the shoe size for the Vonage socks?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    The sizes are Medium and Large. Medium fits approximately US sizes 5-10 and Large fits approximately US sizes 8-13.
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>How is the swag sent? How will I receive the swag?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    Winners will be contacted by email and/or mail at the address or email provided with the entry, to confirm the successful reward and the order of the prize. Gift Cards will be sent to the email address submitted on the <a href="https://airtable.com/shrMXMw6Nwd3Rnjn4" target="_blank" class="text-purple">Vonage Hacktoberfest Reward Giveaway Form</a> provided at the time of entry. <a href="https://opencollective.com/gift-cards" target="_blank" class="text-purple">Gift Card Terms</a> may apply. If the socks are chosen as the prize, note that we will start shipping these prizes at the start of November and be aware that shipping time may vary significantly based on your location.
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>I’ve made a valid PR to one of the Vonage repos and selected the Vonage socks as the prize. When can I expect to receive the socks?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    That’s great to hear! If you have selected the socks as the prize, note that we are processing the form submissions and will send the confirmation once we processed your PR.  We will start shipping these prizes at the end of October 2020 and be aware that shipping time may vary significantly based on your location.
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>I’ve made a valid PR to one of the Vonage repos and selected the $5 USD Open Collective Gift Card as the prize. When can expect to I receive it?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    That’s great to hear! If you have selected the gift card as the prize, note that we are processing the form submissions and will send the confirmation once we processed your PR. You will receive an email from us indicating the link where you can redeem the gift card. If you have not received the email by end of October 2020, please email us at community[at]vonage.com
+                  </h5>
+                  <br>
+                  <h4>
+                    <b>Where can I find more information about and contribute to Vonage projects?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    Vonage projects and repositories can be found at:
+                    <ul class="Vlt-list Vlt-list--simple">
+                      <br>
+                      <li><a href="https://github.com/Vonage" target="_blank" class="text-purple">https://github.com/Vonage</a></li>
+                      <li><a href="https://github.com/nexmo" target="_blank" class="text-purple">https://github.com/nexmo</a></li>
+                      <li><a href="https://github.com/nexmo-community" target="_blank" class="text-purple">https://github.com/nexmo-community</a></li>
+                      <li><a href="https://github.com/opentok" target="_blank" class="text-purple">https://github.com/opentok</a></li>
+                      <li><a href="https://github.com/opentok-community" target="_blank" class="text-purple">https://github.com/opentok-community</a></li>
+                    </ul>
+                  </h5>
 
-              <br>
-              <h4>
-                <b>I'm hosting a Hacktoberfest event, are any Vonage speakers available to give a talk?</b>
-              </h4>
-              <h5 class="text-grey">
-                Yes! We'd love to help you with your Hacktoberfest event! A list of speakers is available on the <a href="https://hacktoberfest.digitalocean.com/eventkit#customers" target="_blank" class="text-purple">Hacktoberfest Event Kit</a>. You can also email us at <a href="mailto:team.community@vonage.com" class="text-purple">community[at]vonage.com</a>
-              </h5>
+                  <br>
+                  <h4>
+                    <b>I'm hosting a Hacktoberfest event, are any Vonage speakers available to give a talk?</b>
+                  </h4>
+                  <h5 class="text-grey">
+                    Yes! We'd love to help you with your Hacktoberfest event! A list of speakers is available on the <a href="https://hacktoberfest.digitalocean.com/eventkit#customers" target="_blank" class="text-purple">Hacktoberfest Event Kit</a>. You can also email us at <a href="mailto:team.community@vonage.com" class="text-purple">community[at]vonage.com</a>
+                  </h5>
+                </div>
+              </div>
+
+
 
               <div class="Vlt-grid Nxd-landing-row">
                 <div class="Vlt-col Nxd-landing-col">

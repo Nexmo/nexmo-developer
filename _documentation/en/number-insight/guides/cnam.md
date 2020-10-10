@@ -21,7 +21,7 @@ Passing `cnam=true` as an extra parameter in a call to the Advanced API looks up
 The following example shows how you would request CNAM data using `curl`:
 
 ```bash
-$ curl "https://api.nexmo.com/ni/advanced/json?api_key=NEXMO_API_KEY&api_secret=NEXMO_API_SECRET&number=14155550100&cnam=true"
+$ curl "https://api.nexmo.com/ni/advanced/json?api_key=VONAGE_API_KEY&api_secret=VONAGE_API_SECRET&number=14155550100&cnam=true"
 ```
 
 ## Understanding the response

@@ -28,8 +28,8 @@ The following variables are specific to your Nexmo account. You can view them in
 
 Key |	Description
 -- | --
-`NEXMO_API_KEY` | API key.
-`NEXMO_API_SECRET` | API secret.
+`VONAGE_API_KEY` | API key.
+`VONAGE_API_SECRET` | API secret.
 
 ### Numbers
 

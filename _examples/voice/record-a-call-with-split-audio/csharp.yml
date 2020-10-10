@@ -4,11 +4,11 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SplitAudioController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SplitAudioController.cs
     from_line: 9
     to_line: 12
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SplitAudioController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SplitAudioController.cs
     from_line: 19
     to_line: 55
 run_command: 'dotnet run --urls=http://localhost:3000'

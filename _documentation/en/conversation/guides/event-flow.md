@@ -58,7 +58,7 @@ As a result of `answer_url` execution, a new [Conversation](/conversation/concep
 
 5. All the respective events are dispatched to your application. These events can be inbound to the backend or to the client app:
 
-    a. and b. **To your backend** via [`event_url` webhooks](/application/overview#webhooks), that you could assign to your Nexmo application. There are both Voice events and RTC events. Events to your Nexmo application's [voice `event_url` webhook](/voice/voice-api/webhook-reference#event-webhook) are dispatched by Voice API. Events to your Nexmo application's RTC capability `event_url` webhook are dispatched by Conversation API.
+    a. and b. **To your backend** via [`event_url` webhooks](/application/overview#webhooks), that you could assign to your Vonage application. There are both Voice events and RTC events. Events to your Vonage application's [voice `event_url` webhook](/voice/voice-api/webhook-reference#event-webhook) are dispatched by Voice API. Events to your Vonage application's RTC capability `event_url` webhook are dispatched by Conversation API.
 
     c. **To your client-side application**, which is [integrated with the Client SDK](/client-sdk/setup/add-sdk-to-your-app/android). These events can be received via callbacks that the Client SDKs trigger if a user is logged in to the SDK. They can also be received via push notifications, if they [have been enabled](/client-sdk/setup/set-up-push-notifications), and the app is in the background.
 

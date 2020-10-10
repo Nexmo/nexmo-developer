@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+  - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/mute-a-call.py
-    from_line: 11
-    to_line: 15
+  source: .repos/vonage/vonage-python-code-snippets/voice/mute-a-call.py
+  from_line: 20
+  to_line: 24
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/mute-a-call.py
-    from_line: 2
-    to_line: 9
+  source: .repos/vonage/vonage-python-code-snippets/voice/mute-a-call.py
+  from_line: 15
+  to_line: 18
 file_name: mute-a-call.py
-run_command: 'python3 mute-a-call.py'
+run_command: "python3 mute-a-call.py"

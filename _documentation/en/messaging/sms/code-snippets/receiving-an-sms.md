@@ -9,18 +9,18 @@ To receive an SMS, you need to:
 
 * [Rent a virtual number](/numbers/guides/number-management#rent-a-virtual-number) to receive messages
 * [Create a webhook endpoint](/messaging/sms/code-snippets/before-you-begin#webhooks) using one of the code examples shown below
-* [Configure the webhook in your Nexmo Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
+* [Configure the webhook in your Vonage Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
 
 
 ```code_snippets
 source: '_examples/messaging/sms/receiving-an-sms'
 ```
 
-## Configure the webhook endpoint in your Nexmo Dashboard
+## Configure the webhook endpoint in your Vonage Dashboard
 
 So that Nexmo knows how to access your webhook, you must configure it in your Nexmo account.
 
-In the code snippets, the webhook is located at `/webhooks/inbound-sms`. If you are using Ngrok, the webhook you need to configure in your [Nexmo Dashboard API Settings page](https://dashboard.nexmo.com/settings) is of the form `https://demo.ngrok.io/webhooks/inbound-sms`. Replace `demo` with the subdomain provided by Ngrok and enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
+In the code snippets, the webhook is located at `/webhooks/inbound-sms`. If you are using Ngrok, the webhook you need to configure in your [Vonage Dashboard API Settings page](https://dashboard.nexmo.com/settings) is of the form `https://demo.ngrok.io/webhooks/inbound-sms`. Replace `demo` with the subdomain provided by Ngrok and enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js

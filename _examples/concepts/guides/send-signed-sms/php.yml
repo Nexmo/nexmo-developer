@@ -4,7 +4,7 @@ language: php
 dependencies:
     - nexmo/client
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/sms/send-signed-sms.php
+    source: .repos/vonage/vonage-php-code-snippets/sms/send-signed-sms.php
     from_line: 6
     to_line: 17
 file_name: send-signed-sms.php

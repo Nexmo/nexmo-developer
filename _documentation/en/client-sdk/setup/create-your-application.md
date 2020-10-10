@@ -1,6 +1,6 @@
 ---
 title: Create your application
-description: This topic shows you how to create a Nexmo application, users and tokens.
+description: This topic shows you how to create a Vonage application, users and tokens.
 navigation_weight: 1
 ---
 
@@ -43,13 +43,13 @@ This adds this authentication information to the `.nexmorc` file in your home di
 
 ## Create a Nexmo Application
 
-You now need to create a Nexmo application. In this example you create an application capable of handling both in-app Voice and in-app Messaging use cases.
+You now need to create a Vonage application. In this example you create an application capable of handling both in-app Voice and in-app Messaging use cases.
 
 1) First create your project directory if you've not already done so.
 
 2) Change into the project directory you've just created.
 
-3) Use the following command to create a Nexmo application with Voice and WebRTC capabilities. Replace the webhook URLs with your own.
+3) Use the following command to create a Vonage application with Voice and WebRTC capabilities. Replace the webhook URLs with your own.
 
 ``` shell
 nexmo app:create "My Sample App" --capabilities=voice,rtc --voice-answer-url=https://example.com/webhooks/answer --voice-event-url=https://example.com/webhooks/event --rtc-event-url=https://example.com/webhooks/rtc --keyfile=private.key

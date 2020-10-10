@@ -3,10 +3,10 @@ dependencies:
     - sinatra
     - sinatra-contrib
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/dtmf.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/dtmf.rb
     from_line: 15
     to_line: 37
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/dtmf.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/dtmf.rb
     from_line: 1
     to_line: 13

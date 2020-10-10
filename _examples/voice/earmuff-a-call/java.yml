@@ -2,13 +2,13 @@
 title: Java
 language: java
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/EarmuffCall.java
-    from_line: 40
-    to_line: 42
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/EarmuffCall.java
+    from_line: 46
+    to_line: 63
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/EarmuffCall.java
-    from_line: 18
-    to_line: 21
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/EarmuffCall.java
+    from_line: 41
+    to_line: 44
 run_command: java-ide
 file_name: EarmuffCall.java
 unindent: true

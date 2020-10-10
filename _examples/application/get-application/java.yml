@@ -2,11 +2,11 @@
 title: Java
 language: java
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/application/GetApplication.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/application/GetApplication.java
     from_line: 41
     to_line: 45
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/application/GetApplication.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/application/GetApplication.java
     from_line: 36
     to_line: 39
 run_command: java-ide

@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+  - nexmo
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms.py
-    from_line: 12
-    to_line: 14    
+  source: .repos/vonage/vonage-python-code-snippets/sms/send-an-sms.py
+  from_line: 15
+  to_line: 16
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms.py
-    from_line: 16
-    to_line: 27
+  source: .repos/vonage/vonage-python-code-snippets/sms/send-an-sms.py
+  from_line: 18
+  to_line: 29
 file_name: send-an-sms.py
-run_command: 'python send-an-sms.py'
+run_command: "python send-an-sms.py"

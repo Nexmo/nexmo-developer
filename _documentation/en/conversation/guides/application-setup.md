@@ -24,9 +24,9 @@ This process is illustrated in the following diagram:
 
     a. Set an `answer_url` [webhook](/application/overview#webhooks) to define the behavior when a new call is taking place.
 
-    b. Set `event_url` [webhook](/voice/voice-api/webhook-reference#event-webhook) for your Nexmo application's voice capability to receive the voice events that are dispatched by Voice API. This step is optional but recommended.
+    b. Set `event_url` [webhook](/voice/voice-api/webhook-reference#event-webhook) for your Vonage application's voice capability to receive the voice events that are dispatched by Voice API. This step is optional but recommended.
 
-    c. Set `event_url` [webhook](/application/overview#webhook-types) for your Nexmo application's RTC capability to receive the RTC events that are dispatched by Conversation API. This step is optional but recommended.
+    c. Set `event_url` [webhook](/application/overview#webhook-types) for your Vonage application's RTC capability to receive the RTC events that are dispatched by Conversation API. This step is optional but recommended.
     
     d. Create [Users](/conversation/concepts/user) using the Conversation API.
 

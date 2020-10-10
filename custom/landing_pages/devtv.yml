@@ -263,7 +263,7 @@ page:
                           Java Developer Advocate
                         </h5>
                         <p class="text-justify">
-                          Yvonne is an Angular fullstack developer , Java developer, and speaker. Yvonne is currently the Java Developer Advocate at Vonage, previously known as Nexmo. She enjoys working with the tech community and helping mentor others who aim to advance in their tech career.
+                          Yvonne is an Angular fullstack developer, Java developer, and speaker. Yvonne is currently the Java Developer Advocate at Vonage, previously known as Nexmo. She enjoys working with the tech community and helping mentor others who aim to advance in their tech career.
                         </p>
                     </div>
                   </div>
@@ -834,11 +834,11 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-14a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601133461/hacktoberfest/igor-light_1_hn28qy.png" alt="Hacktoberfest Stream Art">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1602150714/hacktoberfest/igor-light_1_1_apx1cd.png" alt="Hacktoberfest Stream Art">
                     </div>
                     <div class="Vlt-col Vlt-col--1of2">
                         <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Daily Stream</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">15:00 London / 10:00 New York / 07:00 SF</h5>
+                        <h5 class="Vlt-col padding-left-0 mobile-center">14:00 London / 09:00 New York / 06:00 SF</h5>
                         <br><br>
                         <h4 class="inline-block">About Igor Wojda</h4>
                         <a href="https://twitter.com/igorwojda" target="_blank">
@@ -907,12 +907,21 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-15" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601134067/hacktoberfest/nahrin-dark_1_uh4wl9.png" alt="Hacktoberfest Stream Art">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1602150712/hacktoberfest/nahrin-christina-dark_1_tl04uw.png" alt="Hacktoberfest Stream Art">
                     </div>
                     <div class="Vlt-col Vlt-col--1of2">
                         <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Daily Stream: Open Source Chat</h3>
                         <h5 class="Vlt-col padding-left-0 mobile-center">17:00 London / 12:00 New York / 09:00 SF</h5>
-                        <br><br>
+                        <br>
+                        <p class="text-justify">Planning to discuss burnout for maintainers and contributor etiquette (and likely more)</p>
+                        <h4 class="inline-block">About Christina Gorton</h4>
+                        <a href="https://twitter.com/coffeecraftcode" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <h5>
+                          Open Source Community Manager
+                        </h5>
+                        <br>
                         <h4 class="inline-block">About Nahrin Jalal</h4>
                         <a href="https://twitter.com/NahrinJalal" target="_blank">
                           <i class="icon icon-twitter"></i>

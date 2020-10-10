@@ -12,8 +12,8 @@ This code snippet shows you how to retrieve a report file. The report file is a 
 
 Variable | Required | Description
 ----|----|----
-`NEXMO_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`NEXMO_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
+`VONAGE_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
+`VONAGE_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `FILE_ID` | Yes | The file ID of the report to retrieve.
 
 ```code_snippets

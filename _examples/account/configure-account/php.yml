@@ -4,11 +4,11 @@ language: php
 dependencies:
     - nexmo/client
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/account/configure-account.php
+    source: .repos/vonage/vonage-php-code-snippets/account/configure-account.php
     from_line: 8
     to_line: 11
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/account/configure-account.php
+    source: .repos/vonage/vonage-php-code-snippets/account/configure-account.php
     from_line: 5
     to_line: 6
 file_name: configure-account.php

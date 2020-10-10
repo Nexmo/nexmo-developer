@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - '''flask>=1.0'''
+  - "'flask>=1.0'"
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/handle-user-input.py
-    from_line: 8
-    to_line: 38
+  source: .repos/vonage/vonage-python-code-snippets/voice/handle-user-input.py
+  from_line: 8
+  to_line: 42
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/handle-user-input.py
-    from_line: 2
-    to_line: 5
+  source: .repos/vonage/vonage-python-code-snippets/voice/handle-user-input.py
+  from_line: 2
+  to_line: 5
 file_name: handle-user-input.py
-run_command: 'python3 handle-user-input.py'
+run_command: "python3 handle-user-input.py"

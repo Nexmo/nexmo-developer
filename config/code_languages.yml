@@ -17,7 +17,7 @@ languages:
     lexer: javascript
     icon: javascript
     dependencies:
-      - 'nexmo'
+      - "nexmo"
 
   node:
     weight: 2
@@ -25,7 +25,7 @@ languages:
     lexer: javascript
     icon: node
     dependencies:
-      - 'nexmo'
+      - "@vonage/server-sdk"
     run_command: 'node {filename}'
 
   kotlin:
@@ -42,7 +42,8 @@ languages:
     unindent: true
     icon: java
     dependencies:
-      - 'com.nexmo:client:@latest'
+      - "com.vonage:client:@latest"
+    version: "5.5.0"
 
   dotnet:
     weight: 5
@@ -51,7 +52,7 @@ languages:
     unindent: true
     icon: dotnet
     dependencies:
-      - 'Nexmo.Csharp.Client'
+      - "Vonage.Csharp.Client"
   csharp:
     weight: 5
     label: .NET
@@ -59,7 +60,7 @@ languages:
     unindent: true
     icon: dotnet
     dependencies:
-      - 'Nexmo.Csharp.Client'
+      - "Vonage.Csharp.Client"
 
   php:
     weight: 6
@@ -67,7 +68,7 @@ languages:
     lexer: php
     icon: php
     dependencies:
-      - 'nexmo/client'
+      - "vonage/client"
     run_command: 'php {filename}'
 
   python:
@@ -76,7 +77,7 @@ languages:
     lexer: python
     icon: python
     dependencies:
-      - 'nexmo'
+      - "vonage"
     run_command: 'python {filename}'
 
   ruby:
@@ -85,7 +86,7 @@ languages:
     lexer: ruby
     icon: ruby
     dependencies:
-      - 'nexmo'
+      - "vonage"
     run_command: 'ruby {filename}'
 
   android:

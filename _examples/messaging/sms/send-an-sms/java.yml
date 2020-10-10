@@ -2,11 +2,11 @@
 title: Java
 language: java
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/sms/SendMessage.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/sms/SendMessage.java
     from_line: 44
     to_line: 55
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/sms/SendMessage.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/sms/SendMessage.java
     from_line: 42
     to_line: 42
 file_name: SendMessage.java

@@ -69,10 +69,10 @@ $ npm install -g nexmo-cli
 
 > Note: Depending on your user permissions, you might need to prefix the above command with `sudo`.
 
-Use your `NEXMO_API_KEY` and `NEXMO_API_SECRET` from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide) to set up the Nexmo CLI with your credentials:
+Use your `VONAGE_API_KEY` and `VONAGE_API_SECRET` from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide) to set up the Nexmo CLI with your credentials:
 
 ```
-$ nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
+$ nexmo setup VONAGE_API_KEY VONAGE_API_SECRET
 ```
 
 ### Execute a Number Insight API Basic lookup

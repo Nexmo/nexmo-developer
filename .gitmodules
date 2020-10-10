@@ -1,24 +1,27 @@
 [submodule "_open_api/api_specs"]
 	path = _open_api/api_specs
 	url = https://github.com/Nexmo/api-specification.git
-[submodule ".repos/nexmo/nexmo-ruby-code-snippets"]
-	path = .repos/nexmo/nexmo-ruby-code-snippets
-	url = https://github.com/Nexmo/nexmo-ruby-code-snippets.git
-[submodule ".repos/nexmo/nexmo-php-code-snippets"]
-	path = .repos/nexmo/nexmo-php-code-snippets
-	url = https://github.com/Nexmo/nexmo-php-code-snippets.git
-[submodule ".repos/nexmo/nexmo-python-code-snippets"]
-	path = .repos/nexmo/nexmo-python-code-snippets
-	url = https://github.com/Nexmo/nexmo-python-code-snippets.git
-[submodule ".repos/nexmo/nexmo-node-code-snippets"]
-	path = .repos/nexmo/nexmo-node-code-snippets
-	url = https://github.com/Nexmo/nexmo-node-code-snippets.git
-[submodule ".repos/nexmo/nexmo-dotnet-code-snippets"]
-	path = .repos/nexmo/nexmo-dotnet-code-snippets
-	url = https://github.com/Nexmo/nexmo-dotnet-code-snippets.git
-[submodule ".repos/nexmo/nexmo-java-code-snippets"]
-	path = .repos/nexmo/nexmo-java-code-snippets
-	url = https://github.com/Nexmo/nexmo-java-code-snippets.git
+[submodule ".repos/vonage/vonage-node-code-snippets"]
+	path = .repos/vonage/vonage-node-code-snippets
+	url = https://github.com/Vonage/vonage-node-code-snippets.git
+[submodule ".repos/vonage/vonage-dotnet-code-snippets"]
+	path = .repos/vonage/vonage-dotnet-code-snippets
+	url = https://github.com/Vonage/vonage-dotnet-code-snippets.git
+[submodule ".repos/vonage/vonage-java-code-snippets"]
+	path = .repos/vonage/vonage-java-code-snippets
+	url = https://github.com/Vonage/vonage-java-code-snippets.git
+[submodule ".repos/vonage/vonage-ruby-code-snippets"]
+	path = .repos/vonage/vonage-ruby-code-snippets
+	url = https://github.com/Vonage/vonage-ruby-code-snippets.git
+[submodule ".repos/vonage/vonage-python-code-snippets"]
+	path = .repos/vonage/vonage-python-code-snippets
+	url = https://github.com/Vonage/vonage-python-code-snippets.git
+[submodule ".repos/vonage/vonage-php-code-snippets"]
+	path = .repos/vonage/vonage-php-code-snippets
+	url = https://github.com/Vonage/vonage-php-code-snippets.git
+[submodule ".repos/nexmo/--force"]
+	path = .repos/nexmo/--force
+	url = https://github.com/nexmo/nexmo-curl-code-snippets.git
 [submodule ".repos/nexmo/nexmo-curl-code-snippets"]
 	path = .repos/nexmo/nexmo-curl-code-snippets
-	url = https://github.com/Nexmo/nexmo-curl-code-snippets.git
+	url = https://github.com/nexmo/nexmo-curl-code-snippets.git

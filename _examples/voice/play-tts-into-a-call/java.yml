@@ -2,13 +2,13 @@
 title: Java
 language: java
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/SendTalkToCall.java
-    from_line: 33
-    to_line: 33
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/SendTalkToCall.java
+    from_line: 46
+    to_line: 58
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/SendTalkToCall.java
-    from_line: 18
-    to_line: 21
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/SendTalkToCall.java
+    from_line: 41
+    to_line: 44
 run_command: java-ide
 file_name: SendTalkToCall.java
 unindent: true

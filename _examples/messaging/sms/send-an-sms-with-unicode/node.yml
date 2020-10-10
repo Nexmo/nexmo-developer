@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/sms/send-unicode-sms.js
+    source: .repos/vonage/vonage-node-code-snippets/sms/send-unicode-sms.js
     from_line: 15
     to_line: 32
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/sms/send-unicode-sms.js
+    source: .repos/vonage/vonage-node-code-snippets/sms/send-unicode-sms.js
     from_line: 8
     to_line: 13

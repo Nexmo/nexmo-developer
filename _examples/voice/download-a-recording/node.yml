@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/download-a-recording.js
+    source: .repos/vonage/vonage-node-code-snippets/voice/download-a-recording.js
     from_line: 19
     to_line: 24
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/download-a-recording.js
+    source: .repos/vonage/vonage-node-code-snippets/voice/download-a-recording.js
     from_line: 10
     to_line: 17

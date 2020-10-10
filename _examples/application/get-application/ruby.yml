@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/application/get-application.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/application/get-application.rb
     from_line: 16
     to_line: 21
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/application/get-application.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/application/get-application.rb
     from_line: 11
     to_line: 14

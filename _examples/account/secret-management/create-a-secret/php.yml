@@ -2,11 +2,11 @@
 title: PHP
 language: php
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/secret-management/create-a-secret.php
+    source: .repos/vonage/vonage-php-code-snippets/secret-management/create-a-secret.php
     from_line: 8
     to_line: 10
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/secret-management/create-a-secret.php
+    source: .repos/vonage/vonage-php-code-snippets/secret-management/create-a-secret.php
     from_line: 5
     to_line: 6
 file_name: create-a-secret.php

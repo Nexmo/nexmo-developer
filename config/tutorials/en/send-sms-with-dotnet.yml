@@ -1,9 +1,41 @@
----
 title: How to Send an SMS With ASP.NET Core MVC
-external_link: https://www.nexmo.com/blog/2020/07/09/how-to-send-an-sms-with-asp-net-core-mvc
 products:
- - messaging/sms
+  - messaging/sms
 description: Enhance your .NET application by adding the ability to send SMS messages to users. This tutorial walks you through adding a simple form to your web application, and sending an SMS message to the number provided.
 languages:
   - dotnet
----
+
+introduction:
+  title: Introduction to this tutorial
+  description: This tutorial shows you how to send an SMS message with .NET
+  content: |
+    # Introduction
+    The [SMS API](/messaging/sms/overview) allows you to easily send SMS messages from Virtual numbers to your customers. In this tutorial you'll learn how to send an SMS message using the Vonage APIs.
+
+    This Tutorial provides a step-by-step guide showing you how to set up a Vonage account, create an ASP.NET Core application, add the Vonage package to it, and send an SMS.
+
+prerequisites:
+  - create-nexmo-account
+  - install-dotnet-core
+
+tasks:
+  - sms-api/create-sms-csproj
+  - sms-api/install-vonage-dotnet
+  - sms-api/create-send-sms-model
+  - sms-api/create-send-sms-view
+  - sms-api/manage-startup-route
+  - sms-api/add-sms-controller
+  - configure-aspdotnet-app
+  - run-dotnet-app
+
+conclusion:
+  title: What's Next?
+  content: |
+    # What's next?
+
+    Find out more about the capabilities of the SMS API:
+
+    - [Read the SMS API documentation](https://developer.nexmo.com/messaging/sms/overview)
+    - [View the API reference](https://developer.nexmo.com/api/sms)
+    - [Receive an SMS](https://developer.nexmo.com/messaging/sms/code-snippets/receiving-an-sms/dotnet)
+    - [Get a delivery receipt](https://developer.nexmo.com/messaging/sms/code-snippets/delivery-receipts/dotnet)

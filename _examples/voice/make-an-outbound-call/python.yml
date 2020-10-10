@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+  - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/make-an-outbound-call.py
-    from_line: 10
-    to_line: 16
+  source: .repos/vonage/vonage-python-code-snippets/voice/make-an-outbound-call.py
+  from_line: 20
+  to_line: 28
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/make-an-outbound-call.py
-    from_line: 2
-    to_line: 8
+  source: .repos/vonage/vonage-python-code-snippets/voice/make-an-outbound-call.py
+  from_line: 15
+  to_line: 18
 file_name: make-an-outbound-call.py
-run_command: 'python3 make-an-outbound-call.py'
+run_command: "python3 make-an-outbound-call.py"

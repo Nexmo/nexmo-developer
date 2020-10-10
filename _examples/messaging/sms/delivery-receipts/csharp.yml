@@ -4,11 +4,11 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SmsController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SmsController.cs
     from_line: 10
     to_line: 11
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SmsController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/SmsController.cs
     from_line: 25
     to_line: 31
 run_command: 'Run using your IDE'

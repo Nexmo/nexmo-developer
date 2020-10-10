@@ -32,8 +32,8 @@ Replace the following values in the code snippets with your own details:
 
 Key |	Description
 -- | --
-`NEXMO_API_KEY` | API key.
-`NEXMO_API_SECRET` | API secret.
+`VONAGE_API_KEY` | API key.
+`VONAGE_API_SECRET` | API secret.
 `INSIGHT_NUMBER` | The number you want to retrieve insight information for.
 
 ## Webhooks

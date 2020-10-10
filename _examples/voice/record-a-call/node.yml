@@ -4,6 +4,6 @@ dependencies:
     - body-parser
     - dotenv
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/record-a-call.js
+    source: .repos/vonage/vonage-node-code-snippets/voice/record-a-call.js
     from_line: 1
     to_line: 40

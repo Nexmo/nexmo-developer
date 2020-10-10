@@ -1,10 +1,10 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/verify/search.php
+    source: .repos/vonage/vonage-php-code-snippets/verify/search.php
     from_line: 5
     to_line: 6
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/verify/search.php
+    source: .repos/vonage/vonage-php-code-snippets/verify/search.php
     from_line: 37
     to_line: 46
 file_name: search.php

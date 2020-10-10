@@ -1,9 +1,9 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/cancel.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/verify/cancel.rb
     from_line: 13
     to_line: 16
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/cancel.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/verify/cancel.rb
     from_line: 18
     to_line: 24

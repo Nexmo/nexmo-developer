@@ -2,12 +2,12 @@
 title: Python
 language: python
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/application/update-application.py
-    from_line: 10
-    to_line: 49
+  source: .repos/vonage/vonage-python-code-snippets/application/update-application.py
+  from_line: 19
+  to_line: 58
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/application/update-application.py
-    from_line: 5
-    to_line: 8
+  source: .repos/vonage/vonage-python-code-snippets/application/update-application.py
+  from_line: 14
+  to_line: 17
 file_name: update-application.py
-run_command: 'python3 update-application.py'
+run_command: "python3 update-application.py"

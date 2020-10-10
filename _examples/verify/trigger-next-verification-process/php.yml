@@ -1,10 +1,10 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/verify/trigger_next_event.php
+    source: .repos/vonage/vonage-php-code-snippets/verify/trigger_next_event.php
     from_line: 10
     to_line: 11
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/verify/trigger_next_event.php
+    source: .repos/vonage/vonage-php-code-snippets/verify/trigger_next_event.php
     from_line: 13
     to_line: 13
 file_name: trigger_next_event.php

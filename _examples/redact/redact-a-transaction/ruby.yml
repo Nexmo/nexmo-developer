@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/redact/redact.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/redact/redact.rb
     from_line: 26
     to_line: 29
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/redact/redact.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/redact/redact.rb
     from_line: 21
     to_line: 24

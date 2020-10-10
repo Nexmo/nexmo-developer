@@ -1,9 +1,9 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/check.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/verify/check.rb
     from_line: 19
     to_line: 22
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/check.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/verify/check.rb
     from_line: 24
     to_line: 37

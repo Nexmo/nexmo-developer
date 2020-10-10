@@ -2,13 +2,13 @@
 title: Java
 language: java
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/sms/SendUnicodeMessage.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/sms/SendUnicodeMessage.java
     from_line: 43
-    to_line: 49
+    to_line: 50
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/sms/SendUnicodeMessage.java
-    from_line: 41
-    to_line: 41
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/sms/SendUnicodeMessage.java
+    from_line: 42
+    to_line: 42
 file_name: SendUnicodeMessage.java
 run_command: java-ide
 unindent: true

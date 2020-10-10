@@ -4,11 +4,11 @@ language: python
 dependencies:
     - '''flask>=1.0'''
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/record-a-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/record-a-call.py
     from_line: 7
     to_line: 36
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/record-a-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/record-a-call.py
     from_line: 2
     to_line: 5
 file_name: record-a-call.py

@@ -1,7 +1,7 @@
 ---
-title: Create a Nexmo Application
+title: Create a Vonage Application
 navigation_weight: 2
-description: You can create a Nexmo Messages and Dispatch application either in the Dashboard or using the Nexmo CLI.
+description: You can create a Vonage Messages and Dispatch application either in the Dashboard or using the Nexmo CLI.
 ---
 
 # Create a Messages API Application

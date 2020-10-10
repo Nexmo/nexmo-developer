@@ -4,15 +4,15 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Voice/ListAllCalls.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Voice/ListAllCalls.cs
     from_line: 1
     to_line: 3
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Voice/ListAllCalls.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Voice/ListAllCalls.cs
     from_line: 15
     to_line: 16
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Voice/ListAllCalls.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Voice/ListAllCalls.cs
     from_line: 18
     to_line: 20
 run_command: 'dotnet run'

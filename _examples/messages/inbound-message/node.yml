@@ -3,6 +3,6 @@ dependencies:
     - express
     - body-parser
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/messages/inbound-message.js
+    source: .repos/vonage/vonage-node-code-snippets/messages/inbound-message.js
     from_line: 1
     to_line: 14

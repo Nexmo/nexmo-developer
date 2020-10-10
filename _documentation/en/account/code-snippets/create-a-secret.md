@@ -17,7 +17,7 @@ New API secrets must meet the following rules:
 
 Key | Description
  -- | --
-`NEXMO_API_KEY` | The API key of the account.
+`VONAGE_API_KEY` | The API key of the account.
 `NEW_SECRET` | The new API secret for the API key.
 
 ```code_snippets

@@ -9,7 +9,7 @@ navigation_weight: 1
 
 ### Nexmo Application setup
 
-Since you can create multiple Nexmo applications, the commands you run refer to the application that was set up. For example, when you create a user, you must make sure to create it on the application you intended.
+Since you can create multiple Vonage applications, the commands you run refer to the application that was set up. For example, when you create a user, you must make sure to create it on the application you intended.
 
 * Check the app your CLI refers to by running:
 

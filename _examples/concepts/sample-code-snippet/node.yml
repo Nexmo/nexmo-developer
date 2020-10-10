@@ -4,11 +4,11 @@ language: node
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/sms/send.js
+    source: .repos/vonage/vonage-node-code-snippets/sms/send.js
     from_line: 15
     to_line: 29
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/sms/send.js
+    source: .repos/vonage/vonage-node-code-snippets/sms/send.js
     from_line: 8
     to_line: 13
 file_name: send.js

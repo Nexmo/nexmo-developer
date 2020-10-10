@@ -11,10 +11,10 @@ In this code snippet you see how to connect an inbound call to another person by
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`NEXMO_NUMBER` |  This is your Nexmo number used for CallerID to the recipient.
-`YOUR_SECOND_NUMBER` |  This is the number to be connected to e.g. 447700900002.
+| Key                  | Description                                                    |
+| -------------------- | -------------------------------------------------------------- |
+| `VONAGE_NUMBER`      | This is your Vonage number used for CallerID to the recipient. |
+| `YOUR_SECOND_NUMBER` | This is the number to be connected to e.g. 447700900002.       |
 
 ```code_snippets
 source: '_examples/voice/connect-an-inbound-call'

@@ -1,9 +1,9 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/verify/psd2.js
+    source: .repos/vonage/vonage-node-code-snippets/verify/psd2.js
     from_line: 11
     to_line: 15
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/verify/psd2.js
+    source: .repos/vonage/vonage-node-code-snippets/verify/psd2.js
     from_line: 17
     to_line: 28

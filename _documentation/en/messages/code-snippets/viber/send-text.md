@@ -20,7 +20,7 @@ Key | Description
 -- | --
 `BASE_URL` | For production use the base URL is `https://api.nexmo.com/`. For sandbox testing the base URL is `https://messages-sandbox.nexmo.com/`.
 `MESSAGES_API_URL` | For production use the Messages API endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the Messages API endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
-`NEXMO_APPLICATION_ID` | The ID of the application that you created.
+`VONAGE_APPLICATION_ID` | The ID of the application that you created.
 `VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID. For sandbox testing this is `16273`.
 `TO_NUMBER` | The phone number you are sending the message to.
 

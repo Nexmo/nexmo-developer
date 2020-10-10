@@ -2,11 +2,11 @@
 title: Java
 language: java
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/verify/StartVerification.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/StartVerification.java
     from_line: 40
     to_line: 40
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/verify/StartVerification.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/StartVerification.java
     from_line: 41
     to_line: 47
 file_name: StartVerification.java

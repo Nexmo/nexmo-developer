@@ -5,15 +5,15 @@ dependencies:
     - 'slim/slim:^3.8'
     - 'nexmo/client'
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-message/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/record-a-message/index.php
     from_line: 10
     to_line: 45
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-message/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/record-a-message/index.php
     from_line: 6
     to_line: 8
 import_dependencies:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/record-a-message/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/record-a-message/index.php
     from_line: 2
     to_line: 4
 file_name: index.php

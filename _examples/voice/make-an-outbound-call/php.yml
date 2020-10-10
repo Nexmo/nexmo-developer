@@ -1,10 +1,10 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/text-to-speech-outbound.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/text-to-speech-outbound.php
     from_line: 16
     to_line: 28
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/initialize/application.php
+    source: .repos/vonage/vonage-php-code-snippets/initialize/application.php
     from_line: 3
     to_line: 8
 file_name: text-to-speech-outbound.php

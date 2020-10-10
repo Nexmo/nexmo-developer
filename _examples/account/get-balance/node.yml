@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/account/account-balance.js
+    source: .repos/vonage/vonage-node-code-snippets/account/account-balance.js
     from_line: 13
     to_line: 15
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/account/account-balance.js
+    source: .repos/vonage/vonage-node-code-snippets/account/account-balance.js
     from_line: 8
     to_line: 11

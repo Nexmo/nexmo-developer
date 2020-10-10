@@ -4,11 +4,11 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client    
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectCallersToConferenceController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectCallersToConferenceController.cs
     from_line: 6
     to_line: 6
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectCallersToConferenceController.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetWebhookCodeSnippets/Controllers/ConnectCallersToConferenceController.cs
     from_line: 13
     to_line: 21
 run_command: 'Run using your IDE'

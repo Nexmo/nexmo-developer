@@ -1,9 +1,9 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/verify/SearchVerification.java
-    from_line: 37
-    to_line: 40
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/SearchVerification.java
+    from_line: 36
+    to_line: 39
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/verify/SearchVerification.java
-    from_line: 42
-    to_line: 50
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/SearchVerification.java
+    from_line: 41
+    to_line: 48

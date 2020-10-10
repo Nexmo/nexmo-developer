@@ -2,11 +2,11 @@
 title: Java
 language: java
 code:
-  source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/insight/StandardInsight.java
+  source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/insight/StandardInsight.java
   from_line: 40
   to_line: 51
 client:
-  source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/insight/StandardInsight.java
+  source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/insight/StandardInsight.java
   from_line: 38
   to_line: 38
 file_name: StandardInsight.java

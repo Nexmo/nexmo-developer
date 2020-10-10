@@ -85,8 +85,8 @@ In this example you will need to replace the following variables with actual val
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | Vonage API key which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
-`NEXMO_API_SECRET` | Vonage API secret which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
+`VONAGE_API_KEY` | Vonage API key which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
+`VONAGE_API_SECRET` | Vonage API secret which can be obtained from your [Vonage API Dashboard](https://dashboard.nexmo.com).
 `FROM_NUMBER` | A phone number you own or some text to identify the sender.
 `TO_NUMBER` | The number of the phone to which the message will be sent.
 

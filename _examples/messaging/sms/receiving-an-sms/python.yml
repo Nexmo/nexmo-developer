@@ -4,11 +4,11 @@ language: python
 dependencies:
     - flask
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/sms/receive-flask.py
+    source: .repos/vonage/vonage-python-code-snippets/sms/receive-flask.py
     from_line: 6
     to_line: 16
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/sms/receive-flask.py
+    source: .repos/vonage/vonage-python-code-snippets/sms/receive-flask.py
     from_line: 1
     to_line: 4   
 file_name: receive-flask.py

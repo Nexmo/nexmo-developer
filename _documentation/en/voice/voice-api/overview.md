@@ -56,7 +56,7 @@ To get started, choose your language below and replace the following variables i
 
 Key | Description
 -- | --
-`NEXMO_NUMBER` | Your Vonage number that the call will be made from. For example `447700900000`.
+`VONAGE_NUMBER` | Your Vonage number that the call will be made from. For example `447700900000`.
 `TO_NUMBER` | The number you would like to call to in E.164 format. For example `447700900001`.
 
 ```code_snippets

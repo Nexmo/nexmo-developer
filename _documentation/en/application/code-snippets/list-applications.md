@@ -14,8 +14,8 @@ You will need to ensure that the following replaceable values are set in the exa
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | Your Nexmo API key.
-`NEXMO_API_SECRET` | Your Nexmo API secret.
+`VONAGE_API_KEY` | Your Vonage API key.
+`VONAGE_API_SECRET` | Your Vonage API secret.
 
 ```code_snippets
 source: '_examples/application/list-applications'

@@ -3,10 +3,10 @@ dependencies:
     - sinatra
     - sinatra-contrib
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/sms/delivery_receipt.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/sms/delivery_receipt.rb
     from_line: 15
     to_line: 20
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/sms/delivery_receipt.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/sms/delivery_receipt.rb
     from_line: 1
     to_line: 13    

@@ -41,7 +41,7 @@ These steps are described in more detail below.
 
 3. **The Conversation API generates a JWT.** If the user is valid your backend calls the Conversation API to generate a JWT for the user. To [generate a JWT](/conversation/guides/jwt-acl) you need:
 
-    a. Your Nexmo application's **private key**. For security reasons, this should be generated and always securely stored on your backend application and not on the client.
+    a. Your Vonage application's **private key**. For security reasons, this should be generated and always securely stored on your backend application and not on the client.
 
     b. **A username** that matches the username of the Nexmo User you’ve created with Conversation API.
     

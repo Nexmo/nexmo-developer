@@ -5,15 +5,15 @@ dependencies:
     - 'slim/slim:^3.8'
     - 'nexmo/client'
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/connect-call-slim/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/connect-call-slim/index.php
     from_line: 18
     to_line: 30
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/connect-call-slim/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/connect-call-slim/index.php
     from_line: 8
     to_line: 16
 import_dependencies:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/connect-call-slim/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/connect-call-slim/index.php
     from_line: 3
     to_line: 6
 file_name: index.php

@@ -1,9 +1,9 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/verify/next-event.js
+    source: .repos/vonage/vonage-node-code-snippets/verify/next-event.js
     from_line: 14
     to_line: 20
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/verify/next-event.js
+    source: .repos/vonage/vonage-node-code-snippets/verify/next-event.js
     from_line: 22
     to_line: 31

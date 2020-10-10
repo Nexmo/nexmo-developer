@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/applications/get-applications.js
+    source: .repos/vonage/vonage-node-code-snippets/applications/get-applications.js
     from_line: 15
     to_line: 22
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/applications/get-applications.js
+    source: .repos/vonage/vonage-node-code-snippets/applications/get-applications.js
     from_line: 6
     to_line: 13

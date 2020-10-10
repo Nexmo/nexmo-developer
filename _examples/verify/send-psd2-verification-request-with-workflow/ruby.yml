@@ -1,10 +1,10 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/send_psd2_code_with_workflow.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/verify/send_psd2_code_with_workflow.rb
     from_line: 15
     to_line: 19
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/verify/send_psd2_code_with_workflow.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/verify/send_psd2_code_with_workflow.rb
     from_line: 21
     to_line: 31
 file_name: send_psd2_code_with_workflow.rb

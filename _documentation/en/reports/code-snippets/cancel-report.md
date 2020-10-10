@@ -12,8 +12,8 @@ This code snippet shows you how to cancel the creation of a report.
 
 Variable | Required | Description
 ----|----|----
-`NEXMO_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`NEXMO_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
+`VONAGE_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
+`VONAGE_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `REQUEST_ID` | Yes | The request ID of the report to cancel creation of.
 
 ```code_snippets

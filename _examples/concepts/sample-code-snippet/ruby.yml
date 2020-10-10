@@ -4,11 +4,11 @@ language: ruby
 dependencies:
     - nexmo
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/sms/send.rb
     from_line: 8
     to_line: 13
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/sms/send.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/sms/send.rb
     from_line: 15
     to_line: 19
 file_name: send.rb

@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/transfer-a-call-with-ncco/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/transfer-a-call-with-ncco/index.php
     from_line: 20
     to_line: 35
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/transfer-a-call-with-ncco/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/transfer-a-call-with-ncco/index.php
     from_line: 7
     to_line: 11

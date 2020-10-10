@@ -4,11 +4,11 @@ language: python
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/account/configure-account.py
+    source: .repos/vonage/vonage-python-code-snippets/account/configure-account.py
     from_line: 17
     to_line: 18
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/account/configure-account.py
+    source: .repos/vonage/vonage-python-code-snippets/account/configure-account.py
     from_line: 15
     to_line: 15
 file_name: configure-account.py

@@ -2,7 +2,7 @@
 title: Python
 language: python
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/messages/inbound-message.py
+    source: .repos/vonage/vonage-python-code-snippets/messages/inbound-message.py
     from_line: 1
     to_line: 14
 file_name: app.py

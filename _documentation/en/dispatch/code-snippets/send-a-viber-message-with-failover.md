@@ -12,7 +12,7 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` | The ID of the application that you created.
+`VONAGE_APPLICATION_ID` | The ID of the application that you created.
 `FROM_NUMBER` | The phone number you are sending the message from.
 `TO_NUMBER` | The phone number you are sending the message to.
 `VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.

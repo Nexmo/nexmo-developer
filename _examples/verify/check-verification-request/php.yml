@@ -1,10 +1,10 @@
 ---
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/verify/verify.php
+    source: .repos/vonage/vonage-php-code-snippets/verify/verify.php
     from_line: 16
     to_line: 17
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/verify/verify.php
+    source: .repos/vonage/vonage-php-code-snippets/verify/verify.php
     from_line: 19
     to_line: 21
 file_name: verify.php

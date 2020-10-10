@@ -4,15 +4,15 @@ language: dotnet
 dependencies:
   - Nexmo.Csharp.Client
 import_dependencies:
-  source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/UpdateNumber.cs
+  source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/UpdateNumber.cs
   from_line: 1
   to_line: 3
 client:
-  source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/UpdateNumber.cs
+  source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/UpdateNumber.cs
   from_line: 29
   to_line: 30
 code:
-  source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/UpdateNumber.cs
+  source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Numbers/UpdateNumber.cs
   from_line: 32
   to_line: 43
 run_command: "Run using your IDE"

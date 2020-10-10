@@ -5,9 +5,9 @@ dependencies:
     - 'com.nexmo:client:@latest'
     - 'com.sparkjava:spark-core:2.7.2'
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/sms/ReceiveDLR.java
-    from_line: 12
-    to_line: 35
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/sms/ReceiveDLR.java
+    from_line: 33
+    to_line: 55
 file_name: ReceiveDLR.java
 run_command: java-ide
 unindent: true

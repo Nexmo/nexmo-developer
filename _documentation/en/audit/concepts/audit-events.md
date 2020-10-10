@@ -29,8 +29,8 @@ The following table lists currently supported Audit Event types:
 | NUMBER_ASSIGN | Number assigned |
 | NUMBER_USER_CANCELED | Number was canceled by the user |
 | NUMBER_UPDATED | Number updated |
-| NUMBER_LINKED | Number linked to Nexmo application |
-| NUMBER_UNLINKED | Number unlinked from Nexmo application |
+| NUMBER_LINKED | Number linked to Vonage application |
+| NUMBER_UNLINKED | Number unlinked from Vonage application |
 | USER_API_KEYS_UPDATE | Sub-accounts for user updated |
 | USER_BILLING_UPDATE | User billing updated |
 | USER_CREATE | User created |
@@ -63,7 +63,7 @@ For example, for a `NUMBER_UPDATED` event type the event object would resemble t
         "created_at": "2018-05-16T16:34:22",
         "user_email": "yourname@example.com",
         "user_id": 1234567,
-        "account_id": "NEXMO_API_KEY",
+        "account_id": "VONAGE_API_KEY",
         "source": "CD",
         "source_ip": "1.2.3.4",
         "source_description": "Customer dashboard",
@@ -73,7 +73,7 @@ For example, for a `NUMBER_UPDATED` event type the event object would resemble t
           "msisdn": "447700900000",
           "http": "http://example.com:9000/webhooks/inbound-sms",
           "voice-type": "app",
-          "voice-value": "NEXMO_APP_ID"
+          "voice-value": "VONAGE_APP_ID"
         }
       }
 ```

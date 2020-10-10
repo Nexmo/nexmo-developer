@@ -1,9 +1,9 @@
 ---
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/list.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/numbers/list.rb
     from_line: 12
     to_line: 22
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/numbers/list.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/numbers/list.rb
     from_line: 7
     to_line: 10

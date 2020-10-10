@@ -4,11 +4,11 @@ language: ruby
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/transfer-a-call-ncco.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/transfer-a-call-ncco.rb
     from_line: 16
     to_line: 26
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/transfer-a-call-ncco.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/transfer-a-call-ncco.rb
     from_line: 11
     to_line: 14
 file_name: transfer-a-call-ncco.rb

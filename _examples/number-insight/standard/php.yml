@@ -4,7 +4,7 @@ language: php
 dependencies:
     - nexmo/client
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/number-insights/standard.php
+    source: .repos/vonage/vonage-php-code-snippets/number-insights/standard.php
     from_line: 5
     to_line: 8
 file_name: standard.php

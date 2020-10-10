@@ -2,11 +2,11 @@
 title: Java
 language: java
 client:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/ListNumbers.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/numbers/ListNumbers.java
     from_line: 39
     to_line: 42
 code:
-    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/numbers/ListNumbers.java
+    source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/numbers/ListNumbers.java
     from_line: 44
     to_line: 54
 file_name: ListNumbers.java

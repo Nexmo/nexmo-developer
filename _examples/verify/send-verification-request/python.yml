@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+  - nexmo
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/verify/request.py
-    from_line: 12
-    to_line: 14
+  source: .repos/vonage/vonage-python-code-snippets/verify/request.py
+  from_line: 12
+  to_line: 15
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/verify/request.py
-    from_line: 16
-    to_line: 21
+  source: .repos/vonage/vonage-python-code-snippets/verify/request.py
+  from_line: 17
+  to_line: 22
 file_name: request.py
-run_command: 'python request.py'
+run_command: "python request.py"

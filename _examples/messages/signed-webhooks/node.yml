@@ -2,11 +2,11 @@
 dependencies:
     - jsonwebtoken
 code:
-    source: .repos/nexmo/nexmo-node-code-snippets/messages/signed-webhooks/verify-signed-webhook.js
+    source: .repos/vonage/vonage-node-code-snippets/messages/signed-webhooks/verify-signed-webhook.js
     from_line: 11
     to_line: 33
 client:
-    source: .repos/nexmo/nexmo-node-code-snippets/messages/signed-webhooks/verify-signed-webhook.js
+    source: .repos/vonage/vonage-node-code-snippets/messages/signed-webhooks/verify-signed-webhook.js
     from_line: 2
     to_line: 10
     

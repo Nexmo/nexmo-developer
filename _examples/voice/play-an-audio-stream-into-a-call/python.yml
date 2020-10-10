@@ -4,11 +4,11 @@ language: python
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/play-audio-stream-into-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/play-audio-stream-into-call.py
     from_line: 8
     to_line: 9
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/play-audio-stream-into-call.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/play-audio-stream-into-call.py
     from_line: 1
     to_line: 6
 file_name: play-audio-stream-into-call.py

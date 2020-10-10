@@ -4,11 +4,11 @@ language: python
 dependencies:
     - '''flask>=1.0'''
 code:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/connect-callers-to-a-conference.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/connect-callers-to-a-conference.py
     from_line: 7
     to_line: 22
 client:
-    source: .repos/nexmo/nexmo-python-code-snippets/voice/connect-callers-to-a-conference.py
+    source: .repos/vonage/vonage-python-code-snippets/voice/connect-callers-to-a-conference.py
     from_line: 2
     to_line: 4
 file_name: connect-callers-to-a-conference.py

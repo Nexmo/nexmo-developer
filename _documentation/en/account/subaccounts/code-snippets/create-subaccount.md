@@ -13,8 +13,8 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | The API key of the parent account.
-`NEXMO_API_SECRET` | The API secret of the parent account.
+`VONAGE_API_KEY` | The API key of the parent account.
+`VONAGE_API_SECRET` | The API secret of the parent account.
 `NEW_SUBACCOUNT_NAME` | The name of the new subaccount.
 `NEW_SUBACCOUNT_SECRET` | The API secret of the new subaccount.
 

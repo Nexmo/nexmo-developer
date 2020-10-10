@@ -4,11 +4,11 @@ language: php
 dependencies:
     - nexmo/client
 code:
-    source: .repos/nexmo/nexmo-php-code-snippets/voice/retrieve-calls-info/index.php
+    source: .repos/vonage/vonage-php-code-snippets/voice/retrieve-calls-info/index.php
     from_line: 8
     to_line: 15
 client:
-    source: .repos/nexmo/nexmo-php-code-snippets/initialize/application.php
+    source: .repos/vonage/vonage-php-code-snippets/initialize/application.php
     from_line: 3
     to_line: 8
 file_name: index.php

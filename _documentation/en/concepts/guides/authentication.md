@@ -53,7 +53,7 @@ Your API key and secret should be included in the query parameters of requests y
 An example of authentication query parameters would be as follows:
 
 ```
-?api_key=NEXMO_API_KEY&api_secret=NEXMO_API_SECRET
+?api_key=VONAGE_API_KEY&api_secret=VONAGE_API_SECRET
 ```
 
 The request may also need other query parameters and these can be added in any order.

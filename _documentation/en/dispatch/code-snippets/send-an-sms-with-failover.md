@@ -14,7 +14,7 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` | The ID of the application that you created.
+`VONAGE_APPLICATION_ID` | The ID of the application that you created.
 `FROM_NUMBER` | The phone number you are sending the SMS from.
 `TO_NUMBER_1` | The phone number you are sending the SMS to.
 `TO_NUMBER_2` | The phone number of the second phone. In this example, the workflow will failover to this number if the first message is not read in 60 seconds.

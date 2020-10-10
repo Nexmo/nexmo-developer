@@ -22,8 +22,8 @@ We use [Logz.io](https://logz.io/) as a logging solution with a 3Gb daily volume
 
 ## Error Monitoring and Reporting
 
-We use [Bugsnag](https://www.bugsnag.com/) for monitoring errors both on the Backend and Frontend splitted into different Projects.
-Bare in mind that most of the errors are logged under `Markdown#show` so it might take a while to find a specific error.
+We use [Bugsnag](https://www.bugsnag.com/) for monitoring errors both on the Backend and Frontend split into different Projects.
+Bear in mind that most of the errors are logged under `Markdown#show` so it might take a while to find a specific error.
 
 ## Health checks
 
@@ -45,7 +45,7 @@ If the issue is related to the latest deploy, just revert the offending commits 
 
 ## Configuration management
 
-When running NDP locally, `dotenv` loads the corresponding environment variables from `.env` to ENV. However, when the app is deployed to Heroku the evnvironment variables are set in Heroku's dashboard.
+When running NDP locally, `dotenv` loads the corresponding environment variables from `.env` to ENV. However, when the app is deployed to Heroku the environment variables are set in Heroku's dashboard.
 
 ## Enabling Search locally
 
@@ -57,7 +57,7 @@ NDP can be run locally either directly or using Docker, for more information abo
 
 * `Could not find definition '<insert_file_here>' in '<path>'`: set the right `OAS_PATH`  in `.env`, check `.env.example` for the default value.
 
-* `Error connecting to Redis on localhost:6379`: you are seeing this error becase the `REDIS_URL` env variable is set and the app couldn't connect to it. Make sure redis is up and running and re-start the app server.
+* `Error connecting to Redis on localhost:6379`: you are seeing this error because the `REDIS_URL` env variable is set and the app couldn't connect to it. Make sure redis is up and running and re-start the app server.
 
 * Migration errors: run `bundle exec rake db:migrate`
 
@@ -66,4 +66,4 @@ NDP can be run locally either directly or using Docker, for more information abo
 
 * Webpacker errors:
     * `The engine "node" is incompatible with this module. Expected version...` We use [nvm](https://github.com/nvm-sh/nvm) as node's version manage, check that the right version of node is installed (specified in `.nvmrc`) and run `nvm use <version>`.
-    * Make sure that all the packages are install by running `yarn install`
+    * Make sure that all the packages are installed by running `yarn install`

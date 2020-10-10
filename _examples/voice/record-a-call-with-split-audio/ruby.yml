@@ -3,10 +3,10 @@ dependencies:
     - sinatra
     - sinatra-contrib
 code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record-a-call-with-split-audio.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/record-a-call-with-split-audio.rb
     from_line: 20
     to_line: 48
 client:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/record-a-call-with-split-audio.rb
+    source: .repos/vonage/vonage-ruby-code-snippets/voice/record-a-call-with-split-audio.rb
     from_line: 10
     to_line: 18

@@ -4,15 +4,15 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 import_dependencies:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Verify/SendVerificationRequest.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Verify/SendVerificationRequest.cs
     from_line: 4
     to_line: 6
 client:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Verify/SendVerificationRequest.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Verify/SendVerificationRequest.cs
     from_line: 20
     to_line: 21
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/DotNetCliCodeSnippets/Verify/SendVerificationRequest.cs
+    source: .repos/vonage/vonage-dotnet-code-snippets/DotNetCliCodeSnippets/Verify/SendVerificationRequest.cs
     from_line: 23
     to_line: 24
 run_command: 'Run using your IDE'
