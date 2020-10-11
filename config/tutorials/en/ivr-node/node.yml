@@ -2,8 +2,6 @@ title: Interactive Voice Response with Node.js
 description: Build an automated phone system for users to input information with the keypad and hear a spoken response with Node.js
 products:
  - voice/voice-api
-languages:
- - Node.js
 
 introduction: 
   title: Introduction to this tutorial

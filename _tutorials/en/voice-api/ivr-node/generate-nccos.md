@@ -11,31 +11,30 @@ To manage NCCOs this example application uses array manipulation and a few simpl
 
 The router handles encoding to JSON, the `Menu` object provides access to the NCCO stack with its `getStack()` method:
 
-```php
-<?php
+```javascript
 
-// src/Menu.php
 
-public function getStack()
-{
-    return $this->ncco;
-}
+// src/Menu.js
+
+ getStack()
+    {
+        return this.ncco;
+    }
+
 ```
 
 There are also some helper methods to provide the foundation for managing the NCCO stack. You may find these useful in your own applications:
 
-```php
-<?php
+```javascript
+// src/Menu.js
 
-// src/Menu.php
+append(ncco)
+    {
+        this.ncco.push(ncco);
+    }
 
-protected function append($ncco)
-{
-    array_push($this->ncco, $ncco);
-}
-
-protected function prepend($ncco)
-{
-    array_unshift($this->ncco, $ncco);
-}
+    prepend(ncco)
+    {
+        this.ncco.unshift(ncco);
+    }
 ```

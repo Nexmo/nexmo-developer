@@ -13,49 +13,44 @@ The `Menu` class has a few more methods that are there to improve the process of
 
 We have methods to assist us in communicating these values clearly to the user. First: the `talkDate` method just returns a string with a date format that works well for spoken words.
 
-```php
-<?php
+```javascript
+// src/Menu.js
 
-// src/Menu.php
-
-protected function talkDate(\DateTime $date)
-{
-    return $date->format('l F jS');
-}
+ talkDate(date)
+    {
+        return format(date,"iiii MMMM do");
+    }
 ```
 
 The `talkCharacters` method puts a space between each character in a string, so they are read individually. We use this when reporting the order number:
 
 
-```php
-<?php
+```javascript
+// src/Menu.js
 
-// src/Menu.php
+talkCharacters(string)
+    {
+        return string.split().join(" ");
+    }
 
-protected function talkCharacters($string)
-{
-    return implode(' ', str_split($string));
-}
 ```
 
 The `talkStatus` method converts a very terse constant into a more conversational phrase using a simple lookup:
 
-```php
-<?php
+```javascript
+// src/Menu.js
 
-// src/Menu.php
-
-protected function talkStatus($status)
-{
-    switch($status){
-        case 'shipped':
-            return 'has been shipped';
-        case 'pending':
-            return 'is still pending';
-        case 'backordered':
-            return 'is backordered';
-        default:
-            return 'can not be located at this time';
+ talkStatus(status)
+    {
+        switch(status){
+            case 'shipped':
+                return 'has been shipped';
+            case 'pending':
+                return 'is still pending';
+            case 'backordered':
+                return 'is backordered';
+            default:
+                return 'can not be located at this time';
+        }
     }
-}
 ```

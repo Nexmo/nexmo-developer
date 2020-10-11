@@ -253,6 +253,7 @@ MaxMind
 GeoLite
 geolocate
 enquiry
+Serverless
 serverless
 hardcoded
 enum
@@ -359,3 +360,5 @@ Yue
 ASP.NET
 VonageApp1
 VonageApp2
+Vercel
+vercel
