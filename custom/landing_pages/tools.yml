@@ -94,7 +94,7 @@ page:
       - type: github_repo
         github_repo:
           repo_url: https://github.com/Vonage/vonage-java-sdk
-          badge_url: //badge.fury.io/gh/nexmo%2Fnexmo-java.svg
+          badge_url: //badge.fury.io/gh/vonage%2Fvonage-java-sdk.svg
           github_repo_title: "Vonage REST API client for Java"
           language: "Java"
   - row:
