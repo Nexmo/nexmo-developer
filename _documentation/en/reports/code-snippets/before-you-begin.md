@@ -10,20 +10,13 @@ Some tips on using the Reports API code snippets. Also please review the [Overvi
 
 ## In this topic
 
-- [Before you Begin](#before-you-begin)
-  - [In this topic](#in-this-topic)
-  - [Query methods](#query-methods)
-  - [Common variables](#common-variables)
-  - [Request parameters](#request-parameters)
-    - [ID](#id)
-    - [Date ranges](#date-ranges)
-    - [Product](#product)
-    - [Request parameters for Load Records Synchronously](#request-parameters-for-load-records-synchronously)
-    - [Request parameters for Create Asynchronous Report](#request-parameters-for-create-asynchronous-report)
-  - [Further request examples](#further-request-examples)
-  - [Request ID](#request-id)
-  - [File ID](#file-id)
-  - [See also](#see-also)
+* [Query methods](#query-methods)
+* [Common variables](#common-variables)
+* [Request parameters](#request-parameters)
+* [Further request examples](#further-request-examples)
+* [Request ID](#request-id)
+* [File ID](#file-id)
+* [See also](#see-also)
 
 ## Query methods
 
