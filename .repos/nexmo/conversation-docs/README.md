@@ -1,4 +1,4 @@
-# API SDK documentation for JS, Android, and iOS
+# API documentation for JS, Android and iOS SDKs
 
 The docs are hosted on https://developer.nexmo.com/client-sdk/overview
 
