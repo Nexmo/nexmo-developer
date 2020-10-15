@@ -84,7 +84,7 @@ Obtain your `VONAGE_APP_ID`. You can access existing application in the [Nexmo D
 
 [JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
 
-To generate a `VONAGE_JWT` run the following command. Remember to replace the `VONAGE_APP_ID` with id of your vonagee application:
+To generate a `VONAGE_JWT` run the following command. Remember to replace the `VONAGE_APP_ID` with id of your Vonage application:
 
 ```bash
 nexmo jwt:generate ./private.key exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=VONAGE_APP_ID
@@ -120,7 +120,7 @@ image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-to
 
 ## Link the Nexmo backend push service with the Firebase application
 
-To link the `Nexmo backen push service` with the `Firebase application` you need to make a single request.
+To link the Nexmo backend push service with the Firebase application you need to make a single request.
 
 Fill `VONAGE_APP_ID`, `VONAGE_JWT`, `FIREBASE_PROJECT_ID` and `FIREBASE_TOKEN` with previously obtained values and run the below command:
 
@@ -139,7 +139,7 @@ curl -v -X PUT \
 
 ## Putting it all together
 
-No you can test you push notification setup by calling any user. Incoming call will trigger `onIncomingCall` callback presented above.
+Now you can test your push notification setup by calling any user. Incoming call will trigger `onIncomingCall` callback presented above.
 
 ## Conclusion
 
