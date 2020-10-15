@@ -80,7 +80,7 @@ To connect Vonage API Application with Firebase you will need the following:
 
 Obtain your `VONAGE_APP_ID`. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have an application already you can create the new application via [Nexmo CLI](/client-sdk/setup/create-your-application).
 
-### Generate a Vonage JWT
+### Generate a Vonage dev JWT
 
 [JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
 
