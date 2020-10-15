@@ -72,7 +72,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/f
 To connect Vonage API Application with Firebase you will need the following:
 
 1. Vonage API Application id
-2. Vonage dev JWT 
+2. Vonage developer JWT 
 3. Firebase project id
 4. Firebase token
 
