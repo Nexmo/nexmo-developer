@@ -84,7 +84,7 @@ Obtain your `VONAGE_APP_ID`. You can access existing application in the [Nexmo D
 
 [JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
 
-To generate a `VONAGE_JWT` run the following command. Remember to replace the `VONAGE_APP_ID` with iid of your vonagee application:
+To generate a `VONAGE_JWT` run the following command. Remember to replace the `VONAGE_APP_ID` with id of your vonagee application:
 
 ```bash
 nexmo jwt:generate ./private.key exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=VONAGE_APP_ID
