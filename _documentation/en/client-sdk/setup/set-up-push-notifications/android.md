@@ -84,7 +84,7 @@ Obtain your `VONAGE_APP_ID`. You can access existing application in the [Nexmo D
 
 [JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
 
-To generate a `VONAGE_JWT` run the following command. Remember to replace the `VONAGE_APP_ID` with id of your Vonage application:
+To generate a `VONAGE_DEV_JWT` run the following command. Remember to replace the `VONAGE_APP_ID` with id of your Vonage application:
 
 ```bash
 nexmo jwt:generate ./private.key exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=VONAGE_APP_ID
@@ -92,7 +92,7 @@ nexmo jwt:generate ./private.key exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/u
 
 > **NOTE** The above commands set the expiry of the JWT to one day from now, which is the maximum.
 
-> **NOTE** A `VONAGE_JWT` is a JWT without a sub claim. 
+> **NOTE** A `VONAGE_DEV_JWT` is a JWT without a sub claim. 
 
 > **NOTE:** More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
