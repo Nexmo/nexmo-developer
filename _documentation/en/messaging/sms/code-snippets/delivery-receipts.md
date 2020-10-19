@@ -13,7 +13,7 @@ You can verify that a message you sent using Nexmo's SMS API reached your custom
 To access the delivery receipt, you need to:
 
 * [Create a webhook endpoint](/messaging/sms/code-snippets/before-you-begin#webhooks) using one of the code examples shown below
-* [Configure the webhook endpoint in your Vonage Dashboard](#configure-the-webhook-endpoint-in-your-nexmo-dashboard)
+* [Configure the webhook endpoint in your Vonage Dashboard](#configure-the-webhook-endpoint-in-your-vonage-dashboard)
 
 > **NOTE:** After you send a message there may be a delay before you receive the delivery receipt.
 
