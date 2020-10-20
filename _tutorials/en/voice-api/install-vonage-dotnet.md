@@ -5,7 +5,7 @@ description: In this tep we will install the Vonage .NET package
 
 ## Install Vonage Package
 
-To install the Vonage nuget package cd into the `VonageVoice` repository and run the following command
+To install the Vonage NuGet package cd into the `VonageVoice` repository and run the following command
 
 ```shell
 dotnet add package Vonage

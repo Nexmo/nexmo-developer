@@ -20,7 +20,7 @@ To create your application using the Nexmo CLI, enter the following command into
 nexmo app:create "AspNetTestApp" http://NGROK_HOST_NAME/webhooks/answer http://NGROK_HOST_NAME/webhooks/events
 ```
 
-This creates a Nexmo application with a voice [capability](/application/overview#capabilities), with the webhook URLs configured as specified, and generate a private key file `private.key` - save this private key. Take note of the applicaiton ID produced as well. Use the application ID along with your Vonage Virtual number to run the following command.
+This creates a Nexmo application with a voice [capability](/application/overview#capabilities), with the webhook URLs configured as specified, and generate a private key file `private.key` - save this private key. Take note of the application ID produced as well. Use the application ID along with your Vonage Virtual number to run the following command.
 
 ```shell
 nexmo link:app VONAGE_NUMBER APPLICATION_ID

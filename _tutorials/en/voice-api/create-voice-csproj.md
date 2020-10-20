@@ -5,7 +5,7 @@ description: This describes how to create the csproj for a .NET Voice Applicatio
 
 # Create the SMS Project File
 
-To start, we will create an SMS csproj file. We will have it not configure kestral for https for testing purposes.
+To start, we will create an SMS `csproj` file. We will have it not configure kestrel for https for testing purposes.
 
 In your terminal, execute the following command.
 

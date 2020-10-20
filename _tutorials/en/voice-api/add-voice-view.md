@@ -3,7 +3,7 @@ title: Add a Voice View
 description: Add a Voice view for placing phone calls
 ---
 
-Under the `Views` folder add a new directory called `Voice`, under that directory add a cshtml file `Index.cshtml`
+Under the `Views` folder add a new directory called `Voice`, under that directory add a `cshtml` file `Index.cshtml`
 
 Replace the Contents of `Index.cshtml` with:
 
