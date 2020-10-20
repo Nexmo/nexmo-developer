@@ -22,6 +22,6 @@ All set? Then deploy the serverless function to vercel:
 vercel .
 ```
 
-Once it's running, call your Nexmo voice number and follow the instructions! The code receives webhooks to `/event` as the call is started, ringing, etc. When the system answers the call, a webhook comes in to `/answer` and the code responds with some text-to-speech and then waits for user input. The user's input then arrives by webhook to `/search` and again the code responds with some text-to-speech.
+Once it's running, call your Nexmo voice number and follow the instructions! Call events such as `started`, `ringing`, `completed` and so on are sent as requests to your `/event` webhook. When the system answers the call, a request is sent to your `/answer` webhook and the code responds with some text-to-speech and then waits for user input. The dial tone that the user entered is sent as a request  to your `/search` webhook and again the code responds with some text-to-speech.
 
 Now you've seen it in action, you may be curious to know how the various elements work. Read on for a full walkthrough of our node.js code and how it manages the flow of the call...
