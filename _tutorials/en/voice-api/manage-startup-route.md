@@ -1,6 +1,6 @@
 ---
 title: Set Startup Route
-description: Now that we have a Voice View and controller, we will make them the default route.
+description: Now that you have a Voice View and controller, you will make them the default route.
 ---
 
 # Set Startup Route for Voice View

@@ -1,6 +1,6 @@
 ---
 title: Install Vonage Dotnet
-description: In this tep we will install the Vonage .NET package
+description: In this step you will install the Vonage .NET package
 ---
 
 ## Install Vonage Package

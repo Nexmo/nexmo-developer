@@ -9,7 +9,7 @@ In the Voice controller add a new HTTP `POST` route. You will use this to make a
 
 This will place a call, and pass a single action into that call which will play the audio file located at the `STREAM_URL` into the call.
 
-For testing purposes we'll use `https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/assets/welcome_to_nexmo.mp3`
+For testing purposes use `https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/assets/welcome_to_nexmo.mp3`
 
 Add the following code to the `VoiceController` class:
 
