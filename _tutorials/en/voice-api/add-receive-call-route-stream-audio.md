@@ -5,7 +5,9 @@ description: Adds an inbound call route for playing streamed audio into a call
 
 # Add a Receive Call Route
 
-We will now add an inbound call webhook URL, when we receive a call on our Virtual Number, Vonage will send us a webhook telling us that it happened. We will return an [NCCO](https://developer.nexmo.com/voice/voice-api/ncco-reference) to Vonage containing a single action, which will play the audio from the file located at the `STREAM_URL` into the call.
+We will now provide an [answer webhook](/voice/voice-api/webhook-reference#answer-webhook) so that when we receive an inbound call on our virtual number, the Vonage API platform will notify us on that webhook via an HTTP request.
+
+The webhook will return an [NCCO](/voice/voice-api/ncco-reference) to Vonage containing a single `stream` action, which will play the audio from the file located at the `STREAM_URL` into the call.
 
 For testing purposes we will use the URL: `https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/assets/welcome_to_nexmo.mp3`
 

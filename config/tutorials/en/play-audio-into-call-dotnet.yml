@@ -44,7 +44,7 @@ conclusion:
   content: |
     # What's Next?
 
-    Find out more about the Capabilities of the Vonage Voice API:
+    Find out more about the capabilities of the Vonage Voice API:
 
     - [Read the Voice API documentation](/voice/voice-api/overview)
     - [View the API Reference](https://developer.nexmo.com/voice/voice-api/api-reference)
@@ -52,4 +52,4 @@ conclusion:
     - [Record a Call](https://developer.nexmo.com/voice/voice-api/code-snippets/record-a-call/dotnet)    
     - [Take Speech Input](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-asr/dotnet)
     - [Handle User Key Input](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-dtmf)
-    - [Check out our NCCO Reference](https://developer.nexmo.com/voice/voice-api/ncco-reference)
+    - [NCCO Reference](https://developer.nexmo.com/voice/voice-api/ncco-reference)

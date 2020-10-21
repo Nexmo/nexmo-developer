@@ -5,7 +5,7 @@ description: Add an Action to the Voice Controller to place a call with streamed
 
 ## Add Make Call Action
 
-In the Voice controller add a new HTTP `POST` route to place a phone call.
+In the Voice controller add a new HTTP `POST` route. You will use this to make an outgoing call with a NCCO [`stream` action](/voice/voice-api/ncco-reference#stream). This action will play the audio file located at the `STREAM_URL` into the call.
 
 This will place a call, and pass a single action into that call which will play the audio file located at the `STREAM_URL` into the call.
 
