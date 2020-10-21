@@ -22,6 +22,6 @@
 [submodule ".repos/nexmo/--force"]
 	path = .repos/nexmo/--force
 	url = https://github.com/nexmo/nexmo-curl-code-snippets.git
-[submodule ".repos/nexmo/nexmo-curl-code-snippets"]
-	path = .repos/nexmo/nexmo-curl-code-snippets
-	url = https://github.com/nexmo/nexmo-curl-code-snippets.git
+[submodule ".repos/vonage/vonage-curl-code-snippets"]
+	path = .repos/vonage/vonage-curl-code-snippets
+	url = https://github.com/Vonage/vonage-curl-code-snippets.git

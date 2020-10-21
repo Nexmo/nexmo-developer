@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/messages/whatsapp/send-button-quick-reply.sh
+    source: .repos/vonage/vonage-curl-code-snippets/messages/whatsapp/send-button-quick-reply.sh
     from_line: 6
     to_line: 85
 file_name: send-button-quick-reply.sh

@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/messages/whatsapp/send-image.sh
+    source: .repos/vonage/vonage-curl-code-snippets/messages/whatsapp/send-image.sh
     from_line: 6
     to_line: 22
 file_name: send-image.sh
