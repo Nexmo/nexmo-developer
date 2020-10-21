@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+    - vonage
 code:
     source: .repos/vonage/vonage-python-code-snippets/account/configure-account.py
-    from_line: 17
-    to_line: 18
+    from_line: 15
+    to_line: 16
 client:
     source: .repos/vonage/vonage-python-code-snippets/account/configure-account.py
-    from_line: 15
-    to_line: 15
+    from_line: 13
+    to_line: 13
 file_name: configure-account.py
 run_command: python configure-account.py
