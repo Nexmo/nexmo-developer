@@ -2,7 +2,7 @@
 title: Curl
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/application/list-applications.sh
+    source: .repos/vonage/vonage-curl-code-snippets/application/list-applications.sh
     from_line: 5
     to_line: 7
 file_name: list-applications.sh

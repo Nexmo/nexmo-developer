@@ -1,9 +1,55 @@
----
 title: How to Receive SMS Delivery Receipts with ASP.NET Core MVC
-external_link: https://www.nexmo.com/blog/2020/07/28/how-to-receive-sms-delivery-receipts-with-asp-net-core-mvc-dr
 products:
  - messaging/sms
 description: Delivery receipts allow you to get information about when an SMS is delivered to a user's handset. This tutorial shows how you can receive these delivery receipt notifications in your ASP .NET application.
 languages:
  - dotnet
----
+
+introduction:
+  title: Introduction to this tutorial
+  description: This tutorial shows you how to receive an SMS message with .NET
+  content: |
+    # Introduction
+    The [SMS API](/messaging/sms/overview) allows you to easily send and receive SMS messages to and from your customers over virtual numbers. However, after you send an SMS how do you validate that the Message was sent? This tutorial will show you how to receive an SMS Delivery Receipt after sending an SMS message via the Vonage SMS API.
+
+    This Tutorial provides a step-by-step guide showing you how to:
+    
+    1. Set up a Vonage account
+    1. Configure your Vonage account
+    1. Create an ASP.NET Core application 
+    1. Add the Vonage package to it
+    1. Send an SMS
+    1. Receive the Delivery Receipt for the SMS that you sent
+
+prerequisites:
+  - create-nexmo-account
+  - install-dotnet-core
+  - run-ngrok
+  - configure-account-webhooks
+
+tasks:
+  - sms-api/create-sms-csproj
+  - sms-api/install-vonage-dotnet
+  - sms-api/create-send-sms-model
+  - sms-api/create-send-sms-view
+  - sms-api/manage-startup-route
+  - sms-api/add-sms-controller
+  - sms-api/add-dlr-route
+  - configure-aspdotnet-app
+  - run-dotnet-app
+
+conclusion:
+  title: Conclusion
+  content: |
+    ## Receive an SMS
+
+    Now that the app is running on `http://localhost:3000` you will be able to send an SMS message to yourself using your vonage number. After it's delivered a delivery receipt will then be sent to your application, and the delivery receipt will be printed in your console.
+
+    ## Whats Next?
+
+    Find out more about the capabilities of the SMS API:
+
+    - [Read the SMS API documentation](https://developer.nexmo.com/messaging/sms/overview)
+    - [View the API reference](https://developer.nexmo.com/api/sms)
+    - [Receive an SMS](/messaging/sms/tutorials/send-sms-with-dotnet)
+    - [Get a delivery receipt](https://developer.nexmo.com/messaging/sms/code-snippets/delivery-receipts/dotnet)

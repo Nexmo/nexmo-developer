@@ -9,23 +9,24 @@ page:
             text:
               content: |
                 <style>
+                  .Nxd-profile {
+                    padding: 1em 0;
+                  }
                   .Vlt-btn--larger {
                     font-size: 1.3em;
                     line-height: 2.6em;
                   }
-                  .voyagers-page {
-                    .Vlt-list > li {
-                      font-size: 1.6rem;
+                  .voyagers-page .Vlt-list > li {
+                    font-size: 1.6rem;
+                  }
+                  @media only screen and (max-width: 767px) {
+                    .Voyagers-logo img {
+                      width: 100%;
                     }
-                }
-                @media only screen and (max-width: 767px) {
-                  .Voyagers-logo img {
-                    width: 100%;
+                    .Vlt-btn--larger {
+                      width: 240px;
+                    }
                   }
-                  .Vlt-btn--larger {
-                    width: 240px;
-                  }
-                }
                 </style>
   - row:
       - column:
@@ -185,6 +186,15 @@ page:
       - column:
           - type: headshot
             headshot:
+              name: Luis Cuauhtemoc Martinez
+              url: 'https://luismartinez.dev'
+              img_src: 'https://images.ctfassets.net/m3k8w4mbzotp/3Ws1VLizC9ijnc0mjKqG9K/f5090a5f851e555e882ccebaa35eff19/0.jpg?w=450&fl=progressive&q=100'
+              intro: API Developer, CLK 500 enthusiast/owner, and a JavaScript Lover. I spend my time working romotely for Jetson.AI. When I’m out and about you can catch me cruising behind the wheel or on the board!
+              location: Los Angeles, California
+              github: luiscmartinez
+      - column:
+          - type: headshot
+            headshot:
               name: Mary Jo Staebler
               url: 'https://www.maryjostaebler.com/'
               img_src: 'https://www.maryjostaebler.com/wp-content/uploads/other/mary-jo-staebler-web-designer-developer.jpg'
@@ -202,6 +212,37 @@ page:
             intro: Software engineer. Technical writer. Prefers working on the backend and building scalable APIs. Love playing basketball. 
             location: Lagos, Nigeria
             github: victorsteven
+      - column:
+        - type: headshot
+          headshot:
+            name: Gabriel Cruz
+            url: 'https://gmcruz.me'
+            img_src: 'https://i.ibb.co/xD8tLRD/gabriel-sitting-smile.jpg'
+            twitter: gmelodiecruz
+            intro: Computer Science Undergraduate, Technical Writer, Parkour Traceur and a proud member of the LGBT community. Spreading love and compassion in tech.
+            location: Londrina, Brazil
+            github: gmelodie
+      - column:
+        - type: headshot
+          headshot:
+            name: Henry Shepherdson
+            url: 'https://henryshepherdson.com/'
+            img_src: 'https://henryshepherdson.com/wp-content/uploads/2020/10/henry-shepherdson-at-the-butterfly-sanctuary.jpg'
+            intro: Team leader, mentor and tech developer. I value uplifting myself and others. I love // learning, building, creating, teaching, connecting.
+            location: South Africa, Gauteng
+            github: FPMedia
+      - column:
+        - type: headshot
+          headshot:
+            name: Naomi Pentrel
+            url: 'https://naomi.codes/'
+            img_src: 'https://naomi.codes/assets/NaomiPentrel.png'
+            twitter: naomi_pen
+            intro: Senior Communications Engineer at MongoDB, occasional blogger, crocheter, and hacker. Previously engineer at Google, Microsoft, and Bloomberg.
+            location: Netherlands
+            github: npentrel
+
+
   - row:
       - column:
           - type: line_divider

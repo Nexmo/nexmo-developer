@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - Flask request jsonify
+code:
+    source: .repos/vonage/vonage-python-code-snippets/voice/handle-user-input-with-asr.py
+    from_line: 7
+    to_line: 43
+client:
+    source: .repos/vonage/vonage-python-code-snippets/voice/handle-user-input-with-asr.py
+    from_line: 1
+    to_line: 4
+file_name: handle-user-input-with-asr.py
+run_command: python handle-user-input-with-asr.py

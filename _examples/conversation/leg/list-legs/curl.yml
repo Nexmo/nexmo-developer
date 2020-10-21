@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/conversation/leg/list-legs.sh
+    source: .repos/vonage/vonage-curl-code-snippets/conversation/leg/list-legs.sh
     from_line: 6
     to_line: 8
 file_name: list-legs.sh

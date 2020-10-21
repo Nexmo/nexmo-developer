@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/reports/create-async-report.sh
+    source: .repos/vonage/vonage-curl-code-snippets/reports/create-async-report.sh
     from_line: 5
     to_line: 16
 file_name: create-async-report.sh

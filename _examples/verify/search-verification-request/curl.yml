@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/verify/search-for-verify-request.sh
+    source: .repos/vonage/vonage-curl-code-snippets/verify/search-for-verify-request.sh
     from_line: 4
     to_line: 4
 file_name: search-for-verify-request.sh

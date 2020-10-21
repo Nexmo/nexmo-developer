@@ -72,28 +72,27 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/f
 To connect Vonage API Application with Firebase you will need the following:
 
 1. Vonage API Application id
-2. Vonage User name
-3. Vonage JWT token 
-4. Firebase project id
-5. Firebase Private Key file
+2. Vonage developer JWT 
+3. Firebase project id
+4. Firebase token
 
 ### Get Vonage application Id
 
 Obtain your `VONAGE_APP_ID`. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have an application already you can create the new application via [Nexmo CLI](/client-sdk/setup/create-your-application).
 
-### Create a Vonage User
-
-Get your `VONAGE_USER_NAME`. If you don't have user already you can create one using [Nexmo CLI](/client-sdk/setup/create-your-application#create-a-user).
-
-### Generate a Vonage User JWT
+### Generate a Vonage developer JWT
 
 [JWTs](https://jwt.io) are used to authenticate a user into the Client SDK.
 
-To generate a `VONAGE_JWT` for a specific user run the following command. Remember to replace the `APP_ID` and `USER_NAME` variables with values that suit your application:
+To generate a `VONAGE_DEV_JWT` run the following command. Remember to replace the `VONAGE_APP_ID` with id of your Vonage application:
 
 ```bash
-nexmo jwt:generate ./private.key sub=VONAGE_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=VONAGE_APP_ID
+nexmo jwt:generate ./private.key exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=VONAGE_APP_ID
 ```
+
+> **NOTE** The above commands set the expiry of the JWT to one day from now, which is the maximum.
+
+> **NOTE** A `VONAGE_DEV_JWT` is a JWT without a sub claim. 
 
 > **NOTE:** More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
@@ -109,31 +108,40 @@ image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-pr
 image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-project-id.png
 ```
 
-### Get Firebase private key file
+### Get Firebase token
 
-Get your `FIREBASE_PRIVATE_KEY_FILE` from the Firebase console. Navigate to `Firebase console ->  Project settings -> Service accounts` and generate a new private key. 
+Get your `FIREBASE_TOKEN` from the Firebase console. Navigate to `Firebase console ->  Project settings -> Service accounts` and generate a new private key. 
 
 ```screenshot
 image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-project-settings.png
 ```
 
 ```screenshot
-image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-generate-new-private-key.png
+image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-token.png
+```
+
+## Link the Nexmo backend push service with the Firebase application
+
+To link the Nexmo backend push service with the Firebase application you need to make a single request.
+
+Fill `VONAGE_APP_ID`, `VONAGE_DEV_JWT`, `FIREBASE_PROJECT_ID` and `FIREBASE_TOKEN` with previously obtained values and run the below command:
+
+```sh
+VONAGE_APP_ID=
+VONAGE_DEV_JWT=
+FIREBASE_PROJECT_ID=
+FIREBASE_TOKEN=
+
+curl -v -X PUT \
+   -H "Authorization: Bearer $VONAGE_DEV_JWT" \
+   -H "Content-Type: application/json" \
+   -d "{\"token\":\"$FIREBASE_TOKEN\", \"projectId\":\"$FIREBASE_PROJECT_ID\"}" \
+   https://api.nexmo.com/v1/applications/$VONAGE_APP_ID/push_tokens/android  
 ```
 
 ## Putting it all together
 
-Now your Android client is ready to receive push notifications. 
-
-Replace `VONAGE_JWT`, `FIREBASE_PRIVATE_KEY_FILE`, `FIREBASE_PROJECT_ID`, `VONAGE_APP_ID` with previously obtained values to send a push notification.
-
-```sh
-curl -v -X PUT \
-   -H "Authorization: Bearer $VONAGE_JWT" \
-   -H "Content-Type: application/json" \
-   -d "{\"token\":\"$FIREBASE_PRIVATE_KEY_FILE\", \"projectId\":\"$FIREBASE_PROJECT_ID\"}" \
-   https://api.nexmo.com/v1/applications/$VONAGE_APP_ID/push_tokens/android  
-```
+Now you can test your push notification setup by calling any user. Incoming call will trigger `onIncomingCall` callback presented above.
 
 ## Conclusion
 

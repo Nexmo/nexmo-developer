@@ -21,5 +21,4 @@ public string From { get; set; }
 [Required(ErrorMessage = "Message Text Required", AllowEmptyStrings = false)]
 [Display(Name = "Message Text")]
 public string Text { get; set; }
-}
 ```

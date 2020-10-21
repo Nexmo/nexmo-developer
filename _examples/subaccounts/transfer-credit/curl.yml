@@ -2,7 +2,7 @@
 title: cURL
 language: curl
 code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/subaccounts/transfer-credit.sh
+    source: .repos/vonage/vonage-curl-code-snippets/subaccounts/transfer-credit.sh
     from_line: 5
     to_line: 7
 file_name: transfer-credit.sh

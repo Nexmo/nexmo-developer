@@ -33,7 +33,7 @@ Variable | Description
 `VONAGE_API_KEY` | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `VONAGE_API_SECRET` | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
 `ACCOUNT_ID` | The account ID (same as `VONAGE_API_KEY`) for the account you want to generate reports, or retrieve records for.
-`REPORT_PRODUCT` | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+`REPORT_PRODUCT` | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
 `REQUEST_ID` | When you request creation of report asynchronously, a `request_id` for the report generation is returned.
 `DATE_START` | Date of time window from when you want to start gathering records in ISO-8601 format.
 `DATE_END` | Date of time window from when you want to stop gathering records in ISO-8601 format.
@@ -72,13 +72,13 @@ curl -G --data-urlencode date_start="2020-06-04T08:00:00+0000" --data-urlencode 
 
 ### Product
 
-The API calls Load Records Synchronously and Generate Report Asynchronously require you to specify a product. The `product` parameter specifies the Vonage API product for which reports and records are obtained. `product` can be one of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+The API calls Load Records Synchronously and Generate Report Asynchronously require you to specify a product. The `product` parameter specifies the Vonage API product for which reports and records are obtained. `product` can be one of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
 
 The following table shows which API call use `product`:
 
 Parameter | Load records sync | Generate report async | List reports | Get report status | Cancel report | Get report | Notes
 ----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|----
-`product` | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | Required to load records or generate reports. One of `SMS`, `VOICE-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES` or `CONVERSATIONS`.
+`product` | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | Required to load records or generate reports. One of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
 
 **Table legend:** ✅ = required | ❌ = n/a
 
