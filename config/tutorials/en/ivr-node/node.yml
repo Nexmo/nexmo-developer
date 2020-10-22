@@ -13,7 +13,7 @@ introduction:
   
     The scenario is this: a customer phones a delivery company to find out the status of their order. They are prompted to enter their order number and then hear a spoken response that tells them the status of their order. (The status is generated randomly in this example).
   
-    This tutorial is based on the [Simple IVR](https://developer.nexmo.com/use-cases/interactive-voice-response) use case. All the code is available on [GitHub](https://github.com/spiritbro1/nodejs-phone-menu).
+    This tutorial is based on the [Simple IVR](/use-cases/interactive-voice-response) use case. All the code is available on [GitHub](https://github.com/spiritbro1/nodejs-phone-menu).
 
 prerequisites:
 - create-nexmo-account
