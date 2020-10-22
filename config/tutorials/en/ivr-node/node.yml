@@ -5,7 +5,7 @@ products:
 
 introduction: 
   title: Introduction to this tutorial
-  description: This tutorial shows you how to Build an automated phone system for users to input information with the keypad and hear a spoken response with Node.js.
+  description: This tutorial shows you how to build an automated phone system using Node.js, where callers request information using the keypad and hear a spoken response.
   content: |
     # Interactive Voice Response
 
