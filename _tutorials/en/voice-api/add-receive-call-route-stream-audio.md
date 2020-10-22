@@ -5,7 +5,7 @@ description: Adds an inbound call route for playing streamed audio into a call
 
 # Add a Receive Call Route
 
-You will now provide an [answer webhook](/voice/voice-api/webhook-reference#answer-webhook) so that when you receive an inbound call on your virtual number, the Vonage API platform will notify us on that webhook via an HTTP request.
+You will now provide an [answer webhook](/voice/voice-api/webhook-reference#answer-webhook) so that when you receive an inbound call on your virtual number, the Vonage API platform will notify you on that webhook via an HTTP request.
 
 The webhook will return an [NCCO](/voice/voice-api/ncco-reference) to Vonage containing a single `stream` action, which will play the audio from the file located at the `STREAM_URL` into the call.
 

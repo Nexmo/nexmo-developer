@@ -14,13 +14,15 @@ Each of these methods is described in the following sections.
 
 ### How to create a Voice application using the Nexmo CLI
 
-To create your application using the Nexmo CLI, enter the following command into the shell replacing `NGROK_HOST_NAME` with the ngrok host that you got when you setup ngrok:
+To create your application using the Nexmo CLI, enter the following command into the shell replacing `NGROK_HOST_NAME` with the ngrok host that you got when you set up ngrok:
 
 ``` shell
 nexmo app:create "AspNetTestApp" http://NGROK_HOST_NAME/webhooks/answer http://NGROK_HOST_NAME/webhooks/events
 ```
 
-This creates a Nexmo application with a voice [capability](/application/overview#capabilities), with the webhook URLs configured as specified, and generate a private key file `private.key` - save this private key. Take note of the application ID produced as well. Use the application ID along with your Vonage Virtual number to run the following command.
+This command creates a Vonage Application with Voice [capability](/application/overview#capabilities). It  configures the Application with your answer and event webhook URLs and generates a private key file `private.key`, which you should save in your project directory.
+
+The command returns a unique Application ID. Use this Application ID to link your Vonage virtual number to your Application by executing the following:
 
 ```shell
 nexmo link:app VONAGE_NUMBER APPLICATION_ID
@@ -44,11 +46,11 @@ To create your application using the Dashboard:
 
 5. In the **Answer URL** box, enter the URL for your inbound calls webhook, for example, `http://example.com/webhooks/answer`.
 
-6. In the **Event URL** box, enter the URL for your call status webhooks, for example, `http://example.com/webhooks/events`.
+6. In the **Event URL** box, enter the URL for your call status webhook, for example, `http://example.com/webhooks/events`.
 
 7. Click the **Generate new application** button.
 
-8. You are now taken to the next step of the Create Application procedure where you can link a Vonage number to the application, link your Vonage virtual number to the application.
+8. You are now taken to the next step of the Create Application procedure where you should link your Vonage number to the application.
 
 You have now created your application.
 

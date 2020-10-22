@@ -7,7 +7,7 @@ description: This describes how to create the csproj for a .NET Voice Applicatio
 
 To start, you will create an SMS `csproj` file. You will have it not configure kestrel for https for testing purposes.
 
-In your terminal, execute the following command.
+In your terminal, execute the following command:
 
 ```shell
 dotnet new mvc --no-https -n VonageVoice
