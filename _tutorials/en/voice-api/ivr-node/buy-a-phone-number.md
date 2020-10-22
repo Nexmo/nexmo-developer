@@ -17,4 +17,4 @@ Number purchased: 441632960960
 The `number:buy` command allows you to specify which country the number should be in, using [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). By specifying `--confirm` as well, we don't need to confirm the choice of number, the first available one will be purchased.
 
 
-Now we can set up the phone number to point to the application you created earlier.
+Now you can set up the phone number to point to the application you created earlier.
