@@ -1,0 +1,55 @@
+title: How to Play Audio into a Call with .NET
+products:
+ - voice/voice-api
+description: A tutorial showing you how to build an app that will play audio into a PSTN call
+languages:
+ - dotnet
+
+introduction:
+  title: Introduction to this tutorial
+  description: This tutorial shows you how to play audio into a phone call using .NET
+  content: |
+    # Introduction
+    The [Vonage Voice API](/voice/voice-api/overview) is the easiest way to build high-quality voice applications in the Cloud. In this tutorial you will learn how to stream pre-recorded audio into both inbound and outbound calls using .NET and the Vonage Voice API.
+
+    This tutorial provides step by step instructions showing you how to:
+
+    1. Set up a Vonage account
+    1. Create a Vonage Application
+    1. Configure a Vonage Application 
+    1. Create an ASP.NET Core application
+    1. Add the Vonage package to it
+    1. Receive a call and play audio into it
+    1. Place a call with streamed audio played into it
+
+prerequisites:
+  - create-nexmo-account
+  - install-nexmo-cli
+  - run-ngrok
+  - voice-api/create-vonage-application
+
+tasks:
+  - voice-api/create-voice-csproj  
+  - voice-api/install-vonage-dotnet
+  - voice-api/create-voice-controller
+  - voice-api/add-make-call-action-streamed-audio
+  - voice-api/add-receive-call-route-stream-audio
+  - voice-api/add-voice-view
+  - voice-api/manage-startup-route
+  - voice-api/configure-aspnet-app
+  - run-dotnet-app
+
+conclusion:
+  title: What's Next?
+  content: |
+    # What's Next?
+
+    Find out more about the capabilities of the Vonage Voice API:
+
+    - [Read the Voice API documentation](/voice/voice-api/overview)
+    - [View the API Reference](https://developer.nexmo.com/voice/voice-api/api-reference)
+    - [Play Text To Speech into a Call](https://developer.nexmo.com/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/dotnet)
+    - [Record a Call](https://developer.nexmo.com/voice/voice-api/code-snippets/record-a-call/dotnet)    
+    - [Take Speech Input](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-asr/dotnet)
+    - [Handle User Key Input](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-dtmf)
+    - [NCCO Reference](https://developer.nexmo.com/voice/voice-api/ncco-reference)
