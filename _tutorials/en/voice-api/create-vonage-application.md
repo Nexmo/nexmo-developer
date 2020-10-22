@@ -5,7 +5,7 @@ meta_title: Create a Voice application for the Vonage APIs
 meta_description: A Voice application has an answer webhook and an events webhook.
 ---
 
-There are two alternative methods for creating a Voice application:
+There are two methods for creating a Voice application:
 
 1. Using the Nexmo CLI
 2. Using the Dashboard
