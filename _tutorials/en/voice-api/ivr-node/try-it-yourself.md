@@ -8,15 +8,15 @@ There's a detailed walkthrough of the code sample but for the impatient, let's t
 
 Start by cloning the [repository](https://github.com/spiritbro1/nodejs-phone-menu) if you haven't already.
 
-In the project directory, run vercel command to login to your vercel account:
+In the project directory, run `vercel` command to login to your `vercel` account:
 
 ```
 vercel login
 ```
 
-> If you're using vercel, it will generate a URL. You can also set your own domain at vercel. It might also be useful to know that there is a `nexmo app:update` command if you need update the URLs you set at any time
+> If you're using `vercel`, it will generate a URL. You can also set your own domain at `vercel`. It might also be useful to know that there is a `nexmo app:update` command if you need update the URLs you set at any time
 
-All set? Then deploy the serverless function to vercel:
+All set? Then deploy the serverless function to `vercel`:
 
 ```
 vercel .
