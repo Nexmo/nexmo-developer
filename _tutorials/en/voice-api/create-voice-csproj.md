@@ -5,7 +5,7 @@ description: This describes how to create the csproj for a .NET Voice Applicatio
 
 # Create the Voice Project File
 
-To start, you will create an Voice `csproj` file. To make testing easier, configure Kestrel with HTTPS disabled.
+To start, you will create a Voice `csproj` file. To make testing easier, configure Kestrel with HTTPS disabled.
 
 In your terminal, execute the following command:
 
