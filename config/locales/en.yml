@@ -37,6 +37,8 @@ en:
     configure: Configure
     contribute: Contribute
     structure: Structure
+    content-types: Content Types
+    tutorials-and-use-cases: Tutorials and Use Cases
     sdk-documentation: SDK Documentation
     android: Android
     ios: iOS
