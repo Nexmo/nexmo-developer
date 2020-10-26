@@ -11,7 +11,7 @@ There are three groups of contact center oriented use-cases where the Voice API 
 
 * **Self-service**. Offer more choice with customers having the option to select self-service for faster resolutions to low complexity inquiries with smart FAQs.
 * **Real-time analytics and agent assist**. Empower agents with real time insights and in-call tools delivered through AI engines.  Provide feedback to the customer’s real time call experience and populate key information so agents can provide a top level customer experience.
-* **Post-call analytics**. Extract meaningful insights from recorded calls or chats to help agents and supervisors better understand conversations with customers, uncovering patterns and quality issues so they can resolve issues faster and ultimately improve the overall customer experience. Post-call speech analytics dashboards, driving agent and operational performance statistics, provides insights for managers, quality assurance personnel, and other leadership groups.
+* **Post-call analytics**. Extract meaningful insights from recorded calls or chats to help agents and supervisors better understand conversations with customers, uncovering patterns, and quality issues so they can resolve issues faster and ultimately improve the overall customer experience. Post-call speech analytics dashboards, driving agent, and operational performance statistics, provide insights for managers, quality assurance personnel, and other leadership groups.
 
 For *self-service* cases, Voice API provides the following set of features:
 
