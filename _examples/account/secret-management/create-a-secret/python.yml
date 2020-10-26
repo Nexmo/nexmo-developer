@@ -2,11 +2,11 @@
 title: Python
 language: python
 code:
-  source: .repos/vonage/vonage-python-code-snippets/account/secrets/create-secret.py
+  source: .repos/vonage/vonage-python-code-snippets/secrets/create-secret.py
   from_line: 22
   to_line: 36
 client:
-  source: .repos/vonage/vonage-python-code-snippets/account/secrets/create-secret.py
+  source: .repos/vonage/vonage-python-code-snippets/secrets/create-secret.py
   from_line: 11
   to_line: 13
 file_name: create-secret.py
