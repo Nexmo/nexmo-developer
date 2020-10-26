@@ -3,13 +3,13 @@ title: Python
 language: python
 dependencies:
   - nexmo
-code:
-  source: .repos/vonage/vonage-python-code-snippets/voice/mute-a-call.py
-  from_line: 20
-  to_line: 24
 client:
   source: .repos/vonage/vonage-python-code-snippets/voice/mute-a-call.py
-  from_line: 15
-  to_line: 18
+  from_line: 16
+  to_line: 19
+code:
+  source: .repos/vonage/vonage-python-code-snippets/voice/mute-a-call.py
+  from_line: 21
+  to_line: 25
 file_name: mute-a-call.py
 run_command: "python3 mute-a-call.py"

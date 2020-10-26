@@ -3,13 +3,13 @@ title: Python
 language: python
 dependencies:
     - nexmo
-code:
-    source: .repos/vonage/vonage-python-code-snippets/voice/play-audio-stream-into-call.py
-    from_line: 8
-    to_line: 9
 client:
     source: .repos/vonage/vonage-python-code-snippets/voice/play-audio-stream-into-call.py
-    from_line: 1
-    to_line: 6
+    from_line: 12
+    to_line: 15
+code:
+    source: .repos/vonage/vonage-python-code-snippets/voice/play-audio-stream-into-call.py
+    from_line: 17
+    to_line: 20
 file_name: play-audio-stream-into-call.py
 run_command: 'python3 play-audio-stream-into-call.py'

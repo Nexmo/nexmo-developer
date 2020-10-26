@@ -5,11 +5,11 @@ dependencies:
     - nexmo
 code:
     source: .repos/vonage/vonage-python-code-snippets/account/get-balance.py
-    from_line: 16
-    to_line: 17
+    from_line: 14
+    to_line: 15
 client:
     source: .repos/vonage/vonage-python-code-snippets/account/get-balance.py
-    from_line: 14
-    to_line: 14
+    from_line: 12
+    to_line: 12
 file_name: get-balance.py
 run_command: python get-balance.py

@@ -1,0 +1,13 @@
+---
+title: Python
+language: python
+code:
+  source: .repos/vonage/vonage-python-code-snippets/account/secrets/revoke-secret.py
+  from_line: 15
+  to_line: 22
+client:
+  source: .repos/vonage/vonage-python-code-snippets/account/secrets/revoke-secret.py
+  from_line: 11
+  to_line: 13
+file_name: revoke-secret.py
+run_command: "python3 revoke-secret.py"

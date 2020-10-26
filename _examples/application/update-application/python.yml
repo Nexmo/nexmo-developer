@@ -3,11 +3,11 @@ title: Python
 language: python
 code:
   source: .repos/vonage/vonage-python-code-snippets/application/update-application.py
-  from_line: 19
-  to_line: 58
+  from_line: 20
+  to_line: 57
 client:
   source: .repos/vonage/vonage-python-code-snippets/application/update-application.py
-  from_line: 14
-  to_line: 17
+  from_line: 15
+  to_line: 18
 file_name: update-application.py
 run_command: "python3 update-application.py"

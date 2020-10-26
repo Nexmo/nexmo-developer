@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+  - nexmo
+client:
+  source: .repos/vonage/vonage-python-code-snippets/verify/search.py
+  from_line: 19
+  to_line: 21
+code:
+  source: .repos/vonage/vonage-python-code-snippets/verify/search.py
+  from_line: 25
+  to_line: 28
+file_name: search.py
+run_command: "python search.py"

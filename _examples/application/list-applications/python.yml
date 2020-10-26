@@ -3,11 +3,11 @@ title: Python
 language: python
 code:
   source: .repos/vonage/vonage-python-code-snippets/application/list-applications.py
-  from_line: 18
+  from_line: 20
   to_line: 20
 client:
   source: .repos/vonage/vonage-python-code-snippets/application/list-applications.py
-  from_line: 13
-  to_line: 16
+  from_line: 15
+  to_line: 18
 file_name: list-applications.py
 run_command: "python3 list-applications.py"

@@ -3,12 +3,13 @@ title: Python
 language: python
 dependencies:
     - nexmo
-code:
-    source: .repos/vonage/vonage-python-code-snippets/voice/play-dtmf-into-call.py
-    from_line: 8
 client:
     source: .repos/vonage/vonage-python-code-snippets/voice/play-dtmf-into-call.py
-    from_line: 1
-    to_line: 6
+    from_line: 13
+    to_line: 16
+code:
+    source: .repos/vonage/vonage-python-code-snippets/voice/play-dtmf-into-call.py
+    from_line: 18
+    to_line: 20
 file_name: play-dtmf-into-call.py
 run_command: 'python3 play-dtmf-into-call.py'

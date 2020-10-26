@@ -3,13 +3,13 @@ title: Python
 language: python
 dependencies:
     - nexmo
-code:
-    source: .repos/vonage/vonage-python-code-snippets/voice/retrieve-info-for-a-call.py
-    from_line: 10
-    to_line: 12
 client:
     source: .repos/vonage/vonage-python-code-snippets/voice/retrieve-info-for-a-call.py
-    from_line: 2
-    to_line: 8
+    from_line: 15
+    to_line: 20
+code:
+    source: .repos/vonage/vonage-python-code-snippets/voice/retrieve-info-for-a-call.py
+    from_line: 23
+    to_line: 24
 file_name: retrieve-info-for-a-call.py
 run_command: 'python3 retrieve-info-for-a-call.py'

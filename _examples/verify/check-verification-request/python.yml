@@ -5,11 +5,11 @@ dependencies:
     - nexmo
 client:
     source: .repos/vonage/vonage-python-code-snippets/verify/check.py
-    from_line: 20
-    to_line: 22
+    from_line: 21
+    to_line: 21
 code:
     source: .repos/vonage/vonage-python-code-snippets/verify/check.py
-    from_line: 24
-    to_line: 29
+    from_line: 25
+    to_line: 28
 file_name: check.py
 run_command: 'python check.py'

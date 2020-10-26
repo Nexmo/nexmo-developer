@@ -3,13 +3,13 @@ title: Python
 language: python
 dependencies:
     - '''flask>=1.0'''
-code:
-    source: .repos/vonage/vonage-python-code-snippets/voice/record-a-message.py
-    from_line: 10
-    to_line: 37
 client:
     source: .repos/vonage/vonage-python-code-snippets/voice/record-a-message.py
     from_line: 2
-    to_line: 7
+    to_line: 6
+code:
+    source: .repos/vonage/vonage-python-code-snippets/voice/record-a-message.py
+    from_line: 9
+    to_line: 40
 file_name: record-a-message.py
 run_command: 'python3 record-a-message.py'
