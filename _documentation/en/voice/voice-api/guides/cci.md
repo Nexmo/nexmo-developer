@@ -9,7 +9,7 @@ navigation_weight: 9
 The Vonage Voice API, together with partner solutions, empowers you with the cutting-edge technology of phone call processing, assistance, and analytics, which is extremely helpful for Contact Center cases. It does not matter if you’re building a Contact Center solution from scratch, or already have a legacy CC/PBX solution which you want to extend with modern features and workflows such as AI voice assistants or sentiment analysis, Voice API and partner solutions are ideal to assist you.
 There are three groups of contact center oriented use-cases where the Voice API can help:
 
-* **Self-service**. Offer more choice with customers having the options to select self-service for faster resolutions to low complexity inquiries with smart FAQs.
+* **Self-service**. Offer more choice with customers having the option to select self-service for faster resolutions to low complexity inquiries with smart FAQs.
 * **Real-time analytics and agent assist**. Empower agents with real time insights and in-call tools delivered through AI engines.  Provide feedback to the customer’s real time call experience and populate key information so agents can provide a top level customer experience.
 * **Post-call analytics**. Extract meaningful insights from recorded calls or chats to help agents and supervisors better understand conversations with customers, uncovering patterns and quality issues so they can resolve issues faster and ultimately improve the overall customer experience. Post-call speech analytics dashboards, driving agent and operational performance statistics, provides insights for managers, quality assurance personnel, and other leadership groups.
 
