@@ -1,9 +1,15 @@
 ---
-code:
-  source: .repos/vonage/vonage-python-code-snippets/voice/make-outbound-call-ncco.py
-  from_line: 10
-  to_line: 16
+title: Python
+language: python
+dependencies:
+  - nexmo
 client:
   source: .repos/vonage/vonage-python-code-snippets/voice/make-outbound-call-ncco.py
-  from_line: 21
-  to_line: 29
+  from_line: 17
+  to_line: 20
+code:
+  source: .repos/vonage/vonage-python-code-snippets/voice/make-outbound-call-ncco.py
+  from_line: 22
+  to_line: 30
+file_name: make-outbound-call-ncco.py
+run_command: "python3 make-outbound-call-ncco.py"

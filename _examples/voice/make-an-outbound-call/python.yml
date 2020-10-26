@@ -2,14 +2,14 @@
 title: Python
 language: python
 dependencies:
-  - nexmo
+  - vonage
 client:
   source: .repos/vonage/vonage-python-code-snippets/voice/make-an-outbound-call.py
-  from_line: 17
-  to_line: 20
+  from_line: 16
+  to_line: 19
 code:
   source: .repos/vonage/vonage-python-code-snippets/voice/make-an-outbound-call.py
-  from_line: 22
-  to_line: 30
+  from_line: 21
+  to_line: 29
 file_name: make-an-outbound-call.py
 run_command: "python3 make-an-outbound-call.py"
