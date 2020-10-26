@@ -24,7 +24,6 @@ You can use the Vonage API developer dashboard to:
 * [Auto reload your account balance](#auto-reload-your-account-balance)
 * [Setup balance notifications](#setup-balance-notifications)
 * [Delete a payment method](#delete-a-payment-method)
-* [Change balance currency](#change-balance-currency)
 * [Generate invoices](#generate-invoices)
 
 ### Add a payment method
