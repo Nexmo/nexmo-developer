@@ -11,28 +11,28 @@ There are three groups of contact center oriented use-cases where the Voice API 
 
 * **Self-service**. Offer more choice with customers having the option to select self-service for faster resolutions to low complexity inquiries with smart FAQs.
 * **Real-time analytics and agent assist**. Empower agents with real-time insights and in-call tools delivered through AI engines.  Provide feedback to the customer’s real-time call experience and populate key information so agents can provide a top-level customer experience.
-* **Post-call analytics**. Extract meaningful insights from recorded calls or chats to help agents and supervisors better understand conversations with customers, uncovering patterns, and quality issues so they can resolve issues faster and ultimately improve the overall customer experience. Post-call speech analytics dashboards, driving agent, and operational performance statistics, provide insights for managers, quality assurance personnel, and other leadership groups.
+* **Post-call analytics**. Extract meaningful insights from recorded calls or chats to help agents and supervisors better understand conversations with customers. Uncover patterns and quality concerns so that they can resolve issues faster and ultimately improve the overall customer experience. Post-call speech analytics dashboards drive agent and operational performance statistics and provide insights for managers, quality assurance personnel, and other leadership groups.
 
 For *self-service* cases, the Voice API provides the following set of features:
 
 * [Text-to-Speech](/voice/voice-api/guides/text-to-speech) and [Speech Recognition](/voice/voice-api/guides/asr) for advanced IVR or simple voice bots. Follow this [tutorial](/use-cases/asr-use-case-voice-bot) to learn more.
 * [WebSockets](/voice/voice-api/guides/websockets) allow you to connect phone calls to any AI bot engine of your choice. Clone our [reference application](https://github.com/Nexmo/lex-connector) to quickly start with [Amazon Lex](https://aws.amazon.com/lex/) integration, which provides the advanced deep learning functionalities of natural language understanding (NLU) to recognize the intent of the text, to enable you to build applications with highly engaging user experiences and lifelike conversational interactions. 
 
-With WebSockets, you can also embed any kind of real-time analytics into your contact center. With an NCCO [`connect`](/voice/voice-api/ncco-reference#connect) action, you can attach WebSocket one-way (or two-way, depending on the case) stream to any inbound or outbound call and then pass the media to an analytics engine, such as [Amazon Transcribe](https://aws.amazon.com/transcribe/). You can further do a deeper analysis with [Amazon Comprehend](https://aws.amazon.com/comprehend/) to provide the agent with useful insights and real-time hints during the call.
+With WebSockets, you can also embed any kind of real-time analytics into your contact center. With an NCCO [`connect`](/voice/voice-api/ncco-reference#connect) action, you can attach WebSocket one-way (or two-way, depending on the case) stream to any inbound or outbound call and then pass the media to an analytics engine, such as [Amazon Transcribe](https://aws.amazon.com/transcribe/). You can perform a deeper analysis with [Amazon Comprehend](https://aws.amazon.com/comprehend/) to provide the agent with useful insights and real-time hints during the call.
 
 After the call is completed, it is likely you may want to keep the keynotes, as well as be able to search through the recordings. In order to do that, the Voice API allows you to record every call or part of the call so that you can store and analyze it. Learn how to do that with our [Transcribe a Recorded Call with Amazon Transcribe](/use-cases/trancribe-amazon-api) complete tutorial.
 
 ## How it works
 
-Let’s take a closer look at the components of the solution you may want to build for each use case.
+Let’s take a closer look at the components of the solution you might want to build for each use case.
 
 ### IVR
 
-For the typical IVR case, the user is calling a PSTN (phone) number and interacts with the virtual operator by choosing the options via DTMF tones (key input) or by saying the option (speech input). To build a solution like this, what is needed is a [Vonage virtual number](/numbers/overview) assigned to your [application](/application/overview), which interacts with the user through the Vonage Voice API platform by providing [NCCO](/voice/voice-api/guides/ncco) commands (actions) such as [`talk`](/voice/voice-api/ncco-reference#talk) for Text-to-Speech message and [`input`](/voice/voice-api/ncco-reference#input) for DTMF/speech input:
+For the typical IVR case, the user calls a PSTN (phone) number and interacts with the virtual operator by choosing the options via DTMF tones (key input) or by saying the option (speech input). To build a solution like this, what is needed is a [Vonage virtual number](/numbers/overview) assigned to your [application](/application/overview), which interacts with the user through the Vonage Voice API platform by providing [NCCO](/voice/voice-api/guides/ncco) commands (actions) such as [`talk`](/voice/voice-api/ncco-reference#talk) for Text-to-Speech message and [`input`](/voice/voice-api/ncco-reference#input) for DTMF/speech input:
 
 ![IVR](/images/voice-api/cci_ivr.png)
 
-Vonage encapsulates all the complexity of the carrier connections’ complexity, so all you need is to provision a Vonage virtual number, assign it to your app, and implement HTTP request handlers ([webhooks](/voice/voice-api/webhook-reference)) to instruct the Voice platform with the desired call control [actions](/voice/voice-api/ncco-reference). Building a simple IVR is this easy.
+Vonage deals with the complexity of connecting the call, so all you need is to provision a Vonage virtual number, assign it to your app, and implement HTTP request handlers ([webhooks](/voice/voice-api/webhook-reference)) to instruct the Voice platform with the desired call control [actions](/voice/voice-api/ncco-reference). Building a simple IVR is this easy.
 
 Quite a similar approach can be used for voice notifications with or without IVR as a part of it. The difference is that now your app initiates the call with a [REST API](/api/voice#createCall) (HTTP) request:
 
