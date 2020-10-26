@@ -52,23 +52,23 @@ If you want to enhance your IVR with natural language understanding (NLU), you m
 
 ![Voice Bot](/images/voice-api/cci_bot.png)
 
-To start quickly with implementation, clone the reference [Lex Connector](https://github.com/Nexmo/lex-connector) application, which has everything you need to connect the voice calls to your Lex bot.
+For a quick implementation, clone the reference [Lex Connector](https://github.com/Nexmo/lex-connector) application, which has everything you need to connect the voice calls to your Lex bot.
 
 Furthermore, when your bot detects user intent to have a conversation with a human agent, your application may send a [transfer](/voice/voice-api/code-snippets/transfer-a-call) request to the Vonage API, and it will connect the user to your Contact Center:
 
 ![Voice Bot with Transfer](/images/voice-api/cci_bot_transfer.png)
 
-Provide full context of the bot conversation to your CC by connecting directly to your CC using SIP and custom SIP Headers to transmit the correlation information.
+Provide full context of the bot conversation to your CC by connecting directly to your CC using SIP and custom SIP Headers to transmit the correlated information.
 
 ### Real-Time Analytics
 
-A quite similar approach can be used for real-time analysis of the conversation between the user and the agent: the user is connected to your contact center through the Vonage voice platform with the [`connect`](/voice/voice-api/ncco-reference#connect) action sent from your application, then another connect action is used to establish [WebSocket](/voice/voice-api/guides/websockets) connection for sending the call media to your app, which then sends it to the analytics engine. Your application may then send the results of the analysis, such as sentiment detected or hints to some widget on the screen of your agent, which can be embedded to your contact center user interface or be a standalone application as well:
+Use a similar approach to perform real-time analysis of the conversation between the user and the agent: the user is connected to your contact center through the Vonage voice platform with the [`connect`](/voice/voice-api/ncco-reference#connect) action sent from your application, then another `connect`action is used to establish a [WebSocket](/voice/voice-api/guides/websockets) connection for sending the call media to your app, which then sends it to the analytics engine. Your application may then send the results of the analysis, such as sentiment or call hints to the agent to some widget on your agent's screen. You could embed this widget in your contact center user interface or use it in a standalone application:
 
 ![CCI Analytics](/images/voice-api/cci_analytics.png)
 
 ### Post-call Analytics
 
-Vonage Voice API allows you to easily [record](/voice/voice-api/guides/recording) the conversation or a part of the conversation, depending on your call flow and the use case. With [multichannel recording](/voice/voice-api/guides/recording#multi-channel-recording) supported, the audio file can be further processed by various analytics services. Check our detailed tutorial to learn how to [transcribe the recording using Amazon Transcribe](/use-cases/trancribe-amazon-api).
+The Vonage Voice API enables you to easily [record](/voice/voice-api/guides/recording) the conversation or a part of the conversation, depending on your call flow and the use case. Because you can record across [multiple channels](/voice/voice-api/guides/recording#multi-channel-recording), the audio file can be further processed by various analytics services. Check our detailed tutorial to learn how to [transcribe the recording using Amazon Transcribe](/use-cases/trancribe-amazon-api).
 
 ### Further Reading
 * Check [NCCO Reference](/voice/voice-api/ncco-reference) for all the supported NCCO actions
