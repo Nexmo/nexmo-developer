@@ -6,19 +6,19 @@ navigation_weight: 43
 
 # Payments
 
-You can top up your Nexmo account using PayPal, Visa, MasterCard, WeChat Pay (Australia, China, Hong Kong, Indonesia, Malaysia, New Zealand, Philippines and Taiwan only) or a bank transfer. For security reasons you can associate a credit card or PayPal account with only one Nexmo account.
+You can top up your Vonage account using PayPal, Visa, MasterCard, WeChat Pay (Australia, China, Hong Kong, Indonesia, Malaysia, New Zealand, Philippines and Taiwan only) or a bank transfer. For security reasons you can associate a credit card or PayPal account with only one Vonage account.
 
 > For more information on payment options, see [this knowledge base article](https://help.nexmo.com/hc/en-us/articles/213129327).
 
 One-click payments are quick and easy transactions made with a credit card stored for your account. You don't need to re-enter your credit card details as these are stored with our Payment Service Provider (PSP), [Braintree](https://www.braintreepayments.com/). Braintree (owned by PayPal) is [PCI level 1 compliant](https://www.braintreepayments.com/gb/features/data-security).
 
-> Nexmo does not store, manage or transmit any complete credit card information in accordance with its PCI Compliance certification. Nexmo has submitted and passed PCI DSS Self-Assessment Questionnaire Merchant Compliance and can produce evidence of this upon request.
+> Vonage does not store, manage or transmit any complete credit card information in accordance with its PCI Compliance certification. Vonage has submitted and passed PCI DSS Self-Assessment Questionnaire Merchant Compliance and can produce evidence of this upon request.
 
 If we receive any credit card information from any of our customers in an email or help desk ticket, we will immediately delete it and notify you that the information has been removed.
 
 ## Managing payments
 
-You can use the Nexmo developer dashboard to:
+You can use the Vonage API developer dashboard to:
 
 * [Add a payment method](#add-a-payment-method)
 * [Auto reload your account balance](#auto-reload-your-account-balance)
@@ -29,7 +29,7 @@ You can use the Nexmo developer dashboard to:
 
 ### Add a payment method
 
-To add a payment method to your Nexmo account:
+To add a payment method to your Vonage API account:
 
 1. Sign in to the [developer dashboard](https://dashboard.nexmo.com).
 2. In the left-hand navigation menu, click the arrow next to your user name, then click **Billing & payments**.
@@ -95,21 +95,9 @@ To remove a payment method from your account:
 4. Click the link next to the credit card or PayPal icon. You see the billing information for the payment method.
 5. Click **Delete** to remove this payment method.
 
-### Change balance currency
-
-By default, your balance is displayed in Euros. However, you can also view your balance in US Dollars (USD).
-
-To change the currency your balance is displayed in:
-
-1. Sign in to the [developer dashboard](https://dashboard.nexmo.com).
-2. In the left-hand navigation menu, click the arrow next to your user name, then click **Settings**.
-3. Set **Display balance in** to your chosen currency.
-
-> **Note**: This only changes the display in the Dashboard. Because Nexmo's operating currency is the Euro you are always charged in Euros. Prices shown in USD fluctuate with the USD-EUR exchange rate.
-
 ### Generate invoices
 
-Nexmo uses a third party provider to generate invoices. When you request an invoice our provider sends the invoice to either the  email address associated with your account or the finance email address defined in [Settings](https://dashboard.nexmo.com/billing-and-payments/settings). Invoices are printed by company name. If you use multiple Nexmo accounts you must set a different company name in each [account profile](https://dashboard.nexmo.com/edit-profile target:_blank).
+Vonage uses a third party provider to generate invoices. When you request an invoice our provider sends the invoice to either the  email address associated with your account or the finance email address defined in [Settings](https://dashboard.nexmo.com/billing-and-payments/settings). Invoices are printed by company name. If you use multiple Vonage API accounts you must set a different company name in each [account profile](https://dashboard.nexmo.com/edit-profile target:_blank).
 
 You can generate an invoice from Dashboard once for each payment:
 
