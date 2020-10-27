@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.7.1 - Oct 27, 2020
+
+### Enhancements
+
+- Improved outbound call stability.
+
 ## Version 2.7.0 - Sep 24, 2020
 
 ### Added
