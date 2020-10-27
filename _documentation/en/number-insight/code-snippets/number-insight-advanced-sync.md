@@ -7,7 +7,7 @@ navigation_weight: 6
 
 This code snippet shows you how to use Number Insight Advanced API synchronously.
 
-> **Note**: Nexmo does not recommend this approach, because it can result in timeouts. In most cases, you should use an [asynchronous call](number-insight-advanced-async) to the Number Insight API.
+> **Note**: Vonage does not recommend this approach, because it can result in timeouts. In most cases, you should use an [asynchronous call](number-insight-advanced-async) to the Number Insight API.
 
 Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/code-snippets/before-you-begin#replaceable-variables).
 

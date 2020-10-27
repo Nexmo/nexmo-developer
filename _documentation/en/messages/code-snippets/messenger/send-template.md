@@ -5,7 +5,7 @@ meta_title: Send a message template with Facebook Messenger
 
 # Send a Message Template
 
-In this code snippet you learn how to send a Facebook message template using a Nexmo [custom object](/messages/concepts/custom-objects) message using the Messages API.
+In this code snippet you learn how to send a Facebook message template using a [custom object](/messages/concepts/custom-objects) with the Messages API.
 
 ## Example
 

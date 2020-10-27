@@ -5,7 +5,7 @@ navigation_weight: 1
 
 # Get your current account balance
 
-You can check the balance of your Nexmo account at any time by making an API request and receiving the balance of your account in the response.
+You can check the balance of your Vonage account at any time by making an API request and receiving the balance of your account in the response.
 
 ```code_snippets
 source: _examples/account/get-balance

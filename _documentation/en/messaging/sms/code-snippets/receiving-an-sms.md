@@ -18,7 +18,7 @@ source: '_examples/messaging/sms/receiving-an-sms'
 
 ## Configure the webhook endpoint in your Vonage Dashboard
 
-So that Nexmo knows how to access your webhook, you must configure it in your Nexmo account.
+So that Vonage knows how to access your webhook, you must configure it in your Vonage account.
 
 In the code snippets, the webhook is located at `/webhooks/inbound-sms`. If you are using Ngrok, the webhook you need to configure in your [Vonage Dashboard API Settings page](https://dashboard.nexmo.com/settings) is of the form `https://demo.ngrok.io/webhooks/inbound-sms`. Replace `demo` with the subdomain provided by Ngrok and enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
 
@@ -29,7 +29,7 @@ image: public/screenshots/smsInboundWebhook.png
 
 ## Try it out
 
-Now when you send your Nexmo number an SMS you should see it logged in your console. The message object contains the following properties:
+Now when you send your Vonage number an SMS you should see it logged in your console. The message object contains the following properties:
 
 ```json
 {

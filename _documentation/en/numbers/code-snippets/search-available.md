@@ -13,8 +13,8 @@ Replace the following variables in the sample code with your own values:
 
 Name | Description
 --|--
-`VONAGE_API_KEY` | Your Vonage [API key](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
-`VONAGE_API_SECRET` | Your Vonage [API secret](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
+`VONAGE_API_KEY` | Your Vonage [API key](/concepts/guides/authentication#api-key-and-secret)
+`VONAGE_API_SECRET` | Your Vonage [API secret](/concepts/guides/authentication#api-key-and-secret)
 `COUNTRY_CODE` | The two digit country code for the numbers you want to search. For example: `GB` for the United Kingdom.
 `VONAGE_NUMBER_TYPE` | The type of number: `landline`, `mobile-lvn` or `landline-toll-free`
 `VONAGE_NUMBER_FEATURES` | The capabilities of the number: `SMS`, `VOICE` or `SMS,VOICE` for both

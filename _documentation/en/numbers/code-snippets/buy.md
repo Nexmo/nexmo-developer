@@ -5,11 +5,11 @@ navigation_weight: 3
 
 # Buy a Number
 
-You need to purchase a Nexmo [virtual number]() if you want to:
+You need to purchase a Vonage [virtual number](/concepts/guides/glossary#virtual-number) if you want to:
 
-* Make or receive telephone calls with the [Voice API](https://developer.nexmo.com/voice/voice-api/overview)
-* Receive inbound SMS with the [SMS API](https://developer.nexmo.com/messaging/sms/overview)
-* Use multichannel messaging with the [Messages API](https://developer.nexmo.com/messages/overview)
+* Make or receive telephone calls with the [Voice API](/voice/voice-api/overview)
+* Receive inbound SMS with the [SMS API](/messaging/sms/overview)
+* Use multichannel messaging with the [Messages API](/messages/overview)
 
 This page shows you how to buy a number programmatically.
 

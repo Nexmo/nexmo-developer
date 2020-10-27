@@ -1,12 +1,12 @@
 ---
 title: Send an SMS with Unicode
-description: How to send a Unicode SMS with the Nexmo SMS API
+description: How to send a Unicode SMS with the Vonage SMS API
 navigation_weight: 3
 ---
 
 # Sending an SMS with Unicode
 
-Nexmo's SMS API supports Unicode characters too, which you will need to use when communicating with customers in Chinese, Japanese and Korean.
+The Vonage SMS API supports Unicode characters too, which you will need to use when communicating with customers in Chinese, Japanese and Korean.
 
 To send an SMS that contains Unicode characters, replace the following variables in the example below:
 

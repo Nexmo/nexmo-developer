@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Number Insight Basic
 
-Use Nexmo's Number Insight Basic API to determine:
+Use the Vonage Number Insight Basic API to determine:
 
 * The country where a number is registered
 * The local and international representation of that number

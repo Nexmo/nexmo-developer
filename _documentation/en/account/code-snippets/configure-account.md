@@ -9,11 +9,11 @@ You can programmatically configure the settings for your account, such as the ca
 
 # Example
 
-This example shows how to set the URL that will be called when your Nexmo number receives an SMS.
+This example shows how to set the URL that will be called when your Vonage number receives an SMS.
 
 Key |	Description
 -- | --
-`SMS_CALLBACK_URL` | The publicly-accessible URL that Nexmo should send information to when your Nexmo number receives an SMS
+`SMS_CALLBACK_URL` | The publicly-accessible URL that Vonage should send information to when your Vonage number receives an SMS
 
 ```code_snippets
 source: _examples/account/configure-account

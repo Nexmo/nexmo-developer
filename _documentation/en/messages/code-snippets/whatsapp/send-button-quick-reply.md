@@ -5,9 +5,9 @@ meta_title: Send a quick reply button on WhatsApp using the Messages API
 
 # Send a Quick Reply Button
 
-In this code snippet you learn how to send a quick reply style button on WhatsApp. This uses Nexmo's [custom object](/messages/concepts/custom-objects) facility. You can reference the WhatsApp developer docs for the specifics of the [message format](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/interactive-message-templates).
+In this code snippet you learn how to send a quick reply style button on WhatsApp. This uses Vonage's [custom object](/messages/concepts/custom-objects) facility. You can reference the WhatsApp developer docs for the specifics of the [message format](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/interactive-message-templates).
 
-When the message recipient clicks on the quick reply button, Nexmo will `POST` relevant data to your inbound message webhook URL.
+When the message recipient clicks on the quick reply button, Vonage will `POST` relevant data to your inbound message webhook URL.
 
 ## Example
 
@@ -17,7 +17,7 @@ Key | Description
 -- | --
 `BASE_URL` | For production use the base URL is `https://api.nexmo.com/`. For sandbox testing the base URL is `https://messages-sandbox.nexmo.com/`.
 `MESSAGES_API_URL` | For production use the Messages API endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the Messages API endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
-`WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Nexmo. For sandbox testing the number is `14157386170`.
+`WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Vonage. For sandbox testing the number is `14157386170`.
 `TO_NUMBER` | The phone number you are sending the message to.
 `WHATSAPP_TEMPLATE_NAMESPACE` | The namespace ID found in your WhatsApp Business Account. Only templates created in your own namespace will work. Using an template with a namespace outside of your own results in an error code 1022 being returned. For sandbox testing the supported namespace is `9b6b4fcb_da19_4a26_8fe8_78074a91b584`.
 `WHATSAPP_TEMPLATE_NAME` | The name of the template created in your WhatsApp Business Account. For sandbox testing the `verify` template is currently available. Refer to [this table](/messages/concepts/messages-api-sandbox#whatsapp-templates-for-use-with-the-messages-api-sandbox) for new templates as they become available.

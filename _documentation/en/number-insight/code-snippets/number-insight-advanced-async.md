@@ -16,7 +16,7 @@ Use this information to determine the risk associated with a number.
 
 > Note that the Advanced API does not provide any extra information about landlines than the [Number Insight Standard API](/number-insight/code-snippets/number-insight-standard). For insights about landline numbers, use the Standard API.
 
-This code snippet shows you how to trigger an **asynchronous** call to the Number Insight API. __This is the approach Nexmo recommends__. You can optionally use the Number Insight Advanced API [synchronously](number-insight-advanced-sync), but be aware that synchronous use can result in timeouts.
+This code snippet shows you how to trigger an **asynchronous** call to the Number Insight API. __This is the approach Vonage recommends__. You can optionally use the Number Insight Advanced API [synchronously](number-insight-advanced-sync), but be aware that synchronous use can result in timeouts.
 
 Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](before-you-begin#replaceable-variables).
 

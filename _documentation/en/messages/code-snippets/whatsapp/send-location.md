@@ -5,7 +5,7 @@ meta_title: Send a location on WhatsApp using the Messages API
 
 # Send a Location
 
-In this code snippet you learn how to send a location to WhatsApp using the Messages API. This uses Nexmo's [Custom object](/messages/concepts/custom-objects) feature. Further information on the specific message format can be found in the WhatsApp developers [Location message](https://developers.facebook.com/docs/whatsapp/api/messages/others#location-messages) documentation.
+In this code snippet you learn how to send a location to WhatsApp using the Messages API. This uses Vonage's [Custom object](/messages/concepts/custom-objects) feature. Further information on the specific message format can be found in the WhatsApp developers [Location message](https://developers.facebook.com/docs/whatsapp/api/messages/others#location-messages) documentation.
 
 ## Example
 
@@ -15,7 +15,7 @@ Key | Description
 -- | --
 `BASE_URL` | For production use the base URL is `https://api.nexmo.com/`. For sandbox testing the base URL is `https://messages-sandbox.nexmo.com/`.
 `MESSAGES_API_URL` | For production use the Messages API endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the Messages API endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
-`WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Nexmo. For sandbox testing the number is `14157386170`.
+`WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Vonage. For sandbox testing the number is `14157386170`.
 `TO_NUMBER` | The phone number you are sending the message to.
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.

@@ -5,7 +5,7 @@ navigation_weight: 5
 
 # Cancel a Number
 
-If you no longer require a Nexmo virtual number that you have [purchased]() you can cancel it.
+If you no longer require a Vonage virtual number that you have [purchased]() you can cancel it.
 
 This page shows you how to cancel a number programmatically.
 
