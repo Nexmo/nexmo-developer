@@ -18,9 +18,11 @@ For *self-service* cases, the Voice API provides the following set of features:
 * [Text-to-Speech](/voice/voice-api/guides/text-to-speech) and [Speech Recognition](/voice/voice-api/guides/asr) for advanced IVR or simple voice bots. Follow this [tutorial](/use-cases/asr-use-case-voice-bot) to learn more.
 * [WebSockets](/voice/voice-api/guides/websockets) allow you to connect phone calls to any AI bot engine of your choice. Clone our [reference application](https://github.com/Nexmo/lex-connector) to quickly start with [Amazon Lex](https://aws.amazon.com/lex/) integration, which provides the advanced deep learning functionalities of natural language understanding (NLU) to recognize the intent of the text, to enable you to build applications with highly engaging user experiences and lifelike conversational interactions. 
 
-With WebSockets, you can also embed any kind of real-time analytics into your contact center. With an NCCO [`connect`](/voice/voice-api/ncco-reference#connect) action, you can attach WebSocket one-way (or two-way, depending on the case) stream to any inbound or outbound call and then pass the media to an analytics engine, such as [Amazon Transcribe](https://aws.amazon.com/transcribe/). You can perform a deeper analysis with [Amazon Comprehend](https://aws.amazon.com/comprehend/) to provide the agent with useful insights and real-time hints during the call.
+With WebSockets, you can also embed any kind of *real-time analytics* into your contact center. With an NCCO [`connect`](/voice/voice-api/ncco-reference#connect) action, you can attach WebSocket one-way (or two-way, depending on the case) stream to any inbound or outbound call and then pass the media to an analytics engine, such as [Amazon Transcribe](https://aws.amazon.com/transcribe/). You can perform a deeper analysis with [Amazon Comprehend](https://aws.amazon.com/comprehend/) to provide the agent with useful insights and real-time hints during the call.
 
-After the call is completed, it is likely you may want to keep the keynotes, as well as be able to search through the recordings. In order to do that, the Voice API allows you to record every call or part of the call so that you can store and analyze it. Learn how to do that with our [Transcribe a Recorded Call with Amazon Transcribe](/use-cases/trancribe-amazon-api) complete tutorial.
+*After the call is completed*, it is likely you may want to keep the keynotes, as well as be able to search through the recordings. In order to do that, the Voice API allows you to record every call or part of the call so that you can store and analyze it. Learn how to do that with our [Transcribe a Recorded Call with Amazon Transcribe](/use-cases/trancribe-amazon-api) complete tutorial.
+
+If you want to get everything working out of the box or if you are looking for a very specific case implementation, [Vonage AI](ai.vonage.com) offers turn-key solutions made by industry experts.
 
 ## How it works
 
@@ -74,3 +76,4 @@ The Vonage Voice API enables you to easily [record](/voice/voice-api/guides/reco
 * Check [NCCO Reference](/voice/voice-api/ncco-reference) for all the supported NCCO actions
 * Learn more about [WebSockets](/voice/voice-api/guides/websockets)
 * See how [Amazon Contact Center Intelligence](https://aws.amazon.com/machine-learning/contact-center-intelligence/) solutions may improve your customer experience
+* Visit [Vonage AI](ai.vonage.com) to learn how Vonage can build AI solution for you
