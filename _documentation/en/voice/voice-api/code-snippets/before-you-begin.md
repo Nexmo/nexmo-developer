@@ -14,16 +14,16 @@ Please read this information carefully, so you can best use the code snippets.
 
 ## Prerequisites
 
-1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
-2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number)
-3. [Install the Nexmo Command Line tools](/tools)
+1. [Create a Vonage account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
+2. [Rent a Vonage Number](/numbers/guides/number-management#rent-a-virtual-number)
+3. [Install the Vonage Command Line tools](/tools)
 4. [Create a Vonage Application using the command line tools or Dashboard](/concepts/guides/applications#getting-started-with-applications)
-5. [Install the Nexmo Library for your programming language](/tools)
+5. [Install the Vonage Library for your programming language](/tools)
 6. [Set up Ngrok](https://ngrok.com)
 
 Other resources:
 
-- [Nexmo's blog post on how to use Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
+- [Our blog post on how to use Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
 
 ## Replaceable variables
 
@@ -66,10 +66,10 @@ replaced by actual values. These may be specified on a per-code snippet basis.
 
 The main ones you will meet here are:
 
-* `/webhooks/answer` - Nexmo callback GETs from here. You supply an NCCO.
-* `/webhooks/event` - Nexmo callback POSTs to here. You receive JSON event.
-* `/webhooks/recordings` - Nexmo callback POSTs to here. You receive JSON object with recording details.
-* `/webhooks/dtmf` - Nexmo POSTs user DTMF input here in a JSON object.
+* `/webhooks/answer` - Vonage makes a GET request here when you receive an inbound call. You respond with an NCCO.
+* `/webhooks/event` - Vonage makes POST requests here when an event occurs. You receive a JSON event.
+* `/webhooks/recordings` - Vonage makes a POST request here when the recording is available. You receive a JSON object with recording details.
+* `/webhooks/dtmf` - Vonage POSTs user DTMF input here in a JSON object.
 
 If you are using Ngrok you will set your webhook URLs in the Vonage Application object to
 something like:

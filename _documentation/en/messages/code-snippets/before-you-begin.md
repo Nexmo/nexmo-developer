@@ -11,7 +11,7 @@ This topic provides some background information on using the code snippets.
 
 Code snippets are short pieces of code you can reuse in your own applications.
 
-The code snippets utilize code from the [Nexmo Node Code Snippets](https://github.com/Nexmo/nexmo-node-code-snippets) and [Nexmo Curl Code Snippets](https://github.com/Nexmo/nexmo-curl-code-snippets) repositories.
+The code snippets utilize code from the [Vonage Node Code Snippets](https://github.com/Nexmo/nexmo-node-code-snippets) and [Vonage Curl Code Snippets](https://github.com/Nexmo/nexmo-curl-code-snippets) repositories.
 
 Please read this information carefully, so you can best use the code snippets.
 
@@ -51,8 +51,8 @@ Some code snippets have more specialized variables, such as Facebook Page IDs, t
 
 The main ones you will meet here are:
 
-* `/webhooks/inbound-message` - You will receive a callback here when Nexmo receives a message.
-* `/webhooks/message-status` - You will receive a callback here when Nexmo receives a message status update.
+* `/webhooks/inbound-message` - You will receive a callback here when Vonage receives a message.
+* `/webhooks/message-status` - You will receive a callback here when Vonage receives a message status update.
 
 If you are testing locally using [Ngrok](https://ngrok.com) you will set your webhook URLs in the Vonage Application object using a format similar to the following examples:
 

@@ -14,9 +14,9 @@ Please read this information carefully before attempting to use the code snippet
 
 ## Prerequisites
 
-1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
-2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number)
-3. [Install the Nexmo Library for your programming language](/tools)
+1. [Create a Vonage account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account)
+2. [Rent a Vonage Number](/numbers/guides/number-management#rent-a-virtual-number)
+3. [Install the Vonage Library for your programming language](/tools)
 4. [Set up Ngrok](https://ngrok.com)
 
 ## Other resources:

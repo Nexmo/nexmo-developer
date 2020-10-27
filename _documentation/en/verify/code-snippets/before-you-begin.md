@@ -14,8 +14,8 @@ Please read this information carefully before attempting to use the code snippet
 
 ## Prerequisites
 
-1. [Create a Nexmo account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account) - so that you can access your API key and secret to authenticate requests.
-2. [Rent a Nexmo Number](/numbers/guides/number-management#rent-a-virtual-number) - to send verification requests from.
+1. [Create a Vonage account](/account/guides/dashboard-management#create-and-configure-a-nexmo-account) - so that you can access your API key and secret to authenticate requests.
+2. [Rent a Vonage Number](/numbers/guides/number-management#rent-a-virtual-number) - to send verification requests from.
 3. [Install a Server SDK](/tools) - for your chosen programming language.
 
 ## Replaceable variables
@@ -24,7 +24,7 @@ The code snippets use placeholders for variable values that you must replace wit
 
 ### Account
 
-The following variables are specific to your Nexmo account. You can view them in the [developer dashboard](https://dashboard.nexmo.com/):
+The following variables are specific to your Vonage account. You can view them in the [developer dashboard](https://dashboard.nexmo.com/):
 
 Key |	Description
 -- | --
