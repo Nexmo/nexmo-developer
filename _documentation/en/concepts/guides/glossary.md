@@ -44,7 +44,7 @@ For more information on managing CDRs see the [Redact API documentation](/redact
 
 Nexmo Command Line Interface (CLI) tool. 
 
-Further information can be found in the [CLI repository](https://github.com/Vonage/nexmo-cli).
+Further information can be found in the [CLI repository](https://github.com/Nexmo/nexmo-cli).
 
 Also, Caller Line Identity. See [Caller ID](#caller-id)
 

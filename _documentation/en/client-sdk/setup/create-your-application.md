@@ -15,7 +15,7 @@ In order to use the Client SDK, there are three things you need to set up before
 * [JSON Web Tokens, JWTs](https://jwt.io/) - Client SDK uses JWTs for authentication. In order for a user to log in and use the SDK functionality, you need to provide a JWT per user. JWTs contain all the information the Vonage platform needs to authenticate requests, as well as information such as the associated Applications, Users and permissions.
 
 All of these may be [created by your backend](/conversation/overview). 
-If you wish to get started and experience using the SDK without any implementation of your backend, this tutorial will show you how to do so, using the [Nexmo CLI](https://github.com/Vonage/nexmo-cli).
+If you wish to get started and experience using the SDK without any implementation of your backend, this tutorial will show you how to do so, using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli).
 
 ## Prerequisites
 
