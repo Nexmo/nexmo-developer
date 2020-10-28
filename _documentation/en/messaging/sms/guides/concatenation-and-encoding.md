@@ -20,15 +20,15 @@ This document covers the following topics:
 
 ## Concatenation
 
-If you send a message that contains more than the maximum number of characters per message, Nexmo sends a *concatenated SMS*. A concatenated SMS contains multiple SMS parts that are connected by segmentation information in the [User Data Header (UDH)](https://en.wikipedia.org/wiki/User_Data_Header).
+If you send a message that contains more than the maximum number of characters per message, Vonage sends a *concatenated SMS*. A concatenated SMS contains multiple SMS parts that are connected by segmentation information in the [User Data Header (UDH)](https://en.wikipedia.org/wiki/User_Data_Header).
 
 This segmentation information tells the handset the number of message parts that make up the concatenated SMS and the position of each message part within it. When the handset has received all of the message parts, it presents them to the recipient as a single text.
 
-For more information, the Nexmo Knowledgebase has detailed information about [Multipart SMS](https://help.nexmo.com/hc/en-us/articles/204014833-How-is-a-Multipart-SMS-Constructed-).
+For more information, the Vonage Knowledgebase has detailed information about [Multipart SMS](https://help.nexmo.com/hc/en-us/articles/204014833-How-is-a-Multipart-SMS-Constructed-).
 
 ## Encoding
 
-There are two main types of encoding that the Nexmo SMS API supports: `text` and `unicode`.
+There are two main types of encoding that the Vonage SMS API supports: `text` and `unicode`.
 
 Specify the encoding by setting the `type` parameter in the request. The encoding you should use depends on the characters that the message contains:
 
@@ -37,7 +37,7 @@ Specify the encoding by setting the `type` parameter in the request. The encodin
 
 ### GSM character sets
 
-Nexmo supports all the standard GSM characters as well as characters from the GSM extended table. Characters from the standard table require 7-bits per character to encode:
+Vonage supports all the standard GSM characters as well as characters from the GSM extended table. Characters from the standard table require 7-bits per character to encode:
 
 ````
 ! " # $ % ' ( ) * + , - . / : ; < = > ? @ _ ¡ £ ¥ § ¿ & ¤
@@ -84,7 +84,7 @@ If you are sending a message with a `type` value of `text` then the following ch
 
 If you are sending a message with a `type` of `unicode` then each character in the message requires two bytes.
 
-Nexmo accepts SMS up to 3200 characters long but not all carriers do. It is best practice to ensure that the message does not exceed six SMS parts.
+Vonage accepts SMS up to 3200 characters long but not all carriers do. It is best practice to ensure that the message does not exceed six SMS parts.
 
 > Note: You are charged for each SMS part in a concatenated SMS.
 

@@ -8,15 +8,15 @@ navigation_weight: 1
 
 ## Overview
 
-The Nexmo Voice API handles two types of phone call: **inbound** and **outbound**.
+The Vonage Voice API handles two types of phone call: **inbound** and **outbound**.
 
-**Inbound** calls are calls made to a Nexmo number from another regular phone anywhere in the world.
+**Inbound** calls are calls made to a Vonage number from another regular phone anywhere in the world.
 
-**Outbound** calls are calls made from the Nexmo platform to a regular phone number. Outbound calls are usually initiated in response to a request made via the REST API to create a new call. Outbound calls may also be made from within the call flow of an existing call (either inbound or outbound) using the `connect` action within the NCCO (Nexmo Call Control Object). This scenario is generally used for forwarding calls.
+**Outbound** calls are calls made from the Vonage platform to a regular phone number. Outbound calls are usually initiated in response to a request made via the REST API to create a new call. Outbound calls may also be made from within the call flow of an existing call (either inbound or outbound) using the `connect` action within the NCCO (Nexmo Call Control Object). This scenario is generally used for forwarding calls.
 
 Both inbound and outbound calls follow the same call flow once answered. This call flow is controlled by an NCCO. An NCCO is a script of actions to be run within the context of the call. Actions are executed in the order they appear in the script, with the next action starting when the previous action has finished executing. For more information about NCCOs, see the [NCCO reference](/voice/voice-api/ncco-reference).
 
-When a call is answered, Nexmo makes a call to the `answer_url` provided. For inbound calls the `answer_url` is fetched from the configuration of the application that the number is linked to. For outbound calls, an `answer_url` is provided in the API request made to create the call.
+When a call is answered, Vonage makes a call to the `answer_url` provided. For inbound calls the `answer_url` is fetched from the configuration of the application that the number is linked to. For outbound calls, an `answer_url` is provided in the API request made to create the call.
 
 You may choose to provide your NCCO as part of the request you send to create a call instead of providing an `answer_url`. This is done by providing an NCCO in the `ncco` key of [your request](/api/voice#createCall)
 
@@ -31,7 +31,7 @@ Each call goes through a sequence of states in its lifecycle:
 
 ## Event objects
 
-As the call progresses through the various [call states](#call-states), the Nexmo platform
+As the call progresses through the various [call states](#call-states), the Vonage platform
 will send event objects to your `event_url`. Like the `answer_url` the
 `event_url` is associated with the application for inbound calls, or is
 supplied as an `event_url` parameter when the call is created.
@@ -40,7 +40,7 @@ The following table shows possible values for the `status` field of an event obj
 
 |Event Name | Description |
 | --------- | ----------- |
-| `started`    | The call is created on the Nexmo platform |
+| `started`    | The call is created on the Vonage platform |
 | `ringing`    | The destination has confirmed that the call is ringing |
 | `answered`   | The destination has answered the call |
 | `completed`    | The call flow has been terminated. This event is always received at the end of a call unless the call was `rejected`. |
@@ -51,7 +51,7 @@ The following table shows possible values for the `status` field of an event obj
 | `cancelled`  | The call was cancelled by the originator before it was answered |
 | `failed`     | The call attempt failed in the phone network |
 | `recording`  | A `record` stage has completed. This event contains the recording URL |
-| `rejected`   | The call attempt was rejected by the Nexmo platform |
+| `rejected`   | The call attempt was rejected by the Vonage platform |
 | `timeout`    | The call timed out before it was answered|
 | `unanswered` | The recipient handset was unreachable, or the recipient declined the call | 
 | `notify` | An event to signify that processing has reached the `notify` action in the NCCO | 
@@ -157,8 +157,8 @@ You can replace the currently executing NCCO with a new one by making an HTTP `P
 
 ## Machine Detection
 
-Machine detection can be configured on either a `connect` action within an NCCO or on a REST API request to create an outbound call.  This can be set to one of two values, `hangup` or `continue`. If either of these values is set when the call is answered, Nexmo will attempt to determine if the call was answered by a human, or a machine such as voicemail. This normally takes a few seconds to be determined. At this point Nexmo will send an event to your `event_url` with either `Human` or `Machine` included.
+Machine detection can be configured on either a `connect` action within an NCCO or on a REST API request to create an outbound call.  This can be set to one of two values, `hangup` or `continue`. If either of these values is set when the call is answered, Vonage will attempt to determine if the call was answered by a human, or a machine such as voicemail. This normally takes a few seconds to be determined. At this point Vonage will send an event to your `event_url` with either `Human` or `Machine` included.
 
-If machine detection was set to `hangup` and Nexmo determined that a machine answered the call, then the call will be ended.
+If machine detection was set to `hangup` and Vonage determined that a machine answered the call, then the call will be ended.
 
 If set to `continue` then the call will remain connected. You can then modify the call. For example, you could transfer the call to a new destination with the `PUT` feature described above in the section [Transferring to a new NCCO](#transferring-to-a-new-ncco).

@@ -1,6 +1,6 @@
 ---
 title: Overview
-meta_title: Connect external services to your Nexmo account for the Dispatch API
+meta_title: Connect external services to your Vonage account for the Dispatch API
 navigation_weight: 1
 ---
 

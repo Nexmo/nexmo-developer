@@ -7,8 +7,8 @@ navigation_weight: 1
 
 In order to set up your Conversation API application, you typically need to carry out the following steps:
 
-1. Create a Nexmo application
-2. Rent and assign a Nexmo number
+1. Create a Vonage application
+2. Rent and assign a Vonage number
 3. Build a backend service
 4. Create a client-side application (possibly using the Client SDK)
 
@@ -16,9 +16,9 @@ This process is illustrated in the following diagram:
 
 ![Application setup](/images/conversation-api/conv-app-setup.png)
 
-1. [Create a Nexmo Application](/application/overview#creating-applications).
+1. [Create a Vonage Application](/application/overview#creating-applications).
 
-2. [Rent and assign a Nexmo number](/numbers/guides/number-management#rent-a-virtual-number) to your Nexmo Application.
+2. [Rent and assign a Vonage number](/numbers/guides/number-management#rent-a-virtual-number) to your Vonage Application.
 
 3. Build a backend service that will:
 
@@ -32,7 +32,7 @@ This process is illustrated in the following diagram:
 
     e. Generate JWTs that are used to authorize your Users when performing Conversation API calls, or when logging in to the [Client SDKs](/client-sdk/setup/add-sdk-to-your-app).
 
-    f. Use [Conversation API](/conversation/api-reference) or other Nexmo API capabilities as required. For example, to create conversations, and send events. You can also analyze your user's communication behavior and reach interesting conclusions on how to better engage with them. This step is optional but recommended.
+    f. Use [Conversation API](/conversation/api-reference) or other Vonage API capabilities as required. For example, to create conversations, and send events. You can also analyze your user's communication behavior and reach interesting conclusions on how to better engage with them. This step is optional but recommended.
 
 4. Now you can create a client-side application and [integrate the Client SDK](/client-sdk/setup/add-sdk-to-your-app/). Using the Client SDK your client app will be able to:
 

@@ -1,12 +1,12 @@
 ---
 title: Overview
 meta_title: Number Insights API
-description: Vonage's Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application. (Nexmo is now Vonage)
+description: Vonage's Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application.
 ---
 
 # Number Insight API Overview
 
-Vonage's Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application. (Nexmo is now Vonage).
+Vonage's Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application.
 
 ## Contents
 This document contains the following information:

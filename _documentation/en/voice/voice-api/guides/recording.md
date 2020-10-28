@@ -8,7 +8,7 @@ navigation_weight: 5
 
 ## Overview
 
-The Nexmo Voice API offers the ability to record call audio in several ways. You can:
+The Vonage Voice API offers the ability to record call audio in several ways. You can:
 
 1. Record a call between two people in a passive 'monitor' manner.
 2. Record audio from a single caller when they are prompted. For example, in a voicemail system.
@@ -16,13 +16,13 @@ The Nexmo Voice API offers the ability to record call audio in several ways. You
 
 By default all recordings are in a mono format, with all legs of the conversation in a single channel.
 
-Nexmo also offers a [split recording](#split-recording) feature where the audio will be saved as a stereo file. In this case the audio spoken by the initial caller will be in the left channel, and audio heard by the initial caller will be in the right channel. This is often useful for passing to transcription systems where you wish to identify who said what.
+Vonage also offers a [split recording](#split-recording) feature where the audio will be saved as a stereo file. In this case the audio spoken by the initial caller will be in the left channel, and audio heard by the initial caller will be in the right channel. This is often useful for passing to transcription systems where you wish to identify who said what.
 
 To record a conversation you can use the `record` action in an NCCO. The recording will behave differently depending on how you configure the action. For more information on how to configure a recording, see the [record NCCO reference](/voice/voice-api/ncco-reference#record)
 
-Once the `record` action ends, Nexmo will send a webhook to the `event_url` that you specified when configuring the `record` action. This webhook contains a URL where the recording file can be downloaded from. You will need to authenticate with a JWT signed by the same application key that created the recording in order to download the recording file.
+Once the `record` action ends, Vonage will send a webhook to the `event_url` that you specified when configuring the `record` action. This webhook contains a URL where the recording file can be downloaded from. You will need to authenticate with a JWT signed by the same application key that created the recording in order to download the recording file.
 
-> NOTE: After your recording is complete, it is stored by Nexmo for 30 days before being automatically deleted
+> NOTE: After your recording is complete, it is stored by Vonage for 30 days before being automatically deleted
 
 ## Synchronous recording
 
@@ -83,7 +83,7 @@ If you added another `connect` action to this NCCO, the first two participants w
 
 ## File formats
 
-* Nexmo supports recording in MP3, OGG or WAV format, the default is MP3 (or WAV for recording more than 2 channels).
+* Vonage supports recording in MP3, OGG or WAV format, the default is MP3 (or WAV for recording more than 2 channels).
 * MP3 files are recorded with a 16-bit depth and a 16kHz sample rate. They are encoded with a constant bit rate of 32 Kbps.
 * WAV files are recorded with a 16-bit depth and a 16kHz sample rate.
 

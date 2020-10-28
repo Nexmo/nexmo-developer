@@ -10,7 +10,7 @@ Your messages will appear to be sent from any allowed value you enter in the `fr
 
 However, there are limitations on what this parameter can contain. You should also be aware that a message recipient can only respond if the `from` parameter contains a valid mobile number which is able to accept inbound SMS.
 
-> Please note that Nexmo expressly prohibits [SMS spoofing](https://en.wikipedia.org/wiki/SMS_spoofing) where the Sender ID is used to impersonate another person, company or product.
+> Please note that Vonage expressly prohibits [SMS spoofing](https://en.wikipedia.org/wiki/SMS_spoofing) where the Sender ID is used to impersonate another person, company or product.
 
 ## Valid 
 

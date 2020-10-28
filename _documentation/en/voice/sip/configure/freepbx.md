@@ -1,11 +1,11 @@
 ---
 title: FreePBX
-description: How to setup Nexmo SIP with FreePBX
+description: How to setup Vonage SIP with FreePBX
 ---
 
 # FreePBX
 
-Below we provide example configurations for using Nexmo's SIP service with [FreePBX](http://www.freepbx.org).
+Below we provide example configurations for using Vonage's SIP service with [FreePBX](http://www.freepbx.org).
 
 ## Inbound configuration
 

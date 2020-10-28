@@ -1,6 +1,6 @@
 ---
 title: Legs and Conversations
-description: When a phone call is made or received by Nexmo it is added to a conversation. A single conversation contains one or more phone calls (sometimes referred to as legs).
+description: When a phone call is made or received by Vonage it is added to a conversation. A single conversation contains one or more phone calls (sometimes referred to as legs).
 navigation_weight: 2
 ---
 
@@ -8,9 +8,9 @@ navigation_weight: 2
 
 ## Overview
 
-The Nexmo Voice API has two concepts associated with a call - a leg and a conversation.
+The Vonage Voice API has two concepts associated with a call - a leg and a conversation.
 
-A leg refers to a single connection either inbound to, or outbound from, the Nexmo platform.
+A leg refers to a single connection either inbound to, or outbound from, the Vonage platform.
 
 A conversation contains one or more call legs. Each [endpoint](/voice/voice-api/guides/endpoints) connected to a conversation is its own leg.
 
@@ -24,4 +24,4 @@ Legs and conversations are each identified by their own UUID. Conversation UUID'
 
 You can create a special type of conversation by using the `conversation` action within an NCCO. This resulting named conversation then acts like a conference bridge. New legs can then be added to this conversation by executing a `conversation` action with the same name.
 
-Conversation names are scoped to an application level. This means that any legs that are connected to a conversation with the same name will be able to hear each other, provided they are using the same Nexmo Application.
+Conversation names are scoped to an application level. This means that any legs that are connected to a conversation with the same name will be able to hear each other, provided they are using the same Vonage Application.

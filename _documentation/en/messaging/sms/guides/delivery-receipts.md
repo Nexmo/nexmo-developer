@@ -8,9 +8,9 @@ navigation_weight: 4
 
 When you make a successful request to the SMS API, it returns an array of `message` objects, one for each message. Ideally these will have a `status` of `0`, indicating success. But this does not mean that your message has reached your recipients. It only means that your message has been successfully queued for sending.
 
-Nexmo's [adaptive routing](https://help.nexmo.com/hc/en-us/articles/218435987-What-is-Nexmo-Adaptive-Routing-) then identifies the best carrier for your message. When the selected carrier has delivered the message, it returns a *delivery receipt* (DLR).
+Vonage's [adaptive routing](https://help.nexmo.com/hc/en-us/articles/218435987-What-is-Nexmo-Adaptive-Routing-) then identifies the best carrier for your message. When the selected carrier has delivered the message, it returns a *delivery receipt* (DLR).
 
-To receive DLRs in your application, you must provide a [webhook](/concepts/guides/webhooks) for Nexmo to send them to. Alternatively, you could use the [Reports API](/reports/overview) to periodically download your records, including per-message delivery status.
+To receive DLRs in your application, you must provide a [webhook](/concepts/guides/webhooks) for Vonage to send them to. Alternatively, you could use the [Reports API](/reports/overview) to periodically download your records, including per-message delivery status.
 
 > **Note**: In most situations, a DLR is a reliable indicator that a message was delivered. However, it is not an absolute guarantee. See [how delivery receipts work](#how-delivery-receipts-work).
 
@@ -18,16 +18,16 @@ To receive DLRs in your application, you must provide a [webhook](/concepts/guid
 
 ```sequence_diagram
 participant Your Application
-participant Nexmo
+participant Vonage
 participant Carrier
 participant Handset
 
-Your Application->>Nexmo: Send an SMS
-Nexmo->>Carrier: SMS
+Your Application->>Vonage: Send an SMS
+Vonage->>Carrier: SMS
 Carrier->>Handset: SMS
 Handset->>Carrier: Delivery Receipt
-Carrier->>Nexmo: Delivery Receipt
-Nexmo->>Your Application: Delivery Receipt Webhook
+Carrier->>Vonage: Delivery Receipt
+Vonage->>Your Application: Delivery Receipt Webhook
 ```
 
 Delivery receipts are either:
@@ -35,7 +35,7 @@ Delivery receipts are either:
 * **Carrier** - returned when the service provider receives the message
 * **Handset** - returned when the user's handset receives the message
 
-Not all DLRs guarantee that the target received your message. Some delivery receipts represent successful completion of just one stage in the delivery process, such as passing the message to another operator. Other delivery receipts are fakes. Because of this, Nexmo cannot completely guarantee that a DLR is accurate. It depends on the [countries](/messaging/sms/guides/country-specific-features) you are sending messages to and the providers involved.
+Not all DLRs guarantee that the target received your message. Some delivery receipts represent successful completion of just one stage in the delivery process, such as passing the message to another operator. Other delivery receipts are fakes. Because of this, Vonage cannot completely guarantee that a DLR is accurate. It depends on the [countries](/messaging/sms/guides/country-specific-features) you are sending messages to and the providers involved.
 
 If your message is longer than can be sent in a single SMS, the messages are [concatenated](/messaging/sms/guides/concatenation-and-encoding). You should receive a carrier DLR for each part of the concatenated SMS. Handset DLRs for a concatenated message are delayed. This is because the target handset has to process each part of the concatenated message before it can acknowledge receipt of the full message.
 
@@ -53,7 +53,7 @@ This is a typical DLR:
   "price": "0.03330000",
   "scts": "1810251310",
   "status": "delivered",
-  "to": "Nexmo CLI"
+  "to": "Vonage"
 }
 ```
 
@@ -91,7 +91,7 @@ The `err-code` field in the DLR provides more detailed information and can help 
 | 8          | Network Error                 | The message failed due to a network error - retry                                                                                            |
 | 9          | Illegal Number                | The user has specifically requested not to receive messages from a specific service                                                          |
 | 10         | Illegal Message               | There is an error in a message parameter, e.g. wrong encoding flag                                                                           |
-| 11         | Unroutable                    | Nexmo cannot find a suitable route to deliver the message - contact <mailto:support@nexmo.com>                                               |
+| 11         | Unroutable                    | Vonage cannot find a suitable route to deliver the message - contact <mailto:support@nexmo.com>                                               |
 | 12         | Destination Unreachable       | A route to the number cannot be found - confirm the recipient's number                                                                       |
 | 13         | Subscriber Age Restriction    | The target cannot receive your message due to their age                                                                                      |
 | 14         | Number Blocked by Carrier     | The recipient should ask their carrier to enable SMS on their plan                                                                           |
@@ -102,11 +102,11 @@ The `err-code` field in the DLR provides more detailed information and can help 
 
 ## Using the SMS API in campaigns
 
-Before you start your messaging campaign, check the [country specific features guide](/messaging/sms/guides/country-specific-features) for the countries you are sending to. If the country you are sending to does not supply reliable DLRs, use the [Conversion API](/messaging/conversion-api/overview) to provide Nexmo with more data points and ensure the best routing.
+Before you start your messaging campaign, check the [country specific features guide](/messaging/sms/guides/country-specific-features) for the countries you are sending to. If the country you are sending to does not supply reliable DLRs, use the [Conversion API](/messaging/conversion-api/overview) to provide Vonage with more data points and ensure the best routing.
 
 Optionally, you can identify specific customers or campaigns by including a reference with each message you send. These are included in the delivery receipt. Pass your chosen reference into the request by specifying a `client-ref` parameter of up to 40 characters.
 
 ## Other resources
 
-* [Webhooks Guide](/concepts/guides/webhooks) — a detailed guide to how to use webhooks with Nexmo's platform
+* [Webhooks Guide](/concepts/guides/webhooks) — a detailed guide to how to use webhooks with Vonage's platform
 * [Why was my SMS not delivered?](https://help.nexmo.com/hc/en-us/articles/204016013-Why-was-my-SMS-not-delivered-) - useful troubleshooting tips

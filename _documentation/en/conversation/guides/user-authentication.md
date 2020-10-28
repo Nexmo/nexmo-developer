@@ -43,9 +43,9 @@ These steps are described in more detail below.
 
     a. Your Vonage application's **private key**. For security reasons, this should be generated and always securely stored on your backend application and not on the client.
 
-    b. **A username** that matches the username of the Nexmo User you’ve created with Conversation API.
+    b. **A username** that matches the username of the Vonage User you’ve created with Conversation API.
     
-    c.  **Nexmo Application ID** for the application that contains the User you generated the JWT for.
+    c.  **Vonage Application ID** for the application that contains the User you generated the JWT for.
     
     d. An [Access Control List (ACL)](/conversation/concepts/jwt-acl#acls) that defines the user permissions. These permissions define the API endpoints is the user allowed to access.
 

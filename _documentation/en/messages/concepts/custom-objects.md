@@ -33,7 +33,7 @@ Using WhatsApp by way of example, for the following Messages API call:
 }
 ```
 
-Nexmo would send the following to WhatsApp:
+Vonage would send the following to WhatsApp:
 
 ``` json
 {
@@ -91,7 +91,7 @@ If the WhatsApp request was:
 }
 ```
 
-The Nexmo Messages API request format would be:
+The Messages API request format would be:
 
 ``` json
 {

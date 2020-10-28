@@ -14,7 +14,7 @@ You can use the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) to work with the
 
 ### Before you begin:
 
-* Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup) - this will give you the API key and secret that you will need to access the Number Insight API.
+* Sign up for a [Vonage account](https://dashboard.nexmo.com/signup) - this will give you the API key and secret that you will need to access the Number Insight API.
 * Install [Node.JS](https://nodejs.org/en/download/) - you will use `npm` (the Node Package Manager) to install the Nexmo CLI.
 
 ### Install and Setup the Nexmo CLI (Command Line Interface)

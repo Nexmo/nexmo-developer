@@ -6,7 +6,7 @@ description: Audit events concepts, including types and structure of audit event
 
 # Audit Events
 
-Audit Events are generated automatically by Nexmo as the user interacts with either the Nexmo API or the Nexmo Dashboard. Each Audit Event object has a type and associated metadata.
+Audit Events are generated automatically by Vonage as the user interacts with either a Vonage API or the Vonage Dashboard. Each Audit Event object has a type and associated metadata.
 
 ## Audit Event types
 

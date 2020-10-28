@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Redact your data to stay GDPR compliant
-description: To facilitate our customers' privacy compliance efforts, Vonage provide an API that allows you to manage personal data within the Vonage API platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs. (Nexmo is now Vonage)
+description: To facilitate our customers' privacy compliance efforts, Vonage provide an API that allows you to manage personal data within the Vonage API platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs.
 ---
 
 # Redact your data

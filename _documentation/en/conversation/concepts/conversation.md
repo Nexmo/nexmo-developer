@@ -6,13 +6,13 @@ navigation_weight: 3
 
 # Conversation
 
-A Conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple [Media](/conversation/concepts/media) (text, voice, video) and can have associated [Users](/conversation/concepts/user) through [Member](/conversation/concepts/member) objects.
+A Conversation is a shared core component that Vonage APIs rely on. Conversations happen over multiple [Media](/conversation/concepts/media) (text, voice, video) and can have associated [Users](/conversation/concepts/user) through [Member](/conversation/concepts/member) objects.
 
 The Conversation object is key to understanding the Conversation API. In order for Users to communicate, they must connect to a Conversation, at which point an associated Member object is created in that Conversation.
 
 A Conversation is capable of supporting text messaging, audio calls, or video calls. For text messaging a Conversation can be thought of as like a chat room. Users can be invited to join a Conversation and they can leave a Conversation. A single User can also join multiple Conversations through multiple Member objects.
 
-Over the course of a Conversation, Nexmo emits various [Events](/conversation/concepts/event). These events can be communication events such as messages, voice and video streams or other events such as added or removed users, typing indicators and so on. The intention is that these events should be handled as they occur, although a log of events is recorded by Nexmo which can later be searched.
+Over the course of a Conversation, Vonage emits various [Events](/conversation/concepts/event). These events can be communication events such as messages, voice and video streams or other events such as added or removed users, typing indicators and so on. The intention is that these events should be handled as they occur, although a log of events is recorded by Vonage which can later be searched.
 
 There can be no communication outside of the context of a Conversation.
 
@@ -20,7 +20,7 @@ A Conversation can be used for a single temporary communication interaction with
 
 ## An example Conversation
 
-Consider the following example. A User calls a Nexmo Number associated with a Nexmo Application. The application forwards the call to a second phone. This is illustrated in the following diagram:
+Consider the following example. A User calls a Vonage Number associated with a Vonage Application. The application forwards the call to a second phone. This is illustrated in the following diagram:
 
 ![Conversation](/images/conversation-api/call-forward-conversation.png)
 
@@ -121,7 +121,7 @@ In the above response the phone numbers are as follows:
 Number | Description
 ---- | ----
 447700000001 | Phone making inbound call (Alice)
-447700000002 | Nexmo Number linked to the Nexmo Application
+447700000002 | Vonage Number linked to the Vonage Application
 447700000003 | The destination phone (Bob)
 
 If you look carefully at the response you can see the following:
@@ -420,8 +420,8 @@ You can see the Events that occurred during this transient Conversation are as f
 
 Event ID | Member ID | Event type | Description
 ----|----|----|----
-1 | MEM-f44c872e-cba9-444f-88ae-0bfa630865a6 | `member:joined` | Alice to Nexmo Number
-2 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `sip:ringing` | Nexmo to Bob
+1 | MEM-f44c872e-cba9-444f-88ae-0bfa630865a6 | `member:joined` | Alice to Vonage Number
+2 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `sip:ringing` | Vonage to Bob
 3 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `sip:answered` | Bob answered
 4 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `member:joined` | Bob joined the Conversation
 5 | MEM-25ccda92-839d-4ac6-a7b2-de310224878b | `member:media` | Bob audio setup
@@ -435,10 +435,10 @@ As this is a transient Conversation (call) once the call ends the Conversation w
 
 Timestamp | Direction (Leg) | From | To | Event Type (status) | Notes
 ----|----|----|----|----|----
-2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `started` | Calls Nexmo number
+2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `started` | Calls Vonage number
 2018-10-25T09:26:18.991Z | Inbound | 447700000001 | 447700000002 | `ringing` | Now ringing
 2018-10-25T09:26:19.827Z | N/A | 447700000001 | 447700000002 | N/A | At this point the call is answered
-2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `started` | Nexmo calls out
+2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `started` | Vonage calls out
 2018-10-25T09:26:24.384Z | Outbound | Unknown | 447700000003 | `ringing` | Bob is ringing
 2018-10-25T09:26:30.277Z | Outbound | Unknown | 447700000003 | `answered` | Bob answers
 2018-10-25T09:26:30.340Z | Inbound | 447700000001 | 447700000002 | `answered` | Alice and Bob connected

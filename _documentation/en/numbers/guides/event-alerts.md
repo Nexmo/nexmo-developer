@@ -8,7 +8,7 @@ navigation_weight: 3
 
 You can use a short code to send event alerts or reminders to your users - for example, to remind them of an appointment. The [Event-based alerts API](/api/sms/us-short-codes/alerts/sending) provides this capability. 
 
-> **Note** Our carrier partner (AT&T) is discontinuing its shared short code service for alerts. Nexmo is therefore no longer able to offer this service. [Dedicated short codes](https://www.nexmo.com/platform/short-codes) are still available.
+> **Note** Our carrier partner (AT&T) is discontinuing its shared short code service for alerts. Vonage is therefore no longer able to offer this service. [Dedicated short codes](https://www.nexmo.com/platform/short-codes) are still available.
 
 You configure these alerts in the developer dashboard:
 

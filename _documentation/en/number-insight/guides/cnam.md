@@ -8,7 +8,7 @@ navigation_weight: 1
 
 ## Overview
 
-Nexmo's Number Insight Advanced API enables you to retrieve CNAM owner details for many United States phone numbers. This includes landline and cellular numbers for both consumers and businesses.
+Vonage's Number Insight Advanced API enables you to retrieve CNAM owner details for many United States phone numbers. This includes landline and cellular numbers for both consumers and businesses.
 
 CNAM is an acronym which stands for Caller ID Name. US networks use it to display the calling party’s name alongside the phone number, to help users identify a caller.
 

@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Virtual Numbers
-description: A Vonage virtual number is a telephone number that is not directly associated with a specific phone. It is programmable, enabling you to create custom call and messaging experiences for your users. (Nexmo is now Vonage)
+description: A Vonage virtual number is a telephone number that is not directly associated with a specific phone. It is programmable, enabling you to create custom call and messaging experiences for your users.
 ---
 # Numbers
 

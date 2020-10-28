@@ -7,7 +7,7 @@ navigation_weight: 1
 
 ## Working with the Nexmo CLI
 
-### Nexmo Application setup
+### Vonage Application setup
 
 Since you can create multiple Vonage applications, the commands you run refer to the application that was set up. For example, when you create a user, you must make sure to create it on the application you intended.
 
@@ -37,7 +37,7 @@ It you run a command and don't get a response:
 
 ## JWTs
 
-> Remember that a JWT is per user per Nexmo Application.
+> Remember that a JWT is per user per Vonage Application.
 
 ### Invalid Token Error
 
@@ -45,7 +45,7 @@ It you run a command and don't get a response:
 
 * Make sure the `"application_id"` claim is correct.
 
-* Make sure the `"sub"` is correct. Meaning, a user with this user name exists in your Nexmo Application.
+* Make sure the `"sub"` is correct. Meaning, a user with this user name exists in your Vonage Application.
 
 * Make sure the JWT hasn't expired:
 
@@ -61,7 +61,7 @@ Getting Connection error or Connection Timeout while trying to login to the SDK:
 
 * Check the internet connection on your device.
 
-* Then `JWT` might be valid on JWT standards, however to have some claims might be incorrect per Nexmo requirements. Try generating a new `JWT`, while ensuring the correctness of your the Nexmo specific claims.
+* Then `JWT` might be valid on JWT standards, however to have some claims might be incorrect per Vonage requirements. Try generating a new `JWT`, while ensuring the correctness of your the Vonage specific claims.
 
 ### Errors while generating to JWT
 
@@ -79,7 +79,7 @@ Getting Connection error or Connection Timeout while trying to login to the SDK:
 
 ## Push notifications
 
-* Make sure you’ve uploaded the certificate to Nexmo's server.
+* Make sure you’ve uploaded the certificate to Vonage's server.
 
 * Make sure that you've enabled push notifications, and that the method `client.enablePushNotifications()` was successful. You can also put a log call or a break point to ensure that the call was successful.
 

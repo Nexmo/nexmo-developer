@@ -1,14 +1,14 @@
 ---
 title: Overview
 meta_title: US Short Codes
-description: Vonage provides an API for sending SMS messages from a shared short code to mobile device users in the United States. (Nexmo is now Vonage)
+description: Vonage provides an API for sending SMS messages from a shared short code to mobile device users in the United States.
 ---
 
 # US Short Codes Overview
 
 Vonage provides an API for sending SMS messages from a shared short code to mobile device users in the United States.
 
-Due to [legal and regulatory requirements for use of US Short Codes](https://help.nexmo.com/hc/en-us/articles/204015403-Preapproved-US-Short-Codes-compliance-requirements), approval is required by Nexmo to use the API. You can apply for a shared US Short Code via the [Vonage Dashboard](https://dashboard.nexmo.com) in the Numbers section. You will need to ensure that your application follows the best practices outlined at the link above.
+Due to [legal and regulatory requirements for use of US Short Codes](https://help.nexmo.com/hc/en-us/articles/204015403-Preapproved-US-Short-Codes-compliance-requirements), approval is required by Vonage to use the API. You can apply for a shared US Short Code via the [Vonage Dashboard](https://dashboard.nexmo.com) in the Numbers section. You will need to ensure that your application follows the best practices outlined at the link above.
 
 Customers using the US Short Codes API use separate endpoints for sending messages to the standard [SMS API](/messaging/sms/overview).
 
