@@ -31,7 +31,7 @@ To create your free Vonage account:
    Vonage sends a PIN to your phone as a text message or automated phone call. The timeout for each verification attempt is 5 minutes.
    **Note**: you can associate a phone number with one account only. If your phone number is already associated with a Vonage account you should [remove that phone number](#manage-your-profile) from the existing account.
 3. In **Phone number verification**, enter the PIN sent to you by Vonage and click **Verify**.
-  You are logged into Dashboard and shown how to start developing with Vonage. This page is displayed each time you login until you have made your first successful call with Vonaage APIs.
+  You are logged into Dashboard and shown how to start developing with Vonage. This page is displayed each time you login until you have made your first successful call with Vonage APIs.
 
 When you create your Vonage account you are given €2 free test credit and your account is set in DEMO mode. You can use our products to send messages to up to 10 destination numbers, a message stating that the account is in demo mode is added to all the SMS you send. To move out of the demo mode [add credit to your account](/numbers/guides/payments#add-a-payment-method).
 
