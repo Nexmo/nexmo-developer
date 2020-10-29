@@ -54,7 +54,7 @@ init {
                 return@setConnectionListener
             }
 
-            _connectionStatus.postValue(newConnectionStatus)
+            connectionStatusMutableLiveData.postValue(newConnectionStatus)
         }
 }
 ```
