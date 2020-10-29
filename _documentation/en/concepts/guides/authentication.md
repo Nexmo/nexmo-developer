@@ -144,7 +144,7 @@ nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl
 
 More examples of generating JWTs with ACLs can be found in the [Vonage documentation](/conversation/guides/jwt-acl).
 
-Further information on the Nexmo CLI can be found in its [repository on GitHub](https://github.com/Vonage/nexmo-cli).
+Further information on the Nexmo CLI can be found in its [repository on GitHub](https://github.com/Nexmo/nexmo-cli).
 
 ## References
 
