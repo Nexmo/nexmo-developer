@@ -6,8 +6,8 @@ dependencies:
     - 'com.sparkjava:spark-core:2.7.2'
 code:
     source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/voice/DtmfInput.java
-    from_line: 33
-    to_line: 69
+    from_line: 36
+    to_line: 76
 run_command: java-ide
 file_name: DtmfInput.java
 unindent: true
