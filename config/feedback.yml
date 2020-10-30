@@ -53,6 +53,7 @@ paths:
     - title: Please help us help you by providing details.
       type: textarea
       placeholder: Please leave feedback here
+      email: true
     - title: Thank You!
       type: plain
       content: We have recorded your feedback. Feedback like yours will help us better
