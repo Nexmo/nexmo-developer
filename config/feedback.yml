@@ -15,9 +15,7 @@ paths:
     - title: Thank You!
       type: plain
       content: |-
-        We’re glad you found what you were looking for.
-
-        We’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!
+        We appreciate your feedback!
       image: "/assets/images/done.svg"
   - question: There is a problem with the documentation.
     sentiment: negative
@@ -39,12 +37,12 @@ paths:
     - title: Thank You!
       type: plain
       content: We have recorded your feedback. Feedback like yours will help us better
-        serve your needs in the future, and it’s much appreciated!
+        serve your needs in the future, and we really appreciate it!
       image: "/assets/images/programming.svg"
   - question: I am having problems with the sample code.
     sentiment: negative
     steps:
-    - title: Sorry you’re having trouble. What’s wrong?
+    - title: Sorry you’re having trouble. How can we help?
       type: radiogroup
       questions:
       - The sample code doesn’t work.
@@ -52,12 +50,12 @@ paths:
       - The documentation is missing useful samples.
     - title: Please help us help you by providing details.
       type: textarea
-      placeholder: Please leave feedback here
+      placeholder: Please provide details here
       email: true
     - title: Thank You!
       type: plain
       content: We have recorded your feedback. Feedback like yours will help us better
-        serve your needs in the future, and it’s much appreciated!
+        serve your needs in the future, and we really appreciate it!
       image: "/assets/images/programming.svg"
   - question: I need help with something else.
     sentiment: neutral
@@ -85,8 +83,8 @@ paths:
         label: 'Please tell us how we can help you:'
         placeholder: Please leave feedback here
         hint: |-
-          We welcome your feedback on our documentation and will do our best to
-          help you use our APIs. However, if your issue is urgent or relates to an
+          We welcome your feedback and will do our best to
+          help you. However, if your issue is urgent or relates to an
           account, billing or service issue please raise a support ticket:
           https://help.nexmo.com/hc/en-us/requests/new
     - title: Thank You!
