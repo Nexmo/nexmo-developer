@@ -48,7 +48,6 @@ Before we grab and run the code, there are a few things we need to do first.
 
 This tutorial uses the [Nexmo command line tool](https://github.com/Nexmo/nexmo-cli), so check it is installed before proceeding.
 
-
 ### Buy two phone numbers
 
 You will want two phone numbers in order to observe different whispers when calling different numbers. Run this command twice and make a note of the numbers that you have bought:
