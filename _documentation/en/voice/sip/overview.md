@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Connect to Vonage using SIP
-description: Use Vonage SIP to forward inbound and send outbound Voice calls that use the Session Initiation Protocol. (Nexmo is now Vonage)
+description: Use Vonage SIP to forward inbound and send outbound Voice calls that use the Session Initiation Protocol.
 ---
 
 # SIP Overview
@@ -57,7 +57,7 @@ Visit [the Vonage Knowledge Base](https://help.nexmo.com/hc/en-us/articles/11500
 
 **DTMF**
 
-Nexmo supports out-of-band DTMF. For more information, see [RFC4733](https://www.ietf.org/rfc/rfc4733.txt).
+Vonage supports out-of-band DTMF. For more information, see [RFC4733](https://www.ietf.org/rfc/rfc4733.txt).
 
 **Health checks**
 
@@ -77,11 +77,11 @@ Connections using TLS 1.2 are accepted. Older protocols are disabled as they are
 
 **Session Timers**
 
-Nexmo supports Session Timers [RFC 4028](https://tools.ietf.org/html/rfc4028); SIP customers that require Session Timers can negotiate them at the moment of establishing a session (INVITE).
+Vonage supports Session Timers [RFC 4028](https://tools.ietf.org/html/rfc4028); SIP customers that require Session Timers can negotiate them at the moment of establishing a session (INVITE).
 
 ## Inbound configuration
 
-Calls to Nexmo numbers can be forwarded to SIP endpoints.
+Calls to Vonage numbers can be forwarded to SIP endpoints.
 
 This section tells you how to:
 

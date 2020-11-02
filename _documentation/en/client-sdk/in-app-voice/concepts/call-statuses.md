@@ -20,7 +20,7 @@ The following table lists call statuses:
 
 Status | Description
 ----|----
-`started` | The call is created on the Nexmo platform
+`started` | The call is created on the Vonage platform
 `cancelled` | The call was cancelled by the originator before it was answered
 `ringing` | The destination has confirmed that the call is ringing
 `answered` | The destination has answered the call
@@ -34,4 +34,4 @@ These statuses are valid for all one-to-one call combinations such as IP to IP, 
 
 ## Disclaimer
 
-While Nexmo, the Vonage API Platform, strives to provide the most accurate call status, we have little to no control over statuses like busy, rejected, and failed, most of which depend on status provided by the carriers. More specifically, a call might not be completed because the callee was on another line (`busy`) but it is relayed as `rejected` by the carrier.
+While Vonage strives to provide the most accurate call status, we have little to no control over statuses like busy, rejected, and failed, most of which depend on status provided by the carriers. More specifically, a call might not be completed because the callee was on another line (`busy`) but it is relayed as `rejected` by the carrier.

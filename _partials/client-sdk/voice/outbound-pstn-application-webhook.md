@@ -23,7 +23,7 @@ For your application to place a phone call, you'll need to provide a URL as the 
 
 > **Do not forget to replace `YOUR_NEXMO_NUMBER` and `CALLEE_PHONE_NUMBER` with the relevant values for your app.**
 
-Once created, add the gist raw URL (make sure you're using the raw version) to your [Nexmo dashboard](https://dashboard.nexmo.com). To do this, navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button. Set the application's `Answer URL` and click 'Save changes'.
+Once created, add the gist raw URL (make sure you're using the raw version) to your [Vonage API dashboard](https://dashboard.nexmo.com). To do this, navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button. Set the application's `Answer URL` and click 'Save changes'.
 
 You will need to repeat this process every time you're changing the gist as a new revision (with the new raw URL) is being created.
 

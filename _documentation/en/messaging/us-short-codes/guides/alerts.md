@@ -18,9 +18,9 @@ The workflow for sending Event Based Alerts is:
 
 1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts/sending#request).
 
-2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that  you sent the request to Nexmo correctly.
+2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly.
 
-3. Nexmo sends the alert to your user.
+3. Vonage sends the alert to your user.
 
 4. Receive the [delivery receipt](/api/sms/us-short-codes/alerts/sending#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) and verify delivery.
 
@@ -35,13 +35,13 @@ To send Event Based Alerts to your users:
 source: '_examples/messaging/us-short-codes-api/alerts/send-alerts-request'
 ```
 
-2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Nexmo correctly:
+2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly:
 
 ```tabbed_examples
 source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'
 ```
 
-3. Nexmo sends the alert to your user.
+3. Vonage sends the alert to your user.
 
 4. Receive the [delivery receipt](/api/sms/us-short-codes/alerts/sending#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) so you can see:
 

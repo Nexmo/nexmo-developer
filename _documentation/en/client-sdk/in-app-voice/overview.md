@@ -14,7 +14,7 @@ Client SDK In-App Voice uses WebRTC and includes all the essentials you need to 
 * Audio Controls – Mute, earmuff
 * DTMF Support
 
-Client SDK In-App Voice integrates with the Nexmo Voice API which amplifies the In-App Voice offering through extra functionality such as:
+Client SDK In-App Voice integrates with the Vonage Voice API which amplifies the In-App Voice offering through extra functionality such as:
 
 * Calls to phones (PSTN)
 * Calls to SIP-enabled devices

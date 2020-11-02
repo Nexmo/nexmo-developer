@@ -14,13 +14,13 @@ The Vonage Client SDKs use [JWTs](https://jwt.io/) for authentication when a use
 
 ### Claims
 
-Using that `private.key` and the application ID, we can mint a new JWT. In order to log a user into a Nexmo client, the JWT will need the following claims:
+Using that `private.key` and the application ID, we can mint a new JWT. In order to log a user into a Vonage client, the JWT will need the following claims:
 
 |Claim | Description |
 | --------- | ----------- |
-| `sub`| The "subject". The subject, in this case, will be the name of the user created and associated with your Nexmo Application |
+| `sub`| The "subject". The subject, in this case, will be the name of the user created and associated with your Vonage Application |
 | `acl`| Access control list. The Client SDK uses this as a permission system for users. Read more about it in the [ACL overview](#acls) |
-| `application_id`| This is the ID of the Nexmo Application you created. |
+| `application_id`| This is the ID of the Vonage Application you created. |
 | `iat`| "Issued at time" This is the time the JWT was issued, in unix epoch time. |
 | `jti`| "JWT ID". This is a unique identifier for this JWT. |
 | `exp`| "Expiration time" This is the time in the future that the JWT will expire, in unix epoch time.  |
@@ -76,7 +76,7 @@ In the previous section, you can see that the `acl` claim has `paths` object con
 
 It is not necessary to provide users with the permissions to access all of these paths. For instance, if a user was not going to upload or receive push notifications, you could create a JWT without including the `/*/applications/**`or `/*/push/**` paths.
 
-## Nexmo Client Libraries
+## Vonage Server SDKs
 
 ### CLI
 
@@ -89,7 +89,7 @@ nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"pat
 
 ### Node
 
-The beta version of the [Nexmo Node](https://github.com/Nexmo/nexmo-node/tree/beta#jwt) library can also create a JWT [including the appropriate claims](https://github.com/Nexmo/nexmo-node/tree/beta#jwt)
+The beta version of the [Vonage Node Server SDK](https://github.com/Nexmo/nexmo-node/tree/beta#jwt) can also create a JWT [including the appropriate claims](https://github.com/Nexmo/nexmo-node/tree/beta#jwt)
 
 ```js
 const aclPaths = {
@@ -117,14 +117,14 @@ Nexmo.generateJwt(PRIVATE_KEY, {
 
 ### PHP
 
-The current version of the [Nexmo PHP](https://github.com/Nexmo/nexmo-php) library can also create a JWT including the appropriate claims when using the Keypair authentication.
+The current version of the [Vonage PHP Server SDK](https://github.com/Nexmo/nexmo-php) can also create a JWT including the appropriate claims when using the Keypair authentication.
 
 ```php
-$keypair = new \Nexmo\Client\Credentials\Keypair(
+$keypair = new \Vonage\Client\Credentials\Keypair(
     file_get_contents('/path/to/private.key'),
     'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 );
-$client = new \Nexmo\Client($keypair);
+$client = new \Vonage\Client($keypair);
 
 $claims = [
     'acl' => [
@@ -147,4 +147,4 @@ $tokenString = (string) $token;
 
 ### Other languages
 
-Creating a JWT with the appropriate claims for authenticating a Nexmo user is not currently provided in any of the other Nexmo Client Libraries. Instead, you are encourage you to use your JWT library of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload). [JWT.io](https://jwt.io/#libraries-io) has a selection of libraries for generating JWTs in multiple languages.
+Creating a JWT with the appropriate claims for authenticating a Vonage user is not currently provided in any of the other Vonage Client Libraries. Instead, you are encourage you to use your Server SDK of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload). [JWT.io](https://jwt.io/#libraries-io) has a selection of libraries for generating JWTs in multiple languages.

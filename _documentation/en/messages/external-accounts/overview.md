@@ -1,6 +1,6 @@
 ---
 title: Overview
-meta_title: Connect external services to your Nexmo account for the Messages API
+meta_title: Connect external services to your Vonage API account for the Messages API
 navigation_weight: 1
 ---
 

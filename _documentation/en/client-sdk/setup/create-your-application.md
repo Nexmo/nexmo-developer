@@ -8,11 +8,11 @@ navigation_weight: 1
 
 In order to use the Client SDK, there are three things you need to set up before getting started:
 
-* [Nexmo Application](/application/overview) - an Application which contains configuration for the app that you are building.
+* [Vonage Application](/application/overview) - an Application which contains configuration for the app that you are building.
 
-* [Users](/conversation/concepts/user) - Users who are associated with the Nexmo Application. It is expected that Users will have a one-to-one mapping with your own authentication system.
+* [Users](/conversation/concepts/user) - Users who are associated with the Vonage Application. It is expected that Users will have a one-to-one mapping with your own authentication system.
 
-* [JSON Web Tokens, JWTs](https://jwt.io/) - Client SDK uses JWTs for authentication. In order for a user to log in and use the SDK functionality, you need to provide a JWT per user. JWTs contain all the information the Nexmo platform needs to authenticate requests, as well as information such as the associated Applications, Users and permissions.
+* [JSON Web Tokens, JWTs](https://jwt.io/) - Client SDK uses JWTs for authentication. In order for a user to log in and use the SDK functionality, you need to provide a JWT per user. JWTs contain all the information the Vonage platform needs to authenticate requests, as well as information such as the associated Applications, Users and permissions.
 
 All of these may be [created by your backend](/conversation/overview). 
 If you wish to get started and experience using the SDK without any implementation of your backend, this tutorial will show you how to do so, using the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli).
@@ -21,7 +21,7 @@ If you wish to get started and experience using the SDK without any implementati
 
 Make sure you have the following:
 
-* A Nexmo account - [sign up](https://dashboard.nexmo.com)
+* A Vonage account - [sign up](https://dashboard.nexmo.com)
 * [Node.JS](https://nodejs.org/en/download/) and NPM installed
 * Install the Nexmo CLI.
 
@@ -31,9 +31,9 @@ To install the Nexmo CLI, run the following command in a terminal:
 npm install -g nexmo-cli@beta
 ```
 
-Set up the Nexmo CLI to use your Nexmo API Key and API Secret. You can get these from the [settings page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
+Set up the Nexmo CLI to use your Vonage API Key and API Secret. You can get these from the [settings page](https://dashboard.nexmo.com/settings) in the Vonage Dashboard.
 
-Run the following command in a terminal, while replacing `api_key` and `api_secret` with your Nexmo API key and secret:
+Run the following command in a terminal, while replacing `api_key` and `api_secret` with your Vonage API key and secret:
 
 ```bash
 nexmo setup api_key api_secret
@@ -41,7 +41,7 @@ nexmo setup api_key api_secret
 
 This adds this authentication information to the `.nexmorc` file in your home directory.
 
-## Create a Nexmo Application
+## Create a Vonage Application
 
 You now need to create a Vonage application. In this example you create an application capable of handling both in-app Voice and in-app Messaging use cases.
 
@@ -57,13 +57,13 @@ nexmo app:create "My Sample App" --capabilities=voice,rtc --voice-answer-url=htt
 
 The application is then created.
 
-The file `.nexmo-app` is created in your project directory. This file contains the Nexmo Application ID and the private key. A private key file `private.key` is also created.
+The file `.nexmo-app` is created in your project directory. This file contains the Vonage Application ID and the private key. A private key file `private.key` is also created.
 
 Creating an application and application capabilities are covered in detail in the [documentation](/application/overview).
 
 ## Create a User
 
-Create a User who will log in to Nexmo Client and participate in the SDK functionality: Conversations, Calls and so on.
+Create a User who will log in to Vonage Client and participate in the SDK functionality: Conversations, Calls and so on.
 
 Run the following command in your terminal to create a user named Alice: 
 

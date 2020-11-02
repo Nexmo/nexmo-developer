@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: The Conversation API is a low-level API that allows you to create various objects such as Users, Members, and Conversations. (Nexmo is now Vonage)
+description: The Conversation API is a low-level API that allows you to create various objects such as Users, Members, and Conversations.
 navigation_weight: 0
 ---
 

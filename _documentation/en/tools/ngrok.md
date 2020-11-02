@@ -35,7 +35,7 @@ Connections ttl opn rt1 rt5 p50 p90
 
 4) This command will show the URL of the tunnel, which will look similar to `https://abcdef1.ngrok.io`. Copy this URL.
 
-5) [Configure your Vonage webhooks](#setting-webhook-endpoints) to point to this URL.
+5) [Configure your Vonage API webhooks](#setting-webhook-endpoints) to point to this URL.
 
 Note that each time you start up the Ngrok tunnel, you will receive a new URL so don't forget to update the webhooks configuration accordingly!
 

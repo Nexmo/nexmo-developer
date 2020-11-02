@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Failover automatically from WhatsApp to SMS with Dispatch
-description: The Dispatch API enables the developer to send messages to users using a multiple channel strategy. (Nexmo is now Vonage)
+description: The Dispatch API enables the developer to send messages to users using a multiple channel strategy.
 ---
 
 # Dispatch API Overview

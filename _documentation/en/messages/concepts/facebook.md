@@ -17,7 +17,7 @@ Facebook Messenger uses its own form of IDs for the Facebook User and the Facebo
 
 The Facebook User will have a Page-scoped ID (PSID) and this is unique for each Facebook Profile. The business can only obtain the PSID of a user when the user sends a message to the business. In Facebook Messenger, the default is for the customer to initiate a conversation with a business.
 
-In order to get started with Facebook Messenger you will need to link your business's Facebook Page to Nexmo.
+In order to get started with Facebook Messenger you will need to link your business's Facebook Page to Vonage.
 
 ```partial
 source: _partials/reusable/link-facebook-to-nexmo.md

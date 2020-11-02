@@ -1,15 +1,15 @@
 ---
 title: FreeSWITCH
-description: How to setup Nexmo SIP with FreeSWITCH
+description: How to setup Vonage SIP with FreeSWITCH
 ---
 
 # FreeSWITCH
 
-Below we provide example configurations for using Nexmo's SIP service with [FreeSWITCH](http://www.freeswitch.org).
+Below we provide example configurations for using Vonage's SIP service with [FreeSWITCH](http://www.freeswitch.org).
 
 ## Inbound configuration
 
-Modify `autoload_configs/acl.conf.xml` and allow traffic from Nexmo's IP addresses:
+Modify `autoload_configs/acl.conf.xml` and allow traffic from Vonage's IP addresses:
 
 ```xml
 <list name="nexmo" default="deny">
@@ -28,7 +28,7 @@ Add the following to `sip_profiles/internal.xml`:
 <param name="apply-inbound-acl" value="nexmo"/>
 ```
 
-Create a public dial plan for Nexmo in `dialplan/public/nexmo_sip.xml`:
+Create a public dial plan for Vonage in `dialplan/public/nexmo_sip.xml`:
 
 ```xml
     <include>

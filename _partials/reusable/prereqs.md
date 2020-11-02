@@ -1,6 +1,6 @@
 ## Prerequisites
 
-1. [Create a Nexmo Account](https://dashboard.nexmo.com/sign-in)
+1. [Create a Vonage API Account](https://dashboard.nexmo.com/sign-in)
 2. [Install Node JS](https://nodejs.org/en/download/) - required for using the Nexmo Command Line Interface (CLI).
 3. [Install the Beta version of the Nexmo CLI](/messages/code-snippets/install-cli)
 4. [Install or update the Beta version of the Node Server SDK](/messages/code-snippets/server-sdk) - only required if using Node.

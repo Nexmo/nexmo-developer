@@ -29,13 +29,13 @@ Data Center | Location
 
 It is possible to configure the following three URLs:
 
-1. `nexmo_api_url`: the Nexmo Conversation API URL.
-2. `url`: the Nexmo websocket URL.
-3. `ips_url`: the Nexmo IPS URL for image upload.
+1. `nexmo_api_url`: the Conversation API URL.
+2. `url`: the websocket URL.
+3. `ips_url`: the IPS URL for image upload.
 
 ### `nexmo_api_url`
 
-This is the Nexmo Conversation API URL. This is the URL used when the Client SDK calls the API.
+This is the Conversation API URL. This is the URL used when the Client SDK calls the API.
 
 The default value is `https://api.nexmo.com`.
 
@@ -48,7 +48,7 @@ Data Center | URL
 
 ### `url`
 
-This is the Nexmo websocket URL. The URL that receives realtime events.
+This is the websocket URL: the URL that receives realtime events.
 
 The default value is `wss://ws.nexmo.com`.
 
@@ -61,7 +61,7 @@ Data Center | URL
 
 ### `ips_url`
 
-This is the Nexmo IPS URL for image upload. This is the internal service used to store images being sent via in-app messages.
+This is the IPS URL for image upload. This is the internal service used to store images being sent via in-app messages.
 
 The default value is `https://api.nexmo.com/v1/image`.
 

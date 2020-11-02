@@ -1,0 +1,14 @@
+---
+title: Java
+language: java
+client:
+  source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/StartPsd2Verification.java
+  from_line: 42
+  to_line: 42
+code:
+  source: .repos/vonage/vonage-java-code-snippets/src/main/java/com/vonage/quickstart/verify/StartPsd2Verification.java
+  from_line: 43
+  to_line: 49
+file_name: StartPsd2Verification.java
+run_command: java-ide
+unindent: true

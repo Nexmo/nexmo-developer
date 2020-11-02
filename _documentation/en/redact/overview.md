@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Redact your data to stay GDPR compliant
-description: To facilitate our customers' privacy compliance efforts, Vonage provide an API that allows you to manage personal data within the Vonage API platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs. (Nexmo is now Vonage)
+description: To facilitate our customers' privacy compliance efforts, Vonage provide an API that allows you to manage personal data within the Vonage API platform. The Redact API allows you to redact information on demand, providing a solution for your own compliance needs.
 ---
 
 # Redact your data
@@ -87,7 +87,7 @@ Feature | Description
 ----|----
 PII | PII includes the message content and the receiver phone number for outbound messages and the sender phone number for inbound messages. The SMS API uses a data pipeline software to transport CDRs to various databases. The data pipeline keeps CDRs along with the receiver/sender phone number for 7 days. Thus, besides server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs.
 Supported Auto&#8209;redact type | Advanced or Standard
-Auto&#8209;redact details | Advanced Auto-redact for SMS redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<p>1. Message content redaction only.<br/> 2. Phone number redaction only.<br/> 3. Phone number encryption only (not supported by Standard type).<br/> 4. Message content redaction together with redaction or encryption of the phone number.</p>When immediate message content redaction is configured, message content is not written at all, not even to the server logs or the data pipeline logs. When immediate number redaction is configured, the phone number gets encrypted by the SMS API before it gets written to the server logs and the data pipeline logs. When CDRs get propagated to the long-term storage of CDRs, the encrypted number field gets automatically redacted. The logs containing encrypted numbers expire on their own. **Neither Support or any other Vonage personnel have access to decryption keys.**
+Auto&#8209;redact details | Advanced Auto-redact for SMS redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<p>1. Message content redaction only.<br/> 2. Phone number redaction only.<br/> 3. Phone number encryption only (not supported by Standard type).<br/> 4. Message content redaction together with redaction or encryption of the phone number.</p>When immediate message content redaction is configured, message content is not written at all, not even to the server logs or the data pipeline logs. When immediate number redaction is configured, the phone number gets encrypted by the SMS API before it gets written to the server logs and the data pipeline logs. When CDRs get propagated to the long-term storage of CDRs, the encrypted number field gets automatically redacted. The logs containing encrypted numbers expire on their own. **Only limited number of authorized Vonage engineers have access to the aforementioned decryption keys, which are stored in the Key Management Service.**
 Redact API details | Redact API redacts only the CDRs in the long-term storage of CDRs. The scope of redaction is not configurable and includes message content together with the phone number.
 
 ### Number Insight API

@@ -45,7 +45,7 @@ If using Ngrok in this manner you would use the Ngrok URLs for your webhook URLs
 
 ### Webhook queue
 
-Please note that webhooks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
+Please note that webhooks emanating from Vonage, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Vonage on a per-message basis.
 
 Please ensure that all applications acknowledge webhooks with a 200 response.
 
@@ -55,4 +55,4 @@ In order to validate the origin of your webhooks, you can validate the signature
 
 ### Webhooks in production use
 
-If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+If the Webhook URLs for messages in your Vonage API Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.

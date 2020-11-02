@@ -6,9 +6,9 @@ navigation_weight: 1
 
 # Workflows and Events
 
-Verify API gives the best chance of reaching your users by combining SMS and TTS (Text-To-Speech) calls in sequence. The basic model is that when you [create a Verify request](/verify/code-snippets/send-verify-request), it is assigned a `request_id` and Nexmo will begin the sequence of actions to reach the user with a PIN code. When the user sends you the code, you send the code along with the `request_id` through to Nexmo to [check the code is correct](/verify/code-snippets/check-verify-request). 
+Verify API gives the best chance of reaching your users by combining SMS and TTS (Text-To-Speech) calls in sequence. The basic model is that when you [create a Verify request](/verify/code-snippets/send-verify-request), it is assigned a `request_id` and Vonage will begin the sequence of actions to reach the user with a PIN code. When the user sends you the code, you send the code along with the `request_id` through to Vonage to [check the code is correct](/verify/code-snippets/check-verify-request). 
 
-When you send the code and `request_id`, Nexmo will confirm if the code is as expected (or not). For a successful verification, the sequence will stop and no further calls or messages will be sent to the user. If the verification is unsuccessful, the sequence will continue and remain active until either the PIN has expired or three incorrect codes have been sent.
+When you send the code and `request_id`, Vonage will confirm if the code is as expected (or not). For a successful verification, the sequence will stop and no further calls or messages will be sent to the user. If the verification is unsuccessful, the sequence will continue and remain active until either the PIN has expired or three incorrect codes have been sent.
 
 The Verify API allows you to select the best workflow for your use case. This might depend on the type of verification taking place, your users' preference or their geographical location. You can specify which workflow to use for each Verify API request by setting the `workflow_id` field to an integer value 1-7. The details of each of these preset workflows are detailed below.
 

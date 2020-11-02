@@ -11,7 +11,7 @@ page:
               <div class="Vlt-col Vlt-col--1of2 Vlt-center"><h1 id="vonage-devs-tv">Vonage Dev TV</h1></div>
               <div class="Vlt-col Vlt-col--1of2 Vlt-center"><a id="watch-now-btn" class="Vlt-btn Vlt-btn--primary Vlt-btn--app Vlt-btn--large" href="https://twitch.tv/vonagedevs" target="_blank" > < Watch now! > </a></div>
             </div>
-            <h2 class="Vlt-center margin-bottom-0 margin-top-16">October</h2>
+            <h2 class="Vlt-center margin-bottom-0 margin-top-16">November</h2>
             <div class="Vlt-tabs container padding-top-0 margin-top-16">
               <div class="Vlt-table--data  Vlt-tabs__header">
                 <div class="Vlt-tabs__link Vlt-tabs__link_active no-border padding-top-0 padding-bottom-0"></div>
@@ -30,65 +30,7 @@ page:
                   <div class="Vlt-table__cell">F</div>
                 </div>
 
-                <div class="Vlt-table__row">
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="26">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="26a" role="tab">
-                        <b>26</b>
-                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Martyn (4pm UTC)</p>
-                      </div>
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="26b" role="tab">
-                        <p class="show">Week.init()</p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="27">
-                    <span class="Vlt-col padding-0">
 
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="27b" role="tab">
-                        <b>27</b>
-                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Lauren Learns Things (2pm UTC)</p>
-                      </div>
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="27b" role="tab">
-
-                        <p class="show Vlt-badge Vlt-badge--blue Vlt-badge--transparent">HDS: Hacktoberfest Tuesday (6pm UTC)</p>
-                      </div>
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="27c" role="tab">
-                        <p class="show">Mistakes Were Made</p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="28">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="28a" role="tab">
-                        <b>28</b>
-                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Julia (6pm UTC)</p>
-                      </div>
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="28b" role="tab">
-                        <p class="show">Developer Drop-In</p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="29">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="29a" role="tab">
-                        <b>29</b>
-                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: Ben & Fabian (12pm UTC)</p>
-                      </div>
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="29b" role="tab">
-                        <p class="show">New Stream, Who Dis?</p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="30">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="30a" role="tab">
-                        <b>30</b>
-                        <p class="show Vlt-badge Vlt-badge--purple Vlt-badge--transparent">HDS: HACKTOBERFINALE (2pm UTC)</p>
-                      </div>
-                    </span>
-                  </div>
-                </div>
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="2">
                     <span class="Vlt-col padding-0">
@@ -100,9 +42,9 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="3">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="3a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="3a" role="tab">
                         <b>3</b>
-                        <p class="show">Mistakes Were Made</p>
+                        <p class="show"></p>
                       </div>
                     </span>
                   </div>
@@ -119,9 +61,9 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="5">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="5a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="5a" role="tab">
                         <b>5</b>
-                        <p class="show"></p>
+                        <p class="show">New Stream, Who Dis?  </p>
                       </div>
                     </span>
                   </div>
@@ -161,9 +103,9 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="12">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="2a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="2a" role="tab">
                         <b>12</b>
-                        <p class="show"></p>
+                        <p class="show">Lauren Learns Things</p>
                       </div>
                     </span>
                   </div>
@@ -172,6 +114,48 @@ page:
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="2a" role="tab">
                         <b>13</b>
                         <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="16">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="2a" role="tab">
+                        <b>16</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="17">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="3a" role="tab">
+                        <b>17</b>
+                        <p class="show">Mistakes Were Made</p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="18">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="18a" role="tab">
+                        <b>18</b>
+                        <p class="show">The Low-Code Hour</p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="19">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="19a" role="tab">
+                        <b>19</b>
+                        <p class="show">Lauren Learns Things</p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="20">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="20a" role="tab">
+                        <b>20</b>
+                        <p class="show">Build A Thing</p>
                       </div>
                     </span>
                   </div>
@@ -188,377 +172,6 @@ page:
                 </div>
 
 
-                <div class="Vlt-tabs__panel" id="tab-26a" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601061034/hacktoberfest/martyn-dark_1_xdzh1t.png" alt="Hacktoberfest Stream Art">
-                    </div>
-                    <div class="Vlt-col Vlt-col--1of2">
-                        <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Daily Stream: Mondays with Martyn</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">16:00 London / 12:00 New York / 09:00 SF</h5>
-                        <br><br>
-                        <h4 class="inline-block">About Martyn Davies</h4>
-                        <a href="https://twitter.com/martynd" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/martyndavies" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Head of Developer Education
-                        </h5>
-                        <p class="text-justify">
-                          Head of Developer Education at Vonage. With a background as a creative developer, product manager, and hack day organizer, Martyn has been working as a technology advocate since 2012 having previously spent time in broadcasting, major record companies and educating and empowering developers all over the world.
-                        </p>
-                        <a class="Vlt-purple" href="https://martyndavies.me">
-                          martyndavies.me
-                        </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-26b" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601367175/Twitch_Show_Social_Graphics_12_b3vbpv.png" alt="Week.init()">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Week.init()</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">13:00 London / 09:00 New York / 06:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>All Together Now</h5>
-                        TBD
-                      </p>
-                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        Conversation API - Android Client SDK - iOS Client SDK
-                      </h5>
-                    </div>
-                    <div class="padding-top-32">
-                      <div class="Vlt-grid padding-top-32">
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4>About The Show</h4>
-                          <p class="text-justify">
-                            This series will promote the Conversation APIs within the Client SDKs and beyond. Episodes will cover a wide range of topics such as how to build a native messaging or VOIP applications!
-                          </p>
-                        </div>
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4 class="inline-block">About Paul Ardeleanu</h4>
-                          <a href="https://twitter.com/pardel" target="_blank">
-                            <i class="icon icon-twitter"></i>
-                          </a>
-                          <a href="https://github.com/pardel" target="_blank">
-                            <i class="icon icon-github"></i>
-                          </a>
-                          <h5>
-                            Developer Advocate Manager
-                          </h5>
-                          <p class="text-justify">
-                            Paul is an iOS Developer Advocate at Vonage. A seasoned software engineer, trainer and speaker, he specialised in data-driven solutions on Apple platforms with an emphasis on prototyping, best practices and balance with agility.
-                          </p>
-                          <a class="Vlt-purple" href="https://www.pardel.net/">
-                            ParDel.community
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-27a" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601386540/hacktoberfest/lauren-light-2pm_1_pvukti.png" alt="Hacktoberfest Stream Art">
-                    </div>
-                    <div class="Vlt-col Vlt-col--1of2">
-                        <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Daily Stream</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">14:00 London / 10:00 New York / 7:00 SF</h5>
-                        <br>
-                        <h4 class="inline-block">About Lauren Lee</h4>
-                        <a href="https://twitter.com/LoLoCoding" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/laurenelee" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Developer Educator Manager
-                        </h5>
-                        <p class="text-justify">
-                          An English teacher turned empathetic software engineer. A curious optimist with a passion for creating accessible content and helping developers level up their skills.
-                        </p>
-                        </br>
-                        <a class="Vlt-purple" href="https://lolocoding.com">
-                          LoLoCoding.com
-                        </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-27b" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601384443/europe-horizontal_1_1_qbg5ew.png" alt="Hacktoberfest Stream Art">
-                    </div>
-                    <div class="Vlt-col Vlt-col--1of2">
-                        <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Tuesdays: Europe</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">19:00 Central Europe / 18:00 London / 14:00 New York</h5>
-                        <br><br>
-                        <h4 class="inline-block">Schedule</h4>
-                        <p class="text-justify">
-                          6pm - Welcome and networking<br>
-                          6:15pm - Introducing Hacktoberfest and Open Source <br>
-                          6:30pm - Workshop: how to contribute to Open Source <br>
-                          6:45pm - Open Source project examples <br>
-                          7pm - Get Hacking <br>
-                          9pm - Wrap up and goodbye!
-                        </p>
-                        <a href="https://organize.mlh.io/participants/events/4101-hacktoberfest-tuesdays-london-and-more">
-                          <h4 class="inline-block Vlt-purple">Full Info</h4>
-                        </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="Vlt-tabs__panel" id="tab-27c" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1602596814/Twitch_Show_Social_Graphics_19_o1ica7.png" alt="Mistakes Were Made">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>Adding AR to WebRTC sessions</h5>
-                        Sometimes you don’t want to display your surroundings in a video session. In this episode, we’ll integrate DeepAR with the Video API to replace our background with an image we choose.
-                      </p>
-                      <br>
-                      <b>Links:</b>
-                      <a href="https://tokbox.com/developer/" target="_blank">
-                        Vonage Video API Developer Center
-                      </a>
-                      <b> - </b>
-                      <a href="https://www.deepar.ai/" target="_blank">
-                        Deep AR
-                      </a>
-                      <br><br>
-                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        Vonage Video API - WebRTC - VueJS - Augmented-Reality - Javascript
-                      </h5>
-                    </div>
-                    <div class="Vlt-grid padding-top-32">
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4>About The Show</h4>
-                        <p class="text-justify">
-                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
-                        </p>
-                      </div>
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4 class="inline-block">About Michael Jolley</h4>
-                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/MichaelJolley" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Developer Advocate
-                        </h5>
-                        <p class="text-justify">
-                          Michael is the bald, bearded builder.
-                          <br>
-                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
-                        </p>
-                        </br>
-                        <a class="Vlt-purple" href="https://baldbeardedbuilder.com/">
-                           BaldBeardedBuilder.com
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-28a" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601237648/hacktoberfest/julia-dark-6pm_1_hn5ycn.png" alt="Hacktoberfest Stream Art">
-                    </div>
-                    <div class="Vlt-col Vlt-col--1of2">
-                        <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Daily Stream</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">18:00 London / 14:00 New York / 11:00 SF</h5>
-                        <br><br>
-                        <h4 class="inline-block">About Julia Biro</h4>
-                        <a href="https://twitter.com/iza_biro" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/juliacodez" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Developer Advocate
-                        </h5>
-                        <p class="text-justify">
-                          Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
-                        </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-28b" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/Developer_Drop-In_Lorna_1_2_lkqquz.png" alt="Developer Drop-In">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Developer Drop-In</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>Tips for Voice API</h5>
-                        Vonage Voice API is a world of possibilities. There are API endpoints, call objects you can create and send, basically everything you can think of - and sometimes that's too much choice. In this session we'll take some of your use cases and questions, and show how to put together applications, events and webhooks that let you abuild the applications you are dreaming of.
-                      </p>
-                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        API - Code - Voice - Telephone - Fun
-                      </h5>
-                    </div>
-                    <div class="Vlt-grid padding-top-32">
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4>About The Show</h4>
-                        <p class="text-justify">
-                          Bi-weekly, on Wednesdays, Developer Drop-In is a chance for developers to get their questions answered live on stream and meet the people who build the libraries and sample apps they know and love. Lorna is the host, often joined by other team members. She takes questions from the audience and builds something as a more detailed answer to questions the team receives on StackOverflow or the community slack.
-                        </p>
-                      </div>
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4 class="inline-block">About Lorna Mitchell</h4>
-                        <a href="https://twitter.com/lornajane" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/lornajane" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Senior Developer Advocate
-                        </h5>
-                        <p class="text-justify">
-                          Lorna is a software engineer with an incurable blogging habit. She works on the Developer Relations team at Nexmo and tries to tame words and code in equal measure.
-                        </p>
-                        </br>
-                        <a class="Vlt-purple" href="https://lornajane.net">
-                          https://lornajane.net
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-29a" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601238679/hacktoberfest/ben-fabian_1_kpui5x.png" alt="Lauren&Lorna Hacktoberfest">
-                    </div>
-                    <div class="Vlt-col Vlt-col--1of2">
-                        <h3 class="Vlt-col padding-left-0 mobile-center">Hacktoberfest Daily Stream</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">12:00 London / 07:00 New York / 04:00 SF</h5>
-                        <br>
-                        <h4 class="inline-block">About Ben Greenberg</h4>
-                        <a href="https://twitter.com/RabbiGreenberg" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/bencgreenberg" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Ruby Developer Advocate
-                        </h5>
-                        <p class="text-justify">
-                          Ben is a second career developer who previously spent a decade in the fields of adult education, community organizing and non-profit management. He works as a developer advocate for Nexmo, the Vonage API Platform by day and experiments with open source projects at night. He writes regularly on the intersection of community development and tech. Originally from Southern California and a long time resident of New York City, Ben now resides near Tel Aviv, Israel.
-                        </p>
-                        <br>
-                        <h4 class="inline-block">About Fabian Rodriguez</h4>
-                        <a href="https://twitter.com/fabianrbz" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/fabianrbz" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Software Engineer
-                        </h5>
-                        <p class="text-justify">
-                          Fabian is part of the Developer Experience Team at Vonage. He is a passionate software engineer who loves open source, machine learning and coffee. When he isn't working on making our docs better you can find him cycling, reading or rooting for the Club Nacional de Football.
-                        </p>
-                    </div>
-
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-29b" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/16-7-2020_Nahrin_4_hkywr8.png" alt="New Stream, Who Dis?">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">New Stream, Who Dis?</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 12:00 New York / 9:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>Exploring Vonage Reports API with Streamlit</h5>
-                        The Vonage Reports API is out and it’s a goldmine for data-obsessed engineers looking for complete control over what they can learn about their Vonage account activity. In this stream, Martyn will take a look at working with the API using the popular data exploration framework Streamllit and attempt to build a data exploration app.
-                      </p>
-                    </div>
-                    <div class="Vlt-grid padding-top-32">
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4>About The Show</h4>
-                        <p class="text-justify">
-                          An ad hoc stream hosted by a variety of hosts from the DevRel team at Vonage. Variety of topics.
-                        </p>
-                      </div>
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4 class="inline-block">About Martyn Davies</h4>
-                        <a href="https://twitter.com/martynd" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/martyndavies" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Head of Developer Education
-                        </h5>
-                        <p class="text-justify">
-                          Head of Developer Education at Vonage. With a background as a creative developer, product manager, and hack day organizer, Martyn has been working as a technology advocate since 2012 having previously spent time in broadcasting, major record companies and educating and empowering developers all over the world.
-                        </p>
-                        <a class="Vlt-purple" href="https://martyndavies.me">
-                          martyndavies.me
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-30" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of2 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1603902760/hacktoberfest-finale_1_drulrt.png" alt="Hacktoberfest Stream Art">
-                    </div>
-                    <div class="Vlt-col Vlt-col--1of2">
-                        <h3 class="Vlt-col padding-left-0 mobile-center">FINAL HACKTOBERFEST STREAM!</h3>
-                        <h5 class="Vlt-col padding-left-0 mobile-center">14:00 London / 10:00 New York / 07:00 SF</h5>
-                        <br>
-                        This will be our FINAL live stream during Hacktoberfest!
-                        All of your favorite Vonage Hacktoberfest streamers and teammembers will be there!<br><br>
-                        During the stream, we will share stats, memories and general shenanigans!
-
-                        We want to invite everyone to share their highlights of the past month:<br><br>
-                        * Favorite Hacktoberfest moment<br>
-                        * Best PR you reviewed<br>
-                        * Most creative issue<br>
-                        * Favorite stream<br>
-                        * Silliest moment<br>
-                        * etc.
-                    </div>
-                  </div>
-                </div>
                 <div class="Vlt-tabs__panel" id="tab-2" role="tabpanel">
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-3" role="tabpanel">
@@ -674,7 +287,7 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-4b" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1601236016/Twitch_Show_Social_Graphics_10_jhrspg.png" alt="The Low-Code Hour">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1603841781/Twitch_Show_Social_Graphics_23_diks5y.png" alt="The Low-Code Hour">
                     </div>
                     <div class="Vlt-col Vlt-col--2of3">
                       <div class="Vlt-grid">
@@ -689,57 +302,79 @@ page:
                         Airtable - NoCode - Low-Code
                       </h5>
                     </div>
-                    <div class="padding-top-32">
-                      <div class="Vlt-col padding-left-0">
+                    <div class="padding-top-32 Vlt-grid">
+                      <div class="Vlt-col Vlt-col--1of2 padding-left-0">
                         <h4>About The Show</h4>
                         <p class="text-justify">
-                          Bi-weekly on Wednesdays Sam and Julia explore different low-code tools, a software development approach that enables the delivery of applications faster and with minimal hand-coding, such as Node-Red, Zapier, Netlify, etc.
+                          Bi-weekly on Wednesdays Julia explores different low-code tools, a software development approach that enables the delivery of applications faster and with minimal hand-coding, such as Node-Red, Zapier, Netlify, etc.
                         </p>
                       </div>
-                      <div class="Vlt-grid padding-top-32">
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4 class="inline-block">About Sam Machin</h4>
-                          <a href="https://twitter.com/sammachin" target="_blank">
-                            <i class="icon icon-twitter"></i>
-                          </a>
-                          <a href="https://github.com/sammachin" target="_blank">
-                            <i class="icon icon-github"></i>
-                          </a>
-                          <h5>
-                            Senior Product Manager
-                          </h5>
-                          <p class="text-justify">
-                            Sam Machin has nearly 20 years of experience in the communications industry and a strong track record of innovation. His role as a developer advocate enables him to attend events where he loves to chat with developers about their projects, His personal projects mostly revolve around Amazon Alexa, Sam created the AlexaPi project allowing developers to build thier own Alexa powered devices and he is recognised by Amazon as an Alexa Champion.
-                          </p>
-                          </br>
-                          <a class="Vlt-purple" href="https://www.sammachin.com">
-                            SamMachin.com
-                          </a>
-                        </div>
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4 class="inline-block">About Julia Biro</h4>
-                          <a href="https://twitter.com/iza_biro" target="_blank">
-                            <i class="icon icon-twitter"></i>
-                          </a>
-                          <a href="https://github.com/juliacodez" target="_blank">
-                            <i class="icon icon-github"></i>
-                          </a>
-                          <h5>
-                            Developer Advocate
-                          </h5>
-                          <p class="text-justify">
-                            Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
-                          </p>
-                          </br>
-                          <a class="Vlt-purple" href="https://developeravocados.net/">
-                            DeveloperAvocados.net
-                          </a>
-                        </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Julia Biro</h4>
+                        <a href="https://twitter.com/iza_biro" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/juliacodez" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://developeravocados.net/">
+                          DeveloperAvocados.net
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-5" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1596477949/16-7-2020_Nahrin_4_hkywr8.png" alt="New Stream, Who Dis?">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">New Stream, Who Dis?<br>Episode Title</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">17:00 London / 12:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        We will be talking about the <a class="Vlt-purple" href="https://www.linkit.nl/en/events/2020-OutSystems-Vonage-LINKIT-Developer-Challenge">2020 Developer Challenge</a>, a low-code hackathon Vonage is sponsoring in partnership with Outsystems and LINKIT.
+                        <br><br>
+                        laurenelee will be joined by <a class="Vlt-purple" href="https://www.linkedin.com/in/rickpfleger">Rick Pfleger</a>: an API Architect from Vonage, <a class="Vlt-purple" href="https://www.linkedin.com/in/ruibarbosa">Rui Barbosa</a>: Senior Developer Advocate from Outsystems, and <a class="Vlt-purple" href="https://www.linkedin.com/in/parma-bhagwandin-76106578/">Parma Bhagwandin</a>: Principal OutSystems Developer.
+                      </p>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lauren Lee</h4>
+                        <a href="https://twitter.com/LoLoCoding" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/laurenelee" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Educator Manager
+                        </h5>
+                        <p class="text-justify">
+                          An English teacher turned empathetic software engineer. A curious optimist with a passion for creating accessible content and helping developers level up their skills.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lolocoding.com">
+                          LoLoCoding.com
+                        </a>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Weekly, each Tuesday Lauren is joined by a PDX team member who is there to teach her (and the viewers) how to build an app or implement one of our APIs. They may be following along a recent blog post or working through a new demo the Developer Advocate is excited about. The app is always built from scratch and is accessible to all levels of developers, from experts to beginners!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-6" role="tabpanel">
                   <div class="Vlt-grid">
@@ -748,7 +383,7 @@ page:
                     </div>
                     <div class="Vlt-col Vlt-col--2of3">
                       <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Build a Thing with Kevin Lewis</h4>
+                        <h4 class="Vlt-col mobile-center">Build a Thing with Kevin Lewis: Week 4</h4>
                         <p class="Vlt-col Vlt-right mobile-justify">18:00 London / 13:00 New York / 10:00 SF</p>
                       </div>
                       <p class="Vlt-col padding-left-0 mobile-justify">
@@ -916,8 +551,287 @@ page:
 
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-12" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1604296159/Twitch_Show_Social_Graphics_24_ymx2qe.png" alt="Lauren Learns Things">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Lauren Learns Things</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 07:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">TBD</p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Weekly, each Tuesday Lauren is joined by a PDX team member who is there to teach her (and the viewers) how to build an app or implement one of our APIs. They may be following along a recent blog post or working through a new demo the Developer Advocate is excited about. The app is always built from scratch and is accessible to all levels of developers, from experts to beginners!
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lauren Lee</h4>
+                        <a href="https://twitter.com/LoLoCoding" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/laurenelee" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Educator Manager
+                        </h5>
+                        <p class="text-justify">
+                          An English teacher turned empathetic software engineer. A curious optimist with a passion for creating accessible content and helping developers level up their skills.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lolocoding.com">
+                          LoLoCoding.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-13" role="tabpanel">
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-16" role="tabpanel">
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-17" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600671582/Twitch_Show_Social_Graphics_3_i87htl.png" alt="Mistakes Were Made">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5></h5>
+                          TBD
+                      </p>
+                      <br>
+                      <b>Links:</b>
+                      <a href="https://tokbox.com/developer/" target="_blank">
+                        Vonage Video API Developer Center
+                      </a>
+                      <b> - </b>
+
+                      <br><br>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage Video API - webrtc - opentok - vuejs - augmented-reality - filters
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/MichaelJolley" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://baldbeardedbuilder.com/">
+                           BaldBeardedBuilder.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-18" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1603841781/Twitch_Show_Social_Graphics_23_diks5y.png" alt="The Low-Code Hour">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">The Low-Code Hour</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        Postman with guest Lorna Mitchell!
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Postman - NoCode - Low-Code
+                      </h5>
+                    </div>
+                    <div class="padding-top-32">
+                      <div class="Vlt-col padding-left-0">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Bi-weekly on Wednesdays Julia explores different low-code tools, a software development approach that enables the delivery of applications faster and with minimal hand-coding, such as Node-Red, Zapier, Netlify, etc.
+                        </p>
+                      </div>
+                      <div class="Vlt-grid padding-top-32">
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Lorna Mitchell</h4>
+                          <a href="https://twitter.com/lornajane" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/lornajane" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Senior Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            Lorna is a software engineer with an incurable blogging habit. She works on the Developer Relations team at Nexmo and tries to tame words and code in equal measure.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://lornajane.net">
+                            https://lornajane.net
+                          </a>
+                        </div>
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Julia Biro</h4>
+                          <a href="https://twitter.com/iza_biro" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/juliacodez" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            Julia is a Developer Advocate for Vonage focusing on low-code technologies and integrations. Maker and breaker of things, explorer of yet another builder tool. Forever challenging the barriers to entry of tech, she is passionate about learning and teaching, creating resources for the community.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://developeravocados.net/">
+                            DeveloperAvocados.net
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-19" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1604296159/Twitch_Show_Social_Graphics_24_ymx2qe.png" alt="Lauren Learns Things">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Lauren Learns Things</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">15:00 London / 10:00 New York / 07:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">TBD</p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Weekly, each Tuesday Lauren is joined by a PDX team member who is there to teach her (and the viewers) how to build an app or implement one of our APIs. They may be following along a recent blog post or working through a new demo the Developer Advocate is excited about. The app is always built from scratch and is accessible to all levels of developers, from experts to beginners!
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Lauren Lee</h4>
+                        <a href="https://twitter.com/LoLoCoding" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/laurenelee" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Educator Manager
+                        </h5>
+                        <p class="text-justify">
+                          An English teacher turned empathetic software engineer. A curious optimist with a passion for creating accessible content and helping developers level up their skills.
+                        </p>
+                        </br>
+                        <a class="Vlt-purple" href="https://lolocoding.com">
+                          LoLoCoding.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-20" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1599559866/Twitter_Post_-_1_24_trssdl.png" alt="Build a Thing with Kevin Lewis">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Build a Thing with Kevin Lewis: Week 5</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">18:00 London / 13:00 New York / 10:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        Join Kevin Lewis, Developer Advocate at Vonage, as he builds a new project from scratch over several weeks. Kevin is currently building a serverless video conferencing application using Netlify Functions, MongoDB, Vue.js and the Vonage Video API. In this episode, Kevin will take user requests for features to add!
+                        <br><br
+                        <b>Links:</b>
+                        <a href="https://github.com/nexmo-community/build-a-thing-video-conferencing" target="_blank">
+                          Companion Repo
+                        </a>
+                        <b> - </b>
+                        <a href="https://www.netlify.com/products/functions" target="_blank">
+                          Netlify Functions
+                        </a>
+                        <b> - </b>
+                        <a href="https://tokbox.com/developer/sdks/node/" target="_blank">
+                          Vonage Video API Docs
+                        </a>
+                        <br>
+                        <a href="https://dev.to/_phzn/accessing-mongodb-atlas-from-netlify-functions-1h70" target="_blank">
+                          Accessing MongoDB Atlas from Netlify Function
+                        </a>
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        JavaScript - Node.js - HTML - CSS - Vonage Video API - Serverless - Netlify - MongoDB - Vue.js
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Join Kevin Lewis, Developer Advocate at Vonage, as he builds a new project from scratch over 5 weeks.
+                          <br>
+                          <br>
+                          Kevin is currently building a serverless video conferencing application using Netlify Functions, MongoDB, Vue.js and the Vonage Video API.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Kevin Lewis</h4>
+                        <a href="https://twitter.com/_phzn" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/phazonoverload" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Kevin Lewis is a Developer Advocate for Vonage, where his role is to support the local tech community in London. He’s an experienced events organiser, boardgamer and dad to a cute little dog called Moo. He’s also the lead organizer for You Got This - a network of events on the core skills needed for a happy, healthy work life.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

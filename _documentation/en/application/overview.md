@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Application version 2 Overview
-Description: A Vonage API application contains the security and configuration information you need to connect to Vonage endpoints and use the Vonage APIs. (Nexmo is now Vonage)
+Description: A Vonage API application contains the security and configuration information you need to connect to Vonage endpoints and use the Vonage APIs. 
 navigation_weight: 1
 ---
 

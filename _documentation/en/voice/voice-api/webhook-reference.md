@@ -1,12 +1,12 @@
 ---
 title: Webhook Reference
-description: Details of the webhooks that Nexmo sends relating to voice calls.
+description: Details of the webhooks that Vonage sends relating to voice calls.
 api: "Voice API: Webhooks"
 ---
 
 # Voice API Webhooks Reference
 
-Nexmo uses webhooks alongside its Voice API to enable your application to interact with the call. There are two required, and one optional, webhook endpoints:
+Vonage uses webhooks alongside its Voice API to enable your application to interact with the call. There are two required, and one optional, webhook endpoints:
 
 * [Answer webhook](#answer-webhook) is sent when a call is answered. This is for both incoming and outgoing calls.
 * [Event webhook](#event-webhook) is sent for all the events that occur during a call. Your application can log, react to or ignore each event type.
@@ -32,7 +32,7 @@ Field | Example | Description
 
 #### Transmitting additional data with SIP headers
 
-In addition to the above fields, you can specify any additional headers you need when using SIP Connect. Any headers provided must start with `X-` and will be sent to your `answer_url` with a prefix of `SipHeader_`. For example, if you add a header of `X-UserId` with a value of `1938ND9`, Nexmo will add `SipHeader_X-UserId=1938ND9` to the request made to your `answer_url`.
+In addition to the above fields, you can specify any additional headers you need when using SIP Connect. Any headers provided must start with `X-` and will be sent to your `answer_url` with a prefix of `SipHeader_`. For example, if you add a header of `X-UserId` with a value of `1938ND9`, Vonage will add `SipHeader_X-UserId=1938ND9` to the request made to your `answer_url`.
 
 > **Warning:** Headers that start with `X-Nexmo` will not be sent to your `answer_url`
 
@@ -58,7 +58,7 @@ If you set the `answer_method` to `POST` then you will receive the request with 
 
 ### Responding to the answer webhook
 
-Nexmo expect you to return an [NCCO](/voice/voice-api/ncco-reference) in JSON format containing the actions to perform.
+Vonage expect you to return an [NCCO](/voice/voice-api/ncco-reference) in JSON format containing the actions to perform.
 
 ## Event webhook
 
@@ -200,7 +200,7 @@ Field | Example | Description
 
 ### Rejected
 
-The call was rejected by Nexmo before it was connected.
+The call was rejected by Vonage before it was connected.
 
 Field | Example | Description
  -- | -- | --
@@ -301,7 +301,7 @@ Field | Example | Description
 
 ### Input 
 
-This webhook is sent by Nexmo when an NCCO with an action of "input" has finished.
+This webhook is sent by Vonage when an NCCO with an action of "input" has finished.
 
 Field | Example | Description
  -- | -- | --
@@ -340,7 +340,7 @@ See also complete example payload shown in [NCCO Reference](/voice/voice-api/ncc
 
 ### Transfer
 
-This webhook is sent by Nexmo when a leg has been transferred from one conversation to another. This can be done using an NCCO or the [`transfer` action](/api/voice#updateCall)
+This webhook is sent by Vonage when a leg has been transferred from one conversation to another. This can be done using an NCCO or the [`transfer` action](/api/voice#updateCall)
 
 Field | Example | Description
  -- | -- | --

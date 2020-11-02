@@ -1,4 +1,4 @@
-Using the Nexmo Client SDK should start with logging in to `NexmoClient`, using a `JWT` user token.
+Using the Vonage Client SDK should start with logging in to `NexmoClient`, using a `JWT` user token.
 
 In production apps, your server would authenticate the user, and would return a [correctly configured JWT](/client-sdk/concepts/jwt-acl) to your app.
 
@@ -21,7 +21,7 @@ We'll update the empty `<script>` tag that's at the bottom of your `<body>` tag 
 </script>
 ```
 
-At this point you should already be able to run the app and see that you can login successfully with the SDK. Because the Nexmo Client uses IndexedDB for its sync mechanism, we suggest you don't serve `index.html` using the `file://` protocol. That corrupts the IndexedDB for any other users and makes the SDK behave inconsistently. You can use any HTTP server, like `http-server`. If you want to install it from NPM and then run it with cache disabled, here are the terminal commands:
+At this point you should already be able to run the app and see that you can login successfully with the SDK. Because the `NexmoClient` uses IndexedDB for its sync mechanism, we suggest you don't serve `index.html` using the `file://` protocol. That corrupts the IndexedDB for any other users and makes the SDK behave inconsistently. You can use any HTTP server, like `http-server`. If you want to install it from NPM and then run it with cache disabled, here are the terminal commands:
 
 ```bash
 $ npm install -g http-server

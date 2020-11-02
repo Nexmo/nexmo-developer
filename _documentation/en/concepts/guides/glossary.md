@@ -10,7 +10,7 @@ navigation_weight: 6
 
 Two-factor authentication: unambiguous identification of users by means of the combination of two different components. For example, to withdraw cash from an ATM, you need both a card and a PIN code. These components may be something that the user knows, something that the user possesses or something that is inseparable from the user.
 
-Many Nexmo customers authenticate their users by sending them a PIN code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. An example of usage is where the customer requires a password reset. In this case, the two components are the account details and possession of the phone number registered to that account.
+Many Vonage customers authenticate their users by sending them a PIN code in an [SMS](#sms). The user authenticates by entering the PIN into the customer's UI. An example of usage is where the customer requires a password reset. In this case, the two components are the account details and possession of the phone number registered to that account.
 
 See the [Wikipedia article](https://en.wikipedia.org/wiki/Two-factor_authentication).
 
@@ -32,7 +32,7 @@ The [Sender ID](#sender-id) for [voice](#voice) calls. Referred to as the CLI or
 
 ## Carrier
 
-A Telecommunications Service Provider. The company that a phone connects to is the target carrier for the phone number. You can also have intermediate carriers - Nexmo is one.
+A Telecommunications Service Provider. The company that a phone connects to is the target carrier for the phone number. You can also have intermediate carriers - Vonage is one.
 
 ## CDR
 
@@ -58,7 +58,7 @@ The [Client SDK](/client-sdk/overview) enables you to add in-app voice and messa
 
 ## Cloud number
 
-A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Nexmo customers use these numbers for [Messaging](#messaging-api) or [Voice](#voice) communication.
+A virtual number that is assigned to a customer's account and not a device. A virtual number can accept inbound SMS, Voice or both. Vonage customers use these numbers for [Messaging](#messaging-api) or [Voice](#voice) communication.
 
 See also [Virtual Number](#virtual-number).
 
@@ -72,30 +72,30 @@ The [Conversation API](/conversation/overview) enables you to build applications
 
 ## Dashboard
 
-See [Nexmo Dashboard](#nexmo-dashboard).
+See [Vonage Dashboard](#nexmo-dashboard).
 
 ## Dedicated Short Codes
 
-This is a Short Code used by a single Nexmo Customer. Unlike a Shared Short Code, Nexmo manages a lengthy application process in order to purchase a US short code for you. Customers can also transfer their current short code to Nexmo.
+This is a Short Code used by a single Vonage Customer. Unlike a Shared Short Code, Vonage manages a lengthy application process in order to purchase a US short code for you. Customers can also transfer their current short code to Vonage.
 
 For more information see the [US Short Code documentation](/messaging/us-short-codes/overview).
 
 ## Delivery Receipt
 
-When Nexmo sends an SMS to a Telecommunications Service Provider, they return a delivery receipt. Telecommunications Service Providers send the delivery receipt at a moment of their choice, they do not have to wait for delivery confirmation.
+When Vonage sends an SMS to a Telecommunications Service Provider, they return a delivery receipt. Telecommunications Service Providers send the delivery receipt at a moment of their choice, they do not have to wait for delivery confirmation.
 
 Delivery receipt can be either:
 
-* Carrier - returned to Nexmo when the message is received by the Telecommunications Service Providers.
-* Handset - returned to Nexmo when the message is received on your user's handset.
+* Carrier - returned to Vonage when the message is received by the Telecommunications Service Providers.
+* Handset - returned to Vonage when the message is received on your user's handset.
 
-In practice, some Telecommunications Service Providers either do not send the delivery receipt or send a Fake DLR. Nexmo cannot be 100% certain that a "successfully delivered" delivery receipt means that the message reached the user.
+In practice, some Telecommunications Service Providers either do not send the delivery receipt or send a Fake DLR. Vonage cannot be 100% certain that a "successfully delivered" delivery receipt means that the message reached the user.
 
 If the message is not received, this delivery receipt explains why the message failed to arrive.
 
 ## Destination Number
 
-The phone number a message or call is sent to. This is the `to` parameter in the Nexmo APIs.
+The phone number a message or call is sent to. This is the `to` parameter in the Vonage APIs.
 
 ## Direct-to-Carrier Network
 
@@ -111,7 +111,7 @@ Dual Tone Multi Frequency. Typically used when dealing with data entered by the 
 
 See [Wikipedia article](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling).
 
-For further information see the [Nexmo DTMF documentation](/voice/voice-api/guides/dtmf).
+For further information see the [Vonage DTMF documentation](/voice/voice-api/guides/dtmf).
 
 ## Dynamic Caller ID
 
@@ -123,7 +123,7 @@ A measure of the impact of inbound phone calls in digital marketing efforts. For
 
 ## E.164 format
 
-The Nexmo APIs expect numbers to be in [E.164 format](https://en.wikipedia.org/wiki/E.164), ensuring that the dialling code `+` is omitted.
+The Vonage APIs expect numbers to be in [E.164 format](https://en.wikipedia.org/wiki/E.164), ensuring that the dialling code `+` is omitted.
 
 Numbers must therefore:
 
@@ -144,7 +144,7 @@ A short number between 4 and 6 digits that has been extended to create a large p
 
 A [Delivery Receipt](#delivery-receipt) suspected to be fake. That is when there is no intention to deliver the SMS.
 
-Sometimes delivery receipts are faked because the Telecommunications Service Provider sends it early. Some Telecommunications Service Providers never return a delivery receipt. In this case Nexmo creates a delivery receipt and sends it to you.
+Sometimes delivery receipts are faked because the Telecommunications Service Provider sends it early. Some Telecommunications Service Providers never return a delivery receipt. In this case Vonage creates a delivery receipt and sends it to you.
 
 ## Geo
 
@@ -162,7 +162,7 @@ Home Location Register. These databases contain details of each subscriber phone
 
 Interactive Voice Response, or IVR, is an automated telephony technology that enables a human caller to interact with a computer using voice and DTMF tones input on a keypad.
 
-See also the [Nexmo DTMF documentation](/voice/voice-api/guides/dtmf).
+See also the [Vonage DTMF documentation](/voice/voice-api/guides/dtmf).
 
 ## Intermediate carrier
 
@@ -184,7 +184,7 @@ See [HLR](#hlr).
 
 ## Local Supplier
 
-An intermediate carrier Nexmo believes has direct connections Telecommunications Service Providers in a country.
+An intermediate carrier Vonage believes has direct connections Telecommunications Service Providers in a country.
 
 ## Low friction integration
 
@@ -204,7 +204,7 @@ A seamless network of Telecommunications Service Providers. This enables you to 
 
 ## Messaging API
 
-This product enables Nexmo customers to have a conversation with their users. The products that makeup Messaging are:
+This product enables Vonage customers to have a conversation with their users. The products that makeup Messaging are:
 
 * SMS API
 * US Short Codes API
@@ -214,7 +214,7 @@ Further information can be found in the [Messaging API documentation](/messaging
 
 ## MO
 
-Mobile Originated. Sent from a phone number to Nexmo. When a phone sends a text to a virtual number it is MO because the message originates from the phone.
+Mobile Originated. Sent from a phone number to Vonage. When a phone sends a text to a virtual number it is MO because the message originates from the phone.
 
 ## MSISDN
 
@@ -226,7 +226,7 @@ Mobile Terminated. That is, sent by a customer to a phone number through the Pla
 
 ## NCCO
 
-A Nexmo Call Control Object (NCCO) is a JSON array that you use to control the flow of a Voice API call. For your NCCO to execute correctly, the JSON objects must be valid.
+A Vonage Call Control Object (NCCO) is a JSON array that you use to control the flow of a Voice API call. For your NCCO to execute correctly, the JSON objects must be valid.
 
 While developing and testing NCCOs, you can use the Voice Playground to try out NCCOs interactively. You can [read more about it in the Voice API Overview](/voice/voice-api/overview#voice-playground) or [go directly to the Voice Playground in the Dashboard](https://dashboard.nexmo.com/voice/playground).
 
@@ -238,11 +238,11 @@ A Telecommunications Service Provider.
 
 A [Delivery Receipt](#delivery-receipt).
 
-## Nexmo Application
+## Vonage Application
 
-An application object that you create in the [Nexmo Dashboard](#nexmo-dashboard), or using the [CLI](#cli), [Server SDKs](#server-sdks) or [REST APIs](https://developer.nexmo.com).
+An application object that you create in the [Vonage Dashboard](#nexmo-dashboard), or using the [CLI](#cli), [Server SDKs](#server-sdks) or [REST APIs](https://developer.nexmo.com).
 
-## Nexmo Dashboard
+## Vonage Dashboard
 
 This product is a self-service customer tool.
 
@@ -258,13 +258,13 @@ You use your Dashboard to:
     * Virtual numbers
     * US Short Codes
 
-* Analyze the success rates for your communication using the Nexmo APIs:
+* Analyze the success rates for your communication using the Vonage APIs:
     * Measure conversion
     * Track and troubleshoot message delivery
     * Make data-driven decisions
     * Optimize communication with their users
 
-[Access your Nexmo Dashboard](https://dashboard.nexmo.com).
+[Access your Vonage Dashboard](https://dashboard.nexmo.com).
 
 ## Notification service
 
@@ -303,11 +303,11 @@ This  Number Insight  product is a synchronous API that verifies the relationshi
 
 ## Number inventory
 
-Search for, buy and update your inventory of numbers using Nexmo Dashboard.
+Search for, buy and update your inventory of numbers using Vonage Dashboard.
 
 ## Number format
 
-Within the Nexmo Voice API, all numbers are in E.164 format. This means that numbers:
+Within the Vonage Voice API, all numbers are in E.164 format. This means that numbers:
 
 * Omit both a leading `+` and the international access code such as `00` or `001`.
 * Contain no special characters, such as a space, `(`, `)` or `-`.
@@ -344,7 +344,7 @@ Post-Dial Delay is the time it takes to receive feedback after a user has finish
 
 ## Per-second billing
 
-With Nexmo per-second billing, you maintain full control over how much you spend. For example, if your call lasts 2.5 minutes, you are charged for 2.5 minutes, not 3. This billing model allows you to make more calls for the same amount of money.
+With Vonage per-second billing, you maintain full control over how much you spend. For example, if your call lasts 2.5 minutes, you are charged for 2.5 minutes, not 3. This billing model allows you to make more calls for the same amount of money.
 
 ## Performance volatility
 
@@ -352,7 +352,7 @@ The frequent changes in throughput that constantly occur in SMS networks. For ex
 
 ## Platform
 
-The Nexmo technologies that facilitate the interaction between Nexmo customers and their users. The Cloud Communications Platform is an API-based, fully redundant global communication platform that delivers mission-critical multi-channel solutions. The main products in the cloud are:
+The Vonage technologies that facilitate the interaction between Vonage customers and their users. The Cloud Communications Platform is an API-based, fully redundant global communication platform that delivers mission-critical multi-channel solutions. The main products in the cloud are:
 
 **Technologies** - the components and algorithms that make the Platform work:
 
@@ -360,7 +360,7 @@ The Nexmo technologies that facilitate the interaction between Nexmo customers a
 * [Adaptive Routing™](#adaptive-routing)
 * Platform Infrastructure
 
-**Services** - Customers communicate with the cloud using the comprehensive suite of Nexmo APIs in order to optimize their communication experience.
+**Services** - Customers communicate with the cloud using the comprehensive suite of Vonage APIs in order to optimize their communication experience.
 
 These APIs are:
 
@@ -410,10 +410,10 @@ The phone number or message shown on a handset when it receives an SMS API messa
 
 ## Server SDKs
 
-Nexmo provides Server SDKs for various programming languages. These SDKs abstract away much of the complexity involved with accessing our APIs directly, enabling you to develop
+Vonage provides Server SDKs for various programming languages. These SDKs abstract away much of the complexity involved with accessing our APIs directly, enabling you to develop
 Vonage applications quickly and reduce time to market.
 
-Further information can be found on the [Nexmo Tools page](https://developer.nexmo.com/tools).
+Further information can be found on the [Vonage Tools page](https://developer.nexmo.com/tools).
 
 ## Shared Short Codes
 
@@ -437,19 +437,19 @@ A silent SMS sent to check if a user's phone is turned on. If the user's device 
 
 ## SIP
 
-Session Initiation Protocol (SIP) is an application-layer control protocol that can establish, modify, and terminate multimedia sessions (conferences) such as Internet telephony calls. Nexmo supports a SIP interface for [Voice](#voice).
+Session Initiation Protocol (SIP) is an application-layer control protocol that can establish, modify, and terminate multimedia sessions (conferences) such as Internet telephony calls. Vonage supports a SIP interface for [Voice](#voice).
 
 See [Wikipedia article](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
 
-See also the [Nexmo documentation on endpoints](/voice/voice-api/guides/endpoints).
+See also the [Vonage documentation on endpoints](/voice/voice-api/guides/endpoints).
 
 ## SIP Trunking
 
-In [Voice](#voice), some customers connect to the Nexmo [SIP](#sip) endpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can flexibly use this as a SIP trunk and a SIP User Agent gateway.
+In [Voice](#voice), some customers connect to the Vonage [SIP](#sip) endpoint (`sip.nexmo.com`) to create and accept inbound and outbound VOIP calls. All requests are digest authenticated using account credentials. You can flexibly use this as a SIP trunk and a SIP User Agent gateway.
 
 ## SMPP
 
-The Short Message Peer-to-Peer (SMPP) protocol is used to communicate [SMS](#sms) between carriers. Nexmo supports SMPP. However, the majority of our customers use the [HTTP](#sms-api) interface.
+The Short Message Peer-to-Peer (SMPP) protocol is used to communicate [SMS](#sms) between carriers. Vonage supports SMPP. However, the majority of our customers use the [HTTP](#sms-api) interface.
 
 ## SMS
 
@@ -471,7 +471,7 @@ See [SMS Cloud Numbers](#sms-cloud-numbers).
 
 ## Supplier
 
-Any company furnishing telecoms services to Nexmo that does not fit into the category of carrier or intermediate carrier.
+Any company furnishing telecoms services to Vonage that does not fit into the category of carrier or intermediate carrier.
 
 ## Target Carrier
 
@@ -505,7 +505,7 @@ Send and receive SMS directly from your system or App.
 
 ## US Short Codes API
 
-You use Nexmo's US Short Codes API to:
+You use Vonage's US Short Codes API to:
 
 * Prove a user's identity with Two-factor Authentication.
 * Communicate with people using Event Based Alerts.
@@ -522,7 +522,7 @@ Further information can be found in the [Verify documentation](/verify/overview)
 
 ## Virtual Number
 
-Nexmo purchases virtual numbers from various carriers. Nexmo customers rent these virtual numbers to receive inbound messages and voice communication in their application.
+Vonage purchases virtual numbers from various carriers. Vonage customers rent these virtual numbers to receive inbound messages and voice communication in their application.
 
 See [Long Number](https://en.wikipedia.org/wiki/Long_number) and [Virtual Number](https://en.wikipedia.org/wiki/Virtual_number) on Wikipedia.
 

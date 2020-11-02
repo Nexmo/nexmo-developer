@@ -2,12 +2,12 @@
 title: Overview
 meta_title: Audit your account by monitoring events as they happen
 navigation_weight: 1
-description: The Audit API overview. (Nexmo is now Vonage)
+description: The Audit API overview.
 ---
 
 # Audit API Overview
 
-The Vonage Audit API enables you to monitor your account by tracking events. These events are generated when your account users work with the SDKs or interact with the Vonage API Dashboard. (Nexmo is now Vonage)
+The Vonage Audit API enables you to monitor your account by tracking events. These events are generated when your account users work with the SDKs or interact with the Vonage API Dashboard.
 
 With this API you can:
 

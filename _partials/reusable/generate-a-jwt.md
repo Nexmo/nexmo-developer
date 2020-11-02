@@ -2,7 +2,7 @@
 
 > **TIP:** You only need to do this step if you are testing with Curl, as the client libraries generate JWTs as needed for you.
 
-Once you have created a Nexmo Application you can use the Nexmo Application ID and the private key file, `private.key`, to generate a JWT.
+Once you have created a Vonage API Application you can use the Application ID and the private key file, `private.key`, to generate a JWT.
 
 > **TIP:** If you are using the [Server SDK](/messages/code-snippets/server-sdk) for Node (or other languages when supported), the dynamic creation of JWTs is done for you.
 

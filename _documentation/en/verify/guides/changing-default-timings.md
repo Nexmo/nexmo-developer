@@ -13,7 +13,7 @@ You can change the [default timings](/verify/guides/verification-events#timing-o
     * Must be an integer value between 60 and 3600 seconds
     * The default expiry differs between [workflows](/verify/guides/workflows-and-events) but will be 300 seconds in most cases
 * `next_event_wait`:
-    * The time after which Nexmo triggers the next verification attempt
+    * The time after which Vonage triggers the next verification attempt
     * The default timing differs for each [workflow](/verify/guides/workflows-and-events)
 
 If you specify values for both `pin_expiry` and `next_event_wait`, the value of `pin_expiry` must be an exact multiple of `next_event_wait`.

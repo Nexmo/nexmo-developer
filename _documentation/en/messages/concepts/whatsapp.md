@@ -10,7 +10,7 @@ WhatsApp Business Solution messages can only be sent by businesses that have bee
 
 The advantage of WhatsApp is that the identifier of users on the platform is their mobile phone number.
 
-> **NOTE:** WhatsApp is in Limited Availability and Nexmo cannot guarantee you will receive a WhatsApp account.
+> **NOTE:** WhatsApp is in Limited Availability and Vonage cannot guarantee you will receive a WhatsApp account.
 
 ## Using existing WhatsApp Business Number
 
@@ -20,7 +20,7 @@ If you already have a WhatsApp Business Number and would like to use that number
 
 ## Important WhatsApp rules
 
-If your customer initiates messaging with you, WhatsApp will not charge you for any MTMs (Template Messages) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which you will be charged. The Nexmo Usage fee for every outbound message applies regardless of the customer care window. There are no charges for inbound messages. Further pricing information is available on the [WhatsApp Product](https://www.nexmo.com/products/messages/whatsapp) Page.
+If your customer initiates messaging with you, WhatsApp will not charge you for any MTMs (Template Messages) that you send back to the customer, for up to 24 hours following the last message that your customer sent you. This 24 hour period is known as the Customer Care Window. Any additional message you send to that customer beyond the Customer Care Window must be an MTM, for which you will be charged. The Vonage API Usage fee for every outbound message applies regardless of the customer care window. There are no charges for inbound messages. Further pricing information is available on the [WhatsApp Product](https://www.nexmo.com/products/messages/whatsapp) Page.
 
 > **IMPORTANT**: The WhatsApp Business Solution may not be used to send any messages to or receive messages from the following countries or regions: Crimea, Cuba, Iran, North Korea, and Syria.
 
@@ -47,13 +47,13 @@ WhatsApp has a core concept of Messages Templates (MTM). These were previously k
 
 The MTM allows a business to send just the template identifier along with the appropriate parameters instead of the full message content.
 
-> **NOTE:** New templates need to be approved by WhatsApp. Please contact your Nexmo Account Manager to submit the templates. Only templates created in your own namespace are valid. Using an template with a namespace outside of your own results in an error code 1022 being returned.
+> **NOTE:** New templates need to be approved by WhatsApp. Please contact your Vonage API Account Manager to submit the templates. Only templates created in your own namespace are valid. Using an template with a namespace outside of your own results in an error code 1022 being returned.
 
 > **NOTE:** Templates are subject to a restriction of 60 characters in their header and footer, and 1024 characters in their body.
 
 MTMs are designed to reduce the likelihood of spam to users on WhatsApp.
 
-For the purpose of testing Nexmo provides a template, `whatsapp:hsm:technology:nexmo:verify`, that you can use:
+For the purpose of testing Vonage provides a template, `whatsapp:hsm:technology:nexmo:verify`, that you can use:
 
 ``` shell
 {{1}} code: {{2}}. Valid for {{3}} minutes.

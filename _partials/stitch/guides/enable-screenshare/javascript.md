@@ -20,7 +20,7 @@ This guide will introduce you to the following concepts:
 
 - Ensure you have run through the [previous guide.](/client-sdk/in-app-video/guides/enable-video/javascript)
 
-## 1 - Creating the Nexmo Client SDK compatible Chrome extension
+## 1 - Creating the Vonage Client SDK compatible Chrome extension
 
 In order to enable screen sharing into our application, we'll need to create a Chrome extension. First, let's create a new folder, call it `chrome-extension`.
 
@@ -52,7 +52,7 @@ We’ll have to create a `manifest.json` file that contains the metadata on how 
 
 ### 1.2 - Adding the extension’s JavaScript code
 
-We’ll have to create the file `screen-capture.js` we referenced in the manifest, which is the code the extension will run. Nexmo Client SDK sends a `screenshare-extension-installed` message to the extension and expects a `success` answer, so we'll need to add code to check for that message. On any other message, we'll make the extension reply with the proper stream id from the screen capture. The code looks like this:
+We’ll have to create the file `screen-capture.js` we referenced in the manifest, which is the code the extension will run. Vonage Client SDK sends a `screenshare-extension-installed` message to the extension and expects a `success` answer, so we'll need to add code to check for that message. On any other message, we'll make the extension reply with the proper stream id from the screen capture. The code looks like this:
 
 ```javascript
 chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {

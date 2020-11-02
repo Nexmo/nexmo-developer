@@ -1,10 +1,11 @@
 ---
 title: Documentation
+description: The Vonage API developer documentation.
 ---
 
 # Documentation
 
-Welcome to the Vonage API Developer Documentation. Get familiar with [concepts](#concepts) common to Vonage's APIs and [products](#products). Then start building connected applications with Nexmo.
+Welcome to the Vonage API Developer Documentation. Get familiar with [concepts](#concepts) common to Vonage's APIs and [products](#products). Then start building connected applications with Vonage.
 
 ## Concepts
 

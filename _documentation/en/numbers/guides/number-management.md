@@ -1,6 +1,6 @@
 ---
 title: Number Management
-description: Rent, configure and manage your number inventory in the Nexmo Developer Dashboard
+description: Rent, configure and manage your number inventory in the Vonage Developer Dashboard
 navigation_weight: 1
 ---
 
@@ -15,7 +15,7 @@ You can use the dashboard to:
 
 ## Rent a virtual number
 
-To rent a Nexmo virtual number:
+To rent a Vonage virtual number:
 
 1. Sign in to the [developer dashboard](https://dashboard.nexmo.com).
 2. In the left-hand navigation menu, click **Numbers** then **Buy numbers**.
@@ -24,11 +24,11 @@ To rent a Nexmo virtual number:
 5. Your virtual number is now listed in **Your numbers**.
 6. If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](/numbers/guides/payments#auto-reload-your-account-balance).
 
-> You rent each virtual number by the month. The renewal date is relative to the original subscription date. The rental price is automatically deducted from your Nexmo account on the same day every month. However, if you rented a virtual number on the last day of the month, the renewal date is last day of the next month. For example, if you rented a number on the 28th of February, subsequent renewal dates would be the 31st March, the 30th April, and so on.
+> You rent each virtual number by the month. The renewal date is relative to the original subscription date. The rental price is automatically deducted from your Vonage account on the same day every month. However, if you rented a virtual number on the last day of the month, the renewal date is last day of the next month. For example, if you rented a number on the 28th of February, subsequent renewal dates would be the 31st March, the 30th April, and so on.
 
 ## Configure a virtual number
 
-To configure a Nexmo virtual number:
+To configure a Vonage virtual number:
 
 1. Sign in to the [developer dashboard](https://dashboard.nexmo.com).
 2. In the left-hand navigation menu, click **Numbers** then **Your numbers**.

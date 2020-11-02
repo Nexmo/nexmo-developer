@@ -31,7 +31,7 @@ The redaction options available are:
 3. Phone number encryption only.
 4. Message content redaction combined with either redaction or encryption of the phone number.
 
-A key point of Vonage's immediate Advanced Auto-redact is that the message body is not stored in any of the logs or the CDRs. Phone numbers are also immediately encrypted, with an encryption key that Vonage staff do not have access to. Those encrypted numbers get then redacted in the CDRs, which are stored for 13 months, but not in the server logs. Server logs get automatically deleted after the end of their retention period, which is 15 - 30 days. Please refer to the [Redaction page](https://developer.nexmo.com/redact/overview) for more information.
+A key point of Vonage's immediate Advanced Auto-redact is that the message body is not stored in any of the logs or the CDRs. **Phone numbers are also immediately encrypted, with an encryption key that is stored in the Key Management Service. Only a limited number of authorized Vonage engineers have access to it.** Those encrypted numbers get then redacted in the CDRs, which are stored for 13 months, but not in the server logs. Server logs get automatically deleted after the end of their retention period, which is 15 - 30 days. Please refer to the [Redaction page](https://developer.nexmo.com/redact/overview) for more information.
 
 ## How to set up Auto-redact for your Vonage account
 

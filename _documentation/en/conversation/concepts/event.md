@@ -6,8 +6,8 @@ navigation_weight: 9
 
 # Event
 
-Conversations and other Nexmo objects such as Members and Applications generate Events. When key activities occur an event is generated, which can be handled by the application. For example when a User joins a Conversation a `member:joined` event is fired. Other events include `app:knocking`, and `conversation:created`.
-Nexmo Application with `rtc` among its capabilities, will receive the dispatched event on the `rtc` `event_url` webhook.
+Conversations and other Vonage objects such as Members and Applications generate Events. When key activities occur an event is generated, which can be handled by the application. For example when a User joins a Conversation a `member:joined` event is fired. Other events include `app:knocking`, and `conversation:created`.
+If a Vonage Application has `rtc` as a capability, it will receive the dispatched event on the `rtc` `event_url` webhook.
 
 Event type | Description
 ----|----
@@ -49,7 +49,7 @@ Event type | Description
 `sip:answered` | SIP call is answered.
 `sip:machine` | When the entity answering the SIP call is a machine.
 `sip:hangup` | User on a SIP Call hangs up.
-`sip:ringing` | SIP call starts ringing, such as when Nexmo makes an Outbound Call.
+`sip:ringing` | SIP call starts ringing, such as when Vonage makes an Outbound Call.
 `text:seen` | Text message is seen by the recipient.
 `text:delivered` | Text message is delivered to the recipient.
 `text` | new In App Text  message was created.

@@ -6,7 +6,7 @@ navigation_weight: 4
 
 # Signing Messages
 
-You can use signatures with Nexmo when both sending and receiving SMS messages. When sending, you generate a signature to send with your message. When receiving, the incoming webhook will include the signature and all the fields you need to generate the signature in your application to verify that the two signatures match.
+You can use signatures with the SMS API when sending and receiving SMS messages. When sending, you generate a signature to send with your message. When receiving, the incoming webhook will include the signature and all the fields you need to generate the signature in your application to verify that the two signatures match.
 
 You use a signature to:
 
@@ -26,7 +26,7 @@ This document covers how to use signatures with messages, both signing the messa
 
 To send a message with a signature, you will need to use the `SIGNATURE_SECRET` instead of your `API_SECRET` when sending the message. You can find the signature secret and choose which signing algorithm to use by visiting the [dashboard](https://dashboard.nexmo.com). The default algorithm is'[MD5 hash](https://en.wikipedia.org/wiki/MD5)' and we also support `MD5 HMAC`, `SHA1 HMAC`, `SHA-256 HMAC` and `SHA-512 HMAC`.
 
-Nexmo strongly recommends you use one of our [client libraries](/tools) to generate or validate signatures. If you *can't* do this for some reason, you *can* generate and validate signatures yourself, but this can be complicated and potentially error-prone. Refer to the [section on manually generating signatures](#manually-generate-a-signature).
+Vonage strongly recommends you use one of our [client libraries](/tools) to generate or validate signatures. If you *can't* do this for some reason, you *can* generate and validate signatures yourself, but this can be complicated and potentially error-prone. Refer to the [section on manually generating signatures](#manually-generate-a-signature).
 
 The process for sending a signed message is as follows:
 
@@ -60,7 +60,7 @@ source: '_examples/concepts/guides/verify-signed-sms'
 
 ## Manually generate a signature
 
-It is *highly recommended* that you use your Nexmo library's existing functionality for generating and validating signatures. If you aren't using a library with this functionality, you'll need to generate the signature yourself. The technique is slightly different if are generating an 'MD5 hash' signature or one of the HMAC signatures.
+It is *highly recommended* that you use your Vonage library's existing functionality for generating and validating signatures. If you aren't using a library with this functionality, you'll need to generate the signature yourself. The technique is slightly different if are generating an 'MD5 hash' signature or one of the HMAC signatures.
 
 ### Step 1: For both hash and HMAC signatures
 

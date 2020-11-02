@@ -16,7 +16,7 @@ Postman has support for the OpenAPI documents that we publish with all our APIs.
 
 > If you're new to OpenAPI, we have a [Guide to OpenAPI](/concepts/guides/openapi) just for you!
 
-Install Postman and follow the steps laid out below to very quickly try out any of the Nexmo APIs. We publish an OpenAPI document for each API and Postman can read these and create a collection of requests that you can simply enter values into.
+Install Postman and follow the steps laid out below to very quickly try out any of the Vonage APIs. We publish an OpenAPI document for each API and Postman can read these and create a collection of requests that you can simply enter values into.
 
 ## Get the OpenAPI Description of the API
 

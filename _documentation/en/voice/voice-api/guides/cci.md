@@ -22,7 +22,7 @@ With WebSockets, you can also embed any kind of *real-time analytics* into your 
 
 *After the call is completed*, it is likely you may want to keep the keynotes, as well as be able to search through the recordings. In order to do that, the Voice API enables you to record every call or part of the call so that you can store and analyze it. Learn how to do that with our [Transcribe a Recorded Call with Amazon Transcribe](/use-cases/trancribe-amazon-api) complete tutorial.
 
-If you want to get everything working out of the box or if you are looking for a very specific use case implementation, [Vonage AI](ai.vonage.com) offers turn-key solutions made by industry experts.
+If you want to get everything working out of the box or if you are looking for a very specific use case implementation, [Vonage AI](https://www.ai.vonage.com/) offers turn-key solutions made by industry experts.
 
 ## How it works
 
@@ -76,4 +76,4 @@ The Vonage Voice API enables you to easily [record](/voice/voice-api/guides/reco
 * Check [NCCO Reference](/voice/voice-api/ncco-reference) for all the supported NCCO actions
 * Learn more about [WebSockets](/voice/voice-api/guides/websockets)
 * See how [Amazon Contact Center Intelligence](https://aws.amazon.com/machine-learning/contact-center-intelligence/) solutions may improve your customer experience
-* Visit [Vonage AI](ai.vonage.com) to learn how Vonage can build AI solution for you
+* Visit [Vonage AI](https://www.ai.vonage.com/) to learn how Vonage can build AI solution for you

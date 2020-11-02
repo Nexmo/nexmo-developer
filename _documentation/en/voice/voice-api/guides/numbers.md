@@ -29,7 +29,6 @@ When making an outbound call from Vonage the CallerID, `from` value needs to be 
 
 Vonage attempts to present to you the caller ID of the party calling your Vonage application in international format. However, this can occasionally be incorrectly formatted by the originating network. Vonage passes through the number received from the number supplier. You can learn more about inbound caller ID on our [voice features overview](https://help.nexmo.com/hc/en-us/articles/115011761808) page in the Vonage knowledge base.
 
-
 ### Incoming Call Numbers 
 
 Vonage offers for rental incoming numbers located in many countries around the world. In some countries the numbers may be enabled for SMS or Voice only, or in others they will support both.

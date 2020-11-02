@@ -1,11 +1,11 @@
 ---
 title: Asterisk
-description: How to setup Asterisk with Nexmo SIP
+description: How to setup Asterisk with Vonage SIP
 ---
 
 # Asterisk
 
-Below we provide example configurations for using Nexmo's SIP service with [Asterisk](http://www.asterisk.org).
+Below we provide example configurations for using Vonage's SIP service with [Asterisk](http://www.asterisk.org).
 
 ## Inbound configuration
 

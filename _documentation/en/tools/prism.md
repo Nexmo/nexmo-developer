@@ -6,7 +6,7 @@ title: Prism
 
 Working with APIs is great but sometimes you don't need to work with the real API to get development work done. One tool that you may find useful to include in your development workflow is [Prism](https://stoplight.io/open-source/prism/) from [Stoplight](https://stoplight.io/). Prism is a mock server, it imitates our live APIs in a simple tool that you can run locally and test your API calls and whole applications against.
 
-Prism understands the [OpenAPI](/concepts/guides/openapi) specs we publish for each of our APIs, so you can use this approach to work with any of Nexmo's APIs.
+Prism understands the [OpenAPI](/concepts/guides/openapi) specs we publish for each of our APIs, so you can use this approach to work with any of the Vonage APIs.
 
 ## Install Prism
 
@@ -58,7 +58,7 @@ curl "http://localhost:4010/basic/json?api_key=abcd1234&api_secret=VerySecret1&n
 
 The response from Prism has the same fields as the live API and some example values, making it an ideal replacement for the "real thing" when testing.
 
-For an even easier way to work with Prism and make API requests, try importing the same OpenAPI spec you gave to Prism into Postman and use the ready-made collection of requests. By changing the `{{baseUrl}}` variable, you can quickly use Postman and Prism to explore the shape of any Nexmo API without charges.
+For an even easier way to work with Prism and make API requests, try importing the same OpenAPI spec you gave to Prism into Postman and use the ready-made collection of requests. By changing the `{{baseUrl}}` variable, you can quickly use Postman and Prism to explore the shape of any Vonage API without charges.
 
 ## Use Prism with Your Application
 
