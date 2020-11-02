@@ -20,6 +20,6 @@ application:
 
 ## Try it out
 
-Call your Nexmo Number. When the call is answered you will be asked
+Call your Vonage Number. When the call is answered you will be asked
 to say a message. When you are finished, you will then hear
 your message repeated back to you via speech-to-text.

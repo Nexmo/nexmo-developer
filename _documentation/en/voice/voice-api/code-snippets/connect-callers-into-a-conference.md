@@ -32,6 +32,6 @@ application:
 
 ## Try it out
 
-Start your server and make multiple inbound calls to the Nexmo Number
+Start your server and make multiple inbound calls to the Vonage Number
 assigned to this Vonage Application. The inbound calls will be connected
 into the same conversation (conference).

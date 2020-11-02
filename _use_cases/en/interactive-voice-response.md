@@ -30,15 +30,15 @@ This tutorial is based on the [Simple IVR](https://www.nexmo.com/use-cases/inter
 
 In order to work through this tutorial you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up).
+* A [Vonage account](https://dashboard.nexmo.com/sign-up).
 * The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up.
-* A publicly accessible PHP web server so Nexmo can make webhook requests to your app, or for local development we recommend [ngrok](https://ngrok.com). 
+* A publicly accessible PHP web server so that Vonage can make webhook requests to your app, or for local development we recommend [ngrok](https://ngrok.com). 
 * The [tutorial code](https://github.com/Nexmo/php-phone-menu), either clone the repository or download and extract the zip file to your machine.
 * [Learn how to use `ngrok`](/tools/ngrok)
 
 ## Create a Voice Application
 
-A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products. You make calls to a Nexmo product using the security information in the application. When the call connects, Nexmo communicates with your webhook endpoints so you can manage your call.
+A Vonage application contains the security and configuration information you need to connect to Vonage endpoints and easily use our products. You make calls to a Vonage product using the security information in the application. When the call connects, Vonage communicates with your webhook endpoints so you can manage your call.
 
 You can use Nexmo CLI to create an application for Voice API by using the following command and replacing the `YOUR_URL` segments with the URL of your own application:
 
@@ -50,14 +50,14 @@ Application created: 5555f9df-05bb-4a99-9427-6e43c83849b8
 This command uses the `app:create` command to create a new app. The parameters are:
 
 * `phone-menu` - the name you give to this application
-* `YOUR_URL/answer` - when you receive an inbound call to your Nexmo number, Nexmo makes a [GET] request and retrieves the NCCO that controls the call flow from this webhook endpoint
-* `YOUR_URL/event` - as the call status changes, Nexmo sends status updates to this webhook endpoint
+* `YOUR_URL/answer` - when you receive an inbound call to your Vonage number, Vonage makes a [GET] request and retrieves the NCCO that controls the call flow from this webhook endpoint
+* `YOUR_URL/event` - as the call status changes, Vonage sends status updates to this webhook endpoint
 
 The command returns the UUID (Universally Unique Identifier) that identifies your application - you might like to copy and paste this as we will need it later.
 
 ## Buy a phone number
 
-To handle inbound calls to your application, you need a number from Nexmo. If you already have a number to use, jump to the next section to associate the existing number with your application.
+To handle inbound calls to your application, you need a number from Vonage. If you already have a number to use, jump to the next section to associate the existing number with your application.
 
 You can use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone number:
 
@@ -71,9 +71,9 @@ The `number:buy` command allows you to specify which country the number should b
 
 Now we can set up the phone number to point to the application you created earlier.
 
-## Link phone numbers to the Nexmo Application
+## Link phone numbers to the Vonage Application
 
-Next you will link each phone number with the *phone-menu* application you just created. When any event occurs relating to a number associated with an application, Nexmo sends a web request to your webhook endpoints with information about the event. To do this, use the `link:app` command in the Nexmo CLI:
+Next you will link each phone number with the *phone-menu* application you just created. When any event occurs relating to a number associated with an application, Vonage sends a web request to your webhook endpoints with information about the event. To do this, use the `link:app` command in the Nexmo CLI:
 
 ```bash
 nexmo link:app 441632960960 5555f9df-05bb-4a99-9427-6e43c83849b8
@@ -103,13 +103,13 @@ All set? Then start up the PHP webserver:
 php -S 0:8080 ./public/index.php
 ```
 
-Once it's running, call your Nexmo voice number and follow the instructions! The code receives webhooks to `/event` as the call is started, ringing, etc. When the system answers the call, a webhook comes in to `/answer` and the code responds with some text-to-speech and then waits for user input. The user's input then arrives by webhook to `/search` and again the code responds with some text-to-speech.
+Once it's running, call your Vonage number and follow the instructions! The code receives webhooks to `/event` as the call is started, ringing, etc. When the system answers the call, a webhook comes in to `/answer` and the code responds with some text-to-speech and then waits for user input. The user's input then arrives by webhook to `/search` and again the code responds with some text-to-speech.
 
 Now you've seen it in action, you may be curious to know how the various elements work. Read on for a full walkthrough of our PHP code and how it manages the flow of the call...
 
 ## Handle an Inbound Call
 
-When Nexmo receives an inbound call to your Nexmo number it makes a request to the event webhook endpoint you set when you [created a Voice application](#create-a-voice-application). A webhook is also sent each time *DTMF* input is collected from the user.
+When Vonage receives an inbound call to your Vonage number it makes a request to the event webhook endpoint you set when you [created a Voice application](#create-a-voice-application). A webhook is also sent each time *DTMF* input is collected from the user.
 
 This tutorial code uses a simple router to handle these inbound webhooks. The router determines the requested URI path and uses it to map the caller's navigation through the phone menu - the same as URLs in web application.
 
@@ -126,7 +126,7 @@ $uri = ltrim(strtok($_SERVER["REQUEST_URI"],'?'), '/');
 $data = file_get_contents('php://input');
 ```
 
-Nexmo sends a webhook for every change in call status. For example, when the phone is `ringing`, the call has been `answered` or is `complete`. The application uses a `switch()` statement to log the data received by the `/event` endpoint for debug purposes. Every other request goes to the code that handles the user input. Here is the code:
+Vonage sends a webhook for every change in call status. For example, when the phone is `ringing`, the call has been `answered` or is `complete`. The application uses a `switch()` statement to log the data received by the `/event` endpoint for debug purposes. Every other request goes to the code that handles the user input. Here is the code:
 
 ```php
 <?php
@@ -165,7 +165,7 @@ public function __construct($config)
 
 ## Generate NCCOs
 
-A Nexmo Call Control Object (NCCO) is a JSON array that is used to control the flow of a Voice API call. Nexmo expects your answer webhook to return an NCCO to control the various stages of the call.
+A Nexmo Call Control Object (NCCO) is a JSON array that is used to control the flow of a Voice API call. Vonage expects your answer webhook to return an NCCO to control the various stages of the call.
 
 To manage NCCOs this example application uses array manipulation and a few simple methods.
 
@@ -202,7 +202,7 @@ protected function prepend($ncco)
 
 ### Send text-to-speech greeting
 
-Nexmo sends a webhook to the `/answer` endpoint of the application when the call is answered. The routing code sends this to the `answerAction()` method of the `Menu` object, which begins by adding an NCCO containing a greeting.
+Vonage sends a webhook to the `/answer` endpoint of the application when the call is answered. The routing code sends this to the `answerAction()` method of the `Menu` object, which begins by adding an NCCO containing a greeting.
 
 ```php
 <?php
@@ -253,7 +253,7 @@ A few other `input` specific properties are used. `timeOut` gives the user more 
 
 ### Respond to user input
 
-After the user has provided input, Nexmo sends a webhook to the `eventUrl` defined in the `input`. Since we set the `eventUrl` to `/search`, our code routes the request to `searchAction`. The request includes a `dtmf` field which contains the numbers input by the user. We use this input data and randomly generate example data to return to the user, your applications will probably do something much more useful such as fetch information from a database. Here's the action:
+After the user has provided input, Vonage sends a webhook to the `eventUrl` defined in the `input`. Since we set the `eventUrl` to `/search`, our code routes the request to `searchAction`. The request includes a `dtmf` field which contains the numbers input by the user. We use this input data and randomly generate example data to return to the user, your applications will probably do something much more useful such as fetch information from a database. Here's the action:
 
 ```php
 <?php

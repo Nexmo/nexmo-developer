@@ -5,11 +5,11 @@ description: In this step you learn how to create a suitable webhook server that
 
 # Create a webhook server
 
-You will need to create a webhook server. When the inbound call comes into Nexmo you can capture the originating number and use a dynamic NCCO to forward the call to the web application. This is achieved by using a `connect` action of type `app`. The call is forwarded to an authenticated user who represents the agent handling the inbound call.
+You will need to create a webhook server. When the inbound call comes into Vonage you can capture the originating number and use a dynamic NCCO to forward the call to the web application. This is achieved by using a `connect` action of type `app`. The call is forwarded to an authenticated user who represents the agent handling the inbound call.
 
 Create a `server.js` file and add the code for the server:
 
-> **NOTE:** Paste in your Nexmo number and your user name to the code below. The username is the one you created a JWT for in a previous step (Alice).
+> **NOTE:** Paste in your Vonage number and your user name to the code below. The username is the one you created a JWT for in a previous step (Alice).
 
 ``` javascript
 'use strict';

@@ -14,12 +14,12 @@ Providing customer support over SMS is an easy way to provide a full two-way com
 
 ## In this tutorial
 
-You will build a simple system for SMS customer support using Nexmo's APIs and libraries.
+You will build a simple system for SMS customer support using Vonage's APIs and libraries.
 
 To do this:
 
 * [Create a basic web app](#a-basic-web-application) - create a basic web application with a link to open a support ticket.
-* [Purchase a number](#purchase-a-phone-number) - purchase a Nexmo phone number to send SMS and receive inbound SMS
+* [Purchase a number](#purchase-a-phone-number) - purchase a Vonage phone number to send SMS and receive inbound SMS
 * [Process an inbound SMS](#process-an-inbound-sms) - accept and process inbound SMS received from the customer
 * [Send an SMS reply with a ticket number](#send-an-sms-reply-with-a-ticket-number) - reply with a new ticket number when a ticket is opened
 
@@ -27,8 +27,8 @@ To do this:
 
 In order for this tutorial to work you will need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* A publicly accessible Web server so Nexmo can make webhook requests to your app. If you're developing locally you should use a tool such as [ngrok](https://ngrok.com/)
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
+* A publicly accessible Web server so Vonage can make webhook requests to your app. If you're developing locally you should use a tool such as [ngrok](https://ngrok.com/)
 * The source code for this tutorial from <https://github.com/Nexmo/ruby-sms-customer-support/>
 
 
@@ -38,12 +38,12 @@ For this tutorial start off with a simple web application with one page. The use
 
 ```sequence_diagram
 Participant Phone
-Participant Nexmo
+Participant Vonage
 Participant App
-Phone->>Nexmo: SMS 1
-Nexmo-->>App: Webhook
-App->>Nexmo: SMS Request
-Nexmo->>Phone: SMS 2
+Phone->>Vonage: SMS 1
+Vonage-->>App: Webhook
+App->>Vonage: SMS Request
+Vonage->>Phone: SMS 2
 ```
 
 **Start by creating a basic app.**
@@ -84,26 +84,26 @@ rails server
 
 ## Purchase a phone number
 
-Before the app can receive an SMS a Nexmo phone number has to be rented. Phone numbers can be purchased from the [dashboard](https://dashboard.nexmo.com) or directly from the command line with the [Nexmo CLI](https://github.com/nexmo/nexmo-cli).
+Before the app can receive an SMS a Vonage phone number has to be rented. Phone numbers can be purchased from the [dashboard](https://dashboard.nexmo.com) or directly from the command line with the [Nexmo CLI](https://github.com/nexmo/nexmo-cli).
 
 ```sh
 > nexmo number:buy --country_code US --confirm
 Number purchased: 447700900000
 ```
 
-Finally, Nexmo must be informed of the webhook endpoint to make an HTTP request to when an inbound SMS is received. This can be done using the [dashboard](https://dashboard.nexmo.com/your-numbers) or the [Nexmo CLI](https://github.com/nexmo/nexmo-cli).
+Finally, Vonage must be informed of the webhook endpoint to make an HTTP request to when an inbound SMS is received. This can be done using the [dashboard](https://dashboard.nexmo.com/your-numbers) or the [Nexmo CLI](https://github.com/nexmo/nexmo-cli).
 
 ```sh
 > nexmo link:sms 447700900000 http://[your.domain.com]/support
 Number updated
 ```
 
-> *Note*: Ensure your server is running and publicly available before trying to set up a new callback URL for webhooks. When you are setting up a new webhook Nexmo will make a call to your server to confirm it's available.
+> *Note*: Ensure your server is running and publicly available before trying to set up a new callback URL for webhooks. When you are setting up a new webhook Vonage will make a call to your server to confirm it's available.
 
 ⚓ Process an SMS
 ## Process an Inbound SMS
 
-When the customer sends their SMS it will be received by Nexmo via the mobile carrier network. Nexmo will subsequently make a webhook to your application.
+When the customer sends their SMS it will be received by Vonage via the mobile carrier network. Vonage will subsequently make a webhook to your application.
 
 This webhook will contain the original text sent, the phone number the message came from, and a few more parameters. For more details see the [Inbound Message](/api/sms#inbound-sms) documentation.
 
@@ -148,7 +148,7 @@ class SupportController < ApplicationController
 
 ## Send an SMS reply with a ticket number
 
-To send the confirmation to the customer's SMS, add the Nexmo library to your project.
+To send the confirmation to the customer's SMS, add the Vonage server SDK to your project.
 
 **Gemfile**
 

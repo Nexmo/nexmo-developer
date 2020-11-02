@@ -24,5 +24,5 @@ application:
 
 You will need to:
 
-1. Record a conversation by dialling your Nexmo Number (this code snippet).
+1. Record a conversation by dialling your Vonage Number (this code snippet).
 2. Download the recording. See the [Download a recording](/voice/voice-api/code-snippets/download-a-recording) code snippet for how to do this.

@@ -1,7 +1,7 @@
 ---
 title: Transcribe a recorded call with Amazon Transcribe
 products: voice/voice-api
-description: "This tutorial shows you how to use the Amazon Transcribe API to transcribe a phone conversation recorded with the Nexmo Voice API."
+description: "This tutorial shows you how to use the Amazon Transcribe API to transcribe a phone conversation recorded with the Vonage Voice API."
 languages:
     - Node
 ---
@@ -15,12 +15,12 @@ In this tutorial, you will learn how to record a Voice API call and transcribe i
 
 You need at least two personal phone numbers:
 
-* One to call your [Nexmo virtual number](/numbers/overview) and initiate the conference call.
-* Another that your Nexmo number can call to include in the conference call.
+* One to call your [Vonage number](/numbers/overview) and initiate the conference call.
+* Another that your Vonage number can call to include in the conference call.
 
 If you have access to more than two numbers you can include them as participants in the conference call too. See [adding more callers](#adding-more-callers).
 
-You also need a Nexmo account. [Sign up here](https://dashboard.nexmo.com/sign-up) if you don't already have one.
+You also need a Vonage account. [Sign up here](https://dashboard.nexmo.com/sign-up) if you don't already have one.
 
 ## Install and configure Nexmo CLI
 
@@ -38,9 +38,9 @@ Configure the CLI tool with your `NEXMO_API_KEY` and `NEXMO_API_SECRET`, which y
 nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
 ```
 
-## Purchase a Nexmo number
+## Purchase a Vonage number
 
-If you don't already have one, purchase a Nexmo number to receive inbound calls.
+If you don't already have one, purchase a Vonage number to receive inbound calls.
 
 1. List the numbers available for purchase, replacing `COUNTRY_CODE` with your location's [two-character country code](https://www.iban.com/country-codes):
 
@@ -57,10 +57,10 @@ If you don't already have one, purchase a Nexmo number to receive inbound calls.
 
 Use the CLI to create a Voice API Application that contains configuration details for the application you are building. These include:
 
-* Your Nexmo virtual number
+* Your Vonage virtual number
 * The following [webhook](/concepts/guides/webhooks) endpoints:
-  * **Answer webhook**: The endpoint that Nexmo makes a request to when your Nexmo number receives an inbound call
-  * **Event webhook**: The endpoint that Nexmo uses to notify your application about call state changes or errors
+  * **Answer webhook**: The endpoint that Vonage makes a request to when your Vonage number receives an inbound call
+  * **Event webhook**: The endpoint that Vonage uses to notify your application about call state changes or errors
 
 > **Note**: Your webhooks must be accessible over the public Internet. Consider using [ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for testing purposes. If you do use `ngrok`, run it now on port 3000 using `ngrok http 3000` to get the temporary URLs that ngrok provides and leave it running for the duration of this tutorial to prevent the URLs from changing.
 
@@ -72,9 +72,9 @@ nexmo app:create "Call Transcription" https://example.com/webhooks/answer https:
 
 Make a note of the Application ID and the location of the `private.key` file. You will need these in later steps.
 
-## Link your Nexmo number
+## Link your Vonage number
 
-Run the following CLI command to link your Voice API Application with your Nexmo number using the Application ID:
+Run the following CLI command to link your Voice API Application with your Vonage number using the Application ID:
 
 ```sh
 nexmo link:app NEXMO_NUMBER APPLICATION_ID
@@ -124,7 +124,7 @@ Run `npm install` in the application directory to install the required dependenc
 * `aws-sdk`: The AWS node.js SDK
 * `body-parser`: node.js body-parsing middleware
 * `express`: A web application framework for node.js
-* `nexmo`: The Node Server SDK
+* `nexmo`: The Vonage Server SDK
 * `serverless`: To deploy your Lambda function
 * `shortid`: Generates random file names for call recordings
 
@@ -136,7 +136,7 @@ Then, copy `example.env` to `.env` and configure the following settings:
 
 Setting | Description
 --|--
-`NEXMO_APPLICATION_ID` | The Nexmo Voice Application ID you created earlier
+`NEXMO_APPLICATION_ID` | The Vonage Voice Application ID you created earlier
 `NEXMO_PRIVATE_KEY_FILE` | For example: `private.key`
 `OTHER_PHONE_NUMBER` | Another phone number you can call to create a conversation
 `AWS_KEY` | Your AWS key
@@ -275,7 +275,7 @@ const S3 = new AWS.S3()
 
 ### Defining the answer webhook
 
-The `/webhooks/answer` endpoint responds to an incoming call with a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) that tells Nexmo how to handle the call.
+The `/webhooks/answer` endpoint responds to an incoming call with a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) that tells Vonage how to handle the call.
 
 It uses a `connect` action to call your other personal number and a `record` action to record the call audio, specifying that there are two input `channels`. The `record` action triggers a `POST` request to the `/webhooks/recording` endpoint when the call completes:
 
@@ -305,7 +305,7 @@ app.get('/webhooks/answer', (req, res) => {
 
 ### Defining the events webhook
 
-The `/webhooks/events` endpoint logs call events (submitted by Nexmo as a `POST` request) and displays them to the console:
+The `/webhooks/events` endpoint logs call events (submitted by Vonage as a `POST` request) and displays them to the console:
 
 ```javascript
 app.post('/webhooks/events', (req, res) => {
@@ -526,7 +526,7 @@ function displayResults(transcriptJson) {
     node index.js
     ```
 
-2. Call your Nexmo number from one phone. When the call is answered, your second phone should ring. Answer it.
+2. Call your Vonage number from one phone. When the call is answered, your second phone should ring. Answer it.
 
 3. Say a few words into each handset and then disconnect both.
 
@@ -577,7 +577,7 @@ If you have more than two numbers, you can add more callers to the conversation.
 
 The following resources will help you learn more:
 
-* Nexmo Voice API
+* Voice API
   * [Voice API call recording guide](/voice/voice-api/guides/recording)
   * ["Record a call" code snippet](/voice/voice-api/code-snippets/record-a-call)
   * [Voice API reference](/api/voice)

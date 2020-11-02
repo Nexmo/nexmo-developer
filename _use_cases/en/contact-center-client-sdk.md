@@ -16,15 +16,15 @@ To achieve that, this guide consists of three parts:
 
 1. [**A server-side application**](#set-up-your-backend), for fundamental server-side functionalities, such as managing users and authorization. This is implemented with the [Conversation API](/conversation/overview).
 
-2. [**A client-side application**](#set-up-your-client-side-application), for your contact center users to log in, make and receive calls. This can be a web, iOS or Android application, which integrates [Nexmo Client SDK](/client-sdk/in-app-voice/overview).
+2. [**A client-side application**](#set-up-your-client-side-application), for your contact center users to log in, make and receive calls. This can be a web, iOS or Android application, which integrates [Vonage Client SDK](/client-sdk/in-app-voice/overview).
 
-3. [Adding advanced voice capabilities](#add-voice-functionality), utilizing Nexmo [Voice API](/voice/voice-api/overview) on your backend side application.
+3. [Adding advanced voice capabilities](#add-voice-functionality), utilizing the [Voice API](/voice/voice-api/overview) on your backend side application.
 
-> **NOTE:** Under the hood, Nexmo Voice API and Client SDK both use Conversation API. That means that all communication is done over a [Conversation](/conversation/concepts/conversation). That allows you to maintain the communication context of your users, for any communication channel. All of the Conversations and the [Events](/conversation/concepts/event) are accessible for you to utilize, through [Conversation API](/conversation/overview).
+> **NOTE:** Under the hood, the Voice API and Client SDK both use the Conversation API. That means that all communication is done over a [Conversation](/conversation/concepts/conversation). That allows you to maintain the communication context of your users, for any communication channel. All of the Conversations and the [Events](/conversation/concepts/event) are accessible for you to utilize, through [Conversation API](/conversation/overview).
 
 ## Before You Begin
 
-Make sure you have a Nexmo account, or [sign up](https://dashboard.nexmo.com/) to get started for free!
+Make sure you have a Vonage account, or [sign up](https://dashboard.nexmo.com/) to get started for free!
 
 ## Set Up Your Backend
 
@@ -48,29 +48,29 @@ Fork or contribute to this project, which is open source and available on [GitHu
 
 Fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-server-node).
 
-### Create a Nexmo Application
+### Create a Vonage Application
 
-Once you have created a Nexmo Account you will be able to create multiple [Nexmo Applications](/conversation/concepts/application). A Nexmo Application can contain a unique set of [Users](/conversation/concepts/user) and [Conversations](/conversation/concepts/conversation).
+Once you have created a Vonage Account you will be able to create multiple [Vonage Applications](/conversation/concepts/application). A Vonage Application can contain a unique set of [Users](/conversation/concepts/user) and [Conversations](/conversation/concepts/conversation).
 
 After deploying the demo backend application on the previous step, you will need to:
 
-1. Log in using your *api key* and *api secret*, which you can obtain from [Nexmo Dashboard](https://dashboard.nexmo.com/)
+1. Log in using your *api key* and *api secret*, which you can obtain from [the Dashboard](https://dashboard.nexmo.com/)
 ![Login](/images/client-sdk/contact-center/login.png)
 
-2. Create a new Nexmo Application by typing an application name and clicking *Create*
+2. Create a new Vonage Application by typing an application name and clicking *Create*
 ![Setup](/images/client-sdk/contact-center/setup.png)
 
-> That uses [Nexmo Applications API](/api/application.v2). The demo application sets the required webhooks and exposes them for your ease of use. More on that will be mentioned below.
+> That uses [Vonage Applications API](/api/application.v2). The demo application sets the required webhooks and exposes them for your ease of use. More on that will be mentioned below.
 
-### Connect a Nexmo Number
+### Connect a Vonage Number
 
-In order to make and receive calls, you should rent a [Nexmo Number](/numbers/overview) and connect it to your Nexmo Application.
+In order to make and receive calls, you should rent a [Vonage Number](/numbers/overview) and connect it to your Vonage Application.
 
 Use our demo backend application, navigate to the **Numbers** tab on the top bar, and search for a number.
 
 ![Number search](/images/client-sdk/contact-center/numbers-search.png)
 
-After you rented the number, assign it to the Nexmo Application you've created.
+After you rented the number, assign it to the Vonage Application you've created.
 
 ![Number assign](/images/client-sdk/contact-center/numbers.png)
 
@@ -92,7 +92,7 @@ For simplicity, the demo application creates users as they attempt to log in.
 
 ### Authenticate Users
 
-The Nexmo Client SDK uses [JWTs](https://jwt.io/) to authenticate a user when logging in to the SDK and the API. These JWTs are generated using the application ID and private key that is provided when a new Nexmo application is created.
+The Vonage Client SDK uses [JWTs](https://jwt.io/) to authenticate a user when logging in to the SDK and the API. These JWTs are generated using the application ID and private key that is provided when a new Vonage application is created.
 
 For security reasons, your client app should not hold your private key. Therefore, the JWT must be provided by your backend.
 
@@ -119,7 +119,7 @@ The `mobile_api_key` can be found in the `SDK Integration` page, as a rudimentar
 
 ### Choose Your Client App
 
-Nexmo Client SDK supports web (JavaScript), iOS and Android.
+Vonage Client SDK supports web (JavaScript), iOS and Android.
 
 You may [integrate the SDK](/client-sdk/setup/add-sdk-to-your-app) to your own client-side application and [add in-app voice functionality](/client-sdk/in-app-voice/guides/make-call).
 
@@ -145,11 +145,11 @@ At this point you have a client-side application and a backend application to su
 
 You can run the client app on two different devices, and log in as the user `Jane` on one device and the user `Joe` on the other.
 
-You are now ready to make and receive calls, and add other advanced voice functionality with Nexmo Voice API.
+You are now ready to make and receive calls, and add other advanced voice functionality with the Voice API.
 
 ## Add Voice Functionality
 
-Upon Nexmo application creation, you assign an `answer_url` [webhook](/concepts/guides/webhooks) to it. The `answer_url` contains the actions that will execute as soon as a call is placed to the Nexmo number assigned to your Nexmo application. Those actions are defined in the JSON code the `answer_url` returns, which follows the structure of a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference).
+Upon Vonage application creation, you assign an `answer_url` [webhook](/concepts/guides/webhooks) to it. The `answer_url` contains the actions that will execute as soon as a call is placed to the Vonage number assigned to your Vonage application. Those actions are defined in the JSON code the `answer_url` returns, which follows the structure of a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference).
 
 Updating the NCCO that returns from your `answer_url` changes the call functionality and allows you to add rich capabilities to your contact center application.
 
@@ -183,7 +183,7 @@ Try this out by executing the following steps:
 
 1. Run your client-side app.
 2. Log in as `Jane`.
-3. On another phone, call the Nexmo number assigned to your Nexmo application.
+3. On another phone, call the Vonage number assigned to your Vonage application.
 4. Receive the call on the client-side app.
 
 ### Make a Phone Call
@@ -263,7 +263,7 @@ The NCCO that will be executed to connect to `Joe` is similar, except for the us
 
 1. Run two different instances of your client-side app, on two emulators, devices or browser tabs.
 2. Log in as `Jane` in one instance, and log in as `Joe` on the other instance.
-3. On another phone, call the Nexmo number assigned to your Nexmo application.
+3. On another phone, call the Vonage number assigned to your Vonage application.
 4. On the phone call, press the digit of the agent you want to connect to.
 5. Receive the call on the client app, of the agent you asked to be connected to.
 
@@ -279,11 +279,11 @@ You have:
 
 * Used a backend application that enables user management, authorization, webhooks and more.
 * Used a client-side application, that uses NexmoClient SDK to make and receive in-app calls.
-* Enabled voice capabilities by updating the NCCO returned by your Nexmo application `answer_url`.
+* Enabled voice capabilities by updating the NCCO returned by your Vonage application `answer_url`.
 
 ## What's Next?
 
-* [Learn more about event flow between the different Nexmo components](/conversation/guides/event-flow).
+* [Learn more about event flow between the different Vonage components](/conversation/guides/event-flow).
 * [Learn more about the required components when setting up your Conversation API and Client SDK application](/conversation/guides/application-setup).
 * [Add push notification to your mobile app](/client-sdk/setup/set-up-push-notifications).
 

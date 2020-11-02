@@ -14,9 +14,9 @@ In this tutorial, you will create a simple bot answering an inbound phone call. 
 
 To complete this tutorial, you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
 * The [Nexmo CLI](/application/nexmo-cli) installed and set up
-* [ngrok](https://ngrok.com/) - to make your development web server accessible to Nexmo's servers over the Internet
+* [ngrok](https://ngrok.com/) - to make your development web server accessible to Vonage's servers over the Internet
 * [Node.JS](https://nodejs.org/en/download/) installed
 
 ## Install the dependencies
@@ -27,9 +27,9 @@ Install the [express](https://expressjs.com) web application framework and [body
 $ npm install express body-parser
 ```
 
-## Purchase a Nexmo number
+## Purchase a Vonage number
 
-If you don't already have one, buy a Nexmo virtual number to receive inbound calls.
+If you don't already have one, buy a Vonage number to receive inbound calls.
 
 First, list the numbers available in your country (replace `GB` with your two-character [country code](https://www.iban.com/country-codes)):
 
@@ -45,9 +45,9 @@ nexmo number:buy 447700900001
 
 ## Create a Voice API application
 
-Use the CLI to create a Voice API application with the webhooks that will be responsible for answering a call on your Nexmo number (`/webhooks/answer`) and logging call events (`/webhooks/events`), respectively.
+Use the CLI to create a Voice API application with the webhooks that will be responsible for answering a call on your Vonage number (`/webhooks/answer`) and logging call events (`/webhooks/events`), respectively.
 
-These webhooks need to be accessible by Nexmo's servers, so in this tutorial you will use `ngrok` to expose your local development environment to the public Internet. [This article](/tools/ngrok) explains how to install and run `ngrok`.
+These webhooks need to be accessible by Vonage's servers, so in this tutorial you will use `ngrok` to expose your local development environment to the public Internet. [This article](/tools/ngrok) explains how to install and run `ngrok`.
 
 Run `ngrok` using the following command:
 
@@ -65,7 +65,7 @@ The command returns an application ID (which you should make a note of) and your
 
 ## Link your number
 
-You need to link your Nexmo number to the Voice API application that you just created. Use the following command:
+You need to link your Vonage number to the Voice API application that you just created. Use the following command:
 
 ```sh
 nexmo link:app NEXMO_NUMBER NEXMO_APPLICATION_ID
@@ -81,7 +81,7 @@ In this tutorial, you will use Weatherstack API to get weather info. To make a r
 
 ## Write your answer webhook
 
-When Nexmo receives an inbound call on your virtual number, it will make a request to your `/webhooks/answer` route. This route should accept an HTTP `GET` request and return a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) that tells Nexmo how to handle the call.
+When Vonage receives an inbound call on your virtual number, it will make a request to your `/webhooks/answer` route. This route should accept an HTTP `GET` request and return a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) that tells Vonage how to handle the call.
 
 Your NCCO should use the `talk` action to greet the caller, and the `input` action to start listening:
 
@@ -128,7 +128,7 @@ app.post('/webhooks/events', (request, response) => {
 })
 ```
 
-Nexmo makes a `POST` request to this endpoint every time the call status changes.
+Vonage makes a `POST` request to this endpoint every time the call status changes.
 
 ## Write your ASR webhook
 
@@ -306,7 +306,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`))
 node index.js
 ```
 
-2. Call your Nexmo number and listen to the welcome message.
+2. Call your Vonage number and listen to the welcome message.
 
 3. Say your city name.
 

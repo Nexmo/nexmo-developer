@@ -11,7 +11,7 @@ languages:
 
 You can retrieve the details of a Conversation object for a voice call using the Conversation API.
 
-While this tutorial looks specifically at retrieving the details of a voice call, there are many other possible use cases with other capabilities, such as a video call or a text chat session. The purpose of this tutorial is to provide insight into the structure of a Conversation, as the Conversation is an important object that underlies much of the Nexmo technology. It is a fundamental data structure for communication activities, as all communication takes place through a Conversation.
+While this tutorial looks specifically at retrieving the details of a voice call, there are many other possible use cases with other capabilities, such as a video call or a text chat session. The purpose of this tutorial is to provide insight into the structure of a Conversation, as the Conversation is an important object that underlies much of the Vonage technology. It is a fundamental data structure for communication activities, as all communication takes place through a Conversation.
 
 The setup you will have in this tutorial is illustrated in the following diagram:
 
@@ -20,18 +20,18 @@ The setup you will have in this tutorial is illustrated in the following diagram
 ## In this tutorial
 
 - [Prerequisites](#prerequisites)
-- [Create a Nexmo application](#create-a-nexmo-application)
+- [Create a Vonage application](#create-a-nexmo-application)
 - [Create a JWT](#create-a-jwt)
 - [Run your webhook server](#run-your-webhook-server)
-- [Call your Nexmo Number](#call-your-nexmo-number)
+- [Call your Vonage Number](#call-your-nexmo-number)
 - [Get the Conversation details](#get-the-conversation-details)
 - [Conclusion](#conclusion)
 - [Resources](#resources)
 
 ## Prerequisites
 
-1. [Create a Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account) - you won't get far without this.
-2. [Rent a Nexmo Number](/account/guides/numbers#rent-virtual-numbers) - you should have a couple of Euros free credit. It's more than enough.
+1. [Create a Vonage account](/account/guides/management#create-and-configure-a-nexmo-account) - you won't get far without this.
+2. [Rent a Vonage Number](/account/guides/numbers#rent-virtual-numbers) - you should have a couple of Euros free credit. It's more than enough.
 3. [Install the Nexmo Command Line tools](/tools) - you will need [Node](https://nodejs.org) installed but using Nexmo CLI is quick and convenient.
 4. You should have [Python 3](https://realpython.com/installing-python/) and [Flask](http://flask.pocoo.org/) installed. These are required for your webhook server.
 
@@ -43,9 +43,9 @@ You will also need access to two phones for this tutorial!
 
 So, if you are ready to continue...
 
-## Create a Nexmo Application
+## Create a Vonage Application
 
-First you will need to create a Nexmo Application if you have not already done so:
+First you will need to create a Vonage Application if you have not already done so:
 
 ``` bash
 nexmo app:create "Conversation App" http://demo.ngrok.io/webhooks/answer http://demo.ngrok.io/webhooks/event --keyfile private.key
@@ -55,9 +55,9 @@ In this previous command you will need to replace `demo` by what applies to your
 
 Make a note of the generated Application ID (`APP_ID`), you will need this when you generate a JWT.
 
-## Link a Nexmo Number to your Application
+## Link a Vonage Number to your Application
 
-Assuming you have already rented a Nexmo Number (`NEXMO_NUMBER`), you can link your Nexmo Number with your application in the Dashboard or via the command line:
+Assuming you have already rented a Vonage Number (`NEXMO_NUMBER`), you can link your Vonage Number with your application in the Dashboard or via the command line:
 
 ``` bash
 nexmo link:app NEXMO_NUMBER APP_ID
@@ -119,9 +119,9 @@ Run this webhook server locally with:
 python3 app.py
 ```
 
-## Call your Nexmo Number
+## Call your Vonage Number
 
-Dial your Nexmo Number with phone 1 (Alice). The inbound call is forwarded to your second phone, phone 2 (Bob). Answer the call on phone 2 (Bob). Do not cancel the call at this point.
+Dial your Vonage Number with phone 1 (Alice). The inbound call is forwarded to your second phone, phone 2 (Bob). Answer the call on phone 2 (Bob). Do not cancel the call at this point.
 
 Now check the logging produced by your webhook server. You should see something similar to:
 

@@ -1,11 +1,11 @@
 ---
-title: Buy a Nexmo number
-description: In this step you learn how to purchase a Nexmo number.
+title: Buy a Vonage number
+description: In this step you learn how to purchase a Vonage number.
 ---
 
-# Buy a Nexmo number 
+# Buy a Vonage number 
 
-## Using the Nexmo Dashboard
+## Using the Dashboard
 
 First you can browse [your existing numbers](https://dashboard.nexmo.com/your-numbers).
 

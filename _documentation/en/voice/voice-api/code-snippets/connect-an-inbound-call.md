@@ -27,5 +27,5 @@ application:
 
 > You'll need to expose your server to the open internet. During development you can use a tool like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to do that.
 
-When you call your Nexmo Number you will automatically be connected to the
+When you call your Vonage Number you will automatically be connected to the
 number you specified in place of `YOUR_SECOND_NUMBER`.

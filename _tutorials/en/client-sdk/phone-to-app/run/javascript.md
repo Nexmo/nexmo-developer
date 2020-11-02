@@ -13,7 +13,7 @@ The call’s current status and an Answer button are displayed on the page.
 
 > **NOTE:** It is a good idea to start the Developer console in your browser at this point if you have not already done so.
 
-From your PSTN phone, you can now call the Nexmo number associated with your Client SDK application.
+From your PSTN phone, you can now call the Vonage number associated with your Client SDK application.
 
 You will hear a message saying to wait while you are connected through to an agent.
 

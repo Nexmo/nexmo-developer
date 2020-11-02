@@ -24,9 +24,9 @@ If the incoming SMS is multi-part, the application waits until it has received a
 To achieve this, you perform the following steps:
 
 1. [Create the project](#create-the-project) - create a Node.js/Express application
-2. [Expose your application to the Internet](#expose-your-application-to-the-internet) - use `ngrok` to enable Nexmo to access your application via a webhook
+2. [Expose your application to the Internet](#expose-your-application-to-the-internet) - use `ngrok` to enable Vonage to access your application via a webhook
 4. [Create the basic application](#create-the-basic-application) - build an application with a webhook to receive inbound SMS
-5. [Register your webhook with Nexmo](#register-your-webhook-with-nexmo) - tell Nexmo's servers about your webhook
+5. [Register your webhook with Vonage](#register-your-webhook-with-nexmo) - tell Vonage's servers about your webhook
 6. [Send a test SMS](#send-a-test-sms) - ensure that your webhook can receive incoming SMS
 7. [Handle multi-part SMS](#handle-multi-part-sms) - reassemble a multi-part SMS into a single message
 8. [Test receipt of a concatenated SMS](#test-receipt-of-a-concatenated-sms) - see it in action!
@@ -35,8 +35,8 @@ To achieve this, you perform the following steps:
 
 To complete the tutorial, you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
-* [ngrok](https://ngrok.com/) - (optional) to make your development web server accessible to Nexmo's servers over the Internet
+* A [Vonage account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
+* [ngrok](https://ngrok.com/) - (optional) to make your development web server accessible to Vonage's servers over the Internet
 
 ## Create the project
 Make a directory for your application, `cd` into the directory and then use the Node.js package manager `npm` to create a `package.json` file for your application's dependencies:
@@ -57,9 +57,9 @@ npm install express body-parser --save
 
 ## Expose your application to the Internet
 
-When the SMS API receives an SMS destined for one of your virtual numbers, it alerts your application via a [webhook](/concepts/guides/webhooks). The webhook provides a mechanism for Nexmo's servers to communicate with yours.
+When the SMS API receives an SMS destined for one of your virtual numbers, it alerts your application via a [webhook](/concepts/guides/webhooks). The webhook provides a mechanism for Vonage's servers to communicate with yours.
 
-For your application to be accessible to Nexmo's servers, it must be publicly available on the Internet. A simple way to achieve this during development and testing is to use [ngrok](https://ngrok.com), a service that exposes local servers to the public Internet over secure tunnels. See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for more details.
+For your application to be accessible to Vonage's servers, it must be publicly available on the Internet. A simple way to achieve this during development and testing is to use [ngrok](https://ngrok.com), a service that exposes local servers to the public Internet over secure tunnels. See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for more details.
 
 Download and install [ngrok](https://ngrok.com), then start it with the following command:
 
@@ -101,13 +101,13 @@ app.listen('5000');
 This code does the following:
 
 * Initializes the dependencies (the `express` framework and `body-parser` for parsing [POST] requests).
-* Registers a `/webhooks/inbound-sms` route with Express that accepts both [GET] and [POST] requests. This is the webhook that Nexmo's APIs will use to communicate with our application when one of our virtual numbers receives an SMS.
-* Creates a handler function for the route called `handleInboundSms()` that displays a message telling us that we have received an inbound SMS and returns an HTTP `success` response to Nexmo's APIs. This last step is important, otherwise Nexmo will continue trying to deliver the SMS until it times out.
+* Registers a `/webhooks/inbound-sms` route with Express that accepts both [GET] and [POST] requests. This is the webhook that Vonage's APIs will use to communicate with our application when one of our virtual numbers receives an SMS.
+* Creates a handler function for the route called `handleInboundSms()` that displays a message telling us that we have received an inbound SMS and returns an HTTP `success` response to Vonage's APIs. This last step is important, otherwise Vonage will continue trying to deliver the SMS until it times out.
 * Runs the application server on port 5000.
 
-## Register your webhook with Nexmo
+## Register your webhook with Vonage
 
-Now that you have created your webhook, you need to tell Nexmo where it is. Log into your [Nexmo account dashboard](https://dashboard.nexmo.com/) and visit the [settings](https://dashboard.nexmo.com/settings) page.
+Now that you have created your webhook, you need to tell Vonage where it is. Log into your [Vonage account dashboard](https://dashboard.nexmo.com/) and visit the [settings](https://dashboard.nexmo.com/settings) page.
 
 In your application, the webhook is located at `/webhooks/inbound-sms`. If you are using Ngrok, the full webhook endpoint you need to configure resembles `https://demo.ngrok.io/webhooks/inbound-sms`, where `demo` is the subdomain provided by Ngrok (typically something like `0547f2ad`).
 
@@ -118,7 +118,7 @@ script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/screenshots/smsInboundWebhook.png
 ```
 
-Now, if any of your virtual numbers receive an SMS, Nexmo will call that webhook endpoint with the message details.
+Now, if any of your virtual numbers receive an SMS, Vonage will call that webhook endpoint with the message details.
 
 ## Send a test SMS
 
@@ -128,7 +128,7 @@ Now, if any of your virtual numbers receive an SMS, Nexmo will call that webhook
     node server.js
     ```
 
-2. Send a test SMS to your Nexmo number from your mobile device, with a short text message. For example, "This is a short text message".
+2. Send a test SMS to your Vonage number from your mobile device, with a short text message. For example, "This is a short text message".
 
 If everything is configured correctly you should receive a `Inbound SMS received` message in the terminal window running `server.js`.
 
@@ -200,7 +200,7 @@ To enable us to present such messages to our users in the format they were inten
 
 ## Handle multi-part SMS
 
-Nexmo passes four special parameters to your webhook when an inbound SMS is concatenated. (They don't appear in the request when the SMS is single-part.) You can use them to reassemble the individual parts into a coherent whole:
+Vonage passes four special parameters to your webhook when an inbound SMS is concatenated. (They don't appear in the request when the SMS is single-part.) You can use them to reassemble the individual parts into a coherent whole:
 
 * `concat:true` - when the message is concatenated
 * `concat-ref` - a unique reference that enables you to determine which SMS a particular message part belongs to
@@ -354,5 +354,5 @@ The following resources will help you use Number Insight in your applications:
 * [Inbound SMS Concept](/messaging/sms/guides/inbound-sms)
 * [Webhooks guide](/concepts/guides/webhooks)
 * [SMS API reference](/api/sms)
-* [Connect your local development server to the Nexmo API using an ngrok tunnel](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/)
+* [Connect your local development server to the Vonage API using an ngrok tunnel](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/)
 * [More SMS API tutorials](/messaging/sms/tutorials)

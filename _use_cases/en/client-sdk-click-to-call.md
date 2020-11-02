@@ -10,7 +10,7 @@ languages:
 
 To offer the best service to your customers, you want them to be able to get hold of you quickly and conveniently using methods of communication they are comfortable and familiar with. Rather than make them search your "Contact Us" page for your phone number, why not have a button on your website that will place the call for them?
 
-In this use case, we will imagine that you have a support page on your website. You will add a button that will use the Client SDK to call your Nexmo virtual number and have the call forwarded to a "real" number where you can deal with their support query.
+In this use case, we will imagine that you have a support page on your website. You will add a button that will use the Client SDK to call your Vonage virtual number and have the call forwarded to a "real" number where you can deal with their support query.
 
 This example uses client-side JavaScript to display the button and make the call and node.js on the back end to authenticate your user and route the call to your chosen number. However, you could use the Client [iOS](/sdk/stitch/ios/) or [Android](/sdk/stitch/android/) SDKs and a similar approach to build a mobile app instead.
 
@@ -20,9 +20,9 @@ All the code is [available on GitHub](https://github.com/nexmo-community/client-
 
 In order to work through this use case you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
 * The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and configured.
-* A publicly accessible web server so Nexmo can make webhook requests to your app. If you're developing locally we recommend [ngrok](https://ngrok.com/).
+* A publicly accessible web server so Vonage can make webhook requests to your app. If you're developing locally we recommend [ngrok](https://ngrok.com/).
 
 ## Get Started
 
@@ -50,9 +50,9 @@ Then, configure the Nexmo CLI with your API key and secret:
 ```sh
 nexmo setup API_KEY API_SECRET
 ```
-### Buy a Nexmo number
+### Buy a Vonage number
 
-You'll need a Nexmo virtual number for your customer to call. You can purchase an available number for your chosen country code using the following CLI command:
+You'll need a Vonage virtual number for your customer to call. You can purchase an available number for your chosen country code using the following CLI command:
 
 ```
 nexmo number:buy -c GB --confirm
@@ -63,11 +63,11 @@ Just replace `GB` with your own [country code](https://www.iban.com/country-code
 
 ## Create an Application
 
-Let's not get confused between the application itself that contains the logic and the Nexmo Application.
+Let's not get confused between the application itself that contains the logic and the Vonage Application.
 
-A Nexmo Application is a container for security and configuration information. When you create a Nexmo application, you specify some [webhook](https://developer.nexmo.com/concepts/guides/webhooks) endpoints; these are the URLs that your code exposes which must be publicly accessible. When a caller calls your Nexmo number, Nexmo makes an HTTP request to the `answer_url` endpoint you specify and follows the instructions it finds there. If you provide an `event_url` endpoint, Nexmo will update your application about call events which can help you troubleshoot any problems.
+A Vonage Application is a container for security and configuration information. When you create a Vonage application, you specify some [webhook](https://developer.nexmo.com/concepts/guides/webhooks) endpoints; these are the URLs that your code exposes which must be publicly accessible. When a caller calls your Vonage number, Vonage makes an HTTP request to the `answer_url` endpoint you specify and follows the instructions it finds there. If you provide an `event_url` endpoint, Vonage will update your application about call events which can help you troubleshoot any problems.
 
-To create the Nexmo Application, use the Nexmo CLI to run the command below, replacing `YOUR_SERVER_HOSTNAME` in both URLs with your own server's host name:
+To create the Vonage Application, use the Nexmo CLI to run the command below, replacing `YOUR_SERVER_HOSTNAME` in both URLs with your own server's host name:
 
 ```bash
 nexmo app:create --keyfile private.key ClickToCall https://YOUR_SERVER_HOSTNAME/webhooks/answer https://YOUR_SERVER_NAME/webhooks/event
@@ -77,14 +77,14 @@ This command returns a unique Application ID. Copy it somewhere, you will need i
 
 The parameters are:
 
-* `ClickToCall` - the name of your Nexmo Application
+* `ClickToCall` - the name of your Vonage Application
 * `private.key` - the name of the file to store the private key in for authentication. This is downloaded to your application's root directory.
-* `https://example.com/webhooks/answer` - when you receive an inbound call to your Nexmo number, Nexmo makes a `GET` request and retrieves the [NCCO](/voice/voice-api/ncco-reference) that tells Nexmo's APIs what to do with the call
-* `https://example.com/webhooks/event` - When the call status changes, Nexmo sends status updates to this webhook endpoint
+* `https://example.com/webhooks/answer` - when you receive an inbound call to your Vonage number, Vonage makes a `GET` request and retrieves the [NCCO](/voice/voice-api/ncco-reference) that tells Vonage's APIs what to do with the call
+* `https://example.com/webhooks/event` - When the call status changes, Vonage sends status updates to this webhook endpoint
 
-## Link your Nexmo number
+## Link your Vonage number
 
-You need to tell Nexmo which virtual number this Application uses. Execute the following CLI command, replacing `NEXMO_NUMBER` and `APPLICATION_ID` with your own values:
+You need to tell Vonage which virtual number this Application uses. Execute the following CLI command, replacing `NEXMO_NUMBER` and `APPLICATION_ID` with your own values:
 
 ```
 nexmo link:app NEXMO_NUMBER APPLICATION_ID
@@ -92,7 +92,7 @@ nexmo link:app NEXMO_NUMBER APPLICATION_ID
 
 ## Create a User
 
-You need to authenticate your user using the Client SDK before they can call your Nexmo number. Create a user called `supportuser` with the following CLI command, which returns a unique ID for the user. You don't need to track that ID in this example, so you can safely ignore the output of this command:
+You need to authenticate your user using the Client SDK before they can call your Vonage number. Create a user called `supportuser` with the following CLI command, which returns a unique ID for the user. You don't need to track that ID in this example, so you can safely ignore the output of this command:
 
 ```
 nexmo user:create name="supportuser"
@@ -100,7 +100,7 @@ nexmo user:create name="supportuser"
 
 ## Generate a JWT
 
-The Client SDK uses [JWTs](/concepts/guides/authentication#json-web-tokens-jwt) for authentication. Execute the following command to create the JWT, replacing `APPLICATION_ID` with your own Nexmo Application ID. The JWT expires after one day (the maximum lifetime of a Nexmo JWT), after which you will need to regenerate it.
+The Client SDK uses [JWTs](/concepts/guides/authentication#json-web-tokens-jwt) for authentication. Execute the following command to create the JWT, replacing `APPLICATION_ID` with your own Vonage Application ID. The JWT expires after one day (the maximum lifetime of a Vonage JWT), after which you will need to regenerate it.
 
 ```
 nexmo jwt:generate ./private.key sub=supportuser exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=APPLICATION_ID
@@ -113,7 +113,7 @@ The sample code uses a `.env` file to store the configuration details. Copy `exa
 ```
 PORT=3000
 JWT= /* The JWT for supportuser */
-SUPPORT_PHONE_NUMBER= /* The Nexmo Number that you linked to your application */
+SUPPORT_PHONE_NUMBER= /* The Vonage Number that you linked to your application */
 DESTINATION_PHONE_NUMBER= /* A target number to receive calls on */
 ```
 The phone numbers you provide in `.env` should omit any leading zeroes and include the country code. 
@@ -128,7 +128,7 @@ Run the following command to install the required dependencies:
 npm install
 ```
 
-Ensure that your application is accessible to Nexmo's APIs from the public Internet. [You can use ngrok for this](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr):
+Ensure that your application is accessible to Vonage's APIs from the public Internet. [You can use ngrok for this](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr):
 
 ```sh
 ngrok http 3000
@@ -183,7 +183,7 @@ app.get('/auth/:userid', (req, res) => {
 
 ### The answer webhook
 
-When a customer places a call to our Nexmo virtual number, Nexmo's APIs will make a `GET` request to the webhook we specified as our answer URL and expect to retrieve a JSON object (a Nexmo Call Control Object or NCCO) containing an array of actions that instructs Nexmo how to handle the call.
+When a customer places a call to our Vonage virtual number, Vonage's APIs will make a `GET` request to the webhook we specified as our answer URL and expect to retrieve a JSON object (a Nexmo Call Control Object or NCCO) containing an array of actions that instructs Vonage how to handle the call.
 
 In this instance, we use the `talk` action to read a welcome message and then a `connect` action to route the call to our chosen number:
 
@@ -210,7 +210,7 @@ app.get('/webhooks/answer', (req, res) => {
 
 ### The event webhook
 
-Nexmo's APIs make an HTTP request to the event webhook endpoint that we specified when we created the Nexmo Application every time an event relating to the call occurs. Here, we are just outputting that information to the console so we can see what's going on:
+Vonage's APIs make an HTTP request to the event webhook endpoint that we specified when we created the Vonage Application every time an event relating to the call occurs. Here, we are just outputting that information to the console so we can see what's going on:
 
 ```javascript
 app.post('/webhooks/event', (req, res) => {
@@ -263,7 +263,7 @@ function toggleCallStatusButton(state) {
 }
 ```
 
-Nexmo's APIs receive an inbound call on our virtual number and make a request to the server's answer URL endpoint to retrieve the NCCO which then forwards the call to our chosen device.
+Vonage's APIs receive an inbound call on our virtual number and make a request to the server's answer URL endpoint to retrieve the NCCO which then forwards the call to our chosen device.
 
 ### Terminating the call
 
@@ -295,7 +295,7 @@ We also need to retrieve the active Conversation from the `call`, so that we can
 
 ## Summary
 
-In this use case you learned how to implement a quick and convenient way for your customer to call you by clicking a button on a web page. Along the way you learned how to create a Nexmo application, link your virtual number to it and create and authenticate users.
+In this use case you learned how to implement a quick and convenient way for your customer to call you by clicking a button on a web page. Along the way you learned how to create a Vonage application, link your virtual number to it and create and authenticate users.
 
 ## Related resources
 

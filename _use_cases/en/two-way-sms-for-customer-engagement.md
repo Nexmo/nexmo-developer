@@ -18,23 +18,23 @@ The workflow for your app is:
 
 ```sequence_diagram
 Participant App
-Participant Nexmo
+Participant Vonage
 Participant Phone number
-App->>Nexmo: Request to SMS API
-Nexmo-->>App: Response from SMS API
-Note over Nexmo: Request accepted
-Nexmo->>Phone number: Send delivery notification SMS
-Phone number->>Nexmo: Reply to delivery notification
-Nexmo-->>App: Send reply to webhook endpoint
-App->>Nexmo: Request to SMS API
-Nexmo-->>App: Response from SMS API
-Note over Nexmo: Request accepted
-Nexmo->>Phone number: Send acknowledgement in SMS
+App->>Vonage: Request to SMS API
+Vonage-->>App: Response from SMS API
+Note over Vonage: Request accepted
+Vonage->>Phone number: Send delivery notification SMS
+Phone number->>Vonage: Reply to delivery notification
+Vonage-->>App: Send reply to webhook endpoint
+App->>Vonage: Request to SMS API
+Vonage-->>App: Response from SMS API
+Note over Vonage: Request accepted
+Vonage->>Phone number: Send acknowledgement in SMS
 ```
 
 To do this:
 
-1. [Configure a Nexmo virtual number](#configure-a-nexmo-virtual-number) - rent a virtual number and set the webhook endpoints for inbound messages
+1. [Configure a Vonage virtual number](#configure-a-nexmo-virtual-number) - rent a virtual number and set the webhook endpoints for inbound messages
 2. [Create a basic Web app](#create-a-basic-web-app) - create a Web app to collect your customer's phone number.
 3. [Send an SMS notification](#send-an-sms-notification) - send your customer a delivery notification in an SMS and request a reply.
 4. [Process the reply SMS](#process-the-reply-sms) - process and acknowledge the SMS reply.
@@ -43,15 +43,15 @@ To do this:
 
 In order to work through this tutorial you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* A publicly accessible Web server so Nexmo can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/)
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
+* A publicly accessible Web server so Vonage can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/)
 * The source code for this tutorial from <https://github.com/Nexmo/ruby-customer-engagement/>.
 
-## Configure a Nexmo virtual number
+## Configure a Vonage virtual number
 
-Nexmo forwards inbound messages to the webhook endpoint associated with your Nexmo virtual number.
+Nexmo forwards inbound messages to the webhook endpoint associated with your Vonage virtual number.
 
-You manage virtual numbers using [Developer API](/api/developer/numbers) or [Nexmo CLI](https://github.com/nexmo/nexmo-cli). The following examples use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to rent a Nexmo virtual number:
+You manage virtual numbers using [Developer API](/api/developer/numbers) or [Nexmo CLI](https://github.com/nexmo/nexmo-cli). The following examples use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to rent a Vonage number:
 
 ```sh
 $ nexmo number:buy --country_code US --confirm
@@ -65,7 +65,7 @@ Then associate the virtual number with your webhook endpoint that (link: #proces
 Number updated
 ```
 
-> **Note**: ensure your server is running and publicly available before associating the webhook endpoint with your virtual number. Nexmo must receive a 200 OK response from your webhook endpoint for successful configuration. If you're developing locally use a tool such as [ngrok](https://ngrok.com/) to expose your local web server to the Internet.
+> **Note**: ensure your server is running and publicly available before associating the webhook endpoint with your virtual number. Vonage must receive a 200 OK response from your webhook endpoint for successful configuration. If you're developing locally use a tool such as [ngrok](https://ngrok.com/) to expose your local web server to the Internet.
 
 Now that you have configured your virtual number, you can send SMS delivery notifications.
 
@@ -124,7 +124,7 @@ The form captures the phone number in the [E.164](https://en.wikipedia.org/wiki/
 
 ## Send an SMS notification
 
-In this tutorial, to send an SMS you add the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to your app:
+In this tutorial, to send an SMS you add the [Vonage Server SDK for Ruby](https://github.com/Nexmo/nexmo-ruby) to your app:
 
 **Gemfile**
 
@@ -136,7 +136,7 @@ gem 'nexmo'
 gem 'dotenv'
 ```
 
-Use your Nexmo API [key and secret](/concepts/guides/authentication) to initialize the client:
+Use your Vonage API [key and secret](/concepts/guides/authentication) to initialize the client:
 
 **app.rb**
 
@@ -182,7 +182,7 @@ To verify that this SMS was received by the customer, check the [delivery receip
 
 ## Process the reply SMS
 
-When your customer replies to your notification SMS, Nexmo forwards the [inbound message](/api/sms#inbound-sms) to the webhook endpoint associated with the virtual number.
+When your customer replies to your notification SMS, Vonage forwards the [inbound message](/api/sms#inbound-sms) to the webhook endpoint associated with the virtual number.
 
 In this tutorial app you process the incoming webhook, extract the text and number, and send a confirmation message back to the customer.
 
@@ -221,7 +221,7 @@ Now reply back to the SMS you received earlier. You should see it be processed b
 
 ## Conclusion
 
-That's how simple it is to send and receive SMS in your app. With a few lines of code you have sent a SMS to a customer's phone with the Nexmo SMS API, handled a reply, and responded with a confirmation.
+That's how simple it is to send and receive SMS in your app. With a few lines of code you have sent a SMS to a customer's phone with the SMS API, handled a reply, and responded with a confirmation.
 
 ## Get the Code
 

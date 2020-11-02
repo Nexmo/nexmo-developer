@@ -20,6 +20,6 @@ application:
 
 ## Try it out
 
-Call your Nexmo Number. When the call is answered you will hear
+Call your Vonage Number. When the call is answered you will hear
 a menu. Press `1` on the keypad followed by the `#` key. You will then hear
 a text-to-speech message acknowledging your selected option.

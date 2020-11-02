@@ -27,8 +27,8 @@ You will see how to build add a Call Whisper to an inbound call:
 ## How it works
 
 ```sequence_diagram
-User->>Nexmo number: User calls either of\nthe numbers linked\n to this Application
-Nexmo number-->>Application: /answer
+User->>Vonage number: User calls either of\nthe numbers linked\n to this Application
+Vonage number-->>Application: /answer
 Application->>Operative: Connects to operative's number
 Note left of Operative: When operative\nanswers
 Operative-->>Application: /answer_outbound
@@ -40,9 +40,9 @@ Note left of Operative: Callers are connected
 
 Before we grab and run the code, there are a few things we need to do first.
 
-### Sign up for Nexmo
+### Sign up for Vonage
 
-[Sign up for a Nexmo account](https://nexmo.com) if you don't have one already.
+[Sign up for a Vonage account](https://nexmo.com) if you don't have one already.
 
 ### Set up the CLI
 
@@ -59,7 +59,7 @@ $ nexmo number:buy --country_code US --confirm
 
 ### Create an application
 
-Create a new Nexmo application and save the private key - you'll need this later. Replace `https://example.com` with the URL of your own application for both the "answer" and "event" arguments in this command:
+Create a new Vonage application and save the private key - you'll need this later. Replace `https://example.com` with the URL of your own application for both the "answer" and "event" arguments in this command:
 
 ```bash
 nexmo app:create "Call Whisper" https://example.com/answer https://example.com/event --keyfile app.key
@@ -123,7 +123,7 @@ The demo is fun but if you're interested in building this yourself, then there a
 
 ### Answer the incoming call, and start an outbound call
 
-Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a [webhook request](/voice/voice-api/webhook-reference#answer-webhook) to your web app's `answer_url` endpoint - in this case `/answer`. When the call is answered, the application connects that caller to the call center operative.
+Whenever someone calls one of the numbers that are linked to the Vonage application, Vonage will receive an incoming call. Vonage will then notify your web application of that call. It does this by making a [webhook request](/voice/voice-api/webhook-reference#answer-webhook) to your web app's `answer_url` endpoint - in this case `/answer`. When the call is answered, the application connects that caller to the call center operative.
 
 **lib/routes.js**
 

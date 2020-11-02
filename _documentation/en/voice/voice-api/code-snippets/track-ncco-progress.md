@@ -19,5 +19,5 @@ application:
 
 ## Try it out
 
-When you call your Nexmo Number you will hear a text-to-speech message and receive
+When you call your Vonage Number you will hear a text-to-speech message and receive
 a request to your notification URL

@@ -5,11 +5,11 @@ description: This topic shows you how to test your Vonage application locally us
 
 # Testing with Ngrok
 
-When your users interact with Nexmo, for example by calling a Nexmo number, Nexmo needs to notify your application so that it can take required action. In the case of a Voice application, this might be to play a text-to-speech message to the caller when Nexmo answers the call. Nexmo can also keep your application notified of various events that take place during the call, such as when the caller hangs up. These notifications from Nexmo are implemented using [webhooks](/concepts/guides/webhooks).
+When your users interact with Vonage, for example by calling a Vonage number, Vonage needs to notify your application so that it can take required action. In the case of a Voice application, this might be to play a text-to-speech message to the caller when Vonage answers the call. Vonage can also keep your application notified of various events that take place during the call, such as when the caller hangs up. These notifications from Vonage are implemented using [webhooks](/concepts/guides/webhooks).
 
 An issue is when you are testing your application locally on your development machine, your computer is unable to receive these webhook notifications as it is not on the public Internet.
 
-One way to work around this problem is to use a free tool called [Ngrok](https://ngrok.com/). Ngrok creates a secure tunnel connecting the Internet to your locally-running application. Notifications from Nexmo will then be routed through Ngrok to your local machine.
+One way to work around this problem is to use a free tool called [Ngrok](https://ngrok.com/). Ngrok creates a secure tunnel connecting the Internet to your locally-running application. Notifications from Vonage will then be routed through Ngrok to your local machine.
 
 To get started with Ngrok, follow these steps:
 
@@ -35,7 +35,7 @@ Connections ttl opn rt1 rt5 p50 p90
 
 4) This command will show the URL of the tunnel, which will look similar to `https://abcdef1.ngrok.io`. Copy this URL.
 
-5) [Configure your Nexmo webhooks](#setting-webhook-endpoints) to point to this URL.
+5) [Configure your Vonage webhooks](#setting-webhook-endpoints) to point to this URL.
 
 Note that each time you start up the Ngrok tunnel, you will receive a new URL so don't forget to update the webhooks configuration accordingly!
 

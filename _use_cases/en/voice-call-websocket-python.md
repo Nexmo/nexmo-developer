@@ -8,7 +8,7 @@ languages:
 
 # Call a Websocket with Python
 
-You can use the Nexmo Voice API to connect a call to a [WebSocket](/voice/voice-api/guides/websockets), giving you a two-way stream of the call audio delivered over the WebSocket protocol in real-time. This enables you to process the call audio to perform tasks such as sentiment analysis, real-time transcription and decision-making using artificial intelligence.
+You can use the Voice API to connect a call to a [WebSocket](/voice/voice-api/guides/websockets), giving you a two-way stream of the call audio delivered over the WebSocket protocol in real-time. This enables you to process the call audio to perform tasks such as sentiment analysis, real-time transcription and decision-making using artificial intelligence.
 
 In this tutorial, you will connect an inbound call to a WebSocket endpoint. The WebSocket server will listen to the call audio and echo it back to you. You will implement this using the [Flask](http://flask.pocoo.org/) web application micro-framework and [Flask-Sockets](https://www.npmjs.com/package/express-ws), which lets you define WebSocket endpoints like any other Flask route. 
 
@@ -16,13 +16,13 @@ In this tutorial, you will connect an inbound call to a WebSocket endpoint. The 
 
 To complete this tutorial, you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
-* [ngrok](https://ngrok.com/) - to make your development web server accessible to Nexmo's servers over the Internet
+* A [Vonage account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
+* [ngrok](https://ngrok.com/) - to make your development web server accessible to Vonage's servers over the Internet
 * [Node.js](https://nodejs.org/en/download/) - so that you can install the Nexmo CLI using the `npm` package installer
 
 ## Install the Nexmo CLI
 
-You'll need a Nexmo virtual number to receive inbound calls. If you don't already have one, you can either purchase and configure numbers in the [developer dashboard](https://dashboard.nexmo.com) or use the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli). This tutorial uses the CLI.
+You'll need a Vonage virtual number to receive inbound calls. If you don't already have one, you can either purchase and configure numbers in the [developer dashboard](https://dashboard.nexmo.com) or use the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli). This tutorial uses the CLI.
 
 Run the following Node Package Manager (`npm`)  command at a terminal prompt to install the CLI and configure it with your API key and secret, which you will find in the [developer dashboard](https://dashboard.nexmo.com):
 
@@ -31,7 +31,7 @@ npm install -g nexmo-cli
 nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
 ```
 
-## Purchase a Nexmo number
+## Purchase a Vonage number
 
 If you don't already have one, buy a Nexmo virtual number to receive inbound calls.
 
@@ -49,9 +49,9 @@ nexmo number:buy 447700900001
 
 ## Create a Voice API application
 
-Use the CLI to create a Voice API application with the webhooks that will be responsible for answering a call on your Nexmo number (`/webhooks/answer`) and logging call events (`/webhooks/events`), respectively.
+Use the CLI to create a Voice API application with the webhooks that will be responsible for answering a call on your Vonage number (`/webhooks/answer`) and logging call events (`/webhooks/events`), respectively.
 
-These webhooks need to be accessible by Nexmo's servers, so in this tutorial you will use `ngrok` to expose your local development environment to the public Internet. [This blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) explains how to install and run `ngrok`.
+These webhooks need to be accessible by Vonage's servers, so in this tutorial you will use `ngrok` to expose your local development environment to the public Internet. [This blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) explains how to install and run `ngrok`.
 
 Run `ngrok` using the following command:
 
@@ -69,7 +69,7 @@ The command returns an application ID (which you should make a note of) and your
 
 ## Link your number
 
-You need to link your Nexmo number to the Voice API application that you just created. Use the following command:
+You need to link your Vonage number to the Voice API application that you just created. Use the following command:
 
 ```sh
 nexmo link:app NEXMO_NUMBER NEXMO_APPLICATION_ID
@@ -88,7 +88,7 @@ $ pip3 install Flask gevent Flask-Sockets
 
 ## Write your answer webhook
 
-When Nexmo receives an inbound call on your virtual number, it will make a request to your `/webhooks/answer` route. This route should accept an HTTP `GET` request and return a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) that tells Nexmo how to handle the call.
+When Vonage receives an inbound call on your virtual number, it will make a request to your `/webhooks/answer` route. This route should accept an HTTP `GET` request and return a [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) that tells Vonage how to handle the call.
 
 Your NCCO should use the `text` action to greet the caller, and the `connect` action to connect the call to your webhook endpoint:
 
@@ -128,7 +128,7 @@ The `type` of `endpoint` is `websocket`, the `uri` is the `/socket` route where 
 
 ## Write your event webhook
 
-Stub out a webhook that Nexmo's servers can call to update you about call events. We won't use the request data in this tutorial, so just return an `HTTP 200` response (`success`):
+Stub out a webhook that Vonage's servers can call to update you about call events. We won't use the request data in this tutorial, so just return an `HTTP 200` response (`success`):
 
 ```python
 @app.route("/webhooks/event", methods=["POST"])
@@ -136,7 +136,7 @@ def events():
     return "200"
 ```
 
-Nexmo makes a `POST` request to this endpoint every time the call status changes.
+Vonage makes a `POST` request to this endpoint every time the call status changes.
 
 ## Create the WebSocket
 
@@ -171,7 +171,7 @@ if __name__ == "__main__":
   python3 server.py
   ```
 
-2. Call your Nexmo number and listen to the welcome message.
+2. Call your Vonage number and listen to the welcome message.
 
 3. Say something and hear your voice echoed back to you by the other participant in the call: your WebSocket server.
 
@@ -188,8 +188,8 @@ The following resources will help you learn more about using WebSockets in your 
 * The [source code](https://github.com/Nexmo/python-websocket-echo-server) for this tutorial on GitHub
 * The [WebSockets guide](/voice/voice-api/guides/websockets)
 * The [WebSocket protocol standard](https://tools.ietf.org/html/rfc6455)
-* The [Getting Started with Nexmo Voice and WebSockets recorded webinar](https://www.nexmo.com/blog/2017/02/15/webinar-getting-started-nexmo-voice-websockets-dr/)
-* [Articles about WebSockets](https://www.nexmo.com/?s=websockets) on the Nexmo Developer Blog
+* The [Getting Started with Vonage Voice and WebSockets recorded webinar](https://www.nexmo.com/blog/2017/02/15/webinar-getting-started-nexmo-voice-websockets-dr/)
+* [Articles about WebSockets](https://www.nexmo.com/?s=websockets) on the Vonage Developer Blog
 * The [NCCO connect action](/voice/voice-api/ncco-reference#connect)
 * The [Endpoints guide](/voice/voice-api/guides/endpoints)
 * The [Voice API reference documentation](/voice/voice-api/api-reference)

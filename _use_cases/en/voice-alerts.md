@@ -16,16 +16,16 @@ In this tutorial, you will learn how to contact a list of people by phone, conve
 
 In order to work through this tutorial you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* [Composer](http://getcomposer.org/) to install the [Nexmo PHP library](https://github.com/nexmo/nexmo-php)
-* A publicly accessible web server so Nexmo can make webhook requests to your app, or [ngrok](https://ngrok.com/) to be able to access your local development platform from the outside world.
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
+* [Composer](http://getcomposer.org/) to install the [Vonage PHP Server SDK](https://github.com/nexmo/nexmo-php)
+* A publicly accessible web server so Vonage can make webhook requests to your app, or [ngrok](https://ngrok.com/) to be able to access your local development platform from the outside world.
 * The tutorial code from <https://github.com/Nexmo/php-voice-alerts-tutorial> - either clone the project or download the zip file.
 
 ⚓ Create a Voice Application
 ⚓ Provision a Virtual Number
 ## Getting Started
 
-We'll start by registering a Nexmo number to use with this application. Follow the instructions for [getting started with applications](https://developer.nexmo.com/concepts/guides/applications#getting-started-with-applications). This will walk you through buying a number, creating an application, and linking the two.
+We'll start by registering a Vonage number to use with this application. Follow the instructions for [getting started with applications](https://developer.nexmo.com/concepts/guides/applications#getting-started-with-applications). This will walk you through buying a number, creating an application, and linking the two.
 
 You will need to give the URL of your publicly-accessible webserver or ngrok endpoint when you configure your application, as part of both the `answer_url` and the `event_url`. Those files are called `answer.php` and `event.php` respectively in this project. For example if your ngrok URL is `https://25b8c071.ngrok.io` then your configuration would be:
 
@@ -40,9 +40,9 @@ Once the application is created, configured and linked to a phone number, take a
 ⚓ Creating a call
 ## Teach Your Application to "Speak"
 
-When a human is connected to your application by phone, you control what the human hears with Nexmo Call Control Objects (NCCOs). These can be used for both incoming and outgoing calls - once the call is in progress, it doesn't make much different which it was.
+When a human is connected to your application by phone, you control what the human hears with Vonage Call Control Objects (NCCOs). These can be used for both incoming and outgoing calls - once the call is in progress, it doesn't make much different which it was.
 
-When a call is made to the number we linked to it earlier. Nexmo will make a request to the `answer_url` that you configured in the application and will expect the response to be an array of NCCOs.
+When a call is made to the number we linked to it earlier. Vonage will make a request to the `answer_url` that you configured in the application and will expect the response to be an array of NCCOs.
 
 Take a look at `answer.php` in the repository. This is the code that will return the NCCOs: in this case some text-to-speech messages and also a prompt for user input.
 
@@ -70,25 +70,25 @@ $ncco = [
     ]
 ];
 
-// Nexmo expect you to return JSON with the correct headers
+// Vonage expect you to return JSON with the correct headers
 header('Content-Type: application/json');
 echo json_encode($ncco);
 ```
 
 This shows off a few different types of NCCO in action, and hopefully gives you an idea of the types of things you can do with an NCCO (a detailed [NCCO reference](https://developer.nexmo.com/voice/voice-api/ncco-reference) is available if you're curious!). These are all JSON objects and your code builds the output and then sends it as the response, with correct JSON headers.
 
-This would be an excellent time to dial your Nexmo number from another phone and see the above in action! Go ahead and feel free to edit things and see what else you can do.
+This would be an excellent time to dial your Vonage number from another phone and see the above in action! Go ahead and feel free to edit things and see what else you can do.
 
 ## Track Events During a Call
 
-It's helpful to be able to include information about the status of the phone call when you let your application talk on the phone unsupervised. To help with this Nexmo send webhooks to the `event_url` that you configured when you set up the application. These webhooks contain status updates to let you know the phone is ringing, has been answered, and so on.
+It's helpful to be able to include information about the status of the phone call when you let your application talk on the phone unsupervised. To help with this Vonage sends webhooks to the `event_url` that you configured when you set up the application. These webhooks contain status updates to let you know the phone is ringing, has been answered, and so on.
 
 The code for this is in `event.php` in our project: it checks for particular statuses and writes information about them to a log file.
 
 ```php
 <?php
 
-// Nexmo send a JSON payload to your event endpoint, so read and decode it
+// Vonage sends a JSON payload to your event endpoint, so read and decode it
 $request = json_decode(file_get_contents('php://input'), true);
 
 // Work with the call status
@@ -129,19 +129,19 @@ Your application is ready to handle the calls once we make them so it's time to 
 
 We need to [broadcast our message](https://www.nexmo.com/use-cases/voice-broadcast) out to multiple people to avoid a critical message only going to one person and being missed. The script therefore loops through all the contacts you set up in `config.php` and requests that each one gets a call.
 
-To make phone calls you will need to configure your PHP application with information about your Nexmo credentials, the application itself and the people you want to call.
+To make phone calls you will need to configure your PHP application with information about your Vonage credentials, the application itself and the people you want to call.
 
 Copy `config.php.example` to `config.php` and edit to add your own values for:
 
 * API key and secret, which you can find from [your dashboard](https://dashboard.nexmo.com)
 * The ID of the application you created at the beginning of this tutorial
-* The Nexmo number that your users will be called from
+* The Vonage number that your users will be called from
 * The public URL of your application
 * An array of names and numbers of the people who should receive the broadcast message
 
 > Also check that you have the key generated when you created the application saved in `private.key` in the top level of the project.
 
-You will also need to run `composer install` to bring in the project dependencies. This includes the [Nexmo PHP library](https://github.com/nexmo/nexmo-php) which offers some helper code to make working with the Nexmo APIs easier.
+You will also need to run `composer install` to bring in the project dependencies. This includes the [Vonage PHP Server SDK](https://github.com/nexmo/nexmo-php) which offers some helper code to make working with the Vonage APIs easier.
 
 Back in the repo, the code we need for this step is in `broadcast.php`:
 
@@ -191,7 +191,7 @@ There are a few other things you might choose to do with your application such a
 
 ### Using a Recording Instead of Text-To-Speech
 
-To use a prerecorded message instead of (or as well as!) using Nexmo's text-to-speech functionality, use an NCCO with action `stream`. `stream` allows you to play back an audio file to the caller. The "streamUrl" will point to your audio file.
+To use a prerecorded message instead of (or as well as!) using Vonage's text-to-speech functionality, use an NCCO with action `stream`. `stream` allows you to play back an audio file to the caller. The "streamUrl" will point to your audio file.
 
 ```php
 [
