@@ -42,7 +42,7 @@ Before we grab and run the code, there are a few things we need to do first.
 
 ### Sign up for Vonage
 
-[Sign up for a Vonage account](https://nexmo.com) if you don't have one already.
+[Sign up for a Vonage API account](https://dashboard.nexmo.com/sign-up) if you don't have one already.
 
 ### Set up the CLI
 
