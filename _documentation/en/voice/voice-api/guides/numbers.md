@@ -1,6 +1,6 @@
 ---
 title: Numbers
-description: Numbers are a key part of using the Voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
+description: Numbers are a key part of using the Vonage Voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
 navigation_weight: 2
 ---
 
@@ -8,11 +8,11 @@ navigation_weight: 2
 
 ## Overview
 
-Numbers are a key concept to understand when working with the Voice API. The following points should be considered before developing your Vonage Application.
+Numbers are a key concept to understand when working with the Vonage Voice API. The following points should be considered before developing your Vonage Application.
 
 ### Formatting
 
-Within the Voice API all numbers are in E.164 format. This means that numbers:
+Within the Vonage Voice API all numbers are in E.164 format. This means that numbers:
 
 * Omit both a leading `+` and the international access code such as `00` or `001`. 
 * Contain no special characters, such as a space, `()` or `-`
@@ -24,7 +24,6 @@ If you are unsure how to format the number the Number Insight API can be used to
 ### Outgoing CallerID
 
 When making an outbound call from Vonage the CallerID, `from` value needs to be a Vonage Number associated with your account. Any Vonage number associated with your account will work. It does not have to be linked to the application you are using. If you set it to any other value then `from` is set to `unknown`.
-
 
 ### Incoming CallerID
 

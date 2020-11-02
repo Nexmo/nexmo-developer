@@ -8,7 +8,7 @@ navigation_weight: 1
 
 ## Overview
 
-The Voice API handles two types of phone call: **inbound** and **outbound**.
+The Vonage Voice API handles two types of phone call: **inbound** and **outbound**.
 
 **Inbound** calls are calls made to a Vonage number from another regular phone anywhere in the world.
 

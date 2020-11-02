@@ -42,18 +42,16 @@ This is illustrated in the following diagram:
 
 ```
   
-  
-  
-
 The sequence is as follows:
 
 1. A call is placed to a [Vonage number](/numbers/overview), which was [assigned to a Vonage Application](/numbers/guides/number-management).
 
 2. Vonage receives the call and triggers your Vonage Application’s [`answer_url` webhook](/voice/voice-api/webhook-reference#answer-webhook), which your backend exposes.
 
-3. That `answer_url` determines how to handle a call, and who to connect the call to. It does that by executing an NCCO, that utilizes [Voice API numerous capabilities](/voice/voice-api/ncco-reference).
+3. That `answer_url` determines how to handle a call, and who to connect the call to. It does that by executing an NCCO, that utilizes numerous capabilities of the [Voice API](/voice/voice-api/ncco-reference).
 
 4. A [call](/conversation/concepts/call) is created, and the requested users are connected into it. A call, as with Vonage communication events, occurs within a [Conversation](/conversation/concepts/conversation) object.
+
 As a result of `answer_url` execution, a new [Conversation](/conversation/concepts/conversation) is created, or an existing one is fetched, and the requested users are added to it to connect to the call. Note, all of the events are passing through the Conversation API and are accessible to you through it. For that reason, Conversations are very powerful, as they hold all the communication events of all [channels](/conversation/concepts/channel) per user, allowing you to retain the communication context, and provide better and smarter communication experiences for your users.
 
 5. All the respective events are dispatched to your application. These events can be inbound to the backend or to the client app:

@@ -8,7 +8,7 @@ navigation_weight: 5
 
 ## Overview
 
-Endpoints are a term used with the Voice API to describe the different destinations a call could be connected to. Each endpoint type has its own addressing format and other related metadata that can be sent along with the call. The most common type of endpoint used is `phone`, which is for making phone calls to regular phone numbers anywhere in the world. This network of phones is known as the Public Switched Telephone Network (PSTN).
+Endpoints is a term used with the Vonage Voice API to describe the different destinations a call could be connected to. Each endpoint type has its own addressing format and other related metadata that can be sent along with the call. The most common type of endpoint used is `phone`, which is for making phone calls to regular phone numbers anywhere in the world. This network of phones is known as the Public Switched Telephone Network (PSTN).
 
 ## Phone
 
