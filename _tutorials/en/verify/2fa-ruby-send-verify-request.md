@@ -21,8 +21,8 @@ Then, create a `.env` file in your application's route directory and configure i
 **`.env`**
 
 ```
-NEXMO_API_KEY=your_api_key
-NEXMO_API_SECRET=your_api_secret
+VONAGE_API_KEY=your_api_key
+VONAGE_API_SECRET=your_api_secret
 ```
 
 Add a `before_action` to your `ApplicationController` that checks if the user has two-factor authentication enabled. If they do, make sure that they are verified before they are allowed to continue:

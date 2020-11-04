@@ -7,7 +7,7 @@ description: In this step you learn how to create a report using the command lin
 
 To create a report, you send a `POST` request to `https://api.nexmo.com/v2/reports`. The parameters that you include in the request will determine which records are returned.
 
-For example, use the following request to view all SMS messages sent from your Nexmo Account in June 2019:
+For example, use the following request to view all SMS messages sent from your Vonage Account in June 2019:
 
 ```bash
 curl -X POST https://api.nexmo.com/v2/reports/ \

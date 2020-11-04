@@ -74,7 +74,7 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 </html>
 ```
 
-This is your web application that uses the Client SDK to make a voice call to the destination phone via Nexmo.
+This is your web application that uses the Client SDK to make a voice call to the destination phone via Vonage.
 
 There are several key components to this code:
 

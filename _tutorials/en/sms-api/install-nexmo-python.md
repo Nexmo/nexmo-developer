@@ -1,11 +1,11 @@
 ---
-title: Install the Nexmo Python Library
-description: Create a virtualenv and install the Nexmo python client library
+title: Install the Vonage Python Server SDK
+description: Create a virtualenv and install the Vonage Python Server SDK
 ---
 
-# Install the Nexmo Python Library
+# Install the Vonage Python Server SDK
 
-Create a `virtualenv` and install the Nexmo python client library into it.
+Create a `virtualenv` and install the Vonage Python Server SDK into it.
 
 ```
 $ python3 -m venv venv # use `virtualenv venv` on Python 2

@@ -5,7 +5,7 @@ description: In this step you learn how to create a suitable webhook server that
 
 # Create a webhook server
 
-Nexmo will make a request to your `answer_url` when an in-app voice call is made. You need to create a webhook server that is capable of receiving this request and returning an NCCO containing a `connect` action that will forward the call to the specified user.
+Vonage will make a request to your `answer_url` when an in-app voice call is made. You need to create a webhook server that is capable of receiving this request and returning an NCCO containing a `connect` action that will forward the call to the specified user.
 
 Create a file named `server.js` and add the server code as shown.
 

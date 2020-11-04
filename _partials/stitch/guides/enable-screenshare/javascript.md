@@ -30,7 +30,7 @@ We’ll have to create a `manifest.json` file that contains the metadata on how 
 
 ``` json
 {
-  "name": "Nexmo Screen Share Helper",
+  "name": "Vonage Screen Share Helper",
   "description": "Allows you to capture your desktop for use in video applications",
   "version": "0.0.1",
   "manifest_version": 2,

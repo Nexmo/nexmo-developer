@@ -13,7 +13,7 @@ curl -u API_KEY:API_SECRET https://api.nexmo.com/v2/reports/REQUEST_ID
 
 Replace `REQUEST_ID` with the `request_id` returned by the [initial call to the create report endpoint](/reports/tutorials/create-and-retrieve-a-report/reports/create-report).
 
-> In addition to polling for the report's status, you can register a webhook that Nexmo's APIs will make a request to when the report has been generated. To do this, specify a `callback_url` parameter when creating the report.
+> In addition to polling for the report's status, you can register a webhook that Vonage's APIs will make a request to when the report has been generated. To do this, specify a `callback_url` parameter when creating the report.
 
 The response will contain information about the report. The `download_report` field only becomes visible when the report generation is completed. You can use it to [retrieve the report](/reports/tutorials/create-and-retrieve-a-report/reports/download-report), as will be shown in the next step.
 

@@ -18,9 +18,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const Nexmo = require('nexmo');
 
-const NEXMO_API_KEY = process.env.NEXMO_API_KEY;
-const NEXMO_API_SECRET = process.env.NEXMO_API_SECRET;
-const NEXMO_BRAND_NAME = process.env.NEXMO_BRAND_NAME;
+const VONAGE_API_KEY = process.env.VONAGE_API_KEY;
+const VONAGE_API_SECRET = process.env.VONAGE_API_SECRET;
+const VONAGE_BRAND_NAME = process.env.VONAGE_BRAND_NAME;
 
 let verifyRequestId = null;
 let verifyRequestNumber = null;

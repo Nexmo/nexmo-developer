@@ -16,9 +16,9 @@ When an inbound message is received, a callback with message payload is invoked 
 
 ### To configure the webhook URLs
 
-From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Messages and Dispatch](https://dashboard.nexmo.com/messages/create-application).
+In the [Dashboard](https://dashboard.nexmo.com), go to [Messages and Dispatch](https://dashboard.nexmo.com/messages/create-application).
 
-> **TIP:** If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+> **TIP:** If the Webhook URLs for messages in your Vonage Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
 Enter your Webhook URLs in the fields labeled **Status URL** and **Inbound URL**.
 
@@ -37,7 +37,7 @@ Messages API does not support inbound SMS message and SMS delivery receipt callb
 
 ### Webhook queue
 
-Please note that webhooks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
+Please note that webhooks emanating from Vonage, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Vonage on a per-message basis.
 
 Please ensure that all applications acknowledge webhooks with a 200 response.
 

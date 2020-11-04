@@ -33,7 +33,7 @@ The NCCO must be public and accessible by the internet. To accomplish that, you 
 ]
 ```
 
-4) Replace `PHONE_NUMBER` with your phone number. Nexmo numbers are in [E.164](/concepts/guides/glossary#e-164-format) format, '+' and '-' are not valid. Make sure you specify your country code when entering your number, for example, US: 14155550100 and UK: 447700900001.
+4) Replace `PHONE_NUMBER` with your phone number. Vonage numbers are in [E.164](/concepts/guides/glossary#e-164-format) format, '+' and '-' are not valid. Make sure you specify your country code when entering your number, for example, US: 14155550100 and UK: 447700900001.
 
 5) Click the `Create secret gist` button:
 

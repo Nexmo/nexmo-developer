@@ -11,9 +11,9 @@ Use the Node Server SDK for this. First, instantiate it after the lines of code 
 
 ```javascript
 const nexmo = new Nexmo(
-	{
-		apiKey: NEXMO_API_KEY,
-		apiSecret: NEXMO_API_SECRET,
+  {
+    apiKey: VONAGE_API_KEY,
+		apiSecret: VONAGE_API_SECRET,
 	},
 	{
 		debug: true,
@@ -30,7 +30,7 @@ app.post('/verify', (req, res) => {
 	nexmo.verify.request(
 		{
 			number: verifyRequestNumber,
-			brand: NEXMO_BRAND_NAME,
+			brand: VONAGE_BRAND_NAME,
 		},
 		(err, result) => {
 			if (err) {

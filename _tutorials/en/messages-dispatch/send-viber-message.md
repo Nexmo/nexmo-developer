@@ -7,7 +7,7 @@ description: In this step you learn how to send a Viber message
 
 Key | Description
 -- | --
-`NEXMO_APPLICATION_ID` | The ID of the Nexmo Application that you created.
+`VONAGE_APPLICATION_ID` | The ID of the Vonage Application that you created.
 `VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
 `TO_NUMBER` | The phone number you are sending the message to.
 

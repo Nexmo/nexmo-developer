@@ -51,7 +51,7 @@ pod init
 
 ## Add the iOS Client SDK
 
-* Add the Nexmo iOS Client SDK to the Podfile. To do this, let's open it in `Xcode`:
+* Add the Vonage iOS Client SDK to the Podfile. To do this, let's open it in `Xcode`:
 
 ``` shell
 open -a Xcode Podfile

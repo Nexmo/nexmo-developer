@@ -18,7 +18,7 @@ def send_sms():
  
     # Send the SMS message:
     result = nexmo_client.send_message({
-        'from': NEXMO_NUMBER,
+        'from': VONAGE_NUMBER,
         'to': to_number,
         'text': message,
     })

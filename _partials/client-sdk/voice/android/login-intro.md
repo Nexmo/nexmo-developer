@@ -1,4 +1,4 @@
-To start using the Nexmo Client SDK you need to log in to `NexmoClient`, using a JWT user token.
+To start using the Vonage Client SDK you need to log in to `NexmoClient`, using a JWT user token.
 
 In production apps, your server would authenticate the user, and would return a [correctly configured JWT](/client-sdk/concepts/jwt-acl) to your app.
 

@@ -7,7 +7,7 @@ description: In this step you learn how to create the Users that will participat
 
 Each participant in an [In-App Voice](/client-sdk/in-app-voice/overview) Call is represented by a [User](/conversation/concepts/user) object and must be authenticated by the Client SDK. In a production application, you would typically store this user information in a database.
 
-Execute the following commands to create two users, `Alice` and `Bob` who will log in to the Nexmo Client and participate in the call.
+Execute the following commands to create two users, `Alice` and `Bob` who will log in to the Vonage Client and participate in the call.
 
 ```bash
 nexmo user:create name="Alice"

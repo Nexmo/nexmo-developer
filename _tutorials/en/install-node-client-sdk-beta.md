@@ -1,6 +1,6 @@
 ---
 title: Install the Node Client SDK Beta
-description: Install the Nexmo Node Client SDK Beta to get the latest functionality for building Programmable Conversation apps.
+description: Install the Vonage Node Client SDK Beta to get the latest functionality for building Programmable Conversation apps.
 ---
 
 # Install the Node Client SDK

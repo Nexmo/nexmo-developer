@@ -19,8 +19,8 @@ You then need to:
 Select the "Authorization" tab and enter the following values:
 
 * Type: `Basic Auth`
-* Username: Your Nexmo API key
-* Password: Your Nexmo API secret
+* Username: Your Vonage API key
+* Password: Your Vonage API secret
 
 > **Note**: You can find your API key and secret in the [developer dashboard](https://dashboard.nexmo.com).
 
@@ -34,7 +34,7 @@ In the "Body" tab select the "raw" radio button and "JSON" from the dropdown lis
 
 ## Create the request
 
-In the "Body" tab, enter the request body as shown below, replacing  `NEXMO_API_KEY` with your own API key and `date_start` and `date_end` with suitable values for the time period you are interested in.
+In the "Body" tab, enter the request body as shown below, replacing the API key with your own API key and `date_start` and `date_end` with suitable values for the time period you are interested in.
 
 > **Note**: The `end_date` parameter is exclusive - the report generated  covers the period from `start_date` to just before the time and date specified in `end_date`.
 
@@ -57,7 +57,7 @@ Click the "Send" button. The response will appear in the following format:
     "request_id": "a68908f0-4f23-4b47-a09b-9f4de0ce0737",
     "request_status": "PENDING",
     "product": "SMS",
-    "account_id": "NEXMO_API_KEY",
+    "account_id": "VONAGE_API_KEY",
     "date_start": "2019-04-01T00:00:00+0000",
     "date_end": "2019-07-01T00:00:00+0000",
     "include_subaccounts": false,
