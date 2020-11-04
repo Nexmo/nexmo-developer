@@ -41,7 +41,7 @@ page:
               </div>
 
               <div class="Vlt-grid">
-                <div class="Vlt-col Vlt-col--1of4 Vlt-left"><h2 class="Vlt-black"><b>Video Resources</b></h2></div>
+                <div class="Vlt-col Vlt-col--1of4 Vlt-left"><h2 class="Vlt-black"><b>Video resources</b></h2></div>
                 <div class="Vlt-col Vlt-col--1of4 Vlt-left vertical-align"><a id="watch-now-btn" class="Vlt-btn Vlt-btn--primary Vlt-btn--app Vlt-btn--large margin-top-0" href="https://www.youtube.com/playlist?list=PLWYngsniPr_kzim6UPTVyJu8U6UFbjHUl" target="_blank" > < Watch now! > </a></div>
               </div>
               <div class="Vlt-grid Vlt-grid--stack-flush" id="video-resources">
@@ -157,7 +157,7 @@ page:
                   </ul>
                 </div>
                 <div class="Vlt-col Vlt-col--1of2">
-                  <h2 class="Vlt-black"><b>Follow Us</b></h2>
+                  <h2 class="Vlt-black"><b>Follow us</b></h2>
                   <ul class="Vlt-list Vlt-list--simple">
                     <li>
                       <a href="https://twitter.com/VonageDev" target="_blank">
