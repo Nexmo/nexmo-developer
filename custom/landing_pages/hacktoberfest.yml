@@ -14,7 +14,7 @@ page:
                 </div>
               </div>
               <br><br><br>
-              <img class="Vlt-center" id="hacktoberfest-logo" src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1603873127/test2_uilnrn.svg" alt="Ocktoberfest 2020">
+              <img class="Vlt-center" id="hacktoberfest-logo" src="/images/H-600.svg" alt="Ocktoberfest 2020">
               <div class="Vlt-grid Nxd-landing-row">
                 <div class="Vlt-col Nxd-landing-col">
                   <hr class="hr--tall"></hr>
