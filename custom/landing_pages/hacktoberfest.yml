@@ -141,13 +141,6 @@ page:
                   <h2 class="Vlt-black"><b>Get in touch</b></h2>
                   <ul class="Vlt-list Vlt-list--simple">
                     <li>
-                      <a href="https://discord.gg/hacktoberfest" target="_blank">
-                        <h4 class="text-purple skinny-link">
-                          Hacktoberfest Discord Server
-                        </h4>
-                      </a>
-                    </li>
-                    <li>
                       <a href="https://developer.nexmo.com/community/slack" target="_blank">
                         <h4 class="text-purple skinny-link">
                           Vonage Developer Community Slack
