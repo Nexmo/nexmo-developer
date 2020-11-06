@@ -1,6 +1,6 @@
 ## Errors
 
-Nexmo uses error codes to report back when an issue was encountered. Below you can find a full table to error codes:
+Vonage uses error codes to report back when an issue was encountered. Below you can find a full table to error codes:
 
 ### Asynchronous Errors
 
@@ -46,4 +46,4 @@ Code | Text | Meaning
 `1340` | Outside of the allowed window | This message is sent outside of allowed response window.
 `1350` | Phone matching fee not paid | Requires phone matching access fee to be paid by the the Facebook Page.
 `1360` | TTL was activated | TTL was activated, no callbacks and no charge will be issued.
-`1370` | Expired access Token | The access token has expired, for Facebook Messenger, the consent has to be periodically given every 90 days. Try to delete and reconnect the Facebook page to Nexmo.
+`1370` | Expired access Token | The access token has expired, for Facebook Messenger, the consent has to be periodically given every 90 days. Try to delete and reconnect the Facebook page to Vonage.

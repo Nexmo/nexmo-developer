@@ -66,7 +66,7 @@ It is *highly recommended* that you use your Vonage library's existing functiona
 
 If you're **generating a signature:** Add the current timestamp to the parameters list with the key `timestamp`. This should be an integer containing the number of seconds since the epoch (this is sometimes also known as UNIX time)
 
-If you're **validating a signature** from Nexmo: Remove the `sig` parameter before generating your signature, and use the `timestamp` provided in the request parameters.
+If you're **validating a signature** from Vonage: Remove the `sig` parameter before generating your signature, and use the `timestamp` provided in the request parameters.
 
 Then:
 

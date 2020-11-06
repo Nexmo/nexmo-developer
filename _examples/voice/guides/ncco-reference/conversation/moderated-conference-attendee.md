@@ -7,7 +7,7 @@ menu_weight: 3
 [
   {
     "action": "talk",
-    "text": "Welcome to a Nexmo moderated conference. We will connect you when an agent is available",
+    "text": "Welcome to a Vonage moderated conference. We will connect you when an agent is available",
     "voiceName": "Amy"
   },
   {

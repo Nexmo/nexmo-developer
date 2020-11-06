@@ -30,7 +30,7 @@ source: '_examples/subaccounts/create-subaccount'
 
 ## Transferring credit
 
-The Partner could not control spending among its end customers because they all shared the same balance. One end customer used to occasionally consume all shared balance effectively blocking access to the Nexmo APIs for other Partner’s end customers. The Partner decided to set individual balance and allocate a credit limit to that end customer.
+The Partner could not control spending among its end customers because they all shared the same balance. One end customer used to occasionally consume all shared balance effectively blocking access to the Vonage APIs for other Partner’s end customers. The Partner decided to set individual balance and allocate a credit limit to that end customer.
 
 > **NOTE:** The Partner could have made his accounts prepaid.
 
@@ -54,13 +54,13 @@ source: '_examples/subaccounts/get-subaccounts'
 
 ## Additional credit allocation
 
-After some time, the Partner noticed that the end customer 1 (subaccount1) used up all of its credit (40 out of 40) and could not make any more API calls. The Partner had a choice of either waiting for the end customer 1 to pay them (and then in turn making a payment to Nexmo and transferring a corresponding balance to the subaccount) or increasing the end customer’s credit limit immediately so that end customer 1 can continue using the Nexmo API. The Partner decided to allocate additional credit. The Partner has 40 = |-60| - |-20| available credit, and decides to allocate 20 to the subaccount. This is illustrated in the following diagram:
+After some time, the Partner noticed that the end customer 1 (subaccount1) used up all of its credit (40 out of 40) and could not make any more API calls. The Partner had a choice of either waiting for the end customer 1 to pay them (and then in turn making a payment to Vonage and transferring a corresponding balance to the subaccount) or increasing the end customer’s credit limit immediately so that end customer 1 can continue using the Vonage API. The Partner decided to allocate additional credit. The Partner has 40 = |-60| - |-20| available credit, and decides to allocate 20 to the subaccount. This is illustrated in the following diagram:
 
 ![Additional credit](/images/subaccounts/additional_credit_allocation.png)
 
 ## End of month balance transfers
 
-At the end of the month the Partner received a |-20| + |-50| = €70 invoice from Nexmo (for all spending from all its accounts). End customer 1 (subaccount1) covered 45 out of €50 that it had spent. Thus, the Partner transferred €45 to subaccount1's balance. This is illustrated in the following diagram:
+At the end of the month the Partner received a |-20| + |-50| = €70 invoice from Vonage (for all spending from all its accounts). End customer 1 (subaccount1) covered 45 out of €50 that it had spent. Thus, the Partner transferred €45 to subaccount1's balance. This is illustrated in the following diagram:
 
 ![Additional credit](/images/subaccounts/month_end_balance_transfer.png)
 

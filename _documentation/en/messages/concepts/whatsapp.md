@@ -84,7 +84,7 @@ curl -X POST \
             "name":"whatsapp:hsm:technology:nexmo:verify",
             "parameters":[
                {
-                  "default":"Nexmo Verification"
+                  "default":"Vonage Verification"
                },
                {
                   "default":"64873"

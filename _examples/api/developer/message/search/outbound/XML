@@ -3,9 +3,9 @@
   <message-id>0A00000000ABCD00</message-id>
   <account-id>API_KEY</account-id>
   <network>012345</network>
-  <from>Nexmo</from>
+  <from>Vonage</from>
   <to>447700900000</to>
-  <body>A text message sent using the Nexmo SMS API</body>
+  <body>A text message sent using the Vonage SMS API</body>
   <price>0.03330000</price>
   <date-received>2020-01-01 12:00:00</date-received>
   <final-status>DELIVRD</final-status>

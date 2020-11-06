@@ -18,17 +18,17 @@ Additionally, with the power of local numbers, we will show you how you can take
 
 In order to work through this tutorial you'll need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
 * The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
-* A publicly accessible web server so Nexmo can make webhook requests to your app. You can learn more about webhooks in our [webhooks guide](/concepts/guides/webhooks) and it includes information on [using ngrok to expose your local webserver](/tools/ngrok)
+* A publicly accessible web server so that Vonage can make webhook requests to your app. You can learn more about webhooks in our [webhooks guide](/concepts/guides/webhooks) and it includes information on [using ngrok to expose your local webserver](/tools/ngrok)
 * Some knowledge of Ruby and the [Sinatra](http://www.sinatrarb.com/) web framework
 
 ⚓ Create a Voice Application
 ⚓ Buy Phone Numbers
-⚓ Link the Phone Numbers to a Nexmo Application
+⚓ Link the Phone Numbers to a Vonage Application
 ## Getting Started
 
-We'll start by registering two Nexmo numbers to use with this application. We need two so that we can demonstrate the use of different numbers linking to different locations. Follow the instructions for [getting started with applications](https://developer.nexmo.com/concepts/guides/applications#getting-started-with-applications). This will walk you through buying a number, creating an application, and linking the two (do the buying and linking twice, once for each number).
+We'll start by registering two Vonage numbers to use with this application. We need two so that we can demonstrate the use of different numbers linking to different locations. Follow the instructions for [getting started with applications](https://developer.nexmo.com/concepts/guides/applications#getting-started-with-applications). This will walk you through buying a number, creating an application, and linking the two (do the buying and linking twice, once for each number).
 
 You will need to give the `answer_url` of your publicly-accessible webserver or ngrok endpoint when you configure your application, this should be `[YOUR_URL]/answer` in this project. For example if your ngrok URL is `https://25b8c071.ngrok.io` then the your `answer_url` would be `https://25b8c071.ngrok.io/answer`
 
@@ -49,7 +49,7 @@ One you have it, you will need to:
 
 ## Receive an Inbound Phone Call
 
-Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a webhook request to your web app's `answer_url` endpoint. You can read more information about the [answer webhook](/voice/voice-api/webhook-reference#answer-webhook) in the developer docs.
+Whenever someone calls one of the numbers that are linked to the Vonage application, Vonage will receive an incoming call. Vonage will then notify your web application of that call. It does this by making a webhook request to your web app's `answer_url` endpoint. You can read more information about the [answer webhook](/voice/voice-api/webhook-reference#answer-webhook) in the developer docs.
 
 User will call a city-specific number, so we need to know which number maps to which city. In our simplified case we will simply configure the two numbers you bought into your application, but in most real environments this relationship is stored in a database. The configuration can be found in `app.rb`:
 
@@ -75,7 +75,7 @@ statuses = {
 
 We can now handle an incoming call, extract the number dialled, and respond to the user with the current status of the transit in their city. The statuses will be delivered to the user as spoken text-to-speech messages.
 
-> The impatient may phone their Nexmo numbers at this point and hear the application in action :)
+> The impatient may phone their Vonage numbers at this point and hear the application in action :)
 
 The `answer_url` that we set earlier is the route that will be in use when we make a call. You can find this code in `app.rb`:
 
@@ -90,7 +90,7 @@ get '/answer' do
 end
 ```
 
-This code answers the call, checks the incoming phone number, and fetches the status that relates to that geographical number. Then it makes a call to the `respond_with()` function that takes care of building the [Nexmo Call Control Object (NCCO)](/voice/guides/ncco). These objects tell Nexmo what text-to-speech messages should be played to the caller and which other actions, such as accepting number input, should be performed.
+This code answers the call, checks the incoming phone number, and fetches the status that relates to that geographical number. Then it makes a call to the `respond_with()` function that takes care of building the [Nexmo Call Control Object (NCCO)](/voice/guides/ncco). These objects tell Vonage what text-to-speech messages should be played to the caller and which other actions, such as accepting number input, should be performed.
 
 ```ruby
 # This method is shared between both endpoints to play
@@ -129,7 +129,7 @@ end
 
 > *Note*: Take a look at the [NCCO reference](/voice/guides/ncco-reference) for information on other actions available.
 
-Call your Nexmo numbers and check that your application speaks the (imaginary) transport status for Chicago on one number, San Francisco on the other, and offers multiple options afterwards using the `input` NCCO action.
+Call your Vonage numbers and check that your application speaks the (imaginary) transport status for Chicago on one number, San Francisco on the other, and offers multiple options afterwards using the `input` NCCO action.
 
 ## Prompt for Other Localities
 
@@ -172,7 +172,7 @@ Once you work out which city the user requested data for, you can look up the ci
 
 ## Conclusion
 
-You have created a voice application, purchased phone numbers and linked them to a Nexmo voice application. You have then built an application that receives an inbound call, maps the called number to a standard input, and then collects more input from the user to play back further info to them.
+You have created a voice application, purchased phone numbers and linked them to a Vonage voice application. You have then built an application that receives an inbound call, maps the called number to a standard input, and then collects more input from the user to play back further info to them.
 
 ⚓ Resources
 ## Where Next?

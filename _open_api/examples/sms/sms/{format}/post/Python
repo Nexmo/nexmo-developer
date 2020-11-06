@@ -1,5 +1,5 @@
 client.send_message({
-  'from': 'Nexmo',
+  'from': 'Vonage',
   'to': 'TO_NUMBER',
-  'text': 'A text message sent using the Nexmo SMS API'
+  'text': 'A text message sent using the Vonage SMS API'
 })

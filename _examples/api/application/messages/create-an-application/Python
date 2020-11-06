@@ -18,7 +18,7 @@ try:
         print "Application " + application['name'] + " has an ID of: " + application['id']
         for webhook in application['voice']['webhooks']:
                 print "  " + webhook['endpoint_type'] + " is " + webhook['endpoint']
-        print "  You use your private key to connect to Nexmo endpoints:"
+        print "  You use your private key to connect to Vonage endpoints:"
         print "  " + application['keys']['private_key']
     else:
         print "HTTP Response: " + resp.status_code

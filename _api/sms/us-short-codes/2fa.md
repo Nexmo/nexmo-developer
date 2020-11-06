@@ -9,7 +9,7 @@ api: 2FA
 This describes the US Short Code Two-factor Authentication API in the following steps:
 
 * [Request](#request) - send a PIN to your user
-* [Response](#response) - check the [response](#keys-and-values) and ensure that you sent the request to Nexmo correctly.
+* [Response](#response) - check the [response](#keys-and-values) and ensure that you sent the request to Vonage correctly.
 * [Delivery receipt](#delivery-receipt) - see the status and cost of your request.
 
 ## Request
@@ -72,7 +72,7 @@ Parameter | Description
 
 ### Security
 
-To ensure privacy, you must use HTTPS for all Nexmo API requests.
+To ensure privacy, you must use HTTPS for all Vonage API requests.
 
 ### Encoding
 
@@ -90,8 +90,8 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 
 Each [request](#request) you make using the US Short Codes API returns a:
 
-* [Response](#keys-and-values) - the status and cost of your request to Nexmo in [JSON or XML](#base-url) format.
-* [Delivery receipt](#delivery-receipt) - the status and cost of the SMS sent by Nexmo to your user.
+* [Response](#keys-and-values) - the status and cost of your request to Vonage in [JSON or XML](#base-url) format.
+* [Delivery receipt](#delivery-receipt) - the status and cost of the SMS sent by Vonage to your user.
 
 > *Note*: you are only charged for correctly submitted outbound SMS. If status is not *0*, you are not charged.
 
@@ -140,10 +140,10 @@ Key |	Description |	Response type
 
 Each [request](#request) you make using the Short Codes API returns a:
 
-* [response](#keys-and-values) - the status and cost of your request to Nexmo in [JSON or XML](#base-url) format.
-* Delivery receipt - if you have set a [webhook endpoint](/concepts/guides/webhooks), Nexmo forwards this delivery receipt to it. Carriers return a delivery receipt (DLR) to Nexmo to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
+* [response](#keys-and-values) - the status and cost of your request to Vonage in [JSON or XML](#base-url) format.
+* Delivery receipt - if you have set a [webhook endpoint](/concepts/guides/webhooks), Vonage forwards this delivery receipt to it. Carriers return a delivery receipt (DLR) to Vonage to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
 
-The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoint](/concepts/guides/webhooks). When you receive the DLR, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours.
+The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoint](/concepts/guides/webhooks). When you receive the DLR, you must send a `200 OK` response. If you do not send the `200 OK`, Vonage resends the delivery receipt for the next 72 hours.
 
 A delivery receipt has a:
 
@@ -163,17 +163,17 @@ The following code shows an example of a delivery receipt:
 
 ### Keys and Values
 
-The Nexmo delivery receipt includes:
+The delivery receipt includes:
 
 Key | Value
 -- | --
 `to` | The SenderID you set in from in your request.
 `network-code` | The Mobile Country Code Mobile Network Code (MCCMNC) of the carrier this phone number is registered with.
-`messageId` | The Nexmo ID for this message.
+`messageId` | The Vonage ID for this message.
 `msisdn` | The phone number this message was sent to.
 `status` | A code that explains where the message is in the delivery process., If status is not delivered check err-code for more information. If status is accepted ignore the value of err-code. @[Possible values](_examples/api/us-short-codes/alerts/delivery-receipt/status.md)
 `err-code` | If the status is not accepted, this key will have one of the these @[possible values](_examples/api/us-short-codes/alerts/delivery-receipt/err-code.md)
 `price` | How much it cost to send this message.
 `scts` | The Coordinated Universal Time (UTC) when the DLR was received from the carrier. The scts is in the following format: YYMMDDHHMM. For example, 1101181426 is 2011 Jan 18th 14:26.
-`message-timestamp` | The time at UTC±00:00 when Nexmo started to push this Delivery Receipt to your webhook endpoint. The message-timestamp is in the following format YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
+`message-timestamp` | The time at UTC±00:00 when Vonage started to push this Delivery Receipt to your webhook endpoint. The message-timestamp is in the following format YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
 `client-ref` | The client-ref you set in the request.

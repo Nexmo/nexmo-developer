@@ -18,7 +18,7 @@ These buttons make it easy for anyone to navigate to the correct store for their
 
 ## In this tutorial
 
-You see how easy it is to build a mobile app invites system using the Nexmo APIs and libraries:
+You see how easy it is to build a mobile app invites system using the Vonage APIs and libraries:
 
 1. [Create a Web app](#create-a-web-app) - create a Web app with download buttons.
 2. [Detect desktop users](#detect-desktop-users) - show the correct download button for desktop or mobile users.
@@ -30,8 +30,8 @@ You see how easy it is to build a mobile app invites system using the Nexmo APIs
 
 In order to work through this tutorial you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* A publicly accessible Web server so Nexmo can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/) ([see our ngrok tutorial blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/))
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
+* A publicly accessible Web server so that Vonage can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/) ([see our ngrok tutorial blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/))
 * The source code for this tutorial from <https://github.com/Nexmo/ruby-mobile-app-promotion>
 
 ## Create a Web app
@@ -190,17 +190,17 @@ You can also send a direct link to the correct stores in the SMS. To do this you
 
 ## Send the download link in an SMS
 
-You send an SMS using a single call to SMS API, Nexmo takes care of all the routing and delivery. The following diagram shows the workflow followed in this tutorial to send an SMS:
+You send an SMS using a single call to SMS API, Vonage takes care of all the routing and delivery. The following diagram shows the workflow followed in this tutorial to send an SMS:
 
 ```sequence_diagram
 Participant App
-Participant Nexmo
+Participant Vonage
 Participant Phone number
 Note over App: Initialize library
-App->>Nexmo: Request to SMS API
-Nexmo-->>App: Response from SMS API
-Note over Nexmo: Request accepted
-Nexmo->>Phone number: Send SMS
+App->>Vonage: Request to SMS API
+Vonage-->>App: Response from SMS API
+Note over Vonage: Request accepted
+Vonage->>Phone number: Send SMS
 ```
 
 In this tutorial, to send an SMS you add the [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby) to your app:
@@ -211,7 +211,7 @@ In this tutorial, to send an SMS you add the [Ruby Server SDK](https://github.co
 gem 'nexmo'
 ```
 
-Use your Nexmo API [key and secret](/concepts/guides/authentication) to initialize the client:
+Use your Vonage API [key and secret](/concepts/guides/authentication) to initialize the client:
 
 **app.rb**
 
@@ -219,8 +219,8 @@ Use your Nexmo API [key and secret](/concepts/guides/authentication) to initiali
 # Nexmo library
 require 'nexmo'
 nexmo = Nexmo::Client.new(
-  api_key: ENV['NEXMO_API_KEY'],
-  api_secret: ENV['NEXMO_API_SECRET']
+  api_key: ENV['VONAGE_API_KEY'],
+  api_secret: ENV['VONAGE_API_SECRET']
 )
 ```
 
@@ -258,7 +258,7 @@ post '/send_sms' do
 end
 ```
 
-The *status* response parameter tells you if Nexmo has accepted your request and sent the SMS.
+The *status* response parameter tells you if Vonage has accepted your request and sent the SMS.
 
 To verify that this SMS was received by the user, check the (link: messaging/sms-api/api-reference#delivery_receipt text: delivery receipt). This tutorial does not verify delivery receipts.
 

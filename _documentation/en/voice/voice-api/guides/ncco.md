@@ -3,7 +3,7 @@ title: Nexmo Call Control Objects
 navigation_weight: 2
 description: >-
   To tell Vonage how to handle a phone call, you must provide a Nexmo Call
-  Control Objects (NCCO) when a call is placed or answered. There are various
+  Control Object (NCCO) when a call is placed or answered. There are various
   actions available, such as `talk`, `input` and `record`.
 ---
 

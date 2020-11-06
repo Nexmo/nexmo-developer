@@ -49,9 +49,9 @@ In order to work through this tutorial you need:
 
 ## Configure a Vonage virtual number
 
-Nexmo forwards inbound messages to the webhook endpoint associated with your Vonage virtual number.
+Vonage forwards inbound messages to the webhook endpoint associated with your Vonage virtual number.
 
-You manage virtual numbers using [Developer API](/api/developer/numbers) or [Nexmo CLI](https://github.com/nexmo/nexmo-cli). The following examples use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to rent a Vonage number:
+You manage virtual numbers using the [Developer API](/api/developer/numbers) or the [Nexmo CLI](https://github.com/nexmo/nexmo-cli). The following examples use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to rent a Vonage number:
 
 ```sh
 $ nexmo number:buy --country_code US --confirm
@@ -144,8 +144,8 @@ Use your Vonage API [key and secret](/concepts/guides/authentication) to initial
 # nexmo library
 require 'nexmo'
 nexmo = Nexmo::Client.new(
-  api_key: ENV['NEXMO_API_KEY'],
-  api_secret: ENV['NEXMO_API_SECRET']
+  api_key: ENV['VONAGE_API_KEY'],
+  api_secret: ENV['VONAGE_API_SECRET']
 )
 ```
 
@@ -169,7 +169,7 @@ post '/notify' do
                  "post office) below.\n\n";
 
   nexmo.sms.send(
-    from: ENV['NEXMO_NUMBER'],
+    from: ENV['VONAGE_NUMBER'],
     to: params['number'],
     text: notification
   )
@@ -206,7 +206,7 @@ get '/update' do
             "Your delivery is now fully scheduled in."
 
   nexmo.sms.send(
-    from: ENV['NEXMO_NUMBER'],
+    from: ENV['VONAGE_NUMBER'],
     to: number,
     text: message
   )

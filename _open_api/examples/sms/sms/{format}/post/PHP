@@ -1,7 +1,7 @@
 <?php
 
 $message = $client->message()->send([
-  'from' => 'Nexmo',
+  'from' => 'Vonage',
   'to' => 'NUMBER_TO',
-  'text' => 'A text message sent using the Nexmo SMS API'
+  'text' => 'A text message sent using the Vonage SMS API'
 ]);

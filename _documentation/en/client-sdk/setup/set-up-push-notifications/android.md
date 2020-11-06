@@ -59,13 +59,13 @@ Push notifications are received in your implementation of `MyFirebaseMessagingSe
 
 You can use `NexmoClient.isNexmoPushNotification(message.data))` to determine if the message is sent from Vonage server.
 
-Use `processPushNotification(message.data, listener)` to process the data received from Firebase Cloud Messaging (FCM) into an easy to use Nexmo object:
+Use `processPushNotification(message.data, listener)` to process the data received from Firebase Cloud Messaging (FCM) into an easy to use object:
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/android/firebase-receive-push-notifications'
 ```
 
-> **NOTE:** In order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in](/client-sdk/getting-started/add-sdk-to-your-app/android) to it.
+> **NOTE:** In order to apply any methods on the `NexmoClient` object (for example answer a call, hangup, and so on), the `NexmoClient` has to be initialized and the user has to be [logged in](/client-sdk/getting-started/add-sdk-to-your-app/android) to it.
 
 ## Connect Vonage API application to Firebase
 
@@ -78,7 +78,7 @@ To connect Vonage API Application with Firebase you will need the following:
 
 ### Get Vonage application Id
 
-Obtain your `VONAGE_APP_ID`. You can access existing application in the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have an application already you can create the new application via [Nexmo CLI](/client-sdk/setup/create-your-application).
+Obtain your `VONAGE_APP_ID`. You can access existing application in the [dashboard](https://dashboard.nexmo.com/voice/your-applications). If you don't have an application already you can create the new application via [Nexmo CLI](/client-sdk/setup/create-your-application).
 
 ### Generate a Vonage developer JWT
 
@@ -120,9 +120,9 @@ image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-pr
 image: public/screenshots/setup/client-sdk/set-up-push-notifications/firebase-token.png
 ```
 
-## Link the Nexmo backend push service with the Firebase application
+## Link the Vonage backend push service with the Firebase application
 
-To link the Nexmo backend push service with the Firebase application you need to make a single request.
+To link the Vonage backend push service with the Firebase application you need to make a single request.
 
 Fill `VONAGE_APP_ID`, `VONAGE_DEV_JWT`, `FIREBASE_PROJECT_ID` and `FIREBASE_TOKEN` with previously obtained values and run the below command:
 

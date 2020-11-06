@@ -1,14 +1,14 @@
 ---
 title: Retrieve audit events
 products: audit
-description: "You can retrieve filtered lists of audit events. Audit events log activity in a Nexmo account."
+description: "You can retrieve filtered lists of audit events. Audit events log activity in a Vonage account."
 languages:
     - Curl
 ---
 
 # Retrieve audit events
 
-You can retrieve a record of all audit events associated with your Nexmo account. You can also filter this list based on dates, keyword, user and event type.
+You can retrieve a record of all audit events associated with your Vonage account. You can also filter this list based on dates, keyword, user and event type.
 
 ## In this tutorial
 
@@ -25,13 +25,13 @@ You will see how to retrieve a filtered list of audit events:
 
 In order to work through this tutorial you'll need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up).
+* A [Vonage account](https://dashboard.nexmo.com/sign-up).
 * A Terminal application running into which you can type or paste Curl commands. Alternatively you could use Paw, Postman or a similar application.
-* You will need to know your `NEXMO_API_KEY` and `NEXMO_API_SECRET` which you can obtain from your [Nexmo Dashboard](https://dashboard.nexmo.com/sign-in).
+* You will need to know your `VONAGE_API_KEY` and `VONAGE_API_SECRET` which you can obtain from your [dashboard](https://dashboard.nexmo.com/sign-in).
 
 You can also refer to the [Audit API documentation](/audit/overview).
 
-> **NOTE:** In the examples below, please replace `NEXMO_API_KEY` and `NEXMO_API_SECRET` with actual values obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+> **NOTE:** In the examples below, please replace `VONAGE_API_KEY` and `VONAGE_API_SECRET` with actual values obtained from your [dashboard](https://dashboard.nexmo.com).
 
 ## Retrieve a list of audit events
 
@@ -39,14 +39,14 @@ To receive a list of all audit events enter the following into your terminal:
 
 ```bash
 $ curl "https://api.nexmo.com/beta/audit/events" \
-     -u 'NEXMO_API_KEY:NEXMO_API_SECRET'
+     -u 'VONAGE_API_KEY:VONAGE_API_SECRET'
 ```
 
 When you run this command you will receive a list of all audit events.
 
 ## Retrieve a filtered list of audit events
 
-The list of audit events you receive in the previous step may well be overwhelming, especially if you have been using your Nexmo account for some time. You can filter this list based on several parameters:
+The list of audit events you receive in the previous step may well be overwhelming, especially if you have been using your Vonage account for some time. You can filter this list based on several parameters:
 
 Query Parameter | Description
 --- | ---
@@ -62,7 +62,7 @@ So for example, to filter based on dates you can enter the following command:
 
 ```
 $ curl "https://api.nexmo.com/beta/audit/events?date_from=2018-08-01&date_to=2018-08-31" \
-     -u 'NEXMO_API_KEY:NEXMO_API_SECRET'
+     -u 'VONAGE_API_KEY:VONAGE_API_SECRET'
 ```     
 
 This will return all audit events that occurred during August 2018.
@@ -73,14 +73,14 @@ So for example, to find audit events in August of type `NUMBER_ASSIGN` you could
 
 ```
 $  curl "https://api.nexmo.com/beta/audit/events?date_from=2018-08-01&date_to=2018-08-31&event_type=NUMBER_ASSIGN" \
-     -u 'NEXMO_API_KEY:NEXMO_API_SECRET'
+     -u 'VONAGE_API_KEY:VONAGE_API_SECRET'
 ```
 
 You can further filter based on `search_text`. For example to find all audit events containing the text "password" you can enter the following command:
 
 ```
 $  curl "https://api.nexmo.com/beta/audit/events?search_text=password" \
-     -u 'NEXMO_API_KEY:NEXMO_API_SECRET'
+     -u 'VONAGE_API_KEY:VONAGE_API_SECRET'
 ```
 
 ## Retrieve a specific audit event
@@ -89,7 +89,7 @@ If you know the UUID for a specific audit event you can retrieve the information
 
 ```
 $ curl "https://api.nexmo.com/beta/audit/events/aaaaaaaa-bbbb-cccc-dddd-0123456789ab" \
-     -u 'NEXMO_API_KEY:NEXMO_API_SECRET'
+     -u 'VONAGE_API_KEY:VONAGE_API_SECRET'
 ```
 
 This would then return the audit event object JSON for the specified audit event.

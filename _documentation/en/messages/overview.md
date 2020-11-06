@@ -1,7 +1,7 @@
 ---
 title: Overview
 meta_title: Send messages via SMS, MMS, WhatsApp, Viber and Facebook Messenger with a single API. 
-description: The Messages API allows you to send and in some cases receive messages over SMS/MMS, Facebook Messenger, Viber, WhatsApp. (Nexmo is now Vonage)
+description: The Messages API allows you to send and in some cases receive messages over SMS/MMS, Facebook Messenger, Viber, WhatsApp. 
 navigation_weight: 1
 ---
 

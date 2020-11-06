@@ -9,7 +9,7 @@ published: true
 ---
 
 ## About
-The Nexmo connector for Microsoft Flow allows for multiple actions for you to choose from:
+The Vonage connector for Microsoft Flow provides multiple actions you can choose from:
 
 - [Create new application](https://docs.microsoft.com/en-us/connectors/nexmo/#create-new-application)
 - [Delete an application](https://docs.microsoft.com/en-us/connectors/nexmo/#delete-an-application)

@@ -65,7 +65,7 @@ Parameter | Description | Required
 
 ## Authentication information
 
-If you are not using applications, you use the following parameters for calls to Nexmo API:
+If you are not using applications, you use the following parameters for calls to Vonage API:
 
 Parameter | Description
 -- | --
@@ -83,7 +83,7 @@ Parameter |	Description
 
 ### Security
 
-To ensure privacy, you must use HTTPS for all Nexmo API requests.
+To ensure privacy, you must use HTTPS for all Vonage API requests.
 
 ### Encoding
 
@@ -103,7 +103,7 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 
 Each [request](#request) you make using this API returns a:
 
-* [Response](#keys-and-values) - the status of your request to Nexmo in [JSON or XML format](#format).
+* [Response](#keys-and-values) - the status of your request to Vonage in [JSON or XML format](#format).
 
 The response is returned either:
 

@@ -16,11 +16,11 @@ In this use case the user greets the company via the company's Facebook Page. A 
 
 ## Source code
 
-The source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/fbm-product-info).
+The source code for this project is available in the community [GitHub repository](https://github.com/nexmo-community/fbm-product-info).
 
 ## Prerequisites
 
-1. [Create a Nexmo Account](https://dashboard.nexmo.com/sign-in)
+1. [Create a Vonage Account](https://dashboard.nexmo.com/sign-in)
 2. [Install Node JS](https://nodejs.org/en/download/) - required for using the Nexmo Command Line Interface (CLI).
 3. [Install the Beta version of the Nexmo CLI](/messages/code-snippets/install-cli)
 4. [Know how to test your webhook server locally](/messages/code-snippets/configure-webhooks#testing-locally-via-ngrok)
@@ -31,8 +31,8 @@ The source code for this project is available in the Nexmo Community [GitHub rep
 
 After the prerequisites have been met, the steps are as follows:
 
-1. [Create a Nexmo Application](#create-your-nexmo-application)
-2. [Link your Nexmo application to your Facebook page](#link-your-application-to-your-facebook-page)
+1. [Create a Vonage Application](#create-your-nexmo-application)
+2. [Link your Vonage application to your Facebook page](#link-your-application-to-your-facebook-page)
 3. [Get Ngrok up and running](#get-ngrok-up-and-running)
 4. [Write your basic application](#write-your-basic-application)
 5. [Interact with your Facebook Page](#interact-with-your-facebook-page)
@@ -40,23 +40,23 @@ After the prerequisites have been met, the steps are as follows:
 7. [The use case revisited](#the-use-case-revisited)
 8. [A simple implementation](#a-simple-implementation)
 
-There are various ways you can achieve the same result with Nexmo. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
+There are various ways you can achieve the same result with Vonage. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
 
-## Create your Nexmo Application
+## Create your Vonage Application
 
 If you have not yet done so, create a new directory for your project, such as `fbm-app`. Change into this directory.
 
-Use the CLI to create your Nexmo application:
+Use the CLI to create your Vonage application:
 
 ``` shell
 nexmo app:create "FBM App" https://abcd1234.ngrok.io/inbound https://abcd1234.ngrok.io/status --keyfile=private.key --type=messages
 ```
 
-Make a note of the generated Application ID. You can also check this in the [Nexmo Dashboard](https://dashboard.nexmo.com/messages/applications).
+Make a note of the generated Application ID. You can also check this in the [dashboard](https://dashboard.nexmo.com/messages/applications).
 
 This command will also create a private key, `private.key` in your current directory.
 
-This command also sets the two webhooks that need to be set. All interaction between your App and Nexmo takes place through these webhooks. You must at least acknowledge each of these webhooks in your app.
+This command also sets the two webhooks that need to be set. All interaction between your app and Vonage takes place through these webhooks. You must at least acknowledge each of these webhooks in your app.
 
 ## Link your application to your Facebook Page
 
@@ -78,7 +78,7 @@ To generate a temporary Ngrok URL. If you are a paid subscriber you could type:
 ngrok http 9000 -subdomain=your_domain
 ```
 
-> Note in this case Ngrok will divert the Nexmo webhooks you specified when you created your Nexmo application to `localhost:9000`.
+> Note in this case Ngrok will divert the Vonage webhooks you specified when you created your Vonage application to `localhost:9000`.
 
 ## Write your basic application
 
@@ -144,7 +144,7 @@ Note that it is useful to record both the Facebook ID of your page (which you mi
 
 ## Minimal client for sending Facebook Messenger messages using Python
 
-Currently Nexmo does not officially support Messages and Dispatch API in the Python Server SDK, but our REST API is fully supported and the [Python code is provided](https://github.com/nexmo-community/fbm-product-info/blob/master/FBMClient/FBMClient.py) in the project for you in a reusable class. As the code is provided we will not cover it further in this tutorial.
+Currently, Vonage does not officially support Messages and Dispatch API in the Python Server SDK, but our REST API is fully supported and the [Python code is provided](https://github.com/nexmo-community/fbm-product-info/blob/master/FBMClient/FBMClient.py) in the project for you in a reusable class. As the code is provided we will not cover it further in this tutorial.
 
 ## The use case revisited
 

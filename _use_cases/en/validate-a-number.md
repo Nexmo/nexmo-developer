@@ -26,7 +26,7 @@ The [Ruby Server SDK](http://github.com/nexmo/nexmo-ruby) makes it easy to acces
 You learn how to sanitize and validate phone numbers using the Ruby Server SDK.
 
 * [Before you begin](#before-you-begin) make sure that you have what you need to complete this tutorial
-* [Create the project](#create-the-project) by cloning the tutorial source code on GitHub and configuring it with your Nexmo account details
+* [Create the project](#create-the-project) by cloning the tutorial source code on GitHub and configuring it with your Vonage account details
 * [Install the dependencies](#install-the-dependencies) including the Ruby Server SDK
 * [Code walkthrough](#code-walkthrough) to learn how the code works
 
@@ -34,7 +34,7 @@ You learn how to sanitize and validate phone numbers using the Ruby Server SDK.
 
 To complete this tutorial you need:
 
-* Your `api_key` and `api_secret` for your [Nexmo account](https://dashboard.nexmo.com/sign-up) - sign up for an account if you do not already have one
+* Your `api_key` and `api_secret` for your [Vonage account](https://dashboard.nexmo.com/sign-up) - sign up for an account if you do not already have one
 * Access to the [tutorial source code](https://github.com/Nexmo/ruby-ni-customer-number-validation) on GitHub
 
 ## Create the project
@@ -51,11 +51,11 @@ Change to the project folder:
 cd ruby-ni-customer-number-validation
 ```
 
-Copy the `.env-example` file to `.env` and edit `.env` to configure your API key and secret from the [Nexmo Developer dashboard](https://dashboard.nexmo.com):
+Copy the `.env-example` file to `.env` and edit `.env` to configure your API key and secret from the [dashboard](https://dashboard.nexmo.com):
 
 ```
-NEXMO_API_KEY="(Your API key)"
-NEXMO_API_SECRET="(Your API secret)"
+VONAGE_API_KEY="(Your API key)"
+VONAGE_API_SECRET="(Your API secret)"
 ```
 
 ## Install the dependencies
@@ -113,8 +113,8 @@ First, the code creates the `nexmo` client object with the API key and secret th
 ```ruby
 require 'nexmo'
 nexmo = Nexmo::Client.new(
-  api_key: ENV['NEXMO_API_KEY'],
-  api_secret: ENV['NEXMO_API_SECRET']
+  api_key: ENV['VONAGE_API_KEY'],
+  api_secret: ENV['VONAGE_API_SECRET']
 )
 ```
 
@@ -128,7 +128,7 @@ puts nexmo.number_insight.basic(number:  "442079460000")
 
 Your user might supply a phone number that is not in international format. That is, it does not include the country prefix. This sample shows you how to use the Number Insight Basic API to format the number correctly.
 
-> Most Nexmo APIs expect a phone number to be in international format, so you can use the Number Insight Basic API to sanitize numbers before using them.
+> Most Vonage APIs expect a phone number to be in international format, so you can use the Number Insight Basic API to sanitize numbers before using them.
 
 #### Run the code
 

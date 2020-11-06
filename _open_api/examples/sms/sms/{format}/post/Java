@@ -1,4 +1,4 @@
 client.getSmsClient().submitMessage(new TextMessage(
         FROM_NUMBER,
         TO_NUMBER,
-        "Hello from Nexmo!"));
+        "Hello from Vonage!"));

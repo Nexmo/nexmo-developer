@@ -43,7 +43,7 @@ if (strpos($header, '201')){
         echo ( "  " . $webhook['endpoint_type'] . " is " . $webhook['endpoint'] . "\n"  );
 
     echo("  Stock your public and private keys somewhere secure.\n" ) ;
-    echo("  You use them to connect to Nexmo endpoints. They are:\n" ) ;
+    echo("  You use them to connect to Vonage endpoints. They are:\n" ) ;
     echo("  " . $application['keys']['public_key'] );
     echo("  " . $application['keys']['private_key'] );
 }

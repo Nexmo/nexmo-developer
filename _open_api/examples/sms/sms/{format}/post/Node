@@ -1,5 +1,5 @@
-var from = 'Nexmo';
+var from = 'Vonage';
 var to = 'TO_NUMBER';
-var text = 'A text message sent using the Nexmo SMS API';
+var text = 'A text message sent using the Vonage SMS API';
 
 nexmo.message.sendSms(from, to, text);

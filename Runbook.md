@@ -1,11 +1,11 @@
 # System Overview
 
-Nexmo Developer is a simple Rails application with a mounted Sinatra app that handles the rendering of the [API References](https://developer.nexmo.com/api).
+The API Developer Portal is a simple Rails application with a mounted Sinatra app that handles the rendering of the [API References](https://developer.nexmo.com/api).
 
 # Deployment
 
-NDP is hosted in Heroku and is automatically deployed every time a branch is merged into master via a GitHub integration.
-In case you want to force a deploy, you can always deploy NDP from [Heroku's dashboard](https://dashboard.heroku.com/apps/nexmo-developer).
+ADP is hosted in Heroku and is automatically deployed every time a branch is merged into master via a GitHub integration.
+In case you want to force a deploy, you can always deploy ADP from [Heroku's dashboard](https://dashboard.heroku.com/apps/nexmo-developer).
 
 ## Required Resources
 
@@ -14,7 +14,7 @@ In case you want to force a deploy, you can always deploy NDP from [Heroku's das
 * Heroku Postgres: SQL Database service.
 * Algolia: In Production, the search form is enabled and it is powered by [Algolia](https://www.algolia.com/).
 
-# How to diagnose problems with NDP
+# How to diagnose problems with ADP
 
 ## Logs
 
@@ -27,7 +27,7 @@ Bear in mind that most of the errors are logged under `Markdown#show` so it migh
 
 ## Health checks
 
-We use [Pingdom](https://www.pingdom.com/) to monitor [NDP's](https://developer.nexmo.com) health, and email notifications are sent when the site is Down/Up.
+We use [Pingdom](https://www.pingdom.com/) to monitor [ADP's](https://developer.nexmo.com) health, and email notifications are sent when the site is Down/Up.
 
 ## Caching
 
@@ -35,7 +35,7 @@ We currently cache the sidenav and the information we fetch from Greenhouse in o
 
 ## Troubleshooting Production issues
 
-In case NDP is Down:
+In case ADP is Down:
 
 * Check if [Heroku](https://status.heroku.com/) is having an outage. Unfortunately, if that is the case then there isn't much you can do about it (at least for now).
 * Otherwise, check the [logs](#logs) or [Bugsnag](#error-monitoring-and-reporting) to see if any issues show up and try to reproduce it locally.
@@ -45,15 +45,15 @@ If the issue is related to the latest deploy, just revert the offending commits 
 
 ## Configuration management
 
-When running NDP locally, `dotenv` loads the corresponding environment variables from `.env` to ENV. However, when the app is deployed to Heroku the environment variables are set in Heroku's dashboard.
+When running ADP locally, `dotenv` loads the corresponding environment variables from `.env` to ENV. However, when the app is deployed to Heroku the environment variables are set in Heroku's dashboard.
 
 ## Enabling Search locally
 
 To enable the Search form locally, the `ALGOLIA_SEARCH_KEY` environment variable needs to be set, the rest of the configuration is defined in `config/algolia.yml`
 
-# Common issues when running NDP locally
+# Common issues when running ADP locally
 
-NDP can be run locally either directly or using Docker, for more information about how to run it see the [Readme](https://github.com/Nexmo/nexmo-developer/blob/master/README.md#running-locally). When using docker, re-building the image should fix the following issues
+ADP can be run locally either directly or using Docker, for more information about how to run it see the [Readme](https://github.com/Nexmo/nexmo-developer/blob/master/README.md#running-locally). When using docker, re-building the image should fix the following issues
 
 * `Could not find definition '<insert_file_here>' in '<path>'`: set the right `OAS_PATH`  in `.env`, check `.env.example` for the default value.
 

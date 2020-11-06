@@ -83,11 +83,11 @@ Note that the following conditions apply:
 
 ## Source code
 
-The Python source code for this project is available in the Nexmo Community [GitHub repository](https://github.com/nexmo-community/dispatch-user-fallback). Three use cases are actually included in the codebase, but this tutorial only describes `case-2`. The code for `case-2` specifically can be found [here](https://github.com/nexmo-community/dispatch-user-fallback/tree/master/case-2). There are just two files - the sample configuration file, `sample.json` and the application, `app.py`.
+The Python source code for this project is available in the community [GitHub repository](https://github.com/nexmo-community/dispatch-user-fallback). Three use cases are actually included in the codebase, but this tutorial only describes `case-2`. The code for `case-2` specifically can be found [here](https://github.com/nexmo-community/dispatch-user-fallback/tree/master/case-2). There are just two files - the sample configuration file, `sample.json` and the application, `app.py`.
 
 ## Prerequisites
 
-1. [Create a Nexmo Account](https://dashboard.nexmo.com/sign-in)
+1. [Create a Vonage Account](https://dashboard.nexmo.com/sign-in)
 2. [Install Node JS](https://nodejs.org/en/download/) - required for using the Nexmo Command Line Interface (CLI).
 3. [Install the Beta version of the Nexmo CLI](/messages/code-snippets/install-cli)
 4. [Know how to test your webhook server locally](/messages/code-snippets/configure-webhooks#testing-locally-via-ngrok)
@@ -108,29 +108,29 @@ If you plan to test this use case with Facebook Messenger it is recommended that
 
 After the prerequisites have been met, the steps are as follows:
 
-1. [Create a Nexmo Application](#create-your-nexmo-application)
+1. [Create a Vonage Application](#create-your-nexmo-application)
 2. [Get Ngrok up and running](#get-ngrok-up-and-running)
 3. [Run your webhook server](#run-your-webhook-server)
 4. [Review the application code](#review-the-application-code)
 5. [Test the app](#test-the-app)
 
-There are various ways you can achieve the same result with Nexmo. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
+There are various ways you can achieve the same result with Vonage. This tutorial shows only one specific way to do things, for example you will see how to use the command line to create the application, rather than the Dashboard. Other tutorials demonstrate other ways of doing things.
 
-## Create your Nexmo Application
+## Create your Vonage Application
 
 If you have not yet done so, create a new directory for your project, such as `multi-user-dispatch`. Change into this directory.
 
-Use the CLI to create your Nexmo application:
+Use the CLI to create your Vonage application:
 
 ``` shell
 nexmo app:create "Multi-user Dispatch App" https://abcd1234.ngrok.io/webhooks/inbound https://abcd1234.ngrok.io/webhooks/status --keyfile=private.key --type=messages
 ```
 
-Make a note of the generated Application ID. You can also check this in the [Nexmo Dashboard](https://dashboard.nexmo.com/messages/applications).
+Make a note of the generated Application ID. You can also check this in the [dashboard](https://dashboard.nexmo.com/messages/applications).
 
 This command will also create a private key, `private.key` in your current directory.
 
-This command also sets the two webhooks that need to be set. All interaction between your App and Nexmo takes place through these webhooks. You must at least acknowledge each of these webhooks in your webhook server.
+This command also sets the two webhooks that need to be set. All interaction between your app and Vonage takes place through these webhooks. You must at least acknowledge each of these webhooks in your webhook server.
 
 ## Get Ngrok up and running
 
@@ -146,7 +146,7 @@ To generate a temporary Ngrok URL. If you are a paid subscriber you could type:
 ngrok http 9000 -subdomain=your_domain
 ```
 
-> **NOTE:** in this case Ngrok will divert the Nexmo webhooks you specified when you created your Nexmo application to `localhost:9000`.
+> **NOTE:** in this case Ngrok will divert the Vonage webhooks you specified when you created your Vonage application to `localhost:9000`.
 
 ## Run your webhook server
 
@@ -272,7 +272,7 @@ Once the workflow has been built, you use the [Dispatch API](/dispatch/overview)
 r = requests.post('https://api.nexmo.com/v0.1/dispatch', headers=headers, data=workflow)
 ```
 
-A JWT is generated in order to authenticate the API call. This is why you needed to note the `app_id` and `private_key` values when you created your Nexmo application. These need to be added to your configuration file.
+A JWT is generated in order to authenticate the API call. This is why you needed to note the `app_id` and `private_key` values when you created your Vonage application. These need to be added to your configuration file.
 
 ## Test the app
 

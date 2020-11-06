@@ -28,12 +28,12 @@ Run the following Node Package Manager (`npm`)  command at a terminal prompt to 
 
 ```sh
 npm install -g nexmo-cli
-nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
+nexmo setup VONAGE_API_KEY VONAGE_API_SECRET
 ```
 
 ## Purchase a Vonage number
 
-If you don't already have one, buy a Nexmo virtual number to receive inbound calls.
+If you don't already have one, buy a Vonage number to receive inbound calls.
 
 First, list the numbers available in your country (replace `GB` with your two-character [country code](https://www.iban.com/country-codes)):
 
@@ -72,7 +72,7 @@ The command returns an application ID (which you should make a note of) and your
 You need to link your Vonage number to the Voice API application that you just created. Use the following command:
 
 ```sh
-nexmo link:app NEXMO_NUMBER NEXMO_APPLICATION_ID
+nexmo link:app VONAGE_NUMBER VONAGE_APPLICATION_ID
 ```
 
 You're now ready to write your application code.
@@ -110,7 +110,7 @@ def answer_call():
         },
         {
             "action": "connect",
-            "from": "NexmoTest",
+            "from": "VonageTest",
             "endpoint": [
                 {
                     "type": "websocket",

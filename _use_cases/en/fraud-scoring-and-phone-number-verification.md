@@ -19,20 +19,20 @@ You will build an application that enables a user to register for an account by 
 To do this:
 
 * [Create an application](#create-an-application) - create an application that accepts a user's phone number.
-* [Install the Nexmo REST Client API for Node](#install-the-nexmo-rest-client-api-for-node) - add Nexmo functionality to your application.
+* [Install the Vonage Node Server SDK](#install-the-nexmo-rest-client-api-for-node) - add Vonage functionality to your application.
 * [Configure the application](#configure-the-application) - read your API key and secret and other settings from a configuration file.
 * [Process a phone number](#process-a-phone-number) - build the logic that processes the number submitted by a user.
 * [Check for possible fraud](#check-for-possible-fraud) - use the Number Insight API to determine where the associated device is located.
-* [Send a verification code](#send-a-verification-code) - when the number triggers the verification step send a code to the user's phone using the Nexmo Verify API.
+* [Send a verification code](#send-a-verification-code) - when the number triggers the verification step send a code to the user's phone using the Verify API.
 * [Check the verification code](#check-the-verification-code) - check that the verification code provided by the user is valid.
 
 ## Prerequisites
 
 To complete this tutorial, you need:
 
-* The `api_key` and `api_secret` for your [Nexmo account](https://dashboard.nexmo.com/sign-up)  - sign up for an account if you do not already have one.
+* The `api_key` and `api_secret` for your [Vonage account](https://dashboard.nexmo.com/sign-up)  - sign up for an account if you do not already have one.
 * Basic knowledge of Node.js and the `express` package.
-* A publicly accessible Web server so Nexmo can make webhook requests to your app. For local development, we recommend [ngrok](https://ngrok.com/).
+* A publicly accessible Web server so that Vonage can make webhook requests to your app. For local development, we recommend [ngrok](https://ngrok.com/).
 
 > [Learn how to use `ngrok`](/tools/ngrok)
 
@@ -116,7 +116,7 @@ You will use the `pug` templating engine to create the HTML forms that the appli
     doctype html
     html(lang="en")
       head
-        title Nexmo Fraud Detection
+        title Vonage Fraud Detection
         link(href='style.css', rel='stylesheet')
       body
         #container
@@ -138,9 +138,9 @@ You will use the `pug` templating engine to create the HTML forms that the appli
           input(type='submit', value='Register')
     ```
 
-## Install the Nexmo REST Client API for Node
+## Install the Vonage Node Server SDK
 
-Add the [Nexmo REST Client API](https://github.com/Nexmo/nexmo-node) package to your project by executing the following command at a terminal prompt:
+Add the [Vonage Node Server SDK](https://github.com/Nexmo/nexmo-node) package to your project by executing the following command at a terminal prompt:
 
 ```sh
 $ npm install nexmo --save
@@ -188,33 +188,33 @@ Your application therefore must trigger the following sequence of events:
 ```sequence_diagram
 Participant Browser
 Participant App
-Participant Nexmo
-Note over App,Nexmo: Initialization
+Participant Vonage
+Note over App,Vonage: Initialization
 Browser->>App: User registers by \nsubmitting number
-App->>Nexmo: Number Insight request
-Nexmo-->>App: Number Insight response
-Note over App,Nexmo: If Number Insight shows that the \nuser and their phone are in different \ncountries, start the verification process
-App->>Nexmo: Send verification code to user's phone
-Nexmo-->>App: Receive acknowledgement that\nverification code was sent
+App->>Vonage: Number Insight request
+Vonage-->>App: Number Insight response
+Note over App,Vonage: If Number Insight shows that the \nuser and their phone are in different \ncountries, start the verification process
+App->>Vonage: Send verification code to user's phone
+Vonage-->>App: Receive acknowledgement that\nverification code was sent
 App->>Browser: Request the code from the user
 Browser->>App: User submits the code they received
-App->>Nexmo: Check verification code
-Nexmo-->>App: Code Verification status
+App->>Vonage: Check verification code
+Vonage-->>App: Code Verification status
 Note over Browser,App: If either Number Insight response or verification step \nis satisfactory, continue registration
 App->>Browser: Confirm registration
 ```
 
 ### Creating the fraud detection logic
 
-Create the `FraudDetection.js` file for the `FraudDetection` class in the application's `lib` folder. In the class constructor, first create an instance of `Nexmo`, providing it with your Nexmo API key and secret from the `.env` configuration file:
+Create the `FraudDetection.js` file for the `FraudDetection` class in the application's `lib` folder. In the class constructor, first create an instance of `Nexmo`, providing it with your Vonage API key and secret from the `.env` configuration file:
 
 ```javascript
 var Nexmo = require('nexmo');
 
 var FraudDetection = function(config) {
   this.nexmo = new Nexmo({
-    apiKey: process.env.NEXMO_API_KEY,
-    apiSecret: process.env.NEXMO_API_SECRET
+    apiKey: process.env.VONAGE_API_KEY,
+    apiSecret: process.env.VONAGE_API_SECRET
   });
 };
 
@@ -229,8 +229,8 @@ var maxmind = require('maxmind');
 
 var FraudDetection = function(config) {
   this.nexmo = new Nexmo({
-    apiKey: process.env.NEXMO_API_KEY,
-    apiSecret: process.env.NEXMO_API_SECRET
+    apiKey: process.env.VONAGE_API_KEY,
+    apiSecret: process.env.VONAGE_API_SECRET
   });
 
   maxmind.open(__dirname + '/../GeoLite2-Country.mmdb', (err, countryLookup) => {
@@ -293,7 +293,7 @@ FraudDetection.prototype.matchesLocation = function(number, request, callback) {
 
 ## Send a verification code
 
-1. Modify `lib\FraudDetection.js` so that when the risk model detects a possibly fraudulent number you send a verification code to the phone using Nexmo's Verify API. Add the following method to the class:
+1. Modify `lib\FraudDetection.js` so that when the risk model detects a possibly fraudulent number you send a verification code to the phone using Vonage's Verify API. Add the following method to the class:
 
     ```javascript
     FraudDetection.prototype.startVerification = function(number, callback) {

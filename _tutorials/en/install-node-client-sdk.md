@@ -1,6 +1,6 @@
 ---
 title: Install the Client SDK
-description: Install the Nexmo Node Client SDK to get the latest functionality for building Programmable Conversation apps.
+description: Install the Vonage Node Client SDK to get the latest functionality for building Programmable Conversation apps.
 ---
 
 If you are planning to use JavaScript to develop your application, you'll need to install (or update) the latest version of the Client SDK.

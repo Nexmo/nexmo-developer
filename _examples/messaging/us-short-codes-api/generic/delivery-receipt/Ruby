@@ -25,7 +25,7 @@ loop do
   method, path = socket.gets.split
   handle_delivery_receipt(path)
 
-  # Return the 200 so Nexmo does not send the DLR to you repeatedly
+  # Return the 200 so that Vonage does not send the DLR to you repeatedly
   socket.print "HTTP/1.1 200 OK"
   # Close the socket, terminating the connection
   socket.close

@@ -27,7 +27,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/javascript'
 
 ### Creating Users and JWTs
 
-A JSON Web Token (JWT) is necessary to log in to your Nexmo Application. The Client SDK cannot manage users nor generate JWTs, so you must choose a method of handling it on the backend:
+A JSON Web Token (JWT) is necessary to log in to your Vonage Application. The Client SDK cannot manage users nor generate JWTs, so you must choose a method of handling it on the backend:
 
 - For onboarding or testing purposes, you can get your client-side app working before setting up a backend by [generating a test JWT from the command line](/tutorials/client-sdk-generate-test-credentials) and hard-coding it in your client-side JavaScript.
 - For real world usage, you can deliver JWTs from the server using the Node or PHP [backend SDKs](/tools), and set the `jwt` variable in your code by fetching that data:
@@ -55,7 +55,7 @@ let nexmo = new NexmoClient()
 
 ### Client SDK analytics and usage data
 
-To provide Nexmo with more information to enable us to fix bugs and build features, you can _optionally_ opt-in to our Client SDK analytics and usage data programme.
+To provide Vonage with more information to enable us to fix bugs and build features, you can _optionally_ opt-in to our Client SDK analytics and usage data programme.
 
 To enable analytics and data usage reporting, please set the `enabled` parameter of `log_reporter` to `true`. The following code provides an example of this:
 

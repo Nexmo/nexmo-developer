@@ -1,6 +1,6 @@
 ## Errors
 
-Nexmo uses error codes to report back when an issue was encountered. Below you can find a full table to error codes:
+Vonage uses error codes to report back when an issue was encountered. Below you can find a full table to error codes:
 
 Code | Text | Meaning
 -- | -- | --

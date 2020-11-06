@@ -4,7 +4,7 @@
   <items>
     <rejection>
       <account-id>API_KEY</account-id>
-      <from>Nexmo</from>
+      <from>Vonage</from>
       <to>INVALID</to>
       <date-received>2020-01-01 12:00:00</date-received>
       <error-code>3</error-code>

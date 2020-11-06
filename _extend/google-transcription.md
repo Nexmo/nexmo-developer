@@ -9,7 +9,7 @@ published: true
 ---
 
 ## Usage
-This code shows how to send audio from the [Nexmo Voice API Websocket](https://developer.nexmo.com/voice/voice-api/guides/websockets) to  [Google Cloud Speech](https://cloud.google.com/speech-to-text/), it allows you obtain real time transcription of the callers speech in 120 different languages and dialects.
+This code shows how to send audio from the [Voice API Websocket](https://developer.nexmo.com/voice/voice-api/guides/websockets) to  [Google Cloud Speech](https://cloud.google.com/speech-to-text/), it allows you obtain real time transcription of the callers speech in 120 different languages and dialects.
 
 Currently this is open source example code which is designed for you to build out from, you might pass the transcribed text to a bot platform such as Dialogflow or use it to collect information from callers into your systems directly.
 
@@ -19,4 +19,4 @@ Currently this is open source example code which is designed for you to build ou
 * [Google API Docs](https://cloud.google.com/speech-to-text/docs/) For information
 
 ## Support
-This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
+This open source project is supported by the Vonage Product and Developer Experience team on a best effort basis, issues should be raised in the GitHub repository.

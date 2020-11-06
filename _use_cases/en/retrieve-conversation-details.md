@@ -57,10 +57,10 @@ Make a note of the generated Application ID (`APP_ID`), you will need this when 
 
 ## Link a Vonage Number to your Application
 
-Assuming you have already rented a Vonage Number (`NEXMO_NUMBER`), you can link your Vonage Number with your application in the Dashboard or via the command line:
+Assuming you have already rented a Vonage Number (`VONAGE_NUMBER`), you can link your Vonage Number with your application in the Dashboard or via the command line:
 
 ``` bash
-nexmo link:app NEXMO_NUMBER APP_ID
+nexmo link:app VONAGE_NUMBER APP_ID
 ```
 
 ## Create a JWT

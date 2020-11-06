@@ -31,7 +31,7 @@ if (strpos($header, '200')){
     echo("  Use the links to navigate. For example: " . $base_url .  $application['_links']['self']['href'] . "\n"  );
     foreach($application['voice']['webhooks'] as $webhook)
         echo ( "  " . $webhook['endpoint_type'] . " is " . $webhook['endpoint'] . "\n"  );
-    echo("  You use your private_key to connect to Nexmo endpoints:\n" ) ;
+    echo("  You use your private_key to connect to Vonage endpoints:\n" ) ;
     echo("  " . $application['keys']['private_key'] );}
 else {
     $error = json_decode($body, true);

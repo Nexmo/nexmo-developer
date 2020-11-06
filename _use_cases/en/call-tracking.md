@@ -1,7 +1,7 @@
 ---
 title: Call tracking
 products: voice/voice-api
-description: Keep track of which campaigns are working well by using different numbers for each one and tracking the incoming calls. This tutorial shows you how to handle incoming calls, connect them to another number, and track the phone numbers that called each of your Nexmo numbers.
+description: Keep track of which campaigns are working well by using different numbers for each one and tracking the incoming calls. This tutorial shows you how to handle incoming calls, connect them to another number, and track the phone numbers that called each of your Vonage numbers.
 languages:
     - Node
 ---

@@ -1,9 +1,9 @@
-# Nexmo Developer
+# API Developer Portal
 
 [![Build Status](https://api.travis-ci.org/Nexmo/nexmo-developer.svg?branch=master)](https://travis-ci.org/Nexmo/nexmo-developer/)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
-This repository is the content for <https://developer.nexmo.com>, which includes the Nexmo documentation, API reference, SDKs, Tools & Community content. To get a Nexmo account, sign up [for free at nexmo.com][signup].
+This repository is the content for <https://developer.nexmo.com>, which includes the Vonage documentation, API reference, SDKs, Tools & Community content. To get a Vonage account, sign up [for free at nexmo.com][signup].
 
 ### [Testing](#testing) &middot; [Running Locally](#running-locally) &middot; [Admin Dashboard](#admin-dashboard) &middot; [Troubleshooting](#troubleshooting) &middot; [Contributing](#contributing) &middot; [License](#license)
 
@@ -26,7 +26,7 @@ Or if you're using Docker:
 docker-compose exec web ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
 ```
 
-If there is a word that isn't in the dictionary but is correct to use, add it to the `.spelling` file (there's a lot of exceptions in there, including `Nexmo`!)
+If there is a word that isn't in the dictionary but is correct to use, add it to the `.spelling` file (there's a lot of exceptions in there, including `Vonage`!)
 
 ## Running locally
 
@@ -71,7 +71,7 @@ ssh-keygen -t rsa
 cat .ssh/id_rsa.pub # Add to GitHub
 ```
 
-Clone NDP to your local machine
+Clone ADP to your local machine
 
 ```bash
 git clone git@github.com:Nexmo/nexmo-developer.git
@@ -97,7 +97,7 @@ You should now be able to see the site on http://localhost:3000/
 
 ### Setting up with Docker
 
-If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
+If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox the API Developer Portal into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
 
 ```sh
 $ git clone git@github.com:Nexmo/nexmo-developer.git
@@ -120,7 +120,7 @@ To stop the server press `ctrl+c`.
 
 You can access the admin dashboard by visiting `/admin`. Initially, you will have an admin user with the username of `api.admin@vonage.com` and password of `development`.
 
-The following is an example if you are running Nexmo Developer within a Docker container:
+The following is an example if you are running the API Developer Portal within a Docker container:
 
 ```sh
 docker exec -it <container_id> rake db:seed
@@ -130,7 +130,7 @@ New admin users can be created by visiting `/admin/users`.
 
 ## Working with submodules
 
-Some of the contents of NDP are brought in via git submodules, such as the OpenAPI Specification (OAS) documents. A submodule is a separate repository used within the main repository (in this case NDP) as a dependency. The main repository holds information about the location of the remote repository and **which commit to reference**. So to make a change within a submodule, you need to commit to the submodule and the main repository and crucially remember to push both sets of changes to GitHub.
+Some of the contents of ADP are brought in via git submodules, such as the OpenAPI Specification (OAS) documents. A submodule is a separate repository used within the main repository (in this case ADP) as a dependency. The main repository holds information about the location of the remote repository and **which commit to reference**. So to make a change within a submodule, you need to commit to the submodule and the main repository and crucially remember to push both sets of changes to GitHub.
 
 Here are some tips for working with submodules:
 
@@ -148,7 +148,7 @@ git pull
 git submodule update
 ```
 
-### When making changes inside the submodule within NDP
+### When making changes inside the submodule within ADP
 
 Make sure you are _inside_ the directory that is a submodule.
 
@@ -167,9 +167,9 @@ You are not done, keep reading! A second pull request is needed to update the ma
 - Now we can review your PR
 
 
-### Bringing submodule changes into NDP
+### Bringing submodule changes into ADP
 
-If you made changes on the repo outside of NDP, then you will need to come and make a commit on NDP to update which commit in the submodule the NDP repository is pointing to.
+If you made changes on the repo outside of ADP, then you will need to come and make a commit on ADP to update which commit in the submodule the ADP repository is pointing to.
 
 Make a branch, change into the submodule directory and `git pull` or do whatever you need to do to get `HEAD` pointing to the correct commit. In the top level of the project, add the change to the submodules file and commit and push. Then open the pull request as you would with any other changes.
 
@@ -205,10 +205,10 @@ Once PostgreSQL is running you'll need to create and migrate the database. See [
 
 ## Upgrading Volta
 
-Volta is the Vonage design system, and is used to style Nexmo Developer. To upgrade the version of Volta used:
+Volta is the Vonage design system, and is used to style the API Developer Portal. To upgrade the version of Volta used:
 
 * Clone Volta on to your local machine
-* Remove the `app/assets/volta/scss` folder in Nexmo Developer
+* Remove the `app/assets/volta/scss` folder in the API Developer Portal
 * Copy the `scss` folder from the Volta repo in to `app/assets/volta`
 * Commit and push. Rails will take care of compilation etc
 
@@ -219,7 +219,7 @@ We :heart: contributions from everyone! It is a good idea to [talk to us](https:
 
 ## Content Updates
 
-Follow these instructions to make updates to any content in the Nexmo Developer repository.
+Follow these instructions to make updates to any content in the API Developer Portal repository.
 
 Checkout a new branch, naming it appropriately:
 

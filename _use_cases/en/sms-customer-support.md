@@ -68,7 +68,7 @@ rails g controller pages index
 <h1>ACME Support</h1>
 
 <p>
-  <a href="sms://<%= ENV['NEXMO_NUMBER'] %>?body=Hi ACME, I'd like some help with: " class='button'>
+  <a href="sms://<%= ENV['VONAGE_NUMBER'] %>?body=Hi ACME, I'd like some help with: " class='button'>
     Get support via SMS
   </a>
 </p>
@@ -167,7 +167,7 @@ def send_response
 
   client = Nexmo::Client.new
   result = client.sms.send(
-    from: ENV['NEXMO_NUMBER'],
+    from: ENV['VONAGE_NUMBER'],
     to: ticket.number,
     text: "Dear customer, your support" \
           "request has been registered. " \
@@ -180,7 +180,7 @@ end
 
 ## Conclusion
 
-In this tutorial you've learned how to receive an SMS from a customer's phone and send an SMS reply to them. With these code snippets you now have an SMS customer support solution using the Nexmo SMS API.
+In this tutorial you've learned how to receive an SMS from a customer's phone and send an SMS reply to them. With these code snippets you now have an SMS customer support solution using the Vonage SMS API.
 
 ## Get the Code
 

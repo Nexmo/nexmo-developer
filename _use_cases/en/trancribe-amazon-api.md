@@ -32,10 +32,10 @@ Run the following `npm` command at a terminal prompt to install the CLI tool:
 npm install -g nexmo-cli
 ```
 
-Configure the CLI tool with your `NEXMO_API_KEY` and `NEXMO_API_SECRET`, which you will find in the Developer Dashboard:
+Configure the CLI tool with your `VONAGE_API_KEY` and `VONAGE_API_SECRET`, which you will find in the Developer Dashboard:
 
 ```sh
-nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
+nexmo setup VONAGE_API_KEY VONAGE_API_SECRET
 ```
 
 ## Purchase a Vonage number
@@ -77,7 +77,7 @@ Make a note of the Application ID and the location of the `private.key` file. Yo
 Run the following CLI command to link your Voice API Application with your Vonage number using the Application ID:
 
 ```sh
-nexmo link:app NEXMO_NUMBER APPLICATION_ID
+nexmo link:app VONAGE_NUMBER APPLICATION_ID
 ```
 
 ## Configure AWS
@@ -136,8 +136,8 @@ Then, copy `example.env` to `.env` and configure the following settings:
 
 Setting | Description
 --|--
-`NEXMO_APPLICATION_ID` | The Vonage Voice Application ID you created earlier
-`NEXMO_PRIVATE_KEY_FILE` | For example: `private.key`
+`VONAGE_APPLICATION_ID` | The Vonage Voice Application ID you created earlier
+`VONAGE_PRIVATE_KEY_FILE` | For example: `private.key`
 `OTHER_PHONE_NUMBER` | Another phone number you can call to create a conversation
 `AWS_KEY` | Your AWS key
 `AWS_SECRET` | Your AWS secret
@@ -198,7 +198,7 @@ exports.transcribeJobStateChanged = (event, context) => {
 The CloudWatch event handler is defined in the accompanying `serverless.yml` file. Make sure that the `provider.region` matches your AWS region:
 
 ```yaml
-service: nexmo-transcribe
+service: vonage-transcribe
 
 provider:
   name: aws
@@ -251,8 +251,8 @@ const Nexmo = require("nexmo")
 const nexmo = new Nexmo({
   apiKey: "not_used", // Voice applications don't use API key or secret
   apiSecret: "not_used",
-  applicationId: process.env.NEXMO_APPLICATION_ID,
-  privateKey: __dirname + "/" + process.env.NEXMO_PRIVATE_KEY_FILE
+  applicationId: process.env.VONAGE_APPLICATION_ID,
+  privateKey: __dirname + "/" + process.env.VONAGE_PRIVATE_KEY_FILE
 })
 ```
 
@@ -321,7 +321,7 @@ The `/webhooks/recording` endpoint saves the call recording to the `recordings` 
 ```javascript
 app.post('/webhooks/recording', (req, res) => {
 
-  let audioFileName = `nexmo-${shortid.generate()}.mp3`
+  let audioFileName = `vonage-${shortid.generate()}.mp3`
   let audioFileLocalPath = `./recordings/${audioFileName}`
 
   nexmo.files.save(req.body.recording_url, audioFileLocalPath, (err, res) => {
@@ -467,7 +467,7 @@ The resulting transcript JSON file has quite a complex structure. At the top of 
 
 ```json
 {
-	"jobName": "transcript-nexmo-9Eeor0OhH.mp3",
+	"jobName": "transcript-vonage-9Eeor0OhH.mp3",
 	"accountId": "99999999999",
 	"results": {
 		"transcripts": [{
@@ -555,14 +555,14 @@ recording...
   end_time: '2019-08-13T11:33:10Z',
   conversation_uuid: 'CON-e01f1887-8e7e-4c6d-82ef-fd8950190e01',
   timestamp: '2019-08-13T11:33:10.449Z' }
-nexmo-srWr3XOmP.mp3 uploaded to nexmo-transcription-audio bucket
-Submitting file https://s3-us-east-1.amazonaws.com/nexmo-transcription-audio/nexmo-srWr3XOmP.mp3 for transcription...
-Started transcription job transcript-nexmo-srWr3XOmP.mp3...
-transcript-nexmo-srWr3XOmP.mp3 job successful
-Getting transcription job: transcript-nexmo-srWr3XOmP.mp3
+vonage-srWr3XOmP.mp3 uploaded to vonage-transcription-audio bucket
+Submitting file https://s3-us-east-1.amazonaws.com/vonage-transcription-audio/vonage-srWr3XOmP.mp3 for transcription...
+Started transcription job transcript-vonage-srWr3XOmP.mp3...
+transcript-vonage-srWr3XOmP.mp3 job successful
+Getting transcription job: transcript-vonage-srWr3XOmP.mp3
 Retrieved transcript
-downloading transcript-nexmo-srWr3XOmP.mp3.json
-Transcript: ./transcripts/transcript-nexmo-srWr3XOmP.mp3.json has been created.
+downloading transcript-vonage-srWr3XOmP.mp3.json
+Transcript: ./transcripts/transcript-vonage-srWr3XOmP.mp3.json has been created.
 *** Channel: ch_0
 Hello this is channel zero .
 *** Channel: ch_1

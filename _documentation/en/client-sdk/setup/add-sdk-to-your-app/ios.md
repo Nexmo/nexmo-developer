@@ -9,7 +9,7 @@ In this guide you learn how to add the Client SDK to your iOS app.
 
 ## Prerequisites
 
-To use the Nexmo SDK for iOS, you need to have the following installed:
+To use the Vonage SDK for iOS, you need to have the following installed:
 
 * Xcode 10 or later
 * iOS 10.2 or later
@@ -66,7 +66,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/import'
 2. Turn on *Embed & Sign* for `NexmoClient.framework` in your target's settings:
 ![Embed & sign](/images/client-sdk/ios-manual-setup-signing.png)
 
-3. In your code, import the NexmoClient library:
+3. In your code, import the `NexmoClient` library:
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/add-sdk/ios/import'

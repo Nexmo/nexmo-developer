@@ -7,9 +7,9 @@ For Voice API requests, webhooks can be set at an application level, when creati
 
 ### Application-level webhooks
 
-Nexmo numbers that are linked to Nexmo applications will use the `answer_url` to retrieve an NCCO, and the `event_url` to send call status information to you. The `fallback_answer_url` can optionally be configured. This is used when `answer_url` is offline or returning an HTTP error code. It is also used when an event is expected to deliver an NCCO on `event_url`, but `event_url` is offline or returning an HTTP Status code.
+Vonage numbers that are linked to Vonage applications will use the `answer_url` to retrieve an NCCO, and the `event_url` to send call status information to you. The `fallback_answer_url` can optionally be configured. This is used when `answer_url` is offline or returning an HTTP error code. It is also used when an event is expected to deliver an NCCO on `event_url`, but `event_url` is offline or returning an HTTP Status code.
 
-You can set these using the [Application API](/api/application), in the [Nexmo Dashboard](https://dashboard.nexmo.com) or using the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) tool.
+You can set these using the [Application API](/api/application), in the [dashboard](https://dashboard.nexmo.com) or using the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) tool.
 
 ### Number-level webhooks
 
@@ -19,7 +19,7 @@ These can be set up in the Numbers section of the [Dashboard](https://dashboard.
 
 ### On creating an outbound call
 
-When [making a new outbound call](/voice/voice-api/code-snippets/make-an-outbound-call), you need to set the `answer_url` in the call to a URL containing an NCCO. Nexmo's servers will retrieve the NCCO from this endpoint and follow its instructions in handling the outbound call.
+When [making a new outbound call](/voice/voice-api/code-snippets/make-an-outbound-call), you need to set the `answer_url` in the call to a URL containing an NCCO. Vonage's servers will retrieve the NCCO from this endpoint and follow its instructions in handling the outbound call.
 
 ### Answer URL payload
 
@@ -43,7 +43,7 @@ Example URL:
 Inside an NCCO, the following action types take a webhook URL for use when that action is executed:
 
 * [record.eventUrl](/voice/guides/ncco-reference#record) - set the webhook endpoint that receives information about the recording for a Call or Conversation
-* [conversation.eventUrl](/voice/guides/ncco-reference#conversation) - set the URL to the webhook endpoint Nexmo calls asynchronously when a conversation changes state for this conversation action
-* [connect.eventUrl](/voice/guides/ncco-reference#connect) - set the URL to the webhook endpoint Nexmo calls asynchronously when a conversation changes state for this connect action
-* [input.eventUrl](/voice/guides/ncco-reference#input) - set the URL to the webhook endpoint Nexmo sends the digits pressed by the callee
+* [conversation.eventUrl](/voice/guides/ncco-reference#conversation) - set the URL to the webhook endpoint Vonage calls asynchronously when a conversation changes state for this conversation action
+* [connect.eventUrl](/voice/guides/ncco-reference#connect) - set the URL to the webhook endpoint Vonage calls asynchronously when a conversation changes state for this connect action
+* [input.eventUrl](/voice/guides/ncco-reference#input) - set the URL to the webhook endpoint Vonage sends the digits pressed by the callee
 * [stream.streamUrl](/voice/guides/ncco-reference#stream) - set an array of URLs pointing to the webhook endpoints hosting the audio file to stream to the Call or Conversation

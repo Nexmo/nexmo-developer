@@ -12,7 +12,7 @@ In this use case, you’ll learn how to build a digital marketplace. [View it in
 
 The example application was built using the following tools and technologies:
 
-* Nexmo Client SDK
+* Vonage Client SDK
 * React for the front end
 * Node JS / Express for the backend
 
@@ -25,21 +25,21 @@ In this use case you use custom events in the Client SDK. Custom events are used
 
 It is assumed you have done the following:
 
-1. Created a [Nexmo Account](https://dashboard.nexmo.com/sign-up).
-2. Made a note of your Nexmo API key and API secret, which are displayed in the [Dashboard](https://dashboard.nexmo.com/getting-started-guide).
+1. Created a [Vonage Account](https://dashboard.nexmo.com/sign-up).
+2. Made a note of your Vonage API key and API secret, which are displayed in the [Dashboard](https://dashboard.nexmo.com/getting-started-guide).
 
 ## Steps
 
 The main steps in this use case are as follows:
 
-1. [Create a Nexmo application](#create-a-nexmo-application)
+1. [Create a Vonage application](#create-a-nexmo-application)
 2. [Authenticate your application](#authenticate-your-application)
 3. [Configure your application](#configure-your-application)
 4. [Code walkthrough](#code-walkthrough)
 
-## Create a Nexmo application
+## Create a Vonage application
 
-You can create a Nexmo Application in the Dashboard. You can do this with the following steps:
+You can create a Vonage Application in the Dashboard. You can do this with the following steps:
 
 1. In the Dashboard go to [Your Applications](https://dashboard.nexmo.com/applications).
 2. Click **Create a new application**.
@@ -50,7 +50,7 @@ You can create a Nexmo Application in the Dashboard. You can do this with the fo
 7. Click **Generate new application**.
 8. Make a note of the generated Application ID.
 
-You have now created a Nexmo application using the Dashboard.
+You have now created a Vonage application using the Dashboard.
 
 At this point the important things are the private key file and the Application ID. You will need these for the following sections.
 
@@ -69,13 +69,13 @@ You need to authenticate your application using the private key file you [previo
 
 Open the `private.key` file in a text editor. Then, in your Glitch project, create the file `/.data/private.key` and copy and paste in the contents of the `private.key`:
 
-![Nexmo Application private key location Glitch screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-glitch.png)
+![Vonage Application private key location Glitch screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-glitch.png)
 
 ### Using GitHub
 
 Move the `private.key` file to the root of your project:
 
-![Nexmo Application private key location local screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-local.png)
+![Vonage Application private key location local screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-local.png)
 
 ## Configure your application
 
@@ -184,7 +184,7 @@ app.post('/getJWT', function(req, res) {
     res.send({jwt: jwt});
 });
 
-// the client calls this endpoint to create a new user in the Nexmo application,
+// the client calls this endpoint to create a new user in the Vonage application,
 // passing it a username and optional display name
 app.post('/createUser', function(req, res) {
     console.log('/createUser: ',req);
@@ -292,7 +292,7 @@ If the role of Seller was selected, the application displays a form that allows 
 
 ![Marketplace App listing add item for sale screenshot](/screenshots/use-cases/digital-marketplace-client-sdk/app-listing-item-for-sale.png)
 
-When you fill out the form and press ‘submit’, a call to create a Conversation is made by the Nexmo Client SDK. Once the Conversation is created, you then join the User to the Conversation as a Member.
+When you fill out the form and press ‘submit’, a call to create a Conversation is made by the Vonage Client SDK. Once the Conversation is created, you then join the User to the Conversation as a Member.
 
 The application is alerted that a new item has been listed for sale using a custom event called `item_details`, which passes the item details to the handler.
 
@@ -374,7 +374,7 @@ Next, events are loaded (such as chat messages) that may have happened prior to 
 
 ### Purchasing items
 
-Let’s say you want to purchase the item. When you click the **Pay Now** button, another custom event, `stripe_payment`, is raised with the Nexmo Client SDK.
+Let’s say you want to purchase the item. When you click the **Pay Now** button, another custom event, `stripe_payment`, is raised with the Vonage Client SDK.
 
 > **NOTE:** In this use case, the response from Stripe is mocked. Implementation of a payment gateway is left to you, and depends on your preferred provider.
 
@@ -549,7 +549,7 @@ The listener displays the payment notification as a chat message. If the payment
 
 ## Conclusion
 
-In this use case, you learned how to build a digital marketplace, where you could buy and sell items. The use case demonstrated how to build a client application using the Nexmo Client SDK to send custom events, and then listen for those events to update the state of the application. The server code responded to requests from the client app, for example to implement authentication and return a list of Conversations.
+In this use case, you learned how to build a digital marketplace, where you could buy and sell items. The use case demonstrated how to build a client application using the Vonage Client SDK to send custom events, and then listen for those events to update the state of the application. The server code responded to requests from the client app, for example to implement authentication and return a list of Conversations.
 
 ## Where Next?
 

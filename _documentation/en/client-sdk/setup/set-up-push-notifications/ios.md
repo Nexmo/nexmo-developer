@@ -9,8 +9,8 @@ On incoming events such as a new message, or an incoming call, the user often ex
 
 There are two types of push notifications that you can use:
 
-* VoIP push *([PushKit](https://developer.apple.com/documentation/pushkit))* - the better fit for applications that use Nexmo In-App Voice functionality.
-* Regular push *([UserNotifications](https://developer.apple.com/documentation/usernotifications))* - the better fit for applications that use Nexmo In-App Chat functionality.
+* VoIP push *([PushKit](https://developer.apple.com/documentation/pushkit))* - the better fit for applications that use Vonage In-App Voice functionality.
+* Regular push *([UserNotifications](https://developer.apple.com/documentation/usernotifications))* - the better fit for applications that use Vonage In-App Chat functionality.
 
 This guide will cover how to VoIP push notifications with the Client SDK.
 
@@ -52,7 +52,7 @@ To upload your certificate to the Vonage servers you will also need:
 
 * A `jwt_dev`, which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
-* Your Nexmo Application ID. It can be obtained from the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
+* Your Vonage Application ID. It can be obtained from the [dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
 Then run the following Curl command, replacing `jwt_dev`, `applecert.p12`, `app_id` with your values:
 
@@ -93,7 +93,7 @@ source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/pushkit-d
 
 For the SDK to process the push properly `NXMClient` should be logged in.
 
-#### 4. Enable Nexmo push notifications through a logged in `NXMClient`
+#### 4. Enable push notifications through a logged in `NXMClient`
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/setup/push-notifications/enable-notifications-voip'

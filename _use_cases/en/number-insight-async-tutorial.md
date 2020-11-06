@@ -20,8 +20,8 @@ In this tutorial, you create a simple RESTful web service in Node.js and Express
 To achieve this, you perform the following steps:
 
 1. [Create the project](#create-the-project) - create a Node.js/Express application.
-2. [Install the `nexmo` package](#install-the-nexmo-package) - add Nexmo capabilities to your project.
-3. [Expose your application to the Internet](#expose-your-application-to-the-internet) - use `ngrok` to enable Nexmo to access your application via a webhook.
+2. [Install the `nexmo` package](#install-the-nexmo-package) - add Vonage capabilities to your project.
+3. [Expose your application to the Internet](#expose-your-application-to-the-internet) - use `ngrok` to enable Vonage to access your application via a webhook.
 4. [Create the basic application](#create-the-basic-application) - build the basic functionality.
 5. [Create the asynchronous request](#create-the-asynchronous-request) - call the Number Insight Advanced API.
 6. [Create the webhook](#create-the-webhook) - write the code that processes the incoming insight data.
@@ -31,8 +31,8 @@ To achieve this, you perform the following steps:
 
 To complete the tutorial, you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
-* [ngrok](https://ngrok.com/) - to make your development web server accessible to Nexmo's servers over the Internet
+* A [Vonage account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
+* [ngrok](https://ngrok.com/) - to make your development web server accessible to Vonage's servers over the Internet
 
 ## Create the project
 Make a directory for your application, `cd` into the directory and then use the Node.js package manager `npm` to create a `package.json` file for your application's dependencies:
@@ -53,7 +53,7 @@ $ npm install express body-parser  --save
 
 ## Install the `nexmo` package
 
-Execute the following `npm` command in the terminal window to install the Nexmo REST API client for Node.js:
+Execute the following `npm` command in the terminal window to install the Vonage Node Server SDK:
 
 ```sh
 $ npm install nexmo --save
@@ -61,9 +61,9 @@ $ npm install nexmo --save
 
 ## Expose your application to the Internet
 
-When the Number Insight API finishes processing your request, it alerts your application via a [webhook](/concepts/guides/webhooks). The webhook provides a mechanism for Nexmo's servers to communicate with yours.
+When the Number Insight API finishes processing your request, it alerts your application via a [webhook](/concepts/guides/webhooks). The webhook provides a mechanism for Vonage's servers to communicate with yours.
 
-For your application to be accessible to Nexmo's servers, it must be publicly available on the Internet. A simple way to achieve this during development and testing is to use [ngrok](https://ngrok.com), a service that exposes local servers to the public Internet over secure tunnels. See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for more details.
+For your application to be accessible to VOnage's servers, it must be publicly available on the Internet. A simple way to achieve this during development and testing is to use [ngrok](https://ngrok.com), a service that exposes local servers to the public Internet over secure tunnels. See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for more details.
 
 Download and install [ngrok](https://ngrok.com), then start it with the following command:
 
@@ -77,7 +77,7 @@ Use the `ngrok` web interface at <http://localhost:4040> and make a note of the 
 
 ## Create the basic application
 
-Create the `index.js` file in your application directory with the following code, replacing the `NEXMO_API_KEY`, `NEXMO_API_SECRET` and `WEBHOOK_URL` constants with your own values:
+Create the `index.js` file in your application directory with the following code, replacing the `VONAGE_API_KEY`, `VONAGE_API_SECRET` and `WEBHOOK_URL` constants with your own values:
 
 ```javascript
 const app = require('express')();
@@ -86,8 +86,8 @@ const bodyParser = require('body-parser');
 app.set('port', 5000));
 app.use(bodyParser.json());
 
-const NEXMO_API_KEY = // Your Nexmo API key
-const NEXMO_API_SECRET = // Your Nexmo API secret
+const VONAGE_API_KEY = // Your Vonage API key
+const VONAGE_API_SECRET = // Your Vonage API secret
 const WEBHOOK_URL = // e.g. https://bcac78a0.ngrok.io/webhooks/insight
 
 app.get('/insight/:number', function(request, response) {
@@ -123,8 +123,8 @@ First, write the code that creates an instance of `Nexmo` with your account deta
 ```javascript
 const Nexmo = require('nexmo');
 const nexmo = new Nexmo({
-    apiKey: NEXMO_API_KEY,
-    apiSecret: NEXMO_API_SECRET
+    apiKey: VONAGE_API_KEY,
+    apiSecret: VONAGE_API_SECRET
 });
 ```
 
@@ -172,7 +172,7 @@ app.post('/webhooks/insight', function (request, response) {
 });
 ```
 
-The handler logs the incoming JSON data to the console and sends a `204` HTTP response to Nexmo's servers.
+The handler logs the incoming JSON data to the console and sends a `204` HTTP response to Vonage's servers.
 
 > HTTP Status Code 204 indicates that the server has successfully fulfilled the request and there is no additional content to send in the response payload body.
 
@@ -248,5 +248,5 @@ The following resources will help you use Number Insight in your applications:
 * [Comparing the Basic, Standard and Advanced Insight APIs](/number-insight/overview#basic-standard-and-advanced-apis)
 * [Webhooks guide](/concepts/guides/webhooks)
 * [Number Insight Advanced API reference](/api/number-insight#getNumberInsightAsync)
-* [Connect your local development server to the Nexmo API using an ngrok tunnel](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/)
+* [Connect your local development server to the Vonage API using an ngrok tunnel](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/)
 * [More tutorials](/number-insight/tutorials)

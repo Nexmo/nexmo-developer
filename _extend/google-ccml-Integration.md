@@ -9,7 +9,7 @@ published: false
 
 ## About
 
-For this solution, we have taken a fully programmable approach, using our Nexmo Voice API, our open source skills based routing engine (Comms Router) and CRM integration, and have integrated with both DialogFlow and the new Contact Center AI APIs from Google.
+For this solution, we have taken a fully programmable approach, using our Voice API, our open source skills based routing engine (Comms Router) and CRM integration, and have integrated with both DialogFlow and the new Contact Center AI APIs from Google.
 
 The first part of this solution, brings together the Dialogflow Virtual agent, our integration to a CRM platform and the Contact center AI, all flowing over VAPI our voice API. This allows us to pull contextual information about the caller from CRM, helping to inform the virtual agent then collect responses from the customer, giving the virtual agent all the information it needs to return a suggested answer thru the Google Contact Center AI APIs.
 
@@ -20,8 +20,8 @@ For the Google Next demo we produced an application that leveraged the Voice API
 
 ## High-level Overview
 
-- Customer calls Contact Center number (Nexmo Virtual Number).
-- Conference created using Nexmo Voice API and connected to Google CC AI via a Google Virtual Number.
+- Customer calls the Contact Center number (a Vonage number).
+- A conference is created using the Voice API and is connected to Google CC AI via a Google Virtual Number.
 - Application looks up incoming customer number to see if it exists in the CRM file, if a match is found pulls the Customer record.
 - Customer interacts with Dialogflow Intents providing greeting, responses and failovers. Google CC AI is also queried to access KB and FAQ content as well as conversation saved for transcription.
 - If transfer requested by the Customer based on a specific intent, Dialogflow will transfer Customer to new conference in order to talk to a live agent.

@@ -4,7 +4,7 @@
   "network": "012345",
   "from": "447700900000",
   "to": "447700900001",
-  "body": "A text message sent to Nexmo from another number",
+  "body": "A text message sent to Vonage from another number",
   "date-received": "2020-01-01 12:00:00",
   "type": "MO"
 }

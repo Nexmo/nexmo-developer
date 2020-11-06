@@ -1,6 +1,6 @@
 ---
 title: Create a Vonage Application
-description: In this step you learn how to create a Nexmo Application.
+description: In this step you learn how to create a Vonage Application.
 ---
 
 # Create your Vonage Application

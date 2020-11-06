@@ -5,7 +5,7 @@
   <network>012345</network>
   <from>447700900000</from>
   <to>447700900001</to>
-  <body>A text message sent to Nexmo from another number</body>
+  <body>A text message sent to Vonage from another number</body>
   <date-received>2020-01-01 12:00:00</date-received>
   <type>MO</type>
 </message>

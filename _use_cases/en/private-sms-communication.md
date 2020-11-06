@@ -27,11 +27,11 @@ To build the application, you perform the following steps:
 
 To complete this tutorial, you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up) - for your API key and secret and to rent virtual numbers.
-* A [Nexmo virtual number](https://developer.nexmo.com/concepts/guides/glossary#virtual-number) - to hide each user's real number. You can rent a number in the [developer dashboard](https://dashboard.nexmo.com/buy-numbers).
+* A [Vonage account](https://dashboard.nexmo.com/sign-up) - for your API key and secret and to rent virtual numbers.
+* A [Vonage number](https://developer.nexmo.com/concepts/guides/glossary#virtual-number) - to hide each user's real number. You can rent a number in the [developer dashboard](https://dashboard.nexmo.com/buy-numbers).
 * The [source code](https://github.com/Nexmo/node-sms-proxy) on GitHub - installation instructions are in the [README](https://github.com/Nexmo/node-sms-proxy/blob/master/README.md).
 * [Node.js](https://nodejs.org/en/download/) installed and configured.
-* [ngrok](https://ngrok.com/) - (optional) to make your development web server accessible to Nexmo's servers over the Internet.
+* [ngrok](https://ngrok.com/) - (optional) to make your development web server accessible to Vonage's servers over the Internet.
 
 ## Create the basic web application
 
@@ -70,8 +70,8 @@ class SmsProxy {
     constructor() {
 
         this.nexmo = new Nexmo({
-            apiKey: process.env.NEXMO_API_KEY,
-            apiSecret: process.env.NEXMO_API_SECRET
+            apiKey: process.env.VONAGE_API_KEY,
+            apiSecret: process.env.VONAGE_API_SECRET
         }, {
                 debug: true
             });
@@ -81,12 +81,12 @@ class SmsProxy {
 
 ## Configure the application
 
-Copy the `example.env` file provided to `.env` and modify it to include your Nexmo API key and secret and your Nexmo virtual number. You can find this information in the [developer dashboard](https://dashboard.nexmo.com):
+Copy the `example.env` file provided to `.env` and modify it to include your Vonage API key and secret and your Vonage number. You can find this information in the [developer dashboard](https://dashboard.nexmo.com):
 
 ```
-NEXMO_API_KEY=YOUR_NEXMO_API_KEY
-NEXMO_API_SECRET=YOUR_NEXMO_API_SECRET
-VIRTUAL_NUMBER=YOUR_NEXMO_VIRTUAL_NUMBER
+VONAGE_API_KEY=YOUR_VONAGE_API_KEY
+VONAGE_API_SECRET=YOUR_VONAGE_API_SECRET
+VONAGE_NUMBER=YOUR_VONAGE_NUMBER
 ```
 
 ## Create a chat
@@ -156,9 +156,9 @@ We now need to intercept these incoming messages on the virtual number and proxy
 
 ## Receive inbound SMS
 
-When one user sends a message to the other, they are sending it to the application's virtual number instead of the target user's real number. When Nexmo receives an inbound SMS on the virtual number it makes an HTTP request to the webhook endpoint associated with that number:
+When one user sends a message to the other, they are sending it to the application's virtual number instead of the target user's real number. When Vonage receives an inbound SMS on the virtual number it makes an HTTP request to the webhook endpoint associated with that number:
 
-In `server.js`, we provide a route handler for the `/webhooks/inbound-sms` request that Nexmo's servers make to your application when your virtual number receives an SMS. We're using a `POST` request here, but you could also use `GET` or `POST-JSON`. This is configurable in the dashboard, as described in [expose your application to the internet](#expose-your-application-to-the-internet).
+In `server.js`, we provide a route handler for the `/webhooks/inbound-sms` request that Vonage's servers make to your application when your virtual number receives an SMS. We're using a `POST` request here, but you could also use `GET` or `POST-JSON`. This is configurable in the dashboard, as described in [expose your application to the internet](#expose-your-application-to-the-internet).
 
 We retrieve the `from` and `text` parameters from the inbound request, and pass them to the `SmsProxy` class to determine which real number to send it to:
 
@@ -175,7 +175,7 @@ app.get('/webhooks/inbound-sms', (req, res) => {
 });
 ```
 
-We return a `204` status (`No content`) to represent successful receipt of the message. This is an important step, because if we don't acknowledge receipt Nexmo's servers will make repeated attempts to deliver it.
+We return a `204` status (`No content`) to represent successful receipt of the message. This is an important step, because if we don't acknowledge receipt Vonage's servers will make repeated attempts to deliver it.
 
 ### Determine how to route the SMS
 
@@ -224,9 +224,9 @@ proxySms(from, text) {
 
 ### Expose your application to the Internet
 
-When the SMS API receives an SMS destined for your virtual number, it alerts your application via a [webhook](/concepts/guides/webhooks). The webhook provides a mechanism for Nexmo's servers to communicate with yours.
+When the SMS API receives an SMS destined for your virtual number, it alerts your application via a [webhook](/concepts/guides/webhooks). The webhook provides a mechanism for Vonage's servers to communicate with yours.
 
-For your application to be accessible to Nexmo's servers, it must be publicly available on the Internet. A simple way to achieve this during development and testing is to use [ngrok](https://ngrok.com), a service that exposes local servers to the public Internet over secure tunnels. See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for more details.
+For your application to be accessible to Vonage's servers, it must be publicly available on the Internet. A simple way to achieve this during development and testing is to use [ngrok](https://ngrok.com), a service that exposes local servers to the public Internet over secure tunnels. See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for more details.
 
 Download and install [ngrok](https://ngrok.com), then start it with the following command:
 
@@ -244,7 +244,7 @@ Go to your [account settings](https://dashboard.nexmo.com/settings) page and ent
 https://33ab96a2.ngrok.io/webhooks/inbound-sms
 ```
 
-Ensure that you select `POST` from the "HTTP Method" drop-down list so that Nexmo knows that your application is expecting the message details to be delivered via a `POST` request.
+Ensure that you select `POST` from the "HTTP Method" drop-down list so that Vonage knows that your application is expecting the message details to be delivered via a `POST` request.
 
 ### Start the chat
 

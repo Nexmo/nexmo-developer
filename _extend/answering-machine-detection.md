@@ -35,7 +35,7 @@ APP_ID={YOUR_NEXMO_APPLICATION_ID}
 PRIVATE_KEY={PATH_TO_APPLICATION_PRIVATE_KEY}
 ```
 
-You will need to create a [Nexmo Application](https://developer.nexmo.com/concepts/guides/applications) and [Purchase a phone number](https://developer.nexmo.com/numbers/code-snippets/buy-a-number)
+You will need to create a [Vonage Application](https://developer.nexmo.com/concepts/guides/applications) and [Purchase a phone number](https://developer.nexmo.com/numbers/code-snippets/buy-a-number)
 
 ## Resources
 * [GitHub Repository](https://github.com/nexmo-community/AnsweringMachineDetection)
@@ -43,4 +43,4 @@ You will need to create a [Nexmo Application](https://developer.nexmo.com/concep
 * Blog post (coming soon)
 
 ## Support
-This open source project is supported by the Nexmo DevRel team on a best effort basis, issues should be raised in the GitHub repository.
+This open source project is supported by the Vonage Product and Developer Experience team on a best effort basis, issues should be raised in the GitHub repository.

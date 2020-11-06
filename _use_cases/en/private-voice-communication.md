@@ -8,7 +8,7 @@ languages:
 
 # Private voice communication
 
-This use case shows you how to implement the idea described in [Private Voice Communication use case](https://www.nexmo.com/use-cases/private-voice-communication/). It teaches you how to build a voice proxy using Nexmo's [Node Server SDK](https://github.com/Nexmo/nexmo-node), using virtual numbers to hide the real phone numbers of the participants. Full source code is also available in our [GitHub repo](https://github.com/Nexmo/node-voice-proxy).
+This use case shows you how to implement the idea described in [Private Voice Communication use case](https://www.nexmo.com/use-cases/private-voice-communication/). It teaches you how to build a voice proxy using Vonage's [Node Server SDK](https://github.com/Nexmo/nexmo-node), using virtual numbers to hide the real phone numbers of the participants. Full source code is also available in our [GitHub repo](https://github.com/Nexmo/node-voice-proxy).
 
 ## Overview
 
@@ -16,7 +16,7 @@ Sometimes you want two users to be able to call each other without revealing the
 
 For example, if you are operating a ride sharing service, then you want your users to be able to speak to each other to coordinate pick-up times and locations. But you don't want to give out your customers' phone numbers - after all, you have an obligation to protect their privacy. And you don't want them to be able to arrange ride shares directly without using your service because that means lost revenue for your business.
 
-Using Nexmo's APIs, you can provide each participant in a call with a temporary number that masks their real number. Each caller sees only the temporary number for the duration of the call. When there is no further need for them to communicate, the temporary number is revoked.
+Using Vonage's APIs, you can provide each participant in a call with a temporary number that masks their real number. Each caller sees only the temporary number for the duration of the call. When there is no further need for them to communicate, the temporary number is revoked.
 
 You can download the source code from our [GitHub repo](https://github.com/Nexmo/node-voice-proxy).
 
@@ -24,7 +24,7 @@ You can download the source code from our [GitHub repo](https://github.com/Nexmo
 
 In order to work through this use case you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
+* A [Vonage account](https://dashboard.nexmo.com/sign-up)
 * The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and configured
 
 ## Code repository
@@ -59,9 +59,9 @@ You need to create a `.env` file containing configuration. Instructions on how t
 
 ## Create a Voice API application
 
-A Voice API Application is a Nexmo construct and should not be confused with the application you are going to write. Instead, it's a "container" for the authentication and configuration settings you need to work with the API.
+A Voice API Application is a Vonage construct and should not be confused with the application you are going to write. Instead, it's a "container" for the authentication and configuration settings you need to work with the API.
 
-You can create a Voice API Application with the Nexmo CLI. You must provide a name for the application and the URLs of two webhook endpoints: the first is the one that Nexmo's APIs will make a request to when you receive an inbound call on your virtual number and the second is where the API can post event data.
+You can create a Voice API Application with the Nexmo CLI. You must provide a name for the application and the URLs of two webhook endpoints: the first is the one that Vonage's APIs will make a request to when you receive an inbound call on your virtual number and the second is where the API can post event data.
 
 Replace the domain name in the following Nexmo CLI command with your ngrok domain name ([How to run ngrok](https://developer.nexmo.com/tools/ngrok/)) and run it in your project's root directory:
 
@@ -73,7 +73,7 @@ This command downloads a file called `private.key` that contains authentication 
 
 ## Create the web application
 
-This application uses the [Express](https://expressjs.com/) framework for routing and the [Nexmo Node Server SDK](https://github.com/Nexmo/nexmo-node) for working with the Voice API. `dotenv` is used so that the application can be configured using a `.env` text file.
+This application uses the [Express](https://expressjs.com/) framework for routing and the [Vonage Node Server SDK](https://github.com/Nexmo/nexmo-node) for working with the Voice API. `dotenv` is used so that the application can be configured using a `.env` text file.
 
 In `server.js` the code initializes the application's dependencies and starts the web server. A route handler is implemented for the application's home page (`/`) so that you can test that the server is running by running `node server.js` and visiting `http://localhost:3000` in your browser:
 
@@ -97,17 +97,17 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-Note that the code instantiates an object of the `VoiceProxy` class to handle the routing of messages sent to your virtual number to the intended recipient's real number. The proxying process is described in [proxy the call](#proxy-the-call), but for now just be aware that this class initializes the Nexmo Server SDK using the API key and secret that you configure in the next step. This enables your application to make and receive voice calls:
+Note that the code instantiates an object of the `VoiceProxy` class to handle the routing of messages sent to your virtual number to the intended recipient's real number. The proxying process is described in [proxy the call](#proxy-the-call), but for now just be aware that this class initializes the Vonage Server SDK using the API key and secret that you configure in the next step. This enables your application to make and receive voice calls:
 
 ``` javascript
 const VoiceProxy = function(config) {
   this.config = config;
   
   this.nexmo = new Nexmo({
-      apiKey: this.config.NEXMO_API_KEY,
-      apiSecret: this.config.NEXMO_API_SECRET
+      apiKey: this.config.VONAGE_API_KEY,
+      apiSecret: this.config.VONAGE_API_SECRET
     },{
-      debug: this.config.NEXMO_DEBUG
+      debug: this.config.VONAGE_DEBUG
     });
   
   // Virtual Numbers to be assigned to UserA and UserB
@@ -126,16 +126,16 @@ The following workflow diagram shows the process for provisioning and configurin
 
 ```sequence_diagram
 Participant App
-Participant Nexmo
+Participant Vonage
 Participant UserA
 Participant UserB
-Note over App,Nexmo: Initialization
-App->>Nexmo: Search Numbers
-Nexmo-->>App: Numbers Found
-App->>Nexmo: Provision Numbers
-Nexmo-->>App: Numbers Provisioned
-App->>Nexmo: Configure Numbers
-Nexmo-->>App: Numbers Configured
+Note over App,Vonage: Initialization
+App->>Vonage: Search Numbers
+Vonage-->>App: Numbers Found
+App->>Vonage: Provision Numbers
+Vonage-->>App: Numbers Provisioned
+App->>Vonage: Configure Numbers
+Vonage-->>App: Numbers Configured
 ```
 
 To provision a virtual number you search through the available numbers that meet your criteria. For example, a phone number in a specific country with voice capability:
@@ -150,7 +150,7 @@ Then rent the numbers you want and associate them with your application.
 
 > **NOTE:** Some types numbers require you have a postal address in order to rent them. If you are not able to obtain a number programmatically, visit the [Dashboard](https://dashboard.nexmo.com/buy-numbers) where you can rent numbers as required.
 
-When any event occurs relating to each number associated with an application, Nexmo sends a request to your webhook endpoint with information about the event. After configuration you store the phone number for later use:
+When any event occurs relating to each number associated with an application, Vonage sends a request to your webhook endpoint with information about the event. After configuration you store the phone number for later use:
 
 ```code
 source: '_code/voice_proxy.js'
@@ -170,17 +170,17 @@ The workflow to create a call is:
 
 ```sequence_diagram
 Participant App
-Participant Nexmo
+Participant Vonage
 Participant UserA
 Participant UserB
-Note over App,Nexmo: Conversation Starts
-App->>Nexmo: Basic Number Insight
-Nexmo-->>App: Number Insight response
+Note over App,Vonage: Conversation Starts
+App->>Vonage: Basic Number Insight
+Vonage-->>App: Number Insight response
 App->>App: Map Real/Virtual Numbers\nfor Each Participant
-App->>Nexmo: SMS to UserA
-Nexmo->>UserA: SMS
-App->>Nexmo: SMS to UserB
-Nexmo->>UserB: SMS
+App->>Vonage: SMS to UserA
+Vonage->>UserA: SMS
+App->>Vonage: SMS to UserB
+Vonage->>UserB: SMS
 ```
 
 The following call:
@@ -233,16 +233,16 @@ In this use case each user has received the virtual number in an SMS. In other s
 
 ## Handle inbound calls
 
-When Nexmo receives an inbound call to your virtual number it makes a request to the webhook endpoint you set when you [created a Voice application](#create-a-voice-application):
+When Vonage receives an inbound call to your virtual number it makes a request to the webhook endpoint you set when you [created a Voice application](#create-a-voice-application):
 
 ```sequence_diagram
 Participant App
-Participant Nexmo
+Participant Vonage
 Participant UserA
 Participant UserB
-Note over UserA,Nexmo: UserA calls UserB's\nVirtual Number
-UserA->>Nexmo: Calls virtual number
-Nexmo->>App:Inbound Call(from, to)
+Note over UserA,Vonage: UserA calls UserB's\nVonage Number
+UserA->>Vonage: Calls virtual number
+Vonage->>App:Inbound Call(from, to)
 ```
 
 Extract `to` and `from` from the inbound webhook and pass them on to the voice proxy business logic:
@@ -263,19 +263,19 @@ Now you know the phone number making the call and the virtual number of the reci
 
 ```sequence_diagram
 Participant App
-Participant Nexmo
+Participant Vonage
 Participant UserA
 Participant UserB
-UserA->>Nexmo: 
-Nexmo->>App: 
+UserA->>Vonage: 
+Vonage->>App: 
 Note right of App:Find the real number\n for UserB
 App->>App:Number mapping lookup
 ```
 
 The call direction can be identified as:
 
-* The `from` number is UserA real number and the `to` number is UserB virtual number
-* The `from` number is UserB real number and the `to` number is UserA virtual number
+* The `from` number is UserA real number and the `to` number is UserB Vonage number
+* The `from` number is UserB real number and the `to` number is UserA Vonage number
 
 ```code
 source: '_code/voice_proxy.js'
@@ -291,14 +291,14 @@ Proxy the call to the phone number the virtual number is associated with. The `f
 
 ```sequence_diagram
 Participant App
-Participant Nexmo
+Participant Vonage
 Participant UserA
 Participant UserB
-UserA->>Nexmo: 
-Nexmo->>App: 
-App->>Nexmo:Connect (proxy)
+UserA->>Vonage: 
+Vonage->>App: 
+App->>Vonage:Connect (proxy)
 Note right of App:Proxy Inbound\ncall to UserB's\nreal number
-Nexmo->>UserB: Call
+Vonage->>UserB: Call
 Note over UserA,UserB:UserA has called\nUserB. But UserA\ndoes not have\n the real number\nof UserB, nor\n vice versa.
 ```
 
@@ -310,7 +310,7 @@ from_line: 217
 to_line: 252
 ```
 
-The NCCO is returned to Nexmo by the web server.
+The NCCO is returned to Vonage by the web server.
 
 ``` javascript
 app.get('/proxy-call', function(req, res) {

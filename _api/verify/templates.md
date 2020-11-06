@@ -43,7 +43,7 @@ Parameter | Description | Required |
 `lg` | Specifies the [locale](/voice/voice-api/guides/text-to-speech#locale) used to deliver text-to-speech verification messages in your chosen language, accent and gender. All calls to [Verify request](/api/verify#verify-request) for a custom template must use the same `lg`. <br>If you want to use a non-standard locale, you must supply links to audio files in your template as shown in the "Custom Locale" example [here](#custom-template-examples). | Yes
 `template` | The content displayed in an SMS message (when the `action_type` is `sms`) or spoken to your user in a text-to-speech call (when the `action_type` is `voice`). This content can include [variables](#template_variables).<br> If you provide a value for `template` and `action_type` is `voice`, do not specify `digit_n`, `welcome_message` or `bye_message`. | No
 `type` | The encoding used for `template` when the `action_type` is `sms`. Possible values are: `unicode` _or_ `text` | No
-`digit_n` | URL to the media file played when Nexmo reads out a digit to the user using text-to-speech. If you specify `digit_n`, you should also specify  `welcome_message` and `bye_message`. Nexmo inserts the verification code between the two. | No
+`digit_n` | URL to the media file played when Vonage reads out a digit to the user using text-to-speech. If you specify `digit_n`, you should also specify  `welcome_message` and `bye_message`. Vonage inserts the verification code between the two. | No
 `welcome_message` | URL to the media file played at the start of the call. | Yes, if you specify `digit_n`
 `bye_message` | URL to the media file played at the end of the call. | Yes, if you specify `digit_n`
 `contact_email` | Set the email address used to generate a Zendesk ticket and activate your custom template. If you do not set this parameter, Verify uses the email address associated with your master API key. | No
@@ -78,7 +78,7 @@ source: '_examples/api/templates/response'
 The response header contains one of the following HTTP status codes:
 
 * [201] - Your custom template has been created
-* [400] - Your request contains incorrect parameters or Nexmo could not upload any media that you specified in your template.
+* [400] - Your request contains incorrect parameters or Vonage could not upload any media that you specified in your template.
 * [401] - The `api_key` / `api_secret` combination you used in your request was invalid or your account has been disabled.
 * [500] - Internal error.
 
