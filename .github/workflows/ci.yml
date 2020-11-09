@@ -10,8 +10,8 @@ jobs:
     services:
       db:
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: nexmo_developer_test
+          POSTGRES_USER: nexmo_developer
+          POSTGRES_DB: nexmo_developer_production
           POSTGRES_HOST_AUTH_METHOD: trust
         image: postgres:11
         ports: ['5432:5432']
@@ -75,6 +75,7 @@ jobs:
       env:
         POSTGRES_USERNAME: postgres
         OAS_PATH: "_open_api/api_specs/definitions"
+        DISABLE_SSL: true
         FORCE_COLOR: true
       run: |
-        RAILS_ENV=test bundle exec nexmo-developer --docs=. --rake-ci
+        DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=production bundle exec nexmo-developer --docs=. --rake-ci
