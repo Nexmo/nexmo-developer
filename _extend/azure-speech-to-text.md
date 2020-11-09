@@ -10,7 +10,7 @@ published: true
 
 
 ## Usage
-This code shows how to send audio from the [Voinage Voice API Websocket](https://developer.nexmo.com/voice/voice-api/guides/websockets) to  [Azure Speech-to-text](https://azure.microsoft.com/en-gb/services/cognitive-services/speech-to-text/), it allows you obtain real time transcription of the callers speech.
+This code shows how to send audio from the [Vonage Voice API Websocket](https://developer.nexmo.com/voice/voice-api/guides/websockets) to  [Azure Speech-to-text](https://azure.microsoft.com/en-gb/services/cognitive-services/speech-to-text/), it allows you obtain real time transcription of the callers speech.
 
 Currently this is open source example code which is designed for you to build out from, you might pass the text to a bot platform, transcribe a call to notes or it to collect information from callers into your systems directly.
 
