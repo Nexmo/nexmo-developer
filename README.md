@@ -1,4 +1,4 @@
-# API Developer Portal
+# Vonage API Developer Portal
 
 [![Build Status](https://api.travis-ci.org/Nexmo/nexmo-developer.svg?branch=master)](https://travis-ci.org/Nexmo/nexmo-developer/)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
@@ -97,7 +97,7 @@ You should now be able to see the site on http://localhost:3000/
 
 ### Setting up with Docker
 
-If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox the API Developer Portal into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
+If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox the Vonage API Developer Portal into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
 
 ```sh
 $ git clone git@github.com:Nexmo/nexmo-developer.git
@@ -120,7 +120,7 @@ To stop the server press `ctrl+c`.
 
 You can access the admin dashboard by visiting `/admin`. Initially, you will have an admin user with the username of `api.admin@vonage.com` and password of `development`.
 
-The following is an example if you are running the API Developer Portal within a Docker container:
+The following is an example if you are running the Vonage API Developer Portal within a Docker container:
 
 ```sh
 docker exec -it <container_id> rake db:seed
@@ -205,10 +205,10 @@ Once PostgreSQL is running you'll need to create and migrate the database. See [
 
 ## Upgrading Volta
 
-Volta is the Vonage design system, and is used to style the API Developer Portal. To upgrade the version of Volta used:
+Volta is the Vonage design system, and is used to style the Vonage API Developer Portal. To upgrade the version of Volta used:
 
 * Clone Volta on to your local machine
-* Remove the `app/assets/volta/scss` folder in the API Developer Portal
+* Remove the `app/assets/volta/scss` folder in the Vonage API Developer Portal
 * Copy the `scss` folder from the Volta repo in to `app/assets/volta`
 * Commit and push. Rails will take care of compilation etc
 
@@ -219,7 +219,7 @@ We :heart: contributions from everyone! It is a good idea to [talk to us](https:
 
 ## Content Updates
 
-Follow these instructions to make updates to any content in the API Developer Portal repository.
+Follow these instructions to make updates to any content in the Vonage API Developer Portal repository.
 
 Checkout a new branch, naming it appropriately:
 

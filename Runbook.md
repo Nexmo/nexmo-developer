@@ -1,6 +1,6 @@
 # System Overview
 
-The API Developer Portal is a simple Rails application with a mounted Sinatra app that handles the rendering of the [API References](https://developer.nexmo.com/api).
+The Vonage API Developer Portal is a simple Rails application with a mounted Sinatra app that handles the rendering of the [API References](https://developer.nexmo.com/api).
 
 # Deployment
 
