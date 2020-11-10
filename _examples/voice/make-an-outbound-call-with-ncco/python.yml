@@ -2,7 +2,7 @@
 title: Python
 language: python
 dependencies:
-  - nexmo
+  - vonage
 client:
   source: .repos/vonage/vonage-python-code-snippets/voice/make-outbound-call-ncco.py
   from_line: 17
