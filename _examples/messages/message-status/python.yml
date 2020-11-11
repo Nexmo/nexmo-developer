@@ -2,7 +2,7 @@
 title: Python
 language: python
 dependencies:
-  - flask
+    - flask
 code:
     source: .repos/vonage/vonage-python-code-snippets/messages/message-status.py
     from_line: 1
