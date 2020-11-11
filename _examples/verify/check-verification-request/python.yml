@@ -9,7 +9,7 @@ client:
     to_line: 21
 code:
     source: .repos/vonage/vonage-python-code-snippets/verify/check.py
-    from_line: 25
+    from_line: 23
     to_line: 28
 file_name: check.py
 run_command: 'python check.py'
