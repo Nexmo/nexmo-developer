@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
 source "https://rubygems.pkg.github.com/nexmo" do
-  gem "station", "0.0.93"
+  gem "station", "0.0.95"
 end
