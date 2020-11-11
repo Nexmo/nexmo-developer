@@ -13,7 +13,7 @@ A Vonage API application contains the security and configuration information you
 
 Each Vonage application created can support multiple capabilities - for example you can create an Application that supports using the Voice, Messages and RTC APIs.
 
-![Application Overview](/images/nexmo_application_v2.png "Application Overview")
+![Application Overview](/images/vonage_application_v2.png "Application Overview")
 
 To illustrate the use of Vonage applications, a brief summary for creating and using a Vonage voice application is given here:
 
