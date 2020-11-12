@@ -6,6 +6,26 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.17 - November 12, 2020
+
+### Fixes
+
+- Update Session id after reconnection
+
+## 6.0.16
+
+### Fixes
+
+- Dispatch `system:error:expired-token` event in application level
+
+```javascript
+  application.on('system:error:expired-token', 'NXM-errors', () => {
+    console.log('Token Expired');
+  });
+```
+
+- Handle uncaught exception of `conversation:error:invalid-member-state` event
+
 ## Version 6.0.16 - October 12, 2020
 
 ### Fixes
