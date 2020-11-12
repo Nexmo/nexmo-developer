@@ -10,15 +10,15 @@ You use Event Based Alerts to communicate with people using Event Based Alerts. 
 
 ## Sending Alerts
 
-You use Event Based Alerts to send custom messages to your users. Before you use this API you have to [Setup a preapproved Short Code for Event Based Alerts](/numbers/guides/event-alerts)
+You use Event Based Alerts to send custom messages to your users. Before you use this API you have to [set up a preapproved Short Code for Event Based Alerts](/numbers/guides/event-alerts)
 
 The workflow for sending Event Based Alerts is:
 
-![Event Based Alerts Workflow](/images/workflow_sending_event_based_alerts.svg)
+![Event Based Alerts Workflow](/images/messaging/alerts/alerts_workflow.png)
 
 1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts/sending#request).
 
-2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly.
+2. Check the [status code](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly.
 
 3. Vonage sends the alert to your user.
 
@@ -31,28 +31,26 @@ To send Event Based Alerts to your users:
 
 1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts/sending#request). If you have multiple templates, remember to set the <i>template</i> number in your request.
 
-```tabbed_examples
-source: '_examples/messaging/us-short-codes-api/alerts/send-alerts-request'
-```
+    ```tabbed_examples
+    source: '_examples/messaging/us-short-codes-api/alerts/send-alerts-request'
+    ```
 
-2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly:
+2. Check the [status](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly:
 
-```tabbed_examples
-source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'
-```
+    ```tabbed_examples
+    source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'
+    ```
 
 3. Vonage sends the alert to your user.
 
 4. Receive the [delivery receipt](/api/sms/us-short-codes/alerts/sending#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) so you can see:
 
-    1. If the [status](/api/sms/us-short-codes/alerts/sending#response) was `delivered`.
+* If the [status](/api/sms/us-short-codes/alerts/sending#response) was `delivered`.
+* When and how the message was made.
+* How much the message cost.
 
-    2. When and how the message was made.
-
-    3. How much the message cost.
-
-```tabbed_examples
-source: '_examples/messaging/us-short-codes-api/generic/delivery-receipt'
-```
+    ```tabbed_examples
+    source: '_examples/messaging/us-short-codes-api/generic/delivery-receipt'
+    ```
 
 > Note: remember to send return *200 OK* when you receive the delivery receipt.
