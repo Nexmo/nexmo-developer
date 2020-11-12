@@ -35,7 +35,7 @@ To send Event Based Alerts to your users:
     source: '_examples/messaging/us-short-codes-api/alerts/send-alerts-request'
     ```
 
-2. Check the [status](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly:
+2. Check the [status code](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Vonage correctly:
 
     ```tabbed_examples
     source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'

@@ -15,7 +15,7 @@ The workflow for Two-factor Authentication API is:
 1. Send a 2FA [request](/api/sms/us-short-codes/2fa#request).
 2. Check the [status code](/api/sms/us-short-codes/2fa#keys-and-values) in the [response](/api/sms/us-short-codes/2fa#response) and ensure that you sent the request to Vonage correctly.
 3. Vonage delivers your PIN to your user's handset.
-4. Your user enters this PIN into your APP.
+4. Your user enters this PIN into your application.
 5. Receive the [delivery receipt](/api/sms/us-short-codes/2fa#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks).
 
 To ensure that your traffic is send over the best possible route, use [Conversion API](/messaging/conversion-api/overview) to tell us about the reliability of your 2FA communication. Adding your conversion data means Vonage delivers your messages faster and more reliably.
@@ -40,7 +40,7 @@ To use the 2FA API you:
 
 3. Vonage delivers your PIN to your user's handset.
 
-4. Your user enters this PIN into your APP.
+4. Your user enters this PIN into your application.
 
 5. Receive the [delivery receipt](/api/sms/us-short-codes/2fa#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) so you can see:
 
