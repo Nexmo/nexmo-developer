@@ -44,7 +44,7 @@ The Nexmo CLI is written in Node.js and installed using the Node Package Manager
 
 ## Authentication
 
-When using the Vonage APIs your requests need to be [authenticated](/concepts/authentication). Typically this is done using [Basic Authentication](/concepts/authentication#basic-authentication) or [JWTs](/concepts/authentication#jwts). You can generate a suitable JWT using our command-line tool, or our [online tool](/jwt).
+When using the Vonage APIs your requests need to be [authenticated](/concepts/authentication). Typically this is done using [Basic Authentication](/concepts/authentication#basic-authentication) or [JWTs](/concepts/authentication#jwts). You can generate a suitable JWT using the Nexmo CLI, or our [online tool](/jwt).
 
 ## Experimenting with our APIs
 
