@@ -10,7 +10,7 @@ Two-factor authentication (also known as 2FA) provides user identification by co
 
 The workflow for Two-factor Authentication API is:
 
-![Two-factor Authentication workflow](/images/workflow_2fa.svg)
+![Two-factor Authentication workflow](/images/messaging/2fa/2fa_api_workflow.png)
 
 1. Send a 2FA [request](/api/sms/us-short-codes/2fa#request).
 2. Check the [response codes](/api/sms/us-short-codes/2fa#keys-and-values) in the [response](/api/sms/us-short-codes/2fa#response) and ensure that you sent the request to Vonage correctly.
