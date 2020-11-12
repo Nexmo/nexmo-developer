@@ -125,7 +125,7 @@ If you are not using a Vonage library you should refer to [RFC 7519](https://too
 
 ### Using the Vonage API online tool to generate a JWT
 
-You can generate a JWT using our [online tool](/jwt) to generate a JWT.
+You can generate a JWT using our [online tool](/jwt).
 
 ### Using the Nexmo CLI to generate JWTs
 
