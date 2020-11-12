@@ -64,7 +64,7 @@ replaced by actual values. These may be specified on a per-code snippet basis.
 
 ## Authentication
 
-Voice API requires authentication using JWTs. You can generate a JWT using the [CLI](/concepts/authentication) or the [online tool](/jwt).
+Voice API requires authentication using JWTs. You can generate a JWT using the [Nexmo CLI](/concepts/authentication) or the [online tool](/jwt).
 
 ## Webhooks
 
