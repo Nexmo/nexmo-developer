@@ -423,8 +423,6 @@ Further information can be found on the [Vonage Tools page](https://developer.ne
 
 A Short Code that is instantly available to Customers. These US Short Codes are shared with other customers.
 
-## Shared Short Code Deprecation
-
 **Effective immediately, Vonage will no longer accept new programs for Shared Short Codes for A2P messaging.** T-Mobile and AT&T’s new code of conduct prohibits the use of shared originators, therefore, existing Shared Short Code traffic must be migrated by March 1, 2021. To help you with this transition, please use the Vonage [guide to alternatives](https://help.nexmo.com/hc/en-us/articles/360050905592).  Please [contact us](mailto:support@nexmo.com) to migrate to a new solution.
 
 ## Short Code
@@ -512,6 +510,8 @@ Text-to-Speech API. You use the TTS API to play synthesized messages and audio f
 Send and receive SMS directly from your system or App.
 
 ## US Short Codes API
+
+**Effective immediately, Vonage will no longer accept new programs for Shared Short Codes for A2P messaging.** T-Mobile and AT&T’s new code of conduct prohibits the use of shared originators, therefore, existing Shared Short Code traffic must be migrated by March 1, 2021. To help you with this transition, please use the Vonage [guide to alternatives](https://help.nexmo.com/hc/en-us/articles/360050905592).  Please [contact us](mailto:support@nexmo.com) to migrate to a new solution.
 
 You use Vonage's US Short Codes API to:
 
