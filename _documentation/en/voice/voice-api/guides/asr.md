@@ -4,7 +4,7 @@ description: Capture user input by converting user speech to text form during a 
 navigation_weight: 6
 ---
 
-# Speech Recognition (ASR) [Beta]
+# Speech Recognition (ASR)
 
 ## Overview
 

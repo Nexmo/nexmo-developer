@@ -88,7 +88,6 @@ navigation_overrides:
       guides:
         websockets:
         asr:
-          label: 'Beta'
         signed-webhooks:
           label: 'Dev Preview'
     sip:
