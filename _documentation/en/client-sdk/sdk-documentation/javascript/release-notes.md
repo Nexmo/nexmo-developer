@@ -6,6 +6,16 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.18 - November 19, 2020
+
+### Changes
+
+- Update documentation
+
+### Fixes
+
+- Add `reconnectionDelay` to 3000 and `reconnectionDelayMax` to 15000 in `socket.io`
+
 ## Version 6.0.17 - November 12, 2020
 
 ### Fixes
