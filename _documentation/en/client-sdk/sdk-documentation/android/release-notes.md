@@ -6,6 +6,16 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.8.0 - Nov 19, 2020
+
+### Changed
+
+- Renamed `NexmoCallMemberStatus.CANCELED` to `NexmoCallMemberStatus.CANCELLED`.
+
+### Enhancements
+
+- Notified with `NexmoCallMemberStatus.CANCELLED` on listener `onMemberStatusUpdated(NexmoCallMemberStatus memberStatus, NexmoCallMember callMember)` for call hang up.
+
 ## Version 2.7.1 - Oct 27, 2020
 
 ### Enhancements
