@@ -115,6 +115,8 @@ let applicationEventsHandler = null;
  *  rtc.login(token).then((application) => {
  *    console.log(application.conversations);
  *    console.log(application.me.name, application.me.id);
+ *  }).catch((error) => {
+ *    console.error(error);
  *  });
  * @emits Application#member:invited
  * @emits Application#member:joined
@@ -163,14 +165,14 @@ class Application {
         return this.conversations.get(payload.id);
     }
     /**
-     * Application listening for invites.
+     * Application listening for member invited events.
      *
      * @event Application#member:invited
      *
      * @property {Member} member - The invited member
      * @property {NXMEvent} event - The invitation event
      *
-     * @example &lt;caption>listen for your invites&lt;/caption>
+     * @example &lt;caption>listen for member invited events on Application level&lt;/caption>
      *  application.on("member:invited",(member, event) => {
      *    console.log("Invited to the conversation: " + event.conversation.display_name || event.conversation.name);
      *    // identify the sender.
@@ -179,16 +181,17 @@ class Application {
      *    application.conversations.get(event.conversation.id).join();
      *    //decline the invitation.
      *     application.conversations.get(event.conversation.id).leave();
+     *  });
     */
     /**
-     * Application listening for joins.
+     * Application listening for member joined events.
      *
      * @event Application#member:joined
      *
      * @property {Member} member - the member that joined the conversation
      * @property {NXMEvent} event - the join event
      *
-     * @example &lt;caption>listen join events in Application level&lt;/caption>
+     * @example &lt;caption>listen for member joined events on Application level&lt;/caption>
      *  application.on("member:joined",(member, event) => {
      *    console.log("JOINED", "Joined conversation: " + event.conversation.display_name || event.conversation.name);
      *  });
@@ -230,9 +233,14 @@ class Application {
         }
     }
     /**
-     * update user's token
+     * Update user's token that was generated when they were first authenticated.
      * @param {string} token - the new token
      * @returns {Promise}
+     * @example &lt;caption>listen for expired-token error events and then update the token on Application level&lt;/caption>
+     * application.on('system:error:expired-token', 'NXM-errors', (error) => {
+     * 	console.log('token expired');
+     * 	application.updateToken(token);
+     * });
     */
     updateToken(token) {
         // SDK can be disconnected because of expired token
@@ -277,6 +285,18 @@ class Application {
      * @classdesc creates a call between the defined users
      * @param {string[]} usernames - the user names for those we want to call
      * @returns {Promise&lt;NXMCall>} a NXMCall object with all the call properties
+     * @example &lt;caption>Create a call with users&lt;/caption>
+     *  application.on("call:status:changed", (nxmCall) => {
+     *    if (nxmCall.status === nxmCall.CALL_STATUS.STARTED) {
+     *		  console.log('the call has started');
+     *		}
+     *  });
+     *
+     *  application.inAppCall(usernames).then(() => {
+     *    console.log('Calling user(s)...');
+     *  }).catch((error) => {
+     *    console.error(error);
+     *  });
     */
     async inAppCall(usernames) {
         if (!usernames || !Array.isArray(usernames) || usernames.length === 0) {
@@ -312,6 +332,8 @@ class Application {
    *
      *  application.callServer(phone_number).then(() => {
      *    console.log('Calling phone ' + phone_number);
+     *  }).catch((error) => {
+     *    console.error(error);
      *  });
     */
     async callServer(user, type = 'phone') {
@@ -342,7 +364,7 @@ class Application {
      *      console.log("Joined as " + member.user.name);
    *    });
      *  }).catch((error) => {
-     *    console.log(error);
+     *    console.error(error);
      *  });
     */
     async newConversation(data = {}) {
@@ -376,7 +398,7 @@ class Application {
      *      //You can also access it via conversation.me
      *      console.log("Joined as " + member.user.name);
      *  }).catch((error) => {
-     *    console.log(error);
+     *    console.error(error);
      *  });
     */
     async newConversationAndJoin(params) {
@@ -391,6 +413,12 @@ class Application {
      *
      * @param {string} id - the id of the conversation to fetch
      * @returns {Promise&lt;Conversation>} - the requested conversation
+     * @example &lt;caption>Get a conversation&lt;/caption>
+     *  application.getConversation(id).then((conversation) => {
+     *      console.log("Retrieved conversation: ", conversation);
+     *  }).catch((error) => {
+     *    console.error(error);
+     *  });
     */
     async getConversation(id) {
         try {
@@ -429,6 +457,8 @@ class Application {
    *    conversations_page.items.forEach(conversation => {
    *      render(conversation)
    *    })
+   *  }).catch((error) => {
+   *      console.error(error);
    *  });
    *
     */
@@ -448,14 +478,14 @@ class Application {
         }
     }
     /**
-     * Application listening sync status.
+     * Application listening for sync status events.
      *
      * @event Application#sync:progress
      *
      * @property {number} status.sync_progress - Percentage of fetched conversations
-     * @example &lt;caption>listening for changes in the synchronisation progress&lt;/caption>
+     * @example &lt;caption>listen for changes in the synchronisation progress events on Application level&lt;/caption>
      *  application.on("sync:progress",(status) => {
-     *	  console.log(data.sync_progress);
+     *	  console.log(status.sync_progress);
      *  });
     */
     /**
@@ -489,9 +519,15 @@ class Application {
         fetchConversationForStorage();
     }
     /**
-     * Get Details of a user
-     * @param {string} [id] - the id of the user to fetch, if skipped, it returns your own user details
+     * Get Details of a user by using their id. If no id is present, will return your own user details.
+     * @param {string} id - the id of the user to fetch, if skipped, it returns your own user details
      * @returns {Promise&lt;User>}
+     * @example &lt;caption>Get User details&lt;/caption>
+     *  application.getUser(id).then((user) => {
+     *    console.log('User details: 'user);
+     *  }).catch((error) => {
+     *      console.error(error);
+     *  });
     */
     async getUser(user_id = this.me.id) {
         try {
@@ -553,7 +589,7 @@ module.exports = Application;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Nov 12th 2020
+		on Thu Nov 19th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

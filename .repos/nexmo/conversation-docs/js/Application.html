@@ -266,6 +266,8 @@ user's invitations</p>
     <pre class="sunlight-highlight-javascript">rtc.login(token).then((application) =&gt; {
    console.log(application.conversations);
    console.log(application.me.name, application.me.id);
+ }).catch((error) =&gt; {
+   console.error(error);
  });</pre>
 
 
@@ -458,7 +460,7 @@ listen for it with application.on(&quot;call:status:changed&quot;)</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-238">line 238</a>
+				 <a href="application.js.html#sunlight-1-line-260">line 260</a>
 			</li>
 		</ul>
 	</dd>
@@ -517,6 +519,8 @@ listen for it with application.on(&quot;call:status:changed&quot;)</p>
 
  application.callServer(phone_number).then(() =&gt; {
    console.log(&#x27;Calling phone &#x27; + phone_number);
+ }).catch((error) =&gt; {
+   console.error(error);
  });</pre>
 
 
@@ -634,7 +638,7 @@ Result added (or updated) in this.conversations</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-316">line 316</a>
+				 <a href="application.js.html#sunlight-1-line-344">line 344</a>
 			</li>
 		</ul>
 	</dd>
@@ -685,6 +689,18 @@ Result added (or updated) in this.conversations</p>
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Get a conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">application.getConversation(id).then((conversation) =&gt; {
+     console.log(&quot;Retrieved conversation: &quot;, conversation);
+ }).catch((error) =&gt; {
+   console.error(error);
+ });</pre>
+
 
     
 </dd>
@@ -925,7 +941,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-356">line 356</a>
+				 <a href="application.js.html#sunlight-1-line-386">line 386</a>
 			</li>
 		</ul>
 	</dd>
@@ -986,6 +1002,8 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
    conversations_page.items.forEach(conversation =&gt; {
      render(conversation)
    })
+ }).catch((error) =&gt; {
+     console.error(error);
  });</pre>
 
 
@@ -996,7 +1014,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
             
 <hr>
 <dt>
-    <h4 class="name" id="getUser"><span class="type-signature">&lt;async> </span>getUser( [id])</h4>
+    <h4 class="name" id="getUser"><span class="type-signature">&lt;async> </span>getUser(id)</h4>
     
     
 </dt>
@@ -1004,7 +1022,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 
     
     <div class="description">
-        <p>Get Details of a user</p>
+        <p>Get Details of a user by using their id. If no id is present, will return your own user details.</p>
     </div>
     
 
@@ -1026,8 +1044,6 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 
         <th>Type</th>
 
-        
-        <th>Argument</th>
         
 
         
@@ -1054,16 +1070,6 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
             
             </td>
 
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
             
 
             
@@ -1113,7 +1119,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-417">line 417</a>
+				 <a href="application.js.html#sunlight-1-line-453">line 453</a>
 			</li>
 		</ul>
 	</dd>
@@ -1158,6 +1164,18 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Get User details</p>
+    
+    <pre class="sunlight-highlight-javascript">application.getUser(id).then((user) =&gt; {
+   console.log(&#x27;User details: &#x27;user);
+ }).catch((error) =&gt; {
+     console.error(error);
+ });</pre>
+
 
     
 </dd>
@@ -1271,7 +1289,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-202">line 202</a>
+				 <a href="application.js.html#sunlight-1-line-222">line 222</a>
 			</li>
 		</ul>
 	</dd>
@@ -1320,6 +1338,24 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Create a call with users</p>
+    
+    <pre class="sunlight-highlight-javascript">application.on(&quot;call:status:changed&quot;, (nxmCall) =&gt; {
+   if (nxmCall.status === nxmCall.CALL_STATUS.STARTED) {
+		  console.log(&#x27;the call has started&#x27;);
+		}
+ });
+
+ application.inAppCall(usernames).then(() =&gt; {
+   console.log(&#x27;Calling user(s)...&#x27;);
+ }).catch((error) =&gt; {
+   console.error(error);
+ });</pre>
+
 
     
 </dd>
@@ -1520,7 +1556,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-269">line 269</a>
+				 <a href="application.js.html#sunlight-1-line-291">line 291</a>
 			</li>
 		</ul>
 	</dd>
@@ -1585,7 +1621,7 @@ The conversation name must be unique per application.</p>
      console.log(&quot;Joined as &quot; + member.user.name);
    });
  }).catch((error) =&gt; {
-   console.log(error);
+   console.error(error);
  });</pre>
 
 
@@ -1788,7 +1824,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-303">line 303</a>
+				 <a href="application.js.html#sunlight-1-line-325">line 325</a>
 			</li>
 		</ul>
 	</dd>
@@ -1852,7 +1888,7 @@ The conversation name must be unique per application.</p>
      //You can also access it via conversation.me
      console.log(&quot;Joined as &quot; + member.user.name);
  }).catch((error) =&gt; {
-   console.log(error);
+   console.error(error);
  });</pre>
 
 
@@ -1918,7 +1954,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-385">line 385</a>
+				 <a href="application.js.html#sunlight-1-line-415">line 415</a>
 			</li>
 		</ul>
 	</dd>
@@ -1959,7 +1995,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>update user's token</p>
+        <p>Update user's token that was generated when they were first authenticated.</p>
     </div>
     
 
@@ -2056,7 +2092,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-158">line 158</a>
+				 <a href="application.js.html#sunlight-1-line-166">line 166</a>
 			</li>
 		</ul>
 	</dd>
@@ -2103,6 +2139,17 @@ The conversation name must be unique per application.</p>
         
 
     
+        <h5>Example</h5>
+        
+        <p class="code-caption">listen for expired-token error events and then update the token on Application level</p>
+    
+    <pre class="sunlight-highlight-javascript">application.on(&#x27;system:error:expired-token&#x27;, &#x27;NXM-errors&#x27;, (error) =&gt; {
+	console.log(&#x27;token expired&#x27;);
+	application.updateToken(token);
+});</pre>
+
+
+    
 </dd>
 
         </dl>
@@ -2125,7 +2172,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>NXMCall listening for nxmCall status changed events.</p>
+        <p>Application listening for nxmCall status changed events.</p>
     </div>
     
 
@@ -2254,7 +2301,7 @@ The conversation name must be unique per application.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen for nxmCall status events</p>
+        <p class="code-caption">listen for nxmCall status changed events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;call:status:changed&quot;,(nxmCall) =&gt; {
    console.log(&quot;call: &quot; + nxmCall.status);
@@ -2276,7 +2323,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>Application listening for joins.</p>
+        <p>Application listening for client and expired-token errors events.</p>
     </div>
     
 
@@ -2405,17 +2452,17 @@ The conversation name must be unique per application.</p>
     
         <h5>Examples</h5>
         
-        <p class="code-caption">listen for errors</p>
+        <p class="code-caption">listen for client error events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&#x27;*&#x27;, &#x27;NXM-errors&#x27;, (error) =&gt; {
    console.log(&#x27;Error thrown with type &#x27; + error.type);
  });</pre>
 
-        <p class="code-caption">Update the token on expired-token error</p>
+        <p class="code-caption">listen for expired-token error events and then update the token on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&#x27;system:error:expired-token&#x27;, &#x27;NXM-errors&#x27;, (error) =&gt; {
 	console.log(&#x27;token expired&#x27;);
-	application.updateToken(&lt;token&gt;);
+	application.updateToken(token);
 });</pre>
 
 
@@ -2434,7 +2481,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>Application listening for calls.</p>
+        <p>Application listening for member call events.</p>
     </div>
     
 
@@ -2587,7 +2634,7 @@ The conversation name must be unique per application.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen for calls in Application level</p>
+        <p class="code-caption">listen for member call events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;member:call&quot;, (member, nxmCall) =&gt; {
    console.log(&quot;NXMCall &quot;, nxmCall);
@@ -2609,7 +2656,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>Application listening for invites.</p>
+        <p>Application listening for member invited events.</p>
     </div>
     
 
@@ -2733,7 +2780,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-86">line 86</a>
+				 <a href="application.js.html#sunlight-1-line-88">line 88</a>
 			</li>
 		</ul>
 	</dd>
@@ -2762,7 +2809,7 @@ The conversation name must be unique per application.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen for your invites</p>
+        <p class="code-caption">listen for member invited events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;member:invited&quot;,(member, event) =&gt; {
    console.log(&quot;Invited to the conversation: &quot; + event.conversation.display_name || event.conversation.name);
@@ -2771,7 +2818,8 @@ The conversation name must be unique per application.</p>
    //accept an invitation.
    application.conversations.get(event.conversation.id).join();
    //decline the invitation.
-    application.conversations.get(event.conversation.id).leave();</pre>
+    application.conversations.get(event.conversation.id).leave();
+ });</pre>
 
 
     
@@ -2789,7 +2837,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>Application listening for joins.</p>
+        <p>Application listening for member joined events.</p>
     </div>
     
 
@@ -2913,7 +2961,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-104">line 104</a>
+				 <a href="application.js.html#sunlight-1-line-107">line 107</a>
 			</li>
 		</ul>
 	</dd>
@@ -2942,7 +2990,7 @@ The conversation name must be unique per application.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen join events in Application level</p>
+        <p class="code-caption">listen for member joined events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;member:joined&quot;,(member, event) =&gt; {
    console.log(&quot;JOINED&quot;, &quot;Joined conversation: &quot; + event.conversation.display_name || event.conversation.name);
@@ -2964,7 +3012,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>Application listening for RTC stats.</p>
+        <p>Application listening for RTC stats events.</p>
     </div>
     
 
@@ -3286,7 +3334,7 @@ The conversation name must be unique per application.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">listening for quality mos score</p>
+        <p class="code-caption">listen for quality mos score events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;rtcstats:report&quot;,(mos, report, conversation, mos_report) =&gt; {
    console.log(&quot;call quality (MOS)&quot;, mos);
@@ -3311,7 +3359,7 @@ The conversation name must be unique per application.</p>
 
     
     <div class="description">
-        <p>Application listening sync status.</p>
+        <p>Application listening for sync status events.</p>
     </div>
     
 
@@ -3411,7 +3459,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-371">line 371</a>
+				 <a href="application.js.html#sunlight-1-line-401">line 401</a>
 			</li>
 		</ul>
 	</dd>
@@ -3440,10 +3488,10 @@ The conversation name must be unique per application.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">listening for changes in the synchronisation progress</p>
+        <p class="code-caption">listen for changes in the synchronisation progress events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;sync:progress&quot;,(status) =&gt; {
-	  console.log(data.sync_progress);
+	  console.log(status.sync_progress);
  });</pre>
 
 
@@ -3500,7 +3548,7 @@ The conversation name must be unique per application.</p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Nov 12th 2020
+		on Thu Nov 19th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

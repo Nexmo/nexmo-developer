@@ -117,7 +117,7 @@ loglevel_plugin_prefix_1.default.apply(loglevel_1.default, {
  * @class NexmoClient
  *
  * @param {object} params the settings to initialise the SDK
- * @param {Boolean} params.debug='silent' set mode to 'debug', 'info', 'warn', or 'error' for customized logging levels in the console
+ * @param {string} params.debug='silent' set mode to 'debug', 'info', 'warn', or 'error' for customized logging levels in the console
  * @param {string} params.url='nexmo_ws_url' Nexmo Conversation Websocket url, default is wss://ws.nexmo.com (wss://ws-us-1.nexmo.com for WDC, wss://ws-us-2.nexmo.com for DAL, wss://ws-eu-1.nexmo.com for LON, wss://ws-sg-1.nexmo.com for SNG)
  * @param {string} params.nexmo_api_url=Nexmo Conversation Api url, default is https://api.nexmo.com (https://api-us-1.nexmo.com for WDC, https://api-us-2.nexmo.com for DAL, https://api-eu-1.nexmo.com for LON, https://api-sg-1.nexmo.com for SNG)
  * @param {string} params.ips_url='ips_url' Nexmo IPS url for image upload, default is https://api.nexmo.com/v1/image (https://api-us-1.nexmo.com/v1/image for WDC, https://api-us-2.nexmo.com/v1/image for DAL, https://api-eu-1.nexmo.com/v1/image for LON, https://api-sg-1.nexmo.com/v1/image for SNG)
@@ -131,9 +131,10 @@ loglevel_plugin_prefix_1.default.apply(loglevel_1.default, {
  * @param {Boolean} params.socket_io.reconnection=true socket.io reconnection attribute
  * @param {number} params.socket_io.reconnectionAttempts=5 socket.io reconnectionAttempts attribute
  * @param {string[]} params.socket_io.transports='websocket' socket.io transports protocols
- * @param {string[]} params.sync='lite' {'lite' || 'full' || 'none'} after a successful login, synchronise conversations, include events or nothing
+ * @param {string} params.sync='lite' {'lite' || 'full' || 'none'} after a successful login, synchronise conversations, include events or nothing
  * @param {string} params.environment='production' development / production environment
- * @param {object} params.iceServers=[{'stun:stun.l.google.com:19302'}] iceServers for RTCPeerConnection
+ * @param {object[]} params.iceServers configure iceServers for RTCPeerConnection
+ * @param {string} params.iceServers.urls='stun:stun.l.google.com:19302' urls for iceServers
  * @param {object} params.callstats configure callstats.io integration
  * @param {Boolean} params.callstats.enabled=false
  * @param {string} params.callstats.AppID your callstats AppID
@@ -181,6 +182,8 @@ class NexmoClient {
             socket_io: {
                 reconnection: true,
                 reconnectionAttempts: 5,
+                reconnectionDelay: 3000,
+                reconnectionDelayMax: 15000,
                 forceNew: true,
                 autoConnect: true,
                 transports: ['websocket']
@@ -265,10 +268,10 @@ class NexmoClient {
         this.connection = connection;
         this.connection.io.opts.query = {};
         /**
-         * Ready event.
+         * Client listening for ready event.
          *
          * @event NexmoClient#ready
-         * @example &lt;caption>Listen to websocket ready event &lt;/caption>
+         * @example &lt;caption>Listen for websocket ready event &lt;/caption>
          *     rtc.on("ready", () => {
          *      console.log("connection ready");
          *     });
@@ -280,10 +283,10 @@ class NexmoClient {
         });
         // Listen to socket.io events
         /**
-         * Connecting event.
+         * Client listening for connecting event.
          *
          * @event NexmoClient#connecting
-         * @example &lt;caption>Listen to websocket connecting event &lt;/caption>
+         * @example &lt;caption>Listen for websocket connecting event &lt;/caption>
          *     rtc.on("connecting", () => {
          *      console.log("connecting");
          *     });
@@ -293,10 +296,10 @@ class NexmoClient {
             this.log.info('websocket connecting');
         });
         /**
-         * Disconnect event.
+         * Client listening for disconnect event.
          *
          * @event NexmoClient#disconnect
-         * @example &lt;caption>Listen to websocket disconnect event &lt;/caption>
+         * @example &lt;caption>Listen for websocket disconnect event &lt;/caption>
          *     rtc.on("disconnect", () => {
          *      console.log("disconnect");
          *     });
@@ -306,10 +309,10 @@ class NexmoClient {
             this.log.info('websocket disconnected');
         });
         /**
-         * Reconnect event.
+         * Client listening for reconnect event.
          *
          * @event NexmoClient#reconnect
-         * @example &lt;caption>Listen to websocket reconnect event &lt;/caption>
+         * @example &lt;caption>Listen for websocket reconnect event &lt;/caption>
          *     rtc.on("reconnect", (retry_number) => {
          *      console.log("reconnect", retry_number);
          *     });
@@ -319,10 +322,10 @@ class NexmoClient {
             this.log.info('websocket reconnect');
         });
         /**
-         * Reconnecting event.
+         * Client listening for reconnecting event.
          *
          * @event NexmoClient#reconnecting
-         * @example &lt;caption>Listen to websocket reconnecting event &lt;/caption>
+         * @example &lt;caption>Listen for websocket reconnecting event &lt;/caption>
          *     rtc.on("reconnecting", (retry_number): void => {
          *      console.log("reconnecting", retry_number);
          *     });
@@ -332,10 +335,10 @@ class NexmoClient {
             this.log.info('websocket reconnecting');
         });
         /**
-         * Error event.
+         * Client listening for error event.
          *
          * @event NexmoClient#error
-         * @example &lt;caption>Listen to websocket error event &lt;/caption>
+         * @example &lt;caption>Listen for websocket error event &lt;/caption>
          *     rtc.on("error", (error) => {
          *      console.log("error", error);
          *     });
@@ -632,9 +635,15 @@ class NexmoClient {
         }
     }
     /**
-     * Login to the cloud.
-     * @param {string} token - the login token
-     * @returns  {Promise&lt;Application>} - the application we logged in
+     * Log in to the cloud.
+     * @param {string} token - the login JSON Web Token (JWT)
+     * @returns  {Promise&lt;Application>} - the application logged in to
+     * @example &lt;caption>Log in to the Client and return the Application&lt;/caption>
+     *  rtc.login(token).then((application) => {
+     *    console.log(application);
+     *  }).catch((error) => {
+     *    console.log(error);
+     *  });
     */
     login(token) {
         // Create connection if needed
@@ -735,7 +744,14 @@ class NexmoClient {
         });
     }
     /**
-     * logout from the cloud.
+     * Log out from the cloud.
+     * @returns  {Promise&lt;CAPIResponse>} - response with rid and type
+     * @example &lt;caption>Log out of the Client&lt;/caption>
+     *  rtc.logout().then((response) => {
+     *    console.log(response);
+     *  }).catch((error) => {
+     *    console.log(error);
+     *  });
     */
     logout() {
         return new Promise(async (resolve, reject) => {
@@ -793,7 +809,7 @@ class NexmoClient {
         return this.connection.disconnect();
     }
     /**
-     * Connect from the cloud.
+     * Connect to the cloud.
      *
     */
     connect() {
@@ -857,7 +873,7 @@ module.exports = NexmoClient;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Nov 12th 2020
+		on Thu Nov 19th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

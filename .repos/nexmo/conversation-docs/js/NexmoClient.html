@@ -185,7 +185,7 @@
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">string</span>
 
 
 
@@ -655,7 +655,7 @@
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;string></span>
+<span class="param-type">string</span>
 
 
 
@@ -715,7 +715,7 @@
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">Array.&lt;object></span>
 
 
 
@@ -727,12 +727,68 @@
             
                 <td class="default">
                 
-                    [{'stun:stun.l.google.com:19302'}
+                </td>
+            
+
+            <td class="description last"><p>configure iceServers for RTCPeerConnection</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>urls</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    'stun:stun.l.google.com:19302'
                 
                 </td>
             
 
-            <td class="description last"><p>iceServers for RTCPeerConnection</p></td>
+            <td class="description last"><p>urls for iceServers</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -1571,7 +1627,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-731">line 731</a>
+				 <a href="sdk.js.html#sunlight-1-line-747">line 747</a>
 			</li>
 		</ul>
 	</dd>
@@ -1606,7 +1662,7 @@
 
     
     <div class="description">
-        <p>Connect from the cloud.</p>
+        <p>Connect to the cloud.</p>
     </div>
     
 
@@ -1653,7 +1709,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-720">line 720</a>
+				 <a href="sdk.js.html#sunlight-1-line-736">line 736</a>
 			</li>
 		</ul>
 	</dd>
@@ -1741,7 +1797,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-713">line 713</a>
+				 <a href="sdk.js.html#sunlight-1-line-729">line 729</a>
 			</li>
 		</ul>
 	</dd>
@@ -1782,7 +1838,7 @@
 
     
     <div class="description">
-        <p>Login to the cloud.</p>
+        <p>Log in to the cloud.</p>
     </div>
     
 
@@ -1834,7 +1890,7 @@
 
             
 
-            <td class="description last"><p>the login token</p></td>
+            <td class="description last"><p>the login JSON Web Token (JWT)</p></td>
         </tr>
 
     
@@ -1879,7 +1935,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-560">line 560</a>
+				 <a href="sdk.js.html#sunlight-1-line-569">line 569</a>
 			</li>
 		</ul>
 	</dd>
@@ -1909,7 +1965,7 @@
             
 <div class="param-desc">
     <ul>
-<li>the application we logged in</li>
+<li>the application logged in to</li>
 </ul>
 </div>
 
@@ -1932,6 +1988,18 @@
         
 
     
+        <h5>Example</h5>
+        
+        <p class="code-caption">Log in to the Client and return the Application</p>
+    
+    <pre class="sunlight-highlight-javascript">rtc.login(token).then((application) =&gt; {
+   console.log(application);
+ }).catch((error) =&gt; {
+   console.log(error);
+ });</pre>
+
+
+    
 </dd>
 
         
@@ -1946,7 +2014,7 @@
 
     
     <div class="description">
-        <p>logout from the cloud.</p>
+        <p>Log out from the cloud.</p>
     </div>
     
 
@@ -1993,7 +2061,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-661">line 661</a>
+				 <a href="sdk.js.html#sunlight-1-line-677">line 677</a>
 			</li>
 		</ul>
 	</dd>
@@ -2018,6 +2086,44 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>response with rid and type</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;CAPIResponse></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Log out of the Client</p>
+    
+    <pre class="sunlight-highlight-javascript">rtc.logout().then((response) =&gt; {
+   console.log(response);
+ }).catch((error) =&gt; {
+   console.log(error);
+ });</pre>
+
 
     
 </dd>
@@ -2042,7 +2148,7 @@
 
     
     <div class="description">
-        <p>Connecting event.</p>
+        <p>Client listening for connecting event.</p>
     </div>
     
 
@@ -2089,7 +2195,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-203">line 203</a>
+				 <a href="sdk.js.html#sunlight-1-line-206">line 206</a>
 			</li>
 		</ul>
 	</dd>
@@ -2118,7 +2224,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket connecting event </p>
+        <p class="code-caption">Listen for websocket connecting event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;connecting&quot;, () =&gt; {
      console.log(&quot;connecting&quot;);
@@ -2140,7 +2246,7 @@
 
     
     <div class="description">
-        <p>Disconnect event.</p>
+        <p>Client listening for disconnect event.</p>
     </div>
     
 
@@ -2187,7 +2293,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-216">line 216</a>
+				 <a href="sdk.js.html#sunlight-1-line-219">line 219</a>
 			</li>
 		</ul>
 	</dd>
@@ -2216,7 +2322,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket disconnect event </p>
+        <p class="code-caption">Listen for websocket disconnect event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;disconnect&quot;, () =&gt; {
      console.log(&quot;disconnect&quot;);
@@ -2238,7 +2344,7 @@
 
     
     <div class="description">
-        <p>Error event.</p>
+        <p>Client listening for error event.</p>
     </div>
     
 
@@ -2285,7 +2391,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-255">line 255</a>
+				 <a href="sdk.js.html#sunlight-1-line-258">line 258</a>
 			</li>
 		</ul>
 	</dd>
@@ -2314,7 +2420,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket error event </p>
+        <p class="code-caption">Listen for websocket error event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;error&quot;, (error) =&gt; {
      console.log(&quot;error&quot;, error);
@@ -2336,7 +2442,7 @@
 
     
     <div class="description">
-        <p>Ready event.</p>
+        <p>Client listening for ready event.</p>
     </div>
     
 
@@ -2383,7 +2489,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-188">line 188</a>
+				 <a href="sdk.js.html#sunlight-1-line-191">line 191</a>
 			</li>
 		</ul>
 	</dd>
@@ -2412,7 +2518,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket ready event </p>
+        <p class="code-caption">Listen for websocket ready event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;ready&quot;, () =&gt; {
      console.log(&quot;connection ready&quot;);
@@ -2434,7 +2540,7 @@
 
     
     <div class="description">
-        <p>Reconnect event.</p>
+        <p>Client listening for reconnect event.</p>
     </div>
     
 
@@ -2481,7 +2587,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-229">line 229</a>
+				 <a href="sdk.js.html#sunlight-1-line-232">line 232</a>
 			</li>
 		</ul>
 	</dd>
@@ -2510,7 +2616,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket reconnect event </p>
+        <p class="code-caption">Listen for websocket reconnect event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;reconnect&quot;, (retry_number) =&gt; {
      console.log(&quot;reconnect&quot;, retry_number);
@@ -2532,7 +2638,7 @@
 
     
     <div class="description">
-        <p>Reconnecting event.</p>
+        <p>Client listening for reconnecting event.</p>
     </div>
     
 
@@ -2579,7 +2685,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-242">line 242</a>
+				 <a href="sdk.js.html#sunlight-1-line-245">line 245</a>
 			</li>
 		</ul>
 	</dd>
@@ -2608,7 +2714,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket reconnecting event </p>
+        <p class="code-caption">Listen for websocket reconnecting event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;reconnecting&quot;, (retry_number): void =&gt; {
      console.log(&quot;reconnecting&quot;, retry_number);
@@ -2668,7 +2774,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Nov 12th 2020
+		on Thu Nov 19th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

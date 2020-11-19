@@ -208,7 +208,7 @@
 
     
     <div class="description">
-        <p>NXMCall listening for nxmCall status changed events.</p>
+        <p>Application listening for nxmCall status changed events.</p>
     </div>
     
 
@@ -337,7 +337,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen for nxmCall status events</p>
+        <p class="code-caption">listen for nxmCall status changed events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;call:status:changed&quot;,(nxmCall) =&gt; {
    console.log(&quot;call: &quot; + nxmCall.status);
@@ -359,7 +359,7 @@
 
     
     <div class="description">
-        <p>Application listening for joins.</p>
+        <p>Application listening for client and expired-token errors events.</p>
     </div>
     
 
@@ -488,17 +488,17 @@
     
         <h5>Examples</h5>
         
-        <p class="code-caption">listen for errors</p>
+        <p class="code-caption">listen for client error events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&#x27;*&#x27;, &#x27;NXM-errors&#x27;, (error) =&gt; {
    console.log(&#x27;Error thrown with type &#x27; + error.type);
  });</pre>
 
-        <p class="code-caption">Update the token on expired-token error</p>
+        <p class="code-caption">listen for expired-token error events and then update the token on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&#x27;system:error:expired-token&#x27;, &#x27;NXM-errors&#x27;, (error) =&gt; {
 	console.log(&#x27;token expired&#x27;);
-	application.updateToken(&lt;token&gt;);
+	application.updateToken(token);
 });</pre>
 
 
@@ -517,7 +517,7 @@
 
     
     <div class="description">
-        <p>Application listening for calls.</p>
+        <p>Application listening for member call events.</p>
     </div>
     
 
@@ -670,7 +670,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen for calls in Application level</p>
+        <p class="code-caption">listen for member call events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;member:call&quot;, (member, nxmCall) =&gt; {
    console.log(&quot;NXMCall &quot;, nxmCall);
@@ -692,7 +692,7 @@
 
     
     <div class="description">
-        <p>Application listening for invites.</p>
+        <p>Application listening for member invited events.</p>
     </div>
     
 
@@ -816,7 +816,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-86">line 86</a>
+				 <a href="application.js.html#sunlight-1-line-88">line 88</a>
 			</li>
 		</ul>
 	</dd>
@@ -845,7 +845,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen for your invites</p>
+        <p class="code-caption">listen for member invited events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;member:invited&quot;,(member, event) =&gt; {
    console.log(&quot;Invited to the conversation: &quot; + event.conversation.display_name || event.conversation.name);
@@ -854,7 +854,8 @@
    //accept an invitation.
    application.conversations.get(event.conversation.id).join();
    //decline the invitation.
-    application.conversations.get(event.conversation.id).leave();</pre>
+    application.conversations.get(event.conversation.id).leave();
+ });</pre>
 
 
     
@@ -872,7 +873,7 @@
 
     
     <div class="description">
-        <p>Application listening for joins.</p>
+        <p>Application listening for member joined events.</p>
     </div>
     
 
@@ -996,7 +997,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-104">line 104</a>
+				 <a href="application.js.html#sunlight-1-line-107">line 107</a>
 			</li>
 		</ul>
 	</dd>
@@ -1025,7 +1026,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">listen join events in Application level</p>
+        <p class="code-caption">listen for member joined events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;member:joined&quot;,(member, event) =&gt; {
    console.log(&quot;JOINED&quot;, &quot;Joined conversation: &quot; + event.conversation.display_name || event.conversation.name);
@@ -1047,7 +1048,7 @@
 
     
     <div class="description">
-        <p>Application listening for RTC stats.</p>
+        <p>Application listening for RTC stats events.</p>
     </div>
     
 
@@ -1369,7 +1370,7 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">listening for quality mos score</p>
+        <p class="code-caption">listen for quality mos score events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;rtcstats:report&quot;,(mos, report, conversation, mos_report) =&gt; {
    console.log(&quot;call quality (MOS)&quot;, mos);
@@ -1394,7 +1395,7 @@
 
     
     <div class="description">
-        <p>Application listening sync status.</p>
+        <p>Application listening for sync status events.</p>
     </div>
     
 
@@ -1494,7 +1495,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-371">line 371</a>
+				 <a href="application.js.html#sunlight-1-line-401">line 401</a>
 			</li>
 		</ul>
 	</dd>
@@ -1523,10 +1524,10 @@
     
         <h5>Example</h5>
         
-        <p class="code-caption">listening for changes in the synchronisation progress</p>
+        <p class="code-caption">listen for changes in the synchronisation progress events on Application level</p>
     
     <pre class="sunlight-highlight-javascript">application.on(&quot;sync:progress&quot;,(status) =&gt; {
-	  console.log(data.sync_progress);
+	  console.log(status.sync_progress);
  });</pre>
 
 
@@ -1670,7 +1671,7 @@ A member has unmuted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-506">line 506</a>
+				 <a href="sdk.js.html#sunlight-1-line-509">line 509</a>
 			</li>
 		</ul>
 	</dd>
@@ -1836,7 +1837,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-497">line 497</a>
+				 <a href="sdk.js.html#sunlight-1-line-500">line 500</a>
 			</li>
 		</ul>
 	</dd>
@@ -2001,7 +2002,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-356">line 356</a>
+				 <a href="sdk.js.html#sunlight-1-line-359">line 359</a>
 			</li>
 		</ul>
 	</dd>
@@ -2177,7 +2178,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-339">line 339</a>
+				 <a href="sdk.js.html#sunlight-1-line-342">line 342</a>
 			</li>
 		</ul>
 	</dd>
@@ -2356,7 +2357,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-323">line 323</a>
+				 <a href="sdk.js.html#sunlight-1-line-326">line 326</a>
 			</li>
 		</ul>
 	</dd>
@@ -2535,7 +2536,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-462">line 462</a>
+				 <a href="sdk.js.html#sunlight-1-line-465">line 465</a>
 			</li>
 		</ul>
 	</dd>
@@ -2694,7 +2695,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-394">line 394</a>
+				 <a href="sdk.js.html#sunlight-1-line-397">line 397</a>
 			</li>
 		</ul>
 	</dd>
@@ -2869,7 +2870,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-382">line 382</a>
+				 <a href="sdk.js.html#sunlight-1-line-385">line 385</a>
 			</li>
 		</ul>
 	</dd>
@@ -3044,7 +3045,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-369">line 369</a>
+				 <a href="sdk.js.html#sunlight-1-line-372">line 372</a>
 			</li>
 		</ul>
 	</dd>
@@ -3220,7 +3221,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-405">line 405</a>
+				 <a href="sdk.js.html#sunlight-1-line-408">line 408</a>
 			</li>
 		</ul>
 	</dd>
@@ -3446,7 +3447,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-481">line 481</a>
+				 <a href="sdk.js.html#sunlight-1-line-484">line 484</a>
 			</li>
 		</ul>
 	</dd>
@@ -3622,7 +3623,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-442">line 442</a>
+				 <a href="sdk.js.html#sunlight-1-line-445">line 445</a>
 			</li>
 		</ul>
 	</dd>
@@ -3805,7 +3806,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-430">line 430</a>
+				 <a href="sdk.js.html#sunlight-1-line-433">line 433</a>
 			</li>
 		</ul>
 	</dd>
@@ -3980,7 +3981,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-418">line 418</a>
+				 <a href="sdk.js.html#sunlight-1-line-421">line 421</a>
 			</li>
 		</ul>
 	</dd>
@@ -4338,7 +4339,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Connecting event.</p>
+        <p>Client listening for connecting event.</p>
     </div>
     
 
@@ -4385,7 +4386,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-203">line 203</a>
+				 <a href="sdk.js.html#sunlight-1-line-206">line 206</a>
 			</li>
 		</ul>
 	</dd>
@@ -4414,7 +4415,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket connecting event </p>
+        <p class="code-caption">Listen for websocket connecting event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;connecting&quot;, () =&gt; {
      console.log(&quot;connecting&quot;);
@@ -4436,7 +4437,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Disconnect event.</p>
+        <p>Client listening for disconnect event.</p>
     </div>
     
 
@@ -4483,7 +4484,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-216">line 216</a>
+				 <a href="sdk.js.html#sunlight-1-line-219">line 219</a>
 			</li>
 		</ul>
 	</dd>
@@ -4512,7 +4513,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket disconnect event </p>
+        <p class="code-caption">Listen for websocket disconnect event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;disconnect&quot;, () =&gt; {
      console.log(&quot;disconnect&quot;);
@@ -4534,7 +4535,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Error event.</p>
+        <p>Client listening for error event.</p>
     </div>
     
 
@@ -4581,7 +4582,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-255">line 255</a>
+				 <a href="sdk.js.html#sunlight-1-line-258">line 258</a>
 			</li>
 		</ul>
 	</dd>
@@ -4610,7 +4611,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket error event </p>
+        <p class="code-caption">Listen for websocket error event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;error&quot;, (error) =&gt; {
      console.log(&quot;error&quot;, error);
@@ -4632,7 +4633,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Ready event.</p>
+        <p>Client listening for ready event.</p>
     </div>
     
 
@@ -4679,7 +4680,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-188">line 188</a>
+				 <a href="sdk.js.html#sunlight-1-line-191">line 191</a>
 			</li>
 		</ul>
 	</dd>
@@ -4708,7 +4709,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket ready event </p>
+        <p class="code-caption">Listen for websocket ready event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;ready&quot;, () =&gt; {
      console.log(&quot;connection ready&quot;);
@@ -4730,7 +4731,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Reconnect event.</p>
+        <p>Client listening for reconnect event.</p>
     </div>
     
 
@@ -4777,7 +4778,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-229">line 229</a>
+				 <a href="sdk.js.html#sunlight-1-line-232">line 232</a>
 			</li>
 		</ul>
 	</dd>
@@ -4806,7 +4807,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket reconnect event </p>
+        <p class="code-caption">Listen for websocket reconnect event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;reconnect&quot;, (retry_number) =&gt; {
      console.log(&quot;reconnect&quot;, retry_number);
@@ -4828,7 +4829,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Reconnecting event.</p>
+        <p>Client listening for reconnecting event.</p>
     </div>
     
 
@@ -4875,7 +4876,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-242">line 242</a>
+				 <a href="sdk.js.html#sunlight-1-line-245">line 245</a>
 			</li>
 		</ul>
 	</dd>
@@ -4904,7 +4905,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Listen to websocket reconnecting event </p>
+        <p class="code-caption">Listen for websocket reconnecting event </p>
     
     <pre class="sunlight-highlight-javascript">rtc.on(&quot;reconnecting&quot;, (retry_number): void =&gt; {
      console.log(&quot;reconnecting&quot;, retry_number);
@@ -4964,7 +4965,7 @@ A member has muted their audio</p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Nov 12th 2020
+		on Thu Nov 19th 2020
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
