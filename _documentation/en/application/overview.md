@@ -91,8 +91,8 @@ For the `voice` capability only, you can set timeouts on webhooks. There are two
 
 Parameter | Description
 ----|----
-`connection_timeout` | If Vonage can't connect to the webhook URL, a timeout will occur and Vonage then stops trying to connect to the webhook endpoint.
-`socket_timeout` | If a response from the webhook URL can't be read, then a timeout will occur.
+`connection_timeout` | If Vonage can't connect to the webhook URL, a timeout will occur. Vonage then makes one additional attempt to connect to the webhook endpoint.
+`socket_timeout` | If a response from the webhook URL can't be read, then a timeout will occur. Vonage then makes one additional attempt to read the webhook endpoint.
 
 When creating or updating an application these can be set directly, or updated as required, for example:
 
