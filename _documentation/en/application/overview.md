@@ -87,9 +87,17 @@ Capability | Webhook | API | Example | Description
 
 ## Webhook timeouts
 
-For the `voice` capability only, you can set timeouts on webhooks. There are two timeouts that can be specified: `connection_timeout` and `socket_timeout`. For example:
+For the `voice` capability only, you can set timeouts on webhooks. There are two timeouts that can be specified: `connection_timeout` and `socket_timeout`. These are described in the following table:
+
+Parameter | Description
+----|----
+`connection_timeout` | If Vonage can't connect to the webhook URL, a timeout will occur and Vonage then stops trying to connect to the webhook endpoint.
+`socket_timeout` | If a response from the webhook URL can't be read, then a timeout will occur.
+
+When creating or updating an application these can be set directly, or updated as required, for example:
 
 ``` json
+...
   "capabilities": {
     "voice": {
       "webhooks": {
@@ -113,7 +121,10 @@ For the `voice` capability only, you can set timeouts on webhooks. There are two
         }
       }
     }
+...
 ```
+
+There is further explanation of webhook timeouts in the [webhook documentation](/concepts/guides/webhooks#webhook-timeouts).
 
 ## Creating applications
 
