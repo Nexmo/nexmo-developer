@@ -1,5 +1,6 @@
 ---
 title: Postman
+description: Information about using Vonage APIs with the Postman HTTP client.
 ---
 
 # Postman
@@ -59,4 +60,6 @@ Save the values and then in your request, instead of pasting in your API key, yo
 
 You can have multiple environments, which is useful if you use different keys for different things, or if you are sending API requests to a debugging tool or API mocking server such as Prism. Add as many environments as you need by repeating the steps above and choosing the environment to use from the dropdown in the top right hand section of the screen.
 
+### Postman collections
 
+For information about Postman collections see the [Postman Collections](/concepts/guides/openapi#postman-collections) documentation.

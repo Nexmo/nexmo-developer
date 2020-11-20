@@ -49,8 +49,16 @@ When using the Vonage APIs your requests need to be [authenticated](/concepts/au
 ## Experimenting with our APIs
 
 Ultimately, you’re going to want to build an app in your [chosen programming language](#using-a-server-sdk). But to start with, you might want to make some sample requests to our APIs to check that you have provided the correct parameters and that you are getting back the responses you want.
+
 If you are familiar with the command-line tool [Curl](https://curl.haxx.se/), you will find Curl snippets for each of our APIs that you can copy, paste and modify.
-However, various GUI tools exist that make this a less painful experience. A popular one is [Postman](https://www.postman.com/). Read our guide on [using Postman to work with our APIs](/tools/postman).
+
+### Postman
+
+Various GUI tools exist that are easier to use than Curl. A popular one is [Postman](https://www.postman.com/). Read our guide on [using Postman to work with our APIs](/tools/postman). Vonage also provides a set of [Postman collections](/concepts/guides/openapi#postman-collections), which provides a way to start using the APIs immediately.
+
+### Open API
+
+Each of our APIs has its own [Open API specification](/api). You can read more about Open API in our [documentation](/concepts/guides/openapi). Our specifications conform to Open API specification version 3, also known as OAS3.
 
 ## Using a Server SDK
 
@@ -89,7 +97,6 @@ Once you understand these fundamental concepts and have installed the tools you 
 * Voice API: [Make an outbound call with an NCCO](/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco)
 * Verify API: [Send](/verify/code-snippets/send-verify-request) and then [check](/verify/code-snippets/check-verify-request) a verification request.
 * Messages API: [Send a message using Facebook Messenger](/messages/code-snippets/messenger/send-text)
-
 
 > If you encounter any difficulties, check out our knowledge base and reach out for assistance if necessary at [our support site](https://help.nexmo.com/).
 

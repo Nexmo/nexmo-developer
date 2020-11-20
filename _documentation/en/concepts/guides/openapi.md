@@ -29,7 +29,7 @@ Whether you're working on a poor connection or just prefer to keep things simple
 * [Nexmo OAS Renderer](https://github.com/Nexmo/nexmo-oas-renderer) is an open source Ruby tool (as you may guess from the name, we created and maintain it)
 * [ReDoc](https://github.com/Redocly/redoc) is another open source documentation tool, in JavaScript
 
-### Ready-made Postman Collections
+### Postman Collections
 
 If you're already a [Postman](https://www.postman.com/) fan then this may well appeal to you. If not, then give it a try.
 
