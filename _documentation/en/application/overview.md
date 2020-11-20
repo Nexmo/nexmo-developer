@@ -85,6 +85,36 @@ Capability | Webhook | API | Example | Description
 `rtc` | `event_url` | [Client SDK](/client-sdk/overview), [Conversation](/conversation/overview) | https://example.com/webhooks/rtcevent | Vonage will send RTC events to this URL.
 `vbc` | None | [Voice endpoint](/voice/voice-api/ncco-reference#connect) | None | Not used
 
+## Webhook timeouts
+
+For the `voice` capability only, you can set timeouts on webhooks. There are two timeouts that can be specified: `connection_timeout` and `socket_timeout`. For example:
+
+``` json
+  "capabilities": {
+    "voice": {
+      "webhooks": {
+        "answer_url": {
+          "address": "https://example.com/webhooks/answer",
+          "http_method": "POST",
+          "connection_timeout": 500,
+          "socket_timeout": 3000
+        },
+        "fallback_answer_url": {
+          "address": "https://fallback.example.com/webhooks/answer",
+          "http_method": "POST",
+          "connection_timeout": 500,
+          "socket_timeout": 3000
+        },
+        "event_url": {
+          "address": "https://example.com/webhooks/event",
+          "http_method": "POST",
+          "connection_timeout": 500,
+          "socket_timeout": 3000
+        }
+      }
+    }
+```
+
 ## Creating applications
 
 There are four main ways to create an application:
