@@ -58,7 +58,7 @@ Various GUI tools exist that are easier to use than Curl. A popular one is [Post
 
 ### OpenAPI
 
-Each of our APIs has its own [Open API specification](/api). You can read more about OpenAPI in our [documentation](/concepts/guides/openapi). Our specifications conform to OpenAPI specification version 3, also known as OAS3.
+Each of our APIs has its own [OpenAPI specification](/api). You can read more about OpenAPI in our [documentation](/concepts/guides/openapi). Our specifications conform to OpenAPI specification version 3, also known as OAS3.
 
 ## Using a Server SDK
 
