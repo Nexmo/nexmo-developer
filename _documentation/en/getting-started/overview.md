@@ -56,9 +56,9 @@ If you are familiar with the command-line tool [Curl](https://curl.haxx.se/), yo
 
 Various GUI tools exist that are easier to use than Curl. A popular one is [Postman](https://www.postman.com/). Read our guide on [using Postman to work with our APIs](/tools/postman). Vonage also provides a set of [Postman collections](/concepts/guides/openapi#postman-collections), which provides a way to start using the APIs immediately.
 
-### Open API
+### OpenAPI
 
-Each of our APIs has its own [Open API specification](/api). You can read more about Open API in our [documentation](/concepts/guides/openapi). Our specifications conform to Open API specification version 3, also known as OAS3.
+Each of our APIs has its own [Open API specification](/api). You can read more about OpenAPI in our [documentation](/concepts/guides/openapi). Our specifications conform to OpenAPI specification version 3, also known as OAS3.
 
 ## Using a Server SDK
 
