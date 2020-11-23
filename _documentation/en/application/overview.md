@@ -126,13 +126,13 @@ When creating or updating an application these can be set directly, or updated a
 
 If these values are not specified when creating or updating the application, then default values are applied. The default values for these timeouts depend on the webhook concerned, as shown in the following table:
 
-Webhook | `connection_timeout` | `socket_timeout`
+Webhook | Default `connection_timeout` | Default `socket_timeout`
 ----|----|----
 `answer` | 1000 | 5000
 `event` | 1000 | 10000
 `fallback` | 1000 | 5000
 
-> *NOTE:* Timeouts are specified in milliseconds.
+> **NOTE:** Timeouts are specified in milliseconds.
 
 There is further explanation of webhook timeouts in the [webhook documentation](/concepts/guides/webhooks#webhook-timeouts).
 
