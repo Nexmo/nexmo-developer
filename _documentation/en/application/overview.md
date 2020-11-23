@@ -91,8 +91,8 @@ For the `voice` capability only, you can set timeouts on webhooks. There are two
 
 Parameter | Example | Description
 ----|----|----
-`connection_timeout` | `1000` | If Vonage can't connect to the webhook URL for this specified amount of time, then Vonage makes one additional attempt to connect to the webhook endpoint. This is an integer value specified in millseconds.
-`socket_timeout` | `3000` | If a response from the webhook URL can't be read for this specified amount of time, then Vonage makes one additional attempt to read the webhook endpoint. This is an integer value specified in millseconds.
+`connection_timeout` | `1000` | If Vonage can't connect to the webhook URL for this specified amount of time, then Vonage makes one additional attempt to connect to the webhook endpoint. This is an integer value specified in milliseconds.
+`socket_timeout` | `3000` | If a response from the webhook URL can't be read for this specified amount of time, then Vonage makes one additional attempt to read the webhook endpoint. This is an integer value specified in milliseconds.
 
 When creating or updating an application these can be set directly, or updated as required, for example:
 
@@ -124,9 +124,9 @@ When creating or updating an application these can be set directly, or updated a
 ...
 ```
 
-If these values are not specified when creating or updating the applicatiojn, then default values are applied. The default values for these timeouts depend on the webhook concerned, as shown in the following table:
+If these values are not specified when creating or updating the application, then default values are applied. The default values for these timeouts depend on the webhook concerned, as shown in the following table:
 
-Webook | `connection_timeout` | `socket_timeout`
+Webhook | `connection_timeout` | `socket_timeout`
 ----|----|----
 `answer` | 1000 | 5000
 `event` | 1000 | 10000
