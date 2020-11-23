@@ -6,6 +6,17 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.5.0 - 2020-11-23
+
+### Changed
+
+- Renamed `NXMCallMemberStatusCanceled` to `NXMCallMemberStatusCancelled`.
+- Renamed `NXMLegStatusCanceled` to `NXMLegStatusCancelled`.
+
+### Enhancements
+
+- Notified with `NXMCallMemberStatusCancelled` on `NXMCallDelegate` for call hang up.
+
 ## 2.4.0 - 2020-09-24
 
 ### Added
