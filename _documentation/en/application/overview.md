@@ -87,12 +87,12 @@ Capability | Webhook | API | Example | Description
 
 ## Webhook timeouts
 
-For the `voice` capability only, you can set timeouts on webhooks. There are two timeouts that can be specified: `connection_timeout` and `socket_timeout`. These are described in the following table:
+For the `voice` capability only, you can set timeouts on webhooks. There are two timeouts that can be specified: `connection_timeout` and `socket_timeout`. These parameters apply to the `answer`, `event`, and `fallback` webhooks, and are specified in milliseconds. The following table provides further information:
 
-Parameter | Description
-----|----
-`connection_timeout` | If Vonage can't connect to the webhook URL, a timeout will occur. Vonage then makes one additional attempt to connect to the webhook endpoint.
-`socket_timeout` | If a response from the webhook URL can't be read, then a timeout will occur. Vonage then makes one additional attempt to read the webhook endpoint.
+Parameter | Example | Description
+----|----|----
+`connection_timeout` | `1000` | If Vonage can't connect to the webhook URL for this specified amount of time, then Vonage makes one additional attempt to connect to the webhook endpoint. This is an integer value specified in millseconds.
+`socket_timeout` | `3000` | If a response from the webhook URL can't be read for this specified amount of time, then Vonage makes one additional attempt to read the webhook endpoint. This is an integer value specified in millseconds.
 
 When creating or updating an application these can be set directly, or updated as required, for example:
 
@@ -123,6 +123,16 @@ When creating or updating an application these can be set directly, or updated a
     }
 ...
 ```
+
+If these values are not specified when creating or updating the applicatiojn, then default values are applied. The default values for these timeouts depend on the webhook concerned, as shown in the following table:
+
+Webook | `connection_timeout` | `socket_timeout`
+----|----|----
+`answer` | 1000 | 5000
+`event` | 1000 | 10000
+`fallback` | 1000 | 5000
+
+> *NOTE:* Timeouts are specified in milliseconds.
 
 There is further explanation of webhook timeouts in the [webhook documentation](/concepts/guides/webhooks#webhook-timeouts).
 
