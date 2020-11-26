@@ -1,0 +1,6 @@
+NEXMO_API_KEY:
+  description: You can find this in your account overview
+NEXMO_API_SECRET:
+  description: You can find this in your account overview
+TO_NUMBER:
+  description: The number you are sending the SMS to in E.164 format. For example `447700900000`.
