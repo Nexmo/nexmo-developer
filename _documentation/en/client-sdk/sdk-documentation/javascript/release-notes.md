@@ -6,6 +6,13 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.0.19 - November 26, 2020
+
+### Changes
+
+- Update `reconnectionDelay` to `2000` in `socket.io`
+- Add `randomizationFactor` to `0.55` in `socket.io`
+
 ## Version 6.0.18 - November 19, 2020
 
 ### Changes
