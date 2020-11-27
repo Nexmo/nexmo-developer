@@ -15,7 +15,7 @@ Dashboard is a web application that makes it easy to:
 
 ## Contents
 
-* [Create and configure a Vonage account](#create-and-configure-a-nexmo-account)
+* [Create and configure a Vonage account](#create-and-configure-a-vonage-account)
 * [Retrieve your account information](#retrieve-your-account-information)
 * [Manage your team](#manage-team)
 * [Manage your profile](#manage-your-profile)
@@ -89,4 +89,4 @@ To reset your Vonage password:
 3. You receive a password reset link at the email address associated with your Vonage account. This link is valid for 15 minutes.
 4. Navigate to the reset link and reset your password.
 
-If you are still having issues, please contact <support@nexmo.com>.
+If you are still having issues, please contact <support@vonage.com>.
