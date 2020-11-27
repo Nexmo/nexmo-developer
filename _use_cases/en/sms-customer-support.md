@@ -153,7 +153,7 @@ To send the confirmation to the customer's SMS, add the Vonage server SDK to you
 **Gemfile**
 
 ```ruby
-gem 'nexmo'
+gem 'vonage'
 gem 'dotenv-rails'
 ```
 
@@ -165,7 +165,7 @@ With the library initialized the application can now [send an SMS](/api/sms#send
 def send_response
   return if ticket.messages.count > 1
 
-  client = Nexmo::Client.new
+  client = Vonage::Client.new
   result = client.sms.send(
     from: ENV['VONAGE_NUMBER'],
     to: ticket.number,

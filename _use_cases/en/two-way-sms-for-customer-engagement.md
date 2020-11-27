@@ -130,7 +130,7 @@ In this tutorial, to send an SMS you add the [Vonage Server SDK for Ruby](https:
 
 ```ruby
 # the nexmo library
-gem 'nexmo'
+gem 'vonage'
 # a way to load environment
 # variables
 gem 'dotenv'
@@ -141,9 +141,9 @@ Use your Vonage API [key and secret](/concepts/guides/authentication) to initial
 **app.rb**
 
 ```ruby
-# nexmo library
-require 'nexmo'
-nexmo = Nexmo::Client.new(
+# Vonage library
+require 'vonage'
+vonage = Vonage::Client.new(
   api_key: ENV['VONAGE_API_KEY'],
   api_secret: ENV['VONAGE_API_SECRET']
 )
@@ -168,7 +168,7 @@ post '/notify' do
                  "reply by typing 1 (tomorrow), 2 (Thursday) or 3 (deliver to"
                  "post office) below.\n\n";
 
-  nexmo.sms.send(
+  vonage.sms.send(
     from: ENV['VONAGE_NUMBER'],
     to: params['number'],
     text: notification
@@ -205,7 +205,7 @@ get '/update' do
   message = "Thank you for picking option #{choice}. " +
             "Your delivery is now fully scheduled in."
 
-  nexmo.sms.send(
+  vonage.sms.send(
     from: ENV['VONAGE_NUMBER'],
     to: number,
     text: message
@@ -229,6 +229,6 @@ All the code for this tutorial is available in the [Two-way SMS for customer eng
 
 ## Resources
 
-* [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby)
+* [Ruby Server SDK](https://github.com/Vonage/vonage-ruby-sdk)
 * [SMS](/sms)
 * [SMS API reference guide](/api/sms)

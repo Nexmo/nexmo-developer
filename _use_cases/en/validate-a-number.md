@@ -19,7 +19,7 @@ The Number Insight API has three product levels:
 > Find out more about the [basic, standard and advanced APIs](/number-insight/overview#basic-standard-and-advanced-apis).
 > **Note**: Requests to the Number Insight Basic API are free. The other API levels incur costs. See the [API reference](/api/number-insight) for more information.
 
-The [Ruby Server SDK](http://github.com/nexmo/nexmo-ruby) makes it easy to access the Number Insight API. It also enables you to work with the other APIs, such as the Pricing API. This means that as well as validating and sanitizing a phone number, you can confirm the cost of sending text messages and voice calls to it, as we demonstrate in the [calculate the cost](#calculate-the-cost) section of this tutorial.
+The [Ruby Server SDK](http://github.com/Vonage/vonage-ruby-sdk) makes it easy to access the Number Insight API. It also enables you to work with the other APIs, such as the Pricing API. This means that as well as validating and sanitizing a phone number, you can confirm the cost of sending text messages and voice calls to it, as we demonstrate in the [calculate the cost](#calculate-the-cost) section of this tutorial.
 
 ## In this tutorial
 
@@ -69,7 +69,7 @@ Resolving dependencies...
 Using bundler 1.16.4
 Using dotenv 2.1.1
 Using jwt 2.1.0
-Using nexmo 5.4.0
+Using vonage 7.2.0
 Bundle complete! 2 Gemfile dependencies, 4 gems now installed.
 Use `bundle info [gemname]` to see where a bundled gem is installed.
 ```
@@ -111,8 +111,8 @@ This returns the phone number in international format as well as the name, code 
 First, the code creates the `nexmo` client object with the API key and secret that you configured in the `.env` file:
 
 ```ruby
-require 'nexmo'
-nexmo = Nexmo::Client.new(
+require 'vonage'
+vonage = Vonage::Client.new(
   api_key: ENV['VONAGE_API_KEY'],
   api_secret: ENV['VONAGE_API_SECRET']
 )
@@ -121,7 +121,7 @@ nexmo = Nexmo::Client.new(
 Then, it calls the Number Insight Basic API, passing in the `number` to provide insight about:
 
 ```ruby
-puts nexmo.number_insight.basic(number:  "442079460000")
+puts vonage.number_insight.basic(number:  "442079460000")
 ```
 
 ### Sanitize a Number
@@ -149,7 +149,7 @@ This returns the local number provided (`020 3198 0560`, a Great Britain (`GB`) 
 To retrieve a phone number in international format, call the Number Insight Basic API with a phone number in local format and a country code:
 
 ```ruby
-insight = nexmo.number_insight.basic(
+insight = vonage.number_insight.basic(
   number:  "020 3198 0560",
   country: 'GB'
 )
@@ -185,7 +185,7 @@ You see that this phone number is assigned to a UK landline, making voice a bett
 To determine the type of number, call the Number Insight Standard API, passing in either a local number with the country code as we demonstrate here:
 
 ```ruby
-insight = nexmo.number_insight.standard(
+insight = vonage.number_insight.standard(
   number:  "020 3198 0560",
   country: 'GB'
 )
@@ -194,7 +194,7 @@ insight = nexmo.number_insight.standard(
 You could also pass the `number` in international format without specifying the `country`:
 
 ```ruby
-insight = nexmo.number_insight.standard(
+insight = vonage.number_insight.standard(
   number:  "442031980560"
 )
 ```
@@ -245,7 +245,7 @@ This output shows that the number is a landline and therefore best suited to voi
 The code first calls the Number Insight Standard API, which provides information about the network the number is currently registered to, as well as the country of origin (a feature that is also available in the Basic API):
 
 ```ruby
-insight = nexmo.number_insight.standard(
+insight = vonage.number_insight.standard(
   number:  '020 3198 0560',
   country: 'GB'
 )
@@ -259,14 +259,14 @@ It then uses the [Pricing](/api/developer/pricing) API to retrieve the cost of c
 
 ```ruby
 # Fetch the voice and SMS pricing data for the country
-sms_pricing = nexmo.pricing.sms.get(current_country)
-voice_pricing = nexmo.pricing.voice.get(current_country)
+sms_pricing = vonage.pricing.sms.get(current_country)
+voice_pricing = vonage.pricing.voice.get(current_country)
 ```
 
 Other options for retrieving pricing data in the Ruby REST Client API are:
 
-- `nexmo.pricing.sms.list()` or `nexmo.pricing.voice.list()` - to retrieve pricing data for _all_ countries
-- `nexmo.pricing.sms.prefix(prefix)` or `nexmo.pricing.voice.prefix(prefix)` - to retrieve pricing data for a specific international prefix code, such as `44` for the United Kingdom.
+- `vonage.pricing.sms.list()` or `vonage.pricing.voice.list()` - to retrieve pricing data for _all_ countries
+- `vonage.pricing.sms.prefix(prefix)` or `vonage.pricing.voice.prefix(prefix)` - to retrieve pricing data for a specific international prefix code, such as `44` for the United Kingdom.
 
 The code then looks up the cost for the specific network that the number belongs to and displays that information:
 
@@ -316,7 +316,7 @@ If the Number Insight Advanced API is unable to determine whether the number is 
 The code requests the international representation of the number as before, using a feature that is available in the Basic API but which the Advanced API also includes:
 
 ```ruby
-insight = nexmo.number_insight.advanced(
+insight = vonage.number_insight.advanced(
   number:  "020 3198 0560",
   country: 'GB'
 )

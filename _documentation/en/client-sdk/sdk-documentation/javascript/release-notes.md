@@ -582,7 +582,7 @@ media.enable({
  *
  * @param {object} param.log_reporter configure log reports for bugsnag tool
  * @param {Boolean} param.log_reporter.enabled=false
- * @param {string} param.log_reporter.bugsnag_key your bugsnag api key / defaults to Nexmo api key
+ * @param {string} param.log_reporter.bugsnag_key your bugsnag api key / defaults to Vonage api key
  ```
 
 - Updated vscode settings to add empty line (if none) at end of every file upon save

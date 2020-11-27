@@ -195,7 +195,7 @@ page:
               ```
         - type: text
           text:
-            content: "If you're building text, voice or video into communications into your client side applications, you'll also need to install the Nexmo Client SDK:"
+            content: "If you're building text, voice or video into communications into your client side applications, you'll also need to install the Client SDK:"
         - type: text
           text:
             content: |
@@ -260,9 +260,9 @@ page:
             list:
               - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
               - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
-              - item: "[How to Make and Receive Voice calls with the Nexmo Client SDK on Android](/tutorials/client-sdk-android-make-receive-calls)"
-              - item: "[How to Add the Nexmo Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
-              - item: "[How to Make and Receive Voice Calls with the Nexmo Client SDK on iOS using Objective-C](/tutorials/client-sdk-ios-make-receive-calls-objective-c)"
+              - item: "[How to Make and Receive Voice calls with the Client SDK on Android](/tutorials/client-sdk-android-make-receive-calls)"
+              - item: "[How to Add the Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
+              - item: "[How to Make and Receive Voice Calls with the Client SDK on iOS using Objective-C](/tutorials/client-sdk-ios-make-receive-calls-objective-c)"
     - column:
       - type: unordered_list
         unordered_list:

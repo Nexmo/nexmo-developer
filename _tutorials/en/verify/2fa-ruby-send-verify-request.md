@@ -7,12 +7,12 @@ description: Commence the verification process by issuing a verification request
 
 Now that a user can add their phone number to their account you can use that number to verify them when they log in to the site.
 
-To use the Verify API, you will need to add the `nexmo` gem to your project. You will also need to configure the `nexmo` gem to use your API key and secret, which you will load from a `.env` file.
+To use the Verify API, you will need to add the `vonage` gem to your project. You will also need to configure the `vonage` gem to use your API key and secret, which you will load from a `.env` file.
 
 Add the following lines to the application's `Gemfile`:
 
 ```
-gem 'nexmo'
+gem 'vonage'
 gem 'dotenv-rails', groups: [:development, :test]
 ```
 
@@ -47,13 +47,13 @@ def requires_verification?
 end
 ```
 
-To start the verification process, call `send_verification_request` on the `Nexmo::Client` object. You don’t need to pass in your API key and secret because it has already been initialized through the environment values you configured in `.env`:
+To start the verification process, call `send_verification_request` on the `Vonage::Client` object. You don’t need to pass in your API key and secret because it has already been initialized through the environment values you configured in `.env`:
 
 **`app/controllers/application_controller.rb`**
 
 ```ruby
 def start_verification
-  result = Nexmo::Client.new.verify.request(
+  result = Vonage::Client.new.verify.request(
     number: current_user.phone_number,
     brand: "Kittens and Co",
     sender_id: 'Kittens'

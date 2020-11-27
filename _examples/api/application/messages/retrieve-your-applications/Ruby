@@ -1,8 +1,8 @@
-require 'nexmo'
+require 'vonage'
 
-nexmo_client = Nexmo::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
+vonage_client = Vonage::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
 
-applications = nexmo_client.applications.list
+applications = vonage_client.applications.list
 
 applications.count
 #=> 2

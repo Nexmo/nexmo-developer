@@ -126,9 +126,9 @@ page:
             <div class="presenters">
             <a href="#alex"><img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/alex_lakatos.png" /></a>
             </div>
-            <h4>Building a voice-enabled website using the Nexmo Client SDK</h4>
-            <p>In this workshop, we’ll walk through how you can make a phone call from a web browser to a phone with Nexmo In-App Voice using the Nexmo Client SDK for JavaScript. The Nexmo Client SDK is in the Early Access stage, so we’d love your feedback on both the development experience that you have and on the functionality that’s provided.</p>
-            <p>We'll go through everything you need to start building voice-enabled websites using Node, the Nexmo Server SDK for JavaScript and the Nexmo Client SDK.</p>
+            <h4>Building a voice-enabled website using the Client SDK</h4>
+            <p>In this workshop, we’ll walk through how you can make a phone call from a web browser to a phone with Nexmo In-App Voice using the Client SDK for JavaScript. The Client SDK is in the Early Access stage, so we’d love your feedback on both the development experience that you have and on the functionality that’s provided.</p>
+            <p>We'll go through everything you need to start building voice-enabled websites using Node, the Nexmo Server SDK for JavaScript and the Client SDK.</p>
             </div>
     - column:
       - type: text
@@ -307,7 +307,7 @@ page:
             <img src="https://www.vonage.com/assets/images/landing-pages/vonage-campus/speakers/aaron_bassett.png" />
             </div>
             <h4>Aaron Bassett</h4>
-            <p>Aaron Bassett is a recovering senior software engineer turned <a href="https://www.nexmo.com/blog/2018/11/28/all-your-devrel-award-belong-to-us-dr/" target="_blank">Award-winning Developer Advocate</a> with <a href="https://www.nexmo.com/" target="_blank">Nexmo</a>. He is a developer, public speaker, writer, and mentor; he spends most of his time making cool stuff and helping other people make unbelievably cool stuff.</p>
+            <p>Aaron Bassett is a recovering senior software engineer turned <a href="https://www.nexmo.com/blog/2018/11/28/all-your-devrel-award-belong-to-us-dr/" target="_blank">Award-winning Developer Advocate</a> with <a href="https://www.nexmo.com/" target="_blank">Vonage</a>. He is a developer, public speaker, writer, and mentor; he spends most of his time making cool stuff and helping other people make unbelievably cool stuff.</p>
 
             <p>Twitter:&nbsp;<a href="https://twitter.com/aaronbassett" target="_blank">@aaronbassett</a></p>
       - type: text

@@ -67,7 +67,7 @@ The user then submits their code to the new `update` action. Within this action 
 
 ```ruby
 def update
-  confirmation = Nexmo::Client.new.verify.check(
+  confirmation = Vonage::Client.new.verify.check(
     request_id: params[:id],
     code: params[:code]
   )

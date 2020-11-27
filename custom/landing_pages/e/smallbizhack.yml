@@ -41,7 +41,7 @@ page:
             name: "icon-laptop"
             color: blue
           text:
-          - content: Our challenge is straightforward. Build your hack using at least one of <a href="/api">Nexmo’s APIs</a>. You're especially encouraged to use Nexmo's Voice, Conversation or Messages APIs and the Nexmo Client SDK.
+          - content: Our challenge is straightforward. Build your hack using at least one of <a href="/api">Nexmo’s APIs</a>. You're especially encouraged to use Nexmo's Voice, Conversation or Messages APIs and the Client SDK.
             type: large
 
 
@@ -103,7 +103,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Conversation"
-          subtitle: "The Conversation API currently supports a range of communication channels. Text, voice and video communications can currently flow through various Channels like App, Phone, SIP, and Websocket. To enable the App channel (for in-app messaging, voice and video), you would need to also utilize our Nexmo Client SDK."
+          subtitle: "The Conversation API currently supports a range of communication channels. Text, voice and video communications can currently flow through various Channels like App, Phone, SIP, and Websocket. To enable the App channel (for in-app messaging, voice and video), you would need to also utilize our Client SDK."
           icon:
             name: "icon-lock"
             color: "indigo"
@@ -147,7 +147,7 @@ page:
               ```
         - type: text
           text:
-            content: "If you're building text, voice or video into communications into your client side applications, you'll also need to install the Nexmo Client SDK:"
+            content: "If you're building text, voice or video into communications into your client side applications, you'll also need to install the Client SDK:"
         - type: text
           text:
             content: |
@@ -212,9 +212,9 @@ page:
             list:
               - item: "[Voice Applications: Before you begin](/voice/voice-api/code-snippets/before-you-begin)"
               - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
-              - item: "[How to Make and Receive Voice calls with the Nexmo Client SDK on Android](/tutorials/client-sdk-android-make-receive-calls)"
-              - item: "[How to Add the Nexmo Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
-              - item: "[How to Make and Receive Voice Calls with the Nexmo Client SDK on iOS using Objective-C](/tutorials/client-sdk-ios-make-receive-calls-objective-c)"
+              - item: "[How to Make and Receive Voice calls with the Client SDK on Android](/tutorials/client-sdk-android-make-receive-calls)"
+              - item: "[How to Add the Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
+              - item: "[How to Make and Receive Voice Calls with the Client SDK on iOS using Objective-C](/tutorials/client-sdk-ios-make-receive-calls-objective-c)"
     - column:
       - type: unordered_list
         unordered_list:

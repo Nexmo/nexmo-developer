@@ -9,7 +9,7 @@ menu_weight: 2
     if([NXMClient.shared isNexmoPushWithUserInfo:userInfo]) {
         NXMPushPayload *pushPayload = [NXMClient.shared processNexmoPushPayload:userInfo];
         if (!pushPayload){
-            NSLog(@"Not a Nexmo push!!");
+            NSLog(@"Not a Vonage push!!");
             return;
         };
         if (pushPayload.template == NXMPushTemplateCustom) {

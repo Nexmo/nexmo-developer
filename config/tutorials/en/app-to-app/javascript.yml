@@ -16,7 +16,7 @@ introduction:
     * A web application that will make the app to app voice call using the Client SDK.
     * A publicly accessible URL that serves instructions, an <abbr title="Nexmo Call Control Object">NCCO</abbr>, on how to handle the call. You will use a GitHub Gist to accomplish this. <a href="https://gist.github.com/" target="_blank">GitHub Gists</a> are a simple way to share code snippets with others.
 
-    When the in-app call is triggered from your application, Nexmo will use the NCCO from GitHub Gist and forward the call to the destination app.
+    When the in-app call is triggered from your application, Vonage will use the NCCO from GitHub Gist and forward the call to the destination app.
 
 
 prerequisites:

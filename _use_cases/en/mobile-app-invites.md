@@ -203,12 +203,12 @@ Note over Vonage: Request accepted
 Vonage->>Phone number: Send SMS
 ```
 
-In this tutorial, to send an SMS you add the [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby) to your app:
+In this tutorial, to send an SMS you add the [Ruby Server SDK](https://github.com/Vonage/vonage-ruby-sdk) to your app:
 
 **Gemfile**
 
 ```rb
-gem 'nexmo'
+gem 'vonage'
 ```
 
 Use your Vonage API [key and secret](/concepts/guides/authentication) to initialize the client:
@@ -216,9 +216,9 @@ Use your Vonage API [key and secret](/concepts/guides/authentication) to initial
 **app.rb**
 
 ```rb
-# Nexmo library
-require 'nexmo'
-nexmo = Nexmo::Client.new(
+# Vonage library
+require 'vonage'
+vonage = Vonage::Client.new(
   api_key: ENV['VONAGE_API_KEY'],
   api_secret: ENV['VONAGE_API_SECRET']
 )
@@ -241,7 +241,7 @@ post '/send_sms' do
   message = "Download our app on #{url('/')}"
 
   # send the message
-  response = nexmo.sms.send(
+  response = vonage.sms.send(
     from: 'My App',
     to: params[:number],
     text: message
@@ -284,6 +284,6 @@ All the code for this tutorial is available in the [Mobile app invites tutorial 
 
 ## Resources
 
-* [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby)
+* [Ruby Server SDK](https://github.com/Vonage/vonage-ruby-sdk)
 * [SMS](/sms)
 * [SMS API reference guide](/api/sms)

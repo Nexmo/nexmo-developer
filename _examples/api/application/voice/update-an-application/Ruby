@@ -1,6 +1,6 @@
 require 'nexmo'
 
-nexmo_client = Nexmo::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
+nexmo_client = Vonage::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
 
 id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 

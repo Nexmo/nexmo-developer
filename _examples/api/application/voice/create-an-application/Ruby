@@ -1,10 +1,10 @@
-require 'nexmo'
+require 'vonage'
 
-nexmo_client = Nexmo::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
+vonage_client = Vonage::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET')
 
 id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 
-application = nexmo_client.applications.create(id, {
+application = vonage_client.applications.create(id, {
   name: 'Example Application',
   type: 'voice',
   answer_url: 'https://example.com/answer',

@@ -175,7 +175,7 @@ page:
           text:
             content: |
               ```ruby
-              client = Nexmo::Client.new(
+              client = Vonage::Client.new(
                 api_key: 'YOUR-API-KEY',
                 api_secret: 'YOUR-API-SECRET'
               )
