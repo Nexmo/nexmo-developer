@@ -7,7 +7,13 @@ navigation_weight: 5
 
 This code snippet shows you how to code the webhook handler that receives the data returned by an asynchronous call to the Number Insight Advanced API. See the [Number Insight Advanced](/number-insight/code-snippets/number-insight-advanced-async) code snippet to learn how to code the initial request for the insight data.
 
-Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/code-snippets/before-you-begin#replaceable-variables).
+Before attempting to run the code examples, replace the variable placeholders:
+
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- INSIGHT_NUMBER
+```
 
 ```code_snippets
 source: '_examples/number-insight/async-callback'
@@ -45,9 +51,8 @@ The response from the API contains the following data:
     "valid_number": "valid",
     "reachable": "reachable",
     "ported": "ported",
-    "roaming": {"status": "not_roaming"}
+    "roaming": { "status": "not_roaming" }
 }
 ```
 
 For a description of each returned field and to see all possible values, see the [Number Insights API documentation](/api/number-insight#asyncCallback)
-

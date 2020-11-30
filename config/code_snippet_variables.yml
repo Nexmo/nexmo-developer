@@ -83,3 +83,6 @@ WHATSAPP_TEMPLATE_NAMESPACE: The namespace ID found in your WhatsApp Business Ac
 WHATSAPP_TEMPLATE_NAME: The name of the template created in your WhatsApp Business Account. For sandbox testing the `verify` template is currently available. Refer to [this table](/messages/concepts/messages-api-sandbox#whatsapp-templates-for-use-with-the-messages-api-sandbox) for new templates as they become available.
 HEADER_IMAGE_URL.WHATSAPP.MESSAGES: The URL of the image to display in the template message header.
 VIDEO_URL.WHATSAPP.MESSAGES: The link to the video to send. WhatsApp supports `.mp4` and `.3gpp`. Note, only `H.264` video codec and `AAC` audio codecs are supported.
+
+# Number Insight API
+INSIGHT_NUMBER: The number you want to retrieve insight information for.

@@ -9,7 +9,13 @@ This code snippet shows you how to use Number Insight Advanced API synchronously
 
 > **Note**: Vonage does not recommend this approach, because it can result in timeouts. In most cases, you should use an [asynchronous call](number-insight-advanced-async) to the Number Insight API.
 
-Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/code-snippets/before-you-begin#replaceable-variables).
+Before attempting to run the code examples, replace the variable placeholders:
+
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- INSIGHT_NUMBER
+```
 
 ```code_snippets
 source: '_examples/number-insight/advanced'
@@ -47,7 +53,7 @@ The response from the API contains the following data:
     "valid_number": "valid",
     "reachable": "reachable",
     "ported": "ported",
-    "roaming": {"status": "not_roaming"}
+    "roaming": { "status": "not_roaming" }
 }
 ```
 

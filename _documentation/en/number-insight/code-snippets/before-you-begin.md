@@ -30,11 +30,11 @@ The following resources will help you use the [Number Insight Advanced Async](nu
 
 Replace the following values in the code snippets with your own details:
 
-Key |	Description
--- | --
-`VONAGE_API_KEY` | API key.
-`VONAGE_API_SECRET` | API secret.
-`INSIGHT_NUMBER` | The number you want to retrieve insight information for.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- INSIGHT_NUMBER
+```
 
 ## Webhooks
 

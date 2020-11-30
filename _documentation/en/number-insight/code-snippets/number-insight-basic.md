@@ -7,16 +7,22 @@ navigation_weight: 2
 
 Use the Vonage Number Insight Basic API to determine:
 
-* The country where a number is registered
-* The local and international representation of that number
+-   The country where a number is registered
+-   The local and international representation of that number
 
 This can help you present numbers to your users in the correct format for their locale.
 
-Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/code-snippets/before-you-begin#replaceable-variables).
+Before attempting to run the code examples, replace the variable placeholders:
+
+````snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- INSIGHT_NUMBER
+```.
 
 ```code_snippets
 source: '_examples/number-insight/basic'
-```
+````
 
 The response from the API contains the following data:
 

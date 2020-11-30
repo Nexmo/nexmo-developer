@@ -7,17 +7,23 @@ navigation_weight: 3
 
 The Number Insight Standard API provides all the information from the [Number Insight Basic API](/number-insight/code-snippets/number-insight-basic) together with the following additional data:
 
-* The line type (mobile/landline/virtual number/premium/toll-free)
-* The Mobile Country Code (MCC) and Mobile Network Code (MNC)
-* The name of the caller (USA only)
+-   The line type (mobile/landline/virtual number/premium/toll-free)
+-   The Mobile Country Code (MCC) and Mobile Network Code (MNC)
+-   The name of the caller (USA only)
 
 Use this information to determine the best type of communication for a number (SMS or voice) and block virtual numbers.
 
-Before attempting to run the code examples, replace the variable placeholders as instructed in [replaceable variables](/number-insight/code-snippets/before-you-begin#replaceable-variables).
+Before attempting to run the code examples, replace the variable placeholders:
+
+````snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- INSIGHT_NUMBER
+```.
 
 ```code_snippets
 source: '_examples/number-insight/standard'
-```
+````
 
 The response from the API contains the following data:
 
@@ -47,7 +53,7 @@ The response from the API contains the following data:
         "network_type": "mobile"
     },
     "ported": "assumed_ported",
-    "roaming": {"status": "unknown"}
+    "roaming": { "status": "unknown" }
 }
 ```
 
