@@ -25,23 +25,23 @@ source: _partials/reusable/prereqs.md
 
 The following replaceable information depends on the library and specific call:
 
-Key | Description
--- | --
-`VONAGE_API_KEY` | API key.
-`VONAGE_API_SECRET` | API secret.
-`VONAGE_APPLICATION_PRIVATE_KEY_PATH` |  Private key path.
-`VONAGE_APPLICATION_PRIVATE_KEY` | Private key.
-`VONAGE_APPLICATION_ID` | The Vonage Application ID.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- VONAGE_APPLICATION_PRIVATE_KEY_PATH
+- VONAGE_APPLICATION_PRIVATE_KEY
+- VONAGE_APPLICATION_ID
+```
 
 ### Numbers
 
 All phone numbers are in E.164 format.
 
-Key | Description
--- | --
-`VONAGE_NUMBER` | Replace with your Vonage Number. E.g. 447700900000
-`FROM_NUMBER` | Replace with number you are sending from. E.g. 447700900002
-`TO_NUMBER` | Replace with the number you are sending to. E.g. 447700900001
+```snippet_variables
+- VONAGE_NUMBER
+- FROM_NUMBER.MESSAGES
+- TO_NUMBER.MESSAGES
+```
 
 ### Specific replaceable/variables
 

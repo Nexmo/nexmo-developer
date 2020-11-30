@@ -11,12 +11,12 @@ In this code snippet you learn how to send a contact to WhatsApp using the Messa
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`BASE_URL` | For production use the base URL is `https://api.nexmo.com/`. For sandbox testing the base URL is `https://messages-sandbox.nexmo.com/`.
-`MESSAGES_API_URL` | For production use the Messages API endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the Messages API endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
-`WHATSAPP_NUMBER` | The WhatsApp number that has been allocated to you by Vonage. For sandbox testing the number is `14157386170`.
-`TO_NUMBER` | The phone number you are sending the message to.
+```snippet_variables
+- BASE_URL.MESSAGES
+- MESSAGES_API_URL
+- WHATSAPP_NUMBER
+- TO_NUMBER.MESSAGES
+```
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example, 447700900000.
 
@@ -33,5 +33,5 @@ When you run the code a WhatsApp contact message is sent to the destination numb
 
 ## Further information
 
-* [Custom objects](/messages/concepts/custom-objects)
-* [WhatsApp documentation for send contact](https://developers.facebook.com/docs/whatsapp/api/messages/others#contacts-messages)
+-   [Custom objects](/messages/concepts/custom-objects)
+-   [WhatsApp documentation for send contact](https://developers.facebook.com/docs/whatsapp/api/messages/others#contacts-messages)

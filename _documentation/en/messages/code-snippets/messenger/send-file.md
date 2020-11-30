@@ -13,13 +13,13 @@ For a step-by-step guide to this topic, you can read our tutorial [Sending Faceb
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`BASE_URL` | For production use the base URL is `https://api.nexmo.com/`. For sandbox testing the base URL is `https://messages-sandbox.nexmo.com/`.
-`MESSAGES_API_URL` | For production use the Messages API endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the Messages API endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
-`FB_SENDER_ID` | Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL. For sandbox testing this is `107083064136738`.
-`FB_RECIPIENT_ID` | The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
-`FILE_URL` | The link to the file to send. Can be ZIP, CSV, PDF or any other type supported by Messenger.
+```snippet_variables
+- BASE_URL.MESSAGES
+- MESSAGES_API_URL
+- FB_SENDER_ID.MESSAGES
+- FB_RECIPIENT_ID
+- FILE_URL.MESSENGER.MESSAGES
+```
 
 ```code_snippets
 source: '_examples/messages/messenger/send-file'

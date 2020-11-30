@@ -24,11 +24,11 @@ JWT Auth | [application-level webhook](https://dashboard.nexmo.com/applications)
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_APPLICATION_ID` | The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the message from.
-`TO_NUMBER` | The phone number you are sending the message to.
+```snippet_variables
+- VONAGE_APPLICATION_ID
+- FROM_NUMBER.SMS
+- TO_NUMBER.SMS
+```
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 

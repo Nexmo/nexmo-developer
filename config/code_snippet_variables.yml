@@ -6,6 +6,13 @@ VONAGE_APPLICATION_PRIVATE_KEY: Private key.
 VONAGE_APPLICATION_ID: The Vonage Application ID.
 VONAGE_NUMBER: Your Vonage Number. E.g. `447700900000`
 ACCOUNT_ID: The account ID to target
+TO_NUMBER: Replace with the number you are sending to. E.g. `447700900001`
+IMAGE_URL: The link to the image file to send.
+IMAGE_CAPTION: The text describing the image being sent.
+AUDIO_URL: The link to the audio file to send.
+FILE_URL: The URL of the file to send.
+FILE_CAPTION: The text describing the file being sent.
+VIDEO_CAPTION: The text describing the video being sent.
 
 # Account API
 VONAGE_SECRET_ID.DELETE: The ID of the secret to delete.
@@ -40,12 +47,38 @@ USER_DISPLAY_NAME: The display name of the User.
 USER_NEW_NAME: The new name of the User
 USER_NEW_DISPLAY_NAME: The new display name of the User.
 
+# Messages AND Dispatch
+FB_RECIPIENT_ID: The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+LOGO_IMAGE_URL: An optional logo image.
+HEADER_IMAGE_URL: An optional header image.
+ABOVE_BAR_CODE_IMAGE_URL: An optional image for above the bar code.
+
+# Messages AND SMS
+TO_NUMBER.SMS: The phone number you are sending the message to.
+FROM_NUMBER.SMS: The phone number you are sending the message from.
+
 # Dispatch API
 FROM_NUMBER.DISPATCH: Replace with number you are sending from. E.g. `447700900002`
 TO_NUMBER.DISPATCH: Replace with the number you are sending to. E.g. `447700900001`
 TO_NUMBER_1.DISPATCH: The phone number you are sending the SMS to.
 TO_NUMBER_2.DISPATCH: The phone number of the second phone. In this example, the workflow will failover to this number if the first message is not read in 60 seconds.
 FB_SENDER_ID: Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
-FB_RECIPIENT_ID: The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
 VIBER_SERVICE_MESSAGE_ID: Your Viber Service Message ID.
 WHATSAPP_NUMBER: Your WhatsApp Number.
+
+# Messages API
+FROM_NUMBER.MESSAGES: Replace with number you are sending from. E.g. `447700900002`
+TO_NUMBER.MESSAGES: Replace with the number you are sending to. E.g. `447700900001`
+BASE_URL.MESSAGES: For production use the base URL is `https://api.nexmo.com/`. For sandbox testing the base URL is `https://messages-sandbox.nexmo.com/`.
+MESSAGES_API_URL: For production use the Messages API endpoint is `https://api.nexmo.com/v0.1/messages`. For sandbox testing the Messages API endpoint is `https://messages-sandbox.nexmo.com/v0.1/messages`.
+FB_SENDER_ID.MESSAGES: Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL. For sandbox testing this is `107083064136738`.
+AUDIO_URL.MESSENGER.MESSAGES: The link to the audio file to send. Must be MP3 format for Messenger.
+FILE_URL.MESSENGER.MESSAGES: The link to the file to send. Can be ZIP, CSV, PDF or any other type supported by Messenger.
+IMAGE_URL.MESSENGER.MESSAGES: The link to the image file to send. Messenger supports `.jpg`, `.jpeg`, `.png` and `.gif` types.
+VIDEO_URL.MESSENGER.MESSAGES: The link to the video to send. Messenger supports MP4 (`.mp4`) file format only.
+FROM_NUMBER.MMS.MESSAGES: The phone number you are sending the MMS from. (US Short Code only)
+IMAGE_URL.MMS.MESSAGES: The URL of the media you want to send. Accepted file formats are `.jpg`, `.jpeg`, `.png`, and `.gif`.
+WHATSAPP_TEMPLATE_NAMESPACE: The namespace ID found in your WhatsApp Business Account. Only templates created in your own namespace will work. Using an template with a namespace outside of your own results in an error code 1022 being returned. For sandbox testing the supported namespace is `9b6b4fcb_da19_4a26_8fe8_78074a91b584`.
+WHATSAPP_TEMPLATE_NAME: The name of the template created in your WhatsApp Business Account. For sandbox testing the `verify` template is currently available. Refer to [this table](/messages/concepts/messages-api-sandbox#whatsapp-templates-for-use-with-the-messages-api-sandbox) for new templates as they become available.
+HEADER_IMAGE_URL.WHATSAPP.MESSAGES: The URL of the image to display in the template message header.
+VIDEO_URL.WHATSAPP.MESSAGES: The link to the video to send. WhatsApp supports `.mp4` and `.3gpp`. Note, only `H.264` video codec and `AAC` audio codecs are supported.
