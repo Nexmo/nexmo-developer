@@ -11,10 +11,10 @@ In this code snippet you see how to redact a message using an ID
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`VONAGE_REDACT_ID` | The ID of the data record that you'd like to redact
-`VONAGE_REDACT_TYPE` | The product that the ID belongs to e.g. `sms`
+```snippet_variables
+- VONAGE_REDACT_ID
+- VONAGE_REDACT_TYPE
+```
 
 ```code_snippets
 source: '_examples/redact/redact-a-transaction'

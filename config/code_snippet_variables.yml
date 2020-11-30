@@ -98,3 +98,7 @@ VONAGE_APPLICATION_ID.NUMBERS: The ID of the application that handles inbound tr
 VOICE_CALLBACK_TYPE.NUMBERS: "The Voice API webhook type: `sip`, `tel` or `app`"
 VOICE_CALLBACK_VALUE.NUMBERS: A SIP URI, telephone number or Application ID, depending on `VOICE_CALLBACK_TYPE`
 VOICE_STATUS_URL.NUMBERS: A webhook URL for Vonage to POST Voice API status updates to
+
+# Redact
+VONAGE_REDACT_ID: The ID of the data record that you'd like to redact
+VONAGE_REDACT_TYPE: The product that the ID belongs to e.g. `sms`
