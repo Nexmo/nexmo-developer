@@ -6,7 +6,7 @@ title: Send an MMS with failover
 
 > **Action Needed For Vonage Customers Using US Shared Short Codes**
 >
-> **Effective immediately, Vonage will no longer accept new programs for Shared Short Codes for A2P messaging.** T-Mobile and AT&T’s new code of conduct prohibits the use of shared originators, therefore, existing Shared Short Code traffic must be migrated by March 1, 2021. To help you with this transition, please use the Vonage [guide to alternatives](https://help.nexmo.com/hc/en-us/articles/360050905592).  Please [contact us](mailto:support@nexmo.com) to migrate to a new solution.
+> **Effective immediately, Vonage will no longer accept new programs for Shared Short Codes for A2P messaging.** T-Mobile and AT&T’s new code of conduct prohibits the use of shared originators, therefore, existing Shared Short Code traffic must be migrated by March 1, 2021. To help you with this transition, please use the Vonage [guide to alternatives](https://help.nexmo.com/hc/en-us/articles/360050905592). Please [contact us](mailto:support@nexmo.com) to migrate to a new solution.
 
 In this example you will send an MMS that can fail over to sending an SMS.
 
@@ -18,11 +18,11 @@ In the Workflow object, message objects can be placed in any order to suit your 
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_APPLICATION_ID` | The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the MMS from (US Short Code only).
-`TO_NUMBER` | The phone number you are sending the MMS to.
+```snippet_variables
+- VONAGE_APPLICATION_ID
+- FROM_NUMBER.DISPATCH
+- TO_NUMBER.DISPATCH
+```
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 

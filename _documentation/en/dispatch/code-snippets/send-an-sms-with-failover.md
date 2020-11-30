@@ -12,12 +12,12 @@ In the Workflow object, message objects can be placed in any order to suit your 
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_APPLICATION_ID` | The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the SMS from.
-`TO_NUMBER_1` | The phone number you are sending the SMS to.
-`TO_NUMBER_2` | The phone number of the second phone. In this example, the workflow will failover to this number if the first message is not read in 60 seconds.
+```snippet_variables
+- VONAGE_APPLICATION_ID
+- FROM_NUMBER.DISPATCH
+- TO_NUMBER_1.DISPATCH
+- TO_NUMBER_2.DISPATCH
+```
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 

@@ -1,6 +1,10 @@
 # Generic
 VONAGE_API_KEY: Your Vonage API key (see it on [your dashboard](http://dashboard.nexmo.com/))
 VONAGE_API_SECRET: Your Vonage API secret (also available on [your dashboard](http://dashboard.nexmo.com/))
+VONAGE_APPLICATION_PRIVATE_KEY_PATH: Private key path.
+VONAGE_APPLICATION_PRIVATE_KEY: Private key.
+VONAGE_APPLICATION_ID: The Vonage Application ID.
+VONAGE_NUMBER: Your Vonage Number. E.g. `447700900000`
 ACCOUNT_ID: The account ID to target
 
 # Account API
@@ -11,7 +15,6 @@ NEW_SECRET: The new API secret for the API key.
 
 # Application API
 APPLICATION_NAME: The name for your Vonage Application.
-VONAGE_APPLICATION_ID: The application ID for the Vonage application you want to delete.
 NAME.UPDATE.APPLICATION: The new name for the Vonage application you want to update.
 
 # Audit API
@@ -36,3 +39,13 @@ USER_NAME: The unique name of the User
 USER_DISPLAY_NAME: The display name of the User.
 USER_NEW_NAME: The new name of the User
 USER_NEW_DISPLAY_NAME: The new display name of the User.
+
+# Dispatch API
+FROM_NUMBER.DISPATCH: Replace with number you are sending from. E.g. `447700900002`
+TO_NUMBER.DISPATCH: Replace with the number you are sending to. E.g. `447700900001`
+TO_NUMBER_1.DISPATCH: The phone number you are sending the SMS to.
+TO_NUMBER_2.DISPATCH: The phone number of the second phone. In this example, the workflow will failover to this number if the first message is not read in 60 seconds.
+FB_SENDER_ID: Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+FB_RECIPIENT_ID: The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+VIBER_SERVICE_MESSAGE_ID: Your Viber Service Message ID.
+WHATSAPP_NUMBER: Your WhatsApp Number.

@@ -12,13 +12,13 @@ For a step-by-step guide to this topic, you can read our tutorial [Sending Faceb
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_APPLICATION_ID` | The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the message from.
-`TO_NUMBER` | The phone number you are sending the message to.
-`FB_SENDER_ID` | Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
-`FB_RECIPIENT_ID` | The PSID of the user you want to reply to. The `FB_RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+```snippet_variables
+- VONAGE_APPLICATION_ID
+- FROM_NUMBER.DISPATCH
+- TO_NUMBER.DISPATCH
+- FB_SENDER_ID
+- FB_RECIPIENT_ID
+```
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 

@@ -10,12 +10,12 @@ In this example you will send a Viber message that fails over to sending an SMS.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_APPLICATION_ID` | The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the message from.
-`TO_NUMBER` | The phone number you are sending the message to.
-`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
+```snippet_variables
+- VONAGE_APPLICATION_ID
+- FROM_NUMBER.DISPATCH
+- TO_NUMBER.DISPATCH
+- VIBER_SERVICE_MESSAGE_ID
+```
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
