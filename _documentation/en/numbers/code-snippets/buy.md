@@ -17,12 +17,12 @@ This page shows you how to buy a number programmatically.
 
 Replace the following variables in the sample code with your own values:
 
-Name | Description
---|--
-`VONAGE_API_KEY` | Your Vonage [API key](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
-`VONAGE_API_SECRET` | Your Vonage [API secret](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)
-`COUNTRY_CODE` | The two digit country code for the number you want to buy. For example: `GB` for the United Kingdom.
-`VONAGE_NUMBER` | The Vonage virtual number you want to cancel. Omit the leading zero but include the international dialing code. For example: `447700900000`.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- COUNTRY_CODE
+- VONAGE_NUMBER
+```
 
 ```code_snippets
 source: '_examples/numbers/buy'

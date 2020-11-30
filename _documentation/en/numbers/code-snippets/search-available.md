@@ -11,15 +11,15 @@ This page shows you how to programmatically search for numbers that are availabl
 
 Replace the following variables in the sample code with your own values:
 
-Name | Description
---|--
-`VONAGE_API_KEY` | Your Vonage [API key](/concepts/guides/authentication#api-key-and-secret)
-`VONAGE_API_SECRET` | Your Vonage [API secret](/concepts/guides/authentication#api-key-and-secret)
-`COUNTRY_CODE` | The two digit country code for the numbers you want to search. For example: `GB` for the United Kingdom.
-`VONAGE_NUMBER_TYPE` | The type of number: `landline`, `mobile-lvn` or `landline-toll-free`
-`VONAGE_NUMBER_FEATURES` | The capabilities of the number: `SMS`, `VOICE` or `SMS,VOICE` for both
-`NUMBER_SEARCH_CRITERIA` | The filter criteria. For example, numbers containing `234`.
-`NUMBER_SEARCH_PATTERN` | Where the `NUMBER_SEARCH_CRITERIA` should appear in the number: <ul><li>`0` - At the beginning of the number</li><li>`1`- Anywhere in the number</li><li>`2` - At the end of the number</ul>
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- COUNTRY_CODE
+- VONAGE_NUMBER_TYPE
+- VONAGE_NUMBER_FEATURES
+- NUMBER_SEARCH_CRITERIA
+- NUMBER_SEARCH_PATTERN
+```
 
 ```code_snippets
 source: '_examples/numbers/search'
@@ -27,4 +27,4 @@ source: '_examples/numbers/search'
 
 ## See also
 
-* [API reference](/api/numbers)
+-   [API reference](/api/numbers)

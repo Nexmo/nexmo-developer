@@ -14,6 +14,7 @@ AUDIO_URL: The link to the audio file to send.
 FILE_URL: The URL of the file to send.
 FILE_CAPTION: The text describing the file being sent.
 VIDEO_CAPTION: The text describing the video being sent.
+COUNTRY_CODE: "The two digit country code for the number. For example: `GB` for the United Kingdom"
 
 # Account API
 VONAGE_SECRET_ID.DELETE: The ID of the secret to delete.
@@ -86,3 +87,14 @@ VIDEO_URL.WHATSAPP.MESSAGES: The link to the video to send. WhatsApp supports `.
 
 # Number Insight API
 INSIGHT_NUMBER: The number you want to retrieve insight information for.
+
+# Numbers
+NUMBER_SEARCH_CRITERIA: The filter criteria. For example, numbers containing `234`.
+NUMBER_SEARCH_PATTERN: "Where the `NUMBER_SEARCH_CRITERIA` should appear in the number: <ul><li>`0` - At the beginning of the number</li><li>`1`- Anywhere in the number</li><li>`2` - At the end of the number</ul>"
+VONAGE_NUMBER_TYPE: "The type of number: `landline`, `mobile-lvn` or `landline-toll-free`"
+VONAGE_NUMBER_FEATURES: "The capabilities of the number: `SMS`, `VOICE` or `SMS,VOICE` for both"
+SMS_CALLBACK_URL.NUMBERS: An URL-encoded URI to the webhook endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request. Vonage makes a GET request to the endpoint and checks that it returns a 200 OK response. Set this parameter's value to an empty string to remove the webhook.
+VONAGE_APPLICATION_ID.NUMBERS: The ID of the application that handles inbound traffic to this number.
+VOICE_CALLBACK_TYPE.NUMBERS: "The Voice API webhook type: `sip`, `tel` or `app`"
+VOICE_CALLBACK_VALUE.NUMBERS: A SIP URI, telephone number or Application ID, depending on `VOICE_CALLBACK_TYPE`
+VOICE_STATUS_URL.NUMBERS: A webhook URL for Vonage to POST Voice API status updates to

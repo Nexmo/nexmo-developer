@@ -11,12 +11,12 @@ This page shows you how to list the numbers that you own programmatically.
 
 Replace the following variables in the sample code with your own values:
 
-Name | Description
---|--
-`VONAGE_API_KEY` | Your Vonage [API key](/concepts/guides/authentication#api-key-and-secret)
-`VONAGE_API_SECRET` | Your Vonage [API secret](/concepts/guides/authentication#api-key-and-secret)
-`NUMBER_SEARCH_CRITERIA` | The filter criteria. For example, numbers containing `234`.
-`NUMBER_SEARCH_PATTERN` | Where the `NUMBER_SEARCH_CRITERIA` should appear in the number: <ul><li>`0` - At the beginning of the number</li><li>`1`- Anywhere in the number</li><li>`2` - At the end of the number</ul>
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- NUMBER_SEARCH_CRITERIA
+- NUMBER_SEARCH_PATTERN
+```
 
 ```code_snippets
 source: '_examples/numbers/list-owned'
