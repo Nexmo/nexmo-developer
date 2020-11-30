@@ -11,13 +11,14 @@ You can programmatically configure the settings for your account, such as the ca
 
 This example shows how to set the URL that will be called when your Vonage number receives an SMS.
 
-Key |	Description
--- | --
-`SMS_CALLBACK_URL` | The publicly-accessible URL that Vonage should send information to when your Vonage number receives an SMS
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- SMS_CALLBACK_URL
+```
 
 ```code_snippets
 source: _examples/account/configure-account
 ```
 
 The example outputs the current settings of your account, after it was updated with the new URL.
-

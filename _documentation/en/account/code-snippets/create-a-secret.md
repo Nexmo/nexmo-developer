@@ -9,16 +9,17 @@ To create a new API secret, you must send a `POST` request to the secret managem
 
 New API secrets must meet the following rules:
 
-* Minimum 8 characters
-* Maximum 25 characters
-* Minimum 1 lower case character
-* Minimum 1 upper case character
-* Minimum 1 digit
+-   Minimum 8 characters
+-   Maximum 25 characters
+-   Minimum 1 lower case character
+-   Minimum 1 upper case character
+-   Minimum 1 digit
 
-Key | Description
- -- | --
-`VONAGE_API_KEY` | The API key of the account.
-`NEW_SECRET` | The new API secret for the API key.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- NEW_SECRET
+```
 
 ```code_snippets
 source: _examples/account/secret-management/create-a-secret

@@ -8,10 +8,12 @@ navigation_weight: 4
 This will return the details of a single secret. The value of the secret will
 never be shown.
 
-Key | Description
- -- | --
-`VONAGE_API_KEY` | The API key of the account to fetch secrets for. Can be the same as authenticating account or it can be a subaccount.
-`VONAGE_SECRET_ID` | The ID of the secret to retrieve.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- ACCOUNT_ID
+- VONAGE_SECRET_ID.FETCH
+```
 
 ```code_snippets
 source: _examples/account/secret-management/fetch-a-secret

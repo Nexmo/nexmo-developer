@@ -7,6 +7,11 @@ navigation_weight: 1
 
 You can check the balance of your Vonage account at any time by making an API request and receiving the balance of your account in the response.
 
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+```
+
 ```code_snippets
 source: _examples/account/get-balance
 ```

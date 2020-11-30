@@ -9,10 +9,12 @@ To create a new API secret, you must send a `DELETE` request to the secret manag
 
 You must have at least one API secret at all times.
 
-Key | Description
- -- | --
-`VONAGE_API_KEY` | The API key of the account.
-`VONAGE_SECRET_ID` | The ID of the secret to delete.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- ACCOUNT_ID
+- VONAGE_SECRET_ID.DELETE
+```
 
 ```code_snippets
 source: _examples/account/secret-management/revoke-a-secret

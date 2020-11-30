@@ -1,6 +1,10 @@
-NEXMO_API_KEY:
-  description: You can find this in your account overview
-NEXMO_API_SECRET:
-  description: You can find this in your account overview
-TO_NUMBER:
-  description: The number you are sending the SMS to in E.164 format. For example `447700900000`.
+# Generic
+VONAGE_API_KEY: The API key of the account.
+VONAGE_API_SECRET: The API secret of the account.
+ACCOUNT_ID: The account ID to target
+
+# Account API
+VONAGE_SECRET_ID.DELETE: The ID of the secret to delete.
+VONAGE_SECRET_ID.FETCH: The ID of the secret to retrieve.
+SMS_CALLBACK_URL: The publicly-accessible URL that Vonage should send information to when your Vonage number receives an SMS
+NEW_SECRET: The new API secret for the API key.
