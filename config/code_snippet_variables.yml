@@ -13,3 +13,9 @@ NEW_SECRET: The new API secret for the API key.
 APPLICATION_NAME: The name for your Vonage Application.
 VONAGE_APPLICATION_ID: The application ID for the Vonage application you want to delete.
 NAME.UPDATE.APPLICATION: The new name for the Vonage application you want to update.
+
+# Audit API
+EVENT_UUID: The UUID of the audit event you want to retrieve.
+SEARCH_TEXT: Some JSON compatible text to search for. For example, "number".
+DATE_FROM: Audit events starting from this ISO-8601 datetime value. For example, "2018-07-01".
+DATE_TO: Audit events up to this ISO-8601 datetime value. For example, "2018-08-01".

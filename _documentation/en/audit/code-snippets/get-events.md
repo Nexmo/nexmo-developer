@@ -11,10 +11,10 @@ In this code snippet you see how to get a list of audit events.
 
 You will need to ensure that the following replaceable values are set in the example code using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_API_KEY` | Your Vonage API key.
-`VONAGE_API_SECRET` | Your Vonage API secret.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+```
 
 > In the following example the _Create an application_ and _Initialize your dependencies_ procedures are optional.
 

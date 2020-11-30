@@ -24,13 +24,13 @@ Query Parameter | Description
 
 You will need to ensure that the following replaceable values are set in the example code using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_API_KEY` | Your Vonage API key.
-`VONAGE_API_SECRET` | Your Vonage API secret.
-`SEARCH_TEXT` | Some JSON compatible text to search for. For example, "number".
-`DATE_FROM` | Audit events starting from this ISO-8601 datetime value. For example, "2018-07-01".
-`DATE_TO` | Audit events up to this ISO-8601 datetime value. For example, "2018-08-01".
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- SEARCH_TEXT
+- DATE_FROM
+- DATE_TO
+```
 
 > In the following example the _Create an application_ and _Initialize your dependencies_ procedures are optional.
 
