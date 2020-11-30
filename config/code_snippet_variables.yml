@@ -5,8 +5,9 @@ VONAGE_APPLICATION_PRIVATE_KEY_PATH: Private key path.
 VONAGE_APPLICATION_PRIVATE_KEY: Private key.
 VONAGE_APPLICATION_ID: The Vonage Application ID.
 VONAGE_NUMBER: Your Vonage Number. E.g. `447700900000`
+VONAGE_BRAND_NAME: The alphanumeric string that represents the name or number of the organization sending the message.
 ACCOUNT_ID: The account ID to target
-TO_NUMBER: Replace with the number you are sending to. E.g. `447700900001`
+TO_NUMBER: The number you are sending the to in E.164 format. For example `447700900000`.
 IMAGE_URL: The link to the image file to send.
 IMAGE_CAPTION: The text describing the image being sent.
 AUDIO_URL: The link to the audio file to send.

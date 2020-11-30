@@ -10,12 +10,12 @@ The Vonage SMS API supports Unicode characters too, which you will need to use w
 
 To send an SMS that contains Unicode characters, replace the following variables in the example below:
 
-Key | Description
--- | --
-`VONAGE_API_KEY` | You can find this in your Vonage Dashboard.
-`VONAGE_API_SECRET` | You can find this in your Vonage Dashboard.
-`VONAGE_BRAND_NAME` | The alphanumeric string that represents the name or number of the organization sending the message.
-`TO_NUMBER` | The number you are sending the SMS to, for example `447700900000`.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- VONAGE_BRAND_NAME
+- TO_NUMBER.SMS
+```
 
 ```code_snippets
 source: '_examples/messaging/sms/send-an-sms-with-unicode'

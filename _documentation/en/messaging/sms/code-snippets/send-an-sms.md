@@ -8,17 +8,17 @@ navigation_weight: 2
 
 To send an SMS, replace the following variables in the example below:
 
-Key | Description
--- | --
-`VONAGE_API_KEY` | You can find this in your account overview
-`VONAGE_API_SECRET` | You can find this in your account overview
-`VONAGE_BRAND_NAME` | The alphanumeric string that represents the name or number of the organization sending the message.
-`TO_NUMBER` | The number you are sending the SMS to in E.164  format. For example `447700900000`.
-
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- VONAGE_BRAND_NAME
+- TO_NUMBER.SMS
+```
 
 ```code_snippets
 source: '_examples/messaging/sms/send-an-sms'
 ```
+
 ## Try it out
 
 When you run the example above, the text message will be sent to the mobile number that you specified.
