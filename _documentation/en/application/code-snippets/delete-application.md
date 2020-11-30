@@ -12,11 +12,11 @@ In this code snippet you will see how to delete the specified Application.
 
 You will need to ensure that the following replaceable values are set in the example code using any convenient method:
 
-Key | Description
--- | --
-`VONAGE_API_KEY` | Your Vonage API key.
-`VONAGE_API_SECRET` | Your Vonage API secret.
-`VONAGE_APPLICATION_ID` | The application ID for the Vonage application you want to delete.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- VONAGE_APPLICATION_ID
+```
 
 ```code_snippets
 source: '_examples/application/delete-application'

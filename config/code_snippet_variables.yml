@@ -1,6 +1,6 @@
 # Generic
-VONAGE_API_KEY: The API key of the account.
-VONAGE_API_SECRET: The API secret of the account.
+VONAGE_API_KEY: Your Vonage API key (see it on [your dashboard](http://dashboard.nexmo.com/))
+VONAGE_API_SECRET: Your Vonage API secret (also available on [your dashboard](http://dashboard.nexmo.com/))
 ACCOUNT_ID: The account ID to target
 
 # Account API
@@ -8,3 +8,8 @@ VONAGE_SECRET_ID.DELETE: The ID of the secret to delete.
 VONAGE_SECRET_ID.FETCH: The ID of the secret to retrieve.
 SMS_CALLBACK_URL: The publicly-accessible URL that Vonage should send information to when your Vonage number receives an SMS
 NEW_SECRET: The new API secret for the API key.
+
+# Application API
+APPLICATION_NAME: The name for your Vonage Application.
+VONAGE_APPLICATION_ID: The application ID for the Vonage application you want to delete.
+NAME.UPDATE.APPLICATION: The new name for the Vonage application you want to update.
