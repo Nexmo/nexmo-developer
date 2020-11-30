@@ -11,9 +11,9 @@ In this code snippet you learn how to record a Conversation.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | Unique ID of the Conversation.
+```snippet_variables
+- CONVERSATION_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/conversation/record-conversation'

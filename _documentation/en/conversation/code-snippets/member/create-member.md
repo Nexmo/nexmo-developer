@@ -11,10 +11,10 @@ In this code snippet you learn how to create a Member. A Member can be thought o
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique ID of the Conversation.
-`USER_ID` | The unique ID of the User.
+```snippet_variables
+- CONVERSATION_ID
+- USER_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/member/create-member'

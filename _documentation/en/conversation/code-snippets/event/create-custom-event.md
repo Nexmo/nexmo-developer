@@ -16,10 +16,10 @@ Custom events can be used to add metadata to your conversation. There are some r
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique ID of the Conversation.
-`MEMBER_ID` | The unique ID of the Member (optional).
+```snippet_variables
+- CONVERSATION_ID
+- MEMBER_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/event/create-custom-event'

@@ -11,10 +11,10 @@ In this code snippet you learn how to delete a Member.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique ID of the Conversation.
-`MEMBER_ID` | The unique ID of the member.
+```snippet_variables
+- CONVERSATION_ID
+- MEMBER_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/member/delete-member'

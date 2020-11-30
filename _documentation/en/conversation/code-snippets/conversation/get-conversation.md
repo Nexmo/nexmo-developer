@@ -11,9 +11,9 @@ In this code snippet you learn how to get a specified Conversation.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique name of the Conversation to be retrieved.
+```snippet_variables
+- CONVERSATION_ID.GET
+```
 
 ```code_snippets
 source: '_examples/conversation/conversation/get-conversation'

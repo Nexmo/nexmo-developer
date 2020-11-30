@@ -11,11 +11,11 @@ In this code snippet you learn how to update a Conversation.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | Unique ID of the Conversation.
-`CONV_NEW_NAME` | The new name.
-`CONV_NEW_DISPLAY_NAME` | The new display name.
+```snippet_variables
+- CONVERSATION_ID
+- CONV_NEW_NAME
+- CONV_NEW_DISPLAY_NAME
+```
 
 ```code_snippets
 source: '_examples/conversation/conversation/update-conversation'

@@ -11,10 +11,11 @@ In this code snippet you learn how to update a User's details.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`USER_NEW_NAME` | The new unique name of the User.
-`USER_NEW_DISPLAY_NAME` | The new display name of the User.
+```snippet_variables
+- USER_ID
+- USER_NEW_NAME
+- USER_NEW_DISPLAY_NAME
+```
 
 ```code_snippets
 source: '_examples/conversation/user/update-user'

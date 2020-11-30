@@ -11,9 +11,9 @@ In this code snippet you learn how to delete a specified Conversation.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique name of the Conversation to be deleted.
+```snippet_variables
+- CONVERSATION_ID.DELETE
+```
 
 ```code_snippets
 source: '_examples/conversation/conversation/delete-conversation'

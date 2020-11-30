@@ -11,9 +11,9 @@ In this code snippet you learn how to list Events.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique ID of the Conversation.
+```snippet_variables
+- CONVERSATION_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/event/list-events'

@@ -11,9 +11,9 @@ In this code snippet you learn how to get a list of Conversations a User is asso
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`USER_ID` | The unique ID of the User.
+```snippet_variables
+- USER_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/user/list-user-conversations'

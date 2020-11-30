@@ -11,10 +11,10 @@ In this code snippet you learn how to get an Event.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique ID of the Conversation.
-`EVENT_ID` | The unique ID of the Event.
+```snippet_variables
+- CONVERSATION_ID
+- EVENT_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/event/get-event'

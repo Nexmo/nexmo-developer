@@ -11,10 +11,10 @@ In this code snippet you learn how to create a Conversation.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONV_NAME` | The unique name of the Conversation.
-`CONV_DISPLAY_NAME` | The display name of the Conversation.
+```snippet_variables
+- CONV_NAME
+- CONV_DISPLAY_NAME
+```
 
 ```code_snippets
 source: '_examples/conversation/conversation/create-conversation'

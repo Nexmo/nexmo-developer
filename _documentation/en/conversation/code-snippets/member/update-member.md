@@ -11,11 +11,11 @@ In this code snippet you learn how to update the details of a Member.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`CONVERSATION_ID` | The unique ID of the Conversation.
-`USER_ID` | The unique ID of the User.
-`MEMBER_ID` | The unique ID of the member.
+```snippet_variables
+- CONVERSATION_ID
+- USER_ID
+- MEMBER_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/member/update-member'

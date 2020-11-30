@@ -11,10 +11,10 @@ In this code snippet you learn how to create a User.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`USER_NAME` | The unique name of the User.
-`USER_DISPLAY_NAME` | The display name of the User.
+```snippet_variables
+- USER_NAME
+- USER_DISPLAY_NAME
+```
 
 ```code_snippets
 source: '_examples/conversation/user/create-user'

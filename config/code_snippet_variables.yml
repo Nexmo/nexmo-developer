@@ -19,3 +19,20 @@ EVENT_UUID: The UUID of the audit event you want to retrieve.
 SEARCH_TEXT: Some JSON compatible text to search for. For example, "number".
 DATE_FROM: Audit events starting from this ISO-8601 datetime value. For example, "2018-07-01".
 DATE_TO: Audit events up to this ISO-8601 datetime value. For example, "2018-08-01".
+
+# Conversation
+CONV_NAME: The unique name of the Conversation.
+CONV_DISPLAY_NAME: The display name of the Conversation.
+CONVERSATION_ID: The ID of the Conversation
+CONVERSATION_ID.GET: The ID of the Conversation to be retrieved.
+CONVERSATION_ID.DELETE: The ID of the Conversation to be deleted.
+CONV_NEW_NAME: The new name.
+CONV_NEW_DISPLAY_NAME: The new display name
+MEMBER_ID: The unique ID of the Member
+EVENT_ID: The unique ID of the Event
+LEG_ID: The unique ID of the Leg
+USER_ID: The unique ID of the User
+USER_NAME: The unique name of the User
+USER_DISPLAY_NAME: The display name of the User.
+USER_NEW_NAME: The new name of the User
+USER_NEW_DISPLAY_NAME: The new display name of the User.

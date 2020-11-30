@@ -10,9 +10,9 @@ In this code snippet you learn how to delete a Leg.
 
 Ensure the following variables are set to your required values using any convenient method:
 
-Key | Description
--- | --
-`LEG_ID` | The unique ID of the Leg.
+```snippet_variables
+- LEG_ID
+```
 
 ```code_snippets
 source: '_examples/conversation/leg/delete-leg'
