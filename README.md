@@ -36,9 +36,8 @@ The project can be run on your laptop, either directly or using Docker. These in
 
 Before you start, you need to make sure that you have:
 
-- [Ruby 2.5.8](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
+- [Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
 - [PostgreSQL](https://www.postgresql.org/download/)
-- [Yarn](https://yarnpkg.com/en/docs/install)
 
 #### System Setup (OSX)
 
@@ -55,7 +54,7 @@ use a different database or user, use `createdb database_name_here` or `createus
 `.env` file is updated accordingly (See [.env.example](https://github.com/Nexmo/nexmo-developer/blob/master/.env.example)).
 
 ```bash
-brew install postgres rbenv git yarn nvm redis
+brew install postgres rbenv git nvm redis
 brew services start postgresql
 brew services start redis
 
@@ -81,8 +80,8 @@ cp .env.example .env
 
 Install the correct versions of ruby
 ```
-rbenv install 2.5.8
-rbenv global 2.5.8
+rbenv install 2.7.2
+rbenv global 2.7.2
 gem install bundle
 bundle install
 ```
