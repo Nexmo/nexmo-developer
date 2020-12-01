@@ -13,7 +13,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     }
     if NXMClient.shared.isNexmoPush(userInfo: userInfo) {
         guard let pushPayload = NXMClient.shared.processNexmoPushPayload(userInfo) else {
-            NSLog("Not a Vonage push notification")
+            NSLog("Not a Nexmo push notification")
             return
         }
         if pushPayload.template == NXMPushTemplate.custom {

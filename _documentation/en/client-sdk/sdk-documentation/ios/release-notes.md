@@ -119,7 +119,7 @@ NXMClientConfig *config = [[NXMClientConfig alloc] initWithApiUrl:restUrl
  if (NXNClient.shared isNexmoPushWithUserInfo:pushInfo]){
     NXMPushPayload *pushPayload = [myNXNClient processNexmoPushPayload:pushInfo];
     if (!pushPayload){
-        // "Not a Vonage push!!"
+        // "Not a Nexmo push!!"
         return;
     };
 
