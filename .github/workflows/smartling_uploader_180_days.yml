@@ -1,17 +1,18 @@
-name: CI
+name: Smartling Uploader for Files Changed within 180 Days
 on:
-  push: {}
-  pull_request:
-    types: [opened, synchronize]
-
+  schedule:
+    - cron: "0 0 * */6 *"
+  workflow_dispatch:
+    branches:
+      - master
 jobs:
-  build:
+  check-changes:
     runs-on: ubuntu-latest
     services:
       db:
         env:
-          POSTGRES_USER: nexmo_developer
-          POSTGRES_DB: nexmo_developer_production
+          POSTGRES_USER: postgres
+          POSTGRES_DB: nexmo_developer_test
           POSTGRES_HOST_AUTH_METHOD: trust
         image: postgres:11
         ports: ['5432:5432']
@@ -20,10 +21,10 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
     steps:
     - uses: actions/checkout@v2
       with:
+        fetch-depth: 0
         submodules: recursive
     - uses: actions/setup-node@v1
       with:
@@ -41,10 +42,10 @@ jobs:
     - name: Install packages
       run: |
         yarn install --pure-lockfile
-    - name: Set up Ruby 2.7.2
+    - name: Set up Ruby 2.5.8
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7.2
+        ruby-version: 2.5.8
     - name: Ruby gem cache
       uses: actions/cache@v1
       with:
@@ -59,31 +60,23 @@ jobs:
         POSTGRES_USERNAME: postgres
         BUNDLE_RUBYGEMS__PKG__GITHUB__COM: "NexmoDev:${{ secrets.GH_ADMIN_TOKEN }}"
       run: |
-        gem update --system 3.1.4 -N
+        gem update --system 3.0.3 -N
         gem install --no-document bundler
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
-    - name: Check spelling
+    - id: step1
+      name: Check for File Changes
+      run: |
+        arr=$(git log --since=180.days --name-only --oneline --diff-filter=AMR --pretty=format: master _documentation/en _tutorials/en _use_cases/en | uniq | awk 'NF')
+        echo ::set-output name=file_changes::"$(echo $(sed 's/\n/ /g' <<< $arr))"
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run rake task
+      if: steps.step1.outputs.file_changes != ''
       env:
         POSTGRES_USERNAME: postgres
-        DOCS_BASE_PATH: "."
         OAS_PATH: "_open_api/api_specs/definitions"
         FORCE_COLOR: true
       run: |
-        ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**/*.md'
-    - name: Run rake tasks
-      env:
-        POSTGRES_USERNAME: postgres
-        OAS_PATH: "_open_api/api_specs/definitions"
-        DISABLE_SSL: true
-        FORCE_COLOR: true
-      run: |
-        DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=production bundle exec nexmo-developer --docs=. --rake-ci
-    - name: Run tests
-      env:
-        POSTGRES_USERNAME: postgres
-        OAS_PATH: "_open_api/api_specs/definitions"
-        DISABLE_SSL: true
-        RAILS_ENV: "production"
-        DATABASE_CLEANER_ALLOW_PRODUCTION: 1
-      run: DOCS_BASE_PATH=`pwd` bundle exec rspec
+        RAILS_LOG_TO_STDOUT=1 RAILS_ENV=test bundle exec nexmo-developer --docs=. --rake-smartling-upload 180 ${{steps.step1.outputs.file_changes}}

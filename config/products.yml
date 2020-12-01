@@ -4,148 +4,173 @@ products:
     icon: 'user'
     icon_colour: 'purple-dark'
     path: account
+    translation_frequency: 180
     dropdown: true
   - 
     name: 'Subaccounts'
     icon: 'add-user'
     icon_colour: 'blue'
     path: account/subaccounts
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Applications'
     icon: 'flow'
     icon_colour: 'purple-dark' 
     path: application
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Audit'
     icon: 'file-search'
     icon_colour: 'blue' 
     path: audit
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Client SDK'
     icon: 'group-2'
     icon_colour: 'red' 
     path: client-sdk
+    translation_frequency: 180
     dropdown: true
   -
     name: 'In-App Voice'
     icon: 'microphone'
     icon_colour: 'purple-dark' 
     path: client-sdk/in-app-voice
+    translation_frequency: 180
     dropdown: false
   -
     name: 'In-App Video'
     icon: 'video'
     icon_colour: 'purple-dark' 
     path: client-sdk/in-app-video
+    translation_frequency: 180
     dropdown: false
   -
     name: 'In-App Messaging'
     icon: 'chat'
     icon_colour: 'purple-dark' 
     path: client-sdk/in-app-messaging
+    translation_frequency: 180
     dropdown: false
   -
     name: 'Concepts'
     icon: 'books'
     icon_colour: 'purple-dark' 
     path: concepts
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Conversation API'
     icon: 'more-detailed-list'
     icon_colour: 'red' 
     path: conversation
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Dispatch API'
     icon: 'reload'
     icon_colour: 'green' 
     path: dispatch
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Getting Started'
     icon: 'queue'
     icon_colour: 'purple-dark'
     path: 'getting-started'
+    translation_frequency: 180
     dropdown: false
   -
     name: 'Messages API'
     icon: 'chat'
     icon_colour: 'indigo' 
     path: messages
+    translation_frequency: 5
     dropdown: true
   -
     name: 'SMS API'
     icon: 'message'
     icon_colour: 'purple' 
     path: messaging/sms
+    translation_frequency: 5
     dropdown: true
   -
     name: 'Conversion API'
     icon: 'message'
     icon_colour: 'purple-dark' 
     path: messaging/conversion-api
+    translation_frequency: 180
     dropdown: true
   -
     name: 'US Short Codes'
     icon: 'message'
     icon_colour: 'purple-dark' 
     path: messaging/us-short-codes
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Number Insight API'
     icon: 'search'
     icon_colour: 'grey' 
     path: number-insight
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Numbers'
     icon: 'hash'
     icon_colour: 'purple-dark'   
     path: numbers
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Redact API'
     icon: 'search'
     icon_colour: 'purple-dark' 
     path: redact
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Reports API'
     icon: 'report'
     icon_colour: 'blue' 
     path: reports
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Tools'
     icon: 'code'
     icon_colour: 'purple-dark' 
     path: tools
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Verify'
     icon: 'lock'
     icon_colour: 'purple-dark' 
     path: verify
+    translation_frequency: 5
     dropdown: true
   -
     name: 'SIP'
     icon: 'phone'
     icon_colour: 'purple-dark' 
     path: voice/sip
+    translation_frequency: 180
     dropdown: true
   -
     name: 'Voice API'
     icon: 'phone'
     icon_colour: 'orange' 
     path: voice/voice-api
+    translation_frequency: 5
     dropdown: true
   -
     name: 'Vonage Business Cloud'
     icon: 'telephone'
     icon_colour: 'purple-dark' 
     path: vonage-business-cloud
+    translation_frequency: 5
     dropdown: true

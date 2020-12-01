@@ -76,7 +76,7 @@ GEM
     arbre (1.3.0)
       activesupport (>= 3.0.0, < 6.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
-    autoprefixer-rails (10.0.2.0)
+    autoprefixer-rails (10.0.3.0)
       execjs
     banzai (0.1.3)
     barnes (0.0.8)
@@ -88,6 +88,15 @@ GEM
     bugsnag (6.18.0)
       concurrent-ruby (~> 1.0)
     builder (3.2.4)
+    byebug (11.1.3)
+    capybara (3.34.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
     chartkick (3.4.2)
     clipboard-rails (1.7.1)
     coffee-rails (5.0.0)
@@ -107,6 +116,10 @@ GEM
       countries (~> 3.0)
       sort_alphabetical (~> 1.0)
     crass (1.0.6)
+    database_cleaner (1.8.5)
+    database_cleaner-active_record (1.8.0)
+      activerecord
+      database_cleaner (~> 1.8.0)
     deep_merge (1.2.1)
     devise (4.7.3)
       bcrypt (~> 3.0)
@@ -114,12 +127,15 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.4.4)
     diffy (3.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
     erubi (1.10.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -312,6 +328,7 @@ GEM
       json
     redcarpet (3.4.0)
     redis (4.2.5)
+    regexp_parser (1.8.2)
     request_store (1.5.0)
       rack (>= 1.4)
     responders (3.0.1)
@@ -323,6 +340,19 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rouge (2.0.7)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.0)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     sass (3.7.4)
@@ -369,11 +399,11 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    station (0.0.102)
+    station (0.0.103)
       activeadmin (~> 2.7)
       activesupport (~> 6.0)
       algoliasearch (= 1.27.5)
-      autoprefixer-rails (= 10.0.2.0)
+      autoprefixer-rails (= 10.0.3.0)
       barnes (= 0.0.8)
       bootsnap (~> 1.4)
       bugsnag (~> 6.13)
@@ -451,13 +481,21 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     woothee (1.11.1)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.4.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  station (= 0.0.102)!
+  byebug
+  capybara
+  database_cleaner-active_record
+  factory_bot
+  rack-test
+  rspec
+  station (= 0.0.103)!
 
 BUNDLED WITH
    2.1.4

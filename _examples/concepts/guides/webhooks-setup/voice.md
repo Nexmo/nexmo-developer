@@ -61,3 +61,5 @@ Fallback | 1 second | 5 seconds
 These defaults can be overridden via an [Application API](/api/application.v2#updateApplication) call or in the [Dashboard](https://dashboard.nexmo.com/applications) by selecting the application, then clicking the **Edit** button and scrolling to the Capabilities / Voice section:
 
 ![Voice Webhook Timeouts](/images/concepts/guides/db_voice_webhook_timeouts.png)
+
+Further information on these timeouts can be found in the [webhook timeouts](/application/overview#webhook-timeouts) section of the Application API [overview](/application/overview) documentation.
