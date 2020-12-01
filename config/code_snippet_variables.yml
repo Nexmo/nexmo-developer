@@ -114,3 +114,14 @@ STATUS.REPORTS: Status of message or call.
 REPORT_STATUS: Status of report generation, can be any of `PENDING`, `PROCESSING`, `SUCCESS`, `ABORTED`, `FAILED`, `TRUNCATED`. For [report listing](/reports/code-snippets/list-reports), `status` is passed in as a comma-separated list of report status values.
 FILE_ID.REPORTS: The file ID of the report to retrieve.
 ID.REPORTS: The UUID of the message or call to retrieve a record for. It is possible to specify a comma-separated list of UUIDs to retrieve multiple records.
+
+# Verify
+REQUEST_ID.VERIFY: The ID of the Verify request (this is returned in the API response when you [send a verification code](/verify/code-snippets/send-verify-request))
+CODE.VERIFY.VERIFY: The code the user supplies as having been sent to them
+RECIPIENT_NUMBER.VERIFY: The phone number to verify
+PAYEE.VERIFY: Included in the message to describe the payment recipient
+AMOUNT.VERIFY: How much the payment is for (always in Euro)
+WORKFLOW_ID.VERIFY: Choose a workflow (number between 1 and 7), these are defined in the [workflows guide](/verify/guides/workflows-and-events)
+BRAND_NAME.VERIFY: Included in the message to explain who is confirming the phone number
+CODE.VERIFY: The code the user supplies as having been sent to them
+>>>>>>> ef5d7b5ef (Update Verify to snippet_variables)

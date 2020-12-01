@@ -11,12 +11,12 @@ The Verify API returns a `request_id`. Use this to identify a specific verificat
 
 Replace the following variables in the sample code with your own values:
 
-Name | Description
---|--
-`VONAGE_API_KEY` | Your Vonage [API key](/concepts/guides/authentication#api-key-and-secret)
-`VONAGE_API_SECRET` | Your Vonage [API secret](/concepts/guides/authentication#api-key-and-secret)
-`RECIPIENT_NUMBER` | The phone number to verify
-`BRAND_NAME` | Included in the message to explain who is confirming the phone number
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- RECIPIENT_NUMBER.VERIFY
+- BRAND_NAME.VERIFY
+```
 
 ```code_snippets
 source: '_examples/verify/send-verification-request'

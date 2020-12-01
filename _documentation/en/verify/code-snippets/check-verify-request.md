@@ -11,12 +11,12 @@ Check the verification code that a user has provided. Use the `request_id` that 
 
 Replace the following variables in the sample code with your own values:
 
-Name | Description
---|--
-`VONAGE_API_KEY` | Your Vonage [API key](/concepts/guides/authentication#api-key-and-secret)
-`VONAGE_API_SECRET` | Your Vonage [API secret](/concepts/guides/authentication#api-key-and-secret)
-`REQUEST_ID` | The ID of the Verify request you wish to check (this is returned in the API response when you [send a verification code](/verify/code-snippets/send-verify-request))
-`CODE` | The code the user supplies as having been sent to them
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- REQUEST_ID.VERIFY
+- CODE.VERIFY
+```
 
 ```code_snippets
 source: '_examples/verify/check-verification-request'

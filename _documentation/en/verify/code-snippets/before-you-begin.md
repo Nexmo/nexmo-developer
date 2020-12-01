@@ -10,7 +10,7 @@ navigation_weight: 1
 Code snippets are short pieces of code you can reuse in your own applications.
 The code snippets use code from [example repositories](https://github.com/topics/nexmo-quickstart).
 
-Please read this information carefully before attempting to use the code snippets.  
+Please read this information carefully before attempting to use the code snippets.
 
 ## Prerequisites
 
@@ -26,10 +26,10 @@ The code snippets use placeholders for variable values that you must replace wit
 
 The following variables are specific to your Vonage account. You can view them in the [developer dashboard](https://dashboard.nexmo.com/):
 
-Key |	Description
--- | --
-`VONAGE_API_KEY` | API key.
-`VONAGE_API_SECRET` | API secret.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+```
 
 ### Numbers
 
