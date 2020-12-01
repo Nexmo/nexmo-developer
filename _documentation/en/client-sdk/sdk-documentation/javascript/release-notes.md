@@ -6,6 +6,13 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 6.1.0 - December 01, 2020
+
+### Changes
+
+- Add `enableEventsQueue` flag to client configuration (default to true)
+- Add internal `eventsQueue` mechanism to guarantee order of events received during a session
+
 ## Version 6.0.19 - November 26, 2020
 
 ### Changes
