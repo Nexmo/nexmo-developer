@@ -27,6 +27,8 @@
 "/client-sdk/in-app-voice/contact-center-overview": "/use-cases/contact-center-client-sdk"
 "/client-sdk/in-app-voice/getting-started/app-to-app-call": "/client-sdk/tutorials/app-to-app/introduction/"
 "/client-sdk/in-app-voice/getting-started/receive-phone-call": "/client-sdk/tutorials/phone-to-app/introduction"
+"/task/client-sdk/ip-messaging/authenticate-users": "/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/authenticate-users"
+"/task/client-sdk/ios-in-app-messaging-chat/add-users-to-conversation": "/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/add-users-to-conversation/"
 "/concepts": "/concepts/overview"
 "/concepts/guides/applications": "/application/overview"
 "/reports/api-reference": "/api/reports"
