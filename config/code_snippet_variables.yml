@@ -102,3 +102,15 @@ VOICE_STATUS_URL.NUMBERS: A webhook URL for Vonage to POST Voice API status upda
 # Redact
 VONAGE_REDACT_ID: The ID of the data record that you'd like to redact
 VONAGE_REDACT_TYPE: The product that the ID belongs to e.g. `sms`
+
+# Reports
+REQUEST_ID.REPORTS: The request ID returned when a report was created
+ACCOUNT_ID.REPORTS: The account ID (same as `VONAGE_API_KEY`) for the account you want to generate reports, or retrieve records for.
+REPORT_PRODUCT: Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
+REPORT_DIRECTION: Either `inbound` or `outbound`
+DATE_START.REPORTS: Date of time window from when you want to start gathering records in ISO-8601 format.
+DATE_END.REPORTS: Date of time window from when you want to stop gathering records in ISO-8601 format.
+STATUS.REPORTS: Status of message or call.
+REPORT_STATUS: Status of report generation, can be any of `PENDING`, `PROCESSING`, `SUCCESS`, `ABORTED`, `FAILED`, `TRUNCATED`. For [report listing](/reports/code-snippets/list-reports), `status` is passed in as a comma-separated list of report status values.
+FILE_ID.REPORTS: The file ID of the report to retrieve.
+ID.REPORTS: The UUID of the message or call to retrieve a record for. It is possible to specify a comma-separated list of UUIDs to retrieve multiple records.

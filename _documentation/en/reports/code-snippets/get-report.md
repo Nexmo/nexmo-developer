@@ -10,11 +10,11 @@ This code snippet shows you how to retrieve a report file. The report file is a 
 
 ## Example
 
-Variable | Required | Description
-----|----|----
-`VONAGE_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`VONAGE_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`FILE_ID` | Yes | The file ID of the report to retrieve.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- FILE_ID.REPORTS
+```
 
 ```code_snippets
 source: '_examples/reports/get-report'

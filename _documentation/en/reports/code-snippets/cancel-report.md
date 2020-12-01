@@ -10,11 +10,11 @@ This code snippet shows you how to cancel the creation of a report.
 
 ## Example
 
-Variable | Required | Description
-----|----|----
-`VONAGE_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`VONAGE_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`REQUEST_ID` | Yes | The request ID of the report to cancel creation of.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- REQUEST_ID.REPORTS
+```
 
 ```code_snippets
 source: '_examples/reports/cancel-report'

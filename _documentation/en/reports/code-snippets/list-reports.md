@@ -10,12 +10,12 @@ This code snippet shows you how to list all asynchronous report requests with th
 
 ## Example
 
-Variable | Required | Description
-----|----|----
-`VONAGE_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`VONAGE_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`ACCOUNT_ID` | Yes | The API key for the target account. Reports generated, or records retrieved, are for this account.
-`REPORT_STATUS` | Yes | A comma-separated list of report status values. Reports with any of the statuses specified are returned. The values in the comma-separated list specified for `status` can be any of `PENDING`, `PROCESSING`, `SUCCESS`, `ABORTED`, `FAILED`, `TRUNCATED`.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- ACCOUNT_ID.REPORTS
+- REPORT_STATUS
+```
 
 If you don't specify a date range, you receive the reports generated over the previous seven days.
 

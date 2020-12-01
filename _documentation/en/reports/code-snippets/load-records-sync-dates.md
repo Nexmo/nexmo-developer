@@ -12,15 +12,15 @@ This code snippet shows you how to retrieve a set of records using a date range.
 
 ## Example
 
-Variable | Required | Description
-----|----|----
-`VONAGE_API_KEY` | Yes | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`VONAGE_API_SECRET` | Yes | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`ACCOUNT_ID` | Yes | The API key for the target account. Reports generated, or records retrieved, are for this account.
-`REPORT_DIRECTION` | Yes | Either `inbound` or `outbound`
-`REPORT_PRODUCT` | Yes | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
-`DATE_START` | Yes | Date of time window from when you want to start gathering records in ISO-8601 format.
-`DATE_END` | Yes | Date of time window from when you want to stop gathering records in ISO-8601 format.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- ACCOUNT_ID.REPORTS
+- REPORT_DIRECTION
+- REPORT_PRODUCT
+- DATE_START.REPORTS
+- DATE_END.REPORTS
+```
 
 ```code_snippets
 source: '_examples/reports/load-records-sync-dates'

@@ -28,27 +28,17 @@ If you want to run queries that will retrieve a vast number of records (millions
 
 When you use the code snippets you copy in your replacements for variables such as your API key and API secret, as well as other variables that control the API request. Some commonly replaced variables are shown in the following table:
 
-Variable | Description
-----|----
-`VONAGE_API_KEY` | Your API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`VONAGE_API_SECRET` | Your API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com/sign-in).
-`ACCOUNT_ID` | The account ID (same as `VONAGE_API_KEY`) for the account you want to generate reports, or retrieve records for.
-`REPORT_PRODUCT` | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
-`REQUEST_ID` | When you request creation of report asynchronously, a `request_id` for the report generation is returned.
-`DATE_START` | Date of time window from when you want to start gathering records in ISO-8601 format.
-`DATE_END` | Date of time window from when you want to stop gathering records in ISO-8601 format.
-`STATUS` | Status of message or call.
-`REPORT_STATUS` | Status of report generation, can be any of `PENDING`, `PROCESSING`, `SUCCESS`, `ABORTED`, `FAILED`, `TRUNCATED`. For [report listing](/reports/code-snippets/list-reports), `status` is passed in as a comma-separated list of report status values.
-
-> In the following examples you can enter the product you want, but please note that some parameters are required for certain products, for example, `CONVERSATIONS` requires `type`.
-
-## Request parameters
-
-This section describes the main parameters and when to use them.
-
-### ID
-
-This is the UUID of the message or call you require a record for.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- ACCOUNT_ID.REPORTS
+- REPORT_PRODUCT
+- REQUEST_ID.REPORTS
+- DATE_START.REPORTS
+- DATE_END.REPORTS
+- STATUS.REPORTS
+- REPORT_STATUS
+```
 
 ### Date ranges
 
