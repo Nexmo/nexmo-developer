@@ -12,12 +12,10 @@ to control by a new NCCO.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | The UUID of the call to modify.
-`action` | The action to use in updating the call. In this case `transfer`.
-`NCCO_URL` | The URL of the NCCO to transfer control to. URLs _must_ be array type.
-
+```snippet_variables
+- UUID.VOICE
+- NCCO_URL
+```
 
 ```code_snippets
 source: '_examples/voice/transfer-a-call'

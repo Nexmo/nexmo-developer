@@ -11,10 +11,10 @@ This code snippet plays an audio stream into the specified call.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | the UUID of the call into which to play an audio stream.
-`URL` | The URL of the audio file that will be streamed into an array. The URL must be in an array.
+```snippet_variables
+- UUID.VOICE
+- URL.AUDIO.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/play-an-audio-stream-into-a-call'

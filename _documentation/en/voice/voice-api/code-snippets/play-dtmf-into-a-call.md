@@ -11,10 +11,10 @@ This code snippet plays DTMF tones into the specified call.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | The UUID of the call into which to play the DTMF tones.
-`Digits` | Digits representing the DTMF tones that will be played into the call.
+```snippet_variables
+- UUID.VOICE
+- DIGITS.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/play-dtmf-into-a-call'

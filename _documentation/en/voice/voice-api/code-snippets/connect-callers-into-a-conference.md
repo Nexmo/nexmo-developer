@@ -19,9 +19,9 @@ conference called `vonage-conference` and there would be no problem.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`CONF_NAME` | The named identifier for your conference
+```snippet_variables
+- CONF_NAME.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/connect-callers-to-a-conference'

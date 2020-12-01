@@ -12,10 +12,9 @@ to control using inline NCCO.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | The UUID of the call to modify.
-`action` | The action to use in updating the call. In this case `transfer`.
+```snippet_variables
+- UUID.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/transfer-a-call-inline-ncco'

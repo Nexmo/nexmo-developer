@@ -11,11 +11,10 @@ This code snippet plays a text-to-speech message into the specified call.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | the UUID of the call into which to play the text-to-speech message.
-`TEXT` | text of the message to play into the call.
-
+```snippet_variables
+- UUID.VOICE
+- TEXT.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/play-tts-into-a-call'

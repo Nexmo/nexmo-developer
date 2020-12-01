@@ -124,4 +124,16 @@ AMOUNT.VERIFY: How much the payment is for (always in Euro)
 WORKFLOW_ID.VERIFY: Choose a workflow (number between 1 and 7), these are defined in the [workflows guide](/verify/guides/workflows-and-events)
 BRAND_NAME.VERIFY: Included in the message to explain who is confirming the phone number
 CODE.VERIFY: The code the user supplies as having been sent to them
->>>>>>> ef5d7b5ef (Update Verify to snippet_variables)
+
+# Voice
+TO_NUMBER.VOICE: The number you are calling. E.g. `447700900001`
+SECOND_NUMBER.VOICE: The number you are forwarding to. E.g. `447700900002`
+YOUR_SECOND_NUMBER.VOICE: The number you are connecting to. E.g. `447700900002`
+UUID.VOICE: The UUID of the call leg
+CONF_NAME.VOICE: The named identifier for your conference
+RECORDING_URL.VOICE: The URL of the recording to download. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used.
+ANSWER_URL: The answer URL. For example `https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/text-to-speech.json`.
+URL.AUDIO.VOICE: The URL of the audio file that will be streamed into an array. The URL must be in an array.
+DIGITS.VOICE: Digits representing the DTMF tones that will be played into the call.
+TEXT.VOICE: The text of the message to play into the call.
+NCCO_URL: The URL of the NCCO to execute. URLs _must_ be array type.

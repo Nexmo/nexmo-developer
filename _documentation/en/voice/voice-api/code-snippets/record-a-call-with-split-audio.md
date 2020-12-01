@@ -14,10 +14,10 @@ will receive a webhook including the URL of the recording for download.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`VONAGE_NUMBER` | The Vonage number of the application (the FROM number).
-`TO_NUMBER` | The number to connect the call to.
+```snippet_variables
+- VONAGE_NUMBER
+- TO_NUMBER.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/record-a-call-with-split-audio'

@@ -11,10 +11,9 @@ This code snippet mutes / unmutes a call.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | replace with the UUID of the call to modify.
-`action` | the action to use in updating the call. In this case `mute` or `unmute`.
+```snippet_variables
+- UUID.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/mute-a-call'

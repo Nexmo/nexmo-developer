@@ -11,9 +11,9 @@ In this code snippet you see how to download a recording.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`RECORDING_URL` |	The URL of the recording to download. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used.
+```snippet_variables
+- RECORDING_URL.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/download-a-recording'

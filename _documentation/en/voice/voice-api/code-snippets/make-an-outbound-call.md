@@ -12,11 +12,11 @@ text-to-speech message when the call is answered.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`VONAGE_NUMBER` |	Your Vonage number that the call will be made from. For example `447700900000`.
-`TO_NUMBER` |	The number you would like to call to in E.164 format. For example `447700900001`.
-`ANSWER_URL` | The answer URL. For example `https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/text-to-speech.json`.
+```snippet_variables
+- VONAGE_NUMBER
+- TO_NUMBER.VOICE
+- ANSWER_URL
+```
 
 ```code_snippets
 source: '_examples/voice/make-an-outbound-call'

@@ -11,9 +11,9 @@ This code snippet earmuffs and unearmuffs a call. When a call is earmuffed, the 
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | The UUID of the call you want to update.
+```snippet_variables
+- UUID.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/earmuff-a-call'

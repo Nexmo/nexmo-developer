@@ -12,10 +12,9 @@ to retrieve information for is identified via a UUID.
 
 Replace the following variables in the example code:
 
-Key |	Description
--- | --
-`UUID` | The UUID for the call for which information is being requested.
-
+```snippet_variables
+- UUID.VOICE
+```
 
 ```code_snippets
 source: '_examples/voice/retrieve-info-for-a-call'

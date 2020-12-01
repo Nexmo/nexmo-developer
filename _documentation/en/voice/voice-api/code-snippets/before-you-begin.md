@@ -31,31 +31,31 @@ Other resources:
 
 The following replaceable information depends on the library and specific call:
 
-Key |	Description
--- | --
-`VONAGE_API_KEY` | API key.
-`VONAGE_API_SECRET` | API secret.
-`VONAGE_APPLICATION_PRIVATE_KEY_PATH` |  Private key path.
-`VONAGE_APPLICATION_PRIVATE_KEY` | Private key.
-`VONAGE_APPLICATION_ID` | The Vonage Application ID.
+```snippet_variables
+- VONAGE_API_KEY
+- VONAGE_API_SECRET
+- VONAGE_APPLICATION_PRIVATE_KEY_PATH
+- VONAGE_APPLICATION_PRIVATE_KEY
+- VONAGE_APPLICATION_ID
+```
 
 ### Numbers
 
 All phone numbers are in E.164 format.
 
-Key |	Description
--- | --
-`VONAGE_NUMBER` | Replace with your Vonage Number. E.g. 447700900000
-`TO_NUMBER` | Replace with the number you are calling. E.g. 447700900001
-`SECOND_NUMBER` | Replace with number you are forwarding to. E.g. 447700900002
+```snippet_variables
+- VONAGE_NUMBER
+- TO_NUMBER.VOICE
+- SECOND_NUMBER.VOICE
+```
 
 ### UUIDs
 
 UUIDs are typically used in the code snippets to identify a specific call.
 
-Key |	Description
--- | --
-`UUID` | Replace with the UUID of the call to modify. For example code use: `aaaaaaaa-bbbb-cccc-dddd-0123456789ab`.
+```snippet_variables
+- UUID.VOICE
+```
 
 ### Specific replaceable/variables
 
