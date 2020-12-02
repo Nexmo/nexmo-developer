@@ -17,7 +17,7 @@ If records corresponding to any of the specified UUIDs are not found, then a lis
 ``` json
 {
 ...
-"ids_not_found": "7b10a0c2-1a05-11eb-bad9-38f9d331649,7b1091b8-1a05-11eb-bad9-38f9d331493"
+  "ids_not_found": "7b10a0c2-1a05-11eb-bad9-38f9d331649,7b1091b8-1a05-11eb-bad9-38f9d331493"
 ...
 }
 ```
