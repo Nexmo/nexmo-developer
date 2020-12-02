@@ -1,12 +1,24 @@
 ---
-title: Get a record by UUID
-description: How to get a record by specifying a message or call UUID.
+title: Get records by UUID
+description: How to fetch a record by specifying a message or call UUID. You can also retrieve multiple records by specifying a comma-separated list of UUIDs.
 navigation_weight: 1
 ---
 
-# Get a specific record by UUID
+# Get specific records by UUID
 
-This code snippet shows you how to retrieve a specific record by specifying a **message or call** UUID. This is a synchronous call and so will block until it returns a response.
+This code snippet shows you how to retrieve a specific record by specifying a **message or call** UUID. It is also possible to specify a comma-separated list of UUIDs to retrieve multiple records, for example:
+
+``` shell
+curl -u "$VONAGE_API_KEY:$VONAGE_API_SECRET" https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=VERIFY-API&id=7b1091b8-1a05-11eb-bad9-38f9d331493,7b109636-1a05-11eb-bad9-38f9d3316493,7b109a1e-1a05-11eb-bad9-38f9d3316493,7b10a0c2-1a05-11eb-bad9-38f9d331649
+```
+
+If records corresponding to any of the specified UUIDs are not found, then a list of those not found are returned in the `ids_not_found` parameter, for example:
+
+``` json
+"ids_not_found": "7b10a0c2-1a05-11eb-bad9-38f9d331649,7b1091b8-1a05-11eb-bad9-38f9d331493"
+```
+
+> **NOTE:** This is a synchronous call and so will block until it returns a response.
 
 ## Example
 
@@ -17,7 +29,7 @@ Variable | Required | Description
 `ACCOUNT_ID` | Yes | The API key for the target account. Reports generated, or records retrieved, are for this account.
 `REPORT_DIRECTION` | Yes | Either `inbound` or `outbound`
 `REPORT_PRODUCT` | Yes | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
-`ID` | Yes | The UUID of the message or call to retrieve records for.
+`ID` | Yes | The UUID of the message or call to retrieve record for. It is possible to specify a comma-separated list of UUIDs to retrieve multiple records.
 
 ```code_snippets
 source: '_examples/reports/load-records-sync-id'
