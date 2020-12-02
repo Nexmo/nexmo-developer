@@ -33,7 +33,7 @@ Variable | Required | Description
 `ACCOUNT_ID` | Yes | The API key for the target account. Reports generated, or records retrieved, are for this account.
 `REPORT_DIRECTION` | Yes | Either `inbound` or `outbound`
 `REPORT_PRODUCT` | Yes | Specifies the product for which reports and records are obtained. Can be one of `SMS`, `VOICE-CALL`, `WEBSOCKET-CALL`, `VERIFY-API`, `NUMBER-INSIGHT`, `MESSAGES`, `CONVERSATIONS`, or `ASR`.
-`ID` | Yes | The UUID of the message or call to retrieve record for. It is possible to specify a comma-separated list of UUIDs to retrieve multiple records.
+`ID` | Yes | The UUID of the message or call to retrieve a record for. It is possible to specify a comma-separated list of UUIDs to retrieve multiple records.
 
 ```code_snippets
 source: '_examples/reports/load-records-sync-id'
