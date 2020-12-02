@@ -12,10 +12,14 @@ This code snippet shows you how to retrieve a specific record by specifying a **
 curl -u "$VONAGE_API_KEY:$VONAGE_API_SECRET" https://api.nexmo.com/v2/reports/records?account_id=abcd1234&product=VERIFY-API&id=7b1091b8-1a05-11eb-bad9-38f9d331493,7b109636-1a05-11eb-bad9-38f9d3316493,7b109a1e-1a05-11eb-bad9-38f9d3316493,7b10a0c2-1a05-11eb-bad9-38f9d331649
 ```
 
-If records corresponding to any of the specified UUIDs are not found, then a list of those not found are returned in the `ids_not_found` parameter, for example:
+If records corresponding to any of the specified UUIDs are not found, then a list of those are returned in the response using the `ids_not_found` parameter, for example:
 
 ``` json
+{
+...
 "ids_not_found": "7b10a0c2-1a05-11eb-bad9-38f9d331649,7b1091b8-1a05-11eb-bad9-38f9d331493"
+...
+}
 ```
 
 > **NOTE:** This is a synchronous call and so will block until it returns a response.
