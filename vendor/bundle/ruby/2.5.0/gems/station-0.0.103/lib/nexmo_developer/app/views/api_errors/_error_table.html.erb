@@ -1,0 +1,30 @@
+<div class="Vlt-table Vlt-table--bordered">
+<table>
+  <thead>
+    <th>Error ID</th>
+    <th>Information</th>
+    <th class="small-2">Actions</th>
+  </thead>
+  <tbody>
+    <% errors.each do |error| %>
+      <tr id="<%= error.id %>">
+        <td><code><%= error.id %></code></td>
+        <td>
+          <b>Details:</b>
+          <p><%= error.description.render_markdown %></p>
+
+          <% if error.resolution %>
+          <b>Resolution:</b>
+          <%= error.resolution.render_markdown %>
+          <% end %>
+        </td>
+        <td>
+        <% if error.link %>
+          <%= link_to error.link.text, error.link.url, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

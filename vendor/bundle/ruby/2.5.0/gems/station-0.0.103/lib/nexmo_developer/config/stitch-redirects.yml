@@ -1,0 +1,145 @@
+---
+
+"/stitch": "/client-sdk/overview"
+"/stitch/sdk-documentation/android": "/sdk/stitch/android/"
+"/stitch/sdk-documentation/ios": "/sdk/stitch/ios/"
+"/stitch/sdk-documentation/javascript": "/sdk/stitch/javascript/"
+"/stitch/api-reference": "/api/conversation"
+"/stitch/in-app-messaging/guides/1-simple-conversation/javascript": "/client-sdk/tutorials/in-app-messaging/introduction/javascript"
+"/stitch/in-app-messaging/guides/1-simple-conversation/android": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/stitch/in-app-messaging/guides/1-simple-conversation/ios": "/client-sdk/tutorials/ios-in-app-messaging-chat/introduction"
+"/stitch/in-app-messaging/guides/1-simple-conversation": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/stitch/in-app-messaging/guides/2-inviting-members/javascript": "/client-sdk/in-app-messaging/guides/inviting-members"
+"/stitch/in-app-messaging/guides/2-inviting-members/android": "/client-sdk/in-app-messaging/guides/inviting-members"
+"/stitch/in-app-messaging/guides/2-inviting-members/ios": "/client-sdk/in-app-messaging/guides/inviting-members"
+"/stitch/in-app-messaging/guides/2-inviting-members": "/client-sdk/in-app-messaging/guides/inviting-members"
+"/stitch/in-app-messaging/guides/3-utilizing-events/javascript": "/client-sdk/in-app-messaging/guides/utilizing-events"
+"/stitch/in-app-messaging/guides/3-utilizing-events/android": "/client-sdk/in-app-messaging/guides/utilizing-events"
+"/stitch/in-app-messaging/guides/3-utilizing-events/ios": "/client-sdk/in-app-messaging/guides/utilizing-events"
+"/stitch/in-app-messaging/guides/3-utilizing-events": "/client-sdk/in-app-messaging/guides/utilizing-events"
+"/stitch/in-app-voice/guides/1-enable-audio/javascript": "/client-sdk/in-app-voice/guides/enable-audio"
+"/stitch/in-app-voice/guides/1-enable-audio/android": "/client-sdk/in-app-voice/guides/enable-audio"
+"/stitch/in-app-voice/guides/1-enable-audio/ios": "/client-sdk/in-app-voice/guides/enable-audio"
+"/stitch/in-app-voice/guides/1-enable-audio": "/client-sdk/in-app-voice/guides/enable-audio"
+"/stitch/in-app-voice/guides/2-calling-users/javascript": "/client-sdk/in-app-voice/guides/make-call/javascript"
+"/stitch/in-app-voice/guides/2-calling-users/android": "/client-sdk/in-app-voice/guides/make-call/java"
+"/stitch/in-app-voice/guides/2-calling-users/ios": "/client-sdk/in-app-voice/guides/make-call/swift"
+"/stitch/in-app-voice/guides/2-calling-users": "/client-sdk/in-app-voice/guides/make-call"
+"/stitch/in-app-voice/guides/3-outbound-pstn/javascript": "/client-sdk/in-app-voice/guides/make-call/javascript"
+"/stitch/in-app-voice/guides/3-outbound-pstn/android": "/client-sdk/in-app-voice/guides/make-call/java"
+"/stitch/in-app-voice/guides/3-outbound-pstn/ios": "/client-sdk/in-app-voice/guides/make-call/swift"
+"/stitch/in-app-voice/guides/3-outbound-pstn": "/client-sdk/in-app-voice/guides/make-call"
+"/stitch/in-app-video/guides/1-enable-video/javascript": "https://tokbox.com/developer/guides/basics/"
+"/stitch/in-app-video/guides/1-enable-video": "https://tokbox.com/developer/guides/basics/"
+"/stitch/in-app-video/guides/2-enable-screenshare/javascript": "/stitch/in-app-video/guides/1-enable-video/javascript"
+"/stitch/in-app-video/guides/2-enable-screenshare": "/stitch/in-app-video/guides/1-enable-video/javascript"
+"/stitch/in-app-voice/ncco-guide": "/voice/voice-api/ncco-reference"
+"/stitch/in-app-voice/inbound-pstn": "/client-sdk/in-app-voice/guides/receive-call"
+"/stitch/in-app-messaging/guides/simple-conversation": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/stitch/in-app-messaging/guides/inviting-members": "/client-sdk/in-app-messaging/guides/inviting-members"
+
+"/stitch/in-app-messaging/guides/simple-conversation/javascript": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/stitch/in-app-messaging/guides/inviting-members/javascript": "/client-sdk/in-app-messaging/guides/inviting-members"
+"/stitch/in-app-messaging/guides/utilizing-events/javascript": "/client-sdk/in-app-messaging/guides/utilizing-events"
+"/stitch/in-app-voice/guides/enable-audio/javascript": "/client-sdk/in-app-voice/guides/enable-audio"
+"/stitch/in-app-voice/guides/calling-users/javascript": "/client-sdk/in-app-voice/guides/make-call"
+"/stitch/in-app-voice/guides/outbound-pstn/javascript": "/client-sdk/in-app-voice/guides/make-call"
+"/stitch/in-app-video/guides/enable-video/javascript": "https://tokbox.com/developer/guides/basics/"
+"/stitch/in-app-video/guides/enable-screenshare/javascript": "https://tokbox.com/developer/guides/basics/"
+"/stitch/concepts/jwt-acl": "/conversation/guides/jwt-acl"
+"/stitch/in-app-messaging/overview": "/client-sdk/in-app-messaging/overview"
+"/stitch/in-app-video/overview": "https://tokbox.com/developer/guides/basics/"
+
+# Client SDK 
+
+"/client-sdk/in-app-messaging/concepts": "/client-sdk/in-app-messaging/overview"
+"/client-sdk/in-app-messaging/code-snippets": "/client-sdk/in-app-messaging/overview"
+"/client-sdk/in-app-messaging/tutorials": "/client-sdk/tutorials"
+
+"/client-sdk/in-app-voice/concepts": "/client-sdk/in-app-voice/overview"
+"/client-sdk/in-app-voice/code-snippets": "/client-sdk/in-app-voice/overview"
+"/client-sdk/in-app-voice/tutorials": "/client-sdk/tutorials"
+
+"/client-sdk/in-app-video/concepts": "https://tokbox.com/developer/guides/basics/"
+"/client-sdk/in-app-video/code-snippets": "https://tokbox.com/developer/guides/basics/"
+"/client-sdk/in-app-video/tutorials": "https://tokbox.com/developer/guides/basics/"
+
+"/stitch/overview": "/client-sdk/overview"
+"/stitch/in-app-voice/overview": "/client-sdk/in-app-voice/overview"
+
+"/sdk/client-sdk/android": "/sdk/stitch/android/"
+"/sdk/client-sdk/ios": "/sdk/stitch/ios/"
+"/sdk/client-sdk/javascript": "/sdk/stitch/javascript/"
+
+"/client-sdk/sdk-documentation/android": "/sdk/stitch/android/"
+"/client-sdk/sdk-documentation/ios": "/sdk/stitch/ios/"
+"/client-sdk/sdk-documentation/javascript": "/sdk/stitch/javascript/"
+
+"/client-sdk/sdk-documentation/android/android": "/sdk/stitch/android/"
+"/client-sdk/sdk-documentation/ios/ios": "/sdk/stitch/ios/"
+"/client-sdk/sdk-documentation/javascript/javascript": "/sdk/stitch/javascript/"
+"/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/add-users-to-conversation": "/client-sdk/tutorials/in-app-messaging/client-sdk/in-app-messaging/add-users-to-conversation"
+"/client-sdk/in-app-voice/code-snippets/reject-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/ios"
+"/client-sdk/in-app-voice/code-snippets/start-call": "/client-sdk/in-app-voice/getting-started/app-to-app-call/android"
+"/client-sdk": "/client-sdk/overview"
+"/client-sdk/configuration": "/client-sdk/overview"
+
+# Conversation API
+
+"/conversation": "/conversation/overview"
+"/conversation/concepts": "/conversation/concepts/conversation"
+"/conversation/code-snippets": "/conversation/code-snippets/conversation/create-conversation"
+"/conversation/api-reference": "/api/conversation"
+"/conversation/code-snippets/leg": "/conversation/code-snippets/leg/list-legs"
+
+# Temporary landing page for onboarding
+"/client-sdk/in-app-voice/onboarding": "/client-sdk/in-app-voice/overview"
+"/voice-onboarding": "/client-sdk/in-app-voice/overview"
+
+# Setup
+"/tutorials/client-sdk-js-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app/javascript"
+"/tutorials/client-sdk-android-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app/android"
+
+# Getting Started
+"/tutorials/client-sdk-ios-outbound-call": "/client-sdk/in-app-voice/getting-started/make-phone-call"
+"/tutorials/client-sdk-ios-inbound-call": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+"/tutorials/client-sdk-ios-in-app-calling": "/client-sdk/in-app-voice/getting-started/app-to-app-call"
+
+"/tutorials/client-sdk-android-outbound-call": "/client-sdk/in-app-voice/getting-started/make-phone-call"
+"/tutorials/client-sdk-android-inbound-call": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+"/tutorials/client-sdk-android-in-app-calling": "/client-sdk/in-app-voice/getting-started/app-to-app-call"
+
+"/tutorials/client-sdk-js-outbound-call": "/client-sdk/in-app-voice/getting-started/make-phone-call"
+"/tutorials/client-sdk-js-inbound-call": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+
+# Moved Generate JWT concept
+"/client-sdk/concepts/jwt-acl": "/conversation/guides/jwt-acl"
+
+# Moved concepts to Guides
+"/client-sdk/in-app-voice/concepts/ncco-guide": "/voice/voice-api/ncco-reference"
+
+"/use-cases/client-sdk-generate-test-credentials": "/client-sdk/setup/create-your-application"
+"/use-cases/client-sdk-ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging-chat/introduction"
+"/client-sdk/in-app-voice/guides/call-statuses": "/client-sdk/in-app-voice/concepts/call-statuses"
+"/client-sdk/setup/generate-test-credentials": "/client-sdk/setup/create-your-application"
+
+"/client-sdk/in-app-messaging/guides": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/client-sdk/in-app-voice": "/client-sdk/in-app-voice/overview"
+"/client-sdk/in-app-messaging": "/client-sdk/in-app-messaging/overview"
+"/client-sdk/in-app-voice/guides": "/client-sdk/in-app-voice/guides/enable-audio"
+"/client-sdk/in-app-voice/getting-started": "/client-sdk/in-app-voice/getting-started/receive-phone-call"
+"/tutorials/client-sdk-ios-add-sdk-to-your-app": "/client-sdk/setup/add-sdk-to-your-app/ios"
+"/client-sdk/setup": "/client-sdk/setup/create-your-application"
+"/client-sdk/in-app-messaging/guides/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging-chat/introduction"
+"/client-sdk/tutorials/in-app-messaging/client-sdk/create-ui-ip-messaging": "/client-sdk/tutorials/in-app-messaging/client-sdk/ip-messaging/create-ui"
+"/client-sdk/setup/configure-data-center": "/client-sdk/configuration/configure-data-center"
+"/client-sdk/in-app-voice/guides/call-member-actions": "/client-sdk/in-app-voice/guides/mute-call-member"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/android": "/client-sdk/in-app-voice/guides/make-call/android"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/ios": "/client-sdk/in-app-voice/guides/make-call/swift"
+"/client-sdk/in-app-voice/guides/start-and-receive-calls/javascript": "/client-sdk/in-app-voice/guides/make-call/javascript"
+"/client-sdk/tutorials/ios-in-app-messaging": "/client-sdk/tutorials/ios-in-app-messaging-chat"
+"/client-sdk/in-app-messaging/guides/simple-conversation": "/client-sdk/tutorials/in-app-messaging/introduction"
+"/client-sdk/getting-started/add-sdk-to-your-app/android": "/client-sdk/setup/add-sdk-to-your-app/android"
+
+"/client-sdk/in-app-voice/code-snippets/answer-call": "/client-sdk/in-app-voice/guides/receive-call"
+"/stitch/in-app-voice/call-statuses": "/client-sdk/in-app-voice/concepts/call-statuses"

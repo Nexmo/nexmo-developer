@@ -1,0 +1,106 @@
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/redcarpet-3.4.0/ext/redcarpet
+/opt/hostedtoolcache/Ruby/2.5.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.5.8/x64/lib/ruby/site_ruby/2.5.0 -r ./siteconf20201204-3762-1cqhj5c.rb extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/redcarpet-3.4.0/ext/redcarpet
+make "DESTDIR=" clean
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/redcarpet-3.4.0/ext/redcarpet
+make "DESTDIR="
+compiling autolink.c
+compiling buffer.c
+buffer.c: In function ‘bufcstr’:
+buffer.c:111:45: warning: passing argument 1 of ‘bufgrow’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  if (buf->size + 1 <= buf->asize || bufgrow(buf, buf->size + 1) == BUF_OK) {
+                                             ^~~
+buffer.c:60:1: note: expected ‘struct buf *’ but argument is of type ‘const struct buf *’
+ bufgrow(struct buf *buf, size_t neosz)
+ ^~~~~~~
+buffer.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+compiling houdini_href_e.c
+compiling houdini_html_e.c
+compiling html.c
+compiling html_smartypants.c
+html_smartypants.c: In function ‘squote_len’:
+html_smartypants.c:104:39: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  static char* single_quote_list[] = { "'", "&#39;", "&#x27;", "&apos;", NULL };
+                                       ^~~
+html_smartypants.c:104:44: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  static char* single_quote_list[] = { "'", "&#39;", "&#x27;", "&apos;", NULL };
+                                            ^~~~~~~
+html_smartypants.c:104:53: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  static char* single_quote_list[] = { "'", "&#39;", "&#x27;", "&apos;", NULL };
+                                                     ^~~~~~~~
+html_smartypants.c:104:63: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  static char* single_quote_list[] = { "'", "&#39;", "&#x27;", "&apos;", NULL };
+                                                               ^~~~~~~~
+html_smartypants.c: In function ‘smartypants_squote’:
+html_smartypants.c:149:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    uint8_t next_char = (size > 1+next_squote_len) ? text[1+next_squote_len] : 0;
+                              ^
+html_smartypants.c: In function ‘smartypants_cb__amp’:
+html_smartypants.c:250:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  int len = squote_len(text, size);
+  ^~~
+html_smartypants.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+compiling markdown.c
+markdown.c: In function ‘char_link’:
+markdown.c:1045:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   struct buf id = { 0, 0, 0, 0 };
+   ^~~~~~
+markdown.c:1085:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   size_t nb_p = 0;
+   ^~~~~~
+markdown.c:1094:5: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+     else nb_p--; i++;
+     ^~~~
+markdown.c:1094:18: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+     else nb_p--; i++;
+                  ^
+markdown.c: In function ‘sd_markdown_render’:
+markdown.c:2818:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  int footnotes_enabled  = md->ext_flags & MKDEXT_FOOTNOTES;
+  ^~~
+markdown.c:2836:43: warning: passing argument 1 of ‘is_codefence’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   if (codefences_enabled && (is_codefence(document + beg, doc_size - beg, NULL) != 0))
+                                           ^~~~~~~~
+markdown.c:1389:1: note: expected ‘uint8_t * {aka unsigned char *}’ but argument is of type ‘const uint8_t * {aka const unsigned char *}’
+ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
+ ^~~~~~~~~~~~
+markdown.c: At top level:
+markdown.c:94:15: warning: ‘char_underline’ declared ‘static’ but never defined [-Wunused-function]
+ static size_t char_underline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size);
+               ^~~~~~~~~~~~~~
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+compiling rc_markdown.c
+rc_markdown.c: In function ‘rb_redcarpet_md_render’:
+rc_markdown.c:138:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  struct rb_redcarpet_rndr *renderer;
+  ^~~~~~
+rc_markdown.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+compiling rc_render.c
+rc_render.c: In function ‘rndr_link_attributes’:
+rc_render.c:287:28: warning: variable ‘rndr’ set but not used [-Wunused-but-set-variable]
+  struct rb_redcarpet_rndr *rndr;
+                            ^~~~
+rc_render.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+compiling stack.c
+linking shared-object redcarpet.so
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/redcarpet-3.4.0/ext/redcarpet
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 redcarpet.so ./.gem.20201204-3762-fettlh

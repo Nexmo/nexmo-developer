@@ -1,0 +1,45 @@
+<% unless @scoped_errors %>
+  <h4>
+    <%= link_to api_errors_path do %>
+      <i class="icon icon-angle-left"></i>
+      View all errors
+    <% end %>
+  </h4>
+  <br>
+<% end %>
+
+<% unless @hide_rfc7807_header %>
+<h1>API Errors</h1>
+
+<br>
+
+<div class="Vlt-grid">
+  <div class="Vlt-col">
+    <p>When a Nexmo API returns an error, for instance, if your account has no credit, the API will return an error in <a href="https://tools.ietf.org/html/rfc7807">RFC 7807</a> format.
+    <p>This provides a basic explanation of what the issue is, why it occurred and steps to resolve it. Check out the example to see how an <code>out-of-credit</code> is formatted.</p>
+    <p>You'll likely want to consider up-front what errors your application will need to handle, this page provides a list of all the possible errors that could occur with a more detailed explanation of how they can be addressed.</p>
+  </div>
+  <div class="Vlt-col">
+    <%= render 'error_example' %>
+  </div>
+</div>
+<% end %>
+
+
+<div class="spacious">
+  <h2><b><%= @errors_title %></b></h2>
+  <br>
+  <%= render 'error_table', errors: @errors %>
+</div>
+
+<% if @scoped_errors&.any? %>
+  <h2><b>Product Specific Errors</b></h2>
+
+  <% @scoped_errors.each do |scope| %>
+    <div class="spacious">
+      <h4><%= link_to scope[:config]['title'], api_errors_scoped_path(scope[:key]) %></h4>
+      <br>
+      <%= render 'error_table', errors: scope[:errors] %>
+    </div>
+  <% end %>
+<% end %>

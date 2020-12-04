@@ -1,0 +1,15 @@
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+/opt/hostedtoolcache/Ruby/2.5.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.5.8/x64/lib/ruby/site_ruby/2.5.0 -r ./siteconf20201204-3762-1b9xrzw.rb extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20201204-3762-1eo3u1r

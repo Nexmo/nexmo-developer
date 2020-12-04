@@ -1,0 +1,25 @@
+<h5>Available Operations:</h5>
+<ul>
+  <% endpoints.each do |endpoint| %>
+    <li>
+      <span style="width: 58px; text-align:center; margin-right:4px;" class="Vlt-badge Vlt-badge--margin-left Nxd-method-badge Nxd-method-badge--<%= endpoint.method %> Vlt-badge--small"><%= endpoint.method %></span>
+      <a href="#<%= endpoint.operationId %>"><%= normalize_summary_title(endpoint.summary, endpoint.operationId) %></a>
+    </li>
+
+    <% if endpoint.callbacks.any? %>
+      <% endpoint.callbacks.each do |callback| %>
+        <% callback.paths.each do |path| %>
+          <% path.endpoints.each do |endpoint| %>
+            <li style="margin-top: 8px;">
+              <span style="margin-left:24px; margin-right: 4px;">
+                <svg style="width: 12px; height:12px;" class="Vlt-black"><use xlink:href="/assets/symbol/volta-icons.svg#Vlt-icon-toggle" /></svg>
+              </span>
+              <a href="#<%= endpoint.operationId %>"><%= normalize_summary_title(endpoint.summary, endpoint.operationId) %></a>
+            </li>
+          <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% end %>
+</ul>
+<br />

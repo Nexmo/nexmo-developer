@@ -1,0 +1,30 @@
+<h1><%= local_assigns['header']['title'] %></h1>
+
+<div class="Vlt-grid Vlt-grid-center">
+
+  <% local_assigns['categories'].each do |column| %>
+    <div class="Vlt-col Vlt-col--1of<%= local_assigns['num_of_columns'] %> Vlt-col--M-1of<%= local_assigns['num_of_columns'] %>">
+      <% column['new_column'].each do |category| %>
+        <div class="Vlt-card Vlt-card--image">
+          <div class="Vlt-card__content">
+            <svg class="Vlt-icon Vlt-icon--larger Vlt-<%= category['icon']['color'] %>"><use xlink:href="/symbol/volta-icons.svg#<%= category['icon']['name'] %>"/></svg>
+            <h2 id="<%= category['title'].parameterize %>"><%= category['title'] %></h2>
+            <% category['apis'].each do |api| %>         
+              <nav>
+                <a href=<%= api['path'] %> class="Nxd-card__link">
+                  <h5>
+                    <%= api['title'] %>
+                    <% if api['badge'] %>
+                      <span class="Vlt-badge Vlt-badge--<%= api['badge']['color'] %> Vlt-badge--small Vlt-badge--transparent"><%= api['badge']['name'] %></span>
+                    <% end %>
+                  </h5>
+                  <p><%= api['description'] %></p>
+                </a>
+              </nav>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+.content-block {
+  h3 {
+    font-size: 1.8em;
+    line-height: 1.8em;
+
+    a {
+      border-bottom: none;
+    }
+
+    .icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: $spacing;
+    }
+  }
+
+  h3, p {
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+}

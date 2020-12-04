@@ -1,0 +1,35 @@
+#primary-content {
+  outline: none;
+  overflow-y: hidden;
+
+  .Vlt-tabs__link_active {
+    background: $grey-lighter;
+
+    &:before {
+      background: $grey-lighter;
+    }
+  }
+
+  .Vlt-tabs__content {
+    background: $grey-lighter;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: 1px solid $grey;
+    border-left: 1px solid $grey;
+    border-right: 1px solid $grey;
+    margin-bottom: 32px;
+    padding: 24px;
+    margin-top: 0px;
+  }
+
+  .Vlt-tabs__header {
+    a {
+      color: $black;
+    }
+  }
+  .Vlt-tabs__header--bordered {
+    .Vlt-tabs__link:first-child {
+      margin-left: 0;
+    }
+  }
+}

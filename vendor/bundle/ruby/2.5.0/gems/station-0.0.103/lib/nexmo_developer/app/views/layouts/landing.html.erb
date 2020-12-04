@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body class="<%= theme %>" data-push-state-root="<%= canonical_path %>">
+    <%= render partial: 'layouts/partials/header' %>
+    <div class="wrapper wrapper--tint">
+      <%= render partial: 'layouts/partials/notices' %>
+
+      <div id='hello'>
+        <jwt-generator></jwt-generator>
+      </div>
+      <%= yield %>
+    </div>
+    <%= render partial: 'layouts/partials/footer' %>
+  </body>
+</html>

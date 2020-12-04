@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.greenhouse.io/v1/boards/generalassembly/embed/department?id=187
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 16 Sep 2013 16:10:23 GMT
+      Etag:
+      - ! '"bb32e60fd177f151cf0e062eab98a28e"'
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - 3b821356ecf1bc276d417fc20cacacc7
+      X-Runtime:
+      - '0.032134'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '398'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":187,"name":"Engineering","jobs":[{"id":721,"title":"Application
+        developer","updated_at":"2013-09-12T21:01:50Z","location":{"name":"New York,
+        NY"},"absolute_url":"http://boards.greenhouse.io/generalassembly/jobs/721"},{"id":722,"title":"Finance
+        Analyst","updated_at":"2013-09-12T21:01:50Z","location":{"name":"New York"},"absolute_url":"http://boards.greenhouse.io/generalassembly/jobs/722"}]}'
+    http_version: 
+  recorded_at: Mon, 16 Sep 2013 16:10:28 GMT
+recorded_with: VCR 2.5.0

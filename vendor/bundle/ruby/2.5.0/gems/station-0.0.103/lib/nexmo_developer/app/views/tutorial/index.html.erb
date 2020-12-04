@@ -1,0 +1,81 @@
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--3of4">
+    <div class="Vlt-card">
+      <div class="Ndx-task-step__code-language Vlt-right">
+        <div><%= render 'code_languages/icon', code_language: @tutorial.code_language, dark: true %></div>
+      </div>
+    <%= @content.html_safe %>
+
+    <br />
+    <div class="Vlt-grid">
+      <div class="Vlt-col">
+        <% if @tutorial.previous_step %>
+          <a
+            class="Vlt-btn Vlt-btn--secondary"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.previous_step.name, code_language: @tutorial.code_language, only_path: true, controller: :tutorial, action: :index) %>"
+          >
+            &laquo; Previous
+          </a>
+        <% end %>
+      </div>
+      <div class="Vlt-col Vlt-right">
+        <% if @tutorial.next_step %>
+          <a
+            class="Vlt-btn Vlt-btn--secondary"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.next_step.name, code_language: @tutorial.code_language, only_path: true, controller: :tutorial, action: :index) %>"
+          >
+            Next &raquo;
+          </a>
+        <% end %>
+      </div>
+     </div>
+    </div>
+  </div>
+  <div class="Vlt-col Vlt-col--1of4 Nxd-task-step-list">
+      <div class="Vlt-card">
+        <div class="Vlt-card__image Vlt-gradient--purple-to-peach"></div>
+        <div class="Vlt-card__content">
+          <h4><%= @tutorial.title %></h4>
+          <small><%= @tutorial.description %></small>
+          <br /><br />
+          <div>
+            <% if @tutorial.available_code_languages.reject { |l| l == @tutorial.code_language }.any? %>
+              <span style="font-weight: bold;">Also available on:</span>
+              <ul class="Ndx-task__code-language-list">
+                <% @tutorial.available_code_languages.reject { |l| l == @tutorial.code_language }.each do |language| %>
+                  <li class="Ndx-task-step__code-language">
+                    <a
+                      title="<%= language %>"
+                      href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.first_step, code_language: language) %>"
+                      >
+                      <div><%= render 'code_languages/icon', code_language: language, dark: true %></div>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+          <br /><br />
+          <span style="font-weight: bold;">Steps</span>
+          <br />
+          <br />
+            <% @tutorial.subtasks.each_with_index do |t, i| %>
+            <div class="Vlt-grid">
+              <div class="Vlt-col Vlt-col--1of4">
+                <span class="Nxd-step-number Vlt-number <%= t.active? ? 'Vlt-bg-black': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
+              </div>
+              <div class="Vlt-col Vlt-col--3of4 Nxd-step">
+                <a
+                  title="<%= t.title %>"
+                  href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: t.name, code_language: @tutorial.code_language) %>"
+                >
+                  <%= t.title %>
+                </a>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+
+  </div>
+</div>

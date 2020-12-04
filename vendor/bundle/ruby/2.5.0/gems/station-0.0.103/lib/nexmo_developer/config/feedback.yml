@@ -1,0 +1,104 @@
+---
+title: "Thank you...we love feedback! Please tell us more:"
+paths:
+  - question: I found what I needed to know - thanks!
+    sentiment: positive
+    steps:
+    - title: Thank You!
+      type: textarea
+      content: |-
+        We’re glad you found what you were looking for.
+
+        We’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!
+      label: Is there anything we did particularly well?
+      placeholder: Please let us know here
+    - title: Thank You!
+      type: plain
+      content: |-
+        We’re glad you found what you were looking for.
+
+        We’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!
+      image: "/assets/images/done.svg"
+  - question: There is a problem with the documentation.
+    sentiment: negative
+    steps:
+    - title: |-
+        Thanks for letting us know!
+        Please, help us improve our documentation by telling us what's wrong:
+      type: radiogroup
+      questions:
+      - The documentation is missing information.
+      - The documentation is unclear.
+      - The documentation is incorrect.
+      - There is a broken link.
+      - I don’t understand the terminology.
+    - title: What we could have done better?
+      type: textarea
+      placeholder: Please let us know here
+      email: true
+    - title: Thank You!
+      type: plain
+      content: We have recorded your feedback. Feedback like yours will help us better
+        serve your needs in the future, and it’s much appreciated!
+      image: "/assets/images/programming.svg"
+  - question: I am having problems with the sample code.
+    sentiment: negative
+    steps:
+    - title: Sorry you’re having trouble. What’s wrong?
+      type: radiogroup
+      questions:
+      - The sample code doesn’t work.
+      - The sample code isn’t helpful.
+      - The documentation is missing useful samples.
+    - title: Please help us help you by providing details.
+      type: textarea
+      placeholder: Please leave feedback here
+    - title: Thank You!
+      type: plain
+      content: We have recorded your feedback. Feedback like yours will help us better
+        serve your needs in the future, and it’s much appreciated!
+      image: "/assets/images/programming.svg"
+  - question: I need help with something else.
+    sentiment: neutral
+    steps:
+    - title: What do you need help with?
+      type: radiogroup
+      questions:
+      - My account/billing.
+      - The capabilities of the product.
+      - Something else.
+    - title: Let's get you some help!
+      type: fieldset
+      fields:
+      - type: input
+        name: name
+        label: Your name
+      - type: input
+        name: companyName
+        label: Company Name
+      - type: input
+        name: email
+        label: Email
+      - type: textarea
+        name: feedback
+        label: 'Please tell us how we can help you:'
+        placeholder: Please leave feedback here
+        hint: |-
+          We welcome your feedback on our documentation and will do our best to
+          help you use our APIs. However, if your issue is urgent or relates to an
+          account, billing or service issue please raise a support ticket:
+          https://help.nexmo.com/hc/en-us/requests/new
+    - title: Thank You!
+      type: plain
+      content: We have recorded your feedback and someone on our team will review it as soon as possible.
+      image: "/assets/images/productive-work.svg"
+  - question: I don’t understand any of this!
+    sentiment: neutral
+    steps:
+    - title: Ours might not be the solution you are looking for ...
+      type: plain
+      content: |-
+        You need to be a software developer to use our APIs.
+
+        For more information, see: https://www.vonage.co.uk/communications-apis/platform
+      image: "/assets/images/oops.svg"

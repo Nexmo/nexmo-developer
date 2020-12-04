@@ -1,0 +1,18 @@
+<% if local_assigns['featured'] %>
+  <div class="Vlt-col Vlt-col--1of3">
+    <div class="Vlt-card" style="border:1px solid #33aaee">
+      <div class="Vlt-card__corner Vlt-bg-blue">
+        <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-star"></use></svg>
+      </div>
+      <h4><%= local_assigns['featured']['title'] %></h4>
+      <div class="Vlt-grid Vlt-grid--middle">
+        <div class="Vlt-col">
+          <div class="video">
+            <iframe src="<%= video_embed_url(local_assigns['featured']['video_url']) %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          <p><%= local_assigns['featured']['description'] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

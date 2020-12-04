@@ -1,0 +1,45 @@
+<%
+  responses = endpoint.responses.select do |response|
+    next false unless response.success?
+    next false unless response.content
+    true
+  end
+
+  return unless responses.size.positive?
+%>
+<h4>Responses</h4>
+
+<% responses.each do |response| %>
+  <% id = SecureRandom.hex %>
+  <div class="Vlt-accordion--chevron-left">
+  <div role="button" style="padding: 12px;" class="response-description-toggle  Vlt-bg-<%= response.code[0] == "2" ? 'green' : 'red' %> Vlt-accordion__trigger Vlt-js-accordion__trigger Nxd-accordion-button" data-accordion="acc<%= id %>">
+    <strong><%= response.code %></strong> <%= response.description %>
+  </div>
+
+  <div id="acc<%= id %>" class="Vlt-js-accordion__content <%= @specification.auto_expand_responses ? 'Vlt-js-accordion__content_open' : '' %>">
+    <% missing = @specification.formats.keys %>
+
+    <% response.formats.each_with_index do |format, index| %>
+      <% missing.delete(format) %>
+
+      <% if response.exhibits_one_of_multiple_schemas?(format) %>
+        <%= erb :'open_api/_response_tabs', locals: { endpoint: endpoint, format: format, response: response, content: :descriptions } %>
+      <% else %>
+        <% schema = response.schema(format) %>
+        <%= erb :'open_api/_response_fields', locals: { endpoint: endpoint, schema: schema, format: format, index: nil } %>
+      <% end %>
+    <% end %>
+
+    <% missing.each do |format| %>
+      <div class="js-format Nxd-api__response" data-format="<%= format %>">
+        <div class="Vlt-callout Vlt-callout--warning" style="margin-top: 8px;">
+          <i></i>
+          <div class="Vlt-callout__content">
+            <p>This endpoint does not support <code><%= format %></code></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://123FakeToken:@api.greenhouse.io/v1/applications
+    body:
+      encoding: US-ASCII
+      string: id=721&first_name=Richard&last_name=Feynman&email=richard123%40test.ga.co
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - text/javascript; charset=utf-8
+      Date:
+      - Mon, 16 Sep 2013 18:25:13 GMT
+      Etag:
+      - ! '"60d45e24e36a2c0bbd1b09470dc4712c"'
+      Set-Cookie:
+      - _session_id=0b94e410bd34c2cefaae8257f0f4a6b4; path=/; HttpOnly
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - e4ffe754f2c13976f8b77fb36794d7a4
+      X-Runtime:
+      - '0.438182'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"success":"Candidate saved successfully"}'
+    http_version: 
+  recorded_at: Mon, 16 Sep 2013 18:25:13 GMT
+recorded_with: VCR 2.5.0

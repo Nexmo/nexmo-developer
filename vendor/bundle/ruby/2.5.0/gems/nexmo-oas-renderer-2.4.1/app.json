@@ -1,0 +1,15 @@
+{
+  "buildpacks": [{ "url": "heroku/ruby" }],
+  "env": {
+    "RACK_ENV": "production",
+    "RAILS_ENV": "production",
+    "OAS_PATH": "samples"
+  },
+  "stack": "heroku-18",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<%
+  model = false if model.nil?
+  callback = false if callback.nil?
+  format = nil if format.nil?
+
+  unless defined?(parent)
+    parent = ""
+  else
+    parent = "#{parent}."
+  end
+
+  isOneOf = false unless defined?(isOneOf)
+%>
+
+<% parameters.each do |parameter| %>
+
+  <div class="oas-grid">
+    <div class="oas-parameter-name <%= !parent.blank? ? 'oas-parameter-name-nested' : '' %>">
+      <% if parent.blank? %>
+          <b><%= parameter.name %></b>
+      <% else %>
+        <div class="Vlt-tooltip Vlt-tooltip--top" title="<%= parent %><%= parameter.name %>">
+          <b><%= parameter.name %></b>
+        </div>
+      <% end %>
+
+      <% if @specification.formats.any? %>
+        <% if @specification.formats.include?('text/xml') %>
+          <span class="js-format" data-format="text/xml">
+            <% if parameter.is_xml_attribute? %>
+              | <span class="xml-flag">Attribute</span>
+            <% end %>
+
+            <% if parameter.is_xml_text? %>
+              | <span class="xml-flag">Value</span>
+            <% end %>
+          </span>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="oas-parameter-description">
+
+      <div class="oas-parameter-meta">
+        <em>
+          <%= parameter.type %>
+          <% if parameter.format %>
+            (<%= parameter.format %>)
+          <% end %>
+
+          <% if parameter.array? %>
+            <% if parameter.items && parameter.items['type'] %>
+              of <%= (parameter.items['type']) %>s
+            <% end %>
+          <% end %>
+        </em>
+
+        <% if parameter.required and parameter.type %>|<% end %>
+        <% if parameter.required %>
+          <span class="constraint">Required</span>
+        <% end %>
+        <% if parameter.minimum || parameter.raw['minLength'] %>
+          | <span class="constraint">Min:</span> <%= parameter.minimum || parameter.raw['minLength'] %>
+        <% end %>
+        <% if parameter.maximum || parameter.raw['maxLength'] %>
+          | <span class="constraint">Max:</span> <%= parameter.maximum || parameter.raw['maxLength'] %>
+        <% end %>
+        <% if parameter.default || parameter.raw['default'] %>
+          | <span class="constraint">Default:</span> <%= parameter.default || parameter.raw['default'] %>
+        <% end %>
+        <% if parameter.raw['deprecated'] %>             
+          | <span class="constraint">DEPRECATED</span> <span>: This field has been deprecated. </span>          
+        <% end %>
+        <% if parameter.raw['x-replace-with']%>            
+            <span> <%= 'Please use ' + '<code>'+ parameter.raw['x-replace-with'] + '</code>' + ' instead.' %> </span>
+        <% end %>
+      </div>
+
+      <%= (parameter.description || parameter.schema['description'] || '').render_markdown %>
+
+      <% if parameter.enum %>
+        <small class="Vlt-grey-dark">
+          <%= (callback || model) ? "One of:" : "Must be one of:" %>
+          <%= parameter_values(parameter.enum) %>
+        </small>
+      <% end %>
+
+
+  </div>
+
+    <% if parameter.array? &&  parameter.items && parameter.items['oneOf'] %>
+
+      <%
+        # Handle specific case - an array that contains a oneOf
+        params = parameter.items['oneOf'].map do |p|
+          p['format'] = parameter.format
+          OasParser::Parameter.new(self, p)
+        end
+
+      %>
+      <div class="oas-parameter-nested">
+        <%= erb :'open_api/_tabbed_single_parameter', locals: { parent: "#{parameter.name}[]", parameters: params, format: format, callback: callback } %>
+      </div>
+
+    <% end %>
+
+    <% if parameter.array? && parameter.items && !parameter.items['oneOf'] %>
+      <%
+        # mheap: We only want to recurse if there are example properties in the array definition
+        if parameter.items['type'] && parameter.items['type'] == 'object' && parameter.items['properties']
+      %>
+        <div class="oas-parameter-nested">
+          <%= erb :'open_api/_parameters', locals: { parent: "#{parent}#{parameter.name}[]", parameters: parameter.properties, model: model, format: format, callback: callback } %>
+        </div>
+      <% end %>
+    <% end  %>
+    <% if parameter.properties && parameter.object? && parameter.properties.size.positive? %>
+      <div class="oas-parameter-nested">
+        <%= erb :'open_api/_parameters', locals: { parent: "#{parent}#{parameter.name}", parameters: parameter.properties, model: model, format: format, callback: callback } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

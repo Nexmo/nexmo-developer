@@ -1,0 +1,10 @@
+it:
+  formtastic:
+    :yes: "Sì"
+    :no: "No"
+    :create: "Crea %{model}"
+    :update: "Aggiorna %{model}"
+    :submit: "Invia"
+    :cancel: "Annulla"
+    :reset: "Ripristina %{model}"
+    :required: "obbligatorio"

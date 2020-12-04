@@ -1,0 +1,32 @@
+.copy-button {
+  background: $blue;
+  width: 140px;
+  height: 24px;
+  padding-top: 3px;
+  text-align: center;
+  clear: both;
+  color: $white;
+  font-size: 0.8em;
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 50;
+}
+
+.octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: $white;
+}
+
+.copy-wrapper {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+.copy-wrapper pre {
+  margin-top: 10px;
+}

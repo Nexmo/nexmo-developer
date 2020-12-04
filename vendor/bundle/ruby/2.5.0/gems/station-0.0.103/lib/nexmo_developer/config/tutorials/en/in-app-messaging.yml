@@ -1,0 +1,4 @@
+title: Creating a chat app
+description: Create an application that enables users to message each other.
+products:
+  - client-sdk

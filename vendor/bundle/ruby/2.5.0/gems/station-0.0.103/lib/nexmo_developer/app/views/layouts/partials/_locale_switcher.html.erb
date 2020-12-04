@@ -1,0 +1,28 @@
+<% presenter = LocaleSwitcherPresenter.new(request) %>
+<% if presenter.multiple_locales? %>
+  <div class="Vlt-dropdown" id="locale-switcher">
+    <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn">
+      <%= button_tag type: :button, class: "Vlt-btn Vlt-btn--app Vlt-btn--white", disabled: presenter.disabled? do %>
+        <span class="Vlt-dropdown__selection">
+          <svg class="Vlt-dropdown__link__icon Vlt-grey-darker"><use xlink:href="<%= asset_pack_path('media/symbol/volta-icons.svg') %>#Vlt-icon-world"/></svg>
+          <span class="Nxd-locale">
+            <%= presenter.current_locale %>
+          </span>
+        </span>
+      <% end %>
+    </div>
+    <% unless presenter.disabled? %>
+      <div class="Vlt-dropdown__panel">
+        <div class="Vlt-dropdown__panel__content">
+          <% presenter.locales.each do |locale| %>
+            <div class="Vlt-dropdown__link" data-locale="<%= locale.data %>" role="link">
+              <span class="Vlt-dropdown__label">
+                <%= locale.value %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

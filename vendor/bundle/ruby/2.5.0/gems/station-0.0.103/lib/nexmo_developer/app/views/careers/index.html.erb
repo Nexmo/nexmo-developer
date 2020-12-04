@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="content-block center spacious">
+    <h1>Careers</h1>
+    <div class="Vlt-col">
+      <div class="Vlt-dropdown" id="department-filter">
+        <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn"><button class="Vlt-btn Vlt-dropdown__btn Vlt-btn--tertiary">Departments</button></div>
+        <div class="Vlt-dropdown__panel Vlt-dropdown__panel--width2">
+          <div class="Vlt-dropdown__panel__content Vlt-dropdown__panel__content--scroll-area">
+            <div class="Vlt-dropdown__scroll">
+              <% Career::DEPARTMENTS.sort.each do |name, codes| %>
+                <div class="Vlt-dropdown__link Vlt-dropdown__link--noclose">
+                  <div class="Vlt-checkbox">
+                    <label for="<%= name %>">
+                      <span class="Vlt-checkbox__button">
+                        <input type="checkbox" id="<%= name %>" value="<%= name %>" name="<%= name %>">
+                        <span class="Vlt-checkbox__icon"></span>
+                      </span>
+                      <%= name %>
+                    </label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Vlt-dropdown" id="location-filter">
+        <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn"><button class="Vlt-btn Vlt-dropdown__btn Vlt-btn--tertiary">Locations</button></div>
+        <div class="Vlt-dropdown__panel Vlt-dropdown__panel--width2">
+          <div class="Vlt-dropdown__panel__content Vlt-dropdown__panel__content--scroll-area">
+            <div class="Vlt-dropdown__scroll">
+              <% Greenhouse.offices.map { |o| o[:name] }.each do |name| %>
+                <div class="Vlt-dropdown__link Vlt-dropdown__link--noclose">
+                  <div class="Vlt-checkbox">
+                    <label for="<%= name %>">
+                      <span class="Vlt-checkbox__button">
+                        <input type="checkbox" id="<%= name %>" value="<%= name %>" name="<%= name %>">
+                        <span class="Vlt-checkbox__icon"></span>
+                      </span>
+                      <%= name %>
+                    </label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="Vlt-table" id="careers">
+    <table>
+      <tbody>
+        <% Career::DEPARTMENTS.sort.each do |name, codes| %>
+          <% codes.each do |code| %>
+            <% @careers_by_department[code].each do |career| %>
+              <tr class="Nxd-career">
+                <td class="title"><%= link_to career.title, career.url, class: "Vlt-text-link" %></td>
+                <td class="department" data-department="<%= name %>"><small><%= name %></small></td>
+                <td class="location" data-location="<%= career.location %>"><small><%= career.location %></small></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+    <div class='Vlt-empty hide' id='no-results'>
+      <div class='Vlt-empty__content'>
+        There are no results that match your criteria.
+      </div>
+    </div>
+
+</div>

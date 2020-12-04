@@ -1,0 +1,20 @@
+---
+title: Create a CSV report using a graphical tool
+description: Create a report using the graphical tool, Postman.
+products:
+  - reports
+
+introduction:
+  title: Introduction
+  description: Create a report using the graphical tool, Postman.
+  content: |
+    # Introduction
+
+    This tutorial describes how to create a report using the graphical tool [Postman](https://www.getpostman.com/). Postman’s graphical interface greatly reduces the complexity of interacting with the Reports API for non-technical users. 
+
+    > If you don't already have Postman installed, [download and install it](https://www.getpostman.com/downloads/).
+tasks:
+  - reports/create-report-postman
+  - reports/check-report-status-postman
+  - reports/download-report-postman
+  - reports/reports-whats-next

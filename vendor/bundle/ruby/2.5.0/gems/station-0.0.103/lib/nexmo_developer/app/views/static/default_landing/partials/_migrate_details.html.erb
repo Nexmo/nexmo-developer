@@ -1,0 +1,57 @@
+<div class="center spacious">
+  <h1>Convert your <%= local_assigns['product'] %> code from Tropo to Nexmo</h1>
+  <small><a href="/migrate/tropo">&laquo; Back to overview</a></small>
+  <br />
+  <br />
+  <p>
+    Keep reading to see a comparison of how Nexmo and Tropo compare for working with <%= local_assigns['product'] %> messages. <br />
+    Bear in mind that with Nexmo the code runs on your own server, whilst with Tropo you store your code on a Tropo platform.
+  </p>
+  <p>
+    Nexmo provide server-side libraries in six different libraries to help you integrate our platform more easily.<br>
+    Head to the <a href="/tools">tools</a> page to find out more.
+  </p>
+  <a role="link" aria-label="Try it free" class="Vlt-btn Vlt-btn--primary Vlt-btn--large" href="https://dashboard.nexmo.com/sign-up?ref=tropo-migrate">Sign Up</a>
+</div>
+<div class="container skip-pushstate" id="primary-content">
+  <% @building_blocks.each do |block| %>
+    <h2><%= block['title'] %></h2>
+    <p><%= block['content'].render_markdown %></p>
+    <h2>Example code</h2>
+    <br />
+    <div class="columns small-12 medium-12">
+      <%= block['tropo'].render_markdown %>
+    </div>
+    <div class="columns small-12 medium-12">
+      <%= block['nexmo'].render_markdown %>
+    </div>
+<% end %>
+
+<br style="clear:both;">
+<br>
+  <%=
+    tutorials = <<~MD
+# What's next?
+
+Ready to get started? Here's some further reading to help you get started with the Nexmo platform
+
+## Tutorials
+
+Work through some in depth use_case, covering common use cases
+
+```use_case
+product: #{local_assigns['product_list']}
+```
+
+## Code Snippets
+
+Want to dive in to code? Take a look at our library of code snippets to get started quickly
+
+```code_snippet_list
+product: #{local_assigns['product_list']}
+```
+    MD
+
+    tutorials.render_markdown
+  %>
+</div>

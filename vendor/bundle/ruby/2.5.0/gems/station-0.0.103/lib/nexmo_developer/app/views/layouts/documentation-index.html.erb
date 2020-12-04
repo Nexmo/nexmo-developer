@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
+    <%= render partial: 'layouts/partials/header' %>
+    <nav class="Vlt-sidenav" id="Vlt-sidenav">
+      <%= directory %>
+    </nav>
+    <main class="Vlt-main Vlt-main--light Nxd-main" tabindex="2">
+      <%= render partial: 'layouts/partials/notices' %>
+      <%= yield %>
+      <%= render partial: 'layouts/partials/footer' %>
+    </main>
+  </body>
+</html>

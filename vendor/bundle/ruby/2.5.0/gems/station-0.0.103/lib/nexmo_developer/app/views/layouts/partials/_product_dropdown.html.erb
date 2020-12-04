@@ -1,0 +1,30 @@
+<div class="Vlt-dropdown">
+  <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn">
+    <button class="Vlt-dropdown__btn Vlt-btn--app">
+      <% if params[:product] %>
+        <% product = Product.all.detect { |p| p['path'] == params[:product] } %>
+        <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svg>
+        <span class="Vlt-dropdown__selection"><%= product['name'] %></span>
+      <% else %>
+        <span class="Vlt-dropdown__selection"><%= t('any_product') %></span>
+      <% end %>
+    </button>
+  </div>
+  <div class="Vlt-dropdown__panel">
+    <div class="Vlt-dropdown__panel__content">
+      <a class="Vlt-dropdown__link <%= !params[:product] && 'Vlt-dropdown__link--selected' || '' %>" href="<%= url_for(controller: controller_name, action: action_name, product: nil, code_language: @language)%>">
+        <span class="Vlt-dropdown__label"><%= t('any_product') %></span>
+      </a>
+      <hr class="hr--short"></hr>
+      <% ProductDropdownPresenter.new(product_scope).options.each do |option| %>
+        <a class="Vlt-dropdown__link <%= params[:product] && params[:product] == option.path && 'Vlt-dropdown__link--selected' || ''%>"
+           href="<%= url_for(controller: controller_name, action: action_name, product: option.path, code_language: @language) %>"
+        >
+          <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= option.icon %>"></use></svg>
+          <span class="Vlt-dropdown__label"><%= option.name %></span>
+        </a>
+        <hr class="hr--short"></hr>
+      <% end %>
+    </div>
+  </div>
+</div>

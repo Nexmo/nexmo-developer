@@ -1,0 +1,11 @@
+<% raise "Missing 'list' key in unordered_list landing page block" unless local_assigns['list'] %>
+
+<% if local_assigns['bullet_shape'] %>
+    <ul class="Vlt-list Vlt-list--<%= local_assigns['bullet_shape'] %>">
+<% else %>
+    <ul class="Vlt-list">
+<% end %>
+<% local_assigns['list'].each do |content| %>
+    <li> <%= content['item'].render_markdown %> </li>
+<% end %>
+</ul>

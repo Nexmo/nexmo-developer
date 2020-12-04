@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <td>Page</td>
+    <td>Negative</td>
+    <td>Positive</td>
+    <td>Score</td>
+  </thead>
+  <tbody>
+    <% resources.first(5).each do |resource| %>
+      <tr>
+        <td><%= link_to resource.relative_link, resource.uri %></td>
+        <td><%= resource.feedbacks.negative.count %></td>
+        <td><%= resource.feedbacks.positive.count %></td>
+        <td><%= resource.score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

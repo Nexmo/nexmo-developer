@@ -1,0 +1,31 @@
+---
+title: "アプリからアプリへの音声通話を行う"
+description: "AndroidクライアントSDKを使用して、Androidアプリから、他のデバイスにインストールされている同じAndroidアプリに音声通話を行います。　"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、AndroidクライアントSDKとJavaを使用して、Androidから別のAndroidアプリに電話をかける方法を示します。"
+    content: "# はじめに\nこのチュートリアルでは、KotlinとNexmo AndroidクライアントSDKを使用してAndroidアプリケーションを作成し、Androidアプリから別のAndroidアプリに電話をかけるためのコードを記述する方法を学びます。\nソースコードは[GitHub]（https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-app）で入手できます。\n\n### このチュートリアルでは、次のバージョンが必要です：\n\n- Android（6.0以上。APIレベル23以上）\n- Android 2.6.4用クライアントSDK\n\n最終更新：2020年9月\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "Android Studioをインストールする"
+    - "GitHubに参加する"
+tasks: 
+    - "クライアントSDK/アプリからアプリへ/NCCOを作成"
+    - "クライアントSDK/アプリからアプリへ/アプリケーションを作成"
+    - "クライアントSDK/Android共有/ユーザー「アリスとボブ」作成"
+    - "クライアントSDK/Android共有/JWT「アリスとボブ」生成"
+    - "クライアントSDK/アプリからアプリへ/スタータープロジェクト"
+    - "クライアントSDK/Android共有/クライアント初期化"
+    - "クライアントSDK/Android共有/JWT「アリスとボブ」設定"
+    - "クライアントSDK/Android共有/「アリスとボブ」認証"
+    - "クライアントSDK/アプリからアプリへ/通話を受信"
+    - "クライアントSDK/アプリからアプリへ/通話を発信"
+    - "クライアントSDK/Android共有/アプリを実行"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n# 次に行うこと\n\n完全版については、[git repository (Gitリポジトリ)]（https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-app）の「java-completed」フォルダ\nにあるAndroid Studioプロジェクトを参照してください。クローンしました。\n\nクライアントSDKでさらに多くのことができます。[Client SDK documentation (クライアントSDKドキュメント)]（/client-sdk/overview）か、\n[Android Client SDK documentation (AndroidクライアントSDKドキュメント)]（/sdk/stitch/android/index）を参照してください。\n\nどのようなアイデアをお持ちですか？<a href=\"mailto:devrel@vonage.com\">devrel@vonage.com</a>までお問い合わせください\n"

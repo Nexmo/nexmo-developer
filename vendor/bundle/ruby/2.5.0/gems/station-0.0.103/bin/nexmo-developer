@@ -1,0 +1,77 @@
+#!/usr/bin/env ruby
+require 'optparse'
+
+clear_cache = false
+rake_ci = false
+run_migrations = false
+rake_smartling_download = false
+rake_smartling_upload = false
+
+options = {}
+docs_path = OptionParser.new do |opts|
+  opts.banner = "Usage: nexmo-developer --docs='/path/to/docs'"
+  opts.on("-d", "--docs=DOCS", "Specify path to documentation") do |v|
+    if Dir.exist?(v)
+      ENV['DOCS_BASE_PATH'] = v
+      ENV['OAS_PATH'] ||= "#{v}/_open_api/definitions"
+      puts "Documentation path: '#{v}' set successfully."
+    else
+      puts "Error: --docs parameter value must be equal to a directory containing documentation."
+      exit
+    end
+  end
+  opts.on("-h", "--help", "Prints help instructions") do
+    puts opts
+    exit
+  end
+  opts.on("--clear-cache", "Clear Rails cache") do
+    clear_cache = true
+  end
+  opts.on("--run-migrations", "Runs db migrations") do
+    run_migrations = true
+  end
+  opts.on("--rake-ci", "Runs ci tasks") do
+    rake_ci = true
+  end
+  opts.on("--rake-smartling-download", "Runs Smartling download check") do
+    rake_smartling_download = true
+  end
+  opts.on("--rake-smartling-upload", "Runs Smartling upload process") do
+    rake_smartling_upload = true
+  end
+end.parse!
+
+$LOAD_PATH.unshift(File.expand_path('../lib/nexmo_developer', __dir__))
+APP_PATH = File.expand_path('../lib/nexmo_developer/config/application', __dir__)
+
+require_relative '../lib/nexmo_developer/nexmo_developer'
+require 'config/application'
+require 'rails/command'
+
+Rails.application.load_tasks
+
+if clear_cache
+  puts "Clearing Rails cache..."
+  Rails::Command.invoke 'runner', ['Rails.cache.clear']
+end
+
+if run_migrations
+  puts "Running migrations..."
+  Rails::Command.invoke 'runner', ["Rake::Task['db:migrate'].invoke"]
+end
+
+if rake_ci
+  puts 'Running Rake tasks...'
+  Rails::Command.invoke 'runner', ["Rake::Task['db:setup'].invoke"]
+  Rails::Command.invoke 'runner', ["Rake::Task['ci:all'].invoke"]
+elsif rake_smartling_download
+  puts 'Running Smartling download check...'
+  Rails::Command.invoke 'runner', ["Rake::Task['smartling:download'].invoke"]
+elsif rake_smartling_upload
+  puts 'Running Smartling upload process...'
+
+  frequency, *paths = ARGV
+  Rails::Command.invoke 'runner', ["Rake::Task['smartling:upload'].invoke(#{paths}, #{frequency})"]
+else
+  Rails::Command.invoke 'server'
+end

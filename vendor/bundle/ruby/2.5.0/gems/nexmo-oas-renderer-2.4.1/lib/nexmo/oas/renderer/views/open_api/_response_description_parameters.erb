@@ -1,0 +1,130 @@
+<%
+  # @mheap: This is hacky handling for allOf, but it works for now
+  allOf = schema['allOf']
+  if allOf
+    schema = allOf.reduce { |a,b| a.deep_merge(b) }
+  end
+%>
+
+<%
+  # If it's an array, look at the items for the response schema as all items within
+  # the array are expected to be identical
+  schema = schema['items'] if schema['type'] == 'array'
+%>
+
+<% if schema['properties'] %>
+  <% parentField = parentField ? "#{parentField}." : '' %>
+  <% schema['properties'].each do |key, parameter| %>
+    <%
+      next if key == '_links'
+      next if parameter['x-skip-response-description']
+      parent = "#{endpoint.method}_#{endpoint.path.path.gsub("/", "_")[1..-1]}" unless parent
+      responseFieldId = parent + "_" + key
+    %>
+    <div class="oas-grid">
+      <div id="<%= responseFieldId %>" class="oas-parameter-name <%= !parentField.blank? ? 'oas-parameter-name-nested' : '' %>">
+        <% if parentField.blank? %>
+          <b><%= key %></b>
+        <% else %>
+          <div class="Vlt-tooltip Vlt-tooltip--top" title="<%= parentField %><%= key %>">
+            <b><%= key %></b>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="oas-parameter-description">
+        <div class="oas-parameter-meta">
+          <%= parameter['type'] %>
+          <% if parameter['type'] == 'array' %>
+            <% if parameter['items'] && parameter['items']['type'] %>
+              of <%= (parameter['items']['type']) %>s
+            <% end %>
+          <% end %>
+        </div>
+
+        <%= (parameter['description'] || '' ).render_markdown %>
+
+        <% if parameter['enum'] %>
+          <small class="Vlt-grey-dark">
+            One of:
+            <%= parameter_values(parameter['enum']) %>
+          </small>
+        <% end %>
+
+      </div>
+
+
+      <% arrayMarker = "" %>
+      <% if parameter['items'] # If this is an array, we need to show the structure of the children %>
+        <% arrayMarker = "[]" %>
+        <% if parameter['items']['oneOf'] || parameter['items']['anyOf'] # If it's a oneOf/anyOf, we need tabs! %>
+          <%
+
+            if parameter['items']['oneOf']
+              qualifier = 'one'
+              lookupKey = 'oneOf'
+            else
+              qualifier = 'any'
+              lookupKey = 'anyOf'
+            end
+
+            schemas = parameter['items'][lookupKey].map do |item|
+              if item['allOf']
+                item = item.deep_merge(item['allOf'].reduce { |a,b| a.deep_merge(b) })
+                item.delete('allOf')
+              end
+              item
+            end
+          %>
+        <% else %>
+          <% parameter['properties'] = parameter['items']['properties'] %>
+        <% end %>
+      <% end %>
+
+      <%
+        schemas = [parameter]
+      %>
+
+      <% if schemas %>
+        <% needs_tabs = schemas.size > 1 %>
+            <% if needs_tabs %>
+              <div class="Vlt-callout Vlt-callout--shoutout">
+                <i></i>
+                <div class="Vlt-callout__content">
+                  This array contains <strong><%= qualifier %></strong> of the following objects:
+                </div>
+              </div>
+              <div class="Vlt-tabs js-format">
+                <div class="Vlt-tabs__header Vlt-tabs__header--bordered" role="tablist" aria-label="Responses">
+                  <% schemas.each_with_index do |schema, index| %>
+                    <div
+                      class="Vlt-tabs__link <%= index == 0 ? 'Vlt-tabs__link_active' : '' %> <%= schema['x-tab-id'] ? "tab-sync" : '' %>"
+                      <% if schema['x-tab-id'] %>
+                      data-tab-link="<%= schema['x-tab-id'] %>"
+                      <% end %>
+                      >
+                      <%= schema['description'] %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="Vlt-tabs__content">
+            <% end %>
+
+            <% schemas.each_with_index do |value, index| %>
+              <div class="Vlt-tabs__panel <%= index == 0 ? 'Vlt-tabs__panel_active' : '' %>">
+                <div class="oas-parameter-nested">
+                <%= erb :'open_api/_response_description_parameters', locals: { endpoint: endpoint, schema: value, parent: responseFieldId, parentField: "#{parentField}#{key}#{arrayMarker}" } %>
+                </div>
+              </div>
+            <% end %>
+
+            <% if needs_tabs %>
+              </div>
+              </div>
+            <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+

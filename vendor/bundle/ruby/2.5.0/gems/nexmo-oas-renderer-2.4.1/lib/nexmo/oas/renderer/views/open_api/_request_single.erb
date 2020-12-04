@@ -1,0 +1,53 @@
+<%
+  renderer = Nexmo::OAS::Renderer::Presenters::RequestBodyRaw
+  params ||= endpoint.request_body.properties_for_format(format)
+
+  requests = []
+
+  # Only show the required fields tab if there are any required fields
+  required_params = params.select do |param|
+    param.required
+  end
+
+  requests.push(
+      {
+          'title' => 'Required Fields Only',
+          'id' => 'required-only',
+          'value' => renderer.new(params, { 'required_only' => true }, endpoint)
+      }) if required_params.any?
+
+  # Always show the all fields tab
+  requests.push(
+      {
+          'title' => 'All Fields',
+          'id' => 'all-fields',
+          'value' => renderer.new(params, { 'required_only' => false }, endpoint)
+      }
+  )
+
+  # Remove the "required only" option if the two request bodies are identical
+  unique_requests = requests.map { |r| r['value'].to_format('application/json') }.to_set.size
+  requests.shift if (unique_requests == 1 && requests.size != unique_requests)
+
+  title = "Example Request" unless title
+  if defined?(subtitle)
+    title = "#{title} &raquo; #{subtitle}"
+  end
+
+%>
+
+<h4 class="Vlt-grey-light"><%= title %></h4>
+  <div class="Vlt-tabs">
+    <div class="Vlt-tabs__header" role="tablist" aria-label="Responses">
+      <% requests.each_with_index do |request, index| %>
+        <div role='tab' tabindex="-1" data-tab-link="<%= request['id'] %>" class="<%= index === 0 ? 'Vlt-tabs__link_active' : '' %> Vlt-tabs__link tab-sync"><%= request['title'] %></div>
+        <% end %>
+    </div>
+    <div class="Vlt-tabs__content">
+      <% requests.each_with_index do |request, index| %>
+        <div role='tabpanel' class="Vlt-js-tabs__panel <%= index === 0 ? 'Vlt-tabs__panel_active' : '' %>">
+          <pre class="<%= format == 'application/json' ? 'language-json' : 'language-shell' %> Vlt-prism--copy-disabled <%= @theme_light ? 'Vlt-prism--dark' : '' %>"><code><%= request['value'].to_format(format) %></code></pre>
+        </div>
+      <% end %>
+    </div>
+</div>

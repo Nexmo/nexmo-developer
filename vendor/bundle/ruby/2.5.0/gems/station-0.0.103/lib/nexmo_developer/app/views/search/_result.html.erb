@@ -1,0 +1,31 @@
+<div class="search-result">
+  <% if index_name == 'zendesk_nexmo_articles' %>
+    <a href="https://help.nexmo.com/hc/en-us/articles/<%= hit.id %>">
+      <div>
+        <span class="meta"><%= hit.section.full_path %></span>
+        <h3><%= hit.title %></h3>
+
+        <p class="search-highlighted">
+          <%= sanitize(hit._snippetResult.body_safe.value, tags: ['em']) %>
+        </p>
+      </div>
+    </a>
+  <% end %>
+
+
+  <% if index_name.include? 'nexmo_developer' %>
+    <a href="<%= hit.path %>">
+      <div>
+        <span class="meta"><%= hit.product %></span>
+        <h3><%= hit.title %></h3>
+        <p><b><%= hit.description %></b></p>
+
+
+        <p class="search-highlighted">
+          ...<%= sanitize(hit._snippetResult.body.value, tags: ['em']) %>...
+        </p>
+      </div>
+    </a>
+  <% end %>
+  <hr />
+</div>
