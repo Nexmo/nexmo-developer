@@ -1,0 +1,29 @@
+.tutorial-language-link svg {
+  height: 15px;
+  width: 15px;
+}
+
+.Nxd-use-cases--filters {
+  .Vlt-dropdown {
+    margin-right: 16px;
+
+    .hr--short {
+      width: 65%;
+      margin-left: 40px;
+    }
+  }
+}
+
+.Nxd-use-cases {
+  .Vlt-card {
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+    transition: box-shadow ease-in 0.25s;
+
+    &:hover {
+      transform: none;
+      box-shadow: 0 10px 30px rgba(19, 20, 21, 0.1);
+      transform: none;
+    }
+  }
+}

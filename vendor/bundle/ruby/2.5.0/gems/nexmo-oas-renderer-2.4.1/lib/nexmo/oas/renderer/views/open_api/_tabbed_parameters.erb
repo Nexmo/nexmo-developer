@@ -1,0 +1,44 @@
+<%
+  # Handle any cases where the top level of the oneOf is an allOf
+  schemas = schema.map do |s|
+    if s['allOf']
+      newSchema = body.handle_all_of(s)
+      s.each do |k,v|
+        newSchema[k] = v
+      end
+
+      next newSchema
+    end
+    s
+  end
+
+  switcher = Nexmo::OAS::Renderer::Presenters::ContentSwitcher.new(label: "Request Details", format: format, force_type: request['x-switcher'], theme_light: @theme_light)
+
+  schemas.each_with_index do |schema, index|
+    if schema['properties']
+      schema['properties'] = schema['properties'].map do |name, definition|
+        OasParser::Property.new(self, schema, name, definition)
+      end
+      .sort_by do |prop|
+        prop.required ? -1 : 1
+      end
+    end
+
+
+    if schema['oneOf']
+      content = (erb :'open_api/_tabbed_parameters', locals: { body: body, request: schema, schema: schema['oneOf'], format: format, callback: callback })
+    else
+      content = (erb :'open_api/_parameters', locals: { parameters: schema['properties'], callback: callback })
+    end
+
+    switcher.add_content(
+      title: schema['title'] || schema['description'],
+      content: content,
+      tab_id: schema['x-tab-id'],
+      active: index == 0
+    )
+  end
+%>
+
+<%= erb *switcher.render %>
+

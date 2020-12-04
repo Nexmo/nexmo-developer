@@ -1,0 +1,54 @@
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/oj-3.10.16/ext/oj
+/opt/hostedtoolcache/Ruby/2.5.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.5.8/x64/lib/ruby/site_ruby/2.5.0 -r ./siteconf20201204-3888-hyqvwr.rb extconf.rb
+>>>>> Creating Makefile for ruby version 2.5.8 on x86_64-linux <<<<<
+checking for rb_time_timespec()... yes
+checking for rb_ivar_count()... yes
+checking for rb_ivar_foreach()... yes
+checking for stpcpy()... yes
+checking for rb_data_object_wrap()... yes
+checking for pthread_mutex_init()... yes
+creating Makefile
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/oj-3.10.16/ext/oj
+make "DESTDIR=" clean
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/oj-3.10.16/ext/oj
+make "DESTDIR="
+compiling cache8.c
+compiling circarray.c
+compiling code.c
+compiling compat.c
+compiling custom.c
+compiling dump.c
+compiling dump_compat.c
+compiling dump_leaf.c
+compiling dump_object.c
+compiling dump_strict.c
+compiling err.c
+compiling fast.c
+compiling hash.c
+compiling hash_test.c
+compiling mimic_json.c
+compiling object.c
+compiling odd.c
+compiling oj.c
+compiling parse.c
+compiling rails.c
+compiling reader.c
+compiling resolve.c
+compiling rxclass.c
+compiling saj.c
+compiling scp.c
+compiling sparse.c
+compiling stream_writer.c
+compiling strict.c
+compiling string_writer.c
+compiling trace.c
+compiling util.c
+compiling val_stack.c
+compiling wab.c
+linking shared-object oj/oj.so
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/oj-3.10.16/ext/oj
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 oj.so ./.gem.20201204-3888-geyfr0/oj

@@ -1,0 +1,9 @@
+<div class="Vlt-box Vlt-box--lesspadding Nxd-accordion-emphasis Vlt-accordion">
+  <button class="Vlt-accordion__trigger" data-accordion="acc<%= id %>" tabindex="0">
+    <%= app['use_existing'] ? ::I18n.t('.code_snippets.use_your_app') : ::I18n.t('.code_snippets.create_an_app') %>
+  </button>
+
+  <div id="acc<%=id %>" class="Vlt-accordion__content Vlt-accordion__content--noborder">
+    <%= ::I18n.t('.code_snippets.application_messages_dispatch.no_application_html') %>
+  </div>
+</div>

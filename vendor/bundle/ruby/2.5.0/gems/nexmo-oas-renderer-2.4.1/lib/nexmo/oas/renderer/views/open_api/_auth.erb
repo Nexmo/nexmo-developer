@@ -1,0 +1,74 @@
+<% if endpoint.jwt? || endpoint.basic_auth? || endpoint.oauth? %>
+  <h4>Authentication</h4>
+
+  <% if endpoint.jwt? && endpoint.basic_auth? %>
+    <p>This API supports both JWT and Basic authentication. Basic authentication is easier to get started with, but does not support advanced features such as ACLs.</p>
+
+    <p>You can use <em>either</em> JWT or Basic authentication, but not both at the same time.</p>
+  <% end %>
+
+  <div class="Vlt-table Vlt-table--bordered">
+    <table>
+      <thead>
+      <tr>
+        <th>Key</th>
+        <th>Description</th>
+        <th>Example</th>
+        <th>Default</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <% if endpoint.oauth? %>
+        <tr>
+          <td>
+            <b>Authorization</b>
+          </td>
+          <td>
+            <b>Your OAuth token.</b><br>
+            <small><a href="/vonage-business-cloud/vbc-apis/getting-started/authentication">Read more about OAuth tokens</a></small>
+          </td>
+          <td><code>Bearer &lt;access_token&gt;</code></td>
+          <td>
+            <em>None</em>
+          </td>
+        </tr>
+      <% end %>
+
+      <% if endpoint.jwt? %>
+        <tr>
+          <td>
+            <b>Authorization</b>
+          </td>
+          <td>
+            <b>Your JSON web token.</b><br>
+            <small><a href="/concepts/guides/authentication#json-web-tokens-jwt">Read more about JWTs</a></small>
+          </td>
+          <td><code>Bearer &lt;JWT&gt;</code></td>
+          <td>
+            <em>None</em>
+          </td>
+        </tr>
+      <% end %>
+
+      <% if endpoint.basic_auth? %>
+        <tr>
+          <td>
+            <b>Authorization</b>
+          </td>
+          <td>
+            <b>Base64 encoded API key and secret joined by a colon.</b><br>
+            <small><a href="/concepts/guides/authentication#header-based-api-key-and-secret-authentication">Read more</a></small>
+          </td>
+          <td><code>Basic &lt;base64&gt;</code></td>
+          <td>
+            <i>None</i>
+          </td>
+        </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+  </div>
+<% end %>
+

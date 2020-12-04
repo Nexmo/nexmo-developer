@@ -1,0 +1,68 @@
+.theme-light {
+
+  .Vlt-switch__slider {
+    &:after {
+      background-image: url("data:image/svg+xml,%0A%3Csvg height='15px' viewBox='0 0 230 200' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23131415' d='M45.3408,0 L-0.0002,0 L64.6808,146.958 C65.1748,148.081 66.7718,148.07 67.2508,146.942 L88.7628,96.337 L45.3408,0 Z'%3E%3C/path%3E%3Cpath fill='%23131415' d='M183.4502,0 C183.4502,0 113.9562,159.156 104.6482,173.833 C93.8292,190.896 86.6592,197.409 73.3912,199.496 C73.2682,199.515 73.1772,199.621 73.1772,199.746 C73.1772,199.886 73.2912,200 73.4312,200 L114.9552,200 C132.9432,200 145.9152,184.979 153.1042,171.714 C161.2742,156.637 229.5902,0 229.5902,0 L183.4502,0 Z'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .theme-link {
+    color: black;
+  }
+
+  // Primary colours
+  .oas-navbar, .oas-right-panel {
+    background: #f8fafc !important;
+  }
+
+  // Top navbar
+  .group-link {
+    background: black !important;
+    color: white;
+  }
+
+  .Nxd-method-badge {
+    &--post {
+      color: $green-dark;
+      background: $green-lighter;
+    }
+
+    &--get {
+      color: $blue-dark;
+      background: $blue-lighter;
+    }
+
+    &--delete {
+      color: $red-dark;
+      background: $red-lighter;
+    }
+
+    &--patch {
+      color: $teal-dark;
+      background: $teal-lighter;
+    }
+
+    &--put {
+      color: $purple-dark;
+      background: $purple-lighter;
+    }
+  }
+
+
+  // Responses
+
+  .oas-right-panel {
+    .Vlt-js-tabs__link_active {
+      background: #131415 !important;
+      color: white;
+    }
+
+    h4,
+    .Vlt-tabs__link {
+      color: black !important;
+    }
+  }
+
+}

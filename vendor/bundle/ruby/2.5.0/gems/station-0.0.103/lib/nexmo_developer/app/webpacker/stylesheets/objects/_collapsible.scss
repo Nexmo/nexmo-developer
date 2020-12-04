@@ -1,0 +1,18 @@
+.Nxd-accordion.Vlt-accordion__trigger_active {
+  border: 0;
+}
+
+.Nxd-accordion-button {
+  &:after {
+    display: none;
+  }
+}
+
+.Nxd-accordion-emphasis {
+  border-color: $grey;
+
+  h5 {
+    padding: 0;
+    line-height: 2.5rem;
+  }
+}

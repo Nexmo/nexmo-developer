@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
+    <%= render partial: 'layouts/partials/header' %>
+
+
+    <div id="Vlt-sidenav" class="Vlt-sidenav">
+      <div class="Vlt-sidenav__scroll">
+        <nav class="sidenav" tabindex="0" >
+          <%= render partial: 'layouts/partials/sidenav' %>
+        </nav>
+      </div>
+    </div>
+
+    <nav class="Vlt-sidenav" id="Vlt-sidenav">
+      <% if @return_link %>
+        <%= link_to @return_link[:path], class: 'sidenav-back' do %>
+          <i class="icon icon-angle-left"></i> Back to <%= @return_link[:title] %>
+        <% end %>
+        <hr>
+      <% end %>
+    </nav>
+    <main class="Vlt-main Vlt-main--light Nxd-main" id="primary-content" tabindex="2">
+      <%= render partial: 'layouts/partials/notices' %>
+      <div class="Vlt-card">
+        <%= yield %>
+        <%= render partial: 'layouts/partials/improve_this_page' %>
+      </div>
+    </main>
+  </body>
+</html>

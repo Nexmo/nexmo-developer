@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://123FakeToken:@harvest.greenhouse.io/v1/offers/221598
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 27 Jan 2016 00:27:44 GMT
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '400'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Content-Type-Options:
+      - nosniff
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":221598,"version":1,"application_id":21708586,"created_at":"2016-01-26T23:57:28Z","sent_at":null,"resolved_at":"2016-01-26T23:57:35Z","starts_at":"2016-01-26","status":"rejected","custom_fields":{"benefits":"Full
+        Medical","bonus":"1000","current_salary":"25000","employment_type":"Full-time","notes":"He
+        was very excited.","options":"2000","salary":"31000","source_cost":null,"visa_cost":"200"}}'
+    http_version: 
+  recorded_at: Wed, 27 Jan 2016 00:27:44 GMT
+recorded_with: VCR 3.0.1

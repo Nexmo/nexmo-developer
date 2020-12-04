@@ -1,0 +1,8 @@
+<% raise "Missing 'content' key in warning_callout landing page block" unless local_assigns['content'] %>
+
+<div class="Vlt-callout Vlt-callout--tip">
+  <i></i>
+  <div class="Vlt-callout__content">
+    <p><%= local_assigns['content'].render_markdown %></p>
+  </div>
+</div>

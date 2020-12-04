@@ -1,0 +1,13 @@
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+/opt/hostedtoolcache/Ruby/2.5.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.5.8/x64/lib/ruby/site_ruby/2.5.0 -r ./siteconf20201204-3888-17ndhvi.rb extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/runner/work/nexmo-developer/nexmo-developer/vendor/bundle/ruby/2.5.0/gems/json-2.3.1/ext/json
+make "DESTDIR=" install

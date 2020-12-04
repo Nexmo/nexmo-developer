@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://123FakeToken:@harvest.greenhouse.io/v1/candidates/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 23 Apr 2014 23:23:01 GMT
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '20'
+      X-Ratelimit-Remaining:
+      - '20'
+      Content-Length:
+      - '68109'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "{\"id\":1,\"first_name\":\"User\",\"last_name\":\"One\",\"company\":null,\"title\":null,\"created_at\":\"2013-10-17T15:32:26Z\",\"last_activity\":\"2013-10-30T14:37:10Z\",\"photo_url\":null,\"attachments\":[{\"filename\":\"USER_1_Resume_10.13.pdf\",\"url\":\"https://prod-heroku.s3.amazonaws.com/person_attachments/USER_1_Resume_10.13.pdf\",\"type\":\"cover_letter\"},{\"filename\":\"USER_1_Resume_10.13.pdf\",\"url\":\"https://resume.com/USER_1_Resume_10.13.pdf\",\"type\":\"resume\"}],\"application_ids\":[1234],\"phone_numbers\":[{\"value\":\"123-345-5678\",\"type\":\"other\"}],\"addresses\":[],\"email_addresses\":[{\"value\":\"user_one@email.com\",\"type\":\"personal\"}],\"website_addresses\":[],\"social_media_addresses\":[]}"
+    http_version: 
+  recorded_at: Wed, 23 Apr 2014 23:23:02 GMT
+recorded_with: VCR 2.5.0

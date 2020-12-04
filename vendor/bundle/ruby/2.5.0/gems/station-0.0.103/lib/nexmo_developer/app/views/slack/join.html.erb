@@ -1,0 +1,25 @@
+<center>
+  <%= image_tag 'slack.svg', id: 'join-slack-logo' %>
+  <h1>Join the Vonage Developer Community Slack</h1>
+
+  <% unless @success %>
+    <%= form_tag community_slack_path do %>
+      <div class="Vlt-form__element Vlt-form__element--elastic">
+        <div class="Vlt-input">
+          <%= email_field_tag :email, (@email || ''), placeholder: 'Enter your email address', size: '40' %>
+        </div>
+      </div>
+      <%= recaptcha_tags if ENV['RECAPTCHA_ENABLED'] %>
+      <%= submit_tag 'Join', class: 'Vlt-btn Vlt-btn--primary Vlt-btn--large' %>
+    <% end %>
+  <% end %>
+
+  <% if @notice %>
+    <%= @notice %>
+  <% end %>
+
+  <hr class="hr--tall">
+
+  <h2>Already a member?</h2>
+  <%= link_to "Go to Vonage Developer Community on Slack", "https://#{ENV['SLACK_SUBDOMAIN']}.slack.com", class: "Vlt-btn Vlt-btn--secondary" %>
+</center>

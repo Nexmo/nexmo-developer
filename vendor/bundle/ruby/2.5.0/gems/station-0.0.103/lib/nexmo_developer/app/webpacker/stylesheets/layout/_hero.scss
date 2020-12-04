@@ -1,0 +1,16 @@
+$hero-gradient: darken($mint, 3%);
+
+#hero {
+  padding: $spacing * 2;
+
+  h1 {
+    font-size: 55px;
+    line-height: 55px;
+
+    @media #{$S-only} {
+
+      font-size: 32px;
+      line-height: 32px;
+    }
+  }
+}

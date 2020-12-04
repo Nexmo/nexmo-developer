@@ -1,0 +1,35 @@
+<%
+    raise "Missing icon 'color' key in call_to_action landing page block" unless local_assigns['icon']['color']
+    raise "Missing icon 'name' key in call_to_action landing page block" unless local_assigns['icon']['name']
+    raise "Missing 'title' key in call_to_action landing page block" unless local_assigns['title']
+    raise "Missing 'url' key in call_to_action landing page block" unless local_assigns['url']
+%>
+
+<div class="center">
+    <h2>
+        <a href="<%= local_assigns['url'] %>">
+            <div>
+                <svg class="Vlt-icon Vlt-icon--large Vlt-<%= local_assigns['icon']['color'] %>">
+                <use xlink:href="<%= local_assigns['icon']['name'].start_with?("Brand") ? "/symbol/volta-brand-icons.svg##{local_assigns['icon']['name']}" : "/symbol/volta-icons.svg#Vlt-#{local_assigns['icon']['name']}" %>"></use>
+                </svg>
+            </div>
+    <%= local_assigns['title'] %>
+        </a>
+    </h2>
+<% if local_assigns['subtitle'] %>
+    <p><%= local_assigns['subtitle'].render_markdown %></p>
+<% end %>
+<% if local_assigns['text'] %>
+    <% local_assigns['text'].each do |text| %>
+        <% if text['type'] == 'large' %>
+            <p class="p-large">
+                <%= text['content'].render_markdown({skip_paragraph_surround: true}) %>
+            </p>
+        <% elsif text['type'] == 'small' %>
+            <%= text['content'].render_markdown %>
+        <% else 
+            raise "Unknown text type: #{text['type']}"
+        end %>
+    <% end %>
+<% end%>
+</div>

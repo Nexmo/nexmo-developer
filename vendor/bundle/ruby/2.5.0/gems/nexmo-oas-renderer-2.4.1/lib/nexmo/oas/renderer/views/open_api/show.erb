@@ -1,0 +1,26 @@
+<% definition = @specification.definition %>
+
+<div class="theme-<%= @theme %>">
+  <div class="oas-wrapper Vlt-article">
+    <%= erb :'open_api/_navigation', locals: { definition: definition } %>
+    <div class="oas-left-panel full-background sm-hidden">&nbsp;</div>
+    <div class="oas-right-panel full-background sm-hidden">&nbsp;</div>
+
+    <%= erb :'open_api/_header', locals: { definition: definition } %>
+
+    <% @specification.groups.each do |name, endpoints| %>
+      <% if name %>
+        <% group = definition.raw['tags'].select { |tag| tag['name'].capitalize == name.capitalize }.first %>
+        <%= erb :'open_api/_model', locals: { group: group, endpoints: endpoints } %>
+      <% end %>
+
+      <% endpoints.each do |endpoint| %>
+        <%= erb :'open_api/_endpoint', locals: { definition: definition, endpoint: endpoint } %>
+        <%= erb :'open_api/_callbacks', locals: { endpoint: endpoint } %>
+      <% end %>
+    <% end %>
+
+    <%= erb :'open_api/_webhooks', locals: { definition: definition } %>
+    <%= erb :'open_api/_errors', locals: {definition: definition } %>
+  </div>
+</div>

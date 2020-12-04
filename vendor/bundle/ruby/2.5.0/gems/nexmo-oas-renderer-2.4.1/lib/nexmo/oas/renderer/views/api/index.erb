@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= erb :'layouts/_head' %>
+
+  <body class="Nxd-template">
+    <main class="Vlt-main Vlt-main--light Nxd-main" tabindex="2">
+      <div class="Vlt-card" id="primary-content">
+        <h1>Choose a definition</h1>
+        <ul class="Vlt-list Vlt-list--simple">
+        <% @definitions.each do |d| %>
+          <li><a href="<%= d %>"><%= d %></a></li>
+        <% end %>
+        </ul>
+      </div>
+    </main>
+
+    <%= erb :"layouts/_javascripts" %>
+  </body>
+</html>

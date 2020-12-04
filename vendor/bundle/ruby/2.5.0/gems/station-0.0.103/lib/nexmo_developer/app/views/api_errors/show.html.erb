@@ -1,0 +1,27 @@
+<% unless @scoped_errors %>
+  <h4>
+    <%= link_to api_errors_path do %>
+      <i class="icon icon-angle-left"></i>
+      View all errors
+    <% end %>
+  </h4>
+  <br>
+<% end %>
+
+<h1>Error details - <small><code><%= params[:id] %></code></small></h1>
+
+<br>
+
+<h2>Description</h2>
+<p><%= @error.description.render_markdown %></p>
+
+<br>
+
+<h2>Resolution</h2>
+<p><%= @error.resolution %></p>
+
+<br>
+
+<% if @error.link %>
+    <%= link_to @error.link.text, @error.link.url, class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+<% end %>

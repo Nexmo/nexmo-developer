@@ -1,0 +1,139 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://123FakeToken:@harvest.greenhouse.io/v1/applications?job_id=144371
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 27 Jan 2016 18:09:18 GMT
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json;charset=utf-8
+      Link:
+      - <https://harvest.greenhouse.io/v1/applications?job_id=144371&page=1&per_page=100>;
+        rel="last"
+      Content-Length:
+      - '11280'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Content-Type-Options:
+      - nosniff
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '[{"id":21708448,"candidate_id":13381395,"prospect":false,"applied_at":"2015-11-19T20:22:30Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:30Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708450,"candidate_id":13381397,"prospect":false,"applied_at":"2015-11-19T20:22:30Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:30Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708449,"candidate_id":13381396,"prospect":false,"applied_at":"2015-11-19T20:22:30Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:30Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708451,"candidate_id":13381398,"prospect":false,"applied_at":"2015-11-19T20:22:30Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:30Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708452,"candidate_id":13381399,"prospect":false,"applied_at":"2015-11-19T20:22:31Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:31Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708453,"candidate_id":13381400,"prospect":false,"applied_at":"2015-11-19T20:22:31Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:31Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708454,"candidate_id":13381401,"prospect":false,"applied_at":"2015-11-19T20:22:31Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:31Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708456,"candidate_id":13381403,"prospect":false,"applied_at":"2015-11-19T20:22:32Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:32Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708460,"candidate_id":13381407,"prospect":false,"applied_at":"2015-11-19T20:22:35Z","rejected_at":null,"last_activity_at":"2015-11-19T20:22:35Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708585,"candidate_id":13381528,"prospect":false,"applied_at":"2015-11-19T20:26:25Z","rejected_at":null,"last_activity_at":"2015-11-19T20:26:25Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708586,"candidate_id":13381530,"prospect":false,"applied_at":"2015-11-19T20:26:25Z","rejected_at":"2016-01-26T23:57:35Z","last_activity_at":"2016-01-26T23:57:35Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":{"id":14,"name":"None
+        specified","type":{"id":3,"name":"None specified"}},"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"rejected","current_stage":{"id":1031644,"name":"Offer"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21708588,"candidate_id":13381531,"prospect":false,"applied_at":"2015-11-19T20:26:26Z","rejected_at":null,"last_activity_at":"2015-11-19T20:26:26Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":21769983,"candidate_id":13440415,"prospect":false,"applied_at":"2015-11-20T22:25:49Z","rejected_at":null,"last_activity_at":"2015-11-20T22:25:49Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Yeah?","answer":"Five"},{"question":"Huh?","answer":"Yes"},{"question":"What?","answer":"wfawfe"},{"question":"Foobar?","answer":"sgerag"},{"question":"How
+        did you hear about this job?","answer":"fawefaewttag"},{"question":"Website","answer":"afwaefw"},{"question":"LinkedIn
+        Profile","answer":"wafawefaw"}]},{"id":21772362,"candidate_id":13442759,"prospect":false,"applied_at":"2015-11-20T22:33:14Z","rejected_at":null,"last_activity_at":"2015-11-20T22:33:14Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Yeah?","answer":"Five"},{"question":"Huh?","answer":"Yes"},{"question":"What?","answer":"wfawfe"},{"question":"Foobar?","answer":"sgerag"},{"question":"How
+        did you hear about this job?","answer":"fawefaewttag"},{"question":"Website","answer":"afwaefw"},{"question":"LinkedIn
+        Profile","answer":"wafawefaw"}]},{"id":21772559,"candidate_id":13442958,"prospect":false,"applied_at":"2015-11-20T22:33:45Z","rejected_at":null,"last_activity_at":"2015-11-20T22:33:45Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Yeah?","answer":"Five"},{"question":"Huh?","answer":"Yes"},{"question":"What?","answer":"wfawfe"},{"question":"Foobar?","answer":"sgerag"},{"question":"How
+        did you hear about this job?","answer":"fawefaewttag"},{"question":"Website","answer":"afwaefw"},{"question":"LinkedIn
+        Profile","answer":"wafawefaw"}]},{"id":21772681,"candidate_id":13443080,"prospect":false,"applied_at":"2015-11-20T22:34:04Z","rejected_at":null,"last_activity_at":"2015-11-20T22:34:03Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[{"question":"Yeah?","answer":"Five"},{"question":"Huh?","answer":"Yes"},{"question":"What?","answer":"wfawfe"},{"question":"Foobar?","answer":"sgerag"},{"question":"How
+        did you hear about this job?","answer":"fawefaewttag"},{"question":"Website","answer":"afwaefw"},{"question":"LinkedIn
+        Profile","answer":"wafawefaw"}]},{"id":21880506,"candidate_id":13549465,"prospect":false,"applied_at":"2015-11-23T19:58:34Z","rejected_at":null,"last_activity_at":"2016-01-26T23:59:27Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":null,"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"active","current_stage":{"id":1031644,"name":"Offer"},"answers":[{"question":"Yeah?","answer":"Three"},{"question":"Huh?","answer":"No"},{"question":"What?","answer":null},{"question":"Foobar?","answer":null},{"question":"How
+        did you hear about this job?","answer":null},{"question":"Website","answer":null},{"question":"LinkedIn
+        Profile","answer":null}]},{"id":22109641,"candidate_id":13769762,"prospect":false,"applied_at":"2015-11-30T22:30:47Z","rejected_at":"2015-11-30T22:30:52Z","last_activity_at":"2015-11-30T22:30:53Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":{"id":158108,"name":"Gordon Zheng"},"rejection_reason":{"id":14,"name":"None
+        specified","type":{"id":3,"name":"None specified"}},"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"rejected","current_stage":{"id":1031639,"name":"Application
+        Review"},"answers":[]},{"id":24709881,"candidate_id":13769693,"prospect":false,"applied_at":"2016-01-26T23:58:09Z","rejected_at":null,"last_activity_at":"2016-01-26T23:59:07Z","source":{"id":2,"public_name":"Jobs
+        page on your website"},"credited_to":{"id":158108,"name":"Gordon Zheng"},"rejection_reason":null,"jobs":[{"id":144371,"name":"Good
+        Cop"}],"status":"hired","current_stage":null,"answers":[]}]'
+    http_version: 
+  recorded_at: Wed, 27 Jan 2016 18:09:18 GMT
+recorded_with: VCR 3.0.1

@@ -1,0 +1,5 @@
+<% if endpoint.callbacks.size.positive? %>
+  <% endpoint.callbacks.each do |callback| %>
+    <%= erb :'open_api/_callback', locals: { callback: callback, webhook: false } %>
+  <% end %>
+<% end %>

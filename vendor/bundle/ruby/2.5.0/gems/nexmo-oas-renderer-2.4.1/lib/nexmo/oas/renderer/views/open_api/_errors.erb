@@ -1,0 +1,34 @@
+<% if definition.raw['x-errors'] %>
+    <div>
+        <div class="Vlt-grid">
+            <div class="Vlt-col oas-left-panel" style="padding-bottom: 36px;">
+                <h2 id="errors">Errors</h2>
+                <p>
+                  The following is a non-exhaustive list of error codes that may occur while using this API. These codes are in addition to any of our <a href="/api-errors">generic error codes</a>.
+                </p>
+            </div>
+            <div class="Vlt-col oas-right-panel"></div>
+        </div>
+        <div class="Vlt-grid">
+            <div class="Vlt-col Vlt-table oas-left-panel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% definition.raw['x-errors'].each do |name, body| %>
+                        <tr>
+                          <td><a href="/api-errors/<%= @specification.definition_name %>#<%= name %>"><b><%= name %></b></a></td>
+                            <td><%= body['description'].render_markdown %> </td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="Vlt-col oas-right-panel"></div>
+        </div>
+    </div>
+<% end %>

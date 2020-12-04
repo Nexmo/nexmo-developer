@@ -1,0 +1,50 @@
+<% callback = false if callback.nil? %>
+
+<% if endpoint.parameters.select { |p| p.in == 'header'}.any? %>
+  <h4>Header Parameters</h4>
+  <%= erb :'open_api/_parameters', locals: { parameters: endpoint.parameters.select { |p| p.in == 'header' }, callback: callback } %>
+<% end %>
+
+<% if endpoint.path_parameters.any? %>
+  <h4>Path Parameters</h4>
+  <%= erb :'open_api/_parameters', locals: { parameters: endpoint.path_parameters, callback: callback } %>
+<% end %>
+
+<% if endpoint.query_parameters.any? %>
+  <h4>Query Parameter</h4>
+  <%= erb :'open_api/_parameters', locals: { parameters: endpoint.query_parameters, callback: callback } %>
+<% end %>
+
+<% if endpoint.request_body %>
+  <% format = endpoint.request_body.formats[0] %>
+  <h4>
+    Request body
+    <span class="Vlt-badge Vlt-badge--blue"><%= format %></span>
+  </h4>
+
+  <% if endpoint.request_body.description %>
+    <%= endpoint.request_body.description.render_markdown %>
+  <% end %>
+
+  <% unless endpoint.request_body.exhibits_one_of_multiple_schemas?(format) %>
+
+    <%
+      params = endpoint.request_body.properties_for_format(format)
+      if params
+    %>
+
+      <%= erb :'open_api/_parameters', locals: { endpoint:endpoint, parameters: params, callback: callback } %>
+    <% end %>
+  <% else %>
+
+    <%
+      # This can likely be better done as a presenter, but it works for now
+      request = endpoint.request_body.content[format]['schema']
+      schema = request['oneOf']
+      %>
+      <%= erb :'open_api/_tabbed_parameters', locals: { body: endpoint.request_body, request: request, schema: schema, format: format, callback: callback } %>
+    <%
+    end
+  end
+%>
+

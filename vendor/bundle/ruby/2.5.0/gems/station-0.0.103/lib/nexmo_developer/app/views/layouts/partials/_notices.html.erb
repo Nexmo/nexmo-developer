@@ -1,0 +1,29 @@
+<% if @notices && @notices.any? %>
+  <div class="Nxd-header-notices">
+    <% @notices.each do |id, config| %>
+      <% if config['path'].nil? || request.path.match(Regexp.new(config['path'])) %>
+        <div class="Vlt-callout Vlt-callout--shoutout" data-notice-dismissible="<%= config['dismissible'] || true %>" data-notice-id="<%= id %>">
+          <i></i>
+          <div class="Vlt-callout__content">
+            <%= config['content'].html_safe %>
+          </div>
+           <% unless config['dismissible'] == false %>
+              <button class="Vlt-callout__dismiss"></button>
+            <% end %>
+        </div>
+      <% end %>
+    <% end %>
+<% end %>
+
+<% if I18n.locale.to_s != 'en' %>
+  <div class="Vlt-callout Vlt-callout--shoutout">
+    <i></i>
+    <div class="Vlt-callout__content">
+      <% if I18n.locale.to_s == 'cn' %>
+        <p>这份文档还在翻译中，预期年底前完成。欢迎您提供宝贵的意见及建议。</p>
+      <% elsif I18n.locale.to_s == 'ja' %>
+        <p>このコンテンツはまだ翻訳中であり、年末までに完了する予定です。貴重なコメントや提案を歓迎します。</p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

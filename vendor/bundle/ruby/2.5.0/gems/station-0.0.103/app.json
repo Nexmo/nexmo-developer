@@ -1,0 +1,24 @@
+{
+  "buildpacks": [
+    { "url": "https://github.com/Nexmo/heroku-buildpack-clone-repo.git" },
+    { "url": "heroku/nodejs" },
+    { "url": "https://github.com/negativetwelve/heroku-buildpack-subdir" },
+    { "url": "heroku/ruby" }
+  ],
+  "env": {
+    "GIT_REPO_URL": { "required": true }
+  },
+  "stack": "heroku-18",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "scripts": {
+    "postdeploy": "cd /app/lib/nexmo_developer && bin/rails db:migrate"
+  }
+}

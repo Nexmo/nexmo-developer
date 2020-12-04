@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://123FakeToken:@api.greenhouse.io/v1/applications
+    body:
+      encoding: US-ASCII
+      string: id=721&question_2720=not_required
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - text/javascript; charset=utf-8
+      Date:
+      - Tue, 17 Sep 2013 14:47:24 GMT
+      Etag:
+      - ! '"46594fa21df38686f04babfde85dfaa2"'
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - 634ac5d26bd19706ff5e959fb0beaaaf
+      X-Runtime:
+      - '1.334093'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":"Failed to save person","reason":"Validation failed: Either
+        a name or email address is required."}'
+    http_version: 
+  recorded_at: Tue, 17 Sep 2013 14:47:24 GMT
+recorded_with: VCR 2.5.0

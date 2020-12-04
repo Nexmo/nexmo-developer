@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.greenhouse.io/v1/boards/generalassembly/embed/job?id=123&questions=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 16 Sep 2013 22:55:58 GMT
+      Status:
+      - 400 Bad Request
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - d4e892a3c3184a981c7fa31771a7f24c
+      X-Runtime:
+      - '0.071031'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":"Could not find a job with id ''123'' for generalassembly"}'
+    http_version: 
+  recorded_at: Mon, 16 Sep 2013 22:55:58 GMT
+recorded_with: VCR 2.5.0

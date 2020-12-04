@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body class="oas-page" data-push-state-root="<%= canonical_path %>">
+    <%= render partial: 'layouts/partials/header' %>
+    <%= yield %>
+    <%= render partial: 'layouts/partials/feedback' %>
+  </body>
+</html>

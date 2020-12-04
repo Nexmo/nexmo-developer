@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
+    <%= render partial: 'layouts/partials/header' %>
+    <nav class="Vlt-sidenav" id="Vlt-sidenav">
+      <div class="Vlt-sidenav__scroll">
+        <% begin %>
+          <%= render partial: "layouts/partials/#{@side_navigation}" %>
+        <% rescue ActionView::MissingTemplate %>
+          <%= navigation_from_content(content: @content, title: @side_navigation_title) %>
+        <% end %>
+      </div>
+    </nav>
+    <main class="Vlt-main Vlt-main--light Nxd-main" tabindex="2">
+      <%= render partial: 'layouts/partials/notices' %>
+      <div class="Vlt-card" id="primary-content">
+        <%= yield %>
+        <%= render partial: 'layouts/partials/improve_this_page' %>
+      </div>
+    </main>
+  </body>
+</html>

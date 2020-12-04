@@ -1,0 +1,5 @@
+<% callback.paths.each do |path| %>
+  <% path.endpoints.each do |endpoint| %>
+    <%= erb :'open_api/_callback_endpoint', locals: { endpoint: endpoint, webhook: webhook } %>
+  <% end %>
+<% end %>

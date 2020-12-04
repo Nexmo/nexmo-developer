@@ -1,0 +1,169 @@
+<style>
+.coverage {
+    border: 1px solid white;
+    background:red;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.yaml {
+    background: green;
+    color: white;
+}
+
+.file {
+    background: orange;
+}
+
+.unsupported {
+  background: grey;
+  color: white;
+}
+</style>
+
+<center>
+    <h1>Code Snippet Stats</h1>
+
+    <br>
+    <div class="box">
+        <h2>Filter</h2>
+        <%= form_tag({}, {:method => :get}) do %>
+            <div>
+                Product: <%= select_tag :product,
+                    options_for_select([['All', nil]].concat(DocumentationConstraint.product_with_parent_list), params[:product]),
+                    onchange: "this.form.submit();" %>
+                Show Only: <%= select_tag :only,
+                    options_for_select([['All', nil], 'yaml', 'file'], params[:only]),
+                    onchange: "this.form.submit();" %>
+            </div>
+        <br>
+        <p><label>Ignore Languages:</label> <input type="text" name="ignore" placeholder="curl,php" value="<%=params[:ignore]%>" /></p>
+        <p><label>Hide json/xml entries:</label> <input type="checkbox" name="hide_response" value="1" <%= params[:hide_response] ? 'checked' : '' %> /></p>
+        <br />
+        <p><label>Ignore Products:</label> <input type="text" name="ignore_products" placeholder="conversation,messages,dispatch,audit" value="<%=params[:ignore_products]%>" /></p>
+        <p><label>Show only GA products:</label> <input type="checkbox" name="show_ga_only" value="1" <%= params[:show_ga_only] ? 'checked' : '' %> /></p>
+        <br>
+    <%= link_to 'Reset', '/coverage' %> &nbsp;
+    <%= submit_tag 'Update', class: 'button' %>
+<% end %>
+    </div>
+</center>
+<br>
+
+ <h2>Executive Summary</h2>
+<div class="Vlt-table Vlt-table--bordered">
+  <table>
+    <thead>
+    <tr>
+      <th>Language</th>
+      <th>Available</th>
+      <th>Percentage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @overall_summary['langs'].each do |lang, value| %>
+      <tr>
+        <td><%= lang %></td>
+        <td><%= value %>/<%= @overall_summary['blocks'] %></td>
+        <td><%= (value/@overall_summary['blocks'].to_f*100).round(2) %>%</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<hr style="clear:both;" />
+
+<div class="box">
+    <h3>Code Snippet Rating Scale</h3>
+<div style="text-align: center; padding: 5px; background: red; width: 33%; float: left; color: white;">Missing block (worst)</div>
+<div style="text-align: center; padding: 5px; background: orange; width: 33%; float: left;">File based block</div>
+<div style="text-align: center; padding: 5px; background: green; width: 33%; color: white; float:left; margin-bottom: 8px;">Yaml based block (best)</div>
+
+<ul>
+    <li>YAML Code Snippets in <code>_examples</code> is our preferred way to handle blocks in Nexmo Developer. It's a good balance of consistency and flexibility.</li>
+    <li>Before defining blocks as individual config files, they were all defined together in <code>config/code_examples.yml</code> and each quick start would be a markdown file that referenced <code>config: product.block_name.language</code>. This is the same as the current system, but with one additional layer of redirection</li>
+    <li>Prior to keeping Code Snippets in the code snippet repos, we committed the files directly to NDP in <code>_examples</code>. This has been deprecated for a long time and should be cleaned up as it prevents code reuse</li>
+</ul>
+</div>
+
+<hr style="clear:both;" />
+
+<% @complete_coverage.each do |toplevel, blocks| %>
+    <% next if @product and not toplevel == @product  %>
+    <h2><%= toplevel %></h2>
+    <% # Per-section statistics per language%>
+
+  <%
+    section = @toplevel_summary[toplevel]
+  %>
+  <h3>Section Summary</h3>
+
+  <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
+  <table>
+    <thead>
+    <tr>
+      <th>Language</th>
+      <th>Available</th>
+      <th>Percentage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% section['langs'].each do |lang, value| %>
+      <tr>
+        <td><%= lang %></td>
+        <td><%= value %>/<%= section['blocks'] %></td>
+        <td><%= (value/section['blocks'].to_f*100).round(2) %>%</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <% # In-depth statistics about each block %>
+    <% blocks.each do |section, entries| %>
+        <h3><%= section %></h3>
+    <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
+        <table>
+            <thead>
+                <tr>
+                <td>Block</td>
+                <% @supported_languages.each do |lang| %>
+                    <td><%= lang %></td>
+                <% end %>
+                </tr>
+            </thead>
+            <tbody>
+                    <%
+                      coverage = {}
+                      count = 0
+                    %>
+                <% entries.each do |name, languages| %>
+                    <% count += 1 %>
+                    <tr class="Vlt-table__row--nohighlight">
+                        <td style="width: 200px;"><strong><%= name %></strong></td>
+                        <% @supported_languages.each do |lang| %>
+                            <%
+                                coverage[lang] = 0 unless coverage[lang]
+                                coverage[lang] += 1 if languages[lang]
+
+                                l = languages[lang]
+                                t = l['type'] if l
+                                location = l['source_path'] if l
+                            %>
+                        <td title="<%= location %>" class="coverage <%= t %>"><%= t %></td>
+                        <% end %>
+                    </tr>
+                <% end %>
+                <tr class="Vlt-table__row--nohighlight">
+                    <td><strong>Coverage</strong></td>
+                    <% @supported_languages.each do |lang| %>
+                        <td><%= coverage[lang]%>/<%= count %> (<%= (coverage[lang]/count.to_f*100).round(2) %>%)</td>
+                    <% end %>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <% end %>
+    <hr>
+<% end %>

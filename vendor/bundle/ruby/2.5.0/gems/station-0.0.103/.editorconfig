@@ -1,0 +1,23 @@
+# EditorConfig is quite nifty: http://EditorConfig.org
+
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true
+
+[*.md]
+indent_size=4
+
+[{*.rb,*.rake,Rakefile}]
+indent_style = space
+indent_size = 2
+
+[*.json]
+indent_style = space
+indent_size = 4
+
+[{*.yml,*.yaml}]
+indent_style = space
+indent_size = 2

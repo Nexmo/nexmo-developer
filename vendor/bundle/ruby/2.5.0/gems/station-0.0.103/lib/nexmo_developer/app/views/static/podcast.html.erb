@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="Vlt-title--icon Vlt-title--center Vlt-margin--top4">
+      <svg class="Vlt-yellow"><use xlink:href="/symbol/volta-icons.svg#Vlt-<%=@content['images']['top_icon']%>" /></svg>
+      <%=@content['headers']['leader']%>
+  </h1>
+
+  <div class="Vlt-center">
+    <p class="p-large"><%=@content['headers']['subheading']%></p>
+    <% if @content['button']['signup']['show'] %>
+      <a role="link" aria-label="Try it free" class="Vlt-btn Vlt-btn--secondary Vlt-btn--large" href="https://dashboard.nexmo.com/sign-up?ref=<%= @content['url']['reference'] %>">Try it Free</a>
+    <% end %>
+  </div>
+
+<hr class="hr--tall">
+    <%= render 'community' %>
+    <hr class="hr--tall">
+    <%= render 'slack' %>
+    <hr class="hr--tall">
+    <%= render 'xwithy' %>
+    
+    <% if @content['sdk']['highlight'] %>
+      <%= render partial: @content['sdk']['library_name'] %>
+    <% end %>
+
+    <hr class="hr--tall">
+    <%= render 'products' %>
+    <hr class="hr--tall">
+
+    
+
+
+    <div class="Vlt-center">
+      <h3>Do you have a question?</h3>
+      <p class="p-large">We're always here to help. Check out our <a href="https://help.nexmo.com">support FAQs</a>, contact our super helpful <a href="https://help.nexmo.com/hc/en-us/requests/new">support team</a> or get in touch on <a href="http://stackoverflow.com/questions/tagged/nexmo">Stack Overflow</a>.<br />Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
+    </div>
+ 
+
+</div>
+
+

@@ -1,0 +1,134 @@
+<div  class="Vlt-card Vlt-article">
+<center>
+  <h1>Feedback Stats</h1>
+</center>
+  <div>
+    <%= form_tag({}, {:method => :get}) do %>
+       <div class="Vlt-form__group">
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+            Product
+          </label> 
+          <div class="Vlt-select">
+          <%= select_tag :product,
+            options_for_select([['All', nil]].concat(DocumentationConstraint.product_with_parent_list), params[:product]),
+            onchange: "this.form.submit();" %>
+          </div>
+        </div>
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+          Created After
+        </label> 
+        <div class="Vlt-input"><%= date_field_tag :created_after, @created_after %></div>
+        </div>
+        <div class="Vlt-form__element Vlt-form__element--elastic">
+          <label class="Vlt-label">
+          Created Before
+        </label> 
+        <div class="Vlt-input"><%= date_field_tag :created_before, @created_before %></div>
+        </div>
+      
+      <%= link_to 'Reset', '/stats', class: "Vlt-btn Vlt-btn--tertiary Vlt-btn--app" %> &nbsp;
+      <%= submit_tag 'Update', class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
+      </div>
+    <% end %>
+  </div>
+
+<br>
+<div class="Vlt-grid Vlt-section">
+  <div class="Vlt-col">
+    <div class="Vlt-box Vlt-box--data">
+        <div class="Vlt-box__data"><%= @feedbacks.positive.count %></div>
+        <small class="Vlt-box__data-desc">Positive Feedbacks</small>
+    </div>
+  </div>
+  <div class="Vlt-col">
+    <div class="Vlt-box Vlt-box--data">
+        <div class="Vlt-box__data"><%= @feedbacks.neutral.count %></div>
+        <small class="Vlt-box__data-desc">Neutral Feedbacks</small>
+    </div>
+  </div>
+  <div class="Vlt-col">
+    <div class="Vlt-box Vlt-box--data">
+      <div class="Vlt-box__data"><%= @feedbacks.negative.count %></div>
+      <small class="Vlt-box__data-desc">Negative Feedbacks</small>
+    </div>
+  </div>
+  <div class="Vlt-col">
+    <div class="Vlt-box Vlt-box--data">
+      <div class="Vlt-box__data"><%= ((@feedbacks.positive.count.to_f / @feedbacks.count.to_f) * 100).round(1)  %>% </div>
+      <small  class="Vlt-box__data-desc">Percent Positive</small>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<%= column_chart(
+  [
+    { name: 'Positive', color: '#32BA86', data: @feedbacks.positive.group_by_week('feedback_feedbacks.created_at').count },
+    { name: 'Neutral', color: '#e1e2e6', data: @feedbacks.neutral.group_by_week('feedback_feedbacks.created_at').count },
+    { name: 'Negative', color: '#ea5353', data: @feedbacks.negative.group_by_week('feedback_feedbacks.created_at').count },
+  ],
+  stacked: true
+) %>
+
+<%
+  all = @feedbacks.group_by_month('feedback_feedbacks.created_at').count
+  positive = @feedbacks.positive.group_by_month('feedback_feedbacks.created_at').count
+  neutral = @feedbacks.neutral.group_by_month('feedback_feedbacks.created_at').count
+  negative = @feedbacks.negative.group_by_month('feedback_feedbacks.created_at').count
+
+  all.each do |date, count|
+    if count === 0
+      # Remove entries that had no feedbacks
+      [all, positive, neutral, negative].each { |h| h.delete(date) } unless count == 0
+    else
+      # Otherwise ensure that both positive and negative have values
+      positive[date] = 0 unless positive[date]
+      neutral[date] = 0 unless neutral[date]
+      negative[date] = 0 unless negative[date]
+    end
+
+    # Convert values to percentages
+    positive[date] = ((positive[date].to_f / count.to_f) * 100).round(1)
+    neutral[date] = ((neutral[date].to_f / count.to_f) * 100).round(1)
+    negative[date] = ((negative[date].to_f / count.to_f) * 100).round(1)
+  end
+%>
+
+<br>
+
+<center>
+  <h3>Feedback split percent by month</h3>
+</center>
+
+<%= column_chart(
+  [
+    { name: 'Positive', color: '#32BA86', data: positive },
+    { name: 'Neutral', color: '#e1e2e6', data: neutral },
+    { name: 'Negative', color: '#ea5353', data: negative },
+  ],
+  stacked: true
+) %>
+
+<hr>
+
+<div class="Vlt-grid Vlt-section">
+  <div class="Vlt-col">
+    <div>
+      <center><h3>Worst Performing Content</h3></center>
+      <div class="Vlt-table">
+        <%= render 'performance_table', resources: Feedback::Resource.worst_performing.first(5) %>
+      </div>
+    </div>
+  </div>
+  <div class="Vlt-col">
+    <div>
+      <center><h3>Best Performing Content</h3></center>
+      <div class="Vlt-table">
+        <%= render 'performance_table', resources: Feedback::Resource.best_performing.first(5) %>
+      </div>
+    </div>
+  </div>
+</div>

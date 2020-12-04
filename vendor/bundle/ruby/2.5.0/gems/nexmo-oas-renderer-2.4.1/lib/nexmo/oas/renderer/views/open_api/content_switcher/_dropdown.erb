@@ -1,0 +1,22 @@
+<div class="Vlt-dropdown Vlt-dropdown--full-width">
+  <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn"><button class="Vlt-btn Vlt-btn--<%= (theme_light ? "secondary" : "tertiary") %>"><%= label %>: <span class="Vlt-dropdown__selection"><%= panels[0]['title'] %></span></button></div>
+  <div class="Vlt-dropdown__panel">
+    <div data-tab-content="<%= switcher.id %>" class="Vlt-dropdown__panel__content">
+      <% panels.each do |panel| %>
+        <div role="tab" data-tab-link="<%= panel['x-tab-id'] || panel['title'].parameterize %>" class="Vlt-dropdown__link Vlt-dropdown__label Vlt-js-tabs__link"><%= panel['title'] %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="js-format" data-format="<%= format %>">
+  <div id="<%= switcher.id %>" class="Vlt-js-tabs__content">
+    <% panels.each do |panel| %>
+      <div class="Vlt-js-tabs__panel <%= panel['active'] ? 'Vlt-js-tabs__panel_active' : '' %>">
+        <%= panel['content'] %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

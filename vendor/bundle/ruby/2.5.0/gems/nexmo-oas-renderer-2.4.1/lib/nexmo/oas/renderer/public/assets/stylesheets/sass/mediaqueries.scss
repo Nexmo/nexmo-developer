@@ -1,0 +1,48 @@
+// We only use 2 breakpoints because normally we design for 3 screen: phone, tablet and desktop
+// There's no point in having more than these breakpoints if we're not going to provide design for them
+
+$big-screen: 768px;
+$small-screen: 576px;
+
+$big-screen-w-sidenav: 1038px;
+$small-screen-w-sidenav: 846px;
+
+$S-only: 'only screen and (max-width: #{$small-screen - 1})';
+$M-only: 'only screen and (min-width: #{$small-screen} ) and (max-width: #{$big-screen - 1})';
+$M-plus: 'only screen and (min-width: #{$small-screen} )';
+$M-less: 'only screen and (max-width: #{$big-screen - 1})';
+$L-plus: 'only screen and (min-width: #{$big-screen})';
+
+.Vlt-S-only {
+	@media #{$M-plus} {
+		display: none !important;
+	}
+}
+
+.Vlt-M-only {
+	@media #{$S-only} {
+		display: none !important;
+	}
+
+	@media #{$L-plus} {
+		display: none !important;
+	}
+}
+
+.Vlt-L-plus {
+	@media #{$M-less} {
+		display: none !important;
+	}
+}
+
+.Vlt-M-plus {
+	@media #{$S-only} {
+		display: none !important;
+	}
+}
+
+.Vlt-M-less {
+	@media #{$L-plus} {
+		display: none !important;
+	}
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= erb :'layouts/_head' %>
+
+  <body class="Nxd-template">
+    <nav class="Vlt-sidenav" id="Vlt-sidenav">
+      <div class="Vlt-sidenav__scroll">
+        <% begin %>
+          <%= erb :"layouts/#{@specification.side_navigation}" %>
+        <% rescue Errno::ENOENT %>
+          <%= @navigation.navigation_from_content %>
+        <% end %>
+      </div>
+    </nav>
+    <main class="Vlt-main Vlt-main--light Nxd-main" tabindex="2">
+      <div class="Vlt-card" id="primary-content">
+        <%= yield %>
+      </div>
+    </main>
+
+    <%= erb :"layouts/_javascripts" %>
+  </body>
+</html>

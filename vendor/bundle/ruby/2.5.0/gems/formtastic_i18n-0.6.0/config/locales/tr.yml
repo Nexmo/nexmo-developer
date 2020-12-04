@@ -1,0 +1,10 @@
+tr:
+  formtastic:
+    :yes: "Evet"
+    :no: "Hayır"
+    :create: "%{model} oluştur"
+    :update: "%{model} güncelle"
+    :submit: "Gönder"
+    :cancel: "İptal"
+    :reset: "%{model} sıfırla"
+    :required: "Zorunlu"

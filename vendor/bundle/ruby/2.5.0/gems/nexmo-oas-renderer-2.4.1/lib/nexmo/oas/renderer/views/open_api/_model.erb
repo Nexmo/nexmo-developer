@@ -1,0 +1,43 @@
+<div class="Vlt-grid">
+  <div class="Vlt-col oas-left-panel">
+
+    <h2 id="<%= group['name'].parameterize %>" class='Vlt-grey-dark group-header'><%= group['name'] %></h2>
+    <p class="Vlt-grey-darker"><%= group['description']&.render_markdown %></p>
+
+
+    <%= erb :'open_api/_available_endpoints', locals: { endpoints: endpoints } %>
+
+    <% if group['schema'] %>
+      <% group['schema'].each do |format, schema| %>
+        <div class="js-format" data-format="<%= format %>">
+          <%
+            if schema['properties']
+              properties = schema['properties']
+            elsif schema['allOf']
+              properties = schema['allOf'].map { |o| o['properties'] }.reduce(&:merge)
+            end
+
+            properties = properties.map do |name, definition|
+              OasParser::Property.new(self, schema, name, definition)
+            end
+          %>
+
+          <%= erb :'open_api/_parameters', locals: { parameters: properties, model: true, format: format  } %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="Vlt-col oas-right-panel <%= !group['schema'] ? 'sm-hidden' : '' %>">
+
+    <% if group['schema'] %>
+      <% group['schema'].each do |format, schema| %>
+        <div class="js-format" data-format="<%= format %>">
+          <h5>Example Model</h5>
+          <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

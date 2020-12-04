@@ -1,0 +1,4 @@
+User-agent: *
+<% if ENV['ALLOW_ROBOTS'].nil? || ENV['ALLOW_ROBOTS'] != 'true' %>
+Disallow: /
+<% end %>

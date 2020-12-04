@@ -1,0 +1,14 @@
+<% presenter = FeedbackPresenter.new(canonical_url, params) %>
+<% if presenter.show_feedback? %>
+  <button id="feedback-button" class="Vlt-modal-trigger Vlt-btn Vlt-btn--primary Vlt-btn--app" data-modal="feedback-modal">
+    Feedback
+  </button>
+
+  <div id="feedback-modal" class="Vlt-modal Vlt-modal--large" data-disable-click="true" data-disable-esc="true">
+    <div id="feedback-app"></div>
+  </div>
+
+  <script>
+    window.feedbackProps = <%= presenter.props.to_json.html_safe %>
+  </script>
+<% end %>

@@ -1,0 +1,44 @@
+<h4><%= feedback.config.title %></h4>
+<div>
+  <small>Paths:</small><br/>
+  <% feedback.config.paths.each_with_index do |path, path_index| %>
+    <% if feedback.path == path_index %>
+      <b><%= feedback.config.paths[path_index]['question'] %></b>
+    <% else %>
+      <span><%= feedback.config.paths[path_index]['question'] %><span>
+    <% end %>
+    <br/>
+ <% end %>
+ <br/>
+</div>
+<% feedback.config.paths[feedback.path]['steps'].each_with_index do |step, step_index| %>
+  <div>
+    <small>Step <%= step_index %></small><br/>
+    <% if step['type'] == 'textarea' %>
+      <b><%= step['label'] || step['title'] %></b>
+      <br/>
+      <span><%= feedback.steps[step_index] %></span>
+    <% elsif step['type'] == 'radiogroup' %>
+      <% step['questions'].each_with_index do |question, question_index| %>
+        <div>
+          <% if question_index == feedback.steps[step_index] %>
+            <b><%= question %></b>
+          <% else %>
+            <%= question %>
+          <% end %>
+        </div>
+      <% end %>
+    <% elsif step['type'] == 'plain' %>
+      <b><%= step['title'] %></b>
+    <% elsif step['type'] == 'fieldset' %>
+      <b><%= step['title'] %></b>
+      <% step['fields'].each_with_index do |field, field_index| %>
+        <div>
+          <b><%= field['label'] %>:</b>
+          <small><%= feedback.steps[step_index][field['name']] %></small>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <br/>
+<% end %>

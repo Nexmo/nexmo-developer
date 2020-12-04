@@ -1,0 +1,20 @@
+---
+title: Get JSON records using the command line
+description: Get JSON records using the command line tool, `curl`.
+products:
+  - reports
+
+introduction:
+  title: Introduction
+  description: Learn how to retrieve JSON records using the command line
+  content: |
+    # Introduction
+
+    This tutorial shows you how to retrieve transactional records of your activity in JSON format using the synchronous version of the Reports API. 
+
+    Reports SYNC supports retrieval of records by the message ID, record ID or by time period. When using the time period filter, the synchronous endpoint returns results immediately in batches of up to 1000 records. The response contains a batch of data records in JSON format and a link to the next batch (if any). When using the the message/record ID filter, only one record gets returned.
+
+    > **A note on performance:** Synchronous version is optimized for frequent and periodic retrievals of small batches of data records, that is from one record to tens of thousand per query.
+tasks:
+  - reports/get-json-records
+  - reports/reports-whats-next

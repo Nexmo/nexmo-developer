@@ -1,0 +1,10 @@
+fr:
+  formtastic:
+    :yes: 'Oui'
+    :no: 'Non'
+    :create: 'Créer un(e) %{model}'
+    :update: 'Modifier ce(tte) %{model}'
+    :submit: 'Enregistrer ce(tte) %{model}'
+    :cancel: 'Annuler'
+    :reset: 'Réinitialiser ce(tte) %{model}'
+    :required: 'requis(e)'

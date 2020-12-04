@@ -1,0 +1,59 @@
+= hash-deep-merge
+
+== Introduction
+This little gem add a method to the Hash class, allowing to merge hashes containing other hashes. (This is known as "deep merge" or "recursive merge".)
+
+You (may) already know the standard hash merge :
+   h1 = { 'a' => 1, 'b' => 2,  'c' => 3}
+   h2 = {           'b' => 33,           'd' => 42 }
+   h1.merge(h2)
+     -> { 'a' => 1, 'b' => 33, 'c' => 3, 'd' => 42 }
+ 
+But now, what if the hash contains other hashes ?
+   h1 = { :option1 => true, :option2 => false, :option_group1 => { :sub_option1 => 23, :sub_option2 => "hey !" } }
+   h2 = { :option2 => true,    :option3 => 27, :option_group1 => { :sub_option1 => 18 } }
+traditional merge doesn't handle that... Here come deep_merge !
+   h1.deep_merge(h2)
+     -> { :option1 => true, :option2 => true,  :option_group1 => { :sub_option1 => 18, :sub_option2 => "hey !" }, :option3 => 27 }
+
+Of course, a deep_merge! (note the !) is available, like merge!
+
+This should be included in Ruby, but there are some discussions about extra features that prevent it from going forward, cf. http://www.misuse.org/science/2008/05/19/deep_merge-ruby-recursive-merging-for-hashes/
+
+The version I give you is the simplest one, doing what you need 99% of the time.
+
+There are plenty of code snippets for deep merge :
+* http://snippets.dzone.com/posts/show/4706
+* http://rexchung.com/2007/02/01/hash-recursive-merge-in-ruby/
+* https://gist.github.com/6391
+
+But they were not packaged it into a gem. It's done now for your convenience (and mine).
+
+NOTE : I since found a gem containing a more powerful deep merge, able to not only merge hashes but arrays and strings as well with many options. You may want to look at it :
+https://github.com/peritor/deep_merge
+
+== Installation
+
+If you use bundler, just throw that in your gemfile :
+  gem 'hash-deep-merge'
+
+You may also install the gem manually :
+  gem install hash-deep-merge
+
+Isn't it so easy ?
+
+== Contributing to hash-deep-merge
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+Copyright (c) 2011 Offirmo. See LICENSE.txt for
+further details.
+
