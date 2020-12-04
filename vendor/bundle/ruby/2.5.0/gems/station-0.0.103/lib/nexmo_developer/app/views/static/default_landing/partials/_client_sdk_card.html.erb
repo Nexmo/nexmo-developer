@@ -1,0 +1,17 @@
+<%
+    raise "Missing 'documentation_url' key in client_sdk_card landing page block" unless local_assigns['documentation_url']
+    raise "Missing 'name content' key in client_sdk_card landing page block" unless local_assigns['name']['content']
+    raise "Missing 'name color' key in client_sdk_card landing page block" unless local_assigns['name']['color']
+    raise "Missing 'icon name' key in client_sdk_card landing page block" unless local_assigns['icon']['name']
+    raise "Missing 'text content' key in client_sdk_card landing page block" unless local_assigns['text']['content']
+%>
+
+<a href="<%= local_assigns['documentation_url'] %>" class="Vlt-card Vlt-card--clickable">
+  <div class="Vlt-card__header">
+    <h4 class="Vlt-<%= local_assigns['name']['color'] %>"><%= local_assigns['name']['content'] %></h4>
+    <svg class="Vlt-icon">
+      <use xlink:href="/symbol/volta-brand-icons.svg#<%= local_assigns['icon']['name'] %>" /></svg>
+  </div>
+  <div class="Vlt-card__content"><%= local_assigns['text']['content'] %>
+  </div>
+</a>

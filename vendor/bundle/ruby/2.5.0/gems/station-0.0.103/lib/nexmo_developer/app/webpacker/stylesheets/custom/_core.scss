@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 100%;
+}
+
+em {
+  font-style: italic;
+}
+
+#logo {
+  display: flex;
+}
+
+.Nxd-template {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.Nxd-main {
+  outline: none;
+}
+
+@media #{$M-plus} {
+  .Nxd-main {
+    height: calc(100vh - 150px);
+    margin-top: 150px;
+    padding: 0px 32px;
+  }
+}
+
+.Nxd-landing-main {
+  margin-top: 150px;
+  padding: $unit3 $unit4;
+}
+
+.container {
+  max-width: 1300px;
+  padding: $unit3 $spacing 0;
+  margin: 150px auto;
+}
+
+.row {
+  max-width: 1300px;
+  margin-left: -0.9375rem;
+  margin-right: -0.9375rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  code {
+    white-space: nowrap;
+  }
+}
+
+.spacious {
+  padding: $spacing*2 0;
+}
+
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@keyframes spin {
+  0%   {-webkit-transform: rotate(0deg)}
+  100% {-webkit-transform: rotate(359deg)}
+}
+
+.spinner {
+  width: 100%;
+  margin: $spacing*2 0;
+  text-align: center;
+  animation: spin 1.2s infinite ease-in-out;
+  i {
+    font-size: 40px;
+    color: $mint;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--auto {
+  > * { flex: 1; }
+}
+
+.hide {
+  display: none;
+}
+
+.grecaptcha-badge {
+  display: none;
+}
+
+.float-right {
+  float: right;
+}
+
+.Nxd-header-notices {
+  padding: 0 32px;
+
+  .Vlt-callout {
+    max-width: 1300px;
+    margin: auto;
+    margin-bottom: $unit4;
+  }
+}
+
+table {
+  .Vlt-icon:not(.Vlt-icon--smaller) {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.Vlt-title--icon {
+  position: relative
+}
+
+.heading-permalink {
+  opacity: 0;
+  transition: opacity 0.2s;
+  position: absolute;
+  left: -20px;
+
+  svg {
+    height: 18px !important;
+    width: 18px !important;
+  }
+
+  .Vlt-title--icon:hover & {
+    opacity: 1;
+  }
+}
+
+.Ndx-task__code-language-list li {
+  margin-top: 5px;
+}
+
+.Ndx-task-step__code-language {
+  svg, img {
+    height: 20px;
+    width: 20px;
+    margin-bottom: -4px;
+  }
+}
+
+.Nxd-task-step-list {
+  a {
+    color: black;
+  }
+
+  .Nxd-step {
+    margin-left: -15px;
+    margin-bottom: 15px;
+  }
+}
+
+.Vlt-sidenav {
+  display: inline-flex; // Temporary
+}
+
+.Nxd-products-list {
+  a {
+    color: $black !important;
+  }
+}
+
+
+// Volta overrides until they update it.
+.Vlt-badge--blue {
+  background: #0098E8;
+}
+
+code .token.function{
+  color: #E75B2F !important;
+}

@@ -1,0 +1,30 @@
+<% if definition.raw['x-webhooks'] || definition.webhooks.size.positive? %>
+  <div class="Vlt-grid">
+    <div class="Vlt-col oas-left-panel" style="padding-bottom: 36px;">
+      <h2 id="webhooks">Webhooks</h2>
+
+      <p>
+        Webhooks are an extension of an API, but instead of your code requesting data, the API sends data to you. The data arrives in a web request to your application.
+      </p>
+      <p>To learn more about webhooks, see our <a href="/concepts/guides/webhooks">webhooks documentation</a></p>
+
+      <p>This API may send any of the webhooks documented below to the URL that you have configured. You must respond with a <code>200</code> or <code>204</code> HTTP response, or the requests will be retried</p>
+
+    </div>
+
+    <div class="Vlt-col oas-right-panel sm-hidden">&nbsp;</div>
+  </div>
+<% end %>
+
+<% if definition.raw['x-webhooks'] %>
+  <% definition.raw['x-webhooks'].each do |name, definition| %>
+    <% callback = OasParser::Callback.new(self, name, definition) %>
+    <%= erb :'open_api/_callback', locals: { callback: callback, webhook: true } %>
+  <% end %>
+<% end %>
+
+<% definition.webhooks.each do |webhook| %>
+  <% webhook.endpoints.each do |endpoint| %>
+    <%= erb :'open_api/_callback_endpoint', locals: { webhook: webhook, endpoint: endpoint } %>
+  <% end %>
+<% end %>

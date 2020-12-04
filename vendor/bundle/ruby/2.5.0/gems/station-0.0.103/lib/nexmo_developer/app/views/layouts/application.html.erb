@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body data-push-state-root="<%= canonical_path %>">
+    <%= render partial: 'layouts/partials/header' %>
+    <div class="wrapper wrapper--tint" tabindex="2">
+       <%= render partial: 'layouts/partials/notices' %>
+      <main class="Nxd-landing-main">
+        <%= yield %>
+      </main>
+    </div>
+    <%= render partial: 'layouts/partials/footer' %>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<%
+  return unless endpoint.request_body
+  return if endpoint.request_body.raw['x-hide-request']
+  title = defined?(title) ? title : nil
+
+  renderer = Nexmo::OAS::Renderer::Presenters::RequestBodyRaw
+
+  # The first format defined is preferred. This is usually application/json
+  format = endpoint.request_body.formats[0]
+%>
+
+<%
+  if endpoint.request_body.exhibits_one_of_multiple_schemas?(format)
+%>
+  <%= erb :'open_api/_request_one_of', locals: { endpoint: endpoint, format: format, title: title } %>
+
+<% else %>
+  <%= erb :'open_api/_request_single', locals: { endpoint: endpoint, format: format, title: title} %>
+<%
+  end
+%>
+

@@ -1,0 +1,36 @@
+.Nxd-career {
+  &__subtitle {
+    display: block;
+    color: $grey-dark;
+    font-size: 0.7em;
+  }
+
+  &__content {
+    color: $grey-darker;
+    margin: $unit2 0;
+  }
+
+  &-description {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+}
+
+.Nxd-profile {
+  min-width: 220px;
+
+  &__avatar {
+    border-radius: 100%;
+    height: auto;
+    max-width: 100%;
+    margin-bottom: $unit2;
+  }
+
+  small {
+    display: block;
+  }
+
+  h3 {
+    margin-bottom: $unit0;
+  }
+}

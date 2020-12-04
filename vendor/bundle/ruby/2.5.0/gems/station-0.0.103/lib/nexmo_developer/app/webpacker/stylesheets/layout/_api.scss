@@ -1,0 +1,167 @@
+.Nxd-content {
+  display: flex;
+}
+
+.Nxd-menu__indent {
+  margin-left: 31px !important;
+}
+
+.Nxd-method-badge {
+  text-transform: uppercase;
+  font-family: monospace;
+
+  &--post {
+    background: $green;
+  }
+
+  &--get {
+    background: $blue-dark;
+  }
+
+  &--delete {
+    background: $red;
+  }
+
+  &--patch {
+    background: $teal;
+  }
+
+  &--put {
+    background: $purple-dark;
+  }
+}
+
+.table-no-line {
+  td {
+    border-bottom: none !important;
+  }
+}
+
+.Nxd-api {
+  padding-top: 0;
+  padding-right: $unit2;
+
+  @media #{$S-only} {
+    padding-left: $unit2;
+  }
+
+  &__code {
+    background: $grey-light;
+    border-bottom: 1px solid $grey-lighter;
+    padding: $unit2;
+
+    .Vlt-tabs__link_active {
+      &:before {
+        background: $grey-light;
+      }
+    }
+
+    .Nxd-api__responses .Vlt-accordion {
+      margin-top: 16px;
+    }
+
+    h4,
+    h5 {
+      color: $grey-darker;
+    }
+
+    &__header {
+      margin: -#{$unit3} -#{$unit2} #{$unit2} -#{$unit2};
+
+      .Vlt-native-dropdown {
+        margin-right: $unit2;
+        float: right;
+
+        select {
+          padding-right: 38px;
+        }
+      }
+
+      &--sticky {
+        position: fixed;
+        top: 135px;
+        width: 27.5%;
+        z-index: 1000;
+        right: 36px;
+
+        @media #{$S-only} {
+          left: 0;
+          padding: 0 $unit1;
+          top: 52px;
+          width: 100vw;
+          margin: 0;
+
+        }
+      }
+    }
+
+    .Vlt-accordion__trigger {
+      &:after {
+        border-radius: 100%;
+      }
+    }
+  }
+
+  &__docs {
+    padding-top: $unit3;
+
+    @media #{$M-plus} {
+      border-bottom: 1px solid $grey-light;
+      padding-top: $unit5;
+    }
+
+    .Vlt-tooltip {
+      white-space: nowrap;
+    }
+  }
+
+  &--noborder {
+    margin-bottom: -$unit2;
+
+    .Nxd-api__docs {
+      border: 0;
+    }
+
+    .Nxd-api__code {
+      border: 0;
+
+      @media #{$S-only} {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.Nxd-version {
+  p {
+    text-transform: uppercase;
+    font-size: 1.3rem !important;
+  }
+
+  a {
+    font-size: 1.3rem !important;
+    color: #005282 !important;
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+.api-path-parameter {
+  color: $aqua-dark;
+}
+
+.Nxd-api__title {
+  display: flex;
+  align-items: baseline;
+
+  h1 {
+    margin-right: 10px;
+  }
+}
+
+.oas-page .Nxd-header {
+  position: static;
+  flex-shrink: 0;
+}

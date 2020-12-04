@@ -1,0 +1,51 @@
+<h4 class="Vlt-grey-light">Example Responses</h4>
+
+<div class="response-tabs-selector" data-tab-content="response-tabs-<%= endpoint.operationId.parameterize %>">
+  <% endpoint.responses.each_with_index do |response, index| %>
+    <span role="tab" class="<%= index === 0 ? 'Vlt-js-tabs__link_active' : '' %> Vlt-bg-<%= response.code[0] == '2' ? 'green' : response.code[0] == '3' ? 'yellow' : 'red'  %> Vlt-js-tabs__link response-tabs-selector-item"><%= response.code %></span>
+  <% end %>
+</div>
+
+<div id="response-tabs-<%= endpoint.operationId.parameterize %>" style="margin-bottom: 64px;">
+  <% endpoint.responses.each_with_index do |response, index| %>
+    <div class="Vlt-js-tabs__panel <%= index === 0 ? 'Vlt-js-tabs__panel_active' : '' %>">
+
+      <% missing = @specification.formats.keys %>
+
+      <% response.formats.each do |format| %>
+        <% missing.delete(format) %>
+        <div class="js-format" data-format="<%= format %>">
+          <% if response.exhibits_one_of_multiple_schemas?(format) %>
+            <%= erb :'open_api/_response_tabs', locals: { format: format, endpoint: endpoint, response: response, content: :responses } %>
+          <% else %>
+            <% schema = response.schema(format) %>
+            <% if ['application/json', 'application/xml', 'text/xml'].include?(format) %>
+            <%= Nexmo::OAS::Renderer::ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml'], theme_light: @theme_light) %>
+            <% else %>
+              <% content = response.description ? response.description : 'No content' %>
+              <pre class="language-json Vlt-prism--copy-disabled <%= @theme_light ? 'Vlt-prism--dark' : '' %>"><code><%= content %></code></pre>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if response.code == '204' %>
+        <% content = response.description ? response.description : 'No content' %>
+        <pre class="language-json Vlt-prism--copy-disabled <%= @theme_light ? 'Vlt-prism--dark' : '' %>"><code><%= content %></code></pre>
+      <% else %>
+        <% missing.each do |format| %>
+          <div class="js-format Nxd-api__response" data-format="<%= format %>">
+            <div class="Vlt-callout Vlt-callout--warning">
+              <i></i>
+              <div class="Vlt-callout__content">
+                <p>This endpoint does not support <code><%= format %></code></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+  </div>
+
+  <% end %>
+</div>

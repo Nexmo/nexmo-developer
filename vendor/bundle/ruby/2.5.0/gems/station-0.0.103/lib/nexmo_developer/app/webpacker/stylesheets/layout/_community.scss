@@ -1,0 +1,70 @@
+#community-slack-image {
+  vertical-align: middle;
+  margin-right: -10px;
+  margin-top: -3px;
+  width: 60px;
+}
+
+#join-slack-logo {
+  width: 180px;
+  margin-bottom: -40px;
+}
+
+#community-events {
+  width: 100%;
+
+  h3 {
+    color: $blue-dark;
+    margin-bottom: $unit1;
+
+    &:hover {
+      color: $blue-darker;
+    }
+  }
+
+  svg {
+    margin-right: $unit0;
+  }
+
+  .community-event__date {
+    border-top: 1px solid $grey-light;
+    border-bottom: 1px solid $grey-light;
+    padding: $unit1 0;
+    margin-bottom: $unit1;
+  }
+}
+
+.Nxd-map-buttons {
+  .Nxd-map-search, .Vlt-btn--app {
+    margin: 8px 0;
+    width: 260px;
+  }
+
+  .Vlt-form__element {
+    padding: 0;
+    margin: 8px 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .Nxd-map-buttons {
+    margin-top: -345px;
+    padding-bottom: 150px;
+    padding-right: 10px;
+    width: 290px;
+    float: right;
+
+
+    #MapSearch {
+      float: right;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Nxd-map-buttons {
+    .Vlt-btn--app {
+      width: 100%;
+    }
+  }
+}

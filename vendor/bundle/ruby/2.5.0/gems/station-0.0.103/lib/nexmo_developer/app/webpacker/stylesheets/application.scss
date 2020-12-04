@@ -1,0 +1,62 @@
+@import '~@vonagevolta/volta2/scss/volta';
+
+@import '~@vonagevolta/volta2/scss/templates/volta-templates';
+@import '~@vonagevolta/volta2/scss/layout/article';
+@import '~@vonagevolta/volta2/scss/layout/utils';
+@import "~@vonagevolta/volta2/scss/components/buttons";
+@import "~@vonagevolta/volta2/scss/components/tabs";
+@import "~@vonagevolta/volta2/scss/components/side-navigation/side-nav--structure";
+@import "~@vonagevolta/volta2/scss/components/side-navigation/side-nav--light";
+@import "~@vonagevolta/volta2/scss/components/card";
+@import "~@vonagevolta/volta2/scss/components/color-classes";
+@import "~@vonagevolta/volta2/scss/components/badge";
+@import "~@vonagevolta/volta2/scss/components/boxes";
+@import "~@vonagevolta/volta2/scss/components/form-elements";
+@import "~@vonagevolta/volta2/scss/components/spinner";
+@import "~@vonagevolta/volta2/scss/components/tables";
+@import "~@vonagevolta/volta2/scss/components/callouts";
+@import "~@vonagevolta/volta2/scss/components/flash-messages";
+@import "~@vonagevolta/volta2/scss/components/tabs";
+@import "~@vonagevolta/volta2/scss/components/lists";
+@import "~@vonagevolta/volta2/scss/components/accordions";
+@import "~@vonagevolta/volta2/scss/components/tooltips";
+@import "~@vonagevolta/volta2/scss/components/dropdowns";
+@import "~@vonagevolta/volta2/scss/components/modals";
+@import "~@vonagevolta/volta2/scss/components/empties";
+
+// this should be imported last
+@import '~@vonagevolta/volta2/scss/volta-prism';
+
+/// NDP styles
+@import "./custom/variables";
+@import "./custom/core";
+@import "./custom/typography";
+@import "./custom/syntax";
+@import "./custom/mixins";
+
+@import "./objects/building-block";
+@import "./objects/card";
+@import "./objects/collapsible";
+@import "./objects/content-block";
+@import "./objects/extend";
+@import "./objects/focus";
+@import "./objects/icons";
+@import "./objects/js-sequence-diagram";
+@import "./objects/navigation";
+@import "./objects/notices";
+@import "./objects/tabs";
+@import "./objects/video";
+@import "./objects/use_cases";
+
+@import "./layout/api";
+@import "./layout/careers";
+@import "./layout/community";
+@import "./layout/feedback";
+@import "./layout/footer";
+@import "./layout/header";
+@import "./layout/hero";
+@import "./layout/team";
+@import "./layout/search";
+@import "./layout/print";
+
+@import "./themes/ea";

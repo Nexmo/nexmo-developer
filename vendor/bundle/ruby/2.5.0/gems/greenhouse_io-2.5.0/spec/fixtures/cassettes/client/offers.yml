@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://123FakeToken:@harvest.greenhouse.io/v1/offers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 26 Jan 2016 23:59:58 GMT
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json;charset=utf-8
+      Link:
+      - <https://harvest.greenhouse.io/v1/offers?page=1&per_page=100>; rel="last"
+      Content-Length:
+      - '1517'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Content-Type-Options:
+      - nosniff
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '[{"id":221598,"version":1,"application_id":21708586,"created_at":"2016-01-26T23:57:28Z","sent_at":null,"resolved_at":"2016-01-26T23:57:35Z","starts_at":"2016-01-26","status":"rejected","custom_fields":{"benefits":"Full
+        Medical","bonus":"1000","current_salary":"25000","employment_type":"Full-time","notes":"He
+        was very excited.","options":"2000","salary":"31000","source_cost":null,"visa_cost":"200"}},{"id":221603,"version":1,"application_id":21880506,"created_at":"2016-01-26T23:59:27Z","sent_at":null,"resolved_at":null,"starts_at":"2016-01-30","status":"unresolved","custom_fields":{"benefits":null,"bonus":"1000","current_salary":null,"employment_type":"Full-time","notes":null,"options":"2000","salary":"60000","source_cost":null,"visa_cost":null}},{"id":163831,"version":1,"application_id":22109366,"created_at":"2015-11-30T22:29:19Z","sent_at":null,"resolved_at":"2015-11-30T22:29:52Z","starts_at":"2015-12-01","status":"accepted","custom_fields":{"benefits":null,"bonus":null,"current_salary":null,"employment_type":"Full-time","notes":null,"options":null,"salary":"20000","source_cost":null,"visa_cost":null}},{"id":221601,"version":1,"application_id":24709881,"created_at":"2016-01-26T23:58:48Z","sent_at":null,"resolved_at":"2016-01-26T23:59:07Z","starts_at":"2016-01-19","status":"accepted","custom_fields":{"benefits":null,"bonus":"1000","current_salary":"500","employment_type":"Full-time","notes":"He
+        didn''t seem too impressed.","options":"100","salary":"74111","source_cost":"200","visa_cost":null}}]'
+    http_version: 
+  recorded_at: Tue, 26 Jan 2016 23:59:58 GMT
+recorded_with: VCR 3.0.1

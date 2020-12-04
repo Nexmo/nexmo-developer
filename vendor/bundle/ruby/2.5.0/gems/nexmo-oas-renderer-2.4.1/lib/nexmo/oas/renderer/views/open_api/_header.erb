@@ -1,0 +1,85 @@
+<div class="Vlt-grid">
+  <div class="Vlt-col oas-left-panel header-row" style="padding-top:20px;">
+    <a href="<%= @theme_link %>" class="Vlt-switch Vlt-switch--secondary" style="float:right;">
+        <span class="Vlt-switch__slider"></span>
+    </a>
+
+
+    <div class="Nxd-api__title">
+      <h1>
+        <%= definition.info['title'] %>
+      </h1>
+      <% if definition.info['x-label'] %>
+        <div>
+                <span class="Vlt-badge Vlt-badge--<%= definition.info['x-label'].parameterize %>">
+                  <%= definition.info['x-label'] %>
+                </span>
+        </div>
+      <% end %>
+    </div>
+
+    <% if definition.info['description'] %>
+      <p><%= definition.info['description'].render_markdown %></p>
+    <% end %>
+
+    <div class="Vlt-grid">
+      <div class="Vlt-col">
+        <a href=<%= url("#{request.path}.#{definition.format}") %> class='Vlt-btn Vlt-btn--secondary Vlt-btn--app'>
+        <svg><use xlink:href="/assets/symbol/volta-icons.svg#Vlt-icon-download" /></svg>
+        Download OAS 3 Definition
+        </a>
+      </div>
+      <div class="Vlt-col Vlt-right Vlt-right-sm">
+        <a href="<%=  Nexmo::OAS::Renderer::API.github_path %>/<%= @specification.definition_name %>.yml" class='Vlt-btn Vlt-btn--tertiary Vlt-btn--app Vlt-right Vlt-bg-grey-lighter'>
+          <svg className="Vlt-icon Vlt-black">
+            <use xlink:href="/assets/symbol/volta-icons.svg#Vlt-icon-github" />
+          </svg>
+          Improve this specification
+        </a>
+      </div>
+    </div>
+
+
+    <% if @specification.groups.size > 1 %>
+      <h4>Jump to:</h4>
+      <div style="margin-bottom: 30px; padding: 8px;">
+      <% @specification.groups.each do |name, endpoints| %>
+        <% if name %>
+          <% group = definition.raw['tags'].detect { |tag| tag['name'].capitalize == name.capitalize } %>
+          <p><a href="#<%= group['name'].parameterize %>"><%= group['name'] %> &raquo;</a></p>
+          <p class="Vlt-grey-darker"><%= group['description']&.render_markdown %></p>
+        <% end %>
+      <% end %>
+      </div>
+    <% end %>
+
+    <%
+      # If there's only one group, everything is untagged
+      if @specification.groups.size === 1
+    %>
+      <%= erb :'open_api/_available_endpoints', locals: { endpoints: definition.endpoints } %>
+    <% end %>
+
+  </div>
+
+  <%
+    has_switcher = @specification.available_versions && @specification.available_versions.count > 1
+  %>
+
+  <div class="oas-right-panel Vlt-col <%= has_switcher ? '' : 'sm-hidden' %>">
+
+    <% if has_switcher %>
+      <div class="Vlt-callout Vlt-callout--shoutout Nxd-version">
+        <i></i>
+        <div class="Vlt-callout__content">
+          <h4>There are multiple versions of this API available</h4>
+          <p>
+            <% @specification.available_versions.each do |v| %>
+              <a href="/api/<%= v['name'] %>" <%= v['version'] == @specification.current_version ? 'class=active':'' %>>Version <%= v['version'] %></a> <%= '|' unless v == @specification.available_versions.last %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

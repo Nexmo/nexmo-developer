@@ -1,0 +1,53 @@
+<% unless @use_cases.count.positive? %>
+  <div class="Vlt-callout Vlt-callout--warning">
+    <i></i>
+    <div class="Vlt-callout__content">
+      No use cases available in this language
+    </div>
+  </div>
+<% else %>
+  <div class="Vlt-grid Nxd-use-cases">
+    <% @use_cases.in_groups(3) do |use_cases| %>
+      <div class="Vlt-col">
+        <% use_cases.compact.each do |use_case| %>
+          <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
+            <div class="Vlt-card__header">
+              <a
+                href="<%= url_for(controller: 'use_case', action: :index, product: use_case.products.join(''), code_language: @language, only_path: true) %>"
+                class="Vlt-badge Vlt-badge--small Vlt-badge--transparent Vlt-margin--A-bottom2 Vlt-badge--<%= Card::COLOUR.fetch(use_case.subtitle, 'blue') %>"
+                >
+                <%= use_case.subtitle %>
+              </a>
+            </div>
+
+            <div class="Vlt-card__content">
+              <a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>">
+                <p class="p-large"><b><%= use_case.title %></b></p>
+              </a>
+
+              <p><%= use_case.description %></p>
+
+              <a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>" class="Vlt-<%= Card::COLOUR.fetch(use_case.subtitle, 'blue') %>-darker">
+                <%= t('read_more') %>
+                <svg class="Vlt-icon Vlt-icon--smaller">
+                  <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
+                </svg>
+              </a>
+
+              <% if use_case.languages.count > 0 %>
+                <hr class="hr--short"></hr>
+                <% use_case.languages.each do |language| %>
+                  <a
+                    href="<%= url_for(controller: 'use_case', action: :index, product: @product, code_language: language.downcase, only_path: true) %>"
+                    >
+                    <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language %>"><span>●</span> <%= language == "Objective_C" ? "Objective-C" : language %></small>
+                  </a>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

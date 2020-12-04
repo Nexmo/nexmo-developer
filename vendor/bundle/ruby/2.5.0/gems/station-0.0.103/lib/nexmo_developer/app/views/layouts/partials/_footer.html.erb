@@ -1,0 +1,50 @@
+<footer id="footer">
+  <% info = Footer.new.items %>
+
+  <div class="container">
+    <div id="footer-outbound-links">
+
+
+    <div class="Nxd-logo Vlt-white" id="footer-logo">
+      <a href="/" id="logo" class="Nxd-logo__image">
+        <%= image_tag info[:logo_path], alt: info[:logo_alt] %>
+      </a>
+      <hr class="Nxd-product__separator">
+      <div class="Nxd-product__title">
+        <h5 class="Vlt-white"><%= info[:name] %></h5>
+        <small><%= info[:subtitle] %></small>
+      </div>
+    </div>
+
+      <% if info[:status] %>
+        <a href=<%= info[:status]['path'] %> target="_blank" class="Vlt-badge-combined">
+          <span class="Vlt-badge Vlt-white Nxd-api-badge"><%= info[:status]['text'] %></span><span class="Vlt-badge Vlt-badge--purple Nxd-api-status">Loading</span>
+        </a>
+      <% end %>
+
+      <% if info[:social_links] %>
+        <div id="footer-social-links">
+          <% info[:social_links].each do |target, url| %>
+            <a href=<%= url %> class="footer-link" target="_blank"><i class="icon icon-<%= target %>"></i></a>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+
+    <% info[:navigation_links].each do |topic_arr| %>
+      <div>
+        <h5><%= Footer.navigation_category_titleize(topic_arr[0]) %></h5>
+        <% topic_arr[1].each do |link| %>
+          <a href="<%= Footer.navigation_link(link) %>"><%= Footer.navigation_link_text(link) %></a>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div id="footer-support">
+      <h5>Support</h5>
+      <% info[:support_links].each do |name, url| %>
+        <a href=<%= Footer.support_link(url) %> target="_blank"><%= Footer.support_link_text(name) %></a>
+      <% end %>
+    </div>
+  </div>
+</footer>

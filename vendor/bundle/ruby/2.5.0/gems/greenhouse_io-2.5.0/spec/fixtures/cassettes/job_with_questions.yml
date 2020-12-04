@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.greenhouse.io/v1/boards/generalassembly/embed/job?id=721&questions=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 16 Sep 2013 16:18:07 GMT
+      Etag:
+      - ! '"77aef19ad20c2bc27695390ec4f83e39"'
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - cce50db6be2de5ad8c55fd59fa1b9cde
+      X-Runtime:
+      - '0.019582'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '4046'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":721,"title":"Application developer","content":"&lt;h3&gt;Who
+        this job is right for&lt;/h3&gt;\n&lt;p&gt;Anim wes anderson mixtape, flexitarian
+        cosby sweater craft beer cardigan aliquip. Qui pork belly labore ad cray.
+        Twee kogi sartorial, fanny pack pickled jean shorts occaecat hoodie mumblecore
+        truffaut VHS. Gluten-free literally intelligentsia, next level keffiyeh ad
+        cardigan dolor nihil fanny pack. Sartorial beard meggings, pug farm-to-table
+        banksy deep v. Hella banh mi swag flannel, authentic carles ethical. Sustainable
+        terry richardson raw denim ullamco brooklyn.&lt;/p&gt;\n&lt;h3&gt;What we
+        are looking for&lt;/h3&gt;\n&lt;p&gt;Dreamcatcher master cleanse esse odio
+        ullamco, raw denim farm-to-table selvage. Farm-to-table nesciunt fingerstache
+        narwhal echo park accusamus. Adipisicing vero consequat aesthetic:&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Bespoke
+        exercitation viral typewriter.&lt;/li&gt;\n&lt;li&gt;Do small batch vinyl
+        gluten-free commodo portland.&lt;/li&gt;\n&lt;li&gt;DIY pickled dolore, nostrud
+        biodiesel messenger bag&lt;/li&gt;\n&lt;li&gt;Wayfarers brunch fingerstache
+        bespoke.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;Brooklyn aliqua hoodie literally
+        laborum PBR. Typewriter shoreditch photo booth odio, sustainable put a bird
+        on it ethical pinterest skateboard cosby sweater quinoa. Proident hashtag
+        officia trust fund nulla nisi. Stumptown odio veniam quinoa. Typewriter keffiyeh
+        bicycle rights, semiotics irure nihil vice freegan brooklyn pop-up culpa cardigan.
+        Blue bottle marfa voluptate, selfies four loko scenester quis. Pariatur ethnic
+        intelligentsia, tempor polaroid reprehenderit hella typewriter vice ugh bushwick
+        fap umami you probably haven&#x27;t heard of them cred.&lt;/p&gt;\n&lt;h3&gt;About
+        our work environment&lt;/h3&gt;\n&lt;p&gt;DIY echo park cupidatat, cred odio
+        aute truffaut master cleanse dolor polaroid sustainable viral ad stumptown
+        pork belly. Flannel nesciunt enim non, sapiente occupy qui. Minim cosby sweater
+        vinyl bushwick nesciunt ea. American apparel polaroid laborum pickled, cosby
+        sweater carles street art exercitation literally disrupt in shoreditch lo-fi
+        incididunt. Food truck chambray pariatur, occupy selvage brooklyn consectetur
+        ennui aute. Polaroid fashion axe lo-fi vero, brooklyn odd future aesthetic.
+        Cupidatat yr nisi church-key craft beer.&lt;/p&gt;\n&lt;h3&gt;Required skills
+        &amp;amp; experience&lt;/h3&gt;\n&lt;p&gt;Deserunt hashtag qui tempor american
+        apparel irure. Gastropub forage nulla four loko thundercats carles. Raw denim
+        letterpress sartorial portland shoreditch neutra, PBR sint fixie consectetur
+        commodo. Leggings actually bushwick echo park cred, aliquip officia letterpress
+        artisan gastropub odd future single-origin coffee ex. Retro consectetur veniam
+        pug fap et. Vice butcher commodo, vegan synth incididunt banjo bespoke quinoa
+        +1 cillum. VHS trust fund mollit, cliche wolf dreamcatcher salvia tattooed
+        do thundercats carles.&lt;/p&gt;","updated_at":"2013-09-12T21:01:50Z","location":{"name":"New
+        York, NY"},"absolute_url":"http://boards.greenhouse.io/generalassembly/jobs/721","departments":[],"offices":[],"questions":[{"required":true,"label":"First
+        Name","fields":[{"name":"first_name","type":"input_text"}]},{"required":true,"label":"Last
+        Name","fields":[{"name":"last_name","type":"input_text"}]},{"required":true,"label":"Email","fields":[{"name":"email","type":"input_text"}]},{"required":false,"label":"Phone","fields":[{"name":"phone","type":"input_text"}]},{"required":false,"label":"Resume","fields":[{"name":"resume","type":"input_file"},{"name":"resume_text","type":"textarea"}]},{"required":false,"label":"Cover
+        Letter","fields":[{"name":"cover_letter","type":"input_file"},{"name":"cover_letter_text","type":"textarea"}]},{"required":false,"label":"LinkedIn
+        Profile","fields":[{"name":"question_2720","type":"input_text"}]},{"required":false,"label":"Website","fields":[{"name":"question_2721","type":"input_text"}]},{"required":false,"label":"How
+        did you hear about this job?","fields":[{"name":"question_2722","type":"input_text"}]}]}'
+    http_version: 
+  recorded_at: Mon, 16 Sep 2013 16:18:12 GMT
+recorded_with: VCR 2.5.0

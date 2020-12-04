@@ -1,0 +1,18 @@
+<div class="Vlt-tabs js-format" data-format="<%= format %>">
+  <div class="Vlt-tabs__header" role="tablist" aria-label="<%= label %>">
+    <% panels.each do |panel| %>
+      <div role="tab" data-tab-link="<%= panel['x-tab-id'] || panel['title'].parameterize %>" class="Vlt-tabs__link <%= panel['active'] ? 'Vlt-tabs__link_active' : '' %>">
+        <%= panel['title'] %>
+      </div>
+    <% end %>
+  </div>
+  <div class="Vlt-tabs__content">
+    <% panels.each do |panel| %>
+      <div class="Vlt-tabs__panel <%= panel['active'] ? 'Vlt-tabs__panel_active' : '' %>">
+        <%= panel['content'] %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

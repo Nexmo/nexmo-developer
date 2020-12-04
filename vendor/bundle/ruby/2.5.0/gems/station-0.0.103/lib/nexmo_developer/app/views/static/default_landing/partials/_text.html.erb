@@ -1,0 +1,5 @@
+<% 
+    raise "Missing 'content' key in text landing page block" unless local_assigns['content']
+%>
+
+<%= local_assigns['content'].render_markdown %>

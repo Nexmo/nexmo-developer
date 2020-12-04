@@ -1,0 +1,49 @@
+.extend {
+  .Vlt-card {
+    min-width: 280px;
+
+    .Vlt-icon--larger {
+      margin-bottom: 8px;
+    }
+  }
+}
+.extend-wrapper {
+  width: 80vw;
+
+  .extend-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    img {
+      align-self: center;
+      margin: 17px 0;
+      max-height: 100px;
+    }
+    .tags {
+      > ul {
+        list-style: none;
+        padding: 0;
+        margin: 5px;
+      }
+    }
+    .cta {
+      margin: 60px;
+    }
+  }
+
+  .extend-content {
+    background: $white;
+    border: $border;
+    border-radius: 10px;
+    box-shadow: $shadow;
+    padding: 80px 60px;
+    margin-bottom: 40px;
+    width: 80%;
+    margin: 15px auto;
+    img {
+      max-width: 80%;
+      margin: 15px auto;
+      display: block;
+    }
+  }
+}

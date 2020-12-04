@@ -1,0 +1,14 @@
+name: Review App
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, labeled, closed]
+jobs:
+  create-review-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Review App
+        uses: mheap/github-action-pr-heroku-review-app@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEROKU_PIPELINE_ID: ${{ secrets.HEROKU_PIPELINE_ID }}
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}

@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://123FakeToken:@harvest.greenhouse.io/v1/scorecards/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 10 Feb 2016 03:17:48 GMT
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '370562'
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Content-Type-Options:
+      - nosniff
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '[{"id":123,"interview":"Preliminary Screening Call","candidate_id":123,"interviewed_at":"2015-10-08T19:00:00.000Z","submitted_by":{"id":123,"name":"Test User"},"submitted_at":"2015-10-08T19:11:09.287Z","overall_recommendation":"yes","ratings":{"definitely_not":[],"no":[],"mixed":[],"yes":[],"strong_yes":[]},"questions":[{"id":null,"question":"Key Take-Aways","answer":""},{"id":null,"question":"Private Notes","answer":""}]},{"id":456,"interview":"Application Review","candidate_id":456,"interviewed_at":"2015-10-08T19:00:00.000Z","submitted_by":{"id":456,"name":"Test User"},"submitted_at":"2015-10-08T19:11:09.287Z","overall_recommendation":"yes","ratings":{"definitely_not":[],"no":[],"mixed":[],"yes":[],"strong_yes":[]},"questions":[{"id":null,"question":"Key Take-Aways","answer":""},{"id":null,"question":"Private Notes","answer":""}]}]'
+    http_version:
+  recorded_at: Wed, 10 Feb 2016 03:17:48 GMT
+recorded_with: VCR 3.0.1

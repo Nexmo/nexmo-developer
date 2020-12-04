@@ -1,0 +1,16 @@
+<% if @document_path %>
+  <% presenter = ImprovePagePresenter.new(@document_path) %>
+
+  <div class="Vlt-box Vlt-box--left Vlt-bg-grey-lighter">
+    <div class="Vlt-grid">
+      <div class="Vlt-col Vlt-col--right Vlt-col--4of4">
+        <span id="feedback__improve">
+          <svg class="Vlt-icon Vlt-black">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-github" />
+          </svg>
+          <a href="<%= presenter.github_url %>" target="_blank" class="Vlt-text-link Vlt-black">Improve this page</a>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>

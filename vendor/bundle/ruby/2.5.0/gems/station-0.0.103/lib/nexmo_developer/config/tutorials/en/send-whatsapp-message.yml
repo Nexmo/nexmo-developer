@@ -1,0 +1,40 @@
+title: Sending a WhatsApp message
+description: The Messages API provides the ability to send messages to various channels, including Facebook Messenger, SMS, WhatsApp and Viber. This tutorial describes using the Messages API to send a WhatsApp message.
+products:
+  - messages
+
+introduction: 
+  title: Introduction to this tutorial
+  description: This tutorial shows you how to send a WhatsApp message with Messages API.
+  content: |
+    # Introduction
+    The [Messages API](/messages/overview) allows you to send a WhatsApp message. In this tutorial you learn how to send a WhatsApp message. 
+    
+    This tutorial provides a step-by-step guide to installing the required tools, building your application, writing the code and testing. The message sent is plain text.
+
+    For further background information on WhatsApp messaging see our [supporting documentation](/messages/concepts/whatsapp).
+
+    > **NOTE:** Please carefully review the prerequisites.
+
+prerequisites:
+- create-nexmo-account
+- install-nodejs
+- install-nexmo-cli-beta
+- install-node-sdk-beta
+- messages-dispatch/create-application
+- messages-dispatch/configure-webhooks
+- messages-dispatch/write-webhook-server
+- messages-dispatch/test-webhook-server
+
+tasks:
+- messages-dispatch/send-whatsapp-message
+
+conclusion:
+  title: What's next?
+  description: What else can you do with the Messages API?
+  content: |
+
+    # What's next?
+    You can do a lot more with the Messages API.
+
+    See [Messages API documentation](/messages/overview).

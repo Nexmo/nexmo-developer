@@ -1,0 +1,56 @@
+<%
+  # Handle any cases where the top level of the oneOf is an allOf
+  panels = []
+  oneOfId = "tabs-#{SecureRandom.hex}"
+
+  parameters.each_with_index do |parameter, index|
+    schema = parameter.raw
+    if schema['properties']
+      schema['properties'] = schema['properties'].map do |name, definition|
+        next name if name.instance_of?(OasParser::Property)
+        OasParser::Property.new(self, schema, name, definition)
+      end
+      .sort_by do |prop|
+        prop.required ? -1 : 1
+      end
+    end
+
+    panels.push({
+      'description' => schema['title'] || schema['description'],
+      'parameters' => schema['properties'],
+      'oneOf' => schema['oneOf'],
+      'x-tab-id' => "tab-#{SecureRandom.hex}",
+      'active' => index == 0
+    })
+  end
+%>
+
+<div data-tab-content="<%= oneOfId %>" class="Vlt-btn-group">
+  <strong>Choose an option:</strong>
+  <ul class="Vlt-list Vlt-list--simple">
+    <% panels.each do |panel| %>
+      <li data-tab-link="<%= panel['x-tab-id'] %>" class="Vlt-js-tabs__link">
+        <%= panel['description'] %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="<%= oneOfId %>">
+  <% panels.each do |panel| %>
+    <div class="Vlt-js-tabs__panel <%= panel['active'] ? 'Vlt-tabs__panel_active' : '' %>">
+      <%
+        # Nested oneOf?
+        if panel['oneOf']
+      %>
+        <%= erb :'open_api/_tabbed_parameters', locals: { parent: parent, body: body, schema: panel['oneOf'], format: format, callback: callback } %>
+      <%
+        else
+      %>
+
+        <%= erb :'open_api/_parameters', locals: { parent: parent, parameters: panel['parameters'], callback: callback } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+

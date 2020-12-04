@@ -1,0 +1,70 @@
+<%
+  body = endpoint.request_body
+
+  # If we're calling this recursively (a oneOf a oneOf) then schema is passed in
+  # rather than pulling it from the body
+  schema ||= endpoint.request_body.content[format]['schema']['oneOf']
+
+  # Handle any cases where the top level of the oneOf is an allOf
+  schemas = schema.map do |s|
+    if s['allOf']
+      newSchema = body.handle_all_of(s)
+      s.each do |k,v|
+        newSchema[k] = v
+      end
+
+      next newSchema
+    end
+    s
+  end
+
+  panels = []
+
+  schemas.each_with_index do |schema, index|
+    if schema['properties']
+      schema['properties'] = schema['properties'].map do |name, definition|
+        # Sometimes we get in to a weird situation where we already have a Property
+        next name if name.instance_of?(OasParser::Property)
+        OasParser::Property.new(self, schema, name, definition)
+      end
+      .sort_by do |prop|
+        prop.required ? -1 : 1
+      end
+    end
+
+    subtitle = schema['title'] || schema['description']
+
+    if defined?(parent)
+      subtitle = "#{parent} &raquo; #{subtitle}"
+    end
+
+    panels.push({
+      'title' => subtitle,
+      'description' => schema['title'] || schema['description'],
+      'parameters' => schema['properties'],
+      'oneOf' => schema['oneOf'],
+      'x-tab-id' => schema['x-tab-id'] || schema['title'].parameterize,
+      'active' => index == 0
+    })
+  end
+%>
+
+<div class="Vlt-tabs js-format" data-format="<%= format %>">
+  <div class="Vlt-tabs__header" style="display:none;" role="tablist" aria-label="Responses">
+    <% panels.each do |panel| %>
+      <span data-tab-link="<%= panel['x-tab-id'] %>" class="Vlt-tabs__link <%= panel['active'] ? 'Vlt-tabs__link_active' : '' %>">
+      </span>
+    <% end %>
+  </div>
+  <div class="Vlt-tabs__content">
+    <% panels.each do |panel| %>
+      <div class="Vlt-tabs__panel <%= panel['active'] ? 'Vlt-tabs__panel_active' : '' %>">
+        <% unless panel['oneOf'] %>
+          <%= erb :'open_api/_request_single', locals: { title: title, subtitle: panel['title'], endpoint: endpoint, params: panel['parameters'], format: format } %>
+        <% else %>
+          <%= erb :'open_api/_request_one_of', locals: { title: title, parent: panel['title'], endpoint: endpoint, schema: panel['oneOf'], format: format } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

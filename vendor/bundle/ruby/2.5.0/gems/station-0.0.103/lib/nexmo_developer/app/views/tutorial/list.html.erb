@@ -1,0 +1,63 @@
+<h1>Tutorials</h1>
+
+<p>Get started with tutorials that will walk you through building a variety of practical applications</p>
+
+<div class="Nxd-use-cases--filters">
+  <%= render partial: 'layouts/partials/programming_languages_dropdown', controller_name: :tutorial, action_name: :list %>
+  <%= render partial: 'layouts/partials/product_dropdown', locals: { controller_name: :tutorial, action_name: :list, product_scope: TutorialList.all } %>
+</div>
+
+<br /><br />
+
+<% unless @tutorials.count.positive? %>
+  <div class="Vlt-callout Vlt-callout--warning">
+    <i></i>
+    <div class="Vlt-callout__content">
+      No tutorials available
+    </div>
+  </div>
+<% else %>
+  <div class="Vlt-grid Nxd-use-cases">
+    <% @tutorials.in_groups(3) do |tutorials| %>
+      <div class="Vlt-col">
+        <% tutorials.compact.each do |tutorial| %>
+          <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
+            <div class="Vlt-card__header">
+              <a
+                href="<%= tutorial.product_url %>"
+                class="Vlt-badge Vlt-badge--small Vlt-badge--transparent Vlt-margin--A-bottom2 Vlt-badge--<%= Card::COLOUR.fetch(tutorial.subtitle, 'blue') %>"
+                >
+                <%= tutorial.subtitle %>
+              </a>
+            </div>
+
+            <div class="Vlt-card__content">
+              <a href="<%= tutorial.url %>/<%= params[:code_language] %>">
+                <p class="p-large"><b><%= tutorial.title %></b></p>
+              </a>
+
+              <p><%= tutorial.description %></p>
+
+              <a href="<%= tutorial.url %>/<%= params[:code_language] %>" class="Vlt-<%= Card::COLOUR.fetch(tutorial.subtitle, 'blue') %>-darker Nxd-card__cta">
+                <%= t('read_more') %>
+                <svg class="Vlt-icon Vlt-icon--smaller">
+                  <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
+                </svg>
+              </a>
+
+              <% if tutorial.available_languages.count > 0 %>
+                <hr class="hr--short"></hr>
+
+                <% tutorial.available_languages.each do |language| %>
+                  <a href="<%= url_for(controller: :tutorial, action: :list, product: @product, code_language: language.label.downcase, only_path: true) %>">
+                    <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language.language %>"><span>●</span> <%= language.label %></small>
+                  </a>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

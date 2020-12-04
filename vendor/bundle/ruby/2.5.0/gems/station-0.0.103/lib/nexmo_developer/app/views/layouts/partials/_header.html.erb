@@ -1,0 +1,57 @@
+<% header = Header.new %>
+<%= render partial: 'layouts/partials/post-body-tags' %>
+
+<div class="Nxd-header">
+  <header id="header" class="Nxd-header__main" tabindex="2">
+    <a tabindex="0" id="skip-to-navigation" href="#sidenav-first" class="Vlt-btn Vlt-btn--outline Vlt-btn--primary Vlt-btn--app">Skip to navigation</a>
+    <a tabindex="0" id="skip-to-content" href="#primary-content" class="Vlt-btn Vlt-btn--outline Vlt-btn--primary Vlt-btn--app">Skip to content</a>
+    <div class="Nxd-logo">
+      <a href="/" id="logo" class="Nxd-logo__image Vlt-M-plus">
+        <%= image_tag header.logo_path, alt: header.logo_alt %>
+
+        <hr class="Nxd-product__separator">
+        <div class="Nxd-product__title Vlt-black">
+          <h4><%= header.name %></h4>
+          <small><%= header.subtitle %></small>
+        </div>
+      </a>
+      <a href="/" id="logo" class="Nxd-logo__image Vlt-S-only">
+        <%= image_tag header.small_logo_path, alt: header.logo_alt %>
+      </a>
+      <% if header.hiring_link? %>
+        <a href=<%= careers_path %> class="Vlt-M-plus Vlt-badge Vlt-badge--purple Vlt-badge--transparent Vlt-badge--small Nxd-product__hiring">
+          <span id="header-hiring"><%= t('.hiring') %></span>
+        </a>
+      <% end %>
+    </div>
+
+    <nav class="Nxd-header__nav">
+      <a class="Nxd-main-header__link Vlt-M-plus Vlt-black" href="https://vonage.com/communications-apis">Vonage.com</a>
+      <%= render partial: 'layouts/partials/locale_switcher' %>
+      <a href=<%= header.sign_up_path %> class="Vlt-btn Vlt-btn--secondary Vlt-btn--app" data-ab="try_button_v2"><b>
+          <% ab_test(:try_button_v2, header.sign_up_text.map { |s| ["{ #{t(".#{s}")} }", "< #{t(".#{s}")} />"] }.flatten) do |s| %>
+            <%= s %>
+          <% end %>
+        </b>
+      </a>
+    </nav>
+  </header>
+
+  <nav id="subnav" class="Nxd-header__sub">
+    <a id="Vlt-sidenav-mobile-trigger"><svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-menu"></use></svg></a>
+
+    <div class="Nxd-header__sub__menu">
+      <% Topnav.new(@navigation).items.each do |item| %>
+        <a href=<%= item.url %> class="<%= item.css_classes %>"><%= item.title %></a>
+      <% end %>
+    </div>
+
+    <% if search_enabled? %>
+      <%= form_tag '/search', method: :get do %>
+        <div id="search-app">
+          <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        </div>
+      <% end %>
+    <% end %>
+  </nav>
+</div>

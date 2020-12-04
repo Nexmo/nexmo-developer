@@ -1,0 +1,6 @@
+.DS_Store
+.sass-cache/
+.byebug_history
+lib/nexmo/oas/renderer/public/assets/stylesheets/sass/*.css
+lib/nexmo/oas/renderer/public/assets/stylesheets/sass/*.css.map
+.env

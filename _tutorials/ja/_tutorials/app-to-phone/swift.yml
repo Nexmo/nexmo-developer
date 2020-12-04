@@ -1,0 +1,29 @@
+---
+title: "アプリ内音声通話を行う"
+description: "iOSアプリから電話への音声通話を行います。"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、iOSクライアントSDKとSwiftを使用してiOSアプリから電話をかける方法を示します。"
+    content: "# はじめに\nこのチュートリアルでは、SwiftとNexmo iOSクライアントSDKを使用してiOSアプリケーションを作成し、iOSアプリから電話をかけるコードを記述する方法を学びます。\n\n### 完了したプロジェクト\n自分でアプリを構築せずに理解したい場合、このチュートリアルの完成したプロジェクトを[Github]（https://github.com/nexmo-community/client-sdk-swift-voice-app-to-phone）からダウンロードできます。\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "Xcodeをインストールする"
+    - "GitHubに参加する"
+tasks: 
+    - "クライアントSDK/アプリから電話へ/NCCOを作成"
+    - "クライアントSDK/アプリから電話へ/アプリケーションを作成"
+    - "クライアントSDK/ユーザーを作成"
+    - "クライアントSDK/JWT「アリス」生成"
+    - "クライアントSDK/アプリから電話へ/プロジェクト"
+    - "クライアントSDK/アプリから電話へ/パーミッション"
+    - "クライアントSDK/アプリから電話へ/インターフェース"
+    - "クライアントSDK/アプリから電話へ/クライアント"
+    - "クライアントSDK/アプリから電話へ/通話"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n# 次に行うこと\n\n完成させるために、このチュートリアルの一部として構築したプロジェクトは、[Github]（https://github.com/nexmo-community/client-sdk-swift-voice-app-to-phone）でも利用できます。\n\nそして、クライアントSDKでさらに多くのことができます。\n\nどのようなアイデアをお持ちですか？[devrel@vonage.com]（mailto: devrel@vonage.com）にお問い合わせください\n\n[Client SDK documentation (クライアントSDK ドキュメント)] （/client-sdk/overview）を参照してください。\n"

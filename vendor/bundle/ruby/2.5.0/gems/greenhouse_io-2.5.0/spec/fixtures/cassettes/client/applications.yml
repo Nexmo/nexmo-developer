@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://123FakeToken:@harvest.greenhouse.io/v1/applications
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 23 Apr 2014 23:45:18 GMT
+      Link:
+      - "<https://harvest.greenhouse.io/v1/applications?page=2&per_page=100>; rel=\"next\""
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '20'
+      X-Ratelimit-Remaining:
+      - '20'
+      Content-Length:
+      - '29003'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "[{\"id\":1,\"person_id\":1,\"prospect\":false,\"applied_at\":\"2012-03-15T00:00:00Z\",\"last_activity_at\":\"2013-10-23T16:00:33Z\",\"source\":{\"id\":700,\"public_name\":\"Legacy
+        Resumator Sources\"},\"credited_to\":null,\"jobs\":[{\"id\":4385,\"name\":\"Educational
+        Programs Producer\"}],\"status\":\"active\",\"current_stage\":{\"id\":1,\"name\":\"Preliminary
+        Phone Screen\"}},{\"id\":1,\"person_id\":1,\"prospect\":false,\"applied_at\":\"2012-03-17T00:00:00Z\",\"last_activity_at\":\"2013-10-23T16:00:33Z\",\"source\":null,\"credited_to\":null,\"jobs\":[{\"id\":4385,\"name\":\"Educational
+        Programs Producer\"}],\"status\":\"accepted\",\"current_stage\":{\"id\":12,\"name\":\"Application
+        Review\"}}]"
+    http_version: 
+  recorded_at: Wed, 23 Apr 2014 23:45:19 GMT
+recorded_with: VCR 2.5.0

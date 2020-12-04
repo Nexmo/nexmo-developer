@@ -1,0 +1,10 @@
+<%
+    raise "Missing 'title' key in section_header landing page block" unless local_assigns['title']
+    raise "Missing icon 'color' key in section_header landing page block" unless local_assigns['icon']['color']
+    raise "Missing icon 'name' key in section_header landing page block" unless local_assigns['icon']['name']
+%>
+
+<h2 class="Vlt-title--icon Vlt-title--center">
+    <svg class="Vlt-icon Vlt-icon--larger <%= local_assigns['icon']['color'] %>"><use xlink:href="/symbol/volta-icons.svg#<%= local_assigns['icon']['name'] %>"/></svg>
+    <%= local_assigns['title'] %>
+</h2>

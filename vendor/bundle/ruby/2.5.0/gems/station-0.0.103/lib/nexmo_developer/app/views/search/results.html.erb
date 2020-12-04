@@ -1,0 +1,26 @@
+<% if @results && @results_total > 0 %>
+  <h1>We found <%= @results_total %> <%= 'results'.pluralize(@results_total) %> for '<%= params['query'] %>'</h1>
+
+  <div class="Vlt-grid">
+    <% @results.each do |index| %>
+      <div class="Vlt-col">
+        <div class="Vlt-card">
+        <% if index.index.include? 'nexmo_developer' %>
+          <h2>Nexmo Developer</h2>
+        <% elsif index.index == 'zendesk_nexmo_articles' %>
+          <h2>Knowlegebase</h2>
+        <% end %>
+
+        <hr>
+
+        <% index.hits.each do |hit| %>
+          <%= render 'result', hit: hit, index_name: index.index %>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h1>Uh oh. We couldn't find anything.</h1>
+  <p>Click <a href="/">here</a> to go back to the start</p>
+<% end %>

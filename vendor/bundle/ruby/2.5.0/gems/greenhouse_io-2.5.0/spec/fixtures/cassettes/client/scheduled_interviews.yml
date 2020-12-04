@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://123FakeToken:@harvest.greenhouse.io/v1/applications/1/scheduled_interviews
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 11 May 2014 23:21:19 GMT
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '20'
+      X-Ratelimit-Remaining:
+      - '20'
+      Content-Length:
+      - '562'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "[{\"id\":435294,\"starts_at\":\"2014-01-10T21:00:00Z\",\"ends_at\":\"2014-01-10T21:15:00Z\",\"location\":null,\"status\":\"complete\",\"interview\":{\"id\":85265,\"name\":\"Task
+        Follow Up\"},\"organizer\":{\"id\":3850,\"name\":\"Test User\"},\"interviewers\":[{\"id\":3850,\"name\":\"Test User\",\"email\":null}]},{\"id\":435293,\"starts_at\":\"2014-01-11T13:00:00Z\",\"ends_at\":\"2014-01-11T13:45:00Z\",\"location\":\"Phone\",\"status\":\"complete\",\"interview\":{\"id\":39539,\"name\":\"Preliminary
+        Screening Call\"},\"organizer\":{\"id\":3850,\"name\":\"Test User\"},\"interviewers\":[{\"id\":3850,\"name\":\"Test User\",\"email\":null}]}]"
+    http_version: 
+  recorded_at: Sun, 11 May 2014 23:21:20 GMT
+recorded_with: VCR 2.5.0

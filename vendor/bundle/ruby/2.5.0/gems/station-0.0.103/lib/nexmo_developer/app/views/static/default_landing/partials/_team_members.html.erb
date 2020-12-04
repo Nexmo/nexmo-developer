@@ -1,0 +1,5 @@
+<div class="Vlt-grid">
+  <% @team['current'].shuffle.each do |member| %>
+    <%= render partial: 'profile', locals: member.symbolize_keys %>
+  <% end %>
+</div>

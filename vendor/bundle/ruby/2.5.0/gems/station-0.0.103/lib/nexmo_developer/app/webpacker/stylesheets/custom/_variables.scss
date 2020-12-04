@@ -1,0 +1,23 @@
+$atom: #282c34;
+$gray: #A1A1A1;
+$gray-light: lighten($gray, 25%);
+$gray-dark: #252A2D;
+
+$mint: #E4EEF3;
+$pink: #E6547B;
+$stone-light: #93B6C7;
+$stone: #224E66;
+$stone-dark: #193c56;
+
+$text: $stone;
+$text-subtle: desaturate(lighten($text, 15%), 20%);
+$code-background: $atom;
+
+$radius: 3px;
+$spacing: 20px;
+$shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
+$shadow-soft: 1px 0 8px rgba(44, 45, 48, 0.2);
+
+$border-color: darken($mint, 5%);
+$border-color-ligher: $mint;
+$border: 1px solid $border-color;

@@ -1,0 +1,124 @@
+{
+  "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@babel/plugin-proposal-export-namespace-from": "^7.12.1",
+    "@babel/plugin-proposal-function-sent": "^7.12.1",
+    "@babel/plugin-proposal-json-strings": "^7.12.1",
+    "@babel/plugin-proposal-numeric-separator": "^7.12.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.12.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.10.4",
+    "@babel/preset-env": "^7.12.7",
+    "@rails/ujs": "^6.0.3-4",
+    "@rails/webpacker": "^5.2.1",
+    "algoliasearch": "^4.8.2",
+    "@vonagevolta/volta2": "^0.1.4",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.2.2",
+    "babel-preset-babili": "^0.1.4",
+    "coffee-loader": "^1.0.1",
+    "coffee-script": "^1.12.7",
+    "compression-webpack-plugin": "^6.1.1",
+    "css-loader": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "file-loader": "^6.2.0",
+    "fetch-mock": "^9.11.0",
+    "foundation-sites": "^6.6.3",
+    "glob": "^7.1.2",
+    "gsap": "^3.5.1",
+    "https-proxy-agent": "^5.0.0",
+    "jquery": "^3.5.0",
+    "js-yaml": "3.14.0",
+    "jsrsasign": "^10.1.4",
+    "kind-of": "^6.0.3",
+    "lodash": "^4.17.20",
+    "markdown-spellcheck": "^1.3.1",
+    "node-sass": "^5.0.0",
+    "path-complete-extname": "^1.0.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^3.0.0",
+    "postcss-smart-import": "^0.7.5",
+    "precss": "^4.0.0",
+    "prop-types": "^15.7.2",
+    "puppeteer": "^5.5.0",
+    "rails-erb-loader": "^5.1.0",
+    "resolve-url-loader": "^3.1.2",
+    "sass-loader": "^10.1.0",
+    "serialize-javascript": "^5.0.1",
+    "sha1-file": "^1.0.0",
+    "style-loader": "^2.0.0",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.5",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.2",
+    "webpack-manifest-plugin": "^2.2.0",
+    "webpack-merge": "^5.4.0",
+    "webpacker": "^4",
+    "websocket-extensions": "^0.1.4",
+    "whatwg-fetch": "^3.5.0"
+  },
+  "resolutions": {
+    "acorn": "^6.4.1",
+    "minimist": "^1.2.2",
+    "kind-of": "^6.0.3",
+    "jpeg-js": "^0.4.0",
+    "http-proxy": "^1.18.1",
+    "serialize-javascript": "^5.0.1",
+    "url-regex": "^5.0.0",
+    "marked": "^0.7.0"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "1.1.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "flush-promises": "^1.0.2",
+    "jest": "^26.6.3",
+    "node-fetch": "^2.6.1",
+    "vue-jest": "^3.0.7",
+    "webpack-bundle-analyzer": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "version": "1.1.0",
+  "engines": {
+    "node": ">= 12.0.0 < 13",
+    "yarn": ">=0.25.2"
+  },
+  "scripts": {
+    "bundle:size": "rm -f stats.json report.html 2>/dev/null && RAILS_ENV=production NODE_ENV=production lib/nexmo-developer/bin/webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json lib/nexmo-developer/public/packs --mode static --display-chunks --display-modules",
+    "test": "jest"
+  },
+  "jest": {
+    "roots": [
+      "lib/nexmo_developer/spec/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "lib/nexmo_developer/app/webpacker/javascript",
+      "lib/nexmo_developer/spec"
+    ],
+    "verbose": true,
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue",
+      "woff2"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/"
+    ]
+  }
+}

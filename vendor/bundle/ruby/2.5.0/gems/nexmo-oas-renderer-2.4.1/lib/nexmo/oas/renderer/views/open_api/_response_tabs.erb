@@ -1,0 +1,16 @@
+<%
+  tabs = Nexmo::OAS::Renderer::Presenters::ResponseTabs.new(format, response, content, endpoint, theme_light: @theme_light)
+
+  switcher = Nexmo::OAS::Renderer::Presenters::ContentSwitcher.new(label: "Response Example", format: format, force_type: tabs.switcher, theme_light: @theme_light)
+
+  tabs.tab_links.each_with_index do |v,k|
+     switcher.add_content(
+       title: v.content,
+       content: (erb *tabs.tab_panels[k].content),
+       tab_id: v.data_tab_link,
+       active: k == 0
+     )
+  end
+%>
+
+<%= erb *switcher.render %>

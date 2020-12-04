@@ -1,0 +1,1 @@
+/\.(?:svg|eot|woff|ttf)$/

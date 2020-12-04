@@ -1,0 +1,248 @@
+ul, ol, p, h1, h2, h3, h4, h5, h6, table {
+  pre code {
+    display: inline;
+    border: none;
+    color: inherit;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border-radius: none;
+  }
+}
+
+a {
+  nav &, h1 & {
+    border-bottom: none;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.indent {
+  margin-left: $spacing * 1.5;
+}
+
+pre.highlight {
+  background: $black;
+  -webkit-font-smoothing: antialiased;
+  padding: $spacing;
+  color: $white;
+  margin-bottom: $spacing;
+  line-height: 1.35;
+  overflow: auto;
+  position: relative;
+  border-radius: 4px;
+
+  code {
+    color: $grey-light;
+  }
+}
+
+pre {
+  font-family: Consolas, monospace;
+  font-size: 16px;
+}
+
+.gutter {
+  color: #5f697c;
+  text-align: right;
+  padding-right: 5px;
+  user-select: none;
+}
+
+.active {
+  color: $blue-dark;
+}
+
+.Nxd-article {
+
+  li ul, li ol {
+    margin-top: 5px;
+  }
+
+  ul {
+    margin-bottom: 15px;
+  }
+
+  ul li {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+
+  .tight {
+    margin: 0;
+  }
+}
+
+.tight {
+  margin: 0;
+}
+
+.color-text {
+  color: $text;
+}
+
+.color--warn {
+  color: $orange;
+}
+
+.color--error {
+  color: $red;
+}
+
+.color--success {
+  color: $green;
+}
+
+.meta {
+  display: block;
+  color: mix($stone, $stone-light);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: $text-subtle;
+  border-bottom: 1px dotted $stone-light;
+  font-size: 0.95em;
+  cursor: pointer;
+
+  &:before {
+    display: none;
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 12px 10px;
+    border-color: transparent transparent $atom transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    bottom: -12px;
+  }
+
+  &:after {
+    display: none;
+    content: attr(data-text);
+    pointer-events: none;
+    background: $atom;
+    color: $white;
+    padding: $spacing / 2;
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: 10px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &:hover, &:focus {
+    outline: none;
+    color: $pink;
+    border-bottom-color: $pink;
+    &:before, &:after {
+      display: block;
+    }
+  }
+}
+
+.flash {
+  font-size: 1.2em;
+  margin: $spacing 0;
+  color: $pink;
+}
+
+.version {
+  margin-top: $spacing * 2;
+}
+
+.api-path {
+  display: block;
+  border: 2px solid $mint;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: $spacing;
+  font-size: 1.2em;
+  background: $white;
+
+  .api-path-parameter {
+    color: $pink;
+  }
+
+  .api-path-method {
+    display: inline-block;
+    font-family: Consolas, monospace;
+    color: $blue-dark;
+    background: mix($blue-dark, $white, 5%);
+    border-right: 1px solid mix($blue-dark, $white, 15%);
+    margin-right: 10px;
+    font-weight: 700;
+    padding: 6px $spacing 3px $spacing;
+
+    &--post {
+      color: $green;
+      background: mix($green, $white, 5%);
+      border-right: 1px solid mix($green, $white, 15%);
+    }
+
+    &--delete {
+      color: $red;
+      background: mix($red, $white, 5%);
+      border-right: 1px solid mix($red, $white, 15%);
+    }
+
+    &--update {
+      color: $orange;
+      background: mix($orange, $white, 5%);
+      border-right: 1px solid mix($orange, $white, 15%);
+    }
+  }
+
+  .api-path-host {
+    margin-right: -10px;
+    color: mix($text-subtle, $gray-light);
+  }
+}
+
+.api-reference {
+  b {
+    color: $text-subtle;
+  }
+}
+
+.flag {
+  text-transform: uppercase;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: $blue-dark;
+
+  &--strong {
+    color: $red;
+  }
+}
+
+.subtle {
+  color: $text-subtle;
+}
+
+.truncate {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

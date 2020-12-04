@@ -1,0 +1,6 @@
+loglevel: 2  # DEBUG = 0, WARN = 2
+server:
+  baseUrl: https://api.stg.smartling.net/
+  apiKey: key
+  projectId: id
+

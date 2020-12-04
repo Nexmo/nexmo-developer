@@ -1,0 +1,54 @@
+<div class="Vlt-grid">
+  <div class="Vlt-col oas-left-panel" style="padding-bottom: 36px;">
+
+    <h3 id='<%= endpoint.operationId %>'><%= endpoint.summary %></h3>
+    <% if endpoint.description %>
+      <p><%= endpoint.description.render_markdown %></p>
+    <% end %>
+
+    <% servers = endpoint.path.servers ? endpoint.path.servers : endpoint.definition.servers %>
+    <% raise "`servers` parameter not provided at either the path level or document root" unless servers.size.positive? %>
+
+    <%
+      path = endpoint.path.path.gsub(/\{(.+?)\}/, ':\1').chomp("/")
+      uri = URI("#{servers[0]['url']}#{path}")
+    %>
+    <div class="oas-path-full Vlt-badge-combined">
+      <code class="Vlt-badge Vlt-badge--large Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><%= endpoint.method.upcase %></code>
+      <code class="Vlt-badge Vlt-badge--large Vlt-bg-grey-lighter Vlt-black">
+        <span><%= uri.scheme %>://<%= uri.host %></span><%= uri.path.gsub(/:([^\/]+)/, '<span class="api-path-parameter">:\1</span>') %>
+      </code>
+    </div>
+
+    <div class="oas-path-small Vlt-badge-combined" style="margin-bottom: 8px;">
+      <code class="Vlt-badge Vlt-badge--large">Host</code>
+      <code class="Vlt-badge Vlt-badge--large Vlt-bg-grey-lighter Vlt-black">
+        <%= uri.scheme %>://<%= uri.host %>
+      </code>
+    </div>
+
+    <div class="oas-path-small Vlt-badge-combined">
+      <code class="Vlt-badge Vlt-badge--large Nxd-method-badge Nxd-method-badge--<%= endpoint.method %>"><%= endpoint.method.upcase %></code>
+      <code class="Vlt-badge Vlt-badge--large Vlt-bg-grey-lighter Vlt-black">
+        <%= uri.path.gsub(/:([^\/]+)/, '<span class="api-path-parameter">:\1</span>') %>
+      </code>
+    </div>
+
+    <%= erb :'open_api/_auth', locals: { endpoint: endpoint } %>
+
+    <%= erb :'open_api/_parameter_groups', locals: { endpoint: endpoint } %>
+
+    <%= erb :'open_api/_response_descriptions', locals: { endpoint: endpoint, auto_expand_responses: @auto_expand_responses } %>
+
+  </div>
+
+  <div class="Vlt-col oas-right-panel">
+
+    <%= erb :'open_api/_requests', locals: { endpoint: endpoint } %>
+
+    <%= erb :'open_api/_responses', locals: { endpoint: endpoint } %>
+
+
+
+  </div>
+</div>

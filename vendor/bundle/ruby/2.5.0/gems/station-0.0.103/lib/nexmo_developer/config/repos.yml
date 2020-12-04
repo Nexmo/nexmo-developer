@@ -1,0 +1,27 @@
+# Nexmo repos
+# ===========
+#
+# Used by code examples.
+#
+# Basic Usage
+# -----------
+#
+# $ bundle exec rake repos:pull
+#
+# Changes made should be committed into this repo so
+# they can be reviewed alongside pull-requests
+#
+# Developing Locally
+# ------------------
+#
+# Uncomment the path and point it to your local
+# working copy of the repo. Running the script
+# create a symlink to that directory in place.
+#
+# Once you are happy with the changes push your
+# working repo branch up and comment out the path
+# referencing it on GitHub and rerun the command.
+#
+
+nexmo/conversation-docs:
+  repo: nexmo/conversation-docs

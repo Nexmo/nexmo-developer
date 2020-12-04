@@ -1,0 +1,31 @@
+---
+title: "アプリからアプリへの音声通話を行う"
+description: "iOSアプリから別の iOSアプリに音声通話を発信する"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、iOSクライアントSDKとSwiftを使用して、iOSアプリケーションから別のiOSアプリケーションに電話をかける方法を示します。"
+    content: "# はじめに\nこのタスクでは、クライアントSDKアプリケーションを作成および設定し、2人のユーザーが互いに通話することを可能にするiOSアプリケーションを構築する方法を学びます。\n\n自分でアプリを構築せずに理解したい場合、このチュートリアルの完成したプロジェクトを[GitHub]（https://github.com/nexmo-community/ClientSDK-app-to-app-call-Swift）で入手できます。\n\n*このチュートリアルでは、NexmoClientバージョン2.2.1とSwift 5を使用しています*\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "Xcodeをインストールする"
+tasks: 
+    - "クライアントSDK/電話からアプリへ/NCCOを作成"
+    - "クライアントSDK/アプリからアプリへ/アプリケーションを作成"
+    - "クライアントSDK/アプリからアプリへ/ユーザーを作成"
+    - "クライアントSDK/アプリからアプリへ/JWTを生成"
+    - "クライアントSDK/アプリからアプリへ/プロジェクトを作成"
+    - "クライアントSDK/アプリからアプリへ/パーミッション"
+    - "クライアントSDK/アプリからアプリへ/UIを作成"
+    - "クライアントSDK/アプリからアプリへ/モデルを作成"
+    - "クライアントSDK/アプリからアプリへ/クライアントを初期化"
+    - "クライアントSDK/アプリからアプリへ/通話UI"
+    - "クライアントSDK/アプリからアプリへ/通話を受信"
+    - "クライアントSDK/アプリからアプリへ/通話を発信"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n# 次に行うこと\n\n完成させるには、このチュートリアルの一部として構築したプロジェクトは、[GitHub]（https://github.com/nexmo-community/ClientSDK-app-to-app-call-Swift）でも利用できます。\n\nクライアントSDKでさらに多くのことができます。[Client SDK documentation (クライアントSDKドキュメント)]（/client-sdk/overview）を参照してください。\n\nどのようなアイデアをお持ちですか？<a href=\"mailto:devrel@vonage.com\">devrel@vonage.com</a>までお問い合わせください\n"

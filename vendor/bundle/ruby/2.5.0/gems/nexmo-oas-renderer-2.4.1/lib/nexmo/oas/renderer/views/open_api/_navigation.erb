@@ -1,0 +1,75 @@
+<header class="oas-navbar oas-navbar-full">
+  <% if @specification.groups.size == 1 %>
+    <a href="#top" class="Vlt-btn Vlt-btn--tertiary group-link">Available Operations</a>
+  <% end %>
+
+
+  <% @specification.groups.each do |name, endpoints| %>
+    <% next unless name %>
+    <a href="#<%= name.parameterize %>" class="Vlt-btn Vlt-btn--tertiary group-link"><%= name %></a>
+  <% end %>
+
+  <% if @specification.definition.raw['x-webhooks'] || definition.webhooks.size.positive? %>
+    <a href="#webhooks" class="Vlt-btn Vlt-btn--tertiary group-link">Webhooks</a>
+  <% end %>
+
+  <% if definition.raw['x-errors'] %>
+    <a href="#errors" class="Vlt-btn Vlt-btn--tertiary group-link">Errors</a>
+  <% end %>
+
+  <% if @specification.formats.size > 1 %>
+    <div class="Vlt-native-dropdown">
+      <select class="js-format-selector">
+        <% @specification.formats.each do |value, name| %>
+          <option value="<%= value %>"><%= name %> Responses</option>
+        <% end %>
+      </select>
+    </div>
+  <% end %>
+</header>
+
+<header class="oas-navbar oas-navbar-small">
+  <div id="oas-nav-accordion" style="width: 100%;">
+    <span role="link" class="oas-trigger">
+      <% if @specification.formats.size > 1 %>
+        <div class="Vlt-native-dropdown">
+          <select class="js-format-selector">
+            <% @specification.formats.each do |value, name| %>
+              <option value="<%= value %>"><%= name %> Responses</option>
+            <% end %>
+          </select>
+        </div>
+      <% end %>
+    </span>
+
+    <div class="oas-trigger-content">
+      <% if @specification.groups.size == 1 %>
+      <a href="#top" class="Vlt-btn Vlt-btn--tertiary group-link">Available Operations</a>
+      <% end %>
+
+      <% if definition.raw['x-errors'] %>
+        <a href="#errors" class="Vlt-btn Vlt-btn--tertiary group-link">Errors</a>
+      <% end %>
+
+      <br />
+      <br />
+
+      <% has_webhooks = @specification.definition.raw['x-webhooks'] || definition.webhooks.size.positive? %>
+      <% if @specification.groups.size > 1 || has_webhooks %>
+        <h4>Endpoints</h4>
+
+        <% @specification.groups.each do |name, endpoints| %>
+          <% next unless name %>
+          <a href="#<%= name.parameterize %>" class="Vlt-btn Vlt-btn--tertiary group-link"><%= name %></a>
+        <% end %>
+      <% end %>
+
+      <% if has_webhooks %>
+        <a href="#webhooks" class="Vlt-btn Vlt-btn--tertiary group-link">Webhooks</a>
+      <% end %>
+
+    </div>
+  </div>
+</header>
+
+<span id="top"></span>

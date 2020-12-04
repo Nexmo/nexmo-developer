@@ -1,0 +1,37 @@
+=== 1.4.1 / 2016-09-16
+
+* fix capitalization of repeated small words
+* handle multiple punctuated small words ("v.", "vs.")
+
+=== 1.4.0 / 2016-02-04
+
+* check for the presence of ActiveSupport::Inflector instead of just ActiveSupport [Connor Prussin]
+
+=== 1.3.0 / 2013-03-07
+
+* add String#titleize! [Scott Pullen]
+* allow disabling of humanize/underscore in ActiveSupport#titleize [Jayme Deffenbaugh]
+* RSpec 2
+
+=== 1.2.1 / 2011-04-15
+
+* Bundler
+
+=== 1.2.0 / 2010-07-22
+
+* Ruby 1.9 compatibility. [Jason Weathered]
+* Active Support's Inflector is under the ActiveSupport namespace. [Jason Weathered]
+* have String#titleize act like Inflector#titleize when ActiveSupport is loaded
+
+=== 1.1.0 / 2010-03-18
+
+* fix all-caps titles
+* don't capitalize words that start with a number
+* handle hyphenated words
+* change project url to rubygems.org
+
+=== 1.0.0 / 2008-05-22
+
+* Hoe-ized for RubyGemming
+
+

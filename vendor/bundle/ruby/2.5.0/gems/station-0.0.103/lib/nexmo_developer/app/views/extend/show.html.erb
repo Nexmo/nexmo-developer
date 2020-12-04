@@ -1,0 +1,31 @@
+<small><a href="/extend">&larr; Back to Extend Catalog</a></small>
+<div class="extend-wrapper">
+<div class="center content-block extend-header">
+    <% if @extension[:image] != '' %>
+    <img src='<%= @extension[:image] %>' alt='<%= @extension[:title]%>' />
+    <% end %>
+    <h1><%= @extension[:title] %></h1>
+    <div class="description">
+        <h5><%= @extension[:description] %></h5>
+    </div>
+    <% if @extension[:tags] != '' %>
+    <div class="tags">
+        <ul>
+        <% @extension[:tags].each do |tag| %>
+            <li class="Vlt-btn Vlt-btn--secondary Vlt-btn--small"><%= tag %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <% if @extension[:link] != '' %>
+    <div class="cta">
+        <a href="<%= @extension[:link] %>" class="Vlt-btn Vlt-btn--primary Vlt-btn--large"><%= @extension[:cta] %></a>
+    </div>
+    <% end %>
+</div>
+
+
+<div class="Vlt-card Vlt-article">
+    <%= @extension[:body].html_safe %>
+</div>
+</div>
