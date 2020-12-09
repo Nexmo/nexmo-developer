@@ -1,0 +1,20 @@
+---
+title: "ステップアップ認証"
+description: "ユーザーが機密性の高いタスクを実行するときにセキュリティレイヤーを追加する"
+products: 
+    - "検証"
+introduction: 
+    title: "はじめに"
+    description: "アプリケーションにステップアップ認証を実装する方法を学ぶ"
+    content: "#はじめに\n\nステップアップ認証は、ユーザーを認証するための適応性の高い方法です。アプリケーションへの基本的なアクセスでは、可能な限り摩擦を少なくしてサービスの使用を開始できるように、1セットの資格情報を付与します。しかし、そのユーザーがリスク要素のある何かをしようとすると、さらに資格情報を要求します。これらの追加の資格情報は、その資格があるという再保証になります。\n\nこのような認証がインターネットバンキングで使用されているのを見たことがあるかもしれません。銀行アプリケーションには1セットの資格情報でログインしますが、支払いや送金を行う場合、SMS経由で送信されるワンタイムパスワードや、自分だけが合理的に知ることができて記憶に残る情報など、アカウント所有者であることをさらに証明するように求められることがよくあります。\n\nこのチュートリアルでは、Node.jsとVerify APIを使用して、このセキュリティレイヤーをアプリケーションに追加する方法について説明します。ユーザーは、自分のアカウント設定にアクセスし許可される前に自分自身を確認するように要求されるシミュレーションを行うアプリケーションを構築します。\n"
+tasks: 
+    - "verify/stepup-auth-create-node-application"
+    - "verify/stepup-auth-init-dependencies"
+    - "verify/stepup-auth-configure-application"
+    - "verify/stepup-auth-define-routes"
+    - "verify/stepup-auth-create-ui"
+    - "verify/stepup-auth-display-home-page"
+    - "verify/stepup-auth-send-verification-request"
+    - "verify/stepup-auth-check-verification-code"
+    - "verify/stepup-auth-test-your-application"
+    - "verify/stepup-auth-whats-next"

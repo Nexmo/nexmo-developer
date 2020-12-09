@@ -1,0 +1,26 @@
+---
+title: "Facebook Messengerのメッセージを送信する"
+description: "メッセージAPIは、Facebook MessengerやSMS、WhatsApp、Viberなどのさまざまなチャネルにメッセージを送信する機能を提供します。このタスクでは、メッセージAPIを使用してFacebook Messengerのメッセージを送信する方法について確認します。"
+products: 
+    - "messages"
+introduction: 
+    title: "このチュートリアルの概要"
+    description: "このチュートリアルでは、メッセージAPIでFacebook Messengerのメッセージを送信する方法について説明します。"
+    content: "#はじめに\n[Messages API (メッセージAPI)]（/messages/overview）では、Facebook Messengerのメッセージを送信できます。このチュートリアルでは、Messengerのメッセージを受信し、メッセージを返す方法を学習します。\n\nこのチュートリアルでは、必要なツールのインストール、アプリケーションの構築、コードの記述、テストをステップに分けたガイドを提供します。送信されるメッセージはプレーンテキストです。\n\nWhatsAppのメッセージングに関する背景情報については、[supporting documentation (サポートドキュメント)]（/messages/concepts/facebook）を参照してください。\n\n>**注：**このタスクは、FacebookプロファイルとFacebookページを作成済みであることを前提としています。\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "install-node-sdk-beta"
+    - "messages-dispatch/create-application"
+    - "messages-dispatch/configure-webhooks"
+    - "messages-dispatch/write-webhook-server"
+    - "messages-dispatch/test-webhook-server"
+tasks: 
+    - "messages-dispatch/link-facebook-page"
+    - "messages-dispatch/receive-facebook-message"
+    - "messages-dispatch/send-facebook-message"
+conclusion: 
+    title: "次に行うこと"
+    description: "メッセージAPIで他に何ができますか？"
+    content: "\n#次に行うこと\n\nメッセージAPIを使用すると、さらに多くのことができます。\n\n[Messages API documentation (メッセージAPIドキュメント)]（/messages/overview）を参照してください。\n"

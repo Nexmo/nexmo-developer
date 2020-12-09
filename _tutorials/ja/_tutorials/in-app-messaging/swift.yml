@@ -1,0 +1,31 @@
+---
+title: "iOSチャットアプリを作成する"
+description: "ユーザーがお互いにメッセージを送れるようにするiOSアプリケーションを作成する"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、iOSクライアントSDKを使用してiOSチャットアプリケーションを作成する方法を説明します。"
+    content: "#はじめに\nこのタスクでは、クライアントSDKアプリケーションを作成および設定し、2人のユーザーが相互にメッセージを送信できるようにするアプリケーションをコーディングする方法を学習します。\n\nまず、カンバセーションと2人のユーザーを作成します。次に、これらのユーザーを認証し、メンバーとしてカンバセーションに追加します。\n\n最後に、メッセージを表示および送信する機能を含む、チャット機能をアプリケーションに実装します。\n\n自分でアプリを構築せずに理解したい場合、このチュートリアルの完成したプロジェクトを[GitHub]（https://github.com/nexmo-community/ClientSDK-app-to-app-chat-Swift）で入手できます。\n\n*このチュートリアルでは、NexmoClientバージョン2.2.0とSwift 5を使用しています*\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "Xcodeをインストールする"
+tasks: 
+    - "client-sdk/in-app-messaging/create-application"
+    - "client-sdk/create-conversation"
+    - "client-sdk/in-app-messaging/create-users"
+    - "client-sdk/in-app-messaging/add-users-to-conversation"
+    - "client-sdk/in-app-messaging/generate-jwts"
+    - "client-sdk/in-app-messaging/create-project"
+    - "client-sdk/in-app-messaging/create-ui"
+    - "client-sdk/in-app-messaging/create-model"
+    - "client-sdk/in-app-messaging/initialize-client"
+    - "client-sdk/in-app-messaging/conversation-ui"
+    - "client-sdk/in-app-messaging/fetch-events"
+    - "client-sdk/in-app-messaging/send-message"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n#次に行うこと\n\n完成させるには、このチュートリアルの一部として構築したプロジェクトは、[GitHub]（https://github.com/nexmo-community/ClientSDK-app-to-app-call-Swift）でも利用できます。\n\nクライアントSDKでさらに多くのことができます。[Client SDK documentation (クライアントSDKドキュメント)]（/client-sdk/overview）を参照してください。\n\nどのようなアイデアをお持ちですか？<a href=\"mailto:devrel@vonage.com\">devrel@vonage.com</a>までお問い合わせください\n"

@@ -1,0 +1,27 @@
+---
+title: "アプリからアプリへの音声通話を行う"
+description: "Webアプリから別のWebアプリに電話をかけるとします。"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、JavaScript用のクライアントSDKを使用して、Webアプリから別のWebアプリへの音声通話を行う方法について説明します。"
+    content: "#はじめに\nこのチュートリアルでは、クライアントSDKアプリケーションを作成し、\nWebアプリから別のWebアプリに電話をかけるためのコードを記述する方法を学習します。\n\nこれを実現するには、以下を作成します。\n\n*クライアントSDKを使用してアプリからアプリへの音声通話を行うウェブアプリケーション。\n*通話の処理方法に関する指示にあたる<abbr title=\"Nexmo Call Control Object\">NCCO</abbr>を提供する公的にアクセス可能なURL。これを達成するにはGitHubのGistを使用します。<a href=\"https://gist.github.com/\" target=\"_blank\">GitHub Gist</a>は、コードスニペットを他の人と共有する簡単な方法です。\n\nアプリケーションからアプリ内通話がトリガーされると、NexmoはGitHub GistからNCCOを使用し、通話を宛先アプリに転送します。\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "client-sdk/install-node-client-sdk"
+    - "Nexmo CLIベータをインストールする"
+    - "GitHubに参加する"
+tasks: 
+    - "クライアントSDK/アプリからアプリへ/NCCOを作成"
+    - "クライアントSDK/アプリからアプリへ/アプリケーションを作成"
+    - "クライアントSDK/アプリからアプリへ/ユーザーを作成"
+    - "クライアントSDK/アプリからアプリへ/JWTを生成"
+    - "client-sdk/app-to-app/call-code"
+    - "client-sdk/app-to-app/receive-code"
+    - "client-sdk/app-to-app/run"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n#次に行うこと\nクライアントSDKでさらに多くのことができます。\n\nどのようなアイデアをお持ちですか？[devrel@vonage.com]（mailto:devrel@vonage.com）にお問い合わせください\n\n[Client SDK documentation (クライアントSDKドキュメント)]（/client-sdk/overview）を参照してください。\n"

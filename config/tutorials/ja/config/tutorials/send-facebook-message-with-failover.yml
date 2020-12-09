@@ -1,0 +1,25 @@
+---
+title: "フェイルオーバーを使用してFacebookメッセージを送信する"
+description: "配信APIは、セカンダリチャネルへのフェイルオーバーを使用してメッセージワークフローを作成する機能を提供します。このタスクでは、配信APIを使用して、SMSチャネルへのフェイルオーバーを使用してFacebookメッセージを送信する方法について説明します。"
+products: 
+    - "dispatch"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、配信APIのフェイルオーバー機能の使用方法を説明します。"
+    content: "#はじめに\n[Dispatch API (配信API)]（/dispatch/oververview）には、自動フェイルオーバーを備えたワークフローがあります。このチュートリアルでは、SMSへの自動フェイルオーバーを使用してFacebook Messengerのメッセージを送信する方法について説明します。\n\nこのチュートリアルでは、必要なツールのインストール、アプリケーションの構築、コードの記述、テストをステップに分けたガイドを提供します。送信されるメッセージはプレーンテキストです。\n\nFacebookのメッセージングに関する背景情報については、[supporting documentation (サポートドキュメント)]（/messages/concepts/facebook）を参照してください。\n\n>**注：**このタスクは、FacebookプロファイルとFacebookページを作成済みであることを前提としています。\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "install-node-sdk-beta"
+    - "messages-dispatch/create-application"
+    - "messages-dispatch/configure-webhooks"
+    - "messages-dispatch/write-webhook-server"
+    - "messages-dispatch/test-webhook-server"
+tasks: 
+    - "messages-dispatch/link-facebook-page"
+    - "messages-dispatch/send-facebook-failover"
+conclusion: 
+    title: "次に行うこと"
+    description: "配信APIで他に何ができますか？"
+    content: "\n#次に行うこと\n配信APIでさらに多くのことができます。\n\n[Dispatch API documentation (配信APIドキュメント)]（/dispatch/overview）と[a multi-user, multi-channel workflow Dispatch use case (マルチユーザー、マルチチャネルワークフローにおける配信の使用事例)]（/use-cases/dispatch-user-fallback）を参照してください。\n"

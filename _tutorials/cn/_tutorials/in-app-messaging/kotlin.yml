@@ -1,0 +1,33 @@
+---
+title: "Creating an Android chat app"
+description: "Create a Android application that enables users to message each other using the Android Client SDK and Kotlin."
+products: 
+    - "client-sdk"
+introduction: 
+    title: "Introduction to this task"
+    description: "This task shows you how to create a Android chat application using the Android Client SDK."
+    content: "# Introduction\nIn this task, you will learn how to create and configure a Client SDK Application and then code an application that enables two users to send messages to each other.\n\nFirst, you will create a Conversation and two Users. Then, you will authenticate these Users and add them to the Conversation as Members.\n\nFinally, you will implement chat functionality in your application, including the ability to view and send messages and be notified when a new message appears in Conversation.\n\nThe source code is available on [GitHub](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging).\n\n### This tutorial requires the following versions:\n\n- Android (6.0 and above - API level 23 and above)\n- Client SDK for Android 2.6.4\n\nLast update: September 2020\n"
+prerequisites: 
+    - "create-nexmo-account"
+    - "install-nodejs"
+    - "install-nexmo-cli-beta"
+    - "install-android-studio"
+tasks: 
+    - "client-sdk/in-app-messaging/create-application"
+    - "client-sdk/create-conversation"
+    - "client-sdk/android-shared/create-users-alice-and-bob"
+    - "client-sdk/in-app-messaging/add-users-to-conversation"
+    - "client-sdk/android-shared/generate-jwt-alice-and-bob"
+    - "client-sdk/in-app-messaging/starter-project"
+    - "client-sdk/android-shared/initialize-client"
+    - "client-sdk/in-app-messaging/configure-jwts-and-conversation-id"
+    - "client-sdk/android-shared/authenticate-alice-and-bob"
+    - "client-sdk/in-app-messaging/fetch-conversation"
+    - "client-sdk/in-app-messaging/fetch-events"
+    - "client-sdk/in-app-messaging/send-message"
+    - "client-sdk/in-app-messaging/receive-new-messages"
+    - "client-sdk/android-shared/run-app"
+conclusion: 
+    title: "What's next?"
+    description: "What else can you do with the Client SDK?"
+    content: "\n# What's next?\n\nFor the complete version please see the Android Studio project in the `kotlin-completed` folder of \nthe [git repository](https://github.com/nexmo-community/client-sdk-android-tutorial-messaging) you've cloned.\n\nYou can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview) or review\n[Android Client SDK documentation](/sdk/stitch/android/index).  \n\nWe want to hear what ideas you have in mind? Contact us at <a href=\"mailto:devrel@vonage.com\">devrel@vonage.com</a>\n"

@@ -1,0 +1,27 @@
+---
+title: ".NETでボイスメールを作成する方法"
+products: 
+    - "voice/voice-api"
+description: ".NETで着信通話を記録するアプリを作成する方法を説明するチュートリアル"
+languages: 
+    - "dotnet"
+introduction: 
+    title: "このチュートリアルの概要"
+    description: "このチュートリアルでは、.NETを使用して通話を録音する方法について説明します"
+    content: "#はじめに\n[Vonage Voice API (Vonage音声用API)]（/voice/voice-api/overview）は、クラウドで高品質の音声アプリケーションを構築する最も簡単な方法です。このチュートリアルでは、.NETとVonage音声用APIを使用して着信通話から音声を録音する方法を学びます。\n\nこのチュートリアルでは、以下の方法を行う手順をステップに分けて説明します。\n\n1. Vonageアカウントを設定する\n1. Vonageアプリケーションを作成する\n1. Vonageアプリケーションを設定する\n1. ASP.NET Coreアプリケーションを作成する\n1. Vonageパッケージを追加する\n1.電話を受信して録音する\n1.Vonageから録音を取得する\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "install-nexmo-cli"
+    - "run-ngrok"
+    - "voice-api/create-vonage-application"
+tasks: 
+    - "voice-api/create-voice-csproj"
+    - "voice-api/install-vonage-dotnet"
+    - "voice-api/create-voice-controller"
+    - "voice-api/add-voicemail-answer-route"
+    - "voice-api/add-recording-route"
+    - "voice-api/configure-aspnet-app"
+    - "run-dotnet-app"
+conclusion: 
+    title: "次に行うこと"
+    content: "#次に行うこと\n\nVonage音声用APIの機能の詳細をご覧ください。\n\n- [Read the Voice API documentation (音声用APIドキュメントを読む)]（/voice/voice-api/overview）\n- [View the API Reference (APIリファレンスを表示)]（https://developer.nexmo.com/voice/voice-api/api-reference）\n- [Play Text To Speech into a Call (通話中にテキスト読み上げを再生する)]（https://developer.nexmo.com/voice/voice-api/tutorials/play-audio-into-call-dotnet）\n- [Play Audio into a Call (通話に音声を再生する)]（https://developer.nexmo.com/voice/voice-api/code-snippets/record-a-call/dotnet）    \n- [Take Speech Input (音声入力を取得する)]（https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-asr/dotnet）\n- [Handle User Key Input (ユーザーキー入力を処理する)]（https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-dtmf）\n- [NCCO Reference (NCCOリファレンス)]（https://developer.nexmo.com/voice/voice-api/ncco-reference）\n"
