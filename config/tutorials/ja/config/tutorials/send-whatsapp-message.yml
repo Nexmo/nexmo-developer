@@ -1,0 +1,24 @@
+---
+title: "WhatsAppメッセージを送信する"
+description: "メッセージAPIは、Facebook MessengerやSMS、WhatsApp、Viberなどのさまざまなチャネルにメッセージを送信する機能を提供します。このチュートリアルでは、メッセージAPI を使用して WhatsAppメッセージを送信する方法について説明します。"
+products: 
+    - "messages"
+introduction: 
+    title: "このチュートリアルの概要"
+    description: "このチュートリアルでは、メッセージAPIでWhatsAppメッセージを送信する方法について説明します。"
+    content: "#はじめに\n[Messages API (メッセージAPI)]（/messages/overview）では、WhatsAppのメッセージを送信できます。このチュートリアルでは、WhatsAppメッセージを送信する方法を学びます。\n\nこのチュートリアルでは、必要なツールのインストール、アプリケーションの構築、コードの記述、テストをステップに分けたガイドを提供します。送信されるメッセージはプレーンテキストです。\n\nWhatsAppのメッセージングに関する背景情報については、[supporting documentation (サポートドキュメント)]（/messages/concepts/whatsapp）を参照してください。\n\n>**注：**前提条件を注意してご確認ください。\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "install-node-sdk-beta"
+    - "messages-dispatch/create-application"
+    - "messages-dispatch/configure-webhooks"
+    - "messages-dispatch/write-webhook-server"
+    - "messages-dispatch/test-webhook-server"
+tasks: 
+    - "messages-dispatch/send-whatsapp-message"
+conclusion: 
+    title: "次に行うこと"
+    description: "メッセージAPIで他に何ができますか？"
+    content: "\n#次に行うこと\nメッセージAPIを使用すると、さらに多くのことができます。\n\n[Messages API documentation (メッセージAPIドキュメント)]（/messages/overview）を参照してください。\n"

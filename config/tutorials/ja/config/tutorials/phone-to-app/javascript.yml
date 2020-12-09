@@ -1,0 +1,29 @@
+---
+title: "アプリ内で電話を受信する"
+description: "電話からアプリへの通話を受信する"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、JavaScriptクライアントSDKを使用してWebアプリへの着信呼び出しを処理する方法について説明します。"
+    content: "#はじめに\nこのチュートリアルでは、クライアントSDKアプリケーションを作成し、\n着信の<abbr title=\"Public Switched Telephone Network\">PSTN</abbr>呼び出しを受信するコードを記述する方法を学びます。\n\nこれを達成するには、次のものが必要です。\n\n*サービスエージェントに着信通話を通知し、応答する機能を提供するWebアプリケーション\n*着信Webhookを処理し、<abbr title=\"Nexmo Call Control Object\">NCCO</abbr>を返して着信呼び出しをアプリケーションに転送できるWebhookサーバー\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "install-node-client-sdk"
+    - "Nexmo CLIベータをインストールする"
+    - "install-express"
+    - "run-ngrok"
+tasks: 
+    - "client-sdk/create-application"
+    - "buy-nexmo-number"
+    - "link-nexmo-number"
+    - "クライアントSDK/ユーザーを作成"
+    - "client-sdk/generate-jwt"
+    - "client-sdk/phone-to-app/create-webhook-server"
+    - "client-sdk/phone-to-app/code"
+    - "client-sdk/phone-to-app/run"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n#次に行うこと\nクライアントSDKでさらに多くのことができます。\n\nどのようなアイデアをお持ちですか？[devrel@vonage.com]（mailto:devrel@vonage.com）にお問い合わせください\n\n[Client SDK documentation (クライアントSDKドキュメント)]（/client-sdk/overview）を参照してください。\n"

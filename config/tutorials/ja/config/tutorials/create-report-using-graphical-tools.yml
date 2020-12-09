@@ -1,0 +1,14 @@
+---
+title: "グラフィカルツールを使用したCSVレポートを作成します"
+description: "グラフィカルツールPostmanを使用してレポートを作成します。"
+products: 
+    - "レポート"
+introduction: 
+    title: "はじめに"
+    description: "グラフィカルツールPostmanを使用してレポートを作成します。"
+    content: "#はじめに\n\nこのチュートリアルでは、グラフィカルツール[Postman]（https://www.getpostman.com/）を使用してレポートを作成する方法について説明します。Postmanのグラフィカルインターフェースは、非技術関連のユーザーのためにレポートAPIとの対話の複雑さを大幅に軽減します。\n\n>Postmanをまだインストールしていない場合は、[download and install it (ダウンロードしてインストール)]（https://www.getpostman.com/downloads/）をクリックしてください。\n"
+tasks: 
+    - "reports/create-report-postman"
+    - "reports/check-report-status-postman"
+    - "reports/download-report-postman"
+    - "reports/reports-whats-next"

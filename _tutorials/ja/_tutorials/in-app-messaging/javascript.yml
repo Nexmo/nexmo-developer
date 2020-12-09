@@ -1,0 +1,32 @@
+---
+title: "Webベースのチャットアプリを作成する"
+description: "ユーザーがお互いにメッセージを送れるようにするWebアプリケーションを作成する"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、JavaScriptクライアントSDKを使用してWebチャットアプリケーションを作成する方法を説明します。"
+    content: "#はじめに\nこのタスクでは、クライアントSDKアプリケーションを作成および設定し、2人のユーザーが相互にメッセージを送信できるようにするWebアプリケーションをコーディングする方法を学習します。\n\nまず、カンバセーションと2人のユーザーを作成します。次に、これらのユーザーを認証し、メンバーとしてカンバセーションに追加します。\n\n最後に、メッセージを表示して送信し、いずれかの当事者が現在入力しているときに通知を受ける機能を含む、チャット機能をアプリケーションに実装します。\n\nソースコードは[GitHub]（https://github.com/nexmo-community/ip-messaging-tutorial）で入手できます。\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "install-node-client-sdk"
+    - "run-ngrok"
+tasks: 
+    - "client-sdk/create-application"
+    - "client-sdk/create-conversation"
+    - "client-sdk/in-app-messaging/create-users"
+    - "client-sdk/in-app-messaging/add-users-to-conversation"
+    - "client-sdk/in-app-messaging/generate-jwts"
+    - "client-sdk/in-app-messaging/create-ui"
+    - "client-sdk/in-app-messaging/authenticate-users"
+    - "client-sdk/in-app-messaging/join-conversation"
+    - "client-sdk/in-app-messaging/show-message-history"
+    - "client-sdk/in-app-messaging/send-message"
+    - "client-sdk/in-app-messaging/typing-indicators"
+    - "client-sdk/in-app-messaging/run-application"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n#次に行うこと\n\nクライアントSDKでさらに多くのことができます。どのようなアイデアをお持ちですか？<a href=\"mailto:devrel@vonage.com\">devrel@vonage.com</a>までお問い合わせください\n\n[Client SDK documentation (クライアントSDK ドキュメント)]（/client-sdk/overview）を参照してください。\n"

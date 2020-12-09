@@ -1,0 +1,26 @@
+---
+title: "アプリ内音声通話を行う"
+description: "Webアプリから電話への音声通話を行います。"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、JavaScriptクライアントSDKを使用してWebアプリから電話をかける方法を説明します。"
+    content: "#はじめに\nこのチュートリアルでは、クライアントSDKアプリケーションを作成し、\nWebアプリから電話機に電話をかけるためのコードを記述する方法を学習します。\n\nこれを達成するには、次のものが必要です。\n\n*クライアントSDKを使用して音声通話を行うWebアプリケーション。*通話の処理方法に関する指示を提供するパブリックにアクセス可能なURL。これを達成するにはGitHubのGistを使用します。<a href=\"https://gist.github.com/\" target=\"_blank\">GitHub Gists</a>は、コードスニペットを他の人と共有する簡単な方法です。\n\n\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "client-sdk/install-node-client-sdk"
+    - "Nexmo CLIベータをインストールする"
+    - "GitHubに参加する"
+tasks: 
+    - "クライアントSDK/アプリから電話へ/NCCOを作成"
+    - "クライアントSDK/アプリから電話へ/アプリケーションを作成"
+    - "クライアントSDK/ユーザーを作成"
+    - "クライアントSDK/JWT「アリス」生成"
+    - "client-sdk/app-to-phone/js-code"
+    - "client-sdk/app-to-phone/js-run"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n#次に行うこと\nクライアントSDKでさらに多くのことができます。\n\nどのようなアイデアをお持ちですか？[devrel@vonage.com]（mailto:devrel@vonage.com）にお問い合わせください\n\n[Client SDK documentation (クライアントSDKドキュメント)]（/client-sdk/overview）を参照してください。\n"

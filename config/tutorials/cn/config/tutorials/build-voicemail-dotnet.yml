@@ -1,0 +1,27 @@
+---
+title: "How to Build a Voicemail with .NET"
+products: 
+    - "voice/voice-api"
+description: "A tutorial showing you how to build an app that records incoming phone calls with .NET"
+languages: 
+    - "dotnet"
+introduction: 
+    title: "Introduction to this tutorial"
+    description: "This tutorial shows you how to record a phone call using .NET"
+    content: "# Introduction\nThe [Vonage Voice API](/voice/voice-api/overview) is the easiest way to build high-quality voice applications in the Cloud. In this tutorial you will learn how to record audio from inbound calls using .NET and the Vonage Voice API.\n\nThis tutorial provides step by step instructions showing you how to:\n\n1. Set up a Vonage account\n1. Create a Vonage Application\n1. Configure a Vonage Application \n1. Create an ASP.NET Core application\n1. Add the Vonage package to it\n1. Receive a call and record it\n1. Retrieve the recording from Vonage\n"
+prerequisites: 
+    - "create-nexmo-account"
+    - "install-nexmo-cli"
+    - "run-ngrok"
+    - "voice-api/create-vonage-application"
+tasks: 
+    - "voice-api/create-voice-csproj"
+    - "voice-api/install-vonage-dotnet"
+    - "voice-api/create-voice-controller"
+    - "voice-api/add-voicemail-answer-route"
+    - "voice-api/add-recording-route"
+    - "voice-api/configure-aspnet-app"
+    - "run-dotnet-app"
+conclusion: 
+    title: "What's Next?"
+    content: "# What's Next?\n\nFind out more about the capabilities of the Vonage Voice API:\n\n- [Read the Voice API documentation](/voice/voice-api/overview)\n- [View the API Reference](https://developer.nexmo.com/voice/voice-api/api-reference)\n- [Play Text To Speech into a Call](https://developer.nexmo.com/voice/voice-api/tutorials/play-audio-into-call-dotnet)\n- [Play Audio into a Call](https://developer.nexmo.com/voice/voice-api/code-snippets/record-a-call/dotnet)    \n- [Take Speech Input](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-asr/dotnet)\n- [Handle User Key Input](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-dtmf)\n- [NCCO Reference](https://developer.nexmo.com/voice/voice-api/ncco-reference)\n"

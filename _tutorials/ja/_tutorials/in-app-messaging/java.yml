@@ -1,0 +1,33 @@
+---
+title: "Androidチャットアプリを作成する"
+description: "ユーザーが AndroidクライアントSDKとJavaを使用して相互にメッセージを送れるようにするAndroidアプリケーションを作成します。"
+products: 
+    - "クライアントSDK"
+introduction: 
+    title: "このタスクの概要"
+    description: "ここでは、AndroidクライアントSDKを使用してAndroidチャットアプリケーションを作成する方法を説明します。"
+    content: "#はじめに\nこのタスクでは、クライアントSDKアプリケーションを作成および設定し、2人のユーザーが相互にメッセージを送信できるようにするアプリケーションをコーディングする方法を学習します。\n\nまず、カンバセーションと2人のユーザーを作成します。次に、これらのユーザーを認証し、メンバーとしてカンバセーションに追加します。\n\n最後に、メッセージを表示して送信したり、カンバセーションに新しいメッセージが表示されたときに通知を受けとったりする機能など、チャット機能をアプリケーションに実装します。\n\nソースコードは [GitHub]（https://github.com/nexmo-community/client-sdk-android-tutorial-messaging）で入手できます。\n\n###このチュートリアルでは、次のバージョンが必要です：\n\n- Android（6.0以上。APIレベル23以上）\n- Android 2.6.4用クライアントSDK\n\n最終更新：2020年9月\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "Node.JSをインストールする"
+    - "Nexmo CLIベータをインストールする"
+    - "Android Studioをインストールする"
+tasks: 
+    - "client-sdk/in-app-messaging/create-application"
+    - "client-sdk/create-conversation"
+    - "クライアントSDK/Android共有/ユーザー「アリスとボブ」作成"
+    - "client-sdk/in-app-messaging/add-users-to-conversation"
+    - "クライアントSDK/Android共有/JWT「アリスとボブ」生成"
+    - "client-sdk/in-app-messaging/starter-project"
+    - "クライアントSDK/Android共有/クライアント初期化"
+    - "client-sdk/in-app-messaging/configure-jwts-and-conversation-id"
+    - "クライアントSDK/Android共有/「アリスとボブ」認証"
+    - "client-sdk/in-app-messaging/fetch-conversation"
+    - "client-sdk/in-app-messaging/fetch-events"
+    - "client-sdk/in-app-messaging/send-message"
+    - "client-sdk/in-app-messaging/receive-new-messages"
+    - "クライアントSDK/Android共有/アプリを実行"
+conclusion: 
+    title: "次に行うこと"
+    description: "クライアントSDKでほかにできること"
+    content: "\n#次に行うこと\n\n完全版については、[git repository (Gitリポジトリ)]（https://github.com/nexmo-community/client-sdk-android-tutorial-messaging）の\n「java-completed」フォルダにあるAndroid Studioプロジェクトを参照してください。クローンしました。\n\nクライアントSDKでさらに多くのことができます。[Client SDK documentation (クライアントSDKドキュメント)]（/client-sdk/overview）か、\n[Android Client SDK documentation (AndroidクライアントSDKドキュメント)]（/sdk/stitch/android/index）を参照してください。\n\nどのようなアイデアをお持ちですか？<a href=\"mailto:devrel@vonage.com\">devrel@vonage.com</a>までお問い合わせください\n"
