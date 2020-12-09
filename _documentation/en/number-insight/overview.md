@@ -92,7 +92,7 @@ The Basic API response lists the number together with the country the number is 
 ```
 Use the `--verbose` flag (or `-v`) to see everything that the Basic API response contains:
 
-````
+```text
 $ nexmo insight:basic --verbose 447700900000
 
 [status]
@@ -121,7 +121,7 @@ United Kingdom
 
 [country_prefix]
 44
-````
+```
 
 
 

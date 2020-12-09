@@ -39,19 +39,19 @@ Specify the encoding by setting the `type` parameter in the request. The encodin
 
 Vonage supports all the standard GSM characters as well as characters from the GSM extended table. Characters from the standard table require 7-bits per character to encode:
 
-````
+```text
 ! " # $ % ' ( ) * + , - . / : ; < = > ? @ _ ¡ £ ¥ § ¿ & ¤
 0 1 2 3 4 5 6 7 8 9
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 a b c d e f g h i j k l m n o p q r s t u v w x y z
 Ä Å Æ Ç É Ñ Ø ø Ü ß Ö à ä å æ è é ì ñ ò ö ù ü Δ Φ Γ Λ Ω Π Ψ Σ Θ Ξ
-````
+```
 
 Characters from the [extended table](https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_/_GSM_03.38) require two characters to encode: an `ESC` character prefix followed by the required character from the extended table:
 
-````
+```text
 | ^ € { } [ ] ~ \
-````
+```text
 
 ### Unicode
 

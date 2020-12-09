@@ -179,7 +179,7 @@ $ nexmo insight:advanced --verbose 447700900000
 
 Look for the following additional fields in the response:
 
-````
+```text
 [lookup_outcome]
 0
 
@@ -194,6 +194,6 @@ reachable
 
 [roaming.status]
 not_roaming
-````
+```
 
 The `[lookup_outcome]` and `[lookup_outcome_message]` fields tell you whether the Advanced API was able to determine the validity (`[valid_number]`), reachability (``[reachable]``) and roaming status (``[roaming.status]``) of the number.

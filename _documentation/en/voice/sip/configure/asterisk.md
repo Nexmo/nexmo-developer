@@ -9,7 +9,7 @@ Below we provide example configurations for using Vonage's SIP service with [Ast
 
 ## Inbound configuration
 
-````
+```text
 [nexmo-sip]
 fromdomain=sip.nexmo.com
 type=peer
@@ -40,12 +40,12 @@ host=169.60.141.29
 
 [nexmo-sip-06](nexmo-sip)
 host=169.60.141.30
-````
+```
 
 
 ## Outbound configuration
 
-````
+```text
 [general]
     register => <key>:<secret>@sip.nexmo.com
 [nexmo]
@@ -66,11 +66,11 @@ host=169.60.141.30
   allow=alaw
   allow=G729
   dtmfmode=rfc2833
-````
+```
 
 ### Asterisk version 12+ with chan_pjsip
 
-````
+```text
 ; Basic UDP only endpoint.
 [transport-udp]
   type=transport
@@ -109,4 +109,4 @@ host=169.60.141.30
   match = 119.81.44.7
   match = 169.60.141.29
   match = 169.60.141.30
-````
+```

@@ -43,9 +43,9 @@ Create a public dial plan for Vonage in `dialplan/public/nexmo_sip.xml`:
 
 If you want to match a specific number from request URI, modify the expression:
 
-````
+```text
 (\d+)
-````
+```
 
 > *Note*: this forwards incoming calls to registered extension 1000
 

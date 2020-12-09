@@ -44,17 +44,17 @@ Nexmo の SMS 用 API がサポートする主なエンコード方式は`text`�
 ### GSM 文字セット
 
 Nexmo はすべての標準 GSM 文字および GSM 拡張テーブルの掲載文字をサポートしています。標準テーブルの掲載文字はエンコードする文字あたり 7 ビット長が必要です。
-````
+```text
 ! " # $ % ' ( ) * + , - . / : ; < = > ? @ _ ¡ £ ¥ § ¿ & ¤
 0 1 2 3 4 5 6 7 8 9
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 a b c d e f g h i j k l m n o p q r s t u v w x y z
 Ä Å Æ Ç É Ñ Ø ø Ü ß Ö à ä å æ è é ì ñ ò ö ù ü Δ Φ Γ Λ Ω Π Ψ Σ Θ Ξ
-````
+```
 [拡張テーブル](https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_/_GSM_03.38)の掲載文字をエンコードするには、`ESC`文字のプレフィックスとそれに続く拡張テーブルの次の必須文字の 2 つの文字が必要です。
-````
+```text
 | ^ € { } [ ] ~ \
-````
+```
 ### Unicode
 
 アラビア語、中国語、韓国語、日本語、キリル文字を使用する言語などには GSM 標準文字と拡張文字に加え Unicode 文字が必要です。これらの文字には 16 ビットの USC-2 エンコードが必要です。

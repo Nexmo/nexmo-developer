@@ -9,7 +9,7 @@ Below we provide example configurations for using Vonage's SIP service with [Fre
 
 ## Inbound configuration
 
-````
+```text
 host=5.10.112.121
 type=friend
 insecure=port,invite
@@ -57,11 +57,11 @@ insecure=port,invite
 ; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
 allow=ulaw,alaw,g729
 dtmfmode=rfc2833
-````
+```
 
 ## Outbound configuration
 
-````
+```text
 host=sip.nexmo.com
   type=friend
   insecure=port,invite
@@ -77,7 +77,7 @@ host=sip.nexmo.com
 
   Register String
   <key>:<secret>@sip.nexmo.com
-````
+```
 
 ## PJSIP configuration
 
