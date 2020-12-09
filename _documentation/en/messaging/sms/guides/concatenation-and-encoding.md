@@ -51,7 +51,7 @@ Characters from the [extended table](https://en.wikipedia.org/wiki/GSM_03.38#GSM
 
 ```text
 | ^ € { } [ ] ~ \
-```text
+```
 
 ### Unicode
 
