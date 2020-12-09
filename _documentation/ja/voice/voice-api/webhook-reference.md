@@ -43,10 +43,13 @@ Nexmo は音声用 API と Web フックを併用して、アプリケーショ�
 ### 応答 Web フックのデータフィールドの例
 
 `GET` リクエストでは、変数は URL に組み込まれます (以下参照)。
+
 ```text
 /answer.php?to=442079460000&from=447700900000&conversation_uuid=CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab&uuid=aaaaaaaa-bbbb-cccc-dddd-0123456789ab&SipHeader_X-UserId=1938ND9
 ```
+
 `answer_method` を `POST` に設定すると、本文に JSON 形式のデータが入ったリクエストを受信します (以下参照)。
+
 ```text
 {
   "from": "442079460000",
@@ -56,6 +59,7 @@ Nexmo は音声用 API と Web フックを併用して、アプリケーショ�
   "SipHeader_X-UserId": "1938ND9"
 }
 ```
+
 ### 応答 Web フックへの応答
 
 Nexmo では実行アクションを含む [NCCO](/voice/voice-api/ncco-reference) を JSON 形式で返すようにしてください。
