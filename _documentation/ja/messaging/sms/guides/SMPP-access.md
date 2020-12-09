@@ -73,19 +73,21 @@ SMPP アクセスの設定
 3. `kannel.conf` を編集して、`$nexmo_user` と `$nexmo_password` を Nexmo SMPP 資格情報と置き換えます。
 
 4. セキュリティ上の理由により、`kannel.conf` では `localhost` からのアクセスのみ許可されます。別のマシンからアクセスできるようにするには、`kannel.conf` で次のパラメーターを編集します。たとえば IP アドレス `X.X.X.X` と `Y.Y.Y.Y` の場合は次のように編集します。
-```text
-   admin-allow-ip = "127.0.0.1;X.X.X.X;Y.Y.Y.Y"
-   ...
-   box-allow-ip = "127.0.0.1;X.X.X.X;Y.Y.Y.Y"
-   ...
-   user-allow-ip = "127.0.0.1;X.X.X.X;Y.Y.Y.Y"
-```
+
+    ```text
+      admin-allow-ip = "127.0.0.1;X.X.X.X;Y.Y.Y.Y"
+      ...
+      box-allow-ip = "127.0.0.1;X.X.X.X;Y.Y.Y.Y"
+      ...
+      user-allow-ip = "127.0.0.1;X.X.X.X;Y.Y.Y.Y"
+    ```
 5. Kannel を再起動します。
 
 6. テストメッセージを送信します。以下は一例です。
-```text
-   https://localhost:13013/cgi-bin/sendsms?username=username&password=pwd&to=%2B33XXXXXXX&text=Hello%20World&from=test&charset=ISO-8859-1&dlr-mask=17
-```
+
+    ```text
+      https://localhost:13013/cgi-bin/sendsms?username=username&password=pwd&to=%2B33XXXXXXX&text=Hello%20World&from=test&charset=ISO-8859-1&dlr-mask=17
+    ```
 Nexmo の SMPP インスタンス
 -------------------
 
