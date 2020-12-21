@@ -47,7 +47,8 @@ Once all the claims have been provided, the resulting claims should appear like 
       "/*/media/**": {},
       "/*/applications/**": {},
       "/*/push/**": {},
-      "/*/knocking/**": {}
+      "/*/knocking/**": {},
+      "/*/legs/**": {}
     }
   },
   "application_id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
@@ -102,7 +103,8 @@ const aclPaths = {
     "/*/media/**": {},
     "/*/applications/**": {},
     "/*/push/**": {},
-    "/*/knocking/**": {}
+    "/*/knocking/**": {},
+    "/*/legs/**": {}
   }
 }
 

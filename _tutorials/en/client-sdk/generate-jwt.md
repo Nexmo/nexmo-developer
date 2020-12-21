@@ -40,7 +40,8 @@ Alternatively, you can use our <a href="/jwt" target="_blank">online JWT generat
       "/*/media/**": {},
       "/*/applications/**": {},
       "/*/push/**": {},
-      "/*/knocking/**": {}
+      "/*/knocking/**": {},
+      "/*/legs/**": {}
   }
 }
 ```
