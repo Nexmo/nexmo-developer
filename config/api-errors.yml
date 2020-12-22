@@ -26,7 +26,7 @@ generic_errors:
 
   unauthorized:
     description: You did not provide correct credentials.
-    resolution: Check your API key and secret are correct, you can find these credentials in the Vonage Dashboard
+    resolution: Check your authentication credentials are correct, you can find these credentials in the Vonage Dashboard
     link:
       text: Find out more
       url: /concepts/guides/authentication
@@ -106,11 +106,15 @@ generic_errors:
   unavailable-legal:
     description: Unavailable For Legal Reasons
     resolution: |
-        Vonage APIs are unavailable in the following areas due to international sanctions
+      Vonage APIs are unavailable in the following areas due to international sanctions
 
-        * Sudan
-        * Syria
-        * Crimea
-        * North Korea
-        * Iran
-        * Cuba
+      * Sudan
+      * Syria
+      * Crimea
+      * North Korea
+      * Iran
+      * Cuba
+
+  application-suspended:
+    description: This application has been suspended
+    resolution: Re-enable the application or create a new application to use
