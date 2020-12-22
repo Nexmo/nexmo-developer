@@ -2,8 +2,8 @@
 NEXMO_API_KEY: Your Nexmo API key (see it on [your dashboard](http://dashboard.nexmo.com/))
 
 # Generic
-VONAGE_API_KEY: Your Vonage API key (see it on [your dashboard](http://dashboard.nexmo.com/))
-VONAGE_API_SECRET: Your Vonage API secret (also available on [your dashboard](http://dashboard.nexmo.com/))
+VONAGE_API_KEY: Your Vonage API key (see it on [your dashboard](http://dashboard.nexmo.com/)).
+VONAGE_API_SECRET: Your Vonage API secret (also available on [your dashboard](http://dashboard.nexmo.com/)).
 VONAGE_APPLICATION_PRIVATE_KEY_PATH: Private key path.
 VONAGE_APPLICATION_PRIVATE_KEY: Private key.
 VONAGE_APPLICATION_ID: The Vonage Application ID.
@@ -38,18 +38,18 @@ DATE_TO: Audit events up to this ISO-8601 datetime value. For example, "2018-08-
 # Conversation
 CONV_NAME: The unique name of the Conversation.
 CONV_DISPLAY_NAME: The display name of the Conversation.
-CONVERSATION_ID: The ID of the Conversation
+CONVERSATION_ID: The ID of the Conversation.
 CONVERSATION_ID.GET: The ID of the Conversation to be retrieved.
 CONVERSATION_ID.DELETE: The ID of the Conversation to be deleted.
 CONV_NEW_NAME: The new name.
-CONV_NEW_DISPLAY_NAME: The new display name
-MEMBER_ID: The unique ID of the Member
+CONV_NEW_DISPLAY_NAME: The new display name.
+MEMBER_ID: The unique ID of the Member.
 EVENT_ID: The unique ID of the Event
-LEG_ID: The unique ID of the Leg
-USER_ID: The unique ID of the User
-USER_NAME: The unique name of the User
+LEG_ID: The unique ID of the Leg.
+USER_ID: The unique ID of the User.
+USER_NAME: The unique name of the User.
 USER_DISPLAY_NAME: The display name of the User.
-USER_NEW_NAME: The new name of the User
+USER_NEW_NAME: The new name of the User.
 USER_NEW_DISPLAY_NAME: The new display name of the User.
 
 # Messages AND Dispatch
@@ -68,8 +68,8 @@ TO_NUMBER.DISPATCH: Replace with the number you are sending to. E.g. `4477009000
 TO_NUMBER_1.DISPATCH: The phone number you are sending the SMS to.
 TO_NUMBER_2.DISPATCH: The phone number of the second phone. In this example, the workflow will failover to this number if the first message is not read in 60 seconds.
 FB_SENDER_ID: Your Page ID. The `FB_SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
-VIBER_SERVICE_MESSAGE_ID: Your Viber Service Message ID.
-WHATSAPP_NUMBER: Your WhatsApp Number.
+VIBER_SERVICE_MESSAGE_ID: Your Viber Service Message ID. For sandbox testing this is 16273.
+WHATSAPP_NUMBER: The WhatsApp number that has been allocated to you by Vonage. For sandbox testing the number is 14157386170.
 
 # Messages API
 FROM_NUMBER.MESSAGES: Replace with number you are sending from. E.g. `447700900002`
@@ -132,7 +132,7 @@ CODE.VERIFY: The code the user supplies as having been sent to them
 TO_NUMBER.VOICE: The number you are calling. E.g. `447700900001`
 SECOND_NUMBER.VOICE: The number you are forwarding to. E.g. `447700900002`
 YOUR_SECOND_NUMBER.VOICE: The number you are connecting to. E.g. `447700900002`
-UUID.VOICE: The UUID of the call leg
+UUID.VOICE: The UUID of the [call leg](/conversation/concepts/leg#leg)
 CONF_NAME.VOICE: The named identifier for your conference
 RECORDING_URL.VOICE: The URL of the recording to download. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used.
 ANSWER_URL: The answer URL. For example `https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/text-to-speech.json`.

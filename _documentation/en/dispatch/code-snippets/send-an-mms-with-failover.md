@@ -20,7 +20,7 @@ Ensure the following variables are set to your required values using any conveni
 
 ```snippet_variables
 - VONAGE_APPLICATION_ID
-- FROM_NUMBER.DISPATCH
+- FROM_NUMBER.MMS.MESSAGES
 - TO_NUMBER.DISPATCH
 ```
 
