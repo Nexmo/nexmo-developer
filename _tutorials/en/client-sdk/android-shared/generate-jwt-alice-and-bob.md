@@ -8,10 +8,8 @@ description: In this step you learn how to generate valid JWTs for each User in 
 The JWT is used to authenticate the user. Execute the following commands in the terminal to generate a JWT for the users `Alice` and `Bob`.
 
 ## Generate Alice JWT
-In the following command replace the `APPLICATION_ID` with id of your application:
-
 ``` shell
-nexmo jwt:generate sub=Alice exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=APPLICATION_ID
+nexmo jwt:generate sub=Alice exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}'
 ```
 
 Make a note of the JWT you generated for Alice.
@@ -22,10 +20,8 @@ image: public/screenshots/tutorials/client-sdk/generated-jwt-key.png
 
 ## Generate Bob JWT
 
-In the following command replace the `APPLICATION_ID` with id of your application:
-
 ``` shell
-nexmo jwt:generate sub=Bob exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=APPLICATION_ID
+nexmo jwt:generate sub=Bob exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}'
 ```
 
 Make a note of the JWT you generated for Bob.
