@@ -191,7 +191,7 @@ This creates the user 'agent'. In the case of the 'agent' the conversation is no
 curl -d "username=user-123" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/user
 ```
 
-This creates the user 'user-123'. You can specify any username here. Make a note of the username you specified.
+This creates the user `user-123`. You can specify any username here. Make a note of the username you specified.
 
 You will notice from the server console logging that a conversation is also created for the user:
 
@@ -206,7 +206,7 @@ User user-123 and Conversation CON-7f1ae6c9-9f52-455e-b8e4-c08e96e6abcd created.
 curl -d "username=user-123" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/order
 ```
 
-This creates an order for user 'user-123'. For our purposes, this is a pre-defined static order, rather than a full-fledged shopping cart. Check the server console logging, you will see something similar to:
+This creates an order for user `user-123`. For our purposes, this is a predefined static order, rather than a full-fledged shopping cart. Check the server console logging, you will see something similar to:
 
 ``` text
 Creating order...

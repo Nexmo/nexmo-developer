@@ -124,7 +124,7 @@ The user enters a username and selects either the Seller or Buyer role.
 
 The `POST` request body has properties that can be used for setting the user name, display name and image URL, but there is no such property for specifying the role. It is possible to add your own properties in `custom_data`, so you can create `role` in there:
 
-*NexmoMarketplaceApp.js*
+*`NexmoMarketplaceApp.js`*
 
 ``` jsx
   const submitUser = async (e) => {
@@ -157,7 +157,7 @@ The `POST` request body has properties that can be used for setting the user nam
 
 The Client SDK authenticates using [JWTs](/concepts/guides/authentication#json-web-tokens-jwt). The application makes a call to the Node Express server to retrieve the JWT and then logs the user in. The code on the server side is as follows:
 
-*server.js*
+*`server.js`*
 
 ``` js
 ...
@@ -205,7 +205,7 @@ app.post('/createUser', function(req, res) {
 
 The client app itself has functions for obtaining a JWT and then logging the user in:
 
-*NexmoMarketplaceApp.js*
+*`NexmoMarketplaceApp.js`*
 
 ``` jsx
 ...
@@ -246,7 +246,7 @@ The client app itself has functions for obtaining a JWT and then logging the use
 
 When the user is logged in, the app retrieves a list of all the items for sale, which is a list of Conversation objects. The client calls the server and the server returns a list of Conversations. The client-side code is as follows:
 
-*NexmoMarketplaceApp.js*
+*`NexmoMarketplaceApp.js`*
 
 ``` jsx
   // Get all conversations, even the ones the user isn't a member of, yet.
@@ -271,7 +271,7 @@ When the user is logged in, the app retrieves a list of all the items for sale, 
 
 The server obtains a list of Conversations and returns it to the client:
 
-*server.js*
+*`server.js`*
 
 ``` js
 app.post('/getConversations', function(req, res) {
@@ -296,7 +296,7 @@ When you fill out the form and press ‘submit’, a call to create a Conversati
 
 The application is alerted that a new item has been listed for sale using a custom event called `item_details`, which passes the item details to the handler.
 
-*NexmoMarketplaceApp.js*
+*`NexmoMarketplaceApp.js`*
 
 ``` jsx
   const createConversation = async() => {
@@ -334,7 +334,7 @@ Clicking on an item calls the Client SDK’s `getConversation` function.  The co
 
 Next, events are loaded (such as chat messages) that may have happened prior to the User joining the Conversation.
 
-*NexmoMarketplaceApp.js*
+*`NexmoMarketplaceApp.js`*
 
 ``` jsx
   const getConversation = async (item) => {
@@ -378,7 +378,7 @@ Let’s say you want to purchase the item. When you click the **Pay Now** button
 
 > **NOTE:** In this use case, the response from Stripe is mocked. Implementation of a payment gateway is left to you, and depends on your preferred provider.
 
-*NexmoMarketplaceApp.js*
+*`NexmoMarketplaceApp.js`*
 
 ``` jsx
   // Mock a Stripe Payment call. Reference: https://stripe.com/docs/api/charges/create
@@ -404,7 +404,7 @@ Let’s say you want to purchase the item. When you click the **Pay Now** button
   };
 ```
 
-*server.js*
+*`server.js`*
 
 ``` js
 // Create a mock Stripe API Response Reference: https://stripe.com/docs/api/charges/create
@@ -524,7 +524,7 @@ app.post('/stripePayment', function(req, res) {
 
 A handler is registered for the `stripe_payment` event:
 
-*NexmoMarketplaceApp.js*
+*`NexmoMarketplaceApp.js`*
 
 ``` jsx
   useEffect(()=>{
