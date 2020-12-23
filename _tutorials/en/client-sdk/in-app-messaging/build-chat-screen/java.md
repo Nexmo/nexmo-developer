@@ -210,7 +210,7 @@ public class ChatViewModel extends ViewModel {
         //TODO: Get the conversation events
     }
 
-    private void updateConversation(NexmoTextEvent textEvent) {
+    private void updateConversation(NexmoEvent textEvent) {
         ArrayList<NexmoEvent> events = _conversationEvents.getValue();
 
         if (events == null) {

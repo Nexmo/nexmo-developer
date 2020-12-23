@@ -30,75 +30,63 @@ Add new entry in the `app/src/AndroidManifest.xml` file (below last `<uses-permi
 
 ### Request permission on application start
 
-Add `requestCallPermissions` method inside `LoginFragment` class.
-
-```java
-private void requestCallPermissions() {
-    String[] callsPermissions = {Manifest.permission.RECORD_AUDIO};
-    int CALL_PERMISSIONS_REQUEST = 123;
-
-    ActivityCompat.requestPermissions(requireActivity(), callsPermissions, CALL_PERMISSIONS_REQUEST);
-}
-```
-
-Call `requestCallPermissions` method inside `onViewCreated` method.
+Request permissions inside `onViewCreated` method inside `LoginFragment` class:
 
 ``` java
 @Override
 public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     // ...
 
-    requestCallPermissions();
+    String[] callsPermissions = { Manifest.permission.RECORD_AUDIO };
+    ActivityCompat.requestPermissions(this, callsPermissions, 123);
 }
 ```
 
 ## Add audio UI
 
-You will now need to add two buttons for the user to enable and disable audio. Open `app/src/main/res/layout/fragment_chat.xml` file and add two new buttons (`enableMediaButton` and `disableMediaButton`) right below `sendMessageButton`. 
+You will now need to add two buttons for the user to enable and disable audio. Open `app/src/main/res/layout/fragment_chat.xml` file and add two new buttons (`enableMediaButton` and `disableMediaButton`) inside `chatContainer`:
 
 ``` xml
-        <!--...-->
+<!--...-->
 
-        <Button
-                android:id="@+id/sendMessageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:text="@string/send"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/messageEditText"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/conversationEventsScrollView" />
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        tools:visibility="visible">
 
-        <Button
-                android:id="@+id/enableMediaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="Enable Audio" />
-        
-        <Button
-                android:id="@+id/disableMediaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:visibility="gone"
-                android:text="Disable Audio"
-                tools:visibility="visible"/>
+    <Button
+            android:id="@+id/enableMediaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Enable Audio" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+            android:id="@+id/disableMediaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            android:text="Disable Audio"
+            tools:visibility="visible"/>
+<!--...-->
 ```
 
 Now you need to make sure that these buttons are accessible in the fragment. Add two new properties in the `ChatFragment` class:
 
 ```java
-Button enableMediaButton;
-Button disableMediaButton;
+private Button enableMediaButton;
+private Button disableMediaButton;
 ```
 
 Retrieve the buttons references by adding `findViewById` calls in the `onViewCreated` method:
@@ -112,9 +100,7 @@ public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceStat
 }
 ```
 
-## Enable and disable audio 
-
-Add listeners to the buttons inside `onViewCreated` method of `ChatFragment`:
+Add listeners to the buttons inside `onViewCreated` method:
 
 ```java
 enableMediaButton.setOnClickListener(it -> {
@@ -183,7 +169,7 @@ private void getConversation() {
 }
 ```
 
-The `conversationEvents` observer have to support newly added `NexmoMediaEvent` type. Add new branch to the if statement:
+The `conversationEvents` observer inside `Chatragment` have to support newly added `NexmoMediaEvent` type. Add new branch to the if statement:
 
 ```java
 private Observer<ArrayList<NexmoEvent>> conversationEvents = events -> {
@@ -203,10 +189,11 @@ private Observer<ArrayList<NexmoEvent>> conversationEvents = events -> {
 ```
 
 Now add `getConversationLine` method needs to support `NexmoMediaEvent` type as well:
-```
-private fun getConversationLine(mediaEvent: NexmoMediaEvent): String? {
-    val user = mediaEvent.fromMember.user.name
-    return user + " media state: " + mediaEvent.mediaState
+
+```java
+private String getConversationLine(NexmoMediaEvent mediaEvent) {
+    String user = mediaEvent.getFromMember().getUser().getName();
+    return user + " media state: " + mediaEvent.getMediaState();
 }
 ```
 

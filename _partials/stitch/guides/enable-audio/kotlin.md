@@ -33,21 +33,9 @@ Add new entry in the `app/src/AndroidManifest.xml` file (below last `<uses-permi
 Add `requestCallPermissions` method inside `LoginFragment` class.
 
 ```kotlin
-private fun requestCallPermissions() {
+override fun onCreate(savedInstanceState: Bundle?) {
     val callsPermissions = arrayOf(Manifest.permission.RECORD_AUDIO)
-    val CALL_PERMISSIONS_REQUEST = 123
-    ActivityCompat.requestPermissions(requireActivity(), callsPermissions, CALL_PERMISSIONS_REQUEST)
-}
-```
-
-Call `requestCallPermissions` method inside `onViewCreated` method.
-
-``` kotlin
-@Override
-override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    // ...
-
-    requestCallPermissions()
+    ActivityCompat.requestPermissions(this, callsPermissions, 123)
 }
 ```
 
@@ -56,46 +44,58 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 You will now need to add two buttons for the user to enable and disable audio. Open `app/src/main/res/layout/fragment_chat.xml` file and add two new buttons (`enableMediaButton` and `disableMediaButton`) right below `sendMessageButton`. 
 
 ``` xml
-        <!--...-->
+<!--...-->
 
-        <Button
-                android:id="@+id/sendMessageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:text="@string/send"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/messageEditText"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/conversationEventsScrollView" />
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        tools:visibility="visible">
 
-        <Button
-                android:id="@+id/enableMediaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="Enable Audio" />
-        
-        <Button
-                android:id="@+id/disableMediaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:visibility="gone"
-                android:text="Disable Audio"
-                tools:visibility="visible"/>
+    <Button
+            android:id="@+id/enableMediaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Enable Audio" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+            android:id="@+id/disableMediaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/conversationEventsScrollView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            android:text="Disable Audio"
+            tools:visibility="visible"/>
+<!--...-->
 ```
 
-## Enable and disable audio 
+```kotlin
+private lateinit var enableMediaButton: Button
+private lateinit var disableMediaButton: Button
+```
 
-Add listeners to the buttons inside `onViewCreated` method of `ChatFragment`:
+Retrieve the buttons references by adding `findViewById` calls in the `onViewCreated` method:
+
+```java
+public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+    //...
+    enableMediaButton = view.findViewById(R.id.enableMediaButton)
+    disableMediaButton = view.findViewById(R.id.disableMediaButton)
+}
+```
+
+Add listeners to the buttons inside `onViewCreated` method:
 
 ```kotlin
 enableMediaButton.setOnClickListener {
