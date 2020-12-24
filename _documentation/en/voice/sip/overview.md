@@ -101,7 +101,7 @@ To configure for SIP forwarding:
 5. You can specify a timeout for non responding SIP endpoints, by appending a `;timeout=xxxxx` to the related URI. For example: `sip:1234@example.com;timeout=2000,sip:1234@example.net` will attempt to forward to the first URI, and in case of no response within 2 seconds it will try the second one. Timeouts are expressed in milliseconds and can range from 2000 to 20000. This is useful to quickly fail over when an endpoint is temporarily unavailable. The default value is 5000 ms.
 6. Ensure that the traffic generated from Vonage IP addresses can pass your firewall. Visit [the Vonage Knowledge Base](https://help.nexmo.com/hc/en-us/articles/115004859247-Which-IP-addresses-should-I-whitelist-in-order-to-receive-voice-traffic-from-Nexmo-) to obtain the current list of IP addresses.
 
-> **Note**: Vonage supports TLS for forwarded calls. To enable this, enter a valid URI in the format sip:user@(IP|domain);transport=tls. For example, *sip:1234@example.com;transport=tls*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your domain or IP address: *sip:1234@example.com:5062;transport=tls*.
+> **Note**: Vonage supports TLS for forwarded calls. To enable this, enter a valid URI in the format sips:user@(IP|domain);transport=tls. For example, *sips:1234@example.com;transport=tls*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your domain or IP address: *sips:1234@example.com:5062;transport=tls*.
 
 ## Example configurations
 
