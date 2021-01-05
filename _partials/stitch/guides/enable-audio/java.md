@@ -30,7 +30,7 @@ Add new entry in the `app/src/AndroidManifest.xml` file (below last `<uses-permi
 
 ### Request permission on application start
 
-Request permissions inside `onViewCreated` method inside `LoginFragment` class:
+Request permissions inside the `onViewCreated` method of the `LoginFragment` class:
 
 ``` java
 @Override
