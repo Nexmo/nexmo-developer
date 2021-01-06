@@ -100,7 +100,7 @@ public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceStat
 }
 ```
 
-Add listeners to the buttons inside `onViewCreated` method:
+Add click event listeners for the buttons, inside the `onViewCreated` method:
 
 ```java
 enableMediaButton.setOnClickListener(it -> {
