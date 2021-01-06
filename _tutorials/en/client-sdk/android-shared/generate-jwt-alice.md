@@ -11,7 +11,7 @@ The JWT is used to authenticate the user. Execute the following command in the t
 nexmo jwt:generate sub=Alice exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}'
 ```
 
-The above command set the expiry of the JWT to one day from now, which is the maximum.
+The above command sets the expiry of the JWT to one day from now, which is the maximum.
 
 Make a note of the JWT you generated for the user.
 
