@@ -169,7 +169,7 @@ private void getConversation() {
 }
 ```
 
-The `conversationEvents` observer inside `Chatragment` have to support newly added `NexmoMediaEvent` type. Add new branch to the if statement:
+The `conversationEvents` observer inside `ChatFragment` must support the `NexmoMediaEvent` type. Add a new branch to the if statement:
 
 ```java
 private Observer<ArrayList<NexmoEvent>> conversationEvents = events -> {
