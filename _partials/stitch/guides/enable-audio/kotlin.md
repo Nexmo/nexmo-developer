@@ -41,7 +41,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ## Add audio UI
 
-You will now need to add two buttons for the user to enable and disable audio. Open `app/src/main/res/layout/fragment_chat.xml` file and add two new buttons (`enableMediaButton` and `disableMediaButton`) right below `sendMessageButton`. 
+Add two buttons for the user to enable and disable audio. Open the `app/src/main/res/layout/fragment_chat.xml` file and add two new buttons (`enableMediaButton` and `disableMediaButton`) immediately below the `sendMessageButton`. 
 
 ``` xml
 <!--...-->
@@ -187,4 +187,3 @@ private String getConversationLine(NexmoMediaEvent mediaEvent) {
 ## Build and run
 
 Press `Cmd + R` to build and run again. Once logged in you can enable or disable audio. To test it out you can run the app on two different devices.
-
