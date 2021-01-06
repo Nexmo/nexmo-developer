@@ -84,7 +84,7 @@ private lateinit var enableMediaButton: Button
 private lateinit var disableMediaButton: Button
 ```
 
-Retrieve the buttons references by adding `findViewById` calls in the `onViewCreated` method:
+retrieve the buttons' reference by adding `findViewById` calls in the `onViewCreated` method:
 
 ```java
 public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
