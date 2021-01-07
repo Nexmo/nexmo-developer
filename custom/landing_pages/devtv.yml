@@ -135,9 +135,9 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="19">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="19a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="19a" role="tab">
                         <b>19</b>
-                        <p class="show"></p>
+                        <p class="show">Mistakes Were Made</p>
                       </div>
                     </span>
                   </div>
@@ -677,52 +677,56 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-19" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1599463202/Week.init_twitter_gt26mi.png" alt="Week.init()">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600671582/Twitch_Show_Social_Graphics_3_i87htl.png" alt="Mistakes Were Made">
                     </div>
                     <div class="Vlt-col Vlt-col--2of3">
                       <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Week.init()</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">14:00 London / 09:00 New York / 06:00 SF</p>
+                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
                       </div>
                       <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>Conversation APIs: TBD</h5>
-                        <p>
-                          <b>Links:</b>
-                          <a href="https://developer.nexmo.com/conversation/overview" target="_blank">
-                            Vonage Conversation APIs
-                          </a>
-                          <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                            <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                            Vonage APIs
-                          </h5>
-                        </p>
+                        <h5>Topic TBD</h5>
+                        Mistakes will be made!
                       </p>
+                      <br>
+                      <b>Links:</b>
+                      <a href="https://tokbox.com/developer/" target="_blank">
+                        Vonage Video API Developer Center
+                      </a>
+                      <br><br>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage Video API
+                      </h5>
                     </div>
                     <div class="Vlt-grid padding-top-32">
                       <div class="Vlt-col Vlt-col--1of2">
                         <h4>About The Show</h4>
                         <p class="text-justify">
-                          This series will promote the Conversation APIs within the Client SDKs and beyond. Episodes will cover a wide range of topics such as how to build a native messaging or VOIP applications!
+                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
                         </p>
                       </div>
                       <div class="Vlt-col Vlt-col--1of2">
-                        <h4 class="inline-block">About Paul Ardeleanu</h4>
-                        <a href="https://twitter.com/pardel" target="_blank">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
                           <i class="icon icon-twitter"></i>
                         </a>
-                        <a href="https://github.com/pardel" target="_blank">
+                        <a href="https://github.com/MichaelJolley" target="_blank">
                           <i class="icon icon-github"></i>
                         </a>
                         <h5>
-                          Developer Advocate Manager
+                          Developer Advocate
                         </h5>
                         <p class="text-justify">
-                          Paul is an iOS Developer Advocate at Nexmo. A seasoned software engineer, trainer and speaker, he specialised in data-driven solutions on Apple platforms with an emphasis on prototyping, best practices and balance with agility.
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
                         </p>
-                        <a href="https://learn.vonage.com/authors/paul-ardeleanu" target="_blank">Articles by Paul</a>
+                        <a href="https://learn.vonage.com/authors/michaeljolley" target="_blank">Articles by Michael</a>
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-20" role="tabpanel">
                   <div class="Vlt-grid">
