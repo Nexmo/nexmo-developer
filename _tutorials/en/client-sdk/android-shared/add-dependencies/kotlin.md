@@ -5,9 +5,9 @@ description: In this step you add external dependencies
 
 # Add dependencies
 
-## Add Nexmo
+## Client SDK
 
-You need to add a custom Maven URL repository to your Gradle configuration. Add the following `maven` block inside `allprojects` block in the project-level `build.gradle` file:
+You need to add a custom Maven URL repository to your Gradle configuration. Add the following `maven` block inside the `allprojects` block within the project-level `build.gradle` file:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/project-level-build-gradle-file.png
@@ -28,7 +28,7 @@ allprojects {
 
 > **NOTE** You can use the `Navigate file` action to open any file in the project. Run the keyboard shortcut (Mac: `Shift + Cmd + O` ; Win: `Shift + Ctrl + O`) and type the filename.
 
-Now add the Client SDK to the project. Add the following dependency in the module level `build.gradle` file.:
+Now add the Client SDK dependency to the project in the module level `build.gradle` file:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/module-level-build-gradle-file.png
@@ -42,11 +42,11 @@ dependencies {
 }
 ```
 
-## Add Navigation component
+## Navigation component
 
-To navigate between screens you will use [Navigation component](https://developer.android.com/guide/navigation).
+To navigate between screens you will use the [Navigation component](https://developer.android.com/guide/navigation).
 
-To add navigation component dependency define a variable `ext.android_navigation_version` containing version in project-level `build.gradle` file:
+To add the navigation component dependency define a variable called `ext.android_navigation_version` in the project-level `build.gradle` file and specify the required version:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/project-level-build-gradle-file.png
@@ -60,8 +60,9 @@ buildscript {
 }
 ```
 
-In the same file, add a dependency for the Gradle `Safe Args` plugin. This provides type safety when navigating and passing data between destinations.
-Add a new `classpath` in the `dependencies` block:
+In the same `build.gradle` file, add a dependency for the Gradle `Safe Args` plugin. This provides type safety when navigating and passing data between destinations.
+
+To do this, first add a new `classpath` in the `dependencies` block:
 
 ```groovy
 dependencies {
@@ -71,7 +72,7 @@ dependencies {
 }
 ```
 
-Add `Safe Args` plugin in the module level `build.gradle` file.:
+Then, add the `Safe Args` plugin:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/module-level-build-gradle-file.png
@@ -84,7 +85,7 @@ plugins {
 }
 ```
 
-In the same file, add the navigation component dependencies:
+Finally, add the navigation component dependencies:
 
 ```groovy
 dependencies {
@@ -95,7 +96,7 @@ dependencies {
 }
 ```
 
-Click `Sync project with Gradle Files` icon to make sure build scripts have been correctly configured:
+Click the `Sync project with Gradle Files` icon to make sure the build scripts have been correctly configured:
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/sync-project-wth-gradle-files.png

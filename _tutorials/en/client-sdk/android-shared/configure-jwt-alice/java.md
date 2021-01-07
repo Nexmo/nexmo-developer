@@ -5,9 +5,10 @@ description: In this step you learn how to add JWT to the application.
 
 # Configure JWTs
 
-Create a `User` class in the `com.vonage.tutorial.voice` package to store user data. Right click on the `messaging` package and select `New` > `Java Class`. Enter `User` and select `Class`.
+Create a `User` class in the `com.vonage.tutorial.voice` package to store user data:
 
-Replace the file contents with the following code:
+1. Right click on the `messaging` package and select `New` > `Java Class`. Enter `User` and select `Class`.
+2. Replace the file contents with the following code:
 
 ```java
 package com.vonage.tutorial.messaging;
@@ -32,7 +33,10 @@ public class User {
 }
 ```
 
-Create a `Config` class in the `com.vonage.tutorial.voice` package to store the configuration. Right click on `messaging` package and select `New` > `Java Class`. Enter `Config` and select `Class`.
+Create a `Config` class in the `com.vonage.tutorial.voice` package to store the configuration:
+
+1. Right click on the `messaging` package and select `New` > `Java Class`.
+2. Enter `Config` and select `Class`.
 
 Replace the file contents with the following code:
 
@@ -50,4 +54,4 @@ public class Config {
 
 Now it's time to configure the `Alice` user with the JWT that you generated in an earlier step. Replace the `ALICE_TOKEN` placeholder with the real JWT value.
 
-Notice that these constants and values are hardcoded to store the properties of users. This makes it easier to use these values later in this tutorial.
+Notice that these user properties are hardcoded. This makes them easier to use later in this tutorial.

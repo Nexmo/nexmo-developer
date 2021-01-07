@@ -5,7 +5,7 @@ description: In this step you authenticate your users via the JWTs you created e
 
 # Authenticate User
 
-You perform this authentication using the `JWT` generated in previous steps. Login screen (`LoginFragment` and `LoginViewModel` classes) is responsible for authenticating the user.
+Authenticate users with the `JWT` that you generated in a previous step. The login screen (which consists of the `LoginFragment` and `LoginViewModel` classes) is responsible for the authentication process.
 
 ```screenshot
 image: public/screenshots/tutorials/client-sdk/android-shared/login-screen-user.png
@@ -13,17 +13,21 @@ image: public/screenshots/tutorials/client-sdk/android-shared/login-screen-user.
 
 ## Get NexmoClient instance
 
-You have to retrieve client instance inside `LoginViewModel` class. Usually, it would be provided it via injection, but for tutorial purposes you will retrieve instance directly using static method. Locate the `private val client` property in the `LoginViewModel` class and update its implementation:
+You will retrieve the client instance inside the `LoginViewModel` class. In a production application you would provide it via injection, but for tutorial purposes you will retrieve the instance directly.
+
+Locate the `private val client` property in the `LoginViewModel` class and update its implementation:
 
 ```kotlin
 private val client = NexmoClient.get()
 ```
 
-Make sure to add missing import again.
+Ensure that you add the required `import` statement.
 
 ## Login user
 
-Your user must be authenticated to be able to participate in the Call. Locate the `onLoginUser` method inside `LoginViewModel` class and replace it with this code:
+Your user must be authenticated to be able to participate in the call.
+
+Locate the `onLoginUser` method inside the `LoginViewModel` class and replace it with this code:
 
 ```kotlin
 fun onLoginUser(user: User) {
@@ -34,13 +38,15 @@ fun onLoginUser(user: User) {
 }
 ```
 
-> **NOTE:** Inside `LoginFragment` class, explore the `loginUser` method that was written for you. This method is called when one of the two `Login ...` buttons are clicked. This method calls the above `onLoginUser` method.
+> **NOTE:** Inside the `LoginFragment` class, examine the `loginUser` method that was written for you. This method is called when one of the two `Login ...` buttons are clicked and, in turn, invokes the above `onLoginUser` method.
 
-> **NOTE:** The `User` type is the `data class` that we've defined in the `Config.kt` file.
+> **NOTE:** The `User` type is the `data class` that we defined in the `Config.kt` file.
 
 ## Monitor connection state
 
-When a successful connection is established you need to navigate user to `MainFragment`. Locate the `init` block inside `LoginViewModel` class and replace it with this code:
+When a successful connection is established you need to navigate the user to `MainFragment`.
+
+Locate the `LoginViewModel` constructor inside the `LoginViewModel` class and replace it with this code:
 
 
 ```kotlin
@@ -57,6 +63,6 @@ init {
 }
 ```
 
-The above code will monitor connection state and if the user is authenticated (`ConnectionStatus.CONNECTED`) it will navigate the user to the `MainFragment`.
+The code above monitors the connection state and, if the user is authenticated (`ConnectionStatus.CONNECTED`), will navigate the user to `MainFragment`.
 
-You're now ready to make the call within the app.
+You are now ready to make the call within the app.

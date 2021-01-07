@@ -7,16 +7,16 @@ description: In this step you learn how to create the User that will participate
 
 Each participant is represented by a [User](/conversation/concepts/user) object and must be authenticated by the Client SDK. In a production application, you would typically store this user information in a database.
 
-Execute the following command to create a user `Alice` who will log in to the Vonage Client and communicate.
+Execute the following command to create a user called `Alice` who will log in to the Vonage Client and communicate.
 
 ```bash
 nexmo user:create name="Alice"
 ```
 
-This will return user IDs similar to the following:
+This will return a user ID similar to the following:
 
 ```sh
 User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
-There is no need to remember this user ID because we will use JWT token to authenticate the user.
+You do not need to make a note of this user ID because we will use a [JWT](/concepts/guides/authentication#jwts) to authenticate users.
