@@ -24,10 +24,10 @@ Enter your Webhook URLs in the fields labeled **Status URL** and **Inbound URL**
 
 The values you enter for webhook URLs depends on where your webhook server is located, for example:
 
-Webhook | URL
----|---
-Status URL | `https://www.example.com/webhooks/message-status`
-Inbound URL | `https://www.example.com/webhooks/inbound-message`
+|Webhook | URL|
+|---|---|
+|Status URL | `https://www.example.com/webhooks/message-status`|
+|Inbound URL | `https://www.example.com/webhooks/inbound-message`|
 
 > **NOTE:** The default method of `POST` should be used for both of the webhook URLs.
 

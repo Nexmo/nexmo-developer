@@ -22,9 +22,9 @@ If you specify values for both `pin_expiry` and `next_event_wait`, the value of 
 
 The table below shows some example values and the effects when used with the default workflow (SMS -> TTS -> TTS):
 
-|`pin_expiry`|`next_event_wait`|Effect
+|`pin_expiry`|`next_event_wait`|Effect|
 |--|--|--|
-|360 seconds|120 seconds|All three attempts use the same verification code
-|240 seconds|120 seconds|The first and second attempts use the same code and the Verify API generates a new code for the third attempt
-|120 seconds (or 90 or 200 seconds)|120 seconds|The Verify API generates a new code for each attempt
+|360 seconds|120 seconds|All three attempts use the same verification code|
+|240 seconds|120 seconds|The first and second attempts use the same code and the Verify API generates a new code for the third attempt|
+|120 seconds (or 90 or 200 seconds)|120 seconds|The Verify API generates a new code for each attempt|
 

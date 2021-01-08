@@ -1,7 +1,7 @@
 ---
 title:  Web フックの関連情報
 description:  Nexmo が音声コールに関して送信する Web フックの詳細。
-api:` 「音声用 `API:  Web フック」
+api: "「音声用 API:  Web フック」"
 
 ---
 

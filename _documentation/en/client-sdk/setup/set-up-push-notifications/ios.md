@@ -48,11 +48,19 @@ You can find more details about connecting to APNs in [Apple's official document
 
 ## Upload your certificate
 
-To upload your certificate to the Vonage servers you will also need:
+You upload your certificate to the Vonage servers by making a POST request. The iOS Push Certificate Uploading Tool, available on [GitHub](https://github.com/nexmo-community/ios-push-uploader), does so with a user interface. Either of the following methods needs your Vonage Application ID. It can be obtained from the [dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
-* A `jwt_dev`, which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
+### Using the Upload Tool
 
-* Your Vonage Application ID. It can be obtained from the [dashboard](https://dashboard.nexmo.com/voice/your-applications).
+To use the tool you will need to run it locally or deploy it. You can follow the the instructions in the GitHub project's [README](https://github.com/nexmo-community/ios-push-uploader#running-the-project). You will also need the private key for your Vonage Application. 
+
+Once you have the tool running, enter your Vonage Application ID, private key, and certificate file and upload. The status of your upload will be shown on the page once it is complete. 
+
+![Push Certificate Uploading Tool success](/images/client-sdk/push-notifications/pushupload.png)
+
+### Using the Terminal
+
+In addition to your Vonage Application ID to upload using the terminal, you will also need a `jwt_dev`. Which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
 Then run the following Curl command, replacing `jwt_dev`, `applecert.p12`, `app_id` with your values:
 

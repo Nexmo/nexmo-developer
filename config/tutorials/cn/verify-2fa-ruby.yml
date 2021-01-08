@@ -1,0 +1,15 @@
+---
+title: "用于提供安全性和防止垃圾邮件的双因素身份验证"
+description: "了解如何在 Ruby 应用程序中实现 2fa"
+products: 
+    - "验证"
+introduction: 
+    title: "介绍"
+    description: "了解如何在 Ruby 应用程序中实现 2fa"
+    content: "# 简介\n\n几乎所有地方都使用用户名和密码身份验证，但这种方式通常不是很安全。好的密码可能不容易记住，因此经常被写下来或在多个帐户重复使用。仅依靠用户名和密码来注册服务的用户也容易受到僵尸网络的攻击，这些僵尸网络会创建多个虚假帐户来发送垃圾邮件。\n\n为了阻止僵尸网络创建这些帐户，一种良好的方法是使用双因素身份验证(2fa)：注册时将电话号码链接到帐户，并要求用户每次登录时都输入发送到该号码的 PIN 码。与验证码或社交媒体登录信息相比，这种方式在防止垃圾邮件方面要有效得多。\n\n在本教程中，您将学习如何使用 Verify API 在 Ruby 应用程序中实现 2fa。\n"
+tasks: 
+    - "verify/2fa-ruby-basic-web-app"
+    - "verify/2fa-ruby-add-number-to-model"
+    - "verify/2fa-ruby-send-verify-request"
+    - "verify/2fa-ruby-check-code"
+    - "verify/2fa-ruby-try-it-out"

@@ -1,9 +1,10 @@
 ---
-title: Broadcast Voice-based Critical Alerts
+title: Voice-based Critical Alerts
 products: voice/voice-api
 description: In this tutorial, you will learn how to contact a list of people by phone, convey a message, and see who confirmed that they had received the message. These voice-based critical alerts are more persistent than a text message, making your message more likely to be noticed. Additionally, with the recipient confirmation, you can be sure that your message made it through.
 languages:
     - PHP
+navigation_weight: 1    
 ---
 
 # Broadcast Voice-based Critical Alerts

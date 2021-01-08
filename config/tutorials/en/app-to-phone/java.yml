@@ -9,7 +9,7 @@ introduction:
   content: |
     # Introduction
     In this tutorial, you will learn how to create an Android application using Kotlin and the Nexmo Android Client SDK, and then write the code to make a phone call from your Android app to a phone.
-    The source code is available on [GitHub](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-phone).
+    The source code is available on [GitHub](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-phone-java).
 
     This tutorial uses NexmoClient version 2.x
 
@@ -25,11 +25,16 @@ tasks:
   - client-sdk/app-to-phone/create-application
   - client-sdk/android-shared/create-user-alice
   - client-sdk/android-shared/generate-jwt-alice
-  - client-sdk/app-to-phone/starter-project
+  - client-sdk/app-to-phone/create-project
+  - client-sdk/android-shared/add-dependencies
+  - client-sdk/app-to-phone/create-screens
+  - client-sdk/app-to-phone/setup-navigation
+  - client-sdk/app-to-phone/add-permissions
+  - client-sdk/app-to-phone/configure-jwt
   - client-sdk/android-shared/initialize-client
-  - client-sdk/android-shared/configure-jwt-alice
-  - client-sdk/android-shared/authenticate-alice
-  - client-sdk/app-to-phone/make-call
+  - client-sdk/app-to-phone/authenticate-alice
+  - client-sdk/app-to-phone/build-main-screen
+  - client-sdk/app-to-phone/build-on-call-screen
   - client-sdk/android-shared/run-app
 
 conclusion:
@@ -40,7 +45,7 @@ conclusion:
     # What's next?
 
     For the complete version please see the Android Studio project in the `kotlin-completed` folder of 
-    the [git repository](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-phone) you've cloned.
+    the [git repository](https://github.com/nexmo-community/client-sdk-android-tutorial-voice-app-to-phone-java) you've cloned.
 
     You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview) or review
     [Android Client SDK documentation](/sdk/stitch/android/index).

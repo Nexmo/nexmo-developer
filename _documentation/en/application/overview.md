@@ -38,12 +38,12 @@ The following sections explain Vonage applications in more detail.
 
 Each application has the following:
 
-Name | Description
--- | --
-`id` | Used to identify each application and used in conjunction with `private_key` to generate JWTs.
-`name` | The application name.
-`capabilities` | Describes the types of functionality this application will support. The capabilities `voice`, `messages`, `rtc`, `vbc`. Any number of these capabilities can be supported in one application. You also set `webhooks` for each capability specified. Vonage sends and retrieves information via the webhook endpoints.
-`keys` | Contains `private_key` and `public_key`. You use the private key to generate the JWTs used to authenticate your calls to the Vonage APIs. The public key is used by Vonage to authenticate the JWT in your requests to Vonage API.
+|Name | Description|
+|-- | --|
+|`id` | Used to identify each application and used in conjunction with `private_key` to generate JWTs.|
+|`name` | The application name.|
+|`capabilities` | Describes the types of functionality this application will support. The capabilities `voice`, `messages`, `rtc`, `vbc`. Any number of these capabilities can be supported in one application. You also set `webhooks` for each capability specified. Vonage sends and retrieves information via the webhook endpoints.|
+|`keys` | Contains `private_key` and `public_key`. You use the private key to generate the JWTs used to authenticate your calls to the Vonage APIs. The public key is used by Vonage to authenticate the JWT in your requests to Vonage API.|
 
 ## Capabilities
 
@@ -53,37 +53,37 @@ When creating an application you can specify the capabilities you want your appl
 
 A summary of capabilities is given in the following table:
 
-Capability | Description
----|---
-`voice` | Used to support Voice capabilities.
-`messages` | Used to support Messages and Dispatch API capabilities.
-`rtc` | Used to support WebRTC capabilities. Typically for use with Client SDK.
-`vbc` | Used to determine pricing, but currently has no other capabilities.
+|Capability | Description|
+|---|---|
+|`voice` | Used to support Voice capabilities.|
+|`messages` | Used to support Messages and Dispatch API capabilities.|
+|`rtc` | Used to support WebRTC capabilities. Typically for use with Client SDK.|
+|`vbc` | Used to determine pricing, but currently has no other capabilities.|
 
 ## Webhooks
 
 The webhook URLs you provide when creating an application depend on the application capabilities required. The following table summarizes the webhooks:
 
-Capability | API used | Webhooks available
---- | --- | ---
-`voice` | Voice | `answer_url`, `fallback_answer_url`, `event_url`
-`messages` | Messages and Dispatch | `inbound_url`, `status_url`
-`rtc` | Client SDK | `event_url`
-`vbc` | VBC | None
+|Capability | API used | Webhooks available |
+|--- | --- | ---|
+|`voice` | Voice | `answer_url`, `fallback_answer_url`, `event_url`|
+|`messages` | Messages and Dispatch | `inbound_url`, `status_url`|
+|`rtc` | Client SDK | `event_url`|
+|`vbc` | VBC | None|
 
 ## Webhook types
 
 The following table describes webhooks available per capability:
 
-Capability | Webhook | API | Example | Description
---- | --- | --- | --- | --- |
-`voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Vonage make a request to when a call is placed/received. Must return an NCCO.
-`voice` | `fallback_answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If the `fallback_answer_url` is set, Vonage makes a request to it if the `answer_url` is offline or returns an HTTP error code or the `event_url` is offline or returns an error code and an event is expected to return an NCCO. The `fallback_answer_url` must return an NCCO. If your `fallback_answer_url` fails after two attempts for an initial NCCO, the call is ended. If your `fallback_answer_url` fails after two attempts for a call in progress, the call flow is continued.
-`voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Vonage will send call events (e.g. ringing, answered) to this URL.
-`messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Vonage will forward inbound messages to this URL.
-`messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Vonage will send message status updates (for example, `delivered`, `seen`) to this URL.
-`rtc` | `event_url` | [Client SDK](/client-sdk/overview), [Conversation](/conversation/overview) | https://example.com/webhooks/rtcevent | Vonage will send RTC events to this URL.
-`vbc` | None | [Voice endpoint](/voice/voice-api/ncco-reference#connect) | None | Not used
+|Capability | Webhook | API | Example | Description|
+|--- | --- | --- | --- | --- |
+|`voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Vonage make a request to when a call is placed/received. Must return an NCCO.|
+|`voice` | `fallback_answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If the `fallback_answer_url` is set, Vonage makes a request to it if the `answer_url` is offline or returns an HTTP error code or the `event_url` is offline or returns an error code and an event is expected to return an NCCO. The `fallback_answer_url` must return an NCCO. If your `fallback_answer_url` fails after two attempts for an initial NCCO, the call is ended. If your `fallback_answer_url` fails after two attempts for a call in progress, the call flow is continued.|
+|`voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Vonage will send call events (e.g. ringing, answered) to this URL.|
+|`messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Vonage will forward inbound messages to this URL.|
+|`messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Vonage will send message status updates (for example, `delivered`, `seen`) to this URL.|
+|`rtc` | `event_url` | [Client SDK](/client-sdk/overview), [Conversation](/conversation/overview) | https://example.com/webhooks/rtcevent | Vonage will send RTC events to this URL.|
+|`vbc` | None | [Voice endpoint](/voice/voice-api/ncco-reference#connect) | None | Not used |
 
 ## Webhook timeouts
 

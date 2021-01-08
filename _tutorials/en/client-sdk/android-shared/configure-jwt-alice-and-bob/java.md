@@ -5,9 +5,7 @@ description: In this step you learn how to add JWTs to the application.
 
 # Configure JWTs
 
-Now it's time to fill previously generated `JWT` tokens.
-
-Open `Config.kt` file and replace `ALICE_TOKEN` and `BOB_TOKEN` placeholders with real values:
+Open the `Config.kt` file and replace the `ALICE_TOKEN` and `BOB_TOKEN` placeholders with the real JWTs that you generated earlier:
 
 ```java
 public class Config {
@@ -30,4 +28,4 @@ public class Config {
 }
 ```
 
-Notice that these values are hardcoded. This makes it easier to use these values later in this tutorial, however in production application they should be retrieved from external API.
+Notice that these values are hardcoded to keep the tutorial code straightforward. However, in a production application they should be retrieved from an external API.

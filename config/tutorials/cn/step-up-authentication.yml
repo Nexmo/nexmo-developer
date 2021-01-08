@@ -1,0 +1,20 @@
+---
+title: "逐步身份验证"
+description: "当用户执行敏感任务时，增加额外安全性"
+products: 
+    - "验证"
+introduction: 
+    title: "介绍"
+    description: "了解如何在您的应用程序中实现逐步身份验证"
+    content: "# 简介\n\n逐步身份验证是用于验证用户身份一种的自适应方法。您可以使用一组凭据提供对应用程序的基本访问权限，以便他们在开始使用您的服务时尽可能减少阻碍。但当该用户尝试执行存在风险元素的操作时，您会要求提供进一步的凭据。这些额外的凭据可确保他们有权执行此操作。\n\n您可能已经注意到互联网银行使用的就是这种身份验证。您将使用一组凭据登录银行应用程序，但是当您尝试付款或转帐时，应用程序通常会要求您提供进一步的证明，以证明您是账户持有人，例如通过短信发送的一次性密码或是只有您知道的一些容易记住的信息。\n\n本教程向您展示如何使用 Node.js 和 Verify API 向应用程序增加额外安全性。您将构建这样一个应用程序，模拟用户尝试访问其帐户设置，而系统要求他们验证自己的身份，然后才能执行相关操作。\n"
+tasks: 
+    - "verify/stepup-auth-create-node-application"
+    - "verify/stepup-auth-init-dependencies"
+    - "verify/stepup-auth-configure-application"
+    - "verify/stepup-auth-define-routes"
+    - "verify/stepup-auth-create-ui"
+    - "verify/stepup-auth-display-home-page"
+    - "verify/stepup-auth-send-verification-request"
+    - "verify/stepup-auth-check-verification-code"
+    - "verify/stepup-auth-test-your-application"
+    - "verify/stepup-auth-whats-next"

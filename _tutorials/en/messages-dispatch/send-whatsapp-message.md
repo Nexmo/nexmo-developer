@@ -10,10 +10,10 @@ If you have not received a message from the customer you will need to send a Wha
 
 If you want to see the code for sending a WhatsApp Template you can view the [Sending a WhatsApp Template](/messages/code-snippets/send-whatsapp-template) code snippet.
 
-Key | Description
--- | --
-`WHATSAPP_NUMBER` | Your WhatsApp number.
-`TO_NUMBER` | The phone number you are sending the message to.
+|Key | Description|
+|-- | --|
+|`WHATSAPP_NUMBER` | Your WhatsApp number.|
+|`TO_NUMBER` | The phone number you are sending the message to.|
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 

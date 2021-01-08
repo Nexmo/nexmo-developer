@@ -1,0 +1,29 @@
+---
+title: "如何使用 .NET 在呼叫中播放音频"
+products: 
+    - "voice/voice-api"
+description: "本教程介绍如何构建可在 PSTN 呼叫中播放音频的应用"
+languages: 
+    - "dotnet"
+introduction: 
+    title: "教程简介"
+    description: "本教程介绍如何使用 .NET 在呼叫中播放音频"
+    content: "# 简介\n[Vonage Voice API](/voice/voice-api/overview) 是在云中构建高质量语音应用程序的最简单的方法。在本教程中，您将学习如何使用 .NET 和 Vonage Voice API 将预录音频以流式传输到呼入电话和呼出电话。\n\n本教程提供逐步说明，向您介绍如何执行以下操作：\n\n1. 设置 Vonage 帐户\n1. 创建 Vonage 应用程序\n1. 配置 Vonage 应用程序\n1. 创建 ASP.NET Core 应用程序\n1. 添加 Vonage 软件包\n1.接收呼叫并播放音频\n1.拨打电话并播放流式传输的音频\n"
+prerequisites: 
+    - "create-nexmo-account"
+    - "install-nexmo-cli"
+    - "run-ngrok"
+    - "voice-api/create-vonage-application"
+tasks: 
+    - "voice-api/create-voice-csproj"
+    - "voice-api/install-vonage-dotnet"
+    - "voice-api/create-voice-controller"
+    - "voice-api/add-make-call-action-streamed-audio"
+    - "voice-api/add-receive-call-route-stream-audio"
+    - "voice-api/add-voice-view"
+    - "voice-api/manage-startup-route"
+    - "voice-api/configure-aspnet-app"
+    - "run-dotnet-app"
+conclusion: 
+    title: "接下来做什么？"
+    content: "# 接下来做什么？\n\n了解有关 Vonage Voice API 的更多信息：\n\n- [阅读 Voice API 文档](/voice/voice-api/overview)\n- [查看 API 参考](https://developer.nexmo.com/voice/voice-api/api-reference)\n- [在呼叫中播放文本转语音](https://developer.nexmo.com/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/dotnet)\n- [录制电话](https://developer.nexmo.com/voice/voice-api/code-snippets/record-a-call/dotnet)    \n- [使用语音输入](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-asr/dotnet)\n- [处理用户按键输入](https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-dtmf)\n- [NCCO 参考](https://developer.nexmo.com/voice/voice-api/ncco-reference)\n"

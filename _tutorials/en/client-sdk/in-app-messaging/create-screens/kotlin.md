@@ -44,7 +44,7 @@ image: public/screenshots/tutorials/client-sdk/android-in-app-messaging-chat/mes
 Replace file content with below snippet:
 
 ```kotlin
-ppackage com.vonage.tutorial.messaging
+package com.vonage.tutorial.messaging
 
 import androidx.lifecycle.ViewModel
 

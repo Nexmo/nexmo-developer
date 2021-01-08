@@ -1,0 +1,29 @@
+---
+title: ".NETで音声を呼び出し時に再生する方法"
+products: 
+    - "voice/voice-api"
+description: "音声をPSTN呼び出しで再生するアプリを構築する方法を説明するチュートリアル"
+languages: 
+    - "dotnet"
+introduction: 
+    title: "このチュートリアルの概要"
+    description: "このチュートリアルでは、.NETを使用して電話で音声を再生する方法を説明します"
+    content: "#はじめに\n[Vonage Voice API (Vonage音声用API)]（/voice/voice-api/overview）は、クラウドで高品質の音声アプリケーションを構築する最も簡単な方法です。このチュートリアルでは、.NETとVonage音声用APIを使用して、事前に録音された音声を着信通話と発信通話の両方にストリーミングする方法を学習します。\n\nこのチュートリアルでは、以下の方法を行う手順をステップに分けて説明します。\n\n1. Vonageアカウントを設定する\n1. Vonageアプリケーションを作成する\n1. Vonageアプリケーションを設定する\n1. ASP.NET Coreアプリケーションを作成する\n1. Vonageパッケージを追加する\n1.通話を受信して音声を再生する\n1.ストリーミングオーディオが再生される通話を発信する\n"
+prerequisites: 
+    - "Nexmoアカウントを作成する"
+    - "install-nexmo-cli"
+    - "run-ngrok"
+    - "voice-api/create-vonage-application"
+tasks: 
+    - "voice-api/create-voice-csproj"
+    - "voice-api/install-vonage-dotnet"
+    - "voice-api/create-voice-controller"
+    - "voice-api/add-make-call-action-streamed-audio"
+    - "voice-api/add-receive-call-route-stream-audio"
+    - "voice-api/add-voice-view"
+    - "voice-api/manage-startup-route"
+    - "voice-api/configure-aspnet-app"
+    - "run-dotnet-app"
+conclusion: 
+    title: "次に行うこと"
+    content: "#次に行うこと\n\nVonage音声用APIの機能の詳細をご覧ください。\n\n- [Read the Voice API documentation (音声用APIドキュメントを読む)]（/voice/voice-api/overview）\n- [View the API Reference (APIリファレンスを表示)]（https://developer.nexmo.com/voice/voice-api/api-reference）\n- [Play Text To Speech into a Call (通話中にテキスト読み上げを再生する)]（https://developer.nexmo.com/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco/dotnet）\n-[Record a Call (通話を録音する)]（https://developer.nexmo.com/voice/voice-api/code-snippets/record-a-call/dotnet）\n- [Take Speech Input (音声入力を取得する)]（https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-asr/dotnet）\n- [Handle User Key Input (ユーザーキー入力を処理する)]（https://developer.nexmo.com/voice/voice-api/code-snippets/handle-user-input-with-dtmf）\n- [NCCO Reference (NCCOリファレンス)]（https://developer.nexmo.com/voice/voice-api/ncco-reference）\n"

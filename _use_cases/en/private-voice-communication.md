@@ -1,9 +1,10 @@
 ---
-title: Private voice communication
+title: Private Voice Communication
 products: voice/voice-api
 description: Enable users to call each other, keeping their real numbers private.
 languages:
     - Node
+navigation_weight: 2  
 ---
 
 # Private voice communication

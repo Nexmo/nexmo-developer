@@ -19,11 +19,11 @@ If you already have the Server SDK installed the above command will upgrade your
 
 If you decide to use the Server SDK you will need the following information:
 
-Key | Description
--- | --
-`NEXMO_API_KEY` | The Vonage API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com).
-`NEXMO_API_SECRET` | The Vonage API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com).
-`NEXMO_APPLICATION_ID` | The Vonage Application ID for your Vonage Application which can be obtained from your [Dashboard](https://dashboard.nexmo.com).
-`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to the `private.key` file that was generated when you created your Vonage Application.
+|Key | Description|
+|-- | --|
+|`NEXMO_API_KEY` | The Vonage API key which you can obtain from your [Dashboard](https://dashboard.nexmo.com).|
+|`NEXMO_API_SECRET` | The Vonage API secret which you can obtain from your [Dashboard](https://dashboard.nexmo.com).|
+|`NEXMO_APPLICATION_ID` | The Vonage Application ID for your Vonage Application which can be obtained from your [Dashboard](https://dashboard.nexmo.com).|
+|`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to the `private.key` file that was generated when you created your Vonage Application.|
 
 These variables can then be replaced with actual values in the Server SDK example code.
