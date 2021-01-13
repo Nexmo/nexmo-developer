@@ -21,6 +21,7 @@ API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web
 [Redact](/api/redact) | ❌ | ✅ | ❌ 
 [Media](/api/media) | ✅ | ❌ | ❌
 [Conversation](/api/conversation) | ❌ | ❌ | ✅ 
+[Reports](/api/reports) | ❌ | ✅ | ❌ 
 
 ## Contents
 
