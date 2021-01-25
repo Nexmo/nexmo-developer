@@ -49,6 +49,7 @@ en:
     numbers: Numbers
     secret-management: Secret Management
     external-accounts: External Accounts API
+    whatsapp-provisioning: WhatsApp Provisioning API
     vonage-business-cloud: Vonage Business Cloud
     smart-numbers: Smart Numbers
     integration-suite: Vonage Integration Suite

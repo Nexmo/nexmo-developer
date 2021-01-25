@@ -34,6 +34,12 @@ page:
                     badge:
                       name: Beta
                       color: green
+                  - title: 'WhatsApp Provisioning API'
+                    path: 'api/whatsapp-provisioning'
+                    description: 'Use this to manage allocate WhatsApp Numbers to your Vonage API account'     
+                    badge:               
+                      name: Beta
+                      color: green
                   - title: 'Conversation API'
                     path: 'api/conversation'
                     description: 'Add text messaging (and voice, and video) features to your web and mobile applications. Conversation API allows you to create real-time communications channels to use in your apps.'
