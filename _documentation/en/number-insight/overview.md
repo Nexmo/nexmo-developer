@@ -38,15 +38,17 @@ Each API level builds upon the capabilities of the previous one. For example, th
 Feature | Basic | Standard | Advanced
 :--|:--:|:--:|:--:
 Number format and origin| ✅ | ✅ | ✅    
-Network type| ❌ | ✅ | ✅
-Carrier and country| ❌ | ✅ | ✅
-Ported| ❌ | ❌ | ✅
-Validity| ❌ | ❌ | ✅
-Reachability (not available in the US)| ❌ | ❌ | ✅
-Roaming status| ❌ | ❌ | ✅
-Roaming carrier and country| ❌ | ❌ | ✅
-**US number** caller name and type| ❌ | ✅ | ✅
+Country Information (country code, name, prefix)| ✅ | ✅ | ✅    
+Current Carrier (network code, name, country, network type) | ❌ | ✅ | ✅
+Original Carrier (network code, name, country, network type) | ❌ | ✅ | ✅
+Porting Information | ❌ | ✅ | ✅
+Validity* | ❌ | ❌ | ✅
+Reachability* | ❌ | ❌ | ✅
+Roaming status* | ❌ | ❌ | ✅
+Roaming carrier & country* | ❌ | ❌ | ✅
+CNAM (add-on) | ❌ | ✅ | ✅
 
+\* Only available in certain markets. Please test and/or contact sales for more information.
 
 > Check the legislation in your country to ensure that you are allowed to save user roaming information.
 
