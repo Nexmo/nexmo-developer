@@ -393,7 +393,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    station (0.0.112)
+    station (0.0.113)
       activeadmin (~> 2.7)
       activesupport (~> 6.0)
       algoliasearch (= 1.27.5)
@@ -444,7 +444,7 @@ GEM
     statsd-ruby (1.5.0)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    thor (1.0.1)
+    thor (1.1.0)
     tilt (2.0.10)
     titleize (1.4.1)
     truncato (0.7.11)
@@ -482,7 +482,7 @@ DEPENDENCIES
   factory_bot
   rack-test
   rspec
-  station (= 0.0.112)!
+  station (= 0.0.113)!
 
 BUNDLED WITH
    2.1.4

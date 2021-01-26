@@ -2,17 +2,14 @@ current:
   - name: 'Kelly Andrews'
     email: 'kelly.andrews@vonage.com'
     twitter: 'kellyjandrews'
-  - name: 'Lorna Mitchell'
-    email: 'lorna.mitchell@vonage.com'
-    twitter: 'lornajane'
   - name: 'Martyn Davies'
     email: 'martyn.davies@vonage.com'
     twitter: 'martynd'
-    role: 'Head of Developer Education'
+    role: 'Director of Developer Education'
   - name: 'Michael Heap'
     email: 'michael.heap@vonage.com'
     twitter: 'mheap'
-    role: 'Head of Platform Experience'
+    role: 'Director of Platform Experience'
   - name: 'Nahrin Jalal'
     email: 'nahrin.jalal@vonage.com'
     twitter: 'NahrinJalal'
@@ -20,10 +17,7 @@ current:
   - name: 'Olia Dukova'
     email: 'olia.dukova@vonage.com'
     twitter: 'oliadukova'
-    role: 'Global Head of Community'
-  - name: 'Tony Bedford'
-    email: 'tony.bedford@vonage.com'
-    role: 'Technical Writer'
+    role: 'Director of Developer Community'
   - name: 'Myrsini Koukiasa'
     email: 'myrsini.koukiasa@vonage.com'
     twitter: 'myrsiningos'
@@ -54,7 +48,7 @@ current:
   - name: 'Bethany Loft'
     email: 'bethany.loft@vonage.com'
     twitter: 'bb_loft'
-    role: 'Junior Community Event Manager'
+    role: 'Community Manager'
   - name: 'Steve Lorello'
     email: 'steve.lorello@vonage.com'
     twitter: 'slorello'
@@ -85,9 +79,6 @@ current:
   - name: "Igor Wojda"
     email: "igor.wojda@vonage.com"
     twitter: "igorwojda"
-  - name: "Yvonne Allen"
-    email: "yvonne.allen@vonage.com"
-    twitter: "yallen011"
   - name: "Abdul Ajetunmobi"
     email: "abdul.ajetunmobi@vonage.com"
     twitter: "abdulajet"

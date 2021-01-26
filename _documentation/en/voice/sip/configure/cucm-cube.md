@@ -3,23 +3,25 @@ title: Cisco CUCM/CUBE
 description: How to set up Vonage SIP with Cisco CUCM/CUBE
 ---
 
-# Nexmo SIP Trunking Configuration Guide 
+# Vonage SIP Trunking Configuration Guide 
 
 ## `CUCM 11.5.1.12900` With `CUBE 16.05.01b`
 
 ### May 2017
 
+> **Note**: Parts of this guide still refer to Nexmo. Vonage acquired Nexmo in June 2016.
+
 ## Contents
 
-1. Introduction
-2. SIP Trunking Network Components
+- [1. Introduction](#1-introduction)
+- [2. SIP Trunking Network Components](#2-sip-trunking-network-components)
    * 2.1 Hardware Components
    * 2.2 Software Requirements
-3. Features
+- [3. Features](#3-features)
       * 3.1.1 Features Supported
       * 3.1.2 Features Not Supported by PBX
       * 3.1.3 Caveats and Limitations
-4. Configuration.
+- [4. Configuration](#4-configuration)
    * 4.1 IP Address Worksheet
    * 4.2 Configuring Cisco Unified Communications manager
       * 4.2.1 Cisco UC Version
@@ -51,6 +53,7 @@ a Cisco UCM and Cisco UBE configuration to Nexmo SIP trunking.
 ```screenshot
 image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-1.png
 ```
+![](/images/sip-config/cisco-cucm/cisco-cucm-1.png)
 
 ### 2.1 Hardware Components
 
@@ -116,9 +119,7 @@ must obtain and use the values for your deployment.
 
 #### 4.2.1 Cisco UC Version
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-2.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-2.png)
 
 #### 4.2.2 Cisco Unified Call Manager Service Parameters.
 
@@ -128,9 +129,7 @@ Navigation: System &rarr; Service Parameters
 2. Select **Service** : Cisco Call Manager (Active)
 3. All other fields are set to default values
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-3.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-3.png)
 
 #### 4.2.3 Off-Net Calls via Nexmo SIP Trunk
 
@@ -138,7 +137,7 @@ Off-net calls are served by SIP trunks configured between Cisco UCM and Nexmo Ne
 calls are routed via Cisco UBE. From Cisco UBE, we have pointed the trunk to sip.nexmo.com
 and opened the firewall for the list of IP addresses in the portal provided by Nexmo.
 
-**4.2.3.1 SIP Trunk Security Profile**
+##### 4.2.3.1 SIP Trunk Security Profile
 
 Navigation: System &rarr; Security &rarr; SIP Trunk Security Profile
 
@@ -147,69 +146,43 @@ Navigation: System &rarr; Security &rarr; SIP Trunk Security Profile
 3. SIP trunks to Nexmo should use UDP as a transport protocol for SIP. This is configured
     using SIP Trunk Security profile, which is later assigned to the SIP trunk itself.
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-4.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-4.png)
 
-**4.2.3.2 SIP Profile Configuration**
+##### 4.2.3.2 SIP Profile Configuration
 
 Navigation: Device &rarr; Device Settings &rarr; SIP Profile
 
-1. Set **Name** : _Standard SIP Profile_ is used as an example
+> Set **Name** : _Standard SIP Profile_ is used as an example
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-5.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-5.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-6.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-6.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-7.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-7.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-8.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-8.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-9.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-9.png)
 
-**4.2.3.3 SIP Trunk Configuration**
+##### 4.2.3.3 SIP Trunk Configuration
 
 Create SIP trunk to Cisco UBE
 
 Navigation : Device &rarr; Trunk
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-10.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-10.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-11.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-11.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-12.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-12.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-13.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-13.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-14.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-14.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-15.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-15.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-16.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-16.png)
 
 #### 4.2.4 Dial Plan
 
@@ -221,9 +194,7 @@ Route patterns are configured as below:
 &nbsp; Cisco IP phone dial "8"+11 digit number to access PSTN via Cisco UBE. "8" is removed
 before sending to Cisco UBE.
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/cisco-cucm/cisco-cucm-17.png
-```
+![](/images/sip-config/cisco-cucm/cisco-cucm-17.png)
 
 ### 4.3 Configuring Cisco Unified Border Element
 
@@ -507,26 +478,17 @@ no network-clock synchronization automatic
 
 ### 4.4 Configure Numbers in Nexmo Account.
 
-1. Login to the Nexmo account using the credentials provided at the time of registration. A
-    **Key** and **Secret** will be displayed on the dashboard and this can be used as the
-    username and password for Registration SIP Trunks.
+1. Login to the Nexmo account using the credentials provided at the time of registration. A **Key** and **Secret** will be displayed on the dashboard and this can be used as the username and password for Registration SIP Trunks.
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/vonage-dashboard/dashboard-key-secret.png
-```
+    ![](/images/sip-config/vonage-dashboard/dashboard-key-secret.png)
 
-2. In order to provide the URL to which the call has to be routed from Nexmo, navigate to
-    the **Numbers** tab
+2. In order to provide the URL to which the call has to be routed from Nexmo, navigate to the **Numbers** tab
 3. Click **Edit** against each number as shown below
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/vonage-dashboard/numbers-dashboard.png
-```
+    ![](/images/sip-config/vonage-dashboard/numbers-dashboard.png)
 
-1. A pop-up will be displayed
-2. Select the "**Forward to**" and provide the URL to which the calls route
-3. Click **Update** to save the changes
+4. A pop-up will be displayed
+5. Select the "**Forward to**" and provide the URL to which the calls route
+6. Click **Update** to save the changes
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/vonage-dashboard/edit-number.png
-```
+    ![](/images/sip-config/vonage-dashboard/edit-number.png)

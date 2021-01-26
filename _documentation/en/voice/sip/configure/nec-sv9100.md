@@ -3,9 +3,40 @@ title: NEC SV9100
 description: How to set up Vonage SIP with NEC SV9100
 ---
 
-# Nexmo SIP Trunking Configuration Guide NEC SV9100 version 6.00.
+# Vonage SIP Trunking Configuration Guide
+
+## NEC SV9100 version 6.00.
 
 ### August 2017
+
+> **Note**: Parts of this guide still refer to Nexmo. Vonage acquired Nexmo in June 2016.
+
+## Contents
+
+- [1. Audience](#1-audience)
+- [2. SIP Trunking Network Components](#2-sip-trunking-network-components)
+	- 2.1 Network Components
+- [3. Features](#3-features)
+  - 3.1.1 Features Supported
+  - 3.1.2 Features Not Supported by PBX
+  - 3.1.3 Features Not Tested
+  - 3.1.4 Caveats and Limitations
+- [4. Configuration](#4-configuration)
+  - 4.1 IP Address Worksheet
+  - 4.2 Configuring NEC SV
+      - 4.2.1 SIP Server Information Setup
+      - 4.2.2 SIP System Information Setup
+      - 4.2.3 SIP Trunk Registration Information
+      - 4.2.4 Class of Service Options (Outgoing Call Service)
+      - 4.2.5 IP Trunk Party Calling Party Number Setup for Extensions
+      - 4.2.6 DID Translation Table
+      - 4.2.7 SIP Trunk Basic Setup
+      - 4.2.8 IP Trunk Basic Setup
+      - 4.2.9 Location Setup
+  - 4.3 Nexmo Configuration
+      - 4.3.1 Configure Numbers in Nexmo Account
+- [5. Summary of Tests and Results](#5-summary-of-tests-and-results)
+
 
 ## 1. Audience
 
@@ -18,9 +49,7 @@ for configuring NEC SV9100 version 6.00.50 with Nexmo SIP Trunking services.
 The network for the SIP trunk reference configuration is illustrated below and is representative of
 a NEC SV9100 configuration to Nexmo SIP trunking.
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-1.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-1.png)
 
 ### 2.1 Network Components
 
@@ -100,9 +129,8 @@ NEC SV9100 and Nexmo. There is no PBX level NATing done.
 5. Enter **Proxy Host Name:** `sip`
 6. Select **SIP Carrier Choice:** Carrier B
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-2.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-2.png)
+
 
 #### 4.2.2 SIP System Information Setup
 
@@ -112,9 +140,8 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-2.png
 4. Enter **Host Name:** `sip`
 5. Select **Transport Protocol:** UDP
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-3.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-3.png)
+
 
 #### 4.2.3 SIP Trunk Registration Information
 
@@ -125,9 +152,8 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-3.png
 5. Enter **Authentication User ID:** `911236e3` (Provided by Nexmo for this particular testing)
 6. Enter **Authentication Password**
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-4.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-4.png)
+
 
 #### 4.2.4 Class of Service Options (Outgoing Call Service)
 
@@ -136,9 +162,8 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-4.png
 
 The Class of Service Options are configured as below
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-5.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-5.png)
+
 
 #### 4.2.5 IP Trunk Party Calling Party Number Setup for Extensions
 
@@ -148,9 +173,8 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-5.png
     this test setup ICM Extensions 109 and 111 are used. The respective `DIDs` are entered
     against them)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-6.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-6.png)
+
 
 #### 4.2.6 DID Translation Table
 
@@ -160,13 +184,10 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-6.png
 4. Enter **Received Number** as the last 4 digits of the DID
 5. Enter **Target 1:** ICM Extension (e.g. 109 and 111)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-7.png
-```
+    ![](/images/sip-config/nec-sv9100/nec-sv9100-7.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-8.png
-```
+    ![](/images/sip-config/nec-sv9100/nec-sv9100-8.png)
+
 
 #### 4.2.7 SIP Trunk Basic Setup
 
@@ -174,9 +195,8 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-8.png
 2. Click **`84-14`:** SIP Trunk Basic Information Setup
 3. Select **Incoming/Outgoing SIP Trunk for E.164** : Mode 1
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-9.png
-```
+    ![](/images/sip-config/nec-sv9100/nec-sv9100-9.png)
+
 
 #### 4.2.8 IP Trunk Basic Setup
 
@@ -184,13 +204,10 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-9.png
 2. Click **`14-01`:** Trunk Basic Setup
 3. Check **Trunk to Trunk Outgoing CallerID Through Mode**
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-10.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-10.png)
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-11.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-11.png)
+
 
 #### 4.2.9 Location Setup
 
@@ -199,37 +216,26 @@ image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-11.png
 3. Enter **Country Code: 1**
 4. Enter **Caller ID Edit Code: 9**
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/nec-sv9100/nec-sv9100-12.png
-```
+![](/images/sip-config/nec-sv9100/nec-sv9100-12.png)
 
 ### 4.3 Nexmo Configuration
 
 #### 4.3.1 Configure Numbers in Nexmo Account
 
-1. Login to the Nexmo account using the credentials provided at the time of registration. A
-    **Key** and **Secret** will be displayed on the dashboard and this can be used as the
-    username and password for Registration SIP Trunks.
+1. Login to the Nexmo account using the credentials provided at the time of registration. A **Key** and **Secret** will be displayed on the dashboard and this can be used as the username and password for Registration SIP Trunks.
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/vonage-dashboard/dashboard-key-secret.png
-```
+    ![](/images/sip-config/vonage-dashboard/dashboard-key-secret.png)
 
-2. In order to provide the URL to which the call has to be routed from Nexmo, navigate to
-    the **Numbers** tab
+2. In order to provide the URL to which the call has to be routed from Nexmo, navigate to the **Numbers** tab
 3. Click **Edit** against each number as shown below
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/vonage-dashboard/numbers-dashboard.png
-```
+    ![](/images/sip-config/vonage-dashboard/numbers-dashboard.png)
 
 4. A pop-up will be displayed
 5. Select the " **Forward to** " and provide the URL to which the calls route
 6. Click **Update** to save the changes
 
-```screenshot
-image: public/screenshots/sip/configuration/guides/vonage-dashboard/edit-number.png
-```
+    ![](/images/sip-config/vonage-dashboard/edit-number.png)
 
 ## 5. Summary of Tests and Results
 
