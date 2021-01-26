@@ -45,6 +45,7 @@
 "/stitch/in-app-voice/guides/calling-users/javascript": "/client-sdk/in-app-voice/guides/make-call"
 "/stitch/in-app-voice/guides/outbound-pstn/javascript": "/client-sdk/in-app-voice/guides/make-call"
 "/stitch/in-app-video/guides/enable-video/javascript": "https://tokbox.com/developer/guides/basics/"
+"/stitch/in-app-video/guides/enable-video": "https://tokbox.com/developer/guides/basics/"
 "/stitch/in-app-video/guides/enable-screenshare/javascript": "https://tokbox.com/developer/guides/basics/"
 "/stitch/concepts/jwt-acl": "/conversation/guides/jwt-acl"
 "/stitch/in-app-messaging/overview": "/client-sdk/in-app-messaging/overview"
