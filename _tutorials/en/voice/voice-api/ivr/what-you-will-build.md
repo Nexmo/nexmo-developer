@@ -17,7 +17,7 @@ When the Vonage API platform receives a call on your virtual number it will make
 
 ## Receiving event data
 
-Vonage sends event data to another webhook known as the "event URL". This contains valuable information about the progress of the call. In this straightforward example, we will just output this information to the console.
+Vonage sends event data to another webhook known as the "event URL". This contains valuable information about the progress of the call. In this straightforward example, we will output the event data to the console.
 
 ## Processing user input
 

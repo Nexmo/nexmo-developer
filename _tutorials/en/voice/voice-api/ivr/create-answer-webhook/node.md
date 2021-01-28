@@ -17,7 +17,7 @@ app.get('/webhooks/answer', (req, res) => {
 });
 ```
 
-Beneath it, write the code for the `mainMenu` function, which creates and returns an NCCO. We have wrapped the code that generates the NCCO in a function so that we can call it from elsewhere in our application, and not just from our answer webhook:
+Beneath it, write the code for the `mainMenu` function, which creates and returns an NCCO. We have wrapped the code that generates the NCCO in a function so that we can call it from elsewhere in our application, and not only from our answer webhook:
 
 ```javascript
 function mainMenu (req) {

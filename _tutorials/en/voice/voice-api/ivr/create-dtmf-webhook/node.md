@@ -37,5 +37,5 @@ app.post('/webhooks/dtmf', (req, res) => {
 });
 ```
 
-This code examines the request to see which digit the user entered (in `req.body.dtmf`) and adds the appropriate action to the existing NCCO. If the user presses `1`, it adds a `talk` action to read out the current date and time. If the user presses `2`, it plays an audio file into the call using a `stream` action. If the user presses any other key, it is ignored and the function just returns the NCCO with the initial menu choice you defined in the `mainMenu` function.
+This code examines the request to see which digit the user entered (in `req.body.dtmf`) and adds the appropriate action to the existing NCCO. If the user presses `1`, it adds a `talk` action to read out the current date and time. If the user presses `2`, it plays an audio file into the call using a `stream` action. If the user presses any other key, it is ignored and the function returns the original NCCO with the initial menu choices you defined in the `mainMenu` function.
 
