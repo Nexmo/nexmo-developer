@@ -1,0 +1,37 @@
+---
+title: Build a call menu
+description: Create an interactive voice response (IVR) menu to handle customer calls
+products:
+  - voice/voice-api
+
+introduction:
+  title: Introduction
+  description: Learn how to ...
+  content: |
+    # Introduction
+
+    In this tutorial, you will learn how to build an interactive voice response (IVR) call menu. An IVR is a great way to automate the handling of simple customer enquiries and reduce the workload of your customer support team.
+
+    When a user calls your Vonage number, they will be presented with two options. One will read the current date and time to the caller using text-to-speech and the other will play an audio file.
+
+    > The solution code for this tutorial is available [on GitHub](https://github.com/nexmo-community/node-ivr)
+
+prerequisites:
+  - create-nexmo-account
+  - install-nexmo-cli
+  - voice/voice-api/create-vonage-application
+  - buy-nexmo-number
+  - link-nexmo-number
+  - run-ngrok
+
+tasks:
+  - voice/voice-api/ivr/what-you-will-build
+  - voice/voice-api/ivr/install-dependencies
+  - voice/voice-api/ivr/create-the-server
+  - voice/voice-api/ivr/create-answer-webhook
+  - voice/voice-api/ivr/create-dtmf-webhook
+  - voice/voice-api/ivr/create-event-webhook
+  - voice/voice-api/ivr/configure-application
+  - voice/voice-api/ivr/run-it
+  - voice/voice-api/ivr/conclusion
+  - voice/voice-api/ivr/whats-next  
