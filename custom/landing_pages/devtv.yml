@@ -83,9 +83,9 @@ page:
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="1">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="1a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="1a" role="tab">
                         <b>1</b>
-                        <p class="show"></p>
+                        <p class="show">Week.init()</p>
                       </div>
                     </span>
                   </div>
@@ -128,9 +128,9 @@ page:
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="8">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="8a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="8a" role="tab">
                         <b>8</b>
-                        <p class="show"></p>
+                        <p class="show">Week.init()</p>
                       </div>
                     </span>
                   </div>
@@ -278,8 +278,55 @@ page:
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-29" role="tabpanel">
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-1" role="tabpanel">
-                  1
+                <div class="Vlt-tabs__panel" id="tab-1a" role="tabpanel">
+                  <div class="Vlt-grid">	
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">	
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1599463202/Week.init_twitter_gt26mi.png" alt="Week.init()">	
+                    </div>	
+                    <div class="Vlt-col Vlt-col--2of3">	
+                      <div class="Vlt-grid">	
+                        <h4 class="Vlt-col mobile-center">Week.init()</h4>	
+                        <p class="Vlt-col Vlt-right mobile-justify">14:00 London / 09:00 New York / 06:00 SF</p>	
+                      </div>	
+                      <p class="Vlt-col padding-left-0 mobile-justify">	
+                        <h5>Conversation APIs: Building a NodeJS-base API for the Client SDK clients</h5>	
+                        <p>	
+                          <b>Links:</b>	
+                          <a href="https://developer.nexmo.com/conversation/overview" target="_blank">	
+                            Vonage Conversation APIs	
+                          </a>	
+                          <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">	
+                            <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>	
+                            Vonage APIs	
+                          </h5>	
+                        </p>	
+                      </p>	
+                    </div>	
+                    <div class="Vlt-grid padding-top-32">	
+                      <div class="Vlt-col Vlt-col--1of2">	
+                        <h4>About The Show</h4>	
+                        <p class="text-justify">	
+                          This series will promote the Conversation APIs within the Client SDKs and beyond. Episodes will cover a wide range of topics such as how to build a native messaging or VOIP applications!	
+                        </p>	
+                      </div>	
+                      <div class="Vlt-col Vlt-col--1of2">	
+                        <h4 class="inline-block">About Paul Ardeleanu</h4>	
+                        <a href="https://twitter.com/pardel" target="_blank">	
+                          <i class="icon icon-twitter"></i>	
+                        </a>	
+                        <a href="https://github.com/pardel" target="_blank">	
+                          <i class="icon icon-github"></i>	
+                        </a>	
+                        <h5>	
+                          Developer Advocate Manager	
+                        </h5>	
+                        <p class="text-justify">	
+                          Paul is an iOS Developer Advocate at Nexmo. A seasoned software engineer, trainer and speaker, he specialised in data-driven solutions on Apple platforms with an emphasis on prototyping, best practices and balance with agility.	
+                        </p>	
+                        <a href="https://learn.vonage.com/authors/paul-ardeleanu" target="_blank">Articles by Paul</a>	
+                      </div>	
+                    </div>	
+                  </div>
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-2a" role="tabpanel">
                   <div class="Vlt-grid">
@@ -532,7 +579,55 @@ page:
                     </div>
                   </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-8" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-8a" role="tabpanel">
+                   <div class="Vlt-grid">	
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">	
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1599463202/Week.init_twitter_gt26mi.png" alt="Week.init()">	
+                    </div>	
+                    <div class="Vlt-col Vlt-col--2of3">	
+                      <div class="Vlt-grid">	
+                        <h4 class="Vlt-col mobile-center">Week.init()</h4>	
+                        <p class="Vlt-col Vlt-right mobile-justify">14:00 London / 09:00 New York / 06:00 SF</p>	
+                      </div>	
+                      <p class="Vlt-col padding-left-0 mobile-justify">	
+                        <h5>Conversation APIs: Building a NodeJS-base API for the Client SDK clients</h5>	
+                        <p>	
+                          <b>Links:</b>	
+                          <a href="https://developer.nexmo.com/conversation/overview" target="_blank">	
+                            Vonage Conversation APIs	
+                          </a>	
+                          <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">	
+                            <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>	
+                            Vonage APIs	
+                          </h5>	
+                        </p>	
+                      </p>	
+                    </div>	
+                    <div class="Vlt-grid padding-top-32">	
+                      <div class="Vlt-col Vlt-col--1of2">	
+                        <h4>About The Show</h4>	
+                        <p class="text-justify">	
+                          This series will promote the Conversation APIs within the Client SDKs and beyond. Episodes will cover a wide range of topics such as how to build a native messaging or VOIP applications!	
+                        </p>	
+                      </div>	
+                      <div class="Vlt-col Vlt-col--1of2">	
+                        <h4 class="inline-block">About Paul Ardeleanu</h4>	
+                        <a href="https://twitter.com/pardel" target="_blank">	
+                          <i class="icon icon-twitter"></i>	
+                        </a>	
+                        <a href="https://github.com/pardel" target="_blank">	
+                          <i class="icon icon-github"></i>	
+                        </a>	
+                        <h5>	
+                          Developer Advocate Manager	
+                        </h5>	
+                        <p class="text-justify">	
+                          Paul is an iOS Developer Advocate at Nexmo. A seasoned software engineer, trainer and speaker, he specialised in data-driven solutions on Apple platforms with an emphasis on prototyping, best practices and balance with agility.	
+                        </p>	
+                        <a href="https://learn.vonage.com/authors/paul-ardeleanu" target="_blank">Articles by Paul</a>	
+                      </div>	
+                    </div>	
+                  </div>
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-9" role="tabpanel">
                   <div class="Vlt-grid">
