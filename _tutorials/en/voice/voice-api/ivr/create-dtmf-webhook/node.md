@@ -11,7 +11,7 @@ Create the `/webhooks/dtmf` route by entering the following code beneath your `/
 app.post('/webhooks/dtmf', (req, res) => {
 	let actions = [];
 	let ncco = [];
-	switch (req.body.dtmf) {
+	switch (req.body.dtmf.digits) {
 		case '1':
 			actions.push({
 				action: 'talk',
