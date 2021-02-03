@@ -308,7 +308,10 @@ class NexmoClient {
          *     });
         */
         connection.on('disconnect', (reason) => {
-            this.emit('disconnect', reason === "io server disconnect" ? NexmoClient.DISCONNECT_REASON.TokenExpired : NexmoClient.DISCONNECT_REASON.ConnectionError);
+            this.emit('disconnect', (reason === "io client disconnect")
+                ? NexmoClient.DISCONNECT_REASON.ClientDisconnected
+                : (reason === "io server disconnect") ? NexmoClient.DISCONNECT_REASON.TokenExpired
+                    : NexmoClient.DISCONNECT_REASON.ConnectionError);
             this.log.info('websocket disconnected');
         });
         /**
@@ -414,11 +417,13 @@ class NexmoClient {
      * @property {TextEvent} text - The text message received
      * @example &lt;caption>listen for text events&lt;/caption>
      *  conversation.on("text",(sender, message) => {
-     *    console.log(sender,message);
+     *    console.log(sender, message);
      *    // Identify your own message.
-     *    if (message.from !== conversation.me.id)
-     *    // Identify if the event corresponds to the currently open conversation.
-     *    if (message.cid === conversation.id)
+     *    if (message.from === conversation.me.id){
+     *        renderMyMessages(message)
+     *    } else {
+     *        renderOtherMessages(message)
+     *    }
      *  });
      */
     /**
@@ -432,10 +437,10 @@ class NexmoClient {
      * @example &lt;caption>listen for image events&lt;/caption>
      *  conversation.on("image", (sender, image) => {
      *    console.log(sender,image);
-     *    // Identify your own imageEvent.
-     *    if (image.from !== conversation.me.id)
-     *    // Identify if the event corresponds to the currently open conversation.
-     *    if (image.cid === conversation.id)
+     *    // Identify if your own imageEvent or someone else's.
+     *    if (image.from !== conversation.me.id){
+     *        displayImages(image);
+     *    }
      *  });
      */
     /**
@@ -443,7 +448,7 @@ class NexmoClient {
      *
      * @event Conversation#event:delete
      *
-     * @property {Member} member - the member who deleted an event
+     * @property {Member} member - the Member who deleted an event
      * @property {NXMEvent} event - deleted event: event.id
      * @example &lt;caption>get details about the deleted event&lt;/caption>
      * conversation.on("event:delete", (member, event) => {
@@ -452,90 +457,88 @@ class NexmoClient {
      * });
      */
     /**
-     * Conversation listening for new members.
+     * Conversation listening for new Members.
      *
      * @event Conversation#member:joined
      *
-     * @property {Member} member - the member that joined
+     * @property {Member} member - the Member that joined
      * @property {NXMEvent} event - the join event
-     * @example &lt;caption>get the name of the new member&lt;/caption>
+     * @example &lt;caption>get the name of the new Member&lt;/caption>
      * conversation.on("member:joined", (member, event) => {
      *  console.log(event.id)
      *  console.log(member.user.name+ " joined the conversation");
      * });
      */
     /**
-     * Conversation listening for members being invited.
+     * Conversation listening for Members being invited.
      *
      * @event Conversation#member:invited
      *
-     * @property {Member} member - the member that is invited
+     * @property {Member} member - the Member that is invited
      * @property {NXMEvent} event - data regarding the receiver of the invitation
-     * @example &lt;caption>get the name of the invited member&lt;/caption>
+     * @example &lt;caption>get the name of the invited Member&lt;/caption>
      * conversation.on("member:invited", (member, event) => {
      *  console.log(member.user.name + " invited to the conversation");
      * });
      */
     /**
-     * Conversation listening for members callStatus changes.
+     * Conversation listening for Members callStatus changes.
      *
      * @event Conversation#member:call:status
      *
-     * @property {Member} member - the member that has left
+     * @property {Member} member - the Member that has left
      * @example &lt;caption>get the callStatus of the member that changed call status&lt;/caption>
      * conversation.on("member:call:status", (member) => {
    *  console.log(member.callStatus);
      * });
      */
     /**
-     * Conversation listening for members leaving (kicked or left).
+     * Conversation listening for Members leaving (kicked or left).
      *
      * @event Conversation#member:left
      *
-     * @property {Member} member - the member that has left
+     * @property {Member} member - the Member that has left
      * @property {NXMEvent} event - data regarding the receiver of the invitation
-     * @example &lt;caption>get the username of the member that left&lt;/caption>
+     * @example &lt;caption>get the username of the Member that left&lt;/caption>
      * conversation.on("member:left", (member , event) => {
      *  console.log(member.user.name + " left");
      *  console.log(event.body.reason);
      * });
      */
     /**
-     * Conversation listening for members typing.
+     * Conversation listening for Members typing.
      *
      * @event Conversation#text:typing:on
      *
      * @property {Member} member - the member that started typing
      * @property {NXMEvent} event - the start typing event
-     * @example &lt;caption>get the username of the member that is typing&lt;/caption>
-     * conversation.on("text:typing:on", (data) => {
-     *  console.log(data.name + " is typing...");
+     * @example &lt;caption>get the display name of the Member that is typing&lt;/caption>
+     * conversation.on("text:typing:on", (member, event) => {
+     *  console.log(member.display_name + " is typing...");
      * });
      */
     /**
-     * Conversation listening for members stopped typing.
+     * Conversation listening for Members stopped typing.
      *
      * @event Conversation#text:typing:off
      *
      * @property {Member} member - the member that stopped typing
      * @property {NXMEvent} event - the stop typing event
-     * @example &lt;caption>get the username of the member that stopped typing&lt;/caption>
-     * conversation.on("text:typing:off", (data) => {
-     *  console.log(data.name + " stopped typing...");
+     * @example &lt;caption>get the display name of the Member that stopped typing&lt;/caption>
+     * conversation.on("text:typing:off", (member, event) => {
+     *  console.log(member.display_name + " stopped typing...");
      * });
      */
     /**
-     * Conversation listening for members' seen texts.
+     * Conversation listening for Members' seen texts.
      *
      * @event Conversation#text:seen
      *
-     * @property {Member} member - the member that saw the text
+     * @property {Member} member - the Member that saw the text
      * @property {TextEvent} text - the text that was seen
      * @example &lt;caption>listen for seen text events&lt;/caption>
-     * conversation.on("text:seen", (data, text) => {
+     * conversation.on("text:seen", (member, text) => {
      *  console.log(text);
-     *  // Check if the event belongs to this conversation
-     *  if (text.cid === conversation.id)
      *  // Get the list of members that have seen this event
      *  for (let member_id in text.state.seen_by) {
      *    if (conversation.me.id !== member_id) {
@@ -545,48 +548,51 @@ class NexmoClient {
      * });
      */
     /**
-     * Conversation listening for members' seen images.
+     * Conversation listening for Members' seen images.
      * @event Conversation#image:seen
      *
      * @property {Member} member - the member that saw the image
      * @property {ImageEvent} image - the image that was seen
      * @example &lt;caption>listen for seen image events&lt;/caption>
-     * conversation.on("image:seen", (data, image) => {
+     * conversation.on("image:seen", (member, image) => {
      *  console.log(image);
-     *  // Check if the event belongs to this conversation
-     *  if (image.cid === conversation.id)
-     *  // Get the list of members that have seen this event
+     *  // Get the list of Members that have seen this event
      *  for (let member_id in image.state.seen_by) {
      *    if (conversation.me.id !== member_id) {
      *      console.log(conversation.members.get(member_id).name);
-     *    }
-     *  }
+     *    };
+     *  };
      * });
      */
     /**
-     * Conversation listening for members media changes (audio,text)
+     * Conversation listening for Members media changes (audio,text)
      *
-     * Change in media presence state. They are in the conversation with text or audio.
+     * Change in media presence state. They are in the Conversation with text or audio.
      *
      * @event Conversation#member:media
      *
-     * @property {Member} member - the member object linked to this event
+     * @property {Member} member - the Member object linked to this event
      * @property {NXMEvent} event - information about media presence state
      * @property {boolean} event.body.audio  - is audio enabled
-     * @example &lt;caption>get every member's media change events &lt;/caption>
-     * conversation.on("member:media", (from, event) => {
-     *  console.log(from.media.audio_settings.enabled); //true
-     * 	console.log(event.body.media); //{"audio_settings": {"enabled": true, "muted": false, "earmuffed": false}}
+     * @example &lt;caption>get every Member's media change events &lt;/caption>
+     * conversation.on("member:media", (member, event) => {
+     *  console.log(member.media.audio_settings.enabled); //true
+     *  console.log(event.body.media); //{"audio": true, "audio_settings": {"enabled": true, "muted": false, "earmuffed": false}}
      * });
      */
     /**
      * Conversation listening for mute on events
-     * A member has muted their audio
+     * A Member has muted their audio
      *
      * @event Conversation#audio:mute:on
      *
-     * @property {Member} member - the member object linked to this event
+     * @property {Member} member - the Member object linked to this event
      * @property {NXMEvent} event - information about the mute event
+     * @example &lt;caption>listen for audio mute on events &lt;/caption>
+     * conversation.on("audio:mute:on", (member, event) => {
+     *  console.log("member that is muted ", member);
+     *  console.log(event);
+     * });
      */
     /**
      * Conversation listening for mute off events
@@ -596,6 +602,11 @@ class NexmoClient {
      *
      * @property {Member} member - the member object linked to this event
      * @property {NXMEvent} event - information about the mute event
+     * @example &lt;caption>listen for audio mute off events &lt;/caption>
+     * conversation.on("audio:mute:off", (member, event) => {
+     *  console.log("member that is unmuted ", member);
+     *  console.log(event);
+     * });
      */
     sendRequest(request, callback) {
         // Add a message ID to the request and set up a listener for the reply (or error)
@@ -827,6 +838,7 @@ exports.default = NexmoClient;
  * @alias NexmoClient.DISCONNECT_REASON
 */
 NexmoClient.DISCONNECT_REASON = {
+    ClientDisconnected: 'ClientDisconnected',
     TokenExpired: 'TokenExpired',
     ConnectionError: 'ConnectionError'
 };
@@ -876,7 +888,7 @@ module.exports = NexmoClient;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

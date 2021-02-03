@@ -258,270 +258,6 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="_getConfig"><span class="type-signature"></span>_getConfig(cursor)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create config params for paginationRequest</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>cursor</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>cursor parameter to access the next or previous page of a data set</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="Page.html#_getConfig">Page#_getConfig</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="pages_page.js.html">pages/page.js</a>,
-				 <a href="pages_page.js.html#sunlight-1-line-49">line 49</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="_getError"><span class="type-signature"></span>_getError()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create a nexmoClientError when page does not exist</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="Page.html#_getError">Page#_getError</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="pages_page.js.html">pages/page.js</a>,
-				 <a href="pages_page.js.html#sunlight-1-line-61">line 61</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
     <h4 class="name" id="getNext"><span class="type-signature"></span>getNext()</h4>
     
     
@@ -577,7 +313,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="pages_conversations_page.js.html">pages/conversations_page.js</a>,
-				 <a href="pages_conversations_page.js.html#sunlight-1-line-42">line 42</a>
+				 <a href="pages_conversations_page.js.html#sunlight-1-line-54">line 54</a>
 			</li>
 		</ul>
 	</dd>
@@ -622,6 +358,18 @@
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Fetch the next page if exists</p>
+    
+    <pre class="sunlight-highlight-javascript">currentConvPage.getNext().then((nextConvPage) =&gt; {
+   console.log(&quot;next conversation page &quot;, nextConvPage);
+ }).catch((error) =&gt; {
+   console.error(&quot;error getting next conversation page &quot;, error);
+ });</pre>
+
 
     
 </dd>
@@ -685,7 +433,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="pages_conversations_page.js.html">pages/conversations_page.js</a>,
-				 <a href="pages_conversations_page.js.html#sunlight-1-line-33">line 33</a>
+				 <a href="pages_conversations_page.js.html#sunlight-1-line-39">line 39</a>
 			</li>
 		</ul>
 	</dd>
@@ -730,6 +478,18 @@
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Fetch the previous page if exists</p>
+    
+    <pre class="sunlight-highlight-javascript">currentConvPage.getPrev().then((prevConvPage) =&gt; {
+   console.log(&quot;previous conversation page &quot;, prevConvPage);
+ }).catch((error) =&gt; {
+   console.error(&quot;error getting previous conversation page &quot;, error);
+ });</pre>
+
 
     
 </dd>
@@ -802,7 +562,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="pages_page.js.html">pages/page.js</a>,
-				 <a href="pages_page.js.html#sunlight-1-line-41">line 41</a>
+				 <a href="pages_page.js.html#sunlight-1-line-47">line 47</a>
 			</li>
 		</ul>
 	</dd>
@@ -847,6 +607,15 @@
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Check if next page exists</p>
+    
+    <pre class="sunlight-highlight-javascript">// currentPage is the current Conversations or Events Page
+currentPage.hasNext() // true or false</pre>
+
 
     
 </dd>
@@ -919,7 +688,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="pages_page.js.html">pages/page.js</a>,
-				 <a href="pages_page.js.html#sunlight-1-line-34">line 34</a>
+				 <a href="pages_page.js.html#sunlight-1-line-37">line 37</a>
 			</li>
 		</ul>
 	</dd>
@@ -964,6 +733,15 @@
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Check if previous page exists</p>
+    
+    <pre class="sunlight-highlight-javascript">// currentPage is the current Conversations or Events Page
+currentPage.hasPrev() // true or false</pre>
+
 
     
 </dd>
@@ -1022,7 +800,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

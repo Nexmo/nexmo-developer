@@ -638,7 +638,7 @@ otherwise the value will be <code>null</code>.</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-465">line 465</a>
+				 <a href="conversation.js.html#sunlight-1-line-499">line 499</a>
 			</li>
 		</ul>
 	</dd>
@@ -682,6 +682,8 @@ otherwise the value will be <code>null</code>.</p>
     
     <pre class="sunlight-highlight-javascript">conversation.sendImage(fileInput.files[0]).then((imageRequest) =&gt; {
    conversation.abortSendImage(imageRequest);
+}).catch((error) =&gt; {
+ console.error(&quot;error sending the image &quot;, error);
 });</pre>
 
 
@@ -747,7 +749,7 @@ otherwise the value will be <code>null</code>.</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-178">line 178</a>
+				 <a href="conversation.js.html#sunlight-1-line-182">line 182</a>
 			</li>
 		</ul>
 	</dd>
@@ -796,11 +798,13 @@ otherwise the value will be <code>null</code>.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">delete the conversation</p>
+        <p class="code-caption">delete the Conversation</p>
     
     <pre class="sunlight-highlight-javascript">conversation.del().then(() =&gt; {
    console.log(&quot;conversation deleted&quot;);
-	})</pre>
+}).catch((error) =&gt; {
+ console.error(&quot;error deleting conversation &quot;, error);
+});</pre>
 
 
     
@@ -915,7 +919,7 @@ otherwise the value will be <code>null</code>.</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-197">line 197</a>
+				 <a href="conversation.js.html#sunlight-1-line-208">line 208</a>
 			</li>
 		</ul>
 	</dd>
@@ -960,6 +964,18 @@ otherwise the value will be <code>null</code>.</p>
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">delete an Event</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.deleteEvent(eventToBeDeleted).then(() =&gt; {
+ console.log(&quot;event was deleted&quot;);
+}).catch((error) =&gt; {
+ console.error(&quot;error deleting the event &quot;, error);
+});</pre>
+
 
     
 </dd>
@@ -1233,7 +1249,7 @@ otherwise the value will be <code>null</code>.</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-528">line 528</a>
+				 <a href="conversation.js.html#sunlight-1-line-578">line 578</a>
 			</li>
 		</ul>
 	</dd>
@@ -1294,6 +1310,8 @@ otherwise the value will be <code>null</code>.</p>
   events_page.items.forEach(event =&gt; {
     render(event)
   })
+}).catch((error) =&gt; {
+ console.error(&quot;error getting the events &quot;, error);
 });</pre>
 
 
@@ -1392,7 +1410,7 @@ otherwise the value will be <code>null</code>.</p>
 
         <tr>
             
-                <td class="name"><code>id or username</code></td>
+                <td class="name"><code>id or user_name</code></td>
             
 
             <td class="type">
@@ -1419,7 +1437,7 @@ otherwise the value will be <code>null</code>.</p>
 
             
 
-            <td class="description last"><p>the id or the username of the user to invite</p></td>
+            <td class="description last"><p>the id or the username of the User to invite</p></td>
         </tr>
 
     
@@ -1471,7 +1489,7 @@ otherwise the value will be <code>null</code>.</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-221">line 221</a>
+				 <a href="conversation.js.html#sunlight-1-line-232">line 232</a>
 			</li>
 		</ul>
 	</dd>
@@ -1520,19 +1538,19 @@ otherwise the value will be <code>null</code>.</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">invite a user to a conversation</p>
+        <p class="code-caption">invite a user to a Conversation</p>
     
-    <pre class="sunlight-highlight-javascript">const user_id = &#x27;user to invite&#x27;;
- const user_name = &#x27;username to invite&#x27;;
+    <pre class="sunlight-highlight-javascript">const user_id = &#x27;id of User to invite&#x27;;
+const user_name = &#x27;username of User to invite&#x27;;
 
- conversation.invite({
-  id: user_id,
-  user_name: user_name
- }).then((member) =&gt; {
-  displayMessage(member.state + &quot; user: &quot; + user_id + &quot; &quot; + user_name);
- }).catch((error) =&gt; {
-  console.log(error);
- });</pre>
+conversation.invite({
+ id: user_id,
+ user_name: user_name
+}).then((member) =&gt; {
+ displayMessage(member.state + &quot; user: &quot; + user_id + &quot; &quot; + user_name);
+}).catch((error) =&gt; {
+ console.error(&quot;error inviting user &quot;, error);
+});</pre>
 
 
     
@@ -1630,7 +1648,7 @@ otherwise the value will be <code>null</code>.</p>
 
         <tr>
             
-                <td class="name"><code>id or username</code></td>
+                <td class="name"><code>id or user_name</code></td>
             
 
             <td class="type">
@@ -1657,7 +1675,7 @@ otherwise the value will be <code>null</code>.</p>
 
             
 
-            <td class="description last"><p>the id or the username of the user to invite</p></td>
+            <td class="description last"><p>the id or the username of the User to invite</p></td>
         </tr>
 
     
@@ -1709,7 +1727,7 @@ otherwise the value will be <code>null</code>.</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-278">line 278</a>
+				 <a href="conversation.js.html#sunlight-1-line-289">line 289</a>
 			</li>
 		</ul>
 	</dd>
@@ -1760,17 +1778,17 @@ otherwise the value will be <code>null</code>.</p>
         
         <p class="code-caption">invite a user to a conversation</p>
     
-    <pre class="sunlight-highlight-javascript">const user_id = &#x27;user to invite&#x27;;
- const user_name = &#x27;username to invite&#x27;;
+    <pre class="sunlight-highlight-javascript">const user_id = &#x27;id of User to invite&#x27;;
+const user_name = &#x27;username of User to invite&#x27;;
 
- conversation.inviteWithAudio({
-  id: user_id,
-  user_name: user_name
- }).then((member) =&gt; {
-  displayMessage(member.state + &quot; user: &quot; + user_id + &quot; &quot; + user_name);
- }).catch((error) =&gt; {
-  console.log(error);
- });</pre>
+conversation.inviteWithAudio({
+ id: user_id,
+ user_name: user_name
+}).then((member) =&gt; {
+ displayMessage(member.state + &quot; user: &quot; + user_id + &quot; &quot; + user_name);
+}).catch((error) =&gt; {
+ console.error(&quot;error inviting user &quot;, error);
+});</pre>
 
 
     
@@ -1788,9 +1806,9 @@ otherwise the value will be <code>null</code>.</p>
 
     
     <div class="description">
-        <p>Join the given user to this conversation, will typically use this to join<br>
-ourselves to a conversation we create.<br>
-Accept an invitation if our member has state INVITED and no user_id / user_name is given</p>
+        <p>Join the given User to this Conversation. Will typically be used this to join<br>
+ourselves to a Conversation we create.<br>
+Accept an invitation if our Member has state INVITED and no user_id / user_name is given</p>
     </div>
     
 
@@ -1862,7 +1880,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
                 </td>
             
 
-            <td class="description last"><p>The user to join (defaults to this)</p>
+            <td class="description last"><p>The User to join (defaults to this)</p>
                 <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
@@ -1905,7 +1923,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last"><p>the user_name of the user to join</p></td>
+            <td class="description last"><p>the user_name of the User to join</p></td>
         </tr>
 
     
@@ -1929,7 +1947,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last"><p>the user_id of the user to join</p></td>
+            <td class="description last"><p>the user_id of the User to join</p></td>
         </tr>
 
     
@@ -1981,7 +1999,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-139">line 139</a>
+				 <a href="conversation.js.html#sunlight-1-line-141">line 141</a>
 			</li>
 		</ul>
 	</dd>
@@ -2030,11 +2048,13 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
         <h5>Example</h5>
         
-        <p class="code-caption">join a user to a conversation</p>
+        <p class="code-caption">join a user to the Conversation</p>
     
     <pre class="sunlight-highlight-javascript">conversation.join().then((member) =&gt; {
-   console.log(&quot;joined as member: &quot;, member)
- })</pre>
+ console.log(&quot;joined as member: &quot;, member)
+}).catch((error) =&gt; {
+ console.error(&quot;error joining conversation &quot;, error);
+});</pre>
 
 
     
@@ -2052,7 +2072,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
     
     <div class="description">
-        <p>Leave from the conversation</p>
+        <p>Leave from the Conversation</p>
     </div>
     
 
@@ -2257,7 +2277,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-298">line 298</a>
+				 <a href="conversation.js.html#sunlight-1-line-317">line 317</a>
 			</li>
 		</ul>
 	</dd>
@@ -2304,13 +2324,25 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
         
 
     
+        <h5>Example</h5>
+        
+        <p class="code-caption">leave the Conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.leave({reason_code: &quot;mycode&quot;, reason_text: &quot;my reason for leaving&quot;}).then(() =&gt; {
+ console.log(&quot;successfully left conversation&quot;);
+}).catch((error) =&gt; {
+ console.error(&quot;error leaving conversation &quot;, error);
+});</pre>
+
+
+    
 </dd>
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id="sendCustomEvent"><span class="type-signature">&lt;async> </span>sendCustomEvent(params, type, body)</h4>
+    <h4 class="name" id="sendCustomEvent"><span class="type-signature">&lt;async> </span>sendCustomEvent(params)</h4>
     
     
 </dt>
@@ -2318,7 +2350,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
     
     <div class="description">
-        <p>Send a custom event to the conversation</p>
+        <p>Send a custom event to the Conversation</p>
     </div>
     
 
@@ -2370,9 +2402,28 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 
             
 
-            <td class="description last"><p>params of the custom event</p></td>
-        </tr>
+            <td class="description last"><p>params of the custom event</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
 
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
         <tr>
@@ -2425,6 +2476,13 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     </tbody>
 </table>
 
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -2463,7 +2521,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-357">line 357</a>
+				 <a href="conversation.js.html#sunlight-1-line-376">line 376</a>
 			</li>
 		</ul>
 	</dd>
@@ -2520,11 +2578,11 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
         
         <p class="code-caption"> sending a custom event </p>
     
-    <pre class="sunlight-highlight-javascript">conversation.sendCustomEvent({ type: &#x27;my-event&#x27;, body: {}}).then(() =&gt; {
-	  console.log(&#x27;custom event was sent&#x27;);
-	}).catch((error)=&gt;{
-	  console.log(&#x27;error sending the custom event&#x27;, error);
-	});</pre>
+    <pre class="sunlight-highlight-javascript">conversation.sendCustomEvent({ type: &quot;my-event&quot;, body: { mykey: &quot;my value&quot; }}).then((event) =&gt; {
+ console.log(&quot;custom event was sent&quot;, event);
+}).catch((error)=&gt;{
+ console.error(&quot;error sending the custom event&quot;, error);
+});</pre>
 
 
     
@@ -2534,7 +2592,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
             
 <hr>
 <dt>
-    <h4 class="name" id="sendImage"><span class="type-signature">&lt;async> </span>sendImage(file)</h4>
+    <h4 class="name" id="sendImage"><span class="type-signature">&lt;async> </span>sendImage(file, params)</h4>
     
     
 </dt>
@@ -2566,11 +2624,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -2596,19 +2650,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last"><p>single input file (jpeg/jpg)</p></td>
@@ -2618,7 +2660,54 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 
         <tr>
             
-                <td class="name"><code>params.quality_ratio</code></td>
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>params of image sent</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>quality_ratio</code></td>
             
 
             <td class="type">
@@ -2658,7 +2747,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 
         <tr>
             
-                <td class="name"><code>params.medium_size_ratio</code></td>
+                <td class="name"><code>medium_size_ratio</code></td>
             
 
             <td class="type">
@@ -2698,7 +2787,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 
         <tr>
             
-                <td class="name"><code>params.thumbnail_size_ratio</code></td>
+                <td class="name"><code>thumbnail_size_ratio</code></td>
             
 
             <td class="type">
@@ -2726,12 +2815,19 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
             
                 <td class="default">
                 
-                    10
+                    30
                 
                 </td>
             
 
             <td class="description last"><p>a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -2776,7 +2872,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-406">line 406</a>
+				 <a href="conversation.js.html#sunlight-1-line-438">line 438</a>
 			</li>
 		</ul>
 	</dd>
@@ -2827,14 +2923,26 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
         
         <p class="code-caption">sending an image</p>
     
-    <pre class="sunlight-highlight-javascript">conversation.sendImage(fileInput.files[0]).then((imageRequest) =&gt; {
+    <pre class="sunlight-highlight-javascript">const params = {
+ quality_ratio : &quot;90&quot;,
+ medium_size_ratio: &quot;40&quot;,
+ thumbnail_size_ratio: &quot;20&quot;
+}
+conversation.sendImage(fileInput.files[0], params).then((imageRequest) =&gt; {
+ imageRequest.onprogress = (e) =&gt; {
+   console.log(&quot;Image request progress: &quot;, e);
+   console.log(&quot;Image progress: &quot; + e.loaded + &quot;/&quot; + e.total);
+ };
  imageRequest.onabort = (e) =&gt; {
-   console.log(e);
-   console.log(&quot;Image:&quot; + e.type);
+   console.log(&quot;Image request aborted: &quot;, e);
+   console.log(&quot;Image: &quot; + e.type);
  };
  imageRequest.onloadend = (e) =&gt; {
-   console.log(&quot;Image:&quot; + e.type);
+   console.log(&quot;Image request successful: &quot;, e);
+   console.log(&quot;Image: &quot; + e.type);
  };
+}).catch((error) =&gt; {
+ console.error(&quot;error sending the image &quot;, error);
 });</pre>
 
 
@@ -2950,7 +3058,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-315">line 315</a>
+				 <a href="conversation.js.html#sunlight-1-line-334">line 334</a>
 			</li>
 		</ul>
 	</dd>
@@ -3007,11 +3115,11 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
         
         <p class="code-caption"> sending a text </p>
     
-    <pre class="sunlight-highlight-javascript">conversation.sendText(&quot;Hi Nexmo&quot;).then(() =&gt; {
-  console.log(&#x27;message was sent&#x27;);
-	}).catch((error)=&gt;{
-	  console.log(&#x27;error sending the message&#x27;, error);
-	});</pre>
+    <pre class="sunlight-highlight-javascript">conversation.sendText(&quot;Hi Vonage&quot;).then((event) =&gt; {
+ console.log(&quot;message was sent&quot;, event);
+}).catch((error)=&gt;{
+ console.error(&quot;error sending the message &quot;, error);
+});</pre>
 
 
     
@@ -3076,7 +3184,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-500">line 500</a>
+				 <a href="conversation.js.html#sunlight-1-line-539">line 539</a>
 			</li>
 		</ul>
 	</dd>
@@ -3127,6 +3235,16 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">send start typing event when key is pressed</p>
+    
+    <pre class="sunlight-highlight-javascript">messageTextarea.addEventListener(&#x27;keypress&#x27;, (event) =&gt; {
+   conversation.startTyping();
+});</pre>
+
 
     
 </dd>
@@ -3190,7 +3308,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 		<ul class="dummy">
 			<li>
 				<a href="conversation.js.html">conversation.js</a>,
-				 <a href="conversation.js.html#sunlight-1-line-508">line 508</a>
+				 <a href="conversation.js.html#sunlight-1-line-556">line 556</a>
 			</li>
 		</ul>
 	</dd>
@@ -3241,6 +3359,20 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest</p>
 
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">send stop typing event when a key has not been pressed for half a second</p>
+    
+    <pre class="sunlight-highlight-javascript">let timeout = null;
+messageTextarea.addEventListener(&#x27;keyup&#x27;, (event) =&gt; {
+   clearTimeout(timeout);
+   timeout = setTimeout(() =&gt; {
+     conversation.stopTyping();
+   }, 500);
+});</pre>
+
 
     
 </dd>
@@ -3390,7 +3522,7 @@ A member has unmuted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-512">line 512</a>
+				 <a href="sdk.js.html#sunlight-1-line-518">line 518</a>
 			</li>
 		</ul>
 	</dd>
@@ -3417,6 +3549,17 @@ A member has unmuted their audio</p>
     
 
     
+        <h5>Example</h5>
+        
+        <p class="code-caption">listen for audio mute off events </p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;audio:mute:off&quot;, (member, event) =&gt; {
+ console.log(&quot;member that is unmuted &quot;, member);
+ console.log(event);
+});</pre>
+
+
+    
 </dd>
 
         
@@ -3432,7 +3575,7 @@ A member has unmuted their audio</p>
     
     <div class="description">
         <p>Conversation listening for mute on events<br>
-A member has muted their audio</p>
+A Member has muted their audio</p>
     </div>
     
 
@@ -3490,7 +3633,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member object linked to this event</p></td>
+            <td class="description last"><p>the Member object linked to this event</p></td>
         </tr>
 
     
@@ -3556,7 +3699,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-503">line 503</a>
+				 <a href="sdk.js.html#sunlight-1-line-504">line 504</a>
 			</li>
 		</ul>
 	</dd>
@@ -3581,6 +3724,17 @@ A member has muted their audio</p>
     
 
     
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">listen for audio mute on events </p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;audio:mute:on&quot;, (member, event) =&gt; {
+ console.log(&quot;member that is muted &quot;, member);
+ console.log(event);
+});</pre>
+
 
     
 </dd>
@@ -3655,7 +3809,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member who deleted an event</p></td>
+            <td class="description last"><p>the Member who deleted an event</p></td>
         </tr>
 
     
@@ -3721,7 +3875,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-362">line 362</a>
+				 <a href="sdk.js.html#sunlight-1-line-367">line 367</a>
 			</li>
 		</ul>
 	</dd>
@@ -3897,7 +4051,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-345">line 345</a>
+				 <a href="sdk.js.html#sunlight-1-line-350">line 350</a>
 			</li>
 		</ul>
 	</dd>
@@ -3930,10 +4084,10 @@ A member has muted their audio</p>
     
     <pre class="sunlight-highlight-javascript">conversation.on(&quot;image&quot;, (sender, image) =&gt; {
    console.log(sender,image);
-   // Identify your own imageEvent.
-   if (image.from !== conversation.me.id)
-   // Identify if the event corresponds to the currently open conversation.
-   if (image.cid === conversation.id)
+   // Identify if your own imageEvent or someone else&#x27;s.
+   if (image.from !== conversation.me.id){
+       displayImages(image);
+   }
  });</pre>
 
 
@@ -4076,7 +4230,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-329">line 329</a>
+				 <a href="sdk.js.html#sunlight-1-line-332">line 332</a>
 			</li>
 		</ul>
 	</dd>
@@ -4108,11 +4262,13 @@ A member has muted their audio</p>
         <p class="code-caption">listen for text events</p>
     
     <pre class="sunlight-highlight-javascript">conversation.on(&quot;text&quot;,(sender, message) =&gt; {
-   console.log(sender,message);
+   console.log(sender, message);
    // Identify your own message.
-   if (message.from !== conversation.me.id)
-   // Identify if the event corresponds to the currently open conversation.
-   if (message.cid === conversation.id)
+   if (message.from === conversation.me.id){
+       renderMyMessages(message)
+   } else {
+       renderOtherMessages(message)
+   }
  });</pre>
 
 
@@ -4131,7 +4287,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members' seen images.</p>
+        <p>Conversation listening for Members' seen images.</p>
     </div>
     
 
@@ -4255,7 +4411,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-468">line 468</a>
+				 <a href="sdk.js.html#sunlight-1-line-471">line 471</a>
 			</li>
 		</ul>
 	</dd>
@@ -4286,16 +4442,14 @@ A member has muted their audio</p>
         
         <p class="code-caption">listen for seen image events</p>
     
-    <pre class="sunlight-highlight-javascript">conversation.on(&quot;image:seen&quot;, (data, image) =&gt; {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;image:seen&quot;, (member, image) =&gt; {
  console.log(image);
- // Check if the event belongs to this conversation
- if (image.cid === conversation.id)
- // Get the list of members that have seen this event
+ // Get the list of Members that have seen this event
  for (let member_id in image.state.seen_by) {
    if (conversation.me.id !== member_id) {
      console.log(conversation.members.get(member_id).name);
-   }
- }
+   };
+ };
 });</pre>
 
 
@@ -4314,7 +4468,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members callStatus changes.</p>
+        <p>Conversation listening for Members callStatus changes.</p>
     </div>
     
 
@@ -4372,7 +4526,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member that has left</p></td>
+            <td class="description last"><p>the Member that has left</p></td>
         </tr>
 
     
@@ -4414,7 +4568,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-400">line 400</a>
+				 <a href="sdk.js.html#sunlight-1-line-405">line 405</a>
 			</li>
 		</ul>
 	</dd>
@@ -4465,7 +4619,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members being invited.</p>
+        <p>Conversation listening for Members being invited.</p>
     </div>
     
 
@@ -4523,7 +4677,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member that is invited</p></td>
+            <td class="description last"><p>the Member that is invited</p></td>
         </tr>
 
     
@@ -4589,7 +4743,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-388">line 388</a>
+				 <a href="sdk.js.html#sunlight-1-line-393">line 393</a>
 			</li>
 		</ul>
 	</dd>
@@ -4618,7 +4772,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">get the name of the invited member</p>
+        <p class="code-caption">get the name of the invited Member</p>
     
     <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:invited&quot;, (member, event) =&gt; {
  console.log(member.user.name + &quot; invited to the conversation&quot;);
@@ -4640,7 +4794,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for new members.</p>
+        <p>Conversation listening for new Members.</p>
     </div>
     
 
@@ -4698,7 +4852,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member that joined</p></td>
+            <td class="description last"><p>the Member that joined</p></td>
         </tr>
 
     
@@ -4764,7 +4918,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-375">line 375</a>
+				 <a href="sdk.js.html#sunlight-1-line-380">line 380</a>
 			</li>
 		</ul>
 	</dd>
@@ -4793,7 +4947,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">get the name of the new member</p>
+        <p class="code-caption">get the name of the new Member</p>
     
     <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:joined&quot;, (member, event) =&gt; {
  console.log(event.id)
@@ -4816,7 +4970,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members leaving (kicked or left).</p>
+        <p>Conversation listening for Members leaving (kicked or left).</p>
     </div>
     
 
@@ -4874,7 +5028,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member that has left</p></td>
+            <td class="description last"><p>the Member that has left</p></td>
         </tr>
 
     
@@ -4940,7 +5094,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-411">line 411</a>
+				 <a href="sdk.js.html#sunlight-1-line-416">line 416</a>
 			</li>
 		</ul>
 	</dd>
@@ -4969,7 +5123,7 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">get the username of the member that left</p>
+        <p class="code-caption">get the username of the Member that left</p>
     
     <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:left&quot;, (member , event) =&gt; {
  console.log(member.user.name + &quot; left&quot;);
@@ -4992,8 +5146,8 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members media changes (audio,text)</p>
-<p>Change in media presence state. They are in the conversation with text or audio.</p>
+        <p>Conversation listening for Members media changes (audio,text)</p>
+<p>Change in media presence state. They are in the Conversation with text or audio.</p>
     </div>
     
 
@@ -5051,7 +5205,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member object linked to this event</p></td>
+            <td class="description last"><p>the Member object linked to this event</p></td>
         </tr>
 
     
@@ -5166,7 +5320,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-487">line 487</a>
+				 <a href="sdk.js.html#sunlight-1-line-488">line 488</a>
 			</li>
 		</ul>
 	</dd>
@@ -5195,11 +5349,11 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">get every member's media change events </p>
+        <p class="code-caption">get every Member's media change events </p>
     
-    <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:media&quot;, (from, event) =&gt; {
- console.log(from.media.audio_settings.enabled); //true
-	console.log(event.body.media); //{&quot;audio_settings&quot;: {&quot;enabled&quot;: true, &quot;muted&quot;: false, &quot;earmuffed&quot;: false}}
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;member:media&quot;, (member, event) =&gt; {
+ console.log(member.media.audio_settings.enabled); //true
+ console.log(event.body.media); //{&quot;audio&quot;: true, &quot;audio_settings&quot;: {&quot;enabled&quot;: true, &quot;muted&quot;: false, &quot;earmuffed&quot;: false}}
 });</pre>
 
 
@@ -5218,7 +5372,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members' seen texts.</p>
+        <p>Conversation listening for Members' seen texts.</p>
     </div>
     
 
@@ -5276,7 +5430,7 @@ A member has muted their audio</p>
 
             
 
-            <td class="description last"><p>the member that saw the text</p></td>
+            <td class="description last"><p>the Member that saw the text</p></td>
         </tr>
 
     
@@ -5342,7 +5496,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-448">line 448</a>
+				 <a href="sdk.js.html#sunlight-1-line-453">line 453</a>
 			</li>
 		</ul>
 	</dd>
@@ -5373,10 +5527,8 @@ A member has muted their audio</p>
         
         <p class="code-caption">listen for seen text events</p>
     
-    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:seen&quot;, (data, text) =&gt; {
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:seen&quot;, (member, text) =&gt; {
  console.log(text);
- // Check if the event belongs to this conversation
- if (text.cid === conversation.id)
  // Get the list of members that have seen this event
  for (let member_id in text.state.seen_by) {
    if (conversation.me.id !== member_id) {
@@ -5401,7 +5553,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members stopped typing.</p>
+        <p>Conversation listening for Members stopped typing.</p>
     </div>
     
 
@@ -5525,7 +5677,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-436">line 436</a>
+				 <a href="sdk.js.html#sunlight-1-line-441">line 441</a>
 			</li>
 		</ul>
 	</dd>
@@ -5554,10 +5706,10 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">get the username of the member that stopped typing</p>
+        <p class="code-caption">get the display name of the Member that stopped typing</p>
     
-    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:typing:off&quot;, (data) =&gt; {
- console.log(data.name + &quot; stopped typing...&quot;);
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:typing:off&quot;, (member, event) =&gt; {
+ console.log(member.display_name + &quot; stopped typing...&quot;);
 });</pre>
 
 
@@ -5576,7 +5728,7 @@ A member has muted their audio</p>
 
     
     <div class="description">
-        <p>Conversation listening for members typing.</p>
+        <p>Conversation listening for Members typing.</p>
     </div>
     
 
@@ -5700,7 +5852,7 @@ A member has muted their audio</p>
 		<ul class="dummy">
 			<li>
 				<a href="sdk.js.html">sdk.js</a>,
-				 <a href="sdk.js.html#sunlight-1-line-424">line 424</a>
+				 <a href="sdk.js.html#sunlight-1-line-429">line 429</a>
 			</li>
 		</ul>
 	</dd>
@@ -5729,10 +5881,10 @@ A member has muted their audio</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">get the username of the member that is typing</p>
+        <p class="code-caption">get the display name of the Member that is typing</p>
     
-    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:typing:on&quot;, (data) =&gt; {
- console.log(data.name + &quot; is typing...&quot;);
+    <pre class="sunlight-highlight-javascript">conversation.on(&quot;text:typing:on&quot;, (member, event) =&gt; {
+ console.log(member.display_name + &quot; is typing...&quot;);
 });</pre>
 
 
@@ -5789,7 +5941,7 @@ A member has muted their audio</p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

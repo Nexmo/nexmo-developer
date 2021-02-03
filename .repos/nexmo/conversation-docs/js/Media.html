@@ -533,94 +533,6 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="_cleanMediaProperties"><span class="type-signature"></span>_cleanMediaProperties()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Cleans up the user's media before leaving the conversation</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-361">line 361</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
     <h4 class="name" id="disable"><span class="type-signature"></span>disable()</h4>
     
     
@@ -678,7 +590,7 @@ NexmoClient#rtcstats:report</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-610">line 610</a>
+				 <a href="modules_media.js.html#sunlight-1-line-507">line 507</a>
 			</li>
 		</ul>
 	</dd>
@@ -727,13 +639,14 @@ NexmoClient#rtcstats:report</p>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">function disable() {
-  conversation.media.disable()
-     .then((response) =&gt; {
-      }).catch((error) =&gt; {
-          console.log(error);
-      });
-}</pre>
+        <p class="code-caption">Disable media in the Conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.media.disable()
+.then((response) =&gt; {
+  console.log(response);
+}).catch((error) =&gt; {
+  console.error(error);
+});</pre>
 
 
     
@@ -994,7 +907,7 @@ NexmoClient#rtcstats:report</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-570">line 570</a>
+				 <a href="modules_media.js.html#sunlight-1-line-468">line 468</a>
 			</li>
 		</ul>
 	</dd>
@@ -1043,32 +956,29 @@ NexmoClient#rtcstats:report</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Enable media in this conversation</p>
+        <p class="code-caption">Enable media in the Conversation</p>
     
-    <pre class="sunlight-highlight-javascript">function enable() {
-  conversation.media.enable()
-     .then((stream) =&gt; {
-         const media = document.createElement(&quot;audio&quot;);
-         const source = document.createElement(&quot;source&quot;);
-         const media_div = document.createElement(&quot;div&quot;);
-         media.appendChild(source);
-         media_div.appendChild(media);
-         document.insertBefore(media_div);
-         // Older browsers may not have srcObject
-         if (&quot;srcObject&quot; in media) {
-           media.srcObject = stream;
-         } else {
-           // Avoid using this in new browsers, as it is going away.
-           media.src = window.URL.createObjectURL(stream);
-         }
-         media.onloadedmetadata = (e) =&gt; {
-           media.play();
-         };
-
-		 }).catch((error) =&gt; {
-          console.log(error);
-     });
-}</pre>
+    <pre class="sunlight-highlight-javascript">conversation.media.enable()
+.then((stream) =&gt; {
+   const media = document.createElement(&quot;audio&quot;);
+   const source = document.createElement(&quot;source&quot;);
+   const media_div = document.createElement(&quot;div&quot;);
+   media.appendChild(source);
+   media_div.appendChild(media);
+   document.insertBefore(media_div);
+   // Older browsers may not have srcObject
+   if (&quot;srcObject&quot; in media) {
+     media.srcObject = stream;
+   } else {
+     // Avoid using this in new browsers, as it is going away.
+     media.src = window.URL.createObjectURL(stream);
+   }
+   media.onloadedmetadata = (e) =&gt; {
+     media.play();
+   };
+}).catch((error) =&gt; {
+   console.error(error);
+});</pre>
 
 
     
@@ -1086,7 +996,7 @@ NexmoClient#rtcstats:report</p>
 
     
     <div class="description">
-        <p>Mute our member</p>
+        <p>Mute your Member</p>
     </div>
     
 
@@ -1243,7 +1153,7 @@ NexmoClient#rtcstats:report</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-480">line 480</a>
+				 <a href="modules_media.js.html#sunlight-1-line-382">line 382</a>
 			</li>
 		</ul>
 	</dd>
@@ -1272,118 +1182,14 @@ NexmoClient#rtcstats:report</p>
     
         <h5>Example</h5>
         
-        <p class="code-caption">Mute audio stream in conversation</p>
+        <p class="code-caption">Mute your audio stream in the Conversation</p>
     
-    <pre class="sunlight-highlight-javascript">media.mute(true)</pre>
+    <pre class="sunlight-highlight-javascript">// Mute your Member
+conversation.media.mute(true);
 
+// Unmute your Member
+conversation.media.mute(false);</pre>
 
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="playStream"><span class="type-signature">&lt;async> </span>playStream()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Play an audio stream in a conversation</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-703">line 703</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -1392,7 +1198,7 @@ NexmoClient#rtcstats:report</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="sayText"><span class="type-signature">&lt;async> </span>sayText(params)</h4>
+    <h4 class="name" id="playStream"><span class="type-signature">&lt;async> </span>playStream(params)</h4>
     
     
 </dt>
@@ -1400,7 +1206,7 @@ NexmoClient#rtcstats:report</p>
 
     
     <div class="description">
-        <p>Play a voice text in a conversation</p>
+        <p>Play an audio stream in the Conversation</p>
     </div>
     
 
@@ -1478,56 +1284,6 @@ NexmoClient#rtcstats:report</p>
 
         <tr>
             
-                <td class="name"><code>text</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the text to say in the conversation</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>voice_name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><ul>
-<li></li>
-</ul></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>level</code></td>
             
 
@@ -1545,20 +1301,20 @@ NexmoClient#rtcstats:report</p>
 
             
 
-            <td class="description last"><p>[0] -</p></td>
+            <td class="description last"><p>Set the audio level of the audio stream: min=-1 max=1 increment=0.1.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>queue</code></td>
+                <td class="name"><code>stream_url</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">array</span>
 
 
 
@@ -1569,9 +1325,7 @@ NexmoClient#rtcstats:report</p>
 
             
 
-            <td class="description last"><ul>
-<li></li>
-</ul></td>
+            <td class="description last"><p>Link to the audio file.</p></td>
         </tr>
 
     
@@ -1584,7 +1338,7 @@ NexmoClient#rtcstats:report</p>
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">number</span>
 
 
 
@@ -1595,9 +1349,7 @@ NexmoClient#rtcstats:report</p>
 
             
 
-            <td class="description last"><ul>
-<li></li>
-</ul></td>
+            <td class="description last"><p>The number of times to repeat audio. Set to 0 to loop infinitely.</p></td>
         </tr>
 
     
@@ -1649,7 +1401,7 @@ NexmoClient#rtcstats:report</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-631">line 631</a>
+				 <a href="modules_media.js.html#sunlight-1-line-628">line 628</a>
 			</li>
 		</ul>
 	</dd>
@@ -1698,7 +1450,453 @@ NexmoClient#rtcstats:report</p>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">conversation.media.sayText({text:&#x27;hi&#x27;});</pre>
+        <p class="code-caption">Play an audio stream in the Conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.media.playStream({ level: 0.5, stream_url: [&quot;https://nexmo-community.github.io/ncco-examples/assets/voice_api_audio_streaming.mp3&quot;], loop: 1 })
+.then((response) =&gt; {
+  console.log(&quot;response: &quot;, response);
+})
+.catch((error) =&gt; {
+  console.error(&quot;error: &quot;, error);
+});</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="sayText"><span class="type-signature">&lt;async> </span>sayText(params)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Play a voice text in the Conversation</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The text to say in the Conversation.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>voice_name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    "Amy"
+                
+                </td>
+            
+
+            <td class="description last"><p>Name of the voice to use for speech to text.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>level</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last"><p>Set the audio level of the audio stream: min=-1 max=1 increment=0.1.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>queue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>?</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last"><p>The number of times to repeat audio. Set to 0 to loop infinitely.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ssml</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Customize the spoken text with <a href="https://developer.nexmo.com/voice/voice-api/guides/customizing-tts">Speech Synthesis Markup Language (SSML)</a> specification</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="modules_media.js.html">modules/media.js</a>,
+				 <a href="modules_media.js.html#sunlight-1-line-536">line 536</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="NXMEvent.html">NXMEvent</a>></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Play speech to text in the Conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.media.sayText({text:&quot;hi&quot;})
+.then((response) =&gt; {
+   console.log(response);
+})
+.catch((error) =&gt; {
+    console.error(error);
+});</pre>
 
 
     
@@ -1716,7 +1914,7 @@ NexmoClient#rtcstats:report</p>
 
     
     <div class="description">
-        <p>Send DTMF in a conversation</p>
+        <p>Send DTMF in the Conversation</p>
     </div>
     
 
@@ -1813,7 +2011,7 @@ NexmoClient#rtcstats:report</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-664">line 664</a>
+				 <a href="modules_media.js.html#sunlight-1-line-575">line 575</a>
 			</li>
 		</ul>
 	</dd>
@@ -1862,7 +2060,15 @@ NexmoClient#rtcstats:report</p>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">conversation.media.sendDTMF(&#x27;digit&#x27;);</pre>
+        <p class="code-caption">Send DTMF in the Conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.media.sendDTMF(&quot;digit&quot;);
+.then((response) =&gt; {
+   console.log(response);
+})
+.catch((error) =&gt; {
+    console.error(error);
+});</pre>
 
 
     
@@ -1927,7 +2133,7 @@ NexmoClient#rtcstats:report</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-736">line 736</a>
+				 <a href="modules_media.js.html#sunlight-1-line-662">line 662</a>
 			</li>
 		</ul>
 	</dd>
@@ -1976,17 +2182,18 @@ NexmoClient#rtcstats:report</p>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">Send ringing event
-function startRinging() {
-  conversation.media.startRinging()
-     .then((response) =&gt; {
-      }).catch((error) =&gt; {
-          console.log(error);
-      });
-}
+        <p class="code-caption">Send start ringing event in the Conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.media.startRinging()
+.then((response) =&gt; {
+   console.log(response);
+}).catch((error) =&gt; {
+   console.error(error);
+});
 
+// Listen for start ringing event
 conversation.on(&#x27;audio:ringing:start&#x27;, (data) =&gt; {
-console.log(&quot;ringing&quot;);
+   console.log(&quot;ringing started: &quot;, data);
 });</pre>
 
 
@@ -2052,7 +2259,7 @@ console.log(&quot;ringing&quot;);
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-770">line 770</a>
+				 <a href="modules_media.js.html#sunlight-1-line-697">line 697</a>
 			</li>
 		</ul>
 	</dd>
@@ -2101,18 +2308,19 @@ console.log(&quot;ringing&quot;);
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">Send ringing event
-function stopRinging() {
-  conversation.media.stopRinging()
-   .then((response) =&gt; {
-   }).catch((error) =&gt; {
-     console.log(error);
-   });
-}
+        <p class="code-caption">Send stop ringing event in the Conversation</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.media.stopRinging()
+.then((response) =&gt; {
+   console.log(response);
+}).catch((error) =&gt; {
+   console.error(error);
+});
 
+// Listen for stop ringing event
 conversation.on(&#x27;audio:ringing:stop&#x27;, (data) =&gt; {
- console.log(&quot;ringing stopped&quot;);
-}</pre>
+   console.log(&quot;ringing stopped: &quot;, data);
+});</pre>
 
 
     
@@ -2153,8 +2361,6 @@ conversation.on(&#x27;audio:ringing:stop&#x27;, (data) =&gt; {
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
         
 
@@ -2181,18 +2387,10 @@ conversation.on(&#x27;audio:ringing:stop&#x27;, (data) =&gt; {
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>audio constraints</p></td>
+            <td class="description last"><p>audio constraints - { deviceId: { exact: selectedAudioDeviceId } }</p></td>
         </tr>
 
     
@@ -2213,52 +2411,10 @@ conversation.on(&#x27;audio:ringing:stop&#x27;, (data) =&gt; {
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>rtc object type</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>constraints.audio</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>set audio constraints - { deviceId: { exact: microphoneId } }</p></td>
+            <td class="description last"><p>rtc object type - audio</p></td>
         </tr>
 
     
@@ -2303,7 +2459,7 @@ conversation.on(&#x27;audio:ringing:stop&#x27;, (data) =&gt; {
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-448">line 448</a>
+				 <a href="modules_media.js.html#sunlight-1-line-344">line 344</a>
 			</li>
 		</ul>
 	</dd>
@@ -2358,7 +2514,14 @@ conversation.on(&#x27;audio:ringing:stop&#x27;, (data) =&gt; {
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">&lt;caption&gt;Update the stream currently being used with a new one&lt;/caption&gt;</pre>
+        <p class="code-caption">Update the stream currently being used with a new audio source</p>
+    
+    <pre class="sunlight-highlight-javascript">conversation.media.updateAudioConstraints({ deviceId: { exact: selectedAudioDeviceId } }, &quot;audio&quot;)
+.then((response) =&gt; {
+  console.log(response);
+}).catch((error) =&gt; {
+  console.error(error);
+});</pre>
 
 
     
@@ -2418,7 +2581,7 @@ conversation.on(&#x27;audio:ringing:stop&#x27;, (data) =&gt; {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

@@ -92,8 +92,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Copyright (c) Nexmo Inc.
  */
 require('webrtc-adapter');
+const sdptransform = require('sdp-transform');
+const RTCStats = require("./rtcstats/rtcstats");
 const loglevel_1 = require("loglevel");
 const browserDetect = __importStar(require("detect-browser"));
+const nexmoClientError_1 = require("../nexmoClientError");
 /**
  * RTC helper object for accessing webRTC API.
  * @class RtcHelper
@@ -103,7 +106,7 @@ class RtcHelper {
     constructor() {
         this.log = loglevel_1.getLogger(this.constructor.name);
     }
-    getUserAudio(audioConstraints = true) {
+    static getUserAudio(audioConstraints = true) {
         let constraintsToUse = {
             video: false,
             audio: audioConstraints
@@ -117,12 +120,6 @@ class RtcHelper {
             return;
         };
         return pc;
-    }
-    _playAudioStream(stream) {
-        const audio = new Audio();
-        audio.srcObject = stream;
-        audio.autoplay = true;
-        return audio;
     }
     _getWindowLocationProtocol() {
         return window.location.protocol;
@@ -147,8 +144,269 @@ class RtcHelper {
         return valid;
     }
     ;
+    static cleanCallMediaIfFailed(call) {
+        setTimeout(() => {
+            if (!call.conversation) {
+                this.cleanMediaProperties(call);
+                call.status = call.CALL_STATUS.FAILED;
+                call.application.emit('call:status:changed', call);
+            }
+        }, 5000);
+    }
+    static cleanMediaProperties(call) {
+        if (call.rtcObjects) {
+            for (const leg_id in call.rtcObjects) {
+                call.rtcObjects[leg_id].pc.close();
+                delete call.rtcObjects[leg_id].pc;
+                RtcHelper.closeStream(call.rtcObjects[leg_id].stream);
+            }
+        }
+        call.application.activeStreams = [];
+        call.rtcObjects = {};
+        if (call.conversation &amp;&amp; call.conversation.media)
+            call.conversation.media.rtcStats = null;
+    }
+    static playAudioStream(stream) {
+        const audio = new Audio();
+        audio.srcObject = stream;
+        audio.autoplay = true;
+        return audio;
+    }
+    // Media methods
+    static createDummyCandidateSDP(pc) {
+        const candidate = {
+            foundation: 1176891032,
+            component: 1,
+            transport: 'udp',
+            priority: 2122260223,
+            ip: '0.0.0.0',
+            port: 9,
+            type: 'host',
+            generation: 0,
+            'network-id': 1,
+            'network-cost': 50
+        };
+        const sdpNewObj = sdptransform.parse(pc.localDescription.sdp);
+        sdpNewObj.media[0].candidates = [candidate];
+        return sdptransform.write(sdpNewObj);
+    }
+    static createRTCPeerConnectionConfig(application) {
+        return {
+            iceTransportPolicy: 'all',
+            bundlePolicy: 'balanced',
+            rtcpMuxPolicy: 'require',
+            iceCandidatePoolSize: '0',
+            ...(application.session.config &amp;&amp;
+                application.session.config.iceServers &amp;&amp; {
+                iceServers: application.session.config.iceServers
+            })
+        };
+    }
+    static createPeerConnection(application) {
+        const pc_config = this.createRTCPeerConnectionConfig(application);
+        const pc = new RTCPeerConnection(pc_config);
+        return pc;
+    }
+    static sendOffer(application, pc, conversation) {
+        const sdpOfferNew = this.createDummyCandidateSDP(pc);
+        const offer = { sdp: sdpOfferNew, type: "offer" };
+        const path = `conversations/${conversation.id}/rtc`;
+        return application.session.sendNetworkRequest({
+            type: 'POST',
+            path,
+            data: {
+                from: conversation.me.id,
+                body: {
+                    offer
+                }
+            }
+        });
+    }
+    ;
+    static createLeg(application, pc) {
+        const sdpOfferNew = this.createDummyCandidateSDP(pc);
+        const offer = { sdp: sdpOfferNew, type: "offer" };
+        return application.session.sendNetworkRequest({
+            type: 'POST',
+            path: `legs`,
+            version: `beta`,
+            data: {
+                body: {
+                    offer
+                }
+            }
+        });
+    }
+    static closeStream(stream) {
+        stream.getTracks().forEach((track) => {
+            track.stop();
+        });
+    }
+    static emitMediaStream(member, pc, stream) {
+        member.emit("media:stream:on", {
+            pc,
+            stream,
+            type: "audio",
+            streamIndex: 0
+        });
+    }
+    static _initStatsEvents(application, call) {
+        if (!(browserDetect.detect().name === 'node')) {
+            const emit_event = (type, mos, report, mos_report) => {
+                if (type === "mos") {
+                    if (mos) {
+                        application.emit("rtcstats:report", mos, report, call.conversation);
+                    }
+                }
+                else if (type === "mos_report") {
+                    application.emit("rtcstats:report", mos, null, call.conversation, mos_report);
+                }
+            };
+            return new RTCStats(emit_event, true, // isCallback
+            1000, // interval at which getStats will be polled,
+            [""] // RTCPeerConnection prefixes to wrap.
+            );
+        }
+    }
+    static enableCallStats(context) {
+        const { application, conversation, pc } = context;
+        if (application.session.config.callstats &amp;&amp;
+            application.session.config.callstats.enabled) {
+            application.session.callstats.addNewFabric(pc, conversation.me.id, "audio", conversation.id);
+        }
+    }
+    static attachConversationEventHandlers(context) {
+        const { conversation, pc, log } = context;
+        // We want to be able to handle these events, for this  member, before they get propagated out
+        conversation.once("rtc:answer", (event) => {
+            if (!pc) {
+                log.warn("RTC: received an answer too late");
+                return;
+            }
+            pc.setRemoteDescription(new RTCSessionDescription({
+                type: "answer",
+                sdp: event.body.answer,
+            }));
+        });
+    }
+    static attachPeerConnectionEventHandlers(context) {
+        let stream;
+        let offer_sent = false;
+        const { application, conversation, pc, streamIndex, localStream, log, rtcObjects, resolve, reject } = context;
+        pc.ontrack = (evt) => {
+            stream = evt.streams[0];
+            application.activeStreams.push(stream);
+            this.emitMediaStream(conversation.me, pc, stream);
+        };
+        pc.onconnectionstatechange = (event) => this.onconnectionstatechangeHandler(pc, log, () => resolve(stream), () => reject());
+        pc.onnegotiationneeded = () => this.onnegotiationneededHandler(pc, (nexmoError) => reject(nexmoError));
+        pc.oniceconnectionstatechange = (connection_event) => this.oniceconnectionstatechange(connection_event, pc, log, (nexmoError) => reject(nexmoError));
+        pc.onicecandidate = async (event) => {
+            if (event.candidate &amp;&amp; !offer_sent &amp;&amp; pc) {
+                offer_sent = true;
+                try {
+                    const { rtc_id } = await RtcHelper.sendOffer(application, pc, conversation);
+                    if (pc.trace)
+                        pc.trace("rtc_id", rtc_id);
+                    rtcObjects[rtc_id] = {
+                        rtc_id,
+                        pc,
+                        stream: localStream,
+                        type: "audio",
+                        streamIndex: streamIndex,
+                    };
+                }
+                catch (error) {
+                    throw new nexmoClientError_1.NexmoApiError(error);
+                }
+            }
+            ;
+        };
+        localStream.getTracks().forEach((track) => pc.addTrack(track));
+    }
+    static prewarmLeg(application) {
+        return new Promise(async (resolve, reject) => {
+            let offer_sent = false;
+            let stream;
+            let legId;
+            let rtcObjects = {};
+            const log = loglevel_1.getLogger(this.constructor.name);
+            try {
+                let localStream = await this.getUserAudio();
+                const pc = this.createPeerConnection(application);
+                pc.ontrack = (evt) => {
+                    stream = evt.streams[0];
+                    application.activeStreams.push(stream);
+                };
+                pc.onconnectionstatechange = (event) => this.onconnectionstatechangeHandler(pc, log, () => resolve({ stream, legId, rtcObjects }), () => reject());
+                pc.onnegotiationneeded = () => this.onnegotiationneededHandler(pc, (nexmoError) => reject(nexmoError));
+                pc.oniceconnectionstatechange = (connection_event) => this.oniceconnectionstatechange(connection_event, pc, log, (nexmoError) => reject(nexmoError));
+                pc.onicecandidate = async (event) => {
+                    if (event.candidate &amp;&amp; !offer_sent &amp;&amp; pc) {
+                        offer_sent = true;
+                        const { rtc_id, sdp } = await this.createLeg(application, pc);
+                        legId = rtc_id;
+                        rtcObjects[legId] = {
+                            rtc_id,
+                            pc,
+                            stream: localStream,
+                            type: 'audio',
+                            streamIndex: 1
+                        };
+                        return pc.setRemoteDescription(new RTCSessionDescription({
+                            type: 'answer',
+                            sdp
+                        }));
+                    }
+                };
+                localStream.getTracks().forEach((track) => pc.addTrack(track));
+            }
+            catch (error) {
+                reject(new nexmoClientError_1.NexmoClientError(error));
+            }
+        });
+    }
 }
 exports.default = RtcHelper;
+RtcHelper.onconnectionstatechangeHandler = (pc, log, resolveCallback, rejectCallback) => {
+    switch (pc.connectionState) {
+        case "connected":
+            log.info("The connection has become fully connected");
+            resolveCallback();
+            break;
+        case "disconnected":
+        case "failed":
+            rejectCallback();
+            log.info("One or more transports has terminated unexpectedly or in an error");
+            break;
+        case "closed":
+            log.info("The connection has been closed");
+            break;
+    }
+};
+RtcHelper.oniceconnectionstatechange = (connection_event, pc, log, rejectCallback) => {
+    switch (pc.iceConnectionState) {
+        // https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/iceConnectionState
+        case "disconnected":
+            log.warn("One or more transports is disconnected", pc.iceConnectionState);
+            break;
+        case "failed":
+            rejectCallback(new nexmoClientError_1.NexmoClientError(connection_event));
+            log.warn("One or more transports has terminated unexpectedly or in an error", connection_event);
+            break;
+        default:
+            log.info("The ice connection status changed", pc.iceConnectionState);
+    }
+};
+RtcHelper.onnegotiationneededHandler = async (pc, rejectCallback) => {
+    try {
+        const offer = await pc.createOffer();
+        return pc.setLocalDescription(offer);
+    }
+    catch (error) {
+        rejectCallback(new nexmoClientError_1.NexmoClientError(error));
+    }
+};
 module.exports = RtcHelper;
 </pre>
     </article>
@@ -195,7 +453,7 @@ module.exports = RtcHelper;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

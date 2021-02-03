@@ -200,20 +200,22 @@ class Conversation {
         }
     }
     /**
-     * Join the given user to this conversation, will typically use this to join
-     * ourselves to a conversation we create.
-     * Accept an invitation if our member has state INVITED and no user_id / user_name is given
+     * Join the given User to this Conversation. Will typically be used this to join
+     * ourselves to a Conversation we create.
+     * Accept an invitation if our Member has state INVITED and no user_id / user_name is given
      *
-     * @param {object} [params = this.application.me.id] The user to join (defaults to this)
-     * @param {string} params.user_name the user_name of the user to join
-     * @param {string} params.user_id the user_id of the user to join
+     * @param {object} [params = this.application.me.id] The User to join (defaults to this)
+     * @param {string} params.user_name the user_name of the User to join
+     * @param {string} params.user_id the user_id of the User to join
      * @returns {Promise&lt;Member>}
      *
-     * @example &lt;caption>join a user to a conversation&lt;/caption>
+     * @example &lt;caption>join a user to the Conversation&lt;/caption>
      *
-     *  conversation.join().then((member) => {
-     *    console.log("joined as member: ", member)
-     *  })
+     * conversation.join().then((member) => {
+     *  console.log("joined as member: ", member)
+     * }).catch((error) => {
+     *  console.error("error joining conversation ", error);
+     * });
     */
     async join(params) {
         try {
@@ -248,11 +250,13 @@ class Conversation {
     /**
      * Delete a conversation
      * @returns {Promise}
-     * @example &lt;caption>delete the conversation&lt;/caption>
+     * @example &lt;caption>delete the Conversation&lt;/caption>
      *
-     *  conversation.del().then(() => {
+     * conversation.del().then(() => {
      *    console.log("conversation deleted");
-     * 	})
+     * }).catch((error) => {
+     *  console.error("error deleting conversation ", error);
+     * });
     */
     async del() {
         try {
@@ -271,6 +275,13 @@ class Conversation {
      * Delete an NXMEvent (e.g. Text)
      * @param {NXMEvent} event
      * @returns {Promise}
+     * @example &lt;caption>delete an Event&lt;/caption>
+     *
+     * conversation.deleteEvent(eventToBeDeleted).then(() => {
+     *  console.log("event was deleted");
+     * }).catch((error) => {
+     *  console.error("error deleting the event ", error);
+     * });
      *
     */
     deleteEvent(event) {
@@ -279,22 +290,22 @@ class Conversation {
     /**
       * Invite the given user (id or name) to this conversation
       * @param {Member} params
-      * @param {string} [params.id or username] - the id or the username of the user to invite
+      * @param {string} [params.id or user_name] - the id or the username of the User to invite
       *
       * @returns {Promise&lt;Member>}
       *
-      * @example &lt;caption>invite a user to a conversation&lt;/caption>
-      *  const user_id = 'user to invite';
-      *  const user_name = 'username to invite';
+      * @example &lt;caption>invite a user to a Conversation&lt;/caption>
+      * const user_id = 'id of User to invite';
+      * const user_name = 'username of User to invite';
       *
-      *  conversation.invite({
-      *   id: user_id,
-      *   user_name: user_name
-      *  }).then((member) => {
-      *   displayMessage(member.state + " user: " + user_id + " " + user_name);
-      *  }).catch((error) => {
-      *   console.log(error);
-      *  });
+      * conversation.invite({
+      *  id: user_id,
+      *  user_name: user_name
+      * }).then((member) => {
+      *  displayMessage(member.state + " user: " + user_id + " " + user_name);
+      * }).catch((error) => {
+      *  console.error("error inviting user ", error);
+      * });
       *
     */
     async invite(params) {
@@ -336,22 +347,22 @@ class Conversation {
     /**
       * Invite the given user (id or name) to this conversation with media audio
       * @param {Member} params
-      * @param {string} [params.id or username] - the id or the username of the user to invite
+      * @param {string} [params.id or user_name] - the id or the username of the User to invite
       *
       * @returns {Promise&lt;Member>}
       *
       * @example &lt;caption>invite a user to a conversation&lt;/caption>
-      *  const user_id = 'user to invite';
-      *  const user_name = 'username to invite';
+      * const user_id = 'id of User to invite';
+      * const user_name = 'username of User to invite';
       *
-      *  conversation.inviteWithAudio({
-      *   id: user_id,
-      *   user_name: user_name
-      *  }).then((member) => {
-      *   displayMessage(member.state + " user: " + user_id + " " + user_name);
-      *  }).catch((error) => {
-      *   console.log(error);
-      *  });
+      * conversation.inviteWithAudio({
+      *  id: user_id,
+      *  user_name: user_name
+      * }).then((member) => {
+      *  displayMessage(member.state + " user: " + user_id + " " + user_name);
+      * }).catch((error) => {
+      *  console.error("error inviting user ", error);
+      * });
       *
     */
     inviteWithAudio(params) {
@@ -368,11 +379,19 @@ class Conversation {
         return this.invite(params);
     }
     /**
-     * Leave from the conversation
-   * @param {object} [reason] the reason for leaving the conversation
-   * @param {string} [reason.reason_code] the code of the reason
-   * @param {string} [reason.reason_text] the description of the reason
+     * Leave from the Conversation
+     * @param {object} [reason] the reason for leaving the conversation
+     * @param {string} [reason.reason_code] the code of the reason
+     * @param {string} [reason.reason_text] the description of the reason
      * @returns {Promise}
+     * @example &lt;caption>leave the Conversation&lt;/caption>
+     *
+     * conversation.leave({reason_code: "mycode", reason_text: "my reason for leaving"}).then(() => {
+     *  console.log("successfully left conversation");
+     * }).catch((error) => {
+     *  console.error("error leaving conversation ", error);
+     * });
+     *
     */
     leave(reason) {
         return this.me.kick(reason);
@@ -384,11 +403,11 @@ class Conversation {
       * @returns {Promise&lt;TextEvent>} - the text message that was sent
       *
       * @example &lt;caption> sending a text &lt;/caption>
-      * conversation.sendText("Hi Nexmo").then(() => {
-      *   console.log('message was sent');
-      *	}).catch((error)=>{
-      *	  console.log('error sending the message', error);
-      *	});
+      * conversation.sendText("Hi Vonage").then((event) => {
+      *  console.log("message was sent", event);
+      * }).catch((error)=>{
+      *  console.error("error sending the message ", error);
+      * });
       *
     */
     async sendText(text) {
@@ -418,19 +437,19 @@ class Conversation {
         }
     }
     /**
-      * Send a custom event to the conversation
+      * Send a custom event to the Conversation
       * @param {object} params - params of the custom event
-      * @param {string} type - the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.
-      * @param {object} body - customizable key value pairs
+      * @param {string} params.type the name of the custom event. Must not exceed 100 char length and contain only alpha numerics and '-' and '_' characters.
+      * @param {object} params.body customizable key value pairs
       *
       * @returns {Promise&lt;NXMEvent>} - the custom event that was sent
       *
       * @example &lt;caption> sending a custom event &lt;/caption>
-      * conversation.sendCustomEvent({ type: 'my-event', body: {}}).then(() => {
-      *	  console.log('custom event was sent');
-      *	}).catch((error)=>{
-      *	  console.log('error sending the custom event', error);
-      *	});
+      * conversation.sendCustomEvent({ type: "my-event", body: { mykey: "my value" }}).then((event) => {
+      *  console.log("custom event was sent", event);
+      * }).catch((error)=>{
+      *  console.error("error sending the custom event", error);
+      * });
       *
     */
     async sendCustomEvent({ type, body }) {
@@ -465,21 +484,34 @@ class Conversation {
      * implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
      *
      * @param {File} file single input file (jpeg/jpg)
+     * @param {object} params - params of image sent
      * @param {string} [params.quality_ratio = 100] a value between 0 and 100. 0 indicates 'maximum compression' and the lowest quality, 100 will result in the highest quality image
      * @param {string} [params.medium_size_ratio = 50] a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original
-     * @param {string} [params.thumbnail_size_ratio = 10] a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original
+     * @param {string} [params.thumbnail_size_ratio = 30] a value between 1 and 100. 1 indicates the new image is 1% of original, 100 - same size as original
      *
      * @returns {Promise&lt;XMLHttpRequest>}
      *
      * @example &lt;caption>sending an image&lt;/caption>
-     * conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
+     * const params = {
+     *  quality_ratio : "90",
+     *  medium_size_ratio: "40",
+     *  thumbnail_size_ratio: "20"
+     * }
+     * conversation.sendImage(fileInput.files[0], params).then((imageRequest) => {
+     *  imageRequest.onprogress = (e) => {
+     *    console.log("Image request progress: ", e);
+     *    console.log("Image progress: " + e.loaded + "/" + e.total);
+     *  };
      *  imageRequest.onabort = (e) => {
-     *    console.log(e);
-     *    console.log("Image:" + e.type);
+     *    console.log("Image request aborted: ", e);
+     *    console.log("Image: " + e.type);
      *  };
      *  imageRequest.onloadend = (e) => {
-     *    console.log("Image:" + e.type);
+     *    console.log("Image request successful: ", e);
+     *    console.log("Image: " + e.type);
      *  };
+     * }).catch((error) => {
+     *  console.error("error sending the image ", error);
      * });
     */
     async sendImage(fileInput, params = {
@@ -539,6 +571,8 @@ class Conversation {
      * @example &lt;caption>cancel sending an image&lt;/caption>
      * conversation.sendImage(fileInput.files[0]).then((imageRequest) => {
      *    conversation.abortSendImage(imageRequest);
+     * }).catch((error) => {
+     *  console.error("error sending the image ", error);
      * });
     */
     abortSendImage(imageRequest) {
@@ -575,6 +609,11 @@ class Conversation {
      * Send start typing indication
      *
      * @returns {Promise} - resolves the promise on successful sent
+     *
+     * @example &lt;caption>send start typing event when key is pressed&lt;/caption>
+     * messageTextarea.addEventListener('keypress', (event) => {
+     *    conversation.startTyping();
+     * });
     */
     startTyping() {
         return this._typing('on');
@@ -583,6 +622,15 @@ class Conversation {
      * Send stop typing indication
      *
      * @returns {Promise} - resolves the promise on successful sent
+     *
+     * @example &lt;caption>send stop typing event when a key has not been pressed for half a second&lt;/caption>
+     * let timeout = null;
+     * messageTextarea.addEventListener('keyup', (event) => {
+     *    clearTimeout(timeout);
+     *    timeout = setTimeout(() => {
+     *      conversation.stopTyping();
+     *    }, 500);
+     * });
     */
     stopTyping() {
         return this._typing('off');
@@ -602,6 +650,8 @@ class Conversation {
       *   events_page.items.forEach(event => {
       *     render(event)
       *   })
+      * }).catch((error) => {
+      *  console.error("error getting the events ", error);
       * });
     */
     async getEvents(params = {}) {
@@ -701,7 +751,7 @@ module.exports = Conversation;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

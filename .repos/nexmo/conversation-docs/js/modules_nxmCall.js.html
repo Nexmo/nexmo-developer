@@ -91,7 +91,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const WildEmitter = require('wildemitter');
 const loglevel_1 = require("loglevel");
 const nexmoClientError_1 = require("../nexmoClientError");
-const utils_1 = __importDefault(require("../utils"));
+const rtc_helper_1 = __importDefault(require("./rtc_helper"));
 /**
  * Conversation NXMCall Object.
  * @class NXMCall
@@ -106,6 +106,13 @@ const utils_1 = __importDefault(require("../utils"));
  * @property {NXMCall.CALL_STATUS} CALL_STATUS="started" - the available nxmCall statuses
  * @property {NXMCall.CALL_DIRECTION} direction - the Direction of the nxmCall, Outbound, Inbound
  * @property {NXMCall.STATUS_PERMITTED_FLOW} STATUS_PERMITTED_FLOW - the permitted nxmCall status transition map, describes the "from" and allowed "to" transitions
+ * @property {object[]} rtcObjects data related to the rtc connection
+ * @property {string} rtcObjects.rtc_id the rtc_id
+ * @property {PeerConnection} rtcObjects.pc the current PeerConnection object
+ * @property {Stream} rtcObjects.stream the stream of the specific rtc_id
+ * @property {string} [rtcObjects.type] audio the type of the stream
+ * @property {number} rtcObjects.streamIndex the index number of the stream (e.g. use to mute)
+ * @property {Stream} stream the remote stream
  * @emits Application#member:call
  * @emits Application#call:status:changed
 */
@@ -138,6 +145,7 @@ class NXMCall {
         this.log = loglevel_1.getLogger(this.constructor.name);
         this.from = from;
         this.conversation = null;
+        this.rtcObjects = {};
         /**
          * Enum for NXMCall status.
          * @readonly
@@ -282,7 +290,7 @@ class NXMCall {
      * update nxmCall.from, and nxmCall.to attributes based on the conversation members
      * @private
     */
-    _setupConversationObject(conversation) {
+    _setupConversationObject(conversation, rtc_id) {
         if (!conversation)
             return;
         this.conversation = conversation;
@@ -295,6 +303,11 @@ class NXMCall {
                 this.to.delete(this.from.id);
             }
         }
+        // Attempt to enable rtc call stats reporting for prewarm leg calls
+        if (rtc_id &amp;&amp; this.rtcObjects &amp;&amp; this.rtcObjects[rtc_id] &amp;&amp; this.rtcObjects[rtc_id].pc) {
+            rtc_helper_1.default.enableCallStats({ application: this.application, conversation, pc: this.rtcObjects[rtc_id].pc });
+        }
+        // Attch Conversation Listeners
         this._attachCallListeners();
     }
     /**
@@ -314,9 +327,8 @@ class NXMCall {
         const _isOutbound = this.direction === this.CALL_DIRECTION.OUTBOUND;
         let _handleStatusChangeMap = new Map();
         _handleStatusChangeMap.set('member:joined', async () => {
-            if (event.body.channel &amp;&amp; event.body.channel.knocking_id) {
+            if (event.body.channel &amp;&amp; event.body.channel.id) {
                 try {
-                    const stream = await this.conversation.media.enable();
                     this._setStatusAndEmit(this.CALL_STATUS.STARTED);
                     return;
                 }
@@ -527,12 +539,21 @@ class NXMCall {
         else {
             to.user = user;
         }
-        // Add client_ref to the call draft list and request
-        const client_ref = utils_1.default.allocateUUID();
-        this.client_ref = client_ref;
-        this.application._call_draft_list.set(client_ref, this);
         try {
-            return await this.application.session.sendNetworkRequest({
+            // enable stats events emit if configured and store on call Object
+            if (((this.application.session.config || {}).rtcstats || {}).emit_events) {
+                const rtcStats = rtc_helper_1.default._initStatsEvents(this.application, this);
+                this.rtcStats = rtcStats;
+            }
+            // PrewarmLeg
+            const { stream, legId, rtcObjects } = await rtc_helper_1.default.prewarmLeg(this.application);
+            // Add Media to the Call Object
+            this.rtcObjects = rtcObjects;
+            this.stream = stream;
+            // Add leg_id to the call draft list
+            this.application._call_draft_list.set(legId, this);
+            rtc_helper_1.default.playAudioStream(stream);
+            const params = {
                 type: 'POST',
                 path: 'knocking',
                 data: {
@@ -541,13 +562,20 @@ class NXMCall {
                         from: {
                             type: 'app'
                         },
-                        to
-                    },
-                    client_ref
+                        to,
+                        id: legId || null
+                    }
                 }
-            });
+            };
+            const knockingResponse = await this.application.session.sendNetworkRequest(params);
+            this.knocking_id = knockingResponse.id;
+            // If knocking request doesn't result in member:joined after set time disable audio, cleanup media
+            rtc_helper_1.default.cleanCallMediaIfFailed(this);
+            return stream;
         }
         catch (error) {
+            // If knocking request fails disable audio, cleanup media
+            rtc_helper_1.default.cleanMediaProperties(this);
             throw new nexmoClientError_1.NexmoApiError(error);
         }
     }
@@ -672,7 +700,7 @@ module.exports = NXMCall;
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

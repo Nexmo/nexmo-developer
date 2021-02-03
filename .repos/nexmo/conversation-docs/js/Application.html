@@ -460,7 +460,7 @@ listen for it with application.on(&quot;call:status:changed&quot;)</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-278">line 278</a>
+				 <a href="application.js.html#sunlight-1-line-279">line 279</a>
 			</li>
 		</ul>
 	</dd>
@@ -638,7 +638,7 @@ Result added (or updated) in this.conversations</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-362">line 362</a>
+				 <a href="application.js.html#sunlight-1-line-358">line 358</a>
 			</li>
 		</ul>
 	</dd>
@@ -941,7 +941,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-404">line 404</a>
+				 <a href="application.js.html#sunlight-1-line-400">line 400</a>
 			</li>
 		</ul>
 	</dd>
@@ -1119,7 +1119,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-471">line 471</a>
+				 <a href="application.js.html#sunlight-1-line-467">line 467</a>
 			</li>
 		</ul>
 	</dd>
@@ -1289,7 +1289,7 @@ logged-in user is a member with a state of <code>JOINED</code> or <code>INVITED<
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-240">line 240</a>
+				 <a href="application.js.html#sunlight-1-line-241">line 241</a>
 			</li>
 		</ul>
 	</dd>
@@ -1824,7 +1824,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-343">line 343</a>
+				 <a href="application.js.html#sunlight-1-line-339">line 339</a>
 			</li>
 		</ul>
 	</dd>
@@ -1882,13 +1882,9 @@ The conversation name must be unique per application.</p>
         <p class="code-caption">Create a conversation and join</p>
     
     <pre class="sunlight-highlight-javascript">application.newConversationAndJoin().then((conversation) =&gt; {
-   //join the created conversation
-   conversation.join().then((member) =&gt; {
-     //Get the user&#x27;s member belonging in this conversation.
-     //You can also access it via conversation.me
-     console.log(&quot;Joined as &quot; + member.user.name);
+   console.log(&quot;Joined as &quot; + conversation.me.display_name);
  }).catch((error) =&gt; {
-   console.error(error);
+   console.error(&quot;Error creating a conversation and joining &quot;, error);
  });</pre>
 
 
@@ -1954,7 +1950,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-433">line 433</a>
+				 <a href="application.js.html#sunlight-1-line-429">line 429</a>
 			</li>
 		</ul>
 	</dd>
@@ -2092,7 +2088,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-184">line 184</a>
+				 <a href="application.js.html#sunlight-1-line-185">line 185</a>
 			</li>
 		</ul>
 	</dd>
@@ -2272,7 +2268,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_nxmCall.js.html">modules/nxmCall.js</a>,
-				 <a href="modules_nxmCall.js.html#sunlight-1-line-46">line 46</a>
+				 <a href="modules_nxmCall.js.html#sunlight-1-line-53">line 53</a>
 			</li>
 		</ul>
 	</dd>
@@ -2605,7 +2601,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_nxmCall.js.html">modules/nxmCall.js</a>,
-				 <a href="modules_nxmCall.js.html#sunlight-1-line-33">line 33</a>
+				 <a href="modules_nxmCall.js.html#sunlight-1-line-40">line 40</a>
 			</li>
 		</ul>
 	</dd>
@@ -2780,7 +2776,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-89">line 89</a>
+				 <a href="application.js.html#sunlight-1-line-90">line 90</a>
 			</li>
 		</ul>
 	</dd>
@@ -2961,7 +2957,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-108">line 108</a>
+				 <a href="application.js.html#sunlight-1-line-109">line 109</a>
 			</li>
 		</ul>
 	</dd>
@@ -3305,7 +3301,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="modules_media.js.html">modules/media.js</a>,
-				 <a href="modules_media.js.html#sunlight-1-line-87">line 87</a>
+				 <a href="modules_media.js.html#sunlight-1-line-103">line 103</a>
 			</li>
 		</ul>
 	</dd>
@@ -3459,7 +3455,7 @@ The conversation name must be unique per application.</p>
 		<ul class="dummy">
 			<li>
 				<a href="application.js.html">application.js</a>,
-				 <a href="application.js.html#sunlight-1-line-419">line 419</a>
+				 <a href="application.js.html#sunlight-1-line-415">line 415</a>
 			</li>
 		</ul>
 	</dd>
@@ -3548,7 +3544,7 @@ The conversation name must be unique per application.</p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on Thu Dec 10th 2020
+		on Tue Feb 2nd 2021
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
