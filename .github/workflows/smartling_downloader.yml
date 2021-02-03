@@ -84,4 +84,4 @@ jobs:
         title: 'Latest Smartling Translation Changes'
         branch-suffix: timestamp
         delete-branch: true
-        base: master
+        base: main
