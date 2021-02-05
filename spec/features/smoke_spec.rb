@@ -91,11 +91,6 @@ RSpec.feature 'Smoke Tests', type: :feature do
     expect(page).to have_content('Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications.')
   end
 
-  scenario '/spotlight contains the expected text' do
-    visit '/spotlight'
-    expect(page).to have_content('We\'re interested in both technical tutorials and general pieces on programming. Successful submissions will be')
-  end
-
   scenario '/migrate/tropo contains the expected text' do
     visit '/migrate/tropo'
     expect(page).to have_content('Migrate from Tropo to Nexmo')
