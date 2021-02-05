@@ -328,3 +328,4 @@
 "/api/vonage-business-cloud/vgis": "https://vbcdeveloper.vonage.com/api/vonage-integration-platform"
 "/use-cases/two-factor-authentication": "/verify/tutorials/verify-2fa-ruby/introduction"
 "/store": "https://apimanager.uc.vonage.com/store/"
+"/spotlight": "https://learn.vonage.com/spotlight/"
