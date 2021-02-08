@@ -8,6 +8,7 @@ description: Links to further resources
 The following resources will help you learn more about using NCCOs in your Voice API applications and enable you to build sophisticated call menus:
 
 * The [source code](https://github.com/nexmo-community/node-ivr) for this tutorial on GitHub
+* [Contact Center Augmentation use case](/use-cases/contact-center)
 * [NCCO guide](/voice/voice-api/guides/ncco/)
 * [NCCO reference](/voice/voice-api/ncco-reference)
 * [Text to speech guide](/voice/voice-api/guides/text-to-speech)
