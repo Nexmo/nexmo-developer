@@ -30,7 +30,7 @@ Verification is a two-stage process that requires two API calls:
     > It is possible to supply your own PIN code in some circumstances, please contact your account manager.
     
 4. The Verify API then attempts to deliver this PIN to the user. The format (SMS or Text-to-speech (TTS)) and timing of these attempts are defined by your chosen [workflow](/verify/guides/workflows-and-events).
-    If the user does not revisit your app or website to enter the PIN they have received, the verification request will ultimately time out. Otherwise, you need to verify the number that they entered using by performing a Verification check.
+    If the user does not revisit your app or website to enter the PIN they have received, the verification request will ultimately time out. Otherwise, you need to verify the number that they entered by performing a Verification check.
 
 ### Verification check
 
