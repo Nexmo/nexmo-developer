@@ -41,9 +41,9 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="9">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="9a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="9a" role="tab">
                         <b>9</b>
-                        <p class="show">Mistakes Were Made</p>
+                        <p class="show"></p>
                       </div>
                     </span>
                   </div>
@@ -52,6 +52,9 @@ page:
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="10a" role="tab">
                         <b>10</b>
                         <p class="show">The Low-Code Hour</p>
+                      </div>
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="10b" role="tab">
+                        <p class="show">Mistakes Were Made</p>
                       </div>
                     </span>
                   </div>
@@ -84,11 +87,8 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="16">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="16a" role="tab">
-                        <b>16</b>
-                        <p class="show">Mistakes Were Made</p>
-                      </div>
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="16b" role="tab">
+                        <b>16</b>
                         <p class="show">The Dev Lounge</p>
                       </div>
                     </span>
@@ -98,6 +98,9 @@ page:
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="17a" role="tab">
                         <b>17</b>
                         <p class="show">Vonage Gems</p>
+                      </div>
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="17a" role="tab">
+                        <p class="show">Mistakes Were Made</p>
                       </div>
                     </span>
                   </div>
@@ -129,9 +132,9 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="23">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="23a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="23a" role="tab">
                         <b>23</b>
-                        <p class="show">Mistakes Were Made</p>
+                        <p class="show"></p>
                       </div>
                     </span>
                   </div>
@@ -140,6 +143,9 @@ page:
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="24a" role="tab">
                         <b>24</b>
                         <p class="show">The Low-Code Hour</p>
+                      </div>
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="24b" role="tab">
+                        <p class="show">Mistakes Were Made</p>
                       </div>
                     </span>
                   </div>
@@ -172,7 +178,7 @@ page:
                 </div>
 
                 <div class="Vlt-tabs__panel" id="tab-8" role="tabpanel">
-                   <div class="Vlt-grid">
+                  <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1599463202/Week.init_twitter_gt26mi.png" alt="Week.init()">
                     </div>
@@ -222,59 +228,8 @@ page:
                   </div>
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-9" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600671582/Twitch_Show_Social_Graphics_3_i87htl.png" alt="Mistakes Were Made">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>Topic TBD</h5>
-                        Mistakes will be made!
-                      </p>
-                      <br>
-                      <b>Links:</b>
-                      <a href="https://tokbox.com/developer/" target="_blank">
-                        Vonage Video API Developer Center
-                      </a>
-                      <br><br>
-                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        Vonage Video API
-                      </h5>
-                    </div>
-                    <div class="Vlt-grid padding-top-32">
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4>About The Show</h4>
-                        <p class="text-justify">
-                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
-                        </p>
-                      </div>
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4 class="inline-block">About Michael Jolley</h4>
-                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/MichaelJolley" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Developer Advocate
-                        </h5>
-                        <p class="text-justify">
-                          Michael is the bald, bearded builder.
-                          <br>
-                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
-                        </p>
-                        <a href="https://learn.vonage.com/authors/michaeljolley" target="_blank">Articles by Michael</a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-10" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-10a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1603841781/Twitch_Show_Social_Graphics_23_diks5y.png" alt="The Low-Code Hour">
@@ -316,6 +271,59 @@ page:
                           </p>
                           <a href="https://learn.vonage.com/authors/julia" target="_blank">Articles by Julia</a>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-10b" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1612860672/mistakes_were_made_suyt4j.png" alt="Mistakes Were Made">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">19:00 London / 14:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Topic TBD</h5>
+                        Mistakes will be made!
+                      </p>
+                      <br>
+                      <b>Links:</b>
+                      <a href="https://tokbox.com/developer/" target="_blank">
+                        Vonage Video API Developer Center
+                      </a>
+                      <br><br>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage Video API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/MichaelJolley" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
+                        </p>
+                        <a href="https://learn.vonage.com/authors/michaeljolley" target="_blank">Articles by Michael</a>
                       </div>
                     </div>
                   </div>
@@ -416,61 +424,7 @@ page:
                     </div>
                   </div>
                 </div>
-
-                <div class="Vlt-tabs__panel" id="tab-16a" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600671582/Twitch_Show_Social_Graphics_3_i87htl.png" alt="Mistakes Were Made">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>Topic TBD</h5>
-                        Mistakes will be made!
-                      </p>
-                      <br>
-                      <b>Links:</b>
-                      <a href="https://tokbox.com/developer/" target="_blank">
-                        Vonage Video API Developer Center
-                      </a>
-                      <br><br>
-                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        Vonage Video API
-                      </h5>
-                    </div>
-                    <div class="Vlt-grid padding-top-32">
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4>About The Show</h4>
-                        <p class="text-justify">
-                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
-                        </p>
-                      </div>
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4 class="inline-block">About Michael Jolley</h4>
-                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/MichaelJolley" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Developer Advocate
-                        </h5>
-                        <p class="text-justify">
-                          Michael is the bald, bearded builder.
-                          <br>
-                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
-                        </p>
-                        <a href="https://learn.vonage.com/authors/michaeljolley" target="_blank">Articles by Michael</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-16b" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-16" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1612701443/Twitch_Show_Social_Graphics_49_hpu2wn.png" alt="The Dev Lounge">
@@ -522,7 +476,7 @@ page:
                     </div>
                   </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-17" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-17a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1603108151/Twitch_Show_Social_Graphics_21_xofgrg.png" alt="Mistakes Were Made">
@@ -565,6 +519,59 @@ page:
                           Ben is a second career developer who previously spent a decade in the fields of adult education, community organizing and non-profit management. He works as a developer advocate for Nexmo, the Vonage API Platform by day and experiments with open source projects at night. He writes regularly on the intersection of community development and tech. Originally from Southern California and a long time resident of New York City, Ben now resides near Tel Aviv, Israel.
                         </p>
                         <a href="https://learn.vonage.com/authors/ben-greenberg" target="_blank">Articles by Ben</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-17b" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1612860672/mistakes_were_made_suyt4j.png" alt="Mistakes Were Made">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">19:00 London / 14:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Topic TBD</h5>
+                        Mistakes will be made!
+                      </p>
+                      <br>
+                      <b>Links:</b>
+                      <a href="https://tokbox.com/developer/" target="_blank">
+                        Vonage Video API Developer Center
+                      </a>
+                      <br><br>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage Video API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/MichaelJolley" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
+                        </p>
+                        <a href="https://learn.vonage.com/authors/michaeljolley" target="_blank">Articles by Michael</a>
                       </div>
                     </div>
                   </div>
@@ -666,59 +673,8 @@ page:
                   </div>
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-23" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1600671582/Twitch_Show_Social_Graphics_3_i87htl.png" alt="Mistakes Were Made">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">16:00 London / 11:00 New York / 08:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        <h5>Topic TBD</h5>
-                        Mistakes will be made!
-                      </p>
-                      <br>
-                      <b>Links:</b>
-                      <a href="https://tokbox.com/developer/" target="_blank">
-                        Vonage Video API Developer Center
-                      </a>
-                      <br><br>
-                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        Vonage Video API
-                      </h5>
-                    </div>
-                    <div class="Vlt-grid padding-top-32">
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4>About The Show</h4>
-                        <p class="text-justify">
-                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
-                        </p>
-                      </div>
-                      <div class="Vlt-col Vlt-col--1of2">
-                        <h4 class="inline-block">About Michael Jolley</h4>
-                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
-                          <i class="icon icon-twitter"></i>
-                        </a>
-                        <a href="https://github.com/MichaelJolley" target="_blank">
-                          <i class="icon icon-github"></i>
-                        </a>
-                        <h5>
-                          Developer Advocate
-                        </h5>
-                        <p class="text-justify">
-                          Michael is the bald, bearded builder.
-                          <br>
-                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
-                        </p>
-                        <a href="https://learn.vonage.com/authors/michaeljolley" target="_blank">Articles by Michael</a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <div class="Vlt-tabs__panel" id="tab-24" role="tabpanel">
+                <div class="Vlt-tabs__panel" id="tab-24a" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1603841781/Twitch_Show_Social_Graphics_23_diks5y.png" alt="The Low-Code Hour">
@@ -760,6 +716,59 @@ page:
                           </p>
                           <a href="https://learn.vonage.com/authors/julia" target="_blank">Articles by Julia</a>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-24b" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1612860672/mistakes_were_made_suyt4j.png" alt="Mistakes Were Made">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Mistakes Were Made</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">19:00 London / 14:00 New York / 11:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        <h5>Topic TBD</h5>
+                        Mistakes will be made!
+                      </p>
+                      <br>
+                      <b>Links:</b>
+                      <a href="https://tokbox.com/developer/" target="_blank">
+                        Vonage Video API Developer Center
+                      </a>
+                      <br><br>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage Video API
+                      </h5>
+                    </div>
+                    <div class="Vlt-grid padding-top-32">
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4>About The Show</h4>
+                        <p class="text-justify">
+                          Every week, Michael repeats the cycle of 'make, mistake, make' as he attempts to learn, build & teach something new.
+                        </p>
+                      </div>
+                      <div class="Vlt-col Vlt-col--1of2">
+                        <h4 class="inline-block">About Michael Jolley</h4>
+                        <a href="https://twitter.com/baldbeardbuild" target="_blank">
+                          <i class="icon icon-twitter"></i>
+                        </a>
+                        <a href="https://github.com/MichaelJolley" target="_blank">
+                          <i class="icon icon-github"></i>
+                        </a>
+                        <h5>
+                          Developer Advocate
+                        </h5>
+                        <p class="text-justify">
+                          Michael is the bald, bearded builder.
+                          <br>
+                          Using his 20 years experience in software development and DevOps, this follicly challenged developer spends his days focused on helping others succeed.
+                        </p>
+                        <a href="https://learn.vonage.com/authors/michaeljolley" target="_blank">Articles by Michael</a>
                       </div>
                     </div>
                   </div>
