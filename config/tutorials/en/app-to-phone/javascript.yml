@@ -9,7 +9,7 @@ introduction:
   content: |
     # Introduction
     In this tutorial, you will learn how to create a Client SDK application and then write the code to make a
-    phone call from your web app to a phone.
+    phone call from your web app to your phone.
 
     To achieve this, you will need:
 
@@ -39,6 +39,6 @@ conclusion:
     # What's next?
     You can do a lot more with the Client SDK.
 
-    We want to hear what ideas you have in mind? Contact us at [devrel@vonage.com](mailto:devrel@vonage.com)
+    We want to hear what ideas you have in mind? Contact us at [devrel@vonage.com](mailto:devrel@vonage.com) or let us know in our [Community Slack Channel](https://developer.nexmo.com/slack).
 
     See [Client SDK documentation](/client-sdk/overview).

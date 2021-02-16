@@ -14,7 +14,7 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 <head>
     <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
     <style>
-        input, button {
+        button {
             font-size: 1rem;
         }
         #hangup {
@@ -24,16 +24,13 @@ Create an HTML file called `index.html` in your project directory. Add the follo
 </head>
 
 <body>
-    <h1>Call Phone from App</h1>
-    <label for="phone-number">Your Phone Number:</label>
-    <input type="text" name="phone-number" value="" placeholder="i.e. 14155550100" id="phone-number" size="30">
-    <button type="button" id="call">Call</button>
+    <h1>Call Your Phone from App</h1>
+    <button type="button" id="call">Call Your Phone</button>
     <button type="button" id="hangup">Hang Up</button>
     <div id="status"></div>
 
     <script>
         const USER_JWT = "PASTE YOUR JWT HERE";
-        const phoneNumberInput = document.getElementById("phone-number");
         const callButton = document.getElementById("call");
         const hangupButton = document.getElementById("hangup");
         const statusElement = document.getElementById("status");
@@ -42,12 +39,7 @@ Create an HTML file called `index.html` in your project directory. Add the follo
             .then(app => {
                 callButton.addEventListener("click", event => {
                     event.preventDefault();
-                    let number = phoneNumberInput.value;
-                    if (number !== ""){
-                        app.callServer(number);
-                    } else {
-                        statusElement.innerText = 'Please enter your phone number.';
-                    }
+                    app.callServer("The number in the static NCCO created earlier will be used");
                 });
                 app.on("member:call", (member, call) => {
                     hangupButton.addEventListener("click", () => {
@@ -66,20 +58,21 @@ Create an HTML file called `index.html` in your project directory. Add the follo
                     }
                 });
             })
-            .catch(console.error);
+            .catch(error => console.error(error));
     </script>
-
 </body>
-
 </html>
 ```
 
-This is your web application that uses the Client SDK to make a voice call to the destination phone via Vonage.
+This is your web application that uses the Client SDK to make a voice call to your phone via Vonage.
 
 There are several key components to this code:
 
-1. A UI that allows you to enter a phone number and then click the `Call` button to make the voice call.
+1. A UI that allows you to click the `Call Your Phone` button to make the voice call.
 2. Code that logs the user in (a JWT is used for authentication).
-3. The function to make the call `callServer(number)`, where `number` is the destination phone number in [E.164](/concepts/guides/glossary#e-164-format) format.
+3. The function to make the call `callServer`. More information on `callServer` can be found [here](/sdk/stitch/javascript/Application.html#callServer__anchor).
 
-Once you enter the phone number and click the `Call` button you will hear a voice reporting on call status. Then when the call goes through you can answer and you will then hear the conversation via the app.
+Once you click the `Call Your Phone` button you will hear a voice reporting on call status. Then when the call goes through, you can answer, and you will then hear the conversation via the app.
+
+> **NOTE:** To enable calling other phone numbers requires that the NCCO be dynamically created on a server. This is out of the scope for this tutorial, but more information can be found in the Vonage [Voice API documentation](/voice/voice-api/overview).
+
