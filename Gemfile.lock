@@ -83,7 +83,7 @@ GEM
       multi_json (~> 1)
       statsd-ruby (~> 1.1)
     bcrypt (3.1.16)
-    bootsnap (1.5.1)
+    bootsnap (1.7.2)
       msgpack (~> 1.0)
     bugsnag (6.19.0)
       concurrent-ruby (~> 1.0)
@@ -141,8 +141,8 @@ GEM
       ruby2_keywords
     faraday-net_http (1.0.1)
     ffi (1.14.2)
-    formtastic (3.1.5)
-      actionpack (>= 3.2.13)
+    formtastic (4.0.0)
+      actionpack (>= 5.2.0)
     formtastic_i18n (0.6.0)
     geocoder (1.6.4)
     globalid (0.4.2)
@@ -223,7 +223,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
-    msgpack (1.3.3)
+    msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -247,7 +247,7 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.8.0)
+    nexmo_markdown_renderer (0.9.0)
       actionview (~> 6.0)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
@@ -255,7 +255,7 @@ GEM
       nokogiri (~> 1.10)
       redcarpet (~> 3.4)
       rouge (~> 2.0.7)
-    nio4r (2.5.4)
+    nio4r (2.5.5)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -270,11 +270,11 @@ GEM
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    oj (3.11.0)
+    oj (3.11.2)
     orm_adapter (0.5.0)
     pg (1.2.3)
     public_suffix (4.0.6)
-    puma (5.1.1)
+    puma (5.2.1)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -311,14 +311,14 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rake (13.0.3)
-    ransack (2.4.1)
+    ransack (2.4.2)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
       i18n
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    recaptcha (5.6.0)
+    recaptcha (5.7.0)
       json
     redcarpet (3.5.1)
     redis (4.2.5)
@@ -485,4 +485,4 @@ DEPENDENCIES
   station (= 0.0.113)!
 
 BUNDLED WITH
-   2.1.4
+   2.2.3

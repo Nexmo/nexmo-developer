@@ -17,7 +17,7 @@ prerequisites:
 tasks: 
     - "voice-api/create-voice-csproj"
     - "voice-api/install-vonage-dotnet"
-    - "voice-api/create-voice-controller"
+    - "voice-api/create-voice-controller-dotnet"
     - "voice-api/add-make-call-action-streamed-audio"
     - "voice-api/add-receive-call-route-stream-audio"
     - "voice-api/add-voice-view"
