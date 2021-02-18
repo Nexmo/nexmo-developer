@@ -58,6 +58,16 @@ To interact with Vonage webhooks:
 
 Information about your request is then sent to your webhook endpoint.
 
+## Decoding signed webhooks
+
+Signed webhooks are a way to verify that the request is coming from Vonage and its payload has not been tampered with during transit. The [signed webhooks guide](/messages/concepts/signed-webhooks) has more details on its implementation and usage.
+
+The following code snippets show how to decode an incoming JWT signature in a variety of languages:
+
+```code_snippets
+source: '_examples/concepts/guides/decode-jwt/'
+```
+
 ## Testing webhooks locally
 
 In order to test the correct functioning of webhooks on your locally running application, you will need to create a secure tunnel between Vonage and your application. You can do this with a secure tunnel application such as [Ngrok](https://ngrok.com). See the [Testing with Ngrok](/tools/ngrok) topic for more information.

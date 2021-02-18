@@ -1,0 +1,9 @@
+---
+title: Ruby
+language: ruby
+code:
+    source: .repos/vonage/vonage-ruby-code-snippets/jwt/decode-incoming-jwt.rb
+    from_line: 7
+    to_line: 8
+file_name: decode-incoming-jwt.rb
+run_command: 'ruby decode-incoming-jwt.rb'
