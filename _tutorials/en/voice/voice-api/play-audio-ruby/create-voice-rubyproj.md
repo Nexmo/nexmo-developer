@@ -11,7 +11,7 @@ To start, you will create a new folder, `sinatra-voice-app`:
 mkdir sinatra-voice-app
 ```
 
-Inside the folder create a `server.rb` and `.env` files:
+Inside the folder create two files: `server.rb` and `.env`
 
 ```shell
 touch Gemfile
