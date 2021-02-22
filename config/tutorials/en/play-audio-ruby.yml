@@ -29,11 +29,11 @@ prerequisites:
   - voice/voice-api/create-vonage-application
 
 tasks:
-  - voice/voice-api/play-audio-ruby/create-voice-rubyproj.md 
-  - voice/voice-api/initialize-vonage-client.md
-  - voice/voice-api/play-audio-ruby/add-env-variables.md
+  - voice/voice-api/play-audio-ruby/create-voice-rubyproj.md
+  - voice/voice-api/install-vonage-ruby.md
   - voice/voice-api/play-audio-ruby/require-dependencies.md
   - voice/voice-api/play-audio-ruby/initialize-vonage-client.md
+  - voice/voice-api/play-audio-ruby/add-env-variables.md
   - voice/voice-api/play-audio-ruby/define-constants.md
   - voice/voice-api/play-audio-ruby/create-routes.md
   - voice/voice-api/play-audio-ruby/run-app.md
