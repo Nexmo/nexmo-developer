@@ -5,7 +5,9 @@ description: Create the HTTP routes for a Vonage Ruby Voice application to strea
 
 # Create Routes
 
-We will add three HTTP routes to the `server.rb` file, two `GET` routes and one `POST` route:
+We will add three HTTP routes to the `server.rb` file, two `GET` routes and one `POST` route.
+
+The first `GET` route will start a new phone call after it is accessed. The second `GET` route will welcome the recipient with a greeting. The `POST` route will send the streaming audio instructions to the Voice API once the call has been answered:
 
 ```ruby
 get '/new' do
