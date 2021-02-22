@@ -5,7 +5,7 @@ description: Run the Vonage Ruby Voice application to stream audio
 
 # Run the Ruby App
 
-In your terminal navigate to the directory of the application and execute the following command:
+In your terminal navigate to the project directory and execute the following command:
 
 ```bash
 bundle exec ruby server.rb
