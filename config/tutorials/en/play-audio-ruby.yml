@@ -20,7 +20,7 @@ introduction:
     1. Create an Sinatra application
     1. Add the Vonage Ruby SDK to it
     1. Receive a call and play audio into it
-    1. Place a call with streamed audio played into it
+    1. Place a call and stream audio into it
 
 prerequisites:
   - create-nexmo-account
