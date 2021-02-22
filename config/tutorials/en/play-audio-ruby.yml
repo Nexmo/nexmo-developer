@@ -29,14 +29,14 @@ prerequisites:
   - voice/voice-api/create-vonage-application
 
 tasks:
-  - voice/voice-api/play-audio-ruby/create-voice-rubyproj.md
-  - voice/voice-api/install-vonage-ruby.md
-  - voice/voice-api/play-audio-ruby/require-dependencies.md
-  - voice/voice-api/play-audio-ruby/initialize-vonage-client.md
-  - voice/voice-api/play-audio-ruby/add-env-variables.md
-  - voice/voice-api/play-audio-ruby/define-constants.md
-  - voice/voice-api/play-audio-ruby/create-routes.md
-  - voice/voice-api/play-audio-ruby/run-app.md
+  - voice/voice-api/play-audio-ruby/create-voice-rubyproj
+  - voice/voice-api/install-vonage-ruby
+  - voice/voice-api/play-audio-ruby/require-dependencies
+  - voice/voice-api/play-audio-ruby/initialize-vonage-client
+  - voice/voice-api/play-audio-ruby/add-env-variables
+  - voice/voice-api/play-audio-ruby/define-constants
+  - voice/voice-api/play-audio-ruby/create-routes
+  - voice/voice-api/play-audio-ruby/run-app
 
 conclusion:
   title: What's Next?
