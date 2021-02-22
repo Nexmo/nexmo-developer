@@ -1,5 +1,5 @@
 ---
-title: Create Server Folder and Files
+title: Create the Project Folder and Files
 description: This describes how to create a Sintra server for a Ruby Voice Application.
 ---
 
