@@ -5,7 +5,7 @@ description: Require dependencies for a Vonage Ruby Voice application to stream 
 
 # Require Dependencies
 
-Near the top of the `server.rb` file add the following `require` statements to include the dependencies into the application:
+Near the top of the `server.rb` file add the following `require` statements to include the dependencies in the application:
 
 ```ruby
 require 'sinatra'
