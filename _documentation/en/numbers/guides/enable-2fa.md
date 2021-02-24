@@ -8,7 +8,7 @@ navigation_weight: 2
 
 > **Action Needed For Vonage Customers Using US Shared Short Codes**
 >
-> **Effective immediately, Vonage will no longer accept new programs for Shared Short Codes for A2P messaging.** T-Mobile and AT&T’s new code of conduct prohibits the use of shared originators, therefore, existing Shared Short Code traffic must be migrated by March 1, 2021. To help you with this transition, please use the Vonage [guide to alternatives](https://help.nexmo.com/hc/en-us/articles/360050905592).  Please [contact us](mailto:support@nexmo.com) to migrate to a new solution.
+> **Effective immediately, Vonage will no longer accept new programs for Shared Short Codes for A2P messaging.** T-Mobile and AT&T's new code of conduct prohibits the use of shared originators for A2P (application to person) traffic. Please migrate any existing Shared Short Code traffic to one of our alternative solutions. To help you with this transition, please use the Vonage [guide to alternatives](https://help.nexmo.com/hc/en-us/articles/360050905592).  Please [contact us](mailto:support@nexmo.com) to migrate to a new solution.
 
 [Two-factor authentication](/concepts/guides/glossary#2fa) (2FA) gives you confidence that the number your customer provides you with belongs to them. If you are sending SMS to customers in the US, you can use a [short code](/concepts/guides/glossary#short-code) for this. A customer verifies their number by responding directly to the short code or via your web application. Vonage's [Two-Factor Authentication API](/api/sms/us-short-codes/2fa) provides this capability.
 
