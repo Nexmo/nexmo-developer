@@ -22,7 +22,7 @@ A Conversation can be used for a single temporary communication interaction with
 
 Consider the following example. A User calls a Vonage Number associated with a Vonage Application. The application forwards the call to a second phone. This is illustrated in the following diagram:
 
-![Conversation](/images/conversation-api/call-forward-conversation.png)
+![Conversation example](/images/conversation-api/call-forward-conversation.png)
 
 ## Conversation details
 
@@ -136,7 +136,7 @@ If you look carefully at the response you can see the following:
 
 This is illustrated in the following diagram:
 
-![Conversation](/images/conversation-api/conversation-detail.png)
+![Conversation detail](/images/conversation-api/conversation-detail.png)
 
 To summarize, in this example there is one call and one Conversation consisting of two Legs (inbound and outbound). Each User involved in the call is joined into the Conversation by becoming a Member of that Conversation.
 
