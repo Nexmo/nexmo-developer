@@ -89,7 +89,7 @@ navigation_overrides:
         websockets:
         asr:
         signed-webhooks:
-          label: 'Dev Preview'
+          label: 'Beta'
     sip:
       concepts:
         programmable-sip:
