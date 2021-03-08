@@ -4,17 +4,13 @@ description: A method for your application to verify a request is coming from Vo
 navigation_weight: 8
 ---
 
-# Signed Webhooks [Developer Preview]
+# Signed Webhooks [Beta]
 
 Signed webhooks provide a method for your application to verify a request is coming from Vonage, and its payload has not been tampered with during transit. 
 
-> Voice API Signed webhooks are currently offered as [Developer Preview](/product-lifecycle/dev-preview). The feature can be used in your projects for supported scenarios (see below). The following limitations apply:
-<ul style='list-style:disc;margin-left:16px;margin-top:16px;'><li style='margin-bottom:16px;'>a limited set of events supported,</li>
-<li style='margin-bottom:16px;'>activation can be done through Applications API request only.</li></ul>
-
 ## Activation
 
-Follow these steps to activate signed callbacks for your application.
+Voice API Signed webhooks are currently offered as [Beta](/product-lifecycle/beta), activation can be done through Applications API request only. Follow these steps to activate signed callbacks for your application.
 
 ### Get Application
 
@@ -107,50 +103,8 @@ Use the response JSON from the previous step as the request body with the additi
 
 You can make a `GET` request from step one again to ensure the parameter is applied (it should be returned in the response).
 
-> Developer Preview limitation: if you change any parameter of your application via [Dashboard](https://dashboard.nexmo.com), the `signed_callbacks` parameter will be dropped, and the feature will be inactivated, so you have to go through the activation steps again to turn it back on.
+> Beta limitation: if you change any parameter of your application via [Dashboard](https://dashboard.nexmo.com), the `signed_callbacks` parameter will be dropped, and the feature will be inactivated, so you have to go through the activation steps again to turn it back on.
 
 ## Validating Signed Webhooks
 
 See [Signed webhooks](https://developer.nexmo.com/messages/concepts/signed-webhooks#validating-signed-webhooks) in the Messages API Concepts section. Voice signed callbacks have the same [JWT](https://jwt.io/) in the `Authorization` header, which your application is supposed to validate.
-
-## Supported Events and Scenarios
-
-At the moment, only the following events are supported:
-
-* [`started`](/voice/voice-api/webhook-reference#started#started)
-* [`ringing`](/voice/voice-api/webhook-reference#ringing)
-* [`answered`](/voice/voice-api/webhook-reference#answered)
-* [`completed`](/voice/voice-api/webhook-reference#completed)
-* [`busy`](/voice/voice-api/webhook-reference#busy)
-* [`cancelled`](/voice/voice-api/webhook-reference#cancelled)
-* [`unanswered`](/voice/voice-api/webhook-reference#unanswered)
-* [`rejected`](/voice/voice-api/webhook-reference#rejected)
-* [`failed`](/voice/voice-api/webhook-reference#failed)
-* [`record`](/voice/voice-api/webhook-reference#record)
-
-All the other events, as well as the initial [answer](/voice/voice-api/webhook-reference#answer-webhook) webhook, are still sent without the signature (`Authorization` header).
-
-With this limitation, you can use the signed webhooks now for a basic voice alert or two-factor authentication scenario, using a [Create an outbound call](https://developer.nexmo.com/api/voice#createCall) API request with an embedded `NCCO`:
-
-```json
-{
-  "to": [
-    {
-      "type": "phone",
-      "number": "'$TO_NUMBER'"
-    }
-  ],
-  "from": {
-    "type": "phone",
-    "number": "'$YOUR_NEXMO_NUMBER'"
-  },
-  "ncco": [
-    {
-      "action": "talk",
-      "text": "Your code is '$TEMP_CODE'"
-    }
-  ]
-}
-```
-
-See also the [Make an outbound call with an NCCO](/voice/voice-api/code-snippets/make-an-outbound-call-with-ncco) code snippet.
