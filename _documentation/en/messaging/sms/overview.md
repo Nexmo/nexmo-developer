@@ -68,7 +68,7 @@ If you have decided moving to 10 DLC is right for your campaigns, you must:
 1. Navigate to [Vonage API dashboard > SMS > Brands and campaigns](https://dashboard.nexmo.com/sms/brands).
 2. Click **Register a new campaign**. 
     The **Create a new campaign** page is displayed.
-3. Under **Step 2 Use case**, select the checkbox associated with the use case that best describes this campaign. The use case describes the specific purpose of the campaign; for instance, marketing or account notifications you wish to send to customers.
+3. Under **Step 2 Use case**, select the check box associated with the use case that best describes this campaign. The use case describes the specific purpose of the campaign; for instance, marketing or account notifications you wish to send to customers.
 4. Click **Done**.
 5. Under **Step 3 Carrier qualification**, you can determine whether or not your use case has been approved for sending SMS traffic. Qualification is done by 10DLC enabled carriers. If your use case was rejected, or if your throughput is insufficient, you can appeal through Brand Vetting which is done through a 3rd party.
 6. Click **Done**.
@@ -79,7 +79,7 @@ If you have decided moving to 10 DLC is right for your campaigns, you must:
 8. Click **Done**.
 9. Under **Step 5 Sample messages**, type up to five examples of messages that will be sent for this campaign. 
 10. Click **Done**.
-11. Under **Step 6 Campaign and content attributes**, select the attribtes that apply to this campaign. For instance, select **Subscriber opt-out** if messages sent for this campaign provide customers the opportunity to opt-out. Select all attributes that apply.
+11. Under **Step 6 Campaign and content attributes**, select the attributes that apply to this campaign. For instance, select **Subscriber opt-out** if messages sent for this campaign provide customers the opportunity to opt-out. Select all attributes that apply.
 12. Click **Review and pay**.
     A confirmation dialog box opens summarizing your campaign details. Any charges to your account are indicated above the campaign details. You will not be able to change the campaign details after registering.
 13. Click **Register and pay**.
