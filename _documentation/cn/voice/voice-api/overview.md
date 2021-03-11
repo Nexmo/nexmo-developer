@@ -49,7 +49,7 @@ Nexmo 语音 API 是在云中构建高质量语音应用程序的最简单方法
 
 在 [Nexmo Dashboard](https://dashboard.nexmo.com) 中，您可以在语音 Playground 中交互式地试用语音 API。[注册 Nexmo 帐户](https://dashboard.nexmo.com/signup)后，您可以转到 Dashboard 中的[语音 Playground](https://dashboard.nexmo.com/voice/playground)（语音 ‣ 语音 Playground）。
 
-更多详细信息，请参阅此博客文章：[了解语音 Playground，您的 Nexmo 语音应用测试沙箱](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
+更多详细信息，请参阅此博客文章：[了解语音 Playground，您的 Nexmo 语音应用测试沙箱](https://www.nexmo.com/legacy-blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
 
 ### 使用 API
 

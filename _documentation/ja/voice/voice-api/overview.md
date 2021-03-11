@@ -50,7 +50,7 @@ Nexmo 音声用 API は質の高い音声アプリケーションをクラウド
 
 [Nexmo Dashboard](https://dashboard.nexmo.com) では、音声用 API を音声プレイグラウンドでインタラクティブに試すことができます。[Nexmo アカウントにサインアップ](https://dashboard.nexmo.com/signup)したら、Nexmo Dashboard の [音声プレイグラウンド](https://dashboard.nexmo.com/voice/playground)に進みます ([音声] ‣ [音声プレイグラウンド])。
 
-こちらのブログ投稿で詳細をお読みいただけます: [音声プレイグラウンド、Nexmo 音声用 API のテストサンドボックスの紹介 (英語)](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
+こちらのブログ投稿で詳細をお読みいただけます: [音声プレイグラウンド、Nexmo 音声用 API のテストサンドボックスの紹介 (英語)](https://www.nexmo.com/legacy-blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
 
 ### API の使用
 

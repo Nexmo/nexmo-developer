@@ -44,7 +44,7 @@ In this document you can learn about:
 
 In the [Developer Dashboard](https://dashboard.nexmo.com), you can try out the Voice API interactively in the Voice Playground. Once you are [signed up for a Vonage API account](https://dashboard.nexmo.com/signup), you can go to [Voice Playground](https://dashboard.nexmo.com/voice/playground) in the Dashboard (Voice ‣ Voice Playground).
 
-More details are available in this blog post: [Meet Voice Playground, Your Testing Sandbox for Vonage Voice Apps](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
+More details are available in this blog post: [Meet Voice Playground, Your Testing Sandbox for Vonage Voice Apps](https://www.nexmo.com/legacy-blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
 
 ### Using the API
 
