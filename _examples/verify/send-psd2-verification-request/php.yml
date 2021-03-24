@@ -1,0 +1,11 @@
+---
+client:
+    source: .repos/vonage/vonage-php-code-snippets/verify/send_psd2_request.php
+    from_line: 6
+    to_line: 7
+code:
+    source: .repos/vonage/vonage-php-code-snippets/verify/send_psd2_request.php
+    from_line: 9
+    to_line: 12
+file_name: send_psd2_request.php
+run_command: 'php send_psd2_request.php'

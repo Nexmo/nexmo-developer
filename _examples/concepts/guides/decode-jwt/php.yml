@@ -1,0 +1,7 @@
+---
+code:
+    source: .repos/vonage/vonage-php-code-snippets/jwt/decode_incoming_jwt_token.php
+    from_line: 6
+    to_line: 26
+file_name: decode_incoming_jwt_token.php
+run_command: 'php decode_incoming_jwt_token.php'

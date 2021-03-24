@@ -1,0 +1,11 @@
+---
+client:
+    source: .repos/vonage/vonage-php-code-snippets/verify/send_psd2_request_with_workflow.php
+    from_line: 5
+    to_line: 6
+code:
+    source: .repos/vonage/vonage-php-code-snippets/verify/send_psd2_request_with_workflow.php
+    from_line: 52
+    to_line: 55
+file_name: send_psd2_request_with_workflow.php
+run_command: 'php send_psd2_request_with_workflow.php'
