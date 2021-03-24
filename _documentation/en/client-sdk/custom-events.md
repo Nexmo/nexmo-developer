@@ -1,5 +1,7 @@
 ---
 title: Custom Events
+meta_title: Add custom metadata to conversations by recording data alongside your text or audio events
+description: This topic provides an overview of the custom events use via the Vonage Client SDK. 
 ---
 
 # Custom Events

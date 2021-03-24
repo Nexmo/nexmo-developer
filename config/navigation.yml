@@ -112,15 +112,19 @@ navigation_overrides:
   client-sdk:
     svg: 'queue'
     svgColor: 'teal'
-    label: 'Beta'
     overview:
       navigation_weight: 1
     setup:
       navigation_weight: 2
     configuration:
       navigation_weight: 3  
+    in-app-voice:
+      navigation_weight: 4 
+    in-app-messaging:
+      navigation_weight: 5
+      label: 'Beta'
     custom-events:
-      navigation_weight: 4
+      navigation_weight: 6
     sdk-documentation:
       link: false
       collapsible: false
