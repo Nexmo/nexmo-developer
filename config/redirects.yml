@@ -88,6 +88,7 @@
 "/messages/code-snippets/send-an-sms-with-messages-api": "/messages/code-snippets/sms/send-sms"
 "/messages/code-snippets/send-mms": "/messages/code-snippets/mms/send-mms"
 "/messages/code-snippets/send-a-viber-service-message": "/messages/code-snippets/viber/send-text"
+"/messages/whatsapp-provisioning/provsion-deployment": "/messages/whatsapp-provisioning/provision-deployment"
 "/number-insight": "/number-insight/overview"
 "/number-insight/guides": "/number-insight/guides/cnam"
 "/number-insight/guides/ip-matching": "/number-insight/overview"
