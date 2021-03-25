@@ -63,7 +63,7 @@ ja:
         whatsapp: "WhatsApp"
         messenger: "Facebook Messenger"
         viber: "Viber サービスメッセージ"
-        subaccounts: "サブアカウント (ベータ版)"
+        subaccounts: "サブアカウント"
         use-cases: "ユースケース"
     layouts: 
         partials: 

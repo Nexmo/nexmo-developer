@@ -63,7 +63,7 @@ cn:
         whatsapp: "WhatsApp"
         messenger: "Facebook Messenger"
         viber: "Viber 服务消息"
-        subaccounts: "子帐户（测试版）"
+        subaccounts: "子帐户"
         use-cases: "用例"
     layouts:
         partials:
