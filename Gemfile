@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-# source "https://rubygems.pkg.github.com/nexmo" do
-  gem "station", "0.0.115"
-# end
+gem "station", "0.0.118"
 
 group :test do
   gem 'rspec'
