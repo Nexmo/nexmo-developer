@@ -1,6 +1,6 @@
 ---
 dependencies:
-    - @vonage/sdk@beta
+    - "@vonage/sdk@beta"
 code:
     source: .repos/vonage/vonage-node-code-snippets/conversation/conversation/delete-conversation.js
     from_line: 18

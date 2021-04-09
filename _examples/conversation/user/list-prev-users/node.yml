@@ -1,6 +1,6 @@
 ---
 dependencies:
-    - @vonage/sdk@beta
+    - "@vonage/sdk@beta"
 code:
     source: .repos/vonage/vonage-node-code-snippets/conversation/user/list-prev-users.js
     from_line: 17
