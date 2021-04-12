@@ -1,6 +1,6 @@
 ---
 dependencies:
-    - "@vonage/sdk@beta"
+    - "@vonage/server-sdk@beta"
 code:
     source: .repos/vonage/vonage-node-code-snippets/conversation/conversation/create-conversation.js
     from_line: 19
