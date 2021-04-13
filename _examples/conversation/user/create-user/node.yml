@@ -1,6 +1,5 @@
 ---
-dependencies:
-    - "@vonage/server-sdk@beta"
+"@vonage/server-sdk@beta"
 code:
     source: .repos/vonage/vonage-node-code-snippets/conversation/user/create-user.js
     from_line: 19

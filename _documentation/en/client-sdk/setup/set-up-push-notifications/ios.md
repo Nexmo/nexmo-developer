@@ -48,15 +48,15 @@ You can find more details about connecting to APNs in [Apple's official document
 
 ## Upload your certificate
 
-You upload your certificate to the Vonage servers by making a POST request. The iOS Push Certificate Uploading Tool, available on [GitHub](https://github.com/nexmo-community/ios-push-uploader), does so with a user interface. Either of the following methods needs your Vonage Application ID. It can be obtained from the [dashboard](https://dashboard.nexmo.com/voice/your-applications).
+You upload your certificate to the Vonage servers by making a POST request. The iOS Push Certificate Uploading Tool, available on [GitHub](https://github.com/nexmo-community/ios-push-uploader), does so with a web interface. Either of the following methods needs your Vonage Application ID. It can be obtained from the [dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
 ### Using the Upload Tool
 
 To use the tool you will need to run it locally or deploy it. You can follow the the instructions in the GitHub project's [README](https://github.com/nexmo-community/ios-push-uploader#running-the-project). You will also need the private key for your Vonage Application. 
 
-Once you have the tool running, enter your Vonage Application ID, private key, and certificate file and upload. The status of your upload will be shown on the page once it is complete. 
+Once you have the tool running, enter your Vonage Application ID, private key file, and certificate file and click upload. The status of your upload will be shown on the page once it is complete:
 
-![Push Certificate Uploading Tool success](/images/client-sdk/push-notifications/pushupload.png)
+![iOS Push Certificate Uploading Tool success](/images/client-sdk/push-notifications/ios-push-uploader-success.png)
 
 ### Using the Terminal
 
@@ -74,6 +74,8 @@ curl -v -X PUT \
    -d "{\"token\":\"$hextoken\"}" \
    https://api.nexmo.com/v1/applications/$app_id/push_tokens/ios
 ```
+
+> **NOTE** There is no validation at this endpoint. The `200` return code means that Vonage got the data and stored it but hasn't checked that values are valid.
 
 ## Integrate push notifications in your application
 

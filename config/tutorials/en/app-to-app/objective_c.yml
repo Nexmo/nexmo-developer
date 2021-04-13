@@ -17,7 +17,7 @@ introduction:
 
     ### Completed project
     If you would like to follow along without building the app yourself, the completed project is available on [Github](https://github.com/nexmo-community/client-sdk-tutorials) -  please see the [app-to-app-swift](https://github.com/nexmo-community/client-sdk-tutorials/tree/main/app-to-app-objc) folder.
-    
+
 prerequisites:
   - create-nexmo-account
   - install-nodejs
@@ -49,6 +49,6 @@ conclusion:
 
     You can do a lot more with the Client SDK. For an summary, please see the [Client SDK Overview](/client-sdk/overview) or review the [iOS Client SDK documentation](/sdk/stitch/ios/index).
 
-    We want to hear what ideas you have in mind? Contact us at [devrel@vonage.com](mailto:devrel@vonage.com)
+    We want to hear what ideas you have in mind! Contact us at [devrel@vonage.com](mailto:devrel@vonage.com)
 
     See [Client SDK documentation](/client-sdk/overview).

@@ -7,6 +7,7 @@ language: java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     // We can retrieve client instance only if it has been already initialized
+    // in Application class or Activity:
     // new NexmoClient.Builder().build(context)
     private NexmoClient client = NexmoClient.get();
 

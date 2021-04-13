@@ -5,6 +5,6 @@ language: kotlin
 
 ```kotlin
 dependencies{
-    implementation("com.google.firebase:firebase-messaging:20.3.0")
+    implementation("com.google.firebase:firebase-messaging:21.0.1")
 }
 ```

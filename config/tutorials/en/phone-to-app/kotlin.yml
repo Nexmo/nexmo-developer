@@ -1,6 +1,6 @@
 title: Receiving a phone call in-app
 description: You receive a call from a phone to your app
-products: 
+products:
   - client-sdk
 
 introduction:
@@ -46,9 +46,11 @@ conclusion:
     # What's next?
     The complete version of the project you just built is available on [Github](https://github.com/nexmo-community/client-sdk-tutorials) - please see the [phone-to-app-kotlin](https://github.com/nexmo-community/client-sdk-tutorials/tree/main/phone-to-app-kotlin) folder.
 
-    You can do a lot more with the Client SDK. See [Client SDK documentation](/client-sdk/overview) or review
-    [Android Client SDK documentation](/sdk/stitch/android/index).
+    You can do a lot more with the Client SDK:
+    - read the [Client SDK documentation](/client-sdk/overview)
+    - review the [Android Client SDK documentation](/sdk/stitch/android/index)
+    - try the [Client SDK Android Samples](https://github.com/nexmo-community/client-sdk-android-samples) repository
 
-    We want to hear what ideas you have in mind? Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
+    We want to hear what ideas you have in mind! Contact us at <a href="mailto:devrel@vonage.com">devrel@vonage.com</a>
 
-   
+
