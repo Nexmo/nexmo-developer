@@ -1,5 +1,6 @@
 ---
-"@vonage/server-sdk@beta"
+dependencies:
+- "@vonage/server-sdk@beta"
 code:
     source: .repos/vonage/vonage-node-code-snippets/conversation/conversation/update-conversation.js
     from_line: 20
