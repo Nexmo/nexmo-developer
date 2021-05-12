@@ -4,9 +4,9 @@ dependencies:
     - jsonwebtoken
 code:
     source: .repos/vonage/vonage-node-code-snippets/jwt/decode-jwt.js
-    from_line: 14
+    from_line: 8
     to_line: 25
-client:
+import_dependencies:
     source: .repos/vonage/vonage-node-code-snippets/jwt/decode-jwt.js
     from_line: 5
-    to_line: 12
+    to_line: 6
