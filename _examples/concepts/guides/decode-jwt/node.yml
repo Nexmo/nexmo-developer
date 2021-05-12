@@ -1,9 +1,12 @@
 ---
+dependencies:
+    - express
+    - jsonwebtoken
 code:
-    source: .repos/vonage/vonage-node-code-snippets/applications/create-application-v2.js
-    from_line: 16
-    to_line: 59
+    source: .repos/vonage/vonage-node-code-snippets/jwt/decode-jwt.js
+    from_line: 14
+    to_line: 25
 client:
-    source: .repos/vonage/vonage-node-code-snippets/applications/create-application-v2.js
-    from_line: 7
-    to_line: 14
+    source: .repos/vonage/vonage-node-code-snippets/jwt/decode-jwt.js
+    from_line: 5
+    to_line: 12
