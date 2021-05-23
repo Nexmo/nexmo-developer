@@ -36,48 +36,7 @@ page:
 
 
 
-                <div class="Vlt-table__row">
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="17">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="5a" role="tab">
-                        <b>17</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="18">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="27a" role="tab">
-                        <b>18</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="19">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="28b" role="tab">
-                        <b>19</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="20">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="8a" role="tab">
-                        <b>20</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="21">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="9a" role="tab">
-                        <b>21</b>
-                        <p class="show">Now We're Talking</p>
-                      </div>
-                    </span>
-                  </div>
-                </div>
+
                 <div class="Vlt-table__row">
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="24">
                     <span class="Vlt-col padding-0">
@@ -162,6 +121,48 @@ page:
                     </span>
                   </div>
                 </div>
+                <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="7">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="7a" role="tab">
+                        <b>7</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="8">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="8a" role="tab">
+                        <b>8</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="9">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="9a" role="tab">
+                        <b>9</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="10">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="10a" role="tab">
+                        <b>10</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="11">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="11a" role="tab">
+                        <b>11</b>
+                        <p class="show">Now We're Talking</p>
+                      </div>
+                    </span>
+                  </div>
+                </div>
               </div>
               <div class="Vlt-tabs__content">
                 <div class="Vlt-tabs__panel Vlt-tabs__panel_active">
@@ -176,63 +177,7 @@ page:
 
 
 
-                <div class="Vlt-tabs__panel" id="tab-17" role="tabpanel">
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-18" role="tabpanel">
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-19" role="tabpanel">
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-20" role="tabpanel">
-                </div>
-                <div class="Vlt-tabs__panel" id="tab-21" role="tabpanel">
-                  <div class="Vlt-grid">
-                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
-                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1619507156/Twitch_Show_Social_Graphics_63_dbqmpk.png" alt="Now We're Talking">
-                    </div>
-                    <div class="Vlt-col Vlt-col--2of3">
-                      <div class="Vlt-grid">
-                        <h4 class="Vlt-col mobile-center">Now We're Talking</h4>
-                        <p class="Vlt-col Vlt-right mobile-justify">17:00 London / 12:00 New York / 09:00 SF</p>
-                      </div>
-                      <p class="Vlt-col padding-left-0 mobile-justify">
-                        Cory will be interviewing a new hi-tech guest!
-                      </p>
-                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
-                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
-                        Vonage APIs - Vonage Voyagers
-                      </h5>
-                    </div>
-                    <div class="padding-top-32">
-                      <div class="Vlt-grid padding-top-32">
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4 class="inline-block">About The Show</h4>
-                          <p class="text-justify">
-                            Each week our Bay Area advocate Cory will be interviewing developers from around the ecosystem to learn about their coding journeys. Join Cory to get a glimpse the of wide range of experiences in programming and what it's like to work in tech.
-                          </p>
-                        </div>
-                        <div class="Vlt-col Vlt-col--1of2">
-                          <h4 class="inline-block">About Cory Althoff</h4>
-                          <a href="https://twitter.com/coryalthoff" target="_blank">
-                            <i class="icon icon-twitter"></i>
-                          </a>
-                          <a href="https://github.com/calthoff" target="_blank">
-                            <i class="icon icon-github"></i>
-                          </a>
-                          <h5>
-                            iOS Developer Advocate
-                          </h5>
-                          <p class="text-justify">
-                            Cory Althoff is a developer advocate at Vonage and the author of two books: The "Self-Taught Programmer" and "The Self-Taught Computer Scientist". Book Authority named "The Self-Taught Programmer" one of the greatest programming books of all time, and The Next Web listed it as one of the ten books that will help you become a better software engineer. Cory lives in the Bay Area with his wife and daughter.
-                          </p>
-                          </br>
-                          <a class="Vlt-purple" href="https://learn.vonage.com/authors/cory-althoff/?utm_source=devtv&utm_medium=organic&utm_campaign=social_media">
-                            Articles by Cory
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
                 <div class="Vlt-tabs__panel" id="tab-24" role="tabpanel">
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-25" role="tabpanel">
@@ -300,6 +245,64 @@ page:
                 <div class="Vlt-tabs__panel" id="tab-3" role="tabpanel">
                 </div>
                 <div class="Vlt-tabs__panel" id="tab-4" role="tabpanel">
+                  <div class="Vlt-grid">
+                    <div class="Vlt-col Vlt-col--1of3 padding-left-0">
+                      <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1619507156/Twitch_Show_Social_Graphics_63_dbqmpk.png" alt="Now We're Talking">
+                    </div>
+                    <div class="Vlt-col Vlt-col--2of3">
+                      <div class="Vlt-grid">
+                        <h4 class="Vlt-col mobile-center">Now We're Talking</h4>
+                        <p class="Vlt-col Vlt-right mobile-justify">17:00 London / 12:00 New York / 09:00 SF</p>
+                      </div>
+                      <p class="Vlt-col padding-left-0 mobile-justify">
+                        Cory will be interviewing a new hi-tech guest!
+                      </p>
+                      <h5 class="Vlt-col Vlt-title--icon padding-left-0 mobile-justify">
+                        <svg class="Vlt-icon Vlt-icon--large"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-tool-full"></svg>
+                        Vonage APIs - Vonage Voyagers
+                      </h5>
+                    </div>
+                    <div class="padding-top-32">
+                      <div class="Vlt-grid padding-top-32">
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About The Show</h4>
+                          <p class="text-justify">
+                            Each week our Bay Area advocate Cory will be interviewing developers from around the ecosystem to learn about their coding journeys. Join Cory to get a glimpse the of wide range of experiences in programming and what it's like to work in tech.
+                          </p>
+                        </div>
+                        <div class="Vlt-col Vlt-col--1of2">
+                          <h4 class="inline-block">About Cory Althoff</h4>
+                          <a href="https://twitter.com/coryalthoff" target="_blank">
+                            <i class="icon icon-twitter"></i>
+                          </a>
+                          <a href="https://github.com/calthoff" target="_blank">
+                            <i class="icon icon-github"></i>
+                          </a>
+                          <h5>
+                            iOS Developer Advocate
+                          </h5>
+                          <p class="text-justify">
+                            Cory Althoff is a developer advocate at Vonage and the author of two books: The "Self-Taught Programmer" and "The Self-Taught Computer Scientist". Book Authority named "The Self-Taught Programmer" one of the greatest programming books of all time, and The Next Web listed it as one of the ten books that will help you become a better software engineer. Cory lives in the Bay Area with his wife and daughter.
+                          </p>
+                          </br>
+                          <a class="Vlt-purple" href="https://learn.vonage.com/authors/cory-althoff/?utm_source=devtv&utm_medium=organic&utm_campaign=social_media">
+                            Articles by Cory
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="Vlt-tabs__panel" id="tab-7" role="tabpanel">
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-8" role="tabpanel">
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-9" role="tabpanel">
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-10" role="tabpanel">
+                </div>
+                <div class="Vlt-tabs__panel" id="tab-11" role="tabpanel">
                   <div class="Vlt-grid">
                     <div class="Vlt-col Vlt-col--1of3 padding-left-0">
                       <img src="https://res.cloudinary.com/dsg3ucw55/image/upload/v1619507156/Twitch_Show_Social_Graphics_63_dbqmpk.png" alt="Now We're Talking">
