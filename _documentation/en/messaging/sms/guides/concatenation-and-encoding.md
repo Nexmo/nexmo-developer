@@ -78,9 +78,9 @@ If you are sending a message with a `type` value of `text` then the following ch
 | Parts | Maximum Characters | Calculation |
 | -- | -- | -- |
 | 1 | 160 | Without UDH 160 characters are available |
-| 2 | 304 | `(160 - 7) * 2 = 306` |
-| 3 | 456 | `(160 - 7) * 3 = 459` |
-| 4 | 608 | `(160 - 7) * 4 = 612` |
+| 2 | 306 | `(160 - 7) * 2 = 306` |
+| 3 | 459 | `(160 - 7) * 3 = 459` |
+| 4 | 612 | `(160 - 7) * 4 = 612` |
 
 If you are sending a message with a `type` of `unicode` then each character in the message requires two bytes.
 
