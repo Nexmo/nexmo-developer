@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: modules/rtcstats_analytics.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationsPage.html">ConversationsPage</a></li><li><a href="EventsPage.html">EventsPage</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="MembersPage.html">MembersPage</a></li><li><a href="NexmoApiError.html">NexmoApiError</a></li><li><a href="NexmoClient.html">NexmoClient</a></li><li><a href="NexmoClientError.html">NexmoClientError</a></li><li><a href="NXMCall.html">NXMCall</a></li><li><a href="NXMEvent.html">NXMEvent</a></li><li><a href="TextEvent.html">TextEvent</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Application.html#event:call:status:changed">Application#call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">Application#event:NXM-errors</a></li><li><a href="Application.html#event:member:call">Application#member:call</a></li><li><a href="Application.html#event:member:invited">Application#member:invited</a></li><li><a href="Application.html#event:member:joined">Application#member:joined</a></li><li><a href="Application.html#event:sync:progress">Application#sync:progress</a></li><li><a href="Conversation.html#event:audio:mute:off">Conversation#audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">Conversation#audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">Conversation#event:delete</a></li><li><a href="Conversation.html#event:image">Conversation#event:image</a></li><li><a href="Conversation.html#event:text">Conversation#event:text</a></li><li><a href="Conversation.html#event:image:seen">Conversation#image:seen</a></li><li><a href="Conversation.html#event:member:call:status">Conversation#member:call:status</a></li><li><a href="Conversation.html#event:member:invited">Conversation#member:invited</a></li><li><a href="Conversation.html#event:member:joined">Conversation#member:joined</a></li><li><a href="Conversation.html#event:member:left">Conversation#member:left</a></li><li><a href="Conversation.html#event:member:media">Conversation#member:media</a></li><li><a href="Conversation.html#event:text:seen">Conversation#text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">Conversation#text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">Conversation#text:typing:on</a></li><li><a href="Member.html#event:media:stream:on">Member#media:stream:on</a></li><li><a href="NexmoClient.html#event:connecting">NexmoClient#event:connecting</a></li><li><a href="NexmoClient.html#event:disconnect">NexmoClient#event:disconnect</a></li><li><a href="NexmoClient.html#event:error">NexmoClient#event:error</a></li><li><a href="NexmoClient.html#event:ready">NexmoClient#event:ready</a></li><li><a href="NexmoClient.html#event:reconnect">NexmoClient#event:reconnect</a></li><li><a href="NexmoClient.html#event:reconnecting">NexmoClient#event:reconnecting</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: modules/rtcstats_analytics.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
+    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const rtcStatsAdapterParser = require("rtc-stats-adapter");
+const calculateMos = require('rtc-stats-adapter/calculate-mos');
+const utils_1 = __importDefault(require("../utils"));
+/**
+ * Collect WebRTC Report data
+ * Removes credential information from the STUN.TURN server configuration.
+ * performs Delta compression
+ *
+ * if isCallback is true the report includes a MOS score : trace('mos', mos, report);
+ *
+ * @param {object} context
+ * @param {Application} context.application
+ * @param {Conversation} context.conversation
+ * @param {RTCPeerConnection} context.pc peer connection object
+ * @param {string} context.rtc_id id of a leg
+ * @param {RTCStatsConfig} context.config config settings for ananlytics
+ * @property {MosReport} mos_report the final mos report to be sent when the stream is closed
+ * @property {number} _reportsCount the number of reports taken for mos average
+ * @property {number} _mosSum the summary of mos scores
+ * @private
+ */
+class RTCStatsAnalytics {
+    constructor(context) {
+        this.mos_report = { min: 5, max: 0 };
+        this._reportsCount = 0;
+        this._mosSum = 0;
+        this.intervals = [];
+        this._deprecationWarningSent = false;
+        if (!context || !context.application || !context.rtc_id || !context.pc) {
+            return;
+        }
+        this.attachHandlers(context);
+        this.startSendingStats(context);
+        this.startEmittingStats(context);
+    }
+    attachHandlers(context) {
+        const { pc } = context;
+        const onConnectionStateChange = pc.onconnectionstatechange
+            ? pc.onconnectionstatechange
+            : () => { };
+        pc.onconnectionstatechange = (event) => {
+            onConnectionStateChange.call(pc, event);
+            switch (pc.connectionState) {
+                case "disconnected":
+                case "failed":
+                case "closed":
+                    this.removeIntervals();
+                    this.emitLastReport(context);
+            }
+        };
+    }
+    emitLastReport(context) {
+        const { application, conversation = null, rtc_id, config: { emit_events, emit_rtc_analytics }, } = context;
+        const mos_report = this.getMOSReport();
+        const mos = mos_report.last;
+        if (mos) {
+            if (emit_rtc_analytics) {
+                application.emit("rtcstats:analytics", {
+                    type: "mos_report",
+                    mos,
+                    rtc_id,
+                    mos_report
+                });
+            }
+            if (emit_events) {
+                if (!this._deprecationWarningSent) {
+                    this._deprecationWarningSent = true;
+                    console.warn('"rtcstats:report" event is deprecated. Use "rtcstats:analytics" instead');
+                }
+                /**
+                 * @deprecated Use "rtcstats:analytics instead"
+                 */
+                application.emit("rtcstats:report", mos, null, conversation, mos_report);
+            }
+        }
+    }
+    startSendingStats(context) {
+        const { pc, rtc_id, config: { remote_collection, remote_collection_url, remote_collection_interval, }, } = context;
+        if (!remote_collection)
+            return;
+        const remote_collection_interval_id = window.setInterval(() => {
+            pc.getStats(null).then((stats) => {
+                const data = rtcStatsAdapterParser(stats);
+                data.legId = rtc_id;
+                utils_1.default.networkRequest({
+                    url: remote_collection_url,
+                    type: "POST",
+                    data,
+                });
+            });
+            if (pc.connectionState === "closed" || pc.signalingState === 'closed') {
+                this.removeIntervals();
+            }
+        }, remote_collection_interval);
+        this.intervals.push(remote_collection_interval_id);
+    }
+    startEmittingStats(context) {
+        const { application, conversation = null, pc, rtc_id, config: { emit_events, emit_rtc_analytics, emit_interval }, } = context;
+        if (!emit_events &amp;&amp; !emit_rtc_analytics)
+            return;
+        const emit_stats_interval_id = window.setInterval(() => {
+            pc.getStats(null).then((stats) => {
+                const mos = this.getMos(stats);
+                if (!mos)
+                    return;
+                if (emit_rtc_analytics) {
+                    application.emit("rtcstats:analytics", {
+                        type: "mos",
+                        mos,
+                        report: stats,
+                        rtc_id,
+                    });
+                }
+                if (emit_events) {
+                    if (!this._deprecationWarningSent) {
+                        this._deprecationWarningSent = true;
+                        console.warn('"rtcstats:report" event is deprecated. Use "rtcstats:analytics" instead');
+                    }
+                    /**
+                     * @deprecated Use "rtcstats:analytics instead"
+                     */
+                    application.emit("rtcstats:report", mos, stats, conversation);
+                }
+            });
+            if (pc.connectionState === "closed" || pc.signalingState === 'closed') {
+                this.removeIntervals();
+                this.emitLastReport(context);
+            }
+        }, emit_interval);
+        this.intervals.push(emit_stats_interval_id);
+    }
+    removeIntervals() {
+        this.intervals.forEach((interval) => window.clearInterval(interval));
+        this.intervals = [];
+    }
+    getMos(stats) {
+        const mos = calculateMos(stats);
+        this.updateMOSReport(parseInt(mos));
+        return mos;
+    }
+    /**
+     * Update the mos_report object
+     * @param {number} mos the MOS score
+     * @returns {object} the report object
+     */
+    updateMOSReport(mos) {
+        this._reportsCount++;
+        this._mosSum += mos;
+        this.mos_report.last = mos;
+        this.mos_report.min = mos &lt; this.mos_report.min ? mos : this.mos_report.min;
+        this.mos_report.max = mos > this.mos_report.max ? mos : this.mos_report.max;
+        this.mos_report.average = this._mosSum / this._reportsCount;
+    }
+    /**
+     * Update the MOS report object
+     * mos_report.min - the minimum MOS value during the stream
+     * mos_report.max - the maximum MOS value during the stream
+     * mos_report.last - the last MOS value during the stream
+     * mos_report.average - the average MOS value during the stream
+     * @returns {MosReport} mos_report - a report for the MOS values
+     *
+     */
+    getMOSReport() {
+        this.mos_report.min = RTCStatsAnalytics.normaliseFloat(this.mos_report.min);
+        this.mos_report.max = RTCStatsAnalytics.normaliseFloat(this.mos_report.max);
+        this.mos_report.last = RTCStatsAnalytics.normaliseFloat(this.mos_report.last);
+        this.mos_report.average = RTCStatsAnalytics.normaliseFloat(this.mos_report.average);
+        return this.mos_report;
+    }
+    static normaliseFloat(value) {
+        return parseFloat(value).toFixed(6);
+    }
+}
+exports.default = RTCStatsAnalytics;
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
+	
+		on Tue May 18th 2021
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

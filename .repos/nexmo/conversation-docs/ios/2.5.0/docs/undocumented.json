@@ -1,0 +1,1685 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMBlocks.h",
+      "line": 10,
+      "symbol": "NXMSuccessCallback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMBlocks.h",
+      "line": 11,
+      "symbol": "NXMSuccessCallbackWithId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMBlocks.h",
+      "line": 12,
+      "symbol": "NXMSuccessCallbackWithObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMBlocks.h",
+      "line": 13,
+      "symbol": "NXMSuccessCallbackWithObjects",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMBlocks.h",
+      "line": 14,
+      "symbol": "NXMErrorCallback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMBlocks.h",
+      "line": 15,
+      "symbol": "NXMCompletionCallback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 105,
+      "symbol": "NXMCall.-addCallMemberWithUsername:completionHandler:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 108,
+      "symbol": "NXMCall.-addCallMemberWithNumber:completionHandler:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 111,
+      "symbol": "NXMCall.-sendDTMF:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCall.h",
+      "line": 113,
+      "symbol": "NXMCall.-hangup",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 12,
+      "symbol": "NXMCallMemberStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 12,
+      "symbol": "NXMCallMemberStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 13,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusRinging",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 14,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusStarted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 15,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusAnswered",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 16,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusCancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 17,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 18,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusBusy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 19,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusTimeout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 20,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusRejected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 21,
+      "symbol": "NXMCallMemberStatus.NXMCallMemberStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 24,
+      "symbol": "NXMCallMember",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 26,
+      "symbol": "NXMCallMember.memberId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 27,
+      "symbol": "NXMCallMember.user",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 28,
+      "symbol": "NXMCallMember.channel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 29,
+      "symbol": "NXMCallMember.isMuted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 30,
+      "symbol": "NXMCallMember.status",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 31,
+      "symbol": "NXMCallMember.statusDescription",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 33,
+      "symbol": "NXMCallMember.-hold:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 34,
+      "symbol": "NXMCallMember.-mute:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMCallMember.h",
+      "line": 35,
+      "symbol": "NXMCallMember.-earmuff:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 11,
+      "symbol": "NXMDirection",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 13,
+      "symbol": "NXMDirection.type",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 14,
+      "symbol": "NXMDirection.data",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 17,
+      "symbol": "NXMChannel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 19,
+      "symbol": "NXMChannel.from",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 20,
+      "symbol": "NXMChannel.to",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMChannel.h",
+      "line": 21,
+      "symbol": "NXMChannel.leg",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 8,
+      "symbol": "NXMClientConfig.apiUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 9,
+      "symbol": "NXMClientConfig.websocketUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 10,
+      "symbol": "NXMClientConfig.ipsUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 11,
+      "symbol": "NXMClientConfig.iceServerUrls",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 12,
+      "symbol": "NXMClientConfig.useFirstIceCandidate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 24,
+      "symbol": "NXMClientConfig.-initWithApiUrl:websocketUrl:ipsUrl:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 28,
+      "symbol": "NXMClientConfig.-initWithApiUrl:websocketUrl:ipsUrl:iceServerUrls:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 33,
+      "symbol": "NXMClientConfig.-initWithApiUrl:websocketUrl:ipsUrl:useFirstIceCandidate:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 38,
+      "symbol": "NXMClientConfig.-initWithApiUrl:websocketUrl:ipsUrl:iceServerUrls:useFirstIceCandidate:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 44,
+      "symbol": "NXMClientConfig.+AMS",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 45,
+      "symbol": "NXMClientConfig.+LON",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 46,
+      "symbol": "NXMClientConfig.+SNG",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 47,
+      "symbol": "NXMClientConfig.+DAL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientConfig.h",
+      "line": 48,
+      "symbol": "NXMClientConfig.+WDC",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientDelegate.h",
+      "line": 16,
+      "symbol": "NXMClientDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientDelegate.h",
+      "line": 17,
+      "symbol": "NXMClientDelegate.-client:didChangeConnectionStatus:reason:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientDelegate.h",
+      "line": 18,
+      "symbol": "NXMClientDelegate.-client:didReceiveError:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientDelegate.h",
+      "line": 20,
+      "symbol": "NXMClientDelegate.-client:didReceiveCall:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMClientDelegate.h",
+      "line": 21,
+      "symbol": "NXMClientDelegate.-client:didReceiveConversation:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 13,
+      "symbol": "NXMAttachmentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 13,
+      "symbol": "NXMAttachmentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 14,
+      "symbol": "NXMAttachmentType.NXMAttachmentTypeImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversation.h",
+      "line": 32,
+      "symbol": "NXMConversation.lastEventId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 33,
+      "symbol": "NXMConversationDelegate.-conversation:didReceive:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 36,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveCustomEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 37,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveTextEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 38,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveImageEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 39,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveMessageStatusEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 40,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveTypingEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 41,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveMemberEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 42,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveLegStatusEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 43,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveMediaEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMConversationDelegate.h",
+      "line": 44,
+      "symbol": "NXMConversationDelegate.-conversation:didReceiveDTMFEvent:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 10,
+      "symbol": "NXMConnectionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 10,
+      "symbol": "NXMConnectionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 11,
+      "symbol": "NXMConnectionStatus.NXMConnectionStatusDisconnected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 12,
+      "symbol": "NXMConnectionStatus.NXMConnectionStatusConnecting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 13,
+      "symbol": "NXMConnectionStatus.NXMConnectionStatusConnected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 16,
+      "symbol": "NXMConnectionStatusReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 16,
+      "symbol": "NXMConnectionStatusReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 17,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 18,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonLogin",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 19,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonLogout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 20,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonTokenRefreshed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 21,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonTokenInvalid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 22,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonTokenExpired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 23,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonUserNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 24,
+      "symbol": "NXMConnectionStatusReason.NXMConnectionStatusReasonTerminated",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 28,
+      "symbol": "NXMPushTemplate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 28,
+      "symbol": "NXMPushTemplate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 29,
+      "symbol": "NXMPushTemplate.NXMPushTemplateDefault",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 30,
+      "symbol": "NXMPushTemplate.NXMPushTemplateCustom",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 34,
+      "symbol": "NXMMemberUpdateType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 34,
+      "symbol": "NXMMemberUpdateType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 35,
+      "symbol": "NXMMemberUpdateType.NXMMemberUpdateTypeState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 36,
+      "symbol": "NXMMemberUpdateType.NXMMemberUpdateTypeMedia",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 37,
+      "symbol": "NXMMemberUpdateType.NXMMemberUpdateTypeLeg",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 40,
+      "symbol": "NXMMediaType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 40,
+      "symbol": "NXMMediaType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 41,
+      "symbol": "NXMMediaType.NXMMediaTypeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 42,
+      "symbol": "NXMMediaType.NXMMediaTypeAudio",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 43,
+      "symbol": "NXMMediaType.NXMMediaTypeVideo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 46,
+      "symbol": "NXMEventType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 46,
+      "symbol": "NXMEventType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 47,
+      "symbol": "NXMEventType.NXMEventTypeGeneral",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 48,
+      "symbol": "NXMEventType.NXMEventTypeCustom",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 49,
+      "symbol": "NXMEventType.NXMEventTypeText",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 50,
+      "symbol": "NXMEventType.NXMEventTypeImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 51,
+      "symbol": "NXMEventType.NXMEventTypeMessageStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 52,
+      "symbol": "NXMEventType.NXMEventTypeTextTyping",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 53,
+      "symbol": "NXMEventType.NXMEventTypeMedia",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 54,
+      "symbol": "NXMEventType.NXMEventTypeMember",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 55,
+      "symbol": "NXMEventType.NXMEventTypeSip",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 56,
+      "symbol": "NXMEventType.NXMEventTypeDTMF",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 57,
+      "symbol": "NXMEventType.NXMEventTypeLegStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 58,
+      "symbol": "NXMEventType.NXMEventTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 61,
+      "symbol": "NXMSipStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 61,
+      "symbol": "NXMSipStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 62,
+      "symbol": "NXMSipStatus.NXMSipEventRinging",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 63,
+      "symbol": "NXMSipStatus.NXMSipEventAnswered",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 64,
+      "symbol": "NXMSipStatus.NXMSipEventStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 65,
+      "symbol": "NXMSipStatus.NXMSipEventHangup",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 68,
+      "symbol": "NXMMessageStatusType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 68,
+      "symbol": "NXMMessageStatusType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 69,
+      "symbol": "NXMMessageStatusType.NXMMessageStatusTypeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 70,
+      "symbol": "NXMMessageStatusType.NXMMessageStatusTypeSeen",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 71,
+      "symbol": "NXMMessageStatusType.NXMMessageStatusTypeDelivered",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 72,
+      "symbol": "NXMMessageStatusType.NXMMessageStatusTypeDeleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 75,
+      "symbol": "NXMTextTypingEventStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 75,
+      "symbol": "NXMTextTypingEventStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 76,
+      "symbol": "NXMTextTypingEventStatus.NXMTextTypingEventStatusOn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 77,
+      "symbol": "NXMTextTypingEventStatus.NXMTextTypingEventStatusOff",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 80,
+      "symbol": "NXMMemberState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 80,
+      "symbol": "NXMMemberState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 81,
+      "symbol": "NXMMemberState.NXMMemberStateInvited",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 82,
+      "symbol": "NXMMemberState.NXMMemberStateJoined",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 83,
+      "symbol": "NXMMemberState.NXMMemberStateLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 86,
+      "symbol": "NXMDirectionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 86,
+      "symbol": "NXMDirectionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 87,
+      "symbol": "NXMDirectionType.NXMDirectionTypeApp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 88,
+      "symbol": "NXMDirectionType.NXMDirectionTypePhone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 89,
+      "symbol": "NXMDirectionType.NXMDirectionTypeSIP",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 90,
+      "symbol": "NXMDirectionType.NXMDirectionTypeWebsocket",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 91,
+      "symbol": "NXMDirectionType.NXMDirectionTypeVBC",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 92,
+      "symbol": "NXMDirectionType.NXMDirectionTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 96,
+      "symbol": "NXMMediaStreamType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 96,
+      "symbol": "NXMMediaStreamType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 97,
+      "symbol": "NXMMediaStreamType.NXMMediaStreamTypeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 98,
+      "symbol": "NXMMediaStreamType.NXMMediaStreamTypeSend",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 99,
+      "symbol": "NXMMediaStreamType.NXMMediaStreamTypeReceive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 100,
+      "symbol": "NXMMediaStreamType.NXMMediaStreamTypeSendReceive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 103,
+      "symbol": "NXMLegStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 103,
+      "symbol": "NXMLegStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 104,
+      "symbol": "NXMLegStatus.NXMLegStatusRinging",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 105,
+      "symbol": "NXMLegStatus.NXMLegStatusStarted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 106,
+      "symbol": "NXMLegStatus.NXMLegStatusAnswered",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 107,
+      "symbol": "NXMLegStatus.NXMLegStatusCancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 108,
+      "symbol": "NXMLegStatus.NXMLegStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 109,
+      "symbol": "NXMLegStatus.NXMLegStatusBusy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 110,
+      "symbol": "NXMLegStatus.NXMLegStatusTimeout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 111,
+      "symbol": "NXMLegStatus.NXMLegStatusRejected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 112,
+      "symbol": "NXMLegStatus.NXMLegStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 115,
+      "symbol": "NXMLegType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 115,
+      "symbol": "NXMLegType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 116,
+      "symbol": "NXMLegType.NXMLegTypeApp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 117,
+      "symbol": "NXMLegType.NXMLegTypePhone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 118,
+      "symbol": "NXMLegType.NXMLegTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 121,
+      "symbol": "NXMPageOrder",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 121,
+      "symbol": "NXMPageOrder",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 122,
+      "symbol": "NXMPageOrder.NXMPageOrderAsc",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMEnums.h",
+      "line": 123,
+      "symbol": "NXMPageOrder.NXMPageOrderDesc",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 10,
+      "symbol": "NXMErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 12,
+      "symbol": "NXMErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 12,
+      "symbol": "NXMErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 13,
+      "symbol": "NXMErrorCode.NXMErrorCodeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 15,
+      "symbol": "NXMErrorCode.NXMErrorCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 17,
+      "symbol": "NXMErrorCode.NXMErrorCodeSessionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 18,
+      "symbol": "NXMErrorCode.NXMErrorCodeSessionInvalid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 19,
+      "symbol": "NXMErrorCode.NXMErrorCodeSessionDisconnected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 20,
+      "symbol": "NXMErrorCode.NXMErrorCodeMaxOpenedSessions",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 22,
+      "symbol": "NXMErrorCode.NXMErrorCodeTokenUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 23,
+      "symbol": "NXMErrorCode.NXMErrorCodeTokenInvalid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 24,
+      "symbol": "NXMErrorCode.NXMErrorCodeTokenExpired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 26,
+      "symbol": "NXMErrorCode.NXMErrorCodeMemberUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 27,
+      "symbol": "NXMErrorCode.NXMErrorCodeMemberNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 28,
+      "symbol": "NXMErrorCode.NXMErrorCodeMemberAlreadyRemoved",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 29,
+      "symbol": "NXMErrorCode.NXMErrorCodeNotAMemberOfTheConversation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 31,
+      "symbol": "NXMErrorCode.NXMErrorCodeEventUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 32,
+      "symbol": "NXMErrorCode.NXMErrorCodeEventUserNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 33,
+      "symbol": "NXMErrorCode.NXMErrorCodeEventUserAlreadyJoined",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 34,
+      "symbol": "NXMErrorCode.NXMErrorCodeEventInvalid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 35,
+      "symbol": "NXMErrorCode.NXMErrorCodeEventBadPermission",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 36,
+      "symbol": "NXMErrorCode.NXMErrorCodeEventNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 37,
+      "symbol": "NXMErrorCode.NXMErrorCodeEventsPageNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 39,
+      "symbol": "NXMErrorCode.NXMErrorCodeConversationRetrievalFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 40,
+      "symbol": "NXMErrorCode.NXMErrorCodeConversationNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 41,
+      "symbol": "NXMErrorCode.NXMErrorCodeConversationInvalidMember",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 42,
+      "symbol": "NXMErrorCode.NXMErrorCodeConversationExpired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 43,
+      "symbol": "NXMErrorCode.NXMErrorCodeConversationsPageNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 45,
+      "symbol": "NXMErrorCode.NXMErrorCodeMediaNotSupported",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 46,
+      "symbol": "NXMErrorCode.NXMErrorCodeMediaNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 47,
+      "symbol": "NXMErrorCode.NXMErrorCodeInvalidMediaRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 48,
+      "symbol": "NXMErrorCode.NXMErrorCodeMediaTooManyRequests",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 49,
+      "symbol": "NXMErrorCode.NXMErrorCodeMediaBadRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 50,
+      "symbol": "NXMErrorCode.NXMErrorCodeMediaInternalError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 52,
+      "symbol": "NXMErrorCode.NXMErrorCodePushNotANexmoPush",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 53,
+      "symbol": "NXMErrorCode.NXMErrorCodePushParsingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 55,
+      "symbol": "NXMErrorCode.NXMErrorCodeNotImplemented",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 56,
+      "symbol": "NXMErrorCode.NXMErrorCodeMissingDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 57,
+      "symbol": "NXMErrorCode.NXMErrorCodePayloadTooBig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 59,
+      "symbol": "NXMErrorCode.NXMErrorCodeSDKDisconnected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 60,
+      "symbol": "NXMErrorCode.NXMErrorCodeUserNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMErrors.h",
+      "line": 62,
+      "symbol": "NXMErrorCode.NXMErrorCodeDTMFIllegal",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 10,
+      "symbol": "NXMLoggerLevel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 10,
+      "symbol": "NXMLoggerLevel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 11,
+      "symbol": "NXMLoggerLevel.NXMLoggerLevelNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 12,
+      "symbol": "NXMLoggerLevel.NXMLoggerLevelError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 13,
+      "symbol": "NXMLoggerLevel.NXMLoggerLevelDebug",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 14,
+      "symbol": "NXMLoggerLevel.NXMLoggerLevelInfo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 15,
+      "symbol": "NXMLoggerLevel.NXMLoggerLevelVerbose",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 18,
+      "symbol": "NXMLogger",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMLogger.h",
+      "line": 19,
+      "symbol": "NXMLogger.+setLogLevel:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 16,
+      "symbol": "NXMMember",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 18,
+      "symbol": "NXMMember.conversationUuid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 19,
+      "symbol": "NXMMember.memberUuid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 20,
+      "symbol": "NXMMember.user",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 21,
+      "symbol": "NXMMember.state",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 22,
+      "symbol": "NXMMember.media",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMMember.h",
+      "line": 23,
+      "symbol": "NXMMember.channel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMPushPayload.h",
+      "line": 11,
+      "symbol": "NXMPushPayload",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMPushPayload.h",
+      "line": 13,
+      "symbol": "NXMPushPayload.customData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMPushPayload.h",
+      "line": 14,
+      "symbol": "NXMPushPayload.eventData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NXMPushPayload.h",
+      "line": 15,
+      "symbol": "NXMPushPayload.template",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NexmoClient.h",
+      "line": 11,
+      "symbol": "NexmoClientVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/NexmoClient.h",
+      "line": 14,
+      "symbol": "NexmoClientVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/Pages/NXMConversationsPage.h",
+      "line": 11,
+      "symbol": "NXMConversationsPage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/Pages/NXMEventsPage.h",
+      "line": 11,
+      "symbol": "NXMEventsPage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/Pages/NXMPage.h",
+      "line": 10,
+      "symbol": "NXMPage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/User/NXMUser.h",
+      "line": 10,
+      "symbol": "NXMUser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/User/NXMUser.h",
+      "line": 12,
+      "symbol": "NXMUser.uuid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/User/NXMUser.h",
+      "line": 13,
+      "symbol": "NXMUser.name",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios/NexmoClient/User/NXMUser.h",
+      "line": 14,
+      "symbol": "NXMUser.displayName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/nexmoclient-sdk-ios/nexmoclient-sdk-ios"
+}

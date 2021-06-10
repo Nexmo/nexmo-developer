@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NXMEventType Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Enum/NXMEventType" class="dashAnchor"></a>
+    <a title="NXMEventType Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">NexmoClient 2.5.0 Docs</a> (27% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">NexmoClient Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        NXMEventType Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/NXMCall.html">NXMCall</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMClient.html">NXMClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMClientConfig.html">NXMClientConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMConversation.html">NXMConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMConversationsPage.html">NXMConversationsPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDirection.html">NXMDirection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMEventsPage.html">NXMEventsPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMHelper.html">NXMHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMInitiator.html">NXMInitiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLeg.html">NXMLeg</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLogger.html">NXMLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMember.html">NXMMember</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMPage.html">NXMPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMPushPayload.html">NXMPushPayload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMUser.html">NXMUser</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@NXMErrorDomain">NXMErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@NexmoClientVersionNumber">NexmoClientVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@NexmoClientVersionString">NexmoClientVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NXMAttachmentType.html">NXMAttachmentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMCallHandler.html">NXMCallHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMCallMemberStatus.html">NXMCallMemberStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMConnectionStatus.html">NXMConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMConnectionStatusReason.html">NXMConnectionStatusReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMDirectionType.html">NXMDirectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMErrorCode.html">NXMErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMEventType.html">NXMEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMLegStatus.html">NXMLegStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMLegType.html">NXMLegType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMLoggerLevel.html">NXMLoggerLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMediaStreamType.html">NXMMediaStreamType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMediaType.html">NXMMediaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMemberState.html">NXMMemberState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMemberUpdateType.html">NXMMemberUpdateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMessageStatusType.html">NXMMessageStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMPageOrder.html">NXMPageOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMPushTemplate.html">NXMPushTemplate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMSipStatus.html">NXMSipStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMTextTypingEventStatus.html">NXMTextTypingEventStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMCallDelegate.html">NXMCallDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMClientDelegate.html">NXMClientDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallback">NXMSuccessCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallbackWithId">NXMSuccessCallbackWithId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallbackWithObject">NXMSuccessCallbackWithObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallbackWithObjects">NXMSuccessCallbackWithObjects</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>NXMEventType</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">NXMEventType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">NXMEventTypeGeneral</span><span class="p">,</span>
+    <span class="n">NXMEventTypeCustom</span><span class="p">,</span>
+    <span class="n">NXMEventTypeText</span><span class="p">,</span>
+    <span class="n">NXMEventTypeImage</span><span class="p">,</span>
+    <span class="n">NXMEventTypeMessageStatus</span><span class="p">,</span>
+    <span class="n">NXMEventTypeTextTyping</span><span class="p">,</span>
+    <span class="n">NXMEventTypeMedia</span><span class="p">,</span>
+    <span class="n">NXMEventTypeMember</span><span class="p">,</span>
+    <span class="n">NXMEventTypeSip</span><span class="p">,</span>
+    <span class="n">NXMEventTypeDTMF</span><span class="p">,</span>
+    <span class="n">NXMEventTypeLegStatus</span><span class="p">,</span>
+    <span class="n">NXMEventTypeUnknown</span>
+<span class="p">}</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">NXMEventType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeGeneral"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeGeneral" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeGeneral">NXMEventTypeGeneral</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeGeneral</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">general</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeCustom"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeCustom" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeCustom">NXMEventTypeCustom</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeCustom</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">custom</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeText"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeText" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeText">NXMEventTypeText</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeText</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">text</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeImage"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeImage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeImage">NXMEventTypeImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeImage</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">image</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeMessageStatus"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeMessageStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeMessageStatus">NXMEventTypeMessageStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeMessageStatus</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">messageStatus</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeTextTyping"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeTextTyping" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeTextTyping">NXMEventTypeTextTyping</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeTextTyping</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">textTyping</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeMedia"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeMedia" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeMedia">NXMEventTypeMedia</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeMedia</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">media</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeMember"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeMember" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeMember">NXMEventTypeMember</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeMember</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">member</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeSip"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeSip" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeSip">NXMEventTypeSip</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeSip</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sip</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeDTMF"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeDTMF" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeDTMF">NXMEventTypeDTMF</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeDTMF</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">DTMF</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeLegStatus"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeLegStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeLegStatus">NXMEventTypeLegStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeLegStatus</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">legStatus</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMEventType@NXMEventTypeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/NXMEventTypeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMEventType@NXMEventTypeUnknown">NXMEventTypeUnknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMEventTypeUnknown</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2021 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2021-06-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
