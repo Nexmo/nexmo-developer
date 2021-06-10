@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NXMErrorCode Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Enum/NXMErrorCode" class="dashAnchor"></a>
+    <a title="NXMErrorCode Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">NexmoClient 2.5.0 Docs</a> (27% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">NexmoClient Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        NXMErrorCode Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/NXMCall.html">NXMCall</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMClient.html">NXMClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMClientConfig.html">NXMClientConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMConversation.html">NXMConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMConversationsPage.html">NXMConversationsPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDirection.html">NXMDirection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMEventsPage.html">NXMEventsPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMHelper.html">NXMHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMInitiator.html">NXMInitiator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLeg.html">NXMLeg</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMLogger.html">NXMLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMember.html">NXMMember</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMPage.html">NXMPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMPushPayload.html">NXMPushPayload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMUser.html">NXMUser</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@NXMErrorDomain">NXMErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@NexmoClientVersionNumber">NexmoClientVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@NexmoClientVersionString">NexmoClientVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NXMAttachmentType.html">NXMAttachmentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMCallHandler.html">NXMCallHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMCallMemberStatus.html">NXMCallMemberStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMConnectionStatus.html">NXMConnectionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMConnectionStatusReason.html">NXMConnectionStatusReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMDirectionType.html">NXMDirectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMErrorCode.html">NXMErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMEventType.html">NXMEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMLegStatus.html">NXMLegStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMLegType.html">NXMLegType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMLoggerLevel.html">NXMLoggerLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMediaStreamType.html">NXMMediaStreamType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMediaType.html">NXMMediaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMemberState.html">NXMMemberState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMemberUpdateType.html">NXMMemberUpdateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMMessageStatusType.html">NXMMessageStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMPageOrder.html">NXMPageOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMPushTemplate.html">NXMPushTemplate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMSipStatus.html">NXMSipStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NXMTextTypingEventStatus.html">NXMTextTypingEventStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMCallDelegate.html">NXMCallDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMClientDelegate.html">NXMClientDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallback">NXMSuccessCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallbackWithId">NXMSuccessCallbackWithId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallbackWithObject">NXMSuccessCallbackWithObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMSuccessCallbackWithObjects">NXMSuccessCallbackWithObjects</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>NXMErrorCode</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">NXMErrorCode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">NXMErrorCodeNone</span><span class="p">,</span>
+
+    <span class="n">NXMErrorCodeUnknown</span><span class="p">,</span>
+
+    <span class="n">NXMErrorCodeSessionUnknown</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeSessionInvalid</span><span class="p">,</span>           <span class="c1">// @"system:error:invalid-session"
+</span>    <span class="n">NXMErrorCodeSessionDisconnected</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeMaxOpenedSessions</span><span class="p">,</span>
+    
+    <span class="n">NXMErrorCodeTokenUnknown</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeTokenInvalid</span><span class="p">,</span>             <span class="c1">// @"system:error:invalid-token"
+</span>    <span class="n">NXMErrorCodeTokenExpired</span><span class="p">,</span>             <span class="c1">// @"system:error:expired-token"
+</span>    
+    <span class="n">NXMErrorCodeMemberUnknown</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeMemberNotFound</span><span class="p">,</span>           <span class="c1">// @"member:error:not-found"
+</span>    <span class="n">NXMErrorCodeMemberAlreadyRemoved</span><span class="p">,</span>     <span class="c1">// @"conversation:error:invalid-member-state"
+</span>    <span class="n">NXMErrorCodeNotAMemberOfTheConversation</span><span class="p">,</span>
+    
+    <span class="n">NXMErrorCodeEventUnknown</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeEventUserNotFound</span><span class="p">,</span>        <span class="c1">// @"user:error:not-found"
+</span>    <span class="n">NXMErrorCodeEventUserAlreadyJoined</span><span class="p">,</span>   <span class="c1">// @"conversation:error:member-already-joined"
+</span>    <span class="n">NXMErrorCodeEventInvalid</span><span class="p">,</span>             <span class="c1">// @"conversation:error:invalid-event"
+</span>    <span class="n">NXMErrorCodeEventBadPermission</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeEventNotFound</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeEventsPageNotFound</span><span class="p">,</span>
+    
+    <span class="n">NXMErrorCodeConversationRetrievalFailed</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeConversationNotFound</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeConversationInvalidMember</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeConversationExpired</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeConversationsPageNotFound</span><span class="p">,</span>
+    
+    <span class="n">NXMErrorCodeMediaNotSupported</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeMediaNotFound</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeInvalidMediaRequest</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeMediaTooManyRequests</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeMediaBadRequest</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeMediaInternalError</span><span class="p">,</span>
+    
+    <span class="n">NXMErrorCodePushNotANexmoPush</span><span class="p">,</span>
+    <span class="n">NXMErrorCodePushParsingFailed</span><span class="p">,</span>
+    
+    <span class="n">NXMErrorCodeNotImplemented</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeMissingDelegate</span><span class="p">,</span>
+    <span class="n">NXMErrorCodePayloadTooBig</span><span class="p">,</span>
+    
+    <span class="n">NXMErrorCodeSDKDisconnected</span><span class="p">,</span>
+    <span class="n">NXMErrorCodeUserNotFound</span><span class="p">,</span>   <span class="c1">// @"user:error:not-found"
+</span>    
+    <span class="n">NXMErrorCodeDTMFIllegal</span>
+<span class="p">}</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">NXMErrorCode</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeNone"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeNone" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeNone">NXMErrorCodeNone</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeNone</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="k">none</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeUnknown">NXMErrorCodeUnknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeUnknown</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeSessionUnknown"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeSessionUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeSessionUnknown">NXMErrorCodeSessionUnknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeSessionUnknown</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sessionUnknown</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeSessionInvalid"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeSessionInvalid" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeSessionInvalid">NXMErrorCodeSessionInvalid</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeSessionInvalid</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sessionInvalid</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeSessionDisconnected"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeSessionDisconnected" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeSessionDisconnected">NXMErrorCodeSessionDisconnected</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeSessionDisconnected</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sessionDisconnected</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMaxOpenedSessions"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMaxOpenedSessions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMaxOpenedSessions">NXMErrorCodeMaxOpenedSessions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMaxOpenedSessions</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">maxOpenedSessions</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeTokenUnknown"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeTokenUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeTokenUnknown">NXMErrorCodeTokenUnknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeTokenUnknown</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tokenUnknown</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeTokenInvalid"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeTokenInvalid" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeTokenInvalid">NXMErrorCodeTokenInvalid</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeTokenInvalid</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tokenInvalid</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeTokenExpired"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeTokenExpired" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeTokenExpired">NXMErrorCodeTokenExpired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeTokenExpired</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tokenExpired</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMemberUnknown"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMemberUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMemberUnknown">NXMErrorCodeMemberUnknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMemberUnknown</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">memberUnknown</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMemberNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMemberNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMemberNotFound">NXMErrorCodeMemberNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMemberNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">memberNotFound</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMemberAlreadyRemoved"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMemberAlreadyRemoved" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMemberAlreadyRemoved">NXMErrorCodeMemberAlreadyRemoved</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMemberAlreadyRemoved</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">memberAlreadyRemoved</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeNotAMemberOfTheConversation"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeNotAMemberOfTheConversation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeNotAMemberOfTheConversation">NXMErrorCodeNotAMemberOfTheConversation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeNotAMemberOfTheConversation</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notAMemberOfTheConversation</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeEventUnknown"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeEventUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeEventUnknown">NXMErrorCodeEventUnknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeEventUnknown</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eventUnknown</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeEventUserNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeEventUserNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeEventUserNotFound">NXMErrorCodeEventUserNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeEventUserNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eventUserNotFound</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeEventUserAlreadyJoined"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeEventUserAlreadyJoined" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeEventUserAlreadyJoined">NXMErrorCodeEventUserAlreadyJoined</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeEventUserAlreadyJoined</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eventUserAlreadyJoined</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeEventInvalid"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeEventInvalid" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeEventInvalid">NXMErrorCodeEventInvalid</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeEventInvalid</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eventInvalid</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeEventBadPermission"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeEventBadPermission" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeEventBadPermission">NXMErrorCodeEventBadPermission</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeEventBadPermission</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eventBadPermission</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeEventNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeEventNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeEventNotFound">NXMErrorCodeEventNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeEventNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eventNotFound</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeEventsPageNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeEventsPageNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeEventsPageNotFound">NXMErrorCodeEventsPageNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeEventsPageNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eventsPageNotFound</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeConversationRetrievalFailed"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeConversationRetrievalFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeConversationRetrievalFailed">NXMErrorCodeConversationRetrievalFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeConversationRetrievalFailed</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">conversationRetrievalFailed</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeConversationNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeConversationNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeConversationNotFound">NXMErrorCodeConversationNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeConversationNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">conversationNotFound</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeConversationInvalidMember"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeConversationInvalidMember" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeConversationInvalidMember">NXMErrorCodeConversationInvalidMember</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeConversationInvalidMember</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">conversationInvalidMember</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeConversationExpired"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeConversationExpired" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeConversationExpired">NXMErrorCodeConversationExpired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeConversationExpired</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">conversationExpired</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeConversationsPageNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeConversationsPageNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeConversationsPageNotFound">NXMErrorCodeConversationsPageNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeConversationsPageNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">conversationsPageNotFound</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMediaNotSupported"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMediaNotSupported" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMediaNotSupported">NXMErrorCodeMediaNotSupported</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMediaNotSupported</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mediaNotSupported</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMediaNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMediaNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMediaNotFound">NXMErrorCodeMediaNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMediaNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mediaNotFound</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeInvalidMediaRequest"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeInvalidMediaRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeInvalidMediaRequest">NXMErrorCodeInvalidMediaRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeInvalidMediaRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidMediaRequest</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMediaTooManyRequests"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMediaTooManyRequests" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMediaTooManyRequests">NXMErrorCodeMediaTooManyRequests</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMediaTooManyRequests</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mediaTooManyRequests</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMediaBadRequest"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMediaBadRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMediaBadRequest">NXMErrorCodeMediaBadRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMediaBadRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mediaBadRequest</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMediaInternalError"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMediaInternalError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMediaInternalError">NXMErrorCodeMediaInternalError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMediaInternalError</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mediaInternalError</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodePushNotANexmoPush"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodePushNotANexmoPush" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodePushNotANexmoPush">NXMErrorCodePushNotANexmoPush</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodePushNotANexmoPush</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pushNotANexmoPush</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodePushParsingFailed"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodePushParsingFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodePushParsingFailed">NXMErrorCodePushParsingFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodePushParsingFailed</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pushParsingFailed</span> <span class="o">=</span> <span class="mi">32</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeNotImplemented"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeNotImplemented" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeNotImplemented">NXMErrorCodeNotImplemented</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeNotImplemented</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notImplemented</span> <span class="o">=</span> <span class="mi">33</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeMissingDelegate"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeMissingDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeMissingDelegate">NXMErrorCodeMissingDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeMissingDelegate</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">missingDelegate</span> <span class="o">=</span> <span class="mi">34</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodePayloadTooBig"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodePayloadTooBig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodePayloadTooBig">NXMErrorCodePayloadTooBig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodePayloadTooBig</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">payloadTooBig</span> <span class="o">=</span> <span class="mi">35</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeSDKDisconnected"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeSDKDisconnected" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeSDKDisconnected">NXMErrorCodeSDKDisconnected</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeSDKDisconnected</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sdkDisconnected</span> <span class="o">=</span> <span class="mi">36</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeUserNotFound"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeUserNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeUserNotFound">NXMErrorCodeUserNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeUserNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userNotFound</span> <span class="o">=</span> <span class="mi">37</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@NXMErrorCode@NXMErrorCodeDTMFIllegal"></a>
+                    <a name="//apple_ref/objc/Case/NXMErrorCodeDTMFIllegal" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@NXMErrorCode@NXMErrorCodeDTMFIllegal">NXMErrorCodeDTMFIllegal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NXMErrorCodeDTMFIllegal</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dtmfIllegal</span> <span class="o">=</span> <span class="mi">38</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2021 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2021-06-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
