@@ -47,7 +47,7 @@ conclusion:
 
     The complete version of the project you just built is available on [Github](https://github.com/nexmo-community/client-sdk-tutorials) -  please see the [phone-to-app-swift](https://github.com/nexmo-community/client-sdk-tutorials/tree/main/phone-to-app-swift) folder.
 
-    You can do a lot more with the Client SDK. For an summary, please see the [Client SDK Overview](/client-sdk/overview) or review the [iOS Client SDK documentation](/sdk/stitch/ios/index).
+    You can do a lot more with the Client SDK. For an summary, please see the [Client SDK Overview](/client-sdk/overview) or review the [iOS Client SDK documentation](/client-sdk/sdk-documentation/ios).
 
     We want to hear what ideas you have in mind! Contact us at [devrel@vonage.com](mailto:devrel@vonage.com)
 
