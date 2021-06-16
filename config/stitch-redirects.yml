@@ -72,6 +72,8 @@
 "/sdk/client-sdk/ios": "/sdk/stitch/ios/latest/index"
 "/sdk/client-sdk/javascript": "/sdk/stitch/javascript/index"
 
+"/sdk/stitch/ios/index": "/sdk/stitch/ios/latest/index"
+
 "/client-sdk/sdk-documentation/android": "/sdk/stitch/android/index"
 "/client-sdk/sdk-documentation/ios": "/sdk/stitch/ios/latest/index"
 "/client-sdk/sdk-documentation/javascript": "/sdk/stitch/javascript/index"
