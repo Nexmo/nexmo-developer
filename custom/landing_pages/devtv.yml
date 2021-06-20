@@ -11,7 +11,7 @@ page:
               <div class="Vlt-col Vlt-col--1of2 Vlt-center"><h1 id="vonage-devs-tv">Vonage Dev TV</h1></div>
               <div class="Vlt-col Vlt-col--1of2 Vlt-center"><a id="watch-now-btn" class="Vlt-btn Vlt-btn--primary Vlt-btn--app Vlt-btn--large" href="https://twitch.tv/vonagedevs" target="_blank" > < Watch now! > </a></div>
             </div>
-            <h2 class="Vlt-center margin-bottom-0 margin-top-16">May/June</h2>
+            <h2 class="Vlt-center margin-bottom-0 margin-top-16">June</h2>
             <div class="Vlt-tabs container padding-top-0 margin-top-16">
               <div class="Vlt-table--data  Vlt-tabs__header">
                 <div class="Vlt-tabs__link Vlt-tabs__link_active no-border padding-top-0 padding-bottom-0"></div>
@@ -38,9 +38,33 @@ page:
 
 
                 <div class="Vlt-table__row">
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="24">
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="21">
                     <span class="Vlt-col padding-0">
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="12a" role="tab">
+                        <b>21</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="22">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="4a" role="tab">
+                        <b>22</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="23">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="14a" role="tab">
+                        <b>23</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="24">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="15a" role="tab">
                         <b>24</b>
                         <p class="show"></p>
                       </div>
@@ -48,49 +72,41 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="25">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="4a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="25a" role="tab">
                         <b>25</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="26">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="14a" role="tab">
-                        <b>26</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="27">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="15a" role="tab">
-                        <b>27</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="28">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="16a" role="tab">
-                        <b>28</b>
                         <p class="show">Now We're Talking</p>
                       </div>
                     </span>
                   </div>
                 </div>
                 <div class="Vlt-table__row">
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="31">
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="28">
                     <span class="Vlt-col padding-0">
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="19a" role="tab">
-                        <b>31</b>
+                        <b>28</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="29">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="20" role="tab">
+                        <b>29</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="30">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="21a" role="tab">
+                        <b>30</b>
                         <p class="show"></p>
                       </div>
                     </span>
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="1">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="20" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="22a" role="tab">
                         <b>1</b>
                         <p class="show"></p>
                       </div>
@@ -98,30 +114,30 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="2">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="21a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="2a" role="tab">
                         <b>2</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="3">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="22a" role="tab">
-                        <b>3</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="4">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="4a" role="tab">
-                        <b>4</b>
                         <p class="show">Now We're Talking</p>
                       </div>
                     </span>
                   </div>
                 </div>
                 <div class="Vlt-table__row">
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="5">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="5a" role="tab">
+                        <b>5</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="6">
+                    <span class="Vlt-col padding-0">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="6a" role="tab">
+                        <b>6</b>
+                        <p class="show"></p>
+                      </div>
+                    </span>
+                  </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="7">
                     <span class="Vlt-col padding-0">
                       <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="7a" role="tab">
@@ -140,24 +156,8 @@ page:
                   </div>
                   <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="9">
                     <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="9a" role="tab">
+                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="9a" role="tab">
                         <b>9</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="10">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border Vlt-tabs__link_disabled" id="10a" role="tab">
-                        <b>10</b>
-                        <p class="show"></p>
-                      </div>
-                    </span>
-                  </div>
-                  <div class="Vlt-table__cell Vlt-grid padding-left-0 padding-right-0" id="11">
-                    <span class="Vlt-col padding-0">
-                      <div class="calendar-item Vlt-tabs__link height-auto no-bottom-border" id="11a" role="tab">
-                        <b>11</b>
                         <p class="show">Now We're Talking</p>
                       </div>
                     </span>
