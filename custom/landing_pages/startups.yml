@@ -30,6 +30,7 @@ page:
                   .startups-page {
                       max-width: 100vw;
                       padding: 0;
+                      margin: 0 auto 0 !important;
                   }
                   .startups-page .Nxd-landing-row {
                       max-width: 1300px;

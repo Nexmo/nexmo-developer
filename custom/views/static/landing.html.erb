@@ -1,46 +1,661 @@
 <div class="container">
-
-  <div class="row">
-    <div class="center">
-      <h1 class="Vlt-title--margin-top2">Vonage API Developer</h1>
-      <p class="p-large">Everything you need to build connected applications with Vonage APIs</p>
+  <div class="row Adp-hero-section">
+    <div class="Vlt-grid">
+      <div class="Vlt-col Vlt-col--1of3">
+        <h1 class="Vlt-white Vlt-margin--A-bottom4 Adp-hero-section__title">Vonage Developer Center</h1>
+        <h3 class="Vlt-white Vlt-margin--A-bottom4">Communications API</h3>
+        <p class="p-large Vlt-white Vlt-margin--A-bottom4">
+          Integrate <a href="/messaging/sms/overview" target="_blank" rel="noopener noreferrer">sms</a>, <a href="/voice/voice-api/overview" target="_blank" rel="noopener noreferrer">voice</a>, <a href="https://tokbox.com/developer/" target="_blank" rel="noopener noreferrer">video</a> and <a href="https://developer.nexmo.com/verify/overview" target="_blank" rel="noopener noreferrer"> two-factor authentication</a> to your apps with Vonage communication APIs.
+        </p>
+        <div class="Vlt-margin--A--bottom4">
+          <a class="Vlt-btn Vlt-btn--app Vlt-btn--white Adp-hero-section__get-started" href="/getting-started/overview">
+            Get Started
+            <svg class="Vlt-icon Vlt-icon--large">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-right" />
+            </svg>
+          </a>
+          <a class="Vlt-btn Vlt-btn--white Vlt-btn--outline Vlt-btn--app" href="https://www.vonage.co.uk/solutions/" target="_blank" rel="noopener noreferrer">
+            View industry solutions
+          </a>
+        </div>
+      </div>
+      <div class="Vlt-col Vlt-col--2of3">
+        <%= render partial: 'layouts/partials/code_snippets_home' %>
+      </div>
     </div>
-    <div class="columns small-12">
-      <a name="products"></a>
+  </div>
 
-      <%= render 'products' %>
+  <div class="row Adp-use-cases">
+    <div class="Adp-use-cases__background"></div>
+    <div class="Vlt-tabs">
+      <ul class="Vlt-tabs__header" role="tablist" aria-label='Use-cases'>
+        <li role='tab' aria-selected='true'  aria-controls='tab-one'   tabindex='0'  id='most-popular' class="Vlt-tabs__link Vlt-tabs__link_active Vlt-white"><span>Most popular</span></li>
+        <li role='tab' aria-selected='false' aria-controls='tab-two'   tabindex='-1' id='telco' class="Vlt-tabs__link Vlt-white"><span>Telecommunications</span></li>
+        <li role='tab' aria-selected='false' aria-controls='tab-three' tabindex='-1' id='in-app' class="Vlt-tabs__link Vlt-white"><span>In-app communications</span></li>
+        <li role='tab' aria-selected='false' aria-controls='tab-four'  tabindex='-1' id='identity' class="Vlt-tabs__link Vlt-white"><span>Identity verification</span></li>
+      </ul>
+      <div class="Vlt-tabs__content">
+        <div tabindex='0' role='tabpanel' id='tab-one' aria-labelledby='most-popular' hidden='true' class="Vlt-tabs__panel Vlt-tabs__panel_active">
+          <div class="Vlt-grid">
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/private-sms-communication">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Private SMS communication</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Faciliate SMS communication between two parties without revealing either one's real phone number to the other.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>SMS API</p><p>Telecommunications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Private-SMS-communication.svg" alt="Private SMS Communication">
+                  </div>
+                </a>
+              </div>
+            </div>
 
-      <hr class="hr--tall">
-      <div class="Vlt-grid">
-        <div class="Vlt-col Vlt-col--M-1of2">
-          <div>
-            <h2>
-              <a href="/tools">
-                <div><svg class="Vlt-icon Vlt-icon--large Vlt-purple-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-design-tools"/></svg></div>
-                SDKs &amp; Tools
-              </a>
-            </h2>
-            <p>The Vonage Server SDKs allow you to get up and running with<br>Vonage APIs quickly in your language of choice.</p>
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/validate-a-number">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Validate a number</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Use the Number Insight and Developer API from Ruby code to validate, sanitize and determine the cost to call or message a number.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Number Insight API</p><p>Identify verification</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Validate-a-number.svg" alt="Validate a number">
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/interactive-voice-response">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Interactive Voice Response (IVR)</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Build an automated phone system for users to input information with the keypad and hear a spoken response.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Voice API</p><p>Telecommunications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Interactive-Voice-Response.svg" alt="Interactive Voice Response">
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="Vlt-col Vlt-col--M-1of2">
-          <div>
-            <h2>
-              <a href="/community">
-                <div><svg class="Vlt-icon Vlt-icon--large Vlt-purple-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-group"/></svg></div>
-                Community
-              </a>
-            </h2>
-            <p>Find out about our talks, community hacks,<br>and what events we'll be at.</p>
+
+        <div tabindex='0' role='tabpanel' id='tab-two' aria-labelledby='telco' hidden='false' class="Vlt-tabs__panel">
+          <div class="Vlt-grid">
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/private-sms-communication">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Private SMS communication</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Faciliate SMS communication between two parties without revealing either one's real phone number to the other.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>SMS API</p><p>Telecommunications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Private-SMS-communication.svg" alt="Private SMS Communication">
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/interactive-voice-response">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Interactive Voice Response (IVR)</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Build an automated phone system for users to input information with the keypad and hear a spoken response.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Voice API</p><p>Telecommunications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Interactive-Voice-Response.svg" alt="Interactive Voice Response">
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/local-numbers">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Local Numbers</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Replace your toll-free numbers (e.g. 800, 0800) with local geo numbers for cheaper local calls and location-sensitive information.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Numbers API</p><p>Telecommunications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Local-Numbers.svg" alt="Local Numbers">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div tabindex='0' role='tabpanel' id='tab-three' aria-labelledby='in-app' hidden='false' class="Vlt-tabs__panel">
+          <div class="Vlt-grid">
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/client-sdk-click-to-call">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Click to Call</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Learn how to enable your customers to call you directly from your website.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Client SDK</p><p>In-app communications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Click-to-Call.svg" alt="Click to Call">
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <div class="Vlt-card__content">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Video Chat Embeds</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Generate a 1-to-1 video appointment workflow. This can be used for a doctor-patient, student-teacher, or any other 1-to-1 web scheduling application.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Video API</p><p>In-app communications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Video-Chat-Embeds.svg" alt="Video Chat Embeds">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/contact-center-client-sdk">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Contact Center</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Build your own contact center application.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Client SDK</p><p>In-app communications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Contact-Center.svg" alt="Contact Center">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div tabindex='0' role='tabpanel' id='tab-four' aria-labelledby='identity' hidden='false' class="Vlt-tabs__panel">
+          <div class="Vlt-grid">
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/use-cases/validate-a-number">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Validate a number</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Use the Number Insight and Developer API from Ruby code to validate, sanitize and determine the cost to call or message a number.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Number Insight API</p><p>Identity verification</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Validate-a-number.svg" alt="Validate a number">
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="Vlt-col Vlt-col--1of3">
+              <div class="Vlt-card Vlt-card--plain Adp-use-cases__card">
+                <a class="Vlt-card__content" href="/verify/tutorials/verify-2fa-ruby/introduction">
+                  <div class="Adp-use-cases__card-title">
+                    <p class="Vlt-white"><b>Two factor authentication</b></p>
+                  </div>
+                  <div class="Adp-use-cases__card-blurb">
+                    <p class="Vlt-white">Add an extra layer of security when users perform sensitive tasks by confirming their identities.</p>
+                  </div>
+                  <div class="Adp-use-cases__card-tags">
+                    <p>Verify API</p><p>Telecommunications</p>
+                  </div>
+                  <div class="Adp-use-cases__card-image">
+                    <img src="/assets/images/use-cases/Video-Chat-Embeds.svg" alt="Two factor authentication">
+                  </div>
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      <p class="p-large Vlt-right Adp-use-cases__all Vlt-M-plus">
+        <a href="/use-cases">
+          See more use cases
+          <svg class="Vlt-icon Vlt-icon--smaller">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
+          </svg>
+        </a>
+      </p>
 
-      <hr class="hr--tall">
+      <a href="/documentation" class="Vlt-btn Vlt-btn--primary Vlt-purple--dark Vlt-btn--app Adp-use-cases__all-mobile Vlt-S-only">See all use cases</a>
+    </div>
+  </div>
 
-      <div class="center">
-        <h3>Do you have a question?</h3>
-        <p class="p-large">We're always here to help. Check out our <a href="https://help.nexmo.com">support FAQs</a>, contact our super helpful <a href="https://help.nexmo.com/hc/en-us/requests/new">support team</a> or get in touch on <a href="http://stackoverflow.com/questions/tagged/nexmo">Stack Overflow</a>.<br />Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
+  <div class="row Adp-listing Adp-documentation">
+    <h3 class="Vlt-white">Documentation</h3>
+    <div class="Vlt-grid">
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-chat" />
+          </svg>
+          <p class="Vlt-white"><b>Messaging APIs</b></p>
+        </div>
+        <div class="Adp-listing__item-links Adp-listing__item-links-border">
+          <a class="Vlt-white" href="/messaging/sms/overview">
+            SMS
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/messages/concepts/whatsapp">
+            WhatsApp & other social channels
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/messages/overview">
+            In-app messaging
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/documentation">
+            Messaging fail-over workflows
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-profile" />
+          </svg>
+          <p class="Vlt-white"><b>Identity verification APIs</b></p>
+        </div>
+        <div class="Adp-listing__item-links Adp-listing__item-links-border">
+          <a class="Vlt-white" href="/verify/tutorials/verify-2fa-ruby/introduction">
+            Two-factor authentication
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/use-cases/validate-a-number">
+            Phone number verification
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-video" />
+          </svg>
+          <p class="Vlt-white"><b>Video API</b></p>
+        </div>
+        <div class="Adp-listing__item-links Adp-listing__item-links-border">
+          <a class="Vlt-white" href="https://tokbox.com/developer/" target="_blank" rel="noopener noreferrer">
+            Video API
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://tokbox.com/developer/embeds/" target="_blank" rel="noopener noreferrer">
+            Video chat embeds
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-phone" />
+          </svg>
+          <p class="Vlt-white"><b>Voice APIs</b></p>
+        </div>
+        <div class="Adp-listing__item-links">
+          <a class="Vlt-white" href="/voice/voice-api/overview">
+            Voice calls
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/voice/sip/overview">
+            SIP Trunking
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/voice/voice-api/guides/asr#speech-recognition-asr">
+            Automatic Speech Recognition
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="client-sdk/in-app-voice/overview#in-app-voice-overview">
+            In-app voice
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-gear" />
+          </svg>
+          <p class="Vlt-white"><b>Management APIs</b></p>
+        </div>
+        <div class="Adp-listing__item-links">
+          <a class="Vlt-white" href="/reports/overview">
+            Create usage reports
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/numbers/overview">
+            Phone numbers
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="">
+            Authentication and callbacks
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-vonage-2" />
+          </svg>
+          <p class="Vlt-white"><b>Vonage Applications</b></p>
+        </div>
+        <div class="Adp-listing__item-links">
+          <a class="Vlt-white" href="https://developer.uc.vonage.com/">
+            Vonage Business Cloud
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="">
+            Vonage Contact Center
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--3of3">
+        <a href="/documentation" class="Vlt-btn Vlt-btn--primary Vlt-btn--app">View all documentation</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row Adp-listing Adp-listing__platform">
+    <h3 class="Vlt-white Vlt-margin--A-bottom4">The Vonage platform</h3>
+
+    <div class="Vlt-grid Adp-platform__background-glass">
+      <div class="Adp-platform__background"></div>
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-home" />
+          </svg>
+          <p class="Vlt-white"><b>Solutions</b></p>
+        </div>
+        <div class="Adp-listing__item-links">
+          <a class="Vlt-white" href="https://developer.uc.vonage.com/">
+            Healthcare
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://www.vonage.com/communications-apis/education/">
+            Education
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://www.vonage.com/communications-apis/financial-services/">
+            Finance
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://www.vonage.com/communications-apis/logistics-and-transportation/">
+            Transportation & logistics
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://www.vonage.com/communications-apis/retail-and-ecommerce/">
+            Retail & E-commerce
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://www.vonage.com/communications-apis/travel-and-hospitality/">
+            Manufacturing
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-code-snippet" />
+          </svg>
+          <p class="Vlt-white"><b>Technical References</b></p>
+        </div>
+        <div class="Adp-listing__item-links">
+          <a class="Vlt-white" href="/api">
+            API Reference
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/use-cases">
+            Use cases
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-gear" />
+          </svg>
+          <p class="Vlt-white"><b>SDKs & Tools</b></p>
+        </div>
+        <div class="Adp-listing__item-links">
+          <a class="Vlt-white" href="/tools">
+            SDKs & Tools
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/extend">
+            Integrations
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of3 Adp-listing__item">
+        <div class="Vlt-white Adp-listing__item-title">
+          <svg class="Vlt-icon">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-world" />
+          </svg>
+          <p class="Vlt-white"><b>Community</b></p>
+        </div>
+        <div class="Adp-listing__item-links">
+          <a class="Vlt-white" href="/community">
+            Community hub
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/startups">
+            Startups program
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="/voyagers">
+            Voyagers program
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://stackoverflow.com/questions/tagged/nexmo">
+            Stack overflow
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+          <a class="Vlt-white" href="https://github.com/nexmo">
+            Github
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-info" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row Adp-video-listing">
+    <h3 class="Vlt-white Vlt-margin--A-bottom4">Latest videos from Vonage API experts</h3>
+    <div class="Vlt-grid">
+      <div class="Vlt-col Vlt-col--1of4 Vlt-col--M-1of2">
+        <iframe
+          width="197"
+          src="https://www.youtube.com/embed/FxUs9etiIjE"
+          srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;border-radius:8px;}svg{height:32px;width:32px;color:#fff;fill:#fff;}</style><a href=https://www.youtube.com/embed/FxUs9etiIjE?autoplay=1><img src=https://img.youtube.com/vi/FxUs9etiIjE/hqdefault.jpg><span><svg style='width:32px;height:32px;fill:white;color:white;'><use xlink:href=/symbol/volta-icons.svg#Vlt-icon-play-3-full></svg></span></a>"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          ></iframe>
+      </div>
+      <div class="Vlt-col Vlt-col--1of4 Vlt-col--M-1of2">
+        <iframe
+          width="197"
+          src="https://www.youtube.com/embed/aV4IW3v-CTw"
+          srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;border-radius:8px;}svg{height:32px;width:32px;color:#fff;fill:#fff;}</style><a href=https://www.youtube.com/embed/aV4IW3v-CTw?autoplay=1><img src=https://img.youtube.com/vi/aV4IW3v-CTw/hqdefault.jpg><span><svg style='width:32px;height:32px;fill:white;color:white;'><use xlink:href=/symbol/volta-icons.svg#Vlt-icon-play-3-full></svg></span></a>"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          ></iframe>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of4 Vlt-col--M-1of2">
+        <iframe
+          width="197"
+          src="https://www.youtube.com/embed/R7xnh9xJc2Q"
+          srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;border-radius:8px;}svg{height:32px;width:32px;color:#fff;fill:#fff;}</style><a href=https://www.youtube.com/embed/R7xnh9xJc2Q?autoplay=1><img src=https://img.youtube.com/vi/R7xnh9xJc2Q/hqdefault.jpg><span><svg style='width:32px;height:32px;fill:white;color:white;'><use xlink:href=/symbol/volta-icons.svg#Vlt-icon-play-3-full></svg></span></a>"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          ></iframe>
+      </div>
+
+      <div class="Vlt-col Vlt-col--1of4 Vlt-col--M-1of2">
+        <iframe
+          width="197"
+          src="https://www.youtube.com/embed/0MdT5sF8JDA"
+          srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;border-radius:8px;}svg{height:32px;width:32px;color:#fff;fill:#fff;}</style><a href=https://www.youtube.com/embed/0MdT5sF8JDA?autoplay=1><img src=https://img.youtube.com/vi/0MdT5sF8JDA/hqdefault.jpg><span><svg style='width:32px;height:32px;fill:white;color:white;'><use xlink:href=/symbol/volta-icons.svg#Vlt-icon-play-3-full></svg></span></a>"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          ></iframe>
+      </div>
+
+      <div class="Vlt-col Vlt-col--3of3">
+        <a href="https://www.youtube.com/user/vonage" class="Vlt-btn Vlt-btn--primary Vlt-btn--app Vlt-margin--A-top3" target="_blank" rel="noopener noreferrer">See more videos</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="Adp-brand-listing">
+  <div class="container">
+    <div class="row">
+      <div class="Vlt-grid">
+        <div class="Vlt-col Vlt-col--S-1of2"><img class="Adp-brand-listing__brand" src="/assets/images/brands/Zipcar.svg" alt="Zipcar"></div>
+        <div class="Vlt-col Vlt-col--S-1of2"><img class="Adp-brand-listing__brand" src="/assets/images/brands/Thomson_Reuters.svg" alt="Thomson Reuters"></div>
+        <div class="Vlt-col Vlt-col--S-1of2"><img class="Adp-brand-listing__brand" src="/assets/images/brands/Glassdoor.svg" alt="Glassdoor"></div>
+        <div class="Vlt-col Vlt-col--S-1of2"><img class="Adp-brand-listing__brand" src="/assets/images/brands/Kickstarter.svg" alt="Kickstarter"></div>
+        <div class="Vlt-col Vlt-col--S-1of2"><img class="Adp-brand-listing__brand" src="/assets/images/brands/Help_lightning.svg" alt="Help Lightning"></div>
+        <div class="Vlt-col Vlt-col--S-1of2"><img class="Adp-brand-listing__brand" src="/assets/images/brands/Hey_Hi.svg" alt="HeyHi"></div>
+        <div class="Vlt-col Vlt-col--S-1of2"><img class="Adp-brand-listing__brand" src="/assets/images/brands/MEDxm.svg" alt="Medxm"></div>
       </div>
     </div>
   </div>

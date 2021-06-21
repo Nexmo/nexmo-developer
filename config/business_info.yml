@@ -3,14 +3,6 @@ subtitle: Nexmo is now Vonage
 base_url: 'https://developer.nexmo.com'
 docs_repo: 'nexmo/nexmo-developer'
 oas_url: https://www.github.com/nexmo/api-specification/blob/master/definitions
-assets:
-  header_logo:
-    path: '/images/logos/vbc-logo.svg'
-    small_path: '/images/logos/Vonage-lettermark.svg'
-    alt: 'Vonage API Developer Header'
-  footer_logo:
-    path: '/images/logos/vbc-logo-white.svg'
-    alt: 'Vonage API Developer Footer'
 header:
   links:
     sign-up:
@@ -19,8 +11,9 @@ header:
         - try-it
         - get_an_api_key
         - start_building
-  hiring:
-    display: true
+code_snippets:
+  - '_examples/messaging/sms/send-an-sms'
+
 footer:
   links:
     status:
@@ -28,33 +21,26 @@ footer:
       text: 'API Status'
     navigation:
       documentation:
-        - sms: 'https://developer.nexmo.com/messaging/sms/overview'
-        - voice: 'https://developer.nexmo.com/voice/voice-api/overview'
-        - verify: 'https://developer.nexmo.com/verify/overview'
-        - number-insight: 'https://developer.nexmo.com/number-insight/overview'
-        - account: 'https://developer.nexmo.com/account/overview'
-      api-reference:
-        - sms: 'https://developer.nexmo.com/api/sms'
-        - voice: 'https://developer.nexmo.com/api/voice'
-        - verify: 'https://developer.nexmo.com/api/verify'
-        - number-insight: 'https://developer.nexmo.com/api/number-insight'
-        - all-apis: 'https://developer.nexmo.com/api'
-      vonage-api-developer:
-        - community: 'https://developer.nexmo.com/community'
-        - contribute: 'https://developer.nexmo.com/contribute'
-        - legacy-documentation: 'https://developer.nexmo.com/legacy'
-        - team: 'https://developer.nexmo.com/team'
+        - all-api-products: 'https://developer.nexmo.com/api'
+        - vonage-business-cloud: 'https://developer.uc.vonage.com/'
+        - vonage-contact-center: 'https://developer.newvoicemedia.com/'
+      technical-references:
+        - api-reference: 'https://developer.nexmo.com/api'
+        - use-cases: 'https://developer.nexmo.com/use-cases'
+        - sdk-&-tools: 'https://developer.nexmo.com/tools'
+        - integrations: 'https://developer.nexmo.com/extend'
+      community:
+        - community-hub: 'https://developer.nexmo.com/community'
+        - startups-program: 'https://developer.nexmo.com/startups'
+        - voyagers-program: 'https://developer.nexmo.com/voyagers'
         - careers: 'https://developer.nexmo.com/careers'
-      get-to-know-us:
-        - vonage-api-platform: 'https://www.vonage.com/communications-apis/'
-        - careers: 'https://www.vonage.com/corporate/careers/'
-        - press: 'https://www.vonage.com/corporate'
     support:
       knowledgebase: 'https://help.nexmo.com/'
       known-issues: 'https://help.nexmo.com/hc/en-us/sections/115004147507'
+      changelog: 'https://www.nexmostatus.com/'
     social:
       linkedin: 'https://www.linkedin.com/company/vonage/'
       twitter: 'https://twitter.com/vonage'
       slack: 'https://developer.nexmo.com/slack'
       github: 'https://github.com/nexmo'
-      stack-overflow: 'http://stackoverflow.com/questions/tagged/nexmo'
+      stackoverflow: 'http://stackoverflow.com/questions/tagged/nexmo'
