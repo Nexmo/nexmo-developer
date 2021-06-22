@@ -7,8 +7,6 @@ description: The Subaccounts API (Beta) overview.
 
 # Overview of Subaccounts API (Beta)
 
-> **IMPORTANT:** Subaccounts API is released with **restricted availability**.
-
 ## Introduction
 
 The Subaccounts API allows you to programmatically create and manage subaccounts for separate business units, use cases, product stages, or separate customers. The API empowers developers to handle various aspects of subaccount logistics: manage credit, track usage, set usage limits, suspend subaccounts, and so on.
@@ -27,7 +25,22 @@ During Beta Vonage will expand the capabilities of the API.
 
 ## Provisioning
 
-Subaccounts API is released with **restricted availability**. To get access to the Subaccounts API please contact your account manager. [Vonage Partners](https://www.vonage.com/partners/) get access automatically.
+Access to some endpoints will depend on the “Partner Status” of the primary account. The number of subaccounts allowed for a primary account will also depend on its Partner Status. 
+
+New accounts have a “Normal” Partner Status by default. To change your Partner Status please contact your account manager. [Vonage Partners](https://www.vonage.com/partners/). 
+
+There are 3 different Partner Statuses:
+
+Status | Number of subaccounts | Independent balance 
+-- | -- | -- 
+Normal Account | 3 | not allowed
+Partner Account | 500 | allowed
+Partner Account Advanced | 1000 | allowed 
+
+“Not allowed” independent balance means that the subaccounts will always share the primary account’s balance. Updates to the `use_primary_account_balance` field are not permitted.  These accounts are not able to perform balance transfers or credit transfers.
+
+Subaccount keys can not be used to access the Subaccounts API endpoints. Only primary account keys can.
+
 
 ## Supported features
 
