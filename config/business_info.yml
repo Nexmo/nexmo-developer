@@ -13,6 +13,8 @@ header:
         - start_building
 code_snippets:
   - '_examples/messaging/sms/send-an-sms'
+  - '_examples/voice/make-an-outbound-call'
+  - '_examples/verify/send-verification-request'
 
 footer:
   links:
