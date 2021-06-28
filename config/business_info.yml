@@ -26,11 +26,11 @@ footer:
       text: 'API Status'
     navigation:
       documentation:
-        - all-api-products: 'https://developer.nexmo.com/documentation'
+        - documentation: 'https://developer.nexmo.com/documentation'
         - vonage-business-cloud: 'https://developer.uc.vonage.com/'
         - vonage-contact-center: 'https://developer.newvoicemedia.com/'
       technical-references:
-        - api-reference: 'https://developer.nexmo.com/api'
+        - documentation: 'https://developer.nexmo.com/documentation'
         - use-cases: 'https://developer.nexmo.com/use-cases'
         - sdk-&-tools: 'https://developer.nexmo.com/tools'
         - integrations: 'https://developer.nexmo.com/extend'
