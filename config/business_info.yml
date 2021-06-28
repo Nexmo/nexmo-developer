@@ -12,9 +12,12 @@ header:
         - get_an_api_key
         - start_building
 code_snippets:
-  - '_examples/messaging/sms/send-an-sms'
-  - '_examples/voice/make-an-outbound-call'
-  - '_examples/verify/send-verification-request'
+  - title: 'Send an SMS'
+    source: '_examples/messaging/sms/send-an-sms'
+  - title: 'Make a voice call'
+    source: '_examples/voice/make-an-outbound-call'
+  - title: 'Send a WhatsApp message'
+    source: '_examples/messages/whatsapp/send-text'
 
 footer:
   links:
@@ -23,7 +26,7 @@ footer:
       text: 'API Status'
     navigation:
       documentation:
-        - all-api-products: 'https://developer.nexmo.com/api'
+        - all-api-products: 'https://developer.nexmo.com/documentation'
         - vonage-business-cloud: 'https://developer.uc.vonage.com/'
         - vonage-contact-center: 'https://developer.newvoicemedia.com/'
       technical-references:
