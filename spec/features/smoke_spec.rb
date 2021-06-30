@@ -4,8 +4,7 @@ RSpec.feature 'Smoke Tests', type: :feature do
   scenario '/ contains the expected text' do
     visit '/'
 
-    expect(page).to have_content('Vonage API Developer')
-    expect(page).to have_content('Everything you need to build connected applications with Vonage APIs')
+    expect(page).to have_content('Vonage Developer Center')
   end
 
   scenario '/documentation contains the expected text' do
