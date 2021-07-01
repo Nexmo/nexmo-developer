@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "station", "0.0.122"
+gem "station", "0.0.123"
 
 group :test do
   gem 'rspec'
