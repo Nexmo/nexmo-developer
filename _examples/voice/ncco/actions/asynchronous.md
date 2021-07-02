@@ -19,7 +19,10 @@ menu_weight: 4
   },
   {
     "action": "input",
-    "submitOnHash": "true",
+    "type": ["dtmf"],
+    "dtmf: {
+      "submitOnHash": "true"
+    },
     "eventUrl": ["https://example.com/ivr"]
   }
 ]

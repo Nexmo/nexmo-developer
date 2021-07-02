@@ -5,7 +5,7 @@ dependencies:
 code:
     source: .repos/vonage/vonage-node-code-snippets/voice/dtmf.js
     from_line: 6
-    to_line: 36
+    to_line: 37
 client:
     source: .repos/vonage/vonage-node-code-snippets/voice/dtmf.js
     from_line: 1

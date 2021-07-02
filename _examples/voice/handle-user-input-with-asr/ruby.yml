@@ -6,7 +6,7 @@ dependencies:
 code:	
     source: .repos/vonage/vonage-ruby-code-snippets/voice/answer-inbound-call-with-asr.rb	
     from_line: 7	
-    to_line: 40	
+    to_line: 41	
 client:	
     source: .repos/vonage/vonage-ruby-code-snippets/voice/answer-inbound-call-with-asr.rb	
     from_line: 1	

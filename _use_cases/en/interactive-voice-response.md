@@ -241,9 +241,12 @@ protected function promptSearch()
 
     $this->append([
         'action' => 'input',
+        'type' => ['dtmf'],
         'eventUrl' => [$this->config['base_path'] . '/search'],
-        'timeOut' => '10',
-        'submitOnHash' => true
+        'dtmf' => {
+            'timeOut' => '10',
+            'submitOnHash' => true
+        }
     ]);
 }
 ```

@@ -118,11 +118,14 @@ def respond_with(location, status)
     # Listen to a user's input play back that city's status
     {
       'action': 'input',
+      'type': ['dtmf'],
       'eventUrl': ["#{ENV['DOMAIN']}/city"],
-      # we give the user a bit more time before we hang up on them
-      'timeOut': 10,
-      # we only expect one digit
-      'maxDigits': 1
+      'dtmf': {
+        # we give the user a bit more time before we hang up on them
+        'timeOut': 10,
+        # we only expect one digit
+        'maxDigits': 1
+      }
     }
   ].to_json
 end
@@ -138,12 +141,15 @@ We can offer any of the cities' information to any caller, but if they didn't ca
 
 ```
 {
-    'action': 'input',
-    'eventUrl': ["#{ENV['DOMAIN']}/city"],
+  'action': 'input',
+  'type': ['dtmf'],
+  'eventUrl': ["#{ENV['DOMAIN']}/city"],
+  'dtmf': {
     # we give the user a bit more time before we hang up on them
     'timeOut': 10,
     # we only expect one digit
     'maxDigits': 1
+  }
 }
 ```
 

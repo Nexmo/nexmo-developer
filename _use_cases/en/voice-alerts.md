@@ -61,8 +61,11 @@ $ncco = [
     ],
     [
         "action" => "input",
-        "submitOnHash" => "true",
-        "timeout" => 10
+        "type": ["dtmf"],
+        "dtmf": {
+            "submitOnHash" => "true",
+            "timeout" => 10
+        }
     ],
     [
         "action" => "talk",
@@ -231,9 +234,12 @@ You'll have noticed that when the message is delivered, as a user you are then a
 
 ```php
 [
-  "action" => "input",
-  "submitOnHash" => "true",
-  "timeout" => 10
+    "action" => "input",
+    "type": ["dtmf"],
+    "dtmf": {
+        "submitOnHash" => "true",
+        "timeout" => 10
+    }
 ],
 ```
 
