@@ -133,19 +133,23 @@ GEM
     execjs (2.8.1)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
-    faraday (1.4.3)
+    faraday (1.5.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
+    faraday-patron (1.0.0)
     ffi (1.15.3)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
@@ -223,7 +227,7 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0225)
+    mime-types-data (3.2021.0704)
     mimemagic (0.4.3)
       nokogiri (~> 1)
       rake
@@ -277,7 +281,7 @@ GEM
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    oj (3.11.7)
+    oj (3.12.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
     public_suffix (4.0.6)
@@ -400,7 +404,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    station (0.0.123)
+    station (0.0.124)
       activeadmin (~> 2.7)
       activesupport (~> 6.0)
       algoliasearch (= 1.27.5)
@@ -489,7 +493,7 @@ DEPENDENCIES
   factory_bot
   rack-test
   rspec
-  station (= 0.0.123)
+  station (= 0.0.124)
 
 BUNDLED WITH
    2.2.15
