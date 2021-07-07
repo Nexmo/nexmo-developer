@@ -14,7 +14,7 @@
     <a title="NXMCall Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NexmoClient 2.5.0 Docs</a> (16% documented)</p>
+        <p><a href="../index.html">NexmoClient 3.0.0 Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -32,9 +32,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/NXMCall.html">NXMCall</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMChannel.html">NXMChannel</a>
@@ -64,6 +61,9 @@
                 <a href="../Classes/NXMEvent.html">NXMEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/NXMEventEmbeddedInfo.html">NXMEventEmbeddedInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NXMEventsPage.html">NXMEventsPage</a>
               </li>
               <li class="nav-group-task">
@@ -74,9 +74,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMImageInfo.html">NXMImageInfo</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMInitiator.html">NXMInitiator</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMLeg.html">NXMLeg</a>
@@ -98,6 +95,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMMemberEvent.html">NXMMemberEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMemberSummary.html">NXMMemberSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMembersSummaryPage.html">NXMMembersSummaryPage</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a>
@@ -141,9 +144,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
               </li>
             </ul>
           </li>
@@ -190,7 +190,12 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>The NXMCall class is a <code><a href="../Classes/NXMConversation.html">NXMConversation</a></code> for phone calls.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    NXMCall can be and incoming call or outgoing call.
+
+</div>
 
           </section>
           <section class="section task-group-section">
@@ -199,9 +204,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMCall(py)myCallMember"></a>
-                    <a name="//apple_ref/objc/Property/myCallMember" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMCall(py)myCallMember">myCallMember</a>
+                    <a name="/c:objc(cs)NXMCall(py)myMember"></a>
+                    <a name="//apple_ref/objc/Property/myMember" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMCall(py)myMember">myMember</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -216,7 +221,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="n">myCallMember</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="n">myMember</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -236,7 +241,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Set the delegate, <code><a href="../Protocols/NXMCallDelegate.html">NXMCallDelegate</a></code>, for the call object.</p>
 
                       </div>
                       <div class="declaration">
@@ -246,6 +251,25 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setDelegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMCallDelegate.html">NXMCallDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A NXMCallDelegate object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -263,7 +287,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Answer an incoming call.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    You can only answer a call when the call member status is ringing.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -273,6 +302,25 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">answer</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -290,7 +338,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Reject an incoming call.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    You can only answer a call when the call member status is ringing.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -300,6 +353,25 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">reject</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -317,17 +389,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a member to a call using a username.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addCallMemberWithUsername</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">username</span>
-                <span class="nf">completionHandler</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addCallMemberWithUsername</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">username</span>
+                <span class="nf">completionHandler</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n"><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The username of the member you want to add.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -345,17 +449,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a member to a call using a number.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addCallMemberWithNumber</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">number</span>
-              <span class="nf">completionHandler</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addCallMemberWithNumber</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">number</span>
+              <span class="nf">completionHandler</span><span class="p">:</span>
+                  <span class="p">(</span><span class="n"><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMCompletionCallback">NXMCompletionCallback</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>number</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of the member you want to add.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code><a href="../Type%20Definitions.html#/c:NXMBlocks.h@T@NXMErrorCallback">NXMErrorCallback</a></code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -373,16 +509,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Sends DTMF digits to the call.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendDTMF</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">dtmf</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendDTMF</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">dtmf</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dtmf</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The DTMF digit(s) to send.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -400,7 +555,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Hangup an ongoing call.</p>
 
                       </div>
                       <div class="declaration">
@@ -414,12 +569,112 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMCall(im)callStatusForMember:"></a>
+                    <a name="//apple_ref/objc/Method/-callStatusForMember:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMCall(im)callStatusForMember:">-callStatusForMember:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the current call status giving a NXMMember.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">callStatusForMember</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMMember.html">NXMMember</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">member</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>member</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code><a href="../Classes/NXMMember.html">NXMMember</a></code> to get the current status from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMCall(im)mute"></a>
+                    <a name="//apple_ref/objc/Method/-mute" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMCall(im)mute">-mute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mute the current user member.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">mute</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)NXMCall(im)unmute"></a>
+                    <a name="//apple_ref/objc/Method/-unmute" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMCall(im)unmute">-unmute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unmute the current user member.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">unmute</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Vonage</a>. All rights reserved. (Last updated: 2020-11-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Vonage</a>. All rights reserved. (Last updated: 2021-07-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -14,7 +14,7 @@
     <a title="NXMEventsPage Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NexmoClient 2.5.0 Docs</a> (16% documented)</p>
+        <p><a href="../index.html">NexmoClient 3.0.0 Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -32,9 +32,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/NXMCall.html">NXMCall</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMChannel.html">NXMChannel</a>
@@ -64,6 +61,9 @@
                 <a href="../Classes/NXMEvent.html">NXMEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/NXMEventEmbeddedInfo.html">NXMEventEmbeddedInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NXMEventsPage.html">NXMEventsPage</a>
               </li>
               <li class="nav-group-task">
@@ -74,9 +74,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMImageInfo.html">NXMImageInfo</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMInitiator.html">NXMInitiator</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMLeg.html">NXMLeg</a>
@@ -98,6 +95,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMMemberEvent.html">NXMMemberEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMemberSummary.html">NXMMemberSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMembersSummaryPage.html">NXMMembersSummaryPage</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a>
@@ -142,9 +145,6 @@
               <li class="nav-group-task">
                 <a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -186,35 +186,11 @@
             <h1>NXMEventsPage</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMEventsPage</span> <span class="p">:</span> <span class="nc"><a href="../Classes/NXMPage.html">NXMPage</a></span>
-
-<span class="cm">/*!
- * @brief Events contained in the page. The array size could be smaller than the page size.
- * @code NSArray&lt;NXMEvents *&gt; *events = myNXMEventsPage.events;
- */</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/NXMEvent.html">NXMEvent</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">events</span><span class="p">;</span>
-
-<span class="cm">/*!
- * @brief Retrieves the next page. If the current page is the last, completionHandler will be called with an error.
- * @code [myNXMEventsPage nextPage:^(NSError * _Nullable error, NXMEventsPage * _Nullable page) {
-     // ... use page...
- }];
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">nextPage</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nonnull</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n">NXMEventsPage</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">page</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span>
-
-<span class="cm">/*!
- * @brief Retrieves the previous page. If the current page is the first, completionHandler will be called with an error.
- * @code [myNXMEventsPage previousPage:^(NSError * _Nullable error, NXMEventsPage * _Nullable page) {
- // ... use page...
- }];
- */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">previousPage</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">_Nonnull</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">,</span> <span class="n">NXMEventsPage</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">page</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NXMEventsPage</span> <span class="p">:</span> <span class="nc"><a href="../Classes/NXMPage.html">NXMPage</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>The events on an <code><a href="../Classes/NXMConversation.html">NXMConversation</a></code> are paginated so the NXMEventsPage class provides a way to traverse a Conversation&rsquo;s events.</p>
 
           </section>
           <section class="section task-group-section">
@@ -233,7 +209,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Retrieves the next page. If the current page is the last, completionHandler will be called with an error.</p>
 
                       </div>
                       <div class="declaration">
@@ -261,7 +237,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Retrieves the previous page. If the current page is the first, completionHandler will be called with an error.</p>
 
                       </div>
                       <div class="declaration">
@@ -282,7 +258,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Vonage</a>. All rights reserved. (Last updated: 2020-11-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Vonage</a>. All rights reserved. (Last updated: 2021-07-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
