@@ -14,7 +14,7 @@
     <a title="NXMClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NexmoClient 2.5.0 Docs</a> (16% documented)</p>
+        <p><a href="../index.html">NexmoClient 3.0.0 Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -32,9 +32,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/NXMCall.html">NXMCall</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMChannel.html">NXMChannel</a>
@@ -64,6 +61,9 @@
                 <a href="../Classes/NXMEvent.html">NXMEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/NXMEventEmbeddedInfo.html">NXMEventEmbeddedInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NXMEventsPage.html">NXMEventsPage</a>
               </li>
               <li class="nav-group-task">
@@ -74,9 +74,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMImageInfo.html">NXMImageInfo</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/NXMInitiator.html">NXMInitiator</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMLeg.html">NXMLeg</a>
@@ -98,6 +95,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMMemberEvent.html">NXMMemberEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMemberSummary.html">NXMMemberSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMMembersSummaryPage.html">NXMMembersSummaryPage</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)NXMMessageEvent">NXMMessageEvent</a>
@@ -141,9 +144,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/NXMConversationDelegate.html">NXMConversationDelegate</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/NXMConversationUpdateDelegate.html">NXMConversationUpdateDelegate</a>
               </li>
             </ul>
           </li>
@@ -190,7 +190,29 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>You use a NXMClient instance to utilise the services provided by the Conversation API in your app.</p>
+
+<p>A session is the period during which your app is connected to NexmoConversation API. Sessions are established for the length of time given when the authToken was created.</p>
+
+<p>Tokens also have a lifetime and can optionally be one-shot which will allow a single login only, before
+the authToken becomes invalid for another login attempt. If the authToken is revoked while a session is active the session may be terminated by the server.
+It is only possible to have a single session active over a socket.io connection at a time.
+Session multiplexing is not supported.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The connection uses socket.io for both web and mobile clients. Upon a successful socket.io connection the client needs to authenticate itself. This is achieved by sending a login request via <code><a href="../Classes/NXMClient.html#/c:objc(cs)NXMClient(im)loginWithAuthToken:">-[NXMClient loginWithAuthToken:]</a></code> and get the answer in the delegate <code><a href="../Classes/NXMClient.html#/c:objc(cs)NXMClient(im)setDelegate:">-[NXMClient setDelegate:]</a></code>.</p>
+
+</div><div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Unless otherwise specified, all the methods invoked by this client are executed asynchronously.</p>
+
+</div>
+
+<p>For the security of your Nexmo account, you should not embed directly your credentials authToken as strings in the app you submit to the App Store.</p>
+
+<p>Remember to logout when needed in order to remove current user and disconnect from the underlying connection. Example usage:</p>
+<pre class="highlight objective_c"><code><span class="p">[</span><span class="n">myClient</span> <span class="nf">logout</span><span class="p">];</span>
+</code></pre>
 
           </section>
           <section class="section task-group-section">
@@ -209,7 +231,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Shared instance of the NXMClient object</p>
 
                       </div>
                       <div class="declaration">
@@ -236,7 +258,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the current connection state</p>
 
                       </div>
                       <div class="declaration">
@@ -263,7 +285,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the current user, the current user is the determine in the login by the token</p>
 
                       </div>
                       <div class="declaration">
@@ -290,7 +312,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the current user authToken</p>
 
                       </div>
                       <div class="declaration">
@@ -317,7 +339,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get NXMClient.shared configuration</p>
 
                       </div>
                       <div class="declaration">
@@ -344,7 +366,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Set shared NXMClient configuration. Must be called before [NXMClient shared].</p>
 
                       </div>
                       <div class="declaration">
@@ -354,6 +376,25 @@
                           <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setConfiguration</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMClientConfig.html">NXMClientConfig</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">configuration</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NXMClient configuration object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -371,7 +412,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Set NXMClient delegate</p>
 
                       </div>
                       <div class="declaration">
@@ -381,6 +422,25 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setDelegate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/NXMClientDelegate.html">NXMClientDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a <code><a href="../Protocols/NXMClientDelegate.html">NXMClientDelegate</a></code> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -398,7 +458,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Check if the login connection status is connected</p>
 
                       </div>
                       <div class="declaration">
@@ -408,6 +468,10 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">isConnected</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>YES if connected.</p>
                       </div>
                     </section>
                   </div>
@@ -425,7 +489,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Login with current authToken the response in NXMClientDelegate:didChangeConnectionStatus</p>
 
                       </div>
                       <div class="declaration">
@@ -435,6 +499,25 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loginWithAuthToken</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">authToken</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>authToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>user authentication authToken</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -452,7 +535,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Refresh the current user authToken</p>
 
                       </div>
                       <div class="declaration">
@@ -479,7 +562,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Logout the current user, the response in NXMClientDelegate:didChangeConnectionStatus</p>
 
                       </div>
                       <div class="declaration">
@@ -509,9 +592,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)NXMClient(im)getConversationWithUuid:completionHandler:"></a>
-                    <a name="//apple_ref/objc/Method/-getConversationWithUuid:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NXMClient(im)getConversationWithUuid:completionHandler:">-getConversationWithUuid:<wbr>completionHandler:<wbr></a>
+                    <a name="/c:objc(cs)NXMClient(im)getConversationWithUuid:completion:"></a>
+                    <a name="//apple_ref/objc/Method/-getConversationWithUuid:completion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)NXMClient(im)getConversationWithUuid:completion:">-getConversationWithUuid:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -519,18 +602,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get a conversation object by id
-@brief getConversation With a specific Id</p>
+                        <p>Get a conversation object by id</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getConversationWithUuid</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">uuid</span>
-              <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getConversationWithUuid</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">conversationId</span>
+                     <span class="nf">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="kt">int</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
                                                    <span class="n"><a href="../Classes/NXMConversation.html">NXMConversation</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span>
-                                    <span class="n">completionHandler</span><span class="p">;</span></code></pre>
+                                    <span class="n">completion</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -546,7 +628,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>conversation id</p>
+                                  <p>Conversation id</p>
                                 </div>
                               </td>
                             </tr>
@@ -558,12 +640,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` [myNXNClient getConversationWithUuid:conversationId completion:(void(^_Nullable)(NSError * _Nullable error, NXMConversation * _Nullable conversation))completion{
-if (!error){
-   NXMConversation myConversation = conversation;
-}
-}];</p>
+                                  <p>A completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -586,7 +663,7 @@ if (!error){
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief Create a new conversation with specific name: it is a unique per nexmo application</p>
+                        <p>Create a new conversation with specific name: it is a unique per nexmo application</p>
 
                       </div>
                       <div class="declaration">
@@ -613,7 +690,7 @@ if (!error){
                               </td>
                               <td>
                                 <div>
-                                  <p>conversation name</p>
+                                  <p>Conversation name</p>
                                 </div>
                               </td>
                             </tr>
@@ -625,11 +702,7 @@ if (!error){
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` [myNXNClient createConversationWithName:uniqueName completion:(void(^_Nullable)(NSError * _Nullable error, NXMConversation * _Nullable conversation)){
-if (!error)
-NXMConvertion myNamedConversation = convetsation;
-}];</p>
+                                  <p>A completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -652,7 +725,7 @@ NXMConvertion myNamedConversation = convetsation;
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief Get conversations page</p>
+                        <p>Get conversations page</p>
 
                       </div>
                       <div class="declaration">
@@ -680,7 +753,7 @@ NXMConvertion myNamedConversation = convetsation;
                               </td>
                               <td>
                                 <div>
-                                  <p>page size</p>
+                                  <p>Page size</p>
                                 </div>
                               </td>
                             </tr>
@@ -692,7 +765,7 @@ NXMConvertion myNamedConversation = convetsation;
                               </td>
                               <td>
                                 <div>
-                                  <p>page order</p>
+                                  <p>Page order</p>
                                 </div>
                               </td>
                             </tr>
@@ -704,10 +777,7 @@ NXMConvertion myNamedConversation = convetsation;
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` [myNXNClient getConversationsPageWithSize:size order:pageOrder completionHandler:^(NSError * _Nullable error, NXMConversationsPage * _Nullable page) {
-if (!error) { NXMConversationsPage *myPage = page; }
-}];</p>
+                                  <p>A completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -730,7 +800,7 @@ if (!error) { NXMConversationsPage *myPage = page; }
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief Get conversations page</p>
+                        <p>Get conversations page</p>
 
                       </div>
                       <div class="declaration">
@@ -759,7 +829,7 @@ if (!error) { NXMConversationsPage *myPage = page; }
                               </td>
                               <td>
                                 <div>
-                                  <p>page size</p>
+                                  <p>Page size</p>
                                 </div>
                               </td>
                             </tr>
@@ -771,7 +841,7 @@ if (!error) { NXMConversationsPage *myPage = page; }
                               </td>
                               <td>
                                 <div>
-                                  <p>page order</p>
+                                  <p>Page order</p>
                                 </div>
                               </td>
                             </tr>
@@ -783,7 +853,7 @@ if (!error) { NXMConversationsPage *myPage = page; }
                               </td>
                               <td>
                                 <div>
-                                  <p>@&ldquo;LEFT&rdquo;, @&ldquo;INVITED&rdquo; or @&ldquo;JOINED&rdquo;</p>
+                                  <p>&ldquo;LEFT&rdquo;, &ldquo;INVITED&rdquo; or &ldquo;JOINED&rdquo;</p>
                                 </div>
                               </td>
                             </tr>
@@ -795,10 +865,7 @@ if (!error) { NXMConversationsPage *myPage = page; }
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` [myNXNClient getConversationsPageWithSize:size order:pageOrder filter:filter completionHandler:^(NSError * _Nullable error, NXMConversationsPage * _Nullable page) {
-if (!error) { NXMConversationsPage *myPage = page; }
-}];</p>
+                                  <p>A completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -834,7 +901,7 @@ if (!error) { NXMConversationsPage *myPage = page; }
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief  Create a new call to users</p>
+                        <p>Create a new call to users</p>
 
                       </div>
                       <div class="declaration">
@@ -860,7 +927,7 @@ if (!error) { NXMConversationsPage *myPage = page; }
                               </td>
                               <td>
                                 <div>
-                                  <p>user ids/name or pstn number to call</p>
+                                  <p>The user ids/name or pstn numbers to call.</p>
                                 </div>
                               </td>
                             </tr>
@@ -872,23 +939,19 @@ if (!error) { NXMConversationsPage *myPage = page; }
                               </td>
                               <td>
                                 <div>
-                                  <p>type of the call (InApp/SERVER)</p>
+                                  <p>The type of the call (InApp/SERVER).</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>completionHandler</em>
+                                <em>completionHandlerA</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` [myNXNClient call:usernames callHandler:NXMCallHandlerInApp delegate:callDelegate completion:(void(^_Nullable)(NSError * _Nullable error, NXMCall * _Nullable call)){
-if (!error){
-NXMCall myCall = call;
-}];</p>
+                                  <p>completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -924,7 +987,7 @@ NXMCall myCall = call;
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief  Enable push notification for specific device</p>
+                        <p>Enable push notification for specific device</p>
 
                       </div>
                       <div class="declaration">
@@ -952,7 +1015,7 @@ NXMCall myCall = call;
                               </td>
                               <td>
                                 <div>
-                                  <p>the pushKit token</p>
+                                  <p>The PushKit token</p>
                                 </div>
                               </td>
                             </tr>
@@ -964,7 +1027,7 @@ NXMCall myCall = call;
                               </td>
                               <td>
                                 <div>
-                                  <p>user notifications token</p>
+                                  <p>The User Notifications token</p>
                                 </div>
                               </td>
                             </tr>
@@ -976,7 +1039,7 @@ NXMCall myCall = call;
                               </td>
                               <td>
                                 <div>
-                                  <p>is apple sandbox enviroment</p>
+                                  <p>Toggle Apple sandbox environment</p>
                                 </div>
                               </td>
                             </tr>
@@ -988,9 +1051,7 @@ NXMCall myCall = call;
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` [myNXNClient enablePushNotificationsWithDeviceToken:deviceToken isPushKit:isPushKit isSandbox:isSandbox completion:(void(^_Nullable)(NSError * _Nullable error))completion{
-}];</p>
+                                  <p>A completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1013,7 +1074,7 @@ NXMCall myCall = call;
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief  Disable push notification for current device</p>
+                        <p>Disable push notification for current device</p>
 
                       </div>
                       <div class="declaration">
@@ -1037,9 +1098,7 @@ NXMCall myCall = call;
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` [myNXNClient disablePushNotificationsWithCompletion:(void(^_Nullable)(NSError * _Nullable error))completion{
-}];</p>
+                                  <p>A completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1062,7 +1121,7 @@ NXMCall myCall = call;
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief  Check if a push notification is a NexmoPush, Call this method on incoming push</p>
+                        <p>Check if a push notification is a NexmoPush, Call this method on incoming push</p>
 
                       </div>
                       <div class="declaration">
@@ -1085,7 +1144,7 @@ NXMCall myCall = call;
                               </td>
                               <td>
                                 <div>
-                                  <p>pushInfo</p>
+                                  <p>The pushInfo</p>
                                 </div>
                               </td>
                             </tr>
@@ -1094,13 +1153,7 @@ NXMCall myCall = call;
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>true if nexmo push
-&ldquo;` BOOL isNexmoPush = [myNXNClient isNexmoPushWithUserInfo:userInfo];
-if (isNexmoPush){
-[myNXNClient processNexmoPushWithUserInfo:userInfo completion:(void(^_Nullable)(NSError * _Nullable error)){
-if (!error){
-NSLog(@&quot;Process a Nexmo push&rdquo;);
-}];</p>
+                        <p>YES if it is a nexmo push.</p>
                       </div>
                     </section>
                   </div>
@@ -1123,7 +1176,7 @@ NSLog(@&quot;Process a Nexmo push&rdquo;);
 
                       </div>
                       <div class="abstract">
-                        <p>@brief process Nexmo push, Call this method when isNexmoPushWithUserInfo:userInfo return true</p>
+                        <p>Process Nexmo push, Call this method when <code><a href="../Classes/NXMClient.html#/c:objc(cs)NXMClient(im)isNexmoPushWithUserInfo:">-[NXMClient isNexmoPushWithUserInfo:]</a></code> returns true</p>
 
                       </div>
                       <div class="declaration">
@@ -1148,7 +1201,7 @@ NSLog(@&quot;Process a Nexmo push&rdquo;);
                               </td>
                               <td>
                                 <div>
-                                  <p>pushInfo</p>
+                                  <p>The pushInfo</p>
                                 </div>
                               </td>
                             </tr>
@@ -1160,13 +1213,7 @@ NSLog(@&quot;Process a Nexmo push&rdquo;);
                               </td>
                               <td>
                                 <div>
-                                  <p>completion block
-&ldquo;` BOOL isNexmoPush = [myNXNClient isNexmoPushWithUserInfo:userInfo];
-if (isNexmoPush){
-[myNXNClient processNexmoPushWithUserInfo:userInfo completion:(void(^_Nullable)(NSError * _Nullable error)){
-if (!error){
-NSLog(@&quot;Process a Nexmo push&rdquo;);
-}];</p>
+                                  <p>A completion block with an error object if one occurred.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1189,7 +1236,7 @@ NSLog(@&quot;Process a Nexmo push&rdquo;);
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@brief process Nexmo push event, Call this method when isNexmoPushWithUserInfo:userInfo return true</p>
+                        <p>Process Nexmo push, Call this method when <code><a href="../Classes/NXMClient.html#/c:objc(cs)NXMClient(im)isNexmoPushWithUserInfo:">-[NXMClient isNexmoPushWithUserInfo:]</a></code> returns true</p>
 
                       </div>
                       <div class="declaration">
@@ -1212,14 +1259,7 @@ NSLog(@&quot;Process a Nexmo push&rdquo;);
                               </td>
                               <td>
                                 <div>
-                                  <p>pushInfo
-&ldquo;` BOOL isNexmoPush = [myNXNClient isNexmoPushWithUserInfo:pushInfo];
-if (isNexmoPush){
-NXMPushPayload *pushPayload = [myNXNClient processNexmoPushPayload:pushInfo];
-if (!pushPayload){
-NSLog(@&quot;Not a nexmo push&rdquo;);
-return;
-};</p>
+                                  <p>The pushInfo</p>
                                 </div>
                               </td>
                             </tr>
@@ -1234,7 +1274,7 @@ return;
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Vonage</a>. All rights reserved. (Last updated: 2020-11-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Vonage</a>. All rights reserved. (Last updated: 2021-07-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
