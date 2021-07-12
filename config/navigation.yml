@@ -81,6 +81,8 @@ navigation_overrides:
           navigation_weight: 2
     conversion-api:
       navigation_weight: 2
+    10dlc:
+      label: 'Beta'
   voice:
     svg: 'phone'
     svgColor: 'green'
